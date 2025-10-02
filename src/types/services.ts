@@ -17,6 +17,7 @@ export interface Service {
   keywords: string;
   heroTitle: string;
   heroSubtitle: string;
+  heroImage?: string;
   icon?: LucideIcon;
   popular?: boolean;
 

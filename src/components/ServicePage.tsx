@@ -21,6 +21,7 @@ export const ServicePage: React.FC<Service> = (props) => {
     slug,
     heroTitle,
     heroSubtitle,
+    heroImage,
     content = [],
     features = [],
     faqs = [],
@@ -44,6 +45,20 @@ export const ServicePage: React.FC<Service> = (props) => {
       {/* ✅ Hero Section */}
       <section className="bg-gradient-to-b from-white to-[#F9FAFB] py-16 lg:py-24 text-center">
         <div className="max-w-4xl mx-auto px-6">
+          {heroImage && (
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-10"
+            >
+              <img
+                src={heroImage}
+                alt={heroTitle}
+                className="w-full h-72 object-cover rounded-2xl shadow-md"
+              />
+            </motion.div>
+          )}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
