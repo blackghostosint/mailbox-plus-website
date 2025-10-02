@@ -1,0 +1,171 @@
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, Phone, MapPin } from 'lucide-react';
+import { siteConfig } from '../../config/siteConfig';
+import { SearchBox } from '../ui';
+
+export const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about-us' },
+    { name: 'Services', href: '/services' },
+    { name: 'Tracking', href: '/tracking' },
+    { name: 'Contact', href: '/contact-us' }
+  ];
+
+  const isActive = (path: string) => location.pathname === path;
+
+  return (
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      {/* Top Bar */}
+      <div className="bg-[#F9FAFB] border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-10 text-sm">
+            <div className="flex items-center space-x-6">
+              {/* Phone */}
+              <div className="flex items-center space-x-2 text-[#4B5563]">
+                <Phone className="w-4 h-4" />
+                <a
+                  href={`tel:${siteConfig.contact.phone}`}
+                  className="hover:text-[#0855B1] transition-colors"
+                >
+                  {siteConfig.contact.phone}
+                </a>
+              </div>
+              {/* Address linked to Google Maps */}
+              <div className="hidden sm:flex items-center space-x-2 text-[#4B5563]">
+                <MapPin className="w-4 h-4" />
+                <a
+                  href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#0855B1]"
+                >
+                  Concord Township, OH
+                </a>
+              </div>
+            </div>
+            <div className="text-[#4B5563]">
+              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Main Header */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo / Brand Name */}
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src="/logo.png"
+              alt="Mailbox Plus Concord Township Ohio Logo"
+              className="h-12 w-auto object-contain"
+            />
+            <span className="sr-only">Mailbox Plus - Concord Township, OH</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={`text-sm font-medium transition-colors ${
+                  isActive(item.href)
+                    ? 'text-[#0855B1]'
+                    : 'text-[#4B5563] hover:text-[#0855B1]'
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Search Box */}
+          <div className="hidden md:block">
+            <SearchBox />
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-[#4B5563] hover:text-[#0855B1] hover:bg-[#F9FAFB]"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-t border-gray-200"
+          >
+            <div className="px-4 py-4 space-y-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block text-base font-medium transition-colors ${
+                    isActive(item.href)
+                      ? 'text-[#0855B1]'
+                      : 'text-[#4B5563] hover:text-[#0855B1]'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4">
+                <SearchBox />
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Local Business Schema for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Mailbox Plus",
+            "image": "https://yourdomain.com/logo.png",
+            "@id": "https://yourdomain.com",
+            "url": "https://yourdomain.com",
+            "telephone": siteConfig.contact.phone,
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": siteConfig.contact.address.street,
+              "addressLocality": siteConfig.contact.address.city,
+              "addressRegion": siteConfig.contact.address.state,
+              "postalCode": siteConfig.contact.address.zip,
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.664959,
+              "longitude": -81.246493
+            },
+            "openingHours": [
+              "Mo-Fr 09:00-18:00",
+              "Sa 09:00-14:00"
+            ],
+            "priceRange": "$$"
+          })
+        }}
+      />
+    </header>
+  );
+};
