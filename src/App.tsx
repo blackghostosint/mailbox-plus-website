@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Layout } from "./components/layout/Layout";
 
 // Core
 import { PackShip } from "./pages/PackShip";
@@ -37,7 +38,8 @@ import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
 const App: React.FC = () => {
   return (
     <Router>
-      <Routes>
+      <Layout>
+        <Routes>
         {/* Homepage */}
         <Route path="/" element={<PackShip />} />
 
@@ -70,7 +72,8 @@ const App: React.FC = () => {
 
         {/* Specialty */}
         <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />
-      </Routes>
+        </Routes>
+      </Layout>
     </Router>
   );
 };
