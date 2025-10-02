@@ -8,6 +8,7 @@ import { PackShip } from "./pages/PackShip";
 // Pack & Ship
 import { ArtworkShipping } from "./pages/ArtworkShipping";
 import { BicycleShipping } from "./pages/BicycleShipping";
+import { GolfClubShipping } from "./pages/GolfClubShipping";
 import { FedExShipping } from "./pages/FedExShipping";
 import { UPSAuthorizedShipperOutlet } from "./pages/UPSAuthorizedShipperOutlet";
 import { USPSServices } from "./pages/USPSServices";
@@ -46,6 +47,7 @@ const App: React.FC = () => {
         {/* Pack & Ship */}
         <Route path="/pack-ship/artwork-shipping" element={<ArtworkShipping />} />
         <Route path="/pack-ship/bicycle-shipping" element={<BicycleShipping />} />
+        <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
         <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
         <Route path="/pack-ship/ups-shipping" element={<UPSAuthorizedShipperOutlet />} />
         <Route path="/pack-ship/usps-services" element={<USPSServices />} />
