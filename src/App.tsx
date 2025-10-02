@@ -48,21 +48,21 @@ const App: React.FC = () => {
         <Route path="/pack-ship/ups-shipping" element={<UPSAuthorizedShipperOutlet />} />
         <Route path="/pack-ship/usps-services" element={<USPSServices />} />
         <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
-        <Route path="/pack-ship/international-shipping" element={<InternationalShipping />} />
+        <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} />
         <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
         <Route path="/pack-ship/custom-box-making" element={<CustomBoxMaking />} />
         <Route path="/pack-ship/professional-packing" element={<ProfessionalPacking />} />
         <Route path="/pack-ship/packaging-supplies" element={<PackagingSupplies />} />
 
         {/* Copy & Print */}
-        <Route path="/copy-print/business-cards" element={<BusinessCards />} />
+        <Route path="/copy-print/business-cards" element={<BusinessCardsPage />} />
         <Route path="/copy-print/flyers-brochures" element={<FlyersBrochures />} />
         <Route path="/copy-print/posters-printing" element={<PostersPrinting />} />
         <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
         <Route path="/copy-print/copies" element={<Copies />} />
 
         {/* Home & Business */}
-        <Route path="/home-business/mailbox-rental" element={<MailboxRental />} />
+        <Route path="/home-business/mailbox-rental" element={<MailboxRentalPage />} />
         <Route path="/home-business/shredding" element={<Shredding />} />
         <Route path="/home-business/document-scanning" element={<DocumentScanning />} />
         <Route path="/home-business/fax-services" element={<FaxServices />} />
