@@ -72,10 +72,22 @@ export const Home: React.FC = () => {
   ];
 
   const carriers = [
-    { name: 'FedEx', logo: '📦' },
-    { name: 'UPS', logo: '🚚' },
-    { name: 'USPS', logo: '📬' },
-    { name: 'DHL', logo: '✈️' }
+    {
+      name: 'FedEx',
+      logo: 'https://i.pinimg.com/736x/ca/81/86/ca8186c25901c848871ef27d1e28bb72.jpg'
+    },
+    {
+      name: 'UPS',
+      logo: 'https://www.citypng.com/public/uploads/preview/ups-black-logo-symbol-icon-hd-png-701751694777657xrnxzhkkat.png'
+    },
+    {
+      name: 'USPS',
+      logo: 'https://p7.hiclipart.com/preview/644/958/344/united-states-postal-service-mail-logo-united-states.jpg'
+    },
+    {
+      name: 'DHL',
+      logo: 'https://www.citypng.com/public/uploads/preview/hd-black-dhl-express-company-logo-transparent-background-701751694777679wwnbtwgoa8.png'
+    }
   ];
 
   const whyChooseUs = [
@@ -307,7 +319,13 @@ export const Home: React.FC = () => {
                 transition={{ duration: 0.4, delay: index * 0.1 }}
                 className="flex flex-col items-center"
               >
-                <div className="text-6xl mb-3">{carrier.logo}</div>
+                <div className="w-24 h-16 flex items-center justify-center mb-3 bg-white rounded-lg border border-gray-200 p-3">
+                  <img
+                    src={carrier.logo}
+                    alt={`${carrier.name} logo`}
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
                 <span className="text-sm font-medium text-[#4B5563]">{carrier.name}</span>
               </motion.div>
             ))}
