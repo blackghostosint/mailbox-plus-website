@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 
 // Core
+import { Home } from "./pages/Home";
 import { PackShip } from "./pages/PackShip";
 
 // Pack & Ship
@@ -51,7 +52,10 @@ const App: React.FC = () => {
       <Layout>
         <Routes>
         {/* Homepage */}
-        <Route path="/" element={<PackShip />} />
+        <Route path="/" element={<Home />} />
+
+        {/* Pack & Ship Landing Page */}
+        <Route path="/pack-ship" element={<PackShip />} />
 
         {/* Pack & Ship */}
         <Route path="/pack-ship/artwork-shipping" element={<ArtworkShipping />} />
