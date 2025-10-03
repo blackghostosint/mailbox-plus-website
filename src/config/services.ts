@@ -54,7 +54,7 @@ export const services: Service[] = [
         keywords: "artwork shipping, fine art shipping, packing paintings, Concord Township, Lake County",
         heroTitle: "Artwork Shipping Services",
         heroSubtitle: "Expert packing and shipping solutions for paintings, sculptures, and fine art.",
-        heroImage: "/images/services/artwork-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/artwork-shipping.jpg",
         content: [
             {
                 heading: "Expert Art Handling",
