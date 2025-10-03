@@ -116,7 +116,7 @@ export const services: Service[] = [
         keywords: "golf club shipping, sports equipment shipping, Concord Township, Lake County",
         heroTitle: "Golf Club Shipping",
         heroSubtitle: "Ship your golf clubs safely and conveniently worldwide.",
-        heroImage: "/images/services/golf-club-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/golf-club-shipping.jpg",
         content: [
             {
                 heading: "Safe Shipping for Your Clubs",
