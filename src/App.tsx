@@ -46,6 +46,11 @@ import { NotaryServices } from "./pages/NotaryServices";
 // Specialty
 import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
 
+// Additional Pages
+import { AboutUs } from "./pages/AboutUs";
+import { ContactUs } from "./pages/ContactUs";
+import { Services } from "./pages/Services";
+
 const App: React.FC = () => {
   return (
     <Router>
@@ -96,6 +101,11 @@ const App: React.FC = () => {
 
         {/* Specialty */}
         <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />
+
+        {/* Additional Pages */}
+        <Route path="/about-us" element={<AboutUs />} />
+        <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/services" element={<Services />} />
         </Routes>
       </Layout>
     </Router>
