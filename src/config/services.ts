@@ -19,7 +19,7 @@ export const services: Service[] = [
         keywords: "shipping, packing, FedEx, UPS, USPS, DHL, Concord Township, Lake County",
         heroTitle: "Pack & Ship Services",
         heroSubtitle: "Professional shipping solutions with FedEx, UPS, USPS, DHL and more.",
-        heroImage: "/images/services/pack-ship.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/pack-ship.jpg",
         content: [
             {
                 heading: "Your Local Shipping Experts",
@@ -85,7 +85,7 @@ export const services: Service[] = [
         keywords: "bicycle shipping, bike box, shipping bicycles, Concord Township, Lake County",
         heroTitle: "Bicycle Shipping Experts",
         heroSubtitle: "Professional packing and shipping services for bicycles of all sizes.",
-        heroImage: "/images/services/bicycle-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/bicycle-shipping.jpg",
         content: [
             {
                 heading: "Shipping Bikes Made Simple",
@@ -147,7 +147,7 @@ export const services: Service[] = [
         keywords: "fedex shipping, concord township, lake county",
         heroTitle: "FedEx Shipping Services",
         heroSubtitle: "Ship your packages with the speed and reliability of FedEx.",
-        heroImage: "/images/services/fedex-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/fedex-shipping.jpg",
         content: [
             {
                 heading: "Convenient FedEx Drop-Off",
@@ -178,7 +178,7 @@ export const services: Service[] = [
         keywords: "ups shipping, concord township, lake county",
         heroTitle: "UPS Shipping Services",
         heroSubtitle: "Full-service UPS Authorized Shipping Outlet for your convenience.",
-        heroImage: "/images/services/ups-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/ups-shipping.jpg",
         content: [
             {
                 heading: "Ship with UPS Confidence",
@@ -209,7 +209,7 @@ export const services: Service[] = [
         keywords: "usps, postal services, concord township, lake county",
         heroTitle: "USPS Postal Services",
         heroSubtitle: "Access all the services of the United States Postal Service right here in Concord Township.",
-        heroImage: "/images/services/usps-services.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/usps-services.jpg",
         content: [
             {
                 heading: "Skip the Post Office Line",
@@ -240,7 +240,7 @@ export const services: Service[] = [
         keywords: "dhl shipping, concord township, lake county",
         heroTitle: "DHL Express Shipping",
         heroSubtitle: "Fast international shipping with DHL Express.",
-        heroImage: "/images/services/dhl-express.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/dhl-express.jpg",
         content: [
             {
                 heading: "Ship Worldwide with DHL",
@@ -271,7 +271,7 @@ export const services: Service[] = [
         keywords: "international shipping, customs, concord township, lake county",
         heroTitle: "International Shipping",
         heroSubtitle: "Ship packages worldwide with expert customs documentation support.",
-        heroImage: "/images/services/international-shipping.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/international-shipping.jpg",
         content: [
             {
                 heading: "We Handle Customs",
@@ -302,7 +302,7 @@ export const services: Service[] = [
         keywords: "package drop-offs, fedex, ups, usps, dhl, concord township",
         heroTitle: "Package Drop-Offs",
         heroSubtitle: "Drop off your pre-labeled packages for free with all major carriers.",
-        heroImage: "/images/services/package-drop-offs.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/package-drop-offs.jpg",
         content: [
             {
                 heading: "Convenient Drop-Offs",
@@ -333,7 +333,7 @@ export const services: Service[] = [
         keywords: "custom boxes, packaging, concord township, lake county",
         heroTitle: "Custom Box Making",
         heroSubtitle: "We create custom-sized boxes for items that don't fit standard packaging.",
-        heroImage: "/images/services/custom-box-making.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/custom-box-making.jpg",
         content: [
             {
                 heading: "Made-to-Fit Packaging",
@@ -364,7 +364,7 @@ export const services: Service[] = [
         keywords: "professional packing, secure shipping, concord township, lake county",
         heroTitle: "Professional Packing",
         heroSubtitle: "Let our experts pack your items for maximum protection.",
-        heroImage: "/images/services/professional-packing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/professional-packing.jpg",
         content: [
             {
                 heading: "Safe Packing, Every Time",
@@ -395,7 +395,7 @@ export const services: Service[] = [
         keywords: "shipping supplies, boxes, tape, bubble wrap, concord township",
         heroTitle: "Packaging Supplies",
         heroSubtitle: "Everything you need to pack and ship your items.",
-        heroImage: "/images/services/packaging-supplies.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/packaging-supplies.jpg",
         content: [
             {
                 heading: "One Stop for Supplies",
@@ -430,7 +430,7 @@ export const services: Service[] = [
         keywords: "business cards, printing, Concord Township, Lake County",
         heroTitle: "Professional Business Cards",
         heroSubtitle: "Make a lasting first impression with custom-designed business cards.",
-        heroImage: "/images/services/business-cards.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/business-cards.jpg",
         content: [
             {
                 heading: "Why Business Cards Still Matter",
@@ -461,7 +461,7 @@ export const services: Service[] = [
         keywords: "flyers, brochures, printing, concord township",
         heroTitle: "Flyer & Brochure Printing",
         heroSubtitle: "High-quality printed materials for marketing, events, and promotions.",
-        heroImage: "/images/services/flyers-brochures.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/flyers-brochures.jpg",
         content: [
             {
                 heading: "Promote Your Business",
@@ -492,7 +492,7 @@ export const services: Service[] = [
         keywords: "document finishing, laminating, binding, Concord Township, Lake County",
         heroTitle: "Document Finishing Services",
         heroSubtitle: "Professional finishing options for your important documents.",
-        heroImage: "/images/services/document-finishing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/document-finishing.jpg",
         content: [
             {
                 heading: "Add a Professional Touch",
@@ -519,7 +519,7 @@ export const services: Service[] = [
         keywords: "document printing, business printing, Concord Township, Lake County",
         heroTitle: "Document Printing",
         heroSubtitle: "High-quality document printing for all your needs.",
-        heroImage: "/images/services/document-printing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/document-printing.jpg",
         content: [
             {
                 heading: "Professional Document Printing",
@@ -550,7 +550,7 @@ export const services: Service[] = [
         keywords: "poster printing, large format printing, Concord Township, Lake County",
         heroTitle: "Poster Printing",
         heroSubtitle: "Eye-catching posters for events, promotions, and presentations.",
-        heroImage: "/images/services/posters-printing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/posters-printing.jpg",
         content: [
             {
                 heading: "Stand Out with Custom Posters",
@@ -581,7 +581,7 @@ export const services: Service[] = [
         keywords: "graphic design, marketing design, Concord Township, Lake County",
         heroTitle: "Graphic Design Services",
         heroSubtitle: "Custom designs that make your business stand out.",
-        heroImage: "/images/services/graphic-design.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/graphic-design.jpg",
         content: [
             {
                 heading: "Design That Works",
@@ -608,7 +608,7 @@ export const services: Service[] = [
         keywords: "postcard printing, marketing postcards, Concord Township, Lake County",
         heroTitle: "Postcard Printing",
         heroSubtitle: "Affordable, high-quality postcard printing for any occasion.",
-        heroImage: "/images/services/postcard-printing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/postcard-printing.jpg",
         content: [
             {
                 heading: "Send Your Message",
@@ -635,7 +635,7 @@ export const services: Service[] = [
         keywords: "poster printing, banner printing, Concord Township, Lake County",
         heroTitle: "Poster & Banner Printing",
         heroSubtitle: "Make a big impact with large-format posters and banners.",
-        heroImage: "/images/services/poster-banner-printing.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/poster-banner-printing.jpg",
         content: [
             {
                 heading: "Large Format Printing",
@@ -662,7 +662,7 @@ export const services: Service[] = [
         keywords: "document services, printing, copying, Concord Township, Lake County",
         heroTitle: "Print Document Services",
         heroSubtitle: "Everything you need for printing and finishing your documents.",
-        heroImage: "/images/services/print-document-services.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/print-document-services.jpg",
         content: [
             {
                 heading: "One-Stop Printing",
@@ -689,7 +689,7 @@ export const services: Service[] = [
         keywords: "copy services, document copies, concord township, lake county",
         heroTitle: "Copy Services",
         heroSubtitle: "Quick, affordable copies for personal or business use.",
-        heroImage: "/images/services/copies.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/copies.jpg",
         content: [
             {
                 heading: "Affordable Copying",
@@ -724,7 +724,7 @@ export const services: Service[] = [
         keywords: "mailbox rental, secure address, Concord Township, Lake County",
         heroTitle: "Secure Mailbox Rentals",
         heroSubtitle: "Get a private, secure mailbox with a real street address.",
-        heroImage: "/images/services/mailbox-rental.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox-rental.jpg",
         content: [
             {
                 heading: "A Real Address for Your Mail",
@@ -755,7 +755,7 @@ export const services: Service[] = [
         keywords: "digital mailbox rental, virtual mailbox, Concord Township, Lake County",
         heroTitle: "Digital Mailbox Rental",
         heroSubtitle: "Access your mail and packages from anywhere online.",
-        heroImage: "/images/services/digital-mailbox-rental.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/digital-mailbox-rental.jpg",
         content: [
             {
                 heading: "Virtual Mailbox Access",
@@ -782,7 +782,7 @@ export const services: Service[] = [
         keywords: "EDDM, direct mail, Concord Township, Lake County",
         heroTitle: "Every Door Direct Mail",
         heroSubtitle: "Reach your local community with cost-effective mail campaigns.",
-        heroImage: "/images/services/every-door-direct-mail.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/every-door-direct-mail.jpg",
         content: [
             {
                 heading: "Grow Your Business",
@@ -809,7 +809,7 @@ export const services: Service[] = [
         keywords: "package receiving, mail handling, Concord Township, Lake County",
         heroTitle: "Package Receiving",
         heroSubtitle: "Let us sign for and securely store your packages.",
-        heroImage: "/images/services/package-receiving.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/package-receiving.jpg",
         content: [
             {
                 heading: "Safe & Secure",
@@ -836,7 +836,7 @@ export const services: Service[] = [
         keywords: "postage stamps, USPS stamps, Concord Township, Lake County",
         heroTitle: "Postage Stamps",
         heroSubtitle: "Convenient access to USPS stamps without the post office trip.",
-        heroImage: "/images/services/postage-stamps.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/postage-stamps.jpg",
         content: [
             {
                 heading: "Quick & Easy",
@@ -863,7 +863,7 @@ export const services: Service[] = [
         keywords: "shredding, document destruction, concord township, lake county",
         heroTitle: "Secure Shredding",
         heroSubtitle: "Protect your personal information with our shredding services.",
-        heroImage: "/images/services/shredding.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/shredding.jpg",
         content: [
             {
                 heading: "Why Shred Documents?",
@@ -894,7 +894,7 @@ export const services: Service[] = [
         keywords: "document scanning, digital files, concord township, lake county",
         heroTitle: "Document Scanning",
         heroSubtitle: "Convert your paper documents into digital files.",
-        heroImage: "/images/services/document-scanning.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/document-scanning.jpg",
         content: [
             {
                 heading: "Go Paperless",
@@ -925,7 +925,7 @@ export const services: Service[] = [
         keywords: "fax services, send fax, concord township, lake county",
         heroTitle: "Fax Services",
         heroSubtitle: "Send and receive faxes securely and quickly.",
-        heroImage: "/images/services/fax-services.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/fax-services.jpg",
         content: [
             {
                 heading: "Send Faxes Easily",
@@ -956,7 +956,7 @@ export const services: Service[] = [
         keywords: "notary services, notary public, concord township, lake county",
         heroTitle: "Notary Public Services",
         heroSubtitle: "Certified notary available for all your important documents.",
-        heroImage: "/images/services/notary-services.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/notary-services.jpg",
         content: [
             {
                 heading: "Notarize with Confidence",
@@ -991,7 +991,7 @@ export const services: Service[] = [
         keywords: "digital fingerprinting, livescan, background check, Concord Township, Lake County",
         heroTitle: "Digital Fingerprinting",
         heroSubtitle: "Quick, secure fingerprinting for background checks and licensing.",
-        heroImage: "/images/services/digital-fingerprinting.jpg",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/digital-fingerprinting.jpg",
         content: [
             {
                 heading: "Why Choose Digital Fingerprinting?",
