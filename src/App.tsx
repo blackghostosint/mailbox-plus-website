@@ -50,6 +50,7 @@ import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
 import { AboutUs } from "./pages/AboutUs";
 import { ContactUs } from "./pages/ContactUs";
 import { Services } from "./pages/Services";
+import { Tracking } from "./pages/Tracking";
 
 const App: React.FC = () => {
   return (
@@ -106,6 +107,7 @@ const App: React.FC = () => {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/tracking" element={<Tracking />} />
         </Routes>
       </Layout>
     </Router>
