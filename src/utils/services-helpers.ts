@@ -109,3 +109,20 @@ export const getServiceBreadcrumbs = (
     { name: service.serviceName, url: `${baseUrl}${service.slug}` }
   ];
 };
+
+/**
+ * Group services by category
+ * Returns an object with category IDs as keys and arrays of services as values
+ */
+export const groupServicesByCategory = (): Record<ServiceCategory, Service[]> => {
+  const grouped: Record<string, Service[]> = {};
+
+  services.forEach(service => {
+    if (!grouped[service.category]) {
+      grouped[service.category] = [];
+    }
+    grouped[service.category].push(service);
+  });
+
+  return grouped as Record<ServiceCategory, Service[]>;
+};
