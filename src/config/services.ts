@@ -510,6 +510,68 @@ export const services: Service[] = [
         ]
     },
     {
+        id: "document-printing",
+        category: "copy-print",
+        serviceName: "Document Printing",
+        slug: "/copy-print/document-printing",
+        pageTitle: "Document Printing in Concord Township, Lake County, Ohio | Mailbox Plus",
+        metaDescription: "Professional document printing services for business and personal use in Concord Township.",
+        keywords: "document printing, business printing, Concord Township, Lake County",
+        heroTitle: "Document Printing",
+        heroSubtitle: "High-quality document printing for all your needs.",
+        heroImage: "/images/services/document-printing.jpg",
+        content: [
+            {
+                heading: "Professional Document Printing",
+                body: "From single-page documents to large reports, we provide high-quality printing services for businesses and individuals."
+            },
+            {
+                heading: "Fast Turnaround",
+                body: "Most printing jobs are completed the same day, so you can get your documents when you need them."
+            }
+        ],
+        features: [
+            { icon: Printer, title: "Color & B/W", description: "Full-color or black and white printing options." },
+            { icon: FileText, title: "Multiple Formats", description: "Print documents, reports, presentations, and more." },
+            { icon: Star, title: "Professional Quality", description: "Sharp, crisp printing on premium paper." }
+        ],
+        faqs: [
+            { question: "What file types do you accept?", answer: "We accept PDF, Word, Excel, PowerPoint, and most common formats." },
+            { question: "Can you print double-sided?", answer: "Yes, we offer single and double-sided printing." }
+        ]
+    },
+    {
+        id: "posters-printing",
+        category: "copy-print",
+        serviceName: "Posters Printing",
+        slug: "/copy-print/posters-printing",
+        pageTitle: "Poster Printing in Concord Township, Lake County, Ohio | Mailbox Plus",
+        metaDescription: "Large-format poster printing services in Concord Township for events, promotions, and displays.",
+        keywords: "poster printing, large format printing, Concord Township, Lake County",
+        heroTitle: "Poster Printing",
+        heroSubtitle: "Eye-catching posters for events, promotions, and presentations.",
+        heroImage: "/images/services/posters-printing.jpg",
+        content: [
+            {
+                heading: "Stand Out with Custom Posters",
+                body: "Our large-format poster printing services deliver vibrant, professional results for any occasion."
+            },
+            {
+                heading: "Multiple Sizes Available",
+                body: "Choose from standard sizes or request custom dimensions to fit your specific needs."
+            }
+        ],
+        features: [
+            { icon: Printer, title: "Large Format", description: "Print posters in various sizes up to 36 inches wide." },
+            { icon: Palette, title: "Vibrant Colors", description: "Full-color printing with rich, eye-catching graphics." },
+            { icon: Star, title: "Quality Materials", description: "Choose from glossy, matte, or premium paper stocks." }
+        ],
+        faqs: [
+            { question: "What sizes are available?", answer: "We print posters from 11x17 up to 36 inches wide in custom lengths." },
+            { question: "How long does printing take?", answer: "Most poster orders are ready within 24-48 hours." }
+        ]
+    },
+    {
         id: "graphic-design",
         category: "copy-print",
         serviceName: "Graphic Design",
@@ -739,9 +801,9 @@ export const services: Service[] = [
     },
     {
         id: "package-receiving",
-        category: "home-business",
+        category: "pack-ship",
         serviceName: "Package Receiving",
-        slug: "/home-business/package-receiving",
+        slug: "/pack-ship/package-receiving",
         pageTitle: "Package Receiving in Concord Township, Lake County, Ohio | Mailbox Plus",
         metaDescription: "Never miss a delivery with our secure package receiving service.",
         keywords: "package receiving, mail handling, Concord Township, Lake County",
@@ -766,9 +828,9 @@ export const services: Service[] = [
     },
     {
         id: "postage-stamps",
-        category: "home-business",
+        category: "pack-ship",
         serviceName: "Postage Stamps",
-        slug: "/home-business/postage-stamps",
+        slug: "/pack-ship/postage-stamps",
         pageTitle: "Postage Stamps in Concord Township, Lake County, Ohio | Mailbox Plus",
         metaDescription: "Buy USPS postage stamps at Mailbox Plus.",
         keywords: "postage stamps, USPS stamps, Concord Township, Lake County",
