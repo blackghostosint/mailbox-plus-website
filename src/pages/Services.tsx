@@ -9,16 +9,17 @@ import {
   Shield,
   Truck,
   Users,
-  ChevronLeft,
-  ChevronRight,
   ChevronUp,
 } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
 
+// ✅ Utility: sanitize category name into an HTML id
+const makeId = (str: string) =>
+  str.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
 export const Services: React.FC = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [showTopButton, setShowTopButton] = useState(false);
 
@@ -31,7 +32,7 @@ export const Services: React.FC = () => {
     "Digital Fingerprinting",
   ];
 
-  // Rotating tagline
+  // Rotate tagline in hero
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
@@ -39,7 +40,7 @@ export const Services: React.FC = () => {
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
 
-  // Show/hide Back to Top button
+  // Show/hide back to top button
   useEffect(() => {
     const handleScroll = () => setShowTopButton(window.scrollY > 400);
     window.addEventListener("scroll", handleScroll);
@@ -107,7 +108,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -126,7 +127,7 @@ export const Services: React.FC = () => {
             {serviceCategories.map((category) => (
               <a
                 key={category}
-                href={`#${category.replace(/\s+/g, "-").toLowerCase()}`}
+                href={`#${makeId(category)}`}
                 className="bg-white border rounded-xl shadow-sm p-4 text-center hover:shadow-md transition"
               >
                 <p className="text-sm font-semibold text-[#0855B1]">{category}</p>
@@ -136,24 +137,41 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* Example of category section */}
-      <section
-        id="pack-&-ship-services"
-        className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <h2 className="text-3xl font-bold mb-6">Pack & Ship Services</h2>
-        {/* Pack & Ship content here */}
-      </section>
+      {/* AUTO-GENERATED SERVICE SECTIONS */}
+      {serviceCategories.map((category) => (
+        <section
+          key={category}
+          id={makeId(category)}
+          className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+        >
+          <h2 className="text-3xl font-bold mb-8">{category}</h2>
 
-      <section
-        id="professional-printing"
-        className="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      >
-        <h2 className="text-3xl font-bold mb-6">Professional Printing</h2>
-        {/* Printing content here */}
-      </section>
-
-      {/* ... repeat for all categories ... */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services
+              .filter((s) =>
+                s.category.toLowerCase().includes(category.split(" ")[0].toLowerCase())
+              )
+              .map((service) => (
+                <div
+                  key={service.id}
+                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition"
+                >
+                  <h3 className="text-xl font-semibold mb-2">
+                    {service.serviceName}
+                  </h3>
+                  <p className="text-gray-600 mb-4">
+                    {service.metaDescription}
+                  </p>
+                  <Link to={service.slug}>
+                    <Button className="bg-[#0855B1] text-white hover:bg-[#064080]">
+                      Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              ))}
+          </div>
+        </section>
+      ))}
 
       {/* VISIT US SECTION */}
       <section className="py-20 bg-gradient-to-br from-[#0855B1] to-[#064080]">
@@ -175,14 +193,14 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
 
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:!text-[#0855B1]">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0855B1]">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
