@@ -40,7 +40,8 @@ import {
     documentScanningFaqs,
     faxServicesFaqs,
     notaryServicesFaqs,
-    digitalFingerprintingFaqs
+    digitalFingerprintingFaqs,
+    insuranceFaqs
 } from "./faqs";
 
 export const services: Service[] = [
