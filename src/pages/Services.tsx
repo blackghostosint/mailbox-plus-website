@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  MapPin,
-  Phone,
-  Clock,
-} from "lucide-react";
+import { ArrowRight, MapPin, Phone, Clock, ChevronUp } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
@@ -15,7 +10,7 @@ import { services } from "../config/services";
 const makeId = (str: string) =>
   str.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
 
-// Map display category → actual service.category value
+// Map display category → actual service.category value (from services.ts)
 const categoryMap: Record<string, string> = {
   "Pack & Ship Services": "pack-ship",
   "Professional Printing": "copy-print",
@@ -27,6 +22,7 @@ const categoryMap: Record<string, string> = {
 
 export const Services: React.FC = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  const [showTopButton, setShowTopButton] = useState(false);
 
   const serviceCategories = [
     "Pack & Ship Services",
@@ -37,14 +33,22 @@ export const Services: React.FC = () => {
     "Digital Fingerprinting",
   ];
 
+  // Rotate the tagline in hero
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentServiceIndex(
-        (prev) => (prev + 1) % serviceCategories.length
-      );
+      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
+
+  // Toggle the Back to Top button
+  useEffect(() => {
+    const onScroll = () => setShowTopButton(window.scrollY > 400);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
     <div className="bg-white">
@@ -52,7 +56,8 @@ export const Services: React.FC = () => {
       <section
         className="relative bg-cover bg-center py-32 lg:py-48"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox_plus_storefront_hero_image.jpg')`,
+          backgroundImage:
+            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox_plus_storefront_hero_image.jpg')",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -62,11 +67,10 @@ export const Services: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
-            Explore Our{" "}
-            <span className="text-[#60A5FA]">Services</span>
+            Explore Our <span className="text-[#60A5FA]">Services</span>
           </motion.h1>
 
-          {/* Rotating service tagline */}
+          {/* Rotating tagline */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -98,7 +102,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -125,7 +129,7 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* SERVICE SECTIONS */}
+      {/* SERVICE SECTIONS (cards auto-pulled from services.ts) */}
       {serviceCategories.map((category) => (
         <section
           key={category}
@@ -142,7 +146,7 @@ export const Services: React.FC = () => {
                   key={service.id}
                   className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition flex flex-col"
                 >
-                  {/* Hero image with fade overlay */}
+                  {/* Thumbnail with fade overlay + subtle zoom */}
                   {service.heroImage ? (
                     <div className="relative w-full aspect-[3/2] mb-4 overflow-hidden rounded-md group">
                       <img
@@ -150,17 +154,17 @@ export const Services: React.FC = () => {
                         alt={service.serviceName}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   ) : service.icon ? (
                     <div className="w-full aspect-[3/2] flex items-center justify-center mb-4 bg-gray-50 rounded-md group relative overflow-hidden">
                       <service.icon className="w-12 h-12 text-[#0855B1] transition-transform duration-500 group-hover:scale-110" />
-                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   ) : (
                     <div className="w-full aspect-[3/2] mb-4 bg-gray-100 rounded-md flex items-center justify-center text-gray-400 text-lg font-bold group relative overflow-hidden">
                       ?
-                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                     </div>
                   )}
 
@@ -201,13 +205,13 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:!text-[#0855B1]">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0855B1]">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -222,6 +226,17 @@ export const Services: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* BACK TO TOP BUTTON */}
+      {showTopButton && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-6 right-6 bg-[#0855B1] text-white p-3 rounded-full shadow-lg hover:bg-[#064080] transition"
+          aria-label="Back to Top"
+        >
+          <ChevronUp className="w-6 h-6" />
+        </button>
+      )}
     </div>
   );
 };
