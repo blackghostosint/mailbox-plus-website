@@ -23,15 +23,18 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   const variantClasses = {
-    primary: "bg-[#0855B1] text-white hover:bg-[#064A9B] focus:ring-[#B2D3EB]",
-    secondary: "border-2 border-[#0855B1] text-[#0855B1] bg-white hover:bg-[#F0F7FF] focus:ring-[#B2D3EB]",
-    link: "text-[#0855B1] underline underline-offset-4 hover:text-[#064A9B] focus:ring-[#B2D3EB] p-0"
+    primary: "bg-[#0855B1] text-white hover:bg-[#064A9B] hover:shadow-lg focus:ring-[#B2D3EB] shadow-md",
+    secondary: "border-2 border-[#0855B1] text-[#0855B1] bg-white hover:bg-[#F0F7FF] hover:border-[#064A9B] hover:shadow-md focus:ring-[#B2D3EB]",
+    link: "text-[#0855B1] hover:text-[#064A9B] focus:ring-[#B2D3EB] p-0"
   };
 
   return (
     <motion.button
-      whileHover={{ scale: variant === 'link' ? 1 : 1.02 }}
-      whileTap={{ scale: variant === 'link' ? 1 : 0.98 }}
+      whileHover={{
+        scale: variant === 'link' ? 1 : 1.03,
+        transition: { duration: 0.2 }
+      }}
+      whileTap={{ scale: variant === 'link' ? 1 : 0.97 }}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       {...props}
     >

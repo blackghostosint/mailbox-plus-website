@@ -171,9 +171,9 @@ export const Services: React.FC = () => {
                           <p className="text-[#4B5563] mb-4 leading-relaxed line-clamp-2">
                             {service.heroSubtitle}
                           </p>
-                          <div className="flex items-center text-[#0855B1] font-semibold text-sm group-hover:gap-2 transition-all">
-                            Learn More
-                            <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                          <div className="flex items-center gap-2 text-[#0855B1] font-semibold text-sm">
+                            <span>Learn More</span>
+                            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                           </div>
                         </div>
                       </Link>

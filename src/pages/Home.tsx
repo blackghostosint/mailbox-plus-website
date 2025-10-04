@@ -272,11 +272,11 @@ export const Home: React.FC = () => {
                   <p className="text-[#4B5563] mb-6 leading-relaxed">
                     {service?.heroSubtitle}
                   </p>
-                  <Link to={service?.slug || '#'}>
-                    <Button variant="link" className="text-sm group/btn">
-                      Learn More
-                      <ArrowRight className="w-4 h-4 ml-2 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                  <Link to={service?.slug || '#'} className="group/link">
+                    <div className="inline-flex items-center gap-2 text-[#0855B1] font-semibold text-sm hover:text-[#064A9B] transition-colors">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                    </div>
                   </Link>
                 </div>
               </motion.div>

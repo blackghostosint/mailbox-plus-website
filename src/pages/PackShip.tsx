@@ -194,11 +194,11 @@ export const PackShip: React.FC = () => {
                 <p className="text-[#4B5563] mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <Link to={service.href}>
-                  <Button variant="link" className="text-sm group">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                <Link to={service.href} className="group/link">
+                  <div className="inline-flex items-center gap-2 text-[#0855B1] font-semibold text-sm hover:text-[#064A9B] transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </div>
                 </Link>
               </motion.div>
             ))}
