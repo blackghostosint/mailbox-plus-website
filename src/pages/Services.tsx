@@ -6,9 +6,6 @@ import {
   MapPin,
   Phone,
   Clock,
-  Shield,
-  Truck,
-  Users,
   ChevronUp,
 } from "lucide-react";
 import { Button } from "../components/ui";
@@ -148,18 +145,44 @@ export const Services: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services
-              .filter((s) =>
-                s.category.toLowerCase().includes(category.split(" ")[0].toLowerCase())
+              .filter(
+                (s) =>
+                  s.category &&
+                  s.category.toLowerCase().includes(
+                    category.split(" ")[0].toLowerCase()
+                  )
               )
               .map((service) => (
                 <div
                   key={service.id}
-                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition"
+                  className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition flex flex-col"
                 >
+                  {/* Service hero image or fallback icon with overlay */}
+                  {service.heroImage ? (
+                    <div className="relative w-full aspect-[3/2] mb-4 overflow-hidden rounded-md group">
+                      <img
+                        src={service.heroImage}
+                        alt={service.serviceName}
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                  ) : service.icon ? (
+                    <div className="w-full aspect-[3/2] flex items-center justify-center mb-4 bg-gray-50 rounded-md group relative overflow-hidden">
+                      <service.icon className="w-12 h-12 text-[#0855B1] transition-transform duration-500 group-hover:scale-110" />
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                  ) : (
+                    <div className="w-full aspect-[3/2] mb-4 bg-gray-100 rounded-md flex items-center justify-center text-gray-400 text-lg font-bold group relative overflow-hidden">
+                      ?
+                      <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    </div>
+                  )}
+
                   <h3 className="text-xl font-semibold mb-2">
                     {service.serviceName}
                   </h3>
-                  <p className="text-gray-600 mb-4">
+                  <p className="text-gray-600 mb-4 flex-grow">
                     {service.metaDescription}
                   </p>
                   <Link to={service.slug}>
