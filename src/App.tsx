@@ -118,5 +118,3 @@ const App: React.FC = () => {
 };
 
 export default App;
-
-console.log("ENV:", import.meta.env);
