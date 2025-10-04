@@ -45,6 +45,8 @@ import { NotaryServices } from "./pages/NotaryServices";
 
 // Specialty
 import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
+import { Insurance } from "./pages/Insurance";
+
 
 // Additional Pages
 import { AboutUs } from "./pages/AboutUs";
