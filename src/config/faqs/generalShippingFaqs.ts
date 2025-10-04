@@ -127,7 +127,7 @@ export const generalShippingFaqs: FAQ[] = [
   {
     id: "shipping-size-limits",
     question: "Is there a maximum size or weight limit?",
-    answer: "We can handle shipments from small parcels to freight. Size and weight limits depend on the carrier and service.",
+    answer: "We handle shipments from small parcels to large items. Size and weight limits depend on the carrier and service. If it fits through the door; We will ship it.",
     category: "Shipping",
     tags: ["oversized", "freight", "limits"],
     order: 16
