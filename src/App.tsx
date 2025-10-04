@@ -104,6 +104,7 @@ const App: React.FC = () => {
 
         {/* Specialty */}
         <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />
+        <Route path="/specialty/insurance" element={<Insurance />} />
 
         {/* Additional Pages */}
         <Route path="/about-us" element={<AboutUs />} />
