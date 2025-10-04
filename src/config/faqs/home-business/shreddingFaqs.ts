@@ -1,0 +1,5 @@
+export const shreddingFaqs = [
+  { question: "Do you shred on-site?", answer: "We use secure, off-site shredding partners." },
+  { question: "Can I watch my documents being shredded?", answer: "Yes, ask about our in-store shredding schedule." },
+  { question: "Is there a minimum or maximum amount?", answer: "We can handle small or large quantities—contact us for bulk shredding options." }
+];
