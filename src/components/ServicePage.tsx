@@ -26,6 +26,7 @@ export const ServicePage: React.FC<Service> = (props) => {
     content = [],
     features = [],
     faqs = [],
+    cta, // ✅ new optional CTA field
   } = props;
 
   // ✅ Sort featured first, then by order if present
@@ -38,7 +39,7 @@ export const ServicePage: React.FC<Service> = (props) => {
     return 0;
   });
 
-  // ✅ Group by category only if at least one FAQ has a category
+  // ✅ Group FAQs by category only if needed
   const hasCategories = sortedFaqs.some((faq) => faq.category);
   const groupedFaqs = hasCategories
     ? sortedFaqs.reduce((groups, faq) => {
@@ -103,18 +104,26 @@ export const ServicePage: React.FC<Service> = (props) => {
       {/* ✅ Content Sections */}
       {content.length > 0 && (
         <section className="bg-white py-16 lg:py-24">
-          <div className="max-w-4xl mx-auto px-6 space-y-12">
+          <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
             {content.map((block, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="bg-[#F9FAFB] rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                <h2 className="text-2xl font-bold text-[#111827] mb-4">
+                {/* Optional icon support */}
+                {block.icon && (
+                  <div className="w-10 h-10 mb-3 rounded-lg bg-[#E6F0FF] flex items-center justify-center">
+                    <block.icon className="w-5 h-5 text-[#0855B1]" />
+                  </div>
+                )}
+                <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
                   {block.heading}
                 </h2>
-                <p className="text-[#4B5563] leading-relaxed">{block.body}</p>
+                <p className="text-gray-700 leading-relaxed">{block.body}</p>
               </motion.div>
             ))}
           </div>
@@ -128,7 +137,6 @@ export const ServicePage: React.FC<Service> = (props) => {
             <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">
               Why Choose Us
             </h2>
-
             <div className="grid md:grid-cols-3 gap-8">
               {features.map((f, i) => (
                 <motion.div
@@ -146,9 +154,7 @@ export const ServicePage: React.FC<Service> = (props) => {
                   <h3 className="text-lg font-semibold text-[#111827] mb-2">
                     {f.title}
                   </h3>
-                  <p className="text-[#4B5563] leading-relaxed">
-                    {f.description}
-                  </p>
+                  <p className="text-[#4B5563] leading-relaxed">{f.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -166,7 +172,6 @@ export const ServicePage: React.FC<Service> = (props) => {
 
             {Object.entries(groupedFaqs).map(([category, items]) => (
               <div key={category} className="mb-10">
-                {/* Only show category heading if categories are being used */}
                 {hasCategories && (
                   <h3 className="text-xl font-semibold text-[#111827] mb-4">
                     {category}
@@ -194,7 +199,6 @@ export const ServicePage: React.FC<Service> = (props) => {
                       </AccordionTrigger>
                       <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
                         {faq.answer}
-                        {/* Only show if lastUpdated is defined */}
                         {faq.lastUpdated && (
                           <p className="mt-2 text-sm text-gray-400">
                             Last updated:{" "}
@@ -207,6 +211,24 @@ export const ServicePage: React.FC<Service> = (props) => {
                 </Accordion>
               </div>
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* ✅ CTA Section */}
+      {cta && (
+        <section className="bg-[#0855B1] py-16 text-white text-center">
+          <div className="max-w-3xl mx-auto px-6">
+            <h2 className="text-3xl font-bold mb-4">{cta.title}</h2>
+            <p className="mb-6 text-lg">{cta.body}</p>
+            {cta.buttonText && (
+              <a
+                href={cta.buttonLink}
+                className="inline-block bg-white text-[#0855B1] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition"
+              >
+                {cta.buttonText}
+              </a>
+            )}
           </div>
         </section>
       )}
