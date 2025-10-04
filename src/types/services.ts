@@ -1,10 +1,11 @@
 import { Video as LucideIcon } from "lucide-react";
+import { FAQ } from "./faq";
 
-export type ServiceCategory = 
-  | "core" 
-  | "pack-ship" 
-  | "copy-print" 
-  | "home-business" 
+export type ServiceCategory =
+  | "core"
+  | "pack-ship"
+  | "copy-print"
+  | "home-business"
   | "specialty";
 
 export interface Service {
@@ -33,10 +34,7 @@ export interface Service {
     icon?: LucideIcon;
   }>;
 
-  faqs?: Array<{
-    question: string;
-    answer: string;
-  }>;
+  faqs?: FAQ[];
 
   aggregateRating?: {
     ratingValue: number;

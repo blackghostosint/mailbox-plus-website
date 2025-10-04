@@ -1,4 +1,6 @@
-export const artworkShippingFaqs = [
+import { FAQ } from "../../../types/faq";
+
+export const artworkShippingFaqs: FAQ[] = [
   { question: "Can you ship large sculptures?", answer: "Yes, we provide crating and freight solutions for oversized artwork." },
   { question: "Is insurance available?", answer: "Yes, we offer third-party insurance for high-value art shipments." },
   { question: "Do you provide custom packing materials?", answer: "Yes, our team uses museum-quality materials and can build custom crates or boxes." },
