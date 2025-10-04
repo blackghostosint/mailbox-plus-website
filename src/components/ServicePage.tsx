@@ -28,14 +28,23 @@ export const ServicePage: React.FC<Service> = (props) => {
     faqs = [],
   } = props;
 
+  // ✅ Sort featured first, then by order if present
   const sortedFaqs = [...faqs].sort((a, b) => {
-    if (a.order !== undefined && b.order !== undefined) {
-      return a.order - b.order;
-    }
+    if (a.isFeatured && !b.isFeatured) return -1;
+    if (!a.isFeatured && b.isFeatured) return 1;
+    if (a.order !== undefined && b.order !== undefined) return a.order - b.order;
     if (a.order !== undefined) return -1;
     if (b.order !== undefined) return 1;
     return 0;
   });
+
+  // ✅ Group by category if categories exist
+  const groupedFaqs = sortedFaqs.reduce((groups, faq) => {
+    const category = faq.category || "General";
+    if (!groups[category]) groups[category] = [];
+    groups[category].push(faq);
+    return groups;
+  }, {} as Record<string, typeof faqs>);
 
   return (
     <div className="bg-white">
@@ -152,31 +161,48 @@ export const ServicePage: React.FC<Service> = (props) => {
               Frequently Asked Questions
             </h2>
 
-            <Accordion type="single" collapsible className="w-full space-y-4">
-              {sortedFaqs.map((faq, i) => (
-                <AccordionItem
-                  key={faq.id || i}
-                  value={`faq-${faq.id || i}`}
-                  className={`border rounded-xl shadow-sm ${
-                    faq.isFeatured
-                      ? "bg-[#F0F7FF] border-[#0855B1]"
-                      : "bg-white"
-                  }`}
-                >
-                  <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[#0855B1] hover:underline">
-                    <span className="flex items-center gap-2">
-                      {faq.isFeatured && (
-                        <Star className="w-4 h-4 fill-[#0855B1] text-[#0855B1]" />
-                      )}
-                      {faq.question}
-                    </span>
-                  </AccordionTrigger>
-                  <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            {Object.entries(groupedFaqs).map(([category, items]) => (
+              <div key={category} className="mb-10">
+                {/* Only show category heading if more than one group exists */}
+                {Object.keys(groupedFaqs).length > 1 && (
+                  <h3 className="text-xl font-semibold text-[#111827] mb-4">
+                    {category}
+                  </h3>
+                )}
+
+                <Accordion type="single" collapsible className="w-full space-y-4">
+                  {items.map((faq, i) => (
+                    <AccordionItem
+                      key={faq.id || i}
+                      value={`faq-${faq.id || i}`}
+                      className={`border rounded-xl shadow-sm ${
+                        faq.isFeatured
+                          ? "bg-[#F0F7FF] border-[#0855B1]"
+                          : "bg-white"
+                      }`}
+                    >
+                      <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[#0855B1] hover:underline">
+                        <span className="flex items-center gap-2">
+                          {faq.isFeatured && (
+                            <Star className="w-4 h-4 fill-[#0855B1] text-[#0855B1]" />
+                          )}
+                          {faq.question}
+                        </span>
+                      </AccordionTrigger>
+                      <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
+                        {faq.answer}
+                        {faq.lastUpdated && (
+                          <p className="mt-2 text-sm text-gray-400">
+                            Last updated:{" "}
+                            {new Date(faq.lastUpdated).toLocaleDateString()}
+                          </p>
+                        )}
+                      </AccordionContent>
+                    </AccordionItem>
+                  ))}
+                </Accordion>
+              </div>
+            ))}
           </div>
         </section>
       )}
