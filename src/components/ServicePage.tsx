@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Star } from "lucide-react";
 
 // ✅ Barrel imports
 import { Meta, Breadcrumbs } from "../components";
@@ -26,6 +27,15 @@ export const ServicePage: React.FC<Service> = (props) => {
     features = [],
     faqs = [],
   } = props;
+
+  const sortedFaqs = [...faqs].sort((a, b) => {
+    if (a.order !== undefined && b.order !== undefined) {
+      return a.order - b.order;
+    }
+    if (a.order !== undefined) return -1;
+    if (b.order !== undefined) return 1;
+    return 0;
+  });
 
   return (
     <div className="bg-white">
@@ -143,14 +153,23 @@ export const ServicePage: React.FC<Service> = (props) => {
             </h2>
 
             <Accordion type="single" collapsible className="w-full space-y-4">
-              {faqs.map((faq, i) => (
+              {sortedFaqs.map((faq, i) => (
                 <AccordionItem
-                  key={i}
-                  value={`faq-${i}`}
-                  className="border rounded-xl bg-white shadow-sm"
+                  key={faq.id || i}
+                  value={`faq-${faq.id || i}`}
+                  className={`border rounded-xl shadow-sm ${
+                    faq.isFeatured
+                      ? "bg-[#F0F7FF] border-[#0855B1]"
+                      : "bg-white"
+                  }`}
                 >
                   <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[#0855B1] hover:underline">
-                    {faq.question}
+                    <span className="flex items-center gap-2">
+                      {faq.isFeatured && (
+                        <Star className="w-4 h-4 fill-[#0855B1] text-[#0855B1]" />
+                      )}
+                      {faq.question}
+                    </span>
                   </AccordionTrigger>
                   <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
                     {faq.answer}

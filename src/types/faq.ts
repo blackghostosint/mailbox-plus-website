@@ -3,4 +3,9 @@ export interface FAQ {
   answer: string;
   category?: string;
   tags?: string[];
+  id?: string;
+  relatedServices?: string[];
+  isFeatured?: boolean;
+  order?: number;
+  lastUpdated?: string;
 }
