@@ -952,32 +952,57 @@ export const services: Service[] = [
         ],
         faqs: digitalFingerprintingFaqs
     },
+{
+  id: "insurance",
+  category: "specialty",
+  serviceName: "Shipping Insurance",
+  slug: "/specialty/insurance",
+  pageTitle: "Shipping Insurance in Concord Township, Lake County, Ohio | Mailbox Plus",
+  metaDescription: "Protect high-value packages with our third-party Marsh shipping insurance. Serving Concord Township, Mentor, Painesville, Eastlake, and all of Lake County.",
+  keywords: "shipping insurance, package insurance, Marsh insurance, Concord Township, Mentor, Painesville, Eastlake, Lake County",
+  heroTitle: "Peace of Mind Shipping Insurance",
+  heroSubtitle: "Extra protection for your valuable shipments with Marsh third-party coverage.",
+  heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/insurance.jpg",
+  content: [
     {
-        id: "insurance",
-        category: "specialty",
-        serviceName: "Shipping Insurance",
-        slug: "/specialty/insurance",
-        pageTitle: "Shipping Insurance in Concord Township, Lake County, Ohio | Mailbox Plus",
-        metaDescription: "Protect high-value packages with our third-party Marsh shipping insurance. Serving Concord Township, Mentor, Painesville, Eastlake, and all of Lake County.",
-        keywords: "shipping insurance, package insurance, Marsh insurance, Concord Township, Mentor, Painesville, Eastlake, Lake County",
-        heroTitle: "Peace of Mind Shipping Insurance",
-        heroSubtitle: "Extra protection for your valuable shipments with Marsh third-party coverage.",
-        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/insurance.jpg",
-        content: [
-            {
-                heading: "Why Add Insurance?",
-                body: "Standard carrier liability is limited. With our Marsh-backed shipping insurance, you can protect high-value items for up to $50,000 per shipment."
-            },
-            {
-                heading: "Coverage Conditions",
-                body: "Professional packing by our experts is required to qualify for coverage. This ensures your shipment is properly protected and your claim is valid."
-            }
-        ],
-        features: [
-            { icon: Shield, title: "Third-Party Protection", description: "Coverage provided through Marsh, a trusted insurer." },
-            { icon: Package, title: "High Value Coverage", description: "Insure shipments valued up to $50,000." },
-            { icon: Star, title: "Peace of Mind Guarantee", description: "We’ll handle your package with care—and insure it too." }
-        ],
-        faqs: insuranceFaqs // you can create this array just like you did for digitalFingerprintingFaqs
+      heading: "Protect What Matters Most",
+      body: "At Mailbox Plus in Concord Township, we know your packages aren’t just boxes—they’re valuable, sometimes irreplaceable items. That’s why we offer affordable shipping insurance and package protection options with every major carrier: FedEx, UPS, USPS, and DHL."
+    },
+    {
+      heading: "Why Add Insurance?",
+      body: "Peace of mind, full-value protection, and affordable options. Insurance covers loss, theft, or damage during transit. We’ll help you select the right coverage for your shipment."
+    },
+    {
+      heading: "What’s Covered?",
+      body: "Shipping insurance protects against loss, theft, missing shipments, and transit damage. Coverage levels vary by carrier and declared value—our staff will walk you through your best options."
+    },
+    {
+      heading: "Professional Packing + Insurance",
+      body: "Insurance is strongest when paired with professional packaging. Our trained experts use double-wall boxes, bubble wrap, foam inserts, and custom crating so your claim is valid and your shipment arrives safely."
+    },
+    {
+      heading: "Commonly Insured Shipments",
+      body: "Electronics, fine art, antiques, collectibles, jewelry, important documents, high-value e-commerce sales, and specialty items like golf clubs, bicycles, and instruments."
+    },
+    {
+      heading: "How to File a Claim",
+      body: "If the unexpected happens, we’ll assist you through the claims process. Typically you’ll need the tracking number, proof of value, photos of damage (if applicable), and original packaging."
+    },
+    {
+      heading: "Serving Our Community",
+      body: "We proudly serve Concord Township, Mentor, Painesville, Eastlake, and all of Lake County, Ohio. Whether you’re a business shipping daily or a neighbor sending a one-time package, we’ll make sure your items are safe, insured, and delivered."
+    },
+    {
+      heading: "Get Started Today",
+      body: "Don’t take chances with your valuables. Stop by Mailbox Plus and ask about our shipping insurance options. Located in Gristmill Village, next to Pub Frato in Concord Township."
     }
+  ],
+  features: [
+    { icon: Shield, title: "Third-Party Protection", description: "Coverage provided through Marsh, a trusted insurer." },
+    { icon: Package, title: "High Value Coverage", description: "Insure shipments valued up to $50,000." },
+    { icon: Star, title: "Peace of Mind Guarantee", description: "We’ll handle your package with care—and insure it too." }
+  ],
+  faqs: insuranceFaqs // create just like your digitalFingerprintingFaqs
+}
+
 ];
