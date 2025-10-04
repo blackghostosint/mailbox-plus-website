@@ -38,13 +38,16 @@ export const ServicePage: React.FC<Service> = (props) => {
     return 0;
   });
 
-  // ✅ Group by category if categories exist
-  const groupedFaqs = sortedFaqs.reduce((groups, faq) => {
-    const category = faq.category || "General";
-    if (!groups[category]) groups[category] = [];
-    groups[category].push(faq);
-    return groups;
-  }, {} as Record<string, typeof faqs>);
+  // ✅ Group by category only if at least one FAQ has a category
+  const hasCategories = sortedFaqs.some((faq) => faq.category);
+  const groupedFaqs = hasCategories
+    ? sortedFaqs.reduce((groups, faq) => {
+        const category = faq.category || "General";
+        if (!groups[category]) groups[category] = [];
+        groups[category].push(faq);
+        return groups;
+      }, {} as Record<string, typeof faqs>)
+    : { All: sortedFaqs };
 
   return (
     <div className="bg-white">
@@ -163,8 +166,8 @@ export const ServicePage: React.FC<Service> = (props) => {
 
             {Object.entries(groupedFaqs).map(([category, items]) => (
               <div key={category} className="mb-10">
-                {/* Only show category heading if more than one group exists */}
-                {Object.keys(groupedFaqs).length > 1 && (
+                {/* Only show category heading if categories are being used */}
+                {hasCategories && (
                   <h3 className="text-xl font-semibold text-[#111827] mb-4">
                     {category}
                   </h3>
@@ -191,6 +194,7 @@ export const ServicePage: React.FC<Service> = (props) => {
                       </AccordionTrigger>
                       <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
                         {faq.answer}
+                        {/* Only show if lastUpdated is defined */}
                         {faq.lastUpdated && (
                           <p className="mt-2 text-sm text-gray-400">
                             Last updated:{" "}
