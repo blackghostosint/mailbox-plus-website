@@ -4,6 +4,44 @@ import {
     NotepadText, Box, Clock
 } from "lucide-react";
 import { Service } from "../types/services";
+import {
+    generalShippingFaqs,
+    generalCopyPrintFaqs,
+    generalHomeBusinessFaqs,
+    packShipFaqs,
+    artworkShippingFaqs,
+    bicycleShippingFaqs,
+    golfClubShippingFaqs,
+    fedexShippingFaqs,
+    upsShippingFaqs,
+    uspsServicesFaqs,
+    dhlExpressFaqs,
+    internationalShippingFaqs,
+    packageDropOffsFaqs,
+    customBoxMakingFaqs,
+    professionalPackingFaqs,
+    packagingSuppliesFaqs,
+    packageReceivingFaqs,
+    postageStampsFaqs,
+    businessCardsFaqs,
+    flyersBrochuresFaqs,
+    documentFinishingFaqs,
+    documentPrintingFaqs,
+    postersPrintingFaqs,
+    graphicDesignFaqs,
+    postcardPrintingFaqs,
+    posterBannerPrintingFaqs,
+    printDocumentServicesFaqs,
+    copiesFaqs,
+    mailboxRentalFaqs,
+    digitalMailboxRentalFaqs,
+    everyDoorDirectMailFaqs,
+    shreddingFaqs,
+    documentScanningFaqs,
+    faxServicesFaqs,
+    notaryServicesFaqs,
+    digitalFingerprintingFaqs
+} from "./faqs";
 
 export const services: Service[] = [
     // ---------------------------
@@ -35,10 +73,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Expert Packing", description: "Our trained staff use professional materials to ensure safe delivery." },
             { icon: Truck, title: "Fast & Reliable", description: "Multiple speed options from overnight to economy ground service." }
         ],
-        faqs: [
-            { question: "Which carriers can I ship with?", answer: "We ship with FedEx, UPS, USPS, and DHL." },
-            { question: "Do you provide packing materials?", answer: "Yes! We have boxes, bubble wrap, tape, and professional packing services." }
-        ]
+        faqs: packShipFaqs
     },
 
     // ---------------------------
@@ -70,10 +105,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Insured Shipments", description: "Third-party insurance covers valuable art pieces." },
             { icon: Globe, title: "Worldwide Delivery", description: "Safe international shipping with customs assistance." }
         ],
-        faqs: [
-            { question: "Can you ship large sculptures?", answer: "Yes, we provide crating and freight solutions for oversized artwork." },
-            { question: "Is insurance available?", answer: "Yes, we offer third-party insurance for high-value art shipments." }
-        ]
+        faqs: [...generalShippingFaqs, ...artworkShippingFaqs]
     },
     {
         id: "bicycle-shipping",
@@ -101,10 +133,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Protection Guaranteed", description: "Expert packing ensures frames and wheels stay secure." },
             { icon: Truck, title: "Domestic & International", description: "We ship bikes anywhere in the US or worldwide." }
         ],
-        faqs: [
-            { question: "Do I need to disassemble my bike?", answer: "We handle the packing and disassembly if needed." },
-            { question: "Can you ship e-bikes?", answer: "Yes, with proper battery preparation and carrier approval." }
-        ]
+        faqs: [...generalShippingFaqs, ...bicycleShippingFaqs]
     },
     {
         id: "golf-club-shipping",
@@ -132,10 +161,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Insured Options", description: "Coverage available for valuable sets." },
             { icon: Globe, title: "Ship Anywhere", description: "Domestic and international golf club shipping." }
         ],
-        faqs: [
-            { question: "Can you ship a full golf bag?", answer: "Yes, we pack and ship entire golf bags or individual clubs." },
-            { question: "Do I need to disassemble the clubs?", answer: "No, we handle the packing for you." }
-        ]
+        faqs: [...generalShippingFaqs, ...golfClubShippingFaqs]
     },
     {
         id: "fedex-shipping",
@@ -163,10 +189,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Reliable Handling", description: "Your shipments are handled with care." },
             { icon: Globe, title: "International Reach", description: "Ship worldwide with customs support." }
         ],
-        faqs: [
-            { question: "Can I drop off pre-labeled FedEx packages?", answer: "Yes, we accept drop-offs at no charge." },
-            { question: "Do you offer FedEx packaging supplies?", answer: "Yes, we provide FedEx-branded supplies and custom packing." }
-        ]
+        faqs: [...generalShippingFaqs, ...fedexShippingFaqs]
     },
     {
         id: "ups-shipping",
@@ -194,10 +217,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Authorized Outlet", description: "Same UPS services with local convenience." },
             { icon: Package, title: "Drop-Offs Welcome", description: "Bring your pre-labeled UPS packages for free drop-off." }
         ],
-        faqs: [
-            { question: "Do you accept Amazon UPS returns?", answer: "Yes, we can accept and ship labeled Amazon returns." },
-            { question: "Can I ship hazardous materials?", answer: "UPS has restrictions—ask our staff before shipping." }
-        ]
+        faqs: [...generalShippingFaqs, ...upsShippingFaqs]
     },
     {
         id: "usps-services",
@@ -225,10 +245,7 @@ export const services: Service[] = [
             { icon: Truck, title: "Priority Mail", description: "Fast and reliable USPS Priority Mail shipping." },
             { icon: Globe, title: "International Service", description: "Ship globally with USPS international options." }
         ],
-        faqs: [
-            { question: "Do you sell stamps?", answer: "Yes, stamps are available for purchase." },
-            { question: "Can I ship internationally with USPS?", answer: "Yes, we provide USPS international services." }
-        ]
+        faqs: [...generalShippingFaqs, ...uspsServicesFaqs]
     },
     {
         id: "dhl-express",
@@ -256,10 +273,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Delivery", description: "DHL ensures safe and fast delivery." },
             { icon: Package, title: "Express Options", description: "Choose express services for urgent packages." }
         ],
-        faqs: [
-            { question: "Do you ship to Europe?", answer: "Yes, DHL Express covers all European countries." },
-            { question: "How fast is DHL shipping?", answer: "Most deliveries are completed in 2–5 business days." }
-        ]
+        faqs: [...generalShippingFaqs, ...dhlExpressFaqs]
     },
     {
         id: "international-shipping",
@@ -287,10 +301,7 @@ export const services: Service[] = [
             { icon: ClipboardList, title: "Customs Documentation", description: "We help prepare customs forms to prevent delays." },
             { icon: Truck, title: "Carrier Choice", description: "Select from FedEx, UPS, USPS, or DHL." }
         ],
-        faqs: [
-            { question: "Do you ship to Canada?", answer: "Yes, we ship to Canada and worldwide." },
-            { question: "Can you help with customs forms?", answer: "Yes, we assist with all customs documentation." }
-        ]
+        faqs: [...generalShippingFaqs, ...internationalShippingFaqs]
     },
     {
         id: "package-drop-offs",
@@ -318,10 +329,7 @@ export const services: Service[] = [
             { icon: Truck, title: "Free Service", description: "No charge for package drop-offs." },
             { icon: MapPin, title: "Local Convenience", description: "Located right in Concord Township." }
         ],
-        faqs: [
-            { question: "Do you charge for drop-offs?", answer: "No, drop-offs are free for all carriers." },
-            { question: "Do you provide receipts?", answer: "Yes, upon request, we can provide proof of drop-off." }
-        ]
+        faqs: [...generalShippingFaqs, ...packageDropOffsFaqs]
     },
     {
         id: "custom-box-making",
@@ -349,10 +357,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Protection", description: "Keeps fragile or irregular items safe." },
             { icon: Package, title: "On-Demand Service", description: "We create boxes while you wait." }
         ],
-        faqs: [
-            { question: "Can you make boxes for large items?", answer: "Yes, we build custom boxes for oversized shipments." },
-            { question: "Do custom boxes cost extra?", answer: "Yes, pricing depends on size and materials." }
-        ]
+        faqs: [...generalShippingFaqs, ...customBoxMakingFaqs]
     },
     {
         id: "professional-packing",
@@ -380,10 +385,7 @@ export const services: Service[] = [
             { icon: Package, title: "Quality Materials", description: "We use bubble wrap, foam, and sturdy boxes." },
             { icon: Star, title: "Proven Methods", description: "Techniques designed to minimize risk of damage." }
         ],
-        faqs: [
-            { question: "Can you pack fragile glass items?", answer: "Yes, we use special methods for fragile shipments." },
-            { question: "Do you sell packing supplies?", answer: "Yes, we sell bubble wrap, tape, boxes, and more." }
-        ]
+        faqs: [...generalShippingFaqs, ...professionalPackingFaqs]
     },
     {
         id: "packaging-supplies",
@@ -411,10 +413,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Protective Materials", description: "Bubble wrap, foam, and peanuts for safe shipping." },
             { icon: Scissors, title: "Everything Else", description: "Tape, labels, and more for your convenience." }
         ],
-        faqs: [
-            { question: "Do you sell moving boxes?", answer: "Yes, we carry moving boxes and kits." },
-            { question: "Do you sell bubble wrap?", answer: "Yes, available in multiple lengths and sizes." }
-        ]
+        faqs: [...generalShippingFaqs, ...packagingSuppliesFaqs]
     },
 
     // ---------------------------
@@ -446,10 +445,7 @@ export const services: Service[] = [
             { icon: Palette, title: "Premium Materials", description: "Choose from multiple card stocks and finishes." },
             { icon: Star, title: "Fast Turnaround", description: "Get your cards quickly, ready for your next meeting." }
         ],
-        faqs: [
-            { question: "Can you help design my business card?", answer: "Yes, our team can assist with design or accept your own file." },
-            { question: "How long does printing take?", answer: "Most orders are ready within 3–5 business days." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...businessCardsFaqs]
     },
     {
         id: "flyers-brochures",
@@ -477,10 +473,7 @@ export const services: Service[] = [
             { icon: Palette, title: "Custom Designs", description: "Flexible templates or upload your own design." },
             { icon: Layers, title: "Variety of Finishes", description: "Glossy, matte, and specialty options." }
         ],
-        faqs: [
-            { question: "Do you offer bulk pricing?", answer: "Yes, larger orders receive discounted rates." },
-            { question: "Can you help design my flyer?", answer: "Yes, design services are available." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...flyersBrochuresFaqs]
     },
     {
         id: "document-finishing",
@@ -504,10 +497,7 @@ export const services: Service[] = [
             { icon: ClipboardList, title: "Binding", description: "Choose spiral or comb binding for reports." },
             { icon: Star, title: "Quality Finishes", description: "Give your projects a polished, professional look." }
         ],
-        faqs: [
-            { question: "Do you laminate IDs?", answer: "Yes, we can laminate small or large documents." },
-            { question: "What types of binding do you offer?", answer: "We provide comb, spiral, and staple binding." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...documentFinishingFaqs]
     },
     {
         id: "document-printing",
@@ -535,10 +525,7 @@ export const services: Service[] = [
             { icon: FileText, title: "Multiple Formats", description: "Print documents, reports, presentations, and more." },
             { icon: Star, title: "Professional Quality", description: "Sharp, crisp printing on premium paper." }
         ],
-        faqs: [
-            { question: "What file types do you accept?", answer: "We accept PDF, Word, Excel, PowerPoint, and most common formats." },
-            { question: "Can you print double-sided?", answer: "Yes, we offer single and double-sided printing." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...documentPrintingFaqs]
     },
     {
         id: "posters-printing",
@@ -566,10 +553,7 @@ export const services: Service[] = [
             { icon: Palette, title: "Vibrant Colors", description: "Full-color printing with rich, eye-catching graphics." },
             { icon: Star, title: "Quality Materials", description: "Choose from glossy, matte, or premium paper stocks." }
         ],
-        faqs: [
-            { question: "What sizes are available?", answer: "We print posters from 11x17 up to 36 inches wide in custom lengths." },
-            { question: "How long does printing take?", answer: "Most poster orders are ready within 24-48 hours." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...postersPrintingFaqs]
     },
     {
         id: "graphic-design",
@@ -593,10 +577,7 @@ export const services: Service[] = [
             { icon: Users, title: "Collaborative Process", description: "Work with us to create your ideal look." },
             { icon: Star, title: "Polished Results", description: "Professional graphics that get noticed." }
         ],
-        faqs: [
-            { question: "Do you design logos?", answer: "Yes, we can help create a new logo or refresh your existing brand." },
-            { question: "What file types can I bring?", answer: "We accept PDF, AI, PSD, PNG, and more." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...graphicDesignFaqs]
     },
     {
         id: "postcard-printing",
@@ -620,10 +601,7 @@ export const services: Service[] = [
             { icon: Layers, title: "Quality Paper", description: "Choose from matte or glossy finishes." },
             { icon: Star, title: "Fast Turnaround", description: "Get your postcards quickly." }
         ],
-        faqs: [
-            { question: "Do you handle bulk orders?", answer: "Yes, we offer discounts on larger runs." },
-            { question: "Can you mail postcards for me?", answer: "Yes, we provide Every Door Direct Mail (EDDM) options." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...postcardPrintingFaqs]
     },
     {
         id: "poster-banner-printing",
@@ -647,10 +625,7 @@ export const services: Service[] = [
             { icon: Layers, title: "Durable Materials", description: "Options for indoor and outdoor use." },
             { icon: Star, title: "High Quality", description: "Sharp, professional graphics." }
         ],
-        faqs: [
-            { question: "Can you print vinyl banners?", answer: "Yes, we offer durable vinyl options." },
-            { question: "Do you design posters?", answer: "Yes, our design team can help." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...posterBannerPrintingFaqs]
     },
     {
         id: "print-document-services",
@@ -674,10 +649,7 @@ export const services: Service[] = [
             { icon: ClipboardList, title: "Finishing Options", description: "Binding, laminating, and more." },
             { icon: Star, title: "Quick Service", description: "Fast turnaround times." }
         ],
-        faqs: [
-            { question: "Do you offer same-day printing?", answer: "Yes, many jobs can be completed the same day." },
-            { question: "Can you scan and email documents?", answer: "Yes, we provide scanning and emailing services." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...printDocumentServicesFaqs]
     },
     {
         id: "copies",
@@ -705,10 +677,7 @@ export const services: Service[] = [
             { icon: Layers, title: "High Volume", description: "We handle bulk orders quickly." },
             { icon: Star, title: "Quality Guaranteed", description: "Clear, sharp copies every time." }
         ],
-        faqs: [
-            { question: "Do you offer color copies?", answer: "Yes, we provide both black-and-white and full-color copies." },
-            { question: "Do you provide bulk discounts?", answer: "Yes, large orders receive reduced per-page pricing." }
-        ]
+        faqs: [...generalCopyPrintFaqs, ...copiesFaqs]
     },
 
     // ---------------------------
@@ -740,10 +709,7 @@ export const services: Service[] = [
             { icon: Package, title: "Package Receiving", description: "We sign for packages so you never miss a delivery." },
             { icon: MapPin, title: "Convenient Location", description: "Located in Concord Township, serving all of Lake County." }
         ],
-        faqs: [
-            { question: "Can I receive packages from all carriers?", answer: "Yes, we accept deliveries from FedEx, UPS, USPS, and DHL." },
-            { question: "Do I need ID to rent a mailbox?", answer: "Yes, two valid forms of ID are required." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...mailboxRentalFaqs]
     },
     {
         id: "digital-mailbox-rental",
@@ -767,10 +733,7 @@ export const services: Service[] = [
             { icon: Globe, title: "Remote Access", description: "Manage your mail from anywhere." },
             { icon: Lock, title: "Secure Service", description: "Your mail and data stay protected." }
         ],
-        faqs: [
-            { question: "Can I forward mail?", answer: "Yes, you can request forwarding to any address." },
-            { question: "Is this service for businesses?", answer: "Yes, both individuals and businesses can use it." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...digitalMailboxRentalFaqs]
     },
     {
         id: "every-door-direct-mail",
@@ -794,10 +757,7 @@ export const services: Service[] = [
             { icon: Users, title: "Targeted Reach", description: "Focus on specific neighborhoods." },
             { icon: Star, title: "Affordable", description: "Save money compared to traditional mailing lists." }
         ],
-        faqs: [
-            { question: "Do I need a mailing list?", answer: "No, USPS EDDM delivers to every address in chosen areas." },
-            { question: "Can you design my postcards?", answer: "Yes, we provide design and printing." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...everyDoorDirectMailFaqs]
     },
     {
         id: "package-receiving",
@@ -821,10 +781,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Storage", description: "We keep your packages safe." },
             { icon: Clock, title: "Convenient Pickup", description: "Pick up packages during store hours." }
         ],
-        faqs: [
-            { question: "Can businesses use this service?", answer: "Yes, we support individuals and businesses." },
-            { question: "Do you notify me when a package arrives?", answer: "Yes, we can send notifications." }
-        ]
+        faqs: [...generalShippingFaqs, ...packageReceivingFaqs]
     },
     {
         id: "postage-stamps",
@@ -848,10 +805,7 @@ export const services: Service[] = [
             { icon: Star, title: "Convenient", description: "Buy while shipping your packages." },
             { icon: Package, title: "Books & Sheets", description: "Available in multiple quantities." }
         ],
-        faqs: [
-            { question: "Do you sell international stamps?", answer: "Yes, ask us about global stamps." },
-            { question: "Can I buy in bulk?", answer: "Yes, full books and sheets available." }
-        ]
+        faqs: [...generalShippingFaqs, ...postageStampsFaqs]
     },
     {
         id: "shredding",
@@ -879,10 +833,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Privacy Protection", description: "Protects against identity theft and fraud." },
             { icon: Archive, title: "Bulk Shredding", description: "We can handle small or large quantities." }
         ],
-        faqs: [
-            { question: "Do you shred on-site?", answer: "We use secure, off-site shredding partners." },
-            { question: "Can I watch my documents being shredded?", answer: "Yes, ask about our in-store shredding schedule." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...shreddingFaqs]
     },
     {
         id: "document-scanning",
@@ -910,10 +861,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Handling", description: "We handle your documents with confidentiality." },
             { icon: FolderOpen, title: "Easy Organization", description: "Organize and access files digitally." }
         ],
-        faqs: [
-            { question: "What file formats do you provide?", answer: "We can scan to PDF, JPEG, or TIFF." },
-            { question: "Do you offer bulk scanning?", answer: "Yes, bulk scanning is available." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...documentScanningFaqs]
     },
     {
         id: "fax-services",
@@ -941,10 +889,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Transmission", description: "Your information is kept private." },
             { icon: MapPin, title: "Local Access", description: "Conveniently send and receive in Concord Township." }
         ],
-        faqs: [
-            { question: "What is your fax number?", answer: "Contact us directly for our current fax number." },
-            { question: "Do you provide confirmations?", answer: "Yes, we provide fax confirmation pages." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...faxServicesFaqs]
     },
     {
         id: "notary-services",
@@ -972,10 +917,7 @@ export const services: Service[] = [
             { icon: Shield, title: "Legal Assurance", description: "Documents notarized properly." },
             { icon: Users, title: "Trusted Service", description: "We serve individuals and businesses." }
         ],
-        faqs: [
-            { question: "Do I need ID?", answer: "Yes, valid government-issued ID is required." },
-            { question: "Do you notarize real estate documents?", answer: "Yes, but call ahead for complex documents." }
-        ]
+        faqs: [...generalHomeBusinessFaqs, ...notaryServicesFaqs]
     },
 
     // ---------------------------
@@ -1007,9 +949,6 @@ export const services: Service[] = [
             { icon: Shield, title: "Secure Processing", description: "Your data is transmitted securely to the proper authorities." },
             { icon: Truck, title: "Quick Results", description: "Most fingerprint submissions are processed within days." }
         ],
-        faqs: [
-            { question: "Do I need an appointment?", answer: "Walk-ins are welcome, but appointments help reduce wait time." },
-            { question: "What should I bring?", answer: "Bring valid government-issued ID and any required forms." }
-        ]
+        faqs: digitalFingerprintingFaqs
     }
 ];
