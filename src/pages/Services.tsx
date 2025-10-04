@@ -6,19 +6,27 @@ import {
   MapPin,
   Phone,
   Clock,
-  ChevronUp,
 } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
 
-// ✅ Utility: sanitize category name into an HTML id
+// Utility to generate safe IDs
 const makeId = (str: string) =>
-  str.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  str.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
+
+// Map display category → actual service.category value
+const categoryMap: Record<string, string> = {
+  "Pack & Ship Services": "pack-ship",
+  "Professional Printing": "copy-print",
+  "Mailbox Rentals": "home-business",
+  "Document Services": "home-business",
+  "Notary Services": "home-business",
+  "Digital Fingerprinting": "specialty",
+};
 
 export const Services: React.FC = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [showTopButton, setShowTopButton] = useState(false);
 
   const serviceCategories = [
     "Pack & Ship Services",
@@ -29,24 +37,14 @@ export const Services: React.FC = () => {
     "Digital Fingerprinting",
   ];
 
-  // Rotate tagline in hero
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
+      setCurrentServiceIndex(
+        (prev) => (prev + 1) % serviceCategories.length
+      );
     }, 3000);
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
-
-  // Show/hide back to top button
-  useEffect(() => {
-    const handleScroll = () => setShowTopButton(window.scrollY > 400);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="bg-white">
@@ -54,7 +52,7 @@ export const Services: React.FC = () => {
       <section
         className="relative bg-cover bg-center py-32 lg:py-48"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox_plus_storefront_hero_image.jpg')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox_plus_storefront_hero_image.jpg')`,
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -64,11 +62,11 @@ export const Services: React.FC = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
-            Our Services in{" "}
-            <span className="text-[#60A5FA]">Concord Township</span>
+            Explore Our{" "}
+            <span className="text-[#60A5FA]">Services</span>
           </motion.h1>
 
-          {/* Rotating tagline */}
+          {/* Rotating service tagline */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -89,11 +87,6 @@ export const Services: React.FC = () => {
             </AnimatePresence>
           </motion.div>
 
-          <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
-            Your trusted local partner for shipping, printing, and business
-            services. Serving Lake County communities with integrity and care.
-          </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#categories">
               <Button className="bg-[#0855B1] hover:bg-[#064080] text-white">
@@ -105,7 +98,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
+              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -115,26 +108,24 @@ export const Services: React.FC = () => {
       </section>
 
       {/* CATEGORY NAVIGATION */}
-      <section className="py-12 bg-gray-50" id="categories">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold text-center mb-8">
-            Explore Our Services
-          </h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+      <section id="categories" className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-2xl font-bold mb-6">Explore Our Services</h2>
+          <div className="flex flex-wrap justify-center gap-3">
             {serviceCategories.map((category) => (
               <a
                 key={category}
                 href={`#${makeId(category)}`}
-                className="bg-white border rounded-xl shadow-sm p-4 text-center hover:shadow-md transition"
+                className="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-[#0855B1] hover:text-[#0855B1] transition"
               >
-                <p className="text-sm font-semibold text-[#0855B1]">{category}</p>
+                {category}
               </a>
             ))}
           </div>
         </div>
       </section>
 
-      {/* AUTO-GENERATED SERVICE SECTIONS */}
+      {/* SERVICE SECTIONS */}
       {serviceCategories.map((category) => (
         <section
           key={category}
@@ -145,19 +136,13 @@ export const Services: React.FC = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services
-              .filter(
-                (s) =>
-                  s.category &&
-                  s.category.toLowerCase().includes(
-                    category.split(" ")[0].toLowerCase()
-                  )
-              )
+              .filter((s) => s.category === categoryMap[category])
               .map((service) => (
                 <div
                   key={service.id}
                   className="p-6 bg-white border rounded-lg shadow-sm hover:shadow-md transition flex flex-col"
                 >
-                  {/* Service hero image or fallback icon with overlay */}
+                  {/* Hero image with fade overlay */}
                   {service.heroImage ? (
                     <div className="relative w-full aspect-[3/2] mb-4 overflow-hidden rounded-md group">
                       <img
@@ -216,14 +201,13 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
+              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
-
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0855B1]">
+              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:!text-[#0855B1]">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -238,17 +222,6 @@ export const Services: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* BACK TO TOP BUTTON */}
-      {showTopButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[#0855B1] text-white p-3 rounded-full shadow-lg hover:bg-[#064080] transition"
-          aria-label="Back to Top"
-        >
-          <ChevronUp className="w-6 h-6" />
-        </button>
-      )}
     </div>
   );
 };
