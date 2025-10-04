@@ -923,7 +923,7 @@ export const services: Service[] = [
     // ---------------------------
     // SPECIALTY
     // ---------------------------
-    {
+        {
         id: "digital-fingerprinting",
         category: "specialty",
         serviceName: "Digital Fingerprinting",
@@ -950,5 +950,33 @@ export const services: Service[] = [
             { icon: Truck, title: "Quick Results", description: "Most fingerprint submissions are processed within days." }
         ],
         faqs: digitalFingerprintingFaqs
+    },
+    {
+        id: "insurance",
+        category: "specialty",
+        serviceName: "Shipping Insurance",
+        slug: "/specialty/insurance",
+        pageTitle: "Shipping Insurance in Concord Township, Lake County, Ohio | Mailbox Plus",
+        metaDescription: "Protect high-value packages with our third-party Marsh shipping insurance. Serving Concord Township, Mentor, Painesville, Eastlake, and all of Lake County.",
+        keywords: "shipping insurance, package insurance, Marsh insurance, Concord Township, Mentor, Painesville, Eastlake, Lake County",
+        heroTitle: "Peace of Mind Shipping Insurance",
+        heroSubtitle: "Extra protection for your valuable shipments with Marsh third-party coverage.",
+        heroImage: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/insurance.jpg",
+        content: [
+            {
+                heading: "Why Add Insurance?",
+                body: "Standard carrier liability is limited. With our Marsh-backed shipping insurance, you can protect high-value items for up to $50,000 per shipment."
+            },
+            {
+                heading: "Coverage Conditions",
+                body: "Professional packing by our experts is required to qualify for coverage. This ensures your shipment is properly protected and your claim is valid."
+            }
+        ],
+        features: [
+            { icon: Shield, title: "Third-Party Protection", description: "Coverage provided through Marsh, a trusted insurer." },
+            { icon: Package, title: "High Value Coverage", description: "Insure shipments valued up to $50,000." },
+            { icon: Star, title: "Peace of Mind Guarantee", description: "We’ll handle your package with care—and insure it too." }
+        ],
+        faqs: insuranceFaqs // you can create this array just like you did for digitalFingerprintingFaqs
     }
 ];
