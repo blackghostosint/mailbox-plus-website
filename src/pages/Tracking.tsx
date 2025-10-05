@@ -1,95 +1,117 @@
-import React, { useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
-import { Search, Truck, ExternalLink } from 'lucide-react';
-import { Button } from '../components/ui';
+import React, { useState, useMemo } from "react";
+import { motion } from "framer-motion";
+import { Search, Truck, ExternalLink } from "lucide-react";
+import { Button } from "../components/ui";
 import { getServiceImageUrl } from "../lib/supabase";
+import { getTrackingSchema } from "../config/schema"; // ✅ schema.ts helper
 
-// ✅ Utility to safely stringify JSON for <script>
-const toJsonLd = (obj: any) => JSON.stringify(obj, null, 2);
+// Utility to safely stringify JSON for <script>
+const toJsonLd = (obj: Record<string, unknown>) =>
+  JSON.stringify(obj, null, 2);
 
 export const Tracking: React.FC = () => {
-  const [trackingNumber, setTrackingNumber] = useState('');
-  const [selectedCarrier, setSelectedCarrier] = useState('FedEx');
+  const [trackingNumber, setTrackingNumber] = useState("");
+  const [selectedCarrier, setSelectedCarrier] = useState("FedEx");
 
-  const carriers = [
-    {
-      name: 'FedEx',
-      urlTemplate: 'https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER',
-    },
-    {
-      name: 'UPS',
-      urlTemplate: 'https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER',
-    },
-    {
-      name: 'USPS',
-      urlTemplate: 'https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER',
-    },
-    {
-      name: 'DHL',
-      urlTemplate: 'https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER',
-    },
-  ];
+  // ✅ Carrier templates
+  const carriers = useMemo(
+    () => [
+      {
+        name: "FedEx",
+        urlTemplate:
+          "https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER",
+      },
+      {
+        name: "UPS",
+        urlTemplate:
+          "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER",
+      },
+      {
+        name: "USPS",
+        urlTemplate:
+          "https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER",
+      },
+      {
+        name: "DHL",
+        urlTemplate:
+          "https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER",
+      },
+    ],
+    []
+  );
 
+  // ✅ Detect carrier by number format
   const detectCarrier = (num: string): string | null => {
     const trimmed = num.trim().toUpperCase();
-    if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return 'UPS';
-    if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed)) return 'FedEx';
-    if (/^[0-9]{20,22}$/.test(trimmed) || /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed)) return 'USPS';
-    if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return 'DHL';
+    if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return "UPS"; // UPS
+    if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed))
+      return "FedEx"; // FedEx
+    if (/^[0-9]{20,22}$/.test(trimmed) || /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed))
+      return "USPS"; // USPS
+    if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return "DHL"; // DHL
     return null;
   };
 
+  // ✅ Handle submit
   const handleTrackingSubmit = () => {
     if (!trackingNumber.trim()) return;
+
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
+
     if (carrier) {
       const finalUrl = carrier.urlTemplate.replace(
-        'TRACKINGNUMBER',
+        "TRACKINGNUMBER",
         encodeURIComponent(trackingNumber)
       );
-      window.open(finalUrl, '_blank');
+      window.open(finalUrl, "_blank");
     }
   };
 
-  // ✅ JSON-LD schema (updates with tracking number)
+  // ✅ JSON-LD schema (ParcelDelivery)
   const jsonLd = useMemo(() => {
     if (!trackingNumber) return null;
-
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
-    return {
-      "@context": "https://schema.org",
-      "@type": "ParcelDelivery",
-      "trackingNumber": trackingNumber,
-      "provider": {
-        "@type": "Organization",
-        "name": carrierName
-      },
-      "trackingUrl": carriers.find((c) => c.name === carrierName)?.urlTemplate.replace(
-        'TRACKINGNUMBER',
-        encodeURIComponent(trackingNumber)
-      ),
-      "deliveryAddress": {
-        "@type": "PostalAddress",
-        "addressLocality": "Concord Township",
-        "addressRegion": "OH",
-        "addressCountry": "US"
-      }
-    };
-  }, [trackingNumber, selectedCarrier]);
+    const carrier = carriers.find((c) => c.name === carrierName);
+    const trackingUrl = carrier?.urlTemplate.replace(
+      "TRACKINGNUMBER",
+      encodeURIComponent(trackingNumber)
+    );
+    return getTrackingSchema(trackingNumber, carrierName, trackingUrl || "");
+  }, [trackingNumber, selectedCarrier, carriers]);
 
+  // ✅ Tracking tips
   const trackingTips = [
-    { title: 'Keep Your Receipt', description: 'Your tracking number is on your shipping receipt. Keep it safe until delivery.' },
-    { title: 'Check Multiple Times', description: 'Tracking information updates throughout the day as your package moves.' },
-    { title: 'Delivery Notifications', description: 'Sign up for text or email notifications to stay updated on delivery status.' },
-    { title: 'Need Help?', description: "Can't find your package? Contact us and we'll help track it down." },
+    {
+      title: "Keep Your Receipt",
+      description:
+        "Your tracking number is on your shipping receipt. Keep it safe until delivery.",
+    },
+    {
+      title: "Check Multiple Times",
+      description:
+        "Tracking information updates throughout the day as your package moves.",
+    },
+    {
+      title: "Delivery Notifications",
+      description:
+        "Sign up for text or email notifications to stay updated on delivery status.",
+    },
+    {
+      title: "Need Help?",
+      description:
+        "Can't find your package? Contact us and we'll help track it down.",
+    },
   ];
 
   return (
     <div className="bg-white">
-      {/* Inject JSON-LD if tracking number entered */}
+      {/* ✅ Inject JSON-LD */}
       {jsonLd && (
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
+        />
       )}
 
       {/* Hero Section */}
@@ -123,8 +145,150 @@ export const Tracking: React.FC = () => {
         </div>
       </section>
 
-      {/* --- rest of your sections unchanged --- */}
-      {/* Form, Tips, Help Section... */}
+      {/* Tracking Form */}
+      <section className="py-20 bg-[#F9FAFB]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl p-8 shadow-sm"
+          >
+            <div className="flex items-center mb-6">
+              <Search className="w-6 h-6 text-[#0855B1] mr-3" />
+              <h2 className="text-2xl font-bold text-[#111827]">
+                Enter Tracking Number
+              </h2>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleTrackingSubmit();
+              }}
+              className="space-y-6"
+            >
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+                {/* Tracking Number Input */}
+                <div className="sm:col-span-2">
+                  <label
+                    htmlFor="tracking"
+                    className="block text-sm font-medium text-[#111827] mb-2"
+                  >
+                    Tracking Number
+                  </label>
+                  <input
+                    type="text"
+                    id="tracking"
+                    value={trackingNumber}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setTrackingNumber(value);
+                      const detected = detectCarrier(value);
+                      if (detected) setSelectedCarrier(detected);
+                    }}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none text-lg"
+                    placeholder="Enter your tracking number (e.g., 1Z999AA1234567890)"
+                  />
+                </div>
+
+                {/* Carrier Dropdown */}
+                <div>
+                  <label
+                    htmlFor="carrier"
+                    className="block text-sm font-medium text-[#111827] mb-2"
+                  >
+                    Carrier
+                  </label>
+                  <select
+                    id="carrier"
+                    value={selectedCarrier}
+                    onChange={(e) => setSelectedCarrier(e.target.value)}
+                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] text-lg"
+                  >
+                    {carriers.map((carrier) => (
+                      <option key={carrier.name} value={carrier.name}>
+                        {carrier.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {/* Submit Button */}
+              <div className="flex justify-center">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="bg-[#0855B1] text-white hover:bg-[#06408A] transition-all flex items-center"
+                >
+                  Track Package
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Tracking Tips */}
+      <section className="py-20 bg-[#F9FAFB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
+            Tracking Tips
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+            {trackingTips.map((tip, i) => (
+              <motion.div
+                key={tip.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className="bg-white rounded-2xl p-6 shadow-sm"
+              >
+                <div className="w-12 h-12 bg-[#F0F7FF] rounded-xl flex items-center justify-center mb-4">
+                  <span className="text-[#0855B1] font-bold text-lg">
+                    {i + 1}
+                  </span>
+                </div>
+                <h3 className="text-lg font-semibold text-[#111827] mb-2">
+                  {tip.title}
+                </h3>
+                <p className="text-[#4B5563] text-sm">{tip.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Help Section */}
+      <section className="py-20 bg-[#0855B1] text-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Truck className="w-16 h-16 text-white mx-auto mb-6" />
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            Need Help Finding Your Package?
+          </h2>
+          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+            Can't locate your tracking number or having trouble with tracking?
+            Our team is here to help you every step of the way.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button
+              size="lg"
+              className="bg-white text-[#0855B1] hover:bg-gray-50"
+            >
+              Contact Support
+            </Button>
+            <Button
+              size="lg"
+              variant="link"
+              className="text-white hover:text-blue-100"
+            >
+              Call (440) 709-1946
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
