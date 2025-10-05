@@ -3,7 +3,8 @@ import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
 import { getServiceImageUrl } from "../lib/supabase";
-import { getTrackingSchema } from "../config/schema"; // ✅ schema.ts helper
+import { getTrackingSchema } from "../utils/schema";
+
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: Record<string, unknown>) =>

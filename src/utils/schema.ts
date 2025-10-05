@@ -26,21 +26,23 @@ export const getLocalBusinessSchema = () => {
       "latitude": siteConfig.geo.lat,
       "longitude": siteConfig.geo.lng
     },
-    "openingHoursSpecification": Object.entries(siteConfig.hours).map(([day, hours]) => {
-      if (hours === "Closed") {
+    "openingHoursSpecification": Object.entries(siteConfig.hours).map(
+      ([day, hours]) => {
+        if (hours === "Closed") {
+          return {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": day.charAt(0).toUpperCase() + day.slice(1)
+          };
+        }
+        const [opens, closes] = hours.split(" - ");
         return {
           "@type": "OpeningHoursSpecification",
-          "dayOfWeek": day.charAt(0).toUpperCase() + day.slice(1)
+          "dayOfWeek": day.charAt(0).toUpperCase() + day.slice(1),
+          "opens": opens,
+          "closes": closes
         };
       }
-      const [opens, closes] = hours.split(" - ");
-      return {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": day.charAt(0).toUpperCase() + day.slice(1),
-        "opens": opens,
-        "closes": closes
-      };
-    }),
+    ),
     ...(socialLinks.length > 0 && { "sameAs": socialLinks })
   };
 };
@@ -56,7 +58,12 @@ export const getServiceSchema = ({
 }: {
   serviceName: string;
   offers?: { name: string; price: string; currency?: string }[];
-  reviews?: { author: string; datePublished: string; reviewBody: string; ratingValue: number }[];
+  reviews?: {
+    author: string;
+    datePublished: string;
+    reviewBody: string;
+    ratingValue: number;
+  }[];
   aggregateRating?: { ratingValue: number; reviewCount: number };
 }) => {
   const schema: any = {
@@ -106,7 +113,9 @@ export const getServiceSchema = ({
 /**
  * FAQ schema
  */
-export const getFAQSchema = (faqs: { question: string; answer: string }[]) => ({
+export const getFAQSchema = (
+  faqs: { question: string; answer: string }[]
+) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": faqs.map(faq => ({
@@ -196,3 +205,31 @@ export const getProductSchema = ({
     }))
   })
 });
+
+/**
+ * ParcelDelivery schema (for tracking numbers)
+ */
+export const getTrackingSchema = (
+  trackingNumber: string,
+  carrierName: string,
+  trackingUrl: string
+) => {
+  if (!trackingNumber) return null;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ParcelDelivery",
+    "trackingNumber": trackingNumber,
+    "provider": {
+      "@type": "Organization",
+      "name": carrierName,
+    },
+    "trackingUrl": trackingUrl,
+    "deliveryAddress": {
+      "@type": "PostalAddress",
+      "addressLocality": "Concord Township",
+      "addressRegion": "OH",
+      "addressCountry": "US",
+    }
+  };
+};
