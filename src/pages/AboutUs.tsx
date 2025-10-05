@@ -129,7 +129,7 @@ export const AboutUs: React.FC = () => {
           </motion.div>
           <motion.div {...fadeUp(0.15)} className="relative">
             <img
-              src={getServiceImageUrl("mailboxes.jpg")}
+              src={getServiceImageUrl("/images/mailboxes.jpg")}
               alt="Mailboxes"
               className="transform rotate-6 transition-transform duration-300 hover:rotate-0 rounded-2xl shadow-lg w-full aspect-video object-cover"
             />
