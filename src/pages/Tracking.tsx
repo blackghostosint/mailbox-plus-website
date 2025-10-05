@@ -132,15 +132,16 @@ export const Tracking: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-              <Button
-                type="submit"
-                variant="secondary"
-                size="lg"
-                className="w-full sm:w-auto bg-[#0855B1] text-white hover:bg-[#06448d]"
-              >
-                Track with {selectedCarrier}
-                <ExternalLink className="w-4 h-4 ml-2" />
-              </Button>
+<Button
+  type="submit"
+  variant="secondary"
+  size="lg"
+  className="w-full sm:w-auto bg-white text-[#0855B1] border border-[#0855B1] hover:bg-[#0855B1] hover:text-white hover:shadow-md transition-all"
+>
+  Track with {selectedCarrier}
+  <ExternalLink className="w-4 h-4 ml-2" />
+</Button>
+
             </form>
           </motion.div>
         </div>
