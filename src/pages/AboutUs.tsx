@@ -186,13 +186,15 @@ export const AboutUs: React.FC = () => {
               <p className="text-[#4B5563]">Leading with integrity and a commitment to exceptional customer service.</p>
             </motion.div>
             <motion.div {...fadeUp(0.4)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
-              {(() => {
-                const imageUrl = getServiceImageUrl("/images/diana.jpg");
-                return (
-                  <img src={imageUrl} alt="Diana Goebelt" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-                );
-              })()}
-              <h3 className="text-xl font-semibold text-[#111827] mb-2">Diana Goebelt<br /><span className="text-base font-normal text-[#4B5563]">Owner</span></h3>
+              <img
+                src={getServiceImageUrl("diana.jpg")}
+                alt="Diana Goebelt"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-[#111827] mb-2">
+                Diana Goebelt
+                <span className="block text-base font-normal text-[#4B5563]">Owner</span>
+              </h3>
               <p className="text-[#4B5563]">Guiding Mailbox Plus with dedication, community focus, and a passion for outstanding customer care.</p>
             </motion.div>
           </div>
