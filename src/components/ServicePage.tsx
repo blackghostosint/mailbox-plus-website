@@ -86,7 +86,7 @@ export const ServicePage: React.FC<Service> = (props) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-extrabold text-[#0855B1] mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
             {heroTitle}
           </motion.h1>

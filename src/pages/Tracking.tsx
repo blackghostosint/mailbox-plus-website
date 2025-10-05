@@ -138,9 +138,9 @@ export const Tracking: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="text-4xl md:text-5xl font-extrabold text-white mb-4"
+                className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
               >
-                Track Your <span className="text-[#B2D3EB]">Package</span>
+                Track Your <span className="text-[#60A5FA]">Package</span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
