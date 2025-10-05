@@ -115,13 +115,24 @@ export const AboutUs: React.FC = () => {
           <motion.div {...fadeUp(0)}>
             <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-6">Our Story</h2>
             <div className="space-y-6 text-[#4B5563] leading-relaxed">
-              <p>We're a locally owned, faith-guided business committed to serving with integrity, stewardship, and respect. Every customer who walks through our doors is treated like a neighbor, because that's exactly who you are.</p>
-              <p>What started as a simple pack-and-ship shop has grown into a trusted local resource for families, small businesses, and professionals. Our tagline says it best: <strong>"Let us handle your package"</strong></p>
-              <p>As Concord Township and the greater Lake County area grow, we continue to expand our services to meet the needs of our community — always with a personal touch and a heart for service.</p>
+              <p>
+                We're a locally owned, faith-guided business committed to serving with integrity, stewardship, and respect. Every customer who walks through our doors is treated like a neighbor, because that's exactly who you are.
+              </p>
+              <p>
+                What started as a simple pack-and-ship shop has grown into a trusted local resource for families, small businesses, and professionals. Our tagline says it best:{" "}
+                <strong>"Let us handle your package"</strong>
+              </p>
+              <p>
+                As Concord Township and the greater Lake County area grow, we continue to expand our services to meet the needs of our community — always with a personal touch and a heart for service.
+              </p>
             </div>
           </motion.div>
           <motion.div {...fadeUp(0.15)} className="relative">
-            <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1400&auto=format&fit=crop" alt="" className="rounded-2xl shadow-lg w-full aspect-video object-cover" />
+            <img
+              src={getServiceImageUrl("mailboxes.jpg")}
+              alt="Mailboxes"
+              className="transform rotate-6 transition-transform duration-300 hover:rotate-0 rounded-2xl shadow-lg w-full aspect-video object-cover"
+            />
           </motion.div>
         </div>
       </section>
