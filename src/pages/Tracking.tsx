@@ -3,12 +3,10 @@ import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
 import { getServiceImageUrl } from "../lib/supabase";
-import { getTrackingSchema } from "../utils/schema";
-
+import { getLocalBusinessSchema, getTrackingSchema } from "../utils/schema"; 
 
 // Utility to safely stringify JSON for <script>
-const toJsonLd = (obj: Record<string, unknown>) =>
-  JSON.stringify(obj, null, 2);
+const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
 
 export const Tracking: React.FC = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
@@ -47,7 +45,10 @@ export const Tracking: React.FC = () => {
     if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return "UPS"; // UPS
     if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed))
       return "FedEx"; // FedEx
-    if (/^[0-9]{20,22}$/.test(trimmed) || /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed))
+    if (
+      /^[0-9]{20,22}$/.test(trimmed) ||
+      /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed)
+    )
       return "USPS"; // USPS
     if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return "DHL"; // DHL
     return null;
@@ -56,10 +57,8 @@ export const Tracking: React.FC = () => {
   // ✅ Handle submit
   const handleTrackingSubmit = () => {
     if (!trackingNumber.trim()) return;
-
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
-
     if (carrier) {
       const finalUrl = carrier.urlTemplate.replace(
         "TRACKINGNUMBER",
@@ -69,16 +68,26 @@ export const Tracking: React.FC = () => {
     }
   };
 
-  // ✅ JSON-LD schema (ParcelDelivery)
+  // ✅ JSON-LD schema (LocalBusiness + ParcelDelivery)
   const jsonLd = useMemo(() => {
-    if (!trackingNumber) return null;
+    const baseSchema = getLocalBusinessSchema();
+
+    if (!trackingNumber) return [baseSchema]; // at minimum, always emit LocalBusiness schema
+
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
     const trackingUrl = carrier?.urlTemplate.replace(
       "TRACKINGNUMBER",
       encodeURIComponent(trackingNumber)
     );
-    return getTrackingSchema(trackingNumber, carrierName, trackingUrl || "");
+
+    const trackingSchema = getTrackingSchema(
+      trackingNumber,
+      carrierName,
+      trackingUrl || ""
+    );
+
+    return [baseSchema, trackingSchema]; // output as an array
   }, [trackingNumber, selectedCarrier, carriers]);
 
   // ✅ Tracking tips
@@ -107,7 +116,7 @@ export const Tracking: React.FC = () => {
 
   return (
     <div className="bg-white">
-      {/* ✅ Inject JSON-LD */}
+      {/* ✅ Inject LocalBusiness + ParcelDelivery schema */}
       {jsonLd && (
         <script
           type="application/ld+json"
