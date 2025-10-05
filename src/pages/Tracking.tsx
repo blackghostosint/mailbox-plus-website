@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
 import { getServiceImageUrl } from "../lib/supabase";
-import { getLocalBusinessSchema, getTrackingSchema } from "../utils/schema"; 
+import { getLocalBusinessSchema, getTrackingSchema } from "../utils/schema";
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
@@ -72,7 +72,7 @@ export const Tracking: React.FC = () => {
   const jsonLd = useMemo(() => {
     const baseSchema = getLocalBusinessSchema();
 
-    if (!trackingNumber) return [baseSchema]; // at minimum, always emit LocalBusiness schema
+    if (!trackingNumber) return [baseSchema];
 
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
@@ -87,7 +87,7 @@ export const Tracking: React.FC = () => {
       trackingUrl || ""
     );
 
-    return [baseSchema, trackingSchema]; // output as an array
+    return [baseSchema, trackingSchema];
   }, [trackingNumber, selectedCarrier, carriers]);
 
   // ✅ Tracking tips
@@ -285,13 +285,14 @@ export const Tracking: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               size="lg"
+              variant="secondary"
               className="bg-white text-[#0855B1] hover:bg-gray-50"
             >
               Contact Support
             </Button>
             <Button
               size="lg"
-              variant="link"
+              variant="ghost"
               className="text-white hover:text-blue-100"
             >
               Call (440) 709-1946
