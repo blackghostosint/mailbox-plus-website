@@ -181,13 +181,20 @@ export const AboutUs: React.FC = () => {
           </motion.p>
           <div className="flex flex-col md:flex-row justify-center gap-8">
             <motion.div {...fadeUp(0.3)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
-              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" alt="" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-              <h3 className="text-xl font-semibold text-[#111827] mb-2">Store Manager</h3>
+              <img
+                src={getServiceImageUrl("/images/frank.jpg")}
+                alt="Frank Schwarz"
+                className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
+              />
+              <h3 className="text-xl font-semibold text-[#111827] mb-2">
+                Frank Schwarz
+                <span className="block text-base font-normal text-[#4B5563]">Store Manager</span>
+              </h3>
               <p className="text-[#4B5563]">Leading with integrity and a commitment to exceptional customer service.</p>
             </motion.div>
             <motion.div {...fadeUp(0.4)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
               <img
-                src={getServiceImageUrl("diana.jpg")}
+                src={getServiceImageUrl("/images/diana.jpg")}
                 alt="Diana Goebelt"
                 className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
