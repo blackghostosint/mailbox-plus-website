@@ -10,32 +10,36 @@ export const Tracking: React.FC = () => {
     {
       name: 'FedEx',
       logo: 'https://i.pinimg.com/736x/ca/81/86/ca8186c25901c848871ef27d1e28bb72.jpg',
-      url: 'https://www.fedex.com/en-us/tracking.html',
+      urlTemplate: 'https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER',
       description: 'Track FedEx Express, Ground, and Home Delivery packages'
     },
     {
       name: 'UPS',
       logo: 'https://www.citypng.com/public/uploads/preview/ups-black-logo-symbol-icon-hd-png-701751694777657xrnxzhkkat.png',
-      url: 'https://www.ups.com/track',
+      urlTemplate: 'https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER',
       description: 'Track UPS Ground, Air, and International shipments'
     },
     {
       name: 'USPS',
       logo: 'https://p7.hiclipart.com/preview/644/958/344/united-states-postal-service-mail-logo-united-states.jpg',
-      url: 'https://tools.usps.com/go/TrackConfirmAction',
+      urlTemplate: 'https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER',
       description: 'Track Priority Mail, Express, and other USPS services'
     },
     {
       name: 'DHL',
       logo: 'https://www.citypng.com/public/uploads/preview/hd-black-dhl-express-company-logo-transparent-background-701751694777679wwnbtwgoa8.png',
-      url: 'https://www.dhl.com/us-en/home/tracking.html',
+      urlTemplate: 'https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER',
       description: 'Track DHL Express and international shipments'
     }
   ];
 
-  const handleTrackingSubmit = (carrierUrl: string) => {
+  const handleTrackingSubmit = (carrierUrlTemplate: string) => {
     if (trackingNumber.trim()) {
-      window.open(`${carrierUrl}?trackingNumber=${encodeURIComponent(trackingNumber)}`, '_blank');
+      const finalUrl = carrierUrlTemplate.replace(
+        'TRACKINGNUMBER',
+        encodeURIComponent(trackingNumber)
+      );
+      window.open(finalUrl, '_blank');
     }
   };
 
@@ -54,7 +58,7 @@ export const Tracking: React.FC = () => {
     },
     {
       title: 'Need Help?',
-      description: 'Can\'t find your package? Contact us and we\'ll help track it down.'
+      description: "Can't find your package? Contact us and we'll help track it down."
     }
   ];
 
@@ -100,7 +104,15 @@ export const Tracking: React.FC = () => {
               <h2 className="text-2xl font-bold text-[#111827]">Enter Tracking Number</h2>
             </div>
             
-            <div className="space-y-4">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                if (trackingNumber.trim() && carriers.length > 0) {
+                  handleTrackingSubmit(carriers[0].urlTemplate); // Default = FedEx
+                }
+              }}
+              className="space-y-4"
+            >
               <div>
                 <label htmlFor="tracking" className="block text-sm font-medium text-[#111827] mb-2">
                   Tracking Number
@@ -115,9 +127,9 @@ export const Tracking: React.FC = () => {
                 />
               </div>
               <p className="text-sm text-[#4B5563]">
-                Enter your tracking number and click on your carrier below to track your package.
+                Press Enter to open FedEx by default, or click your carrier below.
               </p>
-            </div>
+            </form>
           </motion.div>
         </div>
       </section>
@@ -143,7 +155,7 @@ export const Tracking: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-200 text-center group cursor-pointer"
-                onClick={() => handleTrackingSubmit(carrier.url)}
+                onClick={() => handleTrackingSubmit(carrier.urlTemplate)}
               >
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-105 transition-transform border border-gray-200">
                   <img 
@@ -163,11 +175,11 @@ export const Tracking: React.FC = () => {
                   className="w-full group-hover:bg-[#0855B1] group-hover:text-white transition-colors"
                   onClick={(e) => {
                     e.stopPropagation();
-                    handleTrackingSubmit(carrier.url);
+                    handleTrackingSubmit(carrier.urlTemplate);
                   }}
                 >
                   Track with {carrier.name}
-                  <ExternalLink className="w-4 h-4" />
+                  <ExternalLink className="w-4 h-4 ml-2" />
                 </Button>
               </motion.div>
             ))}
