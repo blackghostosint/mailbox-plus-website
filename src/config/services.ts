@@ -1,7 +1,7 @@
 import {
     Package, Shield, Truck, Globe, Printer, Palette, Star, Users, Mail, Archive,
     FileText, Scissors, FolderOpen, Layers, ClipboardList, Lock, MapPin, Fingerprint,
-    NotepadText, Box, Clock
+    NotebookText, Box, Clock
 } from "lucide-react";
 import { Service } from "../types/services";
 import { getServiceImageUrl } from "../lib/supabase";
@@ -915,7 +915,7 @@ export const services: Service[] = [
             }
         ],
         features: [
-            { icon: NotepadText, title: "Certified Notary", description: "Licensed and approved notary services." },
+            { icon: NotebookText, title: "Certified Notary", description: "Licensed and approved notary services." },
             { icon: Shield, title: "Legal Assurance", description: "Documents notarized properly." },
             { icon: Users, title: "Trusted Service", description: "We serve individuals and businesses." }
         ],
