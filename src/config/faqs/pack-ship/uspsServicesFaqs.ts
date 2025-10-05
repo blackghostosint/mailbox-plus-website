@@ -111,6 +111,17 @@ export const uspsServicesFaqs: FAQ[] = [
     order: 10,
     lastUpdated: "2025-10-04"
   },
+    {
+    id: "usps-prepaid-dropoff",
+    question: "1234567890",
+    answer: "Absolutely. If you have a package with a pre-paid USPS shipping label, you can drop it off with us for no additional charge. It's a quick and convenient way to get your package on its way.",
+    category: "Pack & Ship",
+    tags: ["usps", "drop-off", "pre-paid", "returns"],
+    relatedServices: ["package-drop-offs", "fedex-shipping", "ups-shipping"],
+    isFeatured: false,
+    order: 10,
+    lastUpdated: "2025-10-04"
+  },
   {
     id: "usps-vs-others",
     question: "When should I choose USPS over other carriers like FedEx or UPS?",
