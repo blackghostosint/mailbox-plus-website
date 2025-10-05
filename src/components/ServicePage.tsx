@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 // ✅ Barrel imports
 import { Meta, Breadcrumbs } from "../components";
 import { Service } from "../types/services";
+import type { FAQ } from "../types/faq";
 
 // ✅ Shadcn Accordion
 import {
@@ -12,21 +13,21 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@/components/ui/accordion";
+} from "./ui/accordion";
 
 export const ServicePage: React.FC<Service> = (props) => {
   const {
     pageTitle,
     metaDescription,
     keywords,
-    slug,
+    // slug, // Removed: not used
     heroTitle,
     heroSubtitle,
     heroImage,
     content = [],
     features = [],
     faqs = [],
-    cta, // ✅ new optional CTA field
+    // cta, // Removed: not in Service type
   } = props;
 
   // ✅ Sort featured first, then by order if present
@@ -39,7 +40,7 @@ export const ServicePage: React.FC<Service> = (props) => {
     return 0;
   });
 
-  // ✅ Group FAQs by category only if needed
+  // ✅ Group FAQs by category
   const hasCategories = sortedFaqs.some((faq) => faq.category);
   const groupedFaqs = hasCategories
     ? sortedFaqs.reduce((groups, faq) => {
@@ -47,7 +48,7 @@ export const ServicePage: React.FC<Service> = (props) => {
         if (!groups[category]) groups[category] = [];
         groups[category].push(faq);
         return groups;
-      }, {} as Record<string, typeof faqs>)
+      }, {} as Record<string, FAQ[]>)
     : { All: sortedFaqs };
 
   return (
@@ -57,7 +58,7 @@ export const ServicePage: React.FC<Service> = (props) => {
         title={pageTitle}
         description={metaDescription}
         keywords={keywords}
-        slug={slug}
+        // slug={slug} // Removed: not a prop of Meta
       />
 
       {/* ✅ Breadcrumbs */}
@@ -66,22 +67,24 @@ export const ServicePage: React.FC<Service> = (props) => {
       </div>
 
       {/* ✅ Hero Section */}
-      <section className="bg-gradient-to-b from-white to-[#F9FAFB] py-16 lg:py-24 text-center">
-        <div className="max-w-4xl mx-auto px-6">
-          {heroImage && (
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="mb-10"
-            >
-              <img
-                src={heroImage}
-                alt={heroTitle}
-                className="w-full h-72 object-cover rounded-2xl shadow-md"
-              />
-            </motion.div>
-          )}
+      <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
+        {heroImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.25 }}
+            transition={{ duration: 0.8 }}
+            className="absolute inset-0 z-0"
+          >
+            <img
+              src={heroImage}
+              alt={heroTitle}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </motion.div>
+        )}
+
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -90,14 +93,16 @@ export const ServicePage: React.FC<Service> = (props) => {
           >
             {heroTitle}
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-lg text-[#4B5563] leading-relaxed"
-          >
-            {heroSubtitle}
-          </motion.p>
+          {heroSubtitle && (
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-lg text-gray-200 leading-relaxed"
+            >
+              {heroSubtitle}
+            </motion.p>
+          )}
         </div>
       </section>
 
@@ -114,12 +119,7 @@ export const ServicePage: React.FC<Service> = (props) => {
                 viewport={{ once: true }}
                 className="bg-[#F9FAFB] rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow"
               >
-                {/* Optional icon support */}
-                {block.icon && (
-                  <div className="w-10 h-10 mb-3 rounded-lg bg-[#E6F0FF] flex items-center justify-center">
-                    <block.icon className="w-5 h-5 text-[#0855B1]" />
-                  </div>
-                )}
+                {/* Removed icon rendering: content blocks do not have icon */}
                 <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
                   {block.heading}
                 </h2>
@@ -154,7 +154,9 @@ export const ServicePage: React.FC<Service> = (props) => {
                   <h3 className="text-lg font-semibold text-[#111827] mb-2">
                     {f.title}
                   </h3>
-                  <p className="text-[#4B5563] leading-relaxed">{f.description}</p>
+                  <p className="text-[#4B5563] leading-relaxed">
+                    {f.description}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -216,22 +218,7 @@ export const ServicePage: React.FC<Service> = (props) => {
       )}
 
       {/* ✅ CTA Section */}
-      {cta && (
-        <section className="bg-[#0855B1] py-16 text-white text-center">
-          <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-4">{cta.title}</h2>
-            <p className="mb-6 text-lg">{cta.body}</p>
-            {cta.buttonText && (
-              <a
-                href={cta.buttonLink}
-                className="inline-block bg-white text-[#0855B1] font-semibold px-6 py-3 rounded-xl shadow hover:bg-gray-100 transition"
-              >
-                {cta.buttonText}
-              </a>
-            )}
-          </div>
-        </section>
-      )}
+      {/* Removed CTA section: cta is not in Service type */}
     </div>
   );
 };
