@@ -4,6 +4,7 @@ import { Heart, Users, Award, Clock, Package, Shield, Printer, Fingerprint } fro
 import { Meta } from "../components/Meta";
 import { siteConfig } from "../config/siteConfig";
 import { getLocalBusinessSchema, getWebPageSchema, getFAQSchema } from "../utils";
+import { getServiceImageUrl } from "../lib/supabase";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -178,14 +179,26 @@ export const AboutUs: React.FC = () => {
           <motion.p {...fadeUp(0.15)} className="text-lg text-[#4B5563] max-w-3xl mx-auto mb-12">
             Our team is committed to serving with integrity, professionalism, and a heart for our community.
           </motion.p>
-          <motion.div {...fadeUp(0.3)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
-            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" alt="" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
-            <h3 className="text-xl font-semibold text-[#111827] mb-2">Store Manager</h3>
-            <p className="text-[#4B5563]">Leading with integrity and a commitment to exceptional customer service.</p>
-          </motion.div>
+          <div className="flex flex-col md:flex-row justify-center gap-8">
+            <motion.div {...fadeUp(0.3)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=300&auto=format&fit=crop" alt="" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+              <h3 className="text-xl font-semibold text-[#111827] mb-2">Store Manager</h3>
+              <p className="text-[#4B5563]">Leading with integrity and a commitment to exceptional customer service.</p>
+            </motion.div>
+            <motion.div {...fadeUp(0.4)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
+              {(() => {
+                const imageUrl = getServiceImageUrl("/images/diana.jpg");
+                return (
+                  <img src={imageUrl} alt="Diana Goebelt" className="w-24 h-24 rounded-full mx-auto mb-4 object-cover" />
+                );
+              })()}
+              <h3 className="text-xl font-semibold text-[#111827] mb-2">Diana Goebelt<br /><span className="text-base font-normal text-[#4B5563]">Owner</span></h3>
+              <p className="text-[#4B5563]">Guiding Mailbox Plus with dedication, community focus, and a passion for outstanding customer care.</p>
+            </motion.div>
+          </div>
         </div>
       </section>
-
+      
       {/* CTA */}
       <section className="py-16 bg-[#0855B1] text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
