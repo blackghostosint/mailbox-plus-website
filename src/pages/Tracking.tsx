@@ -10,25 +10,40 @@ export const Tracking: React.FC = () => {
   const carriers = [
     {
       name: 'FedEx',
-      logo: 'https://i.pinimg.com/736x/ca/81/86/ca8186c25901c848871ef27d1e28bb72.jpg',
       urlTemplate: 'https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER',
     },
     {
       name: 'UPS',
-      logo: 'https://www.citypng.com/public/uploads/preview/ups-black-logo-symbol-icon-hd-png-701751694777657xrnxzhkkat.png',
       urlTemplate: 'https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER',
     },
     {
       name: 'USPS',
-      logo: 'https://p7.hiclipart.com/preview/644/958/344/united-states-postal-service-mail-logo-united-states.jpg',
       urlTemplate: 'https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER',
     },
     {
       name: 'DHL',
-      logo: 'https://www.citypng.com/public/uploads/preview/hd-black-dhl-express-company-logo-transparent-background-701751694777679wwnbtwgoa8.png',
       urlTemplate: 'https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER',
     },
   ];
+
+  // Auto-detect carrier from tracking number
+  const detectCarrier = (num: string): string | null => {
+    const trimmed = num.trim().toUpperCase();
+
+    // UPS: starts with 1Z and has 18 characters
+    if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return 'UPS';
+
+    // FedEx: 12, 15, 20, or 22 numeric
+    if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed)) return 'FedEx';
+
+    // USPS: 20–22 numeric OR 2 letters + 9 digits + 2 letters
+    if (/^[0-9]{20,22}$/.test(trimmed) || /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed)) return 'USPS';
+
+    // DHL: 10 digits OR starts with JD
+    if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return 'DHL';
+
+    return null;
+  };
 
   const handleTrackingSubmit = () => {
     if (!trackingNumber.trim()) return;
@@ -105,7 +120,12 @@ export const Tracking: React.FC = () => {
                     type="text"
                     id="tracking"
                     value={trackingNumber}
-                    onChange={(e) => setTrackingNumber(e.target.value)}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      setTrackingNumber(value);
+                      const detected = detectCarrier(value);
+                      if (detected) setSelectedCarrier(detected);
+                    }}
                     className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none text-lg"
                     placeholder="Enter your tracking number (e.g., 1Z999AA1234567890)"
                   />
@@ -132,16 +152,15 @@ export const Tracking: React.FC = () => {
               </div>
 
               {/* Submit Button */}
-<Button
-  type="submit"
-  variant="secondary"
-  size="lg"
-  className="w-full sm:w-auto bg-white text-[#0855B1] border border-[#0855B1] hover:bg-[#0855B1] hover:text-white hover:shadow-md transition-all"
->
-  Track with {selectedCarrier}
-  <ExternalLink className="w-4 h-4 ml-2" />
-</Button>
-
+              <Button
+                type="submit"
+                variant="secondary"
+                size="lg"
+                className="w-full sm:w-auto bg-white text-[#0855B1] border border-[#0855B1] hover:bg-[#0855B1] hover:text-white hover:shadow-md transition-all"
+              >
+                Track with {selectedCarrier}
+                <ExternalLink className="w-4 h-4 ml-2" />
+              </Button>
             </form>
           </motion.div>
         </div>
