@@ -109,12 +109,12 @@ export const services: Service[] = [
         ],
         faqs: [...generalShippingFaqs, ...artworkShippingFaqs],
         cta: {
-          title: "Ready to ship your artwork?",
-          subtitle: "Custom packing, insurance, and careful handling—done locally.",
-          buttonText: "Schedule a Consult",
-          buttonLink: "/contact",
-          variant: "brand",
-          align: "left"
+        title: "Ready to ship your artwork?",
+        subtitle: "Custom packing, insurance, and careful handling—done locally.",
+        buttonText: "Schedule a Consult",
+        buttonLink: "/contact",
+        variant: "brand",
+        align: "left"
         }
     },
     {
