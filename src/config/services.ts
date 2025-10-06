@@ -202,10 +202,10 @@ export const services: Service[] = [
         faqs: [...generalShippingFaqs, ...fedexShippingFaqs]
     },
     {
-        id: "ups-shipping",
+        id: "ups-authorized-shipper-outlet",
         category: "pack-ship",
         serviceName: "UPS Authorized Shipper Outlet",
-        slug: "/pack-ship/ups-shipping",
+        slug: "/pack-ship/ups-authorized-shipper-outlet",
         pageTitle: "UPS Authorized Shipper in Concord Township, Lake County, Ohio | Mailbox Plus",
         metaDescription: "Authorized UPS shipping outlet in Concord Township, offering ground, express, and international services.",
         keywords: "ups shipping, concord township, lake county",

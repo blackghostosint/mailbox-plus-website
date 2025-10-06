@@ -4,6 +4,6 @@ import { ServicePage } from "../components/ServicePage";
 import { services } from "../config/services";
 
 export const UPSAuthorizedShipperOutlet: React.FC = () => {
-  const service = services.find(s => s.id === "ups-shipping")!;
+  const service = services.find(s => s.id === "ups-authorized-shipper-outlet")!;
   return <ServicePage {...service} />;
 };

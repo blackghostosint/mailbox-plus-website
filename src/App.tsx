@@ -70,7 +70,7 @@ const App: React.FC = () => {
         <Route path="/pack-ship/bicycle-shipping" element={<BicycleShipping />} />
         <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
         <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
-        <Route path="/pack-ship/ups-shipping" element={<UPSAuthorizedShipperOutlet />} />
+        <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
         <Route path="/pack-ship/usps-services" element={<USPSServices />} />
         <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
         <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} />

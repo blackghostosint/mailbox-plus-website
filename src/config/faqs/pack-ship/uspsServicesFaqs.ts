@@ -106,7 +106,7 @@ export const uspsServicesFaqs: FAQ[] = [
     answer: "Absolutely. If you have a package with a pre-paid USPS shipping label, you can drop it off with us for no additional charge. It's a quick and convenient way to get your package on its way.",
     category: "Pack & Ship",
     tags: ["usps", "drop-off", "pre-paid", "returns"],
-    relatedServices: ["package-drop-offs", "fedex-shipping", "ups-shipping"],
+    relatedServices: ["package-drop-offs", "fedex-shipping", "ups-authorized-shipper-outlet"],
     isFeatured: false,
     order: 10,
     lastUpdated: "2025-10-04"
@@ -117,7 +117,7 @@ export const uspsServicesFaqs: FAQ[] = [
     answer: "USPS is often the most cost-effective option for smaller, lightweight packages (under 2-3 lbs) and for shipping to residential addresses, P.O. Boxes, and military bases. We can help you compare rates and delivery times to see which carrier best fits your specific needs.",
     category: "Pack & Ship",
     tags: ["usps", "fedex", "ups", "comparison", "cost"],
-    relatedServices: ["pack-ship", "fedex-shipping", "ups-shipping"],
+    relatedServices: ["pack-ship", "fedex-shipping", "ups-authorized-shipper-outlet"],
     isFeatured: false,
     order: 11,
     lastUpdated: "2025-10-04"
