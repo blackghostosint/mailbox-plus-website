@@ -1,3 +1,5 @@
+import type { CTA } from "../types/services";
+
 export const siteConfig = {
   name: "Mailbox Plus Ohio",
   tagline: "Let Us Handle Your Package!",
@@ -34,4 +36,14 @@ export const siteConfig = {
     lat: 41.664959,
     lng: -81.246493
   }
+};
+
+// Default CTA for site-wide fallback
+export const defaultCTA: CTA = {
+  title: "Ready to get started?",
+  subtitle: "Stop in today or message us—let us handle your package!",
+  buttonText: "Visit Us in Concord Township",
+  buttonLink: "/contact",
+  variant: "brand",
+  align: "center"
 };

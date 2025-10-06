@@ -8,6 +8,18 @@ export type ServiceCategory =
   | "home-business"
   | "specialty";
 
+// CTA type for reusable call-to-action sections
+export interface CTA {
+  title: string;
+  subtitle?: string;
+  buttonText: string;
+  buttonLink: string;    // internal route or absolute URL
+  icon?: LucideIcon;
+  bgImage?: string;      // optional background image path
+  align?: "left" | "center"; // layout preference
+  variant?: "brand" | "neutral" | "ghost"; // style variants
+}
+
 export interface Service {
   id: string;
   category: ServiceCategory;
@@ -40,6 +52,9 @@ export interface Service {
     ratingValue: number;
     reviewCount: number;
   };
+
+  // Optional CTA block for this service
+  cta?: CTA;
 }
 
 export interface Category {

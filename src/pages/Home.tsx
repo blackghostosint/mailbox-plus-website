@@ -263,6 +263,15 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      {/* Reusable CTA Section */}
+      {/*
+        The CTASection is now the standard call-to-action for all pages.
+        You can pass a custom CTA or use the default.
+      */}
+      <CTASection cta={defaultCTA} className="mb-20" />
     </div>
   );
 };
+
+import { CTASection } from "../components/sections/CTA";
+import { defaultCTA } from "../config/siteConfig";

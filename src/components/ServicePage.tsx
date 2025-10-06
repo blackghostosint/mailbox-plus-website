@@ -5,7 +5,6 @@ import { Star } from "lucide-react";
 // ✅ Barrel imports
 import { Meta, Breadcrumbs } from "../components";
 import { Service } from "../types/services";
-import type { FAQ } from "../types/faq";
 
 // ✅ Shadcn Accordion
 import {
@@ -40,16 +39,8 @@ export const ServicePage: React.FC<Service> = (props) => {
     return 0;
   });
 
-  // ✅ Group FAQs by category
-  const hasCategories = sortedFaqs.some((faq) => faq.category);
-  const groupedFaqs = hasCategories
-    ? sortedFaqs.reduce((groups, faq) => {
-        const category = faq.category || "General";
-        if (!groups[category]) groups[category] = [];
-        groups[category].push(faq);
-        return groups;
-      }, {} as Record<string, FAQ[]>)
-    : { All: sortedFaqs };
+  // ✅ Flatten FAQs into a single list without category separation
+  const groupedFaqs = { All: sortedFaqs };
 
   return (
     <div className="bg-white">
@@ -174,12 +165,6 @@ export const ServicePage: React.FC<Service> = (props) => {
 
             {Object.entries(groupedFaqs).map(([category, items]) => (
               <div key={category} className="mb-10">
-                {hasCategories && (
-                  <h3 className="text-xl font-semibold text-[#111827] mb-4">
-                    {category}
-                  </h3>
-                )}
-
                 <Accordion type="single" collapsible className="w-full space-y-4">
                   {items.map((faq, i) => (
                     <AccordionItem
@@ -218,7 +203,14 @@ export const ServicePage: React.FC<Service> = (props) => {
       )}
 
       {/* ✅ CTA Section */}
-      {/* Removed CTA section: cta is not in Service type */}
+      {/*
+        Renders a CTA if present on the service, otherwise falls back to the site-wide default.
+        The CTASection component is reusable and consistent across all pages.
+      */}
+      <CTASection cta={props.cta ?? defaultCTA} />
     </div>
   );
 };
+
+import { CTASection } from "./sections/CTA";
+import { defaultCTA } from "../config/siteConfig";

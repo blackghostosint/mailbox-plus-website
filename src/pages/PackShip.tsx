@@ -240,6 +240,11 @@ export const PackShip: React.FC = () => {
           </motion.div>
         </div>
       </section>
-    </div>
-  );
+    {/* Reusable CTA Section */}
+    <CTASection cta={defaultCTA} className="mb-20" />
+  </div>
+);
 };
+
+import { CTASection } from "../components/sections/CTA";
+import { defaultCTA } from "../config/siteConfig";

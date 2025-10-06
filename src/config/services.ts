@@ -107,7 +107,15 @@ export const services: Service[] = [
             { icon: Shield, title: "Insured Shipments", description: "Third-party insurance covers valuable art pieces." },
             { icon: Globe, title: "Worldwide Delivery", description: "Safe international shipping with customs assistance." }
         ],
-        faqs: [...generalShippingFaqs, ...artworkShippingFaqs]
+        faqs: [...generalShippingFaqs, ...artworkShippingFaqs],
+        cta: {
+          title: "Ready to ship your artwork?",
+          subtitle: "Custom packing, insurance, and careful handling—done locally.",
+          buttonText: "Schedule a Consult",
+          buttonLink: "/contact",
+          variant: "brand",
+          align: "left"
+        }
     },
     {
         id: "bicycle-shipping",
