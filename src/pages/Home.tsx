@@ -289,6 +289,33 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* SERVICE AREA SECTION */}
+      <section className="py-16 bg-[#F9FAFB] border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-10">
+            Service Areas
+          </h2>
+
+          <div className="flex flex-wrap gap-4 justify-center">
+            {localAreas.map((area) => {
+              // turn "Concord Township" → "concord-township"
+              const slug = area.toLowerCase().replace(/\s+/g, "-");
+              return (
+                <Link key={area} to={`/service-area/${slug}`}>
+                  <Button
+                    variant="secondary" // outlined style, or "primary" if you want solid blue
+                    size="sm"
+                    className="!rounded-full"
+                  >
+                    {area}
+                  </Button>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
