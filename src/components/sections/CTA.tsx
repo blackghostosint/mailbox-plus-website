@@ -89,7 +89,10 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
                 </Button>
               </a>
             ) : (
-              <Link to={buttonLink} onClick={handleClick}>
+              <Link
+                to={buttonLink}
+                onClick={handleClick}
+              >
                 <Button variant={variant === "ghost" ? "ghost" : "primary"}>
                   {buttonText} <Icon size={18} />
                 </Button>
