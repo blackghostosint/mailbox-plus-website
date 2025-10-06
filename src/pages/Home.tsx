@@ -165,7 +165,7 @@ export const Home: React.FC = () => {
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
             Pack & Ship in{" "}
-            <span className="text-[#60A5FA]">Concord Township, Ohio</span>
+            <span className="text-[#60A5FA]">Concord Twp, Ohio</span>
           </motion.h1>
 
           {/* Rotating service tagline */}
