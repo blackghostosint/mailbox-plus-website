@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -9,12 +8,12 @@ import {
   Shield,
   Truck,
   Users,
-  ChevronLeft,
-  ChevronRight,
 } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
+import { CTASection } from "../components/sections/CTA";
+import { defaultCTA } from "../config/siteConfig";
 
 export const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -272,6 +271,3 @@ export const Home: React.FC = () => {
     </div>
   );
 };
-
-import { CTASection } from "../components/sections/CTA";
-import { defaultCTA } from "../config/siteConfig";
