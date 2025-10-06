@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -12,8 +13,6 @@ import {
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
-import { CTASection } from "../components/sections/CTA";
-import { defaultCTA } from "../config/siteConfig";
 
 export const Home: React.FC = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -260,14 +259,36 @@ export const Home: React.FC = () => {
               Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed
             </span>
           </div>
+
+          {/* Carrier Logos */}
+          <div className="flex items-center justify-center gap-12 mt-10">
+            <img
+              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/fedex-logo.jpg"
+              alt="FedEx"
+              className="h-20 w-auto object-contain drop-shadow-md"
+              loading="lazy"
+            />
+            <img
+              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/ups-logo.jpg"
+              alt="UPS"
+              className="h-20 w-auto object-contain drop-shadow-md"
+              loading="lazy"
+            />
+            <img
+              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/usps-logo.jpg"
+              alt="USPS"
+              className="h-20 w-auto object-contain drop-shadow-md"
+              loading="lazy"
+            />
+            <img
+              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/dhl-logo.jpg"
+              alt="DHL"
+              className="h-20 w-auto object-contain drop-shadow-md"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
-      {/* Reusable CTA Section */}
-      {/*
-        The CTASection is now the standard call-to-action for all pages.
-        You can pass a custom CTA or use the default.
-      */}
-      <CTASection cta={defaultCTA} className="mb-20" />
     </div>
   );
 };
