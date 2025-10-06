@@ -195,11 +195,11 @@ export const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#services">
+            <Link to="/services">
               <Button className="bg-[#0855B1] hover:bg-[#064080] text-white">
                 View Services <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
-            </a>
+            </Link>
             <a
               href={`https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`}
               target="_blank"
