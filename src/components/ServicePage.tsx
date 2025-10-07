@@ -199,9 +199,9 @@ export const ServicePage: React.FC<Service> = (props) => {
       {/* ✅ CTA Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Link to="/contact">
+          <Link to="/contact-us">
             <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
-              Visit Us in {city}
+              Visit Us from {city}
             </Button>
           </Link>
         </div>
