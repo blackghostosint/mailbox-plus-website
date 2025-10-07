@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
-import { ServicePage } from "./ServicePage";
+import { ServicePage } from "../components/ServicePage";
 
 export const ServiceAreaPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
