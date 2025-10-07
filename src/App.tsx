@@ -53,6 +53,7 @@ import { AboutUs } from "./pages/AboutUs";
 import { ContactUs } from "./pages/ContactUs";
 import { Services } from "./pages/Services";
 import { Tracking } from "./pages/Tracking";
+import { ServiceAreaPage } from "./pages/ServiceAreaPage";
 
 const App: React.FC = () => {
   return (
@@ -111,6 +112,7 @@ const App: React.FC = () => {
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/tracking" element={<Tracking />} />
+        <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
         </Routes>
       </Layout>
     </Router>
