@@ -124,6 +124,10 @@ export const Home: React.FC = () => {
     "Wickliffe",
     "Madison",
     "Perry",
+    "Kirtland",
+    "Chardon",
+    "Fairport Harbor",
+    "Geneva",
   ];
 
   useEffect(() => {
