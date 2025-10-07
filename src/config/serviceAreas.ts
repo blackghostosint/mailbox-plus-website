@@ -9,7 +9,7 @@ export const serviceAreas: Service[] = [
     city: "Concord Township",
     pageTitle: "Shipping & Printing in Concord Township, Ohio",
     metaDescription:
-      "Mailbox Plus proudly serves Concord Township with reliable shipping, printing, mailbox rentals, and business services.",
+      "Mailbox Plus proudly serves Concord Township with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location.",
     keywords: "Concord Township shipping, Concord Township printing, business services",
     heroTitle: "Serving Concord Township",
     heroSubtitle: "Your local shipping, printing & business service experts.",
@@ -24,7 +24,7 @@ export const serviceAreas: Service[] = [
       { title: "Convenient Location", description: "Next to Pub Frato in Gristmill Village" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS, and DHL available" }
     ],
-    faqs: [] // you could even reuse generalShippingFaqs if you want
+    faqs: []
   },
   {
     id: "mentor",
@@ -34,7 +34,7 @@ export const serviceAreas: Service[] = [
     city: "Mentor",
     pageTitle: "Shipping & Printing in Mentor, Ohio",
     metaDescription:
-      "Mailbox Plus offers professional shipping, printing, and mailbox services to the Mentor community.",
+      "From bulk mailings to secure package shipping, Mailbox Plus supports Mentor residents and businesses with reliable shipping, printing, and mailbox services.",
     keywords: "Mentor shipping, Mentor printing, business services",
     heroTitle: "Serving Mentor",
     heroSubtitle: "Your trusted partner for shipping & business services.",
@@ -58,7 +58,7 @@ export const serviceAreas: Service[] = [
     city: "Painesville",
     pageTitle: "Shipping & Printing in Painesville, Ohio",
     metaDescription:
-      "Professional shipping, printing, and business services for Painesville residents and businesses.",
+      "Mailbox Plus provides Painesville with trusted shipping, printing, mailbox rentals, and business services designed for families and local companies.",
     keywords: "Painesville shipping, Painesville printing, business services",
     heroTitle: "Serving Painesville",
     heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
@@ -82,7 +82,7 @@ export const serviceAreas: Service[] = [
     city: "Eastlake",
     pageTitle: "Shipping & Printing in Eastlake, Ohio",
     metaDescription:
-      "Comprehensive shipping, printing, and mailbox services available for Eastlake residents.",
+      "Eastlake residents count on Mailbox Plus for affordable shipping, custom boxes, printing, and mailbox solutions—backed by fast, friendly service.",
     keywords: "Eastlake shipping, Eastlake printing, business services",
     heroTitle: "Serving Eastlake",
     heroSubtitle: "Your local experts in shipping and business services.",
@@ -106,7 +106,7 @@ export const serviceAreas: Service[] = [
     city: "Willoughby",
     pageTitle: "Shipping & Printing in Willoughby, Ohio",
     metaDescription:
-      "Expert shipping, printing, and business services for the Willoughby community.",
+      "Mailbox Plus proudly supports Willoughby with secure shipping, professional packaging, document printing, and mailbox rental services.",
     keywords: "Willoughby shipping, Willoughby printing, business services",
     heroTitle: "Serving Willoughby",
     heroSubtitle: "Professional services tailored to Willoughby residents.",
@@ -130,7 +130,7 @@ export const serviceAreas: Service[] = [
     city: "Wickliffe",
     pageTitle: "Shipping & Printing in Wickliffe, Ohio",
     metaDescription:
-      "Reliable shipping, printing, and mailbox services for Wickliffe residents.",
+      "From shipping and printing to mailbox rentals, Mailbox Plus serves Wickliffe families and businesses with professional, community-focused service.",
     keywords: "Wickliffe shipping, Wickliffe printing, business services",
     heroTitle: "Serving Wickliffe",
     heroSubtitle: "Your neighborhood shipping and printing experts.",
@@ -154,7 +154,7 @@ export const serviceAreas: Service[] = [
     city: "Madison",
     pageTitle: "Shipping & Printing in Madison, Ohio",
     metaDescription:
-      "Professional shipping and printing services serving Madison, Ohio.",
+      "Mailbox Plus is Madison’s trusted resource for shipping, packaging, printing, and mailbox services—delivered with speed and reliability.",
     keywords: "Madison shipping, Madison printing, business services",
     heroTitle: "Serving Madison",
     heroSubtitle: "Comprehensive shipping and business services for Madison.",
@@ -178,7 +178,7 @@ export const serviceAreas: Service[] = [
     city: "Perry",
     pageTitle: "Shipping & Printing in Perry, Ohio",
     metaDescription:
-      "Trusted shipping, printing, and business services for Perry residents.",
+      "From small parcels to business mailings, Mailbox Plus serves Perry with dependable shipping, custom packaging, printing, and business support.",
     keywords: "Perry shipping, Perry printing, business services",
     heroTitle: "Serving Perry",
     heroSubtitle: "Your local partner for shipping and printing needs.",
@@ -202,7 +202,7 @@ export const serviceAreas: Service[] = [
     city: "Kirtland",
     pageTitle: "Shipping & Printing in Kirtland, Ohio",
     metaDescription:
-      "Trusted shipping, printing, and business services for Kirtland residents.",
+      "Mailbox Plus provides Kirtland residents and businesses with reliable shipping, printing, and mailbox services backed by local community commitment.",
     keywords: "Kirtland shipping, Kirtland printing, business services",
     heroTitle: "Serving Kirtland",
     heroSubtitle: "Your local partner for shipping and printing needs.",
@@ -226,7 +226,7 @@ export const serviceAreas: Service[] = [
     city: "Chardon",
     pageTitle: "Shipping & Printing in Chardon, Ohio",
     metaDescription:
-      "Professional shipping and printing services serving Chardon, Ohio.",
+      "From families to small businesses, Mailbox Plus helps Chardon with professional shipping, printing, packaging, and mailbox rental services.",
     keywords: "Chardon shipping, Chardon printing, business services",
     heroTitle: "Serving Chardon",
     heroSubtitle: "Comprehensive shipping and business services for Chardon.",
@@ -250,7 +250,7 @@ export const serviceAreas: Service[] = [
     city: "Fairport Harbor",
     pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
     metaDescription:
-      "Reliable shipping, printing, and mailbox services for Fairport Harbor residents.",
+      "Fairport Harbor residents trust Mailbox Plus for reliable shipping, printing, mailbox rentals, and custom packaging solutions tailored to their needs.",
     keywords: "Fairport Harbor shipping, Fairport Harbor printing, business services",
     heroTitle: "Serving Fairport Harbor",
     heroSubtitle: "Your neighborhood shipping and printing experts.",
@@ -274,7 +274,7 @@ export const serviceAreas: Service[] = [
     city: "Geneva",
     pageTitle: "Shipping & Printing in Geneva, Ohio",
     metaDescription:
-      "Expert shipping, printing, and business services for the Geneva community.",
+      "Mailbox Plus proudly serves Geneva with professional shipping, printing, and mailbox services—supporting local families and businesses every day.",
     keywords: "Geneva shipping, Geneva printing, business services",
     heroTitle: "Serving Geneva",
     heroSubtitle: "Professional services tailored to Geneva residents.",
