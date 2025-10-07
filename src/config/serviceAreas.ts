@@ -185,5 +185,97 @@ export const serviceAreas: Service[] = [
       { title: "Community Commitment", description: "Dedicated to serving Lake County communities" }
     ],
     faqs: []
+  },
+  {
+    id: "kirtland",
+    category: "core",
+    serviceName: "Kirtland Services",
+    slug: "kirtland",
+    pageTitle: "Shipping & Printing in Kirtland, Ohio",
+    metaDescription:
+      "Trusted shipping, printing, and business services for Kirtland residents.",
+    keywords: "Kirtland shipping, Kirtland printing, business services",
+    heroTitle: "Serving Kirtland",
+    heroSubtitle: "Your local partner for shipping and printing needs.",
+    heroImage: "/images/kirtland-hero.jpg",
+    content: [
+      {
+        heading: "Kirtland Community Support",
+        body: "From Kirtland's small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
+      }
+    ],
+    features: [
+      { title: "Community Commitment", description: "Dedicated to serving Lake County communities" }
+    ],
+    faqs: []
+  },
+  {
+    id: "chardon",
+    category: "core",
+    serviceName: "Chardon Services",
+    slug: "chardon",
+    pageTitle: "Shipping & Printing in Chardon, Ohio",
+    metaDescription:
+      "Professional shipping and printing services serving Chardon, Ohio.",
+    keywords: "Chardon shipping, Chardon printing, business services",
+    heroTitle: "Serving Chardon",
+    heroSubtitle: "Comprehensive shipping and business services for Chardon.",
+    heroImage: "/images/chardon-hero.jpg",
+    content: [
+      {
+        heading: "Chardon's Shipping Experts",
+        body: "Chardon businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
+      }
+    ],
+    features: [
+      { title: "Quality Assurance", description: "Insured and secure handling for all shipments" }
+    ],
+    faqs: []
+  },
+  {
+    id: "fairport-harbor",
+    category: "core",
+    serviceName: "Fairport Harbor Services",
+    slug: "fairport-harbor",
+    pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
+    metaDescription:
+      "Reliable shipping, printing, and mailbox services for Fairport Harbor residents.",
+    keywords: "Fairport Harbor shipping, Fairport Harbor printing, business services",
+    heroTitle: "Serving Fairport Harbor",
+    heroSubtitle: "Your neighborhood shipping and printing experts.",
+    heroImage: "/images/fairport-harbor-hero.jpg",
+    content: [
+      {
+        heading: "Fairport Harbor Community Services",
+        body: "Fairport Harbor residents rely on Mailbox Plus for everything from package shipping to business card printing."
+      }
+    ],
+    features: [
+      { title: "Personalized Service", description: "Tailored solutions for Fairport Harbor customers" }
+    ],
+    faqs: []
+  },
+  {
+    id: "geneva",
+    category: "core",
+    serviceName: "Geneva Services",
+    slug: "geneva",
+    pageTitle: "Shipping & Printing in Geneva, Ohio",
+    metaDescription:
+      "Expert shipping, printing, and business services for the Geneva community.",
+    keywords: "Geneva shipping, Geneva printing, business services",
+    heroTitle: "Serving Geneva",
+    heroSubtitle: "Professional services tailored to Geneva residents.",
+    heroImage: "/images/geneva-hero.jpg",
+    content: [
+      {
+        heading: "Geneva Business Support",
+        body: "From bulk mailings to secure shipping, Mailbox Plus helps Geneva businesses thrive with our comprehensive service offerings."
+      }
+    ],
+    features: [
+      { title: "Local Knowledge", description: "Understanding Geneva's unique needs" }
+    ],
+    faqs: []
   }
 ];
