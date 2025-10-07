@@ -1,5 +1,5 @@
 // categories.ts
-import { ServiceCategory } from "./types/services";
+import { ServiceCategory } from "../types/services";
 
 export interface Category {
   id: ServiceCategory;
