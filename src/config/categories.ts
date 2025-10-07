@@ -10,8 +10,8 @@ export interface Category {
 export const categories: Category[] = [
   {
     id: "core",
-    name: "Core Pages",
-    href: "/"
+    name: "Service Areas",
+    href: "/service-areas"
   },
   {
     id: "pack-ship",
