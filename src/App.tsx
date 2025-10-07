@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Core
 import { Home } from "./pages/Home";
@@ -59,6 +60,7 @@ import { ServiceAreaIndex } from "./pages/ServiceAreaIndex";
 const App: React.FC = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Layout>
         <Routes>
         {/* Homepage */}

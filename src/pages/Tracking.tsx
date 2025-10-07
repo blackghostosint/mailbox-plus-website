@@ -1,7 +1,9 @@
 import React, { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
+import { siteConfig } from "../config/siteConfig";
 import { getServiceImageUrl } from "../lib/supabase";
 import { getLocalBusinessSchema, getTrackingSchema } from "../utils/schema";
 
@@ -283,20 +285,24 @@ export const Tracking: React.FC = () => {
             Our team is here to help you every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              className="bg-white text-[#0855B1] hover:bg-gray-50"
-            >
-              Contact Support
-            </Button>
-            <Button
-              size="lg"
-              variant="ghost"
-              className="text-white hover:text-blue-100"
-            >
-              Call (440) 709-1946
-            </Button>
+            <Link to="/contact-us">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="bg-white text-[#0855B1] hover:bg-gray-50"
+              >
+                Contact Support
+              </Button>
+            </Link>
+            <a href={`tel:${siteConfig.contact.phone}`}>
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white hover:text-blue-100"
+              >
+                Call {siteConfig.contact.phone}
+              </Button>
+            </a>
           </div>
         </div>
       </section>

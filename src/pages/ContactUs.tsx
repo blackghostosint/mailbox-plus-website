@@ -45,7 +45,7 @@ export const ContactUs: React.FC = () => {
       icon: MapPin,
       title: 'Address',
       details: `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`,
-      action: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2980.5733485821415!2d-81.246492904701!3d41.66495940464965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8831a36fcfe58175%3A0xcf3db51a7e518d8c!2sMailbox%20Plus!5e0!3m2!1sen!2sus!4v1759196496502!5m2!1sen!2sus',
+      action: `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`,
       actionText: 'Get Directions'
     }
   ];
