@@ -121,34 +121,25 @@ export const ServicePage: React.FC<Service> = (props) => {
         </section>
       )}
 
-      {/* ✅ Features Section */}
+      {/* WHY CHOOSE US SECTION */}
       {features.length > 0 && (
-        <section className="bg-gray-50 py-16 lg:py-24">
-          <div className="max-w-6xl mx-auto px-6">
-            <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-10">
               Why Choose Us
             </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {features.map((f, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition-shadow"
+
+            <div className="flex flex-wrap justify-center gap-6">
+              {features.map((feature, index) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 w-full sm:w-72 text-center"
                 >
-                  {f.icon && (
-                    <div className="w-12 h-12 rounded-xl bg-[#F0F7FF] flex items-center justify-center mb-4">
-                      <f.icon className="w-6 h-6 text-[#0855B1]" />
-                    </div>
-                  )}
                   <h3 className="text-lg font-semibold text-[#111827] mb-2">
-                    {f.title}
+                    {feature.title}
                   </h3>
-                  <p className="text-[#4B5563] leading-relaxed">
-                    {f.description}
-                  </p>
-                </motion.div>
+                  <p className="text-sm text-[#4B5563]">{feature.description}</p>
+                </div>
               ))}
             </div>
           </div>
