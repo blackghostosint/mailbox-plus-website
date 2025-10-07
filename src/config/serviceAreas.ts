@@ -6,6 +6,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Concord Township Services",
     slug: "concord-township",
+    city: "Concord Township",
     pageTitle: "Shipping & Printing in Concord Township, Ohio",
     metaDescription:
       "Mailbox Plus proudly serves Concord Township with reliable shipping, printing, mailbox rentals, and business services.",
@@ -30,6 +31,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Mentor Services",
     slug: "mentor",
+    city: "Mentor",
     pageTitle: "Shipping & Printing in Mentor, Ohio",
     metaDescription:
       "Mailbox Plus offers professional shipping, printing, and mailbox services to the Mentor community.",
@@ -53,6 +55,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Painesville Services",
     slug: "painesville",
+    city: "Painesville",
     pageTitle: "Shipping & Printing in Painesville, Ohio",
     metaDescription:
       "Professional shipping, printing, and business services for Painesville residents and businesses.",
@@ -76,6 +79,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Eastlake Services",
     slug: "eastlake",
+    city: "Eastlake",
     pageTitle: "Shipping & Printing in Eastlake, Ohio",
     metaDescription:
       "Comprehensive shipping, printing, and mailbox services available for Eastlake residents.",
@@ -99,6 +103,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Willoughby Services",
     slug: "willoughby",
+    city: "Willoughby",
     pageTitle: "Shipping & Printing in Willoughby, Ohio",
     metaDescription:
       "Expert shipping, printing, and business services for the Willoughby community.",
@@ -122,6 +127,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Wickliffe Services",
     slug: "wickliffe",
+    city: "Wickliffe",
     pageTitle: "Shipping & Printing in Wickliffe, Ohio",
     metaDescription:
       "Reliable shipping, printing, and mailbox services for Wickliffe residents.",
@@ -145,6 +151,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Madison Services",
     slug: "madison",
+    city: "Madison",
     pageTitle: "Shipping & Printing in Madison, Ohio",
     metaDescription:
       "Professional shipping and printing services serving Madison, Ohio.",
@@ -168,6 +175,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Perry Services",
     slug: "perry",
+    city: "Perry",
     pageTitle: "Shipping & Printing in Perry, Ohio",
     metaDescription:
       "Trusted shipping, printing, and business services for Perry residents.",
@@ -191,6 +199,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Kirtland Services",
     slug: "kirtland",
+    city: "Kirtland",
     pageTitle: "Shipping & Printing in Kirtland, Ohio",
     metaDescription:
       "Trusted shipping, printing, and business services for Kirtland residents.",
@@ -214,6 +223,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Chardon Services",
     slug: "chardon",
+    city: "Chardon",
     pageTitle: "Shipping & Printing in Chardon, Ohio",
     metaDescription:
       "Professional shipping and printing services serving Chardon, Ohio.",
@@ -237,6 +247,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Fairport Harbor Services",
     slug: "fairport-harbor",
+    city: "Fairport Harbor",
     pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
     metaDescription:
       "Reliable shipping, printing, and mailbox services for Fairport Harbor residents.",
@@ -260,6 +271,7 @@ export const serviceAreas: Service[] = [
     category: "core",
     serviceName: "Geneva Services",
     slug: "geneva",
+    city: "Geneva",
     pageTitle: "Shipping & Printing in Geneva, Ohio",
     metaDescription:
       "Expert shipping, printing, and business services for the Geneva community.",

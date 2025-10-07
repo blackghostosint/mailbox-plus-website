@@ -25,6 +25,7 @@ export interface Service {
   category: ServiceCategory;
   serviceName: string;
   slug: string;
+  city: string;
   pageTitle: string;
   metaDescription: string;
   keywords: string;

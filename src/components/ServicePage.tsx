@@ -1,12 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import { Link } from "react-router-dom";
 
 // ✅ Barrel imports
 import { Meta, Breadcrumbs } from "../components";
 import { Service } from "../types/services";
 
-// ✅ Shadcn Accordion
+// ✅ Shadcn UI
+import { Button } from "./ui";
 import {
   Accordion,
   AccordionItem,
@@ -20,6 +22,7 @@ export const ServicePage: React.FC<Service> = (props) => {
     metaDescription,
     keywords,
     // slug, // Removed: not used
+    city,
     heroTitle,
     heroSubtitle,
     heroImage,
@@ -194,14 +197,16 @@ export const ServicePage: React.FC<Service> = (props) => {
       )}
 
       {/* ✅ CTA Section */}
-      {/*
-        Renders a CTA if present on the service, otherwise falls back to the site-wide default.
-        The CTASection component is reusable and consistent across all pages.
-      */}
-      <CTASection cta={props.cta ?? defaultCTA} />
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <Link to="/contact">
+            <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              Visit Us in {city}
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   );
 };
 
-import { CTASection } from "./sections/CTA";
-import { defaultCTA } from "../config/siteConfig";
