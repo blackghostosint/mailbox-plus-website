@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { getLocalBusinessSchema } from '../../utils';
+import { getServiceImageUrl } from '../../lib/supabase';
 
 export const Footer: React.FC = () => {
   const quickLinks = [
@@ -11,6 +12,9 @@ export const Footer: React.FC = () => {
     { name: 'Home & Business', href: '/home-business' },
     { name: 'Digital Fingerprinting', href: '/digital-fingerprinting' }
   ];
+
+  // ✅ Supabase logo URL
+  const logoUrl = getServiceImageUrl('mailbox_plus_logo.jpg');
 
   return (
     <footer className="bg-white border-t border-gray-200">
@@ -31,7 +35,7 @@ export const Footer: React.FC = () => {
           <div className="space-y-4">
             <div className="flex items-center">
               <img 
-                src={siteConfig.logo}
+                src={logoUrl}
                 alt={`${siteConfig.name} Logo`}
                 className="h-20 object-contain"
               />
