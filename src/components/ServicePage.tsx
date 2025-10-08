@@ -4,8 +4,10 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // ✅ Barrel imports
-import { Meta, Breadcrumbs } from "../components";
+import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { Service } from "../types/services";
+import { siteConfig } from "../config/siteConfig";
+import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
 
 // ✅ Shadcn UI
 import { Button } from "./ui";
@@ -21,7 +23,8 @@ export const ServicePage: React.FC<Service> = (props) => {
     pageTitle,
     metaDescription,
     keywords,
-    // slug, // Removed: not used
+    slug,
+    serviceName,
     city,
     heroTitle,
     heroSubtitle,
@@ -45,6 +48,8 @@ export const ServicePage: React.FC<Service> = (props) => {
   // ✅ Flatten FAQs into a single list without category separation
   const groupedFaqs = { All: sortedFaqs };
 
+  const url = `${siteConfig.domain}/${slug}`;
+
   return (
     <div className="bg-white">
       {/* ✅ Metadata */}
@@ -54,6 +59,11 @@ export const ServicePage: React.FC<Service> = (props) => {
         keywords={keywords}
         // slug={slug} // Removed: not a prop of Meta
       />
+
+      {/* ✅ Structured Data */}
+      <JsonLd schema={getWebPageSchema({ name: pageTitle, description: metaDescription, url })} />
+      <JsonLd schema={getServiceSchema({ serviceName, url })} />
+      {faqs?.length ? <JsonLd schema={getFAQSchema(faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
 
       {/* ✅ Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
