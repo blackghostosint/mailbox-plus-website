@@ -277,8 +277,8 @@ export const ContactUs: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <h4 className="font-semibold text-[#111827] mb-3">Getting Here</h4>
                 <p className="text-sm text-[#4B5563] leading-relaxed">
-                  We're conveniently located on Mentor Avenue, just minutes from Route 2. 
-                  Plenty of free parking available. Look for our blue Mailbox Plus sign!
+                  We're conveniently located nextdoor to Pub Frato, just minutes from I-90 and OH-44. 
+                  Plenty of free parking available. Look for our red Mailbox Plus sign!
                 </p>
               </div>
             </motion.div>
