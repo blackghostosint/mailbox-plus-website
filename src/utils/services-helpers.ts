@@ -1,6 +1,6 @@
 import { services } from "../config/services";
-import { categories } from "../config/categories";
-import { Service, ServiceCategory } from "./types/services";
+import { Service, ServiceCategory } from "../types/services";
+import { siteConfig } from "../config/siteConfig";
 
 /**
  * Get all services that belong to a specific category
@@ -49,7 +49,7 @@ export const searchServices = (query: string): Service[] => {
  * Get random services (useful for "related services")
  */
 export const getRandomServices = (count: number, excludeId?: string): Service[] => {
-  let pool = excludeId 
+  const pool = excludeId
     ? services.filter(s => s.id !== excludeId)
     : services;
   return [...pool].sort(() => 0.5 - Math.random()).slice(0, count);
@@ -94,20 +94,33 @@ export const validateService = (service: Service): boolean => {
 };
 
 /**
- * Get breadcrumb items for a service
+ * Returns breadcrumb items for a given service with absolute URLs.
  */
 export const getServiceBreadcrumbs = (
   service: Service,
   baseUrl: string = ""
-): Array<{ name: string; url: string }> => {
-  const category = categories.find(c => c.id === service.category);
+): { name: string; url: string }[] => {
+  const origin = siteConfig.domain.replace(/\/$/, ""); // normalize domain
 
-  return [
-    { name: "Home", url: baseUrl || "/" },
-    { name: "Services", url: `${baseUrl}/services` },
-    ...(category ? [{ name: category.name, url: `${baseUrl}${category.href}` }] : []),
-    { name: service.serviceName, url: `${baseUrl}${service.slug}` }
+  const breadcrumbs: { name: string; url: string }[] = [
+    { name: "Home", url: `${origin}/` },
   ];
+
+  // If a base URL (category like /services) is provided, include it
+  if (baseUrl) {
+    breadcrumbs.push({
+      name: "Services",
+      url: `${origin}${baseUrl.startsWith("/") ? baseUrl : `/${baseUrl}`}`,
+    });
+  }
+
+  // Add the service itself
+  breadcrumbs.push({
+    name: service.pageTitle,
+    url: `${origin}${service.slug.startsWith("/") ? service.slug : `/${service.slug}`}`,
+  });
+
+  return breadcrumbs;
 };
 
 /**
