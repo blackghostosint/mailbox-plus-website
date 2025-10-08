@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Heart, Users, Award, Clock, Package, Shield, Printer, Fingerprint } from "lucide-react";
 import { Meta } from "../components/Meta";
 import { siteConfig } from "../config/siteConfig";
-import { getLocalBusinessSchema, getWebPageSchema, getFAQSchema } from "../utils";
+import { getWebPageSchema, getFAQSchema } from "../utils";
 import { getServiceImageUrl } from "../lib/supabase";
 
 const fadeUp = (delay = 0) => ({
@@ -40,8 +40,6 @@ export const AboutUs: React.FC = () => {
       { name: "About Us", url: `${siteConfig.domain}/about-us` },
     ],
   });
-
-  const localBusinessSchema = getLocalBusinessSchema();
 
   // ✅ Values & Services
   const values = [
@@ -94,7 +92,7 @@ export const AboutUs: React.FC = () => {
         description="Learn about Mailbox Plus — your trusted local pack-and-ship store in Concord Township, Lake County, Ohio. Family-owned, faith-guided, serving neighbors with care."
         keywords="About Mailbox Plus, Concord Township shipping, Lake County pack-and-ship, mailbox rentals, printing, fingerprinting"
         canonical={`${siteConfig.domain}/about-us`}
-        schema={[localBusinessSchema, faqSchema, webPageSchema].filter(Boolean)}
+        schema={[faqSchema, webPageSchema].filter(Boolean)}
       />
 
       {/* Hero */}

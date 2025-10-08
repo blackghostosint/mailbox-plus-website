@@ -5,7 +5,7 @@ import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceImageUrl } from "../lib/supabase";
-import { getLocalBusinessSchema, getTrackingSchema } from "../utils/schema";
+import { getTrackingSchema } from "../utils/schema";
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
@@ -70,11 +70,9 @@ export const Tracking: React.FC = () => {
     }
   };
 
-  // ✅ JSON-LD schema (LocalBusiness + ParcelDelivery)
+  // ✅ JSON-LD schema (ParcelDelivery only, LocalBusiness is global)
   const jsonLd = useMemo(() => {
-    const baseSchema = getLocalBusinessSchema();
-
-    if (!trackingNumber) return [baseSchema];
+    if (!trackingNumber) return [];
 
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
@@ -89,7 +87,7 @@ export const Tracking: React.FC = () => {
       trackingUrl || ""
     );
 
-    return [baseSchema, trackingSchema];
+    return [trackingSchema];
   }, [trackingNumber, selectedCarrier, carriers]);
 
   // ✅ Tracking tips

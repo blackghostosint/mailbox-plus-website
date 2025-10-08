@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
-import { getLocalBusinessSchema } from '../../utils';
 import { getServiceImageUrl } from '../../lib/supabase';
 
 export const Footer: React.FC = () => {
@@ -134,14 +133,6 @@ export const Footer: React.FC = () => {
           </div>
         </div>
       </div>
-
-      {/* Local Business Schema (auto from siteConfig) */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(getLocalBusinessSchema())
-        }}
-      />
     </footer>
   );
 };
