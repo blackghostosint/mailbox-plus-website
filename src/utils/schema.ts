@@ -7,6 +7,8 @@ import type {
   FAQPage,
   Product,
   ParcelDelivery,
+  Offer,
+  AggregateRating,
 } from "schema-dts";
 
 import type { SiteConfig } from "../config/siteConfig";
@@ -237,7 +239,7 @@ export const getServiceSchema = (
   };
 
   if (offers?.length) {
-    schema.offers = offers.map((o) => ({
+    schema.offers = offers.map<Offer>((o) => ({
       "@type": "Offer",
       name: o.name,
       price: o.price,
@@ -268,7 +270,7 @@ export const getServiceSchema = (
       reviewCount: aggregateRating.reviewCount,
       bestRating: 5,
       worstRating: 1,
-    };
+    } as AggregateRating;
   }
 
   return schema;
@@ -323,7 +325,7 @@ export const getProductSchema = (
   ...(brand && { brand: { "@type": "Brand", name: brand } }),
   ...(image && { image }),
   ...(offers?.length && {
-    offers: offers.map((o) => ({
+    offers: offers.map<Offer>((o) => ({
       "@type": "Offer",
       price: o.price,
       priceCurrency: o.currency || "USD",
@@ -338,7 +340,7 @@ export const getProductSchema = (
       reviewCount: aggregateRating.reviewCount,
       bestRating: 5,
       worstRating: 1,
-    },
+    } as AggregateRating,
   }),
 });
 
