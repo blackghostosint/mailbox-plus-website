@@ -1,6 +1,39 @@
 import type { CTA } from "../types/services";
 
-export const siteConfig = {
+export interface SiteConfig {
+  name: string;
+  tagline: string;
+  description: string;
+  domain: string;
+  logo: string;
+  contact: {
+    phone: string;
+    email: string;
+    address: {
+      street: string;
+      city: string;
+      state: string;
+      zip: string;
+      country: string;
+    };
+  };
+  hours: Record<string, string>; // e.g. { monday: "9:00 AM - 6:00 PM", sunday: "Closed" }
+  social?: Record<string, string>; // flexible for Facebook, Instagram, etc.
+  geo?: {
+    lat: number;
+    lng: number;
+  };
+  mapUrl?: string;      // ✅ added for schema.ts
+  areaServed?: string[]; // ✅ added for schema.ts
+  deliveryAddress?: {    // ✅ added for tracking schema
+    "@type": "PostalAddress";
+    addressLocality: string;
+    addressRegion: string;
+    addressCountry: string;
+  };
+}
+
+export const siteConfig: SiteConfig = {
   name: "Mailbox Plus Ohio",
   tagline: "Let Us Handle Your Package!",
   description:
@@ -15,8 +48,8 @@ export const siteConfig = {
       city: "Concord Township",
       state: "OH",
       zip: "44077",
-      country: "US"
-    }
+      country: "US",
+    },
   },
   hours: {
     monday: "9:00 AM - 6:00 PM",
@@ -25,29 +58,34 @@ export const siteConfig = {
     thursday: "9:00 AM - 6:00 PM",
     friday: "9:00 AM - 6:00 PM",
     saturday: "9:00 AM - 2:00 PM",
-    sunday: "Closed"
+    sunday: "Closed",
   },
   social: {
     facebook: "https://www.facebook.com/mailboxplusohio",
     instagram: "https://www.instagram.com/mailboxplusohio",
-    nextdoor: "https://nextdoor.com/pages/mailbox-plus-concord-township-oh"
+    nextdoor: "https://nextdoor.com/pages/mailbox-plus-concord-township-oh",
   },
   geo: {
     lat: 41.664959,
-    lng: -81.246493
+    lng: -81.246493,
   },
 
-  // ✅ Added fields for schema.ts
-  mapUrl: "https://maps.app.goo.gl/Rs1NQkR6gRrtxAq37", // Google Maps share link
-  areaServed: ["Concord Township", "Mentor", "Painesville", "Eastlake", "Lake County"]
+  // ✅ new fields
+  mapUrl: "https://maps.app.goo.gl/Rs1NQkR6gRrtxAq37",
+  areaServed: ["Concord Township", "Mentor", "Painesville", "Eastlake", "Lake County"],
+  deliveryAddress: {
+    "@type": "PostalAddress",
+    addressLocality: "Concord Township",
+    addressRegion: "OH",
+    addressCountry: "US",
+  },
 };
 
-// Default CTA for site-wide fallback
 export const defaultCTA: CTA = {
   title: "Ready to get started?",
   subtitle: "Stop in today or message us—let us handle your package!",
   buttonText: "Visit Us in Concord Township",
   buttonLink: "/contact",
   variant: "brand",
-  align: "center"
+  align: "center",
 };
