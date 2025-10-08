@@ -8,6 +8,7 @@ import type {
   Product,
   ParcelDelivery,
   Offer,
+  ItemAvailability,
   AggregateRating,
   ContactPoint,
   OpeningHoursSpecification,
@@ -217,7 +218,7 @@ export const getServiceSchema = (
   }: {
     serviceName: string;
     url?: string;
-    offers?: { name: string; price: string; currency?: string }[];
+    offers?: { name: string; price: string; currency?: string; availability?: string }[];
     reviews?: {
       author: string;
       datePublished: string;
@@ -249,6 +250,7 @@ export const getServiceSchema = (
       name: o.name,
       price: o.price,
       priceCurrency: o.currency || "USD",
+      availability: (o.availability as ItemAvailability) || "https://schema.org/InStock",
       url: url || getOrigin(config),
     }));
   }
@@ -334,7 +336,7 @@ export const getProductSchema = (
       "@type": "Offer",
       price: o.price,
       priceCurrency: o.currency || "USD",
-      availability: o.availability || "https://schema.org/InStock",
+      availability: (o.availability as ItemAvailability) || "https://schema.org/InStock",
       url: getOrigin(config),
     })),
   }),
