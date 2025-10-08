@@ -13,6 +13,7 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" }) => {
   const items = getServiceBreadcrumbs(service, baseUrl);
+  const origin = siteConfig.domain.replace(/\/$/, "");
 
   return (
     <>
@@ -45,8 +46,8 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
           "@type": "ListItem",
           position: index + 1,
           name: item.name,
-          item: `${siteConfig.domain}${item.url}`,
-          "@id": `${siteConfig.domain}${item.url}#breadcrumb-${index+1}`,
+          item: `${origin}${item.url}`,
+          "@id": `${origin}${item.url}#breadcrumb-${index+1}`,
         })),
       }}
     />
