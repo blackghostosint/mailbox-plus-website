@@ -1,11 +1,9 @@
 import React from 'react';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { JsonLd } from '../JsonLd';
 import { getLocalBusinessSchema, getWebSiteSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
-
-// Utility to safely stringify JSON for <script>
-const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -19,14 +17,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       {/* JSON-LD Schemas */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(localBusinessSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: toJsonLd(webSiteSchema) }}
-      />
+      <JsonLd schema={localBusinessSchema} />
+      <JsonLd schema={webSiteSchema} />
 
       <div className="min-h-screen bg-[#F9FAFB] flex flex-col">
         <Header />
