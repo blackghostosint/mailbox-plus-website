@@ -10,10 +10,10 @@ import type {
 } from "schema-dts";
 
 import type { SiteConfig } from "../config/siteConfig";
-import { siteConfig } from "../config/siteConfig";
+
 
 /** ---------- Small helpers ---------- */
-const origin: string = (siteConfig.domain || "").replace(/\/+$/, "");
+const getOrigin = (config: SiteConfig) => (config.domain || "").replace(/\/+$/, "");
 
 const slugify = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
@@ -83,10 +83,10 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "@id": `${origin}#localbusiness`,
+    "@id": `${getOrigin(config)}#localbusiness`,
     name: config.name,
     image: config.logo,
-    url: origin,
+    url: getOrigin(config),
     telephone: config.contact?.phone,
     priceRange: "$$",
     currenciesAccepted: "USD",
@@ -126,10 +126,10 @@ export const getWebSiteSchema = (
   const schema: WithContext<WebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": `${origin}#website`,
-    url: origin,
+    "@id": `${getOrigin(config)}#website`,
+    url: getOrigin(config),
     name: config.name,
-    publisher: { "@id": `${origin}#localbusiness` },
+    publisher: { "@id": `${getOrigin(config)}#localbusiness` },
     inLanguage: "en-US",
   };
 
@@ -174,10 +174,10 @@ export const getWebPageSchema = (
     description,
     url: pageUrl,
     inLanguage: "en-US",
-    publisher: { "@id": `${origin}#localbusiness` },
+    publisher: { "@id": `${getOrigin(config)}#localbusiness` },
     ...(datePublished && { datePublished }),
     ...(dateModified && { dateModified }),
-    ...(aboutLocalBusiness && { about: { "@id": `${origin}#localbusiness` } }),
+    ...(aboutLocalBusiness && { about: { "@id": `${getOrigin(config)}#localbusiness` } }),
   };
 
   if (breadcrumbItems?.length) {
@@ -223,13 +223,13 @@ export const getServiceSchema = (
     serviceOutput?: string;
   }
 ): WithContext<Service> => {
-  const id = `${origin}#service-${slugify(serviceName)}`;
+  const id = `${getOrigin(config)}#service-${slugify(serviceName)}`;
   const schema: WithContext<Service> = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": id,
     serviceType: serviceName,
-    provider: { "@id": `${origin}#localbusiness` },
+    provider: { "@id": `${getOrigin(config)}#localbusiness` },
     ...(url && { url }),
     ...(areaServed?.length ? { areaServed } : {}),
     ...(category && { category }),
@@ -242,7 +242,7 @@ export const getServiceSchema = (
       name: o.name,
       price: o.price,
       priceCurrency: o.currency || "USD",
-      url: url || origin,
+      url: url || getOrigin(config),
     }));
   }
 
@@ -281,10 +281,10 @@ export const getFAQSchema = (
 ): WithContext<FAQPage> => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "@id": `${origin}#faq`,
+  "@id": `${getOrigin(config)}#faq`,
   mainEntity: faqs.map((faq, i) => ({
     "@type": "Question",
-    "@id": `${origin}#faq-q${i + 1}`,
+    "@id": `${getOrigin(config)}#faq-q${i + 1}`,
     name: faq.question,
     acceptedAnswer: {
       "@type": "Answer",
@@ -316,7 +316,7 @@ export const getProductSchema = (
 ): WithContext<Product> => ({
   "@context": "https://schema.org",
   "@type": "Product",
-  "@id": `${origin}#product-${slugify(name)}`,
+  "@id": `${getOrigin(config)}#product-${slugify(name)}`,
   name,
   description,
   ...(sku && { sku }),
@@ -328,7 +328,7 @@ export const getProductSchema = (
       price: o.price,
       priceCurrency: o.currency || "USD",
       availability: o.availability || "https://schema.org/InStock",
-      url: origin,
+      url: getOrigin(config),
     })),
   }),
   ...(aggregateRating && {
@@ -353,7 +353,7 @@ export const getTrackingSchema = (
   return {
     "@context": "https://schema.org",
     "@type": "ParcelDelivery",
-    "@id": `${origin}#parcel-${trackingNumber}`,
+    "@id": `${getOrigin(config)}#parcel-${trackingNumber}`,
     trackingNumber,
     provider: { "@type": "Organization", name: carrierName },
     trackingUrl,
