@@ -9,13 +9,15 @@ import type {
   ParcelDelivery,
   Offer,
   AggregateRating,
+  ContactPoint,
+  OpeningHoursSpecification,
 } from "schema-dts";
 
 import type { SiteConfig } from "../config/siteConfig";
 
-
 /** ---------- Small helpers ---------- */
-const getOrigin = (config: SiteConfig) => (config.domain || "").replace(/\/+$/, "");
+const getOrigin = (config: SiteConfig) =>
+  (config.domain || "").replace(/\/+$/, "");
 
 const slugify = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
@@ -43,11 +45,9 @@ const toHHMM = (t: string) => {
     let h = parseInt(ampm[1], 10);
     const m = parseInt(ampm[2] || "0", 10);
     const isPM = /pm/i.test(ampm[3]);
-
     if (h === 12) h = isPM ? 12 : 0;
     else if (isPM) h += 12;
-
-    if (h < 0 || h > 23 || m < 0 || m > 59) return t; // guard
+    if (h < 0 || h > 23 || m < 0 || m > 59) return t;
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
   }
 
@@ -59,15 +59,17 @@ const toHHMM = (t: string) => {
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
   }
 
-  return t; // fallback unchanged
+  return t;
 };
 
 /** ---------- LocalBusiness ---------- */
-export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBusiness> => {
+export const getLocalBusinessSchema = (
+  config: SiteConfig
+): WithContext<LocalBusiness> => {
   const socialLinks = Object.values(config.social || {}).filter(Boolean) as string[];
 
-  const openingHoursSpecification =
-    Object.entries(config.hours || {}).flatMap(([day, hours]) => {
+  const openingHoursSpecification = Object.entries(config.hours || {}).flatMap(
+    ([day, hours]) => {
       if (!hours || /closed/i.test(hours)) return [];
       const parts = hours.split(/\s*-\s*/);
       if (parts.length !== 2) return [];
@@ -78,9 +80,10 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
           dayOfWeek: dayName(day),
           opens: toHHMM(opensRaw),
           closes: toHHMM(closesRaw),
-        },
+        } as OpeningHoursSpecification,
       ];
-    });
+    }
+  );
 
   return {
     "@context": "https://schema.org",
@@ -114,13 +117,15 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
       contactType: "customer service",
       areaServed: "US",
       availableLanguage: "English",
-    },
-    ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
+    } as ContactPoint,
+    ...(openingHoursSpecification.length
+      ? { openingHoursSpecification }
+      : {}),
     ...(socialLinks.length ? { sameAs: socialLinks } : {}),
-  };
+  } as WithContext<LocalBusiness>;
 };
 
-/** ---------- WebSite (+ SearchAction for site search) ---------- */
+/** ---------- WebSite ---------- */
 export const getWebSiteSchema = (
   config: SiteConfig,
   searchUrlTemplate?: string
@@ -344,7 +349,7 @@ export const getProductSchema = (
   }),
 });
 
-/** ---------- ParcelDelivery (tracking) ---------- */
+/** ---------- ParcelDelivery ---------- */
 export const getTrackingSchema = (
   config: SiteConfig,
   trackingNumber: string,
@@ -366,5 +371,5 @@ export const getTrackingSchema = (
         addressRegion: "OH",
         addressCountry: "US",
       },
-  };
+  } as WithContext<ParcelDelivery>;
 };
