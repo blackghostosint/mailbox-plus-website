@@ -35,7 +35,11 @@ export const siteConfig = {
   geo: {
     lat: 41.664959,
     lng: -81.246493
-  }
+  },
+
+  // ✅ Added fields for schema.ts
+  mapUrl: "https://maps.app.goo.gl/Rs1NQkR6gRrtxAq37", // Google Maps share link
+  areaServed: ["Concord Township", "Mentor", "Painesville", "Eastlake", "Lake County"]
 };
 
 // Default CTA for site-wide fallback
