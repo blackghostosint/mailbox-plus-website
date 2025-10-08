@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
-import { Service } from "../types/services";
+import { Service } from "../../types/services";
 import { getServiceBreadcrumbs } from "../../utils/services-helpers";
+import { JsonLd } from "../JsonLd";
 
 interface BreadcrumbsProps {
   service: Service;
@@ -13,8 +14,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
   const items = getServiceBreadcrumbs(service, baseUrl);
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-6">
-      <ol className="flex items-center space-x-2 text-sm text-gray-600">
+    <>
+      <nav aria-label="Breadcrumb" className="mb-6">
+      <ol className="flex items-center space-x-2 text-sm text-gray-600 overflow-x-auto">
         {items.map((item, index) => (
           <li key={item.url} className="flex items-center">
             {index > 0 && (
@@ -34,5 +36,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
         ))}
       </ol>
     </nav>
+    <JsonLd
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": items.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          name: item.name,
+          item: item.url,
+        })),
+      }}
+    />
+    </>
   );
 };
