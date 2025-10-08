@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
   ];
 
   // ✅ Supabase logo URL
-  const logoUrl = getServiceImageUrl('mailbox_plus_logo.jpg');
+  const logoUrl = getServiceImageUrl('/images/mailbox_plus_logo.jpg');
 
   return (
     <footer className="bg-white border-t border-gray-200">
