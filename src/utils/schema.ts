@@ -2,6 +2,7 @@ import { siteConfig } from "../config/siteConfig";
 
 /** ---------- Small helpers ---------- */
 const origin = (siteConfig.domain || "").replace(/\/+$/, ""); // remove trailing slash
+
 const slugify = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
 
@@ -22,17 +23,28 @@ const dayName = (d: string) => {
 // Normalize "9:00 AM" / "09:00" to "HH:MM"
 const toHHMM = (t: string) => {
   if (!t) return t;
+
   const ampm = t.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
   if (ampm) {
     let h = parseInt(ampm[1], 10);
     const m = parseInt(ampm[2] || "0", 10);
     const isPM = /pm/i.test(ampm[3]);
+
     if (h === 12) h = isPM ? 12 : 0;
     else if (isPM) h += 12;
+
+    if (h < 0 || h > 23 || m < 0 || m > 59) return t; // guard
     return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
   }
+
   const hhmm = t.trim().match(/^(\d{1,2}):(\d{2})$/);
-  if (hhmm) return `${hhmm[1].padStart(2, "0")}:${hhmm[2]}`;
+  if (hhmm) {
+    const h = parseInt(hhmm[1], 10);
+    const m = parseInt(hhmm[2], 10);
+    if (h < 0 || h > 23 || m < 0 || m > 59) return t;
+    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
+  }
+
   return t; // fallback unchanged
 };
 
@@ -40,11 +52,12 @@ const toHHMM = (t: string) => {
 export const getLocalBusinessSchema = () => {
   const socialLinks = Object.values(siteConfig.social || {}).filter(Boolean) as string[];
 
-  // Expect siteConfig.hours like: { monday: "9:00 AM - 6:00 PM", sunday: "Closed", ... }
   const openingHoursSpecification = Object.entries(siteConfig.hours || {}).flatMap(
     ([day, hours]) => {
-      if (!hours || /closed/i.test(hours)) return []; // omit closed days entirely
-      const [opensRaw, closesRaw] = hours.split(" - ").map(s => s.trim());
+      if (!hours || /closed/i.test(hours)) return [];
+      const parts = hours.split(/\s*-\s*/);
+      if (parts.length !== 2) return []; // skip malformed
+      const [opensRaw, closesRaw] = parts;
       return [
         {
           "@type": "OpeningHoursSpecification",
@@ -60,45 +73,47 @@ export const getLocalBusinessSchema = () => {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${origin}#localbusiness`,
-    name: siteConfig.name,
-    image: siteConfig.logo,
+    name: siteConfig.name || "",
+    image: siteConfig.logo || "",
     url: origin,
-    telephone: siteConfig.contact?.phone,
+    telephone: siteConfig.contact?.phone || "",
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash, Credit Card, Debit Card",
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: siteConfig.contact?.address?.street,
-      addressLocality: siteConfig.contact?.address?.city,
-      addressRegion: siteConfig.contact?.address?.state,
-      postalCode: siteConfig.contact?.address?.zip,
-      addressCountry: siteConfig.contact?.address?.country,
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: siteConfig.geo?.lat,
-      longitude: siteConfig.geo?.lng,
-    },
+    ...(siteConfig.contact?.address && {
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: siteConfig.contact.address.street || "",
+        addressLocality: siteConfig.contact.address.city || "",
+        addressRegion: siteConfig.contact.address.state || "",
+        postalCode: siteConfig.contact.address.zip || "",
+        addressCountry: siteConfig.contact.address.country || "US",
+      },
+    }),
+    ...(siteConfig.geo && {
+      geo: {
+        "@type": "GeoCoordinates",
+        latitude: siteConfig.geo.lat,
+        longitude: siteConfig.geo.lng,
+      },
+    }),
     ...(siteConfig.mapUrl && { hasMap: siteConfig.mapUrl }),
-    areaServed: ["Concord Township", "Mentor", "Painesville", "Lake County"],
+    areaServed: siteConfig.areaServed || ["Concord Township", "Mentor", "Painesville", "Lake County"],
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: siteConfig.contact?.phone,
+      telephone: siteConfig.contact?.phone || "",
       contactType: "customer service",
       areaServed: "US",
       availableLanguage: "English",
     },
-    ...(openingHoursSpecification.length
-      ? { openingHoursSpecification }
-      : {}),
+    ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
     ...(socialLinks.length ? { sameAs: socialLinks } : {}),
   };
 };
 
 /** ---------- WebSite (+ SearchAction for site search) ---------- */
 export const getWebSiteSchema = (searchUrlTemplate?: string) => {
-  const schema: any = {
+  const schema: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${origin}#website`,
@@ -111,10 +126,11 @@ export const getWebSiteSchema = (searchUrlTemplate?: string) => {
   if (searchUrlTemplate) {
     schema.potentialAction = {
       "@type": "SearchAction",
-      target: searchUrlTemplate, // e.g., `${origin}/search?q={search_term_string}`
+      target: searchUrlTemplate,
       "query-input": "required name=search_term_string",
     };
   }
+
   return schema;
 };
 
@@ -126,7 +142,7 @@ export const getWebPageSchema = ({
   breadcrumbItems,
   datePublished,
   dateModified,
-  aboutLocalBusiness = true, // link page to your LocalBusiness by default
+  aboutLocalBusiness = true,
 }: {
   name: string;
   description: string;
@@ -137,7 +153,7 @@ export const getWebPageSchema = ({
   aboutLocalBusiness?: boolean;
 }) => {
   const pageUrl = url.replace(/\/+$/, "");
-  const schema: any = {
+  const schema: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -166,10 +182,10 @@ export const getWebPageSchema = ({
   return schema;
 };
 
-/** ---------- Service (offers/reviews/aggregateRating; optional url/areaServed) ---------- */
+/** ---------- Service ---------- */
 export const getServiceSchema = ({
   serviceName,
-  url, // optional: canonical URL for this service page
+  url,
   offers,
   reviews,
   aggregateRating,
@@ -187,12 +203,12 @@ export const getServiceSchema = ({
     ratingValue: number;
   }[];
   aggregateRating?: { ratingValue: number; reviewCount: number };
-  areaServed?: string[]; // e.g., ["Concord Township", "Mentor"]
-  category?: string;     // e.g., "Printing", "Shipping"
-  serviceOutput?: string; // e.g., "Printed poster", "Shipped parcel"
+  areaServed?: string[];
+  category?: string;
+  serviceOutput?: string;
 }) => {
   const id = `${origin}#service-${slugify(serviceName)}`;
-  const schema: any = {
+  const schema: Record<string, any> = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": id,
@@ -318,7 +334,7 @@ export const getTrackingSchema = (
     trackingNumber,
     provider: { "@type": "Organization", name: carrierName },
     trackingUrl,
-    deliveryAddress: {
+    deliveryAddress: siteConfig.deliveryAddress || {
       "@type": "PostalAddress",
       addressLocality: "Concord Township",
       addressRegion: "OH",
