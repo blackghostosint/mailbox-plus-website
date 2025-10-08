@@ -4,6 +4,7 @@ import { ChevronRight } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceBreadcrumbs } from "../../utils/services-helpers";
 import { JsonLd } from "../JsonLd";
+import { siteConfig } from "../../config/siteConfig";
 
 interface BreadcrumbsProps {
   service: Service;
@@ -30,7 +31,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
                 {item.name}
               </Link>
             ) : (
-              <span className="font-semibold text-[#111827]">{item.name}</span>
+              <span className="font-semibold text-[#111827]" aria-current="page">{item.name}</span>
             )}
           </li>
         ))}
@@ -44,7 +45,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
           "@type": "ListItem",
           position: index + 1,
           name: item.name,
-          item: item.url,
+          item: `${siteConfig.domain}${item.url}`,
         })),
       }}
     />
