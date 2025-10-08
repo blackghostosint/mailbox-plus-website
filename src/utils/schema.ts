@@ -1,7 +1,19 @@
+import type {
+  WithContext,
+  LocalBusiness,
+  WebSite,
+  WebPage,
+  Service,
+  FAQPage,
+  Product,
+  ParcelDelivery,
+} from "schema-dts";
+
+import type { SiteConfig } from "../config/siteConfig";
 import { siteConfig } from "../config/siteConfig";
 
 /** ---------- Small helpers ---------- */
-const origin = (siteConfig.domain || "").replace(/\/+$/, ""); // remove trailing slash
+const origin: string = (siteConfig.domain || "").replace(/\/+$/, "");
 
 const slugify = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
@@ -49,14 +61,14 @@ const toHHMM = (t: string) => {
 };
 
 /** ---------- LocalBusiness ---------- */
-export const getLocalBusinessSchema = () => {
-  const socialLinks = Object.values(siteConfig.social || {}).filter(Boolean) as string[];
+export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBusiness> => {
+  const socialLinks = Object.values(config.social || {}).filter(Boolean) as string[];
 
-  const openingHoursSpecification = Object.entries(siteConfig.hours || {}).flatMap(
-    ([day, hours]) => {
+  const openingHoursSpecification =
+    Object.entries(config.hours || {}).flatMap(([day, hours]) => {
       if (!hours || /closed/i.test(hours)) return [];
       const parts = hours.split(/\s*-\s*/);
-      if (parts.length !== 2) return []; // skip malformed
+      if (parts.length !== 2) return [];
       const [opensRaw, closesRaw] = parts;
       return [
         {
@@ -66,42 +78,37 @@ export const getLocalBusinessSchema = () => {
           closes: toHHMM(closesRaw),
         },
       ];
-    }
-  );
+    });
 
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": `${origin}#localbusiness`,
-    name: siteConfig.name || "",
-    image: siteConfig.logo || "",
+    name: config.name,
+    image: config.logo,
     url: origin,
-    telephone: siteConfig.contact?.phone || "",
+    telephone: config.contact?.phone,
     priceRange: "$$",
     currenciesAccepted: "USD",
     paymentAccepted: "Cash, Credit Card, Debit Card",
-    ...(siteConfig.contact?.address && {
-      address: {
-        "@type": "PostalAddress",
-        streetAddress: siteConfig.contact.address.street || "",
-        addressLocality: siteConfig.contact.address.city || "",
-        addressRegion: siteConfig.contact.address.state || "",
-        postalCode: siteConfig.contact.address.zip || "",
-        addressCountry: siteConfig.contact.address.country || "US",
-      },
-    }),
-    ...(siteConfig.geo && {
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: siteConfig.geo.lat,
-        longitude: siteConfig.geo.lng,
-      },
-    }),
-    ...(siteConfig.mapUrl && { hasMap: siteConfig.mapUrl }),
-    areaServed: siteConfig.areaServed || ["Concord Township", "Mentor", "Painesville", "Lake County"],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: config.contact?.address?.street,
+      addressLocality: config.contact?.address?.city,
+      addressRegion: config.contact?.address?.state,
+      postalCode: config.contact?.address?.zip,
+      addressCountry: config.contact?.address?.country,
+    },
+    geo: config.geo && {
+      "@type": "GeoCoordinates",
+      latitude: config.geo.lat,
+      longitude: config.geo.lng,
+    },
+    ...(config.mapUrl && { hasMap: config.mapUrl }),
+    ...(config.areaServed && { areaServed: config.areaServed }),
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: siteConfig.contact?.phone || "",
+      telephone: config.contact?.phone,
       contactType: "customer service",
       areaServed: "US",
       availableLanguage: "English",
@@ -112,13 +119,16 @@ export const getLocalBusinessSchema = () => {
 };
 
 /** ---------- WebSite (+ SearchAction for site search) ---------- */
-export const getWebSiteSchema = (searchUrlTemplate?: string) => {
-  const schema: Record<string, any> = {
+export const getWebSiteSchema = (
+  config: SiteConfig,
+  searchUrlTemplate?: string
+): WithContext<WebSite> => {
+  const schema: WithContext<WebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${origin}#website`,
     url: origin,
-    name: siteConfig.name,
+    name: config.name,
     publisher: { "@id": `${origin}#localbusiness` },
     inLanguage: "en-US",
   };
@@ -134,26 +144,29 @@ export const getWebSiteSchema = (searchUrlTemplate?: string) => {
   return schema;
 };
 
-/** ---------- WebPage (with optional breadcrumbs & dates) ---------- */
-export const getWebPageSchema = ({
-  name,
-  description,
-  url,
-  breadcrumbItems,
-  datePublished,
-  dateModified,
-  aboutLocalBusiness = true,
-}: {
-  name: string;
-  description: string;
-  url: string;
-  breadcrumbItems?: { name: string; url: string }[];
-  datePublished?: string;
-  dateModified?: string;
-  aboutLocalBusiness?: boolean;
-}) => {
+/** ---------- WebPage ---------- */
+export const getWebPageSchema = (
+  config: SiteConfig,
+  {
+    name,
+    description,
+    url,
+    breadcrumbItems,
+    datePublished,
+    dateModified,
+    aboutLocalBusiness = true,
+  }: {
+    name: string;
+    description: string;
+    url: string;
+    breadcrumbItems?: { name: string; url: string }[];
+    datePublished?: string;
+    dateModified?: string;
+    aboutLocalBusiness?: boolean;
+  }
+): WithContext<WebPage> => {
   const pageUrl = url.replace(/\/+$/, "");
-  const schema: Record<string, any> = {
+  const schema: WithContext<WebPage> = {
     "@context": "https://schema.org",
     "@type": "WebPage",
     "@id": `${pageUrl}#webpage`,
@@ -183,32 +196,35 @@ export const getWebPageSchema = ({
 };
 
 /** ---------- Service ---------- */
-export const getServiceSchema = ({
-  serviceName,
-  url,
-  offers,
-  reviews,
-  aggregateRating,
-  areaServed,
-  category,
-  serviceOutput,
-}: {
-  serviceName: string;
-  url?: string;
-  offers?: { name: string; price: string; currency?: string }[];
-  reviews?: {
-    author: string;
-    datePublished: string;
-    reviewBody: string;
-    ratingValue: number;
-  }[];
-  aggregateRating?: { ratingValue: number; reviewCount: number };
-  areaServed?: string[];
-  category?: string;
-  serviceOutput?: string;
-}) => {
+export const getServiceSchema = (
+  config: SiteConfig,
+  {
+    serviceName,
+    url,
+    offers,
+    reviews,
+    aggregateRating,
+    areaServed,
+    category,
+    serviceOutput,
+  }: {
+    serviceName: string;
+    url?: string;
+    offers?: { name: string; price: string; currency?: string }[];
+    reviews?: {
+      author: string;
+      datePublished: string;
+      reviewBody: string;
+      ratingValue: number;
+    }[];
+    aggregateRating?: { ratingValue: number; reviewCount: number };
+    areaServed?: string[];
+    category?: string;
+    serviceOutput?: string;
+  }
+): WithContext<Service> => {
   const id = `${origin}#service-${slugify(serviceName)}`;
-  const schema: Record<string, any> = {
+  const schema: WithContext<Service> = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": id,
@@ -221,7 +237,7 @@ export const getServiceSchema = ({
   };
 
   if (offers?.length) {
-    schema.offers = offers.map(o => ({
+    schema.offers = offers.map((o) => ({
       "@type": "Offer",
       name: o.name,
       price: o.price,
@@ -231,7 +247,7 @@ export const getServiceSchema = ({
   }
 
   if (reviews?.length) {
-    schema.review = reviews.map(r => ({
+    schema.review = reviews.map((r) => ({
       "@type": "Review",
       author: { "@type": "Person", name: r.author },
       datePublished: r.datePublished,
@@ -259,7 +275,10 @@ export const getServiceSchema = ({
 };
 
 /** ---------- FAQ ---------- */
-export const getFAQSchema = (faqs: { question: string; answer: string }[]) => ({
+export const getFAQSchema = (
+  config: SiteConfig,
+  faqs: { question: string; answer: string }[]
+): WithContext<FAQPage> => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "@id": `${origin}#faq`,
@@ -275,23 +294,26 @@ export const getFAQSchema = (faqs: { question: string; answer: string }[]) => ({
 });
 
 /** ---------- Product ---------- */
-export const getProductSchema = ({
-  name,
-  description,
-  sku,
-  brand,
-  image,
-  offers,
-  aggregateRating,
-}: {
-  name: string;
-  description: string;
-  sku?: string;
-  brand?: string;
-  image?: string | string[];
-  offers?: { price: string; currency?: string; availability?: string }[];
-  aggregateRating?: { ratingValue: number; reviewCount: number };
-}) => ({
+export const getProductSchema = (
+  config: SiteConfig,
+  {
+    name,
+    description,
+    sku,
+    brand,
+    image,
+    offers,
+    aggregateRating,
+  }: {
+    name: string;
+    description: string;
+    sku?: string;
+    brand?: string;
+    image?: string | string[];
+    offers?: { price: string; currency?: string; availability?: string }[];
+    aggregateRating?: { ratingValue: number; reviewCount: number };
+  }
+): WithContext<Product> => ({
   "@context": "https://schema.org",
   "@type": "Product",
   "@id": `${origin}#product-${slugify(name)}`,
@@ -301,7 +323,7 @@ export const getProductSchema = ({
   ...(brand && { brand: { "@type": "Brand", name: brand } }),
   ...(image && { image }),
   ...(offers?.length && {
-    offers: offers.map(o => ({
+    offers: offers.map((o) => ({
       "@type": "Offer",
       price: o.price,
       priceCurrency: o.currency || "USD",
@@ -322,10 +344,11 @@ export const getProductSchema = ({
 
 /** ---------- ParcelDelivery (tracking) ---------- */
 export const getTrackingSchema = (
+  config: SiteConfig,
   trackingNumber: string,
   carrierName: string,
   trackingUrl: string
-) => {
+): WithContext<ParcelDelivery> | null => {
   if (!trackingNumber) return null;
   return {
     "@context": "https://schema.org",
@@ -334,11 +357,12 @@ export const getTrackingSchema = (
     trackingNumber,
     provider: { "@type": "Organization", name: carrierName },
     trackingUrl,
-    deliveryAddress: siteConfig.deliveryAddress || {
-      "@type": "PostalAddress",
-      addressLocality: "Concord Township",
-      addressRegion: "OH",
-      addressCountry: "US",
-    },
+    deliveryAddress:
+      config.deliveryAddress || {
+        "@type": "PostalAddress",
+        addressLocality: "Concord Township",
+        addressRegion: "OH",
+        addressCountry: "US",
+      },
   };
 };
