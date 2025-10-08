@@ -4,6 +4,7 @@ import type {
   WebSite,
   WebPage,
   Service,
+  SearchAction,
   FAQPage,
   Product,
   ParcelDelivery,
@@ -145,8 +146,8 @@ export const getWebSiteSchema = (
     schema.potentialAction = {
       "@type": "SearchAction",
       target: searchUrlTemplate,
-      "query-input": "required name=search_term_string",
-    };
+      queryInput: "required name=search_term_string",
+    } as SearchAction;
   }
 
   return schema;
