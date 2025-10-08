@@ -46,6 +46,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
           position: index + 1,
           name: item.name,
           item: `${siteConfig.domain}${item.url}`,
+          "@id": `${siteConfig.domain}${item.url}#breadcrumb-${index+1}`,
         })),
       }}
     />
