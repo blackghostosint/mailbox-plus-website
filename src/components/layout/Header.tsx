@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
           {/* Logo / Brand Name */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/mailbox_plus_logo.jpg"
+              src="/images/mailbox_plus_logo.jpg"
               alt="Mailbox Plus Concord Township Ohio Logo"
               className="h-12 w-auto object-contain"
             />
