@@ -62,7 +62,7 @@ export const Header: React.FC = () => {
           {/* Logo / Brand Name */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/logo.png"
+              src="/mailbox_plus_logo.jpg"
               alt="Mailbox Plus Concord Township Ohio Logo"
               className="h-12 w-auto object-contain"
             />
@@ -141,7 +141,7 @@ export const Header: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Mailbox Plus",
-            "image": "https://yourdomain.com/logo.png",
+            "image": "https://yourdomain.com/mailbox_plus_logo.jpg",
             "@id": "https://yourdomain.com",
             "url": "https://yourdomain.com",
             "telephone": siteConfig.contact.phone,
