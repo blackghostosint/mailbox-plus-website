@@ -9,10 +9,14 @@ export const getLocalBusinessSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": `${siteConfig.domain}#localbusiness`,
     "name": siteConfig.name,
     "image": siteConfig.logo,
     "url": siteConfig.domain,
     "telephone": siteConfig.contact.phone,
+    "priceRange": "$$",
+    "currenciesAccepted": "USD",
+    "paymentAccepted": "Cash, Credit Card, Debit Card",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": siteConfig.contact.address.street,
@@ -25,6 +29,15 @@ export const getLocalBusinessSchema = () => {
       "@type": "GeoCoordinates",
       "latitude": siteConfig.geo.lat,
       "longitude": siteConfig.geo.lng
+    },
+    "hasMap": siteConfig.mapUrl, // Add Google Maps URL in siteConfig
+    "areaServed": ["Concord Township", "Mentor", "Painesville", "Lake County"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": siteConfig.contact.phone,
+      "contactType": "customer service",
+      "areaServed": "US",
+      "availableLanguage": "English"
     },
     "openingHoursSpecification": Object.entries(siteConfig.hours).map(
       ([day, hours]) => {
@@ -69,8 +82,9 @@ export const getServiceSchema = ({
   const schema: any = {
     "@context": "https://schema.org",
     "@type": "Service",
+    "@id": `${siteConfig.domain}/#service-${serviceName.toLowerCase().replace(/\s+/g, "-")}`,
     "serviceType": serviceName,
-    "provider": getLocalBusinessSchema()
+    "provider": { "@id": `${siteConfig.domain}#localbusiness` }
   };
 
   if (offers) {
@@ -118,6 +132,7 @@ export const getFAQSchema = (
 ) => ({
   "@context": "https://schema.org",
   "@type": "FAQPage",
+  "@id": `${siteConfig.domain}#faq`,
   "mainEntity": faqs.map(faq => ({
     "@type": "Question",
     "name": faq.question,
@@ -136,24 +151,33 @@ export const getWebPageSchema = ({
   description,
   url,
   breadcrumbItems,
+  datePublished,
+  dateModified
 }: {
   name: string;
   description: string;
   url: string;
   breadcrumbItems?: { name: string; url: string }[];
+  datePublished?: string;
+  dateModified?: string;
 }) => {
   const schema: any = {
     "@context": "https://schema.org",
     "@type": "WebPage",
+    "@id": `${url}#webpage`,
     "name": name,
     "description": description,
     "url": url,
+    "inLanguage": "en-US",
     "publisher": {
       "@type": "Organization",
+      "@id": `${siteConfig.domain}#localbusiness`,
       "name": siteConfig.name,
       "url": siteConfig.domain,
       "logo": { "@type": "ImageObject", "url": siteConfig.logo }
-    }
+    },
+    ...(datePublished && { "datePublished": datePublished }),
+    ...(dateModified && { "dateModified": dateModified })
   };
 
   if (breadcrumbItems && breadcrumbItems.length > 0) {
@@ -181,6 +205,7 @@ export const getProductSchema = ({
   brand,
   image,
   offers,
+  aggregateRating
 }: {
   name: string;
   description: string;
@@ -188,9 +213,11 @@ export const getProductSchema = ({
   brand?: string;
   image?: string;
   offers?: { price: string; currency?: string; availability?: string }[];
+  aggregateRating?: { ratingValue: number; reviewCount: number };
 }) => ({
   "@context": "https://schema.org",
   "@type": "Product",
+  "@id": `${siteConfig.domain}/#product-${name.toLowerCase().replace(/\s+/g, "-")}`,
   "name": name,
   "description": description,
   ...(sku && { "sku": sku }),
@@ -203,6 +230,15 @@ export const getProductSchema = ({
       "priceCurrency": o.currency || "USD",
       "availability": o.availability || "https://schema.org/InStock"
     }))
+  }),
+  ...(aggregateRating && {
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": aggregateRating.ratingValue,
+      "reviewCount": aggregateRating.reviewCount,
+      "bestRating": 5,
+      "worstRating": 1
+    }
   })
 });
 
@@ -219,17 +255,18 @@ export const getTrackingSchema = (
   return {
     "@context": "https://schema.org",
     "@type": "ParcelDelivery",
+    "@id": `${siteConfig.domain}/#parcel-${trackingNumber}`,
     "trackingNumber": trackingNumber,
     "provider": {
       "@type": "Organization",
-      "name": carrierName,
+      "name": carrierName
     },
     "trackingUrl": trackingUrl,
     "deliveryAddress": {
       "@type": "PostalAddress",
       "addressLocality": "Concord Township",
       "addressRegion": "OH",
-      "addressCountry": "US",
+      "addressCountry": "US"
     }
   };
 };
