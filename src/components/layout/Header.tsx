@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SearchBox } from '../ui';
+import { getServiceImageUrl } from '../../lib/supabase';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -18,6 +19,9 @@ export const Header: React.FC = () => {
   ];
 
   const isActive = (path: string) => location.pathname === path;
+
+  // ✅ Logo URL via Supabase
+  const logoUrl = getServiceImageUrl('mailbox_plus_logo.jpg');
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -62,7 +66,7 @@ export const Header: React.FC = () => {
           {/* Logo / Brand Name */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src="/images/mailbox_plus_logo.jpg"
+              src={logoUrl}
               alt="Mailbox Plus Concord Township Ohio Logo"
               className="h-12 w-auto object-contain"
             />
@@ -141,9 +145,9 @@ export const Header: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "name": "Mailbox Plus",
-            "image": "https://yourdomain.com/mailbox_plus_logo.jpg",
-            "@id": "https://yourdomain.com",
-            "url": "https://yourdomain.com",
+            "image": logoUrl, // ✅ Use Supabase logo URL
+            "@id": "https://mailboxplusohio.com",
+            "url": "https://mailboxplusohio.com",
             "telephone": siteConfig.contact.phone,
             "address": {
               "@type": "PostalAddress",
