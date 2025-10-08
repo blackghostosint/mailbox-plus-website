@@ -4,7 +4,6 @@ import { ChevronRight } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceBreadcrumbs } from "../../utils/services-helpers";
 import { JsonLd } from "../JsonLd";
-import { siteConfig } from "../../config/siteConfig";
 
 interface BreadcrumbsProps {
   service: Service;
@@ -13,7 +12,6 @@ interface BreadcrumbsProps {
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" }) => {
   const items = getServiceBreadcrumbs(service, baseUrl);
-  const origin = siteConfig.domain.replace(/\/$/, "");
 
   return (
     <>
@@ -61,7 +59,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
         </ol>
       </nav>
 
-      {/* JSON-LD breadcrumbs for Google */}
+      {/* JSON-LD breadcrumbs */}
       <JsonLd
         schema={{
           "@context": "https://schema.org",
@@ -70,8 +68,8 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
             "@type": "ListItem",
             position: index + 1,
             name: item.name,
-            item: `${origin}${item.url}`,
-            "@id": `${origin}${item.url}#breadcrumb-${index + 1}`,
+            item: item.url,
+            "@id": `${item.url}#breadcrumb-${index + 1}`,
           })),
         }}
       />
