@@ -16,9 +16,7 @@ const categoryMap: Record<string, string> = {
   "Professional Printing": "copy-print",
   "Mailbox Rentals": "mailbox-rentals",
   "Document Services": "document-services",
-  "Notary Services": "notary-services",
-  "Digital Fingerprinting": "specialty",
-  "Insurance": "specialty",
+  "Additional Services": "additional-services",
 };
 
 export const Services: React.FC = () => {
@@ -31,9 +29,7 @@ export const Services: React.FC = () => {
     "Professional Printing",
     "Mailbox Rentals",
     "Document Services",
-    "Notary Services",
-    "Digital Fingerprinting",
-    "Insurance",
+    "Additional Services",
   ];
 
   // Rotate the tagline in hero

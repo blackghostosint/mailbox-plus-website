@@ -934,7 +934,7 @@ export const services: Service[] = [
     },
     {
         id: "notary-services",
-        category: "notary-services",
+        category: "additional-services",
         city: "Concord Township",
         serviceName: "Notary Services",
         slug: "/home-business/notary-services",
@@ -967,7 +967,7 @@ export const services: Service[] = [
     // ---------------------------
     {
         id: "digital-fingerprinting",
-        category: "specialty",
+        category: "additional-services",
     city: "Concord Township",
         serviceName: "Digital Fingerprinting",
         slug: "/specialty/digital-fingerprinting",
@@ -996,7 +996,7 @@ export const services: Service[] = [
     },
 {
         id: "insurance",
-        category: "specialty",
+        category: "additional-services",
     city: "Concord Township",
         serviceName: "Shipping Insurance",
         slug: "/specialty/insurance",

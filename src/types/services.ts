@@ -7,6 +7,7 @@ export type ServiceCategory =
   | "copy-print"
   | "mailbox-rentals"
   | "document-services"
+  | "additional-services"
   | "notary-services"
   | "specialty";
 
