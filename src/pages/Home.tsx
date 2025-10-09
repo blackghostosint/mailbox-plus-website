@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
@@ -15,6 +15,8 @@ import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
 
 export const Home: React.FC = () => {
+  console.log('Home.tsx: Home component rendering');
+  const navigate = useNavigate();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
@@ -199,11 +201,12 @@ export const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/services">
-              <Button className="bg-[#0855B1] hover:bg-[#064080] text-white">
-                View Services <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </Link>
+            <Button
+              className="bg-[#0855B1] hover:bg-[#064080] text-white"
+              onClick={() => navigate('/services')}
+            >
+              View Services <ArrowRight className="w-5 h-5 ml-2" />
+            </Button>
             <a
               href={`https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`}
               target="_blank"
@@ -306,15 +309,15 @@ export const Home: React.FC = () => {
               // turn "Concord Township" → "concord-township"
               const slug = area.toLowerCase().replace(/\s+/g, "-");
               return (
-                <Link key={area} to={`/service-area/${slug}`}>
-                  <Button
-                    variant="secondary" // outlined style, or "primary" if you want solid blue
-                    size="sm"
-                    className="!rounded-full"
-                  >
-                    {area}
-                  </Button>
-                </Link>
+                <Button
+                  key={area}
+                  variant="secondary" // outlined style, or "primary" if you want solid blue
+                  size="sm"
+                  className="!rounded-full"
+                  onClick={() => navigate(`/service-area/${slug}`)}
+                >
+                  {area}
+                </Button>
               );
             })}
           </div>

@@ -10,9 +10,10 @@ interface LayoutProps {
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
+  console.log('Layout.tsx: Layout component rendering');
   const origin = (siteConfig.domain || "").replace(/\/+$/, ""); // remove trailing slash
-  const localBusinessSchema = getLocalBusinessSchema();
-  const webSiteSchema = getWebSiteSchema(`${origin}/search?q={search_term_string}`);
+  const localBusinessSchema = getLocalBusinessSchema(siteConfig);
+  const webSiteSchema = getWebSiteSchema(siteConfig, `${origin}/search?q={search_term_string}`);
 
   return (
     <>

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Printer, FileText, Palette, Star, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui';
+import { CTASection } from "../components/sections/CTA";
+import { defaultCTA } from "../config/siteConfig";
 
 export const CopyPrint: React.FC = () => {
   const services = [
@@ -117,7 +119,7 @@ export const CopyPrint: React.FC = () => {
       {/* Features */}
       <section className="py-20 bg-[#F9FAFB]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
@@ -154,7 +156,7 @@ export const CopyPrint: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -170,11 +172,11 @@ export const CopyPrint: React.FC = () => {
                 <p className="text-[#4B5563] mb-6 leading-relaxed">
                   {service.description}
                 </p>
-                <Link to={service.href}>
-                  <Button variant="link" className="text-sm group">
-                    Learn More
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                <Link to={service.href} className="group/link">
+                  <div className="inline-flex items-center gap-2 text-[#0855B1] font-semibold text-sm hover:text-[#064A9B] transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                  </div>
                 </Link>
               </motion.div>
             ))}
@@ -216,6 +218,9 @@ export const CopyPrint: React.FC = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Reusable CTA Section */}
+      <CTASection cta={defaultCTA} className="mb-20" />
     </div>
   );
 };

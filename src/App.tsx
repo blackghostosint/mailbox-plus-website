@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -61,12 +61,21 @@ import { ServiceAreaPage } from "./pages/ServiceAreaPage";
 import { ServiceAreaIndex } from "./pages/ServiceAreaIndex";
 import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
+import { NotFound } from "./pages/NotFound";
+
+const DebugRoutes: React.FC = () => {
+  const location = useLocation();
+  console.log('Current location:', location.pathname);
+  return null;
+};
 
 const App: React.FC = () => {
+  console.log('App.tsx: App component rendering');
   return (
     <Router>
       <ScrollToTop />
       <Layout>
+        <DebugRoutes />
         <Routes>
         {/* Homepage */}
         <Route path="/" element={<Home />} />
@@ -128,6 +137,9 @@ const App: React.FC = () => {
         <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
+
+        {/* Catch-all route for unmatched paths */}
+        <Route path="*" element={<NotFound />} />
         </Routes>
       </Layout>
     </Router>
