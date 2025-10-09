@@ -61,9 +61,9 @@ export const ServicePage: React.FC<Service> = (props) => {
       />
 
       {/* ✅ Structured Data */}
-      <JsonLd schema={getWebPageSchema({ name: pageTitle, description: metaDescription, url })} />
-      <JsonLd schema={getServiceSchema({ serviceName, url })} />
-      {faqs?.length ? <JsonLd schema={getFAQSchema(faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
+      <JsonLd schema={getWebPageSchema(siteConfig, { name: pageTitle, description: metaDescription, url })} />
+      <JsonLd schema={getServiceSchema(siteConfig, { serviceName, url })} />
+      {faqs?.length ? <JsonLd schema={getFAQSchema(siteConfig, faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
 
       {/* ✅ Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
