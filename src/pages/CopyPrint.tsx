@@ -20,12 +20,14 @@ export const CopyPrint: React.FC = () => {
       href: '/copy-print/copying-services',
       icon: '📄'
     },
+    /*
     {
       title: 'Document Finishing',
       description: 'Binding, laminating, and professional document finishing.',
       href: '/copy-print/document-finishing',
       icon: '📚'
     },
+    */
     {
       title: 'Flyers & Brochures',
       description: 'Eye-catching marketing materials for your business.',

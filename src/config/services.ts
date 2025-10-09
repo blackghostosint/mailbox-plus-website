@@ -500,6 +500,7 @@ export const services: Service[] = [
         ],
         faqs: [...generalCopyPrintFaqs, ...flyersBrochuresFaqs]
     },
+    /*
     {
         id: "document-finishing",
         category: "copy-print",
@@ -525,6 +526,7 @@ export const services: Service[] = [
         ],
         faqs: [...generalCopyPrintFaqs, ...documentFinishingFaqs]
     },
+    */
     {
         id: "document-printing",
         category: "copy-print",
