@@ -24,9 +24,19 @@ export const categories: Category[] = [
     href: "/copy-print"
   },
   {
-    id: "home-business",
-    name: "Mailbox & Business",
-    href: "/home-business"
+    id: "mailbox-rentals",
+    name: "Mailbox Rentals",
+    href: "/mailbox-rentals"
+  },
+  {
+    id: "document-services",
+    name: "Document Services",
+    href: "/document-services"
+  },
+  {
+    id: "notary-services",
+    name: "Notary Services",
+    href: "/notary-services"
   },
   {
     id: "specialty",

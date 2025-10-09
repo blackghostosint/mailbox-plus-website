@@ -14,9 +14,9 @@ const makeId = (str: string) =>
 const categoryMap: Record<string, string> = {
   "Pack & Ship Services": "pack-ship",
   "Professional Printing": "copy-print",
-  "Mailbox Rentals": "home-business",
-  "Document Services": "home-business",
-  "Notary Services": "home-business",
+  "Mailbox Rentals": "mailbox-rentals",
+  "Document Services": "document-services",
+  "Notary Services": "notary-services",
   "Digital Fingerprinting": "specialty",
   "Insurance": "specialty",
 };

@@ -5,7 +5,9 @@ export type ServiceCategory =
   | "core"
   | "pack-ship"
   | "copy-print"
-  | "home-business"
+  | "mailbox-rentals"
+  | "document-services"
+  | "notary-services"
   | "specialty";
 
 // CTA type for reusable call-to-action sections

@@ -718,8 +718,8 @@ export const services: Service[] = [
     // ---------------------------
     {
         id: "mailbox-rental",
-        category: "home-business",
-    city: "Concord Township",
+        category: "mailbox-rentals",
+        city: "Concord Township",
         serviceName: "Mailbox Rental",
         slug: "/home-business/mailbox-rental",
         pageTitle: "Mailbox Rental in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -747,8 +747,8 @@ export const services: Service[] = [
     },
     {
         id: "digital-mailbox-rental",
-        category: "home-business",
-    city: "Concord Township",
+        category: "mailbox-rentals",
+        city: "Concord Township",
         serviceName: "Digital Mailbox Rental",
         slug: "/home-business/digital-mailbox-rental",
         pageTitle: "Digital Mailbox Rental in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -772,8 +772,8 @@ export const services: Service[] = [
     },
     {
         id: "every-door-direct-mail",
-        category: "home-business",
-    city: "Concord Township",
+        category: "document-services",
+        city: "Concord Township",
         serviceName: "Every Door Direct Mail (EDDM)",
         slug: "/home-business/every-door-direct-mail",
         pageTitle: "Every Door Direct Mail in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -847,8 +847,8 @@ export const services: Service[] = [
     },
     {
         id: "shredding",
-        category: "home-business",
-    city: "Concord Township",
+        category: "document-services",
+        city: "Concord Township",
         serviceName: "Shredding Services",
         slug: "/home-business/shredding",
         pageTitle: "Document Shredding in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -876,8 +876,8 @@ export const services: Service[] = [
     },
     {
         id: "document-scanning",
-        category: "home-business",
-    city: "Concord Township",
+        category: "document-services",
+        city: "Concord Township",
         serviceName: "Document Scanning",
         slug: "/home-business/document-scanning",
         pageTitle: "Document Scanning in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -905,8 +905,8 @@ export const services: Service[] = [
     },
     {
         id: "fax-services",
-        category: "home-business",
-    city: "Concord Township",
+        category: "document-services",
+        city: "Concord Township",
         serviceName: "Fax Services",
         slug: "/home-business/fax-services",
         pageTitle: "Fax Services in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -934,8 +934,8 @@ export const services: Service[] = [
     },
     {
         id: "notary-services",
-        category: "home-business",
-    city: "Concord Township",
+        category: "notary-services",
+        city: "Concord Township",
         serviceName: "Notary Services",
         slug: "/home-business/notary-services",
         pageTitle: "Notary Public in Concord Township, Lake County, Ohio | Mailbox Plus",
