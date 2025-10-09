@@ -48,6 +48,9 @@ import { NotaryServices } from "./pages/NotaryServices";
 import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
 import { Insurance } from "./pages/Insurance";
 
+// Service Landing Pages
+import { CopyPrint } from "./pages/CopyPrint";
+import { HomeBusiness } from "./pages/HomeBusiness";
 
 // Additional Pages
 import { AboutUs } from "./pages/AboutUs";
@@ -56,6 +59,8 @@ import { Services } from "./pages/Services";
 import { Tracking } from "./pages/Tracking";
 import { ServiceAreaPage } from "./pages/ServiceAreaPage";
 import { ServiceAreaIndex } from "./pages/ServiceAreaIndex";
+import { Privacy } from "./pages/Privacy";
+import { Terms } from "./pages/Terms";
 
 const App: React.FC = () => {
   return (
@@ -65,6 +70,10 @@ const App: React.FC = () => {
         <Routes>
         {/* Homepage */}
         <Route path="/" element={<Home />} />
+
+        {/* Service Landing Pages */}
+        <Route path="/copy-print" element={<CopyPrint />} />
+        <Route path="/home-business" element={<HomeBusiness />} />
 
         {/* Pack & Ship Landing Page */}
         <Route path="/pack-ship" element={<PackShip />} />
@@ -117,6 +126,8 @@ const App: React.FC = () => {
         <Route path="/tracking" element={<Tracking />} />
         <Route path="/service-area" element={<ServiceAreaIndex />} />
         <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
         </Routes>
       </Layout>
     </Router>

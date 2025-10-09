@@ -9,7 +9,7 @@ export const Footer: React.FC = () => {
     { name: 'Pack & Ship', href: '/pack-ship' },
     { name: 'Copy & Print', href: '/copy-print' },
     { name: 'Home & Business', href: '/home-business' },
-    { name: 'Digital Fingerprinting', href: '/digital-fingerprinting' }
+    { name: 'Digital Fingerprinting', href: '/specialty/digital-fingerprinting' }
   ];
 
   // ✅ Supabase logo URL
