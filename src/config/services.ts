@@ -26,12 +26,10 @@ import {
     postageStampsFaqs,
     businessCardsFaqs,
     flyersBrochuresFaqs,
-    documentFinishingFaqs,
     documentPrintingFaqs,
     postersPrintingFaqs,
     graphicDesignFaqs,
     postcardPrintingFaqs,
-    posterBannerPrintingFaqs,
     printDocumentServicesFaqs,
     copiesFaqs,
     mailboxRentalFaqs,
@@ -634,31 +632,6 @@ export const services: Service[] = [
             { icon: Star, title: "Fast Turnaround", description: "Get your postcards quickly." }
         ],
         faqs: [...generalCopyPrintFaqs, ...postcardPrintingFaqs]
-    },
-    {
-        id: "poster-banner-printing",
-        category: "copy-print",
-    city: "Concord Township",
-        serviceName: "Poster & Banner Printing",
-        slug: "/copy-print/poster-banner-printing",
-        pageTitle: "Poster & Banner Printing in Concord Township, Lake County, Ohio | Mailbox Plus",
-        metaDescription: "Large-format poster and banner printing services.",
-        keywords: "poster printing, banner printing, Concord Township, Lake County",
-        heroTitle: "Poster & Banner Printing",
-        heroSubtitle: "Make a big impact with large-format posters and banners.",
-        heroImage: getServiceImageUrl("/images/poster-banner-printing.jpg"),
-        content: [
-            {
-                heading: "Large Format Printing",
-                body: "We provide full-color posters and banners for events, promotions, and more."
-            }
-        ],
-        features: [
-            { icon: Printer, title: "Large-Scale Prints", description: "Custom sizes for any need." },
-            { icon: Layers, title: "Durable Materials", description: "Options for indoor and outdoor use." },
-            { icon: Star, title: "High Quality", description: "Sharp, professional graphics." }
-        ],
-        faqs: [...generalCopyPrintFaqs, ...posterBannerPrintingFaqs]
     },
     {
         id: "print-document-services",

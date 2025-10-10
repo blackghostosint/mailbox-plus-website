@@ -13,6 +13,7 @@ import {
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
+import { Service } from "../types/services";
 
 export const Home: React.FC = () => {
   console.log('Home.tsx: Home component rendering');
@@ -36,7 +37,7 @@ export const Home: React.FC = () => {
     services.find((s) => s.id === "package-drop-offs"),
     services.find((s) => s.id === "business-cards"),
     services.find((s) => s.id === "digital-fingerprinting"),
-  ].filter(Boolean);
+  ].filter((s): s is Service => s !== undefined);
 
   const communityStories = [
     {

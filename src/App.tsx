@@ -28,7 +28,7 @@ import { BusinessCardsPage } from "./pages/BusinessCardsPage";
 import { FlyersBrochures } from "./pages/FlyersBrochures";
 import { PostersPrinting } from "./pages/PostersPrinting";
 import { PostcardPrinting } from "./pages/PostcardPrinting";
-import { PosterBannerPrinting } from "./pages/PosterBannerPrinting";
+// import { PosterBannerPrinting } from "./pages/PosterBannerPrinting";
 import { DocumentPrinting } from "./pages/DocumentPrinting";
 // import { DocumentFinishing } from "./pages/DocumentFinishing";
 import { GraphicDesign } from "./pages/GraphicDesign";
@@ -108,7 +108,7 @@ const App: React.FC = () => {
         <Route path="/copy-print/flyers-brochures" element={<FlyersBrochures />} />
         <Route path="/copy-print/posters-printing" element={<PostersPrinting />} />
         <Route path="/copy-print/postcard-printing" element={<PostcardPrinting />} />
-        <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} />
+        { /* <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} /> */ }
         <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
         <Route path="/copy-print/graphic-design" element={<GraphicDesign />} />
         <Route path="/copy-print/print-document-services" element={<PrintDocumentServices />} />
