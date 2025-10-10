@@ -8,6 +8,7 @@ export const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Pack & Ship', href: '/pack-ship' },
     { name: 'Copy & Print', href: '/copy-print' },
+    { name: 'Shipping Partners', href: '/shipping-partners' },
   ];
 
   // ✅ Supabase logo URL
