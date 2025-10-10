@@ -32,7 +32,6 @@ import { PostcardPrinting } from "./pages/PostcardPrinting";
 import { DocumentPrinting } from "./pages/DocumentPrinting";
 // import { DocumentFinishing } from "./pages/DocumentFinishing";
 import { GraphicDesign } from "./pages/GraphicDesign";
-import { PrintDocumentServices } from "./pages/PrintDocumentServices";
 import { Copies } from "./pages/Copies";
 
 // Home & Business
@@ -111,7 +110,6 @@ const App: React.FC = () => {
         { /* <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} /> */ }
         <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
         <Route path="/copy-print/graphic-design" element={<GraphicDesign />} />
-        <Route path="/copy-print/print-document-services" element={<PrintDocumentServices />} />
         <Route path="/copy-print/copies" element={<Copies />} />
 
         {/* Home & Business */}

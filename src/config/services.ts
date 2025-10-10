@@ -30,7 +30,6 @@ import {
     postersPrintingFaqs,
     graphicDesignFaqs,
     postcardPrintingFaqs,
-    printDocumentServicesFaqs,
     copiesFaqs,
     mailboxRentalFaqs,
     digitalMailboxRentalFaqs,
@@ -632,31 +631,6 @@ export const services: Service[] = [
             { icon: Star, title: "Fast Turnaround", description: "Get your postcards quickly." }
         ],
         faqs: [...generalCopyPrintFaqs, ...postcardPrintingFaqs]
-    },
-    {
-        id: "print-document-services",
-        category: "copy-print",
-    city: "Concord Township",
-        serviceName: "Print Document Services",
-        slug: "/copy-print/print-document-services",
-        pageTitle: "Print Document Services in Concord Township, Lake County, Ohio | Mailbox Plus",
-        metaDescription: "Professional document printing, copying, and finishing services.",
-        keywords: "document services, printing, copying, Concord Township, Lake County",
-        heroTitle: "Print Document Services",
-        heroSubtitle: "Everything you need for printing and finishing your documents.",
-        heroImage: getServiceImageUrl("/images/print-document-services.jpg"),
-        content: [
-            {
-                heading: "One-Stop Printing",
-                body: "From small jobs to bulk runs, we handle all your document service needs."
-            }
-        ],
-        features: [
-            { icon: FileText, title: "Comprehensive Printing", description: "Print resumes, reports, and more." },
-            { icon: ClipboardList, title: "Finishing Options", description: "Binding, laminating, and more." },
-            { icon: Star, title: "Quick Service", description: "Fast turnaround times." }
-        ],
-        faqs: [...generalCopyPrintFaqs, ...printDocumentServicesFaqs]
     },
     {
         id: "copies",

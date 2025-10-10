@@ -6,5 +6,4 @@ export * from "./postersPrintingFaqs";
 export * from "./graphicDesignFaqs";
 export * from "./postcardPrintingFaqs";
 export * from "./posterBannerPrintingFaqs";
-export * from "./printDocumentServicesFaqs";
 export * from "./copiesFaqs";
