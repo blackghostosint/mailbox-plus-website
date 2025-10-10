@@ -584,7 +584,7 @@ export const services: Service[] = [
     },
     {
         id: "graphic-design",
-        category: "copy-print",
+        category: "additional-services",
     city: "Concord Township",
         serviceName: "Graphic Design",
         slug: "/copy-print/graphic-design",
