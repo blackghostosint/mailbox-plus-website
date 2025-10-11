@@ -14,6 +14,7 @@ import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
 import { Service } from "../types/services";
+import { CarrierLogos } from "../components/CarrierLogos";
 
 export const Home: React.FC = () => {
   console.log('Home.tsx: Home component rendering');
@@ -269,32 +270,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Carrier Logos */}
-          <div className="flex items-center justify-center gap-12 mt-10">
-            <img
-              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/fedex-logo.jpg"
-              alt="FedEx"
-              className="h-20 w-auto object-contain drop-shadow-md"
-              loading="lazy"
-            />
-            <img
-              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/ups-logo.jpg"
-              alt="UPS"
-              className="h-20 w-auto object-contain drop-shadow-md"
-              loading="lazy"
-            />
-            <img
-              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/usps-logo.jpg"
-              alt="USPS"
-              className="h-20 w-auto object-contain drop-shadow-md"
-              loading="lazy"
-            />
-            <img
-              src="https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/dhl-logo.jpg"
-              alt="DHL"
-              className="h-20 w-auto object-contain drop-shadow-md"
-              loading="lazy"
-            />
-          </div>
+          <CarrierLogos />
         </div>
       </section>
 
