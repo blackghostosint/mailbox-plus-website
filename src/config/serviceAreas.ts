@@ -14,7 +14,7 @@ id: "concord-township",
   keywords: "Concord Township shipping, Concord Township printing, business services",
   heroTitle: "Serving Concord Township",
   heroSubtitle: "Your local shipping, printing & business service experts.",
-  heroImage: "/images/concord-township-hero.jpg",
+  heroImage: getServiceImageUrl("/images/concord-township.jpg"),
   content: [
     {
       heading: "Trusted by Concord Township",
