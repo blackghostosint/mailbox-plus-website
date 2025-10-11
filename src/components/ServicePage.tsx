@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 // ✅ Barrel imports
 import { Meta, Breadcrumbs, JsonLd } from "../components";
+import { CarrierLogos } from "./CarrierLogos";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
@@ -205,6 +206,8 @@ export const ServicePage: React.FC<Service> = (props) => {
           </div>
         </section>
       )}
+{/* Carrier Logos */}
+<CarrierLogos />
 
       {/* ✅ CTA Section */}
       <section className="py-16 bg-gray-50">
