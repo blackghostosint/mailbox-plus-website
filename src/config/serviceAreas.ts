@@ -1,4 +1,5 @@
 import { Service } from "../types/services";
+import { getServiceImageUrl } from "../lib/supabase";
 
 export const serviceAreas: Service[] = [
   {
@@ -13,7 +14,7 @@ export const serviceAreas: Service[] = [
     keywords: "Concord Township shipping, Concord Township printing, business services",
     heroTitle: "Serving Concord Township",
     heroSubtitle: "Your local shipping, printing & business service experts.",
-    heroImage: "/images/concord-township-hero.jpg",
+    heroImage: getServiceImageUrl("/images/concord-township.jpg"),
     content: [
       {
         heading: "Trusted by Concord Township",
@@ -254,7 +255,7 @@ export const serviceAreas: Service[] = [
     keywords: "Fairport Harbor shipping, Fairport Harbor printing, business services",
     heroTitle: "Serving Fairport Harbor",
     heroSubtitle: "Your neighborhood shipping and printing experts.",
-    heroImage: "/images/fairport-harbor-hero.jpg",
+    heroImage: getServiceImageUrl("/images/Fairport_Harbor.jpg"),
     content: [
       {
         heading: "Fairport Harbor Community Services",
@@ -278,7 +279,7 @@ export const serviceAreas: Service[] = [
     keywords: "Geneva shipping, Geneva printing, business services",
     heroTitle: "Serving Geneva",
     heroSubtitle: "Professional services tailored to Geneva residents.",
-    heroImage: "/images/geneva-hero.jpg",
+    heroImage: getServiceImageUrl("/images/Geneva_Ohio.jpg"),
     content: [
       {
         heading: "Geneva Business Support",
