@@ -32,28 +32,43 @@ id: "concord-township",
     faqs: []
   },
   {
-    id: "mentor",
-    category: "core",
-    serviceName: "Mentor Services",
-    slug: "mentor",
-    city: "Mentor",
-    pageTitle: "Shipping & Printing in Mentor, Ohio",
-    metaDescription:
-      "From bulk mailings to secure package shipping, Mailbox Plus supports Mentor residents and businesses with reliable shipping, printing, and mailbox services.",
-    keywords: "Mentor shipping, Mentor printing, business services",
-    heroTitle: "Serving Mentor",
-    heroSubtitle: "Your trusted partner for shipping & business services.",
-    heroImage: getServiceImageUrl("/images/mentor.jpg"),
-    content: [
-      {
-        heading: "Helping Mentor Businesses Grow",
-        body: "From Every Door Direct Mail campaigns to bulk shipping discounts, Mailbox Plus supports Mentor businesses and residents alike."
-      }
-    ],
-    features: [
-      { title: "Local Expertise", description: "Deep roots in Lake County since 2010" }
-    ],
-    faqs: []
+  id: "mentor",
+  category: "core",
+  serviceName: "Mentor Services",
+  slug: "mentor",
+  city: "Mentor",
+  pageTitle: "Shipping & Printing in Mentor, Ohio",
+  metaDescription:
+    "From bulk mailings to secure package shipping, Mailbox Plus supports Mentor residents and businesses with reliable shipping, printing, and mailbox services.",
+  keywords:
+    "Mentor shipping, Mentor printing, business services, UPS shipping Mentor, FedEx Mentor, DHL Mentor, mailbox rentals Mentor, Headlands Beach shipping, Great Lakes Mall business printing",
+  heroTitle: "Serving Mentor",
+  heroSubtitle: "Your trusted partner for shipping & business services.",
+  heroImage: getServiceImageUrl("/images/mentor.jpg"),
+  content: [
+    {
+      heading: "Helping Mentor Businesses Grow",
+      body: "From Every Door Direct Mail campaigns to bulk shipping discounts, Mailbox Plus supports Mentor businesses and residents alike."
+    },
+    {
+      heading: "Proudly Serving Mentor, Ohio",
+      body: "Nestled along the shores of Lake Erie, Mentor is a city where heritage meets growth — and Mailbox Plus is proud to serve its residents and small-business community. Once known as the 'Rose Capital of the Nation' for its flourishing nurseries, Mentor has grown into a thriving retail and business hub anchored by Mentor Avenue, the Great Lakes Mall, and a vibrant network of local entrepreneurs."
+    },
+    {
+      heading: "A City with Rich History & Natural Beauty",
+      body: "Founded in 1797 as part of the Connecticut Western Reserve, Mentor is home to the James A. Garfield National Historic Site, the preserved home of America’s 20th President. From the peaceful trails of Mentor Marsh to the sandy stretch of Headlands Beach State Park, this city balances natural beauty with economic vitality — and we’re honored to support its momentum."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we help Mentor businesses and families ship, print, and connect with confidence. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or managing professional documents, our team delivers hometown service with national reach. From neighborhoods near Hopkins Road to lakeside homes by Headlands, we make it easy to pack, print, and post — all in one stop."
+    }
+  ],
+  features: [
+    { title: "Local Expertise", description: "Deep roots in Lake County since 2010" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one place" },
+    { title: "Community Focused", description: "Proudly serving Mentor’s growing business community" }
+  ],
+  faqs: []
   },
   {
     id: "painesville",
