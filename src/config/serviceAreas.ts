@@ -87,7 +87,7 @@ export const serviceAreas: Service[] = [
     keywords: "Eastlake shipping, Eastlake printing, business services",
     heroTitle: "Serving Eastlake",
     heroSubtitle: "Your local experts in shipping and business services.",
-    heroImage: "/images/eastlake-hero.jpg",
+    heroImage: getServiceImageUrl("/images/eastlake.jpg"),
     content: [
       {
         heading: "Eastlake's Trusted Partner",
@@ -111,7 +111,7 @@ export const serviceAreas: Service[] = [
     keywords: "Willoughby shipping, Willoughby printing, business services",
     heroTitle: "Serving Willoughby",
     heroSubtitle: "Professional services tailored to Willoughby residents.",
-    heroImage: "/images/willoughby-hero.jpg",
+    heroImage: getServiceImageUrl("/images/willoughby.jpg"),
     content: [
       {
         heading: "Willoughby Business Support",
