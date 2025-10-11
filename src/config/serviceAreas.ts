@@ -135,7 +135,7 @@ export const serviceAreas: Service[] = [
     keywords: "Wickliffe shipping, Wickliffe printing, business services",
     heroTitle: "Serving Wickliffe",
     heroSubtitle: "Your neighborhood shipping and printing experts.",
-    heroImage: "/images/wickliffe-hero.jpg",
+    heroImage: getServiceImageUrl("/images/wickliffe.jpg"),
     content: [
       {
         heading: "Wickliffe Community Services",
@@ -159,7 +159,7 @@ export const serviceAreas: Service[] = [
     keywords: "Madison shipping, Madison printing, business services",
     heroTitle: "Serving Madison",
     heroSubtitle: "Comprehensive shipping and business services for Madison.",
-    heroImage: "/images/madison-hero.jpg",
+    heroImage: getServiceImageUrl("/images/madison.jpg"),
     content: [
       {
         heading: "Madison's Shipping Experts",
@@ -183,7 +183,7 @@ export const serviceAreas: Service[] = [
     keywords: "Perry shipping, Perry printing, business services",
     heroTitle: "Serving Perry",
     heroSubtitle: "Your local partner for shipping and printing needs.",
-    heroImage: "/images/perry-hero.jpg",
+    heroImage: getServiceImageUrl("/images/perry.jpg"),
     content: [
       {
         heading: "Perry Community Support",
@@ -207,7 +207,7 @@ export const serviceAreas: Service[] = [
     keywords: "Kirtland shipping, Kirtland printing, business services",
     heroTitle: "Serving Kirtland",
     heroSubtitle: "Your local partner for shipping and printing needs.",
-    heroImage: "/images/kirtland-hero.jpg",
+    heroImage: getServiceImageUrl("/images/kirtland.webp"),
     content: [
       {
         heading: "Kirtland Community Support",
@@ -231,7 +231,7 @@ export const serviceAreas: Service[] = [
     keywords: "Chardon shipping, Chardon printing, business services",
     heroTitle: "Serving Chardon",
     heroSubtitle: "Comprehensive shipping and business services for Chardon.",
-    heroImage: "/images/chardon-hero.jpg",
+    heroImage: getServiceImageUrl("/images/chardon.jpg"),
     content: [
       {
         heading: "Chardon's Shipping Experts",
