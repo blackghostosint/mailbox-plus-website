@@ -3,28 +3,32 @@ import { getServiceImageUrl } from "../lib/supabase";
 
 export const serviceAreas: Service[] = [
   {
-    id: "concord-township",
-    category: "core",
-    serviceName: "Concord Township Services",
-    slug: "concord-township",
-    city: "Concord Township",
-    pageTitle: "Shipping & Printing in Concord Township, Ohio",
-    metaDescription:
-      "Mailbox Plus proudly serves Concord Township with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location.",
-    keywords: "Concord Township shipping, Concord Township printing, business services",
-    heroTitle: "Serving Concord Township",
-    heroSubtitle: "Your local shipping, printing & business service experts.",
-    heroImage: getServiceImageUrl("/images/concord-township.jpg"),
-    content: [
-      {
-        heading: "Trusted by Concord Township",
-        body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more."
-      }
-    ],
-    features: [
-      { title: "Convenient Location", description: "Next to Pub Frato in Gristmill Village" },
-      { title: "Full Carrier Access", description: "UPS, FedEx, USPS, and DHL available" }
-    ],
+id: "concord-township",
+  category: "core",
+  serviceName: "Concord Township Services",
+  slug: "concord-township",
+  city: "Concord Township",
+  pageTitle: "Shipping & Printing in Concord Township, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Concord Township with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location.",
+  keywords: "Concord Township shipping, Concord Township printing, business services",
+  heroTitle: "Serving Concord Township",
+  heroSubtitle: "Your local shipping, printing & business service experts.",
+  heroImage: "/images/concord-township-hero.jpg",
+  content: [
+    {
+      heading: "Trusted by Concord Township",
+      body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more."
+    },
+    {
+      heading: "A Community with Deep Roots",
+      body: "Rooted in the history of the Connecticut Western Reserve, Concord Township was officially established in 1822 and named in honor of the famed Revolutionary War battle. From its early days as a frontier settlement with an agrarian economy, the township grew and played a part in national history, with local landmarks like its 1798 tavern serving as a vital stop on the Underground Railroad. The development of major transportation routes in the 20th century transformed the landscape, shifting Concord from a quiet farming community into the thriving, modern residential hub it is today. Now a key part of Lake County, Concord Township proudly balances its rich heritage with continued growth and development."
+    }
+  ],
+  features: [
+    { title: "Convenient Location", description: "Next to Pub Frato in Gristmill Village" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS, and DHL available" }
+  ],
     faqs: []
   },
   {
