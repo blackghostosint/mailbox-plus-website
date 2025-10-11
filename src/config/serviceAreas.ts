@@ -39,7 +39,7 @@ export const serviceAreas: Service[] = [
     keywords: "Mentor shipping, Mentor printing, business services",
     heroTitle: "Serving Mentor",
     heroSubtitle: "Your trusted partner for shipping & business services.",
-    heroImage: "/images/mentor-hero.jpg",
+    heroImage: getServiceImageUrl("/images/mentor.jpg"),
     content: [
       {
         heading: "Helping Mentor Businesses Grow",
@@ -63,7 +63,7 @@ export const serviceAreas: Service[] = [
     keywords: "Painesville shipping, Painesville printing, business services",
     heroTitle: "Serving Painesville",
     heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
-    heroImage: "/images/painesville-hero.jpg",
+    heroImage: getServiceImageUrl("/images/painesville.jpg"),
     content: [
       {
         heading: "Supporting Painesville's Needs",
