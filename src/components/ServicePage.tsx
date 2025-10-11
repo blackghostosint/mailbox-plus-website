@@ -4,14 +4,13 @@ import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 // ✅ Barrel imports
-import { Meta, Breadcrumbs, JsonLd } from "../components";
+import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from "../components";
 import { CarrierLogos } from "./CarrierLogos";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
 
 // ✅ Shadcn UI
-import { Button } from "./ui";
 import {
   Accordion,
   AccordionItem,
@@ -213,9 +212,10 @@ export const ServicePage: React.FC<Service> = (props) => {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <Link to="/contact-us">
-            <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
-              Visit Us from {city}
-            </Button>
+            <VisitUsButton
+              defaultCity={city}
+              className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]"
+            />
           </Link>
         </div>
       </section>
