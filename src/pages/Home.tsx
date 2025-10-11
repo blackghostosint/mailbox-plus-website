@@ -6,20 +6,13 @@ import {
   MapPin,
   Phone,
   Clock,
-  Shield,
-  Truck,
-  Users,
 } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
-import { services } from "../config/services";
-import { Service } from "../types/services";
 import { CarrierLogos } from "../components/CarrierLogos";
 
 export const Home: React.FC = () => {
-  console.log('Home.tsx: Home component rendering');
   const navigate = useNavigate();
-  const [currentSlide, setCurrentSlide] = useState(0);
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
 
   const serviceCategories = [
@@ -29,94 +22,6 @@ export const Home: React.FC = () => {
     "Document Services",
     "Notary Services",
     "Digital Fingerprinting",
-  ];
-
-  const featuredServices = [
-    services.find((s) => s.id === "mailbox-rental"),
-    services.find((s) => s.id === "golf-club-shipping"),
-    services.find((s) => s.id === "package-receiving"),
-    services.find((s) => s.id === "package-drop-offs"),
-    services.find((s) => s.id === "business-cards"),
-    services.find((s) => s.id === "digital-fingerprinting"),
-  ].filter((s): s is Service => s !== undefined);
-
-  const communityStories = [
-    {
-      id: 1,
-      title: "Local Artist Ships Nationwide",
-      description:
-        "We helped a Concord Township artist safely ship their artwork collection to a New York gallery opening.",
-      location: "Concord Township",
-      icon: "🎨",
-    },
-    {
-      id: 2,
-      title: "Business Saves on Bulk Mailings",
-      description:
-        "A Mentor small business saved over $200 using our Every Door Direct Mail service to reach local customers.",
-      location: "Mentor",
-      icon: "💼",
-    },
-    {
-      id: 3,
-      title: "Secure Mailbox for Remote Workers",
-      description:
-        "Lake County residents working remotely trust our mailbox service for professional business addresses.",
-      location: "Lake County",
-      icon: "📮",
-    },
-    {
-      id: 4,
-      title: "Tournament-Ready Golf Clubs",
-      description:
-        "We pack and ship golf clubs for Painesville golfers traveling to tournaments across the country.",
-      location: "Painesville",
-      icon: "⛳",
-    },
-  ];
-
-  const carriers = [
-    {
-      name: "FedEx",
-      logo: "https://i.pinimg.com/736x/ca/81/86/ca8186c25901c848871ef27d1e28bb72.jpg",
-    },
-    {
-      name: "UPS",
-      logo: "https://www.citypng.com/public/uploads/preview/ups-black-logo-symbol-icon-hd-png-701751694777657xrnxzhkkat.png",
-    },
-    {
-      name: "USPS",
-      logo: "https://p7.hiclipart.com/preview/644/958/344/united-states-postal-service-mail-logo-united-states.jpg",
-    },
-    {
-      name: "DHL",
-      logo: "https://www.citypng.com/public/uploads/preview/hd-black-dhl-express-company-logo-transparent-background-701751694777679wwnbtwgoa8.png",
-    },
-  ];
-
-  const whyChooseUs = [
-    {
-      icon: Clock,
-      title: "Fast & Reliable Service",
-      description:
-        "Quick turnaround times on all services with multiple speed options",
-    },
-    {
-      icon: Shield,
-      title: "Secure & Insured",
-      description:
-        "Marsh insurance coverage and professional handling for peace of mind",
-    },
-    {
-      icon: Users,
-      title: "Community Focused",
-      description: "Locally owned and operated, serving Lake County since 2010",
-    },
-    {
-      icon: Truck,
-      title: "All Major Carriers",
-      description: "FedEx, UPS, USPS, and DHL all in one convenient location",
-    },
   ];
 
   const localAreas = [
@@ -142,19 +47,6 @@ export const Home: React.FC = () => {
     }, 3000);
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
-
-  const nextStory = () => {
-    setCurrentSlide((prev) => (prev + 1) % communityStories.length);
-  };
-
-  const prevStory = () => {
-    setCurrentSlide(
-      (prev) => (prev - 1 + communityStories.length) % communityStories.length
-    );
-  };
-
-  const packShipService = services.find((s) => s.id === "pack-ship");
-  const topFaqs = packShipService?.faqs?.slice(0, 3) || [];
 
   return (
     <div className="bg-white">
@@ -222,8 +114,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* ... keep the Featured Services, Carriers, Local Areas, FAQs, Community Stories, and Why Choose Us sections the same ... */}
 
       {/* VISIT US SECTION */}
       <section className="py-20 bg-gradient-to-br from-[#0855B1] to-[#064080]">
