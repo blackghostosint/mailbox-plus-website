@@ -19,15 +19,19 @@ export const serviceAreas: Service[] = [
   content: [
     {
       heading: "Trusted by Concord Township",
-      body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more."
+      body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more. Whether you’re sending important documents, creating custom marketing materials, or managing day-to-day business mail, our team makes it easy and reliable."
     },
     {
       heading: "Serving Concord Township, Ohio — A Community with Deep Roots",
-      body: "Rooted in the history of the Connecticut Western Reserve, Concord Township was officially established in 1822 and named in honor of the famed Revolutionary War battle. From its early days as a frontier farming settlement, the township played a role in national history—its 1798 tavern once serving as a stop on the Underground Railroad. As transportation routes developed through the 20th century, Concord evolved from quiet farmland into a thriving residential and commercial hub. Today, it remains a cornerstone of Lake County—balancing small-town heritage with modern growth and community pride."
+      body: "Rooted in the history of the Connecticut Western Reserve, Concord Township was officially established in 1822 and named in honor of the famed Revolutionary War battle. From its early days as a frontier farming settlement, the township played a role in national history—its 1798 tavern once serving as a stop on the Underground Railroad. As transportation routes developed through the 20th century, Concord evolved from quiet farmland into a thriving residential and commercial hub."
+    },
+    {
+      heading: "Where Heritage Meets Growth",
+      body: "Today, Concord Township stands as one of Lake County’s fastest-growing communities, balancing small-town charm with modern amenities. The township’s scenic parks, strong schools, and close-knit neighborhoods make it an ideal place to live and work. With Gristmill Village and nearby Mentor Avenue serving as local business anchors, Concord continues to flourish as both a community and a commerce destination."
     },
     {
       heading: "Your Local Shipping & Printing Partner",
-      body: "At Mailbox Plus, we’re proud to support Concord Township with professional shipping, printing, and business solutions. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or renting a secure mailbox, our Gristmill Village location makes it simple to get expert service close to home."
+      body: "At Mailbox Plus, we’re proud to support Concord Township with professional shipping, printing, and business solutions. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or renting a secure mailbox, our Gristmill Village location—next to Pub Frato—makes it simple to get expert service close to home."
     }
   ],
   features: [
