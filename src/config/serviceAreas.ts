@@ -149,28 +149,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "willoughby",
-    category: "core",
-    serviceName: "Willoughby Services",
-    slug: "willoughby",
-    city: "Willoughby",
-    pageTitle: "Shipping & Printing in Willoughby, Ohio",
-    metaDescription:
-      "Mailbox Plus proudly supports Willoughby with secure shipping, professional packaging, document printing, and mailbox rental services.",
-    keywords: "Willoughby shipping, Willoughby printing, business services",
-    heroTitle: "Serving Willoughby",
-    heroSubtitle: "Professional services tailored to Willoughby residents.",
-    heroImage: getServiceImageUrl("/images/willoughby.jpg"),
-    content: [
-      {
-        heading: "Willoughby Business Support",
-        body: "From bulk mailings to secure shipping, Mailbox Plus helps Willoughby businesses thrive with our comprehensive service offerings."
-      }
-    ],
-    features: [
-      { title: "Local Knowledge", description: "Understanding Willoughby's unique needs" }
-    ],
-    faqs: []
+  id: "willoughby",
+  category: "core",
+  serviceName: "Willoughby Services",
+  slug: "willoughby",
+  city: "Willoughby",
+  pageTitle: "Shipping & Printing in Willoughby, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly supports Willoughby, Ohio with expert shipping, custom packaging, printing, and mailbox rentals. From historic downtown to busy business corridors, we deliver trusted, local solutions.",
+  keywords:
+    "Willoughby shipping, Willoughby printing, mailbox rentals Willoughby, UPS Willoughby, FedEx Willoughby, DHL Willoughby, Lake County business services, downtown Willoughby shipping, Erie Street printing",
+  heroTitle: "Serving Willoughby",
+  heroSubtitle: "Professional services tailored to Willoughby residents.",
+  heroImage: getServiceImageUrl("/images/willoughby.jpg"),
+  content: [
+    {
+      heading: "Willoughby Business Support",
+      body: "From bulk mailings to secure shipping, Mailbox Plus helps Willoughby businesses thrive with our comprehensive service offerings."
+    },
+    {
+      heading: "Proudly Serving Historic Willoughby, Ohio",
+      body: "Founded in 1798, Willoughby is one of the oldest communities in Lake County and the only city in the United States to have belonged to six different counties over its history. Its charming downtown — centered on Erie Street — is home to locally owned restaurants, boutiques, and professional offices that reflect the city’s strong community pride."
+    },
+    {
+      heading: "Where History and Modern Business Meet",
+      body: "Once a key stop along the stagecoach route between Cleveland and the Western Reserve, Willoughby has evolved into a thriving hub for both families and entrepreneurs. With easy access to major highways, excellent schools, and a vibrant arts scene, it remains one of Northeast Ohio’s most desirable places to live and do business."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we’re proud to serve Willoughby residents and businesses with full-service shipping, printing, and mailbox solutions. Whether you need UPS, FedEx, USPS, or DHL shipping, marketing materials for your Erie Street storefront, or professional document services, our team delivers the convenience and care you expect from a trusted local partner."
+    }
+  ],
+  features: [
+    { title: "Local Knowledge", description: "Understanding Willoughby's unique needs" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL in one place" },
+    { title: "Community Commitment", description: "Proudly serving Lake County since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "wickliffe",
