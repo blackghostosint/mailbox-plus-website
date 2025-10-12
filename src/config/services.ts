@@ -261,6 +261,17 @@ Visit us today and experience the convenience of working with a local FedEx part
             {
                 heading: "Flexible Options for Businesses",
                 body: "Ground, Next Day Air, and International services available to meet your business shipping needs."
+            },
+            {
+                heading: "Authorized UPS Shipping Center in Concord Township, Ohio",
+                body: `Mailbox Plus is your trusted <strong>Authorized UPS Shipping Center</strong>—serving Concord Township, Lake County, and nearby communities with reliable packing and shipping solutions. Whether you're sending business documents, heavy packages, or time-sensitive materials, our trained staff ensures your shipment meets <strong>UPS packaging and handling standards</strong> for safety and speed.
+
+We offer a full suite of <strong>UPS services</strong> including <em>UPS Ground, 2nd Day Air, Next Day Air, and International</em> options. Our experts help you choose the best method for your timeline and budget while guaranteeing secure packaging that protects your items in transit. Every box is prepared with professional materials designed to reduce impact, vibration, and compression damage.
+
+As a local business in Gristmill Village, we take pride in providing fast, friendly, and accurate UPS drop-off and shipping assistance. You'll enjoy the convenience of <strong>on-site packing, printed shipping labels, tracking, and optional insurance coverage</strong>—all handled in one stop.
+
+If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an authorized UPS drop-off location in Lake County</em>, visit Mailbox Plus today. We'll handle your package with care, so you can ship with confidence.`,
+                isFullWidth: true
             }
         ],
         features: [
