@@ -620,7 +620,7 @@ If you’re searching for <em>business card printing near Concord Township</em> 
         keywords: "flyers, brochures, printing, concord township",
         heroTitle: "Flyer & Brochure Printing",
         heroSubtitle: "High-quality printed materials for marketing, events, and promotions.",
-        heroImage: getServiceImageUrl("/images/flyers-brochures.jpg"),
+        heroImage: getServiceImageUrl("/images/flyers_brochures.jpg"),
         content: [
             {
                 heading: "Promote Your Business",
