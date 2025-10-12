@@ -383,28 +383,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "fairport-harbor",
-    category: "core",
-    serviceName: "Fairport Harbor Services",
-    slug: "fairport-harbor",
-    city: "Fairport Harbor",
-    pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
-    metaDescription:
-      "Fairport Harbor residents trust Mailbox Plus for reliable shipping, printing, mailbox rentals, and custom packaging solutions tailored to their needs.",
-    keywords: "Fairport Harbor shipping, Fairport Harbor printing, business services",
-    heroTitle: "Serving Fairport Harbor",
-    heroSubtitle: "Your neighborhood shipping and printing experts.",
-    heroImage: getServiceImageUrl("/images/Fairport_Harbor.jpg"),
-    content: [
-      {
-        heading: "Fairport Harbor Community Services",
-        body: "Fairport Harbor residents rely on Mailbox Plus for everything from package shipping to business card printing."
-      }
-    ],
-    features: [
-      { title: "Personalized Service", description: "Tailored solutions for Fairport Harbor customers" }
-    ],
-    faqs: []
+  id: "fairport-harbor",
+  category: "core",
+  serviceName: "Fairport Harbor Services",
+  slug: "fairport-harbor",
+  city: "Fairport Harbor",
+  pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Fairport Harbor, Ohio, with reliable shipping, printing, and mailbox services. From lakefront residents to local businesses, we deliver friendly, dependable service rooted in community care.",
+  keywords:
+    "Fairport Harbor shipping, Fairport Harbor printing, mailbox rentals Fairport Harbor, UPS Fairport Harbor, FedEx Fairport Harbor, DHL Fairport Harbor, Lake County business services, Lake Erie shipping, Fairport Lighthouse, Grand River packaging",
+  heroTitle: "Serving Fairport Harbor",
+  heroSubtitle: "Your neighborhood shipping and printing experts.",
+  heroImage: getServiceImageUrl("/images/Fairport_Harbor.jpg"),
+  content: [
+    {
+      heading: "Fairport Harbor Community Services",
+      body: "Fairport Harbor residents rely on Mailbox Plus for everything from package shipping to business card printing."
+    },
+    {
+      heading: "Serving Fairport Harbor, Ohio — A Historic Lakefront Village",
+      body: "Founded in 1812 at the mouth of the Grand River, Fairport Harbor is one of Lake County’s most scenic and historic waterfront communities. Known for its maritime heritage, iconic lighthouse, and Finnish cultural roots, this close-knit village blends lakefront beauty with small-town hospitality."
+    },
+    {
+      heading: "A Waterfront Community with Strong Traditions",
+      body: "Home to landmarks like the **Fairport Harbor Marine Museum and Lighthouse**, **Headlands Dunes State Nature Preserve**, and a bustling marina district, Fairport Harbor attracts visitors and families year-round. Its walkable downtown, community festivals, and lake access make it a local gem along the Lake Erie shoreline."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we’re proud to serve Fairport Harbor’s residents, artists, and small-business owners with dependable shipping, printing, and mailbox services. Whether you’re mailing lakefront art, shipping local goods, or managing business correspondence, our nearby Concord Township location provides fast, friendly service with trusted carrier options including UPS, FedEx, USPS, and DHL."
+    }
+  ],
+  features: [
+    { title: "Personalized Service", description: "Tailored solutions for Fairport Harbor customers" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
+    { title: "Rooted in Community", description: "Proudly serving Fairport Harbor and Lake County since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "geneva",
