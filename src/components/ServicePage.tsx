@@ -115,20 +115,33 @@ export const ServicePage: React.FC<Service> = (props) => {
         <section className="bg-white py-16 lg:py-24">
           <div className="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-8">
             {content.map((block, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-[#F9FAFB] rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow"
-              >
-                {/* Removed icon rendering: content blocks do not have icon */}
-                <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
-                  {block.heading}
-                </h2>
-                <p className="text-gray-700 leading-relaxed">{block.body}</p>
-              </motion.div>
+              block.isFullWidth ? (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
+                  viewport={{ once: true }}
+                  className="md:col-span-2 bg-white p-8 border border-gray-200 rounded-2xl shadow-sm"
+                >
+                  <h2 className="text-2xl font-bold text-[#0855B1] mb-4">{block.heading}</h2>
+                  <p className="text-gray-700 leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: block.body }}></p>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-[#F9FAFB] rounded-2xl border border-gray-200 p-6 shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
+                    {block.heading}
+                  </h2>
+                  <p className="text-gray-700 leading-relaxed">{block.body}</p>
+                </motion.div>
+              )
             ))}
           </div>
         </section>
