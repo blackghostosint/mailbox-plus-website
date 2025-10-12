@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { siteConfig } from "../config/siteConfig";
 
 interface MetaProps {
   title: string;
@@ -12,7 +13,6 @@ interface MetaProps {
   geoPlacename?: string;
   geoPosition?: string;
   icbm?: string;
-  favicon?: string;
   themeColor?: string;
 }
 
@@ -27,7 +27,6 @@ export const Meta: React.FC<MetaProps> = ({
   geoPlacename,
   geoPosition,
   icbm,
-  favicon,
   themeColor
 }) => {
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
@@ -59,7 +58,11 @@ export const Meta: React.FC<MetaProps> = ({
       {icbm && <meta name="ICBM" content={icbm} />}
 
       {/* Favicons / theme color */}
-      {favicon && <link rel="icon" href={favicon} />}
+      <link rel="icon" type="image/png" sizes="32x32" href={siteConfig.favicon.icon32} />
+      <link rel="icon" type="image/png" sizes="16x16" href={siteConfig.favicon.icon16} />
+      <link rel="apple-touch-icon" sizes="180x180" href={siteConfig.favicon.appleTouch} />
+      <link rel="icon" type="image/png" sizes="192x192" href={siteConfig.favicon.android192} />
+      <link rel="icon" type="image/png" sizes="512x512" href={siteConfig.favicon.android512} />
       {themeColor && <meta name="theme-color" content={themeColor} />}
 
       {/* JSON-LD Structured Data */}

@@ -6,6 +6,14 @@ export interface SiteConfig {
   description: string;
   domain: string;
   logo: string;
+  favicon: {
+    default: string;
+    appleTouch: string;
+    android192: string;
+    android512: string;
+    icon16: string;
+    icon32: string;
+  };
   contact: {
     phone: string;
     email: string;
@@ -40,6 +48,14 @@ export const siteConfig: SiteConfig = {
     "Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.",
   domain: "https://mailboxplusohio.com",
   logo: "/mailbox_plus_logo.jpg",
+  favicon: {
+    default: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-32x32.png",
+    appleTouch: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/apple-touch-icon.png",
+    android192: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/android-chrome-192x192.png",
+    android512: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/android-chrome-512x512.png",
+    icon16: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-16x16.png",
+    icon32: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-32x32.png",
+  },
   contact: {
     phone: "440-709-1946",
     email: "help@mailboxplusohio.com",
