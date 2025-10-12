@@ -71,28 +71,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "painesville",
-    category: "core",
-    serviceName: "Painesville Services",
-    slug: "painesville",
-    city: "Painesville",
-    pageTitle: "Shipping & Printing in Painesville, Ohio",
-    metaDescription:
-      "Mailbox Plus provides Painesville with trusted shipping, printing, mailbox rentals, and business services designed for families and local companies.",
-    keywords: "Painesville shipping, Painesville printing, business services",
-    heroTitle: "Serving Painesville",
-    heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
-    heroImage: getServiceImageUrl("/images/painesville.jpg"),
-    content: [
-      {
-        heading: "Supporting Painesville's Needs",
-        body: "From golf club shipping to document services, Mailbox Plus is your go-to for all shipping and business needs in Painesville."
-      }
-    ],
-    features: [
-      { title: "Community Focused", description: "Serving Lake County since 2010" }
-    ],
-    faqs: []
+  id: "painesville",
+  category: "core",
+  serviceName: "Painesville Services",
+  slug: "painesville",
+  city: "Painesville",
+  pageTitle: "Shipping & Printing in Painesville, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Painesville, Ohio, with expert shipping, printing, and mailbox rental services. From courthouse professionals to Lake Erie families, we deliver trusted business solutions rooted in local care.",
+  keywords:
+    "Painesville shipping, Painesville printing, mailbox rentals Painesville, UPS Painesville, FedEx Painesville, DHL Painesville, Lake County business services, downtown Painesville shipping, Lake Erie printing",
+  heroTitle: "Serving Painesville",
+  heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
+  heroImage: getServiceImageUrl("/images/painesville.jpg"),
+  content: [
+    {
+      heading: "Supporting Painesville's Needs",
+      body: "From golf club shipping to document services, Mailbox Plus is your go-to for all shipping and business needs in Painesville."
+    },
+    {
+      heading: "Proudly Serving Historic Painesville, Ohio",
+      body: "Founded in 1805 along the banks of the Grand River, Painesville has long served as the civic and cultural heart of Lake County. As the county seat, it’s home to the historic Lake County Courthouse Square and some of Ohio’s finest examples of early architecture and community planning."
+    },
+    {
+      heading: "A Community with Character & Connection",
+      body: "Painesville’s charm lies in its mix of history and progress — from the stately homes along Washington Street to the growing retail and industrial parks near Richmond Street. The city is also home to Lake Erie College, one of Ohio’s oldest independent institutions, which continues to anchor education and innovation in the region."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we help Painesville residents and businesses ship, print, and connect with confidence. Whether you’re sending parcels through UPS, FedEx, USPS, or DHL, producing marketing materials, or managing sensitive legal documents, our team offers personal service with professional precision — all from our nearby Concord Township location."
+    }
+  ],
+  features: [
+    { title: "Community Focused", description: "Serving Lake County since 2010" },
+    { title: "All Major Carriers", description: "UPS, FedEx, USPS & DHL access in one stop" },
+    { title: "Trusted by Local Professionals", description: "Supporting Lake County offices, schools, and small businesses" }
+  ],
+  faqs: []
   },
   {
     id: "eastlake",
