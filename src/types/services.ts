@@ -42,6 +42,7 @@ export interface Service {
   content?: Array<{
     heading: string;
     body: string;
+    isFullWidth?: boolean;
   }>;
 
   features?: Array<{

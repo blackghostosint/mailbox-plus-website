@@ -99,6 +99,15 @@ export const services: Service[] = [
             {
                 heading: "Trusted by Collectors & Galleries",
                 body: "Our team regularly works with private collectors, galleries, and artists to ensure their valuable items are packed and shipped with the highest standards."
+            },
+            {
+                heading: "Professional Artwork Shipping in Concord Township, Ohio",
+                body: `At Mailbox Plus, we specialize in the careful, professional packing and shipping of fine artwork throughout Concord Township, Lake County, and beyond. Whether you're an artist, collector, or gallery owner, our team provides white-glove service using archival-grade materials, custom-fit crates, and shock-resistant packaging. Each shipment is designed to protect the integrity of your art—from oil paintings and framed prints to sculptures and antiques—during domestic and international transport.
+
+Our shipping experts coordinate with trusted carriers including FedEx, UPS, DHL, and USPS, ensuring your art arrives safely and on time. We also offer specialized insurance coverage for high-value pieces, so you can ship with confidence. As part of the local art community, we understand the value of craftsmanship, preservation, and presentation—and treat every item with the care it deserves.
+
+If you're searching for <strong>artwork shipping near Concord Township</strong>, or need <strong>professional fine art packing in Lake County</strong>, visit us today or schedule a free consultation. We'll handle every detail—so your masterpiece arrives ready to impress.`,
+                isFullWidth: true
             }
         ],
         features: [
@@ -131,11 +140,20 @@ export const services: Service[] = [
         content: [
             {
                 heading: "Shipping Bikes Made Simple",
-                body: "Whether you’re a cycling enthusiast or sending a bike to a loved one, we take care of the entire process from packing to shipping."
+                body: "Whether you're a cycling enthusiast or sending a bike to a loved one, we take care of the entire process from packing to shipping."
             },
             {
                 heading: "E-Bike & Specialty Handling",
                 body: "We can accommodate e-bikes and specialty bikes with safe packaging and compliance for battery shipments."
+            },
+            {
+                heading: "Bicycle Shipping Experts in Concord Township, Ohio",
+                body: `At Mailbox Plus, we make shipping your bicycle simple, safe, and stress-free. Whether you're sending your road bike across the country for a race, shipping an e-bike to a new owner, or returning a mountain bike from repair, our expert team handles every detail with care. We use high-quality bike boxes, protective foam, and frame stabilizers to ensure your ride arrives in perfect condition.
+
+We ship through trusted carriers including UPS, FedEx, DHL, and USPS, giving you the best balance of speed and value. You can even track your shipment every step of the way. Need help packing? Our team can disassemble handlebars, pedals, and accessories, then reassemble your bike's packaging for a professional fit that meets carrier standards.
+
+As your local bicycle shipping partner in Concord Township and Lake County, we're proud to help cyclists, clubs, and shops move bikes safely nationwide. If you're searching for <strong>"bike shipping near Concord Township"</strong> or <strong>"ship my bicycle in Lake County"</strong>, visit Mailbox Plus today — we'll handle the packing, labeling, and shipping, so you can focus on the ride ahead.`,
+                isFullWidth: true
             }
         ],
         features: [
