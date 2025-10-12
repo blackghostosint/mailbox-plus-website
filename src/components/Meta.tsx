@@ -8,6 +8,12 @@ interface MetaProps {
   canonical?: string;
   schema?: object | object[];
   ogImage?: string;
+  geoRegion?: string;
+  geoPlacename?: string;
+  geoPosition?: string;
+  icbm?: string;
+  favicon?: string;
+  themeColor?: string;
 }
 
 export const Meta: React.FC<MetaProps> = ({
@@ -16,7 +22,13 @@ export const Meta: React.FC<MetaProps> = ({
   keywords,
   canonical,
   schema,
-  ogImage
+  ogImage,
+  geoRegion,
+  geoPlacename,
+  geoPosition,
+  icbm,
+  favicon,
+  themeColor
 }) => {
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
@@ -39,6 +51,16 @@ export const Meta: React.FC<MetaProps> = ({
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+      {/* Geo & Locale meta for local SEO */}
+      {geoRegion && <meta name="geo.region" content={geoRegion} />}
+      {geoPlacename && <meta name="geo.placename" content={geoPlacename} />}
+      {geoPosition && <meta name="geo.position" content={geoPosition} />}
+      {icbm && <meta name="ICBM" content={icbm} />}
+
+      {/* Favicons / theme color */}
+      {favicon && <link rel="icon" href={favicon} />}
+      {themeColor && <meta name="theme-color" content={themeColor} />}
 
       {/* JSON-LD Structured Data */}
       {schemas.map((s, i) => (
