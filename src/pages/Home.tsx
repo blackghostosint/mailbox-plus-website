@@ -10,6 +10,7 @@ import {
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { CarrierLogos } from "../components/CarrierLogos";
+import { getGoogleMapsLink } from "../utils/location";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -109,7 +110,7 @@ export const Home: React.FC = () => {
               View Services <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`}
+              href={getGoogleMapsLink()}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -139,7 +140,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {/* Directions Button */}
             <a
-              href={`https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`}
+              href={getGoogleMapsLink()}
               target="_blank"
               rel="noopener noreferrer"
             >

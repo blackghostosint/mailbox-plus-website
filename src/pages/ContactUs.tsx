@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
+import { getGoogleMapsLink } from '../utils/location';
 
 export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ export const ContactUs: React.FC = () => {
       icon: MapPin,
       title: 'Address',
       details: `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`,
-      action: `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`,
+      action: getGoogleMapsLink(),
       actionText: 'Get Directions'
     }
   ];
