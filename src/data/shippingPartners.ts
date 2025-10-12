@@ -8,19 +8,29 @@ export interface ShippingPartner {
 
 export const shippingPartners: ShippingPartner[] = [
   {
-    name: "Acme Packaging Solutions",
-    logoUrl: "/images/partners/acme.png",
-    website: "https://www.acmepackaging.com",
+    name: "Oscar Giovanni Salon & Spa",
+    logoUrl: "/images/Oscar_Giovanni_Salon.jpg",
+    website: "https://oscargiovannisalon.com/",
   },
   {
-    name: "Bluebird Crafts",
-    logoUrl: "/images/partners/bluebird.png",
-    website: "https://www.bluebirdcrafts.com",
+    name: "Pub Frato",
+    logoUrl: "/images/Pub-Frato.jpg",
+    website: "https://pubfrato.com/concord/",
   },
   {
-    name: "Hudson Outdoor Gear",
-    logoUrl: "/images/partners/hudson.png",
-    website: "https://www.hudsonoutdoor.com",
+    name: "Sunny Street Cafe",
+    logoUrl: "/images/sunny_street.jpg",
+    website: "https://sunnystreetconcord.hrpos.heartland.us/menu",
+  },
+  {
+    name: "First Federal Lakewood - Concord",
+    logoUrl: "/images/first-federal-lakewood.jpg",
+    website: "https://www.ffl.bank/",
+  },
+  {
+    name: "Sophia Boutique",
+    logoUrl: "/images/sophia_boutique.webp",
+    website: "https://www.sophia.boutique/",
   },
   // Add more partners as needed
 ];
