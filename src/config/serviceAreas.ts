@@ -227,28 +227,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "madison",
-    category: "core",
-    serviceName: "Madison Services",
-    slug: "madison",
-    city: "Madison",
-    pageTitle: "Shipping & Printing in Madison, Ohio",
-    metaDescription:
-      "Mailbox Plus is Madison’s trusted resource for shipping, packaging, printing, and mailbox services—delivered with speed and reliability.",
-    keywords: "Madison shipping, Madison printing, business services",
-    heroTitle: "Serving Madison",
-    heroSubtitle: "Comprehensive shipping and business services for Madison.",
-    heroImage: getServiceImageUrl("/images/madison.jpg"),
-    content: [
-      {
-        heading: "Madison's Shipping Experts",
-        body: "Madison businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
-      }
-    ],
-    features: [
-      { title: "Quality Assurance", description: "Insured and secure handling for all shipments" }
-    ],
-    faqs: []
+  id: "madison",
+  category: "core",
+  serviceName: "Madison Services",
+  slug: "madison",
+  city: "Madison",
+  pageTitle: "Shipping & Printing in Madison, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Madison, Ohio, with professional shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver trusted, local solutions with speed and reliability.",
+  keywords:
+    "Madison shipping, Madison printing, mailbox rentals Madison, UPS Madison, FedEx Madison, DHL Madison, Lake County business services, Grand River shipping, Route 20 printing",
+  heroTitle: "Serving Madison",
+  heroSubtitle: "Comprehensive shipping and business services for Madison.",
+  heroImage: getServiceImageUrl("/images/madison.jpg"),
+  content: [
+    {
+      heading: "Madison's Shipping Experts",
+      body: "Madison businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
+    },
+    {
+      heading: "Serving Madison, Ohio — A Community Built on Tradition",
+      body: "Founded in 1811 and rich with agricultural heritage, Madison Township has grown from fertile farmland into one of Lake County’s most vibrant residential and business communities. With its blend of rural charm and modern convenience, Madison offers an inviting mix of wineries, parks, and small businesses that form the backbone of local life."
+    },
+    {
+      heading: "A Destination for Growth and Connection",
+      body: "From scenic vineyards along Vrooman Road to the beautiful shores of Lake Erie at Madison Township Park, the area continues to thrive as a welcoming destination for both families and entrepreneurs. With easy access via I-90 and Route 20, Madison connects residents to Cleveland, Erie, and the entire Western Reserve region — all while keeping its small-town heart."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we proudly serve the Madison community with fast, dependable services — from UPS, FedEx, USPS, and DHL shipping to professional printing, packaging, and mailbox rentals. Whether you're shipping wine bottles from a local vineyard, mailing marketing materials for your business, or sending care packages to family, we make it simple, secure, and stress-free."
+    }
+  ],
+  features: [
+    { title: "Quality Assurance", description: "Insured and secure handling for all shipments" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
+    { title: "Local Commitment", description: "Proudly serving Madison and Lake County since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "perry",
