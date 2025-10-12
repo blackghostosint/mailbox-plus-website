@@ -266,28 +266,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "perry",
-    category: "core",
-    serviceName: "Perry Services",
-    slug: "perry",
-    city: "Perry",
-    pageTitle: "Shipping & Printing in Perry, Ohio",
-    metaDescription:
-      "From small parcels to business mailings, Mailbox Plus serves Perry with dependable shipping, custom packaging, printing, and business support.",
-    keywords: "Perry shipping, Perry printing, business services",
-    heroTitle: "Serving Perry",
-    heroSubtitle: "Your local partner for shipping and printing needs.",
-    heroImage: getServiceImageUrl("/images/perry.jpg"),
-    content: [
-      {
-        heading: "Perry Community Support",
-        body: "From Perry's small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
-      }
-    ],
-    features: [
-      { title: "Community Commitment", description: "Dedicated to serving Lake County communities" }
-    ],
-    faqs: []
+  id: "perry",
+  category: "core",
+  serviceName: "Perry Services",
+  slug: "perry",
+  city: "Perry",
+  pageTitle: "Shipping & Printing in Perry, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Perry, Ohio, with reliable shipping, packaging, and printing services. From local farms to families and small businesses, we deliver trusted solutions with hometown care.",
+  keywords:
+    "Perry shipping, Perry printing, mailbox rentals Perry, UPS Perry, FedEx Perry, DHL Perry, Lake County business services, Perry Township shipping, North Perry printing, Lake Erie packaging",
+  heroTitle: "Serving Perry",
+  heroSubtitle: "Your local partner for shipping and printing needs.",
+  heroImage: getServiceImageUrl("/images/perry.jpg"),
+  content: [
+    {
+      heading: "Perry Community Support",
+      body: "From Perry’s small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
+    },
+    {
+      heading: "Serving Perry, Ohio — A Community with Deep Roots",
+      body: "Settled in the early 1800s, Perry Township is a proud Lake County community known for its fertile farmland, family-owned vineyards, and strong local traditions. With a perfect blend of rural charm and modern opportunity, Perry continues to grow while preserving the values that define its heritage."
+    },
+    {
+      heading: "A Lakeside Community Built for Business",
+      body: "Perry’s proximity to Lake Erie and easy access to Route 20 and I-90 make it a convenient home for residents and small enterprises alike. The area’s mix of agriculture, light industry, and family businesses gives Perry a balanced economy and a welcoming, community-focused spirit."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we proudly support Perry residents and business owners with dependable shipping, professional printing, and mailbox rental services. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, mailing farm documents, or designing marketing materials for your business, our nearby Concord Township location makes it easy to get the job done right — with friendly, reliable service every time."
+    }
+  ],
+  features: [
+    { title: "Community Commitment", description: "Dedicated to serving Lake County communities" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
+    { title: "Trusted Local Partner", description: "Supporting Perry residents and small businesses since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "kirtland",
