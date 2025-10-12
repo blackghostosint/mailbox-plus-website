@@ -110,28 +110,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "eastlake",
-    category: "core",
-    serviceName: "Eastlake Services",
-    slug: "eastlake",
-    city: "Eastlake",
-    pageTitle: "Shipping & Printing in Eastlake, Ohio",
-    metaDescription:
-      "Eastlake residents count on Mailbox Plus for affordable shipping, custom boxes, printing, and mailbox solutions—backed by fast, friendly service.",
-    keywords: "Eastlake shipping, Eastlake printing, business services",
-    heroTitle: "Serving Eastlake",
-    heroSubtitle: "Your local experts in shipping and business services.",
-    heroImage: getServiceImageUrl("/images/eastlake.jpg"),
-    content: [
-      {
-        heading: "Eastlake's Trusted Partner",
-        body: "Eastlake families and businesses trust Mailbox Plus for secure shipping, professional printing, and reliable mailbox rentals."
-      }
-    ],
-    features: [
-      { title: "Convenient Access", description: "Easy access from Eastlake to our Concord Township location" }
-    ],
-    faqs: []
+  id: "eastlake",
+  category: "core",
+  serviceName: "Eastlake Services",
+  slug: "eastlake",
+  city: "Eastlake",
+  pageTitle: "Shipping & Printing in Eastlake, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Eastlake, Ohio with dependable shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver fast, friendly solutions you can trust.",
+  keywords:
+    "Eastlake shipping, Eastlake printing, mailbox rentals Eastlake, UPS Eastlake, FedEx Eastlake, DHL Eastlake, Lake County business services, Chagrin River shipping, Lake Erie printing",
+  heroTitle: "Serving Eastlake",
+  heroSubtitle: "Your local experts in shipping and business services.",
+  heroImage: getServiceImageUrl("/images/eastlake.jpg"),
+  content: [
+    {
+      heading: "Eastlake's Trusted Partner",
+      body: "Eastlake families and businesses trust Mailbox Plus for secure shipping, professional printing, and reliable mailbox rentals."
+    },
+    {
+      heading: "Serving Eastlake, Ohio — Where the River Meets the Lake",
+      body: "Located along the mouth of the Chagrin River, Eastlake is a community deeply connected to its Lake Erie shoreline and hardworking roots. Incorporated in 1948, Eastlake grew from a quiet lakeside neighborhood into a vibrant city known for its parks, marinas, and family-friendly atmosphere."
+    },
+    {
+      heading: "A Community of Innovation and Spirit",
+      body: "Eastlake is home to iconic local landmarks like Classic Park — home of the Lake County Captains baseball team — and a rich industrial history tied to the Cleveland Electric Illuminating Company’s Eastlake Power Plant. Today, the city continues to thrive with growing residential areas, thriving small businesses, and easy access to Cleveland via Route 2 and I-90."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we help Eastlake residents and business owners ship, print, and connect with confidence. From packing artwork or golf clubs to designing flyers, postcards, and banners, our team combines local service with national carrier access — including UPS, FedEx, USPS, and DHL. Just a short drive from Eastlake, we’re proud to serve our Lake County neighbors with the care they deserve."
+    }
+  ],
+  features: [
+    { title: "Convenient Access", description: "Easy access from Eastlake to our Concord Township location" },
+    { title: "Full Carrier Options", description: "UPS, FedEx, USPS & DHL available for all your shipping needs" },
+    { title: "Community Focused", description: "Supporting Lake County’s local families and small businesses since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "willoughby",
