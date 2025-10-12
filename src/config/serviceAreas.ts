@@ -3,15 +3,16 @@ import { getServiceImageUrl } from "../lib/supabase";
 
 export const serviceAreas: Service[] = [
   {
-id: "concord-township",
+  id: "concord-township",
   category: "core",
   serviceName: "Concord Township Services",
   slug: "concord-township",
   city: "Concord Township",
   pageTitle: "Shipping & Printing in Concord Township, Ohio",
   metaDescription:
-    "Mailbox Plus proudly serves Concord Township with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location.",
-  keywords: "Concord Township shipping, Concord Township printing, business services",
+    "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location. Trusted by local families and small businesses since 2010.",
+  keywords:
+    "Concord Township shipping, Concord Township printing, mailbox rentals Concord Township, UPS Concord Township, FedEx Concord Township, DHL Concord Township, Lake County business services, Gristmill Village shipping, Concord printing",
   heroTitle: "Serving Concord Township",
   heroSubtitle: "Your local shipping, printing & business service experts.",
   heroImage: getServiceImageUrl("/images/concord-township.jpg"),
@@ -21,15 +22,20 @@ id: "concord-township",
       body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more."
     },
     {
-      heading: "A Community with Deep Roots",
-      body: "Rooted in the history of the Connecticut Western Reserve, Concord Township was officially established in 1822 and named in honor of the famed Revolutionary War battle. From its early days as a frontier settlement with an agrarian economy, the township grew and played a part in national history, with local landmarks like its 1798 tavern serving as a vital stop on the Underground Railroad. The development of major transportation routes in the 20th century transformed the landscape, shifting Concord from a quiet farming community into the thriving, modern residential hub it is today. Now a key part of Lake County, Concord Township proudly balances its rich heritage with continued growth and development."
+      heading: "Serving Concord Township, Ohio — A Community with Deep Roots",
+      body: "Rooted in the history of the Connecticut Western Reserve, Concord Township was officially established in 1822 and named in honor of the famed Revolutionary War battle. From its early days as a frontier farming settlement, the township played a role in national history—its 1798 tavern once serving as a stop on the Underground Railroad. As transportation routes developed through the 20th century, Concord evolved from quiet farmland into a thriving residential and commercial hub. Today, it remains a cornerstone of Lake County—balancing small-town heritage with modern growth and community pride."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we’re proud to support Concord Township with professional shipping, printing, and business solutions. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or renting a secure mailbox, our Gristmill Village location makes it simple to get expert service close to home."
     }
   ],
   features: [
     { title: "Convenient Location", description: "Next to Pub Frato in Gristmill Village" },
-    { title: "Full Carrier Access", description: "UPS, FedEx, USPS, and DHL available" }
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
+    { title: "Community Focused", description: "Proudly serving Concord Township and Lake County since 2010" }
   ],
-    faqs: []
+  faqs: []
   },
   {
   id: "mentor",
