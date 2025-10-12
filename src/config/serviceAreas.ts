@@ -344,28 +344,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "chardon",
-    category: "core",
-    serviceName: "Chardon Services",
-    slug: "chardon",
-    city: "Chardon",
-    pageTitle: "Shipping & Printing in Chardon, Ohio",
-    metaDescription:
-      "From families to small businesses, Mailbox Plus helps Chardon with professional shipping, printing, packaging, and mailbox rental services.",
-    keywords: "Chardon shipping, Chardon printing, business services",
-    heroTitle: "Serving Chardon",
-    heroSubtitle: "Comprehensive shipping and business services for Chardon.",
-    heroImage: getServiceImageUrl("/images/chardon.jpg"),
-    content: [
-      {
-        heading: "Chardon's Shipping Experts",
-        body: "Chardon businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
-      }
-    ],
-    features: [
-      { title: "Quality Assurance", description: "Insured and secure handling for all shipments" }
-    ],
-    faqs: []
+  id: "chardon",
+  category: "core",
+  serviceName: "Chardon Services",
+  slug: "chardon",
+  city: "Chardon",
+  pageTitle: "Shipping & Printing in Chardon, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Chardon, Ohio, with professional shipping, printing, and mailbox services. From historic downtown businesses to local families, we deliver fast, friendly, and reliable solutions year-round.",
+  keywords:
+    "Chardon shipping, Chardon printing, mailbox rentals Chardon, UPS Chardon, FedEx Chardon, DHL Chardon, Geauga County business services, Chardon Square, snowbelt shipping, Chardon packaging",
+  heroTitle: "Serving Chardon",
+  heroSubtitle: "Comprehensive shipping and business services for Chardon.",
+  heroImage: getServiceImageUrl("/images/chardon.jpg"),
+  content: [
+    {
+      heading: "Chardon's Shipping Experts",
+      body: "Chardon businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
+    },
+    {
+      heading: "Serving Chardon, Ohio — The Heart of the Snowbelt",
+      body: "Founded in 1812, Chardon stands proudly atop Ohio’s snowbelt as the highest-elevation city in Northeast Ohio. Known for its historic square, charming shops, and welcoming community, Chardon offers a perfect balance of small-town tradition and modern business energy."
+    },
+    {
+      heading: "A City Rooted in History and Community",
+      body: "As the seat of Geauga County, Chardon’s heritage runs deep — from its early days as a frontier town to its role today as a hub for local entrepreneurship and regional events like the annual Maple Festival. With scenic parks, strong schools, and a thriving downtown, Chardon continues to attract families and small businesses alike."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we proudly support Chardon residents, professionals, and small businesses with secure shipping, expert packaging, and professional printing services. Whether you’re mailing documents, shipping snow gear, or sending custom marketing materials, our nearby Concord Township location makes it easy to get dependable, friendly service every time."
+    }
+  ],
+  features: [
+    { title: "Quality Assurance", description: "Insured and secure handling for all shipments" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
+    { title: "Community Connection", description: "Supporting Chardon and Geauga County since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "fairport-harbor",
