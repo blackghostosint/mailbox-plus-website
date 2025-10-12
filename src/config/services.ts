@@ -447,11 +447,24 @@ If you're looking for <em>package drop-off near Concord Township</em> or need <e
         content: [
             {
                 heading: "Made-to-Fit Packaging",
-                body: "Some items just don’t fit in standard boxes. We build custom solutions to fit your shipment perfectly."
+                body: "Some items just don't fit in standard boxes. We build custom solutions to fit your shipment perfectly."
             },
             {
                 heading: "Protect Your Items",
                 body: "Custom packaging ensures your items are secure during shipping."
+            },
+            {
+                heading: "Custom Box Making Services in Concord Township, Ohio",
+                body: `At Mailbox Plus, we specialize in <strong>custom box design and fabrication</strong>—perfect for safely shipping items that don't fit standard packaging sizes. From artwork and antiques to oversized products and fragile collectibles, our experts create made-to-measure boxes that ensure your shipment is <strong>secure, professional, and carrier-compliant</strong>.
+
+Each box is designed for your item's exact dimensions and shipping method, using high-quality corrugated materials for maximum protection. We also offer <strong>foam inserts, double-wall boxes, and reinforced corners</strong> to keep even the most delicate pieces safe during transit.
+
+For customers who prefer a hands-on approach, we've developed an <strong>online custom box calculator</strong> available at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" style="color: #2DA0ED; font-weight: bold;">https://boxsize.cc/</a>. This free tool allows you to <em>design, measure, and visualize your own box layout at home</em> before bringing it in for professional assembly or packing assistance.
+
+Whether you're a small business shipping products or an individual preparing a one-of-a-kind item, Mailbox Plus offers <strong>custom box solutions built for precision and protection</strong>.
+
+If you're searching for <em>custom box making near Concord Township</em> or need <em>custom packaging in Lake County, Ohio</em>, visit Mailbox Plus today. We'll help you pack it right—the first time.`,
+                isFullWidth: true
             }
         ],
         features: [
