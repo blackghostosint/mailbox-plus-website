@@ -221,6 +221,17 @@ As your local shipping partner, we understand how important your clubs are. We o
             {
                 heading: "Flexible Shipping Options",
                 body: "Choose from FedEx Express, Ground, and International services depending on your delivery timeline and budget."
+            },
+            {
+                heading: "Your Trusted FedEx Shipping Partner in Concord Township, Ohio",
+                body: `At Mailbox Plus, we’re proud to be your local <strong>Authorized FedEx Shipping Center</strong>—serving Concord Township, Lake County, and surrounding communities. Whether you’re sending important business documents, e-commerce packages, or personal gifts, our team ensures your shipment is packed, labeled, and processed according to FedEx’s professional standards.
+
+We offer the full range of <strong>FedEx Express, Ground, and International</strong> services to meet your needs. From overnight document delivery to secure international shipping, our experts can help you choose the best option for your destination, timeline, and budget. Every package is packed with care using high-quality materials that protect against vibration, compression, and handling stress.
+
+As part of our commitment to exceptional service, we provide <strong>real-time tracking, shipment insurance, and on-site packing assistance</strong>—so you can ship with confidence. Whether you’re searching for <em>FedEx drop-off near Concord Township</em> or need <em>FedEx printing and shipping services in Lake County</em>, Mailbox Plus makes the process fast, easy, and reliable.
+
+Visit us today and experience the convenience of working with a local FedEx partner that truly cares about your packages—and your peace of mind.`,
+                isFullWidth: true
             }
         ],
         features: [
