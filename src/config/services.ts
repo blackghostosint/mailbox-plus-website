@@ -879,6 +879,21 @@ If you're looking for <em>packaging supplies near Concord Township</em> or need 
             {
                 heading: "Safe & Secure",
                 body: "We accept packages from all carriers and keep them safe until you pick them up."
+            },
+            {
+                heading: "Convenient & Affordable",
+                body: "For occasional deliveries, we offer a straightforward $10.00 per package setup, or choose our UNLIMITED Package Receiving Plan for just $30.00 per month—perfect for individuals and small businesses that receive regular shipments."
+            },
+            {
+                heading: "Secure Package Receiving Services in Concord Township, Ohio",
+                body: `Mailbox Plus provides reliable and secure <strong>package receiving services</strong> for residents, small businesses, and travelers throughout Concord Township and Lake County. If you need a safe place to receive deliveries when you’re not home or want to protect your packages from theft, our service makes it simple to <strong>receive, hold, and pick up shipments safely and on your schedule</strong>.
+
+We accept deliveries from all major carriers—<strong>UPS, FedEx, USPS, and DHL</strong>—and sign for them on your behalf. Every package is logged, stored in a secure area, and ready for pickup at your convenience. For occasional deliveries, we offer a straightforward <strong>$10.00 per package setup</strong>, or choose our <strong>UNLIMITED Package Receiving Plan for just $30.00 per month</strong>—a perfect solution for individuals and small businesses that receive regular shipments.
+
+This service is also an excellent way to <strong>protect against the growing porch pirate theft problem</strong> affecting neighborhoods across Ohio and the rest of the United States. By having your packages delivered directly to Mailbox Plus, you ensure that your items are <strong>kept safe, secure, and out of sight</strong> until you’re ready to pick them up.
+
+Our customers receive <strong>real-time delivery notifications</strong> and personalized assistance from our friendly local team. Whether you’re searching for <em>package receiving near Concord Township</em> or need <em>secure delivery holding in Lake County, Ohio</em>, Mailbox Plus offers affordable, flexible solutions designed to keep your deliveries safe and your peace of mind intact.`,
+                isFullWidth: true
             }
         ],
         features: [
