@@ -42,8 +42,8 @@ export const siteConfig: SiteConfig = {
     nextdoor: "https://nextdoor.com/pages/mailbox-plus-concord-township-oh",
   },
   geo: {
-    lat: 41.664959,
-    lng: -81.246493,
+    lat: 41.66497,
+    lng: -81.24164,
   },
 
   // ✅ new fields
