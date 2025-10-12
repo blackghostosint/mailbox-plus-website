@@ -14,6 +14,7 @@ interface MetaProps {
   geoPosition?: string;
   icbm?: string;
   themeColor?: string;
+  robots?: string;
 }
 
 export const Meta: React.FC<MetaProps> = ({
@@ -27,7 +28,8 @@ export const Meta: React.FC<MetaProps> = ({
   geoPlacename,
   geoPosition,
   icbm,
-  themeColor
+  themeColor,
+  robots = "index, follow"
 }) => {
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
 
@@ -35,6 +37,7 @@ export const Meta: React.FC<MetaProps> = ({
     <Helmet>
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content={robots} />
       {keywords && <meta name="keywords" content={keywords} />}
       {canonical && <link rel="canonical" href={canonical} />}
 
