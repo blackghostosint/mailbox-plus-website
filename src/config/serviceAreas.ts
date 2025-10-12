@@ -188,28 +188,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "wickliffe",
-    category: "core",
-    serviceName: "Wickliffe Services",
-    slug: "wickliffe",
-    city: "Wickliffe",
-    pageTitle: "Shipping & Printing in Wickliffe, Ohio",
-    metaDescription:
-      "From shipping and printing to mailbox rentals, Mailbox Plus serves Wickliffe families and businesses with professional, community-focused service.",
-    keywords: "Wickliffe shipping, Wickliffe printing, business services",
-    heroTitle: "Serving Wickliffe",
-    heroSubtitle: "Your neighborhood shipping and printing experts.",
-    heroImage: getServiceImageUrl("/images/wickliffe.jpg"),
-    content: [
-      {
-        heading: "Wickliffe Community Services",
-        body: "Wickliffe residents rely on Mailbox Plus for everything from package shipping to business card printing."
-      }
-    ],
-    features: [
-      { title: "Personalized Service", description: "Tailored solutions for Wickliffe customers" }
-    ],
-    faqs: []
+  id: "wickliffe",
+  category: "core",
+  serviceName: "Wickliffe Services",
+  slug: "wickliffe",
+  city: "Wickliffe",
+  pageTitle: "Shipping & Printing in Wickliffe, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Wickliffe, Ohio, with professional shipping, printing, and mailbox services. From local businesses to Lake County families, we deliver friendly, reliable solutions built on community trust.",
+  keywords:
+    "Wickliffe shipping, Wickliffe printing, mailbox rentals Wickliffe, UPS Wickliffe, FedEx Wickliffe, DHL Wickliffe, Lake County business services, Worden Road shipping, Lakeland Boulevard printing",
+  heroTitle: "Serving Wickliffe",
+  heroSubtitle: "Your neighborhood shipping and printing experts.",
+  heroImage: getServiceImageUrl("/images/wickliffe.jpg"),
+  content: [
+    {
+      heading: "Wickliffe Community Services",
+      body: "Wickliffe residents rely on Mailbox Plus for everything from package shipping to business card printing."
+    },
+    {
+      heading: "Serving Wickliffe, Ohio — A City with Proud Roots",
+      body: "Situated along the western edge of Lake County, Wickliffe is a close-knit community known for its strong neighborhoods, excellent schools, and convenient access to Cleveland’s east side. Originally part of the early settlements of the Western Reserve, Wickliffe grew rapidly in the mid-20th century as families sought a suburban lifestyle near Lake Erie."
+    },
+    {
+      heading: "A Community of Tradition and Growth",
+      body: "Wickliffe is home to historic landmarks like the **Tudor-style Coulby Mansion**, now serving as City Hall, and the **Our Lady of Mount Carmel Festival**, one of Northeast Ohio’s oldest Italian community celebrations. With beautiful parks, vibrant schools, and a growing business corridor along Euclid Avenue and Lakeland Boulevard, Wickliffe continues to thrive as a welcoming Lake County destination."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we’re proud to serve Wickliffe’s residents, students, and small-business owners with complete shipping and printing solutions. Whether you need UPS, FedEx, USPS, or DHL shipping, custom packaging, marketing materials, or professional document printing, our nearby Concord Township location makes it easy to get expert service close to home."
+    }
+  ],
+  features: [
+    { title: "Personalized Service", description: "Tailored solutions for Wickliffe customers" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL all in one stop" },
+    { title: "Rooted in Community", description: "Proudly serving Lake County since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "madison",
