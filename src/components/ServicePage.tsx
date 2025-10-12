@@ -1,7 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
-import { Link } from "react-router-dom";
 
 // ✅ Barrel imports
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from "../components";
@@ -9,6 +8,7 @@ import { CarrierLogos } from "./CarrierLogos";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
+import { getGoogleMapsLink } from "../utils/location";
 
 // ✅ Shadcn UI
 import {
@@ -224,12 +224,16 @@ export const ServicePage: React.FC<Service> = (props) => {
       {/* ✅ CTA Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Link to="/contact-us">
+          <a
+            href={getGoogleMapsLink("directions", siteConfig.name)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <VisitUsButton
               defaultCity={city}
               className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]"
             />
-          </Link>
+          </a>
         </div>
       </section>
     </div>
