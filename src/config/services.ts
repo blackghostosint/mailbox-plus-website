@@ -410,6 +410,19 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
             {
                 heading: "Save Time & Gas",
                 body: "Avoid long drives to carrier hubs and drop your packages at one local location."
+            },
+            {
+                heading: "Convenient Package Drop-Offs in Concord Township, Ohio",
+                body: `Mailbox Plus makes it simple and stress-free to drop off your pre-labeled packages for <strong>FedEx, UPS, DHL, and USPS</strong>. As an authorized drop-off location serving Concord Township and Lake County, we provide a secure and convenient way to handle your outgoing shipments—whether for business, online sales, or personal returns.
+
+For returns, please note that <strong>a return shipping label is required</strong> on all packages. If you need your label printed, our team can help—<strong>label printing is available for just $2.00 per label</strong>. Unfortunately, <strong>we cannot process Amazon QR code returns at this time</strong>. However, <strong>FedEx QR code returns work successfully about 90% of the time</strong> for most eCommerce stores.
+
+Once your package is labeled and sealed, simply drop it off with us. We'll scan it, verify the carrier, and ensure it's placed in the correct pickup area for daily carrier collection. Our staff makes sure your packages are processed securely and shipped on time.
+
+Mailbox Plus also accepts <strong>Amazon, eBay, and prepaid returns</strong> with standard labels—making us your one-stop local destination for all carrier drop-offs.
+
+If you're looking for <em>package drop-off near Concord Township</em> or need <em>authorized returns and shipping services in Lake County, Ohio</em>, visit Mailbox Plus today. We'll handle your shipment with care and help you get it where it needs to go.`,
+                isFullWidth: true
             }
         ],
         features: [
