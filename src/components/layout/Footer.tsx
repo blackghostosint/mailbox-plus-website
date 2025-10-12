@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/supabase';
+import { getGoogleMapsLink } from '../../utils/location';
 
 export const Footer: React.FC = () => {
   const quickLinks = [
@@ -52,9 +53,9 @@ export const Footer: React.FC = () => {
               <div className="flex items-center space-x-3">
                 <MapPin className="w-4 h-4 text-[#0855B1] flex-shrink-0" />
                 <div className="text-sm text-[#4B5563]">
-                  <a 
-                    href={`https://maps.google.com/?q=${encodeURIComponent(siteConfig.contact.address.street + ", " + siteConfig.contact.address.city)}`}
-                    target="_blank" 
+                  <a
+                    href={getGoogleMapsLink("directions", siteConfig.name)}
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#0855B1]"
                   >

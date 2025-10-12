@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Clock, MapPin, Phone, Calendar } from 'lucide-react';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
+import { getGoogleMapsLink } from '../utils/location';
 
 export const StoreHours: React.FC = () => {
   const hours = [
@@ -142,9 +143,15 @@ export const StoreHours: React.FC = () => {
                 {siteConfig.contact.address.street}<br />
                 {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
               </p>
-              <Button variant="link" className="text-sm">
-                Get Directions →
-              </Button>
+              <a
+                href={getGoogleMapsLink("directions", siteConfig.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button variant="link" className="text-sm">
+                  Get Directions →
+                </Button>
+              </a>
             </motion.div>
 
             <motion.div

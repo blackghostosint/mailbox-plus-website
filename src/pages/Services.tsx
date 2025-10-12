@@ -97,14 +97,26 @@ export const Services: React.FC = () => {
                 View Categories <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
+            {/* Directions Button */}
             <a
-              href={getGoogleMapsLink()}
+              href={getGoogleMapsLink("directions", siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
+              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
+              </Button>
+            </a>
+            {/* View on Map Button */}
+            <a
+              href={getGoogleMapsLink("view", siteConfig.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10">
+                <MapPin className="w-5 h-5 mr-2" />
+                View on Map
               </Button>
             </a>
           </div>
@@ -200,14 +212,26 @@ export const Services: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+            {/* Directions Button */}
             <a
-              href={getGoogleMapsLink()}
+              href={getGoogleMapsLink("directions", siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white text-[#0855B1] hover:bg-gray-100 hover:text-[#064080]">
+              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
+              </Button>
+            </a>
+            {/* View on Map Button */}
+            <a
+              href={getGoogleMapsLink("view", siteConfig.name)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10">
+                <MapPin className="w-5 h-5 mr-2" />
+                View on Map
               </Button>
             </a>
             <a href={`tel:${siteConfig.contact.phone}`}>

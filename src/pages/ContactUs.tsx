@@ -62,7 +62,7 @@ export const ContactUs: React.FC = () => {
       icon: MapPin,
       title: 'Address',
       details: `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`,
-      action: getGoogleMapsLink(),
+      action: getGoogleMapsLink("directions", siteConfig.name),
       actionText: 'Get Directions'
     }
   ];
