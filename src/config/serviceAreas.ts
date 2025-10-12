@@ -422,27 +422,42 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "geneva",
-    category: "core",
-    serviceName: "Geneva Services",
-    slug: "geneva",
-    city: "Geneva",
-    pageTitle: "Shipping & Printing in Geneva, Ohio",
-    metaDescription:
-      "Mailbox Plus proudly serves Geneva with professional shipping, printing, and mailbox services—supporting local families and businesses every day.",
-    keywords: "Geneva shipping, Geneva printing, business services",
-    heroTitle: "Serving Geneva",
-    heroSubtitle: "Professional services tailored to Geneva residents.",
-    heroImage: getServiceImageUrl("/images/Geneva_Ohio.jpg"),
-    content: [
-      {
-        heading: "Geneva Business Support",
-        body: "From bulk mailings to secure shipping, Mailbox Plus helps Geneva businesses thrive with our comprehensive service offerings."
-      }
-    ],
-    features: [
-      { title: "Local Knowledge", description: "Understanding Geneva's unique needs" }
-    ],
-    faqs: []
+  id: "geneva",
+  category: "core",
+  serviceName: "Geneva Services",
+  slug: "geneva",
+  city: "Geneva",
+  pageTitle: "Shipping & Printing in Geneva, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Geneva, Ohio, with professional shipping, printing, and mailbox services. From Lake Erie wineries to downtown businesses, we deliver trusted local service with national carrier options.",
+  keywords:
+    "Geneva shipping, Geneva printing, mailbox rentals Geneva, UPS Geneva, FedEx Geneva, DHL Geneva, Ashtabula County business services, Geneva-on-the-Lake, wine country shipping, Lake Erie printing",
+  heroTitle: "Serving Geneva",
+  heroSubtitle: "Professional services tailored to Geneva residents.",
+  heroImage: getServiceImageUrl("/images/Geneva_Ohio.jpg"),
+  content: [
+    {
+      heading: "Geneva Business Support",
+      body: "From bulk mailings to secure shipping, Mailbox Plus helps Geneva businesses thrive with our comprehensive service offerings."
+    },
+    {
+      heading: "Serving Geneva, Ohio — In the Heart of Wine Country",
+      body: "Founded in 1816, Geneva stands as one of Ashtabula County’s most charming and historic communities. Known for its fertile vineyards and Lake Erie shoreline, Geneva proudly anchors Ohio’s wine country, with dozens of award-winning wineries and small businesses that attract visitors year-round."
+    },
+    {
+      heading: "A Destination for Community and Commerce",
+      body: "From the scenic Geneva State Park and marina to the lively strip of Geneva-on-the-Lake, the region blends natural beauty with a spirit of entrepreneurship. Local farms, artisans, and small businesses give the area its distinct flavor — supported by a strong community that values service and reliability."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we proudly support Geneva residents, wineries, and small businesses with dependable shipping, professional printing, and mailbox services. Whether you’re shipping wine accessories, mailing marketing materials, or managing small-business logistics, our nearby Concord Township location offers full-service carrier access — UPS, FedEx, USPS, and DHL — with friendly, expert care."
+    }
+  ],
+  features: [
+    { title: "Local Knowledge", description: "Understanding Geneva's unique needs" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
+    { title: "Rooted in Community", description: "Proudly serving Geneva and Ashtabula County since 2010" }
+  ],
+  faqs: []
   }
 ];
