@@ -305,28 +305,43 @@ id: "concord-township",
   faqs: []
   },
   {
-    id: "kirtland",
-    category: "core",
-    serviceName: "Kirtland Services",
-    slug: "kirtland",
-    city: "Kirtland",
-    pageTitle: "Shipping & Printing in Kirtland, Ohio",
-    metaDescription:
-      "Mailbox Plus provides Kirtland residents and businesses with reliable shipping, printing, and mailbox services backed by local community commitment.",
-    keywords: "Kirtland shipping, Kirtland printing, business services",
-    heroTitle: "Serving Kirtland",
-    heroSubtitle: "Your local partner for shipping and printing needs.",
-    heroImage: getServiceImageUrl("/images/kirtland.webp"),
-    content: [
-      {
-        heading: "Kirtland Community Support",
-        body: "From Kirtland's small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
-      }
-    ],
-    features: [
-      { title: "Community Commitment", description: "Dedicated to serving Lake County communities" }
-    ],
-    faqs: []
+  id: "kirtland",
+  category: "core",
+  serviceName: "Kirtland Services",
+  slug: "kirtland",
+  city: "Kirtland",
+  pageTitle: "Shipping & Printing in Kirtland, Ohio",
+  metaDescription:
+    "Mailbox Plus proudly serves Kirtland, Ohio, with professional shipping, printing, and mailbox services. From local businesses to families, we deliver dependable solutions rooted in community care and Lake County pride.",
+  keywords:
+    "Kirtland shipping, Kirtland printing, mailbox rentals Kirtland, UPS Kirtland, FedEx Kirtland, DHL Kirtland, Lake County business services, Holden Arboretum, Chapin Forest, Historic Kirtland, LDS Temple",
+  heroTitle: "Serving Kirtland",
+  heroSubtitle: "Your local partner for shipping and printing needs.",
+  heroImage: getServiceImageUrl("/images/kirtland.webp"),
+  content: [
+    {
+      heading: "Kirtland Community Support",
+      body: "From Kirtland's small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
+    },
+    {
+      heading: "Serving Kirtland, Ohio — Where History Meets Natural Beauty",
+      body: "Founded in the early 1800s, Kirtland is one of Lake County’s most historically significant communities, best known as the early headquarters of the Church of Jesus Christ of Latter-day Saints and home to the first Latter-day Saints Temple, built in 1836. Surrounded by scenic hills, forests, and creeks, Kirtland blends its spiritual heritage with an enduring sense of community and pride."
+    },
+    {
+      heading: "A City Surrounded by Nature & Innovation",
+      body: "Kirtland is home to some of Northeast Ohio’s most beautiful destinations, including the **Holden Arboretum**, **Chapin Forest Reservation**, and the **Lake Metroparks Farmpark**, which celebrates the region’s agricultural roots. With a mix of historic landmarks, small businesses, and natural beauty, Kirtland offers both residents and visitors a balance of tranquility and opportunity."
+    },
+    {
+      heading: "Your Local Shipping & Printing Partner",
+      body: "At Mailbox Plus, we proudly support Kirtland residents and business owners with fast, professional shipping, printing, and mailbox services. Whether you’re sending parcels through UPS, FedEx, USPS, or DHL, producing marketing materials for a local event, or managing business mail, our nearby Concord Township location makes it easy to get reliable, friendly service whenever you need it."
+    }
+  ],
+  features: [
+    { title: "Community Commitment", description: "Dedicated to serving Lake County communities" },
+    { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
+    { title: "Rooted in Local Heritage", description: "Proudly serving Kirtland’s historic and natural community since 2010" }
+  ],
+  faqs: []
   },
   {
     id: "chardon",
