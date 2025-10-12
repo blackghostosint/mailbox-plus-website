@@ -4,33 +4,15 @@ import { siteConfig } from "../config/siteConfig";
  * Generates a Google Maps URL for the business location.
  *
  * Supports both **directions** and **view** modes, with an optional
- * label (place name) that helps Google Maps show the destination
- * name in the interface or when the link is shared.
- *
- * Example:
- * ```ts
- * import { getGoogleMapsLink } from "../utils/location";
- *
- * // Default (directions link)
- * getGoogleMapsLink();
- * // → "https://www.google.com/maps/dir/?api=1&destination=41.676,-81.245"
- *
- * // View link
- * getGoogleMapsLink("view");
- * // → "https://www.google.com/maps?q=41.676,-81.245"
- *
- * // Directions link with store name label
- * getGoogleMapsLink("directions", "Mailbox Plus Ohio");
- * // → "https://www.google.com/maps/dir/?api=1&destination=41.676,-81.245+(Mailbox+Plus+Ohio)"
- * ```
+ * label (place name). Ensures the "view" mode centers precisely on
+ * the store coordinates.
  *
  * @param {"directions" | "view"} [mode="directions"]
  *   The type of Google Maps link to generate:
  *   - `"directions"` → Opens navigation to the store (default)
- *   - `"view"` → Opens a static map view
+ *   - `"view"` → Opens a static map centered exactly on coordinates
  * @param {string} [label]
- *   Optional location label (e.g., store name). When provided,
- *   it's URL-encoded and appended to the query.
+ *   Optional place name label for directions mode.
  *
  * @returns {string} A valid Google Maps URL.
  */
@@ -41,7 +23,11 @@ export const getGoogleMapsLink = (
   const { lat, lng } = siteConfig.geo;
   const encodedLabel = label ? `+(${encodeURIComponent(label)})` : "";
 
-  return mode === "view"
-    ? `https://www.google.com/maps?q=${lat},${lng}${encodedLabel}`
-    : `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}${encodedLabel}`;
+  if (mode === "view") {
+    // ✅ Centers map exactly on coordinates
+    return `https://www.google.com/maps/@${lat},${lng},17z`;
+  }
+
+  // ✅ Directions mode — with optional business label
+  return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}${encodedLabel}`;
 };
