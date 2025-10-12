@@ -1189,6 +1189,17 @@ If you're searching for <em>document scanning near Concord Township</em> or need
             {
                 heading: "Receive Faxes at Our Location",
                 body: "Use our store as your fax number and pick up documents securely."
+            },
+            {
+                heading: "Fax Services in Concord Township, Ohio",
+                body: `<strong>Send and receive faxes quickly and securely</strong> with professional fax services from Mailbox Plus in Concord Township, Ohio. Whether you need to transmit <strong>legal documents, forms, applications, or business papers</strong>, we make faxing fast, easy, and reliable—no fax machine required.
+    
+    Our in-store team can help you <strong>send local, domestic, and international faxes</strong> while ensuring your information remains private and confidential. You’ll receive a printed confirmation sheet for every fax sent, giving you proof of transmission for your records.
+    
+    We also provide <strong>fax receiving services</strong>—simply have your sender fax their documents to our store, and we’ll securely hold them for pickup. This is a convenient solution for individuals and small businesses who don’t have their own fax equipment but still need a trusted location for document transmission.
+    
+    If you’re searching for <em>fax services near Concord Township</em> or need <em>secure fax sending and receiving in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll help you handle your faxing needs quickly, accurately, and confidentially.`,
+                isFullWidth: true
             }
         ],
         features: [
