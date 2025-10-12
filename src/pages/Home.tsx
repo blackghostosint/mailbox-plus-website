@@ -22,6 +22,13 @@ export const Home: React.FC = () => {
     "Document Services",
     "Notary Services",
     "Digital Fingerprinting",
+    "Fax & Scan Services",
+    "Packaging Supplies",
+    "Business Services",
+    "Shredding Services",
+    "Package Receiving",
+    "Copy Services",
+    "Drop-off Services",
   ];
 
   const localAreas = [
