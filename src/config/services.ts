@@ -1331,36 +1331,36 @@ If you’re searching for <em>digital fingerprinting in Concord Township</em> or
         heroImage: getServiceImageUrl("/images/insurance.jpg"),
         content: [
             {
-                heading: "Protect What Matters Most",
-                body: "At Mailbox Plus in Concord Township, we know your packages aren’t just boxes—they’re valuable, sometimes irreplaceable items. That’s why we offer affordable shipping insurance and package protection options with every major carrier: FedEx, UPS, USPS, and DHL."
+                heading: "Comprehensive Shipping Protection",
+                body: `At Mailbox Plus, we provide <strong>complete shipping insurance solutions</strong> that protect your packages from loss or damage while in transit. Whether you’re shipping across the country or overseas, our <strong>full-coverage insurance options</strong> ensure that your shipment value—including materials, labor, and transport costs—is completely protected.`
             },
             {
-                heading: "Why Add Insurance?",
-                body: "Peace of mind, full-value protection, and affordable options. Insurance covers loss, theft, or damage during transit. We’ll help you select the right coverage for your shipment."
+                heading: "Partnered with Marsh for Trusted Coverage",
+                body: `Our <strong>Mailbox Plus Insurance Program</strong> is underwritten by <strong>Marsh</strong>, a global leader in cargo and risk management with more than 45,000 professionals worldwide. Together, we offer <strong>secure, affordable, and transparent shipping protection</strong> for both individuals and businesses—so every package you send is backed by the best in the industry.`
             },
             {
-                heading: "What’s Covered?",
-                body: "Shipping insurance protects against loss, theft, missing shipments, and transit damage. Coverage levels vary by carrier and declared value—our staff will walk you through your best options."
-            },
-            {
-                heading: "Professional Packing + Insurance",
-                body: "Insurance is strongest when paired with professional packaging. Our trained experts use double-wall boxes, bubble wrap, foam inserts, and custom crating so your claim is valid and your shipment arrives safely."
-            },
-            {
-                heading: "Commonly Insured Shipments",
-                body: "Electronics, fine art, antiques, collectibles, jewelry, important documents, high-value e-commerce sales, and specialty items like golf clubs, bicycles, and instruments."
-            },
-            {
-                heading: "How to File a Claim",
-                body: "If the unexpected happens, we’ll assist you through the claims process. Typically you’ll need the tracking number, proof of value, photos of damage (if applicable), and original packaging."
-            },
-            {
-                heading: "Serving Our Community",
-                body: "We proudly serve Concord Township, Mentor, Painesville, Eastlake, and all of Lake County, Ohio. Whether you’re a business shipping daily or a neighbor sending a one-time package, we’ll make sure your items are safe, insured, and delivered."
-            },
-            {
-                heading: "Get Started Today",
-                body: "Don’t take chances with your valuables. Stop by Mailbox Plus and ask about our shipping insurance options. Located in Gristmill Village, next to Pub Frato in Concord Township."
+                heading: "Full-Coverage Shipping Insurance in Concord Township, Ohio",
+                body: `<strong>Protect every shipment with full-coverage shipping insurance</strong> from Mailbox Plus in Concord Township, Ohio. Through our partnership with <strong>Marsh</strong>—the world’s leading cargo insurance broker and risk adviser—we provide <strong>comprehensive package and cargo protection</strong> for both individuals and businesses. Marsh employs over 45,000 professionals and serves clients in more than 130 countries, offering unmatched expertise in <strong>risk management and logistics protection</strong>.
+
+Unlike basic carrier liability, our <strong>Mailbox Plus Insurance Program</strong> delivers true coverage for your shipments. Standard "declared value" protection from carriers does not cover packaging costs, service markups, or profits, and excludes many causes of loss. Our policy covers shipments <strong>against all risks of physical loss or damage</strong>, including events often excluded from carrier protection such as <strong>Acts of God, theft, terrorism, strikes, riots, and civil commotion</strong>.
+
+Coverage applies to <strong>shipments in transit and while awaiting carrier pickup</strong>—ensuring your cargo is protected from the moment it enters your care until it reaches its final destination. Claims are paid upon documentation, with no need to prove carrier fault or wait for lengthy claim processes.
+
+**Key benefits of Mailbox Plus Shipping Insurance include:**
+• Protection for the full value of your shipment—including packaging materials, labor, freight markup, and transportation charges.
+• Coverage for shipments handled by multiple carriers and subcontractors.
+• Fast and efficient claim resolution regardless of carrier liability.
+• Affordable premiums that cost significantly less than carrier-provided coverage.
+• Eligibility for both <strong>domestic and international shipments</strong>.
+
+This program also allows retail shipping stores to <strong>extend true insurance coverage to drop-off customers</strong>, turning insurance into a valuable profit center while providing superior customer protection.
+
+Coverage is available up to <strong>$50,000 per shipment</strong> with prior authorization required for higher-value items. Shipments over $1,000 must include <strong>Adult Signature Required</strong> delivery to validate insurance.
+
+Mailbox Plus and Marsh are transforming how the retail shipping industry approaches risk management—offering genuine insurance coverage that safeguards your customers’ property and your business reputation.
+
+If you’re searching for <em>shipping insurance near Concord Township</em> or need <em>cargo and package coverage in Lake County, Ohio</em>, visit Mailbox Plus today to learn how full-coverage insurance can protect every shipment you send.`,
+                isFullWidth: true
             }
         ],
         features: [

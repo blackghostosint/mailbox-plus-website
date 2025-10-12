@@ -139,7 +139,7 @@ export const ServicePage: React.FC<Service> = (props) => {
                   <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
                     {block.heading}
                   </h2>
-                  <p className="text-gray-700 leading-relaxed">{block.body}</p>
+                  <p className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: block.body }}></p>
                 </motion.div>
               )
             ))}
