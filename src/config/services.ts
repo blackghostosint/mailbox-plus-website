@@ -1220,10 +1220,11 @@ If you're searching for <em>document scanning near Concord Township</em> or need
         ],
         faqs: [...generalHomeBusinessFaqs, ...faxServicesFaqs]
     },
+    /*
     {
         id: "notary-services",
         category: "additional-services",
-        city: "Concord Township",
+    city: "Concord Township",
         serviceName: "Notary Services",
         slug: "/home-business/notary-services",
         pageTitle: "Notary Public in Concord Township, Lake County, Ohio | Mailbox Plus",
@@ -1262,6 +1263,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         ],
         faqs: [...generalHomeBusinessFaqs, ...notaryServicesFaqs]
     },
+    */
 
     // ---------------------------
     // SPECIALTY
