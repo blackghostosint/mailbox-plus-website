@@ -15,7 +15,7 @@ import { FedExShipping } from "./pages/FedExShipping";
 import { UPSAuthorizedShipperOutlet } from "./pages/UPSAuthorizedShipperOutlet";
 import { USPSServices } from "./pages/USPSServices";
 import { DHLExpress } from "./pages/DHLExpress";
-import { InternationalShippingPage } from "./pages/InternationalShippingPage";
+// import { InternationalShippingPage } from "./pages/InternationalShippingPage";
 import { PackageDropOffs } from "./pages/PackageDropOffs";
 import { PackageReceiving } from "./pages/PackageReceiving";
 import { CustomBoxMaking } from "./pages/CustomBoxMaking";
@@ -95,7 +95,7 @@ const App: React.FC = () => {
         <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
         <Route path="/pack-ship/usps-services" element={<USPSServices />} />
         <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
-        <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} />
+        {/* <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} /> */}
         <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
         <Route path="/pack-ship/package-receiving" element={<PackageReceiving />} />
         <Route path="/pack-ship/custom-box-making" element={<CustomBoxMaking />} />

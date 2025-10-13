@@ -361,6 +361,7 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
         ],
         faqs: [...generalShippingFaqs, ...dhlExpressFaqs]
     },
+    /*
     {
         id: "international-shipping",
         category: "pack-ship",
@@ -376,7 +377,7 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
         content: [
             {
                 heading: "We Handle Customs",
-                body: "International shipping doesn’t have to be complicated. We guide you through forms and regulations to ensure smooth delivery."
+                body: "International shipping doesn't have to be complicated. We guide you through forms and regulations to ensure smooth delivery."
             },
             {
                 heading: "Multiple Carriers Available",
@@ -401,6 +402,7 @@ If you're searching for <em>international shipping near Concord Township</em> or
         ],
         faqs: [...generalShippingFaqs, ...internationalShippingFaqs]
     },
+    */
     {
         id: "package-drop-offs",
         category: "pack-ship",
