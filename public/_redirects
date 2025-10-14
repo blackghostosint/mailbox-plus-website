@@ -1,1 +1,5 @@
+# ✅ Always redirect all HTTP traffic to HTTPS
+http://* https://:splat 301!
+
+# ✅ SPA fallback (for React Router)
 /*   /index.html   200
