@@ -46,6 +46,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                   itemProp="item"
                   itemScope
                   itemType="https://schema.org/Thing"
+                  itemID={item.url}
                   className="hover:text-[#0855B1] transition-colors"
                 >
                   <span itemProp="name">{item.name}</span>
@@ -57,6 +58,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
                   itemProp="item"
                   itemScope
                   itemType="https://schema.org/Thing"
+                  itemID={item.url}
                 >
                   <span itemProp="name">{item.name}</span>
                 </span>
