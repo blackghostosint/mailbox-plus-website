@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import ReCAPTCHA from "react-google-recaptcha";
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
@@ -11,13 +12,37 @@ export const ContactUs: React.FC = () => {
     email: '',
     phone: '',
     service: '',
-    message: ''
+    message: '',
+    recaptcha: '',
+    website: ''
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (formData.website) {
+      console.warn("Spam detected via honeypot.");
+      return;
+    }
+
+    if (!formData.recaptcha) {
+      alert("Please verify that you are not a robot.");
+      return;
+    }
+
     try {
+      const verifyResponse = await fetch("/.netlify/functions/verifyRecaptcha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token: formData.recaptcha }),
+      });
+
+      const verifyData = await verifyResponse.json();
+      if (!verifyData.success) {
+        alert("reCAPTCHA verification failed. Please try again.");
+        return;
+      }
+
       const response = await fetch("/.netlify/functions/sendEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -26,7 +51,7 @@ export const ContactUs: React.FC = () => {
 
       if (response.ok) {
         alert("✅ Message sent successfully! We'll get back to you soon.");
-        setFormData({ name: "", email: "", phone: "", service: "", message: "" });
+        setFormData({ name: "", email: "", phone: "", service: "", message: "", recaptcha: "", website: "" });
       } else {
         alert("⚠️ Something went wrong. Please try again later.");
       }
@@ -240,6 +265,21 @@ export const ContactUs: React.FC = () => {
                     placeholder="Tell us about your needs or ask any questions..."
                   />
                 </div>
+
+                <ReCAPTCHA
+                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                  onChange={(token) => setFormData({ ...formData, recaptcha: token || '' })}
+                />
+
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
 
                 <Button type="submit" size="lg" className="w-full group">
                   <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
