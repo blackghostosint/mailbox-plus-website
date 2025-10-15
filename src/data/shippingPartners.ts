@@ -10,22 +10,22 @@ export interface ShippingPartner {
 export const shippingPartners: ShippingPartner[] = [
   {
     name: "Oscar Giovanni Salon & Spa",
-    logoUrl: getServiceImageUrl("/images/Oscar_Giovanni_Salon.jpg"),
+    logoUrl: getServiceImageUrl("/images/Oscar_Giovanni_Salon.webp"),
     website: "https://oscargiovannisalon.com/",
   },
   {
     name: "Pub Frato",
-    logoUrl: getServiceImageUrl("/images/Pub-Frato.jpg"),
+    logoUrl: getServiceImageUrl("/images/Pub-Frato.webp"),
     website: "https://pubfrato.com/concord/",
   },
   {
     name: "Sunny Street Cafe",
-    logoUrl: getServiceImageUrl("/images/sunny_street.jpg"),
+    logoUrl: getServiceImageUrl("/images/sunny_street.webp"),
     website: "https://sunnystreetconcord.hrpos.heartland.us/menu",
   },
   {
     name: "First Federal Lakewood - Concord",
-    logoUrl: getServiceImageUrl("/images/first-federal-lakewood.jpg"),
+    logoUrl: getServiceImageUrl("/images/first-federal-lakewood.webp"),
     website: "https://www.ffl.bank/",
   },
   {

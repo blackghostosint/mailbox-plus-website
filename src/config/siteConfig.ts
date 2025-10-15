@@ -7,7 +7,7 @@ export const siteConfig: SiteConfig = {
   description:
     "Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.",
   domain: "https://mailboxplusohio.com",
-  logo: "/mailbox_plus_logo.jpg",
+  logo: "/mailbox_plus_logo.webp",
   favicon: {
     default: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-32x32.png",
     appleTouch: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/apple-touch-icon.png",

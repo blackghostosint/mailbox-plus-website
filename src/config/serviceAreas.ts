@@ -15,7 +15,7 @@ export const serviceAreas: Service[] = [
     "Concord Township shipping, Concord Township printing, mailbox rentals Concord Township, UPS Concord Township, FedEx Concord Township, DHL Concord Township, Lake County business services, Gristmill Village shipping, Concord printing",
   heroTitle: "Serving Concord Township",
   heroSubtitle: "Your local shipping, printing & business service experts.",
-  heroImage: getServiceImageUrl("/images/concord-township.jpg"),
+  heroImage: getServiceImageUrl("/images/concord-township.webp"),
   content: [
     {
       heading: "Trusted by Concord Township",
@@ -54,7 +54,7 @@ export const serviceAreas: Service[] = [
     "Mentor shipping, Mentor printing, business services, UPS shipping Mentor, FedEx Mentor, DHL Mentor, mailbox rentals Mentor, Headlands Beach shipping, Great Lakes Mall business printing",
   heroTitle: "Serving Mentor",
   heroSubtitle: "Your trusted partner for shipping & business services.",
-  heroImage: getServiceImageUrl("/images/mentor.jpg"),
+  heroImage: getServiceImageUrl("/images/mentor.webp"),
   content: [
     {
       heading: "Helping Mentor Businesses Grow",
@@ -93,7 +93,7 @@ export const serviceAreas: Service[] = [
     "Painesville shipping, Painesville printing, mailbox rentals Painesville, UPS Painesville, FedEx Painesville, DHL Painesville, Lake County business services, downtown Painesville shipping, Lake Erie printing",
   heroTitle: "Serving Painesville",
   heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
-  heroImage: getServiceImageUrl("/images/painesville.jpg"),
+  heroImage: getServiceImageUrl("/images/painesville.webp"),
   content: [
     {
       heading: "Supporting Painesville's Needs",
@@ -132,7 +132,7 @@ export const serviceAreas: Service[] = [
     "Eastlake shipping, Eastlake printing, mailbox rentals Eastlake, UPS Eastlake, FedEx Eastlake, DHL Eastlake, Lake County business services, Chagrin River shipping, Lake Erie printing",
   heroTitle: "Serving Eastlake",
   heroSubtitle: "Your local experts in shipping and business services.",
-  heroImage: getServiceImageUrl("/images/eastlake.jpg"),
+  heroImage: getServiceImageUrl("/images/eastlake.webp"),
   content: [
     {
       heading: "Eastlake's Trusted Partner",
@@ -171,7 +171,7 @@ export const serviceAreas: Service[] = [
     "Willoughby shipping, Willoughby printing, mailbox rentals Willoughby, UPS Willoughby, FedEx Willoughby, DHL Willoughby, Lake County business services, downtown Willoughby shipping, Erie Street printing",
   heroTitle: "Serving Willoughby",
   heroSubtitle: "Professional services tailored to Willoughby residents.",
-  heroImage: getServiceImageUrl("/images/willoughby.jpg"),
+  heroImage: getServiceImageUrl("/images/willoughby.webp"),
   content: [
     {
       heading: "Willoughby Business Support",
@@ -210,7 +210,7 @@ export const serviceAreas: Service[] = [
     "Wickliffe shipping, Wickliffe printing, mailbox rentals Wickliffe, UPS Wickliffe, FedEx Wickliffe, DHL Wickliffe, Lake County business services, Worden Road shipping, Lakeland Boulevard printing",
   heroTitle: "Serving Wickliffe",
   heroSubtitle: "Your neighborhood shipping and printing experts.",
-  heroImage: getServiceImageUrl("/images/wickliffe.jpg"),
+  heroImage: getServiceImageUrl("/images/wickliffe.webp"),
   content: [
     {
       heading: "Wickliffe Community Services",
@@ -249,7 +249,7 @@ export const serviceAreas: Service[] = [
     "Madison shipping, Madison printing, mailbox rentals Madison, UPS Madison, FedEx Madison, DHL Madison, Lake County business services, Grand River shipping, Route 20 printing",
   heroTitle: "Serving Madison",
   heroSubtitle: "Comprehensive shipping and business services for Madison.",
-  heroImage: getServiceImageUrl("/images/madison.jpg"),
+  heroImage: getServiceImageUrl("/images/madison.webp"),
   content: [
     {
       heading: "Madison's Shipping Experts",
@@ -288,7 +288,7 @@ export const serviceAreas: Service[] = [
     "Perry shipping, Perry printing, mailbox rentals Perry, UPS Perry, FedEx Perry, DHL Perry, Lake County business services, Perry Township shipping, North Perry printing, Lake Erie packaging",
   heroTitle: "Serving Perry",
   heroSubtitle: "Your local partner for shipping and printing needs.",
-  heroImage: getServiceImageUrl("/images/perry.jpg"),
+  heroImage: getServiceImageUrl("/images/perry.webp"),
   content: [
     {
       heading: "Perry Community Support",
@@ -366,7 +366,7 @@ export const serviceAreas: Service[] = [
     "Chardon shipping, Chardon printing, mailbox rentals Chardon, UPS Chardon, FedEx Chardon, DHL Chardon, Geauga County business services, Chardon Square, snowbelt shipping, Chardon packaging",
   heroTitle: "Serving Chardon",
   heroSubtitle: "Comprehensive shipping and business services for Chardon.",
-  heroImage: getServiceImageUrl("/images/chardon.jpg"),
+  heroImage: getServiceImageUrl("/images/chardon.webp"),
   content: [
     {
       heading: "Chardon's Shipping Experts",
@@ -405,7 +405,7 @@ export const serviceAreas: Service[] = [
     "Fairport Harbor shipping, Fairport Harbor printing, mailbox rentals Fairport Harbor, UPS Fairport Harbor, FedEx Fairport Harbor, DHL Fairport Harbor, Lake County business services, Lake Erie shipping, Fairport Lighthouse, Grand River packaging",
   heroTitle: "Serving Fairport Harbor",
   heroSubtitle: "Your neighborhood shipping and printing experts.",
-  heroImage: getServiceImageUrl("/images/Fairport_Harbor.jpg"),
+  heroImage: getServiceImageUrl("/images/Fairport_Harbor.webp"),
   content: [
     {
       heading: "Fairport Harbor Community Services",
@@ -444,7 +444,7 @@ export const serviceAreas: Service[] = [
     "Geneva shipping, Geneva printing, mailbox rentals Geneva, UPS Geneva, FedEx Geneva, DHL Geneva, Ashtabula County business services, Geneva-on-the-Lake, wine country shipping, Lake Erie printing",
   heroTitle: "Serving Geneva",
   heroSubtitle: "Professional services tailored to Geneva residents.",
-  heroImage: getServiceImageUrl("/images/Geneva_Ohio.jpg"),
+  heroImage: getServiceImageUrl("/images/Geneva_Ohio.webp"),
   content: [
     {
       heading: "Geneva Business Support",

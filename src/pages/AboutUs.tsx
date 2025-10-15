@@ -127,7 +127,7 @@ export const AboutUs: React.FC = () => {
           </motion.div>
           <motion.div {...fadeUp(0.15)} className="relative">
             <img
-              src={getServiceImageUrl("/images/mailboxes.jpg")}
+              src={getServiceImageUrl("/images/mailboxes.webp")}
               alt="Mailboxes"
               className="transform rotate-6 transition-transform duration-300 hover:rotate-0 rounded-2xl shadow-lg w-full aspect-video object-cover"
             />
@@ -191,7 +191,7 @@ export const AboutUs: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-center gap-8">
             <motion.div {...fadeUp(0.3)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
               <img
-                src={getServiceImageUrl("/images/frank.jpg")}
+                src={getServiceImageUrl("/images/frank.webp")}
                 alt="Frank Schwarz"
                 className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />
@@ -203,7 +203,7 @@ export const AboutUs: React.FC = () => {
             </motion.div>
             <motion.div {...fadeUp(0.4)} className="bg-white p-8 rounded-2xl shadow-sm max-w-md mx-auto">
               <img
-                src={getServiceImageUrl("/images/diana.jpg")}
+                src={getServiceImageUrl("/images/diana.webp")}
                 alt="Diana Goebelt"
                 className="w-24 h-24 rounded-full mx-auto mb-4 object-cover"
               />

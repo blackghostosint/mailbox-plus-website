@@ -22,7 +22,7 @@ export const Header: React.FC = () => {
   const isActive = (path: string) => location.pathname === path;
 
   // ✅ Logo URL via Supabase
-  const logoUrl = getServiceImageUrl('mailbox_plus_logo.jpg');
+  const logoUrl = getServiceImageUrl('mailbox_plus_logo.webp');
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -67,7 +67,7 @@ export const Header: React.FC = () => {
           {/* Logo / Brand Name */}
           <Link to="/" className="flex items-center space-x-2">
             <img
-              src={getServiceImageUrl("/images/mailbox_plus_logo.jpg")}
+              src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
               alt="Mailbox Plus Concord Township Ohio Logo"
               className="h-12 w-auto object-contain"
             />
