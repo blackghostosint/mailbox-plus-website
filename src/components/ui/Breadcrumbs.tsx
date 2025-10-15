@@ -10,7 +10,10 @@ interface BreadcrumbsProps {
   baseUrl?: string;
 }
 
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" }) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
+  service,
+  baseUrl = "",
+}) => {
   const items = getServiceBreadcrumbs(service, baseUrl);
 
   return (
@@ -36,10 +39,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
                   aria-hidden="true"
                 />
               )}
+
               {index < items.length - 1 ? (
                 <Link
                   to={item.url}
                   itemProp="item"
+                  itemScope
+                  itemType="https://schema.org/Thing"
                   className="hover:text-[#0855B1] transition-colors"
                 >
                   <span itemProp="name">{item.name}</span>
@@ -48,11 +54,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
                 <span
                   className="font-semibold text-[#111827]"
                   aria-current="page"
-                  itemProp="name"
+                  itemProp="item"
+                  itemScope
+                  itemType="https://schema.org/Thing"
                 >
-                  {item.name}
+                  <span itemProp="name">{item.name}</span>
                 </span>
               )}
+
               <meta itemProp="position" content={(index + 1).toString()} />
             </li>
           ))}
@@ -67,9 +76,11 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = "" 
           itemListElement: items.map((item, index) => ({
             "@type": "ListItem",
             position: index + 1,
-            name: item.name,
-            item: item.url,
-            "@id": `${item.url}#breadcrumb-${index + 1}`,
+            item: {
+              "@type": "Thing",
+              "@id": item.url,
+              name: item.name,
+            },
           })),
         }}
       />

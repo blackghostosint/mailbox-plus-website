@@ -102,22 +102,23 @@ export const getServiceBreadcrumbs = (
 ): { name: string; url: string }[] => {
   const origin = siteConfig.domain.replace(/\/$/, ""); // normalize domain
 
-  const breadcrumbs: { name: string; url: string }[] = [
-    { name: "Home", url: `${origin}/` },
+  const normalize = (path: string): string =>
+    path.startsWith("http") ? path : `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+
+  const breadcrumbs = [
+    { name: "Home", url: normalize("/") },
   ];
 
-  // If a base URL (category like /services) is provided, include it
   if (baseUrl) {
     breadcrumbs.push({
       name: "Services",
-      url: `${origin}${baseUrl.startsWith("/") ? baseUrl : `/${baseUrl}`}`,
+      url: normalize(baseUrl),
     });
   }
 
-  // Add the service itself
   breadcrumbs.push({
     name: service.pageTitle,
-    url: `${origin}${service.slug.startsWith("/") ? service.slug : `/${service.slug}`}`,
+    url: normalize(service.slug),
   });
 
   return breadcrumbs;
