@@ -61,6 +61,7 @@ import { ServiceAreaIndex } from "./pages/ServiceAreaIndex";
 import { Privacy } from "./pages/Privacy";
 import { Terms } from "./pages/Terms";
 import ShippingPartners from "./pages/ShippingPartners";
+import AskMailboxPlus from "./pages/ask-mailbox-plus";
 import { NotFound } from "./pages/NotFound";
 
 const DebugRoutes: React.FC = () => {
@@ -134,6 +135,7 @@ const App: React.FC = () => {
         <Route path="/service-area" element={<ServiceAreaIndex />} />
         <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
         <Route path="/shipping-partners" element={<ShippingPartners />} />
+        <Route path="/ask-mailbox-plus" element={<AskMailboxPlus />} />
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
 
