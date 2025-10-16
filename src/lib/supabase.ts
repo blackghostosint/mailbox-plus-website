@@ -29,5 +29,9 @@ export const getServiceImageUrl = (imagePath: string): string => {
     .from("service-images")
     .getPublicUrl(cleaned);
 
+  // Debug log for troubleshooting image issues
+  // eslint-disable-next-line no-console
+  console.log("[getServiceImageUrl] imagePath:", imagePath, "| cleaned:", cleaned, "| publicUrl:", data?.publicUrl);
+
   return data?.publicUrl ?? "";
 };
