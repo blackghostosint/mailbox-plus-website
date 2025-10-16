@@ -1,7 +1,7 @@
 import {
     Package, Shield, Truck, Globe, Printer, Palette, Star, Users, Mail, Archive,
-    FileText, Scissors, FolderOpen, Layers, ClipboardList, Lock, MapPin, Fingerprint,
-    NotebookText, Box, Clock
+    FileText, Scissors, FolderOpen, Layers, Lock, MapPin, Fingerprint,
+    Box, Clock
 } from "lucide-react";
 import { Service } from "../types/services";
 import { getServiceImageUrl } from "../lib/supabase";
@@ -17,7 +17,6 @@ import {
     upsShippingFaqs,
     uspsServicesFaqs,
     dhlExpressFaqs,
-    internationalShippingFaqs,
     packageDropOffsFaqs,
     customBoxMakingFaqs,
     professionalPackingFaqs,
@@ -37,7 +36,6 @@ import {
     shreddingFaqs,
     documentScanningFaqs,
     faxServicesFaqs,
-    notaryServicesFaqs,
     digitalFingerprintingFaqs,
     insuranceFaqs
 } from "./faqs";
