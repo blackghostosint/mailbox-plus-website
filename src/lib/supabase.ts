@@ -12,26 +12,22 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 /**
  * getServiceImageUrl()
  * Returns a public Supabase Storage URL for the given image path.
- * Works directly with .webp files (no transform needed).
- * Ensures all image paths resolve correctly from the "service-images" bucket.
+ * Handles both "/images/" and "images/" prefixes safely.
+ * Always resolves to the "service-images" bucket.
  */
 export const getServiceImageUrl = (imagePath: string): string => {
-  // If it's already an external URL, just return it
+  // 1️⃣ External URLs — just return
   if (imagePath.startsWith("http://") || imagePath.startsWith("https://")) {
     return imagePath;
   }
 
-  // For your stored images (e.g. "/images/artwork-shipping.webp")
-  if (imagePath.startsWith("/images/")) {
-    const fileName = imagePath.replace("/images/", "");
+  // 2️⃣ Clean up any leading paths or slashes
+  const cleaned = imagePath.replace(/^\/?images\//, "");
 
-    const { data } = supabase.storage
-      .from("service-images")
-      .getPublicUrl(fileName);
+  // 3️⃣ Get Supabase public URL
+  const { data } = supabase.storage
+    .from("service-images")
+    .getPublicUrl(cleaned);
 
-    return data?.publicUrl || imagePath;
-  }
-
-  // Default fallback (local image path, etc.)
-  return imagePath;
+  return data?.publicUrl ?? "";
 };
