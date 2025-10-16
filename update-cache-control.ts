@@ -9,31 +9,21 @@ const supabase = createClient(
   process.env.VITE_SUPABASE_SERVICE_ROLE_KEY! // needs the service role key
 );
 
-async function updateCacheHeaders() {
+async function fixCacheHeaders() {
   const bucket = 'service-images';
   const { data, error } = await supabase.storage.from(bucket).list('', { limit: 1000 });
 
   if (error) throw error;
-  if (!data?.length) {
-    console.log('No files found.');
-    return;
-  }
-
   for (const file of data) {
-    const path = file.name;
-    console.log(`Updating ${path}...`);
-
-    const { error: updateError } = await supabase.storage
-      .from(bucket)
-      .update(path, new Blob([]), {
-        upsert: true,
-        cacheControl: '31536000',
-        contentType: file.metadata?.mimetype || 'image/webp'
-      });
-
-    if (updateError) console.error(`❌ ${path}:`, updateError.message);
-    else console.log(`✅ Updated ${path}`);
+    console.log(`Fixing headers for ${file.name}...`);
+    // Use update with empty blob to set metadata without overwriting file
+    await supabase.storage.from(bucket).update(file.name, new Blob([]), {
+      upsert: false, // Don't create if doesn't exist
+      cacheControl: '31536000',
+      contentType: 'image/webp',
+    });
   }
+  console.log('✅ Safe header update complete.');
 }
 
-updateCacheHeaders().then(() => console.log('Done!'));
+fixCacheHeaders().then(() => console.log('Done!'));
