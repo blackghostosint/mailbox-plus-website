@@ -11,6 +11,8 @@ import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { CarrierLogos } from "../components/CarrierLogos";
 import { getGoogleMapsLink } from "../utils/location";
+import { Meta } from "../components/Meta";
+import { pageMeta } from "../config/pageMeta";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
@@ -56,8 +58,11 @@ export const Home: React.FC = () => {
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
 
+  const { title, description, schema } = pageMeta['/'];
+
   return (
     <div className="bg-white">
+      <Meta title={title} description={description} schema={schema} />
       {/* HERO SECTION */}
       <section
         className="relative bg-cover bg-center py-32 lg:py-48"

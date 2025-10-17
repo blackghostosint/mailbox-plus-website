@@ -6,6 +6,8 @@ import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";
 import { getGoogleMapsLink } from "../utils/location";
+import { Meta } from "../components/Meta";
+import { pageMeta } from "../config/pageMeta";
 
 // Utility to generate safe IDs
 const makeId = (str: string) =>
@@ -50,8 +52,11 @@ export const Services: React.FC = () => {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const { title, description, schema } = pageMeta['/services'];
+
   return (
     <div className="bg-white">
+      <Meta title={title} description={description} schema={schema} />
       {/* HERO SECTION */}
       <section
         className="relative bg-cover bg-center py-32 lg:py-48"
