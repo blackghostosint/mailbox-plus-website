@@ -108,7 +108,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11">
+              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -119,7 +119,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11">
+              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -223,7 +223,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11">
+              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -234,7 +234,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11">
+              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>

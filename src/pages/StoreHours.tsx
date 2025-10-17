@@ -148,7 +148,7 @@ export const StoreHours: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="link" className="text-sm">
+                <Button variant="link" className="text-sm min-w-[48px] min-h-[48px]">
                   Get Directions →
                 </Button>
               </a>

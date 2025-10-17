@@ -152,7 +152,7 @@ export const ContactUs: React.FC = () => {
                   target={info.title === 'Address' ? '_blank' : undefined}
                   rel={info.title === 'Address' ? 'noopener noreferrer' : undefined}
                 >
-                  <Button variant="link" className="text-sm">
+                  <Button variant="link" className="text-sm min-w-[48px] min-h-[48px]">
                     {info.actionText} →
                   </Button>
                 </a>
