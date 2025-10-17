@@ -11,7 +11,7 @@ const tagManagerArgs = {
 
 TagManager.initialize(tagManagerArgs);
 
-console.log('main.tsx: Starting render');
+ // console.log('main.tsx: Starting render');
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -21,7 +21,7 @@ const categoryMap: Record<string, string> = {
 };
 
 export const Services: React.FC = () => {
-  console.log('Services.tsx: Services component rendering');
+  // console.log('Services.tsx: Services component rendering');
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [showTopButton, setShowTopButton] = useState(false);
 
