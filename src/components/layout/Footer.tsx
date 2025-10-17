@@ -34,9 +34,11 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img 
+              <img
                 src={logoUrl}
                 alt={`${siteConfig.name} Logo`}
+                width={256}
+                height={80}
                 className="h-20 object-contain"
               />
             </div>

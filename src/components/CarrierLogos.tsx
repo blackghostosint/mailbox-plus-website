@@ -37,6 +37,8 @@ export const CarrierLogos: React.FC = () => {
           <img
             src={carrier.logo}
             alt={carrier.name}
+            width={200}
+            height={64}
             className="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
             loading="lazy"
           />

@@ -69,6 +69,8 @@ export const Header: React.FC = () => {
             <img
               src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
               alt="Mailbox Plus Concord Township Ohio Logo"
+              width={256}
+              height={80}
               className="h-12 w-auto object-contain"
             />
             <span className="sr-only">Mailbox Plus - Concord Township, OH</span>
