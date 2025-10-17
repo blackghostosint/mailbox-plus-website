@@ -103,7 +103,7 @@ export const Footer: React.FC = () => {
           {/* Quick Links */}
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-[#111827]">Services</h4>
-            <div className="space-y-2">
+            <nav className="space-y-2" aria-label="Footer Services">
               {quickLinks.map((link) => (
                 <Link
                   key={link.name}
@@ -113,7 +113,7 @@ export const Footer: React.FC = () => {
                   {link.name}
                 </Link>
               ))}
-            </div>
+            </nav>
           </div>
         </div>
 

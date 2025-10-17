@@ -100,6 +100,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg text-[#4B5563] hover:text-[#0855B1] hover:bg-[#F9FAFB]"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -115,7 +116,7 @@ export const Header: React.FC = () => {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden bg-white border-t border-gray-200"
           >
-            <div className="px-4 py-4 space-y-4">
+            <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
@@ -130,9 +131,9 @@ export const Header: React.FC = () => {
                   {item.name}
                 </Link>
               ))}
-              <div className="pt-4">
-                <SearchBox />
-              </div>
+            </nav>
+            <div className="pt-4">
+              <SearchBox />
             </div>
           </motion.div>
         )}
