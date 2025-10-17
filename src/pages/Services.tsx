@@ -98,7 +98,7 @@ export const Services: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#categories">
-              <Button className="bg-[#0855B1] hover:bg-[#064080] text-white">
+              <Button size="lg" className="bg-[#0855B1] hover:bg-[#064080] text-white min-h-11">
                 View Categories <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
@@ -108,7 +108,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -119,7 +119,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10">
+              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -137,7 +137,7 @@ export const Services: React.FC = () => {
               <a
                 key={category}
                 href={`#${makeId(category)}`}
-                className="px-4 py-2 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-[#0855B1] hover:text-[#0855B1] transition"
+                className="px-6 py-3 bg-white rounded-lg shadow-sm border border-gray-200 hover:border-[#0855B1] hover:text-[#0855B1] transition min-h-11 flex items-center justify-center"
               >
                 {category}
               </a>
@@ -223,7 +223,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080]">
+              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -234,13 +234,13 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10">
+              <Button size="lg" variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
             </a>
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0855B1]">
+              <Button size="lg" className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#0855B1] min-h-11">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
