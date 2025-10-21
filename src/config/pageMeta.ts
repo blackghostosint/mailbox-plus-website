@@ -25,7 +25,7 @@ export const pageMeta: Record<string, { title: string; description: string; sche
   // Services page
   '/services': {
     title: 'Our Services | Mailbox Plus',
-    description: 'Explore all the shipping, printing, mailbox rental, and business services offered by Mailbox Plus Bolt in Concord Township, Ohio.',
+    description: 'Explore all the shipping, printing, mailbox rental, and business services offered by Mailbox Plus in Concord Township, Ohio.',
   },
   // About Us page with web page schema
   '/about-us': {
