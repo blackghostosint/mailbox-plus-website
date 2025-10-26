@@ -19,6 +19,10 @@ import { pageMeta } from "../config/pageMeta";
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
+  // Detect reduced motion preference
+  const prefersReducedMotion =
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const serviceCategories = [
     "Pack & Ship Services",
@@ -67,20 +71,32 @@ export const Home: React.FC = () => {
       <Meta title={title} description={description} schema={schema} />
       {/* HERO SECTION */}
       <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        <img
-          src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
-          alt="Mailbox Plus storefront in Concord Township, Ohio"
-          loading="eager"
-          decoding="async"
-          fetchpriority="high"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        <picture>
+          <source
+            srcSet={`${getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp")}`}
+            media="(max-width: 768px)"
+            type="image/webp"
+          />
+          <source
+            srcSet={`${getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}`}
+            media="(min-width: 769px)"
+            type="image/webp"
+          />
+          <img
+            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            alt="Mailbox Plus storefront in Concord Township, Ohio"
+            className="absolute inset-0 w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
             Pack & Ship in{" "}
@@ -89,18 +105,18 @@ export const Home: React.FC = () => {
 
           {/* Rotating service tagline */}
           <motion.div
-            initial={{ opacity: 1, y: 0 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="h-16 mb-8"
           >
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentServiceIndex}
-                initial={{ opacity: 1, y: 0 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0 }}
+                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+                exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+                transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
                 className="text-xl md:text-2xl text-gray-100 leading-relaxed"
               >
                 {serviceCategories[currentServiceIndex]}
