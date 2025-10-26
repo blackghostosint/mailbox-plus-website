@@ -1,3 +1,5 @@
+⚠️ Supabase Storage references retained for historical context only. Images are now hosted on Cloudflare R2.
+
 # PRD: Mailbox Plus Homepage Rewrite for BOLT
 
 ## 1. Purpose

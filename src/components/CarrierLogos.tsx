@@ -1,25 +1,26 @@
 import React from "react";
+import { getServiceImageUrl } from "../lib/supabase";
 
 export const CarrierLogos: React.FC = () => {
   const carriers = [
     {
       name: "FedEx",
-      logo: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/fedex-logo.webp",
+      logo: getServiceImageUrl("fedex-logo.webp"),
       url: "https://www.fedex.com/",
     },
     {
       name: "UPS",
-      logo: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/ups-logo.webp",
+      logo: getServiceImageUrl("ups-logo.webp"),
       url: "https://www.ups.com/",
     },
     {
       name: "USPS",
-      logo: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/usps-logo.webp",
+      logo: getServiceImageUrl("usps-logo.webp"),
       url: "https://www.usps.com/",
     },
     {
       name: "DHL",
-      logo: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/dhl-logo.webp",
+      logo: getServiceImageUrl("dhl-logo.webp"),
       url: "https://www.dhl.com/",
     },
   ];

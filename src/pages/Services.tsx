@@ -8,6 +8,8 @@ import { services } from "../config/services";
 import { getGoogleMapsLink } from "../utils/location";
 import { Meta } from "../components/Meta";
 import { pageMeta } from "../config/pageMeta";
+// Utility to get service image URLs from Cloudflare R2
+import { getServiceImageUrl } from "../lib/supabase";
 
 // Utility to generate safe IDs
 const makeId = (str: string) =>
@@ -62,7 +64,7 @@ export const Services: React.FC = () => {
         className="relative bg-cover bg-center py-32 lg:py-48"
         style={{
           backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/mailbox_plus_storefront_hero_image.webp')",
+            `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('${getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}')`,
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

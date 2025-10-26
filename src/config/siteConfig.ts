@@ -9,12 +9,12 @@ export const siteConfig: SiteConfig = {
   domain: "https://mailboxplusohio.com",
   logo: "/mailbox_plus_logo.webp",
   favicon: {
-    default: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-32x32.png",
-    appleTouch: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/apple-touch-icon.png",
-    android192: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/android-chrome-192x192.png",
-    android512: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/android-chrome-512x512.png",
-    icon16: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-16x16.png",
-    icon32: "https://benozoiluqfwumlupgbf.supabase.co/storage/v1/object/public/service-images/favicon_io/favicon-32x32.png",
+    default: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-32x32.png`,
+    appleTouch: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/apple-touch-icon.png`,
+    android192: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/android-chrome-192x192.png`,
+    android512: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/android-chrome-512x512.png`,
+    icon16: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-16x16.png`,
+    icon32: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-32x32.png`,
   },
   contact: {
     phone: "440-709-1946",
