@@ -33,5 +33,10 @@ export const shippingPartners: ShippingPartner[] = [
     logoUrl: getServiceImageUrl("/images/sophia_boutique.webp"),
     website: "https://www.sophia.boutique/",
   },
+  {
+    name: "PatchOps",
+    logoUrl: getServiceImageUrl("/images/patchops.webp"),
+    website: "https://patchops.com/",
+  },
   // Add more partners as needed
 ];
