@@ -2,24 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found | Mailbox Plus</title>
   <meta name="description" content="Sorry, the page you are looking for does not exist. Please check the URL or return to the homepage.">
   <meta name="robots" content="noindex, follow">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1e40af">
+
+  <!-- Favicon & Apple Icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/favicon_io/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/favicon_io/apple-touch-icon.png">
+
+  <!-- Preload Images -->
+  <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_logo.webp">
+  <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mscott.webp">
+
   <style>
-    body { font-family: system-ui, sans-serif; background: #f8fafc; color: #222; text-align: center; padding: 4rem 1rem; }
-    h1 { font-size: 3rem; margin-bottom: 1rem; }
-    p { font-size: 1.25rem; margin-bottom: 2rem; }
-    a { color: #2563eb; text-decoration: none; font-weight: 500; }
-    a:hover { text-decoration: underline; }
-    .logo { max-width: 120px; margin-bottom: 2rem; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      text-align: center;
+      padding: 4rem 1rem;
+      line-height: 1.6;
+    }
+    .logo {
+      max-width: 160px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .quote {
+      margin-top: 2rem;
+      font-style: italic;
+      color: #475569;
+    }
+    .btn {
+      margin-top: 1.5rem;
+      background: #2563eb;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .btn:hover {
+      background: #1e3a8a;
+    }
+    .mscott {
+      display: block;
+      margin: 2rem auto 0;
+      max-width: 320px;
+      width: 100%;
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+    @media (max-width: 640px) {
+      h1 { font-size: 2rem; }
+      p { font-size: 1.1rem; }
+    }
   </style>
 </head>
 <body>
-  <img src="/logo.png" alt="Mailbox Plus Logo" class="logo" />
+  <img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_logo.webp" alt="Mailbox Plus Logo" class="logo" loading="eager" decoding="async" />
+
   <h1>404 - Page Not Found</h1>
-  <p>Sorry, the page you are looking for does not exist.<br>
+  <p>Sorry, the page you’re looking for doesn’t exist.<br>
      Please check the URL or <a href="/">return to the homepage</a>.</p>
-  <p>If you believe this is an error, please <a href="/ContactUs">contact us</a>.</p>
+  <p>If you believe this is an error, please <a href="/contact">contact us</a>.</p>
+
+  <p class="quote" id="quote">"Sometimes I’ll start a sentence and I don’t even know where it’s going." — Michael Scott</p>
+  <button class="btn" onclick="showQuote()">Cheer me up</button>
+
+  <img
+    src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mscott.webp"
+    alt="Michael Scott from The Office looking confused"
+    class="mscott"
+    loading="eager"
+    decoding="async"
+  />
+
+  <script>
+    // 🍪 Easter Egg — The Office cookie
+    document.cookie = "kevin_cookie=Oops! Kevin spilled this page; path=/; max-age=86400";
+    console.log("🥣 Kevin’s Famous Chili: Too bad this page didn’t make it.");
+
+    // 🎬 Random quotes from The Office
+    const quotes = [
+      '"Would I rather be feared or loved? Easy. Both." — Michael Scott',
+      '"Sometimes I’ll start a sentence and I don’t even know where it’s going." — Michael Scott',
+      '"I am Beyoncé, always." — Michael Scott',
+      '"I declare BANKRUPTCY!" — Michael Scott',
+      '"That’s what she said." — Michael Scott',
+      '"I understand nothing." — Michael Scott',
+      '"I love inside jokes. I’d love to be a part of one someday." — Michael Scott',
+      '"Guess what, I have flaws. What are they? Oh, I don’t know… I sing in the shower." — Michael Scott'
+    ];
+
+    function showQuote() {
+      const q = quotes[Math.floor(Math.random() * quotes.length)];
+      document.getElementById('quote').innerText = q;
+    }
+  </script>
 </body>
 </html>
