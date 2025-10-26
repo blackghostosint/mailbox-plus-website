@@ -66,17 +66,21 @@ export const Home: React.FC = () => {
     <div className="bg-white">
       <Meta title={title} description={description} schema={schema} />
       {/* HERO SECTION */}
-      <section
-        className="relative bg-cover bg-center py-32 lg:py-48"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('${getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}')`,
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
+        <img
+          src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+          alt="Mailbox Plus storefront in Concord Township, Ohio"
+          loading="eager"
+          decoding="async"
+          fetchpriority="high"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 1, y: 0 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
             Pack & Ship in{" "}
@@ -85,18 +89,18 @@ export const Home: React.FC = () => {
 
           {/* Rotating service tagline */}
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            initial={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0 }}
             className="h-16 mb-8"
           >
             <AnimatePresence mode="wait">
               <motion.p
                 key={currentServiceIndex}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 1, y: 0 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.5 }}
+                exit={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0 }}
                 className="text-xl md:text-2xl text-gray-100 leading-relaxed"
               >
                 {serviceCategories[currentServiceIndex]}
