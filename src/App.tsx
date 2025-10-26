@@ -77,6 +77,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <Layout>
         <DebugRoutes />
+        <React.Suspense fallback={<div style={{padding: 32, textAlign: "center"}}>Loading…</div>}>
         <Routes>
         {/* Homepage */}
         <Route path="/" element={<Home />} />
@@ -142,6 +143,7 @@ const App: React.FC = () => {
         {/* Catch-all route for unmatched paths */}
         <Route path="*" element={<NotFound />} />
         </Routes>
+        </React.Suspense>
       </Layout>
     </Router>
   );

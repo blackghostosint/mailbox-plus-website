@@ -7,7 +7,11 @@
     <!-- Font preconnect and preload for faster FCP -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" media="print" onload="this.media='all'">
+    <noscript>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    </noscript>
     <!-- Preload homepage hero image for faster LCP -->
     <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image.webp" fetchpriority="high" type="image/webp">
 

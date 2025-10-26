@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/supabase';
+import { SmartImage } from '../SmartImage';
 import { getGoogleMapsLink } from '../../utils/location';
 
 export const Footer: React.FC = () => {
@@ -34,7 +35,7 @@ export const Footer: React.FC = () => {
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
-              <img
+              <SmartImage
                 src={logoUrl}
                 alt={`${siteConfig.name} Logo`}
                 width={256}
