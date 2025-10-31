@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
 import path from 'path';
+import { splitVendorChunkPlugin } from 'vite';
 
 const routes = [
   '/',
@@ -67,6 +68,7 @@ export default defineConfig({
       hostname: 'https://mailboxplusohio.com',
       dynamicRoutes: routes,
     }),
+    splitVendorChunkPlugin(),
   ],
   resolve: {
     alias: {
@@ -75,5 +77,16 @@ export default defineConfig({
   },
   build: {
     target: 'es2018',
+    minify: 'esbuild',
+    brotliSize: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
+          motion: ['framer-motion'],
+          supabase: ['@supabase/supabase-js'],
+        },
+      },
+    },
   },
 });

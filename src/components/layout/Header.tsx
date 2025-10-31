@@ -5,6 +5,7 @@ import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SearchBox } from '../ui';
 import { getServiceImageUrl } from '../../lib/supabase';
+import { SmartImage } from '../SmartImage';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,7 +67,7 @@ export const Header: React.FC = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo / Brand Name */}
           <Link to="/" className="flex items-center space-x-2">
-            <img
+            <SmartImage
               src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
               alt="Mailbox Plus Concord Township Ohio Logo"
               width={256}
