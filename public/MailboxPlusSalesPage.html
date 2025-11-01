@@ -11,11 +11,24 @@
   <style>
     :root {
       --brand-blue: #0855B1;
-      --brand-yellow: #FFD600;
+      --brand-yellow: #E6B800;
       --brand-dark: #0B2742;
       --gray-light: #F7F8FA;
       --gray-text: #444;
       --transition: 0.18s cubic-bezier(.4,0,.2,1);
+
+      /* Spacing scale */
+      --spacing-lg: 3.5rem;
+      --spacing-md: 2.2rem;
+      --spacing-sm: 1.2rem;
+      --spacing-xs: 0.5rem;
+
+      /* Typography scale */
+      --font-size-xxl: 2.3rem;
+      --font-size-xl: 2.2rem;
+      --font-size-lg: 1.5rem;
+      --font-size-md: 1.15rem;
+      --font-size-sm: 1rem;
     }
     html {
       scroll-behavior: smooth;
@@ -36,9 +49,9 @@
       margin-bottom: 0.5em;
       line-height: 1.15;
     }
-    h1 { font-size: 2.2rem; }
-    h2 { font-size: 1.5rem; }
-    h3 { font-size: 1.15rem; }
+    h1 { font-size: var(--font-size-xl); }
+    h2 { font-size: var(--font-size-lg); }
+    h3 { font-size: var(--font-size-md); }
     p {
       margin-top: 0;
       margin-bottom: 1.1em;
@@ -82,8 +95,12 @@
       box-shadow: 0 6px 24px 0 rgba(8,85,177,0.13);
       filter: brightness(1.04);
     }
+    .btn:focus-visible {
+      outline: 3px solid var(--brand-yellow);
+      outline-offset: 4px;
+    }
     .section {
-      padding: 3.5rem 1.2rem;
+      padding: var(--spacing-lg) var(--spacing-sm);
       max-width: 1200px;
       margin: 0 auto;
       position: relative;
@@ -124,10 +141,24 @@
       min-height: 320px;
       text-align: center;
     }
+
+    /* Section Divider Waves */
+    .section-divider {
+      width: 100%;
+      height: 80px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .section-divider svg {
+      display: block;
+      width: calc(100% + 1.3px);
+      height: 80px;
+    }
     .section-image-bg {
       width: 100%;
       height: 100%;
       min-height: 320px;
+      aspect-ratio: 16/9;
       object-fit: cover;
       object-position: center;
       display: block;
@@ -140,7 +171,7 @@
     /* Hero Section */
     .hero-headline {
       color: #fff;
-      font-size: 2.3rem;
+      font-size: var(--font-size-xxl);
       font-weight: 700;
       text-shadow: 0 2px 16px rgba(8,85,177,0.18);
       margin-bottom: 0.5em;
@@ -150,6 +181,23 @@
       font-size: 1.15rem;
       margin-bottom: 1.2em;
       text-shadow: 0 1px 8px rgba(8,85,177,0.10);
+    }
+
+    /* Hero Customizations */
+    .hero-section {
+      position: relative;
+      min-height: 420px;
+    }
+    .hero-content {
+      min-height: 420px;
+    }
+    .hero-cta-btn {
+      font-size: 1.2rem;
+    }
+    .hero-note {
+      font-size: 0.95rem;
+      color: #e3eefd;
+      margin-top: 0.6em;
     }
     /* Problem/Imagine/Founder split sections */
     .split {
@@ -489,11 +537,24 @@
       clip: rect(1px,1px,1px,1px);
       white-space: nowrap;
     }
+    /* Scroll reveal animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeInUp 0.6s ease-out forwards;
+    }
+    .fade-in-visible {
+      opacity: 1;
+    }
+
     /* Responsive Tweaks */
     @media (max-width: 600px) {
       h1 { font-size: 1.5rem; }
       .section, .testimonials-content, .faq-section, .contact-section, .final-cta-content, .limited-content {
-        padding: 2.2rem 0.5rem;
+        padding: var(--spacing-md) var(--spacing-xs);
       }
       .split__img, .offer-stack__img {
         min-height: 140px;
@@ -512,8 +573,8 @@
       max-width: 1000px;
       margin: 0 auto;
     }
-    @media (min-width: 800px) {
-      .pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    @media (min-width: 1200px) {
+      .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
     }
     .pricing-card {
       background: #fff;
@@ -559,7 +620,7 @@
     "name": "Mailbox Plus",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "7595 Crile Road",
+      "streetAddress": "7554 Fredle Drive",
       "addressLocality": "Concord Township",
       "addressRegion": "OH",
       "postalCode": "44077"
@@ -578,66 +639,24 @@
 </head>
 <body>
   <!-- 1️⃣ HERO SECTION -->
-  <section class="section section--image" id="hero" style="position:relative; min-height: 420px;">
+  <section class="section section--image hero-section fade-in" id="hero">
     <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image_mobile.webp" alt="Mailboxes at Mailbox Plus" loading="eager" />
     <div class="overlay overlay--blue"></div>
-    <div class="section-content" style="min-height: 420px;">
+    <div class="section-content hero-content">
       <h1 class="hero-headline">Get Up to 4 Months Free – Secure Your Private Mailbox Today!</h1>
       <p class="hero-subtext">Protect your packages from porch pirates and missed deliveries. Limited-time offer — no setup fee, free notifications, and up to 4 months free.</p>
-      <a href="#contact" class="btn btn--yellow" style="font-size:1.2rem;">Reserve My Box</a>
-      <p style="font-size:0.95rem;color:#e3eefd;margin-top:0.6em;">
+      <a href="#contact" class="btn btn--yellow hero-cta-btn">Reserve My Box</a>
+      <p class="hero-note">
         Only 9 boxes available — lock in your deal now.
       </p>
     </div>
   </section>
+  <div class="section-divider">
+    <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+      <path d="M0,0 C300,80 900,0 1200,80 L1200,0 L0,0 Z" fill="#fff"/>
+    </svg>
+  </div>
 
-  <!-- 2️⃣ THE PROBLEM -->
-  <section class="section section--white" id="problem">
-    <!-- Problem split: image left on desktop, top on mobile -->
-    <div class="split">
-      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/porch_packages_rain.webp" alt="Packages left in the rain" loading="lazy" />
-      <div class="split__content">
-        <h2>Are Your Packages Safe?</h2>
-        <p>Porch pirates, unpredictable weather, and missed deliveries are a headache for anyone who shops online or runs a business from home. Packages left outside can be stolen, damaged, or lost—leaving you frustrated and out of pocket.</p>
-        <a href="#offer" style="color:var(--brand-blue);font-weight:600;text-decoration:underline;">
-          There’s a better way to protect your mail and packages.
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3️⃣ IMAGINE LIFE AFTER MAILBOX PLUS -->
-  <section class="section section--alt" id="imagine">
-    <div class="split split--reverse">
-      <div class="split__content">
-        <h2>Imagine Life After Mailbox Plus</h2>
-        <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
-        <ul style="padding-left:1.2em; margin-bottom:0.8em;">
-          <li>✔️ Package notifications</li>
-          <li>✔️ No more missed or stolen deliveries</li>
-        </ul>
-        <p style="font-weight:600;color:var(--brand-blue);margin-bottom:0.5em;">
-          Access during all business hours — with friendly staff ready to help.
-        </p>
-        <p style="color:#444;font-size:1em;">
-          Pickup your mail and packages during our extended business hours — open early, open late for your convenience.
-        </p>
-      </div>
-      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp" alt="Happy customer receiving mail" loading="lazy" />
-    </div>
-  </section>
-
-  <!-- 4️⃣ OFFER STACK / WHAT YOU GET -->
-  <section class="section section--white" id="offer">
-    <div class="offer-stack">
-      <img class="offer-stack__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp" alt="Mailbox keys and envelopes" loading="lazy" />
-      <div class="offer-stack__content">
-        <table class="offer-table">
-          <thead>
-            <tr><th>What’s Included</th><th>Value</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Private, secure mailbox (real street address)</td><td>$25/mo</td></tr>
   <!-- 💳 MAILBOX PLANS OVERVIEW -->
   <section class="section section--white" id="plans">
     <h2 style="text-align:center; margin-bottom: 0.5rem;">Mailbox Rental Plans</h2>
@@ -685,6 +704,53 @@
     </div>
     <p style="text-align:center; margin-top: 2.5rem; font-weight: 600;">⚡ Only 9 boxes left at this promotional rate — lock in your deal today.</p>
   </section>
+  <!-- 2️⃣ THE PROBLEM -->
+  <section class="section section--white" id="problem">
+    <!-- Problem split: image left on desktop, top on mobile -->
+    <div class="split">
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/porch_packages_rain.webp" alt="Packages left in the rain" loading="lazy" />
+      <div class="split__content">
+        <h2>Are Your Packages Safe?</h2>
+        <p>Porch pirates, unpredictable weather, and missed deliveries are a headache for anyone who shops online or runs a business from home. Packages left outside can be stolen, damaged, or lost—leaving you frustrated and out of pocket.</p>
+        <a href="#offer" style="color:var(--brand-blue);font-weight:600;text-decoration:underline;">
+          There’s a better way to protect your mail and packages.
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3️⃣ IMAGINE LIFE AFTER MAILBOX PLUS -->
+  <section class="section section--alt" id="imagine">
+    <div class="split split--reverse">
+      <div class="split__content">
+        <h2>Imagine Life After Mailbox Plus</h2>
+        <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
+        <ul style="padding-left:1.2em; margin-bottom:0.8em;">
+          <li>✔️ Package notifications</li>
+          <li>✔️ No more missed or stolen deliveries</li>
+        </ul>
+        <p style="font-weight:600;color:var(--brand-blue);margin-bottom:0.5em;">
+          Access during all business hours — with friendly staff ready to help.
+        </p>
+        <p style="color:#444;font-size:1em;">
+          Pickup your mail and packages during our extended business hours — open early, open late for your convenience.
+        </p>
+      </div>
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp" alt="Happy customer receiving mail" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- 4️⃣ OFFER STACK / WHAT YOU GET -->
+  <section class="section section--white" id="offer">
+    <div class="offer-stack">
+      <img class="offer-stack__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp" alt="Mailbox keys and envelopes" loading="lazy" />
+      <div class="offer-stack__content">
+        <table class="offer-table">
+          <thead>
+            <tr><th>What’s Included</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Private, secure mailbox (real street address)</td><td>$25/mo</td></tr>
             <tr><td>Package acceptance from all carriers</td><td>Included</td></tr>
             <tr><td>Free electronic notifications</td><td>$60/yr</td></tr>
             <tr><td>No setup fee (normally $25)</td><td>$25</td></tr>
@@ -771,7 +837,7 @@
   </section>
 
   <!-- 7️⃣ LIMITED AVAILABILITY -->
-  <section class="limited-section section--image" id="limited">
+  <section class="limited-section section--image fade-in" id="limited">
     <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_wall_reserved_sign.webp" alt="Reserved mailboxes" loading="lazy" />
     <div class="overlay overlay--yellow"></div>
     <div class="limited-content">
@@ -793,28 +859,40 @@
     <h2 class="faq-title">Frequently Asked Questions</h2>
     <div class="faq-list">
       <div class="faq-item">
-        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
         <div>
           <div class="faq-q">Is this a real street address?</div>
           <div>Yes! You get a real street address, not a PO Box. This means you can receive packages from all carriers, including UPS, FedEx, and Amazon.</div>
         </div>
       </div>
       <div class="faq-item">
-        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
         <div>
           <div class="faq-q">Can I access my mailbox after hours?</div>
           <div>Access is available during all regular business hours. Our friendly team is here to assist you whenever we’re open.</div>
         </div>
       </div>
       <div class="faq-item">
-        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
         <div>
           <div class="faq-q">Will you notify me when I get mail or packages?</div>
           <div>Yes, we offer free notifications so you know exactly when your mail or packages arrive.</div>
         </div>
       </div>
       <div class="faq-item">
-        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <svg class="faq-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
         <div>
           <div class="faq-q">How do I sign up?</div>
           <div>Just fill out the form below or stop by our store. We’ll help you get started in minutes!</div>
@@ -854,7 +932,7 @@
   </section>
 
   <!-- 🔟 FINAL CTA -->
-  <section class="final-cta-section section--image" id="final-cta">
+  <section class="final-cta-section section--image fade-in" id="final-cta">
     <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_smiling_customer_with_packages.webp" alt="Smiling customer with packages" loading="lazy" />
     <div class="overlay overlay--blue"></div>
     <div class="final-cta-content">
