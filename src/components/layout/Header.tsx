@@ -17,7 +17,9 @@ export const Header: React.FC = () => {
     { name: 'Services', href: '/services' },
     { name: 'Tracking', href: '/tracking' },
     { name: 'Shipping Partners', href: '/shipping-partners' },
-    { name: 'Contact', href: '/contact-us' }
+    { name: 'Contact', href: '/contact-us' },
+    // External link to standalone sales page
+    { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true }
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -79,19 +81,32 @@ export const Header: React.FC = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors ${
-                  isActive(item.href)
-                    ? 'text-[#0855B1]'
-                    : 'text-[#4B5563] hover:text-[#0855B1]'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
+            {navigation.map((item) =>
+              item.external ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-yellow-600 hover:text-yellow-700 transition-colors"
+                  style={{ fontWeight: 700 }}
+                >
+                  {item.name}
+                </a>
+              ) : (
+                <Link
+                  key={item.name}
+                  to={item.href}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive(item.href)
+                      ? 'text-[#0855B1]'
+                      : 'text-[#4B5563] hover:text-[#0855B1]'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              )
+            )}
           </nav>
 
           {/* Search Box */}
@@ -120,20 +135,33 @@ export const Header: React.FC = () => {
             className="md:hidden bg-white border-t border-gray-200"
           >
             <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`block text-base font-medium transition-colors ${
-                    isActive(item.href)
-                      ? 'text-[#0855B1]'
-                      : 'text-[#4B5563] hover:text-[#0855B1]'
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              ))}
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-base font-bold text-yellow-600 hover:text-yellow-700 transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block text-base font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'text-[#0855B1]'
+                        : 'text-[#4B5563] hover:text-[#0855B1]'
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                )
+              )}
             </nav>
             <div className="pt-4">
               <SearchBox />
