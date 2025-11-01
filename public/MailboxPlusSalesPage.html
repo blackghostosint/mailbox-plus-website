@@ -1,208 +1,717 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mailbox Plus – Private Mailbox Rentals | Concord Township, OH</title>
-  <meta name="description" content="Never lose a package again. Secure private mailbox rentals at Mailbox Plus – free setup, free notifications, and 2 months free on select plans." />
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.4.10/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="icon" type="image/png" href="/favicon.png">
-
-  <!-- Structured Data for SEO -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Mailbox Plus | Private Mailbox Rental Offer</title>
+  <meta name="description" content="Secure your mail and packages with a private mailbox at Mailbox Plus. Limited-time offer. No porch pirates, no missed deliveries. Reserve your box today!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand-blue: #0855B1;
+      --brand-yellow: #FFD600;
+      --brand-dark: #0B2742;
+      --gray-light: #F7F8FA;
+      --gray-text: #444;
+      --transition: 0.18s cubic-bezier(.4,0,.2,1);
+    }
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--gray-text);
+      background: #fff;
+      min-width: 0;
+      min-height: 0;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--brand-blue);
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+      line-height: 1.15;
+    }
+    h1 { font-size: 2.2rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.15rem; }
+    p {
+      margin-top: 0;
+      margin-bottom: 1.1em;
+      line-height: 1.7;
+    }
+    a {
+      color: var(--brand-blue);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    a:hover {
+      color: var(--brand-yellow);
+    }
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--brand-blue) 60%, #3a8dde 100%);
+      color: #fff;
+      font-weight: 600;
+      border: none;
+      border-radius: 2.2em;
+      padding: 0.85em 2.2em;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 2px 12px 0 rgba(8,85,177,0.08);
+      transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+      outline: none;
+      text-align: center;
+      margin-top: 0.5em;
+    }
+    .btn--yellow {
+      background: linear-gradient(90deg, var(--brand-yellow) 80%, #ffe866 100%);
+      color: var(--brand-dark);
+      box-shadow: 0 2px 12px 0 rgba(255,214,0,0.10);
+    }
+    .btn--red {
+      background: #e53935;
+      color: #fff;
+    }
+    .btn:hover, .btn:focus {
+      transform: scale(1.03);
+      box-shadow: 0 6px 24px 0 rgba(8,85,177,0.13);
+      filter: brightness(1.04);
+    }
+    .section {
+      padding: 3.5rem 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .section--alt {
+      background: var(--gray-light);
+    }
+    .section--white {
+      background: #fff;
+    }
+    .section--image {
+      padding: 0;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .overlay--blue {
+      background: linear-gradient(to bottom, rgba(8,85,177,0.6), rgba(8,85,177,0.6));
+    }
+    .overlay--blue-solid {
+      background: rgba(8,85,177,0.65);
+    }
+    .overlay--yellow {
+      background: rgba(255,214,0,0.65);
+    }
+    .section-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 320px;
+      text-align: center;
+    }
+    .section-image-bg {
+      width: 100%;
+      height: 100%;
+      min-height: 320px;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    /* Hero Section */
+    .hero-headline {
+      color: #fff;
+      font-size: 2.3rem;
+      font-weight: 700;
+      text-shadow: 0 2px 16px rgba(8,85,177,0.18);
+      margin-bottom: 0.5em;
+    }
+    .hero-subtext {
+      color: #e3eefd;
+      font-size: 1.15rem;
+      margin-bottom: 1.2em;
+      text-shadow: 0 1px 8px rgba(8,85,177,0.10);
+    }
+    /* Problem/Imagine/Founder split sections */
+    .split {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .split__img {
+      width: 100%;
+      max-width: 420px;
+      min-height: 220px;
+      object-fit: cover;
+      border-radius: 1.2em;
+      box-shadow: 0 2px 18px 0 rgba(8,85,177,0.08);
+    }
+    .split__content {
+      flex: 1 1 0;
+      min-width: 0;
+      text-align: left;
+      max-width: 600px;
+    }
+    .split--reverse {
+      flex-direction: column-reverse;
+    }
+    @media (min-width: 800px) {
+      .split {
+        flex-direction: row;
+        gap: 3.5rem;
+        align-items: stretch;
+        text-align: left;
+      }
+      .split--reverse {
+        flex-direction: row-reverse;
+      }
+      .split__img {
+        min-width: 340px;
+        min-height: 320px;
+      }
+      .split__content {
+        padding: 1.2em 0;
+      }
+    }
+    /* Offer Stack */
+    .offer-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2.2rem;
+    }
+    .offer-stack__img {
+      width: 100%;
+      max-width: 320px;
+      min-height: 180px;
+      object-fit: cover;
+      border-radius: 1em;
+      box-shadow: 0 2px 12px 0 rgba(8,85,177,0.08);
+    }
+    .offer-table {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 32px 0 rgba(8,85,177,0.10);
+      padding: 2.2em 1.2em;
+      min-width: 0;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+      border-collapse: collapse;
+    }
+    .offer-table th, .offer-table td {
+      padding: 0.7em 0.5em;
+      text-align: left;
+      font-size: 1.05rem;
+      border-bottom: 1px solid #f0f2f7;
+    }
+    .offer-table th {
+      color: var(--brand-blue);
+      font-weight: 600;
+      background: #f7f8fa;
+    }
+    .offer-table tr:last-child td {
+      border-bottom: none;
+    }
+    /* Testimonials */
+    .testimonials-section {
+      position: relative;
+      padding: 0;
+      min-height: 420px;
+      color: #fff;
+    }
+    .testimonials-bg {
+      width: 100%;
+      height: 100%;
+      min-height: 420px;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      user-select: none;
+    }
+    .testimonials-content {
+      position: relative;
+      z-index: 2;
+      padding: 3.5rem 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonials-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      margin-top: 2.2rem;
+      align-items: center;
+      justify-content: center;
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.10);
+      border-radius: 1.2em;
+      box-shadow: 0 2px 18px 0 rgba(8,85,177,0.10);
+      padding: 1.5em 1.2em;
+      max-width: 340px;
+      color: #fff;
+      text-align: left;
+      font-size: 1.05rem;
+      position: relative;
+      border: 1px solid rgba(255,255,255,0.13);
+    }
+    .testimonial-card .testimonial-author {
+      font-weight: 600;
+      margin-top: 1em;
+      color: #ffe866;
+      font-size: 1rem;
+    }
+    @media (min-width: 900px) {
+      .testimonials-grid {
+        flex-direction: row;
+        gap: 2.5rem;
+      }
+    }
+    /* Limited Availability */
+    .limited-section {
+      position: relative;
+      min-height: 320px;
+      padding: 0;
+      color: #b71c1c;
+      text-align: center;
+    }
+    .limited-content {
+      position: relative;
+      z-index: 2;
+      padding: 3.5rem 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .limited-cta {
+      font-size: 2.1rem;
+      font-weight: 700;
+      color: #b71c1c;
+      background: rgba(255,255,255,0.85);
+      border-radius: 1.2em;
+      padding: 0.7em 1.5em;
+      margin-bottom: 1.2em;
+      box-shadow: 0 2px 12px 0 rgba(255,214,0,0.10);
+      display: inline-block;
+    }
+    .limited-content h2, .limited-content p {
+      color: #222;
+      text-shadow: none;
+    }
+    /* FAQ */
+    .faq-section {
+      background: #fff;
+      padding: 3.5rem 1.2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .faq-title {
+      text-align: center;
+      margin-bottom: 2.2rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .faq-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2em;
+      background: #f7f8fa;
+      border-radius: 0.8em;
+      padding: 1.2em 1em;
+      box-shadow: 0 1px 6px 0 rgba(8,85,177,0.04);
+    }
+    .faq-icon {
+      width: 38px;
+      height: 38px;
+      object-fit: contain;
+      flex-shrink: 0;
+      margin-top: 0.2em;
+    }
+    .faq-q {
+      font-weight: 600;
+      color: var(--brand-blue);
+      margin-bottom: 0.3em;
+    }
+    /* Contact Form */
+    .contact-section {
+      background: url('https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/form_background_pattern.webp') repeat;
+      background-size: 340px;
+      padding: 3.5rem 1.2rem;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .contact-card {
+      background: #fff;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 32px 0 rgba(8,85,177,0.10);
+      padding: 2.5em 1.5em 2em 1.5em;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    .contact-card h2 {
+      color: var(--brand-blue);
+      margin-bottom: 0.5em;
+      text-align: center;
+    }
+    .contact-form label {
+      font-weight: 600;
+      color: var(--brand-blue);
+      margin-bottom: 0.2em;
+      display: block;
+      font-size: 1rem;
+    }
+    .contact-form input, .contact-form select {
+      width: 100%;
+      padding: 0.7em 0.9em;
+      border: 1px solid #dbe6f7;
+      border-radius: 0.5em;
+      font-size: 1rem;
+      margin-bottom: 1em;
+      background: #f7f8fa;
+      transition: border var(--transition);
+      font-family: inherit;
+    }
+    .contact-form input:focus, .contact-form select:focus {
+      border: 1.5px solid var(--brand-blue);
+      outline: none;
+      background: #fff;
+    }
+    /* Final CTA */
+    .final-cta-section {
+      position: relative;
+      min-height: 320px;
+      padding: 0;
+      color: #fff;
+      text-align: center;
+    }
+    .final-cta-content {
+      position: relative;
+      z-index: 2;
+      padding: 3.5rem 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .final-cta-content h2 {
+      color: #fff;
+      text-shadow: 0 2px 16px rgba(8,85,177,0.18);
+    }
+    /* Footer */
+    .footer {
+      background: var(--brand-dark);
+      color: #fff;
+      text-align: center;
+      padding: 2.2em 1.2em 1.2em 1.2em;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+    .footer a {
+      color: #fff;
+      text-decoration: underline;
+      font-weight: 600;
+      transition: color var(--transition);
+    }
+    .footer a:hover {
+      color: var(--brand-yellow);
+    }
+    /* Utility */
+    .visually-hidden {
+      position: absolute !important;
+      height: 1px; width: 1px;
+      overflow: hidden;
+      clip: rect(1px,1px,1px,1px);
+      white-space: nowrap;
+    }
+    /* Responsive Tweaks */
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5rem; }
+      .section, .testimonials-content, .faq-section, .contact-section, .final-cta-content, .limited-content {
+        padding: 2.2rem 0.5rem;
+      }
+      .split__img, .offer-stack__img {
+        min-height: 140px;
+      }
+      .offer-table {
+        padding: 1.2em 0.5em;
+      }
+      .contact-card {
+        padding: 1.2em 0.5em 1em 0.5em;
+      }
+    }
+  </style>
+  <!-- SEO Structured Data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Mailbox Plus",
-    "image": "https://mailboxplusohio.com/images/mailbox_plus_storefront.webp",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "7595 Crile Road",
       "addressLocality": "Concord Township",
       "addressRegion": "OH",
-      "postalCode": "44077",
-      "addressCountry": "US"
+      "postalCode": "44077"
     },
     "telephone": "(440) 555-MAIL",
     "url": "https://mailboxplusohio.com",
     "priceRange": "$$",
     "makesOffer": {
       "@type": "Offer",
-      "name": "Private Mailbox Rental",
+      "itemOffered": "Private Mailbox Rental",
       "price": "25.00",
-      "priceCurrency": "USD",
-      "url": "https://mailboxplusohio.com/MailboxPlusSalesPage.html",
-      "eligibleDuration": {
-        "@type": "QuantitativeValue",
-        "unitCode": "MON",
-        "value": "1"
-      },
-      "description": "Private, secure mailbox with free setup, notifications, and up to 4 months free."
+      "priceCurrency": "USD"
     }
   }
   </script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-    body { font-family: system-ui, sans-serif; }
-  </style>
 </head>
-<body class="text-gray-800">
-
-  <!-- HERO -->
-  <section class="w-full bg-gradient-to-b from-blue-600 to-blue-700 text-white text-center py-20 px-6">
-    <h1 class="text-4xl md:text-6xl font-bold mb-4">
-      You Deserve to Keep the Things You Buy.
-    </h1>
-    <p class="text-lg md:text-xl mb-6">
-      Stop letting porch pirates steal your packages. Get your own secure, private mailbox — only $25/month.
-    </p>
-    <ul class="space-y-1 mb-8 text-base">
-      <li>✅ 2 Months FREE on 6-Month Plan</li>
-      <li>✅ 4 Months FREE on 12-Month Plan</li>
-      <li>✅ Free Setup & Notifications</li>
-    </ul>
-    <a href="#contact-form" class="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition">
-      Reserve Your Mailbox
-    </a>
+<body>
+  <!-- 1️⃣ HERO SECTION -->
+  <section class="section section--image" id="hero" style="position:relative; min-height: 420px;">
+    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_hero_mailboxes_front.webp" alt="Mailboxes at Mailbox Plus" loading="eager" />
+    <div class="overlay overlay--blue"></div>
+    <div class="section-content" style="min-height: 420px;">
+      <h1 class="hero-headline">Private Mailbox Rental Offer</h1>
+      <p class="hero-subtext">No more missed packages, porch pirates, or weather-damaged mail. Secure your own private mailbox at Mailbox Plus today.</p>
+      <a href="#contact" class="btn btn--yellow" style="font-size:1.2rem;">Reserve My Box</a>
+    </div>
   </section>
 
-  <!-- PROBLEM -->
-  <section class="max-w-5xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold mb-6 text-center">The Problem: What’s Really Costing You</h2>
-    <p class="text-lg leading-relaxed mb-4">
-      You buy things online because it’s convenient. But convenience disappears the moment your package does.
-    </p>
-    <ul class="list-disc pl-6 mb-6 space-y-2">
-      <li>Porch theft and missed deliveries</li>
-      <li>Packages sitting in the rain for days</li>
-      <li>Wrong addresses and no accountability</li>
-    </ul>
-    <blockquote class="border-l-4 border-blue-600 pl-4 italic text-gray-700">
-      “If it costs $25 a month to protect hundreds of dollars of packages, why wouldn’t you?”
-    </blockquote>
+  <!-- 2️⃣ THE PROBLEM -->
+  <section class="section section--white" id="problem">
+    <!-- Problem split: image left on desktop, top on mobile -->
+    <div class="split">
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/porch_packages_rain.webp" alt="Packages left in the rain" loading="lazy" />
+      <div class="split__content">
+        <h2>Are Your Packages Safe?</h2>
+        <p>Porch pirates, unpredictable weather, and missed deliveries are a headache for anyone who shops online or runs a business from home. Packages left outside can be stolen, damaged, or lost—leaving you frustrated and out of pocket.</p>
+        <p style="color:var(--brand-blue);font-weight:600;">There’s a better way to protect your mail and packages.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- TRANSFORMATION -->
-  <section class="bg-gray-50 py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Imagine Life After Mailbox Plus</h2>
-    <p class="max-w-3xl mx-auto text-lg leading-relaxed">
-      Your phone buzzes — “Package delivered!” But instead of sitting outside, it’s safe behind a locked door in your personal mailbox at Mailbox Plus.<br><br>
-      No more porch theft. No more missed deliveries. No more stress.
-    </p>
+  <!-- 3️⃣ IMAGINE LIFE AFTER MAILBOX PLUS -->
+  <section class="section section--alt" id="imagine">
+    <div class="split split--reverse">
+      <div class="split__content">
+        <h2>Imagine Life After Mailbox Plus</h2>
+        <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
+        <ul style="padding-left:1.2em; margin-bottom:1.2em;">
+          <li>✔️ 24/7 access to your mailbox</li>
+          <li>✔️ Package notifications</li>
+          <li>✔️ No more missed or stolen deliveries</li>
+        </ul>
+      </div>
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp" alt="Happy customer receiving mail" loading="lazy" />
+    </div>
   </section>
 
-  <!-- OFFER STACK -->
-  <section class="py-20 px-6 bg-white text-center">
-    <h2 class="text-3xl font-bold mb-8">What You Get with Mailbox Plus</h2>
-    <div class="overflow-x-auto max-w-4xl mx-auto">
-      <table class="w-full border border-gray-200 rounded-lg text-left">
-        <thead class="bg-gray-100">
-          <tr><th class="p-3 font-semibold">Feature</th><th class="p-3 font-semibold text-right">Value</th></tr>
+  <!-- 4️⃣ OFFER STACK / WHAT YOU GET -->
+  <section class="section section--white" id="offer">
+    <div class="offer-stack">
+      <img class="offer-stack__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp" alt="Mailbox keys and envelopes" loading="lazy" />
+      <table class="offer-table">
+        <thead>
+          <tr>
+            <th>What’s Included</th>
+            <th>Value</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td class="p-3">Private Mailbox with Street Address</td><td class="p-3 text-right">$25/mo</td></tr>
-          <tr><td class="p-3">Free Package Notifications</td><td class="p-3 text-right">$10/mo</td></tr>
-          <tr><td class="p-3">Free Setup</td><td class="p-3 text-right">$25 value</td></tr>
-          <tr><td class="p-3">Key Deposit Only $5</td><td class="p-3 text-right">$5 savings</td></tr>
-          <tr><td class="p-3">2 Months Free (6-Month Plan)</td><td class="p-3 text-right">$50 value</td></tr>
-          <tr><td class="p-3">4 Months Free (12-Month Plan)</td><td class="p-3 text-right">$100+ value</td></tr>
+          <tr>
+            <td>Private, secure mailbox (real street address)</td>
+            <td>$25/mo</td>
+          </tr>
+          <tr>
+            <td>Package acceptance from all carriers</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <td>24/7 access (with key)</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <td>Mail & package notifications</td>
+            <td>Included</td>
+          </tr>
+          <tr>
+            <td>Local, friendly support</td>
+            <td>Priceless</td>
+          </tr>
         </tbody>
       </table>
     </div>
-    <p class="mt-6 font-semibold">Total Savings: Over $100 instantly</p>
-    <a href="#contact-form" class="inline-block mt-8 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition">
-      Claim This Offer
-    </a>
   </section>
 
-  <!-- TESTIMONIALS -->
-  <section class="bg-gray-50 py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-8">What Our Customers Say</h2>
-    <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-      <blockquote class="bg-white p-6 rounded-xl shadow">
-        <p class="italic mb-4 text-gray-700">“We run a small business from home. Having a Mailbox Plus address makes us look more professional — and we never miss deliveries anymore.”</p>
-        <p class="font-semibold text-gray-900">Jennifer M., Mentor, OH</p>
-      </blockquote>
-      <blockquote class="bg-white p-6 rounded-xl shadow">
-        <p class="italic mb-4 text-gray-700">“My apartment mailroom was a nightmare. Now all my Amazon stuff goes to Mailbox Plus. Zero issues since.”</p>
-        <p class="font-semibold text-gray-900">Brandon L., Painesville, OH</p>
-      </blockquote>
-      <blockquote class="bg-white p-6 rounded-xl shadow">
-        <p class="italic mb-4 text-gray-700">“Mailbox Plus helped us get a business address that works with all carriers — USPS, UPS, FedEx, and DHL.”</p>
-        <p class="font-semibold text-gray-900">Kara & Steve R., Willoughby, OH</p>
-      </blockquote>
+  <!-- 5️⃣ TESTIMONIALS -->
+  <section class="testimonials-section section--image" id="testimonials">
+    <img class="testimonials-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customers_collage_local_businesses.webp" alt="Happy Mailbox Plus customers" loading="lazy" />
+    <div class="overlay overlay--blue-solid"></div>
+    <div class="testimonials-content">
+      <h2 style="color:#fff;">What Our Customers Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p>“I never worry about missing a delivery anymore. The staff is always friendly and my packages are safe and dry every time.”</p>
+          <div class="testimonial-author">— Sarah L., Home Business Owner</div>
+        </div>
+        <div class="testimonial-card">
+          <p>“Mailbox Plus gives me peace of mind. No more porch pirates, and I love the 24/7 access!”</p>
+          <div class="testimonial-author">— Mike D., Online Seller</div>
+        </div>
+        <div class="testimonial-card">
+          <p>“The notifications are a game-changer. I know exactly when my mail arrives, and the location is super convenient.”</p>
+          <div class="testimonial-author">— Lisa P., Frequent Traveler</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- FOUNDER STORY -->
-  <section class="py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Why We Built Mailbox Plus</h2>
-    <p class="max-w-3xl mx-auto text-lg leading-relaxed">
-      We started Mailbox Plus to give our community a safe, reliable way to receive what matters most.<br><br>
-      We’re not a national chain — we’re your neighbors. We treat every package like it’s our own.
-    </p>
-  </section>
-
-  <!-- SCARCITY -->
-  <section class="bg-yellow-50 py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-4">Limited Availability</h2>
-    <p class="text-lg mb-6">
-      We only have a limited number of private mailboxes. Once they’re rented — they’re gone.
-    </p>
-    <div class="text-2xl font-semibold text-red-600 mb-6">
-      🔒 9 boxes available this month
-    </div>
-    <a href="#contact-form" class="bg-red-600 hover:bg-red-500 text-white font-semibold py-3 px-6 rounded-lg shadow-lg transition">
-      Reserve My Mailbox
-    </a>
-  </section>
-
-  <!-- FAQ -->
-  <section class="max-w-4xl mx-auto py-20 px-6">
-    <h2 class="text-3xl font-bold mb-8 text-center">Frequently Asked Questions</h2>
-    <div class="space-y-6">
-      <div><h3 class="font-semibold text-lg mb-2">Can I receive packages from all carriers?</h3><p class="text-gray-700">Yes — USPS, UPS, FedEx, and DHL all deliver directly to Mailbox Plus.</p></div>
-      <div><h3 class="font-semibold text-lg mb-2">Is this a PO Box?</h3><p class="text-gray-700">No. You get a real street address suitable for business or personal deliveries.</p></div>
-      <div><h3 class="font-semibold text-lg mb-2">Can my business use this address?</h3><p class="text-gray-700">Absolutely. Many local entrepreneurs use Mailbox Plus as their business mailing address.</p></div>
-      <div><h3 class="font-semibold text-lg mb-2">How do I get notified when mail arrives?</h3><p class="text-gray-700">We send free text or email alerts for every delivery.</p></div>
-      <div><h3 class="font-semibold text-lg mb-2">What if I move?</h3><p class="text-gray-700">We can forward your mail anywhere in the U.S. — just let us know.</p></div>
+  <!-- 6️⃣ FOUNDER STORY -->
+  <section class="section section--alt" id="founder">
+    <div class="split">
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_team_photo.webp" alt="Mailbox Plus team" loading="lazy" />
+      <div class="split__content">
+        <h2>Meet the Team Behind Mailbox Plus</h2>
+        <p>We’re a local, family-owned business dedicated to making your life easier. Our team believes everyone deserves a secure, reliable place for their mail and packages—without the stress of missed deliveries or theft.</p>
+        <p>Stop by and say hello! We’re here to help you every step of the way.</p>
+      </div>
     </div>
   </section>
 
-  <!-- CONTACT FORM -->
-  <section id="contact-form" class="bg-gray-100 py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Reserve Your Private Mailbox</h2>
-    <p class="mb-8">Fill out the form and our team will contact you to finalize your setup.</p>
-    <form name="mailbox-plus-form" method="POST" data-netlify="true" class="max-w-lg mx-auto grid gap-4 text-left bg-white p-6 rounded-xl shadow">
-      <input type="hidden" name="form-name" value="mailbox-plus-form" />
-      <input name="name" placeholder="Full Name" required class="border p-3 rounded" />
-      <input type="email" name="email" placeholder="Email" required class="border p-3 rounded" />
-      <input name="phone" placeholder="Phone Number" required class="border p-3 rounded" />
-      <select name="plan" required class="border p-3 rounded">
-        <option value="">Select a plan</option>
-        <option value="6-month">6-Month Plan — 2 Months Free</option>
-        <option value="12-month">12-Month Plan — 4 Months Free</option>
-      </select>
-      <button type="submit" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-lg transition">
-        Reserve My Mailbox
-      </button>
-    </form>
+  <!-- 7️⃣ LIMITED AVAILABILITY -->
+  <section class="limited-section section--image" id="limited">
+    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_wall_reserved_sign.webp" alt="Reserved mailboxes" loading="lazy" />
+    <div class="overlay overlay--yellow"></div>
+    <div class="limited-content">
+      <div class="limited-cta">🚨 Only <span style="color:#e53935;font-weight:700;">9 boxes available</span> this month!</div>
+      <h2>Don’t Miss Out</h2>
+      <p>Mailbox Plus is trusted by hundreds of local residents and businesses. Secure your spot before they’re gone.</p>
+      <a href="#contact" class="btn btn--yellow" style="font-size:1.1rem;">Reserve My Box Now</a>
+    </div>
   </section>
 
-  <!-- FINAL CTA -->
-  <section class="py-20 px-6 text-center bg-blue-700 text-white">
-    <h2 class="text-3xl font-bold mb-4">Don’t Risk Another Missed Delivery</h2>
-    <p class="text-lg mb-8">
-      Mailbox Plus gives you security, privacy, and convenience for less than a coffee a day.
-    </p>
-    <a href="#contact-form" class="bg-yellow-400 hover:bg-yellow-300 text-black font-semibold py-3 px-6 rounded-lg shadow-lg transition">
-      Claim My Mailbox
-    </a>
+  <!-- 8️⃣ FAQ -->
+  <section class="faq-section section--white" id="faq">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <div>
+          <div class="faq-q">Is this a real street address?</div>
+          <div>Yes! You get a real street address, not a PO Box. This means you can receive packages from all carriers, including UPS, FedEx, and Amazon.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <div>
+          <div class="faq-q">Can I access my mailbox after hours?</div>
+          <div>Absolutely. With your key, you have 24/7 access to your mailbox—even when the store is closed.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <div>
+          <div class="faq-q">Will you notify me when I get mail or packages?</div>
+          <div>Yes, we offer free notifications so you know exactly when your mail or packages arrive.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <img class="faq-icon" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/faq_icons_envelope_lock.webp" alt="Envelope lock icon" />
+        <div>
+          <div class="faq-q">How do I sign up?</div>
+          <div>Just fill out the form below or stop by our store. We’ll help you get started in minutes!</div>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer class="bg-gray-900 text-gray-400 text-center py-6 text-sm">
-    Mailbox Plus • 7595 Crile Road, Concord Township, OH 44077 • (440) 555-MAIL
+  <!-- 9️⃣ CONTACT FORM -->
+  <section class="contact-section" id="contact">
+    <div class="contact-card">
+      <h2>Reserve Your Mailbox</h2>
+      <form class="contact-form" name="mailbox-plus-form" method="POST" data-netlify="true">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(555) 123-4567" />
+        <label for="plan">Plan</label>
+        <select id="plan" name="plan" required>
+          <option value="">Select a plan</option>
+          <option value="monthly">Monthly ($25/mo)</option>
+          <option value="6months">6 Months ($135)</option>
+          <option value="yearly">Yearly ($250)</option>
+        </select>
+        <button type="submit" class="btn btn--yellow" style="width:100%;">Reserve Now</button>
+      </form>
+      <div style="text-align:center; font-size:0.98em; color:var(--gray-text); margin-top:0.7em;">
+        Or call us: <a href="tel:14405556245" style="color:var(--brand-blue);font-weight:600;">(440) 555-MAIL</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 🔟 FINAL CTA -->
+  <section class="final-cta-section section--image" id="final-cta">
+    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_smiling_customer_with_packages.webp" alt="Smiling customer with packages" loading="lazy" />
+    <div class="overlay overlay--blue"></div>
+    <div class="final-cta-content">
+      <h2>Ready to Secure Your Mailbox?</h2>
+      <p style="font-size:1.15rem; color:#e3eefd;">Join hundreds of happy customers who trust Mailbox Plus for safe, reliable mail and package delivery.</p>
+      <a href="#contact" class="btn btn--yellow" style="font-size:1.15rem;">Get Started Now</a>
+    </div>
+  </section>
+
+  <!-- 11️⃣ FOOTER -->
+  <footer class="footer">
+    <div>
+      &copy; 2025 Mailbox Plus &mdash; 7595 Crile Road, Concord Township, OH 44077 &mdash; <a href="tel:14405556245">(440) 555-MAIL</a>
+    </div>
+    <div style="margin-top:0.5em; font-size:0.95em;">
+      <a href="https://mailboxplusohio.com" target="_blank" rel="noopener">Visit Main Website</a>
+    </div>
   </footer>
 </body>
 </html>
