@@ -989,31 +989,48 @@
 </section>
 
 <!-- 9️⃣ CONTACT FORM -->
-<section class="contact-section" id="reserve">
-  <div class="contact-card border border-gray-200 rounded-xl bg-white shadow-sm">
-    <h2>Reserve Your Mailbox</h2>
-    <form id="reserve-form">
-      <label for="name">Name</label>
-      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
-      <label for="phone">Phone</label>
-      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(555) 123-4567" />
-      <label for="plan">Plan</label>
-      <select id="plan" name="plan" required>
-        <option value="">Select a plan</option>
-        <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
-        <option value="6months">6 Months – 2 Months Free ($150 total)</option>
-        <option value="12months">12 Months – 4 Months Free ($300 total)</option>
-      </select>
-      <p style="font-size:0.9rem;color:var(--gray-text);text-align:center;margin-bottom:0.6em;">
-        Your information is secure and never shared.
-      </p>
-      <button type="submit" class="btn btn--yellow" style="width:100%;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</button>
-    </form>
-    <div style="text-align:center; font-size:0.98em; color:var(--gray-text); margin-top:0.7em;">
-      All plans include free notifications, no setup fee, and a $5 key deposit.<br>
-      Or call us: <a href="tel:14405556245" style="color:var(--brand-blue);font-weight:600;">(440) 709-1946</a>
+<section class="contact-section py-16 bg-gradient-to-b from-white to-gray-50" id="reserve">
+  <div class="max-w-md mx-auto text-center">
+    <div class="contact-card bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6">Reserve Your Mailbox</h2>
+      <form id="reserve-form" class="space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <input id="name" name="name" type="text" required autocomplete="name"
+            placeholder="Your Name"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+
+          <input id="email" name="email" type="email" required autocomplete="email"
+            placeholder="you@email.com"
+            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+        </div>
+
+        <input id="phone" name="phone" type="tel" required autocomplete="tel"
+          placeholder="(555) 123-4567"
+          class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+
+        <select id="plan" name="plan" required
+          class="w-full rounded-lg border border-gray-300 px-4 py-2 bg-white text-gray-700 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition">
+          <option value="">Select a plan</option>
+          <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
+          <option value="6months">6 Months – 2 Months Free ($150 total)</option>
+          <option value="12months">12 Months – 4 Months Free ($300 total)</option>
+        </select>
+
+        <p class="text-sm text-gray-500 mt-2">Your information is secure and never shared.</p>
+
+        <button type="submit"
+          class="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-semibold py-3 rounded-full shadow-md hover:shadow-lg hover:scale-[1.02] transition transform"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">
+          Reserve My Box Now
+        </button>
+      </form>
+
+      <div class="text-sm text-gray-600 mt-5">
+        <p>All plans include free notifications, no setup fee, and a $5 key deposit.</p>
+        <p class="mt-1">
+          Or call us: <a href="tel:14405556245" class="text-[var(--brand-blue)] font-semibold hover:underline">(440) 709-1946</a>
+        </p>
+      </div>
     </div>
   </div>
 </section>
