@@ -1,20 +1,28 @@
 module.exports = {
   root: true,
+  parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaVersion: "latest",
     sourceType: "module",
     ecmaFeatures: { jsx: true },
+    project: "./tsconfig.json",
   },
   env: {
     browser: true,
     es2021: true,
   },
-  plugins: ["jsx-a11y"],
+  plugins: ["jsx-a11y", "@typescript-eslint", "react"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
   ],
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
   rules: {
     "jsx-a11y/button-has-content": "error",
     "jsx-a11y/alt-text": "warn",

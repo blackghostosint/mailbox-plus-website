@@ -1,6 +1,6 @@
 const { exec } = require('child_process');
 
-const command = `npx eslint "src/**/*.{tsx,jsx,js}" --ignore-pattern "src/archive/**" -c .eslintrc.cjs -f json --output-file button-report.json`;
+const command = `npm exec -- eslint "src/**/*.{tsx,jsx,js}" --ignore-pattern "src/archive/**" -c .eslintrc.cjs -f json --output-file button-report.json`;
 
 const eslintProcess = exec(command, (error, stdout, stderr) => {
   if (error && error.code !== 1) { // ESLint exits with 1 when linting errors are found
