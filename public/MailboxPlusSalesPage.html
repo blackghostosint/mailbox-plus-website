@@ -989,51 +989,60 @@
 </section>
 
 <!-- 9️⃣ CONTACT FORM -->
-<section class="contact-section py-16 bg-gradient-to-b from-white to-gray-50" id="reserve">
-  <div class="max-w-md mx-auto text-center">
-    <div class="contact-card bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
-      <h2 class="text-2xl font-bold text-gray-900 mb-6">Reserve Your Mailbox</h2>
-      <form id="reserve-form" class="space-y-4">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <input id="name" name="name" type="text" required autocomplete="name"
-            placeholder="Your Name"
-            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+<section id="reserve" style="background:linear-gradient(to bottom,#ffffff,#f9fafb);padding:4rem 1rem;">
+  <div style="max-width:420px;margin:0 auto;text-align:center;">
+    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1.25rem;box-shadow:0 4px 12px rgba(0,0,0,0.06);padding:2rem;">
+      <h2 style="font-size:1.75rem;font-weight:700;color:#111827;margin-bottom:1.5rem;">Reserve Your Mailbox</h2>
+      
+      <form id="reserve-form" style="display:flex;flex-direction:column;gap:1rem;">
+        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+          <input id="name" name="name" type="text" required placeholder="Your Name"
+            style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
+            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
+            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
 
-          <input id="email" name="email" type="email" required autocomplete="email"
-            placeholder="you@email.com"
-            class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+          <input id="email" name="email" type="email" required placeholder="you@email.com"
+            style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
+            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
+            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
         </div>
 
-        <input id="phone" name="phone" type="tel" required autocomplete="tel"
-          placeholder="(555) 123-4567"
-          class="w-full rounded-lg border border-gray-300 px-4 py-2 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition" />
+        <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
+          style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
+          onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
+          onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
 
         <select id="plan" name="plan" required
-          class="w-full rounded-lg border border-gray-300 px-4 py-2 bg-white text-gray-700 focus:border-[var(--brand-blue)] focus:ring-2 focus:ring-[var(--brand-blue)]/30 outline-none transition">
+          style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;color:#374151;transition:border-color 0.2s,box-shadow 0.2s;"
+          onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
+          onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
           <option value="">Select a plan</option>
           <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
           <option value="6months">6 Months – 2 Months Free ($150 total)</option>
           <option value="12months">12 Months – 4 Months Free ($300 total)</option>
         </select>
 
-        <p class="text-sm text-gray-500 mt-2">Your information is secure and never shared.</p>
+        <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.</p>
 
         <button type="submit"
-          class="w-full bg-gradient-to-r from-yellow-400 to-yellow-300 text-gray-900 font-semibold py-3 rounded-full shadow-md hover:shadow-lg hover:scale-[1.02] transition transform"
+          style="width:100%;background:linear-gradient(90deg,#facc15,#fde047);color:#111827;font-weight:600;padding:0.8rem 0;border:none;border-radius:9999px;box-shadow:0 2px 6px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;"
+          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)'" 
+          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'"
           onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">
           Reserve My Box Now
         </button>
       </form>
 
-      <div class="text-sm text-gray-600 mt-5">
+      <div style="font-size:0.9rem;color:#4b5563;margin-top:1.25rem;line-height:1.5;">
         <p>All plans include free notifications, no setup fee, and a $5 key deposit.</p>
-        <p class="mt-1">
-          Or call us: <a href="tel:14405556245" class="text-[var(--brand-blue)] font-semibold hover:underline">(440) 709-1946</a>
+        <p style="margin-top:0.4rem;">Or call us: 
+          <a href="tel:14405556245" style="color:#0855B1;font-weight:600;text-decoration:none;">(440) 709-1946</a>
         </p>
       </div>
     </div>
   </div>
 </section>
+
 
   <!-- 🔟 FINAL CTA -->
   <section class="final-cta-section section--image fade-in pt-16" id="final-cta">
