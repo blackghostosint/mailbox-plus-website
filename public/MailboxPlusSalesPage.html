@@ -303,6 +303,11 @@
       font-weight: 600;
       background: #f7f8fa;
     }
+   .offer-table td:last-child,
+   .offer-table th:last-child {
+     text-align: right;
+     white-space: nowrap;
+   }
     .offer-table tr:last-child td {
       border-bottom: none;
     }
@@ -787,21 +792,24 @@
       <img class="offer-stack__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp" alt="Mailbox keys and envelopes" loading="lazy" />
       <div class="offer-stack__content">
         <h2 id="whats-included" class="text-2xl font-bold text-gray-900 mb-4 text-center">See Everything That’s Included</h2>
-        <table class="offer-table">
-          <thead>
-            <tr><th>What’s Included</th><th>Value</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Private, secure mailbox (real street address)</td><td>$25/mo</td></tr>
-            <tr><td>Package acceptance from all carriers</td><td>Included</td></tr>
-            <tr><td>Free electronic notifications</td><td>$60/yr</td></tr>
-            <tr><td>No setup fee (normally $25)</td><td>$25</td></tr>
-            <tr><td>Key deposit only $5 (normally $10)</td><td>$5 savings</td></tr>
-            <tr><td>2 months free (6-month plan) / 4 months free (12-month plan)</td><td>Up to $100 value</td></tr>
-            <tr><td>Local, friendly support</td><td>Priceless</td></tr>
-          </tbody>
-        </table>
-        <p class="text-center font-bold" style="color:#0855B1;margin-top:1em;">
+        <div class="overflow-x-auto">
+          <table class="offer-table w-full min-w-[320px]">
+            <caption class="sr-only">Mailbox rental plan value breakdown</caption>
+            <thead>
+              <tr><th>What’s Included</th><th>Value</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Private, secure mailbox (real street address)</td><td>$25/mo</td></tr>
+              <tr><td>Package acceptance from all carriers</td><td>Included</td></tr>
+              <tr><td>Free electronic notifications</td><td>$60/yr</td></tr>
+              <tr><td>No setup fee (normally $25)</td><td>$25</td></tr>
+              <tr><td>Key deposit only $5 (normally $10)</td><td>$5 savings</td></tr>
+              <tr><td>2 months free (6-month plan) / 4 months free (12-month plan)</td><td>Up to $100 value</td></tr>
+              <tr><td>Local, friendly support</td><td>Priceless</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="text-center font-bold text-[var(--brand-blue)] mt-4">
           Total value up to $420 — you pay as low as $300!
         </p>
         <div style="text-align:center;margin-top:1.5em;">
