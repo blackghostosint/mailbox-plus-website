@@ -988,35 +988,35 @@
   </div>
 </section>
 
-  <!-- 9️⃣ CONTACT FORM -->
-  <section class="contact-section" id="reserve">
-    <div class="contact-card border border-gray-200 rounded-xl bg-white shadow-sm">
-      <h2>Reserve Your Mailbox</h2>
-      <form class="contact-form" name="mailbox-plus-form" method="POST" data-netlify="true">
-        <label for="name">Name</label>
-        <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
-        <label for="phone">Phone</label>
-        <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(555) 123-4567" />
-        <label for="plan">Plan</label>
-        <select id="plan" name="plan" required>
-          <option value="">Select a plan</option>
-          <option value="month">Month-to-Month ($25/mo) 3 Month Minimum</option>
-          <option value="6months">6 Months – 2 Months Free ($150 total)</option>
-          <option value="12months">12 Months – 4 Months Free ($300 total)</option>
-        </select>
-        <p style="font-size:0.9rem;color:var(--gray-text);text-align:center;margin-bottom:0.6em;">
-          Your information is secure and never shared.
-        </p>
-        <button type="submit" class="btn btn--yellow" style="width:100%;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</button>
-      </form>
-      <div style="text-align:center; font-size:0.98em; color:var(--gray-text); margin-top:0.7em;">
-        All plans include free notifications, no setup fee, and a $5 key deposit.<br>
-        Or call us: <a href="tel:14405556245" style="color:var(--brand-blue);font-weight:600;">(440) 709-1946</a>
-      </div>
+<!-- 9️⃣ CONTACT FORM -->
+<section class="contact-section" id="reserve">
+  <div class="contact-card border border-gray-200 rounded-xl bg-white shadow-sm">
+    <h2>Reserve Your Mailbox</h2>
+    <form id="reserve-form">
+      <label for="name">Name</label>
+      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Your Name" />
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+      <label for="phone">Phone</label>
+      <input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="(555) 123-4567" />
+      <label for="plan">Plan</label>
+      <select id="plan" name="plan" required>
+        <option value="">Select a plan</option>
+        <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
+        <option value="6months">6 Months – 2 Months Free ($150 total)</option>
+        <option value="12months">12 Months – 4 Months Free ($300 total)</option>
+      </select>
+      <p style="font-size:0.9rem;color:var(--gray-text);text-align:center;margin-bottom:0.6em;">
+        Your information is secure and never shared.
+      </p>
+      <button type="submit" class="btn btn--yellow" style="width:100%;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</button>
+    </form>
+    <div style="text-align:center; font-size:0.98em; color:var(--gray-text); margin-top:0.7em;">
+      All plans include free notifications, no setup fee, and a $5 key deposit.<br>
+      Or call us: <a href="tel:14405556245" style="color:var(--brand-blue);font-weight:600;">(440) 709-1946</a>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- 🔟 FINAL CTA -->
   <section class="final-cta-section section--image fade-in pt-16" id="final-cta">
@@ -1040,4 +1040,27 @@
     </div>
   </footer>
 </body>
+<script>
+document.getElementById("reserve-form").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const formData = Object.fromEntries(new FormData(e.target).entries());
+
+  try {
+    const response = await fetch("/.netlify/functions/sendReservationEmail", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.ok) {
+      alert("✅ Thank you! Your reservation has been received.");
+      e.target.reset();
+    } else {
+      alert("⚠️ There was a problem submitting your form. Please try again.");
+    }
+  } catch (err) {
+    alert("❌ Network error — please try again later.");
+  }
+});
+</script>
 </html>
