@@ -67,7 +67,7 @@ export default defineConfig({
     sitemap({
       hostname: 'https://mailboxplusohio.com',
       dynamicRoutes: routes,
-      generateRobotsTxt: true, // ✅ auto-creates robots.txt to prevent ENOENT error
+      generateRobotsTxt: false,
     }),
     splitVendorChunkPlugin(),
   ],
@@ -79,7 +79,6 @@ export default defineConfig({
   build: {
     target: 'es2018',
     minify: 'esbuild',
-    brotliSize: true,
     rollupOptions: {
       output: {
         manualChunks: {
