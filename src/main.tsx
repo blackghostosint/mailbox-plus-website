@@ -6,7 +6,7 @@ import App from './App.tsx';
 import './index.css';
 
 const tagManagerArgs = {
-  gtmId: 'GTM-53WJ275G', // replace with your container ID
+  gtmId: 'GTM-M48D4D56', // replace with your container ID
 };
 
 TagManager.initialize(tagManagerArgs);
