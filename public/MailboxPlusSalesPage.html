@@ -597,6 +597,75 @@
       margin: 0 0 1.5em 0;
       line-height: 1.7;
     }
+    .section-title {
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+    .pricing-price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 0.2em;
+      color: var(--brand-blue);
+    }
+    .pricing-price__unit {
+      font-size: 1rem;
+      color: var(--gray-text);
+      font-weight: 400;
+    }
+    .pricing-description {
+      text-align: center;
+      min-height: 4.5em;
+      font-size: 0.95rem;
+    }
+    .pricing-list {
+      align-self: flex-start;
+      margin-bottom: 2em;
+    }
+    .pricing-card__cta {
+      width: 100%;
+      margin-top: auto;
+    }
+    .pricing-card__heading {
+      text-align: center;
+      color: var(--brand-blue);
+    }
+    .pricing-promo-badge {
+      background: var(--brand-yellow);
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.35em 1em;
+      border-radius: 2em;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .pricing-promo-badge--savings {
+      margin: 0.5em auto;
+    }
+    .pricing-promo-badge--popular {
+      margin-bottom: 1em;
+    }
+    .pricing-card--highlight .pricing-price {
+      color: #fff;
+    }
+    .pricing-card--highlight .pricing-price__unit {
+      color: #e3eefd;
+    }
+    .pricing-card--highlight .pricing-description {
+      color: #e3eefd;
+    }
+    .pricing-card--highlight .pricing-list {
+      color: #e3eefd;
+    }
+    .pricing-card--highlight .pricing-card__heading {
+      color: #fff;
+    }
     .pricing-card--highlight {
       background: var(--brand-blue);
       color: #fff;
@@ -710,49 +779,49 @@
 
   <!-- 💳 MAILBOX PLANS OVERVIEW -->
   <section class="section section--white" id="plans">
-    <h2 style="text-align:center; margin-bottom: 0.5rem;">Mailbox Rental Plans</h2>
-    <p style="text-align:center; margin-bottom: 2.5rem; font-size: 1.1rem;">Simple, flexible options — and big savings when you prepay.</p>
+    <h2 class="section-title">Mailbox Rental Plans</h2>
+    <p class="section-subtitle">Simple, flexible options - and big savings when you prepay.</p>
     <div class="pricing-grid">
       <!-- Plan 3: 12-Month Prepay (Highlight) -->
       <div class="pricing-card pricing-card--highlight">
         <div class="badge">Best Value — 4 Months Free!</div>
-        <h3 style="text-align:center; color: #fff;">12-Month Prepay</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: #fff; text-align:center; margin-bottom: 0.2em;">$300<span style="font-size: 1rem; color: #e3eefd; font-weight: 400;"> total</span></p>
-        <div class="badge" style="font-size: 0.9rem; margin: 0.5em auto;">Save $100 vs monthly</div>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem; color: #e3eefd;">4 months free — best overall value.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em; color: #e3eefd;">
+        <h3 class="pricing-card__heading">12-Month Prepay</h3>
+        <p class="pricing-price">$300<span class="pricing-price__unit"> total</span></p>
+        <div class="pricing-promo-badge pricing-promo-badge--savings">Save $100 vs monthly</div>
+        <p class="pricing-description">4 months free - best overall value.</p>
+        <ul class="pricing-list">
           <li>✔️ All 6-Month features</li>
           <li>✔️ Priority box selection</li>
           <li>✔️ Lock in your rate for 12 months</li>
         </ul>
-        <a href="#reserve" class="btn btn--yellow" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn btn--yellow pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 2: 6-Month Prepay -->
       <div class="pricing-card">
-        <div class="badge" style="background: var(--brand-yellow); color: var(--brand-dark); font-size: 0.9rem; margin-bottom: 1em; display: inline-block;">Most Popular</div>
-        <h3 style="text-align:center; color: var(--brand-blue);">6-Month Prepay</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: var(--brand-blue); text-align:center; margin-bottom: 0.2em;">$150<span style="font-size: 1rem; color: var(--gray-text); font-weight: 400;"> total</span></p>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem;">2 months free — pay for 4, get 6! Save $50 compared to monthly.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em;">
+        <div class="pricing-promo-badge pricing-promo-badge--popular">Most Popular</div>
+        <h3 class="pricing-card__heading">6-Month Prepay</h3>
+        <p class="pricing-price">$150<span class="pricing-price__unit"> total</span></p>
+        <p class="pricing-description">2 months free - pay for 4, get 6! Save $50 compared to monthly.</p>
+        <ul class="pricing-list">
           <li>✔️ All features from Month-to-Month</li>
           <li>✔️ Free setup (a $15 value)</li>
         </ul>
-        <a href="#reserve" class="btn" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 1: Month-to-Month -->
       <div class="pricing-card">
-        <h3 style="text-align:center; color: var(--brand-blue);">Month-to-Month</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: var(--brand-blue); text-align:center; margin-bottom: 0.2em;">$25<span style="font-size: 1rem; color: var(--gray-text); font-weight: 400;">/mo</span></p>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem;">Flexible plan with a 3-month minimum commitment.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em;">
+        <h3 class="pricing-card__heading">Month-to-Month</h3>
+        <p class="pricing-price">$25<span class="pricing-price__unit">/mo</span></p>
+        <p class="pricing-description">Flexible plan with a 3-month minimum commitment.</p>
+        <ul class="pricing-list">
           <li>✔️ Secure mailbox with street address</li>
           <li>✔️ Free package notifications</li>
           <li>✔️ Accepts all carriers (UPS, FedEx, USPS, DHL)</li>
           <li>✔️ Mail and package pickup during store hours</li>
         </ul>
-        <a href="#reserve" class="btn" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
     </div>
     <p style="text-align:center;"><a href="#whats-included" class="text-blue-600 hover:underline text-sm">Compare What’s Included ↓</a></p>
@@ -833,47 +902,47 @@
         🚀 Limited Time Offer — Up to 4 Months Free!
       </span>
     </div>
-    <h2 style="text-align:center; margin-bottom: 0.5rem;">Mailbox Rental Plans</h2>
-    <p style="text-align:center; margin-bottom: 2.5rem; font-size: 1.1rem;">Simple, flexible options — and big savings when you prepay.</p>
+    <h2 class="section-title">Mailbox Rental Plans</h2>
+    <p class="section-subtitle">Simple, flexible options - and big savings when you prepay.</p>
     <div class="pricing-grid">
       <!-- Plan 1: Month-to-Month -->
       <div class="pricing-card">
-        <h3 style="text-align:center; color: var(--brand-blue);">Month-to-Month</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: var(--brand-blue); text-align:center; margin-bottom: 0.2em;">$25<span style="font-size: 1rem; color: var(--gray-text); font-weight: 400;">/mo</span></p>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem;">Flexible plan with a 3-month minimum commitment.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em;">
+        <h3 class="pricing-card__heading">Month-to-Month</h3>
+        <p class="pricing-price">$25<span class="pricing-price__unit">/mo</span></p>
+        <p class="pricing-description">Flexible plan with a 3-month minimum commitment.</p>
+        <ul class="pricing-list">
           <li>✔️ Secure mailbox with street address</li>
           <li>✔️ Free package notifications</li>
           <li>✔️ Accepts all carriers (UPS, FedEx, USPS, DHL)</li>
           <li>✔️ Mail and package pickup during store hours</li>
         </ul>
-        <a href="#reserve" class="btn" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 2: 6-Month Prepay -->
       <div class="pricing-card">
-        <h3 style="text-align:center; color: var(--brand-blue);">6-Month Prepay</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: var(--brand-blue); text-align:center; margin-bottom: 0.2em;">$150<span style="font-size: 1rem; color: var(--gray-text); font-weight: 400;"> total</span></p>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem;">2 months free — pay for 4, get 6! Save $50 compared to monthly.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em;">
+        <h3 class="pricing-card__heading">6-Month Prepay</h3>
+        <p class="pricing-price">$150<span class="pricing-price__unit"> total</span></p>
+        <p class="pricing-description">2 months free - pay for 4, get 6! Save $50 compared to monthly.</p>
+        <ul class="pricing-list">
           <li>✔️ All features from Month-to-Month</li>
           <li>✔️ Free setup (a $15 value)</li>
         </ul>
-        <a href="#reserve" class="btn" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 3: 12-Month Prepay (Highlight) -->
       <div class="pricing-card pricing-card--highlight">
         <div class="badge">Best Value — 4 Months Free!</div>
-        <h3 style="text-align:center; color: #fff;">12-Month Prepay</h3>
-        <p style="font-size: 2.5rem; font-weight: 700; color: #fff; text-align:center; margin-bottom: 0.2em;">$300<span style="font-size: 1rem; color: #e3eefd; font-weight: 400;"> total</span></p>
-        <p style="text-align:center; min-height: 4.5em; font-size: 0.95rem; color: #e3eefd;">4 months free — best overall value. Save $100 compared to monthly.</p>
-        <ul style="align-self: flex-start; margin-bottom: 2em; color: #e3eefd;">
+        <h3 class="pricing-card__heading">12-Month Prepay</h3>
+        <p class="pricing-price">$300<span class="pricing-price__unit"> total</span></p>
+        <p class="pricing-description">4 months free - best overall value. Save $100 compared to monthly.</p>
+        <ul class="pricing-list">
           <li>✔️ All 6-Month features</li>
           <li>✔️ Priority box selection</li>
           <li>✔️ Lock in your rate for 12 months</li>
         </ul>
-        <a href="#reserve" class="btn btn--yellow" style="width: 100%; margin-top: auto;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn btn--yellow pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
     </div>
     <p style="text-align:center; margin-top: 2.5rem; font-weight: 600;">⚡ Only 9 boxes left at this promotional rate — lock in your deal today.</p>
