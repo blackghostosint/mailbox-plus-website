@@ -67,12 +67,13 @@ export default defineConfig({
     sitemap({
       hostname: 'https://mailboxplusohio.com',
       dynamicRoutes: routes,
+      generateRobotsTxt: true, // ✅ auto-creates robots.txt to prevent ENOENT error
     }),
     splitVendorChunkPlugin(),
   ],
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
+      '@': path.resolve(__dirname, './src'),
     },
   },
   build: {
