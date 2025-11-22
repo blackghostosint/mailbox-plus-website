@@ -1370,7 +1370,22 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
             { icon: Package, title: "High Value Coverage", description: "Insure shipments valued up to $50,000." },
             { icon: Star, title: "Peace of Mind Guarantee", description: "We’ll handle your package with care—and insure it too." }
         ],
-        faqs: insuranceFaqs // create just like your digitalFingerprintingFaqs
+        faqs: insuranceFaqs
+    },
+    {
+        id: "fedex-easy-returns",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "FedEx Easy Returns",
+        slug: "/fedex-easy-returns",
+        pageTitle: "FedEx Easy Returns – Fast Returns at Mailbox Plus (Concord Township, OH)",
+        metaDescription: "Return items fast with the FedEx Easy Returns Program at Mailbox Plus in Concord Township, Ohio. We print labels, scan QR codes, pack items, and provide tracking.",
+        keywords: "fedex easy returns, return qr code, return shipping label, concord township, lake county",
+        heroTitle: "FedEx Easy Returns – Fast, Hassle-Free Returns",
+        heroSubtitle: "Quick drop-offs, QR code scanning, label printing, and tracking receipts.",
+        heroImage: getServiceImageUrl("/images/fedex-easy-returns.webp"),
+        content: [], // Custom page implementation will handle content
+        features: [], // Custom page implementation will handle features
+        faqs: [] // Custom page implementation will handle FAQs
     }
-
 ];
