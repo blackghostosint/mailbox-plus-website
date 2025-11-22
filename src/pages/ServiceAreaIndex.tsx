@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { InternalLink } from "../components/ui/InternalLink";
 import { serviceAreas } from "../config/serviceAreas";
 import { Button } from "../components/ui";
 
@@ -27,11 +27,11 @@ export const ServiceAreaIndex: React.FC = () => {
             <p className="text-sm text-[#4B5563] mb-6">
               {area.metaDescription}
             </p>
-            <Link to={`/service-area/${area.slug}`}>
+            <InternalLink to={`/service-area/${area.slug}`}>
               <Button variant="secondary" size="sm" className="!rounded-full">
                 View {area.city} Services
               </Button>
-            </Link>
+            </InternalLink>
           </div>
         ))}
       </div>

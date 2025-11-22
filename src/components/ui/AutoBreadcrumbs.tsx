@@ -1,24 +1,18 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { InternalLink } from "./InternalLink";
-import { ChevronRight } from "lucide-react";
-import { Service } from "../../types/services";
-import { getServiceBreadcrumbs } from "../../utils/services-helpers";
+import { ChevronRight, Home } from "lucide-react";
+import { getBreadcrumbs } from "../../utils/internal-links";
 import { JsonLd } from "../JsonLd";
 
-interface BreadcrumbsProps {
-  service: Service;
-  baseUrl?: string;
-}
+export const AutoBreadcrumbs: React.FC = () => {
+  const location = useLocation();
+  const items = getBreadcrumbs(location.pathname);
 
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
-  service,
-  baseUrl = "",
-}) => {
-  const items = getServiceBreadcrumbs(service, baseUrl);
+  if (items.length <= 1 && location.pathname === '/') return null;
 
   return (
     <>
-      {/* Visible + microdata breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-6">
         <ol
           className="flex items-center space-x-2 text-sm text-gray-600 overflow-x-auto"
@@ -28,39 +22,38 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
           {items.map((item, index) => (
             <li
               key={item.url}
-              className="flex items-center"
+              className="flex items-center whitespace-nowrap"
               itemProp="itemListElement"
               itemScope
               itemType="https://schema.org/ListItem"
             >
               {index > 0 && (
                 <ChevronRight
-                  className="w-4 h-4 mx-1 text-gray-400"
+                  className="w-4 h-4 mx-1 text-gray-400 flex-shrink-0"
                   aria-hidden="true"
                 />
               )}
 
-              {index < items.length - 1 ? (
+              {index === 0 ? (
+                 <InternalLink to="/" className="hover:text-[#0855B1] transition-colors">
+                    <Home className="w-4 h-4" />
+                    <span className="sr-only">Home</span>
+                 </InternalLink>
+              ) : index < items.length - 1 ? (
                 <InternalLink
                   to={item.url}
                   itemProp="item"
-                  itemScope
-                  itemType="https://schema.org/Thing"
-                  itemID={item.url}
                   className="hover:text-[#0855B1] transition-colors"
                 >
-                  <span itemProp="name">{item.name}</span>
+                  <span itemProp="name">{item.label}</span>
                 </InternalLink>
               ) : (
                 <span
                   className="font-semibold text-[#111827]"
                   aria-current="page"
                   itemProp="item"
-                  itemScope
-                  itemType="https://schema.org/Thing"
-                  itemID={item.url}
                 >
-                  <span itemProp="name">{item.name}</span>
+                  <span itemProp="name">{item.label}</span>
                 </span>
               )}
 
@@ -70,7 +63,6 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
         </ol>
       </nav>
 
-      {/* JSON-LD breadcrumbs */}
       <JsonLd
         schema={{
           "@context": "https://schema.org",
@@ -80,8 +72,8 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
             position: index + 1,
             item: {
               "@type": "Thing",
-              "@id": item.url,
-              name: item.name,
+              "@id": `https://mailboxplusohio.com${item.url}`,
+              name: item.label,
             },
           })),
         }}

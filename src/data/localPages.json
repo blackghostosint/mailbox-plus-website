@@ -1,0 +1,98 @@
+[
+  {
+    "id": "concord-township",
+    "city": "Concord Township",
+    "slug": "concord-township",
+    "url": "/service-area/concord-township",
+    "metaTitle": "Shipping & Printing in Concord Township, Ohio",
+    "priorityServices": ["pack-ship", "mailbox-rental", "fedex-shipping"]
+  },
+  {
+    "id": "mentor",
+    "city": "Mentor",
+    "slug": "mentor",
+    "url": "/service-area/mentor",
+    "metaTitle": "Shipping & Printing in Mentor, Ohio",
+    "priorityServices": ["pack-ship", "business-cards", "digital-fingerprinting"]
+  },
+  {
+    "id": "painesville",
+    "city": "Painesville",
+    "slug": "painesville",
+    "url": "/service-area/painesville",
+    "metaTitle": "Shipping & Printing in Painesville, Ohio",
+    "priorityServices": ["pack-ship", "document-printing", "notary-services"]
+  },
+  {
+    "id": "willoughby",
+    "city": "Willoughby",
+    "slug": "willoughby",
+    "url": "/service-area/willoughby",
+    "metaTitle": "Shipping & Printing in Willoughby, Ohio",
+    "priorityServices": ["pack-ship", "flyers-brochures"]
+  },
+  {
+    "id": "wickliffe",
+    "city": "Wickliffe",
+    "slug": "wickliffe",
+    "url": "/service-area/wickliffe",
+    "metaTitle": "Shipping & Printing in Wickliffe, Ohio",
+    "priorityServices": ["pack-ship", "custom-box-making"]
+  },
+  {
+    "id": "eastlake",
+    "city": "Eastlake",
+    "slug": "eastlake",
+    "url": "/service-area/eastlake",
+    "metaTitle": "Shipping & Printing in Eastlake, Ohio",
+    "priorityServices": ["pack-ship", "mailbox-rental"]
+  },
+  {
+    "id": "madison",
+    "city": "Madison",
+    "slug": "madison",
+    "url": "/service-area/madison",
+    "metaTitle": "Shipping & Printing in Madison, Ohio",
+    "priorityServices": ["pack-ship", "shipping-insurance"]
+  },
+  {
+    "id": "perry",
+    "city": "Perry",
+    "slug": "perry",
+    "url": "/service-area/perry",
+    "metaTitle": "Shipping & Printing in Perry, Ohio",
+    "priorityServices": ["pack-ship", "professional-packing"]
+  },
+  {
+    "id": "kirtland",
+    "city": "Kirtland",
+    "slug": "kirtland",
+    "url": "/service-area/kirtland",
+    "metaTitle": "Shipping & Printing in Kirtland, Ohio",
+    "priorityServices": ["pack-ship", "copies"]
+  },
+  {
+    "id": "chardon",
+    "city": "Chardon",
+    "slug": "chardon",
+    "url": "/service-area/chardon",
+    "metaTitle": "Shipping & Printing in Chardon, Ohio",
+    "priorityServices": ["pack-ship", "packaging-supplies"]
+  },
+  {
+    "id": "fairport-harbor",
+    "city": "Fairport Harbor",
+    "slug": "fairport-harbor",
+    "url": "/service-area/fairport-harbor",
+    "metaTitle": "Shipping & Printing in Fairport Harbor, Ohio",
+    "priorityServices": ["pack-ship", "postage-stamps"]
+  },
+  {
+    "id": "geneva",
+    "city": "Geneva",
+    "slug": "geneva",
+    "url": "/service-area/geneva",
+    "metaTitle": "Shipping & Printing in Geneva, Ohio",
+    "priorityServices": ["pack-ship", "fedex-shipping"]
+  }
+]

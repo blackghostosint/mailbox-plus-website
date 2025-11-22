@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { InternalLink } from '../components/ui/InternalLink';
 import { motion } from 'framer-motion';
 import { Home, ArrowLeft } from 'lucide-react';
 import { Button } from '../components/ui';
@@ -23,13 +23,13 @@ export const NotFound: React.FC = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/">
+            <InternalLink to="/">
               <Button size="lg" className="group">
                 <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Go Home
               </Button>
-            </Link>
-            <Button 
+            </InternalLink>
+            <Button
               variant="secondary" 
               size="lg" 
               onClick={() => window.history.back()}
@@ -48,11 +48,11 @@ export const NotFound: React.FC = () => {
               Visit our main pages or contact us directly:
             </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <Link to="/services" className="text-[#0855B1] hover:underline">Services</Link>
-              <Link to="/pack-ship" className="text-[#0855B1] hover:underline">Pack & Ship</Link>
-              <Link to="/copy-print" className="text-[#0855B1] hover:underline">Copy & Print</Link>
-              <Link to="/tracking" className="text-[#0855B1] hover:underline">Tracking</Link>
-              <Link to="/contact-us" className="text-[#0855B1] hover:underline">Contact Us</Link>
+              <InternalLink to="/services" className="text-[#0855B1] hover:underline">Services</InternalLink>
+              <InternalLink to="/pack-ship" className="text-[#0855B1] hover:underline">Pack & Ship</InternalLink>
+              <InternalLink to="/copy-print" className="text-[#0855B1] hover:underline">Copy & Print</InternalLink>
+              <InternalLink to="/tracking" className="text-[#0855B1] hover:underline">Tracking</InternalLink>
+              <InternalLink to="/contact-us" className="text-[#0855B1] hover:underline">Contact Us</InternalLink>
             </div>
           </div>
         </motion.div>

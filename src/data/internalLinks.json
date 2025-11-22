@@ -1,0 +1,72 @@
+{
+  "fedex-shipping": {
+    "parent": "pack-ship",
+    "related": ["packaging-supplies", "insurance", "package-drop-offs"],
+    "priority": true
+  },
+  "ups-shipping": {
+    "parent": "pack-ship",
+    "related": ["packaging-supplies", "insurance", "package-drop-offs"],
+    "priority": false
+  },
+  "usps-services": {
+    "parent": "pack-ship",
+    "related": ["postage-stamps", "packaging-supplies", "package-drop-offs"],
+    "priority": false
+  },
+  "dhl-express": {
+    "parent": "pack-ship",
+    "related": ["packaging-supplies", "insurance", "package-drop-offs"],
+    "priority": false
+  },
+  "mailbox-rental": {
+    "parent": "home-business",
+    "related": ["package-receiving", "digital-mailbox-rental", "shredding"],
+    "priority": true
+  },
+  "digital-mailbox-rental": {
+    "parent": "home-business",
+    "related": ["mailbox-rental", "package-receiving"],
+    "priority": false
+  },
+  "package-receiving": {
+    "parent": "pack-ship",
+    "related": ["mailbox-rental", "digital-mailbox-rental"],
+    "priority": false
+  },
+  "business-cards": {
+    "parent": "copy-print",
+    "related": ["graphic-design", "document-printing"],
+    "priority": true
+  },
+  "flyers-brochures": {
+    "parent": "copy-print",
+    "related": ["graphic-design", "posters-printing", "every-door-direct-mail"],
+    "priority": false
+  },
+  "digital-fingerprinting": {
+    "parent": "specialty",
+    "related": ["notary-services"],
+    "priority": true
+  },
+  "insurance": {
+    "parent": "specialty",
+    "related": ["pack-ship", "professional-packing"],
+    "priority": false
+  },
+  "every-door-direct-mail": {
+    "parent": "home-business",
+    "related": ["flyers-brochures", "postcard-printing", "graphic-design"],
+    "priority": false
+  },
+  "amazon-returns": {
+    "parent": "pack-ship",
+    "related": ["package-drop-offs", "packaging-supplies"],
+    "priority": false
+  },
+  "fedex-easy-returns": {
+    "parent": "pack-ship",
+    "related": ["fedex-shipping", "package-drop-offs"],
+    "priority": false
+  }
+}

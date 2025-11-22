@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { InternalLink } from '../ui/InternalLink';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/supabase';
@@ -108,13 +108,13 @@ export const Footer: React.FC = () => {
             <h4 className="text-lg font-semibold text-[#111827]">Services</h4>
             <nav className="space-y-2" aria-label="Footer Services">
               {quickLinks.map((link) => (
-                <Link
+                <InternalLink
                   key={link.name}
                   to={link.href}
                   className="block text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
                 >
                   {link.name}
-                </Link>
+                </InternalLink>
               ))}
             </nav>
           </div>
@@ -127,12 +127,12 @@ export const Footer: React.FC = () => {
               © 2025 Mailbox Plus of Ohio, LLC. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
-              <Link to="/privacy" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
+              <InternalLink to="/privacy" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
                 Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
+              </InternalLink>
+              <InternalLink to="/terms" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
                 Terms of Service
-              </Link>
+              </InternalLink>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { InternalLink } from "../components/ui/InternalLink";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin, Phone, Clock, ChevronUp } from "lucide-react";
 import { Button } from "../components/ui";
@@ -214,11 +214,11 @@ export const Services: React.FC = () => {
                   <p className="text-gray-600 mb-4 flex-grow">
                     {service.metaDescription}
                   </p>
-                  <Link to={service.slug}>
+                  <InternalLink to={service.slug}>
                     <Button className="bg-[#0855B1] text-white hover:bg-[#064080]">
                       Learn More <ArrowRight className="w-4 h-4 ml-2" />
                     </Button>
-                  </Link>
+                  </InternalLink>
                 </div>
               ))}
           </div>

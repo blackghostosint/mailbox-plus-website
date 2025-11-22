@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { InternalLink } from './InternalLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 
@@ -123,7 +123,7 @@ export const SearchBox: React.FC = () => {
             {results.length > 0 ? (
               <div className="py-2">
                 {results.map((result) => (
-                  <Link
+                  <InternalLink
                     key={result.href}
                     to={result.href}
                     onClick={handleResultClick}
@@ -142,7 +142,7 @@ export const SearchBox: React.FC = () => {
                         {result.category}
                       </span>
                     </div>
-                  </Link>
+                  </InternalLink>
                 ))}
               </div>
             ) : query.trim() !== '' ? (
@@ -157,14 +157,14 @@ export const SearchBox: React.FC = () => {
                 <p className="text-sm font-medium text-[#111827] mb-3">Popular Services</p>
                 <div className="space-y-2">
                   {searchData.slice(0, 6).map((item) => (
-                    <Link
+                    <InternalLink
                       key={item.href}
                       to={item.href}
                       onClick={handleResultClick}
                       className="block text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
                     >
                       {item.title}
-                    </Link>
+                    </InternalLink>
                   ))}
                 </div>
               </div>

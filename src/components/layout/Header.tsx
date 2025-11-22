@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { InternalLink } from '../ui/InternalLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
@@ -68,7 +69,7 @@ export const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo / Brand Name */}
-          <Link to="/" className="flex items-center space-x-2">
+          <InternalLink to="/" className="flex items-center space-x-2">
             <SmartImage
               src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
               alt="Mailbox Plus Concord Township Ohio Logo"
@@ -77,7 +78,7 @@ export const Header: React.FC = () => {
               className="h-12 w-auto object-contain"
             />
             <span className="sr-only">Mailbox Plus - Concord Township, OH</span>
-          </Link>
+          </InternalLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
@@ -94,7 +95,7 @@ export const Header: React.FC = () => {
                   {item.name}
                 </a>
               ) : (
-                <Link
+                <InternalLink
                   key={item.name}
                   to={item.href}
                   className={`text-sm font-medium transition-colors ${
@@ -104,7 +105,7 @@ export const Header: React.FC = () => {
                   }`}
                 >
                   {item.name}
-                </Link>
+                </InternalLink>
               )
             )}
           </nav>
@@ -148,9 +149,10 @@ export const Header: React.FC = () => {
                     {item.name}
                   </a>
                 ) : (
-                  <Link
+                  <InternalLink
                     key={item.name}
                     to={item.href}
+                    // @ts-ignore - onClick is valid on Link but might not be explicitly defined in InternalLinkProps if it's strictly typed
                     onClick={() => setIsMenuOpen(false)}
                     className={`block text-base font-medium transition-colors ${
                       isActive(item.href)
@@ -159,7 +161,7 @@ export const Header: React.FC = () => {
                     }`}
                   >
                     {item.name}
-                  </Link>
+                  </InternalLink>
                 )
               )}
             </nav>

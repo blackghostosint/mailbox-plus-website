@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { InternalLink } from "../components/ui/InternalLink";
 import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
@@ -82,6 +82,7 @@ export const Tracking: React.FC = () => {
     );
 
     const trackingSchema = getTrackingSchema(
+      siteConfig,
       trackingNumber,
       carrierName,
       trackingUrl || ""
@@ -283,7 +284,7 @@ export const Tracking: React.FC = () => {
             Our team is here to help you every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/contact-us">
+            <InternalLink to="/contact-us">
               <Button
                 size="lg"
                 variant="secondary"
@@ -291,7 +292,7 @@ export const Tracking: React.FC = () => {
               >
                 Contact Support
               </Button>
-            </Link>
+            </InternalLink>
             <a href={`tel:${siteConfig.contact.phone}`}>
               <Button
                 size="lg"

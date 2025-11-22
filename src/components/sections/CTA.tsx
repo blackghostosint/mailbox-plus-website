@@ -3,7 +3,7 @@ import type { CTA } from "../../types/services";
 import { Button } from "../ui";
 import { cn } from "../../lib/utils";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { InternalLink } from "../ui/InternalLink";
 
 interface Props {
   cta: CTA;
@@ -89,14 +89,15 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
                 </Button>
               </a>
             ) : (
-              <Link
+              <InternalLink
                 to={buttonLink}
+                // @ts-ignore - onClick is valid on Link but might not be explicitly defined in InternalLinkProps
                 onClick={handleClick}
               >
                 <Button variant={variant === "ghost" ? "ghost" : "primary"}>
                   {buttonText} <Icon size={18} />
                 </Button>
-              </Link>
+              </InternalLink>
             )}
           </div>
         </div>
