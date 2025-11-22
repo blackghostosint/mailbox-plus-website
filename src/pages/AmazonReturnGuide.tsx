@@ -447,27 +447,6 @@ export const AmazonReturnGuide: React.FC = () => {
       <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold mb-8">Visit Mailbox Plus Today</h2>
-          
-          <div className="grid md:grid-cols-2 gap-8 text-left max-w-2xl mx-auto mb-10">
-            <div>
-              <h3 className="text-xl font-bold text-blue-300 mb-4">Contact Info</h3>
-              <address className="not-italic text-gray-300 space-y-2">
-                <p className="font-bold text-white">Mailbox Plus</p>
-                <p>7554 Fredle Drive</p>
-                <p>Concord Township, Ohio 44077</p>
-                <p>Phone: <a href="tel:440-709-1946" className="hover:text-white transition-colors">440-709-1946</a></p>
-              </address>
-            </div>
-            <div>
-              <h3 className="text-xl font-bold text-blue-300 mb-4">Store Hours</h3>
-              <ul className="text-gray-300 space-y-2">
-                <li>Monday–Friday: 9:00 AM – 6:00 PM</li>
-                <li>Saturday: 9:00 AM – 2:00 PM</li>
-                <li>Sunday: Closed</li>
-                <li className="text-sm text-gray-400 italic">Closed on major holidays</li>
-              </ul>
-            </div>
-          </div>
 
           <p className="text-gray-300 mb-8">
             We’re conveniently located near I-90 and OH-44, serving Concord Township, Painesville, Mentor, Eastlake, Willoughby, and the surrounding Lake County communities.

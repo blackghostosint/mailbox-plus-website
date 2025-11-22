@@ -13,6 +13,8 @@ const routes = [
   '/pack-ship/bicycle-shipping',
   '/pack-ship/golf-club-shipping',
   '/pack-ship/fedex-shipping',
+  '/fedex-easy-returns',
+  '/amazon-returns',
   '/pack-ship/ups-authorized-shipper-outlet',
   '/pack-ship/usps-services',
   '/pack-ship/dhl-express',
