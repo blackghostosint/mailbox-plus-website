@@ -18,6 +18,7 @@ import { CTASection } from "../components/sections/CTA";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
+import { getServiceImageUrl } from "../lib/supabase";
 import {
   Accordion,
   AccordionItem,
@@ -250,21 +251,89 @@ export const AmazonReturnGuide: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#111827] mb-10 text-center">Step-by-Step: How to Start an Amazon Return</h2>
           
-          <div className="space-y-6">
+          <div className="space-y-12">
             {[
-              "Log in to Amazon.",
-              "Go to “Your Orders.”",
-              "Choose “Return or Replace Items.”",
-              "Select your reason for return.",
-              "Choose refund or replacement.",
-              "Select a return method (carrier, drop-off location, etc.).",
-              "Download/print the shipping label OR Amazon may only give you a QR code (which we cannot scan)."
+              {
+                title: "Start Your Return in the Amazon App",
+                image: "step-01-return-replace-your-item.webp",
+                description: "Open the Amazon app or website and navigate to **\"Your Orders.\"** Locate the item you wish to return to begin the process."
+              },
+              {
+                title: "Pick Your Reason for Returning",
+                image: "step-02-why-are-you-returning-your-item.webp",
+                description: "Select the specific reason for your return from the provided list (e.g., \"defective,\" \"no longer needed\"). This helps Amazon process your request accurately."
+              },
+              {
+                title: "Confirm the Packaging Status",
+                image: "step-03-confirm-the-packaging-status.webp",
+                description: "Indicate whether the item is still in its original packaging. This information helps Amazon determine the correct return method and restocking requirements."
+              },
+              {
+                title: "Select Refund or Replacement",
+                image: "step-04-select-refund-replacement.webp",
+                description: "Choose your preferred resolution: receive a refund to your original payment method (or Amazon balance) or request a replacement item if available."
+              },
+              {
+                title: "Describe the Issue and Proceed",
+                image: "step-05-describe-issue-and-proceed.webp",
+                description: "Add any specific comments describing the problem if prompted, then continue to the next step to finalize your return details."
+              },
+              {
+                title: "Choose UPS Drop-Off (We can handle the Label!)",
+                image: "step-06-choose-ups-dropoff.webp",
+                description: "**Crucial Step:** Select a return method that provides a **printable shipping label** (often labeled as UPS Drop-off Points). *Avoid \"No Box/No Label\" options if you want to use Mailbox Plus.*"
+              },
+              {
+                title: "Share Your Return Label With Us ($2.00 fee)",
+                image: "step-07-share-label-with-friend.webp",
+                description: "No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to **\"Share\"** or **\"Email\"** the label from the app."
+              },
+              {
+                title: "Email the Label to Us",
+                image: "step-08-email-label-to-us.webp",
+                description: "Select your preferred email app and prepare to send the label file directly to our store for fast printing."
+              },
+              {
+                title: "Send the Label to Mailbox Plus",
+                image: "step-09-use-our-email-address.webp",
+                description: "Send your shipping label to **RETURNS@MAILBOXPLUSOHIO.COM**. We will print it out and have it ready for your arrival."
+              },
+              {
+                title: "Confirmation: Label Sent Successfully",
+                image: "step-10-abel-sentto-us.webp",
+                description: "Ensure your email has been sent successfully. You can now head to our store knowing your paperwork is being handled."
+              },
+              {
+                title: "Now Drop Off at Mailbox Plus",
+                image: "step-11-pack-label-dropoff.webp",
+                description: "Bring your item to **Mailbox Plus at 7554 Fredle Drive** in Concord Township. We'll professionally pack it (if needed), attach the label, and ship it out for you!"
+              }
             ].map((step, idx) => (
-              <div key={idx} className="flex items-center gap-4 bg-gray-50 p-4 rounded-lg border border-gray-100">
-                <div className="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0">
-                  {idx + 1}
+              <div key={idx} className="flex flex-col md:flex-row items-start gap-6 bg-gray-50 p-6 rounded-xl border border-gray-200 shadow-sm">
+                {/* Step Number & Image */}
+                <div className="w-full md:w-1/3 flex flex-col gap-4">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">
+                      {idx + 1}
+                    </div>
+                    <h3 className="text-lg font-bold text-[#0855B1] md:hidden">{step.title}</h3>
+                  </div>
+                  
+                  <div className="relative rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white group">
+                    <img
+                      src={getServiceImageUrl(`/images/amazon-guide/${step.image}`)}
+                      alt={`Step ${idx + 1}: ${step.title}`}
+                      className="w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
-                <p className="text-gray-800 font-medium text-lg">{step}</p>
+
+                {/* Step Content */}
+                <div className="w-full md:w-2/3 flex flex-col justify-center py-2">
+                  <h3 className="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">{step.title}</h3>
+                  <p className="text-gray-700 text-lg leading-relaxed" dangerouslySetInnerHTML={{ __html: step.description.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>') }} />
+                </div>
               </div>
             ))}
           </div>
