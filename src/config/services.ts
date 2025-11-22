@@ -1399,7 +1399,7 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
         keywords: "amazon returns, return shipping, pack and ship, concord township, lake county, printable label",
         heroTitle: "How to Return Items to Amazon",
         heroSubtitle: "Local Guide for Lake County, Ohio",
-        heroImage: getServiceImageUrl("/images/amazon-returns.webp"),
+        heroImage: getServiceImageUrl("https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/how-to-return-items-to-amazon-2025-.webp"),
         content: [], // Custom page implementation will handle content
         features: [], // Custom page implementation will handle features
         faqs: [] // Custom page implementation will handle FAQs
