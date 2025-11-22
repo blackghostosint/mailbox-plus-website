@@ -13,6 +13,7 @@ import { BicycleShipping } from "./pages/BicycleShipping";
 import { GolfClubShipping } from "./pages/GolfClubShipping";
 import { FedExShipping } from "./pages/FedExShipping";
 import { FedExEasyReturns } from "./pages/fedex-easy-returns";
+import { AmazonReturnGuide } from "./pages/AmazonReturnGuide";
 import { UPSAuthorizedShipperOutlet } from "./pages/UPSAuthorizedShipperOutlet";
 import { USPSServices } from "./pages/USPSServices";
 import { DHLExpress } from "./pages/DHLExpress";
@@ -96,6 +97,7 @@ const App: React.FC = () => {
         <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
         <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
         <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
+        <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
         <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
         <Route path="/pack-ship/usps-services" element={<USPSServices />} />
         <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />

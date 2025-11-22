@@ -1387,5 +1387,21 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
         content: [], // Custom page implementation will handle content
         features: [], // Custom page implementation will handle features
         faqs: [] // Custom page implementation will handle FAQs
+    },
+    {
+        id: "amazon-returns",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Amazon Return Guide",
+        slug: "/amazon-returns",
+        pageTitle: "Amazon Return Guide | Mailbox Plus | Concord Township, Ohio",
+        metaDescription: "Returning something to Amazon? Mailbox Plus in Concord Township helps you pack, label, and ship Amazon returns—only when Amazon provides a printed shipping label. Learn how Amazon returns work and how we support customers across Lake County, Ohio.",
+        keywords: "amazon returns, return shipping, pack and ship, concord township, lake county, printable label",
+        heroTitle: "How to Return Items to Amazon",
+        heroSubtitle: "Local Guide for Lake County, Ohio",
+        heroImage: getServiceImageUrl("/images/amazon-returns.webp"),
+        content: [], // Custom page implementation will handle content
+        features: [], // Custom page implementation will handle features
+        faqs: [] // Custom page implementation will handle FAQs
     }
 ];
