@@ -262,20 +262,6 @@ export const FedExEasyReturns: React.FC = () => {
              <div className="flex gap-4 items-start">
                <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
                <div>
-                 <h3 className="font-bold text-lg text-gray-900">You have a Pre-Printed Label</h3>
-                 <p className="text-gray-600">Just tape it on and drop it off—quick and easy.</p>
-               </div>
-             </div>
-             <div className="flex gap-4 items-start">
-               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-               <div>
-                 <h3 className="font-bold text-lg text-gray-900">You Need a Box</h3>
-                 <p className="text-gray-600">Don't have the original packaging? We sell boxes and packing supplies.</p>
-               </div>
-             </div>
-             <div className="flex gap-4 items-start">
-               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-               <div>
                  <h3 className="font-bold text-lg text-gray-900">You Want a Receipt</h3>
                  <p className="text-gray-600">Always get proof of your return for your records.</p>
                </div>
