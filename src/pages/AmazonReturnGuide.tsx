@@ -321,7 +321,7 @@ export const AmazonReturnGuide: React.FC = () => {
                   
                   <div className="relative rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white group">
                     <img
-                      src={getServiceImageUrl(`/images/amazon-guide/${step.image}`)}
+                      src={getServiceImageUrl(`/images/${step.image}`)}
                       alt={`Step ${idx + 1}: ${step.title}`}
                       className="w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-105"
                       loading="lazy"
