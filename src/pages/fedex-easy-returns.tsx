@@ -60,23 +60,15 @@ export const FedExEasyReturns: React.FC = () => {
   const faqs = [
     {
       question: "Do I need to print my return label?",
-      answer: "Not always! If you have a QR code from your retailer (like Amazon, Target, or Walmart), just bring that code on your phone. We scan it and print the label for you. If you have a prepaid label emailed to you, you can print it here for a small fee if you don't have a printer."
+      answer: "No! If you have a QR code from your retailer, just bring that code on your phone. We scan it and start the return for you."
     },
     {
       question: "Does FedEx Easy Returns cost anything?",
-      answer: "Dropping off a package with a prepaid label or a QR code return is typically free for you. We provide the receipt and tracking information at no charge."
+      answer: "Dropping off a package with your QR code is free for you. We provide the receipt and tracking information at no charge."
     },
     {
       question: "Can you pack my return?",
-      answer: "Yes! If your item isn't packed yet, we offer professional packing services. We have boxes, bubble wrap, and tape available for purchase to ensure your return arrives safely."
-    },
-    {
-      question: "Do you provide tracking?",
-      answer: "Absolutely. When you drop off your package, we scan it into the system immediately and provide you with a printed receipt that includes your tracking number."
-    },
-    {
-      question: "What if my retailer didn’t send a label?",
-      answer: "If you don't have a label or QR code, we can help you create a shipping label in-store. You will need the recipient's address. Standard shipping rates will apply."
+      answer: "Yes!"
     }
   ];
 
@@ -142,7 +134,7 @@ export const FedExEasyReturns: React.FC = () => {
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
             Skip the long lines and complicated processes. The FedEx Easy Returns Program at Mailbox Plus makes returning your online purchases simple. 
-            Whether you have a prepaid label or just a QR code on your phone, we’ll handle the rest—scanning, printing, and getting your package on its way.
+            Bring your phone with your QR code, we’ll handle the rest—scanning, printing, and getting your package on its way.
           </p>
         </div>
       </section>
@@ -158,7 +150,6 @@ export const FedExEasyReturns: React.FC = () => {
               { icon: Clock, title: "Super Fast Drop-Offs", desc: "In and out in minutes." },
               { icon: Printer, title: "No Printer Needed", desc: "We print labels from QR codes." },
               { icon: Scan, title: "QR Code Support", desc: "Just show your code on your phone." },
-              { icon: CheckCircle, title: "Tracking Receipt", desc: "Proof of drop-off provided instantly." },
               { icon: Package, title: "Professional Packing", desc: "We can pack your item safely." },
               { icon: MapPin, title: "Convenient Location", desc: "Next to Pub Frato in Concord Twp." },
               { icon: ShieldCheck, title: "Friendly Guidance", desc: "Helpful staff to assist you." }
@@ -181,7 +172,7 @@ export const FedExEasyReturns: React.FC = () => {
             <p className="text-gray-700 leading-relaxed">
               FedEx Easy Returns is a consumer-friendly service designed to streamline the process of sending items back to retailers. 
               Instead of worrying about printing labels at home or finding packaging, you can simply bring your item and your return information 
-              (often just a QR code) to an authorized location like Mailbox Plus. We verify the return, generate the label if needed, 
+              (often just a QR code) to Mailbox Plus. We verify the return, generate the label if needed, 
               and accept the package for shipment—triggering your refund process faster.
             </p>
           </div>
@@ -204,7 +195,7 @@ export const FedExEasyReturns: React.FC = () => {
                 { step: 4, title: "Process & Track", desc: "We scan the package into the FedEx system and give you a receipt." },
                 { step: 5, title: "You're Done!", desc: "Leave with peace of mind while the retailer processes your refund." }
               ].map((item, index) => (
-                <div key={index} className={`flex flex-col md:flex-row items-center gap-8 ${index % 2 !== 0 ? 'md:flex-row-reverse' : ''}`}>
+                <div key={index} className="flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-1 text-center md:text-right">
                     {index % 2 === 0 && (
                       <>
@@ -264,7 +255,7 @@ export const FedExEasyReturns: React.FC = () => {
              <div className="flex gap-4 items-start">
                <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
                <div>
-                 <h3 className="font-bold text-lg text-gray-900">You have a FedEx QR Code</h3>
+                 <h3 className="font-bold text-lg text-gray-900">You have a FedEx Easy Returns QR Code</h3>
                  <p className="text-gray-600">Retailers like Walmart, Target, and Samsung often send these.</p>
                </div>
              </div>
