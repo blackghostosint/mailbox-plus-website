@@ -1374,7 +1374,7 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
     },
     {
         id: "fedex-easy-returns",
-        category: "pack-ship",
+        category: "additional-services",
         city: "Concord Township",
         serviceName: "FedEx Easy Returns",
         slug: "/fedex-easy-returns",
@@ -1390,7 +1390,7 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
     },
     {
         id: "amazon-returns",
-        category: "pack-ship",
+        category: "additional-services",
         city: "Concord Township",
         serviceName: "Amazon Return Guide",
         slug: "/amazon-returns",

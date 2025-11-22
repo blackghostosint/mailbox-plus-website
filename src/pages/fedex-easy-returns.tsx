@@ -4,12 +4,10 @@ import {
   Printer, 
   Scan, 
   Package, 
-  Truck, 
   CheckCircle, 
   MapPin, 
   Clock, 
   ShieldCheck, 
-  Smartphone 
 } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { CTASection } from "../components/sections/CTA";
