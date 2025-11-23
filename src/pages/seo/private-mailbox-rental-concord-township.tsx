@@ -10,7 +10,7 @@ const PrivateMailboxRentalPage: React.FC = () => {
       <Meta
         title="Private Mailbox Rental in Concord Township, Ohio | Mailbox Plus"
         description="Local Private Mailbox Rental including UPS, FedEx, USPS, and DHL package receiving. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township."
-        canonical="https://mailboxplusohio.com/seo/private-mailbox-rental-concord-township"
+        canonical="https://mailboxplusohio.com/private-mailbox-rental-concord-township"
       />
       
       <main className="container mx-auto px-4 py-10 bg-white">

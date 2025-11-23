@@ -10,7 +10,7 @@ const UPSStoreAlternativePage: React.FC = () => {
       <Meta
         title="UPS Store Alternative in Concord Township, Ohio | Mailbox Plus"
         description="Local UPS Store Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township."
-        canonical="https://mailboxplusohio.com/seo/ups-store-alternative-concord-township"
+        canonical="https://mailboxplusohio.com/ups-store-alternative-concord-township"
       />
       
       <main className="container mx-auto px-4 py-10 bg-white">

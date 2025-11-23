@@ -10,7 +10,7 @@ const MultiCarrierShippingPage: React.FC = () => {
       <Meta
         title="UPS, FedEx, USPS, DHL Shipping in Concord Township, Ohio | Mailbox Plus"
         description="Local UPS, FedEx, USPS, and DHL Shipping services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township."
-        canonical="https://mailboxplusohio.com/seo/ups-fedex-usps-dhl-shipping-concord-township"
+        canonical="https://mailboxplusohio.com/ups-fedex-usps-dhl-shipping-concord-township"
       />
       
       <main className="container mx-auto px-4 py-10 bg-white">

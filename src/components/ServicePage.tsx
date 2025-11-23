@@ -19,7 +19,9 @@ import {
   AccordionContent,
 } from "./ui/accordion";
 
-export const ServicePage: React.FC<Service> = (props) => {
+type ServicePageProps = Service & { children?: React.ReactNode };
+
+export const ServicePage: React.FC<ServicePageProps> = (props) => {
   const {
     pageTitle,
     metaDescription,
@@ -144,6 +146,15 @@ export const ServicePage: React.FC<Service> = (props) => {
                 </motion.div>
               )
             ))}
+          </div>
+        </section>
+      )}
+
+      {/* ✅ Custom Content (Internal Links, etc.) */}
+      {props.children && (
+        <section className="py-8 bg-white">
+          <div className="max-w-5xl mx-auto px-6">
+            {props.children}
           </div>
         </section>
       )}

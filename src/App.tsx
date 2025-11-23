@@ -111,26 +111,26 @@ const App: React.FC = () => {
         <Route path="/home-business" element={<HomeBusiness />} />
 
         {/* SEO Landing Pages */}
-        <Route path="/seo/ups-store-alternative-concord-township" element={<UPSStoreAlternativePage />} />
-        <Route path="/seo/mail-boxes-etc-alternative-concord-township" element={<MailBoxesEtcAlternativePage />} />
-        <Route path="/seo/fedex-office-alternative-concord-township" element={<FedExOfficeAlternativePage />} />
-        <Route path="/seo/staples-printing-alternative-concord-township" element={<StaplesAlternativePage />} />
-        <Route path="/seo/office-depot-alternative-concord-township" element={<OfficeDepotAlternativePage />} />
-        <Route path="/seo/usps-drop-off-alternative-concord-township" element={<USPSDropOffAlternativePage />} />
-        <Route path="/seo/post-office-alternative-concord-township" element={<PostOfficeAlternativePage />} />
-        <Route path="/seo/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
-        <Route path="/seo/shipping-center-concord-township" element={<ShippingCenterPage />} />
-        <Route path="/seo/pack-and-ship-services-concord-township" element={<PackAndShipServicesPage />} />
-        <Route path="/seo/ups-fedex-usps-dhl-shipping-concord-township" element={<MultiCarrierShippingPage />} />
-        <Route path="/seo/small-business-shipping-concord-township" element={<SmallBusinessShippingPage />} />
-        <Route path="/seo/amazon-returns-drop-off-concord-township" element={<AmazonReturnsPage />} />
-        <Route path="/seo/ups-drop-off-alternative-concord-township" element={<UPSDropOffAlternativePage />} />
-        <Route path="/seo/printing-services-concord-township" element={<PrintingServicesPage />} />
-        <Route path="/seo/business-services-concord-township" element={<BusinessServicesPage />} />
-        <Route path="/seo/document-services-concord-township" element={<DocumentServicesPage />} />
-        <Route path="/seo/private-mailbox-rental-concord-township" element={<PrivateMailboxRentalPage />} />
-        <Route path="/seo/virtual-mailbox-concord-township" element={<VirtualMailboxPage />} />
-        <Route path="/seo/mail-forwarding-concord-township" element={<MailForwardingPage />} />
+        <Route path="/ups-store-alternative-concord-township" element={<UPSStoreAlternativePage />} />
+        <Route path="/mail-boxes-etc-alternative-concord-township" element={<MailBoxesEtcAlternativePage />} />
+        <Route path="/fedex-office-alternative-concord-township" element={<FedExOfficeAlternativePage />} />
+        <Route path="/staples-printing-alternative-concord-township" element={<StaplesAlternativePage />} />
+        <Route path="/office-depot-alternative-concord-township" element={<OfficeDepotAlternativePage />} />
+        <Route path="/usps-drop-off-alternative-concord-township" element={<USPSDropOffAlternativePage />} />
+        <Route path="/post-office-alternative-concord-township" element={<PostOfficeAlternativePage />} />
+        <Route path="/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
+        <Route path="/shipping-center-concord-township" element={<ShippingCenterPage />} />
+        <Route path="/pack-and-ship-services-concord-township" element={<PackAndShipServicesPage />} />
+        <Route path="/ups-fedex-usps-dhl-shipping-concord-township" element={<MultiCarrierShippingPage />} />
+        <Route path="/small-business-shipping-concord-township" element={<SmallBusinessShippingPage />} />
+        <Route path="/amazon-returns-drop-off-concord-township" element={<AmazonReturnsPage />} />
+        <Route path="/ups-drop-off-alternative-concord-township" element={<UPSDropOffAlternativePage />} />
+        <Route path="/printing-services-concord-township" element={<PrintingServicesPage />} />
+        <Route path="/business-services-concord-township" element={<BusinessServicesPage />} />
+        <Route path="/document-services-concord-township" element={<DocumentServicesPage />} />
+        <Route path="/private-mailbox-rental-concord-township" element={<PrivateMailboxRentalPage />} />
+        <Route path="/virtual-mailbox-concord-township" element={<VirtualMailboxPage />} />
+        <Route path="/mail-forwarding-concord-township" element={<MailForwardingPage />} />
 
         {/* Pack & Ship Landing Page */}
         <Route path="/pack-ship" element={<PackShip />} />

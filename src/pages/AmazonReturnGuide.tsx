@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Printer, 
-  Scan, 
-  Package, 
-  Truck, 
-  CheckCircle, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
+import {
+  Printer,
+  Scan,
+  Package,
+  Truck,
+  CheckCircle,
+  MapPin,
+  Clock,
+  ShieldCheck,
   AlertTriangle,
   HelpCircle,
   XCircle
@@ -16,6 +16,7 @@ import {
 import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { CTASection } from "../components/sections/CTA";
 import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
+import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
@@ -218,8 +219,11 @@ export const AmazonReturnGuide: React.FC = () => {
       {/* Intro Section */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed mb-6">
             Returning an item to Amazon doesn’t have to be confusing. If you live in Concord Township, Painesville, Mentor, Eastlake, Willoughby, or anywhere in Lake County, Ohio, Mailbox Plus is here to make your Amazon returns simple. We help you pack, label, and ship your Amazon return—<strong>as long as Amazon provides a printable label</strong>.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Mailbox Plus is your convenient <InternalLink variant="geo" to="/amazon-returns-drop-off-concord-township">Amazon returns drop-off location</InternalLink> for pre-labeled packages.
           </p>
         </div>
       </section>
