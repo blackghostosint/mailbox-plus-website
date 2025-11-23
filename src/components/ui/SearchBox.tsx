@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { InternalLink } from './InternalLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
+import { services } from '../../config/services';
+import localPages from '../../data/localPages.json';
 
 interface SearchResult {
   title: string;
@@ -10,9 +12,50 @@ interface SearchResult {
   category: string;
 }
 
-const searchData: SearchResult[] = [
-  // ... your searchData (unchanged)
+// Transform services into search data
+const serviceResults: SearchResult[] = services.map(service => ({
+  title: service.serviceName,
+  description: service.heroSubtitle || service.metaDescription, // Use subtitle or meta description
+  href: service.slug,
+  category: service.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) // Format category name
+}));
+
+// Transform local pages into search data
+const locationResults: SearchResult[] = localPages.map(page => ({
+  title: `Shipping & Printing in ${page.city}`,
+  description: `Local services for ${page.city}, Ohio`,
+  href: page.url,
+  category: 'Locations'
+}));
+
+const generalResults: SearchResult[] = [
+  {
+    title: 'Track a Package',
+    description: 'Track your FedEx, UPS, USPS, or DHL shipment',
+    href: '/tracking',
+    category: 'Tools'
+  },
+  {
+    title: 'About Us',
+    description: 'Learn more about Mailbox Plus and our team',
+    href: '/about-us',
+    category: 'Company'
+  },
+  {
+    title: 'Contact Us',
+    description: 'Get in touch with us or find our location',
+    href: '/contact-us',
+    category: 'Company'
+  },
+  {
+    title: 'Shipping Partners',
+    description: 'View our carrier partners and shipping options',
+    href: '/shipping-partners',
+    category: 'Company'
+  }
 ];
+
+const searchData: SearchResult[] = [...serviceResults, ...locationResults, ...generalResults];
 
 export const SearchBox: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
