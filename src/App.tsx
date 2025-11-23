@@ -43,7 +43,7 @@ import { EveryDoorDirectMail } from "./pages/EveryDoorDirectMail";
 import { Shredding } from "./pages/Shredding";
 import { DocumentScanning } from "./pages/DocumentScanning";
 import { FaxServices } from "./pages/FaxServices";
-// import { NotaryServices } from "./pages/NotaryServices";
+import { NotaryServices } from "./pages/NotaryServices";
 
 // Specialty
 import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
@@ -126,7 +126,7 @@ const App: React.FC = () => {
         <Route path="/home-business/shredding" element={<Shredding />} />
         <Route path="/home-business/document-scanning" element={<DocumentScanning />} />
         <Route path="/home-business/fax-services" element={<FaxServices />} />
-        {/* <Route path="/home-business/notary-services" element={<NotaryServices />} /> */}
+        <Route path="/home-business/notary-services" element={<NotaryServices />} />
 
         {/* Specialty */}
         <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />

@@ -1,7 +1,7 @@
 import {
     Package, Shield, Truck, Globe, Printer, Palette, Star, Users, Mail, Archive,
     FileText, Scissors, FolderOpen, Layers, Lock, MapPin, Fingerprint,
-    Box, Clock
+    Box, Clock, NotebookText
 } from "lucide-react";
 import { Service } from "../types/services";
 import { getServiceImageUrl } from "../lib/storage";
@@ -36,6 +36,7 @@ import {
     shreddingFaqs,
     documentScanningFaqs,
     faxServicesFaqs,
+    notaryServicesFaqs,
     digitalFingerprintingFaqs,
     insuranceFaqs
 } from "./faqs";
@@ -1220,7 +1221,6 @@ If you're searching for <em>document scanning near Concord Township</em> or need
         ],
         faqs: [...generalHomeBusinessFaqs, ...faxServicesFaqs]
     },
-    /*
     {
         id: "notary-services",
         category: "additional-services",
@@ -1263,7 +1263,6 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         ],
         faqs: [...generalHomeBusinessFaqs, ...notaryServicesFaqs]
     },
-    */
 
     // ---------------------------
     // SPECIALTY
