@@ -112,9 +112,12 @@ export const CopyPrint: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <a href="mailto:help@mailboxplusohio.com">
-                <Button size="lg">Get Printing Quote</Button>
-              </a>
+              <Button
+                size="lg"
+                onClick={() => window.location.href = 'mailto:help@mailboxplusohio.com'}
+              >
+                Get Printing Quote
+              </Button>
             </motion.div>
           </div>
         </div>
