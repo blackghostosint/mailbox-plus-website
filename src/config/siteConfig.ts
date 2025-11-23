@@ -61,7 +61,7 @@ export const defaultCTA: CTA = {
   title: "Ready to get started?",
   subtitle: "Stop in today or message us—let us handle your package!",
   buttonText: "Visit Us in Concord Township",
-  buttonLink: "/contact",
+  buttonLink: "/contact-us",
   variant: "brand",
   align: "center",
 };

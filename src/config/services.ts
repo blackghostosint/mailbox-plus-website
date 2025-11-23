@@ -118,7 +118,7 @@ If you're searching for <strong>artwork shipping near Concord Township</strong>,
         title: "Ready to ship your artwork?",
         subtitle: "Custom packing, insurance, and careful handling—done locally.",
         buttonText: "Schedule a Consult",
-        buttonLink: "/contact",
+        buttonLink: "/contact-us",
         variant: "brand",
         align: "left"
         }
