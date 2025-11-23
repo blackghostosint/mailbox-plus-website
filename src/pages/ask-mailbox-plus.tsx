@@ -13,6 +13,7 @@ import * as packShipFaqs from "../config/faqs/pack-ship";
 import * as copyPrintFaqs from "../config/faqs/copy-print";
 import * as homeBusinessFaqs from "../config/faqs/home-business";
 import * as specialtyFaqs from "../config/faqs/specialty";
+import * as notaryFaqs from "../config/faqs/notary";
 
 // Type for FAQ (imported for type safety)
 import { FAQ } from "../types/faq";
@@ -29,6 +30,7 @@ const categories = [
   { title: "Copy & Print", data: flattenFaqs(copyPrintFaqs) },
   { title: "Home & Business", data: flattenFaqs(homeBusinessFaqs) },
   { title: "Specialty Services", data: flattenFaqs(specialtyFaqs) },
+  { title: "Notary", data: flattenFaqs(notaryFaqs) },
 ];
 
 const allFaqs: FAQ[] = categories.flatMap((c) => c.data);
