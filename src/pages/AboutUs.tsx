@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Heart, Users, Award, Clock, Package, Shield, Printer, Fingerprint } from "lucide-react";
 import { Meta } from "../components/Meta";
+import { InternalLink } from "../components/ui/InternalLink";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getFAQSchema } from "../utils";
 import { getServiceImageUrl } from "../lib/storage";
@@ -104,6 +105,9 @@ export const AboutUs: React.FC = () => {
           <motion.p {...fadeUp(0.15)} className="text-xl text-blue-100 mb-8 leading-relaxed">
             We exist to make life easier for our neighbors in Lake County, Ohio. Whether you need to ship a package, rent a secure mailbox, get fingerprints taken, or print important documents, we're your one-stop shop — right here in your own community.
           </motion.p>
+          <motion.div {...fadeUp(0.3)} className="text-blue-100">
+            Visit our <InternalLink variant="geo" to="/shipping-center-concord-township" className="text-white hover:text-[#60A5FA] underline decoration-blue-300">local shipping center in Concord Township</InternalLink> today.
+          </motion.div>
         </div>
       </section>
 

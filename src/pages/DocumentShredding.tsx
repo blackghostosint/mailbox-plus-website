@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Trash2, Shield, FileText, CheckCircle } from 'lucide-react';
 import { Button } from '../components/ui';
+import { InternalLink } from '../components/ui/InternalLink';
 
 export const DocumentShredding: React.FC = () => {
   return (
@@ -35,6 +36,14 @@ export const DocumentShredding: React.FC = () => {
               <Button size="lg">Get Shredding Service</Button>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="py-8 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-700">
+             We offer <InternalLink variant="geo" to="/business-services-concord-township">secure business services</InternalLink> to keep your confidential information safe.
+          </p>
         </div>
       </section>
 

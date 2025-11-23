@@ -2,6 +2,7 @@
 import React from "react";
 import { shippingPartners } from "../data/shippingPartners";
 import { Meta } from "../components/Meta";
+import { InternalLink } from "../components/ui/InternalLink";
 
 const ShippingPartners: React.FC = () => {
   return (
@@ -21,6 +22,10 @@ const ShippingPartners: React.FC = () => {
         <p className="text-center text-lg mb-10 text-gray-600 max-w-2xl mx-auto">
           We're proud to work with a wide range of businesses who trust Mailbox
           Plus for their packing, shipping, and logistics needs.
+        </p>
+        
+        <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
+          We are your one-stop <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">UPS, FedEx, USPS, and DHL shipping center</InternalLink>.
         </p>
 
         {/* Partner Grid */}

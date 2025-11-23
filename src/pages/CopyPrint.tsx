@@ -198,6 +198,15 @@ export const CopyPrint: React.FC = () => {
         </div>
       </section>
 
+      <section className="py-8 bg-white border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-700">
+            For professional <InternalLink variant="geo" to="/printing-services-concord-township">local printing services</InternalLink>,
+            we are your convenient <InternalLink variant="geo" to="/staples-printing-alternative-concord-township">Staples printing alternative</InternalLink> in Concord Township.
+          </p>
+        </div>
+      </section>
+
       {/* Competitor Alternative Section */}
       <CompetitorAlternativeSection />
 

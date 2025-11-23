@@ -166,6 +166,12 @@ export const Services: React.FC = () => {
               </a>
             ))}
           </div>
+          <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
+            <p>
+              Looking for <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">pack and ship services in Concord Township</InternalLink>?
+              Browse our full list of offerings below.
+            </p>
+          </div>
         </div>
       </section>
 
