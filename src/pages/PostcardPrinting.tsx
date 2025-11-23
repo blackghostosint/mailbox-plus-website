@@ -11,7 +11,7 @@ export const PostcardPrinting: React.FC = () => {
       <div className="my-8">
         <p className="text-gray-700 leading-relaxed">
           Get the word out with our <InternalLink variant="geo" to="/printing-services-concord-township">postcard printing services</InternalLink>.
-          Perfect for direct mail campaigns, invitations, and announcements.
+          Perfect for <InternalLink variant="geo" to="/home-business/every-door-direct-mail">direct mail campaigns</InternalLink>, invitations, and announcements.
         </p>
       </div>
     </ServicePage>

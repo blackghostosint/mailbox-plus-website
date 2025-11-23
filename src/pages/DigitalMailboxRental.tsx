@@ -11,6 +11,7 @@ export const DigitalMailboxRental: React.FC = () => {
         <p className="text-gray-700 leading-relaxed">
           Manage your mail from anywhere with our <InternalLink variant="geo" to="/virtual-mailbox-concord-township">virtual mailbox services</InternalLink>.
           See your mail on your phone or computer without visiting the store.
+          Prefer a physical mailbox? We also offer traditional <InternalLink variant="geo" to="/mailbox-rental">private mailbox rentals</InternalLink>.
         </p>
       </div>
     </ServicePage>

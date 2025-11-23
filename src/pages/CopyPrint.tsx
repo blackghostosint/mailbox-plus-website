@@ -111,7 +111,7 @@ export const CopyPrint: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              Professional printing services from business cards to large format banners. 
+              Professional printing services from <InternalLink variant="geo" to="/copy-print/business-cards" className="text-gray-600 underline hover:text-[#0855B1]">business cards</InternalLink> to <InternalLink variant="geo" to="/copy-print/posters-printing" className="text-gray-600 underline hover:text-[#0855B1]">large format banners</InternalLink>.
               High-quality results with fast turnaround times.
             </motion.p>
             <motion.div
@@ -203,6 +203,7 @@ export const CopyPrint: React.FC = () => {
           <p className="text-gray-700">
             For professional <InternalLink variant="geo" to="/printing-services-concord-township">local printing services</InternalLink>,
             we are your convenient <InternalLink variant="geo" to="/staples-printing-alternative-concord-township">Staples printing alternative</InternalLink> in Concord Township.
+            We also offer <InternalLink variant="geo" to="/notary">notary public services</InternalLink> and <InternalLink variant="geo" to="/document-services">document finishing</InternalLink>.
           </p>
         </div>
       </section>

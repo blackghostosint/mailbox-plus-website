@@ -12,6 +12,7 @@ export const MailboxRentalPage: React.FC = () => {
         <p className="text-gray-700 leading-relaxed">
           Secure your packages with our <InternalLink variant="geo" to="/private-mailbox-rental-concord-township">private mailbox rental</InternalLink> services.
           We also offer a convenient <InternalLink variant="geo" to="/mail-forwarding-concord-township">mail forwarding service</InternalLink> for travelers and businesses.
+          Interested in managing your mail online? Check out our <InternalLink variant="geo" to="/home-business/digital-mailbox-rental">digital mailbox rentals</InternalLink>.
         </p>
       </div>
     </ServicePage>

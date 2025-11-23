@@ -11,6 +11,7 @@ export const PostageStamps: React.FC = () => {
       <div className="my-8">
         <p className="text-gray-700 leading-relaxed">
           Skip the long lines. Mailbox Plus is your <InternalLink variant="geo" to="/usps-drop-off-alternative-concord-township">USPS drop-off alternative</InternalLink> for stamps, mailing supplies, and package shipping.
+          While you're here, check out our <InternalLink variant="geo" to="/mailbox-rental">private mailbox rentals</InternalLink> or ask about <InternalLink variant="geo" to="/usps-services">certified mail services</InternalLink>.
         </p>
       </div>
     </ServicePage>

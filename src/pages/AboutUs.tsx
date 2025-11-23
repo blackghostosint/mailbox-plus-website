@@ -103,7 +103,7 @@ export const AboutUs: React.FC = () => {
             About <span className="text-[#60A5FA]">Mailbox Plus</span>
           </motion.h1>
           <motion.p {...fadeUp(0.15)} className="text-xl text-blue-100 mb-8 leading-relaxed">
-            We exist to make life easier for our neighbors in Lake County, Ohio. Whether you need to ship a package, rent a secure mailbox, get fingerprints taken, or print important documents, we're your one-stop shop — right here in your own community.
+            We exist to make life easier for our neighbors in Lake County, Ohio. Whether you need to <InternalLink variant="geo" to="/shipping" className="text-blue-200 hover:text-white underline decoration-blue-300">ship a package</InternalLink>, rent a secure mailbox, get fingerprints taken, or <InternalLink variant="geo" to="/printing" className="text-blue-200 hover:text-white underline decoration-blue-300">print important documents</InternalLink>, we're your one-stop shop — right here in your own community.
           </motion.p>
           <motion.div {...fadeUp(0.3)} className="text-blue-100">
             Visit our <InternalLink variant="geo" to="/shipping-center-concord-township" className="text-white hover:text-[#60A5FA] underline decoration-blue-300">local shipping center in Concord Township</InternalLink> today.
@@ -123,6 +123,9 @@ export const AboutUs: React.FC = () => {
               <p>
                 What started as a simple pack-and-ship shop has grown into a trusted local resource for families, small businesses, and professionals. Our tagline says it best:{" "}
                 <strong>"Let us handle your package"</strong>
+              </p>
+              <p>
+                From <InternalLink variant="geo" to="/mailbox-rental">private mailbox rentals</InternalLink> to <InternalLink variant="geo" to="/notary">notary public services</InternalLink>, we provide the essential business services you need without the hassle of big-box stores.
               </p>
               <p>
                 As Concord Township and the greater Lake County area grow, we continue to expand our services to meet the needs of our community — always with a personal touch and a heart for service.

@@ -147,6 +147,22 @@ const FedExOfficeAlternativePage: React.FC = () => {
           </div>
         </section>
 
+        <div className="mt-8 space-y-2 mb-12">
+          <h2 className="text-lg font-semibold text-gray-900">Related Services</h2>
+
+          <p>
+            Explore our <InternalLink variant="geo" to="/shipping">local shipping services</InternalLink> including UPS, FedEx, USPS, and DHL.
+          </p>
+
+          <p>
+            Learn more about our <InternalLink variant="geo" to="/printing">professional printing services</InternalLink> for documents, flyers, and business materials.
+          </p>
+
+          <p>
+            Need a secure address? Our <InternalLink variant="geo" to="/mailbox-rental">private mailbox rental in Concord Township</InternalLink> provides convenience and privacy.
+          </p>
+        </div>
+
         {/* Closing CTA */}
         <section className="text-center py-10 bg-gray-50 rounded-2xl">
           <h2 className="text-3xl font-bold mb-4 text-gray-900">Visit Mailbox Plus in Concord Township</h2>

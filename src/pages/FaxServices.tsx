@@ -11,7 +11,7 @@ export const FaxServices: React.FC = () => {
       <div className="my-8">
         <p className="text-gray-700 leading-relaxed">
           Need to send a fax? We provide reliable <InternalLink variant="geo" to="/business-services-concord-township">business services in Concord Township</InternalLink>,
-          including local and international faxing.
+          including local and international faxing. While you're here, you can also handle your <InternalLink variant="geo" to="/copy-print/copies">copying</InternalLink> and <InternalLink variant="geo" to="/printing">printing</InternalLink> needs.
         </p>
       </div>
     </ServicePage>

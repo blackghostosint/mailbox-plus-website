@@ -14,7 +14,7 @@ export const EveryDoorDirectMail: React.FC = () => {
       <div className="my-8">
         <p className="text-gray-700 leading-relaxed">
           Grow your local customer base with our <InternalLink variant="geo" to="/business-services-concord-township">direct mail services</InternalLink>.
-          We handle the design, printing, and USPS paperwork for you.
+          We handle the <InternalLink variant="geo" to="/copy-print/graphic-design">design</InternalLink>, <InternalLink variant="geo" to="/printing">printing</InternalLink>, and <InternalLink variant="geo" to="/usps-services">USPS paperwork</InternalLink> for you.
         </p>
       </div>
     </ServicePage>

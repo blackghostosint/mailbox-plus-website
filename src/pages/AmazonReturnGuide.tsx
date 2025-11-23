@@ -224,6 +224,8 @@ export const AmazonReturnGuide: React.FC = () => {
           </p>
           <p className="text-lg text-gray-600 leading-relaxed">
             Mailbox Plus is your convenient <InternalLink variant="geo" to="/amazon-returns-drop-off-concord-township">Amazon returns drop-off location</InternalLink> for pre-labeled packages.
+            While you're here, we can also help with <InternalLink variant="geo" to="/pack-ship">packing other shipments</InternalLink> or
+            <InternalLink variant="geo" to="/shipping">comparing shipping rates</InternalLink> for your personal or business needs.
           </p>
         </div>
       </section>

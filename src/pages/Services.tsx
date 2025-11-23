@@ -169,7 +169,10 @@ export const Services: React.FC = () => {
           <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
             <p>
               Looking for <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">pack and ship services in Concord Township</InternalLink>?
-              Browse our full list of offerings below.
+              Whether you need <InternalLink variant="geo" to="/shipping">UPS, FedEx, DHL, or USPS shipping</InternalLink>,
+              <InternalLink variant="geo" to="/printing">professional printing</InternalLink>, or a
+              <InternalLink variant="geo" to="/mailbox-rental">secure private mailbox</InternalLink>,
+              browse our full list of offerings below.
             </p>
           </div>
         </div>
@@ -244,6 +247,14 @@ export const Services: React.FC = () => {
             Stop by for all your shipping, printing, and business service needs.
             Our friendly team is ready to help!
           </p>
+
+          <div className="mb-8 text-blue-100">
+             <p>
+               We specialize in <InternalLink variant="geo" to="/amazon-returns" className="text-white hover:text-blue-200 underline">Amazon returns</InternalLink>,
+               <InternalLink variant="geo" to="/notary" className="text-white hover:text-blue-200 underline">notary services</InternalLink>, and
+               <InternalLink variant="geo" to="/pack-ship" className="text-white hover:text-blue-200 underline">custom packing</InternalLink>.
+             </p>
+          </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {/* Directions Button */}

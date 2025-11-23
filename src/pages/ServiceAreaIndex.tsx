@@ -11,8 +11,8 @@ export const ServiceAreaIndex: React.FC = () => {
       </h1>
       <p className="text-lg text-[#4B5563] mb-12 text-center max-w-3xl mx-auto">
         Mailbox Plus proudly serves families, small businesses, and professionals 
-        across Lake County and Northeast Ohio. Explore our dedicated service pages 
-        for shipping, printing, and business support in your community.
+        across Lake County and Northeast Ohio. Explore our dedicated service pages
+        for <InternalLink variant="geo" to="/shipping">shipping</InternalLink>, <InternalLink variant="geo" to="/printing">printing</InternalLink>, and business support in your community.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
