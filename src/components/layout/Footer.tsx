@@ -2,7 +2,7 @@ import React from 'react';
 import { InternalLink } from '../ui/InternalLink';
 import { Phone, Mail, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
-import { getServiceImageUrl } from '../../lib/supabase';
+import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 import { getGoogleMapsLink } from '../../utils/location';
 

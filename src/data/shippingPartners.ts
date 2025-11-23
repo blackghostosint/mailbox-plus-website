@@ -1,5 +1,5 @@
 // src/data/shippingPartners.ts
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 
 export interface ShippingPartner {
   name: string;

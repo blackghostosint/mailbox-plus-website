@@ -9,7 +9,7 @@ import { getGoogleMapsLink } from "../utils/location";
 import { Meta } from "../components/Meta";
 import { pageMeta } from "../config/pageMeta";
 // Utility to get service image URLs from Cloudflare R2
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 
 // Utility to generate safe IDs
 const makeId = (str: string) =>

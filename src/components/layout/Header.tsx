@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Phone, MapPin } from 'lucide-react';
 import { siteConfig } from '../../config/siteConfig';
 import { SearchBox } from '../ui';
-import { getServiceImageUrl } from '../../lib/supabase';
+import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 
 export const Header: React.FC = () => {

@@ -13,7 +13,7 @@ import { CarrierLogos } from "../components/CarrierLogos";
 import { getGoogleMapsLink } from "../utils/location";
 import { Meta } from "../components/Meta";
 import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 import { pageMeta } from "../config/pageMeta";
 
 export const Home: React.FC = () => {

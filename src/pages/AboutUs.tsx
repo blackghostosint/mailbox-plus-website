@@ -4,7 +4,7 @@ import { Heart, Users, Award, Clock, Package, Shield, Printer, Fingerprint } fro
 import { Meta } from "../components/Meta";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getFAQSchema } from "../utils";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },

@@ -18,7 +18,7 @@ import { CTASection } from "../components/sections/CTA";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 import {
   Accordion,
   AccordionItem,

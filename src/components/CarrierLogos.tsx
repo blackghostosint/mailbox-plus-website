@@ -1,5 +1,5 @@
 import React from "react";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 
 export const CarrierLogos: React.FC = () => {
   const carriers = [

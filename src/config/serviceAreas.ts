@@ -1,5 +1,5 @@
 import { Service } from "../types/services";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 
 export const serviceAreas: Service[] = [
   {

@@ -4,7 +4,7 @@ import {
     Box, Clock
 } from "lucide-react";
 import { Service } from "../types/services";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 import {
     generalShippingFaqs,
     generalCopyPrintFaqs,

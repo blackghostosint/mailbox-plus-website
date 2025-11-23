@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Search, Truck, ExternalLink } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
-import { getServiceImageUrl } from "../lib/supabase";
+import { getServiceImageUrl } from "../lib/storage";
 import { getTrackingSchema } from "../utils/schema";
 
 // Utility to safely stringify JSON for <script>
