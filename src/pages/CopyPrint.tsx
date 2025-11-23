@@ -186,41 +186,6 @@ export const CopyPrint: React.FC = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-[#0855B1]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Ready to Print?
-            </h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Visit our store for professional printing services, or contact us 
-              for a custom quote on your printing project.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                variant="secondary" 
-                size="lg"
-                className="bg-white text-[#0855B1] hover:bg-gray-50"
-              >
-                Visit Our Store
-              </Button>
-              <Button 
-                variant="link" 
-                size="lg"
-                className="text-white hover:text-blue-100"
-              >
-                Call (440) 709-1946
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Reusable CTA Section */}
       <CTASection cta={defaultCTA} className="mb-20" />
     </div>
