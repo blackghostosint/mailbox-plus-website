@@ -5,6 +5,7 @@ import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {
     generalCopyPrintFaqs,
+    graphicDesignFaqs,
     businessCardsFaqs,
     flyersBrochuresFaqs,
     documentPrintingFaqs,
@@ -17,6 +18,42 @@ export const copyPrintServices: Service[] = [
     // ---------------------------
     // COPY & PRINT
     // ---------------------------
+    {
+        id: "graphic-design",
+        category: "copy-print",
+        city: "Concord Township",
+        serviceName: "Graphic Design",
+        slug: "/copy-print/graphic-design",
+        pageTitle: "Graphic Design in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Graphic Design in Concord Township including UPS, FedEx, USPS, DHL shipping, printing, mailbox rentals, and notary services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot.",
+        keywords: "graphic design, marketing design, Concord Township, Lake County",
+        heroTitle: "Graphic Design Services",
+        heroSubtitle: "Custom designs that make your business stand out.",
+        heroImage: getServiceImageUrl("/images/graphic-design.webp"),
+        content: [
+            {
+                heading: "Design That Works",
+                body: "Our designers create professional layouts for business cards, flyers, brochures, and more."
+            },
+            {
+                heading: "Graphic Design Services in Concord Township, Ohio",
+                body: `<strong>Bring your ideas to life with professional graphic design services</strong> from Mailbox Plus in Concord Township, Ohio. Whether you need a custom logo, marketing materials, or branded print products, our design experts can create <strong>eye-catching visuals that make your business stand out</strong>.
+37 |
+38 | We specialize in <strong>business cards, flyers, brochures, postcards, posters, and banners</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is clean, professional, and print-ready.
+39 |
+40 | At Mailbox Plus, we use <strong>industry-standard design tools and color management practices</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is perfect.
+41 |
+42 | If you’re searching for <em>graphic design near Concord Township</em> or need <em>custom print design services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you create stunning designs that communicate your message clearly and professionally.`,
+                isFullWidth: true
+            }
+        ],
+        features: [
+            { icon: Palette, title: "Custom Designs", description: "Designs tailored to your business." },
+            { icon: Users, title: "Collaborative Process", description: "Work with us to create your ideal look." },
+            { icon: Star, title: "Polished Results", description: "Professional graphics that get noticed." }
+        ],
+        faqs: [...generalCopyPrintFaqs, ...graphicDesignFaqs]
+    },
     {
         id: "business-cards",
         category: "copy-print",

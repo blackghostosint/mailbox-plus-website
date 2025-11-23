@@ -1,7 +1,7 @@
-import { Package, Shield, Truck } from "lucide-react";
+import { Package, Shield, Truck, Printer, FileText, Palette, Star } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
-import { packShipFaqs } from "../faqs";
+import { packShipFaqs, generalCopyPrintFaqs } from "../faqs";
 
 export const coreServices: Service[] = [
     // ---------------------------
@@ -35,5 +35,31 @@ export const coreServices: Service[] = [
             { icon: Truck, title: "Fast & Reliable", description: "Multiple speed options from overnight to economy ground service." }
         ],
         faqs: packShipFaqs
+    },
+    {
+        id: "copy-print",
+        category: "core",
+        city: "Concord Township",
+        serviceName: "Copy & Print",
+        slug: "/copy-print",
+        pageTitle: "Copy and Print Services in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Copy and Print Services in Concord Township including UPS, FedEx, USPS, DHL shipping, printing, mailbox rentals, and notary services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot.",
+        keywords: "copy, print, business cards, flyers, banners, Concord Township, Lake County",
+        heroTitle: "Copy & Print Services",
+        heroSubtitle: "Professional printing services from business cards to large format banners. High-quality results with fast turnaround times.",
+        heroImage: getServiceImageUrl("/images/document-printing.webp"),
+        content: [
+            {
+                heading: "Our Printing Services",
+                body: "From everyday copying to professional marketing materials, we provide comprehensive printing solutions for all your needs."
+            }
+        ],
+        features: [
+            { icon: Printer, title: "Professional Quality", description: "High-resolution printing with vibrant colors" },
+            { icon: FileText, title: "All Document Types", description: "From business cards to large format posters" },
+            { icon: Palette, title: "Design Services", description: "Professional graphic design available" },
+            { icon: Star, title: "Fast Turnaround", description: "Quick service for urgent printing needs" }
+        ],
+        faqs: generalCopyPrintFaqs
     }
 ];
