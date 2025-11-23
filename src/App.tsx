@@ -54,26 +54,26 @@ import { CopyPrint } from "./pages/CopyPrint";
 import { HomeBusiness } from "./pages/HomeBusiness";
 
 // SEO Landing Pages
-import UPSStoreAlternativePage from "./pages/seo/ups-store-alternative-concord-township";
-import MailBoxesEtcAlternativePage from "./pages/seo/mail-boxes-etc-alternative-concord-township";
-import FedExOfficeAlternativePage from "./pages/seo/fedex-office-alternative-concord-township";
-import StaplesAlternativePage from "./pages/seo/staples-printing-alternative-concord-township";
-import OfficeDepotAlternativePage from "./pages/seo/office-depot-alternative-concord-township";
-import USPSDropOffAlternativePage from "./pages/seo/usps-drop-off-alternative-concord-township";
-import PostOfficeAlternativePage from "./pages/seo/post-office-alternative-concord-township";
-import USPSPackageHelpPage from "./pages/seo/usps-package-help-concord-township";
-import ShippingCenterPage from "./pages/seo/shipping-center-concord-township";
-import PackAndShipServicesPage from "./pages/seo/pack-and-ship-services-concord-township";
-import MultiCarrierShippingPage from "./pages/seo/ups-fedex-usps-dhl-shipping-concord-township";
-import SmallBusinessShippingPage from "./pages/seo/small-business-shipping-concord-township";
-import AmazonReturnsPage from "./pages/seo/amazon-returns-drop-off-concord-township";
-import UPSDropOffAlternativePage from "./pages/seo/ups-drop-off-alternative-concord-township";
-import PrintingServicesPage from "./pages/seo/printing-services-concord-township";
-import BusinessServicesPage from "./pages/seo/business-services-concord-township";
-import DocumentServicesPage from "./pages/seo/document-services-concord-township";
-import PrivateMailboxRentalPage from "./pages/seo/private-mailbox-rental-concord-township";
-import VirtualMailboxPage from "./pages/seo/virtual-mailbox-concord-township";
-import MailForwardingPage from "./pages/seo/mail-forwarding-concord-township";
+import UPSStoreAlternativePage from "./pages/ups-store-alternative-concord-township";
+import MailBoxesEtcAlternativePage from "./pages/mail-boxes-etc-alternative-concord-township";
+import FedExOfficeAlternativePage from "./pages/fedex-office-alternative-concord-township";
+import StaplesAlternativePage from "./pages/staples-printing-alternative-concord-township";
+import OfficeDepotAlternativePage from "./pages/office-depot-alternative-concord-township";
+import USPSDropOffAlternativePage from "./pages/usps-drop-off-alternative-concord-township";
+import PostOfficeAlternativePage from "./pages/post-office-alternative-concord-township";
+import USPSPackageHelpPage from "./pages/usps-package-help-concord-township";
+import ShippingCenterPage from "./pages/shipping-center-concord-township";
+import PackAndShipServicesPage from "./pages/pack-and-ship-services-concord-township";
+import MultiCarrierShippingPage from "./pages/ups-fedex-usps-dhl-shipping-concord-township";
+import SmallBusinessShippingPage from "./pages/small-business-shipping-concord-township";
+import AmazonReturnsPage from "./pages/amazon-returns-drop-off-concord-township";
+import UPSDropOffAlternativePage from "./pages/ups-drop-off-alternative-concord-township";
+import PrintingServicesPage from "./pages/printing-services-concord-township";
+import BusinessServicesPage from "./pages/business-services-concord-township";
+import DocumentServicesPage from "./pages/document-services-concord-township";
+import PrivateMailboxRentalPage from "./pages/private-mailbox-rental-concord-township";
+import VirtualMailboxPage from "./pages/virtual-mailbox-concord-township";
+import MailForwardingPage from "./pages/mail-forwarding-concord-township";
 
 // Additional Pages
 import { AboutUs } from "./pages/AboutUs";
