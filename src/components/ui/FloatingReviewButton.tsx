@@ -53,7 +53,7 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
   return (
     <div
       className={cn(
-        "fixed right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out hidden md:block",
+        "fixed right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out block",
         isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none",
         className
       )}
@@ -75,7 +75,7 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
           <img
             src={imageSrc}
             alt={alt}
-            className="w-36 h-auto drop-shadow-lg"
+            className="w-28 md:w-36 h-auto drop-shadow-lg"
           />
         </a>
       </div>
