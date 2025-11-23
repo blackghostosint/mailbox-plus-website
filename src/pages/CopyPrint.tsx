@@ -107,12 +107,14 @@ export const CopyPrint: React.FC = () => {
               Professional printing services from business cards to large format banners. 
               High-quality results with fast turnaround times.
             </motion.p>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <Button size="lg">Get Printing Quote</Button>
+              <a href="mailto:help@mailboxplusohio.com">
+                <Button size="lg">Get Printing Quote</Button>
+              </a>
             </motion.div>
           </div>
         </div>
