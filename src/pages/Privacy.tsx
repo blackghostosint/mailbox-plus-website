@@ -77,7 +77,7 @@ export const Privacy: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-sm text-[#4B5563]"
             >
-              Last updated: January 2025
+              Last updated: November 2025
             </motion.p>
           </div>
         </div>
@@ -124,14 +124,24 @@ export const Privacy: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-2xl font-bold text-[#111827] mb-4">Cookies and Tracking</h2>
+              <h2 className="text-2xl font-bold text-[#111827] mb-4">Analytics & Site Usage Data</h2>
               <p className="text-[#4B5563] leading-relaxed mb-4">
-                Our website uses cookies to improve your browsing experience and analyze website traffic. 
-                Cookies are small text files stored on your device that help us understand how you use our site.
+                We use Google Analytics 4 (GA4) on this website to understand how visitors use our site and how we can improve. GA4 collects aggregated information such as your device type, browser type, pages visited, session duration, and — where available — demographic attributes like age range and gender, based on Google Signals data. All data collected is anonymized and aggregated; we do not use it to personally identify any individual.
+              </p>
+              <p className="text-[#4B5563] leading-relaxed mb-4">
+                We also use Google Tag Manager to deploy the GA4 “Configuration” tag across all pages and to fire custom event tags when users interact with specific features (for example, our “Reserve My Box” CTA).
+              </p>
+              <p className="text-[#4B5563] leading-relaxed mb-4">
+                Because we are a U.S.-based small business using anonymous analytics only, we do not display a cookie-consent banner to visitors. If you wish to restrict or disable cookies or analytics tracking, you may adjust your browser cookie settings or install the Google Analytics Opt-out Browser Add-on.
+              </p>
+              <p className="text-[#4B5563] leading-relaxed mb-4">
+                Google provides more information about its data collection and usage, including how to opt-out, on its website here:{' '}
+                <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer" className="text-[#0855B1] hover:underline">
+                  https://policies.google.com/technologies/partner-sites
+                </a>.
               </p>
               <p className="text-[#4B5563] leading-relaxed">
-                You can control cookie settings through your browser preferences. However, disabling cookies 
-                may affect the functionality of certain features on our website.
+                We do not sell your personal information to third parties for advertising or marketing purposes.
               </p>
             </motion.div>
 
