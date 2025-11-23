@@ -217,7 +217,7 @@ export const PackShip: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-700">
             As your complete <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">shipping center in Concord Township</InternalLink>,
-            we offer <InternalLink variant="geo" to="/shipping-center-concord-township">multi-carrier shipping services</InternalLink> including <InternalLink variant="geo" to="/ups-shipping">UPS</InternalLink>, <InternalLink variant="geo" to="/fedex-shipping">FedEx</InternalLink>, and <InternalLink variant="geo" to="/usps-services">USPS</InternalLink> to help you find the best rate and delivery time.
+            we offer <InternalLink variant="geo" to="/shipping-center-concord-township">multi-carrier shipping services</InternalLink> including <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS</InternalLink>, <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx</InternalLink>, and <InternalLink variant="geo" to="/pack-ship/usps-services">USPS</InternalLink> to help you find the best rate and delivery time.
           </p>
         </div>
       </section>

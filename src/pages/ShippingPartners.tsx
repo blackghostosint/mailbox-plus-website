@@ -26,10 +26,10 @@ const ShippingPartners: React.FC = () => {
         
         <p className="text-center text-gray-600 mb-10 max-w-2xl mx-auto">
           We are your one-stop <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">UPS, FedEx, USPS, and DHL shipping center</InternalLink>.
-          Compare rates and services for <InternalLink variant="geo" to="/ups-shipping">UPS shipping</InternalLink>,
-          <InternalLink variant="geo" to="/fedex-shipping">FedEx services</InternalLink>,
-          <InternalLink variant="geo" to="/usps-services">USPS mail</InternalLink>, and
-          <InternalLink variant="geo" to="/dhl-express">DHL international shipping</InternalLink>.
+          Compare rates and services for <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS shipping</InternalLink>,
+          <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx services</InternalLink>,
+          <InternalLink variant="geo" to="/pack-ship/usps-services">USPS mail</InternalLink>, and
+          <InternalLink variant="geo" to="/pack-ship/dhl-express">DHL international shipping</InternalLink>.
         </p>
 
         {/* Partner Grid */}
