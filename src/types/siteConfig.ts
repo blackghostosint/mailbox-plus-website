@@ -31,6 +31,7 @@ export interface SiteConfig {
   };
   mapUrl?: string;      // ✅ added for schema.ts
   areaServed?: string[]; // ✅ added for schema.ts
+  knowsAbout?: string[]; // ✅ added for schema.ts
   deliveryAddress?: {    // ✅ added for tracking schema
     "@type": "PostalAddress";
     addressLocality: string;

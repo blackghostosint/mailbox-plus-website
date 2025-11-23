@@ -15,7 +15,7 @@ import type {
   OpeningHoursSpecification,
 } from "schema-dts";
 
-import type { SiteConfig } from "../config/siteConfig";
+import type { SiteConfig } from "../types/siteConfig";
 
 /** ---------- Small helpers ---------- */
 const getOrigin = (config: SiteConfig) =>
@@ -113,6 +113,7 @@ export const getLocalBusinessSchema = (
     },
     ...(config.mapUrl && { hasMap: config.mapUrl }),
     ...(config.areaServed && { areaServed: config.areaServed }),
+    ...(config.knowsAbout && { knowsAbout: config.knowsAbout }),
     contactPoint: {
       "@type": "ContactPoint",
       telephone: config.contact?.phone,
