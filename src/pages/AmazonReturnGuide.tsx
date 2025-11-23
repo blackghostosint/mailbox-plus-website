@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { CTASection } from "../components/sections/CTA";
+import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
@@ -511,6 +512,9 @@ export const AmazonReturnGuide: React.FC = () => {
           </Accordion>
         </div>
       </section>
+
+      {/* Competitor Alternative Section */}
+      <CompetitorAlternativeSection />
 
       {/* Contact / Final CTA */}
       <section className="py-16 bg-gray-900 text-white">

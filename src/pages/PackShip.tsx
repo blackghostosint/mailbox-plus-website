@@ -3,6 +3,8 @@ import { InternalLink } from '../components/ui/InternalLink';
 import { motion } from 'framer-motion';
 import { Package, Truck, Shield, Clock, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui';
+import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
+import { Meta } from "../components";
 
 export const PackShip: React.FC = () => {
   const services = [
@@ -105,6 +107,11 @@ export const PackShip: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <Meta
+        title="Pack and Ship Services in Concord Township, Ohio | Mailbox Plus"
+        description="Local Pack and Ship Services in Concord Township including UPS, FedEx, USPS, DHL shipping, printing, mailbox rentals, and notary services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot."
+        canonical="https://mailboxplusohio.com/pack-ship"
+      />
       {/* Hero Section */}
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,6 +212,9 @@ export const PackShip: React.FC = () => {
           </div>
         </div>
       </section>
+
+    {/* Competitor Alternative Section */}
+    <CompetitorAlternativeSection />
 
     {/* Reusable CTA Section */}
     <CTASection cta={defaultCTA} className="mb-20" />

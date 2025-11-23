@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 // ✅ Barrel imports
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from "../components";
 import { CarrierLogos } from "./CarrierLogos";
+import { CompetitorAlternativeSection } from "./sections/CompetitorAlternative";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
@@ -218,6 +219,9 @@ export const ServicePage: React.FC<Service> = (props) => {
           </div>
         </section>
       )}
+{/* Competitor Alternative Section */}
+<CompetitorAlternativeSection />
+
 {/* Carrier Logos */}
 <CarrierLogos />
 

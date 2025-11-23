@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { Printer, FileText, Palette, Star, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui';
 import { CTASection } from "../components/sections/CTA";
+import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
+import { Meta } from "../components";
 import { defaultCTA } from "../config/siteConfig";
 
 export const CopyPrint: React.FC = () => {
@@ -85,6 +87,11 @@ export const CopyPrint: React.FC = () => {
 
   return (
     <div className="bg-white">
+      <Meta
+        title="Copy and Print Services in Concord Township, Ohio | Mailbox Plus"
+        description="Local Copy and Print Services in Concord Township including UPS, FedEx, USPS, DHL shipping, printing, mailbox rentals, and notary services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot."
+        canonical="https://mailboxplusohio.com/copy-print"
+      />
       {/* Hero Section */}
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,6 +197,9 @@ export const CopyPrint: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Competitor Alternative Section */}
+      <CompetitorAlternativeSection />
 
       {/* Reusable CTA Section */}
       <CTASection cta={defaultCTA} className="mb-20" />

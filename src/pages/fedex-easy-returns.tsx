@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { CTASection } from "../components/sections/CTA";
+import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
@@ -77,6 +78,7 @@ export const FedExEasyReturns: React.FC = () => {
         title={service.pageTitle}
         description={service.metaDescription}
         keywords={service.keywords}
+        canonical={url}
       />
 
       {/* Structured Data */}
@@ -319,6 +321,9 @@ export const FedExEasyReturns: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Competitor Alternative Section */}
+      <CompetitorAlternativeSection />
 
       {/* CTA Section */}
       <div className="max-w-5xl mx-auto px-6 pb-16">
