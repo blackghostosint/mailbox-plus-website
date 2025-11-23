@@ -1,8 +1,8 @@
 import React from "react";
-import { Meta } from "../../components/Meta";
-import { AutoBreadcrumbs } from "../../components/ui/AutoBreadcrumbs";
-import { InternalLink } from "../../components/ui/InternalLink";
-import { Button } from "../../components/ui/Button";
+import { Meta } from "../components/Meta";
+import { AutoBreadcrumbs } from "../components/ui/AutoBreadcrumbs";
+import { InternalLink } from "../components/ui/InternalLink";
+import { Button } from "../components/ui/Button";
 
 const FedExOfficeAlternativePage: React.FC = () => {
   return (
