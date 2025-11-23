@@ -17,7 +17,7 @@ export const CopyPrint: React.FC = () => {
     {
       title: 'Copying Services',
       description: 'High-quality black and white and color copying.',
-      href: '/copy-print/copying-services',
+      href: '/copy-print/copies',
       icon: '📄'
     },
     /*
@@ -43,7 +43,7 @@ export const CopyPrint: React.FC = () => {
     {
       title: 'Poster & Banner Printing',
       description: 'Large format printing for events and promotions.',
-      href: '/copy-print/poster-banner-printing',
+      href: '/copy-print/posters-printing',
       icon: '🖼️'
     },
     {
@@ -55,7 +55,7 @@ export const CopyPrint: React.FC = () => {
     {
       title: 'Print Document Services',
       description: 'Complete document printing and production services.',
-      href: '/copy-print/print-document-services',
+      href: '/copy-print/document-printing',
       icon: '🖨️'
     }
   ];
