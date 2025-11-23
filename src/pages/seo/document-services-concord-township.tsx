@@ -1,0 +1,162 @@
+import React from "react";
+import { Meta } from "../../components/Meta";
+import { AutoBreadcrumbs } from "../../components/ui/AutoBreadcrumbs";
+import { InternalLink } from "../../components/ui/InternalLink";
+import { Button } from "../../components/ui/Button";
+
+const DocumentServicesPage: React.FC = () => {
+  return (
+    <>
+      <Meta
+        title="Document Services in Concord Township, Ohio | Mailbox Plus"
+        description="Local Document Services including printing, scanning, shredding, and notary. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township."
+        canonical="https://mailboxplusohio.com/seo/document-services-concord-township"
+      />
+      
+      <main className="container mx-auto px-4 py-10 bg-white">
+        <AutoBreadcrumbs />
+
+        {/* Hero Section */}
+        <section className="mb-12">
+          <h1 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+            Professional Document Services in Concord Township: Mailbox Plus
+          </h1>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            Mailbox Plus is your trusted provider of <strong>document services in Concord Township, Ohio</strong>. 
+            Whether you need to print a report, notarize a legal form, or securely shred sensitive files, our experienced team 
+            is here to assist. We offer a full suite of services to help you manage your personal and business paperwork 
+            with ease and confidentiality. Skip the office supply store lines and enjoy personalized service right in your neighborhood.
+          </p>
+        </section>
+
+        {/* Why We Are the Best Local Alternative */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Why Choose Mailbox Plus for Documents?</h2>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            <li><strong>Security:</strong> We handle your sensitive documents with the utmost care and confidentiality.</li>
+            <li><strong>Convenience:</strong> Print, scan, fax, notarize, and shred all in one place.</li>
+            <li><strong>Expertise:</strong> Our staff is trained to handle complex print jobs and notary requirements.</li>
+            <li><strong>Speed:</strong> Get your tasks done quickly so you can get back to your day.</li>
+            <li><strong>Local Focus:</strong> We are proud to serve the document needs of the Concord Township community.</li>
+            <li><strong>One-Stop Shop:</strong> We also offer shipping and packing services if you need to send your documents.</li>
+          </ul>
+        </section>
+
+        {/* Services Included */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Complete Document Solutions</h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2">Printing & Copying</h3>
+              <p className="text-gray-600">High-quality color and B&W reproduction for all your document needs.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2">Notary Services</h3>
+              <p className="text-gray-600">Official notarization for wills, deeds, contracts, and other legal forms.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2">Secure Shredding</h3>
+              <p className="text-gray-600">Safe destruction of confidential documents to prevent identity theft.</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h3 className="font-semibold text-lg mb-2">Scanning & Faxing</h3>
+              <p className="text-gray-600">Digitize your paper files or send them quickly via fax.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Comparison Table */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Mailbox Plus vs. Big Box Stores</h2>
+          <div className="overflow-x-auto">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr>
+                  <th className="border-b-2 border-gray-200 p-4 bg-gray-50 text-gray-800">Feature</th>
+                  <th className="border-b-2 border-gray-200 p-4 bg-blue-50 text-blue-900">Mailbox Plus</th>
+                  <th className="border-b-2 border-gray-200 p-4 bg-gray-50 text-gray-800">Big Box Office Store</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="border-b border-gray-100 p-4 text-gray-700">Privacy</td>
+                  <td className="border-b border-gray-100 p-4 font-medium text-blue-700">Discreet & Secure</td>
+                  <td className="border-b border-gray-100 p-4 text-gray-600">Public & Exposed</td>
+                </tr>
+                <tr>
+                  <td className="border-b border-gray-100 p-4 text-gray-700">Service Speed</td>
+                  <td className="border-b border-gray-100 p-4 font-medium text-blue-700">Fast & Efficient</td>
+                  <td className="border-b border-gray-100 p-4 text-gray-600">Often Slow</td>
+                </tr>
+                <tr>
+                  <td className="border-b border-gray-100 p-4 text-gray-700">Personal Attention</td>
+                  <td className="border-b border-gray-100 p-4 font-medium text-blue-700">Dedicated Staff</td>
+                  <td className="border-b border-gray-100 p-4 text-gray-600">Minimal Assistance</td>
+                </tr>
+                <tr>
+                  <td className="border-b border-gray-100 p-4 text-gray-700">Wait Times</td>
+                  <td className="border-b border-gray-100 p-4 font-medium text-blue-700">Short</td>
+                  <td className="border-b border-gray-100 p-4 text-gray-600">Long Lines</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        {/* Internal Links */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Explore Our Services</h2>
+          <div className="flex flex-wrap gap-4">
+            <InternalLink to="/copy-print/document-printing" variant="geo" className="text-blue-600 hover:underline">Document Printing</InternalLink>
+            <InternalLink to="/home-business/notary-services" variant="geo" className="text-blue-600 hover:underline">Notary Public</InternalLink>
+            <InternalLink to="/home-business/shredding" variant="geo" className="text-blue-600 hover:underline">Document Shredding</InternalLink>
+            <InternalLink to="/home-business/document-scanning" variant="geo" className="text-blue-600 hover:underline">Scanning Services</InternalLink>
+            <InternalLink to="/home-business/fax-services" variant="geo" className="text-blue-600 hover:underline">Fax Services</InternalLink>
+            <InternalLink to="/copy-print" variant="geo" className="text-blue-600 hover:underline">Printing Services</InternalLink>
+          </div>
+        </section>
+
+        {/* Local Benefits */}
+        <section className="mb-12 bg-blue-50 p-8 rounded-xl">
+          <h2 className="text-2xl font-bold mb-4 text-blue-900">Serving Concord Township & Lake County</h2>
+          <p className="text-blue-800 leading-relaxed">
+            From Mentor to Painesville, residents rely on Mailbox Plus in <strong>Concord Township, Ohio</strong> for all their document needs. 
+            We are committed to providing professional, reliable service to our local community.
+          </p>
+        </section>
+
+        {/* FAQ */}
+        <section className="mb-12">
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Frequently Asked Questions</h2>
+          <div className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-lg text-gray-900">What documents can you notarize?</h3>
+              <p className="text-gray-700">We can notarize most documents, including wills, powers of attorney, and real estate forms. Please bring a valid ID.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-gray-900">Is your shredding service secure?</h3>
+              <p className="text-gray-700">Yes, we place your documents in a locked bin until they are securely shredded by a certified service.</p>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg text-gray-900">Can you scan multiple pages to one PDF?</h3>
+              <p className="text-gray-700">Yes, our high-speed scanners can combine multiple pages into a single digital file for easy emailing.</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Closing CTA */}
+        <section className="text-center py-10 bg-gray-50 rounded-2xl">
+          <h2 className="text-3xl font-bold mb-4 text-gray-900">Visit Mailbox Plus Today</h2>
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+            Your local expert for all printing, notary, and document services.
+          </p>
+          <InternalLink to="/contact-us">
+            <Button size="lg" className="px-8">Get Directions & Hours</Button>
+          </InternalLink>
+        </section>
+      </main>
+    </>
+  );
+};
+
+export default DocumentServicesPage;
