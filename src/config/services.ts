@@ -48,7 +48,7 @@ export const services: Service[] = [
     {
         id: "pack-ship",
         category: "core",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Pack & Ship",
         slug: "/pack-ship",
         pageTitle: "Pack & Ship in Concord Township, Ohio | Mailbox Plus",
@@ -81,7 +81,7 @@ export const services: Service[] = [
     {
         id: "artwork-shipping",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Artwork Shipping",
         slug: "/pack-ship/artwork-shipping",
         pageTitle: "Artwork Shipping in Concord Township, Ohio | Mailbox Plus",
@@ -127,7 +127,7 @@ If you're searching for <strong>artwork shipping near Concord Township</strong>,
     {
         id: "bicycle-shipping",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Bicycle Shipping",
         slug: "/pack-ship/bicycle-shipping",
         pageTitle: "Bicycle Shipping in Concord Township, Ohio | Mailbox Plus",
@@ -165,7 +165,7 @@ As your local bicycle shipping partner in Concord Township and Lake County, we'r
     {
         id: "golf-club-shipping",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Golf Club Shipping",
         slug: "/pack-ship/golf-club-shipping",
         pageTitle: "Golf Club Shipping in Concord Township, Ohio | Mailbox Plus",
@@ -203,7 +203,7 @@ As your local shipping partner, we understand how important your clubs are. We o
     {
         id: "fedex-shipping",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "FedEx Shipping",
         slug: "/pack-ship/fedex-shipping",
         pageTitle: "FedEx Shipping in Concord Township, Ohio | Mailbox Plus",
@@ -243,7 +243,7 @@ Visit us today and experience the convenience of working with a local FedEx part
     {
         id: "ups-authorized-shipper-outlet",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "UPS Authorized Shipper Outlet",
         slug: "/pack-ship/ups-authorized-shipper-outlet",
         pageTitle: "UPS Authorized Shipper Outlet in Concord Township, Ohio | Mailbox Plus",
@@ -283,7 +283,7 @@ If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an
     {
         id: "usps-services",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "USPS Postal Services",
         slug: "/pack-ship/usps-services",
         pageTitle: "USPS Postal Services in Concord Township, Ohio | Mailbox Plus",
@@ -302,15 +302,15 @@ If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an
                 body: "From stamps to international shipments, we cover all your USPS needs."
             },
             {
-              heading: "Official USPS Postal Services in Concord Township, Ohio",
-              body: `Mailbox Plus is your convenient, locally owned hub for <strong>USPS postal and shipping services</strong> in Concord Township and Lake County. As an authorized provider, we handle everything from <strong>First-Class Mail</strong> and <strong>Priority Mail</strong> to <em>Certified Mail, Flat Rate Boxes, and International Shipping</em>—all in one friendly location.
+                heading: "Official USPS Postal Services in Concord Township, Ohio",
+                body: `Mailbox Plus is your convenient, locally owned hub for <strong>USPS postal and shipping services</strong> in Concord Township and Lake County. As an authorized provider, we handle everything from <strong>First-Class Mail</strong> and <strong>Priority Mail</strong> to <em>Certified Mail, Flat Rate Boxes, and International Shipping</em>—all in one friendly location.
 
 Avoid the long lines at the post office. Our team provides fast, accurate service with expert packing, custom labeling, and on-the-spot postage for envelopes, boxes, and parcels of all sizes. We help individuals and businesses alike save time and ship with confidence using trusted <strong>United States Postal Service</strong> options.
 
 Whether you need to send a single letter or manage regular mailings, Mailbox Plus offers <strong>secure USPS drop-off, tracking assistance, and bulk mailing support</strong> right here in your community.
 
 If you’re searching for <em>USPS services near Concord Township</em> or need <em>postal shipping in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll take care of your mail from start to finish—quickly, efficiently, and with a smile.`,
-              isFullWidth: true
+                isFullWidth: true
             }
         ],
         features: [
@@ -323,7 +323,7 @@ If you’re searching for <em>USPS services near Concord Township</em> or need <
     {
         id: "dhl-express",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "DHL Express",
         slug: "/pack-ship/dhl-express",
         pageTitle: "DHL Express in Concord Township, Ohio | Mailbox Plus",
@@ -360,52 +360,10 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
         ],
         faqs: [...generalShippingFaqs, ...dhlExpressFaqs]
     },
-    /*
-    {
-        id: "international-shipping",
-        category: "pack-ship",
-    city: "Concord Township",
-        serviceName: "International Shipping",
-        slug: "/pack-ship/international-shipping",
-        pageTitle: "International Shipping in Concord Township, Lake County, Ohio | Mailbox Plus",
-        metaDescription: "International shipping services with FedEx, UPS, USPS, and DHL from Concord Township, Lake County.",
-        keywords: "international shipping, customs, concord township, lake county",
-        heroTitle: "International Shipping",
-        heroSubtitle: "Ship packages worldwide with expert customs documentation support.",
-        heroImage: getServiceImageUrl("/images/international-shipping.webp"),
-        content: [
-            {
-                heading: "We Handle Customs",
-                body: "International shipping doesn't have to be complicated. We guide you through forms and regulations to ensure smooth delivery."
-            },
-            {
-                heading: "Multiple Carriers Available",
-                body: "Choose from FedEx, UPS, USPS, or DHL for the best international option."
-            },
-            {
-                heading: "International Shipping Services in Concord Township, Ohio",
-                body: `Mailbox Plus specializes in <strong>international shipping and customs preparation</strong> for individuals and businesses throughout Concord Township and Lake County, Ohio. Whether you're sending personal gifts overseas, exporting commercial products, or shipping important documents abroad, our experts make it easy to <strong>ship worldwide with confidence</strong>.
-
-We partner with trusted global carriers—<strong>FedEx, UPS, DHL, and USPS</strong>—to provide flexible delivery options, real-time tracking, and transparent pricing. Every international shipment is carefully packed, labeled, and documented according to customs requirements to prevent delays or additional fees.
-
-Our team also assists with <strong>customs forms, declarations, and country-specific restrictions</strong>, ensuring your package meets all international regulations before leaving our store. From Europe to Asia, South America to Australia, we'll help you find the most efficient and cost-effective route for your shipment.
-
-If you're searching for <em>international shipping near Concord Township</em> or need <em>expert help with customs paperwork in Lake County, Ohio</em>, Mailbox Plus is here to help. Stop by today to explore global shipping solutions and let our professionals handle every detail—so your packages arrive safely, wherever they need to go.`,
-                isFullWidth: true
-            }
-        ],
-        features: [
-            { icon: Globe, title: "Worldwide Reach", description: "Access to over 220 countries and territories." },
-            { icon: ClipboardList, title: "Customs Documentation", description: "We help prepare customs forms to prevent delays." },
-            { icon: Truck, title: "Carrier Choice", description: "Select from FedEx, UPS, USPS, or DHL." }
-        ],
-        faqs: [...generalShippingFaqs, ...internationalShippingFaqs]
-    },
-    */
     {
         id: "package-drop-offs",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Package Drop-Offs",
         slug: "/pack-ship/package-drop-offs",
         pageTitle: "Package Drop-Offs in Concord Township, Ohio | Mailbox Plus",
@@ -447,7 +405,7 @@ If you're looking for <em>package drop-off near Concord Township</em> or need <e
     {
         id: "custom-box-making",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Custom Box Making",
         slug: "/pack-ship/custom-box-making",
         pageTitle: "Custom Box Making in Concord Township, Ohio | Mailbox Plus",
@@ -473,7 +431,7 @@ Each box is designed for your item's exact dimensions and shipping method, using
 
 For customers who prefer a hands-on approach, we've developed an <strong>online custom box calculator</strong> available at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" style="color: #2DA0ED; font-weight: bold;">https://boxsize.cc/</a>. This free tool allows you to <em>design, measure, and visualize your own box layout at home</em> before bringing it in for professional assembly or packing assistance.
 
-Whether you're a small business shipping products or an individual preparing a one-of-a-kind item, Mailbox Plus offers <strong>custom box solutions built for precision and protection</strong>.
+Whether you're a small business shipping products or an individual preparing a one-of-a-kind item, Mailbox Plus offers <strong>custom box solutions built for precision and protection.</strong>
 
 If you're searching for <em>custom box making near Concord Township</em> or need <em>custom packaging in Lake County, Ohio</em>, visit Mailbox Plus today. We'll help you pack it right—the first time.`,
                 isFullWidth: true
@@ -489,7 +447,7 @@ If you're searching for <em>custom box making near Concord Township</em> or need
     {
         id: "professional-packing",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Professional Packing",
         slug: "/pack-ship/professional-packing",
         pageTitle: "Professional Packing in Concord Township, Ohio | Mailbox Plus",
@@ -529,7 +487,7 @@ If you're searching for <em>professional packing near Concord Township</em> or n
     {
         id: "packaging-supplies",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Packaging Supplies",
         slug: "/pack-ship/packaging-supplies",
         pageTitle: "Packaging Supplies in Concord Township, Ohio | Mailbox Plus",
@@ -573,7 +531,7 @@ If you're looking for <em>packaging supplies near Concord Township</em> or need 
     {
         id: "business-cards",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Business Cards",
         slug: "/copy-print/business-cards",
         pageTitle: "Business Cards in Concord Township, Ohio | Mailbox Plus",
@@ -613,7 +571,7 @@ If you’re searching for <em>business card printing near Concord Township</em> 
     {
         id: "flyers-brochures",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Flyers & Brochures",
         slug: "/copy-print/flyers-brochures",
         pageTitle: "Flyers & Brochures in Concord Township, Ohio | Mailbox Plus",
@@ -650,37 +608,10 @@ If you’re searching for <em>flyer printing near Concord Township</em> or need 
         ],
         faqs: [...generalCopyPrintFaqs, ...flyersBrochuresFaqs]
     },
-    /*
-    {
-        id: "document-finishing",
-        category: "copy-print",
-    city: "Concord Township",
-        serviceName: "Document Finishing",
-        slug: "/copy-print/document-finishing",
-        pageTitle: "Document Finishing in Concord Township, Lake County, Ohio | Mailbox Plus",
-        metaDescription: "Document finishing services including binding, laminating, and stapling in Concord Township.",
-        keywords: "document finishing, laminating, binding, Concord Township, Lake County",
-        heroTitle: "Document Finishing Services",
-        heroSubtitle: "Professional finishing options for your important documents.",
-        heroImage: getServiceImageUrl("/images/document-finishing.webp"),
-        content: [
-            {
-                heading: "Add a Professional Touch",
-                body: "We provide finishing services such as laminating, binding, and stapling to make your documents stand out."
-            }
-        ],
-        features: [
-            { icon: Layers, title: "Laminating", description: "Protect documents with durable lamination." },
-            { icon: ClipboardList, title: "Binding", description: "Choose spiral or comb binding for reports." },
-            { icon: Star, title: "Quality Finishes", description: "Give your projects a polished, professional look." }
-        ],
-        faqs: [...generalCopyPrintFaqs, ...documentFinishingFaqs]
-    },
-    */
     {
         id: "document-printing",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Document Printing",
         slug: "/copy-print/document-printing",
         pageTitle: "Document Printing in Concord Township, Ohio | Mailbox Plus",
@@ -720,7 +651,7 @@ If you’re searching for <em>document printing near Concord Township</em> or ne
     {
         id: "posters-printing",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Posters Printing",
         slug: "/copy-print/posters-printing",
         pageTitle: "Posters Printing in Concord Township, Ohio | Mailbox Plus",
@@ -760,7 +691,7 @@ If you’re searching for <em>poster printing near Concord Township</em> or need
     {
         id: "graphic-design",
         category: "additional-services",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Graphic Design",
         slug: "/copy-print/graphic-design",
         pageTitle: "Graphic Design in Concord Township, Ohio | Mailbox Plus",
@@ -796,7 +727,7 @@ If you’re searching for <em>graphic design near Concord Township</em> or need 
     {
         id: "postcard-printing",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Postcard Printing",
         slug: "/copy-print/postcard-printing",
         pageTitle: "Postcard Printing in Concord Township, Ohio | Mailbox Plus",
@@ -836,7 +767,7 @@ If you’re searching for <em>postcard printing near Concord Township</em> or ne
     {
         id: "copies",
         category: "copy-print",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Copies",
         slug: "/copy-print/copies",
         pageTitle: "Copies in Concord Township, Ohio | Mailbox Plus",
@@ -1028,7 +959,7 @@ If you’re searching for <em>Every Door Direct Mail services near Concord Towns
     {
         id: "package-receiving",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Package Receiving",
         slug: "/pack-ship/package-receiving",
         pageTitle: "Package Receiving in Concord Township, Ohio | Mailbox Plus",
@@ -1068,7 +999,7 @@ Our customers receive <strong>real-time delivery notifications</strong> and pers
     {
         id: "postage-stamps",
         category: "pack-ship",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Postage Stamps",
         slug: "/pack-ship/postage-stamps",
         pageTitle: "Postage Stamps in Concord Township, Ohio | Mailbox Plus",
@@ -1224,7 +1155,7 @@ If you're searching for <em>document scanning near Concord Township</em> or need
     {
         id: "notary-services",
         category: "additional-services",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Notary Services",
         slug: "/home-business/notary-services",
         pageTitle: "Notary Services in Concord Township, Ohio | Mailbox Plus",
@@ -1270,7 +1201,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
     {
         id: "digital-fingerprinting",
         category: "additional-services",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Digital Fingerprinting",
         slug: "/specialty/digital-fingerprinting",
         pageTitle: "Digital Fingerprinting in Concord Township, Ohio | Mailbox Plus",
@@ -1289,8 +1220,8 @@ If you’re searching for <em>notary services near Concord Township</em> or need
                 body: "We are an approved provider for state and federal background checks, making the process simple and secure."
             },
             {
-              heading: "Digital Fingerprinting and Background Checks in Concord Township, Ohio",
-              body: `<strong>Mailbox Plus is an authorized partner of FastFingerprints</strong>, offering <strong>digital fingerprinting and electronic background check services</strong> for employment, licensing, volunteering, and personal security needs. We make it easy to complete secure fingerprint-based background checks right here in Concord Township, Ohio.
+                heading: "Digital Fingerprinting and Background Checks in Concord Township, Ohio",
+                body: `<strong>Mailbox Plus is an authorized partner of FastFingerprints</strong>, offering <strong>digital fingerprinting and electronic background check services</strong> for employment, licensing, volunteering, and personal security needs. We make it easy to complete secure fingerprint-based background checks right here in Concord Township, Ohio.
 
 FastFingerprints helps <strong>businesses and families protect themselves</strong> by accelerating the hiring and licensing process with <strong>electronic fingerprinting</strong>—the fastest, most accurate, and most secure method available. This process allows for timely and confident decisions regarding employment, licensing, and volunteer screening.
 
@@ -1308,7 +1239,7 @@ Our digital system uses <strong>Ohio LiveScan technology</strong>, which capture
 FastFingerprints and Mailbox Plus provide a seamless, compliant, and confidential experience for every applicant. To schedule your appointment, visit <a href="https://register.fastfingerprints.com/account-entry" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] underline">register.fastfingerprints.com/account-entry</a> and select Mailbox Plus as your service location.
 
 If you’re searching for <em>digital fingerprinting in Concord Township</em> or need <em>BCI or FBI background check services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you complete your background check quickly, securely, and professionally.`,
-              isFullWidth: true
+                isFullWidth: true
             }
         ],
         features: [
@@ -1321,7 +1252,7 @@ If you’re searching for <em>digital fingerprinting in Concord Township</em> or
 {
         id: "insurance",
         category: "additional-services",
-    city: "Concord Township",
+        city: "Concord Township",
         serviceName: "Shipping Insurance",
         slug: "/specialty/insurance",
         pageTitle: "Shipping Insurance in Concord Township, Ohio | Mailbox Plus",
@@ -1402,5 +1333,925 @@ If you’re searching for <em>shipping insurance near Concord Township</em> or n
         content: [], // Custom page implementation will handle content
         features: [], // Custom page implementation will handle features
         faqs: [] // Custom page implementation will handle FAQs
+    },
+    {
+        id: "ups-drop-off-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "UPS Drop Off Alternative",
+        slug: "/ups-drop-off-alternative-concord-township",
+        pageTitle: "UPS Drop Off Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local UPS Drop Off Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "UPS drop off, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "Convenient UPS Drop Off in Concord Township: Mailbox Plus",
+        heroSubtitle: "Looking for a quick and easy UPS drop-off location in Concord Township, Ohio? Mailbox Plus is your local solution.",
+        heroImage: getServiceImageUrl("/images/ups-shipping.webp"),
+        content: [
+             {
+                heading: "Convenient UPS Drop Off in Concord Township: Mailbox Plus",
+                body: "Looking for a quick and easy <strong>UPS drop-off location in Concord Township, Ohio</strong>? \nMailbox Plus is your local solution. As an authorized shipping outlet, we accept all pre-labeled UPS packages. \nSkip the long lines at The UPS Store and drop off your packages with us in seconds. We also offer \n<strong> FedEx, USPS, and DHL</strong> services, making us the ultimate hub for all your shipping needs."
+            },
+            {
+                heading: "Why Mailbox Plus is Better for Drop Offs",
+                body: "• **Speed:** We get you in and out fast so you can get back to your day.\n• **No Waiting:** Avoid the crowds and long lines typical of franchise stores.\n• **Receipts:** We provide a drop-off receipt for tracking and peace of mind.\n• **Multi-Carrier:** We accept drop-offs for FedEx and USPS packages too.\n• **Friendly Staff:** Our team is always ready to help with a smile.\n• **Convenience:** Easy parking and a central location in Concord Township."
+            },
+            {
+                heading: "Your Local Shipping Center",
+                body: "• **UPS Services:** Authorized drop-off point for all UPS Ground and Air packages.\n• **FedEx & USPS:** We also accept drop-offs for FedEx and USPS shipments.\n• **Packing Help:** Need to repackage? We have boxes, tape, and bubble wrap for sale.\n• **Label Printing:** We can print your shipping label for you if you don't have a printer."
+            }
+        ],
+        features: [
+             { title: "Speed", description: "We get you in and out fast so you can get back to your day.", icon: Clock },
+             { title: "No Waiting", description: "Avoid the crowds and long lines typical of franchise stores.", icon: Users },
+             { title: "Receipts", description: "We provide a drop-off receipt for tracking and peace of mind.", icon: FileText }
+        ],
+        faqs: [
+            {
+                question: "Is there a fee to drop off packages?",
+                answer: "No, there is no fee for dropping off pre-labeled UPS packages."
+            },
+            {
+                question: "Do you provide a receipt?",
+                answer: "Yes, we will scan your package and provide a receipt for tracking."
+            },
+            {
+                question: "Can I drop off after hours?",
+                answer: "No, for security reasons, packages must be dropped off during our business hours."
+            }
+        ]
+    },
+    {
+        id: "ups-store-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "UPS Store Alternative",
+        slug: "/ups-store-alternative-concord-township",
+        pageTitle: "UPS Store Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local UPS Store Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "UPS Store alternative, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "The Best UPS Store Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs.",
+        heroImage: getServiceImageUrl("/images/ups-shipping.webp"),
+        content: [
+            {
+                heading: "The Best UPS Store Alternative in Concord Township: Mailbox Plus",
+                body: "Looking for a reliable <strong>UPS Store alternative in Concord Township, Ohio</strong>? \nMailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs. \nWhile The UPS Store focuses primarily on one carrier, Mailbox Plus offers a multi-carrier advantage, giving you access to \n<strong> UPS, FedEx, USPS, and DHL</strong> services all under one roof. Whether you need to ship a package, \nnotarize a document, or rent a private mailbox, our friendly team provides personalized service that big box stores \noften lack. Skip the long lines and restrictive options—experience the convenience and flexibility of Mailbox Plus \nin Concord Township today."
+            },
+            {
+                heading: "Why Mailbox Plus is the Better Choice",
+                body: "• **Faster Service:** We prioritize efficiency so you can get in and out quickly without the long wait times.\n• **No Long Lines:** Avoid the crowds often found at franchise locations.\n• **Local Ownership:** We are part of the Concord Township community and care about our neighbors.\n• **Multi-Carrier Options:** We ship with UPS, FedEx, USPS, and DHL, allowing you to compare rates and delivery speeds.\n• **Transparent Pricing:** No hidden fees or surprises—just honest, competitive rates.\n• **More Services:** From fingerprinting to key duplication, we offer services that go beyond standard shipping."
+            },
+            {
+                heading: "Services We Offer",
+                body: "• **Shipping & Packing:** Authorized shipping for UPS, FedEx, USPS, and DHL. Professional packing for fragile and high-value items.\n• **Business Services:** Private mailbox rental, notary public, faxing, scanning, and shredding services.\n• **Printing & Copying:** High-quality color and B&W copies, business cards, flyers, and document finishing.\n• **Specialty Services:** Digital fingerprinting, passport photos, key cutting, and secure document destruction."
+            }
+        ],
+        features: [
+            { title: "Faster Service", description: "We prioritize efficiency so you can get in and out quickly.", icon: Clock },
+            { title: "Multi-Carrier Options", description: "We ship with UPS, FedEx, USPS, and DHL.", icon: Truck },
+            { title: "Local Ownership", description: "We are part of the Concord Township community.", icon: MapPin }
+        ],
+        faqs: [
+            {
+                question: "Can I ship FedEx or USPS at Mailbox Plus?",
+                answer: "Yes! Unlike The UPS Store, we are an authorized shipping center for FedEx, USPS, UPS, and DHL, giving you more choices."
+            },
+            {
+                question: "Do you offer notary services?",
+                answer: "Absolutely. We have a commissioned notary public on-site to help with your legal documents. No appointment needed!"
+            },
+            {
+                question: "Is Mailbox Plus locally owned?",
+                answer: "Yes, we are a locally owned and operated independent business in Concord Township, committed to excellent customer service."
+            }
+        ]
+    },
+    {
+        id: "mail-boxes-etc-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Mail Boxes Etc. Alternative",
+        slug: "/mail-boxes-etc-alternative-concord-township",
+        pageTitle: "Mail Boxes Etc. Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Mail Boxes Etc. Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "Mail Boxes Etc. alternative, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "The Best Mail Boxes Etc. Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus fills the gap as your premier local solution for comprehensive shipping and business services.",
+        heroImage: getServiceImageUrl("/images/pack-ship.webp"),
+        content: [
+            {
+                heading: "The Best Mail Boxes Etc. Alternative in Concord Township: Mailbox Plus",
+                body: "If you're searching for a <strong>Mail Boxes Etc. alternative in Concord Township, Ohio</strong>, \nlook no further than Mailbox Plus. While the Mail Boxes Etc. brand has largely transitioned, the need for comprehensive \nshipping and business services remains. Mailbox Plus fills that gap as your premier local solution, offering \n<strong> UPS, FedEx, USPS, and DHL</strong> shipping, private mailbox rentals, and professional printing. \nWe provide the personalized care and multi-carrier flexibility that modern businesses and residents demand. \nSkip the confusion and choose the clear local leader: Mailbox Plus."
+            },
+            {
+                heading: "Why Choose Mailbox Plus?",
+                body: "• **Faster Service:** We value your time and ensure a quick, efficient experience.\n• **No Long Lines:** Get the services you need without the wait.\n• **Local Ownership:** We are proud members of the Concord Township community.\n• **Multi-Carrier Options:** Access to all major carriers (UPS, FedEx, USPS, DHL) in one place.\n• **Transparent Pricing:** Competitive rates with no hidden fees.\n• **More Services:** Offering everything from notary services to passport photos."
+            },
+            {
+                heading: "Complete Business & Shipping Solutions",
+                body: "• **Multi-Carrier Shipping:** We ship everything from letters to freight using UPS, FedEx, USPS, and DHL.\n• **Mailbox Rentals:** Secure private mailboxes with a real street address, perfect for home-based businesses.\n• **Professional Printing:** From business cards to wide-format posters, we handle all your printing needs.\n• **Notary & More:** On-site notary public, faxing, scanning, and secure document shredding."
+            }
+        ],
+        features: [
+            { title: "Modern Services", description: "Up-to-date Technology", icon: Star },
+            { title: "Carrier Choice", description: "All Major Carriers", icon: Truck },
+            { title: "Community Focus", description: "Locally Owned & Operated", icon: Users }
+        ],
+        faqs: [
+            {
+                question: "Do you offer the same services as Mail Boxes Etc.?",
+                answer: "Yes, and more! We offer comprehensive packing, shipping, printing, and business services with modern efficiency."
+            },
+            {
+                question: "Can I rent a mailbox here?",
+                answer: "Yes, we offer private mailbox rentals with a real street address, ensuring security and professionalism for your mail."
+            },
+            {
+                question: "What carriers do you support?",
+                answer: "We support all major carriers: UPS, FedEx, USPS, and DHL, giving you the power of choice."
+            }
+        ]
+    },
+    {
+        id: "fedex-office-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "FedEx Office Alternative",
+        slug: "/fedex-office-alternative-concord-township",
+        pageTitle: "FedEx Office Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local FedEx Office Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "FedEx Office alternative, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "The Best FedEx Office Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus provides the same high-quality packing, shipping, and printing services you expect, but with multi-carrier options.",
+        heroImage: getServiceImageUrl("/images/fedex-shipping.webp"),
+        content: [
+            {
+                heading: "The Best FedEx Office Alternative in Concord Township: Mailbox Plus",
+                body: "Searching for a <strong>FedEx Office alternative in Concord Township, Ohio</strong>? \nMailbox Plus provides the same high-quality packing, shipping, and printing services you expect, \nbut with the added benefit of being a multi-carrier center. Unlike FedEx Office, which only ships FedEx, \nMailbox Plus allows you to compare options from <strong>FedEx, UPS, USPS, and DHL</strong> to find the best rate \nand delivery speed for your needs. Enjoy personalized service, shorter lines, and a locally owned atmosphere \nthat puts you first."
+            },
+            {
+                heading: "Why Mailbox Plus Beats the Competition",
+                body: "• **Faster Service:** Skip the long lines typical of big box stores.\n• **No Long Lines:** We value your time and get you on your way quickly.\n• **Local Ownership:** We are a dedicated part of the Concord Township community.\n• **Multi-Carrier Options:** We aren't limited to just FedEx; we offer UPS, USPS, and DHL too.\n• **Transparent Pricing:** Honest rates with no hidden surprises.\n• **More Services:** From notary public to key duplication, we do it all."
+            },
+            {
+                heading: "Your One-Stop Business Center",
+                body: "• **Authorized Shipping:** Official ship center for FedEx, UPS, USPS, and DHL.\n• **Print & Copy:** Professional color and B&W copies, binding, laminating, and business cards.\n• **Office Services:** Notary public, faxing, scanning, and secure document shredding.\n• **Rentals & Returns:** Private mailbox rentals and easy returns for FedEx, Amazon, and more."
+            }
+        ],
+        features: [
+            { title: "Carrier Variety", description: "FedEx, UPS, USPS, DHL", icon: Truck },
+            { title: "Price Comparison", description: "Shop rates across carriers", icon: Shield },
+            { title: "Convenience", description: "Quick In & Out", icon: Clock }
+        ],
+        faqs: [
+            {
+                question: "Can I drop off pre-labeled FedEx packages?",
+                answer: "Yes! We accept drop-offs for FedEx as well as UPS and USPS packages."
+            },
+            {
+                question: "Do you offer printing services like FedEx Office?",
+                answer: "Yes, we offer a full range of copying and printing services, including business cards, flyers, and document finishing."
+            },
+            {
+                question: "Is there a notary on site?",
+                answer: "Yes, we have a commissioned notary public available during all business hours."
+            }
+        ]
+    },
+    {
+        id: "post-office-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Post Office Alternative",
+        slug: "/post-office-alternative-concord-township",
+        pageTitle: "Post Office Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Post Office Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "Post Office alternative, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "The Best Post Office Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus offers all the essential shipping services you need in a friendly, customer-focused environment.",
+        heroImage: getServiceImageUrl("/images/usps-services.webp"),
+        content: [
+            {
+                heading: "The Best Post Office Alternative in Concord Township: Mailbox Plus",
+                body: "Tired of the long lines and limited hours at the local Post Office? \nMailbox Plus is the premier <strong>Post Office alternative in Concord Township, Ohio</strong>. \nWe offer all the essential shipping services you need—including <strong>USPS, UPS, FedEx, and DHL</strong>—in a friendly, \ncustomer-focused environment. From certified mail to package drop-offs and stamp sales, we handle it all with speed \nand efficiency. Experience the difference of a shipping center that puts you first."
+            },
+            {
+                heading: "Why Choose Mailbox Plus Over the Post Office?",
+                body: "• **Faster Service:** We pride ourselves on quick, efficient transactions.\n• **No Long Lines:** Don't waste your lunch break waiting in line.\n• **Local Ownership:** We are a small business dedicated to our Concord Township community.\n• **Multi-Carrier Options:** Unlike the Post Office, we offer UPS, FedEx, and DHL options too.\n• **Transparent Pricing:** We help you find the most cost-effective shipping method.\n• **More Services:** Notary, fax, copy, and shredding services are all available here."
+            },
+            {
+                heading: "Complete Shipping & Postal Services",
+                body: "• **USPS Shipping:** Access Priority Mail, Express, First Class, and International shipping.\n• **Private Mailboxes:** Secure mailboxes with a street address, package receiving, and 24/7 access options.\n• **Stamps & Supplies:** Buy stamps and get professional packing supplies without the hassle.\n• **Multi-Carrier Choice:** We also ship via UPS, FedEx, and DHL for when USPS isn't the best fit."
+            }
+        ],
+        features: [
+            { title: "Faster Service", description: "We pride ourselves on quick, efficient transactions.", icon: Clock },
+            { title: "Carrier Flexibility", description: "USPS, UPS, FedEx, DHL", icon: Truck },
+            { title: "Customer Service", description: "Personalized Assistance", icon: Users }
+        ],
+        faqs: [
+            {
+                question: "Are your USPS prices the same as the Post Office?",
+                answer: "We offer competitive pricing on all USPS services, often matching retail rates for convenience."
+            },
+            {
+                question: "Can I renew my PO Box here?",
+                answer: "If you rent a private mailbox with us, yes! We offer secure mailbox rentals with real street addresses."
+            },
+            {
+                question: "Do you offer Certified Mail?",
+                answer: "Yes, we can help you send letters via Certified Mail with Return Receipt, just like the Post Office."
+            }
+        ]
+    },
+    {
+        id: "shipping-center-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Shipping Center",
+        slug: "/shipping-center-concord-township",
+        pageTitle: "Shipping Center in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Shipping Center including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "shipping center, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "Your Premier Shipping Center in Concord Township: Mailbox Plus",
+        heroSubtitle: "We provide a complete range of shipping and business services to meet the needs of residents and small businesses alike.",
+        heroImage: getServiceImageUrl("/images/pack-ship.webp"),
+        content: [
+            {
+                heading: "Your Premier Shipping Center in Concord Township: Mailbox Plus",
+                body: "Welcome to Mailbox Plus, the leading <strong>shipping center in Concord Township, Ohio</strong>. \nWe provide a complete range of shipping and business services to meet the needs of residents and small businesses alike. \nAs an authorized shipping outlet for <strong>UPS, FedEx, USPS, and DHL</strong>, we offer you the unique ability to compare rates \nand delivery times across all major carriers. Whether you're sending a care package to college or shipping products for your business, \nour expert team is here to ensure your items arrive safely and on time."
+            },
+            {
+                heading: "Why Mailbox Plus is Concord Township's Top Shipping Choice",
+                body: "• **Convenience:** One stop for all your shipping, packing, and business needs.\n• **Choice:** We are the only local center offering UPS, FedEx, USPS, and DHL under one roof.\n• **Local Ownership:** We are your neighbors, dedicated to serving our community with care.\n• **Efficiency:** Fast service means you get back to your day sooner.\n• **Expertise:** Our staff are trained packing and shipping professionals.\n• **Value:** Competitive pricing and the ability to shop around for the best rate."
+            },
+            {
+                heading: "Full-Service Shipping Solutions",
+                body: "• **Domestic Shipping:** Ground, Express, and Overnight shipping options to anywhere in the US.\n• **International Shipping:** Reach the world with our global shipping partners: DHL, FedEx, and UPS.\n• **Professional Packing:** We pack it right to protect your items and meet carrier insurance standards.\n• **Package Receiving:** Never worry about porch pirates again with our secure package receiving service."
+            }
+        ],
+        features: [
+            { title: "Convenience", description: "One stop for all your shipping needs.", icon: MapPin },
+            { title: "Choice", description: "UPS, FedEx, USPS, and DHL under one roof.", icon: Truck },
+            { title: "Expertise", description: "Trained packing and shipping professionals.", icon: Star }
+        ],
+        faqs: [
+            {
+                question: "What is the latest time I can drop off a package?",
+                answer: "Our carrier pickup times vary, but we accept drop-offs during all business hours. Call us for specific cutoff times."
+            },
+            {
+                question: "Can you pack my item for me?",
+                answer: "Yes, we offer full-service professional packing to ensure your items are safe during transit."
+            },
+            {
+                question: "Do you ship furniture?",
+                answer: "We can handle many large items. Please contact us with the dimensions and weight for a quote."
+            }
+        ]
+    },
+    {
+        id: "pack-and-ship-services-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Pack and Ship Services",
+        slug: "/pack-and-ship-services-concord-township",
+        pageTitle: "Pack and Ship Services in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Pack and Ship Services including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "pack and ship services, Concord Township, Mailbox Plus, shipping",
+        heroTitle: "Professional Pack and Ship Services in Concord Township: Mailbox Plus",
+        heroSubtitle: "When you need expert pack and ship services in Concord Township, Ohio, trust the pros at Mailbox Plus.",
+        heroImage: getServiceImageUrl("/images/professional-packing.webp"),
+        content: [
+            {
+                heading: "Professional Pack and Ship Services in Concord Township: Mailbox Plus",
+                body: "When you need expert <strong>pack and ship services in Concord Township, Ohio</strong>, trust the pros at Mailbox Plus. \nPacking can be stressful and time-consuming, but our team makes it easy. We use high-quality materials and professional \ntechniques to ensure your items—whether fragile, valuable, or awkward—arrive safely. As an authorized \nshipper for <strong>UPS, FedEx, USPS, and DHL</strong>, we can pack your item and ship it using the carrier that best fits \nyour budget and timeline."
+            },
+            {
+                heading: "Why Choose Mailbox Plus for Packing?",
+                body: "• **Expert Packing:** We know exactly how to protect your items for transit.\n• **Peace of Mind:** Our professional packing often qualifies for carrier insurance guarantees.\n• **Convenience:** Bring in your item, and we'll handle the box, bubble wrap, and tape.\n• **Multi-Carrier Shipping:** Once packed, we can ship it via UPS, FedEx, USPS, or DHL.\n• **Time Saving:** Stop hunting for the right size box—we have it all here.\n• **Custom Solutions:** We can build custom boxes for odd-shaped or large items."
+            },
+            {
+                heading: "Complete Packing & Shipping Solutions",
+                body: "• **Professional Packing:** From antiques to electronics, we pack it all with care and precision.\n• **Custom Boxing:** We create custom boxes to fit unique items perfectly.\n• **Shipping Supplies:** Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.\n• **Freight Shipping:** Assistance with palletizing and shipping larger freight items."
+            }
+        ],
+        features: [
+            { title: "Expert Packing", description: "We know exactly how to protect your items.", icon: Shield },
+            { title: "Convenience", description: "We handle the box, bubble wrap, and tape.", icon: Box },
+            { title: "Multi-Carrier", description: "Ship via UPS, FedEx, USPS, or DHL.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "How much does packing cost?",
+                answer: "The cost depends on the size, weight, and fragility of the item. Bring it in for a free quote!"
+            },
+            {
+                question: "Can you pack fragile items like glass?",
+                answer: "Absolutely. We use specialized materials like bubble wrap, foam, and peanuts to protect fragile items."
+            },
+            {
+                question: "Do you have boxes for moving?",
+                answer: "Yes, we sell a variety of box sizes perfect for moving or storage."
+            }
+        ]
+    },
+    {
+        id: "ups-fedex-usps-dhl-shipping-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "UPS, FedEx, USPS, DHL Shipping",
+        slug: "/ups-fedex-usps-dhl-shipping-concord-township",
+        pageTitle: "UPS, FedEx, USPS, DHL Shipping in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local UPS, FedEx, USPS, and DHL Shipping services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "UPS FedEx USPS DHL shipping, Concord Township, Mailbox Plus",
+        heroTitle: "Ship with UPS, FedEx, USPS, and DHL in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus is your all-in-one shipping destination in Concord Township, Ohio.",
+        heroImage: getServiceImageUrl("/images/pack-ship.webp"),
+        content: [
+            {
+                heading: "Ship with UPS, FedEx, USPS, and DHL in Concord Township: Mailbox Plus",
+                body: "Looking for a place where you can ship with <strong>UPS, FedEx, USPS, and DHL in Concord Township, Ohio</strong>? \nMailbox Plus is your all-in-one shipping destination. Why limit yourself to just one carrier when you can have them all? \nWe are authorized shipping partners for all major carriers, giving you the power to compare rates, delivery speeds, \nand services to find the perfect fit for every package. From overnight documents to international freight, \nwe have the right solution for you."
+            },
+            {
+                heading: "The Power of Choice at Mailbox Plus",
+                body: "• **Compare & Save:** We can show you rates from all 4 carriers side-by-side.\n• **One Stop Shop:** No need to drive to multiple stores to ship different packages.\n• **Expert Advice:** Our staff understands the strengths of each carrier and can guide you.\n• **Local Convenience:** Located right here in Concord Township for easy access.\n• **Authorized Center:** We are official partners, ensuring your packages are handled correctly.\n• **Returns Accepted:** We accept drop-offs for all carriers too."
+            },
+            {
+                heading: "Our Shipping Partners",
+                body: "• **UPS Shipping:** Reliable ground and air services for domestic and international shipments.\n• **FedEx Shipping:** Fast express and economical ground options for time-sensitive packages.\n• **USPS Shipping:** Priority Mail, First Class, and flat-rate boxes for cost-effective shipping.\n• **DHL International:** The world leader in international shipping for documents and parcels."
+            }
+        ],
+        features: [
+            { title: "Compare & Save", description: "Show rates from all 4 carriers side-by-side.", icon: Shield },
+            { title: "One Stop Shop", description: "No need to drive to multiple stores.", icon: MapPin },
+            { title: "Expert Advice", description: "Our staff can guide you on the best carrier.", icon: Users }
+        ],
+        faqs: [
+            {
+                question: "Which carrier is the cheapest?",
+                answer: "It depends on the package size, weight, and destination. We can compare them all instantly to find the lowest price."
+            },
+            {
+                question: "Which carrier is the fastest?",
+                answer: "FedEx and UPS often offer the fastest express options, but DHL is excellent for international speed."
+            },
+            {
+                question: "Do you take drop-offs for all carriers?",
+                answer: "Yes! We accept prepaid drop-off packages for UPS, FedEx, USPS, and DHL."
+            }
+        ]
+    },
+    {
+        id: "small-business-shipping-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Small Business Shipping",
+        slug: "/small-business-shipping-concord-township",
+        pageTitle: "Small Business Shipping in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Small Business Shipping solutions including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "small business shipping, Concord Township, Mailbox Plus",
+        heroTitle: "Small Business Shipping Solutions in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus acts as your off-site logistics department, providing access to UPS, FedEx, USPS, and DHL all in one place.",
+        heroImage: getServiceImageUrl("/images/pack-ship.webp"),
+        content: [
+            {
+                heading: "Small Business Shipping Solutions in Concord Township: Mailbox Plus",
+                body: "Running a business is hard work, but shipping doesn't have to be. Mailbox Plus specializes in \n<strong>small business shipping in Concord Township, Ohio</strong>. We act as your off-site logistics department, \nproviding access to <strong>UPS, FedEx, USPS, and DHL</strong> all in one place. From sending out orders to managing returns, \nwe help you streamline your shipping process so you can focus on growing your business. \nEnjoy personalized support, volume discounts potential, and a partner who truly cares about your success."
+            },
+            {
+                heading: "Your Business Logistics Partner",
+                body: "• **Time Efficiency:** Drop off all your packages for different carriers in one stop.\n• **Cost Savings:** We help you find the most economical shipping method for every order.\n• **Professional Image:** Rent a mailbox for a professional street address, not a PO Box.\n• **Reliability:** Trust us to pack and ship your products safely to your customers.\n• **Support:** We are always here to answer your questions and solve shipping problems.\n• **Local Focus:** We understand the needs of local businesses in Concord Township."
+            },
+            {
+                heading: "Services That Scale With You",
+                body: "• **Multi-Carrier Shipping:** Choose the best carrier for each shipment based on price and speed.\n• **Business Printing:** Marketing materials, invoices, and labels printed on demand.\n• **Mailbox Rentals:** Secure package receiving from all carriers to keep your home address private.\n• **Fulfillment Help:** We can help pack and ship your orders during busy seasons."
+            }
+        ],
+        features: [
+            { title: "Time Efficiency", description: "Drop off all packages in one stop.", icon: Clock },
+            { title: "Cost Savings", description: "Find the most economical shipping method.", icon: Shield },
+            { title: "Professional Image", description: "Rent a mailbox for a professional street address.", icon: FileText }
+        ],
+        faqs: [
+            {
+                question: "Do you offer business accounts?",
+                answer: "We offer personalized services for frequent shippers. Stop in to discuss how we can support your business needs."
+            },
+            {
+                question: "Can I receive shipments from suppliers here?",
+                answer: "Yes! With a private mailbox rental, you can receive packages from any carrier, ensuring your inventory arrives safely."
+            },
+            {
+                question: "What about international shipping?",
+                answer: "We are experts in international shipping and can help you navigate customs forms to get your products to global customers."
+            }
+        ]
+    },
+    {
+        id: "usps-drop-off-alternative-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "USPS Drop Off Alternative",
+        slug: "/usps-drop-off-alternative-concord-township",
+        pageTitle: "USPS Drop Off Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local USPS Drop Off Alternative including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "USPS drop off alternative, Concord Township, Mailbox Plus",
+        heroTitle: "Convenient USPS Drop Off & Shipping in Concord Township: Mailbox Plus",
+        heroSubtitle: "Skip the long lines at the Post Office and head to Mailbox Plus for quick and easy USPS drop-offs.",
+        heroImage: getServiceImageUrl("/images/usps-services.webp"),
+        content: [
+            {
+                heading: "Convenient USPS Drop Off & Shipping in Concord Township: Mailbox Plus",
+                body: "Looking for a better <strong>USPS drop-off location in Concord Township, Ohio</strong>? \nSkip the long lines at the Post Office and head to Mailbox Plus. We are an authorized shipping center that makes \ndropping off your USPS packages quick and easy. But we don't just stop at USPS; we also offer \n<strong> UPS, FedEx, and DHL</strong> shipping services, giving you the flexibility to choose the best carrier \nfor every package. Enjoy a friendly, stress-free experience with shorter wait times and personalized service."
+            },
+            {
+                heading: "Why Drop Off at Mailbox Plus?",
+                body: "• **Faster Service:** In and out in minutes—no waiting in endless lines.\n• **No Long Lines:** A more convenient alternative to the busy Post Office.\n• **Local Ownership:** Supporting a local business that cares about your satisfaction.\n• **Multi-Carrier Options:** We accept drop-offs for UPS and FedEx too.\n• **Transparent Pricing:** If you need to buy postage, we offer fair and clear rates.\n• **More Services:** Pick up some stamps, rent a mailbox, or get documents notarized while you're here."
+            },
+            {
+                heading: "Your Local Shipping Hub",
+                body: "• **USPS Services:** Priority Mail, First Class, Certified Mail, and stamp sales.\n• **Package Drop-Offs:** Accepting pre-labeled packages for USPS, UPS, and FedEx.\n• **Multi-Carrier Shipping:** Compare rates across carriers to save money on your shipments.\n• **Packing Services:** Professional packing to ensure your items arrive safely."
+            }
+        ],
+        features: [
+            { title: "Faster Service", description: "In and out in minutes.", icon: Clock },
+            { title: "No Long Lines", description: "Convenient alternative to the Post Office.", icon: Users },
+            { title: "Multi-Carrier Options", description: "We accept drop-offs for UPS and FedEx too.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "Can I drop off any USPS package here?",
+                answer: "Yes, as long as it has a prepaid label, you can drop it off. We also sell postage for packages that need it."
+            },
+            {
+                question: "Do you sell stamps?",
+                answer: "Yes, we sell standard USPS postage stamps."
+            },
+            {
+                question: "Is it faster than the Post Office?",
+                answer: "Generally, yes! Our lines are typically much shorter, allowing you to get in and out quickly."
+            }
+        ]
+    },
+    {
+        id: "usps-package-help-concord-township",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "USPS Package Help",
+        slug: "/usps-package-help-concord-township",
+        pageTitle: "USPS Package Help in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local USPS Package Help including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "USPS package help, Concord Township, Mailbox Plus",
+        heroTitle: "Expert USPS Package Help in Concord Township: Mailbox Plus",
+        heroSubtitle: "Need USPS package help in Concord Township, Ohio? Mailbox Plus is here to assist.",
+        heroImage: getServiceImageUrl("/images/usps-services.webp"),
+        content: [
+            {
+                heading: "Expert USPS Package Help in Concord Township: Mailbox Plus",
+                body: "Need <strong>USPS package help in Concord Township, Ohio</strong>? \nWhether you're unsure about postage, need help packing a fragile item, or want to track a shipment, \nMailbox Plus is here to assist. As an authorized shipping center, we provide expert guidance on all \n<strong> USPS, UPS, FedEx, and DHL</strong> services. Don't struggle with complicated shipping rules or \nwait on hold—come to Mailbox Plus for personal, face-to-face assistance from our knowledgeable staff."
+            },
+            {
+                heading: "Why Get Help at Mailbox Plus?",
+                body: "• **Expert Advice:** We know the ins and outs of shipping and can recommend the best options.\n• **No Long Lines:** Get your questions answered quickly without the Post Office wait.\n• **Local Ownership:** We care about our customers and provide a friendly, helpful atmosphere.\n• **Multi-Carrier Solutions:** If USPS isn't the right fit, we can suggest UPS, FedEx, or DHL.\n• **Transparent Pricing:** We'll help you find the most affordable way to ship.\n• **More Services:** From professional packing to insurance, we have you covered."
+            },
+            {
+                heading: "Complete Shipping Assistance",
+                body: "• **Packing Services:** Let us pack your items professionally to ensure they arrive safely.\n• **Shipping Options:** We'll help you choose between Priority Mail, Express, Ground, and more.\n• **International Shipping:** Guidance on customs forms and international shipping regulations.\n• **Returns Assistance:** Help with printing labels and returning packages to online retailers."
+            }
+        ],
+        features: [
+            { title: "Expert Advice", description: "We know the ins and outs of shipping.", icon: Star },
+            { title: "No Long Lines", description: "Get your questions answered quickly.", icon: Clock },
+            { title: "Multi-Carrier", description: "We can suggest UPS, FedEx, or DHL.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "Can you help me pack fragile items?",
+                answer: "Yes! We specialize in professional packing for fragile, valuable, and odd-shaped items."
+            },
+            {
+                question: "Do you sell boxes and tape?",
+                answer: "Yes, we have a full selection of packaging supplies available for purchase."
+            },
+            {
+                question: "What if I don't know which carrier to use?",
+                answer: "No problem! We can compare rates and delivery times for UPS, FedEx, USPS, and DHL to find the best option for you."
+            }
+        ]
+    },
+    {
+        id: "staples-printing-alternative-concord-township",
+        category: "copy-print",
+        city: "Concord Township",
+        serviceName: "Staples Printing Alternative",
+        slug: "/staples-printing-alternative-concord-township",
+        pageTitle: "Staples Printing Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Staples Alternative for printing and shipping. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "Staples printing alternative, Concord Township, Mailbox Plus",
+        heroTitle: "The Best Staples Printing Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus offers high-quality document services without the big-box store hassle.",
+        heroImage: getServiceImageUrl("/images/document-printing.webp"),
+        content: [
+            {
+                heading: "The Best Staples Printing Alternative in Concord Township: Mailbox Plus",
+                body: "Need a <strong>Staples alternative for printing and shipping in Concord Township, Ohio</strong>? \nMailbox Plus offers high-quality document services without the big-box store hassle. Whether you need \nbusiness cards, flyers, or secure shredding, our local team provides the personalized attention your projects deserve. \nWe are also a full-service shipping center for <strong>UPS, FedEx, USPS, and DHL</strong>, making us a one-stop shop \nfor all your business needs. Experience the difference of a locally owned business that puts quality and customer service first."
+            },
+            {
+                heading: "Why Choose Mailbox Plus Over Staples?",
+                body: "• **Personalized Attention:** We take the time to ensure your print jobs are perfect.\n• **No Long Lines:** Get your errands done quickly without the crowd.\n• **Local Ownership:** Your business supports the Concord Township community.\n• **Multi-Carrier Shipping:** Unlike Staples (which often limits carrier options), we ship via UPS, FedEx, USPS, and DHL.\n• **Transparent Pricing:** Competitive rates for printing and shipping.\n• **More Services:** We offer notary, fingerprinting, and mailbox rentals too."
+            },
+            {
+                heading: "Printing & Business Services",
+                body: "• **Document Services:** Color/B&W copies, laminating, binding, and scanning services.\n• **Print Marketing:** Business cards, flyers, brochures, and postcards to promote your business.\n• **Shipping Center:** Authorized shipping for all major carriers: UPS, FedEx, USPS, DHL.\n• **Secure Shredding:** Safe and secure document destruction to protect your sensitive information."
+            }
+        ],
+        features: [
+            { title: "Customer Focus", description: "Personalized Local Service.", icon: Users },
+            { title: "Shipping Options", description: "UPS, FedEx, USPS, DHL.", icon: Truck },
+            { title: "Efficiency", description: "Fast In & Out.", icon: Clock }
+        ],
+        faqs: [
+            {
+                question: "Do you offer the same printing services as Staples?",
+                answer: "We offer a wide range of essential business printing services including copies, flyers, and business cards with faster turnaround times."
+            },
+            {
+                question: "Can I ship packages here too?",
+                answer: "Yes! We are a comprehensive shipping center for UPS, FedEx, USPS, and DHL."
+            },
+            {
+                question: "Do you offer shredding services?",
+                answer: "Yes, we provide secure document destruction to keep your sensitive information safe."
+            }
+        ]
+    },
+    {
+        id: "office-depot-alternative-concord-township",
+        category: "copy-print",
+        city: "Concord Township",
+        serviceName: "Office Depot Alternative",
+        slug: "/office-depot-alternative-concord-township",
+        pageTitle: "Office Depot Alternative in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Office Depot Alternative for business services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "Office Depot alternative, Concord Township, Mailbox Plus",
+        heroTitle: "The Best Office Depot Alternative in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus provides the essential business services you rely on, right in your neighborhood.",
+        heroImage: getServiceImageUrl("/images/document-printing.webp"),
+        content: [
+            {
+                heading: "The Best Office Depot Alternative in Concord Township: Mailbox Plus",
+                body: "Looking for an <strong>Office Depot alternative in Concord Township, Ohio</strong>? \nMailbox Plus provides the essential business services you rely on, right in your neighborhood. \nFrom professional printing and copying to shipping and mailbox rentals, we offer a more personalized and efficient experience than the big chain stores. \nPlus, as a multi-carrier shipping center, we give you more choices with <strong>UPS, FedEx, USPS, and DHL</strong> all in one location. \nChoose Mailbox Plus for friendly service and expert solutions."
+            },
+            {
+                heading: "Why Mailbox Plus is Your Best Choice",
+                body: "• **Faster Service:** We get you in and out quickly, respecting your busy schedule.\n• **No Long Lines:** Avoid the wait times often found at Office Depot.\n• **Local Ownership:** We are a locally owned business invested in our community.\n• **Multi-Carrier Shipping:** Compare rates and services from UPS, FedEx, USPS, and DHL.\n• **Transparent Pricing:** Fair prices for all our services.\n• **More Services:** We offer comprehensive solutions like notary, shredding, and fingerprinting."
+            },
+            {
+                heading: "Comprehensive Business Services",
+                body: "• **Printing & Copying:** High-quality copies, business cards, flyers, and document finishing services.\n• **Shipping & Packing:** Authorized shipping center for UPS, FedEx, USPS, and DHL with professional packing.\n• **Mailbox Services:** Secure private mailboxes with package receiving from all carriers.\n• **Office Essentials:** Notary public, faxing, scanning, and secure shredding services."
+            }
+        ],
+        features: [
+            { title: "Service Experience", description: "Personal & Efficient.", icon: Star },
+            { title: "Shipping Carriers", description: "UPS, FedEx, USPS, DHL.", icon: Truck },
+            { title: "Waiting Time", description: "Minimal.", icon: Clock }
+        ],
+        faqs: [
+            {
+                question: "What shipping services do you offer?",
+                answer: "We offer shipping via UPS, FedEx, USPS, and DHL, allowing you to choose the best option for your needs."
+            },
+            {
+                question: "Can I get documents printed here?",
+                answer: "Absolutely! We handle copies, business cards, flyers, and more with professional quality."
+            },
+            {
+                question: "Do you offer notary services?",
+                answer: "Yes, our on-site notary is available to assist you with your legal documents."
+            }
+        ]
+    },
+    {
+        id: "printing-services-concord-township",
+        category: "copy-print",
+        city: "Concord Township",
+        serviceName: "Printing Services",
+        slug: "/printing-services-concord-township",
+        pageTitle: "Printing Services in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Printing Services including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "printing services, Concord Township, Mailbox Plus",
+        heroTitle: "High-Quality Printing Services in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations.",
+        heroImage: getServiceImageUrl("/images/document-printing.webp"),
+        content: [
+            {
+                heading: "High-Quality Printing Services in Concord Township: Mailbox Plus",
+                body: "Looking for professional <strong>printing services in Concord Township, Ohio</strong>? \nMailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations. \nWe offer high-quality color and black & white printing with fast turnaround times. Whether you're a student, \na small business owner, or just need a few copies, our friendly team is here to help your projects look their best. \nPlus, we can ship your printed materials anywhere with <strong>UPS, FedEx, USPS, and DHL</strong>."
+            },
+            {
+                heading: "Why Print with Mailbox Plus?",
+                body: "• **Quality:** We use professional-grade equipment for crisp, clear results.\n• **Speed:** Same-day service available for many print jobs.\n• **Convenience:** Email us your files or bring them in on a USB drive.\n• **Personal Service:** We take the time to check your files and ensure they print correctly.\n• **Full Service:** We can print, bind, laminate, and ship your documents all in one visit.\n• **Local Value:** Competitive pricing without the big box store hassle."
+            },
+            {
+                heading: "Complete Printing Solutions",
+                body: "• **Document Printing:** Resumes, reports, presentations, and flyers in color or B&W.\n• **Business Cards:** Make a great first impression with professionally printed business cards.\n• **Finishing Services:** Binding, laminating, stapling, and folding to give your project a polished look.\n• **Digital Services:** Scan documents to email or USB for easy digital archiving."
+            }
+        ],
+        features: [
+            { title: "Print Quality", description: "Professional Laser.", icon: Printer },
+            { title: "Cost per Page", description: "Efficient / Bulk Rates.", icon: Star },
+            { title: "Speed", description: "High Volume Fast.", icon: Clock }
+        ],
+        faqs: [
+            {
+                question: "How do I send you my file?",
+                answer: "You can email it to us or bring it in on a USB drive."
+            },
+            {
+                question: "Do you print in color?",
+                answer: "Yes, we offer full-color and black & white printing on a variety of paper sizes."
+            },
+            {
+                question: "Can you laminate documents?",
+                answer: "Yes, we offer laminating services to protect your important documents."
+            }
+        ]
+    },
+    {
+        id: "document-services-concord-township",
+        category: "document-services",
+        city: "Concord Township",
+        serviceName: "Document Services",
+        slug: "/document-services-concord-township",
+        pageTitle: "Document Services in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Document Services including printing, scanning, shredding, and notary. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "document services, Concord Township, Mailbox Plus",
+        heroTitle: "Professional Document Services in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus is your trusted provider of document services in Concord Township, Ohio.",
+        heroImage: getServiceImageUrl("/images/document-printing.webp"),
+        content: [
+            {
+                heading: "Professional Document Services in Concord Township: Mailbox Plus",
+                body: "Mailbox Plus is your trusted provider of <strong>document services in Concord Township, Ohio</strong>. \nWhether you need to print a report, notarize a legal form, or securely shred sensitive files, our experienced team \nis here to assist. We offer a full suite of services to help you manage your personal and business paperwork \nwith ease and confidentiality. Skip the office supply store lines and enjoy personalized service right in your neighborhood."
+            },
+            {
+                heading: "Why Choose Mailbox Plus for Documents?",
+                body: "• **Security:** We handle your sensitive documents with the utmost care and confidentiality.\n• **Convenience:** Print, scan, fax, notarize, and shred all in one place.\n• **Expertise:** Our staff is trained to handle complex print jobs and notary requirements.\n• **Speed:** Get your tasks done quickly so you can get back to your day.\n• **Local Focus:** We are proud to serve the document needs of the Concord Township community.\n• **One-Stop Shop:** We also offer shipping and packing services if you need to send your documents."
+            },
+            {
+                heading: "Complete Document Solutions",
+                body: "• **Printing & Copying:** High-quality color and B&W reproduction for all your document needs.\n• **Notary Services:** Official notarization for wills, deeds, contracts, and other legal forms.\n• **Secure Shredding:** Safe destruction of confidential documents to prevent identity theft.\n• **Scanning & Faxing:** Digitize your paper files or send them quickly via fax."
+            }
+        ],
+        features: [
+            { title: "Privacy", description: "Discreet & Secure.", icon: Lock },
+            { title: "Service Speed", description: "Fast & Efficient.", icon: Clock },
+            { title: "Personal Attention", description: "Dedicated Staff.", icon: Users }
+        ],
+        faqs: [
+            {
+                question: "What documents can you notarize?",
+                answer: "We can notarize most documents, including wills, powers of attorney, and real estate forms. Please bring a valid ID."
+            },
+            {
+                question: "Is your shredding service secure?",
+                answer: "Yes, we place your documents in a locked bin until they are securely shredded by a certified service."
+            },
+            {
+                question: "Can you scan multiple pages to one PDF?",
+                answer: "Yes, our high-speed scanners can combine multiple pages into a single digital file for easy emailing."
+            }
+        ]
+    },
+    {
+        id: "private-mailbox-rental-concord-township",
+        category: "mailbox-rentals",
+        city: "Concord Township",
+        serviceName: "Private Mailbox Rental",
+        slug: "/private-mailbox-rental-concord-township",
+        pageTitle: "Private Mailbox Rental in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Private Mailbox Rental including UPS, FedEx, USPS, and DHL package receiving. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "private mailbox rental, Concord Township, Mailbox Plus",
+        heroTitle: "Secure Private Mailbox Rental in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus offers more than just a key and a box; we provide a complete mail management solution.",
+        heroImage: getServiceImageUrl("/images/mailbox-rental.webp"),
+        content: [
+            {
+                heading: "Secure Private Mailbox Rental in Concord Township: Mailbox Plus",
+                body: "Looking for a secure and professional <strong>private mailbox rental in Concord Township, Ohio</strong>? \nMailbox Plus offers more than just a key and a box; we provide a complete mail management solution. \nUnlike a standard PO Box, our mailboxes come with a real street address, allowing you to receive packages from \n<strong> UPS, FedEx, USPS, and DHL</strong>. Whether you run a home-based business or just want extra privacy \nfor your personal mail, our private mailboxes are the perfect answer."
+            },
+            {
+                heading: "Benefits of Renting a Mailbox at Mailbox Plus",
+                body: "• **Real Street Address:** Enhance your professional image with a physical address, not a PO Box number.\n• **Package Receiving:** We accept packages from all carriers, so you never miss a delivery.\n• **Security:** Keep your mail safe and your home address private.\n• **Notification:** We can let you know when you have mail, saving you unnecessary trips.\n• **24-Hour Access:** (Optional) Ask about our 24/7 access options for your convenience.\n• **Mail Forwarding:** Traveling? We can forward your mail to you wherever you are."
+            },
+            {
+                heading: "More Than Just a Mailbox",
+                body: "• **Package Acceptance:** We sign for your packages so they aren't left unattended on your porch.\n• **Business Address:** Use our address for your business cards, website, and registration.\n• **Mail Forwarding:** We can bundle and ship your mail to you anywhere in the world.\n• **Call-in Check:** Call us to see if you have mail before you drive over."
+            }
+        ],
+        features: [
+            { title: "Address Format", description: "Street Address.", icon: MapPin },
+            { title: "Package Acceptance", description: "UPS, FedEx, USPS, DHL.", icon: Package },
+            { title: "Professional Image", description: "High.", icon: Star }
+        ],
+        faqs: [
+            {
+                question: "What does my address look like?",
+                answer: "Your address will be our street address with your unit number, e.g., 123 Main St #101."
+            },
+            {
+                question: "How do I know if I have mail?",
+                answer: "You can call us during business hours, or we can set up email notifications."
+            },
+            {
+                question: "Can someone else pick up my mail?",
+                answer: "Yes, you can authorize other individuals to pick up mail from your box."
+            }
+        ]
+    },
+    {
+        id: "virtual-mailbox-concord-township",
+        category: "mailbox-rentals",
+        city: "Concord Township",
+        serviceName: "Virtual Mailbox",
+        slug: "/virtual-mailbox-concord-township",
+        pageTitle: "Virtual Mailbox in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Virtual Mailbox services including digital mail scanning and forwarding. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "virtual mailbox, Concord Township, Mailbox Plus",
+        heroTitle: "Digital & Virtual Mailbox Services in Concord Township: Mailbox Plus",
+        heroSubtitle: "Welcome to the future of mail management with Mailbox Plus's virtual mailbox services.",
+        heroImage: getServiceImageUrl("/images/digital-mailbox-rental.webp"),
+        content: [
+            {
+                heading: "Digital & Virtual Mailbox Services in Concord Township: Mailbox Plus",
+                body: "Welcome to the future of mail management with Mailbox Plus's <strong>virtual mailbox services in Concord Township, Ohio</strong>. \nPerfect for travelers, snowbirds, and digital nomads, a virtual mailbox allows you to view and manage your postal mail online \nfrom anywhere in the world. We receive your mail, scan the envelope, and you decide whether to have it opened and scanned, \nforwarded, or shredded. Stay connected to your physical mail without being tied to a physical location."
+            },
+            {
+                heading: "Why Choose a Virtual Mailbox?",
+                body: "• **Remote Access:** Check your postal mail from your smartphone or computer 24/7.\n• **Convenience:** No need to drive to the mailbox; we bring the mailbox to you digitally.\n• **Security:** Your physical mail is stored securely until you decide what to do with it.\n• **Efficiency:** Quickly sort through junk mail and important documents with a click.\n• **Professional Address:** Use our street address for your business, even if you work remotely.\n• **Package Management:** We can receive and hold packages for you from all carriers."
+            },
+            {
+                heading: "How It Works",
+                body: "• **1. We Receive:** Your mail arrives at our secure Concord Township facility.\n• **2. We Scan:** We scan the front of the envelope and upload it to your secure online portal.\n• **3. You Decide:** Log in and tell us to open & scan, forward, shred, or hold the item.\n• **4. We Action:** We execute your request quickly and professionally."
+            }
+        ],
+        features: [
+            { title: "Access", description: "Anywhere, Anytime.", icon: Globe },
+            { title: "Instant Notification", description: "Yes (App/Email).", icon: Star },
+            { title: "Forwarding", description: "On Demand.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "Is it safe to scan my mail?",
+                answer: "Yes, we use secure, encrypted systems to store your digital mail images, and physical mail is kept in a restricted area."
+            },
+            {
+                question: "Can you deposit checks for me?",
+                answer: "Some plans may offer check depositing services. Please inquire for specific details."
+            },
+            {
+                question: "How much does it cost?",
+                answer: "We have various plans to fit different needs and budgets. Contact us for current pricing."
+            }
+        ]
+    },
+    {
+        id: "mail-forwarding-concord-township",
+        category: "mailbox-rentals",
+        city: "Concord Township",
+        serviceName: "Mail Forwarding",
+        slug: "/mail-forwarding-concord-township",
+        pageTitle: "Mail Forwarding in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Mail Forwarding services including UPS, FedEx, USPS, and DHL shipping. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "mail forwarding, Concord Township, Mailbox Plus",
+        heroTitle: "Reliable Mail Forwarding in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus offers reliable mail forwarding in Concord Township, Ohio.",
+        heroImage: getServiceImageUrl("/images/mailbox-rental.webp"),
+        content: [
+            {
+                heading: "Reliable Mail Forwarding in Concord Township: Mailbox Plus",
+                body: "Whether you're traveling for the winter, moving temporarily, or managing a business remotely, \nMailbox Plus offers reliable <strong>mail forwarding in Concord Township, Ohio</strong>. \nWe ensure you never miss an important document or package. Rent a private mailbox with us, and we can \nbundle your mail and forward it to you anywhere in the world using <strong>UPS, FedEx, USPS, or DHL</strong>. \nStay connected to your mail no matter where life takes you."
+            },
+            {
+                heading: "Why Use Our Mail Forwarding Service?",
+                body: "• **Flexibility:** Choose how often you want your mail forwarded (weekly, monthly, or on demand).\n• **Carrier Choice:** We select the most cost-effective or fastest carrier to get your mail to you.\n• **Security:** Your mail stays safe in our secure facility until it's time to ship.\n• **Consolidation:** We can repack your items into one box to save you money on shipping.\n• **Personal Service:** Just call or email us when you're ready for your mail.\n• **Peace of Mind:** Relax knowing your mail is being handled by professionals."
+            },
+            {
+                heading: "Mail Management Solutions",
+                body: "• **Private Mailbox Rental:** The foundation of our forwarding service—a secure street address for your mail.\n• **Package Forwarding:** We can receive packages from Amazon, UPS, etc., and forward them to your new location.\n• **International Forwarding:** Living abroad? We can ship your mail and packages internationally via DHL or FedEx.\n• **Mail Holding:** We can hold your mail while you are away and have it ready for pickup when you return."
+            }
+        ],
+        features: [
+            { title: "Package Forwarding", description: "Yes (All Carriers).", icon: Package },
+            { title: "Control", description: "You Decide When.", icon: Star },
+            { title: "Carrier Options", description: "UPS, FedEx, DHL, USPS.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "How much does forwarding cost?",
+                answer: "You pay the cost of shipping plus a small handling fee. We can estimate the cost before we send it."
+            },
+            {
+                question: "Can you forward to a hotel?",
+                answer: "Yes, we can forward mail and packages to hotels, temporary addresses, or general delivery."
+            },
+            {
+                question: "Do I need to rent a mailbox?",
+                answer: "Yes, mail forwarding is a feature available to our private mailbox holders."
+            }
+        ]
+    },
+    {
+        id: "business-services-concord-township",
+        category: "additional-services",
+        city: "Concord Township",
+        serviceName: "Business Services",
+        slug: "/business-services-concord-township",
+        pageTitle: "Business Services in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Business Services including UPS, FedEx, USPS, and DHL shipping. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "business services, Concord Township, Mailbox Plus",
+        heroTitle: "Essential Business Services in Concord Township: Mailbox Plus",
+        heroSubtitle: "Mailbox Plus is the one-stop shop for all your business services in Concord Township, Ohio.",
+        heroImage: getServiceImageUrl("/images/pack-ship.webp"),
+        content: [
+            {
+                heading: "Essential Business Services in Concord Township: Mailbox Plus",
+                body: "Mailbox Plus is the one-stop shop for all your <strong>business services in Concord Township, Ohio</strong>. \nWe provide the essential tools you need to run your business efficiently, without the overhead of a large office. \nFrom <strong>UPS, FedEx, USPS, and DHL</strong> shipping to private mailbox rentals, notary public, and document shredding, \nwe have you covered. Our team acts as your personal support staff, helping you tackle your to-do list so you can focus on what matters most."
+            },
+            {
+                heading: "Your Local Business Support Center",
+                body: "• **Efficiency:** Get multiple errands done in one quick trip.\n• **Reliability:** Count on us for secure handling of your mail and packages.\n• **Professionalism:** Enhance your business image with our high-quality services.\n• **Flexibility:** We offer solutions tailored to small businesses and home offices.\n• **Cost-Effective:** Save money by only paying for the services you need.\n• **Local Partner:** We are invested in the success of the Concord Township business community."
+            },
+            {
+                heading: "Comprehensive Business Solutions",
+                body: "• **Mailbox Rentals:** Get a prestigious street address and secure 24-hour access to your mail.\n• **Notary Public:** On-site notary services to legalize your important documents.\n• **Document Shredding:** Securely destroy sensitive files and protect your business data.\n• **Fax & Scan:** Send and receive faxes or digitize your paper records."
+            }
+        ],
+        features: [
+            { title: "Cost", description: "Low Monthly Fee.", icon: Star },
+            { title: "Staffing", description: "Our Team Helps You.", icon: Users },
+            { title: "Equipment", description: "Use Ours (Print/Fax).", icon: Printer }
+        ],
+        faqs: [
+            {
+                question: "Can I use your address for my business?",
+                answer: "Yes! Our mailbox rentals provide a real street address that you can use for business registration and marketing."
+            },
+            {
+                question: "Do you offer volume discounts?",
+                answer: "We may offer discounts for high-volume shipping or printing. Please ask us for details."
+            },
+            {
+                question: "Is the notary always in?",
+                answer: "Our notary is typically available during all business hours, but feel free to call ahead to confirm."
+            }
+        ]
+    },
+    {
+        id: "amazon-returns-drop-off-concord-township",
+        category: "additional-services",
+        city: "Concord Township",
+        serviceName: "Amazon Returns Drop Off",
+        slug: "/amazon-returns-drop-off-concord-township",
+        pageTitle: "Amazon Returns Drop Off in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Local Amazon Returns Drop Off including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township.",
+        keywords: "Amazon returns drop off, Concord Township, Mailbox Plus",
+        heroTitle: "Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus",
+        heroSubtitle: "Need to return an Amazon package? Mailbox Plus is your convenient Amazon returns drop-off location in Concord Township, Ohio.",
+        heroImage: getServiceImageUrl("/images/ups-shipping.webp"),
+        content: [
+            {
+                heading: "Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus",
+                body: "Need to return an Amazon package? Mailbox Plus is your convenient <strong>Amazon returns drop-off location in Concord Township, Ohio</strong>. \nWe accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, \nhassle-free drop-off experience. While you're here, check out our other services including \n<strong> FedEx, USPS, and DHL shipping</strong>, packing supplies, and more."
+            },
+            {
+                heading: "Why Drop Off Amazon Returns at Mailbox Plus?",
+                body: "• **Fast & Easy:** We scan your label and get you on your way in seconds.\n• **No Long Lines:** Avoid the crowds often found at The UPS Store.\n• **Convenient Location:** Right here in Concord Township, close to home.\n• **Friendly Service:** Our staff is happy to help with any shipping questions.\n• **Receipt Provided:** We'll give you a drop-off receipt for your records.\n• **More Services:** Buy a box or tape if you need to pack your return."
+            },
+            {
+                heading: "Return & Shipping Services",
+                body: "• **Amazon Drop-Offs:** Accepting Amazon returns with pre-paid UPS shipping labels.\n• **Packing Assistance:** Need a box? We sell packaging supplies to get your return ready.\n• **Label Printing:** Email us your label and we can print it for you (small fee may apply).\n• **Multi-Carrier Shipping:** We also ship via FedEx, USPS, and DHL for your other needs."
+            }
+        ],
+        features: [
+            { title: "Wait Time", description: "Minimal.", icon: Clock },
+            { title: "Service", description: "Personal & Friendly.", icon: Users },
+            { title: "Flexibility", description: "Accepts UPS, FedEx, USPS.", icon: Truck }
+        ],
+        faqs: [
+            {
+                question: "Do I need to print my label?",
+                answer: "Yes, please have your label printed and attached to the package. If you don't have a printer, we can print it for a small fee."
+            },
+            {
+                question: "Do you take QR codes?",
+                answer: "Currently, we accept packages with pre-printed shipping labels. For QR codes, please check the instructions from Amazon."
+            },
+            {
+                question: "Do I need to box my return?",
+                answer: "Yes, items must be boxed and sealed. We sell boxes and tape if you need them!"
+            }
+        ]
     }
 ];
