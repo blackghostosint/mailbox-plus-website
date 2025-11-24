@@ -22,3 +22,5 @@ export * from "./DocumentScanning";
 export * from "./FaxServices";
 export * from "./NotaryServices";
 export * from "./DigitalFingerprinting";
+
+export * from "./PickupHours";

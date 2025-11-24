@@ -18,7 +18,6 @@ const routes = [
   '/pack-ship/ups-authorized-shipper-outlet',
   '/pack-ship/usps-services',
   '/pack-ship/dhl-express',
-  '/pack-ship/international-shipping',
   '/pack-ship/package-drop-offs',
   '/pack-ship/package-receiving',
   '/pack-ship/custom-box-making',
@@ -81,6 +80,8 @@ const routes = [
   '/private-mailbox-rental-concord-township',
   '/virtual-mailbox-concord-township',
   '/mail-forwarding-concord-township',
+  '/pickup-hours',
+  '/ask-mailbox-plus',
 ];
 
 export default defineConfig({

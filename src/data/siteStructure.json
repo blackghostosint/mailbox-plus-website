@@ -67,6 +67,7 @@
   ],
   "subSupporting": [
     { "id": "amazon-returns", "url": "/amazon-returns", "title": "Amazon Return Guide" },
-    { "id": "fedex-easy-returns", "url": "/fedex-easy-returns", "title": "FedEx Easy Returns" }
+    { "id": "fedex-easy-returns", "url": "/fedex-easy-returns", "title": "FedEx Easy Returns" },
+    { "id": "pickup-hours", "url": "/pickup-hours", "title": "Carrier Pickup Hours" }
   ]
 }
