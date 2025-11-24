@@ -72,6 +72,7 @@ export const Header: React.FC = () => {
           {/* Logo / Brand Name */}
           <InternalLink to="/" className="flex items-center space-x-2">
             <SmartImage
+              priority={true}
               src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
               alt="Mailbox Plus Concord Township Ohio Logo"
               width={256}

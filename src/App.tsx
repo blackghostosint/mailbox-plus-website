@@ -3,100 +3,108 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from "react-route
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 
+// Helper for lazy loading named exports
+const lazyLoad = (importFunc: () => Promise<any>, componentName: string) => {
+  return React.lazy(() =>
+    importFunc().then((module) => ({ default: module[componentName] }))
+  );
+};
+
 // Core
-import { Home } from "./pages/Home";
-import { PackShip } from "./pages/PackShip";
+const Home = lazyLoad(() => import("./pages/Home"), "Home");
+const PackShip = lazyLoad(() => import("./pages/PackShip"), "PackShip");
 
 // Pack & Ship
-import { ArtworkShipping } from "./pages/ArtworkShipping";
-import { BicycleShipping } from "./pages/BicycleShipping";
-import { GolfClubShipping } from "./pages/GolfClubShipping";
-import { FedExShipping } from "./pages/FedExShipping";
-import { FedExEasyReturns } from "./pages/fedex-easy-returns";
-import { AmazonReturnGuide } from "./pages/AmazonReturnGuide";
-import { UPSAuthorizedShipperOutlet } from "./pages/UPSAuthorizedShipperOutlet";
-import { USPSServices } from "./pages/USPSServices";
-import { DHLExpress } from "./pages/DHLExpress";
-// import { InternationalShippingPage } from "./pages/InternationalShippingPage";
-import { PackageDropOffs } from "./pages/PackageDropOffs";
-import { PackageReceiving } from "./pages/PackageReceiving";
-import { CustomBoxMaking } from "./pages/CustomBoxMaking";
-import { ProfessionalPacking } from "./pages/ProfessionalPacking";
-import { PackagingSupplies } from "./pages/PackagingSupplies";
-import { PostageStamps } from "./pages/PostageStamps";
+const ArtworkShipping = lazyLoad(() => import("./pages/ArtworkShipping"), "ArtworkShipping");
+const BicycleShipping = lazyLoad(() => import("./pages/BicycleShipping"), "BicycleShipping");
+const GolfClubShipping = lazyLoad(() => import("./pages/GolfClubShipping"), "GolfClubShipping");
+const FedExShipping = lazyLoad(() => import("./pages/FedExShipping"), "FedExShipping");
+const FedExEasyReturns = lazyLoad(() => import("./pages/fedex-easy-returns"), "FedExEasyReturns");
+const AmazonReturnGuide = lazyLoad(() => import("./pages/AmazonReturnGuide"), "AmazonReturnGuide");
+const UPSAuthorizedShipperOutlet = lazyLoad(() => import("./pages/UPSAuthorizedShipperOutlet"), "UPSAuthorizedShipperOutlet");
+const USPSServices = lazyLoad(() => import("./pages/USPSServices"), "USPSServices");
+const DHLExpress = lazyLoad(() => import("./pages/DHLExpress"), "DHLExpress");
+// const InternationalShippingPage = lazyLoad(() => import("./pages/InternationalShippingPage"), "InternationalShippingPage");
+const PackageDropOffs = lazyLoad(() => import("./pages/PackageDropOffs"), "PackageDropOffs");
+const PackageReceiving = lazyLoad(() => import("./pages/PackageReceiving"), "PackageReceiving");
+const CustomBoxMaking = lazyLoad(() => import("./pages/CustomBoxMaking"), "CustomBoxMaking");
+const ProfessionalPacking = lazyLoad(() => import("./pages/ProfessionalPacking"), "ProfessionalPacking");
+const PackagingSupplies = lazyLoad(() => import("./pages/PackagingSupplies"), "PackagingSupplies");
+const PostageStamps = lazyLoad(() => import("./pages/PostageStamps"), "PostageStamps");
 
 // Copy & Print
-import { BusinessCardsPage } from "./pages/BusinessCardsPage";
-import { FlyersBrochures } from "./pages/FlyersBrochures";
-import { PostersPrinting } from "./pages/PostersPrinting";
-import { PostcardPrinting } from "./pages/PostcardPrinting";
-// import { PosterBannerPrinting } from "./pages/PosterBannerPrinting";
-import { DocumentPrinting } from "./pages/DocumentPrinting";
-// import { DocumentFinishing } from "./pages/DocumentFinishing";
-import { GraphicDesign } from "./pages/GraphicDesign";
-import { Copies } from "./pages/Copies";
+const BusinessCardsPage = lazyLoad(() => import("./pages/BusinessCardsPage"), "BusinessCardsPage");
+const FlyersBrochures = lazyLoad(() => import("./pages/FlyersBrochures"), "FlyersBrochures");
+const PostersPrinting = lazyLoad(() => import("./pages/PostersPrinting"), "PostersPrinting");
+const PostcardPrinting = lazyLoad(() => import("./pages/PostcardPrinting"), "PostcardPrinting");
+// const PosterBannerPrinting = lazyLoad(() => import("./pages/PosterBannerPrinting"), "PosterBannerPrinting");
+const DocumentPrinting = lazyLoad(() => import("./pages/DocumentPrinting"), "DocumentPrinting");
+// const DocumentFinishing = lazyLoad(() => import("./pages/DocumentFinishing"), "DocumentFinishing");
+const GraphicDesign = lazyLoad(() => import("./pages/GraphicDesign"), "GraphicDesign");
+const Copies = lazyLoad(() => import("./pages/Copies"), "Copies");
 
 // Home & Business
-import { MailboxRentalPage } from "./pages/MailboxRentalPage";
-import { DigitalMailboxRental } from "./pages/DigitalMailboxRental";
-import { EveryDoorDirectMail } from "./pages/EveryDoorDirectMail";
-import { Shredding } from "./pages/Shredding";
-import { DocumentScanning } from "./pages/DocumentScanning";
-import { FaxServices } from "./pages/FaxServices";
-import { NotaryServices } from "./pages/NotaryServices";
+const MailboxRentalPage = lazyLoad(() => import("./pages/MailboxRentalPage"), "MailboxRentalPage");
+const DigitalMailboxRental = lazyLoad(() => import("./pages/DigitalMailboxRental"), "DigitalMailboxRental");
+const EveryDoorDirectMail = lazyLoad(() => import("./pages/EveryDoorDirectMail"), "EveryDoorDirectMail");
+const Shredding = lazyLoad(() => import("./pages/Shredding"), "Shredding");
+const DocumentScanning = lazyLoad(() => import("./pages/DocumentScanning"), "DocumentScanning");
+const FaxServices = lazyLoad(() => import("./pages/FaxServices"), "FaxServices");
+const NotaryServices = lazyLoad(() => import("./pages/NotaryServices"), "NotaryServices");
 
 // Specialty
-import { DigitalFingerprinting } from "./pages/DigitalFingerprinting";
-import { Insurance } from "./pages/Insurance";
+const DigitalFingerprinting = lazyLoad(() => import("./pages/DigitalFingerprinting"), "DigitalFingerprinting");
+const Insurance = lazyLoad(() => import("./pages/Insurance"), "Insurance");
 
 // Service Landing Pages
-import { CopyPrint } from "./pages/CopyPrint";
-import { HomeBusiness } from "./pages/HomeBusiness";
+const CopyPrint = lazyLoad(() => import("./pages/CopyPrint"), "CopyPrint");
+const HomeBusiness = lazyLoad(() => import("./pages/HomeBusiness"), "HomeBusiness");
 
 // SEO Landing Pages
-import UPSStoreAlternativePage from "./pages/ups-store-alternative-concord-township";
-import MailBoxesEtcAlternativePage from "./pages/mail-boxes-etc-alternative-concord-township";
-import FedExOfficeAlternativePage from "./pages/fedex-office-alternative-concord-township";
-import StaplesAlternativePage from "./pages/staples-printing-alternative-concord-township";
-import OfficeDepotAlternativePage from "./pages/office-depot-alternative-concord-township";
-import USPSDropOffAlternativePage from "./pages/usps-drop-off-alternative-concord-township";
-import PostOfficeAlternativePage from "./pages/post-office-alternative-concord-township";
-import USPSPackageHelpPage from "./pages/usps-package-help-concord-township";
-import ShippingCenterPage from "./pages/shipping-center-concord-township";
-import PackAndShipServicesPage from "./pages/pack-and-ship-services-concord-township";
-import MultiCarrierShippingPage from "./pages/ups-fedex-usps-dhl-shipping-concord-township";
-import SmallBusinessShippingPage from "./pages/small-business-shipping-concord-township";
-import AmazonReturnsPage from "./pages/amazon-returns-drop-off-concord-township";
-import UPSDropOffAlternativePage from "./pages/ups-drop-off-alternative-concord-township";
-import PrintingServicesPage from "./pages/printing-services-concord-township";
-import BusinessServicesPage from "./pages/business-services-concord-township";
-import DocumentServicesPage from "./pages/document-services-concord-township";
-import PrivateMailboxRentalPage from "./pages/private-mailbox-rental-concord-township";
-import VirtualMailboxPage from "./pages/virtual-mailbox-concord-township";
-import MailForwardingPage from "./pages/mail-forwarding-concord-township";
+// Note: Default exports can be lazy loaded directly if needed, but using the helper for consistency if they are named exports or default
+const UPSStoreAlternativePage = React.lazy(() => import("./pages/ups-store-alternative-concord-township"));
+const MailBoxesEtcAlternativePage = React.lazy(() => import("./pages/mail-boxes-etc-alternative-concord-township"));
+const FedExOfficeAlternativePage = React.lazy(() => import("./pages/fedex-office-alternative-concord-township"));
+const StaplesAlternativePage = React.lazy(() => import("./pages/staples-printing-alternative-concord-township"));
+const OfficeDepotAlternativePage = React.lazy(() => import("./pages/office-depot-alternative-concord-township"));
+const USPSDropOffAlternativePage = React.lazy(() => import("./pages/usps-drop-off-alternative-concord-township"));
+const PostOfficeAlternativePage = React.lazy(() => import("./pages/post-office-alternative-concord-township"));
+const USPSPackageHelpPage = React.lazy(() => import("./pages/usps-package-help-concord-township"));
+const ShippingCenterPage = React.lazy(() => import("./pages/shipping-center-concord-township"));
+const PackAndShipServicesPage = React.lazy(() => import("./pages/pack-and-ship-services-concord-township"));
+const MultiCarrierShippingPage = React.lazy(() => import("./pages/ups-fedex-usps-dhl-shipping-concord-township"));
+const SmallBusinessShippingPage = React.lazy(() => import("./pages/small-business-shipping-concord-township"));
+const AmazonReturnsPage = React.lazy(() => import("./pages/amazon-returns-drop-off-concord-township"));
+const UPSDropOffAlternativePage = React.lazy(() => import("./pages/ups-drop-off-alternative-concord-township"));
+const PrintingServicesPage = React.lazy(() => import("./pages/printing-services-concord-township"));
+const BusinessServicesPage = React.lazy(() => import("./pages/business-services-concord-township"));
+const DocumentServicesPage = React.lazy(() => import("./pages/document-services-concord-township"));
+const PrivateMailboxRentalPage = React.lazy(() => import("./pages/private-mailbox-rental-concord-township"));
+const VirtualMailboxPage = React.lazy(() => import("./pages/virtual-mailbox-concord-township"));
+const MailForwardingPage = React.lazy(() => import("./pages/mail-forwarding-concord-township"));
 
 // Additional Pages
-import { AboutUs } from "./pages/AboutUs";
-import { ContactUs } from "./pages/ContactUs";
-import { Services } from "./pages/Services";
-import { Tracking } from "./pages/Tracking";
-import { ServiceAreaPage } from "./pages/ServiceAreaPage";
-import { ServiceAreaIndex } from "./pages/ServiceAreaIndex";
-import { Privacy } from "./pages/Privacy";
-import { Terms } from "./pages/Terms";
-import ShippingPartners from "./pages/ShippingPartners";
-import PickupHours from "./pages/PickupHours";
-import AskMailboxPlus from "./pages/ask-mailbox-plus";
-import { NotFound } from "./pages/NotFound";
+const AboutUs = lazyLoad(() => import("./pages/AboutUs"), "AboutUs");
+const ContactUs = lazyLoad(() => import("./pages/ContactUs"), "ContactUs");
+const Services = lazyLoad(() => import("./pages/Services"), "Services");
+const Tracking = lazyLoad(() => import("./pages/Tracking"), "Tracking");
+const ServiceAreaPage = lazyLoad(() => import("./pages/ServiceAreaPage"), "ServiceAreaPage");
+const ServiceAreaIndex = lazyLoad(() => import("./pages/ServiceAreaIndex"), "ServiceAreaIndex");
+const Privacy = lazyLoad(() => import("./pages/Privacy"), "Privacy");
+const Terms = lazyLoad(() => import("./pages/Terms"), "Terms");
+const ShippingPartners = React.lazy(() => import("./pages/ShippingPartners")); // Default export
+const PickupHours = React.lazy(() => import("./pages/PickupHours")); // Default export
+const AskMailboxPlus = React.lazy(() => import("./pages/ask-mailbox-plus")); // Default export
+const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
 
 const DebugRoutes: React.FC = () => {
   const location = useLocation();
-  console.log('Current location:', location.pathname);
+  // console.log('Current location:', location.pathname);
   return null;
 };
 
 const App: React.FC = () => {
-  console.log('App.tsx: App component rendering');
+  // console.log('App.tsx: App component rendering');
   return (
     <Router>
       <ScrollToTop />
