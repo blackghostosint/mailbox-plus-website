@@ -1,5 +1,6 @@
 import React from "react";
 import { ServicePage } from "../components/ServicePage";
+import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 
 const USPSPackageHelpPage: React.FC = () => {
@@ -46,6 +47,19 @@ const USPSPackageHelpPage: React.FC = () => {
               </tr>
             </tbody>
           </table>
+        </div>
+      </section>
+
+      {/* Internal Links */}
+      <section className="mb-12">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Explore Our Services</h2>
+        <div className="flex flex-wrap gap-4">
+          <InternalLink to="/pack-ship/usps-services" variant="geo" className="text-blue-600 hover:underline">USPS Services</InternalLink>
+          <InternalLink to="/pack-ship/professional-packing" variant="geo" className="text-blue-600 hover:underline">Professional Packing</InternalLink>
+          <InternalLink to="/pack-ship/custom-box-making" variant="geo" className="text-blue-600 hover:underline">Custom Boxes</InternalLink>
+          <InternalLink to="/pack-ship" variant="geo" className="text-blue-600 hover:underline">Shipping Services</InternalLink>
+          <InternalLink to="/amazon-returns" variant="geo" className="text-blue-600 hover:underline">Amazon Returns</InternalLink>
+          <InternalLink to="/fedex-easy-returns" variant="geo" className="text-blue-600 hover:underline">FedEx Returns</InternalLink>
         </div>
       </section>
 
