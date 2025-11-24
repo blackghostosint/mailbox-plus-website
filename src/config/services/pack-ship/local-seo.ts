@@ -24,11 +24,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is Better for Drop Offs",
-                body: "• **Speed:** We get you in and out fast so you can get back to your day.\n• **No Waiting:** Avoid the crowds and long lines typical of franchise stores.\n• **Receipts:** We provide a drop-off receipt for tracking and peace of mind.\n• **Multi-Carrier:** We accept drop-offs for FedEx and USPS packages too.\n• **Friendly Staff:** Our team is always ready to help with a smile.\n• **Convenience:** Easy parking and a central location in Concord Township."
+                body: "• <strong>Speed:</strong> We get you in and out fast so you can get back to your day.\n• <strong>No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.\n• <strong>Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.\n• <strong>Multi-Carrier:</strong> We accept drop-offs for FedEx and USPS packages too.\n• <strong>Friendly Staff:</strong> Our team is always ready to help with a smile.\n• <strong>Convenience:</strong> Easy parking and a central location in Concord Township."
             },
             {
                 heading: "Your Local Shipping Center",
-                body: "• **UPS Services:** Authorized drop-off point for all UPS Ground and Air packages.\n• **FedEx & USPS:** We also accept drop-offs for FedEx and USPS shipments.\n• **Packing Help:** Need to repackage? We have boxes, tape, and bubble wrap for sale.\n• **Label Printing:** We can print your shipping label for you if you don't have a printer."
+                body: "• <strong>UPS Services:</strong> Authorized drop-off point for all UPS Ground and Air packages.\n• <strong>FedEx & USPS:</strong> We also accept drop-offs for FedEx and USPS shipments.\n• <strong>Packing Help:</strong> Need to repackage? We have boxes, tape, and bubble wrap for sale.\n• <strong>Label Printing:</strong> We can print your shipping label for you if you don't have a printer."
             }
         ],
         features: [
@@ -70,11 +70,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is the Better Choice",
-                body: "• **Faster Service:** We prioritize efficiency so you can get in and out quickly without the long wait times.\n• **No Long Lines:** Avoid the crowds often found at franchise locations.\n• **Local Ownership:** We are part of the Concord Township community and care about our neighbors.\n• **Multi-Carrier Options:** We ship with UPS, FedEx, USPS, and DHL, allowing you to compare rates and delivery speeds.\n• **Transparent Pricing:** No hidden fees or surprises—just honest, competitive rates.\n• **More Services:** From fingerprinting to key duplication, we offer services that go beyond standard shipping."
+                body: "• <strong>Faster Service:</strong> We prioritize efficiency so you can get in and out quickly without the long wait times.\n• <strong>No Long Lines:</strong> Avoid the crowds often found at franchise locations.\n• <strong>Local Ownership:</strong> We are part of the Concord Township community and care about our neighbors.\n• <strong>Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL, allowing you to compare rates and delivery speeds.\n• <strong>Transparent Pricing:</strong> No hidden fees or surprises—just honest, competitive rates.\n• <strong>More Services:</strong> From fingerprinting to key duplication, we offer services that go beyond standard shipping."
             },
             {
                 heading: "Services We Offer",
-                body: "• **Shipping & Packing:** Authorized shipping for UPS, FedEx, USPS, and DHL. Professional packing for fragile and high-value items.\n• **Business Services:** Private mailbox rental, notary public, faxing, scanning, and shredding services.\n• **Printing & Copying:** High-quality color and B&W copies, business cards, flyers, and document finishing.\n• **Specialty Services:** Digital fingerprinting, passport photos, key cutting, and secure document destruction."
+                body: "• <strong>Shipping & Packing:</strong> Authorized shipping for UPS, FedEx, USPS, and DHL. Professional packing for fragile and high-value items.\n• <strong>Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding services.\n• <strong>Printing & Copying:</strong> High-quality color and B&W copies, business cards, flyers, and document finishing.\n• <strong>Specialty Services:</strong> Digital fingerprinting, passport photos, key cutting, and secure document destruction."
             }
         ],
         features: [
@@ -116,11 +116,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus?",
-                body: "• **Faster Service:** We value your time and ensure a quick, efficient experience.\n• **No Long Lines:** Get the services you need without the wait.\n• **Local Ownership:** We are proud members of the Concord Township community.\n• **Multi-Carrier Options:** Access to all major carriers (UPS, FedEx, USPS, DHL) in one place.\n• **Transparent Pricing:** Competitive rates with no hidden fees.\n• **More Services:** Offering everything from notary services to passport photos."
+                body: "• <strong>Faster Service:</strong> We value your time and ensure a quick, efficient experience.\n• <strong>No Long Lines:</strong> Get the services you need without the wait.\n• <strong>Local Ownership:</strong> We are proud members of the Concord Township community.\n• <strong>Multi-Carrier Options:</strong> Access to all major carriers (UPS, FedEx, USPS, DHL) in one place.\n• <strong>Transparent Pricing:</strong> Competitive rates with no hidden fees.\n• <strong>More Services:</strong> Offering everything from notary services to passport photos."
             },
             {
                 heading: "Complete Business & Shipping Solutions",
-                body: "• **Multi-Carrier Shipping:** We ship everything from letters to freight using UPS, FedEx, USPS, and DHL.\n• **Mailbox Rentals:** Secure private mailboxes with a real street address, perfect for home-based businesses.\n• **Professional Printing:** From business cards to wide-format posters, we handle all your printing needs.\n• **Notary & More:** On-site notary public, faxing, scanning, and secure document shredding."
+                body: "• <strong>Multi-Carrier Shipping:</strong> We ship everything from letters to freight using UPS, FedEx, USPS, and DHL.\n• <strong>Mailbox Rentals:</strong> Secure private mailboxes with a real street address, perfect for home-based businesses.\n• <strong>Professional Printing:</strong> From business cards to wide-format posters, we handle all your printing needs.\n• <strong>Notary & More:</strong> On-site notary public, faxing, scanning, and secure document shredding."
             }
         ],
         features: [
@@ -162,11 +162,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus Beats the Competition",
-                body: "• **Faster Service:** Skip the long lines typical of big box stores.\n• **No Long Lines:** We value your time and get you on your way quickly.\n• **Local Ownership:** We are a dedicated part of the Concord Township community.\n• **Multi-Carrier Options:** We aren't limited to just FedEx; we offer UPS, USPS, and DHL too.\n• **Transparent Pricing:** Honest rates with no hidden surprises.\n• **More Services:** From notary public to key duplication, we do it all."
+                body: "• <strong>Faster Service:</strong> Skip the long lines typical of big box stores.\n• <strong>No Long Lines:</strong> We value your time and get you on your way quickly.\n• <strong>Local Ownership:</strong> We are a dedicated part of the Concord Township community.\n• <strong>Multi-Carrier Options:</strong> We aren't limited to just FedEx; we offer UPS, USPS, and DHL too.\n• <strong>Transparent Pricing:</strong> Honest rates with no hidden surprises.\n• <strong>More Services:</strong> From notary public to key duplication, we do it all."
             },
             {
                 heading: "Your One-Stop Business Center",
-                body: "• **Authorized Shipping:** Official ship center for FedEx, UPS, USPS, and DHL.\n• **Print & Copy:** Professional color and B&W copies, binding, laminating, and business cards.\n• **Office Services:** Notary public, faxing, scanning, and secure document shredding.\n• **Rentals & Returns:** Private mailbox rentals and easy returns for FedEx, Amazon, and more."
+                body: "• <strong>Authorized Shipping:</strong> Official ship center for FedEx, UPS, USPS, and DHL.\n• <strong>Print & Copy:</strong> Professional color and B&W copies, binding, laminating, and business cards.\n• <strong>Office Services:</strong> Notary public, faxing, scanning, and secure document shredding.\n• <strong>Rentals & Returns:</strong> Private mailbox rentals and easy returns for FedEx, Amazon, and more."
             }
         ],
         features: [
@@ -208,11 +208,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus Over the Post Office?",
-                body: "• **Faster Service:** We pride ourselves on quick, efficient transactions.\n• **No Long Lines:** Don't waste your lunch break waiting in line.\n• **Local Ownership:** We are a small business dedicated to our Concord Township community.\n• **Multi-Carrier Options:** Unlike the Post Office, we offer UPS, FedEx, and DHL options too.\n• **Transparent Pricing:** We help you find the most cost-effective shipping method.\n• **More Services:** Notary, fax, copy, and shredding services are all available here."
+                body: "• <strong>Faster Service:</strong> We pride ourselves on quick, efficient transactions.\n• <strong>No Long Lines:</strong> Don't waste your lunch break waiting in line.\n• <strong>Local Ownership:</strong> We are a small business dedicated to our Concord Township community.\n• <strong>Multi-Carrier Options:</strong> Unlike the Post Office, we offer UPS, FedEx, and DHL options too.\n• <strong>Transparent Pricing:</strong> We help you find the most cost-effective shipping method.\n• <strong>More Services:</strong> Notary, fax, copy, and shredding services are all available here."
             },
             {
                 heading: "Complete Shipping & Postal Services",
-                body: "• **USPS Shipping:** Access Priority Mail, Express, First Class, and International shipping.\n• **Private Mailboxes:** Secure mailboxes with a street address, package receiving, and 24/7 access options.\n• **Stamps & Supplies:** Buy stamps and get professional packing supplies without the hassle.\n• **Multi-Carrier Choice:** We also ship via UPS, FedEx, and DHL for when USPS isn't the best fit."
+                body: "• <strong>USPS Shipping:</strong> Access Priority Mail, Express, First Class, and International shipping.\n• <strong>Private Mailboxes:</strong> Secure mailboxes with a street address, package receiving, and 24/7 access options.\n• <strong>Stamps & Supplies:</strong> Buy stamps and get professional packing supplies without the hassle.\n• <strong>Multi-Carrier Choice:</strong> We also ship via UPS, FedEx, and DHL for when USPS isn't the best fit."
             }
         ],
         features: [
@@ -254,11 +254,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is Concord Township's Top Shipping Choice",
-                body: "• **Convenience:** One stop for all your shipping, packing, and business needs.\n• **Choice:** We are the only local center offering UPS, FedEx, USPS, and DHL under one roof.\n• **Local Ownership:** We are your neighbors, dedicated to serving our community with care.\n• **Efficiency:** Fast service means you get back to your day sooner.\n• **Expertise:** Our staff are trained packing and shipping professionals.\n• **Value:** Competitive pricing and the ability to shop around for the best rate."
+                body: "• <strong>Convenience:</strong> One stop for all your shipping, packing, and business needs.\n• <strong>Choice:</strong> We are the only local center offering UPS, FedEx, USPS, and DHL under one roof.\n• <strong>Local Ownership:</strong> We are your neighbors, dedicated to serving our community with care.\n• <strong>Efficiency:</strong> Fast service means you get back to your day sooner.\n• <strong>Expertise:</strong> Our staff are trained packing and shipping professionals.\n• <strong>Value:</strong> Competitive pricing and the ability to shop around for the best rate."
             },
             {
                 heading: "Full-Service Shipping Solutions",
-                body: "• **Domestic Shipping:** Ground, Express, and Overnight shipping options to anywhere in the US.\n• **International Shipping:** Reach the world with our global shipping partners: DHL, FedEx, and UPS.\n• **Professional Packing:** We pack it right to protect your items and meet carrier insurance standards.\n• **Package Receiving:** Never worry about porch pirates again with our secure package receiving service."
+                body: "• <strong>Domestic Shipping:</strong> Ground, Express, and Overnight shipping options to anywhere in the US.\n• <strong>International Shipping:</strong> Reach the world with our global shipping partners: DHL, FedEx, and UPS.\n• <strong>Professional Packing:</strong> We pack it right to protect your items and meet carrier insurance standards.\n• <strong>Package Receiving:</strong> Never worry about porch pirates again with our secure package receiving service."
             }
         ],
         features: [
@@ -300,11 +300,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus for Packing?",
-                body: "• **Expert Packing:** We know exactly how to protect your items for transit.\n• **Peace of Mind:** Our professional packing often qualifies for carrier insurance guarantees.\n• **Convenience:** Bring in your item, and we'll handle the box, bubble wrap, and tape.\n• **Multi-Carrier Shipping:** Once packed, we can ship it via UPS, FedEx, USPS, or DHL.\n• **Time Saving:** Stop hunting for the right size box—we have it all here.\n• **Custom Solutions:** We can build custom boxes for odd-shaped or large items."
+                body: "• <strong>Expert Packing:</strong> We know exactly how to protect your items for transit.\n• <strong>Peace of Mind:</strong> Our professional packing often qualifies for carrier insurance guarantees.\n• <strong>Convenience:</strong> Bring in your item, and we'll handle the box, bubble wrap, and tape.\n• <strong>Multi-Carrier Shipping:</strong> Once packed, we can ship it via UPS, FedEx, USPS, or DHL.\n• <strong>Time Saving:</strong> Stop hunting for the right size box—we have it all here.\n• <strong>Custom Solutions:</strong> We can build custom boxes for odd-shaped or large items."
             },
             {
                 heading: "Complete Packing & Shipping Solutions",
-                body: "• **Professional Packing:** From antiques to electronics, we pack it all with care and precision.\n• **Custom Boxing:** We create custom boxes to fit unique items perfectly.\n• **Shipping Supplies:** Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.\n• **Freight Shipping:** Assistance with palletizing and shipping larger freight items."
+                body: "• <strong>Professional Packing:</strong> From antiques to electronics, we pack it all with care and precision.\n• <strong>Custom Boxing:</strong> We create custom boxes to fit unique items perfectly.\n• <strong>Shipping Supplies:</strong> Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.\n• <strong>Freight Shipping:</strong> Assistance with palletizing and shipping larger freight items."
             }
         ],
         features: [
@@ -346,11 +346,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "The Power of Choice at Mailbox Plus",
-                body: "• **Compare & Save:** We can show you rates from all 4 carriers side-by-side.\n• **One Stop Shop:** No need to drive to multiple stores to ship different packages.\n• **Expert Advice:** Our staff understands the strengths of each carrier and can guide you.\n• **Local Convenience:** Located right here in Concord Township for easy access.\n• **Authorized Center:** We are official partners, ensuring your packages are handled correctly.\n• **Returns Accepted:** We accept drop-offs for all carriers too."
+                body: "• <strong>Compare & Save:</strong> We can show you rates from all 4 carriers side-by-side.\n• <strong>One Stop Shop:</strong> No need to drive to multiple stores to ship different packages.\n• <strong>Expert Advice:</strong> Our staff understands the strengths of each carrier and can guide you.\n• <strong>Local Convenience:</strong> Located right here in Concord Township for easy access.\n• <strong>Authorized Center:</strong> We are official partners, ensuring your packages are handled correctly.\n• <strong>Returns Accepted:</strong> We accept drop-offs for all carriers too."
             },
             {
                 heading: "Our Shipping Partners",
-                body: "• **UPS Shipping:** Reliable ground and air services for domestic and international shipments.\n• **FedEx Shipping:** Fast express and economical ground options for time-sensitive packages.\n• **USPS Shipping:** Priority Mail, First Class, and flat-rate boxes for cost-effective shipping.\n• **DHL International:** The world leader in international shipping for documents and parcels."
+                body: "• <strong>UPS Shipping:</strong> Reliable ground and air services for domestic and international shipments.\n• <strong>FedEx Shipping:</strong> Fast express and economical ground options for time-sensitive packages.\n• <strong>USPS Shipping:</strong> Priority Mail, First Class, and flat-rate boxes for cost-effective shipping.\n• <strong>DHL International:</strong> The world leader in international shipping for documents and parcels."
             }
         ],
         features: [
@@ -392,11 +392,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Your Business Logistics Partner",
-                body: "• **Time Efficiency:** Drop off all your packages for different carriers in one stop.\n• **Cost Savings:** We help you find the most economical shipping method for every order.\n• **Professional Image:** Rent a mailbox for a professional street address, not a PO Box.\n• **Reliability:** Trust us to pack and ship your products safely to your customers.\n• **Support:** We are always here to answer your questions and solve shipping problems.\n• **Local Focus:** We understand the needs of local businesses in Concord Township."
+                body: "• <strong>Time Efficiency:</strong> Drop off all your packages for different carriers in one stop.\n• <strong>Cost Savings:</strong> We help you find the most economical shipping method for every order.\n• <strong>Professional Image:</strong> Rent a mailbox for a professional street address, not a PO Box.\n• <strong>Reliability:</strong> Trust us to pack and ship your products safely to your customers.\n• <strong>Support:</strong> We are always here to answer your questions and solve shipping problems.\n• <strong>Local Focus:</strong> We understand the needs of local businesses in Concord Township."
             },
             {
                 heading: "Services That Scale With You",
-                body: "• **Multi-Carrier Shipping:** Choose the best carrier for each shipment based on price and speed.\n• **Business Printing:** Marketing materials, invoices, and labels printed on demand.\n• **Mailbox Rentals:** Secure package receiving from all carriers to keep your home address private.\n• **Fulfillment Help:** We can help pack and ship your orders during busy seasons."
+                body: "• <strong>Multi-Carrier Shipping:</strong> Choose the best carrier for each shipment based on price and speed.\n• <strong>Business Printing:</strong> Marketing materials, invoices, and labels printed on demand.\n• <strong>Mailbox Rentals:</strong> Secure package receiving from all carriers to keep your home address private.\n• <strong>Fulfillment Help:</strong> We can help pack and ship your orders during busy seasons."
             }
         ],
         features: [
@@ -438,11 +438,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Drop Off at Mailbox Plus?",
-                body: "• **Faster Service:** In and out in minutes—no waiting in endless lines.\n• **No Long Lines:** A more convenient alternative to the busy Post Office.\n• **Local Ownership:** Supporting a local business that cares about your satisfaction.\n• **Multi-Carrier Options:** We accept drop-offs for UPS and FedEx too.\n• **Transparent Pricing:** If you need to buy postage, we offer fair and clear rates.\n• **More Services:** Pick up some stamps, rent a mailbox, or get documents notarized while you're here."
+                body: "• <strong>Faster Service:</strong> In and out in minutes—no waiting in endless lines.\n• <strong>No Long Lines:</strong> A more convenient alternative to the busy Post Office.\n• <strong>Local Ownership:</strong> Supporting a local business that cares about your satisfaction.\n• <strong>Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.\n• <strong>Transparent Pricing:</strong> If you need to buy postage, we offer fair and clear rates.\n• <strong>More Services:</strong> Pick up some stamps, rent a mailbox, or get documents notarized while you're here."
             },
             {
                 heading: "Your Local Shipping Hub",
-                body: "• **USPS Services:** Priority Mail, First Class, Certified Mail, and stamp sales.\n• **Package Drop-Offs:** Accepting pre-labeled packages for USPS, UPS, and FedEx.\n• **Multi-Carrier Shipping:** Compare rates across carriers to save money on your shipments.\n• **Packing Services:** Professional packing to ensure your items arrive safely."
+                body: "• <strong>USPS Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.\n• <strong>Package Drop-Offs:</strong> Accepting pre-labeled packages for USPS, UPS, and FedEx.\n• <strong>Multi-Carrier Shipping:</strong> Compare rates across carriers to save money on your shipments.\n• <strong>Packing Services:</strong> Professional packing to ensure your items arrive safely."
             }
         ],
         features: [
@@ -484,11 +484,11 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Get Help at Mailbox Plus?",
-                body: "• **Expert Advice:** We know the ins and outs of shipping and can recommend the best options.\n• **No Long Lines:** Get your questions answered quickly without the Post Office wait.\n• **Local Ownership:** We care about our customers and provide a friendly, helpful atmosphere.\n• **Multi-Carrier Solutions:** If USPS isn't the right fit, we can suggest UPS, FedEx, or DHL.\n• **Transparent Pricing:** We'll help you find the most affordable way to ship.\n• **More Services:** From professional packing to insurance, we have you covered."
+                body: "• <strong>Expert Advice:</strong> We know the ins and outs of shipping and can recommend the best options.\n• <strong>No Long Lines:</strong> Get your questions answered quickly without the Post Office wait.\n• <strong>Local Ownership:</strong> We care about our customers and provide a friendly, helpful atmosphere.\n• <strong>Multi-Carrier Solutions:</strong> If USPS isn't the right fit, we can suggest UPS, FedEx, or DHL.\n• <strong>Transparent Pricing:</strong> We'll help you find the most affordable way to ship.\n• <strong>More Services:</strong> From professional packing to insurance, we have you covered."
             },
             {
                 heading: "Complete Shipping Assistance",
-                body: "• **Packing Services:** Let us pack your items professionally to ensure they arrive safely.\n• **Shipping Options:** We'll help you choose between Priority Mail, Express, Ground, and more.\n• **International Shipping:** Guidance on customs forms and international shipping regulations.\n• **Returns Assistance:** Help with printing labels and returning packages to online retailers."
+                body: "• <strong>Packing Services:</strong> Let us pack your items professionally to ensure they arrive safely.\n• <strong>Shipping Options:</strong> We'll help you choose between Priority Mail, Express, Ground, and more.\n• <strong>International Shipping:</strong> Guidance on customs forms and international shipping regulations.\n• <strong>Returns Assistance:</strong> Help with printing labels and returning packages to online retailers."
             }
         ],
         features: [
