@@ -73,27 +73,25 @@ export const Home: React.FC = () => {
       <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
         {/* Background Image with strict aspect-ratio placeholder to prevent CLS */}
         <div className="absolute inset-0 w-full h-full z-0">
-          <picture>
-            <source
-              srcSet={getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp")}
-              media="(max-width: 768px)"
-              type="image/webp"
-            />
-            <source
-              srcSet={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
-              media="(min-width: 769px)"
-              type="image/webp"
-            />
-            <img
-              src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
-              alt="Mailbox Plus storefront in Concord Township, Ohio"
-              className="w-full h-full object-cover"
-              style={{ objectPosition: 'center' }}
-              loading="eager"
-              decoding="async"
-              fetchPriority="high"
-            />
-          </picture>
+          <SmartImage
+            priority
+            sources={[
+              {
+                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
+                media: "(max-width: 768px)",
+                type: "image/webp"
+              },
+              {
+                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
+                media: "(min-width: 769px)",
+                type: "image/webp"
+              }
+            ]}
+            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            alt="Mailbox Plus storefront in Concord Township, Ohio"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: 'center' }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
         </div>
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

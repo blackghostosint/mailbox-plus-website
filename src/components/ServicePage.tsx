@@ -52,6 +52,8 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
   const groupedFaqs = { All: sortedFaqs };
 
   const url = `${siteConfig.domain}/${slug}`;
+  // Ensure canonical URL is clean and includes domain
+  const canonicalUrl = url.endsWith('/') ? url.slice(0, -1) : url;
 
   return (
     <div className="bg-white">
@@ -60,7 +62,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
         title={pageTitle}
         description={metaDescription}
         keywords={keywords}
-        // slug={slug} // Removed: not a prop of Meta
+        canonical={canonicalUrl}
       />
 
       {/* ✅ Structured Data */}
