@@ -38,12 +38,12 @@ export const copyPrintServices: Service[] = [
             {
                 heading: "Graphic Design Services in Concord Township, Ohio",
                 body: `<strong>Bring your ideas to life with professional graphic design services</strong> from Mailbox Plus in Concord Township, Ohio. Whether you need a custom logo, marketing materials, or branded print products, our design experts can create <strong>eye-catching visuals that make your business stand out</strong>.
-37 |
-38 | We specialize in <strong>business cards, flyers, brochures, postcards, posters, and banners</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is clean, professional, and print-ready.
-39 |
-40 | At Mailbox Plus, we use <strong>industry-standard design tools and color management practices</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is perfect.
-41 |
-42 | If you’re searching for <em>graphic design near Concord Township</em> or need <em>custom print design services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you create stunning designs that communicate your message clearly and professionally.`,
+
+We specialize in <strong>business cards, flyers, brochures, postcards, posters, and banners</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is clean, professional, and print-ready.
+
+At Mailbox Plus, we use <strong>industry-standard design tools and color management practices</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is perfect.
+
+If you’re searching for <em>graphic design near Concord Township</em> or need <em>custom print design services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you create stunning designs that communicate your message clearly and professionally.`,
                 isFullWidth: true
             }
         ],
