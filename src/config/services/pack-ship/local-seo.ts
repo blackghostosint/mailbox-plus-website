@@ -300,11 +300,23 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus for Packing?",
-                body: "• <strong>Expert Packing:</strong> We know exactly how to protect your items for transit.\n• <strong>Peace of Mind:</strong> Our professional packing often qualifies for carrier insurance guarantees.\n• <strong>Convenience:</strong> Bring in your item, and we'll handle the box, bubble wrap, and tape.\n• <strong>Multi-Carrier Shipping:</strong> Once packed, we can ship it via UPS, FedEx, USPS, or DHL.\n• <strong>Time Saving:</strong> Stop hunting for the right size box—we have it all here.\n• <strong>Custom Solutions:</strong> We can build custom boxes for odd-shaped or large items."
+                body: `<ul class="list-disc pl-5 space-y-2">
+<li><strong>Expert Packing:</strong> We know exactly how to protect your items for transit.</li>
+<li><strong>Peace of Mind:</strong> Our professional packing often qualifies for carrier insurance guarantees.</li>
+<li><strong>Convenience:</strong> Bring in your item, and we'll handle the box, bubble wrap, and tape.</li>
+<li><strong>Multi-Carrier Shipping:</strong> Once packed, we can ship it via UPS, FedEx, USPS, or DHL.</li>
+<li><strong>Time Saving:</strong> Stop hunting for the right size box—we have it all here.</li>
+<li><strong>Custom Solutions:</strong> We can build custom boxes for odd-shaped or large items.</li>
+</ul>`
             },
             {
                 heading: "Complete Packing & Shipping Solutions",
-                body: "• <strong>Professional Packing:</strong> From antiques to electronics, we pack it all with care and precision.\n• <strong>Custom Boxing:</strong> We create custom boxes to fit unique items perfectly.\n• <strong>Shipping Supplies:</strong> Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.\n• <strong>Freight Shipping:</strong> Assistance with palletizing and shipping larger freight items."
+                body: `<ul class="list-disc pl-5 space-y-2">
+<li><strong>Professional Packing:</strong> From antiques to electronics, we pack it all with care and precision.</li>
+<li><strong>Custom Boxing:</strong> We create custom boxes to fit unique items perfectly.</li>
+<li><strong>Shipping Supplies:</strong> Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.</li>
+<li><strong>Freight Shipping:</strong> Assistance with palletizing and shipping larger freight items.</li>
+</ul>`
             }
         ],
         features: [

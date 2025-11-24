@@ -130,7 +130,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
                   className="md:col-span-2 bg-white p-8 border border-gray-200 rounded-2xl shadow-sm"
                 >
                   <h2 className="text-2xl font-bold text-[#0855B1] mb-4">{block.heading}</h2>
-                  <p className="text-gray-700 leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: block.body }}></p>
+                  <div className="text-gray-700 leading-relaxed whitespace-pre-line" dangerouslySetInnerHTML={{ __html: block.body }}></div>
                 </motion.div>
               ) : (
                 <motion.div
@@ -144,7 +144,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
                   <h2 className="text-xl font-semibold text-[#0855B1] mb-3">
                     {block.heading}
                   </h2>
-                  <p className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: block.body }}></p>
+                  <div className="text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: block.body }}></div>
                 </motion.div>
               )
             ))}
