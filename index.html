@@ -21,8 +21,10 @@
     <noscript>
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
     </noscript>
-    <!-- Preload homepage hero image for faster LCP -->
-    <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image.webp" fetchpriority="high" type="image/webp">
+    <!-- Preload homepage hero image for faster LCP (Responsive) -->
+    <link rel="preconnect" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev" crossorigin>
+    <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image_mobile.webp" fetchpriority="high" type="image/webp" media="(max-width: 768px)">
+    <link rel="preload" as="image" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image.webp" fetchpriority="high" type="image/webp" media="(min-width: 769px)">
 
   </head>
   <body>

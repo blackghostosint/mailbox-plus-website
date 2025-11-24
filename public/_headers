@@ -1,5 +1,4 @@
-/*
-  
+# Cache Control for Static Assets
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
@@ -9,12 +8,15 @@
 /fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
+# Preconnects for Performance
 /
   Link: <https://fonts.googleapis.com>; rel=preconnect; crossorigin
   Link: <https://fonts.gstatic.com>; rel=preconnect; crossorigin
   Link: <https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev>; rel=preconnect; crossorigin
 
+# Correct MIME types for JS/CSS if needed, though Netlify handles this well
 /*.js
+  Cache-Control: public, max-age=31536000, immutable
 
 /*.css
-  
+  Cache-Control: public, max-age=31536000, immutable
