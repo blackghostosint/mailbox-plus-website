@@ -19,21 +19,21 @@ export const pageMeta: Record<string, { title: string; description: string; sche
   // Home page with local business schema
   '/': {
     title: 'Mailbox Plus - Your Shipping and Business Services Partner',
-    description: 'Mailbox Plus offers reliable shipping, mailbox rentals, printing, and notary services. Your one-stop shop for personal and business needs.',
+    description: 'Mailbox Plus in Concord Township, Ohio is your local partner for shipping (FedEx, UPS, USPS, DHL), mailbox rentals, printing, and business services. Serving Lake County.',
     schema: [localBusinessSchema],
   },
   // Services page
   '/services': {
     title: 'Our Services | Mailbox Plus',
-    description: 'Explore all the shipping, printing, mailbox rental, and business services offered by Mailbox Plus in Concord Township, Ohio.',
+    description: 'Explore our comprehensive business services: shipping, printing, mailbox rentals, notary, shredding, and more. Your local solution in Concord Township, Ohio.',
   },
   // About Us page with web page schema
   '/about-us': {
     title: 'About Us | Mailbox Plus',
-    description: 'Learn about Mailbox Plus — your trusted local pack-and-ship store in Concord Township, Lake County, Ohio. Family-owned, faith-guided, serving neighbors with care.',
+    description: 'Learn about Mailbox Plus, your family-owned local pack-and-ship store in Concord Township, Ohio. Faith-guided and dedicated to serving our Lake County neighbors with care.',
     schema: [getWebPageSchema(siteConfig, {
       name: 'About Mailbox Plus',
-      description: 'Learn about Mailbox Plus — your trusted local pack-and-ship store in Concord Township, Lake County, Ohio. Family-owned, faith-guided, serving neighbors with care.',
+      description: 'Learn about Mailbox Plus, your family-owned local pack-and-ship store in Concord Township, Ohio. Faith-guided and dedicated to serving our Lake County neighbors with care.',
       url: `${siteConfig.domain}/about-us`,
       breadcrumbItems: [
         { name: 'Home', url: siteConfig.domain },
