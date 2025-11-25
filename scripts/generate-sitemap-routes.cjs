@@ -1,27 +1,20 @@
 const fs = require('fs');
 const path = require('path');
-const glob = require('glob'); // Assuming glob is available or I'll implement simple walk
 
-// Static routes that are not in services or localPages
-const staticRoutes = [
+// Static routes that might not be caught by scanning
+const manualRoutes = [
   '/',
-  '/about-us',
-  '/contact-us',
-  '/services',
-  '/tracking',
-  '/service-area',
-  '/shipping-partners',
-  '/privacy',
-  '/terms',
-  '/pickup-hours',
-  '/ask-mailbox-plus',
-  '/fedex-easy-returns', // These seem to be in internalLinks but let's ensure they are caught
-  '/amazon-returns'      // These might be services, I'll check duplicates
+  // Add any routes here that are NOT in App.tsx or config files if needed
 ];
 
 function getAllServiceSlugs() {
   const servicesDir = path.join(__dirname, '../src/config/services');
   const slugs = new Set();
+
+  if (!fs.existsSync(servicesDir)) {
+      console.warn(`Warning: Services directory not found at ${servicesDir}`);
+      return [];
+  }
 
   // Recursive function to walk directory
   function walk(dir) {
@@ -49,33 +42,92 @@ function getAllServiceSlugs() {
 }
 
 function getLocalPageUrls() {
+  const urls = new Set();
+
+  // 1. Check serviceAreas.ts (Legacy/Config)
   const serviceAreasPath = path.join(__dirname, '../src/config/serviceAreas.ts');
-  if (!fs.existsSync(serviceAreasPath)) return [];
-  
-  try {
-    const content = fs.readFileSync(serviceAreasPath, 'utf-8');
-    const urls = [];
-    const matches = content.matchAll(/canonicalUrl:\s*["']([^"']+)["']/g);
-    for (const match of matches) {
-      if (match[1]) {
-        urls.push(match[1]);
+  if (fs.existsSync(serviceAreasPath)) {
+    try {
+      const content = fs.readFileSync(serviceAreasPath, 'utf-8');
+      const matches = content.matchAll(/canonicalUrl:\s*["']([^"']+)["']/g);
+      for (const match of matches) {
+        if (match[1]) urls.add(match[1]);
       }
+    } catch (e) {
+      console.error("Error reading serviceAreas.ts", e);
     }
-    return urls;
-  } catch (e) {
-    console.error("Error reading serviceAreas.ts", e);
-    return [];
   }
+
+  // 2. Check localPages.json (Data)
+  const localPagesPath = path.join(__dirname, '../src/data/localPages.json');
+  if (fs.existsSync(localPagesPath)) {
+      try {
+          const content = fs.readFileSync(localPagesPath, 'utf-8');
+          const localPages = JSON.parse(content);
+          if (Array.isArray(localPages)) {
+              localPages.forEach(page => {
+                  if (page.slug) {
+                      // Ensure it starts with /service-area/ if not present, though usually slug is just 'city-name'
+                      // Based on App.tsx: <Route path="/service-area/:slug" ... />
+                      // And localPages.json has "slug": "auburn-township"
+                      // So we construct the full path.
+                      // Note: localPages.json also has "canonical": "/service-area/auburn-township" which is easier!
+                      if (page.canonical) {
+                          urls.add(page.canonical);
+                      } else {
+                          urls.add(`/service-area/${page.slug}`);
+                      }
+                  }
+              });
+          }
+      } catch (e) {
+          console.error("Error reading localPages.json", e);
+      }
+  }
+
+  return Array.from(urls);
+}
+
+function getAppRoutes() {
+    const appPath = path.join(__dirname, '../src/App.tsx');
+    const routes = new Set();
+    
+    if (!fs.existsSync(appPath)) {
+        console.warn(`Warning: App.tsx not found at ${appPath}`);
+        return [];
+    }
+
+    try {
+        const content = fs.readFileSync(appPath, 'utf-8');
+        // Look for <Route path="/some-path" ... />
+        // Regex needs to handle potential whitespace and both quote types
+        const matches = content.matchAll(/<Route\s+path=["']([^"']+)["']/g);
+        
+        for (const match of matches) {
+            const routePath = match[1];
+            
+            // Filter out dynamic routes (containing :) and wildcards (*)
+            if (!routePath.includes(':') && !routePath.includes('*')) {
+                routes.add(routePath);
+            }
+        }
+    } catch (e) {
+        console.error("Error parsing App.tsx", e);
+    }
+    
+    return Array.from(routes);
 }
 
 function generateRoutes() {
   const serviceSlugs = getAllServiceSlugs();
   const localPageUrls = getLocalPageUrls();
+  const appRoutes = getAppRoutes();
   
   const allRoutes = Array.from(new Set([
-    ...staticRoutes,
+    ...manualRoutes,
     ...serviceSlugs,
-    ...localPageUrls
+    ...localPageUrls,
+    ...appRoutes
   ])).sort();
 
   return allRoutes;
@@ -84,12 +136,15 @@ function generateRoutes() {
 // If executed directly, print routes or write to file
 if (require.main === module) {
   const routes = generateRoutes();
-  console.log(JSON.stringify(routes, null, 2));
   
   // Optional: write to a JSON file that vite.config.ts can import
   const outputPath = path.join(__dirname, '../src/data/routes.json');
+  // Ensure directory exists
+  const dir = path.dirname(outputPath);
+  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
+
   fs.writeFileSync(outputPath, JSON.stringify(routes, null, 2));
-  console.log(`Routes written to ${outputPath}`);
+  console.log(`Successfully generated ${routes.length} routes to ${outputPath}`);
 }
 
 module.exports = { generateRoutes };
