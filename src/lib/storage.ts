@@ -7,7 +7,8 @@ export const getServiceImageUrl = (imagePath: string): string => {
   const baseUrl = import.meta.env.VITE_R2_PUBLIC_BASE_URL;
 
   if (!baseUrl) {
-    throw new Error("Missing R2 base URL environment variable");
+    console.warn("Missing R2 base URL environment variable, falling back to local path");
+    return imagePath;
   }
 
   return `${baseUrl.replace(/\/$/, "")}/${cleaned}`;

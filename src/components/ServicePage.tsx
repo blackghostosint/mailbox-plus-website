@@ -55,6 +55,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
   // ✅ Flatten FAQs into a single list without category separation
   const groupedFaqs = { All: sortedFaqs };
 
+
   const url = `${siteConfig.domain}${canonicalUrl}`;
 
   // ✅ Generate schema for priority services

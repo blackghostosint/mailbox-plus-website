@@ -39,5 +39,6 @@ export const ServiceAreaPage: React.FC = () => {
     faqs: area.faqs,
   };
 
+
   return <ServicePage {...areaWithContent} />;
 };
