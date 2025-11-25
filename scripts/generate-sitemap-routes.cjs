@@ -49,14 +49,21 @@ function getAllServiceSlugs() {
 }
 
 function getLocalPageUrls() {
-  const localPagesPath = path.join(__dirname, '../src/data/localPages.json');
-  if (!fs.existsSync(localPagesPath)) return [];
+  const serviceAreasPath = path.join(__dirname, '../src/config/serviceAreas.ts');
+  if (!fs.existsSync(serviceAreasPath)) return [];
   
   try {
-    const data = JSON.parse(fs.readFileSync(localPagesPath, 'utf-8'));
-    return data.map(page => page.url).filter(Boolean);
+    const content = fs.readFileSync(serviceAreasPath, 'utf-8');
+    const urls = [];
+    const matches = content.matchAll(/canonicalUrl:\s*["']([^"']+)["']/g);
+    for (const match of matches) {
+      if (match[1]) {
+        urls.push(match[1]);
+      }
+    }
+    return urls;
   } catch (e) {
-    console.error("Error reading localPages.json", e);
+    console.error("Error reading serviceAreas.ts", e);
     return [];
   }
 }

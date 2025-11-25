@@ -27,6 +27,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     metaDescription,
     keywords,
     slug,
+    canonicalUrl,
     serviceName,
     city,
     heroTitle,
@@ -51,9 +52,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
   // ✅ Flatten FAQs into a single list without category separation
   const groupedFaqs = { All: sortedFaqs };
 
-  const url = `${siteConfig.domain}/${slug}`;
-  // Ensure canonical URL is clean and includes domain
-  const canonicalUrl = url.endsWith('/') ? url.slice(0, -1) : url;
+  const url = `${siteConfig.domain}${canonicalUrl}`;
 
   return (
     <div className="bg-white">
@@ -62,7 +61,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
         title={pageTitle}
         description={metaDescription}
         keywords={keywords}
-        canonical={canonicalUrl}
+        canonical={url}
       />
 
       {/* ✅ Structured Data */}

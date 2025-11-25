@@ -5,7 +5,34 @@ const path = require('path');
 const siteStructure = require('../src/data/siteStructure.json');
 const internalLinks = require('../src/data/internalLinks.json');
 const anchorText = require('../src/data/anchorText.json');
-const localPages = require('../src/data/localPages.json');
+
+function getServiceAreas() {
+  const serviceAreasPath = path.join(__dirname, '../src/config/serviceAreas.ts');
+  if (!fs.existsSync(serviceAreasPath)) return [];
+  
+  try {
+    const content = fs.readFileSync(serviceAreasPath, 'utf-8');
+    const serviceAreas = [];
+    const areas = content.split('},');
+    for (const area of areas) {
+        const canonicalUrlMatch = area.match(/canonicalUrl:\s*["']([^"']+)["']/);
+        const priorityServicesMatch = area.match(/priorityServices:\s*\[([^\]]+)\]/);
+        if (canonicalUrlMatch && priorityServicesMatch) {
+            const priorityServices = priorityServicesMatch[1].split(',').map(s => s.trim().replace(/["']/g, ''));
+            serviceAreas.push({
+                url: canonicalUrlMatch[1],
+                priorityServices
+            });
+        }
+    }
+    return serviceAreas;
+  } catch (e) {
+    console.error("Error reading serviceAreas.ts", e);
+    return [];
+  }
+}
+
+const localPages = getServiceAreas();
 
 console.log('Validating Internal Linking Structure...\n');
 

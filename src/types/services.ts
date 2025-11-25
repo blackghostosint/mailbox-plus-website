@@ -28,6 +28,8 @@ export interface Service {
   category: ServiceCategory;
   serviceName: string;
   slug: string;
+  canonicalUrl: string;
+  priorityServices?: string[];
   city: string;
   pageTitle: string;
   metaDescription: string;

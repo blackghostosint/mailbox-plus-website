@@ -7,6 +7,8 @@ export const serviceAreas: Service[] = [
   category: "core",
   serviceName: "Concord Township Services",
   slug: "concord-township",
+  canonicalUrl: "/service-area/concord-township",
+  priorityServices: ["pack-ship", "mailbox-rental", "fedex-shipping"],
   city: "Concord Township",
   pageTitle: "Shipping & Printing in Concord Township, Ohio",
   metaDescription:
@@ -17,6 +19,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your local shipping, printing & business service experts.",
   heroImage: getServiceImageUrl("/images/concord-township.webp"),
   content: [
+    {
+      heading: "Your Go-To Shipping Center in Concord Township",
+      body: "Mailbox Plus is proud to be a cornerstone of the Concord Township community, offering a reliable and friendly hub for all your shipping, printing, and business needs. Located in the heart of the township, we are dedicated to providing exceptional service to our neighbors with the convenience and care you deserve."
+    },
     {
       heading: "Trusted by Concord Township",
       body: "From families to small businesses, Concord Township residents rely on Mailbox Plus for secure shipping, custom packaging, printing, and more. Whether you’re sending important documents, creating custom marketing materials, or managing day-to-day business mail, our team makes it easy and reliable."
@@ -39,13 +45,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
     { title: "Community Focused", description: "Proudly serving Concord Township and Lake County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-concord-1",
+      question: "Do you offer package pickup in Concord Township?",
+      answer: "Yes, we offer package pickup for all major carriers, including UPS, FedEx, DHL, and USPS, right here in Concord Township.",
+      isFeatured: true
+    },
+    {
+      id: "faq-concord-2",
+      question: "How far are you from Concord Township center?",
+      answer: "We are conveniently located in Gristmill Village, just a short drive from the center of Concord Township, making it easy to drop off packages or use our services."
+    }
+  ]
   },
   {
   id: "mentor",
   category: "core",
   serviceName: "Mentor Services",
   slug: "mentor",
+  canonicalUrl: "/service-area/mentor",
+  priorityServices: ["pack-ship", "business-cards", "digital-fingerprinting"],
   city: "Mentor",
   pageTitle: "Shipping & Printing in Mentor, Ohio",
   metaDescription:
@@ -56,6 +76,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your trusted partner for shipping & business services.",
   heroImage: getServiceImageUrl("/images/mentor.webp"),
   content: [
+    {
+      heading: "Serving the Vibrant City of Mentor",
+      body: "As a bustling hub of commerce and community, Mentor deserves a shipping and printing partner that can keep up. Mailbox Plus is committed to supporting Mentor's residents and businesses with top-tier services, from custom printing projects to international shipping, all with a local touch."
+    },
     {
       heading: "Helping Mentor Businesses Grow",
       body: "From Every Door Direct Mail campaigns to bulk shipping discounts, Mailbox Plus supports Mentor businesses and residents alike."
@@ -78,13 +102,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one place" },
     { title: "Community Focused", description: "Proudly serving Mentor’s growing business community" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-mentor-1",
+      question: "Can I get documents notarized at your location near Mentor?",
+      answer: "Absolutely! We offer convenient notary services for Mentor residents. Stop by during our business hours, and we'll be happy to assist you with your legal and official documents.",
+      isFeatured: true
+    },
+    {
+      id: "faq-mentor-2",
+      question: "What are your hours for customers coming from Mentor?",
+      answer: "We are open Monday through Saturday. Our extended hours are designed to accommodate the busy schedules of our Mentor customers, whether you're coming from work or home."
+    }
+  ]
   },
   {
   id: "painesville",
   category: "core",
   serviceName: "Painesville Services",
   slug: "painesville",
+  canonicalUrl: "/service-area/painesville",
+  priorityServices: ["pack-ship", "document-printing", "notary-services"],
   city: "Painesville",
   pageTitle: "Shipping & Printing in Painesville, Ohio",
   metaDescription:
@@ -95,6 +133,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Reliable shipping and printing solutions for the Painesville community.",
   heroImage: getServiceImageUrl("/images/painesville.webp"),
   content: [
+    {
+      heading: "Your Trusted Partner in Historic Painesville",
+      body: "In a city as rich in history and community as Painesville, Mailbox Plus is honored to provide modern shipping and business solutions. We cater to the needs of Painesville's diverse community, from college students to legal professionals, with a commitment to excellence."
+    },
     {
       heading: "Supporting Painesville's Needs",
       body: "From golf club shipping to document services, Mailbox Plus is your go-to for all shipping and business needs in Painesville."
@@ -117,13 +159,27 @@ export const serviceAreas: Service[] = [
     { title: "All Major Carriers", description: "UPS, FedEx, USPS & DHL access in one stop" },
     { title: "Trusted by Local Professionals", description: "Supporting Lake County offices, schools, and small businesses" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-painesville-1",
+      question: "Do you handle student shipping for Lake Erie College in Painesville?",
+      answer: "Yes, we are a popular choice for Lake Erie College students who need to ship belongings, textbooks, and care packages. We offer packing supplies and expert advice to ensure your items arrive safely.",
+      isFeatured: true
+    },
+    {
+      id: "faq-painesville-2",
+      question: "Is your location far from downtown Painesville?",
+      answer: "Not at all! We are just a short and convenient drive from downtown Painesville, making it easy for you to access our full range of services without the hassle."
+    }
+  ]
   },
   {
   id: "eastlake",
   category: "core",
   serviceName: "Eastlake Services",
   slug: "eastlake",
+  canonicalUrl: "/service-area/eastlake",
+  priorityServices: ["pack-ship", "mailbox-rental"],
   city: "Eastlake",
   pageTitle: "Shipping & Printing in Eastlake, Ohio",
   metaDescription:
@@ -134,6 +190,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your local experts in shipping and business services.",
   heroImage: getServiceImageUrl("/images/eastlake.webp"),
   content: [
+    {
+      heading: "Connecting Eastlake to the World",
+      body: "From the shores of Lake Erie to the bustling neighborhoods, Eastlake is a community on the move, and Mailbox Plus is here to help you connect. We offer comprehensive shipping and printing services to meet the demands of both residents and businesses in Eastlake."
+    },
     {
       heading: "Eastlake's Trusted Partner",
       body: "Eastlake families and businesses trust Mailbox Plus for secure shipping, professional printing, and reliable mailbox rentals."
@@ -156,13 +216,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Options", description: "UPS, FedEx, USPS & DHL available for all your shipping needs" },
     { title: "Community Focused", description: "Supporting Lake County’s local families and small businesses since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-eastlake-1",
+      question: "Can you ship large or fragile items from Eastlake?",
+      answer: "Yes, we specialize in custom packing and shipping for large, fragile, and valuable items. Whether it's artwork, electronics, or sports equipment, we ensure it's packed securely for transit from Eastlake.",
+      isFeatured: true
+    },
+    {
+      id: "faq-eastlake-2",
+      question: "How can Eastlake businesses benefit from your services?",
+      answer: "We offer a suite of business services, including mailbox rentals with a real street address, document shredding, and high-quality printing for marketing materials, all designed to support the growth of Eastlake businesses."
+    }
+  ]
   },
   {
   id: "willoughby",
   category: "core",
   serviceName: "Willoughby Services",
   slug: "willoughby",
+  canonicalUrl: "/service-area/willoughby",
+  priorityServices: ["pack-ship", "flyers-brochures"],
   city: "Willoughby",
   pageTitle: "Shipping & Printing in Willoughby, Ohio",
   metaDescription:
@@ -173,6 +247,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Professional services tailored to Willoughby residents.",
   heroImage: getServiceImageUrl("/images/willoughby.webp"),
   content: [
+    {
+      heading: "Modern Services for Historic Willoughby",
+      body: "With its charming downtown and vibrant community, Willoughby is a special place to live and work. Mailbox Plus is proud to offer modern, convenient shipping and printing services that respect the city's historic roots while supporting its forward momentum."
+    },
     {
       heading: "Willoughby Business Support",
       body: "From bulk mailings to secure shipping, Mailbox Plus helps Willoughby businesses thrive with our comprehensive service offerings."
@@ -195,13 +273,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL in one place" },
     { title: "Community Commitment", description: "Proudly serving Lake County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-willoughby-1",
+      question: "Do you offer printing services for Willoughby's small businesses?",
+      answer: "Yes, we provide a wide range of printing services, including business cards, flyers, banners, and more, all with a quick turnaround to help Willoughby's small businesses make a great impression.",
+      isFeatured: true
+    },
+    {
+      id: "faq-willoughby-2",
+      question: "What shipping carriers do you offer for Willoughby residents?",
+      answer: "We offer a full range of shipping options through UPS, FedEx, DHL, and USPS, giving Willoughby residents the flexibility to choose the best service for their needs and budget."
+    }
+  ]
   },
   {
   id: "wickliffe",
   category: "core",
   serviceName: "Wickliffe Services",
   slug: "wickliffe",
+  canonicalUrl: "/service-area/wickliffe",
+  priorityServices: ["pack-ship", "custom-box-making"],
   city: "Wickliffe",
   pageTitle: "Shipping & Printing in Wickliffe, Ohio",
   metaDescription:
@@ -212,6 +304,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your neighborhood shipping and printing experts.",
   heroImage: getServiceImageUrl("/images/wickliffe.webp"),
   content: [
+    {
+      heading: "Your Community Partner in Wickliffe",
+      body: "As a proud part of the Lake County community, Mailbox Plus is dedicated to serving the residents and businesses of Wickliffe. We offer a friendly, reliable, and convenient solution for all your shipping, printing, and business service needs."
+    },
     {
       heading: "Wickliffe Community Services",
       body: "Wickliffe residents rely on Mailbox Plus for everything from package shipping to business card printing."
@@ -234,13 +330,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL all in one stop" },
     { title: "Rooted in Community", description: "Proudly serving Lake County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-wickliffe-1",
+      question: "Can I drop off pre-paid packages from Wickliffe at your location?",
+      answer: "Yes, we accept pre-paid drop-offs for UPS, FedEx, DHL, and USPS, making it easy for Wickliffe residents to get their packages on their way without any extra hassle.",
+      isFeatured: true
+    },
+    {
+      id: "faq-wickliffe-2",
+      question: "Do you sell packing and shipping supplies near Wickliffe?",
+      answer: "We have a wide selection of packing and shipping supplies available in our store, from boxes and tape to bubble wrap and packing peanuts, all conveniently located for our Wickliffe customers."
+    }
+  ]
   },
   {
   id: "madison",
   category: "core",
   serviceName: "Madison Services",
   slug: "madison",
+  canonicalUrl: "/service-area/madison",
+  priorityServices: ["pack-ship", "shipping-insurance"],
   city: "Madison",
   pageTitle: "Shipping & Printing in Madison, Ohio",
   metaDescription:
@@ -251,6 +361,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Comprehensive shipping and business services for Madison.",
   heroImage: getServiceImageUrl("/images/madison.webp"),
   content: [
+    {
+      heading: "Supporting the Heart of Madison",
+      body: "In the heart of Ohio's wine country, Madison is a community with a unique blend of agriculture and small-town charm. Mailbox Plus is here to support Madison's residents and businesses with reliable shipping and printing services that are as dependable as the seasons."
+    },
     {
       heading: "Madison's Shipping Experts",
       body: "Madison businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
@@ -273,13 +387,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
     { title: "Local Commitment", description: "Proudly serving Madison and Lake County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-madison-1",
+      question: "Do you offer services for Madison's wineries and local businesses?",
+      answer: "Yes, we can help Madison's wineries and local businesses with everything from shipping products to printing marketing materials. We understand the unique needs of local entrepreneurs.",
+      isFeatured: true
+    },
+    {
+      id: "faq-madison-2",
+      question: "How far is your location from Madison?",
+      answer: "We are located a convenient drive from Madison, offering a great alternative to crowded post offices and providing a full suite of services in one friendly location."
+    }
+  ]
   },
   {
   id: "perry",
   category: "core",
   serviceName: "Perry Services",
   slug: "perry",
+  canonicalUrl: "/service-area/perry",
+  priorityServices: ["pack-ship", "professional-packing"],
   city: "Perry",
   pageTitle: "Shipping & Printing in Perry, Ohio",
   metaDescription:
@@ -290,6 +418,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your local partner for shipping and printing needs.",
   heroImage: getServiceImageUrl("/images/perry.webp"),
   content: [
+    {
+      heading: "Committed to the Perry Community",
+      body: "With its rich agricultural heritage and strong sense of community, Perry is a place we are proud to serve. Mailbox Plus provides the residents and businesses of Perry with dependable shipping, printing, and mailbox services, all delivered with a personal touch."
+    },
     {
       heading: "Perry Community Support",
       body: "From Perry’s small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
@@ -312,13 +444,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
     { title: "Trusted Local Partner", description: "Supporting Perry residents and small businesses since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-perry-1",
+      question: "Can you help with shipping for items from Perry's local farms or nurseries?",
+      answer: "Absolutely! We can pack and ship a wide variety of items, including products from local farms and nurseries. We'll ensure your goods are packed securely to arrive in great condition.",
+      isFeatured: true
+    },
+    {
+      id: "faq-perry-2",
+      question: "Is it easy to get to your store from Perry?",
+      answer: "Yes, our location is easily accessible from Perry, providing a convenient one-stop shop for all your shipping and business needs without having to travel far from home."
+    }
+  ]
   },
   {
   id: "kirtland",
   category: "core",
   serviceName: "Kirtland Services",
   slug: "kirtland",
+  canonicalUrl: "/service-area/kirtland",
+  priorityServices: ["pack-ship", "copies"],
   city: "Kirtland",
   pageTitle: "Shipping & Printing in Kirtland, Ohio",
   metaDescription:
@@ -329,6 +475,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your local partner for shipping and printing needs.",
   heroImage: getServiceImageUrl("/images/kirtland.webp"),
   content: [
+    {
+      heading: "Serving Historic Kirtland with Pride",
+      body: "Kirtland's unique history and natural beauty make it a special place in Northeast Ohio. Mailbox Plus is honored to serve the Kirtland community with modern, reliable shipping and printing services that meet the needs of its residents and visitors."
+    },
     {
       heading: "Kirtland Community Support",
       body: "From Kirtland's small businesses to individual shippers, Mailbox Plus provides the services you need with a personal touch."
@@ -351,13 +501,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
     { title: "Rooted in Local Heritage", description: "Proudly serving Kirtland’s historic and natural community since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-kirtland-1",
+      question: "Do you offer any special services for tourists or visitors in Kirtland?",
+      answer: "We can help visitors ship souvenirs and other items home, so you don't have to worry about packing them in your luggage. We make it easy to send a piece of Kirtland to your loved ones.",
+      isFeatured: true
+    },
+    {
+      id: "faq-kirtland-2",
+      question: "What are the benefits of a mailbox rental for Kirtland residents?",
+      answer: "A private mailbox rental offers a secure, professional address for your mail and packages, with 24/7 access. It's a great solution for home-based businesses or frequent travelers in Kirtland."
+    }
+  ]
   },
   {
   id: "chardon",
   category: "core",
   serviceName: "Chardon Services",
   slug: "chardon",
+  canonicalUrl: "/service-area/chardon",
+  priorityServices: ["pack-ship", "packaging-supplies"],
   city: "Chardon",
   pageTitle: "Shipping & Printing in Chardon, Ohio",
   metaDescription:
@@ -368,6 +532,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Comprehensive shipping and business services for Chardon.",
   heroImage: getServiceImageUrl("/images/chardon.webp"),
   content: [
+    {
+      heading: "Your Partner in the Heart of Geauga County",
+      body: "As the heart of Geauga County, Chardon is a vibrant community that deserves the best in local services. Mailbox Plus is proud to extend our shipping and printing expertise to the residents and businesses of Chardon, with a focus on reliability and customer care."
+    },
     {
       heading: "Chardon's Shipping Experts",
       body: "Chardon businesses and families choose Mailbox Plus for reliable shipping, printing, and mailbox rental services."
@@ -390,13 +558,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
     { title: "Community Connection", description: "Supporting Chardon and Geauga County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-chardon-1",
+      question: "Can you handle large or heavy shipments from Chardon?",
+      answer: "Yes, we are equipped to handle large and heavy items with our freight shipping options. Whether it's furniture, equipment, or a large order, we can get it shipped from Chardon.",
+      isFeatured: true
+    },
+    {
+      id: "faq-chardon-2",
+      question: "Do you offer graphic design services for businesses in Chardon?",
+      answer: "We offer professional graphic design services to help you create stunning marketing materials, from logos and business cards to brochures and banners, all designed to make your Chardon business stand out."
+    }
+  ]
   },
   {
   id: "fairport-harbor",
   category: "core",
   serviceName: "Fairport Harbor Services",
   slug: "fairport-harbor",
+  canonicalUrl: "/service-area/fairport-harbor",
+  priorityServices: ["pack-ship", "postage-stamps"],
   city: "Fairport Harbor",
   pageTitle: "Shipping & Printing in Fairport Harbor, Ohio",
   metaDescription:
@@ -407,6 +589,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Your neighborhood shipping and printing experts.",
   heroImage: getServiceImageUrl("/images/Fairport_Harbor.webp"),
   content: [
+    {
+      heading: "Serving the Lakeside Village of Fairport Harbor",
+      body: "With its beautiful lakefront and rich maritime history, Fairport Harbor is a gem on the shores of Lake Erie. Mailbox Plus is delighted to serve the residents and businesses of this charming village with a full range of shipping and printing services."
+    },
     {
       heading: "Fairport Harbor Community Services",
       body: "Fairport Harbor residents rely on Mailbox Plus for everything from package shipping to business card printing."
@@ -429,13 +615,27 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
     { title: "Rooted in Community", description: "Proudly serving Fairport Harbor and Lake County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-fairport-harbor-1",
+      question: "Can I ship internationally from Fairport Harbor using your services?",
+      answer: "Yes, we offer international shipping with DHL, FedEx, and UPS, making it easy to send packages to friends, family, and business partners around the world from Fairport Harbor.",
+      isFeatured: true
+    },
+    {
+      id: "faq-fairport-harbor-2",
+      question: "Do you have options for fragile or valuable items from Fairport Harbor?",
+      answer: "We offer specialized packing services and insurance options to ensure that your fragile and valuable items are protected during transit. Ship with confidence from Fairport Harbor."
+    }
+  ]
   },
   {
   id: "geneva",
   category: "core",
   serviceName: "Geneva Services",
   slug: "geneva",
+  canonicalUrl: "/service-area/geneva",
+  priorityServices: ["pack-ship", "fedex-shipping"],
   city: "Geneva",
   pageTitle: "Shipping & Printing in Geneva, Ohio",
   metaDescription:
@@ -446,6 +646,10 @@ export const serviceAreas: Service[] = [
   heroSubtitle: "Professional services tailored to Geneva residents.",
   heroImage: getServiceImageUrl("/images/Geneva_Ohio.webp"),
   content: [
+    {
+      heading: "Supporting the Spirit of Geneva",
+      body: "From the bustling strip of Geneva-on-the-Lake to the serene vineyards, Geneva is a community with a unique spirit. Mailbox Plus is proud to support the businesses and residents of Geneva with reliable shipping, printing, and mailbox services."
+    },
     {
       heading: "Geneva Business Support",
       body: "From bulk mailings to secure shipping, Mailbox Plus helps Geneva businesses thrive with our comprehensive service offerings."
@@ -468,6 +672,18 @@ export const serviceAreas: Service[] = [
     { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
     { title: "Rooted in Community", description: "Proudly serving Geneva and Ashtabula County since 2010" }
   ],
-  faqs: []
+  faqs: [
+    {
+      id: "faq-geneva-1",
+      question: "Do you offer wine shipping services for the Geneva area?",
+      answer: "Yes, we are experienced in packing and shipping wine, and we can help you send your favorite local vintages to friends and family. We offer a variety of packing options to ensure your wine arrives safely.",
+      isFeatured: true
+    },
+    {
+      id: "faq-geneva-2",
+      question: "Can you help with marketing materials for my Geneva business?",
+      answer: "We can help you design and print a wide range of marketing materials, including brochures, flyers, and direct mail campaigns, to help you reach more customers in the Geneva area."
+    }
+  ]
   }
 ];

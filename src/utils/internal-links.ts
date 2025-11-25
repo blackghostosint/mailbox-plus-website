@@ -1,7 +1,8 @@
 import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
-import localPages from '../data/localPages.json';
+import { serviceAreas } from '../config/serviceAreas';
+import { services } from '../config/services';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
 type ServiceId = keyof typeof internalLinks;
@@ -47,9 +48,9 @@ export const getParentPillar = (serviceId: ServiceId) => {
 };
 
 export const getLocalPriorityServices = (citySlug: string) => {
-  const city = localPages.find(c => c.slug === citySlug);
+  const city = serviceAreas.find(c => c.slug === citySlug);
   if (!city) return [];
-  return city.priorityServices.map(id => getInternalLink(id)).filter(Boolean);
+  return city.priorityServices.map(id => services.find(s => s.id === id)).filter(Boolean);
 };
 
 export const getBreadcrumbs = (pathname: string) => {
@@ -79,12 +80,12 @@ export const getBreadcrumbs = (pathname: string) => {
     }
 
     // Check Local Pages
-    const local = localPages.find(l => l.url === path);
+    const local = serviceAreas.find(l => l.canonicalUrl === path);
     if (local) {
         return [
             { label: 'Home', url: '/' },
             { label: 'Service Areas', url: '/service-area' },
-            { label: local.city, url: local.url, active: true }
+            { label: local.city, url: local.canonicalUrl, active: true }
         ];
     }
     

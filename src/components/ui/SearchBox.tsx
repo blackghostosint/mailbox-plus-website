@@ -3,7 +3,7 @@ import { InternalLink } from './InternalLink';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X } from 'lucide-react';
 import { services } from '../../config/services';
-import localPages from '../../data/localPages.json';
+import { serviceAreas } from '../../config/serviceAreas';
 
 interface SearchResult {
   title: string;
@@ -21,10 +21,10 @@ const serviceResults: SearchResult[] = services.map(service => ({
 }));
 
 // Transform local pages into search data
-const locationResults: SearchResult[] = localPages.map(page => ({
+const locationResults: SearchResult[] = serviceAreas.map(page => ({
   title: `Shipping & Printing in ${page.city}`,
   description: `Local services for ${page.city}, Ohio`,
-  href: page.url,
+  href: page.canonicalUrl,
   category: 'Locations'
 }));
 
