@@ -9,6 +9,7 @@ import { CompetitorAlternativeSection } from "./sections/CompetitorAlternative";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
+import { services } from "../../config/services";
 import { getGoogleMapsLink } from "../utils/location";
 
 // ✅ Shadcn UI
@@ -36,6 +37,8 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     content = [],
     features = [],
     faqs = [],
+    priorityServices = [],
+    introductoryContent,
     // cta, // Removed: not in Service type
   } = props;
 
@@ -54,6 +57,21 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
 
   const url = `${siteConfig.domain}${canonicalUrl}`;
 
+  // ✅ Generate schema for priority services
+  const priorityServiceSchemas = priorityServices
+    .map(serviceId => {
+      const service = services.find(s => s.id === serviceId);
+      if (!service) return null;
+
+      const serviceUrl = `${siteConfig.domain}${service.canonicalUrl}`;
+      return getServiceSchema(siteConfig, {
+        serviceName: service.serviceName,
+        url: serviceUrl,
+        areaServed: [city], // Highlight the specific city for this service
+      });
+    })
+    .filter(Boolean);
+
   return (
     <div className="bg-white">
       {/* ✅ Metadata */}
@@ -68,6 +86,9 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
       <JsonLd schema={getWebPageSchema(siteConfig, { name: pageTitle, description: metaDescription, url })} />
       <JsonLd schema={getServiceSchema(siteConfig, { serviceName, url })} />
       {faqs?.length ? <JsonLd schema={getFAQSchema(siteConfig, faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
+      {priorityServiceSchemas.map((schema, index) => (
+        <JsonLd key={`priority-service-${index}`} schema={schema} />
+      ))}
 
       {/* ✅ Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -113,6 +134,14 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
           )}
         </div>
       </section>
+
+      {introductoryContent && (
+        <section className="bg-white py-16 lg:py-24">
+          <div className="max-w-5xl mx-auto px-6">
+            <p className="text-lg text-gray-600 leading-relaxed">{introductoryContent}</p>
+          </div>
+        </section>
+      )}
 
       {/* ✅ Content Sections */}
       {content.length > 0 && (

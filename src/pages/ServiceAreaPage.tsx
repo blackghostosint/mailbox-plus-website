@@ -2,10 +2,12 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
 import { ServicePage } from "../components/ServicePage";
+import localPages from "../data/localPages.json";
 
 export const ServiceAreaPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const area = serviceAreas.find((a) => a.slug === slug);
+  const localPage = localPages.find((p) => p.slug === slug);
 
   if (!area) {
     return (
@@ -18,5 +20,12 @@ export const ServiceAreaPage: React.FC = () => {
     );
   }
 
-  return <ServicePage {...area} />;
+  const areaWithContent = {
+    ...area,
+    introductoryContent: localPage?.content,
+    faqs: localPage?.faqs || area.faqs,
+    canonicalUrl: localPage?.canonicalUrl || area.canonicalUrl,
+  };
+
+  return <ServicePage {...areaWithContent} />;
 };
