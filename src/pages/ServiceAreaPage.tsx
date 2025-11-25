@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
 import { ServicePage } from "../components/ServicePage";
+import { Meta } from "../components/Meta";
+import { siteConfig } from "../config/siteConfig";
 import localPages from "../data/localPages.json";
 import { getServiceImageUrl } from "../lib/storage";
 
@@ -39,6 +41,16 @@ export const ServiceAreaPage: React.FC = () => {
     faqs: area.faqs,
   };
 
+  const fullCanonicalUrl = `${siteConfig.domain}${areaWithContent.canonicalUrl}`;
 
-  return <ServicePage {...areaWithContent} />;
+  return (
+    <>
+      <Meta
+        title={areaWithContent.pageTitle}
+        description={areaWithContent.metaDescription}
+        canonical={fullCanonicalUrl}
+      />
+      <ServicePage {...areaWithContent} />
+    </>
+  );
 };
