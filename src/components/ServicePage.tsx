@@ -21,14 +21,16 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
   const {
     pageTitle,
     metaDescription,
-    canonicalUrl,
     heroTitle,
     heroSubtitle,
     heroImage,
     children,
     faqs,
-    aggregateRating
+    aggregateRating,
+    slug
   } = props;
+
+  const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
 
   // Generate Schema
   const webPageSchema = getWebPageSchema(siteConfig, {
