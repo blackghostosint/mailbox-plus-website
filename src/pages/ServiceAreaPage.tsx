@@ -2,10 +2,10 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
 import { ServicePage } from "../components/ServicePage";
-import { Meta } from "../components/Meta";
 import { siteConfig } from "../config/siteConfig";
 import localPages from "../data/localPages.json";
 import { getServiceImageUrl } from "../lib/storage";
+import { Service } from "../types/services";
 
 export const ServiceAreaPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -23,34 +23,30 @@ export const ServiceAreaPage: React.FC = () => {
     );
   }
 
-  const areaWithContent = {
+  // Merge area data with localPage overrides
+  // We type this as Service to ensure we meet the interface
+  const areaWithContent: Service = {
     ...area,
-    introductoryContent: localPage?.introductoryContent,
-    // Map introTitle to heroTitle as it matches the prominent heading use case
+    // Merge specific fields from localPage if they exist
+    introductoryContent: localPage?.introductoryContent || area.introductoryContent,
     heroTitle: localPage?.introTitle || area.heroTitle,
-    // Use localPage heroImage if available, otherwise fallback to area
     heroImage: localPage?.heroImage ? getServiceImageUrl(localPage.heroImage) : area.heroImage,
-    // Map services list to priorityServices
     priorityServices: localPage?.services || area.priorityServices,
-    // Map canonical URL
     canonicalUrl: localPage?.canonical || area.canonicalUrl,
-    // Map meta fields
     pageTitle: localPage?.metaTitle || area.pageTitle,
     metaDescription: localPage?.metaDescription || area.metaDescription,
-    // Use localPage FAQs if they exist (though currently moved to serviceAreas.ts mostly), fallback to area
+    // Explicitly set city and serviceName from area to ensure Schema accuracy
+    city: area.city,
+    serviceName: area.serviceName,
+    // Ensure faqs are carried over
     faqs: area.faqs,
   };
 
-  const fullCanonicalUrl = `${siteConfig.domain}${areaWithContent.canonicalUrl}`;
-
   return (
-    <>
-      <Meta
-        title={areaWithContent.pageTitle}
-        description={areaWithContent.metaDescription}
-        canonical={fullCanonicalUrl}
-      />
-      <ServicePage {...areaWithContent} />
-    </>
+    <ServicePage
+      {...areaWithContent}
+      breadcrumbsBaseUrl="/service-area"
+      breadcrumbsLabel="Service Areas"
+    />
   );
 };

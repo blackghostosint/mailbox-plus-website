@@ -98,7 +98,8 @@ export const validateService = (service: Service): boolean => {
  */
 export const getServiceBreadcrumbs = (
   service: Service,
-  baseUrl: string = ""
+  baseUrl: string = "",
+  baseLabel: string = "Services"
 ): { name: string; url: string }[] => {
   const origin = siteConfig.domain.replace(/\/$/, ""); // normalize domain
 
@@ -111,13 +112,13 @@ export const getServiceBreadcrumbs = (
 
   if (baseUrl) {
     breadcrumbs.push({
-      name: "Services",
+      name: baseLabel,
       url: normalize(baseUrl),
     });
   }
 
   breadcrumbs.push({
-    name: service.pageTitle,
+    name: service.serviceName,
     url: normalize(service.slug),
   });
 

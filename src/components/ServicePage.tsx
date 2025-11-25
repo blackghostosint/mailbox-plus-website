@@ -20,7 +20,11 @@ import {
   AccordionContent,
 } from "./ui/accordion";
 
-type ServicePageProps = Service & { children?: React.ReactNode };
+type ServicePageProps = Service & {
+  children?: React.ReactNode;
+  breadcrumbsBaseUrl?: string;
+  breadcrumbsLabel?: string;
+};
 
 export const ServicePage: React.FC<ServicePageProps> = (props) => {
   const {
@@ -85,7 +89,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
 
       {/* ✅ Structured Data */}
       <JsonLd schema={getWebPageSchema(siteConfig, { name: pageTitle, description: metaDescription, url })} />
-      <JsonLd schema={getServiceSchema(siteConfig, { serviceName, url })} />
+      <JsonLd schema={getServiceSchema(siteConfig, { serviceName, url, areaServed: city ? [city] : undefined })} />
       {faqs?.length ? <JsonLd schema={getFAQSchema(siteConfig, faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
       {priorityServiceSchemas.map((schema, index) => (
         schema ? <JsonLd key={`priority-service-${index}`} schema={schema} /> : null
@@ -93,7 +97,11 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
 
       {/* ✅ Breadcrumbs */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Breadcrumbs service={props} />
+        <Breadcrumbs
+          service={props}
+          baseUrl={props.breadcrumbsBaseUrl}
+          baseLabel={props.breadcrumbsLabel}
+        />
       </div>
 
       {/* ✅ Hero Section */}

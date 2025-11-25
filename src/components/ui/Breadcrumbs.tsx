@@ -8,13 +8,15 @@ import { JsonLd } from "../JsonLd";
 interface BreadcrumbsProps {
   service: Service;
   baseUrl?: string;
+  baseLabel?: string;
 }
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
   service,
   baseUrl = "",
+  baseLabel,
 }) => {
-  const items = getServiceBreadcrumbs(service, baseUrl);
+  const items = getServiceBreadcrumbs(service, baseUrl, baseLabel);
 
   return (
     <>
