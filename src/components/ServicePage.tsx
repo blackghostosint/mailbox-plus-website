@@ -9,7 +9,7 @@ import { CompetitorAlternativeSection } from "./sections/CompetitorAlternative";
 import { Service } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
-import { services } from "../../config/services";
+import { services } from "../config/services";
 import { getGoogleMapsLink } from "../utils/location";
 
 // ✅ Shadcn UI
@@ -87,7 +87,7 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
       <JsonLd schema={getServiceSchema(siteConfig, { serviceName, url })} />
       {faqs?.length ? <JsonLd schema={getFAQSchema(siteConfig, faqs.map(faq => ({ question: faq.question, answer: faq.answer })))} /> : null}
       {priorityServiceSchemas.map((schema, index) => (
-        <JsonLd key={`priority-service-${index}`} schema={schema} />
+        schema ? <JsonLd key={`priority-service-${index}`} schema={schema} /> : null
       ))}
 
       {/* ✅ Breadcrumbs */}

@@ -39,6 +39,7 @@ export interface Service {
   heroImage?: string;
   icon?: LucideIcon;
   popular?: boolean;
+  introductoryContent?: string;
 
   // 👇 NEW: long-form page content
   content?: Array<{
