@@ -138,7 +138,10 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
       {introductoryContent && (
         <section className="bg-white py-16 lg:py-24">
           <div className="max-w-5xl mx-auto px-6">
-            <p className="text-lg text-gray-600 leading-relaxed">{introductoryContent}</p>
+            <div
+              className="text-lg text-gray-600 leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: introductoryContent }}
+            />
           </div>
         </section>
       )}
