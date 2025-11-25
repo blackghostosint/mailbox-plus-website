@@ -686,4 +686,59 @@ export const serviceAreas: Service[] = [
     }
   ]
   }
+  ,
+  {
+  id: "leroy-township",
+  category: "core",
+  serviceName: "Leroy Township Services",
+  slug: "leroy-township",
+  canonicalUrl: "/service-area/leroy-township",
+  priorityServices: ["pack-ship", "mailbox-rental"],
+  city: "Leroy Township",
+  pageTitle: "Shipping & Printing in Leroy Township, Ohio",
+  metaDescription: "Mailbox Plus proudly serves Leroy Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+  keywords: "Leroy Township shipping, Leroy Township printing, mailbox rentals Leroy Township",
+  heroTitle: "Serving Leroy Township",
+  heroSubtitle: "Your local shipping, printing & business service experts.",
+  heroImage: getServiceImageUrl("/images/leroy-township.webp"),
+  content: [],
+  features: [],
+  faqs: []
+  },
+  {
+  id: "mayfield",
+  category: "core",
+  serviceName: "Mayfield Services",
+  slug: "mayfield",
+  canonicalUrl: "/service-area/mayfield",
+  priorityServices: ["pack-ship", "mailbox-rental"],
+  city: "Mayfield",
+  pageTitle: "Shipping & Printing in Mayfield, Ohio",
+  metaDescription: "Mailbox Plus proudly serves Mayfield, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+  keywords: "Mayfield shipping, Mayfield printing, mailbox rentals Mayfield",
+  heroTitle: "Serving Mayfield",
+  heroSubtitle: "Your local shipping, printing & business service experts.",
+  heroImage: getServiceImageUrl("/images/mayfield.webp"),
+  content: [],
+  features: [],
+  faqs: []
+  },
+  {
+  id: "auburn-township",
+  category: "core",
+  serviceName: "Auburn Township Services",
+  slug: "auburn-township",
+  canonicalUrl: "/service-area/auburn-township",
+  priorityServices: ["pack-ship", "mailbox-rental"],
+  city: "Auburn Township",
+  pageTitle: "Shipping & Printing in Auburn Township, Ohio",
+  metaDescription: "Mailbox Plus proudly serves Auburn Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+  keywords: "Auburn Township shipping, Auburn Township printing, mailbox rentals Auburn Township",
+  heroTitle: "Serving Auburn Township",
+  heroSubtitle: "Your local shipping, printing & business service experts.",
+  heroImage: getServiceImageUrl("/images/auburn-township.webp"),
+  content: [],
+  features: [],
+  faqs: []
+  }
 ];
