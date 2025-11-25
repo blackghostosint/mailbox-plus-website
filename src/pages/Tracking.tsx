@@ -6,6 +6,7 @@ import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceImageUrl } from "../lib/storage";
 import { getTrackingSchema } from "../utils/schema";
+import { SmartImage } from "../components/SmartImage";
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
@@ -128,7 +129,8 @@ export const Tracking: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-white">
         <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
-          <img
+          <SmartImage
+            priority
             src={getServiceImageUrl("/images/tracking.webp")}
             alt="Tracking hero"
             className="absolute inset-0 w-full h-full object-cover rounded-b-2xl"

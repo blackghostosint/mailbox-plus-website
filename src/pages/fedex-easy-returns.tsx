@@ -21,6 +21,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../components/ui/accordion";
+import { SmartImage } from "../components/SmartImage";
 
 export const FedExEasyReturns: React.FC = () => {
   const service = services.find((s) => s.id === "fedex-easy-returns")!;
@@ -94,7 +95,8 @@ export const FedExEasyReturns: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-25">
-          <img
+          <SmartImage
+             priority
              src={service.heroImage}
              alt="FedEx Easy Returns at Mailbox Plus"
              className="w-full h-full object-cover"

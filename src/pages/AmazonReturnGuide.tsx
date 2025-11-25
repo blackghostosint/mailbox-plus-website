@@ -27,6 +27,7 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from "../components/ui/accordion";
+import { SmartImage } from "../components/SmartImage";
 
 export const AmazonReturnGuide: React.FC = () => {
   const service = services.find((s) => s.id === "amazon-returns")!;
@@ -166,7 +167,8 @@ export const AmazonReturnGuide: React.FC = () => {
       {/* Hero Section */}
       <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-25">
-          <img
+          <SmartImage
+             priority
              src={service.heroImage}
              alt="Amazon Returns at Mailbox Plus"
              className="w-full h-full object-cover"
@@ -327,11 +329,10 @@ export const AmazonReturnGuide: React.FC = () => {
                   </div>
                   
                   <div className="relative rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white group">
-                    <img
+                    <SmartImage
                       src={getServiceImageUrl(`/images/${step.image}`)}
                       alt={`Step ${idx + 1}: ${step.title}`}
                       className="w-full h-auto object-contain transform transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
                     />
                   </div>
                 </div>

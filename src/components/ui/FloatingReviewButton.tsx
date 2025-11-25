@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../lib/utils";
 import { X } from "lucide-react";
+import { SmartImage } from "../SmartImage";
 
 interface FloatingReviewButtonProps {
   imageSrc: string;
@@ -72,7 +73,7 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
           rel="noopener noreferrer"
           className="block hover:scale-105 active:scale-95 transition-transform"
         >
-          <img
+          <SmartImage
             src={imageSrc}
             alt={alt}
             className="w-28 md:w-36 h-auto drop-shadow-lg"

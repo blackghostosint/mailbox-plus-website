@@ -8,6 +8,7 @@ import { services } from "../config/services";
 import { getGoogleMapsLink } from "../utils/location";
 import { Meta } from "../components/Meta";
 import { pageMeta } from "../config/pageMeta";
+import { SmartImage } from "../components/SmartImage";
 // Utility to get service image URLs from Cloudflare R2
 import { getServiceImageUrl } from "../lib/storage";
 
@@ -67,26 +68,24 @@ export const Services: React.FC = () => {
       <Meta title={title} description={description} schema={schema} />
       {/* HERO SECTION */}
       <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        <picture>
-          <source
-            srcSet={`${getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp")}`}
-            media="(max-width: 768px)"
-            type="image/webp"
-          />
-          <source
-            srcSet={`${getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}`}
-            media="(min-width: 769px)"
-            type="image/webp"
-          />
-          <img
-            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="absolute inset-0 w-full h-full object-cover"
-            loading="eager"
-            decoding="async"
-            fetchPriority="high"
-          />
-        </picture>
+        <SmartImage
+          priority
+          sources={[
+            {
+              srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
+              media: "(max-width: 768px)",
+              type: "image/webp"
+            },
+            {
+              srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
+              media: "(min-width: 769px)",
+              type: "image/webp"
+            }
+          ]}
+          src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+          alt="Mailbox Plus storefront in Concord Township, Ohio"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
@@ -198,7 +197,7 @@ export const Services: React.FC = () => {
                   {/* Thumbnail with fade overlay + subtle zoom */}
                   {service.heroImage ? (
                     <div className="relative w-full aspect-[3/2] mb-4 overflow-hidden rounded-md group">
-                      <img
+                      <SmartImage
                         src={service.heroImage}
                         alt={service.serviceName}
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -5,6 +5,7 @@ import { shippingPartners } from "../data/shippingPartners";
 import { Meta } from "../components/Meta";
 import { InternalLink } from "../components/ui/InternalLink";
 import { siteConfig } from "../config/siteConfig";
+import { SmartImage } from "../components/SmartImage";
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
@@ -56,11 +57,10 @@ const ShippingPartners: React.FC = () => {
               transition={{ duration: 0.5, delay: 0.1 * i }}
             >
               <div className="h-40 w-full flex items-center justify-center mb-6 bg-white rounded-lg p-4 shadow-sm border border-gray-100 group-hover:shadow-md transition-shadow duration-300">
-                  <img
+                  <SmartImage
                     src={partner.logoUrl}
                     alt={`${partner.name} logo`}
                     className="max-h-32 max-w-full object-contain transition-transform duration-300 group-hover:scale-105"
-                    loading="lazy"
                   />
               </div>
               <span className="text-lg font-semibold text-gray-800 group-hover:text-[#0855B1] transition-colors">

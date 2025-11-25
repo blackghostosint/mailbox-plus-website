@@ -1,5 +1,6 @@
 import React from "react";
 import { getServiceImageUrl } from "../lib/storage";
+import { SmartImage } from "./SmartImage";
 
 export const CarrierLogos: React.FC = () => {
   const carriers = [
@@ -35,13 +36,12 @@ export const CarrierLogos: React.FC = () => {
           rel="noopener noreferrer"
           className="transition-transform duration-200 hover:scale-105"
         >
-          <img
+          <SmartImage
             src={carrier.logo}
             alt={carrier.name}
             width={200}
             height={64}
             className="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
-            loading="lazy"
           />
         </a>
       ))}

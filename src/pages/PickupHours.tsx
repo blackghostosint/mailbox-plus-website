@@ -15,6 +15,7 @@ import {
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
 import { AutoBreadcrumbs } from "../components/ui/AutoBreadcrumbs";
 import { getServiceImageUrl } from "../lib/storage";
+import { SmartImage } from "../components/SmartImage";
 
 const pickupHours = [
   {
@@ -113,7 +114,8 @@ const PickupHours: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="absolute inset-0 z-0"
         >
-          <img
+          <SmartImage
+            priority
             src={getServiceImageUrl("package-drop-offs.jpg")}
             alt="Packages ready for pickup"
             className="w-full h-full object-cover"
