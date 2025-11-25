@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui";
+import { ButtonProps } from "./ui/Button";
 
-interface VisitUsButtonProps {
-  defaultCity: string; // e.g., "Concord Township"
-  className?: string;
+interface VisitUsButtonProps extends Omit<ButtonProps, "children"> {
+  defaultCity?: string; // e.g., "Concord Township"
 }
 
-export const VisitUsButton: React.FC<VisitUsButtonProps> = ({ defaultCity, className }) => {
+export const VisitUsButton: React.FC<VisitUsButtonProps> = ({
+  defaultCity = "Concord Township",
+  className,
+  ...props
+}) => {
   const [userCity, setUserCity] = useState(defaultCity);
 
   useEffect(() => {
@@ -53,5 +57,5 @@ export const VisitUsButton: React.FC<VisitUsButtonProps> = ({ defaultCity, class
     return () => navigator.geolocation.clearWatch(watchId);
   }, [defaultCity]);
 
-  return <Button className={className}>Visit Us from {userCity}</Button>;
+  return <Button className={className} {...props}>Visit Us from {userCity}</Button>;
 };

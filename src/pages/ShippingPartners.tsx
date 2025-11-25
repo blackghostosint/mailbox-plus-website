@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { shippingPartners } from "../data/shippingPartners";
 import { Meta } from "../components/Meta";
 import { InternalLink } from "../components/ui/InternalLink";
-import { siteConfig } from "../config/siteConfig";
+
 import { SmartImage } from "../components/SmartImage";
-import { fadeUp } from "../utils/animations";
+import { fadeUp } from "../utils";
 
 const ShippingPartners: React.FC = () => {
   return (

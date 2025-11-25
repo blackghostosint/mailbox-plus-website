@@ -7,10 +7,8 @@ import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from "../components";
 import { CarrierLogos } from "./CarrierLogos";
 import { CompetitorAlternativeSection } from "./sections/CompetitorAlternative";
 import { Service } from "../types/services";
-import { siteConfig } from "../config/siteConfig";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
-import { services } from "../config/services";
-import { getGoogleMapsLink } from "../utils/location";
+import { siteConfig } from "../config/siteConfig";
 
 // ✅ Shadcn UI
 import { SmartImage } from "./SmartImage";
@@ -29,14 +27,20 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     heroImage,
     children,
     faqs,
-    aggregateRating,
-    cta
+    aggregateRating
   } = props;
 
   // Generate Schema
-  const webPageSchema = getWebPageSchema(pageTitle, metaDescription, canonicalUrl);
-  const serviceSchema = getServiceSchema(props);
-  const faqSchema = faqs ? getFAQSchema(faqs) : undefined;
+  const webPageSchema = getWebPageSchema(siteConfig, {
+    name: pageTitle,
+    description: metaDescription,
+    url: canonicalUrl,
+  });
+  const serviceSchema = getServiceSchema(siteConfig, {
+    ...props,
+    url: canonicalUrl,
+  });
+  const faqSchema = faqs ? getFAQSchema(siteConfig, faqs) : undefined;
 
   return (
     <>
@@ -45,10 +49,10 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
         description={metaDescription}
         canonical={canonicalUrl}
       />
-      <JsonLd data={[webPageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])]} />
+      <JsonLd schema={[webPageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])]} />
 
       <div className="min-h-screen bg-gray-50">
-        <Breadcrumbs />
+        <Breadcrumbs service={props} />
 
         {/* ✅ Hero Section */}
         <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">

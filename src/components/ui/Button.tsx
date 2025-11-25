@@ -3,7 +3,7 @@ import { motion, type MotionProps } from "framer-motion";
 
 type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & MotionProps;
 
-interface ButtonProps extends BaseButtonProps {
+export interface ButtonProps extends BaseButtonProps {
   variant?: "primary" | "secondary" | "link" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;

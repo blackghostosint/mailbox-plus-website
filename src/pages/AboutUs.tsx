@@ -1,7 +1,8 @@
+
 import { motion } from "framer-motion";
-import { fadeUp } from "../utils/animations";
+import { fadeUp } from "../utils";
 import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../utils/getServiceImageUrl";
+import { getServiceImageUrl } from "../lib/storage";
 
 export default function AboutUs() {
   return (
