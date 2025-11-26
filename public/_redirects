@@ -10,6 +10,53 @@ http://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 
 
+
+# -----------------------------------
+# SPECIFIC SOFT 404 FIXES
+# -----------------------------------
+
+# Pack & Ship - Remove intermediate /Shipping/ and /Packing/ segments
+/Pack-Ship/Shipping/UPS-Authorized-Shipper-Outlet /pack-ship/ups-authorized-shipper-outlet 301!
+/Pack-Ship/Shipping/Artwork-Shipping /pack-ship/artwork-shipping 301!
+/Pack-Ship/Packing/Custom-Box-Making /pack-ship/custom-box-making 301!
+/Pack-Ship/Packing/Packaging-Supplies /pack-ship/packaging-supplies 301!
+/Pack-Ship/Shipping/FedEx-Shipping /pack-ship/fedex-shipping 301!
+/Pack-Ship/Packing/Professional-Packing /pack-ship/professional-packing 301!
+/Pack-Ship/Shipping/Package-Receiving /pack-ship/package-receiving 301!
+/Pack-Ship/Shipping/Bicycle-Shipping /pack-ship/bicycle-shipping 301!
+/Pack-Ship/Shipping/Postage-Stamps /pack-ship/postage-stamps 301!
+/Pack-Ship/Shipping/Package-Drop-Offs /pack-ship/package-drop-offs 301!
+
+# Pack & Ship - Legacy/Missing Pages
+/Pack-Ship/Shipping/International-Shipping /pack-ship 301!
+
+# Copy & Print - Renamed or Moved
+/Copy-Print/Print-Document-Services /copy-print/document-printing 301!
+/Copy-Print/Document-Finishing /copy-print 301!
+/Copy-Print/Copying-Services /copy-print/copies 301!
+/Copy-Print/Poster-Banner-Printing /copy-print/posters-printing 301!
+
+# Home & Business
+/Home-Business/Document-Shredding /home-business/shredding 301!
+
+# General / Other
+/Store-Hours /contact-us 301!
+/Digital-Fingerprinting /specialty/digital-fingerprinting 301!
+
+# Location Pages (Redirect to Service Area)
+/chardon /service-area/chardon 301!
+/concord-township /service-area/concord-township 301!
+/painesville /service-area/painesville 301!
+/willoughby /service-area/willoughby 301!
+/wickliffe /service-area/wickliffe 301!
+/kirtland /service-area/kirtland 301!
+/fairport-harbor /service-area/fairport-harbor 301!
+/madison /service-area/madison 301!
+/perry /service-area/perry 301!
+/eastlake /service-area/eastlake 301!
+/mentor /service-area/mentor 301!
+/geneva /service-area/geneva 301!
+
 # -----------------------------------
 # CASE NORMALIZATION & LEGACY CLEANUP
 # -----------------------------------
