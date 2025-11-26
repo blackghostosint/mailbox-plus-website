@@ -37,14 +37,14 @@ export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact
 export const getRelatedServices = (serviceId: ServiceId) => {
   const linkData = (internalLinks as any)[serviceId];
   if (!linkData || !linkData.related) return [];
-  
+
   return linkData.related.map((id: string) => getInternalLink(id)).filter(Boolean);
 };
 
 export const getParentPillar = (serviceId: ServiceId) => {
-    const linkData = (internalLinks as any)[serviceId];
-    if (!linkData || !linkData.parent) return null;
-    return siteStructure.pillars.find(p => p.id === linkData.parent);
+  const linkData = (internalLinks as any)[serviceId];
+  if (!linkData || !linkData.parent) return null;
+  return siteStructure.pillars.find(p => p.id === linkData.parent);
 };
 
 export const getLocalPriorityServices = (citySlug: string) => {
@@ -54,40 +54,57 @@ export const getLocalPriorityServices = (citySlug: string) => {
 };
 
 export const getBreadcrumbs = (pathname: string) => {
-    const path = pathname.replace(/\/$/, ''); // Remove trailing slash
-    
-    if (path === '') return [];
+  const path = pathname.replace(/\/$/, ''); // Remove trailing slash
 
-    // Check Pillars
-    const pillar = siteStructure.pillars.find(p => p.url === path);
-    if (pillar) {
-        return [
-            { label: 'Home', url: '/' },
-            { label: pillar.title, url: pillar.url, active: true }
-        ];
-    }
+  if (path === '') return [];
 
-    // Check Children
-    for (const p of siteStructure.pillars) {
-        const child = p.children.find(c => c.url === path);
-        if (child) {
-            return [
-                { label: 'Home', url: '/' },
-                { label: p.title, url: p.url },
-                { label: child.title, url: child.url, active: true }
-            ];
-        }
-    }
+  // Check Pillars
+  const pillar = siteStructure.pillars.find(p => p.url === path);
+  if (pillar) {
+    return [
+      { label: 'Home', url: '/' },
+      { label: pillar.title, url: pillar.url, active: true }
+    ];
+  }
 
-    // Check Local Pages
-    const local = serviceAreas.find(l => l.canonicalUrl === path);
-    if (local) {
-        return [
-            { label: 'Home', url: '/' },
-            { label: 'Service Areas', url: '/service-area' },
-            { label: local.city, url: local.canonicalUrl, active: true }
-        ];
+  // Check Children
+  for (const p of siteStructure.pillars) {
+    const child = p.children.find(c => c.url === path);
+    if (child) {
+      return [
+        { label: 'Home', url: '/' },
+        { label: p.title, url: p.url },
+        { label: child.title, url: child.url, active: true }
+      ];
     }
-    
-    return [{ label: 'Home', url: '/' }];
+  }
+
+  // Check Local Pages
+  const local = serviceAreas.find(l => l.canonicalUrl === path);
+  if (local) {
+    return [
+      { label: 'Home', url: '/' },
+      { label: 'Service Areas', url: '/service-area' },
+      { label: local.city, url: local.canonicalUrl, active: true }
+    ];
+  }
+
+  // Check Landing Pages
+  const landingPages: Record<string, string> = {
+    '/ups-fedex-usps-dhl-shipping-concord-township': 'Shipping in Concord Township',
+    '/staples-printing-alternative-concord-township': 'Staples Alternative',
+    '/printing-services-concord-township': 'Printing Services',
+    '/office-depot-alternative-concord-township': 'Office Depot Alternative',
+    '/mail-forwarding-concord-township': 'Mail Forwarding',
+    '/document-services-concord-township': 'Document Services'
+  };
+
+  if (landingPages[path]) {
+    return [
+      { label: 'Home', url: '/' },
+      { label: landingPages[path], url: path, active: true }
+    ];
+  }
+
+  return [{ label: 'Home', url: '/' }];
 };
