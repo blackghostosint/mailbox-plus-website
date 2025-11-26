@@ -65,10 +65,10 @@ const PackAndShipServicesPage: React.FC = () => {
 
       {/* Local Benefits */}
       <section className="mb-12 bg-blue-50 p-8 rounded-xl">
-        <h2 className="text-2xl font-bold mb-4 text-blue-900">Concord Township's Packing Experts</h2>
+        <h2 className="text-2xl font-bold mb-4 text-blue-900">Concord Township&apos;s Packing Experts</h2>
         <p className="text-blue-800 leading-relaxed">
-          Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing needs. 
-          We also serve the surrounding communities of Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping 
+          Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing needs.
+          We also serve the surrounding communities of Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping
           your gifts, returns, and business packages.
         </p>
       </section>

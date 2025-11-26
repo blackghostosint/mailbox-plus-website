@@ -67,8 +67,8 @@ const USPSPackageHelpPage: React.FC = () => {
       <section className="mb-12 bg-blue-50 p-8 rounded-xl">
         <h2 className="text-2xl font-bold mb-4 text-blue-900">Helping Concord Township Ship Smarter</h2>
         <p className="text-blue-800 leading-relaxed">
-          Mailbox Plus is dedicated to making shipping easy for the residents of <strong>Concord Township, Ohio</strong>. 
-          Whether you're in Mentor, Painesville, or anywhere in Lake County, our expert team is ready to help you with 
+          Mailbox Plus is dedicated to making shipping easy for the residents of <strong>Concord Township, Ohio</strong>.
+          Whether you&apos;re in Mentor, Painesville, or anywhere in Lake County, our expert team is ready to help you with
           all your package needs.
         </p>
       </section>

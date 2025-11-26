@@ -11,7 +11,7 @@ export const PackageDropOffs: React.FC = () => {
       <div className="my-8">
         <p className="text-gray-700 leading-relaxed">
           We accept drop-offs for <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS</InternalLink>, <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx</InternalLink>, <InternalLink variant="geo" to="/pack-ship/usps-services">USPS</InternalLink>, and <InternalLink variant="geo" to="/pack-ship/dhl-express">DHL</InternalLink>.
-          Simply bring in your labeled package and we'll handle the rest.
+          Simply bring in your labeled package and we&apos;ll handle the rest.
         </p>
       </div>
     </ServicePage>

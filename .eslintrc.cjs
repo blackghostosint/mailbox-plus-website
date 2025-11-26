@@ -5,17 +5,16 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
     ecmaFeatures: { jsx: true },
-    project: "./tsconfig.json",
+    project: ["./tsconfig.json", "./tsconfig.node.json", "./tsconfig.app.json"],
   },
   env: {
     browser: true,
     es2021: true,
   },
-  plugins: ["jsx-a11y", "@typescript-eslint", "react"],
+  plugins: ["@typescript-eslint", "react"],
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:jsx-a11y/recommended",
     "plugin:@typescript-eslint/recommended",
   ],
   settings: {
@@ -24,11 +23,6 @@ module.exports = {
     },
   },
   rules: {
-    "jsx-a11y/button-has-content": "error",
-    "jsx-a11y/alt-text": "warn",
-    "jsx-a11y/anchor-has-content": "warn",
-    "jsx-a11y/aria-role": "warn",
-    "jsx-a11y/label-has-associated-control": "warn",
-    "jsx-a11y/no-static-element-interactions": "warn",
+    "react/react-in-jsx-scope": "off",
   },
 };

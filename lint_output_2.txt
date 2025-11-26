@@ -1,0 +1,90 @@
+
+> vite-react-typescript-starter@0.0.0 lint
+> eslint .
+
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\layout\Header.tsx
+  157:21  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\sections\CTA.tsx
+  100:17  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\sections\CompetitorAlternative.tsx
+  17:416  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\SearchBox.tsx
+  193:77  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  193:85  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\AmazonReturnGuide.tsx
+    4:3   error  'Printer' is defined but never used                              @typescript-eslint/no-unused-vars
+    5:3   error  'Scan' is defined but never used                                 @typescript-eslint/no-unused-vars
+    6:3   error  'Package' is defined but never used                              @typescript-eslint/no-unused-vars
+    7:3   error  'Truck' is defined but never used                                @typescript-eslint/no-unused-vars
+   10:3   error  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+   11:3   error  'ShieldCheck' is defined but never used                          @typescript-eslint/no-unused-vars
+   17:10  error  'CTASection' is defined but never used                           @typescript-eslint/no-unused-vars
+   22:10  error  'getServiceSchema' is defined but never used                     @typescript-eslint/no-unused-vars
+   22:28  error  'getWebPageSchema' is defined but never used                     @typescript-eslint/no-unused-vars
+   34:9   error  'url' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+  229:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ContactUs.tsx
+  122:71  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  180:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  337:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\FaxServices.tsx
+  14:62  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\NotFound.tsx
+  21:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  21:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PackageDropOffs.tsx
+  14:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PickupHours.tsx
+    3:10   error  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+    3:17   error  'Box' is defined but never used                                  @typescript-eslint/no-unused-vars
+  207:153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PostageStamps.tsx
+  14:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ServiceAreaPage.tsx
+  5:10  error  'siteConfig' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ShippingPartners.tsx
+  27:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\StoreHours.tsx
+  48:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Tracking.tsx
+  285:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\mail-forwarding-concord-township.tsx
+   25:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   39:96  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   41:82  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\pack-and-ship-services-concord-township.tsx
+  68:79  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\printing-services-concord-township.tsx
+   27:107  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  122:89   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\usps-package-help-concord-township.tsx
+  71:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\internal-links.ts
+  25:34  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  38:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  45:38  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 43 problems (43 errors, 0 warnings)
+

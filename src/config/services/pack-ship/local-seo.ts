@@ -11,6 +11,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "UPS Drop Off Alternative",
         slug: "/ups-drop-off-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/ups-drop-off-alternative-concord-township",
         pageTitle: "UPS Drop Off Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "The best UPS Drop Off Alternative in Concord Township. Fast, friendly drop-off service for UPS, FedEx, USPS, and DHL packages. Skip the lines.",
         keywords: "UPS drop off, Concord Township, Mailbox Plus, shipping",
@@ -18,7 +19,7 @@ export const localSeoServices: Service[] = [
         heroSubtitle: "Looking for a quick and easy UPS drop-off location in Concord Township, Ohio? Mailbox Plus is your local solution.",
         heroImage: getServiceImageUrl("/images/ups-shipping.webp"),
         content: [
-             {
+            {
                 heading: "Convenient UPS Drop Off in Concord Township: Mailbox Plus",
                 body: "Looking for a quick and easy <strong>UPS drop-off location in Concord Township, Ohio</strong>? \nMailbox Plus is your local solution. As an authorized shipping outlet, we accept all pre-labeled UPS packages. \nSkip the long lines at The UPS Store and drop off your packages with us in seconds. We also offer \n<strong> FedEx, USPS, and DHL</strong> services, making us the ultimate hub for all your shipping needs."
             },
@@ -32,9 +33,9 @@ export const localSeoServices: Service[] = [
             }
         ],
         features: [
-             { title: "Speed", description: "We get you in and out fast so you can get back to your day.", icon: Clock },
-             { title: "No Waiting", description: "Avoid the crowds and long lines typical of franchise stores.", icon: Users },
-             { title: "Receipts", description: "We provide a drop-off receipt for tracking and peace of mind.", icon: FileText }
+            { title: "Speed", description: "We get you in and out fast so you can get back to your day.", icon: Clock },
+            { title: "No Waiting", description: "Avoid the crowds and long lines typical of franchise stores.", icon: Users },
+            { title: "Receipts", description: "We provide a drop-off receipt for tracking and peace of mind.", icon: FileText }
         ],
         faqs: [
             {
@@ -57,6 +58,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "UPS Store Alternative",
         slug: "/ups-store-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/ups-store-alternative-concord-township",
         pageTitle: "UPS Store Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Looking for a UPS Store Alternative in Concord Township? We offer UPS shipping, mailbox rentals, and printing services with multi-carrier options and personal service.",
         keywords: "UPS Store alternative, Concord Township, Mailbox Plus, shipping",
@@ -103,6 +105,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "Mail Boxes Etc. Alternative",
         slug: "/mail-boxes-etc-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/mail-boxes-etc-alternative-concord-township",
         pageTitle: "Mail Boxes Etc. Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "The premier Mail Boxes Etc. Alternative in Concord Township. Full-service packing, shipping, and business services. Locally owned and operated.",
         keywords: "Mail Boxes Etc. alternative, Concord Township, Mailbox Plus, shipping",
@@ -149,6 +152,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "FedEx Office Alternative",
         slug: "/fedex-office-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/fedex-office-alternative-concord-township",
         pageTitle: "FedEx Office Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Your local FedEx Office Alternative in Concord Township. Authorized FedEx shipping, printing, and business services. Compare rates with UPS and USPS.",
         keywords: "FedEx Office alternative, Concord Township, Mailbox Plus, shipping",
@@ -195,6 +199,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "Post Office Alternative",
         slug: "/post-office-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/post-office-alternative-concord-township",
         pageTitle: "Post Office Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Skip the Post Office lines! We are your Post Office Alternative in Concord Township. Authorized USPS shipping, stamps, and mail services.",
         keywords: "Post Office alternative, Concord Township, Mailbox Plus, shipping",
@@ -241,6 +246,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "Shipping Center",
         slug: "/shipping-center-concord-township",
+        canonicalUrl: "https://mailboxplus.com/shipping-center-concord-township",
         pageTitle: "Shipping Center in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Premier Shipping Center in Concord Township. Authorized for UPS, FedEx, USPS, and DHL. Compare rates and save on your shipping needs.",
         keywords: "shipping center, Concord Township, Mailbox Plus, shipping",
@@ -287,6 +293,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "Pack and Ship Services",
         slug: "/pack-and-ship-services-concord-township",
+        canonicalUrl: "https://mailboxplus.com/pack-and-ship-services-concord-township",
         pageTitle: "Pack and Ship Services in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Professional Pack and Ship Services in Concord Township. We pack it right so it arrives safe. Authorized shipper for all major carriers.",
         keywords: "pack and ship services, Concord Township, Mailbox Plus, shipping",
@@ -345,6 +352,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "UPS, FedEx, USPS, DHL Shipping",
         slug: "/ups-fedex-usps-dhl-shipping-concord-township",
+        canonicalUrl: "https://mailboxplus.com/ups-fedex-usps-dhl-shipping-concord-township",
         pageTitle: "UPS, FedEx, USPS, DHL Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Ship with UPS, FedEx, USPS, and DHL all in one place in Concord Township. Compare shipping rates and delivery times to find the best option.",
         keywords: "UPS FedEx USPS DHL shipping, Concord Township, Mailbox Plus",
@@ -391,6 +399,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "Small Business Shipping",
         slug: "/small-business-shipping-concord-township",
+        canonicalUrl: "https://mailboxplus.com/small-business-shipping-concord-township",
         pageTitle: "Small Business Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Small Business Shipping solutions in Concord Township. We act as your shipping department, offering multi-carrier options and business services.",
         keywords: "small business shipping, Concord Township, Mailbox Plus",
@@ -437,6 +446,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "USPS Drop Off Alternative",
         slug: "/usps-drop-off-alternative-concord-township",
+        canonicalUrl: "https://mailboxplus.com/usps-drop-off-alternative-concord-township",
         pageTitle: "USPS Drop Off Alternative in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Quick and easy USPS Drop Off Alternative in Concord Township. Authorized acceptance for pre-labeled USPS packages. No long lines.",
         keywords: "USPS drop off alternative, Concord Township, Mailbox Plus",
@@ -483,6 +493,7 @@ export const localSeoServices: Service[] = [
         city: "Concord Township",
         serviceName: "USPS Package Help",
         slug: "/usps-package-help-concord-township",
+        canonicalUrl: "https://mailboxplus.com/usps-package-help-concord-township",
         pageTitle: "USPS Package Help in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Expert USPS Package Help in Concord Township. Get assistance with postage, packing, and shipping questions from our knowledgeable staff.",
         keywords: "USPS package help, Concord Township, Mailbox Plus",

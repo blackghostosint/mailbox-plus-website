@@ -1,5 +1,5 @@
 import {
-    Truck, Shield, Globe, Mail, Package, Star, Box
+    Truck, Shield, Globe, Mail, Package, Star
 } from "lucide-react";
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
@@ -19,6 +19,7 @@ export const carrierServices: Service[] = [
         city: "Concord Township",
         serviceName: "FedEx Shipping",
         slug: "/pack-ship/fedex-shipping",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/fedex-shipping",
         pageTitle: "FedEx Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Authorized FedEx ShipCenter in Concord Township. Express, Ground, and International shipping services. Packing, labeling, and drop-offs available.",
         keywords: "fedex shipping, concord township, lake county",
@@ -59,6 +60,7 @@ Visit us today and experience the convenience of working with a local FedEx part
         city: "Concord Township",
         serviceName: "UPS Authorized Shipper Outlet",
         slug: "/pack-ship/ups-authorized-shipper-outlet",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/ups-authorized-shipper-outlet",
         pageTitle: "UPS Authorized Shipper Outlet in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "UPS Authorized Shipping Outlet in Concord Township. Ship UPS Ground, Next Day Air, and International. Drop off pre-labeled packages for free.",
         keywords: "ups shipping, concord township, lake county",
@@ -99,6 +101,7 @@ If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an
         city: "Concord Township",
         serviceName: "USPS Postal Services",
         slug: "/pack-ship/usps-services",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/usps-services",
         pageTitle: "USPS Postal Services in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Official USPS postal services in Concord Township. Buy stamps, send Priority Mail, and ship packages without the long post office lines.",
         keywords: "usps, postal services, concord township, lake county",
@@ -139,6 +142,7 @@ If you’re searching for <em>USPS services near Concord Township</em> or need <
         city: "Concord Township",
         serviceName: "DHL Express",
         slug: "/pack-ship/dhl-express",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/dhl-express",
         pageTitle: "DHL Express in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "DHL Express Service Point in Concord Township. Fast and reliable international shipping. We help with customs forms and packaging.",
         keywords: "dhl shipping, concord township, lake county",
@@ -179,6 +183,7 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
         city: "Concord Township",
         serviceName: "Postage Stamps",
         slug: "/pack-ship/postage-stamps",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/postage-stamps",
         pageTitle: "Postage Stamps in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Buy postage stamps in Concord Township. Forever stamps, international stamps, and metered mail services available. Skip the post office wait.",
         keywords: "postage stamps, USPS stamps, Concord Township, Lake County",

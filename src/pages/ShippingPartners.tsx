@@ -24,7 +24,7 @@ const ShippingPartners: React.FC = () => {
             Our Shipping <span className="text-[#60A5FA]">Partners</span>
           </motion.h1>
           <motion.p {...fadeUp(0.15)} className="text-xl text-blue-100 mb-8 leading-relaxed">
-            We're proud to work with a wide range of businesses who trust Mailbox Plus for their packing, shipping, and logistics needs.
+            We&apos;re proud to work with a wide range of businesses who trust Mailbox Plus for their packing, shipping, and logistics needs.
           </motion.p>
         </div>
       </section>

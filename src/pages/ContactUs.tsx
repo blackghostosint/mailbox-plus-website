@@ -104,7 +104,7 @@ export const ContactUs: React.FC = () => {
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -113,13 +113,13 @@ export const ContactUs: React.FC = () => {
               Get in{' '}
               <span className="text-[#0855B1]">Touch</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              Visit our store in Concord Twp., or contact us today. We're here to help 
+              Visit our store in Concord Twp., or contact us today. We&apos;re here to help
               with all your shipping, printing, and business service needs.
             </motion.p>
           </div>
@@ -147,7 +147,7 @@ export const ContactUs: React.FC = () => {
                 <p className="text-[#4B5563] mb-4 leading-relaxed">
                   {info.details}
                 </p>
-                <a 
+                <a
                   href={info.action}
                   target={info.title === 'Address' ? '_blank' : undefined}
                   rel={info.title === 'Address' ? 'noopener noreferrer' : undefined}
@@ -176,8 +176,8 @@ export const ContactUs: React.FC = () => {
                 Send Us a Message
               </h2>
               <p className="text-[#4B5563] mb-8 leading-relaxed">
-                Have a question about our services or need a custom quote? 
-                Fill out the form below and we'll get back to you promptly.
+                Have a question about our services or need a custom quote?
+                Fill out the form below and we&apos;ll get back to you promptly.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -334,7 +334,7 @@ export const ContactUs: React.FC = () => {
               <div className="bg-white border border-gray-200 rounded-2xl p-6">
                 <h4 className="font-semibold text-[#111827] mb-3">Getting Here</h4>
                 <p className="text-sm text-[#4B5563] leading-relaxed">
-                  We're conveniently located nextdoor to Pub Frato, just minutes from I-90 and OH-44. 
+                  We&apos;re conveniently located nextdoor to Pub Frato, just minutes from I-90 and OH-44.
                   Plenty of free parking available. Look for our red Mailbox Plus sign!
                 </p>
               </div>

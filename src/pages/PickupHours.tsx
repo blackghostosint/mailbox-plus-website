@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Clock, Box, MapPin, Truck } from "lucide-react";
+import { MapPin, Truck } from "lucide-react";
 import { Meta } from "../components/Meta";
 import { InternalLink } from "../components/ui/InternalLink";
 import { JsonLd } from "../components/JsonLd";
@@ -145,7 +145,7 @@ const PickupHours: React.FC = () => {
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="mb-8">
-           <AutoBreadcrumbs />
+          <AutoBreadcrumbs />
         </div>
 
         {/* Intro Text */}
@@ -169,7 +169,7 @@ const PickupHours: React.FC = () => {
               className={`relative rounded-2xl p-8 border ${item.color} shadow-sm hover:shadow-md transition-shadow`}
             >
               <div className="absolute top-0 left-0 w-2 h-full rounded-l-2xl bg-current opacity-20" />
-              
+
               <div className="flex items-center gap-4 mb-6">
                 <Truck className={`w-8 h-8 ${item.iconColor}`} />
                 <h2 className="text-2xl font-bold text-gray-900">{item.carrier}</h2>
@@ -195,18 +195,18 @@ const PickupHours: React.FC = () => {
         {/* Local SEO Section */}
         <section className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-16 border border-gray-100">
           <div className="max-w-4xl mx-auto">
-             <div className="flex items-start gap-4 mb-6">
-                <MapPin className="w-6 h-6 text-[#0855B1] mt-1 flex-shrink-0" />
-                <h3 className="text-2xl font-bold text-gray-900">Serving Lake County & Surrounding Areas</h3>
-             </div>
-             <p className="text-gray-700 leading-relaxed mb-6">
-               Whether you are coming from <InternalLink variant="geo" to="/pack-ship">Mentor</InternalLink>, <InternalLink variant="geo" to="/pack-ship">Painesville</InternalLink>, or right here in <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>, 
-               Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the post office or the remote drop boxes that may not be secure.
-             </p>
-             <p className="text-gray-700 leading-relaxed">
-               We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid labels, and can help you pack your items if they aren't ready to ship. 
-               Visit our <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a secure place to receive packages instead of sending them!
-             </p>
+            <div className="flex items-start gap-4 mb-6">
+              <MapPin className="w-6 h-6 text-[#0855B1] mt-1 flex-shrink-0" />
+              <h3 className="text-2xl font-bold text-gray-900">Serving Lake County & Surrounding Areas</h3>
+            </div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+              Whether you are coming from <InternalLink variant="geo" to="/pack-ship">Mentor</InternalLink>, <InternalLink variant="geo" to="/pack-ship">Painesville</InternalLink>, or right here in <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>,
+              Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the post office or the remote drop boxes that may not be secure.
+            </p>
+            <p className="text-gray-700 leading-relaxed">
+              We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid labels, and can help you pack your items if they aren&apos;t ready to ship.
+              Visit our <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a secure place to receive packages instead of sending them!
+            </p>
           </div>
         </section>
 

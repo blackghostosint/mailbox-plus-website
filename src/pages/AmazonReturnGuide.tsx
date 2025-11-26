@@ -1,25 +1,16 @@
 import React from "react";
 import { motion } from "framer-motion";
 import {
-  Printer,
-  Scan,
-  Package,
-  Truck,
   CheckCircle,
   MapPin,
-  Clock,
-  ShieldCheck,
   AlertTriangle,
   HelpCircle,
   XCircle
 } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd } from "../components";
-import { CTASection } from "../components/sections/CTA";
 import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
 import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
-import { siteConfig } from "../config/siteConfig";
-import { getServiceSchema, getWebPageSchema } from "../utils/schema";
 import { getServiceImageUrl } from "../lib/storage";
 import {
   Accordion,
@@ -31,7 +22,6 @@ import { SmartImage } from "../components/SmartImage";
 
 export const AmazonReturnGuide: React.FC = () => {
   const service = services.find((s) => s.id === "amazon-returns")!;
-  const url = `${siteConfig.domain}${service.slug}`;
 
   // JSON-LD Data
   const localBusinessSchema = {
@@ -168,10 +158,10 @@ export const AmazonReturnGuide: React.FC = () => {
       <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
         <div className="absolute inset-0 z-0 opacity-25">
           <SmartImage
-             priority
-             src={service.heroImage}
-             alt="Amazon Returns at Mailbox Plus"
-             className="w-full h-full object-cover"
+            priority
+            src={service.heroImage}
+            alt="Amazon Returns at Mailbox Plus"
+            className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-black/40" />
         </div>
@@ -188,9 +178,9 @@ export const AmazonReturnGuide: React.FC = () => {
               (Local Guide for Lake County, Ohio)
             </span>
           </motion.h1>
-          
+
           {/* NOTICE BOX */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -201,7 +191,7 @@ export const AmazonReturnGuide: React.FC = () => {
               <div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">⚠️ Important Amazon QR-Code Notice</h3>
                 <p className="text-gray-700 mb-4">
-                  Mailbox Plus <strong>cannot scan or accept Amazon QR codes</strong> for label-free returns. 
+                  Mailbox Plus <strong>cannot scan or accept Amazon QR codes</strong> for label-free returns.
                   Amazon requires QR-code returns to be processed ONLY at Amazon-authorized partner locations (The UPS Store, Whole Foods, Kohl’s, Amazon Hub, etc.).
                 </p>
                 <div className="bg-green-50 border border-green-200 p-4 rounded-lg">
@@ -222,11 +212,11 @@ export const AmazonReturnGuide: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
           <p className="text-lg text-gray-600 leading-relaxed mb-6">
-            Returning an item to Amazon doesn’t have to be confusing. If you live in Concord Township, Painesville, Mentor, Eastlake, Willoughby, or anywhere in Lake County, Ohio, Mailbox Plus is here to make your Amazon returns simple. We help you pack, label, and ship your Amazon return—<strong>as long as Amazon provides a printable label</strong>.
+            Returning an item to Amazon doesn&apos;t have to be confusing. If you live in Concord Township, Painesville, Mentor, Eastlake, Willoughby, or anywhere in Lake County, Ohio, Mailbox Plus is here to make your Amazon returns simple. We help you pack, label, and ship your Amazon return—<strong>as long as Amazon provides a printable label</strong>.
           </p>
           <p className="text-lg text-gray-600 leading-relaxed">
             Mailbox Plus is your convenient <InternalLink variant="geo" to="/amazon-returns-drop-off-concord-township">Amazon returns drop-off location</InternalLink> for pre-labeled packages.
-            While you're here, we can also help with <InternalLink variant="geo" to="/pack-ship">packing other shipments</InternalLink> or
+            While you&apos;re here, we can also help with <InternalLink variant="geo" to="/pack-ship">packing other shipments</InternalLink> or
             <InternalLink variant="geo" to="/shipping">comparing shipping rates</InternalLink> for your personal or business needs.
           </p>
         </div>
@@ -248,7 +238,7 @@ export const AmazonReturnGuide: React.FC = () => {
               </li>
               <li className="flex items-start gap-3">
                 <CheckCircle className="w-6 h-6 text-[#0855B1] shrink-0 mt-1" />
-                <span className="text-gray-700 text-lg">Always check your Amazon “Your Orders” page for exact eligibility and deadlines.</span>
+                <span className="text-gray-700 text-lg">Always check your Amazon &ldquo;Your Orders&rdquo; page for exact eligibility and deadlines.</span>
               </li>
             </ul>
           </div>
@@ -259,18 +249,18 @@ export const AmazonReturnGuide: React.FC = () => {
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#111827] mb-10 text-center">Step-by-Step: How to Start an Amazon Return</h2>
-          
+
           <div className="space-y-12">
             {[
               {
                 title: "Start Your Return in the Amazon App",
                 image: "step-01-return-replace-your-item.webp",
-                description: "Open the Amazon app or website and navigate to **\"Your Orders.\"** Locate the item you wish to return to begin the process."
+                description: "Open the Amazon app or website and navigate to **&quot;Your Orders.&quot;** Locate the item you wish to return to begin the process."
               },
               {
                 title: "Pick Your Reason for Returning",
                 image: "step-02-why-are-you-returning-your-item.webp",
-                description: "Select the specific reason for your return from the provided list (e.g., \"defective,\" \"no longer needed\"). This helps Amazon process your request accurately."
+                description: "Select the specific reason for your return from the provided list (e.g., &quot;defective,&quot; &quot;no longer needed&quot;). This helps Amazon process your request accurately."
               },
               {
                 title: "Confirm the Packaging Status",
@@ -290,12 +280,12 @@ export const AmazonReturnGuide: React.FC = () => {
               {
                 title: "Choose UPS Drop-Off (We can handle the Label!)",
                 image: "step-06-choose-ups-dropoff.webp",
-                description: "**Crucial Step:** Select a return method that provides a **printable shipping label** (often labeled as UPS Drop-off Points). *Avoid \"No Box/No Label\" options if you want to use Mailbox Plus.*"
+                description: "**Crucial Step:** Select a return method that provides a **printable shipping label** (often labeled as UPS Drop-off Points). *Avoid &quot;No Box/No Label&quot; options if you want to use Mailbox Plus.*"
               },
               {
                 title: "Share Your Return Label With Us ($2.00 fee)",
                 image: "step-07-share-label-with-friend.webp",
-                description: "No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to **\"Share\"** or **\"Email\"** the label from the app."
+                description: "No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to **&quot;Share&quot;** or **&quot;Email&quot;** the label from the app."
               },
               {
                 title: "Email the Label to Us",
@@ -327,7 +317,7 @@ export const AmazonReturnGuide: React.FC = () => {
                     </div>
                     <h3 className="text-lg font-bold text-[#0855B1] md:hidden">{step.title}</h3>
                   </div>
-                  
+
                   <div className="relative rounded-lg overflow-hidden border border-gray-200 shadow-md bg-white group">
                     <SmartImage
                       src={getServiceImageUrl(`/images/${step.image}`)}
@@ -376,7 +366,7 @@ export const AmazonReturnGuide: React.FC = () => {
                   <p>We <strong>can</strong> assist with any Amazon return that includes a <strong>printable shipping label</strong>.</p>
                 </div>
               </div>
-              
+
               <div className="space-y-3">
                 <p className="font-semibold text-lg mb-2">Services We Provide:</p>
                 {[
@@ -384,7 +374,7 @@ export const AmazonReturnGuide: React.FC = () => {
                   "Supply proper packaging",
                   "Professionally pack fragile or valuable items",
                   "Prepare shipments for UPS, USPS, or FedEx (based on the label Amazon issued)",
-                  "Help customers understand Amazon’s return instructions"
+                  "Help customers understand Amazon&apos;s return instructions"
                 ].map((item, i) => (
                   <div key={i} className="flex items-center gap-2 text-gray-300">
                     <div className="w-1.5 h-1.5 rounded-full bg-blue-400" />
@@ -397,11 +387,11 @@ export const AmazonReturnGuide: React.FC = () => {
             <div className="bg-white/10 p-8 rounded-2xl backdrop-blur-sm border border-white/10">
               <h3 className="text-xl font-bold mb-4 text-blue-200">Why Choose Us?</h3>
               <p className="text-gray-300 leading-relaxed mb-6">
-                “At Mailbox Plus, we assist residents throughout Concord Township, Mentor, Painesville, Eastlake, Willoughby, and the rest of Lake County. We’re a local, owner-operated pack-and-ship store—when Amazon’s instructions get confusing, you can talk to a real person.”
+                &ldquo;At Mailbox Plus, we assist residents throughout Concord Township, Mentor, Painesville, Eastlake, Willoughby, and the rest of Lake County. We&apos;re a local, owner-operated pack-and-ship store—when Amazon&apos;s instructions get confusing, you can talk to a real person.&rdquo;
               </p>
               <div className="flex items-center gap-4 text-sm text-gray-400">
-                 <MapPin className="w-5 h-5" />
-                 <span>7554 Fredle Drive, Concord Township, OH</span>
+                <MapPin className="w-5 h-5" />
+                <span>7554 Fredle Drive, Concord Township, OH</span>
               </div>
             </div>
           </div>
@@ -428,7 +418,7 @@ export const AmazonReturnGuide: React.FC = () => {
             ))}
           </div>
           <p className="text-center mt-8 font-medium text-red-600">
-            “If Amazon only provides a QR code with no printable label, you must take that return to an authorized Amazon partner.”
+            &ldquo;If Amazon only provides a QR code with no printable label, you must take that return to an authorized Amazon partner.&rdquo;
           </p>
         </div>
       </section>
@@ -464,7 +454,7 @@ export const AmazonReturnGuide: React.FC = () => {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-[#111827] mb-4">Holiday Return Extensions</h2>
           <p className="text-lg text-gray-600">
-            During the holiday season (typically November and December), Amazon often extends its return window. 
+            During the holiday season (typically November and December), Amazon often extends its return window.
             This means gifts purchased early can often be returned into January. Check your order details for specific deadlines.
           </p>
         </div>
@@ -529,7 +519,7 @@ export const AmazonReturnGuide: React.FC = () => {
           <h2 className="text-3xl font-bold mb-8">Visit Mailbox Plus Today</h2>
 
           <p className="text-gray-300 mb-8">
-            We’re conveniently located near I-90 and OH-44, serving Concord Township, Painesville, Mentor, Eastlake, Willoughby, and the surrounding Lake County communities.
+            We&apos;re conveniently located near I-90 and OH-44, serving Concord Township, Painesville, Mentor, Eastlake, Willoughby, and the surrounding Lake County communities.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">

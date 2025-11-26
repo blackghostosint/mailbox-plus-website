@@ -117,11 +117,10 @@ export const SearchBox: React.FC = () => {
           aria-expanded={isOpen}
           aria-haspopup="dialog"
           aria-controls="search-results"
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${
-            isOpen
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${isOpen
               ? 'border-[#0855B1] bg-white shadow-lg w-80'
               : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
-          }`}
+            }`}
         >
           <span className="sr-only">
             {isOpen ? 'Focus the service search input' : 'Open service search'}
@@ -190,7 +189,7 @@ export const SearchBox: React.FC = () => {
               </div>
             ) : query.trim() !== '' ? (
               <div className="py-8 text-center">
-                <p className="text-sm text-[#4B5563]">No services found for "{query}"</p>
+                <p className="text-sm text-[#4B5563]">No services found for &quot;{query}&quot;</p>
                 <p className="text-xs text-[#4B5563] mt-1">
                   Try searching for shipping, printing, or business services
                 </p>
@@ -212,7 +211,7 @@ export const SearchBox: React.FC = () => {
                 </div>
               </div>
             )}
-        </motion.div>
+          </motion.div>
         )}
       </AnimatePresence>
     </motion.div>

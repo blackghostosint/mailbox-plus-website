@@ -1,9 +1,10 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 
 // Helper for lazy loading named exports
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const lazyLoad = (importFunc: () => Promise<any>, componentName: string) => {
   return React.lazy(() =>
     importFunc().then((module) => ({ default: module[componentName] }))
@@ -98,7 +99,7 @@ const AskMailboxPlus = React.lazy(() => import("./pages/ask-mailbox-plus")); // 
 const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
 
 const DebugRoutes: React.FC = () => {
-  const location = useLocation();
+  // const location = useLocation();
   // console.log('Current location:', location.pathname);
   return null;
 };
@@ -110,97 +111,97 @@ const App: React.FC = () => {
       <ScrollToTop />
       <Layout>
         <DebugRoutes />
-        <React.Suspense fallback={<div style={{padding: 32, textAlign: "center"}}>Loading…</div>}>
-        <Routes>
-        {/* Homepage */}
-        <Route path="/" element={<Home />} />
+        <React.Suspense fallback={<div style={{ padding: 32, textAlign: "center" }}>Loading…</div>}>
+          <Routes>
+            {/* Homepage */}
+            <Route path="/" element={<Home />} />
 
-        {/* Service Landing Pages */}
-        <Route path="/copy-print" element={<CopyPrint />} />
-        <Route path="/home-business" element={<HomeBusiness />} />
+            {/* Service Landing Pages */}
+            <Route path="/copy-print" element={<CopyPrint />} />
+            <Route path="/home-business" element={<HomeBusiness />} />
 
-        {/* SEO Landing Pages */}
-        <Route path="/ups-store-alternative-concord-township" element={<UPSStoreAlternativePage />} />
-        <Route path="/mail-boxes-etc-alternative-concord-township" element={<MailBoxesEtcAlternativePage />} />
-        <Route path="/fedex-office-alternative-concord-township" element={<FedExOfficeAlternativePage />} />
-        <Route path="/staples-printing-alternative-concord-township" element={<StaplesAlternativePage />} />
-        <Route path="/office-depot-alternative-concord-township" element={<OfficeDepotAlternativePage />} />
-        <Route path="/usps-drop-off-alternative-concord-township" element={<USPSDropOffAlternativePage />} />
-        <Route path="/post-office-alternative-concord-township" element={<PostOfficeAlternativePage />} />
-        <Route path="/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
-        <Route path="/shipping-center-concord-township" element={<ShippingCenterPage />} />
-        <Route path="/pack-and-ship-services-concord-township" element={<PackAndShipServicesPage />} />
-        <Route path="/ups-fedex-usps-dhl-shipping-concord-township" element={<MultiCarrierShippingPage />} />
-        <Route path="/small-business-shipping-concord-township" element={<SmallBusinessShippingPage />} />
-        <Route path="/amazon-returns-drop-off-concord-township" element={<AmazonReturnsPage />} />
-        <Route path="/ups-drop-off-alternative-concord-township" element={<UPSDropOffAlternativePage />} />
-        <Route path="/printing-services-concord-township" element={<PrintingServicesPage />} />
-        <Route path="/business-services-concord-township" element={<BusinessServicesPage />} />
-        <Route path="/document-services-concord-township" element={<DocumentServicesPage />} />
-        <Route path="/private-mailbox-rental-concord-township" element={<PrivateMailboxRentalPage />} />
-        <Route path="/virtual-mailbox-concord-township" element={<VirtualMailboxPage />} />
-        <Route path="/mail-forwarding-concord-township" element={<MailForwardingPage />} />
+            {/* SEO Landing Pages */}
+            <Route path="/ups-store-alternative-concord-township" element={<UPSStoreAlternativePage />} />
+            <Route path="/mail-boxes-etc-alternative-concord-township" element={<MailBoxesEtcAlternativePage />} />
+            <Route path="/fedex-office-alternative-concord-township" element={<FedExOfficeAlternativePage />} />
+            <Route path="/staples-printing-alternative-concord-township" element={<StaplesAlternativePage />} />
+            <Route path="/office-depot-alternative-concord-township" element={<OfficeDepotAlternativePage />} />
+            <Route path="/usps-drop-off-alternative-concord-township" element={<USPSDropOffAlternativePage />} />
+            <Route path="/post-office-alternative-concord-township" element={<PostOfficeAlternativePage />} />
+            <Route path="/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
+            <Route path="/shipping-center-concord-township" element={<ShippingCenterPage />} />
+            <Route path="/pack-and-ship-services-concord-township" element={<PackAndShipServicesPage />} />
+            <Route path="/ups-fedex-usps-dhl-shipping-concord-township" element={<MultiCarrierShippingPage />} />
+            <Route path="/small-business-shipping-concord-township" element={<SmallBusinessShippingPage />} />
+            <Route path="/amazon-returns-drop-off-concord-township" element={<AmazonReturnsPage />} />
+            <Route path="/ups-drop-off-alternative-concord-township" element={<UPSDropOffAlternativePage />} />
+            <Route path="/printing-services-concord-township" element={<PrintingServicesPage />} />
+            <Route path="/business-services-concord-township" element={<BusinessServicesPage />} />
+            <Route path="/document-services-concord-township" element={<DocumentServicesPage />} />
+            <Route path="/private-mailbox-rental-concord-township" element={<PrivateMailboxRentalPage />} />
+            <Route path="/virtual-mailbox-concord-township" element={<VirtualMailboxPage />} />
+            <Route path="/mail-forwarding-concord-township" element={<MailForwardingPage />} />
 
-        {/* Pack & Ship Landing Page */}
-        <Route path="/pack-ship" element={<PackShip />} />
+            {/* Pack & Ship Landing Page */}
+            <Route path="/pack-ship" element={<PackShip />} />
 
-        {/* Pack & Ship */}
-        <Route path="/pack-ship/artwork-shipping" element={<ArtworkShipping />} />
-        <Route path="/pack-ship/bicycle-shipping" element={<BicycleShipping />} />
-        <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
-        <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
-        <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
-        <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
-        <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
-        <Route path="/pack-ship/usps-services" element={<USPSServices />} />
-        <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
-        {/* <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} /> */}
-        <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
-        <Route path="/pack-ship/package-receiving" element={<PackageReceiving />} />
-        <Route path="/pack-ship/custom-box-making" element={<CustomBoxMaking />} />
-        <Route path="/pack-ship/professional-packing" element={<ProfessionalPacking />} />
-        <Route path="/pack-ship/packaging-supplies" element={<PackagingSupplies />} />
-        <Route path="/pack-ship/postage-stamps" element={<PostageStamps />} />
+            {/* Pack & Ship */}
+            <Route path="/pack-ship/artwork-shipping" element={<ArtworkShipping />} />
+            <Route path="/pack-ship/bicycle-shipping" element={<BicycleShipping />} />
+            <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
+            <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
+            <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
+            <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
+            <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
+            <Route path="/pack-ship/usps-services" element={<USPSServices />} />
+            <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
+            {/* <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} /> */}
+            <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
+            <Route path="/pack-ship/package-receiving" element={<PackageReceiving />} />
+            <Route path="/pack-ship/custom-box-making" element={<CustomBoxMaking />} />
+            <Route path="/pack-ship/professional-packing" element={<ProfessionalPacking />} />
+            <Route path="/pack-ship/packaging-supplies" element={<PackagingSupplies />} />
+            <Route path="/pack-ship/postage-stamps" element={<PostageStamps />} />
 
-        {/* Copy & Print */}
-        <Route path="/copy-print/business-cards" element={<BusinessCardsPage />} />
-        <Route path="/copy-print/flyers-brochures" element={<FlyersBrochures />} />
-        <Route path="/copy-print/posters-printing" element={<PostersPrinting />} />
-        <Route path="/copy-print/postcard-printing" element={<PostcardPrinting />} />
-        { /* <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} /> */ }
-        <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
-        <Route path="/copy-print/graphic-design" element={<GraphicDesign />} />
-        <Route path="/copy-print/copies" element={<Copies />} />
+            {/* Copy & Print */}
+            <Route path="/copy-print/business-cards" element={<BusinessCardsPage />} />
+            <Route path="/copy-print/flyers-brochures" element={<FlyersBrochures />} />
+            <Route path="/copy-print/posters-printing" element={<PostersPrinting />} />
+            <Route path="/copy-print/postcard-printing" element={<PostcardPrinting />} />
+            { /* <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} /> */}
+            <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
+            <Route path="/copy-print/graphic-design" element={<GraphicDesign />} />
+            <Route path="/copy-print/copies" element={<Copies />} />
 
-        {/* Home & Business */}
-        <Route path="/home-business/mailbox-rental" element={<MailboxRentalPage />} />
-        <Route path="/home-business/digital-mailbox-rental" element={<DigitalMailboxRental />} />
-        <Route path="/home-business/every-door-direct-mail" element={<EveryDoorDirectMail />} />
-        <Route path="/home-business/shredding" element={<Shredding />} />
-        <Route path="/home-business/document-scanning" element={<DocumentScanning />} />
-        <Route path="/home-business/fax-services" element={<FaxServices />} />
-        <Route path="/home-business/notary-services" element={<NotaryServices />} />
+            {/* Home & Business */}
+            <Route path="/home-business/mailbox-rental" element={<MailboxRentalPage />} />
+            <Route path="/home-business/digital-mailbox-rental" element={<DigitalMailboxRental />} />
+            <Route path="/home-business/every-door-direct-mail" element={<EveryDoorDirectMail />} />
+            <Route path="/home-business/shredding" element={<Shredding />} />
+            <Route path="/home-business/document-scanning" element={<DocumentScanning />} />
+            <Route path="/home-business/fax-services" element={<FaxServices />} />
+            <Route path="/home-business/notary-services" element={<NotaryServices />} />
 
-        {/* Specialty */}
-        <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />
-        <Route path="/specialty/insurance" element={<Insurance />} />
+            {/* Specialty */}
+            <Route path="/specialty/digital-fingerprinting" element={<DigitalFingerprinting />} />
+            <Route path="/specialty/insurance" element={<Insurance />} />
 
-        {/* Additional Pages */}
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/tracking" element={<Tracking />} />
-        <Route path="/service-area" element={<ServiceAreaIndex />} />
-        <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
-        <Route path="/shipping-partners" element={<ShippingPartners />} />
-        <Route path="/pickup-hours" element={<PickupHours />} />
-        <Route path="/ask-mailbox-plus" element={<AskMailboxPlus />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/terms" element={<Terms />} />
+            {/* Additional Pages */}
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/tracking" element={<Tracking />} />
+            <Route path="/service-area" element={<ServiceAreaIndex />} />
+            <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
+            <Route path="/shipping-partners" element={<ShippingPartners />} />
+            <Route path="/pickup-hours" element={<PickupHours />} />
+            <Route path="/ask-mailbox-plus" element={<AskMailboxPlus />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
 
-        {/* Catch-all route for unmatched paths */}
-        <Route path="*" element={<NotFound />} />
-        </Routes>
+            {/* Catch-all route for unmatched paths */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </React.Suspense>
       </Layout>
     </Router>

@@ -18,10 +18,10 @@ export const NotFound: React.FC = () => {
             Page Not Found
           </h1>
           <p className="text-xl text-[#4B5563] mb-8 leading-relaxed">
-            Sorry, we couldn't find the page you're looking for. The page may have been moved, 
+            Sorry, we couldn&apos;t find the page you&apos;re looking for. The page may have been moved,
             deleted, or you may have entered the wrong URL.
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <InternalLink to="/">
               <Button size="lg" className="group">
@@ -30,8 +30,8 @@ export const NotFound: React.FC = () => {
               </Button>
             </InternalLink>
             <Button
-              variant="secondary" 
-              size="lg" 
+              variant="secondary"
+              size="lg"
               onClick={() => window.history.back()}
               className="group"
             >

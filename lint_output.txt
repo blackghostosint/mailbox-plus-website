@@ -1,0 +1,616 @@
+
+> vite-react-typescript-starter@0.0.0 lint
+> eslint .
+
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\netlify\functions\sendEmail.js
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): netlify\functions\sendEmail.js
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\netlify\functions\sendEmail.ts
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): netlify\functions\sendEmail.ts
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\netlify\functions\sendReservationEmail.js
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): netlify\functions\sendReservationEmail.js
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\netlify\functions\verifyRecaptcha.js
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): netlify\functions\verifyRecaptcha.js
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\scripts\generate-a11y-report.js
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): scripts\generate-a11y-report.js
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\scripts\run-lint.js
+  0:0  error  Parsing error: "parserOptions.project" has been provided for @typescript-eslint/parser.
+The file was not found in any of the provided project(s): scripts\run-lint.js
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\App.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\archive\DocumentFinishing.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\archive\InternationalShippingPage.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\archive\PosterBannerPrinting.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\archive\PrintDocumentServices.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\CarrierLogos.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\JsonLd.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\Meta.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ScrollToTop.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ServicePage.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\SmartImage.tsx
+   1:1  error    Definition for rule 'jsx-a11y/button-has-content' was not found                                            jsx-a11y/button-has-content
+  44:9  warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+  55:5  warning  img elements must have an alt prop, either with meaningful text, or an empty string for decorative images  jsx-a11y/alt-text
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\VisitUsButton.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\layout\Footer.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\layout\Header.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found                                                      jsx-a11y/button-has-content
+  157:21  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\layout\Layout.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\sections\CTA.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found                                                      jsx-a11y/button-has-content
+  100:17  error  Use "@ts-expect-error" instead of "@ts-ignore", as "@ts-ignore" will do nothing if the following line is error-free  @typescript-eslint/ban-ts-comment
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\sections\CompetitorAlternative.tsx
+   1:1    error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  17:416  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\sections\ServiceGrid.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\AutoBreadcrumbs.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\Breadcrumbs.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\Button.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\FloatingReviewButton.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\InternalLink.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\SearchBox.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  193:77  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  193:85  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\accordion.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\components\ui\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\categories.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\businessCardsFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\copiesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\documentFinishingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\documentPrintingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\flyersBrochuresFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\graphicDesignFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\postcardPrintingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\posterBannerPrintingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\postersPrintingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\copy-print\printDocumentServicesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\generalCopyPrintFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\generalHomeBusinessFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\generalShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\digitalMailboxRentalFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\documentScanningFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\everyDoorDirectMailFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\faxServicesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\mailboxRentalFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\home-business\shreddingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\notary\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\notary\notaryServicesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\artworkShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\bicycleShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\customBoxMakingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\dhlExpressFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\fedexShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\golfClubShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\internationalShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\packShipFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\packageDropOffsFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\packageReceivingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\packagingSuppliesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\postageStampsFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\professionalPackingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\upsShippingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\pack-ship\uspsServicesFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\specialty\digitalFingerprintingFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\specialty\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\faqs\specialty\insuranceFaqs.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\pageMeta.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\serviceAreas.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\additional-services.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\copy-print.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\core.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\document-services.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\mailbox-rentals.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship\carriers.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship\local-seo.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship\packing-services.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship\receiving-drop-off.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\pack-ship\specialty-shipping.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\services\specialty.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\config\siteConfig.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\data\shippingPartners.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\lib\storage.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\lib\utils.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\main.tsx
+   1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  17:3  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  18:5  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  19:7  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\AboutUs.tsx
+   1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+   9:5  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  10:7  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  15:7  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  16:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  24:7  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  28:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  33:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  34:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  38:7  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  42:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  47:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+  48:9  error  'React' must be in scope when using JSX                          react/react-in-jsx-scope
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\AmazonReturnGuide.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+    4:3   error  'Printer' is defined but never used                              @typescript-eslint/no-unused-vars
+    5:3   error  'Scan' is defined but never used                                 @typescript-eslint/no-unused-vars
+    6:3   error  'Package' is defined but never used                              @typescript-eslint/no-unused-vars
+    7:3   error  'Truck' is defined but never used                                @typescript-eslint/no-unused-vars
+   10:3   error  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+   11:3   error  'ShieldCheck' is defined but never used                          @typescript-eslint/no-unused-vars
+   17:10  error  'CTASection' is defined but never used                           @typescript-eslint/no-unused-vars
+   22:10  error  'getServiceSchema' is defined but never used                     @typescript-eslint/no-unused-vars
+   22:28  error  'getWebPageSchema' is defined but never used                     @typescript-eslint/no-unused-vars
+   34:9   error  'url' is assigned a value but never used                         @typescript-eslint/no-unused-vars
+  229:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ArtworkShipping.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\BicycleShipping.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\BusinessCardsPage.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ContactUs.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  122:71  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  180:47  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  337:21  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Copies.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\CopyPrint.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\CopyingServices.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\CustomBoxMaking.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DHLExpress.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DigitalFingerprinting.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DigitalMailboxRental.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DocumentPrinting.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DocumentScanning.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\DocumentShredding.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\EveryDoorDirectMail.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\FaxServices.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  14:62  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\FedExShipping.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\FlyersBrochures.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\GolfClubShipping.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\GraphicDesign.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Home.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\HomeBusiness.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Insurance.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\MailboxRentalPage.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\NotFound.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  21:29  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  21:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\NotaryServices.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PackShip.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PackageDropOffs.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  14:54  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PackageReceiving.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PackagingSupplies.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PageWrapperTemplate.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PickupHours.tsx
+    1:1    error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+    3:10   error  'Clock' is defined but never used                                @typescript-eslint/no-unused-vars
+    3:17   error  'Box' is defined but never used                                  @typescript-eslint/no-unused-vars
+  207:153  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PostageStamps.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  14:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PostcardPrinting.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PostersPrinting.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\PrintDocumentServices.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Privacy.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ProfessionalPacking.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ServiceAreaIndex.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ServiceAreaPage.tsx
+  1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  5:10  error  'siteConfig' is defined but never used                           @typescript-eslint/no-unused-vars
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Services.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ShippingPartners.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  27:15  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Shredding.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\StoreHours.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  48:64  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Terms.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\Tracking.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  285:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\UPSAuthorizedShipperOutlet.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\USPSServices.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\amazon-returns-drop-off-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ask-mailbox-plus.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\business-services-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\document-services-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\fedex-easy-returns.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\fedex-office-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\mail-boxes-etc-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\mail-forwarding-concord-township.tsx
+    1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+   25:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   39:96  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   41:82  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:16  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  124:50  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\office-depot-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\pack-and-ship-services-concord-township.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  68:79  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\post-office-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\printing-services-concord-township.tsx
+    1:1    error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+   27:107  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  122:89   error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\private-mailbox-rental-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\shipping-center-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\small-business-shipping-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\staples-printing-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ups-drop-off-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ups-fedex-usps-dhl-shipping-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\ups-store-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\usps-drop-off-alternative-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\usps-package-help-concord-township.tsx
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  71:22  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\pages\virtual-mailbox-concord-township.tsx
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\types\faq.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\types\services.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\types\siteConfig.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\animations.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\getServiceImageUrl.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\index.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\internal-links.ts
+   1:1   error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+  25:34  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  38:38  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+  45:38  error  Unexpected any. Specify a different type                         @typescript-eslint/no-explicit-any
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\location.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\schema.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\utils\services-helpers.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+C:\Users\Owner\2025_11_25 Maailbox_Plus\mailbox-plus-bolt\src\vite-env.d.ts
+  1:1  error  Definition for rule 'jsx-a11y/button-has-content' was not found  jsx-a11y/button-has-content
+
+Γ£û 241 problems (239 errors, 2 warnings)
+

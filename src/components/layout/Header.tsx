@@ -100,11 +100,10 @@ export const Header: React.FC = () => {
                 <InternalLink
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors ${
-                    isActive(item.href)
+                  className={`text-sm font-medium transition-colors ${isActive(item.href)
                       ? 'text-[#0855B1]'
                       : 'text-[#4B5563] hover:text-[#0855B1]'
-                  }`}
+                    }`}
                 >
                   {item.name}
                 </InternalLink>
@@ -154,13 +153,11 @@ export const Header: React.FC = () => {
                   <InternalLink
                     key={item.name}
                     to={item.href}
-                    // @ts-ignore - onClick is valid on Link but might not be explicitly defined in InternalLinkProps if it's strictly typed
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block text-base font-medium transition-colors ${
-                      isActive(item.href)
+                    className={`block text-base font-medium transition-colors ${isActive(item.href)
                         ? 'text-[#0855B1]'
                         : 'text-[#4B5563] hover:text-[#0855B1]'
-                    }`}
+                      }`}
                   >
                     {item.name}
                   </InternalLink>

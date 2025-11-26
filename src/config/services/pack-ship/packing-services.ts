@@ -1,5 +1,5 @@
 import {
-    Box, Shield, Package, Star, Scissors
+    Box, Shield, Package, Star
 } from "lucide-react";
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
@@ -17,6 +17,7 @@ export const packingServices: Service[] = [
         city: "Concord Township",
         serviceName: "Custom Box Making",
         slug: "/pack-ship/custom-box-making",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/custom-box-making",
         pageTitle: "Custom Box Making in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Custom box making service in Concord Township. We build heavy-duty, made-to-measure boxes for any item. Protect your shipment with custom packaging.",
         keywords: "custom boxes, packaging, concord township, lake county",
@@ -59,6 +60,7 @@ If you're searching for <em>custom box making near Concord Township</em> or need
         city: "Concord Township",
         serviceName: "Professional Packing",
         slug: "/pack-ship/professional-packing",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/professional-packing",
         pageTitle: "Professional Packing in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Professional packing services in Concord Township. Expert packers for fragile, valuable, and odd-shaped items. We guarantee our packing for safe arrival.",
         keywords: "professional packing, secure shipping, concord township, lake county",
@@ -99,6 +101,7 @@ If you're searching for <em>professional packing near Concord Township</em> or n
         city: "Concord Township",
         serviceName: "Packaging Supplies",
         slug: "/pack-ship/packaging-supplies",
+        canonicalUrl: "https://mailboxplus.com/pack-ship/packaging-supplies",
         pageTitle: "Packaging Supplies in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Packaging supplies store in Concord Township. Boxes, bubble wrap, tape, and packing peanuts available. Everything you need to pack and ship securely.",
         keywords: "shipping supplies, boxes, tape, bubble wrap, concord township",
@@ -129,7 +132,7 @@ If you're looking for <em>packaging supplies near Concord Township</em> or need 
         features: [
             { icon: Package, title: "Variety of Boxes", description: "Multiple sizes and styles available." },
             { icon: Shield, title: "Protective Materials", description: "Bubble wrap, foam, and peanuts for safe shipping." },
-            { icon: Scissors, title: "Everything Else", description: "Tape, labels, and more for your convenience." }
+            { icon: Star, title: "Everything Else", description: "Tape, labels, and more for your convenience." }
         ],
         faqs: [...generalShippingFaqs, ...packagingSuppliesFaqs]
     }

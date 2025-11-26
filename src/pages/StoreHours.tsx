@@ -17,7 +17,7 @@ export const StoreHours: React.FC = () => {
   ];
 
   const holidays = [
-    { name: 'New Year\'s Day', date: 'January 1', status: 'Closed' },
+    { name: 'New Year&apos;s Day', date: 'January 1', status: 'Closed' },
     { name: 'Memorial Day', date: 'Last Monday in May', status: 'Closed' },
     { name: 'Independence Day', date: 'July 4', status: 'Closed' },
     { name: 'Labor Day', date: 'First Monday in September', status: 'Closed' },
@@ -30,7 +30,7 @@ export const StoreHours: React.FC = () => {
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -39,13 +39,13 @@ export const StoreHours: React.FC = () => {
               Store{' '}
               <span className="text-[#0855B1]">Hours</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              Visit us during our convenient business hours. We're here to help with all 
+              Visit us during our convenient business hours. We&apos;re here to help with all
               your shipping, printing, and business service needs.
             </motion.p>
           </div>
@@ -65,7 +65,7 @@ export const StoreHours: React.FC = () => {
               <Clock className="w-8 h-8 text-[#0855B1] mr-4" />
               <h2 className="text-3xl font-bold text-[#111827]">Regular Hours</h2>
             </div>
-            
+
             <div className="space-y-4">
               {hours.map((schedule, index) => (
                 <motion.div
@@ -73,19 +73,16 @@ export const StoreHours: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`flex justify-between items-center p-4 rounded-xl ${
-                    schedule.isToday ? 'bg-[#F0F7FF] border-2 border-[#0855B1]' : 'bg-gray-50'
-                  }`}
+                  className={`flex justify-between items-center p-4 rounded-xl ${schedule.isToday ? 'bg-[#F0F7FF] border-2 border-[#0855B1]' : 'bg-gray-50'
+                    }`}
                 >
-                  <span className={`font-semibold ${
-                    schedule.isToday ? 'text-[#0855B1]' : 'text-[#111827]'
-                  }`}>
+                  <span className={`font-semibold ${schedule.isToday ? 'text-[#0855B1]' : 'text-[#111827]'
+                    }`}>
                     {schedule.day}
                     {schedule.isToday && <span className="ml-2 text-sm">(Today)</span>}
                   </span>
-                  <span className={`font-bold ${
-                    schedule.time === 'Closed' ? 'text-red-600' : 'text-[#111827]'
-                  }`}>
+                  <span className={`font-bold ${schedule.time === 'Closed' ? 'text-red-600' : 'text-[#111827]'
+                    }`}>
                     {schedule.time}
                   </span>
                 </motion.div>
@@ -193,7 +190,7 @@ export const StoreHours: React.FC = () => {
             <p className="text-[#4B5563] text-center mb-8">
               We observe the following holidays. Please plan accordingly.
             </p>
-            
+
             <div className="space-y-3">
               {holidays.map((holiday, index) => (
                 <motion.div

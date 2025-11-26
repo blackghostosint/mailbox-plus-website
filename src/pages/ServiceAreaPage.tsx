@@ -2,7 +2,6 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
 import { ServicePage } from "../components/ServicePage";
-import { siteConfig } from "../config/siteConfig";
 import localPages from "../data/localPages.json";
 import { getServiceImageUrl } from "../lib/storage";
 import { Service } from "../types/services";

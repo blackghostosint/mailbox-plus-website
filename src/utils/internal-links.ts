@@ -22,6 +22,7 @@ export const getInternalLink = (serviceId: string) => {
 };
 
 export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact'): string => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const anchors = (anchorText as any)[serviceId];
   if (!anchors) {
     // Fallback to title if no specific anchors defined
@@ -35,6 +36,7 @@ export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact
 };
 
 export const getRelatedServices = (serviceId: ServiceId) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const linkData = (internalLinks as any)[serviceId];
   if (!linkData || !linkData.related) return [];
 
@@ -42,6 +44,7 @@ export const getRelatedServices = (serviceId: ServiceId) => {
 };
 
 export const getParentPillar = (serviceId: ServiceId) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const linkData = (internalLinks as any)[serviceId];
   if (!linkData || !linkData.parent) return null;
   return siteStructure.pillars.find(p => p.id === linkData.parent);
@@ -49,7 +52,7 @@ export const getParentPillar = (serviceId: ServiceId) => {
 
 export const getLocalPriorityServices = (citySlug: string) => {
   const city = serviceAreas.find(c => c.slug === citySlug);
-  if (!city) return [];
+  if (!city || !city.priorityServices) return [];
   return city.priorityServices.map(id => services.find(s => s.id === id)).filter(Boolean);
 };
 

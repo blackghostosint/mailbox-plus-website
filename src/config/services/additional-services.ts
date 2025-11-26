@@ -1,11 +1,9 @@
 import {
-    Palette, Users, Star, NotebookText, Shield, Clock, Truck, Lock, Printer
+    Users, Star, NotebookText, Shield, Clock, Truck, Printer
 } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {
-    generalCopyPrintFaqs,
-    graphicDesignFaqs,
     generalHomeBusinessFaqs,
     notaryServicesFaqs
 } from "../faqs";
@@ -20,6 +18,7 @@ export const additionalServices: Service[] = [
         city: "Concord Township",
         serviceName: "Notary Services",
         slug: "/home-business/notary-services",
+        canonicalUrl: "https://mailboxplus.com/home-business/notary-services",
         pageTitle: "Notary Services in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Certified Notary Public in Concord Township. Walk-in notary services for legal documents, affidavits, contracts, and more. No appointment necessary.",
         keywords: "notary services, notary public, concord township, lake county",
@@ -62,6 +61,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         city: "Concord Township",
         serviceName: "FedEx Easy Returns",
         slug: "/fedex-easy-returns",
+        canonicalUrl: "https://mailboxplus.com/fedex-easy-returns",
         pageTitle: "FedEx Easy Returns in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Convenient FedEx Easy Returns in Concord Township. Drop off your pre-labeled or QR code returns quickly. We pack and ship for you.",
         keywords: "fedex easy returns, return qr code, return shipping label, concord township, lake county",
@@ -78,6 +78,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         city: "Concord Township",
         serviceName: "Amazon Return Guide",
         slug: "/amazon-returns",
+        canonicalUrl: "https://mailboxplus.com/amazon-returns",
         pageTitle: "Amazon Return Guide in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Guide to Amazon Returns in Concord Township. Learn how to easily return your Amazon packages at Mailbox Plus. Printing and packing help available.",
         keywords: "amazon returns, return shipping, pack and ship, concord township, lake county, printable label",
@@ -94,6 +95,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         city: "Concord Township",
         serviceName: "Business Services",
         slug: "/business-services-concord-township",
+        canonicalUrl: "https://mailboxplus.com/business-services-concord-township",
         pageTitle: "Business Services in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Essential business services in Concord Township: shipping, printing, mailbox rentals, notary, and more. Your local office away from the office.",
         keywords: "business services, Concord Township, Mailbox Plus",
@@ -140,6 +142,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         city: "Concord Township",
         serviceName: "Amazon Returns Drop Off",
         slug: "/amazon-returns-drop-off-concord-township",
+        canonicalUrl: "https://mailboxplus.com/amazon-returns-drop-off-concord-township",
         pageTitle: "Amazon Returns Drop Off in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Fast Amazon returns drop-off in Concord Township. Bring your pre-paid UPS label packages to Mailbox Plus for quick, hassle-free returns.",
         keywords: "Amazon returns drop off, Concord Township, Mailbox Plus",

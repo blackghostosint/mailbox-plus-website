@@ -12,7 +12,7 @@ const PrintingServicesPage: React.FC = () => {
         description="Local Printing Services including UPS, FedEx, USPS, and DHL services. Mailbox Plus is the top local alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and Office Depot in Concord Township."
         canonical="https://mailboxplusohio.com/seo/printing-services-concord-township"
       />
-      
+
       <main className="container mx-auto px-4 py-10 bg-white">
         <AutoBreadcrumbs />
 
@@ -22,10 +22,10 @@ const PrintingServicesPage: React.FC = () => {
             High-Quality Printing Services in Concord Township: Mailbox Plus
           </h1>
           <p className="text-lg text-gray-700 leading-relaxed mb-6">
-            Looking for professional <strong>printing services in Concord Township, Ohio</strong>? 
-            Mailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations. 
-            We offer high-quality color and black & white printing with fast turnaround times. Whether you're a student, 
-            a small business owner, or just need a few copies, our friendly team is here to help your projects look their best. 
+            Looking for professional <strong>printing services in Concord Township, Ohio</strong>?
+            Mailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations.
+            We offer high-quality color and black & white printing with fast turnaround times. Whether you&apos;re a student,
+            a small business owner, or just need a few copies, our friendly team is here to help your projects look their best.
             Plus, we can ship your printed materials anywhere with <strong>UPS, FedEx, USPS, and DHL</strong>.
           </p>
         </section>
@@ -119,9 +119,9 @@ const PrintingServicesPage: React.FC = () => {
 
         {/* Local Benefits */}
         <section className="mb-12 bg-blue-50 p-8 rounded-xl">
-          <h2 className="text-2xl font-bold mb-4 text-blue-900">Serving Concord Township's Printing Needs</h2>
+          <h2 className="text-2xl font-bold mb-4 text-blue-900">Serving Concord Township&apos;s Printing Needs</h2>
           <p className="text-blue-800 leading-relaxed">
-            Mailbox Plus is proud to be the local print center for <strong>Concord Township, Ohio</strong>. 
+            Mailbox Plus is proud to be the local print center for <strong>Concord Township, Ohio</strong>.
             We help residents and businesses in Mentor, Painesville, and Willoughby look professional on paper.
           </p>
         </section>

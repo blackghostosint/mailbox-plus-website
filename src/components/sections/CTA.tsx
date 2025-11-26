@@ -10,6 +10,12 @@ interface Props {
   className?: string;
 }
 
+declare global {
+  interface Window {
+    plausible: (eventName: string, options?: { props: Record<string, string | undefined> }) => void;
+  }
+}
+
 export const CTASection: React.FC<Props> = ({ cta, className }) => {
   const {
     title,
@@ -32,8 +38,8 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
     variant === "neutral"
       ? "bg-white border border-gray-200"
       : variant === "ghost"
-      ? "bg-transparent border border-[#0855B1]/20"
-      : "bg-[#0855B1] text-white"; // brand default
+        ? "bg-transparent border border-[#0855B1]/20"
+        : "bg-[#0855B1] text-white"; // brand default
 
   // Optional: Analytics event handler
   const handleClick = () => {
@@ -91,7 +97,6 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
             ) : (
               <InternalLink
                 to={buttonLink}
-                // @ts-ignore - onClick is valid on Link but might not be explicitly defined in InternalLinkProps
                 onClick={handleClick}
               >
                 <Button variant={variant === "ghost" ? "ghost" : "primary"}>

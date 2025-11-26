@@ -112,7 +112,7 @@ export const Tracking: React.FC = () => {
     {
       title: "Need Help?",
       description:
-        "Can't find your package? Contact us and we'll help track it down.",
+        "Can&apos;t find your package? Contact us and we&apos;ll help track it down.",
     },
   ];
 
@@ -282,7 +282,7 @@ export const Tracking: React.FC = () => {
             Need Help Finding Your Package?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Can't locate your tracking number or having trouble with tracking?
+            Can&apos;t locate your tracking number or having trouble with tracking?
             Our team is here to help you every step of the way.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

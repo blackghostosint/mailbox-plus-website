@@ -15,6 +15,8 @@ import { SmartImage } from "./SmartImage";
 
 interface ServicePageProps extends Service {
   children?: React.ReactNode;
+  breadcrumbsBaseUrl?: string;
+  breadcrumbsLabel?: string;
 }
 
 export const ServicePage: React.FC<ServicePageProps> = (props) => {
@@ -27,7 +29,9 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     children,
     faqs,
     aggregateRating,
-    slug
+    slug,
+    breadcrumbsBaseUrl,
+    breadcrumbsLabel
   } = props;
 
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
@@ -54,7 +58,11 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
       <JsonLd schema={[webPageSchema, serviceSchema, ...(faqSchema ? [faqSchema] : [])]} />
 
       <div className="min-h-screen bg-gray-50">
-        <Breadcrumbs service={props} />
+        <Breadcrumbs
+          service={props}
+          baseUrl={breadcrumbsBaseUrl}
+          baseLabel={breadcrumbsLabel}
+        />
 
         {/* ✅ Hero Section */}
         <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
