@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { useLocation } from "react-router-dom";
 import { siteConfig } from "../config/siteConfig";
 
 interface MetaProps {
@@ -31,7 +32,27 @@ export const Meta: React.FC<MetaProps> = ({
   themeColor,
   robots = "index, follow"
 }) => {
+  const location = useLocation();
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+
+  // Logic to determine the final canonical URL
+  let finalCanonical = canonical;
+
+  if (!finalCanonical) {
+    // Auto-generate from current location
+    const pathname = location.pathname;
+    // Remove trailing slash if not root
+    const cleanPath = pathname !== "/" && pathname.endsWith("/")
+      ? pathname.slice(0, -1)
+      : pathname;
+
+    finalCanonical = `${siteConfig.domain}${cleanPath}`;
+  } else {
+    // If relative path provided, prepend domain
+    if (finalCanonical.startsWith("/")) {
+      finalCanonical = `${siteConfig.domain}${finalCanonical}`;
+    }
+  }
 
   return (
     <Helmet>
@@ -39,14 +60,14 @@ export const Meta: React.FC<MetaProps> = ({
       <meta name="description" content={description} />
       <meta name="robots" content={robots} />
       {keywords && <meta name="keywords" content={keywords} />}
-      {canonical && <link rel="canonical" href={canonical} />}
+      <link rel="canonical" href={finalCanonical} />
 
       {/* Open Graph */}
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={siteConfig.name} />
-      {canonical && <meta property="og:url" content={canonical} />}
+      <meta property="og:url" content={finalCanonical} />
       {ogImage && <meta property="og:image" content={ogImage} />}
 
       {/* Twitter Cards */}

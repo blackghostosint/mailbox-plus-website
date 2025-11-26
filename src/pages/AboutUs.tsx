@@ -11,7 +11,6 @@ export function AboutUs() {
       <PageMeta
         title="About Mailbox Plus | Locally Owned Shipping & Business Services in Concord Township"
         description="Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio."
-        canonical="/about-us"
       />
 
       <div className="py-16">
