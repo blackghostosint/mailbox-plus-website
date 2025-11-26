@@ -106,7 +106,7 @@ export function AboutUs() {
               <p className="text-blue-600 font-medium">Store Manager</p>
               <p className="text-gray-600 mt-3 leading-relaxed">
                 Frank brings years of experience in customer service, operations, and
-                business management. Known for his friendly approach and attention to detail,
+                business management, operations, logistics, and shipping. Known for his friendly approach and attention to detail,
                 he ensures every customer leaves with a great experience.
               </p>
               <a
