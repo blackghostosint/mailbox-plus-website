@@ -1,6 +1,32 @@
-# ✅ Always redirect all HTTP traffic to HTTPS
-http://* https://:splat 301!
+# -----------------------------------
+# FORCE HTTPS + CANONICAL DOMAIN
+# -----------------------------------
 
-# ✅ SPA fallback (for React Router)
-/*   /index.html   200
-/404  /404.html     404
+# Redirect all HTTP to HTTPS (non-www)
+http://mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
+http://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
+
+# Redirect all www to non-www HTTPS
+https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
+
+
+# -----------------------------------
+# CASE NORMALIZATION & LEGACY CLEANUP
+# -----------------------------------
+
+/Pack-Ship/* /pack-ship/:splat 301!
+/Copy-Print/* /copy-print/:splat 301!
+/Store-Services /services 301!
+
+# Optional but recommended for hierarchy cleanup
+/Pack-Ship/Shipping/* /shipping/:splat 301!
+/Pack-Ship/Packaging/* /pack-ship/:splat 301!
+
+
+# -----------------------------------
+# SPA FALLBACK (React Router)
+/* /index.html 200
+
+
+# TRUE 404 RULE
+/404 /404.html 404
