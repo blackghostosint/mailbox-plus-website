@@ -5,7 +5,7 @@ import { fadeUp } from "../utils/animations";
 import { InternalLink } from "../components/ui/InternalLink";
 import { getServiceImageUrl } from "../lib/storage";
 
-export default function AboutUs() {
+export function AboutUs() {
   return (
     <>
       <PageMeta
