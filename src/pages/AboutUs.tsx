@@ -4,7 +4,9 @@ import { fadeUp } from "../utils";
 import { SmartImage } from "../components/SmartImage";
 import { getServiceImageUrl } from "../lib/storage";
 
-export default function AboutUs() {
+import React from "react";
+
+export const AboutUs: React.FC = () => {
   return (
     <div className="pb-20 pt-10 max-w-5xl mx-auto px-4">
       <h1 className="text-4xl font-bold text-center mb-10">
