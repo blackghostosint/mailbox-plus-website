@@ -289,7 +289,7 @@ export const NuulyReturns: React.FC = () => {
 
                         <div className="relative h-[400px] bg-gray-100 rounded-2xl overflow-hidden shadow-lg">
                             <SmartImage
-                                src="/images/store-front.jpg"
+                                src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
                                 alt="Mailbox Plus Storefront in Concord Township"
                                 className="w-full h-full object-cover"
                             />
