@@ -1,5 +1,5 @@
 import {
-    Package, Truck, MapPin, Shield, Clock
+    Package, Truck, MapPin, Shield, Clock, Shirt
 } from "lucide-react";
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
@@ -91,5 +91,46 @@ Our customers receive <strong>real-time delivery notifications</strong> and pers
             { icon: Clock, title: "Convenient Pickup", description: "Pick up packages during store hours." }
         ],
         faqs: [...generalShippingFaqs, ...packageReceivingFaqs]
+    },
+    {
+        id: "nuuly-returns",
+        category: "pack-ship",
+        city: "Concord Township",
+        serviceName: "Nuuly Returns Drop-Off",
+        slug: "/nuuly-returns",
+        canonicalUrl: "https://mailboxplusohio.com/nuuly-returns",
+        pageTitle: "Nuuly Returns Drop-Off in Concord Township, OH | Mailbox Plus",
+        metaDescription: "Fast, easy Nuuly returns in Concord Township, OH. Drop off your Nuuly rental bag at Mailbox Plus. We scan, receipt, and ship via UPS. No boxing needed.",
+        keywords: "Nuuly returns Concord OH, Nuuly drop off Mentor, clothing rental returns Painesville, UPS drop off for Nuuly, Mailbox Plus Nuuly",
+        heroTitle: "Nuuly Returns Made Easy",
+        heroSubtitle: "Simply drop off your Nuuly reusable bag. We handle the rest.",
+        heroImage: getServiceImageUrl("/images/shipping-hero.jpg"),
+        icon: Shirt,
+        content: [
+            {
+                heading: "What Is Nuuly?",
+                body: "Nuuly is a popular monthly clothing rental subscription service. We make the return leg of your journey seamless as an authorized UPS drop-off point, ensuring your bag is scanned and your next box is unlocked faster.",
+            },
+            {
+                heading: "Simple Drop-Off Process",
+                body: "Just bring your zipped Nuuly bag with the return label inserted. We scan it, provide a receipt, and you are good to go. No fees for pre-paid drop-offs."
+            }
+        ],
+        features: [
+            { icon: Shirt, title: "Nuuly Authorized", description: "Official UPS Scanning Provider." },
+            { icon: Clock, title: "Instant Scan", description: "Unlock your next box faster." },
+            { icon: MapPin, title: "Concord Township", description: "Easy local drop-off." }
+        ],
+        faqs: [
+            {
+                question: "Do I need to box my Nuuly return?",
+                answer: "No! Nuuly rentals are returned in the same reusable zippered bag they arrived in. Just make sure the return label is inserted into the clear plastic sleeve on the bag."
+            },
+            {
+                question: "Is there a charge to drop off my Nuuly bag?",
+                answer: "No. If you have your pre-paid UPS return label included with your Nuuly subscription, dropping it off at Mailbox Plus is completely free."
+            },
+            ...generalShippingFaqs
+        ]
     }
 ];
