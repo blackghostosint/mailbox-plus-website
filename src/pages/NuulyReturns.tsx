@@ -258,7 +258,7 @@ export const NuulyReturns: React.FC = () => {
                             </h2>
                             <div className="prose text-gray-700 leading-relaxed mb-6">
                                 <p>
-                                    Living in <strong>Concord Township, Mentor, Painesville, or Chardon</strong>? You don't need to drive far to return your Nuuly bag. Mailbox Plus is your convenient neighborhood <InternalLink to="/ups-shipping">UPS Authorized Shipping Outlet</InternalLink>.
+                                    Living in <strong>Concord Township, Mentor, Painesville, or Chardon</strong>? You don't need to drive far to return your Nuuly bag. Mailbox Plus is your convenient neighborhood <InternalLink to="/pack-ship/ups-authorized-shipper-outlet">UPS Authorized Shipping Outlet</InternalLink>.
                                 </p>
                                 <p className="mt-4">
                                     Why wait in line at the post office or deal with crowded corporate stores? We specialize in quick, friendly service so you can get on with your day.
@@ -339,9 +339,9 @@ export const NuulyReturns: React.FC = () => {
                         Searching for <strong>"Nuuly returns near me"</strong> or <strong>"clothing rental drop off Concord OH"</strong>?
                         We are your local solution. Located conveniently in the Gristmill Village, we serve residents of
                         <span className="font-semibold text-gray-700"> Mentor, Painesville, Leroy Township, Chardon, and Willoughby</span>.
-                        Whether you are returning <InternalLink to="/fedex-shipping">FedEx packages</InternalLink>,
-                        <InternalLink to="/ups-shipping">UPS shipments</InternalLink>, or dropping off your monthly
-                        Nuuly styles, Mailbox Plus is the community hub for all your <InternalLink to="/shipping">shipping services</InternalLink>.
+                        Whether you are returning <InternalLink to="/pack-ship/fedex-shipping">FedEx packages</InternalLink>,
+                        <InternalLink to="/pack-ship/ups-authorized-shipper-outlet">UPS shipments</InternalLink>, or dropping off your monthly
+                        Nuuly styles, Mailbox Plus is the community hub for all your <InternalLink to="/pack-ship">shipping services</InternalLink>.
                     </p>
                 </div>
             </section>
@@ -381,24 +381,80 @@ export const NuulyReturns: React.FC = () => {
             <section className="py-16 bg-white">
                 <div className="max-w-4xl mx-auto px-6">
                     <h2 className="text-3xl font-bold text-[#111827] mb-8">Step-by-Step Return Procedure</h2>
-                    <ol className="relative border-l border-gray-200 ml-3 space-y-8">
-                        {[
-                            { box: "01", title: "Prepare Bag", text: "Place clothes in the Nuuly bag and zip it closed." },
-                            { box: "02", title: "Insert Label", text: "Slide the UPS return label into the plastic window." },
-                            { box: "03", title: "Visit Us", text: "Bring the bag to Mailbox Plus in Concord Township." },
-                            { box: "04", title: "Scan", text: "Hand it to our staff member who will scan the label." },
-                            { box: "05", title: "Receipt", text: "Receive your printed drop-off receipt with tracking number." },
-                            { box: "06", title: "Unlock", text: "Nuuly is notified of the return, unlocking your next box!" }
-                        ].map((step, i) => (
-                            <li key={i} className="mb-10 ml-6">
-                                <span className="absolute flex items-center justify-center w-8 h-8 bg-blue-100 rounded-full -left-4 ring-4 ring-white text-[#0855B1] font-bold text-sm">
-                                    {step.box}
-                                </span>
-                                <h3 className="flex items-center mb-1 text-lg font-semibold text-gray-900">{step.title}</h3>
-                                <p className="mb-4 text-base font-normal text-gray-500">{step.text}</p>
-                            </li>
-                        ))}
-                    </ol>
+                    <div className="relative">
+                        {/* Central Line */}
+                        <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gray-200" />
+
+                        <div className="space-y-12">
+                            {[
+                                { box: "01", title: "Prepare Bag", text: "Place clothes in the Nuuly bag and zip it closed." },
+                                { box: "02", title: "Insert Label", text: "Slide the UPS return label into the plastic window." },
+                                { box: "03", title: "Visit Us", text: "Bring the bag to Mailbox Plus in Concord Township." },
+                                { box: "04", title: "Scan", text: "Hand it to our staff member who will scan the label." },
+                                { box: "05", title: "Receipt", text: "Receive your printed drop-off receipt with tracking number." },
+                                { box: "06", title: "Unlock", text: "Nuuly is notified of the return, unlocking your next box!" }
+                            ].map((step, i) => (
+                                <div key={i} className={`relative flex items-center justify-between md:justify-center ${i % 2 === 0 ? 'flex-row-reverse md:flex-row' : ''}`}>
+
+                                    {/* Left Side Content (for even items like 0, 2, 4 -> steps 1, 3, 5? Wait, index 0 is Step 1. User wants 'Prepare Bag' on LEFT.
+                                        If index 0 (Step 1) is 'Prepare Bag', it must be on LEFT.
+                                        So even indices (0, 2, 4) should have text on START (Left).
+                                        Odd indices (1, 3, 5) should have text on END (Right).
+                                        
+                                        Flex row standard:
+                                        [Left Content] [Center] [Right Content]
+                                        
+                                        For Step 1 (Index 0):
+                                        Need: [Text] [Number] [Empty]
+                                        
+                                        For Step 2 (Index 1):
+                                        Need: [Empty] [Number] [Text]
+                                     */}
+
+                                    {/* Responsive Mobile View: Standard List */}
+                                    <div className="flex md:hidden gap-4">
+                                        <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center text-[#0855B1] font-bold">
+                                            {step.box}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-lg font-bold text-[#111827] mb-1">{step.title}</h3>
+                                            <p className="text-gray-600">{step.text}</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Desktop View */}
+                                    <div className="hidden md:flex w-full items-center justify-between">
+                                        {/* Left Side */}
+                                        <div className="w-5/12 flex justify-end px-4">
+                                            {i % 2 === 0 && (
+                                                <div className="text-right">
+                                                    <h3 className="text-xl font-bold text-[#111827] mb-2">{step.title}</h3>
+                                                    <p className="text-gray-600">{step.text}</p>
+                                                </div>
+                                            )}
+                                        </div>
+
+                                        {/* Center Number Bubble */}
+                                        <div className="w-2/12 flex justify-center relative z-10">
+                                            <div className="w-12 h-12 bg-white border-4 border-[#0855B1] text-[#0855B1] rounded-full flex items-center justify-center font-bold text-lg shadow-sm">
+                                                {step.box}
+                                            </div>
+                                        </div>
+
+                                        {/* Right Side */}
+                                        <div className="w-5/12 flex justify-start px-4">
+                                            {i % 2 !== 0 && (
+                                                <div className="text-left">
+                                                    <h3 className="text-xl font-bold text-[#111827] mb-2">{step.title}</h3>
+                                                    <p className="text-gray-600">{step.text}</p>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -437,15 +493,15 @@ export const NuulyReturns: React.FC = () => {
                     <div className="mb-16 pt-8 border-t border-gray-100">
                         <h3 className="text-lg font-bold text-gray-900 mb-4">Explore More Services</h3>
                         <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-                            <InternalLink to="/shipping" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">Shipping Services</InternalLink>
+                            <InternalLink to="/pack-ship" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">Shipping Services</InternalLink>
                             <span className="text-gray-300">|</span>
-                            <InternalLink to="/ups-shipping" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">UPS Shipping Options</InternalLink>
+                            <InternalLink to="/pack-ship/ups-authorized-shipper-outlet" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">UPS Shipping Options</InternalLink>
                             <span className="text-gray-300">|</span>
-                            <InternalLink to="/fedex-shipping" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">FedEx Services</InternalLink>
+                            <InternalLink to="/pack-ship/fedex-shipping" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">FedEx Services</InternalLink>
                             <span className="text-gray-300">|</span>
-                            <InternalLink to="/usps-services" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">USPS Post Office Services</InternalLink>
+                            <InternalLink to="/pack-ship/usps-services" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">USPS Post Office Services</InternalLink>
                             <span className="text-gray-300">|</span>
-                            <InternalLink to="/returns" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">All Return Services</InternalLink>
+                            <InternalLink to="/pack-ship/package-drop-offs" className="hover:text-[#0855B1] underline decoration-gray-300 underline-offset-4">All Return Services</InternalLink>
                         </div>
                     </div>
 
