@@ -16,6 +16,7 @@ import { CTASection } from "../components/sections/CTA";
 import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceSchema, getWebPageSchema } from "../utils/schema";
+import { getServiceImageUrl } from "../lib/storage";
 import {
     Accordion,
     AccordionItem,
@@ -36,7 +37,7 @@ const nuulyServiceData = {
     shortDescription: "Drop off your Nuuly rentals here.",
     heroTitle: "Nuuly Returns Made Easy",
     heroSubtitle: "Simply drop off your Nuuly reusable bag. We handle the rest.",
-    heroImage: "/images/shipping-hero.jpg", // Using a generic shipping hero if specific one not available
+    heroImage: getServiceImageUrl("/images/nullyreturns.webp"),
     keywords: "Nuuly returns Concord OH, Nuuly drop off Mentor, clothing rental returns Painesville, UPS drop off for Nuuly, Mailbox Plus Nuuly"
 };
 

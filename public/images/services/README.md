@@ -4,7 +4,7 @@ This directory contains hero images for service pages.
 
 ## Image Specifications
 
-- **Format:** JPEG, PNG, or WebP
+- **Format:** WebP
 - **Dimensions:** Recommended 1200x400px or similar aspect ratio (3:1)
 - **File Size:** Keep under 500KB for optimal performance
 - **Naming Convention:** Use lowercase with hyphens matching the service slug

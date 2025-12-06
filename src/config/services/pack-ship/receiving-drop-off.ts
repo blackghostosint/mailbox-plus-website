@@ -104,7 +104,7 @@ Our customers receive <strong>real-time delivery notifications</strong> and pers
         keywords: "Nuuly returns Concord OH, Nuuly drop off Mentor, clothing rental returns Painesville, UPS drop off for Nuuly, Mailbox Plus Nuuly",
         heroTitle: "Nuuly Returns Made Easy",
         heroSubtitle: "Simply drop off your Nuuly reusable bag. We handle the rest.",
-        heroImage: getServiceImageUrl("/images/shipping-hero.jpg"),
+        heroImage: getServiceImageUrl("/images/nullyreturns.webp"),
         icon: Shirt,
         content: [
             {

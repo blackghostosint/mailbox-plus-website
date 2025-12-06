@@ -21,6 +21,7 @@ const BicycleShipping = lazyLoad(() => import("./pages/BicycleShipping"), "Bicyc
 const GolfClubShipping = lazyLoad(() => import("./pages/GolfClubShipping"), "GolfClubShipping");
 const FedExShipping = lazyLoad(() => import("./pages/FedExShipping"), "FedExShipping");
 const FedExEasyReturns = lazyLoad(() => import("./pages/fedex-easy-returns"), "FedExEasyReturns");
+const NuulyReturns = lazyLoad(() => import("./pages/NuulyReturns"), "NuulyReturns");
 const AmazonReturnGuide = lazyLoad(() => import("./pages/AmazonReturnGuide"), "AmazonReturnGuide");
 const UPSAuthorizedShipperOutlet = lazyLoad(() => import("./pages/UPSAuthorizedShipperOutlet"), "UPSAuthorizedShipperOutlet");
 const USPSServices = lazyLoad(() => import("./pages/USPSServices"), "USPSServices");
@@ -151,6 +152,7 @@ const App: React.FC = () => {
             <Route path="/pack-ship/golf-club-shipping" element={<GolfClubShipping />} />
             <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
             <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
+            <Route path="/nuuly-returns" element={<NuulyReturns />} />
             <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
             <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
             <Route path="/pack-ship/usps-services" element={<USPSServices />} />
