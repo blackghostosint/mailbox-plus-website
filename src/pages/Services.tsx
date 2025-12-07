@@ -251,7 +251,7 @@ export const Services: React.FC = () => {
                       {service.metaDescription}
                     </p>
                     <InternalLink to={service.slug} className="mt-auto">
-                      <Button className="w-full bg-white text-[#0855B1] border border-blue-100 hover:bg-[#0855B1] hover:text-white hover:border-transparent transition-all shadow-sm">
+                      <Button variant="secondary" className="w-full shadow-sm">
                         Learn More <ArrowRight className="w-4 h-4 ml-2" />
                       </Button>
                     </InternalLink>
