@@ -1,6 +1,6 @@
 // BicycleShipping.tsx
 import React from "react";
-import { ServicePageV2 } from "../components/ui/ServicePageV2";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 
