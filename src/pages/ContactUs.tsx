@@ -144,7 +144,7 @@ export const ContactUs: React.FC = () => {
       </section>
 
       {/* ====================== MAIN CONTENT ======================= */}
-      <div className="relative -mt-20 container mx-auto px-4 pb-20 space-y-20">
+      <div className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
 
         {/* Contact Info Cards (Glass) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

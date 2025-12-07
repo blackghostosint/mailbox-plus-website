@@ -60,7 +60,7 @@ const pickupHours = [
   {
     carrier: "FedEx Ground",
     times: [
-      { day: "Monday – Friday", time: "5:00 PM" },
+      { day: "Monday – Friday", time: "4:00 PM" },
       { day: "Saturday", time: "No pickup" },
       { day: "Sunday", time: "No pickup" },
     ],
