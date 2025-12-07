@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-import { ServicePage } from '../components/ServicePage';
+import { ServicePageV2 } from '../components/ServicePageV2';
 import { InternalLink } from '../components/ui/InternalLink';
 import { CTASection } from '../components/sections/CTA';
 import { services } from '../config/services';
@@ -12,7 +12,7 @@ export const CopyPrint: React.FC = () => {
   const service = services.find(s => s.id === 'copy-print')!;
 
   return (
-    <ServicePage {...service}>
+    <ServicePageV2 {...service}>
       {/* Services Grid */}
       <section className="py-12 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -21,7 +21,7 @@ export const CopyPrint: React.FC = () => {
               Our Printing Services
             </h2>
             <p className="text-lg text-[#4B5563] max-w-2xl mx-auto">
-              From everyday copying to professional marketing materials, 
+              From everyday copying to professional marketing materials,
               we provide comprehensive printing solutions for all your needs.
             </p>
           </div>
@@ -73,6 +73,6 @@ export const CopyPrint: React.FC = () => {
 
       {/* Reusable CTA Section */}
       <CTASection cta={defaultCTA} className="mb-20" />
-    </ServicePage>
+    </ServicePageV2>
   );
 };

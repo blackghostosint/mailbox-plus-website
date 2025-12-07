@@ -1,5 +1,5 @@
 import React from "react";
-import { ServicePage } from "../components/ServicePage";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 
@@ -11,7 +11,7 @@ const PackAndShipServicesPage: React.FC = () => {
   }
 
   return (
-    <ServicePage {...service}>
+    <ServicePageV2 {...service}>
       {/* Comparison Table */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Mailbox Plus vs. DIY Packing</h2>
@@ -89,7 +89,7 @@ const PackAndShipServicesPage: React.FC = () => {
           Need a secure address? Our <InternalLink variant="geo" to="/home-business/mailbox-rental">private mailbox rental in Concord Township</InternalLink> provides convenience and privacy.
         </p>
       </div>
-    </ServicePage>
+    </ServicePageV2>
   );
 };
 

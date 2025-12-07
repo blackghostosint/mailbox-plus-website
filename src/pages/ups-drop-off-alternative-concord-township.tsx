@@ -1,10 +1,10 @@
 import React from "react";
-import { ServicePage } from "../components/ServicePage";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { services } from "../config/services";
 
 const UPSDropOffAlternativePage: React.FC = () => {
   const service = services.find(s => s.id === "ups-drop-off-alternative-concord-township")!;
-  return <ServicePage {...service} />;
+  return <ServicePageV2 {...service} />;
 };
 
 export default UPSDropOffAlternativePage;

@@ -1,9 +1,9 @@
 // Shredding.tsx
 import React from "react";
-import { ServicePage } from "../components/ServicePage";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { services } from "../config/services";
 
 export const Shredding: React.FC = () => {
   const service = services.find(s => s.id === "shredding")!;
-  return <ServicePage {...service} />;
+  return <ServicePageV2 {...service} />;
 };

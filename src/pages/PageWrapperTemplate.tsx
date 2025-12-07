@@ -1,5 +1,5 @@
 import React from "react";
-import { ServicePage } from "../components/ServicePage";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { services } from "../config/services";
 
 /**
@@ -15,5 +15,5 @@ import { services } from "../config/services";
 export const PageWrapperTemplate: React.FC = () => {
   const service = services.find(s => s.id === "SERVICE_ID_HERE")!;
 
-  return <ServicePage {...service} />;
+  return <ServicePageV2 {...service} />;
 };

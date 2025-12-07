@@ -1,5 +1,5 @@
 import React from "react";
-import { ServicePage } from "../components/ServicePage";
+import { ServicePageV2 } from "../components/ServicePageV2";
 import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 
@@ -11,7 +11,7 @@ const USPSPackageHelpPage: React.FC = () => {
   }
 
   return (
-    <ServicePage {...service}>
+    <ServicePageV2 {...service}>
       {/* Comparison Table */}
       <section className="mb-12">
         <h2 className="text-2xl font-bold mb-4 text-gray-800">Mailbox Plus vs. DIY Shipping</h2>
@@ -72,7 +72,7 @@ const USPSPackageHelpPage: React.FC = () => {
           all your package needs.
         </p>
       </section>
-    </ServicePage>
+    </ServicePageV2>
   );
 };
 
