@@ -29,9 +29,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Accepts stamped mail, prepaid labels, Priority Mail, and returns.",
-    accentColor: "bg-blue-600",
-    iconColor: "text-blue-600",
-    bgTint: "bg-blue-50/30",
+    accentColor: "bg-[#0B4BB6]", // Brand Primary
+    iconColor: "text-[#0B4BB6]",
+    bgTint: "bg-blue-50/40",
   },
   {
     carrier: "UPS Pickup",
@@ -41,9 +41,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.",
-    accentColor: "bg-[#F59E0B]", // AMBER-500
-    iconColor: "text-amber-600",
-    bgTint: "bg-amber-50/30",
+    accentColor: "bg-[#1A6DFF]", // Brand Light
+    iconColor: "text-[#1A6DFF]",
+    bgTint: "bg-blue-50/30",
   },
   {
     carrier: "FedEx Express",
@@ -53,9 +53,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "For overnight, 2-day, and express saver shipments. Separate from Ground.",
-    accentColor: "bg-purple-600",
-    iconColor: "text-purple-600",
-    bgTint: "bg-purple-50/30",
+    accentColor: "bg-[#021B4A]", // Brand Dark
+    iconColor: "text-[#021B4A]",
+    bgTint: "bg-slate-50/50",
   },
   {
     carrier: "FedEx Ground",
@@ -65,9 +65,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Standard ground shipping and Home Delivery packages.",
-    accentColor: "bg-green-600",
-    iconColor: "text-green-600",
-    bgTint: "bg-green-50/30",
+    accentColor: "bg-sky-500", // Sky Blue
+    iconColor: "text-sky-600",
+    bgTint: "bg-sky-50/30",
   },
 ];
 
@@ -160,7 +160,7 @@ const PickupHours: React.FC = () => {
         <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-50"></div>
       </section>
 
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="relative z-20 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
         <div className="mb-8 pl-1">
           <AutoBreadcrumbs />
         </div>
