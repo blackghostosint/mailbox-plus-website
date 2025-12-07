@@ -137,7 +137,8 @@ export const Home: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              className="bg-white text-[#0855B1] hover:bg-blue-50 font-bold shadow-lg border-none"
+              variant="secondary"
+              className="font-bold shadow-lg border-none hover:bg-white hover:text-[#0855B1] transition-colors"
               onClick={() => navigate('/services')}
             >
               View Services <ArrowRight className="w-5 h-5 ml-2" />
