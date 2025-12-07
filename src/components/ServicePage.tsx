@@ -6,6 +6,13 @@ import { Star } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from "../components";
 import { CarrierLogos } from "./CarrierLogos";
 import { CompetitorAlternativeSection } from "./sections/CompetitorAlternative";
+import { CTASection } from "./sections/CTA";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./ui/accordion";
 import { Service } from "../types/services";
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from "../utils/schema";
 import { siteConfig } from "../config/siteConfig";
@@ -27,7 +34,10 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     heroSubtitle,
     heroImage,
     children,
+    features,
+    content,
     faqs,
+    cta,
     aggregateRating,
     slug,
     breadcrumbsBaseUrl,
@@ -133,6 +143,61 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
         {/* Main Content */}
         <main className="container mx-auto px-4 py-12">
           {children}
+
+          {/* Features Grid */}
+          {features && features.length > 0 && (
+            <section className="mb-16">
+              <div className="grid md:grid-cols-3 gap-8">
+                {features.map((feature, idx) => {
+                  const Icon = feature.icon;
+                  return (
+                    <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                      {Icon && (
+                        <div className="w-12 h-12 bg-blue-50 text-[#0855B1] rounded-lg flex items-center justify-center mb-4">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                      )}
+                      <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
+                      <p className="text-gray-600">{feature.description}</p>
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+          )}
+
+          {/* Dynamic Content Sections */}
+          {content && content.map((block, idx) => (
+            <section key={idx} className={`mb-16 ${block.isFullWidth ? '' : 'max-w-4xl mx-auto'}`}>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">{block.heading}</h2>
+              <div
+                className="prose prose-lg text-gray-700 leading-relaxed max-w-none"
+                dangerouslySetInnerHTML={{ __html: block.body }}
+              />
+            </section>
+          ))}
+
+          {/* FAQ Section */}
+          {faqs && faqs.length > 0 && (
+            <section className="mb-16 max-w-3xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Frequently Asked Questions</h2>
+              <Accordion type="single" collapsible className="w-full space-y-4">
+                {faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="bg-white border border-gray-200 rounded-xl shadow-sm px-2">
+                    <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[#0855B1] hover:underline">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 pb-4 text-gray-600 leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </section>
+          )}
+
+          {/* CTA Section */}
+          {cta && <CTASection cta={cta} />}
         </main>
 
         {/* Carrier Logos */}
