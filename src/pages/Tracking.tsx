@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
 import { InternalLink } from "../components/ui/InternalLink";
 import { motion } from "framer-motion";
-import { Search, Truck, ExternalLink } from "lucide-react";
+import { Search, Truck, ExternalLink, PackageCheck, AlertCircle, Bell } from "lucide-react";
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceImageUrl } from "../lib/storage";
@@ -10,6 +10,15 @@ import { SmartImage } from "../components/SmartImage";
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
+
+
+// V2 Animation Constants
+const reveal = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.55, ease: "easeOut" as const }
+};
 
 export const Tracking: React.FC = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
@@ -96,28 +105,28 @@ export const Tracking: React.FC = () => {
   const trackingTips = [
     {
       title: "Keep Your Receipt",
-      description:
-        "Your tracking number is on your shipping receipt. Keep it safe until delivery.",
+      description: "Your tracking number is on your shipping receipt. Keep it safe until delivery.",
+      icon: PackageCheck
     },
     {
       title: "Check Multiple Times",
-      description:
-        "Tracking information updates throughout the day as your package moves.",
+      description: "Tracking information updates throughout the day as your package moves.",
+      icon: Truck
     },
     {
       title: "Delivery Notifications",
-      description:
-        "Sign up for text or email notifications to stay updated on delivery status.",
+      description: "Sign up for text or email notifications to stay updated on delivery status.",
+      icon: Bell
     },
     {
       title: "Need Help?",
-      description:
-        "Can&apos;t find your package? Contact us and we&apos;ll help track it down.",
+      description: "Can't find your package? Contact us and we'll help track it down.",
+      icon: AlertCircle
     },
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50 min-h-screen">
       {/* ✅ Inject LocalBusiness + ParcelDelivery schema */}
       {jsonLd && (
         <script
@@ -126,50 +135,63 @@ export const Tracking: React.FC = () => {
         />
       )}
 
-      {/* Hero Section */}
-      <section className="relative bg-white">
-        <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
+      {/* ====================== HERO (V2 Standard) ======================= */}
+      <section className="relative overflow-hidden">
+        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+
+        {/* Hero Image with Soft Blend */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 0.15 }}
+          transition={{ duration: 0.8 }}
+          className="absolute inset-0 z-0"
+        >
           <SmartImage
             priority
             src={getServiceImageUrl("/images/tracking.webp")}
-            alt="Tracking hero"
-            className="absolute inset-0 w-full h-full object-cover rounded-b-2xl"
+            alt="Background pattern"
+            className="w-full h-full object-cover mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-black/40 rounded-b-2xl flex items-center justify-center text-center px-4">
-            <div>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
-              >
-                Track Your <span className="text-[#60A5FA]">Package</span>
-              </motion.h1>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto"
-              >
-                Enter your tracking number and get real-time updates.
-              </motion.p>
-            </div>
-          </div>
+        </motion.div>
+
+        {/* Soft Fade Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
+
+        <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+          >
+            Track Your <span className="text-blue-200">Package</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-xl text-blue-100 mb-8 leading-relaxed"
+          >
+            Enter your tracking number and get real-time updates.
+          </motion.p>
         </div>
       </section>
 
-      {/* Tracking Form */}
-      <section className="py-20 bg-[#F9FAFB]">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-8 shadow-sm"
-          >
-            <div className="flex items-center mb-6">
-              <Search className="w-6 h-6 text-[#0855B1] mr-3" />
-              <h2 className="text-2xl font-bold text-[#111827]">
+      {/* ====================== MAIN CONTENT ======================= */}
+      <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
+
+        {/* Tracking Form Glass Panel */}
+        <motion.div
+          {...reveal}
+          className="max-w-3xl mx-auto"
+        >
+          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] p-8 md:p-10">
+            <div className="flex items-center mb-8">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[#0855B1]">
+                <Search className="w-6 h-6" />
+              </div>
+              <h2 className="text-2xl font-bold text-slate-900">
                 Enter Tracking Number
               </h2>
             </div>
@@ -181,12 +203,12 @@ export const Tracking: React.FC = () => {
               }}
               className="space-y-6"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {/* Tracking Number Input */}
-                <div className="sm:col-span-2">
+                <div className="md:col-span-2 space-y-2">
                   <label
                     htmlFor="tracking"
-                    className="block text-sm font-medium text-[#111827] mb-2"
+                    className="block text-sm font-semibold text-slate-700 ml-1"
                   >
                     Tracking Number
                   </label>
@@ -200,113 +222,127 @@ export const Tracking: React.FC = () => {
                       const detected = detectCarrier(value);
                       if (detected) setSelectedCarrier(detected);
                     }}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none text-lg"
-                    placeholder="Enter your tracking number (e.g., 1Z999AA1234567890)"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm text-lg"
+                    placeholder="e.g., 1Z999AA1234567890"
                   />
                 </div>
 
                 {/* Carrier Dropdown */}
-                <div>
+                <div className="space-y-2">
                   <label
                     htmlFor="carrier"
-                    className="block text-sm font-medium text-[#111827] mb-2"
+                    className="block text-sm font-semibold text-slate-700 ml-1"
                   >
                     Carrier
                   </label>
-                  <select
-                    id="carrier"
-                    value={selectedCarrier}
-                    onChange={(e) => setSelectedCarrier(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] text-lg"
-                  >
-                    {carriers.map((carrier) => (
-                      <option key={carrier.name} value={carrier.name}>
-                        {carrier.name}
-                      </option>
-                    ))}
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="carrier"
+                      value={selectedCarrier}
+                      onChange={(e) => setSelectedCarrier(e.target.value)}
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
+                    >
+                      {carriers.map((carrier) => (
+                        <option key={carrier.name} value={carrier.name}>
+                          {carrier.name}
+                        </option>
+                      ))}
+                    </select>
+                    {/* Custom Arrow */}
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                      <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Submit Button */}
-              <div className="flex justify-center">
+              <div className="pt-2">
                 <Button
                   type="submit"
                   size="lg"
-                  className="bg-[#0855B1] text-white hover:bg-[#06408A] transition-all flex items-center"
+                  className="w-full md:w-auto px-8 py-4 bg-[#0855B1] text-white hover:bg-[#06408A] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl font-bold flex items-center justify-center"
                 >
                   Track Package
-                  <ExternalLink className="w-4 h-4 ml-2" />
+                  <ExternalLink className="w-5 h-5 ml-2" />
                 </Button>
               </div>
             </form>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </motion.div>
 
-      {/* Tracking Tips */}
-      <section className="py-20 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-4">
-            Tracking Tips
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-10">
+        {/* Tracking Tips Grid */}
+        <section>
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900">Tracking Tips</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trackingTips.map((tip, i) => (
               <motion.div
                 key={tip.title}
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-sm"
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-[#F0F7FF] rounded-xl flex items-center justify-center mb-4">
-                  <span className="text-[#0855B1] font-bold text-lg">
-                    {i + 1}
-                  </span>
+                <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[#0855B1] shadow-inner">
+                  <tip.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-semibold text-[#111827] mb-2">
+                <h3 className="text-lg font-bold text-slate-800 mb-2">
                   {tip.title}
                 </h3>
-                <p className="text-[#4B5563] text-sm">{tip.description}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{tip.description}</p>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Help Section */}
-      <section className="py-20 bg-[#0855B1] text-center">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Truck className="w-16 h-16 text-white mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Need Help Finding Your Package?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Can&apos;t locate your tracking number or having trouble with tracking?
-            Our team is here to help you every step of the way.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <InternalLink to="/contact-us">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="bg-white text-[#0855B1] hover:bg-gray-50"
-              >
-                Contact Support
-              </Button>
-            </InternalLink>
-            <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button
-                size="lg"
-                variant="ghost"
-                className="text-white hover:text-blue-100"
-              >
-                Call {siteConfig.contact.phone}
-              </Button>
-            </a>
+        {/* Help Section - Glass Gradient Panel */}
+        <motion.section
+          {...reveal}
+          className="max-w-5xl mx-auto"
+        >
+          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(15,23,42,0.25)]">
+            {/* V2 Gradient Shell */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
+
+            <div className="relative z-10 px-8 py-16 text-center">
+              <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
+                <Truck className="w-8 h-8 text-white" />
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                Need Help Finding Your Package?
+              </h2>
+              <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+                Can&apos;t locate your tracking number or having trouble with tracking?
+                Our team is here to help you every step of the way.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <InternalLink to="/contact-us">
+                  <Button
+                    size="lg"
+                    className="bg-white text-[#0855B1] hover:bg-blue-50 border-none font-bold px-8 shadow-lg"
+                  >
+                    Contact Support
+                  </Button>
+                </InternalLink>
+                <a href={`tel:${siteConfig.contact.phone}`}>
+                  <Button
+                    size="lg"
+                    variant="ghost"
+                    className="text-white hover:text-white hover:bg-white/10 border border-white/30"
+                  >
+                    Call {siteConfig.contact.phone}
+                  </Button>
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </motion.section>
+
+      </main>
     </div>
   );
 };
