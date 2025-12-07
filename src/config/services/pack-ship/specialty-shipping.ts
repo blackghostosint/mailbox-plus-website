@@ -17,6 +17,7 @@ export const specialtyShippingServices: Service[] = [
         city: "Concord Township",
         serviceName: "Artwork Shipping",
         slug: "/pack-ship/artwork-shipping",
+        canonicalUrl: "https://mailboxplusohio.com/pack-ship/artwork-shipping",
         pageTitle: "Artwork Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Professional artwork shipping in Concord Township. Custom packing and crating for paintings, sculptures, and fine art. Insured worldwide delivery.",
         keywords: "artwork shipping, fine art shipping, packing paintings, Concord Township, Lake County",
@@ -63,6 +64,7 @@ If you're searching for <strong>artwork shipping near Concord Township</strong>,
         city: "Concord Township",
         serviceName: "Bicycle Shipping",
         slug: "/pack-ship/bicycle-shipping",
+        canonicalUrl: "https://mailboxplusohio.com/pack-ship/bicycle-shipping",
         pageTitle: "Bicycle Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Safe bicycle shipping services in Concord Township. We pack and ship road bikes, mountain bikes, and e-bikes securely. Box and ship your bike today.",
         keywords: "bicycle shipping, bike box, shipping bicycles, Concord Township, Lake County",
@@ -93,7 +95,15 @@ As your local bicycle shipping partner in Concord Township and Lake County, we'r
             { icon: Shield, title: "Protection Guaranteed", description: "Expert packing ensures frames and wheels stay secure." },
             { icon: Truck, title: "Domestic & International", description: "We ship bikes anywhere in the US or worldwide." }
         ],
-        faqs: [...generalShippingFaqs, ...bicycleShippingFaqs]
+        faqs: [...generalShippingFaqs, ...bicycleShippingFaqs],
+        cta: {
+            title: "Ready to ship your bicycle?",
+            subtitle: "We handle the packing and shipping so you can just ride.",
+            buttonText: "Get a Quote",
+            buttonLink: "/contact-us",
+            variant: "brand",
+            align: "left"
+        }
     },
     {
         id: "golf-club-shipping",
@@ -101,6 +111,7 @@ As your local bicycle shipping partner in Concord Township and Lake County, we'r
         city: "Concord Township",
         serviceName: "Golf Club Shipping",
         slug: "/pack-ship/golf-club-shipping",
+        canonicalUrl: "https://mailboxplusohio.com/pack-ship/golf-club-shipping",
         pageTitle: "Golf Club Shipping in Concord Township, Ohio | Mailbox Plus",
         metaDescription: "Ship your golf clubs from Concord Township without the hassle. Secure packing and insured shipping for golf bags. Travel light to your next tee time.",
         keywords: "golf club shipping, sports equipment shipping, Concord Township, Lake County",
@@ -131,6 +142,14 @@ As your local shipping partner, we understand how important your clubs are. We o
             { icon: Shield, title: "Insured Options", description: "Coverage available for valuable sets." },
             { icon: Globe, title: "Ship Anywhere", description: "Domestic and international golf club shipping." }
         ],
-        faqs: [...generalShippingFaqs, ...golfClubShippingFaqs]
+        faqs: [...generalShippingFaqs, ...golfClubShippingFaqs],
+        cta: {
+            title: "Ship your clubs hassle-free",
+            subtitle: "Insured shipping for your best game anywhere.",
+            buttonText: "Get a Quote",
+            buttonLink: "/contact-us",
+            variant: "brand",
+            align: "left"
+        }
     }
 ];

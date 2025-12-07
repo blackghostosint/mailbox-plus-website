@@ -5,7 +5,7 @@ import { copyPrintServices } from "./services/copy-print";
 import { mailboxRentalServices } from "./services/mailbox-rentals";
 import { documentServices } from "./services/document-services";
 import { additionalServices } from "./services/additional-services";
-import { specialtyServices } from "./services/specialty";
+import { specialtyShippingServices } from "./services/pack-ship/specialty-shipping";
 
 // Main aggregation of all services
 export const services: Service[] = [
@@ -15,5 +15,5 @@ export const services: Service[] = [
     ...mailboxRentalServices,
     ...documentServices,
     ...additionalServices,
-    ...specialtyServices
+    ...specialtyShippingServices
 ];
