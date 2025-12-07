@@ -67,11 +67,12 @@ export const Home: React.FC = () => {
   const { title, description, schema } = pageMeta['/'];
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50 min-h-screen">
       <Meta title={title} description={description} schema={schema} />
-      {/* HERO SECTION */}
+
+      {/* ====================== HERO SECTION (V2 Standard) ======================= */}
       <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        {/* Background Image with strict aspect-ratio placeholder to prevent CLS */}
+        {/* Background Image with V2 Overlay */}
         <div className="absolute inset-0 w-full h-full z-0">
           <SmartImage
             priority
@@ -89,20 +90,23 @@ export const Home: React.FC = () => {
             ]}
             src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
             style={{ objectPosition: 'center' }}
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black/50"></div>
+          {/* V2 Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
         </div>
+
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
           >
             Pack & Ship in{" "}
-            <span className="text-[#60A5FA]">Concord Twp, Ohio</span>
+            <span className="text-blue-200">Concord Twp, Ohio</span>
           </motion.h1>
 
           {/* Rotating service tagline */}
@@ -119,21 +123,21 @@ export const Home: React.FC = () => {
                 animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-gray-100 leading-relaxed"
+                className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium"
               >
                 {serviceCategories[currentServiceIndex]}
               </motion.p>
             </AnimatePresence>
           </motion.div>
 
-          <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
             Your trusted local partner for shipping, printing, and business
             services. Serving Lake County communities with integrity and care.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
-              className="bg-[#0855B1] hover:bg-[#064080] text-white"
+              className="bg-white text-[#0855B1] hover:bg-blue-50 font-bold shadow-lg border-none"
               onClick={() => navigate('/services')}
             >
               View Services <ArrowRight className="w-5 h-5 ml-2" />
@@ -144,7 +148,7 @@ export const Home: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-w-[48px] min-h-[48px]">
+              <Button className="bg-[#0855B1] text-white hover:bg-[#064080] border border-blue-400/30 shadow-lg min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -155,17 +159,20 @@ export const Home: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-w-[48px] min-h-[48px]">
+              <Button variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
             </a>
           </div>
         </div>
+
+        {/* Soft fade bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50"></div>
       </section>
 
-      {/* VISIT US SECTION */}
-      <section className="py-20 bg-gradient-to-br from-[#0855B1] to-[#064080]">
+      {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
+      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Visit Us in Concord Township Today
@@ -197,7 +204,7 @@ export const Home: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white hover:bg-[#0855B1]/10 min-w-[48px] min-h-[48px]">
+              <Button variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -205,7 +212,7 @@ export const Home: React.FC = () => {
 
             {/* Call Button */}
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white text-white hover:bg-white hover:!text-[#0855B1]">
+              <Button className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -225,10 +232,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* SERVICE AREA SECTION */}
-      <section className="py-16 bg-[#F9FAFB] border-t border-gray-200">
+      {/* ====================== SERVICE AREA SECTION ======================= */}
+      <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#111827] mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
             Service Areas
           </h2>
 
@@ -239,9 +246,9 @@ export const Home: React.FC = () => {
               return (
                 <Button
                   key={area}
-                  variant="secondary" // outlined style, or "primary" if you want solid blue
+                  variant="secondary" // outlined style
                   size="sm"
-                  className="!rounded-full"
+                  className="!rounded-full border-blue-200 bg-white text-blue-900 hover:bg-blue-50"
                   onClick={() => navigate(`/service-area/${slug}`)}
                 >
                   {area}

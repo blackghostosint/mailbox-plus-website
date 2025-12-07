@@ -5,6 +5,15 @@ import ReCAPTCHA from "react-google-recaptcha";
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
+import { Meta } from '../components/Meta';
+
+// Animation Constant
+const reveal = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.55, ease: "easeOut" as const }
+};
 
 export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -99,93 +108,94 @@ export const ContactUs: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white">
-      {/* Hero Section */}
-      <section className="relative bg-white py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6"
-            >
-              Get in{' '}
-              <span className="text-[#0855B1]">Touch</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[#4B5563] mb-8 leading-relaxed"
-            >
-              Visit our store in Concord Twp., or contact us today. We&apos;re here to help
-              with all your shipping, printing, and business service needs.
-            </motion.p>
-          </div>
+    <div className="bg-slate-50 min-h-screen">
+      <Meta
+        title="Contact Us - Mailbox Plus"
+        description="Get in touch with Mailbox Plus in Concord Township, Ohio. Call, email, or visit us for all your shipping and printing needs."
+        canonical="https://www.mailboxplus.com/contact-us"
+      />
+
+      {/* ====================== HERO (V2 Standard) ======================= */}
+      <section className="relative overflow-hidden">
+        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+
+        {/* Soft Fade Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
+
+        <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
+          <motion.h1
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+          >
+            Get in <span className="text-blue-200">Touch</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 28 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="text-xl text-blue-100 mb-8 leading-relaxed"
+          >
+            Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all your shipping, printing, and business service needs.
+          </motion.p>
         </div>
       </section>
 
-      {/* Contact Info Cards */}
-      <section className="py-20 bg-[#F9FAFB]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {contactInfo.map((info, index) => (
-              <motion.div
-                key={info.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm text-center"
-              >
-                <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                  <info.icon className="w-8 h-8 text-[#0855B1]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[#111827] mb-3">
-                  {info.title}
-                </h3>
-                <p className="text-[#4B5563] mb-4 leading-relaxed">
-                  {info.details}
-                </p>
-                <a
-                  href={info.action}
-                  target={info.title === 'Address' ? '_blank' : undefined}
-                  rel={info.title === 'Address' ? 'noopener noreferrer' : undefined}
-                >
-                  <Button variant="link" className="text-sm min-w-[48px] min-h-[48px]">
-                    {info.actionText} →
-                  </Button>
-                </a>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ====================== MAIN CONTENT ======================= */}
+      <div className="relative -mt-20 container mx-auto px-4 pb-20 space-y-20">
 
-      {/* Contact Form & Hours */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            {/* Contact Form */}
+        {/* Contact Info Cards (Glass) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {contactInfo.map((info, index) => (
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
+              key={info.title}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.1 }}
+              className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] hover:bg-white/90 transition-all duration-300"
             >
-              <h2 className="text-3xl font-bold text-[#111827] mb-6">
-                Send Us a Message
-              </h2>
-              <p className="text-[#4B5563] mb-8 leading-relaxed">
+              <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[#0855B1] shadow-inner">
+                <info.icon className="w-8 h-8" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">
+                {info.title}
+              </h3>
+              <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
+                {info.details}
+              </p>
+              <a
+                href={info.action}
+                target={info.title === 'Address' ? '_blank' : undefined}
+                rel={info.title === 'Address' ? 'noopener noreferrer' : undefined}
+              >
+                <Button variant="link" className="text-[#0855B1] font-bold text-base hover:text-[#064A9B] p-0">
+                  {info.actionText} →
+                </Button>
+              </a>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Form and Map Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+
+          {/* Contact Form GLASS PANEL */}
+          <motion.section {...reveal} className="relative">
+            {/* Glass container */}
+            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_18px_45px_rgba(15,23,42,0.10)] h-full">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Send Us a Message</h2>
+              <p className="text-slate-600 mb-8 leading-relaxed">
                 Have a question about our services or need a custom quote?
                 Fill out the form below and we&apos;ll get back to you promptly.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-[#111827] mb-2">
-                      Full Name *
-                    </label>
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-semibold text-slate-700">Full Name *</label>
                     <input
                       type="text"
                       id="name"
@@ -193,14 +203,12 @@ export const ContactUs: React.FC = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-colors"
-                      placeholder="Enter your full name"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
+                      placeholder="Enter your name"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-[#111827] mb-2">
-                      Email Address *
-                    </label>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-semibold text-slate-700">Email Address *</label>
                     <input
                       type="email"
                       id="email"
@@ -208,37 +216,33 @@ export const ContactUs: React.FC = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your email"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-[#111827] mb-2">
-                      Phone Number
-                    </label>
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-semibold text-slate-700">Phone Number</label>
                     <input
                       type="tel"
                       id="phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
                       placeholder="(440) 555-0123"
                     />
                   </div>
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-medium text-[#111827] mb-2">
-                      Service Interest
-                    </label>
+                  <div className="space-y-2">
+                    <label htmlFor="service" className="text-sm font-semibold text-slate-700">Service Interest</label>
                     <select
                       id="service"
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm appearance-none"
                     >
                       <option value="">Select a service</option>
                       <option value="shipping">Pack & Ship</option>
@@ -250,10 +254,8 @@ export const ContactUs: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-[#111827] mb-2">
-                    Message *
-                  </label>
+                <div className="space-y-2">
+                  <label htmlFor="message" className="text-sm font-semibold text-slate-700">Message *</label>
                   <textarea
                     id="message"
                     name="message"
@@ -261,87 +263,75 @@ export const ContactUs: React.FC = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-colors resize-vertical"
-                    placeholder="Tell us about your needs or ask any questions..."
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm resize-none"
+                    placeholder="How can we help you?"
                   />
                 </div>
 
-                <ReCAPTCHA
-                  sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-                  onChange={(token) => setFormData({ ...formData, recaptcha: token || '' })}
-                />
+                <div className="pt-2">
+                  <ReCAPTCHA
+                    sitekey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
+                    onChange={(token) => setFormData({ ...formData, recaptcha: token || '' })}
+                  />
+                </div>
 
-                <input
-                  type="text"
-                  name="website"
-                  value={formData.website}
-                  onChange={handleChange}
-                  className="hidden"
-                  tabIndex={-1}
-                  autoComplete="off"
-                />
+                {/* Honeypot */}
+                <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" />
 
-                <Button type="submit" size="lg" className="w-full group">
-                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <Button type="submit" size="lg" className="w-full group shadow-md hover:shadow-lg bg-[#0855B1] border-none text-white">
+                  <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
                 </Button>
               </form>
-            </motion.div>
+            </div>
+          </motion.section>
 
-            {/* Store Hours & Map */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="space-y-8"
-            >
-              {/* Store Hours */}
-              <div className="bg-[#F9FAFB] rounded-2xl p-8">
-                <div className="flex items-center mb-6">
-                  <Clock className="w-6 h-6 text-[#0855B1] mr-3" />
-                  <h3 className="text-xl font-semibold text-[#111827]">Store Hours</h3>
+          {/* Sidebar (Hours + Map) */}
+          <motion.div {...reveal} className="space-y-8">
+            {/* Hours Card */}
+            <div className="rounded-[28px] p-8 bg-white/60 backdrop-blur border border-white/60 shadow-lg">
+              <div className="flex items-center mb-6">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 text-[#0855B1]">
+                  <Clock className="w-5 h-5" />
                 </div>
-                <div className="space-y-3">
-                  {hours.map((schedule) => (
-                    <div key={schedule.day} className="flex justify-between items-center">
-                      <span className="text-[#4B5563] font-medium">{schedule.day}</span>
-                      <span className="text-[#111827] font-semibold">{schedule.time}</span>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-6 p-4 bg-[#E0F2FE] rounded-xl">
-                  <p className="text-sm text-[#0855B1] font-medium">
-                    📦 Holiday hours may vary. Call ahead during holiday seasons.
-                  </p>
-                </div>
+                <h3 className="text-xl font-bold text-slate-900">Store Hours</h3>
               </div>
+              <div className="space-y-4">
+                {hours.map((schedule) => (
+                  <div key={schedule.day} className="flex justify-between items-center border-b border-slate-200/60 pb-2 last:border-0 last:pb-0">
+                    <span className="text-slate-600 font-medium">{schedule.day}</span>
+                    <span className="text-slate-900 font-bold">{schedule.time}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
 
-              {/* Map */}
-              <div className="bg-gray-100 rounded-2xl overflow-hidden h-80 w-full">
-                <iframe
-                  src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY}&q=Mailbox+Plus+Concord+Township+OH`}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Mailbox Plus Location"
-                />
-              </div>
+            {/* Map Container */}
+            <div className="bg-slate-100 rounded-[28px] overflow-hidden h-96 w-full shadow-lg border border-white/50">
+              <iframe
+                src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY}&q=Mailbox+Plus+Concord+Township+OH`}
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Mailbox Plus Location"
+              />
+            </div>
 
-              {/* Directions */}
-              <div className="bg-white border border-gray-200 rounded-2xl p-6">
-                <h4 className="font-semibold text-[#111827] mb-3">Getting Here</h4>
-                <p className="text-sm text-[#4B5563] leading-relaxed">
-                  We&apos;re conveniently located nextdoor to Pub Frato, just minutes from I-90 and OH-44.
-                  Plenty of free parking available. Look for our red Mailbox Plus sign!
-                </p>
-              </div>
-            </motion.div>
-          </div>
+            {/* Directions Tip */}
+            <div className="bg-blue-50/80 border border-blue-100/50 rounded-2xl p-6 text-center">
+              <p className="text-sm text-blue-900 font-medium">
+                📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to I-90.
+              </p>
+            </div>
+
+          </motion.div>
+
         </div>
-      </section>
+
+      </div>
     </div>
   );
 };
