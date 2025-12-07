@@ -135,7 +135,7 @@ export const Services: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#categories">
-              <Button size="lg" className="bg-white text-[#0855B1] hover:bg-blue-50 font-bold shadow-lg border-none min-h-11">
+              <Button size="lg" variant="secondary" className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11">
                 View Categories <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
@@ -291,7 +291,7 @@ export const Services: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-h-11 min-w-[48px] min-h-[48px]">
+              <Button size="lg" variant="secondary" className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
