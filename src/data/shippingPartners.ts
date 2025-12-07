@@ -38,5 +38,10 @@ export const shippingPartners: ShippingPartner[] = [
     logoUrl: getServiceImageUrl("/images/patchops.webp"),
     website: "https://patchops.com/",
   },
+  {
+    name: "Elements Massage",
+    logoUrl: getServiceImageUrl("/images/elements-massage.webp"),
+    website: "https://elementsmassage.com/concord-oh",
+  },
   // Add more partners as needed
 ];

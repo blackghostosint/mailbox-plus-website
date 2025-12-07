@@ -12,7 +12,7 @@ const ShippingPartners: React.FC = () => {
   return (
     <div className="bg-white">
       <Meta
-        title="Shipping Partners – Mailbox Plus"
+        title="Shipping Partners - Mailbox Plus"
         description="Meet the businesses that trust Mailbox Plus for their shipping and logistics needs."
         canonical="https://www.mailboxplus.com/shipping-partners"
       />
