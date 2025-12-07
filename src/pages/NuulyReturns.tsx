@@ -1,3 +1,5 @@
+console.log("AVAILABLE SERVICES:", additionalServices);
+
 import { additionalServices } from "../config/services/additional-services";
 import { ServicePage } from "../components/ServicePage";
 
