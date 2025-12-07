@@ -1,16 +1,18 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { 
-  Printer, 
-  Scan, 
-  Package, 
-  CheckCircle, 
-  MapPin, 
-  Clock, 
-  ShieldCheck, 
+import {
+  Printer,
+  Scan,
+  Package,
+  CheckCircle,
+  MapPin,
+  Clock,
+  ShieldCheck,
+  ArrowRight
 } from "lucide-react";
 import { Meta, Breadcrumbs, JsonLd } from "../components";
-import { CTASection } from "../components/sections/CTA";
+import { Button } from "../components/ui";
+import { InternalLink } from "../components/ui/InternalLink";
 import { CompetitorAlternativeSection } from "../components/sections/CompetitorAlternative";
 import { services } from "../config/services";
 import { siteConfig } from "../config/siteConfig";
@@ -22,6 +24,14 @@ import {
   AccordionContent,
 } from "../components/ui/accordion";
 import { SmartImage } from "../components/SmartImage";
+import { getServiceImageUrl } from "../lib/storage";
+
+const reveal = {
+  initial: { opacity: 0, y: 20 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.5 }
+};
 
 export const FedExEasyReturns: React.FC = () => {
   const service = services.find((s) => s.id === "fedex-easy-returns")!;
@@ -93,39 +103,57 @@ export const FedExEasyReturns: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-25">
+      {/* Hero Section */}
+      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[70vh]">
+        {/* Background Image with V2 Overlay */}
+        <div className="absolute inset-0 w-full h-full z-0">
           <SmartImage
-             priority
-             src={service.heroImage}
-             alt="FedEx Easy Returns at Mailbox Plus"
-             className="w-full h-full object-cover"
+            priority
+            src={service.heroImage}
+            alt="FedEx Easy Returns at Mailbox Plus"
+            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
+            style={{ objectPosition: 'center' }}
           />
-          <div className="absolute inset-0 bg-black/40" />
+          {/* V2 Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-6">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
-          >
-            FedEx Easy Returns – Fast, Hassle-Free Returns
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-lg text-gray-200 leading-relaxed mb-4"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-8 drop-shadow-sm"
+          >
+            FedEx Easy Returns – <span className="text-blue-200">Fast & Hassle-Free</span>
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium mb-10 max-w-3xl mx-auto"
           >
             Quick drop-offs, QR code scanning, label printing, and tracking receipts.
-            <br />
-            <span className="text-blue-200 font-medium mt-2 block">
-              Serving Concord Township, Mentor, Painesville, and all Lake County communities.
-            </span>
+            Serving specific all Lake County communities.
           </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
+            <InternalLink to="/contact">
+              <Button size="lg" variant="secondary" className="shadow-xl font-bold border-none min-h-12 px-8">
+                Get Directions <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </InternalLink>
+          </motion.div>
         </div>
+
+        {/* Soft fade bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white"></div>
       </section>
 
       {/* Intro Section */}
@@ -135,17 +163,18 @@ export const FedExEasyReturns: React.FC = () => {
             Returning Items Has Never Been Easier
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
-            Skip the long lines and complicated processes. The FedEx Easy Returns Program at Mailbox Plus makes returning your online purchases simple. 
+            Skip the long lines and complicated processes. The FedEx Easy Returns Program at Mailbox Plus makes returning your online purchases simple.
             Bring your phone with your QR code, we’ll handle the rest—scanning, printing, and getting your package on its way.
           </p>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-16 bg-gray-50">
+      {/* Benefits Section */}
+      <section className="py-20 bg-slate-50 relative z-10 -mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#111827]">Why Return with Us?</h2>
+            <motion.h2 {...reveal} className="text-3xl font-bold text-[#111827]">Why Return with Us?</motion.h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             {[
@@ -156,74 +185,61 @@ export const FedExEasyReturns: React.FC = () => {
               { icon: MapPin, title: "Convenient Location", desc: "Next to Pub Frato in Concord Twp." },
               { icon: ShieldCheck, title: "Friendly Guidance", desc: "Helpful staff to assist you." }
             ].map((benefit, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex flex-col items-center text-center">
-                <benefit.icon className="w-10 h-10 text-[#0855B1] mb-4" />
-                <h3 className="text-lg font-semibold text-[#111827] mb-2">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* What is FedEx Easy Returns */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6">
-          <div className="bg-[#F0F7FF] rounded-2xl p-8 border border-[#0855B1]/20">
-            <h2 className="text-2xl font-bold text-[#0855B1] mb-4">What is FedEx Easy Returns?</h2>
-            <p className="text-gray-700 leading-relaxed">
-              FedEx Easy Returns is a consumer-friendly service designed to streamline the process of sending items back to retailers. 
-              Instead of worrying about printing labels at home or finding packaging, you can simply bring your item and your return information 
-              (often just a QR code) to Mailbox Plus. We verify the return, generate the label if needed, 
-              and accept the package for shipment—triggering your refund process faster.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Steps Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">How It Works</h2>
-          <div className="relative">
-            {/* Connector Line (Desktop) */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
-            
-            <div className="space-y-12">
-              {[
-                { step: 1, title: "Bring Your Item", desc: "Bring your item and your return QR code or label." },
-                { step: 2, title: "Optional Packing", desc: "Need a box? We can pack it for you (fees may apply)." },
-                { step: 3, title: "We Print the Label", desc: "We scan your code and print the shipping label." },
-                { step: 4, title: "Process & Track", desc: "We scan the package into the FedEx system and give you a receipt." },
-                { step: 5, title: "You're Done!", desc: "Leave with peace of mind while the retailer processes your refund." }
-              ].map((item, index) => (
-                <div key={index} className="flex flex-col md:flex-row items-center gap-8">
-                  <div className="flex-1 text-center md:text-right">
-                    {index % 2 === 0 && (
-                      <>
-                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.desc}</p>
-                      </>
-                    )}
-                  </div>
-                  
-                  <div className="w-12 h-12 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg">
-                    {item.step}
-                  </div>
-
-                  <div className="flex-1 text-center md:text-left">
-                    {index % 2 !== 0 && (
-                      <>
-                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.desc}</p>
-                      </>
-                    )}
-                  </div>
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
+              >
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[#0855B1]">
+                  <benefit.icon className="w-7 h-7" />
                 </div>
-              ))}
+                <h3 className="text-lg font-bold text-[#111827] mb-3">{benefit.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
+              </motion.div>
+            ))}
+            <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">How It Works</h2>
+            <div className="relative">
+              {/* Connector Line (Desktop) */}
+              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
+
+              <div className="space-y-12">
+                {[
+                  { step: 1, title: "Bring Your Item", desc: "Bring your item and your return QR code or label." },
+                  { step: 2, title: "Optional Packing", desc: "Need a box? We can pack it for you (fees may apply)." },
+                  { step: 3, title: "We Print the Label", desc: "We scan your code and print the shipping label." },
+                  { step: 4, title: "Process & Track", desc: "We scan the package into the FedEx system and give you a receipt." },
+                  { step: 5, title: "You're Done!", desc: "Leave with peace of mind while the retailer processes your refund." }
+                ].map((item, index) => (
+                  <div key={index} className="flex flex-col md:flex-row items-center gap-8">
+                    <div className="flex-1 text-center md:text-right">
+                      {index % 2 === 0 && (
+                        <>
+                          <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.desc}</p>
+                        </>
+                      )}
+                    </div>
+
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0B4BB6] to-[#1A6DFF] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                      {item.step}
+                    </div>
+
+                    <div className="flex-1 text-center md:text-left">
+                      {index % 2 !== 0 && (
+                        <>
+                          <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.desc}</p>
+                        </>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-        </div>
       </section>
 
       {/* Common Items Grid */}
@@ -254,20 +270,20 @@ export const FedExEasyReturns: React.FC = () => {
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[#111827] mb-8 text-center">When to Visit Mailbox Plus</h2>
           <div className="space-y-4">
-             <div className="flex gap-4 items-start">
-               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-               <div>
-                 <h3 className="font-bold text-lg text-gray-900">You have a FedEx Easy Returns QR Code</h3>
-                 <p className="text-gray-600">Retailers like Walmart, Target, and Samsung often send these.</p>
-               </div>
-             </div>
-             <div className="flex gap-4 items-start">
-               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
-               <div>
-                 <h3 className="font-bold text-lg text-gray-900">You Want a Receipt</h3>
-                 <p className="text-gray-600">Always get proof of your return for your records.</p>
-               </div>
-             </div>
+            <div className="flex gap-4 items-start">
+              <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
+              <div>
+                <h3 className="font-bold text-lg text-gray-900">You have a FedEx Easy Returns QR Code</h3>
+                <p className="text-gray-600">Retailers like Walmart, Target, and Samsung often send these.</p>
+              </div>
+            </div>
+            <div className="flex gap-4 items-start">
+              <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
+              <div>
+                <h3 className="font-bold text-lg text-gray-900">You Want a Receipt</h3>
+                <p className="text-gray-600">Always get proof of your return for your records.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -328,17 +344,23 @@ export const FedExEasyReturns: React.FC = () => {
       <CompetitorAlternativeSection />
 
       {/* CTA Section */}
-      <div className="max-w-5xl mx-auto px-6 pb-16">
-        <CTASection
-          cta={{
-            title: "Ready to return your package?",
-            subtitle: "Visit Mailbox Plus today. Located in Gristmill Village next to Pub Frato.",
-            buttonText: "Get Directions",
-            buttonLink: "/contact-us",
-            variant: "brand"
-          }}
-        />
-      </div>
+      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Ready to return your package?
+          </h2>
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+            Visit Mailbox Plus today. Located in Gristmill Village next to Pub Frato.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <InternalLink to="/contact">
+              <Button size="lg" variant="secondary" className="font-bold shadow-lg border-none min-h-12 px-8">
+                Get Directions <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+            </InternalLink>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
