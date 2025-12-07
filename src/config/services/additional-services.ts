@@ -31,7 +31,7 @@ export const additionalServices: Service[] = [
         keywords: "Nuuly returns Concord OH, Nuuly drop off Mentor, Nuuly clothing rental returns, UPS drop off Nuuly, Mailbox Plus Nuuly",
         heroTitle: "Nuuly Returns Made Easy",
         heroSubtitle: "Simply drop off your Nuuly reusable bag. We handle the rest.",
-        heroImage: getServiceImageUrl("/images/nullyreturns.webp"),
+        heroImage: getServiceImageUrl("/images/nuuly-returns.webp"),
 
         content: [
             {
@@ -217,15 +217,29 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         content: [
             {
                 heading: "Essential Business Services in Concord Township: Mailbox Plus",
-                body: "Mailbox Plus is the one-stop shop for all your <strong>business services in Concord Township, Ohio</strong>. \nWe provide the essential tools you need to run your business efficiently, without the overhead of a large office. \nFrom <strong>UPS, FedEx, USPS, and DHL</strong> shipping to private mailbox rentals, notary public, and document shredding, \nwe have you covered. Our team acts as your personal support staff, helping you tackle your to-do list so you can focus on what matters most."
+                body: `<p>Mailbox Plus is the one-stop shop for all your <strong>business services in Concord Township, Ohio</strong>.</p>
+                <p>We provide the essential tools you need to run your business efficiently, without the overhead of a large office.</p>
+                <p>From <strong>UPS, FedEx, USPS, and DHL</strong> shipping to private mailbox rentals, notary public, and document shredding, we have you covered. Our team acts as your personal support staff, helping you tackle your to-do list so you can focus on what matters most.</p>`
             },
             {
                 heading: "Your Local Business Support Center",
-                body: "• **Efficiency:** Get multiple errands done in one quick trip.\n• **Reliability:** Count on us for secure handling of your mail and packages.\n• **Professionalism:** Enhance your business image with our high-quality services.\n• **Flexibility:** We offer solutions tailored to small businesses and home offices.\n• **Cost-Effective:** Save money by only paying for the services you need.\n• **Local Partner:** We are invested in the success of the Concord Township business community."
+                body: `<ul>
+                    <li><strong>Efficiency:</strong> Get multiple errands done in one quick trip.</li>
+                    <li><strong>Reliability:</strong> Count on us for secure handling of your mail and packages.</li>
+                    <li><strong>Professionalism:</strong> Enhance your business image with our high-quality services.</li>
+                    <li><strong>Flexibility:</strong> We offer solutions tailored to small businesses and home offices.</li>
+                    <li><strong>Cost-Effective:</strong> Save money by only paying for the services you need.</li>
+                    <li><strong>Local Partner:</strong> We are invested in the success of the Concord Township business community.</li>
+                </ul>`
             },
             {
                 heading: "Comprehensive Business Solutions",
-                body: "• **Mailbox Rentals:** Get a prestigious street address and secure 24-hour access to your mail.\n• **Notary Public:** On-site notary services to legalize your important documents.\n• **Document Shredding:** Securely destroy sensitive files and protect your business data.\n• **Fax & Scan:** Send and receive faxes or digitize your paper records."
+                body: `<ul>
+                    <li><strong>Mailbox Rentals:</strong> Get a prestigious street address and secure 24-hour access to your mail.</li>
+                    <li><strong>Notary Public:</strong> On-site notary services to legalize your important documents.</li>
+                    <li><strong>Document Shredding:</strong> Securely destroy sensitive files and protect your business data.</li>
+                    <li><strong>Fax & Scan:</strong> Send and receive faxes or digitize your paper records.</li>
+                </ul>`
             }
         ],
         features: [
@@ -263,15 +277,28 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         content: [
             {
                 heading: "Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus",
-                body: "Need to return an Amazon package? Mailbox Plus is your convenient <strong>Amazon returns drop-off location in Concord Township, Ohio</strong>. \nWe accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, \nhassle-free drop-off experience. While you're here, check out our other services including \n<strong> FedEx, USPS, and DHL shipping</strong>, packing supplies, and more."
+                body: `<p>Need to return an Amazon package? Mailbox Plus is your convenient <strong>Amazon returns drop-off location in Concord Township, Ohio</strong>.</p>
+                <p>We accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, hassle-free drop-off experience. While you're here, check out our other services including <strong>FedEx, USPS, and DHL shipping</strong>, packing supplies, and more.</p>`
             },
             {
                 heading: "Why Drop Off Amazon Returns at Mailbox Plus?",
-                body: "• **Fast & Easy:** We scan your label and get you on your way in seconds.\n• **No Long Lines:** Avoid the crowds often found at The UPS Store.\n• **Convenient Location:** Right here in Concord Township, close to home.\n• **Friendly Service:** Our staff is happy to help with any shipping questions.\n• **Receipt Provided:** We'll give you a drop-off receipt for your records.\n• **More Services:** Buy a box or tape if you need to pack your return."
+                body: `<ul>
+                <li><strong>Fast & Easy:</strong> We scan your label and get you on your way in seconds.</li>
+                <li><strong>No Long Lines:</strong> Avoid the crowds often found at The UPS Store.</li>
+                <li><strong>Convenient Location:</strong> Right here in Concord Township, close to home.</li>
+                <li><strong>Friendly Service:</strong> Our staff is happy to help with any shipping questions.</li>
+                <li><strong>Receipt Provided:</strong> We'll give you a drop-off receipt for your records.</li>
+                <li><strong>More Services:</strong> Buy a box or tape if you need to pack your return.</li>
+                </ul>`
             },
             {
                 heading: "Return & Shipping Services",
-                body: "• **Amazon Drop-Offs:** Accepting Amazon returns with pre-paid UPS shipping labels.\n• **Packing Assistance:** Need a box? We sell packaging supplies to get your return ready.\n• **Label Printing:** Email us your label and we can print it for you (small fee may apply).\n• **Multi-Carrier Shipping:** We also ship via FedEx, USPS, and DHL for your other needs."
+                body: `<ul>
+                <li><strong>Amazon Drop-Offs:</strong> Accepting Amazon returns with pre-paid UPS shipping labels.</li>
+                <li><strong>Packing Assistance:</strong> Need a box? We sell packaging supplies to get your return ready.</li>
+                <li><strong>Label Printing:</strong> Email us your label and we can print it for you (small fee may apply).</li>
+                <li><strong>Multi-Carrier Shipping:</strong> We also ship via FedEx, USPS, and DHL for your other needs.</li>
+                </ul>`
             }
         ],
         features: [
