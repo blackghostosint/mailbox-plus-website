@@ -1,12 +1,11 @@
-console.log("AVAILABLE SERVICES:", additionalServices);
-
 import { additionalServices } from "../config/services/additional-services";
 import { ServicePage } from "../components/ServicePage";
+
+console.log("AVAILABLE SERVICES:", additionalServices);
 
 export default function NuulyReturnsPage() {
     console.log("NuulyReturnsPage: looking for nuuly-returns in", additionalServices);
     const service = additionalServices.find(s => s.id === "nuuly-returns");
-
     if (!service) {
         console.error("NuulyReturnsPage: Service not found!");
         return (

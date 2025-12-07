@@ -44,6 +44,24 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     breadcrumbsLabel
   } = props;
 
+  console.group("SERVICE PROP VALIDATION");
+  console.log("Props received:", props);
+
+  [
+    "pageTitle",
+    "metaDescription",
+    "heroTitle",
+    "heroSubtitle",
+    "heroImage",
+    "slug"
+  ].forEach((key) => {
+    // Cast to any to avoid TS index signature error
+    if (!(props as any)[key]) {
+      console.error(`❌ Missing required prop: ${key}`, (props as any)[key]);
+    }
+  });
+  console.groupEnd();
+
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
 
   // Generate Schema
@@ -57,6 +75,54 @@ export const ServicePage: React.FC<ServicePageProps> = (props) => {
     url: canonicalUrl,
   });
   const faqSchema = faqs ? getFAQSchema(siteConfig, faqs) : undefined;
+
+  console.group("FEATURE VALIDATION");
+  if (!features || features.length === 0) {
+    console.warn("No features provided");
+  } else {
+    features.forEach((f, i) => {
+      console.log(`Feature ${i}`, f);
+      // Optional check for icon validity if it's expected to be a component
+      if (!f.icon || typeof f.icon !== "function") {
+        console.error(`❌ INVALID ICON in feature ${i}`, f.icon);
+      }
+      if (!f.title) console.error(`❌ Feature ${i} is missing title`);
+      if (!f.description) console.error(`❌ Feature ${i} is missing description`);
+    });
+  }
+  console.groupEnd();
+
+  console.group("CONTENT VALIDATION");
+  if (!content) {
+    console.warn("No content blocks defined");
+  } else {
+    content.forEach((block, i) => {
+      console.log(`Block ${i}`, block);
+      if (!block.heading || typeof block.heading !== "string") {
+        console.error(`❌ Invalid heading in content block ${i}`, block.heading);
+      }
+      if (!block.body || typeof block.body !== "string") {
+        console.error(`❌ Invalid body in content block ${i}`, block.body);
+      }
+    });
+  }
+  console.groupEnd();
+
+  console.group("FAQ VALIDATION");
+  if (!faqs || faqs.length === 0) {
+    console.warn("No FAQs defined");
+  } else {
+    faqs.forEach((faq, i) => {
+      console.log(`FAQ ${i}`, faq);
+      if (!faq.question || typeof faq.question !== "string") {
+        console.error(`❌ Invalid FAQ question in FAQ ${i}`, faq.question);
+      }
+      if (!faq.answer || typeof faq.answer !== "string") {
+        console.error(`❌ Invalid FAQ answer in FAQ ${i}`, faq.answer);
+      }
+    });
+  }
+  console.groupEnd();
 
   return (
     <>
