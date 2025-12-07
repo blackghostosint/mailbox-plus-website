@@ -95,7 +95,7 @@ export const additionalServices: Service[] = [
         features: [
             { icon: Truck, title: "Fast Drop-Off", description: "Most returns processed in under 2 minutes." },
             { icon: Shield, title: "Secure Return", description: "We scan your label immediately for proof." },
-            { icon: PackageCheck, title: "No Box Needed", description: "Nuuly returns stay in the reusable bag." }
+            { icon: CheckCircle, title: "No Box Needed", description: "Nuuly returns stay in the reusable bag." }
         ],
 
         faqs: [
