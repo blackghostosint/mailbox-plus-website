@@ -24,7 +24,7 @@ import {
   AccordionContent,
 } from "../components/ui/accordion";
 import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/storage";
+
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -170,7 +170,6 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      {/* Benefits Section */}
       <section className="py-20 bg-slate-50 relative z-10 -mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -200,46 +199,72 @@ export const FedExEasyReturns: React.FC = () => {
                 <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
               </motion.div>
             ))}
-            <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">How It Works</h2>
-            <div className="relative">
-              {/* Connector Line (Desktop) */}
-              <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
+          </div>
+        </div>
+      </section>
 
-              <div className="space-y-12">
-                {[
-                  { step: 1, title: "Bring Your Item", desc: "Bring your item and your return QR code or label." },
-                  { step: 2, title: "Optional Packing", desc: "Need a box? We can pack it for you (fees may apply)." },
-                  { step: 3, title: "We Print the Label", desc: "We scan your code and print the shipping label." },
-                  { step: 4, title: "Process & Track", desc: "We scan the package into the FedEx system and give you a receipt." },
-                  { step: 5, title: "You're Done!", desc: "Leave with peace of mind while the retailer processes your refund." }
-                ].map((item, index) => (
-                  <div key={index} className="flex flex-col md:flex-row items-center gap-8">
-                    <div className="flex-1 text-center md:text-right">
-                      {index % 2 === 0 && (
-                        <>
-                          <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
-                          <p className="text-gray-600">{item.desc}</p>
-                        </>
-                      )}
-                    </div>
+      {/* What is FedEx Easy Returns */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-6">
+          <motion.div
+            {...reveal}
+            className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+            <h2 className="text-3xl font-bold text-[#0855B1] mb-6">What is FedEx Easy Returns?</h2>
+            <p className="text-slate-700 leading-relaxed text-lg">
+              FedEx Easy Returns is a consumer-friendly service designed to streamline the process of sending items back to retailers.
+              Instead of worrying about printing labels at home or finding packaging, you can simply bring your item and your return information
+              (often just a QR code) to Mailbox Plus. We verify the return, generate the label if needed,
+              and accept the package for shipment—triggering your refund process faster.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0B4BB6] to-[#1A6DFF] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
-                      {item.step}
-                    </div>
+      {/* Steps Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">How It Works</h2>
+          <div className="relative">
+            {/* Connector Line (Desktop) */}
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
 
-                    <div className="flex-1 text-center md:text-left">
-                      {index % 2 !== 0 && (
-                        <>
-                          <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
-                          <p className="text-gray-600">{item.desc}</p>
-                        </>
-                      )}
-                    </div>
+            <div className="space-y-12">
+              {[
+                { step: 1, title: "Bring Your Item", desc: "Bring your item and your return QR code or label." },
+                { step: 2, title: "Optional Packing", desc: "Need a box? We can pack it for you (fees may apply)." },
+                { step: 3, title: "We Print the Label", desc: "We scan your code and print the shipping label." },
+                { step: 4, title: "Process & Track", desc: "We scan the package into the FedEx system and give you a receipt." },
+                { step: 5, title: "You're Done!", desc: "Leave with peace of mind while the retailer processes your refund." }
+              ].map((item, index) => (
+                <div key={index} className="flex flex-col md:flex-row items-center gap-8">
+                  <div className="flex-1 text-center md:text-right">
+                    {index % 2 === 0 && (
+                      <>
+                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                        <p className="text-gray-600">{item.desc}</p>
+                      </>
+                    )}
                   </div>
-                ))}
-              </div>
+
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0B4BB6] to-[#1A6DFF] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                    {item.step}
+                  </div>
+
+                  <div className="flex-1 text-center md:text-left">
+                    {index % 2 !== 0 && (
+                      <>
+                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                        <p className="text-gray-600">{item.desc}</p>
+                      </>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
+        </div>
       </section>
 
       {/* Common Items Grid */}
