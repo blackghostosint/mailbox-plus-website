@@ -52,7 +52,7 @@ const ShippingPartners: React.FC = () => {
         </div>
       </section>
 
-      <main className="relative -mt-20 container mx-auto px-4 pb-20 space-y-20">
+      <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
 
         {/* ====================== GLASS INTRO CARD ======================= */}
         <motion.div {...reveal} className="max-w-3xl mx-auto">

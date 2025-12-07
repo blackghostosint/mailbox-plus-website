@@ -17,6 +17,9 @@ import { AutoBreadcrumbs } from "../components/ui/AutoBreadcrumbs";
 import { getServiceImageUrl } from "../lib/storage";
 import { SmartImage } from "../components/SmartImage";
 
+// V2 Design System: Clear Glassmorphic Styling
+const v2GlassCard = "bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_18px_45px_rgba(15,23,42,0.10)] rounded-[26px]";
+
 const pickupHours = [
   {
     carrier: "USPS Pickup",
@@ -26,8 +29,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Accepts stamped mail, prepaid labels, Priority Mail, and returns.",
-    color: "border-blue-200 bg-blue-50/50",
+    accentColor: "bg-blue-600",
     iconColor: "text-blue-600",
+    bgTint: "bg-blue-50/30",
   },
   {
     carrier: "UPS Pickup",
@@ -37,8 +41,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.",
-    color: "border-amber-200 bg-amber-50/50",
-    iconColor: "text-amber-700",
+    accentColor: "bg-[#F59E0B]", // AMBER-500
+    iconColor: "text-amber-600",
+    bgTint: "bg-amber-50/30",
   },
   {
     carrier: "FedEx Express",
@@ -48,8 +53,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "For overnight, 2-day, and express saver shipments. Separate from Ground.",
-    color: "border-purple-200 bg-purple-50/50",
+    accentColor: "bg-purple-600",
     iconColor: "text-purple-600",
+    bgTint: "bg-purple-50/30",
   },
   {
     carrier: "FedEx Ground",
@@ -59,8 +65,9 @@ const pickupHours = [
       { day: "Sunday", time: "No pickup" },
     ],
     details: "Standard ground shipping and Home Delivery packages.",
-    color: "border-green-200 bg-green-50/50",
+    accentColor: "bg-green-600",
     iconColor: "text-green-600",
+    bgTint: "bg-green-50/30",
   },
 ];
 
@@ -87,13 +94,21 @@ const faqs = [
   },
 ];
 
+// Animation Consts
+const reveal = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true },
+  transition: { duration: 0.55, ease: "easeOut" as const }
+};
+
 const PickupHours: React.FC = () => {
   const pageTitle = "Carrier Pickup Hours | UPS, FedEx, USPS | Mailbox Plus";
   const metaDescription = "Check daily pickup times for UPS, FedEx, and USPS at Mailbox Plus in Concord Township. Miss the truck? We'll secure your package for the next day.";
   const url = `${siteConfig.domain}/pickup-hours`;
 
   return (
-    <div className="bg-white">
+    <div className="bg-slate-50 min-h-screen">
       <Meta
         title={pageTitle}
         description={metaDescription}
@@ -106,11 +121,11 @@ const PickupHours: React.FC = () => {
       <JsonLd schema={getServiceSchema(siteConfig, { serviceName: "Carrier Pickup Services", url })} />
       <JsonLd schema={getFAQSchema(siteConfig, faqs)} />
 
-      {/* Hero Section */}
-      <section className="relative bg-[#0855B1] py-16 lg:py-24 text-center overflow-hidden">
+      {/* Hero Section - V2 Gradient */}
+      <section className="relative bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] py-16 lg:py-24 text-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={{ opacity: 0.25 }}
+          animate={{ opacity: 0.15 }}
           transition={{ duration: 0.8 }}
           className="absolute inset-0 z-0"
         >
@@ -118,112 +133,131 @@ const PickupHours: React.FC = () => {
             priority
             src={getServiceImageUrl("package-drop-offs.jpg")}
             alt="Packages ready for pickup"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover mix-blend-overlay"
           />
-          <div className="absolute inset-0 bg-black/40" />
         </motion.div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
-            Carrier Pickup <span className="text-blue-300">Hours</span>
+            Carrier Pickup <span className="text-blue-200">Hours</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-lg text-gray-200 leading-relaxed max-w-2xl mx-auto"
+            transition={{ duration: 0.8, delay: 0.1 }}
+            className="text-lg text-blue-50 leading-relaxed max-w-2xl mx-auto"
           >
             Daily collection times for UPS, FedEx, and USPS. Drop off your packages with confidence.
           </motion.p>
         </div>
+
+        {/* Soft edge blend at bottom of hero */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-50"></div>
       </section>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-8">
+        <div className="mb-8 pl-1">
           <AutoBreadcrumbs />
         </div>
 
-        {/* Intro Text */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Knowing the exact pickup times ensures your important shipments go out the same day.
-            We are an authorized ship center for <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS</InternalLink>, <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx</InternalLink>, and <InternalLink variant="geo" to="/pack-ship/usps-services">USPS</InternalLink>.
-            Residents of <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>, Mentor, and Painesville rely on us for timely processing.
-          </p>
+        {/* Intro Text in Glass Card */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <motion.div
+            {...reveal}
+            className={`${v2GlassCard} p-8 md:p-10 text-center`}
+          >
+            <p className="text-lg text-slate-600 leading-relaxed">
+              Knowing the exact pickup times ensures your important shipments go out the same day.
+              We are an authorized ship center for <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS</InternalLink>, <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx</InternalLink>, and <InternalLink variant="geo" to="/pack-ship/usps-services">USPS</InternalLink>.
+              Residents of <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>, Mentor, and Painesville rely on us for timely processing.
+            </p>
+          </motion.div>
         </div>
 
-        {/* Pickup Hours Grid */}
+        {/* Pickup Hours Glass Grids */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
           {pickupHours.map((item, idx) => (
             <motion.div
               key={item.carrier}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
-              className={`relative rounded-2xl p-8 border ${item.color} shadow-sm hover:shadow-md transition-shadow`}
+              whileHover={{ y: -4, scale: 1.01 }}
+              className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
             >
-              <div className="absolute top-0 left-0 w-2 h-full rounded-l-2xl bg-current opacity-20" />
+              {/* Decorative accent bar */}
+              <div className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}></div>
 
-              <div className="flex items-center gap-4 mb-6">
-                <Truck className={`w-8 h-8 ${item.iconColor}`} />
-                <h2 className="text-2xl font-bold text-gray-900">{item.carrier}</h2>
+              <div className="flex items-center gap-4 mb-6 relative z-10">
+                <div className={`p-3 rounded-xl bg-white/80 shadow-sm ${item.iconColor}`}>
+                  <Truck className="w-8 h-8" />
+                </div>
+                <h2 className="text-2xl font-bold text-slate-800">{item.carrier}</h2>
               </div>
 
-              <ul className="space-y-4 mb-6">
+              <ul className="space-y-4 mb-8 relative z-10">
                 {item.times.map((t) => (
-                  <li key={t.day} className="flex justify-between items-center text-gray-700 border-b border-gray-200/60 pb-2 last:border-0">
+                  <li key={t.day} className="flex justify-between items-center text-slate-700 border-b border-slate-200/60 pb-2 last:border-0">
                     <span className="font-medium">{t.day}</span>
-                    <span className="font-bold text-gray-900 text-lg">{t.time}</span>
+                    <span className="font-bold text-slate-900 text-lg">{t.time}</span>
                   </li>
                 ))}
               </ul>
 
-              <div className="text-sm text-gray-600 bg-white/60 p-4 rounded-lg">
-                <p className="font-medium text-gray-900 mb-1">Accepted Packages:</p>
+              <div className="text-sm text-slate-600 bg-white/60 p-5 rounded-2xl relative z-10 border border-white/50">
+                <p className="font-bold text-slate-800 mb-1">Accepted Packages:</p>
                 {item.details}
               </div>
             </motion.div>
           ))}
         </div>
 
-        {/* Local SEO Section */}
-        <section className="bg-gray-50 rounded-2xl p-8 md:p-12 mb-16 border border-gray-100">
-          <div className="max-w-4xl mx-auto">
+        {/* Local SEO Section - Glass Panel */}
+        <motion.section
+          {...reveal}
+          className={`${v2GlassCard} p-8 md:p-12 mb-16 relative overflow-hidden`}
+        >
+          {/* Subtle gradient background for this section specifically */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent opacity-50 z-0"></div>
+
+          <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
-              <MapPin className="w-6 h-6 text-[#0855B1] mt-1 flex-shrink-0" />
-              <h3 className="text-2xl font-bold text-gray-900">Serving Lake County & Surrounding Areas</h3>
+              <div className="p-3 bg-blue-100 rounded-xl">
+                <MapPin className="w-6 h-6 text-[#0855B1]" />
+              </div>
+              <h3 className="text-2xl font-bold text-slate-900 mt-1">Serving Lake County & Surrounding Areas</h3>
             </div>
-            <p className="text-gray-700 leading-relaxed mb-6">
+            <p className="text-slate-700 leading-relaxed mb-6 pl-[4.5rem]">
               Whether you are coming from <InternalLink variant="geo" to="/pack-ship">Mentor</InternalLink>, <InternalLink variant="geo" to="/pack-ship">Painesville</InternalLink>, or right here in <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>,
               Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the post office or the remote drop boxes that may not be secure.
             </p>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-slate-700 leading-relaxed pl-[4.5rem]">
               We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid labels, and can help you pack your items if they aren&apos;t ready to ship.
               Visit our <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a secure place to receive packages instead of sending them!
             </p>
           </div>
-        </section>
+        </motion.section>
 
         {/* FAQs */}
         <section className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-center text-slate-900 mb-10">Frequently Asked Questions</h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, i) => (
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-white border rounded-xl shadow-sm hover:shadow-md transition-all"
+                className="bg-white/60 backdrop-blur-md border border-white/60 rounded-[20px] shadow-sm hover:shadow-md transition-all px-2 overflow-hidden"
               >
-                <AccordionTrigger className="px-6 py-4 text-left font-semibold text-[#0855B1] hover:no-underline hover:text-[#064A9B]">
+                <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[#0855B1] hover:no-underline hover:text-[#064A9B]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-gray-600 leading-relaxed">
+                <AccordionContent className="px-4 pb-4 text-slate-600 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
