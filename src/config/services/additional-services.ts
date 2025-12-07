@@ -6,7 +6,7 @@ import {
     Clock,
     Truck,
     Printer,
-    CheckCircle
+    CircleCheck
 } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
@@ -102,7 +102,7 @@ export const additionalServices: Service[] = [
         features: [
             { icon: Truck, title: "Fast Drop-Off", description: "Most returns processed in under 2 minutes." },
             { icon: Shield, title: "Secure Return", description: "We scan your label immediately for proof." },
-            { icon: CheckCircle, title: "No Box Needed", description: "Nuuly returns stay in the reusable bag." }
+            { icon: CircleCheck, title: "No Box Needed", description: "Nuuly returns stay in the reusable bag." }
         ],
 
         faqs: [
