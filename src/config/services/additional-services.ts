@@ -1,5 +1,12 @@
 import {
-    Users, Star, NotebookText, Shield, Clock, Truck, Printer, PackageCheck
+    Users,
+    Star,
+    NotebookText,
+    Shield,
+    Clock,
+    Truck,
+    Printer,
+    CheckCircle
 } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
