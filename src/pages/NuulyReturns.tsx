@@ -1,7 +1,7 @@
 console.log("AVAILABLE SERVICES:", additionalServices);
 
 import { additionalServices } from "../config/services/additional-services";
-import { ServicePage } from "../components/ServicePageV2";
+import { ServicePage } from "../components/ServicePage";
 
 export default function NuulyReturnsPage() {
     console.log("NuulyReturnsPage: looking for nuuly-returns in", additionalServices);
