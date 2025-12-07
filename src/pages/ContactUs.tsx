@@ -6,6 +6,8 @@ import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
+import { SmartImage } from "../components/SmartImage";
+import { getServiceImageUrl } from "../lib/storage";
 
 // Animation Constant
 const reveal = {
@@ -117,8 +119,31 @@ export const ContactUs: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+        {/* Background Image with V2 Overlay */}
+        <div className="absolute inset-0 w-full h-full z-0">
+          <SmartImage
+            priority
+            sources={[
+              {
+                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
+                media: "(max-width: 768px)",
+                type: "image/webp"
+              },
+              {
+                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
+                media: "(min-width: 769px)",
+                type: "image/webp"
+              }
+            ]}
+            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            alt="Mailbox Plus storefront in Concord Township, Ohio"
+            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
+            style={{ objectPosition: 'center' }}
+          />
+          {/* V2 Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+        </div>
 
         {/* Soft Fade Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
