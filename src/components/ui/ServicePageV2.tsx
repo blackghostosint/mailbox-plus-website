@@ -123,8 +123,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                                             <Star
                                                 key={i}
                                                 className={`w-5 h-5 ${i < Math.floor(aggregateRating.ratingValue)
-                                                        ? "fill-yellow-400 text-yellow-400"
-                                                        : "text-blue-200"
+                                                    ? "fill-yellow-400 text-yellow-400"
+                                                    : "text-blue-200"
                                                     }`}
                                             />
                                         ))}
@@ -236,8 +236,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                                     >
                                         <div
                                             className={`rounded-2xl border ${isAlt
-                                                    ? "bg-blue-50/60 border-blue-100"
-                                                    : "bg-white border-gray-100"
+                                                ? "bg-blue-50/60 border-blue-100"
+                                                : "bg-white border-gray-100"
                                                 } shadow-sm px-6 md:px-10 py-10`}
                                         >
                                             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
