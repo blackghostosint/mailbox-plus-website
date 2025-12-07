@@ -1,6 +1,6 @@
 // BicycleShipping.tsx
 import React from "react";
-import { ServicePageV2 } from "../components/ServicePageV2";
+import { ServicePageV2 } from "../components/ui/ServicePageV2";
 import { InternalLink } from "../components/ui/InternalLink";
 import { services } from "../config/services";
 
@@ -16,11 +16,10 @@ export const BicycleShipping: React.FC = () => {
         </p>
 
         <p className="text-gray-700 leading-relaxed">
-          We can ship your bike through
+          We can ship your bike via
           <InternalLink variant="geo" to="/pack-ship/fedex-shipping"> FedEx</InternalLink>
-          or
-          <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet"> UPS</InternalLink>,
-          with proper packing to protect your frame, wheels, and components.
+          and
+          <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet"> UPS</InternalLink>.
         </p>
       </div>
     </ServicePageV2>
