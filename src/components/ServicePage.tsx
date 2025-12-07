@@ -1,3 +1,4 @@
+console.log("🔥 SERVICEPAGE MOUNTED", props);
 import React from "react";
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
