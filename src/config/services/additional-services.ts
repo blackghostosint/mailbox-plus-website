@@ -1,5 +1,5 @@
 import {
-    Users, Star, NotebookText, Shield, Clock, Truck, Printer
+    Users, Star, NotebookText, Shield, Clock, Truck, Printer, PackageCheck
 } from "lucide-react";
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
@@ -12,6 +12,115 @@ export const additionalServices: Service[] = [
     // ---------------------------
     // ADDITIONAL SERVICES
     // ---------------------------
+    {
+        id: "nuuly-returns",
+        category: "additional-services",
+        city: "Concord Township",
+        serviceName: "Nuuly Returns Drop-Off",
+        slug: "/nuuly-returns",
+        canonicalUrl: "https://mailboxplus.com/nuuly-returns",
+        pageTitle: "Nuuly Returns Drop-Off in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Fast, easy Nuuly returns in Concord Township, OH. Drop off your Nuuly rental bag at Mailbox Plus. We scan, receipt, and ship via UPS. No boxing needed.",
+        keywords: "Nuuly returns Concord OH, Nuuly drop off Mentor, Nuuly clothing rental returns, UPS drop off Nuuly, Mailbox Plus Nuuly",
+        heroTitle: "Nuuly Returns Made Easy",
+        heroSubtitle: "Simply drop off your Nuuly reusable bag. We handle the rest.",
+        heroImage: getServiceImageUrl("/images/nullyreturns.webp"),
+
+        content: [
+            {
+                heading: "What Is Nuuly?",
+                body: `Nuuly is a popular monthly clothing rental subscription service that lets fashion lovers explore new styles without the commitment of buying. Users rent 6 items monthly from brands like <strong>Free People</strong>, <strong>Anthropologie</strong>, <strong>Urban Outfitters</strong>, and many vintage labels.<br><br>
+            As an authorized UPS drop-off point, Mailbox Plus ensures your Nuuly bag is scanned immediately so your return is logged and your next month’s box unlocks faster.`
+            },
+            {
+                heading: "How the Nuuly Process Works",
+                body: `
+            <ol>
+                <li><strong>Rent:</strong> Choose 6 items for the month.</li>
+                <li><strong>Wear:</strong> Enjoy the clothing for any occasion.</li>
+                <li><strong>Return:</strong> Place items back into the reusable Nuuly bag and drop off at Mailbox Plus.</li>
+                <li><strong>Repeat:</strong> Once scanned, select your next 6 items.</li>
+            </ol>`
+            },
+            {
+                heading: "Nuuly Returns Drop-Off in Concord Township",
+                body: `
+            Residents of <strong>Concord Township, Mentor, Painesville, and Chardon</strong> can return Nuuly bags quickly at Mailbox Plus—your neighborhood <a href="/pack-ship/ups-authorized-shipper-outlet">UPS Authorized Shipping Outlet</a>.<br><br>
+            <ul>
+                <li>Zero fees for prepaid UPS drop-offs</li>
+                <li>Instant receipt and tracking</li>
+                <li>Convenient front-door parking</li>
+                <li>Open Saturdays</li>
+            </ul>`
+            },
+            {
+                heading: "What You Need Before Dropping Off",
+                body: `
+            <ol>
+                <li><strong>The Nuuly Reusable Bag:</strong> No need for boxes or tape.</li>
+                <li><strong>UPS Return Label:</strong> Insert into the bag window. We can print it if needed.</li>
+                <li><strong>Zip It Up:</strong> Ensure it's fully closed.</li>
+            </ol>`
+            },
+            {
+                heading: "Why Choose Mailbox Plus",
+                body: `
+            <ul>
+                <li>No lines — average drop-off under 2 minutes</li>
+                <li>Secure handling and instant scanning</li>
+                <li>Local and friendly service</li>
+                <li>Extended hours and Saturday availability</li>
+                <li>Easy front-door parking</li>
+                <li>All UPS, FedEx, USPS, DHL returns accepted</li>
+            </ul>`
+            },
+            {
+                heading: "Step-by-Step Return Procedure",
+                body: `
+            <ol>
+                <li>Prepare Bag — place clothes inside and zip.</li>
+                <li>Insert Label into the window.</li>
+                <li>Bring the bag to Mailbox Plus.</li>
+                <li>Staff scans the label.</li>
+                <li>Receive your printed receipt.</li>
+                <li>Nuuly unlocks your next box.</li>
+            </ol>`
+            },
+            {
+                heading: "Local Service Area",
+                body: `Searching for <strong>"Nuuly returns near me"</strong> or <strong>"clothing rental return Concord OH"</strong>? Mailbox Plus serves Mentor, Painesville, Leroy Township, Chardon, and Willoughby.`
+            }
+        ],
+
+        features: [
+            { icon: Truck, title: "Fast Drop-Off", description: "Most returns processed in under 2 minutes." },
+            { icon: Shield, title: "Secure Return", description: "We scan your label immediately for proof." },
+            { icon: PackageCheck, title: "No Box Needed", description: "Nuuly returns stay in the reusable bag." }
+        ],
+
+        faqs: [
+            {
+                question: "Do I need to box my Nuuly return?",
+                answer: "No. Use the reusable Nuuly bag—no box required."
+            },
+            {
+                question: "Is there a charge to drop off?",
+                answer: "No. Nuuly returns with prepaid UPS labels are free."
+            },
+            {
+                question: "How do I get my return receipt?",
+                answer: "We scan the label and print your tracking receipt instantly."
+            },
+            {
+                question: "What if I lost my return label?",
+                answer: "You can reprint from your Nuuly account or email it to us for printing."
+            },
+            {
+                question: "Do you accept other clothing rental returns?",
+                answer: "Yes—Rent the Runway, Stitch Fix, and any UPS/FedEx-labeled returns."
+            }
+        ]
+    },
     {
         id: "notary-services",
         category: "additional-services",
