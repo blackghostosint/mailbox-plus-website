@@ -1326,6 +1326,65 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: 'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        category: 'micro-problem',
+        city: 'concord-township',
+        serviceName: 'Get Help Choosing the Right Box for Shipping',
+        slug: '/get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        pageTitle: 'Get Help Choosing the Right Box for Shipping in Concord Township | Mailbox Plus',
+        metaDescription: 'Not sure what size box to use? We\'ll measure your item and pick the perfect box that fits properly without wasting space or money. Visit Mailbox Plus in Concord Township.',
+        heroTitle: 'Get Help Choosing the Right Box for Shipping in Concord Township',
+        heroSubtitle: 'Not sure what size box to use? Worried it\'s too big (and you\'ll pay more) or too small (and it\'ll get damaged)? We\'ll measure your item and pick the perfect box.',
+        heroImage: getServiceImageUrl('/images/micro/boxes.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We measure your item, factor in padding requirements, and select a box that fits properly without wasting space or money.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Carriers charge by dimensional weight (size × weight formula). A box that\'s too big costs you more. A box that\'s too small means no room for padding, which means damage.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring your item (or tell us the dimensions)</li>
+<li>We measure it</li>
+<li>We calculate padding needs (2–3 inches per side for fragile items)</li>
+<li>We show you box options and explain the cost difference</li>
+<li>You pick, we pack</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The item you're shipping</li>
+<li>Any accessories or parts that go with it</li>
+<li>Destination address (affects pricing)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'What if I already have a box at home?',
+                answer: 'Bring it in. We\'ll tell you if it\'ll work or if you need a different size.'
+            },
+            {
+                question: 'Does box size really affect price that much?',
+                answer: 'Yes. Carriers charge by dimensional weight: (Length × Width × Height) / 166. A box that\'s even 2 inches bigger can jump you to the next price tier.'
+            },
+            {
+                question: 'Can I use a smaller box to save money?',
+                answer: 'Only if there\'s still room for padding. We won\'t sacrifice protection to save $5 on shipping.'
+            }
+        ],
+        cta: {
+            title: 'Bring your item in—we\'ll pick the right box and explain why.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
