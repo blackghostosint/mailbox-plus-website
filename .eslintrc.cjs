@@ -24,5 +24,20 @@ module.exports = {
   },
   rules: {
     "react/react-in-jsx-scope": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        patterns: [
+          {
+            group: ["**/config/micro-problems/returns", "**/config/micro-problems/shipping", "**/config/micro-problems/packaging", "**/config/micro-problems/misc"],
+            message: "Do not import individual shard files directly. Import from '@/config/micro-problems' or '@/config/services/micro-problems' instead."
+          },
+          {
+            group: ["**/pages/ServicePage", "**/pages/ServicePage.tsx"],
+            message: "ServicePage is deprecated. Use ServicePageV2 instead."
+          }
+        ]
+      }
+    ]
   },
 };
