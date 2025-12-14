@@ -491,6 +491,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: 'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        category: 'micro-problem',
+        city: 'concord-township',
+        serviceName: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
+        slug: '/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        pageTitle: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
+        metaDescription: 'Shipping something heavy and worried the carrier will refuse it? Weight limits are real—and confusing. We know exactly which carriers take what weight, and how to pack it so it\'s accepted.',
+        heroTitle: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
+        heroSubtitle: 'Shipping something heavy and worried the carrier will refuse it? Weight limits are real—and confusing. We know exactly which carriers take what weight, and how to pack it so it\'s accepted.',
+        heroImage: getServiceImageUrl('/images/micro/boxes.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We weigh your item, choose a carrier that accepts that weight class, use a reinforced box, and distribute the weight properly so it doesn\'t tear through the bottom.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'UPS and FedEx have a 150 lb limit per package (70 lbs for some services). USPS tops out at 70 lbs. Go over and they reject it—or charge you a surprise fee. Worse: heavy items bust through weak boxes.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>We weigh the item accurately (our scale is certified)</li>
+<li>We tell you which carriers will accept it and at what cost</li>
+<li>We use double-walled or heavy-duty boxes</li>
+<li>We reinforce the bottom with extra tape and support</li>
+<li>We add \"Heavy\" labels so handlers know</li>
+<li>We hand it to the carrier with weight documentation</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The heavy item</li>
+<li>Destination address</li>
+<li>Patience—we\'ll show you options and you pick what makes sense</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'What if it\'s over 150 lbs?',
+                answer: 'Then it goes freight, not parcel. Freight is cheaper for heavy items but takes longer (5–10 business days). We can arrange freight pickup.'
+            },
+            {
+                question: 'Will the box hold up?',
+                answer: 'If we pack it, yes. We use boxes rated for the weight and reinforce stress points.'
+            },
+            {
+                question: 'Can I split it into multiple boxes to avoid freight?',
+                answer: 'Sometimes that makes sense, sometimes it doesn\'t. We\'ll do the math and show you both options.'
+            }
+        ],
+        cta: {
+            title: 'Bring it in or call with the weight—we\'ll figure out the smartest way to ship it.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
