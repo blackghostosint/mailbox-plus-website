@@ -369,6 +369,67 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship a Fragile Item Safely",
+        slug: "/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics",
+        pageTitle: "Ship a Fragile Item Safely in Concord Township – Glass, Ceramics, Electronics",
+        metaDescription: "Shipping something breakable and terrified it'll arrive in pieces? We pack fragile items every single day—glassware, dishes, electronics, collectibles. We know how to protect it.",
+        heroTitle: "Ship a Fragile Item Safely in Concord Township – Glass, Ceramics, Electronics",
+        heroSubtitle: "Shipping something breakable and terrified it'll arrive in pieces? We pack fragile items every single day—glassware, dishes, electronics, collectibles. We know how to protect it.",
+        heroImage: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=1200&q=80",
+        content: [
+            {
+                heading: "What We Do",
+                body: "We use double-boxing, foam inserts, bubble wrap, corner protection, and \"Fragile\" labeling to make sure your item survives the journey. We've shipped everything from fine china to glass art to vintage electronics."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Shipping carriers throw packages. That's not an exaggeration—it's reality. Fragile items need internal cushioning that absorbs shock, not just external bubble wrap."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your fragile item (or tell us what it is)</li>
+<li>We assess the risk: weight, shape, breakable points</li>
+<li>We wrap each piece individually in foam or bubble wrap</li>
+<li>We use a box with 2–3 inches of cushioning on all sides</li>
+<li>For high-value items, we double-box (box inside a box)</li>
+<li>We label "Fragile" and "This Side Up" if needed</li>
+<li>We can insure it and hand you a receipt with tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The fragile item</li>
+<li>Original packaging if you have it (helps but not required)</li>
+<li>Any documentation if it's valuable (for insurance purposes)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "How do I know it won't break?",
+                answer: "We can't guarantee carriers won't be rough, but we can guarantee your item is packed to withstand normal (and abnormal) handling. We've had a 99%+ success rate with fragile shipments."
+            },
+            {
+                question: "Should I insure it?",
+                answer: "If it's worth more than $100 or irreplaceable, yes. Insurance costs about $1–2 per $100 of value."
+            },
+            {
+                question: "What's double-boxing?",
+                answer: "We pack the item in a smaller box with cushioning, then place that box inside a larger box with more cushioning. It's the gold standard for fragile items."
+            }
+        ],
+        cta: {
+            title: "Bring it in—we'll pack it like it's our own. No appointment needed.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
