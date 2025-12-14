@@ -906,6 +906,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "drop-off-a-prepaid-label-from-your-phone",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Drop Off a Prepaid Label From Your Phone",
+        slug: "/drop-off-a-prepaid-label-from-your-phone",
+        pageTitle: "Drop Off a Prepaid Label From Your Phone in Concord Township",
+        metaDescription: "Show us your QR code or prepaid label on your phone—we'll print it, attach it, and drop it off for you. Takes 2 minutes. No printer needed.",
+        heroTitle: "Drop Off a Prepaid Label From Your Phone",
+        heroSubtitle: "Show us your screen—we'll print it, attach it, and drop it off for you. Takes 2 minutes.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "You show us the prepaid label (email, text, app, PDF, QR code—any format), we print it on adhesive label paper, and we accept the package for carrier pickup."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Retailers assume you have a printer. Most people don't anymore. They send you a label and say \"print and attach.\" We're the print-and-attach place."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Open the label on your phone (email, app, screenshot, QR code)</li>
+<li>Show it to us at the counter</li>
+<li>We print it on proper label paper</li>
+<li>We attach it to your package (or you can do it yourself)</li>
+<li>We drop it with the carrier</li>
+<li>You get a receipt with tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>Your phone with the label pulled up</li>
+<li>The item if you need it packed</li>
+<li>Literally nothing else</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What if it's a QR code?",
+                answer: "Perfect—we scan it and print the label in 10 seconds."
+            },
+            {
+                question: "Do I need to email you the label?",
+                answer: "Nope. Just show us your phone."
+            },
+            {
+                question: "What if the label is buried in my email?",
+                answer: "We'll help you find it. Or just give us your order number—we can usually pull it up."
+            }
+        ],
+        cta: {
+            title: "Walk in with your phone—seriously, that's all you need.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
