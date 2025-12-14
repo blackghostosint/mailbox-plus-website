@@ -230,7 +230,7 @@ If you’re searching for <em>notary services near Concord Township</em> or need
         keywords: "nuuly returns, clothing rental returns, UPS drop off, concord township, lake county",
         heroTitle: "Nuuly Returns Drop-Off",
         heroSubtitle: "Convenient Nuuly clothing rental returns at your local UPS authorized drop-off location.",
-        heroImage: getServiceImageUrl("/images/nuulyreturns.webp"),
+        heroImage: getServiceImageUrl("https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/nullyreturns.webp"),
         content: [
             {
                 heading: "Fast & Easy Nuuly Returns",
