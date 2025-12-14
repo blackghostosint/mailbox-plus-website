@@ -7,6 +7,7 @@ export interface ButtonProps extends BaseButtonProps {
   variant?: "primary" | "secondary" | "link" | "ghost";
   size?: "sm" | "md" | "lg";
   children: React.ReactNode;
+  as?: "button" | "div" | "span" | "a";
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,6 +15,7 @@ export const Button: React.FC<ButtonProps> = ({
   size = "md",
   children,
   className = "",
+  as = "button",
   ...props
 }) => {
   const baseClasses =
@@ -36,17 +38,20 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-transparent text-[#0855B1] hover:bg-[#F0F7FF] focus:ring-[#B2D3EB] shadow-none",
   };
 
+  // Determine which element to render
+  const Component = motion[as as keyof typeof motion] || motion.button;
+
   return (
-    <motion.button
+    <Component
       whileHover={{
         scale: variant === "link" || variant === "ghost" ? 1 : 1.03,
         transition: { duration: 0.2 },
       }}
       whileTap={{ scale: variant === "link" || variant === "ghost" ? 1 : 0.97 }}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-      {...props}
+      {...(props as any)}
     >
       {children}
-    </motion.button>
+    </Component>
   );
 };
