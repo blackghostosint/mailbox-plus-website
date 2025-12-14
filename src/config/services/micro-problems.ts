@@ -321,7 +321,54 @@ export const microProblems: Service[] = [
         metaDescription: "Need to drop something off with USPS but you're not sure about the label or the packaging? We handle both. Print, pack, and drop off—all in one stop.",
         heroTitle: "USPS Drop-Off in Concord Township – Label Printing and Packaging Help",
         heroSubtitle: "Need to drop something off with USPS but you're not sure about the label or the packaging? We handle both. Print, pack, and drop off—all in one stop.",
-        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp")
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We print USPS labels, pack items to postal standards, and accept packages for USPS pickup. Whether you have a label or need us to create one, we've got you covered."
+            },
+            {
+                heading: "Why This Happens",
+                body: "USPS has specific rules: flat rate boxes, media mail restrictions, label formats, size limits. Most people find out about these at the post office counter after waiting in line."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your item and label info (or just the destination)</li>
+<li>We print your USPS label if you need one</li>
+<li>We select compliant packaging (flat rate, priority, or custom box)</li>
+<li>We pack it securely and attach the label</li>
+<li>We hand it to USPS with a receipt and tracking number</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're shipping</li>
+<li>USPS label (email, screenshot, or we can create one)</li>
+<li>Destination address if we're creating the label</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Can you tell me if my item qualifies for flat rate?",
+                answer: "Yes. We'll weigh it, measure it, and show you the cost difference between flat rate and regular Priority Mail."
+            },
+            {
+                question: "What if I need it postmarked today?",
+                answer: "USPS picks up from us daily (usually by 3pm). If you come in before 2pm, it'll go out same-day."
+            },
+            {
+                question: "Can I ship this as Media Mail?",
+                answer: "We'll check. Media Mail is cheap but restricted (books, educational materials, recordings). If it qualifies, we'll use it. If not, we'll show you the next cheapest option."
+            }
+        ],
+        cta: {
+            title: "Stop by before 4pm for same-day USPS pickup. No appointment needed.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
