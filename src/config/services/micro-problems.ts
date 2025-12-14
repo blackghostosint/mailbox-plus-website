@@ -338,14 +338,14 @@ export const microProblems: Service[] = [
 <li>We print your USPS label if you need one</li>
 <li>We select compliant packaging (flat rate, priority, or custom box)</li>
 <li>We pack it securely and attach the label</li>
-<li>We hand it to USPS with a receipt and tracking number</li>
+<li>We hand it to USPS.</li>
 </ol>`
             },
             {
                 heading: "What to Bring",
                 body: `<ul>
 <li>The item you're shipping</li>
-<li>USPS label (email, screenshot, or we can create one)</li>
+<li>USPS label (email or we can create one)</li>
 <li>Destination address if we're creating the label</li>
 </ul>`
             }
@@ -357,7 +357,7 @@ export const microProblems: Service[] = [
             },
             {
                 question: "What if I need it postmarked today?",
-                answer: "USPS picks up from us daily (usually by 3pm). If you come in before 2pm, it'll go out same-day."
+                answer: "USPS picks up from us daily (usually by 2pm). If you come in before noon, it'll go out same-day."
             },
             {
                 question: "Can I ship this as Media Mail?",
@@ -365,7 +365,7 @@ export const microProblems: Service[] = [
             }
         ],
         cta: {
-            title: "Stop by before 4pm for same-day USPS pickup. No appointment needed.",
+            title: "Stop by before 2pm for same-day USPS pickup. No appointment needed.",
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
