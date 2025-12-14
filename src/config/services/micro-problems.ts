@@ -785,6 +785,67 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "ship-a-gift-without-the-receipt-or-invoice-in-concord-township",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship a Gift Without the Receipt or Invoice",
+        slug: "/ship-a-gift-without-the-receipt-or-invoice-in-concord-township",
+        pageTitle: "Ship a Gift Without the Receipt or Invoice in Concord Township",
+        metaDescription: "Need to send a gift without pricing showing? We remove receipts, invoices, and price tags, repack cleanly, and ship with a handwritten note.",
+        heroTitle: "Ship a Gift Without the Receipt or Invoice",
+        heroSubtitle: "Sending a gift and don't want the price to show? Or did the retailer include a receipt in the box? We'll repack it cleanly so the recipient just gets the gift—no pricing, no invoices.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We remove any receipts, packing slips, or price tags. We repack the gift in a clean box with fresh padding, and we can add a handwritten note if you'd like."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Retailers pack for efficiency, not thoughtfulness. They slap a packing slip on top or print the price on the label. Not ideal when it's a gift."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring the item in its original packaging (or already opened)</li>
+<li>We remove all pricing, receipts, and invoices</li>
+<li>We inspect for any missed price stickers or tags</li>
+<li>We repack it in a clean, unmarked box</li>
+<li>We add a handwritten gift note if you provide one</li>
+<li>We ship it directly to the recipient with tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The gift item</li>
+<li>Recipient's address</li>
+<li>A note or message if you want one included</li>
+<li>Shipping preference (speed, carrier, etc.)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Can you write the gift note for me?",
+                answer: "Yes. Tell us what to write and we'll include it on a card."
+            },
+            {
+                question: "What if the gift came in a branded box (like Apple or Nike)?",
+                answer: "We can pack it inside a plain outer box so the brand isn't visible until they open it."
+            },
+            {
+                question: "Can I ship multiple gifts to different people?",
+                answer: "Yes. Bring everything in—we'll separate, pack, and ship each one individually."
+            }
+        ],
+        cta: {
+            title: "Bring your gift in—we'll make sure it arrives looking thoughtful, not transactional.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 

@@ -218,6 +218,7 @@ const App: React.FC = () => {
             <Route path="/ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers" element={<MicroProblemPage />} />
             <Route path="/ship-artwork-framed-items-or-collectibles-safely-in-concord-township" element={<MicroProblemPage />} />
             <Route path="/ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers" element={<MicroProblemPage />} />
+            <Route path="/ship-a-gift-without-the-receipt-or-invoice-in-concord-township" element={<MicroProblemPage />} />
 
 
             {/* Catch-all route for unmatched paths */}
