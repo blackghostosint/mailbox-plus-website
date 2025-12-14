@@ -729,6 +729,62 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: "ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship Documents Securely and Flat in Concord Township – Contracts, Certificates, Legal Papers",
+        slug: "/ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers",
+        pageTitle: "Ship Documents Securely and Flat in Concord Township – Contracts, Certificates, Legal Papers | Mailbox Plus",
+        metaDescription: "Need to mail important documents that can't bend, fold, or get lost? Birth certificates, legal contracts, diplomas, tax forms? We ship documents securely every day.",
+        heroTitle: "Ship Documents Securely and Flat in Concord Township – Contracts, Certificates, Legal Papers",
+        heroSubtitle: "Need to mail important documents that can't bend, fold, or get lost? Birth certificates, legal contracts, diplomas, tax forms? We ship documents securely every day.",
+        heroImage: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200",
+        content: [
+            {
+                heading: "What We Do",
+                body: "We use rigid mailers or flat boxes, seal them properly, and send them via tracked, signature-required services. Your documents stay flat, dry, and traceable."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Some documents can't be folded (diplomas, certificates) or are too important to risk (legal papers, signed contracts). A regular envelope won't cut it—they bend, tear, or disappear."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your documents</li>
+<li>We place them in a rigid cardboard mailer or flat box</li>
+<li>We seal and reinforce the edges</li>
+<li>We send via USPS Certified Mail, UPS, or FedEx with tracking</li>
+<li>We add signature confirmation so you know it was received</li>
+<li>You get a receipt with tracking number</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The documents (don't fold or bend them)</li>
+<li>Destination address</li>
+<li>Any special instructions (signature required, specific person, etc.)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What's the difference between USPS Certified Mail and UPS?",
+                answer: "USPS Certified gives you proof of mailing and delivery for about $4–$7. UPS/FedEx cost more but are faster and include $100 insurance."
+            },
+            {
+                question: "What if they're time-sensitive (deadline tomorrow)?",
+                answer: "We offer overnight and same-day options via FedEx or UPS. Bring them in by 4pm for same-day pickup."
+            }
+        ],
+        cta: {
+            title: "Bring your documents in—we'll get them there flat, tracked, and signed for.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
