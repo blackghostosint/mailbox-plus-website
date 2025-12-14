@@ -87,18 +87,18 @@ export const microProblems: Service[] = [
         content: [
             {
                 heading: "What We Do",
-                body: "We print your Amazon return label (from the QR code or PDF), help you pack it if needed, and hand it straight to the carrier. No printer required."
+                body: "We print your Amazon return label (from the PDF), help you pack it if needed, and hand it straight to the carrier. No printer required."
             },
             {
                 heading: "Why This Happens",
-                body: "Amazon's return system assumes you have a printer. Half the time they give you a QR code, half the time they give you a PDF. Either way, we handle it."
+                body: "Amazon's return system assumes you have a printer. Half the time they give you a QR code, half the time they give you a PDF. We need to have the label."
             },
             {
                 heading: "How We Help",
                 body: `<ol>
 <li>Open your Amazon app or return email</li>
-<li>Show us the QR code or tap "Print label"</li>
-<li>We print it on adhesive label paper</li>
+<li>Tap "Print label"</li>
+<li>We print the label</li>
 <li>If you need the item packed, we do that too</li>
 <li>We drop it with UPS, USPS, or the carrier Amazon assigned</li>
 </ol>`
@@ -115,15 +115,15 @@ export const microProblems: Service[] = [
         faqs: [
             {
                 question: 'Amazon says "QR code label-free return"—do I still need a label?',
-                answer: "No label needed for those. Just show the QR code at UPS or Kohl's. But if you'd rather we handle it, we can not scan the code. We need an label and then we can pack it for you."
+                answer: "If you'd rather we handle it, we can not scan the code. We need a label and then we can pack it for you."
             },
             {
-                question: "Amazon assigned UPS—can you drop it off?",
-                answer: "Yes. We drop off UPS returns every day."
+                question: "Amazon assigned UPS—can I drop it off?",
+                answer: "Yes. We acceptUPS returns every day."
             },
             {
                 question: "What if I don't have the original box?",
-                answer: "Totally fine. Amazon doesn't require it. We'll box it securely."
+                answer: "Totally fine. We'll box it securely."
             }
         ],
         cta: {
