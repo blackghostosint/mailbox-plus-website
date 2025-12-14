@@ -191,5 +191,124 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "ups-drop-off-near-concord-township-not-sure-if-its-packed-right",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "UPS Drop-Off But Unsure If It's Packed Correctly",
+        slug: "/ups-drop-off-near-concord-township-not-sure-if-its-packed-right",
+        pageTitle: "UPS Drop-Off Near Concord Township – Not Sure If It's Packed Right?",
+        metaDescription: "Already packed your box but worried UPS will reject it? We check packages all day. Bring it in—we'll either confirm it's good to go or fix it on the spot.",
+        heroTitle: "UPS Drop-Off Near Concord Township – Not Sure If It's Packed Right?",
+        heroSubtitle: "Already packed your box but worried UPS will reject it? We check packages all day. Bring it in—we'll either confirm it's good to go or fix it on the spot.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We inspect your package against UPS requirements (box condition, cushioning, sealing, label placement). If it passes, you drop it off. If not, we repack it in 5 minutes."
+            },
+            {
+                heading: "Why This Happens",
+                body: "UPS drivers can refuse packages that don't meet standards: torn boxes, weak tape, items moving inside, labels covering seams. You don't know the rules until they say no."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your packed box to the counter</li>
+<li>We check: box integrity, cushioning, seal strength, label position</li>
+<li>If it's good, we accept it for UPS pickup</li>
+<li>If it needs fixing, we repack or reinforce it right there</li>
+<li>You get a receipt and tracking number</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>Your packed box</li>
+<li>UPS label (printed or on your phone)</li>
+<li>A couple extra minutes if it needs adjusting</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What if UPS rejects my package after I drop it off with you?",
+                answer: "If we accept it, UPS accepts it. We're a UPS authorized location—we know their standards. If there's ever an issue, we fix it at no extra charge."
+            },
+            {
+                question: "Can you just reinforce my box without repacking everything?",
+                answer: "Yes. Often we just add corner protection, better tape, or a layer of bubble wrap. Takes 2 minutes, costs $2–3."
+            },
+            {
+                question: "Do I have to repack it in a new box?",
+                answer: "Only if the current box is damaged or too weak. Most of the time we can work with what you brought."
+            }
+        ],
+        cta: {
+            title: "Walk in with your box—we'll check it for free and make sure UPS takes it.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
+    },
+    {
+        id: "fedex-drop-off-in-concord-township-have-label-need-packaging",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "FedEx Drop-Off With Label But No Packaging",
+        slug: "/fedex-drop-off-in-concord-township-have-label-need-packaging",
+        pageTitle: "FedEx Drop-Off in Concord Township – Have Label, Need Packaging",
+        metaDescription: "Got your FedEx label printed but nothing to put it in? No problem. We'll box it, pad it, attach your label, and hand it to FedEx. Takes about 5 minutes.",
+        heroTitle: "FedEx Drop-Off in Concord Township – Have Label, Need Packaging",
+        heroSubtitle: "Got your FedEx label printed but nothing to put it in? No problem. We'll box it, pad it, attach your label, and hand it to FedEx. Takes about 5 minutes.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "You bring the item and label. We provide the box, cushioning, tape, and proper packing. Then we drop it with FedEx and give you a receipt."
+            },
+            {
+                heading: "Why This Happens",
+                body: "FedEx (and most retailers) assume you have boxes lying around. You don't. Most people don't. That's why we exist."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your item and FedEx label (printed or on phone)</li>
+<li>We select the right-sized box for your item</li>
+<li>We cushion and secure the item inside</li>
+<li>We attach your label in the correct spot</li>
+<li>We hand it to FedEx and scan it into their system</li>
+<li>You get a receipt with tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're shipping or returning</li>
+<li>Your FedEx label (paper or digital)</li>
+<li>Any special instructions (fragile, signature required, etc.)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Can I use any box I have at home?",
+                answer: "You can, but FedEx may reject it if it's damaged, too big, or improperly sealed. We use boxes that meet FedEx specs."
+            },
+            {
+                question: "What if my label is on my phone?",
+                answer: "Perfect—we'll print it on adhesive label paper and attach it for you."
+            },
+            {
+                question: "How much does boxing and packing cost?",
+                answer: "Typically $5–10 depending on the size of the item and how much protection it needs."
+            }
+        ],
+        cta: {
+            title: "Bring your item and label—we'll have it packed and dropped off in minutes.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
