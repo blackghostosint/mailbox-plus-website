@@ -672,6 +672,63 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: 'ship-artwork-framed-items-or-collectibles-safely-in-concord-township',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Ship Artwork, Framed Items, or Collectibles',
+        slug: '/ship-artwork-framed-items-or-collectibles-safely-in-concord-township',
+        pageTitle: 'Ship Artwork, Framed Items, or Collectibles Safely in Concord Township | Mailbox Plus',
+        metaDescription: 'Shipping something irreplaceable? A painting, framed photo, signed poster, or collectible? We treat these like museum pieces with corner protectors, custom boxes, and full insurance.',
+        heroTitle: 'Ship Artwork, Framed Items, or Collectibles Safely in Concord Township',
+        heroSubtitle: 'Shipping something irreplaceable? A painting, framed photo, signed poster, or collectible? We treat these like museum pieces—because to you, they are.',
+        heroImage: 'https://images.unsplash.com/photo-1561214115-f2f134cc4912?w=1200&h=600&fit=crop',
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We use corner protectors, custom-sized boxes, foam sheets, and "Do Not Bend" labeling. For high-value items, we double-box and insure. We\'ve shipped original art, vintage posters, and family heirlooms.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Art and collectibles have sentimental or financial value that can\'t be replaced. Standard packing doesn\'t cut it—frames break, corners dent, glass shatters.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring the item or describe it (size, framed, glass, canvas, etc.)</li>
+<li>We measure and select a box with 3+ inches clearance</li>
+<li>We wrap the piece in foam or glassine paper</li>
+<li>We add corner protectors if framed</li>
+<li>We cushion all sides with foam or bubble wrap</li>
+<li>We label "Fragile," "This Side Up," and "Do Not Bend"</li>
+<li>We insure it for its full value</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The artwork or collectible</li>
+<li>Original packaging if you have it</li>
+<li>Any documentation of value (appraisal, receipt, certificate)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'Can you ship a large framed painting?',
+                answer: 'Yes. We\'ve shipped pieces up to 48" x 60". Larger than that may require custom crating or freight.'
+            },
+            {
+                question: 'Should I remove the glass from the frame?',
+                answer: 'Depends. If it\'s valuable, yes—ship the glass separately. If it\'s standard glass and securely framed, we can pack it as-is.'
+            }
+        ],
+        cta: {
+            title: 'Bring it in or call to discuss—we\'ll give you a quote and a plan before touching it.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
