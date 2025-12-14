@@ -131,5 +131,17 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "package-a-return-so-its-accepted-by-the-carrier",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Package a Return So It's Accepted by the Carrier",
+        slug: "/package-a-return-so-its-accepted-by-the-carrier",
+        pageTitle: "Package a Return So It's Accepted by the Carrier in Concord Township",
+        metaDescription: "Worried the carrier will reject your return because it's not packed right? That happens—and it's frustrating. We'll pack it to carrier standards so it gets accepted the first time.",
+        heroTitle: "Package a Return So It's Accepted by the Carrier",
+        heroSubtitle: "Worried the carrier will reject your return because it's not packed right? That happens—and it's frustrating. We'll pack it to carrier standards so it gets accepted the first time.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp")
     }
 ];

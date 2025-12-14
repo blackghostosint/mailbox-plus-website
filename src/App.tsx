@@ -207,6 +207,7 @@ const App: React.FC = () => {
             <Route path="/print-return-label-without-printer" element={<MicroProblemPage />} />
             <Route path="/return-without-original-box" element={<MicroProblemPage />} />
             <Route path="/print-amazon-return-label" element={<MicroProblemPage />} />
+            <Route path="/package-a-return-so-its-accepted-by-the-carrier" element={<MicroProblemPage />} />
 
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<NotFound />} />
