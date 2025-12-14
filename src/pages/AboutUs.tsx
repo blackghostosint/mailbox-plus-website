@@ -212,12 +212,12 @@ export function AboutUs() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Pack & Ship", link: "/shipping", icon: Package, desc: "UPS, FedEx, DHL, USPS" },
+              { title: "Pack & Ship", link: "/pack-ship", icon: Package, desc: "UPS, FedEx, DHL, USPS" },
               { title: "Print Services", link: "/copy-print", icon: Printer, desc: "Copies, Blueprints, Photos" },
-              { title: "Mailbox Rentals", link: "/mailbox-rental", icon: Mail, desc: "Secure, Private, 24/7 Access" },
-              { title: "Notary Public", link: "/notary", icon: FileText, desc: "Official Notarizations" },
-              { title: "Scanning", link: "/document-services", icon: ScanLine, desc: "Digitize Your Documents" },
-              { title: "Package Receiving", link: "/package-receiving", icon: Box, desc: "Never Miss a Delivery" },
+              { title: "Mailbox Rentals", link: "/home-business/mailbox-rental", icon: Mail, desc: "Secure, Private, 24/7 Access" },
+              { title: "Notary Public", link: "/home-business/notary-services", icon: FileText, desc: "Official Notarizations" },
+              { title: "Scanning", link: "/home-business/document-scanning", icon: ScanLine, desc: "Digitize Your Documents" },
+              { title: "Package Receiving", link: "/pack-ship/package-receiving", icon: Box, desc: "Never Miss a Delivery" },
             ].map((service, i) => (
               <motion.div
                 key={service.title}
@@ -253,7 +253,7 @@ export function AboutUs() {
             Stop in today — we&apos;re conveniently located at <span className="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <InternalLink to="/contact">
+            <InternalLink to="/contact-us">
               <Button size="lg" variant="secondary" className="font-bold shadow-lg border-none min-h-12 px-8">
                 Get in Touch
               </Button>
