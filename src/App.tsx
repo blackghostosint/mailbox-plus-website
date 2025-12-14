@@ -99,6 +99,8 @@ const PickupHours = React.lazy(() => import("./pages/PickupHours")); // Default 
 const AskMailboxPlus = React.lazy(() => import("./pages/ask-mailbox-plus")); // Default export
 const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
 
+const MicroProblemPage = React.lazy(() => import("./pages/micro/MicroProblemPage"));
+
 const DebugRoutes: React.FC = () => {
   // const location = useLocation();
   // console.log('Current location:', location.pathname);
@@ -200,6 +202,9 @@ const App: React.FC = () => {
             <Route path="/ask-mailbox-plus" element={<AskMailboxPlus />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+
+            {/* Micro Problems */}
+            <Route path="/print-return-label-without-printer" element={<MicroProblemPage />} />
 
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<NotFound />} />
