@@ -49,6 +49,8 @@ export const Button: React.FC<ButtonProps> = ({
       }}
       whileTap={{ scale: variant === "link" || variant === "ghost" ? 1 : 0.97 }}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+      // Framer Motion's props are complex and require any for proper spreading
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       {...(props as any)}
     >
       {children}

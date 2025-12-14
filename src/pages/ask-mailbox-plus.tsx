@@ -11,7 +11,7 @@ import { SmartImage } from "../components/SmartImage";
 import { getServiceImageUrl } from "../lib/storage";
 import { InternalLink } from "../components/ui/InternalLink";
 import { Button } from "../components/ui";
-import { ArrowRight, MapPin, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 import { fadeUp } from "../utils/animations";
 import { siteConfig } from "../config/siteConfig";
 
@@ -162,7 +162,7 @@ const AskMailboxPlus: React.FC = () => (
           Still have questions?
         </h2>
         <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-          Giving us a call is often the fastest way to get help. We're open 6 days a week!
+          Giving us a call is often the fastest way to get help. We&apos;re open 6 days a week!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={`tel:${siteConfig.contact.phone}`}>

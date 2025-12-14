@@ -100,7 +100,7 @@ export function AboutUs() {
           </p>
 
           <p className="text-slate-600 leading-relaxed mb-8 text-lg">
-            Whether you're shipping a package, printing documents, renting a private
+            Whether you&apos;re shipping a package, printing documents, renting a private
             mailbox, or handling business tasks, our team is here to help every step
             of the way.
           </p>
@@ -250,7 +250,7 @@ export function AboutUs() {
             Let Us Handle Your Package!
           </h2>
           <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Stop in today — we're conveniently located at <span className="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
+            Stop in today — we&apos;re conveniently located at <span className="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <InternalLink to="/contact">

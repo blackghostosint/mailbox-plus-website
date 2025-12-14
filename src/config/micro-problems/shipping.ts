@@ -160,7 +160,7 @@ export const shippingMicroProblems: Service[] = [
                 body: `<ul>
 <li>The heavy item</li>
 <li>Destination address</li>
-<li>Patience—we\'ll show you options and you pick what makes sense</li>
+<li>Patience—we'll show you options and you pick what makes sense</li>
 </ul>`
             }
         ],
@@ -220,7 +220,7 @@ export const shippingMicroProblems: Service[] = [
                 body: `<ul>
 <li>The electronic device (powered off)</li>
 <li>Original box if you have it (helps but not required)</li>
-<li>Charging cable if you\'re including it</li>
+<li>Charging cable if you're including it</li>
 <li>Proof of value (receipt or email) if you want insurance</li>
 </ul>`
             }

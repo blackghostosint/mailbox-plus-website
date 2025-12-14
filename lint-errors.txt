@@ -1,0 +1,22 @@
+
+D:\mailbox-plus-website\mailbox-plus-website\src\components\ui\Button.tsx
+  52:21  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\mailbox-plus-website\mailbox-plus-website\src\config\micro-problems\shipping.ts
+  163:16  error  Unnecessary escape character: \'  no-useless-escape
+  223:26  error  Unnecessary escape character: \'  no-useless-escape
+
+D:\mailbox-plus-website\mailbox-plus-website\src\pages\AboutUs.tsx
+  103:24  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  253:31  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\mailbox-plus-website\mailbox-plus-website\src\pages\_archived\NuulyReturns.tsx
+  14:35  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  14:49  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+D:\mailbox-plus-website\mailbox-plus-website\src\pages\ask-mailbox-plus.tsx
+   14:10  error  'ArrowRight' is defined but never used                           @typescript-eslint/no-unused-vars
+  165:68  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+Γ£û 9 problems (9 errors, 0 warnings)
+
