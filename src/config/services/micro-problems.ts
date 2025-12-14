@@ -142,6 +142,54 @@ export const microProblems: Service[] = [
         metaDescription: "Worried the carrier will reject your return because it's not packed right? That happens—and it's frustrating. We'll pack it to carrier standards so it gets accepted the first time.",
         heroTitle: "Package a Return So It's Accepted by the Carrier",
         heroSubtitle: "Worried the carrier will reject your return because it's not packed right? That happens—and it's frustrating. We'll pack it to carrier standards so it gets accepted the first time.",
-        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp")
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We pack your return using the right box, proper cushioning, and carrier-compliant materials. Then we hand it directly to UPS, FedEx, or USPS so there's no question it'll be accepted."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Carriers have rules: box condition, weight distribution, sealing method, label placement. Most people don't know these rules until a package gets rejected. We know them cold."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>You bring the item and tell us which carrier</li>
+<li>We choose a box that meets their size/weight requirements</li>
+<li>We pad and protect the item so it won't shift or break</li>
+<li>We seal it with proper tape (not scotch tape or string)</li>
+<li>We place the label exactly where the carrier expects it</li>
+<li>We hand it to the carrier for you</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're returning</li>
+<li>Your return label or order info</li>
+<li>Any return instructions from the retailer</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "How do I know if my packaging would be rejected?",
+                answer: "Common rejections: box is damaged, item rattles inside, tape isn't strong enough, label is in the wrong spot, or the box is unsealed. We fix all of that."
+            },
+            {
+                question: "What if I already packed it but I'm not sure it's good enough?",
+                answer: "Bring it in. We'll check it for free. If it needs adjusting, we'll repack it properly."
+            },
+            {
+                question: "Do different carriers have different rules?",
+                answer: "Yes. UPS is strict about box condition. FedEx cares about weight distribution. USPS has size limits for certain services. We know all of them."
+            }
+        ],
+        cta: {
+            title: "Bring your return in—we'll make sure it gets accepted. No appointment needed.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
