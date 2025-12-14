@@ -310,5 +310,18 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "usps-drop-off-in-concord-township-label-printing-and-packaging-help",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "USPS Drop-Off With Label and Packaging Help",
+        slug: "/usps-drop-off-in-concord-township-label-printing-and-packaging-help",
+        pageTitle: "USPS Drop-Off in Concord Township – Label Printing and Packaging Help",
+        metaDescription: "Need to drop something off with USPS but you're not sure about the label or the packaging? We handle both. Print, pack, and drop off—all in one stop.",
+        heroTitle: "USPS Drop-Off in Concord Township – Label Printing and Packaging Help",
+        heroSubtitle: "Need to drop something off with USPS but you're not sure about the label or the packaging? We handle both. Print, pack, and drop off—all in one stop.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp")
     }
 ];
+
