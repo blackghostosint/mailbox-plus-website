@@ -1205,6 +1205,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: 'ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Ship an Item That Needs Extra Protection or Padding',
+        slug: '/ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
+        pageTitle: 'Ship an Item That Needs Extra Protection or Padding in Concord Township, OH | Mailbox Plus',
+        metaDescription: 'Professional protective packaging for delicate, expensive, or sentimental items. We use foam inserts, corner protectors, and double-boxing to protect your shipment from drops and rough handling.',
+        heroTitle: 'Ship an Item That Needs Extra Protection or Padding in Concord Township',
+        heroSubtitle: 'Got something delicate, expensive, or sentimental that absolutely cannot get damaged? We use professional-grade packing materials—foam inserts, corner protectors, double-boxing—to protect it.',
+        heroImage: getServiceImageUrl('/images/micro/pack-ship.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We assess the risk (fragility, value, shape), choose the appropriate level of padding, and pack it so it can withstand drops, pressure, and rough handling.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Carriers move fast. Packages get tossed, stacked, dropped. If it\'s not packed with serious cushioning, it will get damaged.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring the item or tell us what it is</li>
+<li>We determine fragility: glass, electronics, sharp edges, heavy, etc.</li>
+<li>We wrap it in foam, bubble wrap, or air pillows</li>
+<li>We use a box with 2–3 inches of cushioning on all sides</li>
+<li>For high-risk items, we double-box (box within a box)</li>
+<li>We label "Fragile" and "This Side Up" if appropriate</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The item</li>
+<li>Original packaging if you have it (helps but not required)</li>
+<li>Any documentation of value (for insurance purposes)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'How much padding is enough?',
+                answer: 'Minimum 2 inches on all sides. For fragile items, 3+ inches. The item should not touch any wall of the outer box.'
+            },
+            {
+                question: 'What\'s the difference between bubble wrap and foam?',
+                answer: 'Bubble wrap is good for light protection. Foam is better for impact absorption. For fragile items, we use both.'
+            },
+            {
+                question: 'Should I insure it?',
+                answer: 'If it\'s worth more than $100 or irreplaceable, yes. Insurance costs vary based on the item\'s value.'
+            }
+        ],
+        cta: {
+            title: 'Bring it in—we\'ll pack it like it matters, because it does.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 

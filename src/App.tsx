@@ -225,6 +225,7 @@ const App: React.FC = () => {
             <Route path="/ship-something-with-no-original-packaging-in-concord-township" element={<MicroProblemPage />} />
             <Route path="/print-and-attach-a-shipping-label-correctly-in-concord-township" element={<MicroProblemPage />} />
             <Route path="/ship-return-strict-size-weight-limits" element={<MicroProblemPage />} />
+            <Route path="/ship-an-item-that-needs-extra-protection-or-padding-in-concord-township" element={<MicroProblemPage />} />
 
 
 
