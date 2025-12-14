@@ -42,6 +42,7 @@ export interface Service {
   popular?: boolean;
   introductoryContent?: string;
   intentKey?: string;
+  indexable?: boolean;
 
   // 👇 NEW: long-form page content
   content?: Array<{

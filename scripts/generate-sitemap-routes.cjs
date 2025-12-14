@@ -12,8 +12,8 @@ function getAllServiceSlugs() {
   const slugs = new Set();
 
   if (!fs.existsSync(servicesDir)) {
-      console.warn(`Warning: Services directory not found at ${servicesDir}`);
-      return [];
+    console.warn(`Warning: Services directory not found at ${servicesDir}`);
+    return [];
   }
 
   // Recursive function to walk directory
@@ -41,6 +41,64 @@ function getAllServiceSlugs() {
   return Array.from(slugs);
 }
 
+function getMicroProblemUrls() {
+  const indexPath = path.join(__dirname, '../src/config/micro-problems/index.ts');
+
+  if (!fs.existsSync(indexPath)) {
+    console.warn(`Warning: micro-problems index not found at ${indexPath}`);
+    return [];
+  }
+
+  try {
+    const content = fs.readFileSync(indexPath, 'utf-8');
+
+    const shardImports = [];
+    const importMatches = content.matchAll(/import\s+\{\s*(\w+)\s*\}\s+from\s+['"]\.\/([\w-]+)['"]/g);
+    for (const match of importMatches) {
+      const varName = match[1];
+      const fileName = match[2];
+      shardImports.push({ varName, fileName });
+    }
+
+    const urls = [];
+
+    for (const { fileName } of shardImports) {
+      const shardPath = path.join(__dirname, `../src/config/micro-problems/${fileName}.ts`);
+
+      if (!fs.existsSync(shardPath)) {
+        console.warn(`Warning: Shard file not found at ${shardPath}`);
+        continue;
+      }
+
+      const shardContent = fs.readFileSync(shardPath, 'utf-8');
+
+      const objectMatches = shardContent.matchAll(/\{[^}]*category:\s*["']micro-problems?["'][^}]*\}/gs);
+
+      for (const match of objectMatches) {
+        const obj = match[0];
+
+        const slugMatch = obj.match(/slug:\s*["']([^"']+)["']/);
+        const categoryMatch = obj.match(/category:\s*["'](micro-problems?)["']/);
+        const indexableMatch = obj.match(/indexable:\s*(false|true)/);
+
+        if (categoryMatch && slugMatch) {
+          const slug = slugMatch[1];
+          const isIndexable = indexableMatch ? indexableMatch[1] !== 'false' : true;
+
+          if (slug && slug.trim().length > 0 && isIndexable) {
+            urls.push(slug);
+          }
+        }
+      }
+    }
+
+    return urls;
+  } catch (e) {
+    console.error("Error reading micro-problems config", e);
+    return [];
+  }
+}
+
 function getLocalPageUrls() {
   const urls = new Set();
 
@@ -61,71 +119,73 @@ function getLocalPageUrls() {
   // 2. Check localPages.json (Data)
   const localPagesPath = path.join(__dirname, '../src/data/localPages.json');
   if (fs.existsSync(localPagesPath)) {
-      try {
-          const content = fs.readFileSync(localPagesPath, 'utf-8');
-          const localPages = JSON.parse(content);
-          if (Array.isArray(localPages)) {
-              localPages.forEach(page => {
-                  if (page.slug) {
-                      // Ensure it starts with /service-area/ if not present, though usually slug is just 'city-name'
-                      // Based on App.tsx: <Route path="/service-area/:slug" ... />
-                      // And localPages.json has "slug": "auburn-township"
-                      // So we construct the full path.
-                      // Note: localPages.json also has "canonical": "/service-area/auburn-township" which is easier!
-                      if (page.canonical) {
-                          urls.add(page.canonical);
-                      } else {
-                          urls.add(`/service-area/${page.slug}`);
-                      }
-                  }
-              });
+    try {
+      const content = fs.readFileSync(localPagesPath, 'utf-8');
+      const localPages = JSON.parse(content);
+      if (Array.isArray(localPages)) {
+        localPages.forEach(page => {
+          if (page.slug) {
+            // Ensure it starts with /service-area/ if not present, though usually slug is just 'city-name'
+            // Based on App.tsx: <Route path="/service-area/:slug" ... />
+            // And localPages.json has "slug": "auburn-township"
+            // So we construct the full path.
+            // Note: localPages.json also has "canonical": "/service-area/auburn-township" which is easier!
+            if (page.canonical) {
+              urls.add(page.canonical);
+            } else {
+              urls.add(`/service-area/${page.slug}`);
+            }
           }
-      } catch (e) {
-          console.error("Error reading localPages.json", e);
+        });
       }
+    } catch (e) {
+      console.error("Error reading localPages.json", e);
+    }
   }
 
   return Array.from(urls);
 }
 
 function getAppRoutes() {
-    const appPath = path.join(__dirname, '../src/App.tsx');
-    const routes = new Set();
-    
-    if (!fs.existsSync(appPath)) {
-        console.warn(`Warning: App.tsx not found at ${appPath}`);
-        return [];
-    }
+  const appPath = path.join(__dirname, '../src/App.tsx');
+  const routes = new Set();
 
-    try {
-        const content = fs.readFileSync(appPath, 'utf-8');
-        // Look for <Route path="/some-path" ... />
-        // Regex needs to handle potential whitespace and both quote types
-        const matches = content.matchAll(/<Route\s+path=["']([^"']+)["']/g);
-        
-        for (const match of matches) {
-            const routePath = match[1];
-            
-            // Filter out dynamic routes (containing :) and wildcards (*)
-            if (!routePath.includes(':') && !routePath.includes('*')) {
-                routes.add(routePath);
-            }
-        }
-    } catch (e) {
-        console.error("Error parsing App.tsx", e);
+  if (!fs.existsSync(appPath)) {
+    console.warn(`Warning: App.tsx not found at ${appPath}`);
+    return [];
+  }
+
+  try {
+    const content = fs.readFileSync(appPath, 'utf-8');
+    // Look for <Route path="/some-path" ... />
+    // Regex needs to handle potential whitespace and both quote types
+    const matches = content.matchAll(/<Route\s+path=["']([^"']+)["']/g);
+
+    for (const match of matches) {
+      const routePath = match[1];
+
+      // Filter out dynamic routes (containing :) and wildcards (*)
+      if (!routePath.includes(':') && !routePath.includes('*')) {
+        routes.add(routePath);
+      }
     }
-    
-    return Array.from(routes);
+  } catch (e) {
+    console.error("Error parsing App.tsx", e);
+  }
+
+  return Array.from(routes);
 }
 
 function generateRoutes() {
   const serviceSlugs = getAllServiceSlugs();
+  const microProblemUrls = getMicroProblemUrls();
   const localPageUrls = getLocalPageUrls();
   const appRoutes = getAppRoutes();
-  
+
   const allRoutes = Array.from(new Set([
     ...manualRoutes,
     ...serviceSlugs,
+    ...microProblemUrls,
     ...localPageUrls,
     ...appRoutes
   ])).sort();
@@ -136,7 +196,7 @@ function generateRoutes() {
 // If executed directly, print routes or write to file
 if (require.main === module) {
   const routes = generateRoutes();
-  
+
   // Optional: write to a JSON file that vite.config.ts can import
   const outputPath = path.join(__dirname, '../src/data/routes.json');
   // Ensure directory exists
