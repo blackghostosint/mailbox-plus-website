@@ -966,6 +966,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: 'package-multiple-items-into-one-shipment-in-concord-township',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Package Multiple Items Into One Shipment in Concord Township',
+        slug: '/package-multiple-items-into-one-shipment-in-concord-township',
+        pageTitle: 'Package Multiple Items Into One Shipment in Concord Township | Mailbox Plus',
+        metaDescription: 'Shipping several items to the same person? We\'ll combine them into one shipment, packed securely so nothing shifts or breaks. Save on shipping costs at Mailbox Plus in Concord Township.',
+        heroTitle: 'Package Multiple Items Into One Shipment in Concord Township',
+        heroSubtitle: 'Shipping several items to the same person and don\'t want to pay for multiple boxes? We\'ll combine them into one shipment, packed securely so nothing shifts or breaks.',
+        heroImage: getServiceImageUrl('/images/micro/pack-ship.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We assess all the items, choose the right-sized box, separate fragile pieces with dividers or padding, and ship it as one package with one tracking number.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Shipping multiple boxes is expensive. But throwing everything into one box without planning leads to damage. We know how to pack efficiently and safely.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring all the items you're shipping to one address</li>
+<li>We figure out if they'll fit in one box or need two</li>
+<li>We wrap fragile items individually</li>
+<li>We use dividers or padding to keep items separated</li>
+<li>We seal and label it with one tracking number</li>
+<li>You save on shipping compared to multiple boxes</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>All the items going to the same address</li>
+<li>Any packaging materials you already have (optional)</li>
+<li>Destination address</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'Will combining them actually save money?',
+                answer: 'Usually yes—carriers charge per box. We\'ll show you the cost comparison.'
+            },
+            {
+                question: 'What if one item is fragile and the others aren\'t?',
+                answer: 'We pack the fragile item with extra padding and place it in the center, away from pressure points.'
+            },
+            {
+                question: 'Is there a limit to how many items you can fit in one box?',
+                answer: 'Weight and size limits apply (usually 50–70 lbs and under 108" combined dimensions). If it\'s over that, we\'ll split into two shipments.'
+            }
+        ],
+        cta: {
+            title: 'Bring everything in—we\'ll figure out the smartest way to pack and ship it.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
