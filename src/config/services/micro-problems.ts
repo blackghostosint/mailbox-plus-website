@@ -551,6 +551,66 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: "repackage-a-damaged-or-torn-shipping-box-in-concord-township",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Repackage a Damaged or Torn Shipping Box",
+        slug: "/repackage-a-damaged-or-torn-shipping-box-in-concord-township",
+        pageTitle: "Repackage a Damaged or Torn Shipping Box in Concord Township",
+        metaDescription: "Box fell apart before you could ship it? Or did the carrier reject it because it's torn or crushed? Happens all the time. We'll repack it into a sturdy box in under 10 minutes.",
+        heroTitle: "Repackage a Damaged or Torn Shipping Box in Concord Township",
+        heroSubtitle: "Box fell apart before you could ship it? Or did the carrier reject it because it's torn or crushed? Happens all the time. We'll repack it into a sturdy box in under 10 minutes.",
+        heroImage: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?auto=format&fit=crop&q=80&w=2000",
+        content: [
+            {
+                heading: "What We Do",
+                body: "We transfer your item from the damaged box into a new, carrier-approved box with fresh padding and proper sealing. Then we attach your label and hand it to the carrier."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Old boxes get weak. Tape fails. Corners tear. Carriers won't accept damaged boxes because they fall apart in transit and cause problems for everyone."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your damaged box (or just the item)</li>
+<li>We open it and inspect the contents</li>
+<li>We select a new box that fits properly</li>
+<li>We transfer everything with fresh cushioning</li>
+<li>We seal it correctly and reattach (or reprint) your label</li>
+<li>We hand it to the carrier with a receipt</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The damaged box with contents inside, or just the item</li>
+<li>Your shipping label (or the info to reprint one)</li>
+<li>A few minutes—this is quick</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Can you just tape up my box instead of reboxing it?",
+                answer: "If the box is structurally sound, yes. But if it's crushed, wet, or split at the seams, it needs a new box or the carrier will reject it again."
+            },
+            {
+                question: "What if my label was on the damaged box?",
+                answer: "We'll carefully remove it and attach it to the new box. If it's destroyed, we can reprint it for $1–2."
+            },
+            {
+                question: "How much does a new box cost?",
+                answer: "$3-10 depending on size, plus $5-10 for repacking labor."
+            }
+        ],
+        cta: {
+            title: "Bring in the damaged box—we'll get it fixed and shipped out today.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
