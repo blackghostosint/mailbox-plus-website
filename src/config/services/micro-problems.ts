@@ -611,6 +611,67 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: 'ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Ship Electronics Safely in Concord Township – Phones, Laptops, Tablets, Computers',
+        slug: '/ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers',
+        pageTitle: 'Ship Electronics Safely in Concord Township – Phones, Laptops, Tablets, Computers',
+        metaDescription: 'Shipping a phone, laptop, or tablet and worried it\'ll get damaged or stolen? Electronics need special packing—and sometimes special handling. We do this daily.',
+        heroTitle: 'Ship Electronics Safely in Concord Township – Phones, Laptops, Tablets, Computers',
+        heroSubtitle: 'Shipping a phone, laptop, or tablet and worried it\'ll get damaged or stolen? Electronics need special packing—and sometimes special handling. We do this daily.',
+        heroImage: 'https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2001',
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We pack electronics with anti-static materials, foam padding, and discreet packaging. We can insure it, require a signature, and track it every step of the way.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Electronics are fragile (screens crack, ports break) and valuable (theft risk). Carriers know this. So do thieves. Smart packing reduces both risks.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring your device (wiped and charged off, ideally)</li>
+<li>We wrap it in anti-static bubble wrap or foam</li>
+<li>We use a box with 2+ inches of cushioning on all sides</li>
+<li>We avoid external labels that say "electronics"</li>
+<li>We add insurance and signature confirmation</li>
+<li>We hand it to the carrier and give you tracking</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The electronic device (powered off)</li>
+<li>Original box if you have it (helps but not required)</li>
+<li>Charging cable if you\'re including it</li>
+<li>Proof of value (receipt or email) if you want insurance</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'Should I wipe the device before shipping?',
+                answer: 'Yes, if it\'s a phone, tablet, or computer. Factory reset recommended. We can\'t be responsible for data.'
+            },
+            {
+                question: 'Do I need insurance?',
+                answer: 'For anything worth over $100, yes. Carriers only cover $100 by default. Insurance costs about 1–2% of the item\'s value.'
+            },
+            {
+                question: 'What if it\'s a desktop computer?',
+                answer: 'We remove any loose components (graphics card, hard drives), pack them separately, and cushion the case. Then ship in a custom box.'
+            }
+        ],
+        cta: {
+            title: 'Bring your device in—we\'ll pack it like it\'s our own and insure it properly.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
