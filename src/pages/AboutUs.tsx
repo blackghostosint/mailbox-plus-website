@@ -105,7 +105,7 @@ export function AboutUs() {
             of the way.
           </p>
 
-          <InternalLink to="/contact">
+          <InternalLink to="/contact-us">
             <Button size="lg" className="shadow-lg">
               Visit Us Today <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
