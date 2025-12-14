@@ -846,6 +846,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "unsure-of-carrier-rules",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Shipping Help When Unsure of Carrier Rules",
+        slug: "/unsure-of-carrier-rules",
+        pageTitle: "Unsure of Carrier Rules? We'll Figure It Out – Concord Township Shipping Help",
+        metaDescription: "Not sure which carrier to use or what the rules are? We compare UPS, FedEx, and USPS daily and explain restrictions, costs, and timelines.",
+        heroTitle: "Unsure of Carrier Rules? We'll Figure It Out",
+        heroSubtitle: "Not sure if UPS, FedEx, or USPS is the right choice? Confused about size limits, weight restrictions, or what you can't ship? We deal with this every single day—we'll walk you through it.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We compare carriers, explain the rules, and recommend the best service for your specific item and timeline. Then we pack and ship it correctly so there are no surprises."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Every carrier has different rules: UPS doesn't take hazmat, FedEx has strict dimensional weight formulas, USPS has flat rate options but confusing size limits. Most people only ship a few times a year—we ship hundreds of packages weekly."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Tell us what you're shipping and where it's going</li>
+<li>We check: size, weight, contents, and timeline</li>
+<li>We explain which carrier makes sense (cost vs speed)</li>
+<li>We tell you what's not allowed (batteries, liquids, aerosols, etc.)</li>
+<li>We pack it to that carrier's standards</li>
+<li>We hand it off and you get tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're shipping (or a description)</li>
+<li>Destination address</li>
+<li>Your timeline (does it need to arrive by a certain date?)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "How do I know which carrier is cheapest?",
+                answer: "We'll quote all three (UPS, FedEx, USPS) and show you the cost and delivery time for each. You pick."
+            },
+            {
+                question: "Can I ship lithium batteries?",
+                answer: "Depends. Small lithium batteries (in phones, laptops) are okay with restrictions. Loose batteries or large lithium packs often aren't. We'll check."
+            },
+            {
+                question: "What if I need it there by Monday?",
+                answer: "We'll show you overnight, 2-day, and 3-day options from each carrier and tell you the latest drop-off time for Monday delivery."
+            }
+        ],
+        cta: {
+            title: "Stop by or call—we'll answer your questions and get it shipped right the first time.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
