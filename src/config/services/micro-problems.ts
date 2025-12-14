@@ -1145,6 +1145,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "ship-a-return-with-strict-size-or-weight-limits",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship a Return With Strict Size or Weight Limits",
+        slug: "/ship-return-strict-size-weight-limits",
+        pageTitle: "Ship a Return With Strict Size or Weight Limits in Concord Township",
+        metaDescription: "Retailer says your return has to be under a certain size or weight or they'll reject it? We measure and weigh accurately, then pack it to fit their requirements.",
+        heroTitle: "Ship a Return With Strict Size or Weight Limits",
+        heroSubtitle: "Retailer says your return has to be under a certain size or weight or they'll reject it? We measure and weigh accurately, then pack it to fit their requirements exactly.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We check the retailer's limits, weigh your item on a certified scale, measure the box dimensions, and repack if needed to meet their specifications."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Many retailers (especially online fashion or subscription boxes) have strict return policies: \"must be under 5 lbs,\" \"box must be under 20 inches on any side.\" Go over and they refuse the return or charge you."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring the return item and the retailer's instructions</li>
+<li>We weigh it on our certified scale</li>
+<li>We measure the packed dimensions</li>
+<li>If it's over, we repack in a smaller box or remove excess packaging</li>
+<li>We confirm it meets specs before handing it to the carrier</li>
+<li>You get a receipt with the weight and dimensions noted</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're returning</li>
+<li>Return instructions or email (with size/weight limits)</li>
+<li>Return label or order number</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What if it's just barely over the weight limit?",
+                answer: "We'll remove unnecessary packaging (extra bubble wrap, oversized box) and reweigh. Often that brings it under."
+            },
+            {
+                question: "Can you split it into two returns?",
+                answer: "If the retailer allows multiple return shipments, yes. But check their policy first—some charge per return."
+            },
+            {
+                question: "What if the retailer's limits are unrealistic?",
+                answer: "Then we'll help you contact them or suggest an alternative (like refusing the shipment and requesting a refund). But usually we can make it work."
+            }
+        ],
+        cta: {
+            title: "Bring the return and the retailer's rules—we'll make sure it fits their requirements.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
