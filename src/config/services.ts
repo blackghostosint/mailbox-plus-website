@@ -6,6 +6,7 @@ import { mailboxRentalServices } from "./services/mailbox-rentals";
 import { documentServices } from "./services/document-services";
 import { additionalServices } from "./services/additional-services";
 import { specialtyShippingServices } from "./services/pack-ship/specialty-shipping";
+import { microProblems } from "./services/micro-problems";
 
 // Main aggregation of all services
 export const services: Service[] = [
@@ -15,5 +16,6 @@ export const services: Service[] = [
     ...mailboxRentalServices,
     ...documentServices,
     ...additionalServices,
-    ...specialtyShippingServices
+    ...specialtyShippingServices,
+    ...microProblems
 ];

@@ -9,7 +9,8 @@ export type ServiceCategory =
   | "document-services"
   | "additional-services"
   | "notary-services"
-  | "specialty";
+  | "specialty"
+  | "micro-problem";
 
 // CTA type for reusable call-to-action sections
 export interface CTA {
@@ -28,12 +29,12 @@ export interface Service {
   category: ServiceCategory;
   serviceName: string;
   slug: string;
-  canonicalUrl: string;
+  canonicalUrl?: string;
   priorityServices?: string[];
   city: string;
   pageTitle: string;
   metaDescription: string;
-  keywords: string;
+  keywords?: string;
   heroTitle: string;
   heroSubtitle: string;
   heroImage?: string;
