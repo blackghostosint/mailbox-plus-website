@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "./ui";
 import { ButtonProps } from "./ui/Button";
 
@@ -57,5 +58,11 @@ export const VisitUsButton: React.FC<VisitUsButtonProps> = ({
     return () => navigator.geolocation.clearWatch(watchId);
   }, [defaultCity]);
 
-  return <Button className={className} {...props}>Visit Us from {userCity}</Button>;
+  return (
+    <Link to="/contact-us" className="inline-block">
+      <Button className={className} {...props} as="span">
+        Visit Us from {userCity}
+      </Button>
+    </Link>
+  );
 };
