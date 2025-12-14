@@ -217,5 +217,77 @@ If you’re searching for <em>notary services near Concord Township</em> or need
                 answer: "Yes, items must be boxed and sealed. We sell boxes and tape if you need them!"
             }
         ]
+    },
+    {
+        id: "nuuly-returns",
+        category: "additional-services",
+        city: "Concord Township",
+        serviceName: "Nuuly Returns",
+        slug: "/nuuly-returns",
+        canonicalUrl: "https://mailboxplus.com/nuuly-returns",
+        pageTitle: "Nuuly Returns in Concord Township, Ohio | Mailbox Plus",
+        metaDescription: "Easy Nuuly clothing rental returns in Concord Township. Drop off your Nuuly bag at Mailbox Plus - authorized UPS drop-off location. Fast, convenient service.",
+        keywords: "nuuly returns, clothing rental returns, UPS drop off, concord township, lake county",
+        heroTitle: "Nuuly Returns Drop-Off",
+        heroSubtitle: "Convenient Nuuly clothing rental returns at your local UPS authorized drop-off location.",
+        heroImage: getServiceImageUrl("/images/nuulyreturns.webp"),
+        content: [
+            {
+                heading: "Fast & Easy Nuuly Returns",
+                body: "Returning your Nuuly clothing rental is simple at Mailbox Plus. Just bring your prepaid Nuuly bag with the UPS return label attached, and we'll handle the rest."
+            },
+            {
+                heading: "Why Choose Mailbox Plus for Nuuly Returns?",
+                body: `<ul>
+                    <li><strong>Authorized UPS Drop-Off:</strong> We're an official UPS drop-off location, ensuring your Nuuly return is scanned and processed immediately.</li>
+                    <li><strong>Same-Day Processing:</strong> Drop off your Nuuly bag and get it scanned right away so you can unlock your next box faster.</li>
+                    <li><strong>Receipt Provided:</strong> We'll give you a receipt confirming your return has been scanned by UPS.</li>
+                    <li><strong>No Long Lines:</strong> Skip the crowded UPS Store - we offer faster, friendly service.</li>
+                    <li><strong>Local & Convenient:</strong> Located in Concord Township, serving all of Lake County.</li>
+                </ul>`
+            },
+            {
+                heading: "Nuuly Returns in Concord Township, Ohio",
+                body: `Mailbox Plus is your local, convenient solution for <strong>Nuuly clothing rental returns</strong> in Concord Township and Lake County, Ohio. As an <strong>authorized UPS drop-off location</strong>, we accept Nuuly returns with prepaid UPS labels and provide immediate scanning to help you unlock your next Nuuly box as quickly as possible.
+
+Nuuly is a popular monthly clothing rental subscription from URBN (the parent company of Anthropologie, Free People, and Urban Outfitters), allowing you to rent six items per month for a flat fee. When you're ready to return your items, simply pack them in the reusable Nuuly bag, attach the prepaid UPS return label, and drop it off at Mailbox Plus.
+
+Our team will <strong>scan your return immediately</strong> and provide you with a <strong>UPS receipt for your records</strong>. This ensures your return is tracked and processed quickly, so you can access your next clothing selection without delay.
+
+Whether you're searching for <em>Nuuly returns near Concord Township</em> or need a <em>fast UPS drop-off in Lake County, Ohio</em>, Mailbox Plus offers the friendly, efficient service you need. Visit us today and experience hassle-free Nuuly returns!`,
+                isFullWidth: true
+            }
+        ],
+        features: [
+            { icon: Truck, title: "Authorized UPS Location", description: "Official UPS drop-off point for Nuuly returns." },
+            { icon: Clock, title: "Same-Day Scanning", description: "Get your return scanned immediately." },
+            { icon: Users, title: "Friendly Service", description: "Personal assistance from our local team." }
+        ],
+        faqs: [
+            {
+                question: "Can I drop off my Nuuly returns at Mailbox Plus?",
+                answer: "Yes! We are an authorized UPS drop-off location and accept all Nuuly returns with prepaid UPS labels. Just bring your sealed Nuuly bag and we'll scan it right away."
+            },
+            {
+                question: "Do I need to print a label for my Nuuly return?",
+                answer: "No, Nuuly includes a prepaid UPS return label with each delivery. Simply attach it to your Nuuly bag before dropping it off. If you've lost your label, you can print a new one from your Nuuly account."
+            },
+            {
+                question: "Will I get a receipt for my Nuuly return?",
+                answer: "Yes! We provide a UPS receipt showing that your return has been scanned and accepted. This serves as proof of your return."
+            },
+            {
+                question: "How quickly will my next Nuuly box unlock after I return my items?",
+                answer: "Once we scan your return at our location, UPS processes it immediately. Nuuly typically unlocks your next box within minutes of the UPS scan. You can also use Nuuly's 'Check My Return' feature to expedite the process."
+            },
+            {
+                question: "What if I forgot to attach the label to my Nuuly bag?",
+                answer: "No problem! If you have the label with you, we can attach it for you. If you don't have it, you can print a new one from your Nuuly account and bring it back, or we can print it for a small $2.00 fee."
+            },
+            {
+                question: "Do you charge for Nuuly returns?",
+                answer: "No, drop-offs for prepaid packages are free at Mailbox Plus. If you need us to print your return label, there's a $2.00 printing fee."
+            }
+        ]
     }
 ];
