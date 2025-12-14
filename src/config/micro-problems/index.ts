@@ -38,4 +38,21 @@ if (import.meta.env.DEV) {
         ids.add(mp.id);
         slugs.add(mp.slug);
     });
+
+    const intentMap = new Map<string, string>();
+
+    microProblems.forEach(mp => {
+        if (!mp.intentKey) return;
+
+        if (intentMap.has(mp.intentKey)) {
+            throw new Error(
+                `Duplicate intent detected: "${mp.intentKey}"
+Conflicts:
+- ${intentMap.get(mp.intentKey)}
+- ${mp.id}`
+            );
+        }
+
+        intentMap.set(mp.intentKey, mp.id);
+    });
 }

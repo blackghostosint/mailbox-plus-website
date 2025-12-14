@@ -41,6 +41,7 @@ export interface Service {
   icon?: LucideIcon;
   popular?: boolean;
   introductoryContent?: string;
+  intentKey?: string;
 
   // 👇 NEW: long-form page content
   content?: Array<{
