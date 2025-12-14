@@ -430,6 +430,67 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship an Odd-Shaped or Oversized Item",
+        slug: "/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment",
+        pageTitle: "Ship an Odd-Shaped or Oversized Item in Concord Township – Guitars, Lamps, Sports Equipment | Mailbox Plus",
+        metaDescription: "Got something that doesn't fit in a normal box? Golf clubs, a floor lamp, a bicycle wheel, artwork? We ship weird-shaped stuff all the time. We'll figure it out.",
+        heroTitle: "Ship an Odd-Shaped or Oversized Item in Concord Township",
+        heroSubtitle: "Guitars, Lamps, Sports Equipment",
+        heroImage: "https://images.unsplash.com/photo-1580674684081-7617fbf3d745?auto=format&fit=crop&w=1200&q=80",
+        content: [
+            {
+                heading: "What We Do",
+                body: "We find (or build) custom packaging for items that don't fit standard boxes. Then we choose the right carrier and service level so it arrives safely without costing a fortune."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Standard boxes are rectangles. Life is not. Carriers charge by dimensional weight, so odd shapes get expensive fast—unless you know the tricks."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring the item or tell us the dimensions</li>
+<li>We assess: can we box it, crate it, or tube it?</li>
+<li>We source the right packaging (bike box, mirror box, custom crate)</li>
+<li>We pad edges, corners, and protruding parts</li>
+<li>We compare carrier rates (UPS vs FedEx vs freight)</li>
+<li>We show you the cost before committing</li>
+<li>We hand it off and track it</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item itself, or exact dimensions (length x width x height)</li>
+<li>Destination address</li>
+<li>Any disassembly instructions if it comes apart</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Can you ship a guitar?",
+                answer: "Yes. Ships via UPS or FedEx Ground."
+            },
+            {
+                question: "What about a bicycle?",
+                answer: "Yes. We partially disassemble (remove pedals, turn handlebars), box it in a bike-specific box, and ship via ground service."
+            },
+            {
+                question: "Is freight cheaper for big items?",
+                answer: "Sometimes. If it's over 150 lbs or 108 inches combined length+width+height, freight might be cheaper."
+            }
+        ],
+        cta: {
+            title: "Call or stop by with dimensions—we'll give you an honest quote before you commit.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
