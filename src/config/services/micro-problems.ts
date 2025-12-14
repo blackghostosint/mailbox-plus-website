@@ -1085,6 +1085,66 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "print-and-attach-a-shipping-label-correctly-in-concord-township",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Print and Attach a Shipping Label Correctly in Concord Township",
+        slug: "/print-and-attach-a-shipping-label-correctly-in-concord-township",
+        pageTitle: "Print and Attach a Shipping Label Correctly in Concord Township | Mailbox Plus Ohio",
+        metaDescription: "Not sure where the label goes? We print and attach shipping labels correctly—flat surface, scannable barcode, no tape coverage. Bring your label and box to Mailbox Plus in Concord Township.",
+        heroTitle: "Print and Attach a Shipping Label Correctly in Concord Township",
+        heroSubtitle: "Not sure where the label goes? Worried you'll put it in the wrong spot and delay your shipment? We print and attach labels all day—we'll do it right so there's no confusion.",
+        heroImage: getServiceImageUrl("/images/micro/print-label.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We print your label on adhesive paper, place it in the correct location (flat surface, away from seams and tape), and make sure the barcode is scannable."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Carriers reject packages when labels are placed over tape, on a seam, upside-down, or covering another barcode. Most people don't know these rules."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your label (email, phone, or printed)</li>
+<li>We print it on adhesive label paper if needed</li>
+<li>We place it on the largest flat surface of the box</li>
+<li>We make sure no tape covers the barcode</li>
+<li>We remove or cover any old labels or barcodes</li>
+<li>We hand it to the carrier</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>Your shipping label (any format: email, PDF)</li>
+<li>The packaged item</li>
+<li>2 minutes of your time</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "Why does label placement matter?",
+                answer: "Carriers scan barcodes at every facility. If the label is wrinkled, covered, or in the wrong spot, it delays your package or gets sent to the wrong place."
+            },
+            {
+                question: "Can I just tape a paper label on?",
+                answer: "You can, but it might fall off or get wet. Adhesive labels stay put. We use those."
+            },
+            {
+                question: "What if there's an old label on the box?",
+                answer: "We remove it or cover it completely so scanners don't pick up the wrong tracking number."
+            }
+        ],
+        cta: {
+            title: "Bring your label and box—we'll attach it correctly in under a minute.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
