@@ -90,6 +90,7 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={handleClick}
+                className="inline-block"
               >
                 <Button variant={variant === "ghost" ? "ghost" : "primary"} as="div">
                   {buttonText} <Icon size={18} />
@@ -99,8 +100,9 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
               <Link
                 to={buttonLink}
                 onClick={handleClick}
+                className="inline-block"
               >
-                <Button variant={variant === "ghost" ? "ghost" : "primary"} as="div">
+                <Button variant={variant === "ghost" ? "ghost" : "primary"} as="span">
                   {buttonText} <Icon size={18} />
                 </Button>
               </Link>
