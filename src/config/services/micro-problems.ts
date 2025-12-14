@@ -1026,6 +1026,65 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: "ship-something-with-no-original-packaging-in-concord-township",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship Something With No Original Packaging",
+        slug: "/ship-something-with-no-original-packaging-in-concord-township",
+        pageTitle: "Ship Something With No Original Packaging in Concord Township | Mailbox Plus",
+        metaDescription: "Lost the box? We pack items without original packaging—clothes, toys, kitchen items, random stuff. We'll find the right box and pack it properly at Mailbox Plus in Concord Township, OH.",
+        heroTitle: "Ship Something With No Original Packaging in Concord Township",
+        heroSubtitle: "Lost the box? Never had one? Doesn't matter. We pack items without original packaging all day long—clothes, toys, kitchen items, random stuff. We'll find the right box and pack it properly.",
+        heroImage: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=2065",
+        content: [
+            {
+                heading: "What We Do",
+                body: "We assess the item, select appropriate packaging (box, tube, padded mailer), add cushioning or protection, and ship it via your preferred carrier."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Most things don't come with \"shipping packaging.\" You bought it in a store, or it's a hand-me-down, or the box got tossed years ago. That's normal."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring the item (or describe it if it's large)</li>
+<li>We choose the right type of container: box, tube, crate, or mailer</li>
+<li>We wrap or pad it based on fragility</li>
+<li>We seal it and add any necessary labels ("Fragile," "This Side Up")</li>
+<li>We ship it with tracking</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item itself</li>
+<li>Destination address</li>
+<li>Any accessories or parts that go with it</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What if it's an odd shape?",
+                answer: "We'll custom-pack it. We've shipped lamps, sculptures, car parts, musical instruments—weird shapes are our specialty."
+            },
+            {
+                question: "Can you pack something soft like clothes or blankets?",
+                answer: "Yes. We use poly mailers or boxes depending on the size and whether it needs to stay dry."
+            },
+            {
+                question: "How much does packaging cost if I have literally nothing?",
+                answer: "Typically $5–12 depending on size and how much protection it needs."
+            }
+        ],
+        cta: {
+            title: "Just bring the item—we'll take care of the rest.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
 
