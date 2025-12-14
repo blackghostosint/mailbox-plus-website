@@ -83,6 +83,53 @@ export const microProblems: Service[] = [
         metaDescription: "Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds. We can help you pack the item too.",
         heroTitle: "Print an Amazon Return Label (QR Code or PDF)",
         heroSubtitle: "Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds.",
-        heroImage: getServiceImageUrl("/images/micro/print-label.webp")
+        heroImage: getServiceImageUrl("/images/micro/print-label.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "We print your Amazon return label (from the QR code or PDF), help you pack it if needed, and hand it straight to the carrier. No printer required."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Amazon's return system assumes you have a printer. Half the time they give you a QR code, half the time they give you a PDF. Either way, we handle it."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Open your Amazon app or return email</li>
+<li>Show us the QR code or tap "Print label"</li>
+<li>We print it on adhesive label paper</li>
+<li>If you need the item packed, we do that too</li>
+<li>We drop it with UPS, USPS, or the carrier Amazon assigned</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>Your phone with the Amazon return pulled up</li>
+<li>The item you're returning (if you want us to pack it)</li>
+<li>Original box optional—we have boxes if you don't</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'Amazon says "QR code label-free return"—do I still need a label?',
+                answer: "No label needed for those. Just show the QR code at UPS or Kohl's. But if you'd rather we handle it, we can not scan the code. We need an label and then we can pack it for you."
+            },
+            {
+                question: "Amazon assigned UPS—can you drop it off?",
+                answer: "Yes. We drop off UPS returns every day."
+            },
+            {
+                question: "What if I don't have the original box?",
+                answer: "Totally fine. Amazon doesn't require it. We'll box it securely."
+            }
+        ],
+        cta: {
+            title: "Bring your phone and your return—we'll handle the rest in under 5 minutes.",
+            buttonText: "Get Directions",
+            buttonLink: "/contact-us"
+        }
     }
 ];
