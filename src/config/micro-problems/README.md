@@ -1,5 +1,8 @@
 # Micro-Problems Configuration Architecture
 
+> **🚨 GOVERNANCE POLICY**: All micro-problem pages are subject to quarterly lifecycle audits.  
+> See [`MICRO_PROBLEM_GOVERNANCE.md`](../../MICRO_PROBLEM_GOVERNANCE.md) for permanent policy rules.
+
 ## Overview
 
 The micro-problems configuration has been refactored into a **sharded, domain-based structure** designed to scale to 500+ micro-problem pages while maintaining type safety, preventing conflicts, and enforcing architectural boundaries.
@@ -93,12 +96,29 @@ export const returnMicroProblems: Service[] = [
 The system includes a **dev-only runtime validator** that checks for:
 
 - Duplicate `id` values
-- Duplicate `slug` values  
+- Duplicate `slug` values
+- **Duplicate `intentKey` values** (prevents intent cannibalization)
 - Missing required fields (`id`, `slug`, `serviceName`, `heroTitle`)
 
 **Validator runs automatically in development mode** (`import.meta.env.DEV`)
 
 **Validator is stripped from production builds** for performance
+
+### Intent Key Validation
+
+To prevent SEO cannibalization and customer confusion, the validator checks for duplicate `intentKey` values.
+
+**See**: [`INTENT_KEY_GUIDE.md`](./INTENT_KEY_GUIDE.md) for detailed usage instructions.
+
+**Example Error**:
+```
+Error: Duplicate intent detected: "ship-fragile-items"
+Conflicts:
+- ship-fragile-items
+- ship-breakable-products
+```
+
+This means you have two pages targeting the same user intent. One should be merged or deleted during the quarterly governance audit.
 
 ## ESLint Enforcement
 
