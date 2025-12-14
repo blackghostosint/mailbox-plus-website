@@ -1265,6 +1265,67 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: 'ship-a-package-when-youre-short-on-time-in-concord-township',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Ship a Package When You\'re Short on Time',
+        slug: '/ship-a-package-when-youre-short-on-time-in-concord-township',
+        pageTitle: 'Ship a Package When You\'re Short on Time in Concord Township | Mailbox Plus',
+        metaDescription: 'Need it shipped today? Have 10 minutes before you need to be somewhere else? We move fast. Walk in, tell us what you need, and we\'ll have you out the door with tracking in hand.',
+        heroTitle: 'Ship a Package When You\'re Short on Time in Concord Township',
+        heroSubtitle: 'Need it shipped today? Have 10 minutes before you need to be somewhere else? We move fast. Walk in, tell us what you need, and we\'ll have you out the door with tracking in hand.',
+        heroImage: getServiceImageUrl('/images/micro/pack-ship.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We streamline the process: quick packing, instant carrier comparison, print your label, and hand it off for same-day pickup. No waiting, no overthinking.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Life is busy. Sometimes you remember you need to ship something an hour before the deadline. We\'re built for that.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Walk in and tell us: what, where, and when it needs to arrive</li>
+<li>We grab the right box and pack it fast</li>
+<li>We show you the fastest/cheapest carrier option</li>
+<li>You approve, we print the label and attach it</li>
+<li>We drop it with the carrier (or you do)</li>
+<li>You're out the door in under 10 minutes</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The item</li>
+<li>Destination address (or just the zip code)</li>
+<li>A credit card or cash</li>
+<li>Your phone for the tracking number</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'How fast can you pack something?',
+                answer: 'Simple items (clothes, books, non-fragile): 5-10 minutes. Fragile or complex items: 15-20 minutes.'
+            },
+            {
+                question: 'What if I need it there overnight?',
+                answer: 'We offer FedEx and UPS overnight options. Drop off by 4pm for next-day delivery (to most locations).'
+            },
+            {
+                question: 'Can I schedule a pickup instead of waiting?',
+                answer: 'Carriers pick up from us daily. If you drop off by 3pm, it goes out same-day.'
+            }
+        ],
+        cta: {
+            title: 'Walk in—we\'ll get it done fast without cutting corners.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
