@@ -72,5 +72,17 @@ export const microProblems: Service[] = [
             buttonText: "Get Directions",
             buttonLink: "/contact-us"
         }
+    },
+    {
+        id: "print-amazon-return-label",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Print an Amazon Return Label",
+        slug: "/print-amazon-return-label",
+        pageTitle: "Print an Amazon Return Label in Concord Township (QR Code or PDF)",
+        metaDescription: "Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds. We can help you pack the item too.",
+        heroTitle: "Print an Amazon Return Label (QR Code or PDF)",
+        heroSubtitle: "Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds.",
+        heroImage: getServiceImageUrl("/images/micro/print-label.webp")
     }
 ];
