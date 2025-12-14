@@ -1385,6 +1385,65 @@ export const microProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: 'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        category: 'micro-problem',
+        city: 'Concord Township',
+        serviceName: 'Fix a Return That Was Rejected Due to Packaging Issues',
+        slug: '/fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        pageTitle: 'Fix a Return That Was Rejected Due to Packaging Issues in Concord Township',
+        metaDescription: 'UPS, FedEx, or retailer rejected your return due to packaging? We repack returns to carrier standards and re-ship properly. Bring rejected packages to Mailbox Plus in Concord Township.',
+        heroTitle: 'Fix a Return That Was Rejected Due to Packaging Issues in Concord Township',
+        heroSubtitle: 'Did UPS, FedEx, or the retailer reject your return because of how it was packed? Frustrating, but fixable. Bring it in—we\'ll repack it to standards and get it accepted.',
+        heroImage: getServiceImageUrl('/images/micro/pack-ship.webp'),
+        content: [
+            {
+                heading: 'What We Do',
+                body: 'We figure out why it was rejected (damaged box, insufficient padding, wrong label placement, weight issue), fix it, and re-ship it properly.'
+            },
+            {
+                heading: 'Why This Happens',
+                body: 'Carriers and retailers have rules most people don\'t know: box condition, seal strength, label placement, cushioning requirements. One mistake = rejection.'
+            },
+            {
+                heading: 'How We Help',
+                body: `<ol>
+<li>Bring the rejected package</li>
+<li>We identify the issue (box, padding, label, or weight)</li>
+<li>We fix it: new box, better padding, correct label placement</li>
+<li>We re-ship it with a receipt</li>
+<li>You get tracking confirmation</li>
+</ol>`
+            },
+            {
+                heading: 'What to Bring',
+                body: `<ul>
+<li>The rejected package</li>
+<li>Any rejection notice or email</li>
+<li>Your return label (or order info to reprint one)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: 'Why was my return rejected?',
+                answer: 'Common reasons: box was damaged, item was loose inside, label covered tape or a seam, old labels weren\'t removed, or the package was overweight.'
+            },
+            {
+                question: 'Will the retailer still accept it if I repack and resend?',
+                answer: 'Yes, as long as you\'re within their return window. We\'ll make sure the packaging meets their standards this time.'
+            },
+            {
+                question: 'How much does it cost to fix a rejected return?',
+                answer: 'Usually $5–10 for repacking, plus shipping cost if you need a new label.'
+            }
+        ],
+        cta: {
+            title: 'Bring in the rejected package—we\'ll figure out what went wrong and fix it today.',
+            buttonText: 'Get Directions',
+            buttonLink: '/contact-us'
+        }
     }
 ];
 
