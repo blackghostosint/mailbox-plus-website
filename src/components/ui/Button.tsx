@@ -38,8 +38,15 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-transparent text-[#0855B1] hover:bg-[#F0F7FF] focus:ring-[#B2D3EB] shadow-none",
   };
 
-  // Determine which element to render
-  const Component = motion[as as keyof typeof motion] || motion.button;
+  // Define specific motion components to avoid deep type instantiation errors
+  const motionComponents = {
+    button: motion.button,
+    div: motion.div,
+    span: motion.span,
+    a: motion.a,
+  };
+
+  const Component = (motionComponents[as as keyof typeof motionComponents] || motion.button) as any;
 
   return (
     <Component
