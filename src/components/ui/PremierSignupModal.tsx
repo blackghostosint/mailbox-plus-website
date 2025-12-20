@@ -21,7 +21,7 @@ const SIGNUP_URL = siteConfig.premierSignupUrl || 'https://mailbox-plus-loyalty-
 
 export const PremierSignupModal: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { shouldShow, markAsShown } = usePremierGating();
+    const { shouldShow, markAsShown, dismissPermanently } = usePremierGating();
 
     // Small delay before showing to ensure it's not too jarring on initial load
     useEffect(() => {
@@ -51,17 +51,29 @@ export const PremierSignupModal: React.FC = () => {
     const modalRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (isOpen) {
-            const focusableElements = modalRef.current?.querySelectorAll(
-                'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-            );
-            if (focusableElements && focusableElements.length > 0) {
-                (focusableElements[0] as HTMLElement).focus();
+            const getFocusableElements = () => {
+                const elements = modalRef.current?.querySelectorAll(
+                    'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+                ) || [];
+                // Filter out elements that are hidden (offsetParent is null)
+                return Array.from(elements).filter(
+                    (el) => (el as HTMLElement).offsetParent !== null
+                ) as HTMLElement[];
+            };
+
+            const focusableElements = getFocusableElements();
+            if (focusableElements.length > 0) {
+                // Initial focus
+                focusableElements[0].focus();
 
                 const handleTab = (e: KeyboardEvent) => {
                     if (e.key !== 'Tab') return;
 
-                    const firstElement = focusableElements[0] as HTMLElement;
-                    const lastElement = focusableElements[focusableElements.length - 1] as HTMLElement;
+                    const currentElements = getFocusableElements();
+                    if (currentElements.length === 0) return;
+
+                    const firstElement = currentElements[0];
+                    const lastElement = currentElements[currentElements.length - 1];
 
                     if (e.shiftKey) {
                         if (document.activeElement === firstElement) {
@@ -169,12 +181,18 @@ export const PremierSignupModal: React.FC = () => {
                             </div>
 
                             {/* Secondary Copy */}
-                            <div className="mt-8 flex flex-col gap-1">
+                            <div className="mt-8 flex flex-col gap-3">
                                 <p className="text-[11px] text-slate-400 flex items-center justify-center gap-2">
                                     <span>Takes under 30 seconds</span>
                                     <span className="w-1 h-1 bg-slate-300 rounded-full" />
                                     <span>No physical card required</span>
                                 </p>
+                                <button
+                                    onClick={dismissPermanently}
+                                    className="text-[10px] text-slate-300 hover:text-slate-500 transition-colors uppercase tracking-widest font-medium"
+                                >
+                                    Don&apos;t show again
+                                </button>
                             </div>
                         </div>
                     </motion.div>

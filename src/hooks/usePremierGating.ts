@@ -12,17 +12,19 @@ export const usePremierGating = () => {
 
     useEffect(() => {
         const checkGating = () => {
-            // 1. Permanent Suppression
+            // 1. Permanent Suppression (Precedence: Member status check first)
+            const isMember =
+                localStorage.getItem(STORAGE_KEYS.LOYALTY_CARD_ID) ||
+                localStorage.getItem(STORAGE_KEYS.PREMIER_MEMBER_ID) ||
+                localStorage.getItem(STORAGE_KEYS.QR_TOKEN) ||
+                localStorage.getItem(STORAGE_KEYS.PREMIER_SIGNUP_COMPLETED) === 'true';
 
-            // Stored loyalty identifier check
-            if (localStorage.getItem(STORAGE_KEYS.LOYALTY_CARD_ID)) return false;
-            if (localStorage.getItem(STORAGE_KEYS.PREMIER_MEMBER_ID)) return false;
-            if (localStorage.getItem(STORAGE_KEYS.QR_TOKEN)) return false;
+            if (isMember) return false;
 
-            // Signup completion flag check
-            if (localStorage.getItem(STORAGE_KEYS.PREMIER_SIGNUP_COMPLETED) === 'true') return false;
+            // 2. Explicit Dismissal Flag (Suppresses modal forever)
+            if (localStorage.getItem(STORAGE_KEYS.PREMIER_MODAL_DISMISSED) === 'true') return false;
 
-            // 2. 7-Day Cooldown Check
+            // 3. 7-Day Cooldown (Temporal suppression)
             const lastShown = localStorage.getItem(STORAGE_KEYS.LAST_SHOWN_TIMESTAMP);
             if (!lastShown) return true;
 
@@ -38,9 +40,15 @@ export const usePremierGating = () => {
         localStorage.setItem(STORAGE_KEYS.LAST_SHOWN_TIMESTAMP, Date.now().toString());
     };
 
-    const suppressPermanently = () => {
-        localStorage.setItem(STORAGE_KEYS.PREMIER_SIGNUP_COMPLETED, 'true');
+    const dismissPermanently = () => {
+        localStorage.setItem(STORAGE_KEYS.PREMIER_MODAL_DISMISSED, 'true');
+        setShouldShow(false);
     };
 
-    return { shouldShow, markAsShown, suppressPermanently };
+    const suppressPermanently = () => {
+        localStorage.setItem(STORAGE_KEYS.PREMIER_SIGNUP_COMPLETED, 'true');
+        setShouldShow(false);
+    };
+
+    return { shouldShow, markAsShown, dismissPermanently, suppressPermanently };
 };

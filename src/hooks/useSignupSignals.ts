@@ -31,5 +31,12 @@ export const useSignupSignals = () => {
         if (token) {
             localStorage.setItem(STORAGE_KEYS.QR_TOKEN, token);
         }
+
+        // Clean up URL parameters to prevent re-processing on refresh
+        if (signupCompleted || loyaltyId || memberId || token) {
+            const url = new URL(window.location.href);
+            Object.values(URL_PARAMS).forEach(param => url.searchParams.delete(param));
+            window.history.replaceState({}, '', url.toString());
+        }
     }, []);
 };

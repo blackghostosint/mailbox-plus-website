@@ -39,10 +39,12 @@ export const Button: React.FC<ButtonProps> = ({
   };
 
   // Map of motion components to avoid deep type instantiation from dynamic lookups
-  const MotionComponent = (as === "button" ? motion.button :
-    as === "div" ? motion.div :
-      as === "span" ? motion.span :
-        as === "a" ? motion.a : motion.button) as any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionComponent: any =
+    as === "button" ? motion.button :
+      as === "div" ? motion.div :
+        as === "span" ? motion.span :
+          as === "a" ? motion.a : motion.button;
 
   return (
     <MotionComponent

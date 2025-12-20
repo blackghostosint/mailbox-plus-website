@@ -12,6 +12,7 @@ export const STORAGE_KEYS = {
     LOYALTY_CARD_ID: 'loyaltyCardId',
     PREMIER_MEMBER_ID: 'premierMemberId',
     QR_TOKEN: 'qrToken',
+    PREMIER_MODAL_DISMISSED: 'premierSignupModalDismissed',
 } as const;
 
 export const URL_PARAMS = {
