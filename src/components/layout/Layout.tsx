@@ -3,6 +3,7 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { JsonLd } from '../JsonLd';
 import FloatingReviewButton from '../ui/FloatingReviewButton';
+import { PremierSignupModal } from '../ui';
 import { getServiceImageUrl } from '../../lib/storage';
 import { getLocalBusinessSchema, getWebSiteSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
@@ -30,6 +31,9 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         </main>
         <Footer />
         <FloatingReviewButton imageSrc={getServiceImageUrl("review-us-on-google.webp")} />
+
+        {/* Premier Signup Modal */}
+        <PremierSignupModal />
       </div>
     </>
   );
