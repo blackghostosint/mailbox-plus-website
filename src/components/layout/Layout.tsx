@@ -8,34 +8,15 @@ import { getServiceImageUrl } from '../../lib/storage';
 import { getLocalBusinessSchema, getWebSiteSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
 
+import { useSignupSignals } from '../../hooks/useSignupSignals';
+
 interface LayoutProps {
   children: React.ReactNode;
 }
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   // Capture Premier Signup signals from URL when users return from the loyalty app
-  React.useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const params = new URLSearchParams(window.location.search);
-    const signupCompleted = params.get('signup_completed') === 'true' || params.get('premierSignupCompleted') === 'true';
-    const loyaltyId = params.get('loyaltyCardId');
-    const memberId = params.get('premierMemberId');
-    const token = params.get('qrToken');
-
-    if (signupCompleted) {
-      localStorage.setItem('premierSignupCompleted', 'true');
-    }
-    if (loyaltyId) {
-      localStorage.setItem('loyaltyCardId', loyaltyId);
-    }
-    if (memberId) {
-      localStorage.setItem('premierMemberId', memberId);
-    }
-    if (token) {
-      localStorage.setItem('qrToken', token);
-    }
-  }, []);
+  useSignupSignals();
 
   // console.log('Layout.tsx: Layout component rendering');
   const origin = (siteConfig.domain || "").replace(/\/+$/, ""); // remove trailing slash

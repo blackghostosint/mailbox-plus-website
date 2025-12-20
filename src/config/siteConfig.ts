@@ -107,6 +107,7 @@ export const siteConfig: SiteConfig = {
     addressRegion: "OH",
     addressCountry: "US",
   },
+  premierSignupUrl: 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup',
 };
 
 export const defaultCTA: CTA = {

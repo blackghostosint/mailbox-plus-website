@@ -131,7 +131,7 @@ export const shippingMicroProblems: Service[] = [
         serviceName: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
         slug: '/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
         pageTitle: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
-        metaDescription: 'Shipping something heavy and worried the carrier will refuse it? Weight limits are real—and confusing. We know exactly which carriers take what weight, and how to pack it so it\'s accepted.',
+        metaDescription: 'Shipping something heavy and worried the carrier will refuse it? Weight limits are real—and confusing. We know exactly which carriers take what weight, and how to pack it so it&apos;s accepted.',
         heroTitle: 'Ship a Heavy Package in Concord Township – Over 50 lbs, Won\'t Get Rejected',
         heroSubtitle: 'Shipping something heavy and worried the carrier will refuse it? Weight limits are real—and confusing. We know exactly which carriers take what weight, and how to pack it so it\'s accepted.',
         heroImage: getServiceImageUrl('/images/micro/boxes.webp'),

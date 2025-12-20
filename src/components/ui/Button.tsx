@@ -38,18 +38,14 @@ export const Button: React.FC<ButtonProps> = ({
       "bg-transparent text-[#0855B1] hover:bg-[#F0F7FF] focus:ring-[#B2D3EB] shadow-none",
   };
 
-  // Define specific motion components to avoid deep type instantiation errors
-  const motionComponents = {
-    button: motion.button,
-    div: motion.div,
-    span: motion.span,
-    a: motion.a,
-  };
-
-  const Component = (motionComponents[as as keyof typeof motionComponents] || motion.button) as any;
+  // Map of motion components to avoid deep type instantiation from dynamic lookups
+  const MotionComponent = (as === "button" ? motion.button :
+    as === "div" ? motion.div :
+      as === "span" ? motion.span :
+        as === "a" ? motion.a : motion.button) as any;
 
   return (
-    <Component
+    <MotionComponent
       whileHover={{
         scale: variant === "link" || variant === "ghost" ? 1 : 1.03,
         transition: { duration: 0.2 },
@@ -61,6 +57,6 @@ export const Button: React.FC<ButtonProps> = ({
       {...(props as any)}
     >
       {children}
-    </Component>
+    </MotionComponent>
   );
 };

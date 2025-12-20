@@ -16,7 +16,7 @@ interface SearchResult {
 const serviceResults: SearchResult[] = services.map(service => ({
   title: service.serviceName,
   description: service.heroSubtitle || service.metaDescription, // Use subtitle or meta description
-  href: service.slug,
+  href: service.slug || service.id || '#',
   category: service.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) // Format category name
 }));
 
@@ -24,7 +24,7 @@ const serviceResults: SearchResult[] = services.map(service => ({
 const locationResults: SearchResult[] = serviceAreas.map(page => ({
   title: `Shipping & Printing in ${page.city}`,
   description: `Local services for ${page.city}, Ohio`,
-  href: page.canonicalUrl,
+  href: page.canonicalUrl || page.slug || '#',
   category: 'Locations'
 }));
 
@@ -118,8 +118,8 @@ export const SearchBox: React.FC = () => {
           aria-haspopup="dialog"
           aria-controls="search-results"
           className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${isOpen
-              ? 'border-[#0855B1] bg-white shadow-lg w-80'
-              : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
+            ? 'border-[#0855B1] bg-white shadow-lg w-80'
+            : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
             }`}
         >
           <span className="sr-only">

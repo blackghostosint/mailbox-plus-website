@@ -34,7 +34,7 @@ export const AutoBreadcrumbs: React.FC = () => {
                 </InternalLink>
               ) : index < items.length - 1 ? (
                 <InternalLink
-                  to={item.url}
+                  to={item.url || "/"}
                   className="hover:text-[#0855B1] transition-colors"
                 >
                   <span>{item.label}</span>

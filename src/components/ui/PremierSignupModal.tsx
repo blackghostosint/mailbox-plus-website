@@ -3,6 +3,8 @@ import { QRCodeSVG } from 'qrcode.react';
 import { X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+import { usePremierGating } from '../../hooks/usePremierGating';
+
 /**
  * PremierSignupModal Component
  * 
@@ -13,48 +15,24 @@ import { motion, AnimatePresence } from 'framer-motion';
  * - Design: Minimal, premium, integrated with the site's V2 aesthetic.
  */
 
-const SIGNUP_URL = 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup';
-const STORAGE_KEY = 'premierSignupPopupLastShown';
-const COOLDOWN_DAYS = 7;
+import { siteConfig } from '../../config/siteConfig';
+
+const SIGNUP_URL = siteConfig.premierSignupUrl || 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup';
 
 export const PremierSignupModal: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { shouldShow, markAsShown } = usePremierGating();
 
-    // Check for permanent suppression or 7-day cooldown
+    // Small delay before showing to ensure it's not too jarring on initial load
     useEffect(() => {
-        // Gating logic priority: Permanent suppression MUST override cooldown.
-        const shouldShow = () => {
-            // 1. Permanent Suppression (SSR safe within useEffect)
-
-            // Authenticated user check (placeholder for future auth integration)
-            // if (user?.isAuthenticated) return false;
-
-            // Stored loyalty identifier check
-            if (localStorage.getItem('loyaltyCardId')) return false;
-            if (localStorage.getItem('premierMemberId')) return false;
-            if (localStorage.getItem('qrToken')) return false;
-
-            // Signup completion flag check
-            if (localStorage.getItem('premierSignupCompleted') === 'true') return false;
-
-            // 2. 7-Day Cooldown Check
-            const lastShown = localStorage.getItem(STORAGE_KEY);
-            if (!lastShown) return true;
-
-            const now = Date.now();
-            const cooldownMs = COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
-            return now - parseInt(lastShown, 10) > cooldownMs;
-        };
-
-        if (shouldShow()) {
-            // Small delay before showing to ensure it's not too jarring on initial load
+        if (shouldShow) {
             const timer = setTimeout(() => {
                 setIsOpen(true);
-                localStorage.setItem(STORAGE_KEY, Date.now().toString());
+                markAsShown();
             }, 2000);
             return () => clearTimeout(timer);
         }
-    }, []);
+    }, [shouldShow, markAsShown]);
 
     const closeModal = useCallback(() => {
         setIsOpen(false);
