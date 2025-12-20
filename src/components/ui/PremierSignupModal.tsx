@@ -20,17 +20,37 @@ const COOLDOWN_DAYS = 7;
 export const PremierSignupModal: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
 
-    // Check if the popup should be shown
+    // Check for permanent suppression or 7-day cooldown
     useEffect(() => {
-        const lastShown = localStorage.getItem(STORAGE_KEY);
-        const now = Date.now();
-        const cooldownMs = COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
+        // Gating logic priority: Permanent suppression MUST override cooldown.
+        const shouldShow = () => {
+            // 1. Permanent Suppression (SSR safe within useEffect)
 
-        if (!lastShown || now - parseInt(lastShown, 10) > cooldownMs) {
+            // Authenticated user check (placeholder for future auth integration)
+            // if (user?.isAuthenticated) return false;
+
+            // Stored loyalty identifier check
+            if (localStorage.getItem('loyaltyCardId')) return false;
+            if (localStorage.getItem('premierMemberId')) return false;
+            if (localStorage.getItem('qrToken')) return false;
+
+            // Signup completion flag check
+            if (localStorage.getItem('premierSignupCompleted') === 'true') return false;
+
+            // 2. 7-Day Cooldown Check
+            const lastShown = localStorage.getItem(STORAGE_KEY);
+            if (!lastShown) return true;
+
+            const now = Date.now();
+            const cooldownMs = COOLDOWN_DAYS * 24 * 60 * 60 * 1000;
+            return now - parseInt(lastShown, 10) > cooldownMs;
+        };
+
+        if (shouldShow()) {
             // Small delay before showing to ensure it's not too jarring on initial load
             const timer = setTimeout(() => {
                 setIsOpen(true);
-                localStorage.setItem(STORAGE_KEY, now.toString());
+                localStorage.setItem(STORAGE_KEY, Date.now().toString());
             }, 2000);
             return () => clearTimeout(timer);
         }
