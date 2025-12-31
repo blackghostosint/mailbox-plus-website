@@ -1,3 +1,17 @@
+## 2025-12-31 — Improve Limited Availability Section Readability
+
+**Summary**
+Enhanced readability of the sales page "Limited Availability" section by implementing 8 design improvements: added dark overlay (65% opacity) for better text contrast, increased font sizes (alert: 2.3rem, body: 1.25rem), consolidated two paragraphs into one focused message, removed redundant "Free setup • Free notifications" line, changed text colors to white with shadow for visibility, and enhanced button styling with larger size and stronger shadow.
+
+**Scope**
+- `public/MailboxPlusSalesPage.html` - CSS styles (lines 166-495) and HTML content (lines 1192-1211)
+
+**Notes**
+- Initial implementation used dark overlay but kept dark text colors, causing readability issues
+- Browser verification revealed contrast problem, fixed by changing text to white (#fff)
+- Visual hierarchy now follows: Alert Box → Heading → One Paragraph → CTA Button
+- All improvements verified in browser with before/after screenshots
+
 ## 2025-12-31 — Remove 6-Month Plan Promotional Text
 
 **Summary**

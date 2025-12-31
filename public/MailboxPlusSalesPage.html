@@ -168,6 +168,10 @@
       background: rgba(255, 214, 0, 0.65);
     }
 
+    .overlay--dark-yellow {
+      background: rgba(0, 0, 0, 0.65);
+    }
+
     .section-content {
       position: relative;
       z-index: 2;
@@ -465,21 +469,33 @@
     }
 
     .limited-cta {
-      font-size: 2.1rem;
+      font-size: 2.3rem;
       font-weight: 700;
       color: #b71c1c;
       background: rgba(255, 255, 255, 0.85);
       border-radius: 1.2em;
-      padding: 0.7em 1.5em;
+      padding: 0.9em 1.8em;
       margin-bottom: 1.2em;
-      box-shadow: 0 2px 12px 0 rgba(255, 214, 0, 0.10);
+      box-shadow: 0 6px 24px 0 rgba(0, 0, 0, 0.15);
       display: inline-block;
     }
 
     .limited-content h2,
     .limited-content p {
-      color: #222;
-      text-shadow: none;
+      color: #fff;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .limited-content p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    .limited-section .btn--yellow {
+      font-size: 1.3rem;
+      padding: 1em 2.5em;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     }
 
     /* FAQ */
@@ -1194,16 +1210,13 @@
     <img class="section-image-bg"
       src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_wall_reserved_sign.webp" alt="Reserved mailboxes"
       loading="lazy" />
-    <div class="overlay overlay--yellow"></div>
+    <div class="overlay overlay--dark-yellow"></div>
     <div class="limited-content">
       <div class="limited-cta">🚨 Only 11 discounted boxes left at this special rate — once they’re gone, prices return
         to normal.</div>
-      <p class="font-semibold text-center mb-4">Free setup • Free notifications</p>
       <h2>Don’t Miss Out</h2>
-      <p>Mailbox Plus is trusted by hundreds of local residents and businesses. Secure your spot before they’re gone.
-      </p>
-      <p style="margin-top:0.7em;font-size:1.05em;color:#b71c1c;">
-        We’re offering this limited deal to fill the remaining boxes for the year — after that, rates return to normal.
+      <p>Mailbox Plus is trusted by hundreds of local residents and businesses. We're offering this limited deal to fill
+        the remaining boxes for the year — once they're gone, rates return to normal.
       </p>
       <a href="#reserve" class="btn btn--yellow" style="font-size:1.1rem;"
         onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
