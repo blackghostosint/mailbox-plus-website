@@ -36,7 +36,8 @@ export const PremierSignupModal: React.FC = () => {
 
     const closeModal = useCallback(() => {
         setIsOpen(false);
-    }, []);
+        markAsShown(); // Start 7-day cooldown when user clicks X
+    }, [markAsShown]);
 
     // Handle ESC key to close
     useEffect(() => {

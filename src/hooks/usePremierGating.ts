@@ -24,7 +24,10 @@ export const usePremierGating = () => {
             // 2. Explicit Dismissal Flag (Suppresses modal forever)
             if (localStorage.getItem(STORAGE_KEYS.PREMIER_MODAL_DISMISSED) === 'true') return false;
 
-            // 3. 7-Day Cooldown (Temporal suppression)
+            // 3. Session Guard (Prevents showing multiple times per session)
+            if (sessionStorage.getItem(STORAGE_KEYS.PREMIER_MODAL_SHOWN_SESSION) === 'true') return false;
+
+            // 4. 7-Day Cooldown (Temporal suppression)
             const lastShown = localStorage.getItem(STORAGE_KEYS.LAST_SHOWN_TIMESTAMP);
             if (!lastShown) return true;
 
@@ -38,6 +41,7 @@ export const usePremierGating = () => {
 
     const markAsShown = () => {
         localStorage.setItem(STORAGE_KEYS.LAST_SHOWN_TIMESTAMP, Date.now().toString());
+        sessionStorage.setItem(STORAGE_KEYS.PREMIER_MODAL_SHOWN_SESSION, 'true');
     };
 
     const dismissPermanently = () => {

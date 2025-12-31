@@ -38,4 +38,5 @@ export interface SiteConfig {
     addressRegion: string;
     addressCountry: string;
   };
+  premierSignupUrl?: string; // ✅ added for Premier signup modal
 }
