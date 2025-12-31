@@ -42,6 +42,7 @@ export const usePremierGating = () => {
     const markAsShown = () => {
         localStorage.setItem(STORAGE_KEYS.LAST_SHOWN_TIMESTAMP, Date.now().toString());
         sessionStorage.setItem(STORAGE_KEYS.PREMIER_MODAL_SHOWN_SESSION, 'true');
+        setShouldShow(false); // Prevent re-triggering
     };
 
     const dismissPermanently = () => {
