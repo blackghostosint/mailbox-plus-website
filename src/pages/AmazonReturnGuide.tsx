@@ -523,15 +523,15 @@ export const AmazonReturnGuide: React.FC = () => {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4">
-            <a href="/contact-us" className="inline-block bg-[#0855B1] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors">
+            <InternalLink to="/contact-us" className="inline-block bg-[#0855B1] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition-colors">
               Get Directions
-            </a>
-            <a href="/pack-ship" className="inline-block bg-white text-[#0855B1] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors">
+            </InternalLink>
+            <InternalLink to="/pack-ship" className="inline-block bg-white text-[#0855B1] font-bold py-3 px-8 rounded-full hover:bg-gray-100 transition-colors">
               View All Shipping Services
-            </a>
-            <a href="/home-business/mailbox-rental" className="inline-block border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-colors">
+            </InternalLink>
+            <InternalLink to="/home-business/mailbox-rental" className="inline-block border border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white/10 transition-colors">
               Mailbox Rentals
-            </a>
+            </InternalLink>
           </div>
         </div>
       </section>
