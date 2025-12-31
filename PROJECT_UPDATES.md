@@ -10,6 +10,7 @@ Removed the promotional description "2 months free - pay for 4, get 6! Save $50 
 - Text appeared in two separate "Mailbox Rental Plans" sections on the sales page
 - Pricing structure and other details remain intact
 - Empty paragraph elements retained to preserve page layout
+- Root version (`MailboxPlusSalesPage.html`) synced with public version for consistency
 
 ## 2025-12-30 — Fix Internal Link Violations in AmazonReturnGuide
 
