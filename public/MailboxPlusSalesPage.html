@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Mailbox Plus | Private Mailbox Rental Offer</title>
-  <meta name="description" content="Get up to 4 months free on private mailbox rentals in Concord Township, OH — Mailbox Plus offers secure, friendly service with free setup and notifications.">
+  <meta name="description"
+    content="Get up to 4 months free on private mailbox rentals in Concord Township, OH — Mailbox Plus offers secure, friendly service with free setup and notifications.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -15,7 +17,7 @@
       --brand-dark: #0B2742;
       --gray-light: #F7F8FA;
       --gray-text: #444;
-      --transition: 0.18s cubic-bezier(.4,0,.2,1);
+      --transition: 0.18s cubic-bezier(.4, 0, .2, 1);
 
       /* Spacing scale */
       --spacing-lg: 3.5rem;
@@ -30,10 +32,12 @@
       --font-size-md: 1.15rem;
       --font-size-sm: 1rem;
     }
+
     html {
       scroll-behavior: smooth;
       font-size: 16px;
     }
+
     body {
       margin: 0;
       font-family: 'Inter', system-ui, sans-serif;
@@ -42,29 +46,48 @@
       min-width: 0;
       min-height: 0;
     }
-    h1, h2, h3, h4, h5, h6 {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       color: var(--brand-blue);
       font-weight: 700;
       margin-top: 0;
       margin-bottom: 0.5em;
       line-height: 1.15;
     }
-    h1 { font-size: var(--font-size-xl); }
-    h2 { font-size: var(--font-size-lg); }
-    h3 { font-size: var(--font-size-md); }
+
+    h1 {
+      font-size: var(--font-size-xl);
+    }
+
+    h2 {
+      font-size: var(--font-size-lg);
+    }
+
+    h3 {
+      font-size: var(--font-size-md);
+    }
+
     p {
       margin-top: 0;
       margin-bottom: 1.1em;
       line-height: 1.7;
     }
+
     a {
       color: var(--brand-blue);
       text-decoration: none;
       transition: color var(--transition);
     }
+
     a:hover {
       color: var(--brand-yellow);
     }
+
     .btn {
       display: inline-block;
       background: linear-gradient(90deg, var(--brand-blue) 60%, #3a8dde 100%);
@@ -75,62 +98,76 @@
       padding: 0.85em 2.2em;
       font-size: 1.1rem;
       cursor: pointer;
-      box-shadow: 0 2px 12px 0 rgba(8,85,177,0.08);
+      box-shadow: 0 2px 12px 0 rgba(8, 85, 177, 0.08);
       transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
       outline: none;
       text-align: center;
       margin-top: 0.5em;
     }
+
     .btn--yellow {
       background: linear-gradient(90deg, var(--brand-yellow) 80%, #ffe866 100%);
       color: var(--brand-dark);
-      box-shadow: 0 2px 12px 0 rgba(255,214,0,0.10);
+      box-shadow: 0 2px 12px 0 rgba(255, 214, 0, 0.10);
     }
+
     .btn--red {
       background: #e53935;
       color: #fff;
     }
-    .btn:hover, .btn:focus {
+
+    .btn:hover,
+    .btn:focus {
       transform: scale(1.03);
-      box-shadow: 0 6px 24px 0 rgba(8,85,177,0.13);
+      box-shadow: 0 6px 24px 0 rgba(8, 85, 177, 0.13);
       filter: brightness(1.04);
     }
+
     .btn:focus-visible {
       outline: 3px solid var(--brand-yellow);
       outline-offset: 4px;
     }
+
     .section {
       padding: var(--spacing-lg) var(--spacing-sm);
       max-width: 1200px;
       margin: 0 auto;
       position: relative;
     }
+
     .section--alt {
       background: var(--gray-light);
     }
+
     .section--white {
       background: #fff;
     }
+
     .section--image {
       padding: 0;
       max-width: 100vw;
       overflow: hidden;
     }
+
     .overlay {
       position: absolute;
       inset: 0;
       z-index: 1;
       pointer-events: none;
     }
+
     .overlay--blue {
-      background: linear-gradient(to bottom, rgba(8,85,177,0.6), rgba(8,85,177,0.6));
+      background: linear-gradient(to bottom, rgba(8, 85, 177, 0.6), rgba(8, 85, 177, 0.6));
     }
+
     .overlay--blue-solid {
-      background: rgba(8,85,177,0.65);
+      background: rgba(8, 85, 177, 0.65);
     }
+
     .overlay--yellow {
-      background: rgba(255,214,0,0.65);
+      background: rgba(255, 214, 0, 0.65);
     }
+
     .section-content {
       position: relative;
       z-index: 2;
@@ -149,11 +186,13 @@
       overflow: hidden;
       line-height: 0;
     }
+
     .section-divider svg {
       display: block;
       width: calc(100% + 1.3px);
       height: 80px;
     }
+
     .section-image-bg {
       width: 100%;
       height: 100%;
@@ -168,19 +207,21 @@
       pointer-events: none;
       user-select: none;
     }
+
     /* Hero Section */
     .hero-headline {
       color: #fff;
       font-size: var(--font-size-xxl);
       font-weight: 700;
-      text-shadow: 0 2px 16px rgba(8,85,177,0.18);
+      text-shadow: 0 2px 16px rgba(8, 85, 177, 0.18);
       margin-bottom: 0.5em;
     }
+
     .hero-subtext {
       color: #e3eefd;
       font-size: 1.15rem;
       margin-bottom: 1.2em;
-      text-shadow: 0 1px 8px rgba(8,85,177,0.10);
+      text-shadow: 0 1px 8px rgba(8, 85, 177, 0.10);
     }
 
     /* Hero Customizations */
@@ -188,17 +229,21 @@
       position: relative;
       min-height: 420px;
     }
+
     .hero-content {
       min-height: 420px;
     }
+
     .hero-cta-btn {
       font-size: 1.2rem;
     }
+
     .hero-note {
       font-size: 0.95rem;
       color: #e3eefd;
       margin-top: 0.6em;
     }
+
     /* Problem/Imagine/Founder split sections */
     .split {
       display: flex;
@@ -207,23 +252,27 @@
       align-items: center;
       justify-content: center;
     }
+
     .split__img {
       width: 100%;
       max-width: 420px;
       min-height: 220px;
       object-fit: cover;
       border-radius: 1.2em;
-      box-shadow: 0 2px 18px 0 rgba(8,85,177,0.08);
+      box-shadow: 0 2px 18px 0 rgba(8, 85, 177, 0.08);
     }
+
     .split__content {
       flex: 1 1 0;
       min-width: 0;
       text-align: left;
       max-width: 600px;
     }
+
     .split--reverse {
       flex-direction: column-reverse;
     }
+
     @media (min-width: 800px) {
       .split {
         flex-direction: row;
@@ -231,17 +280,21 @@
         align-items: stretch;
         text-align: left;
       }
+
       .split--reverse {
         flex-direction: row-reverse;
       }
+
       .split__img {
         min-width: 340px;
         min-height: 320px;
       }
+
       .split__content {
         padding: 1.2em 0;
       }
     }
+
     /* Offer Stack */
     .offer-stack {
       display: flex;
@@ -249,20 +302,24 @@
       align-items: center;
       gap: 2.2rem;
     }
+
     .offer-stack__img {
       width: 100%;
       max-width: 320px;
       min-height: 180px;
       object-fit: cover;
       border-radius: 1em;
-      box-shadow: 0 2px 12px 0 rgba(8,85,177,0.08);
+      box-shadow: 0 2px 12px 0 rgba(8, 85, 177, 0.08);
     }
+
     .offer-stack__content {
       width: 100%;
-      max-width: 420px; /* Match table max-width for mobile centering */
+      max-width: 420px;
+      /* Match table max-width for mobile centering */
       min-width: 0;
       text-align: center;
     }
+
     @media (min-width: 800px) {
       .offer-stack {
         flex-direction: row;
@@ -270,21 +327,24 @@
         align-items: center;
         text-align: left;
       }
+
       .offer-stack__img {
         min-width: 340px;
         min-height: 320px;
         max-width: 420px;
       }
+
       .offer-stack__content {
         flex: 1 1 0;
         max-width: 600px;
         text-align: left;
       }
     }
+
     .offer-table {
       background: #fff;
       border-radius: 1.2em;
-      box-shadow: 0 4px 32px 0 rgba(8,85,177,0.10);
+      box-shadow: 0 4px 32px 0 rgba(8, 85, 177, 0.10);
       padding: 2.2em 1.2em;
       min-width: 0;
       width: 100%;
@@ -292,25 +352,31 @@
       margin: 0 auto;
       border-collapse: collapse;
     }
-    .offer-table th, .offer-table td {
+
+    .offer-table th,
+    .offer-table td {
       padding: 0.7em 0.5em;
       text-align: left;
       font-size: 1.05rem;
       border-bottom: 1px solid #f0f2f7;
     }
+
     .offer-table th {
       color: var(--brand-blue);
       font-weight: 600;
       background: #f7f8fa;
     }
-   .offer-table td:last-child,
-   .offer-table th:last-child {
-     text-align: right;
-     white-space: nowrap;
-   }
+
+    .offer-table td:last-child,
+    .offer-table th:last-child {
+      text-align: right;
+      white-space: nowrap;
+    }
+
     .offer-table tr:last-child td {
       border-bottom: none;
     }
+
     /* Testimonials */
     .testimonials-section {
       position: relative;
@@ -318,6 +384,7 @@
       min-height: 420px;
       color: #fff;
     }
+
     .testimonials-bg {
       width: 100%;
       height: 100%;
@@ -330,6 +397,7 @@
       pointer-events: none;
       user-select: none;
     }
+
     .testimonials-content {
       position: relative;
       z-index: 2;
@@ -338,6 +406,7 @@
       margin: 0 auto;
       text-align: center;
     }
+
     .testimonials-grid {
       display: flex;
       flex-direction: column;
@@ -346,30 +415,34 @@
       align-items: center;
       justify-content: center;
     }
+
     .testimonial-card {
-      background: rgba(255,255,255,0.10);
+      background: rgba(255, 255, 255, 0.10);
       border-radius: 1.2em;
-      box-shadow: 0 2px 18px 0 rgba(8,85,177,0.10);
+      box-shadow: 0 2px 18px 0 rgba(8, 85, 177, 0.10);
       padding: 1.5em 1.2em;
       max-width: 340px;
       color: #fff;
       text-align: left;
       font-size: 1.05rem;
       position: relative;
-      border: 1px solid rgba(255,255,255,0.13);
+      border: 1px solid rgba(255, 255, 255, 0.13);
     }
+
     .testimonial-card .testimonial-author {
       font-weight: 600;
       margin-top: 1em;
       color: #ffe866;
       font-size: 1rem;
     }
+
     @media (min-width: 900px) {
       .testimonials-grid {
         flex-direction: row;
         gap: 2.5rem;
       }
     }
+
     /* Limited Availability */
     .limited-section {
       position: relative;
@@ -378,6 +451,7 @@
       color: #b71c1c;
       text-align: center;
     }
+
     .limited-content {
       position: relative;
       z-index: 2;
@@ -389,21 +463,25 @@
       align-items: center;
       justify-content: center;
     }
+
     .limited-cta {
       font-size: 2.1rem;
       font-weight: 700;
       color: #b71c1c;
-      background: rgba(255,255,255,0.85);
+      background: rgba(255, 255, 255, 0.85);
       border-radius: 1.2em;
       padding: 0.7em 1.5em;
       margin-bottom: 1.2em;
-      box-shadow: 0 2px 12px 0 rgba(255,214,0,0.10);
+      box-shadow: 0 2px 12px 0 rgba(255, 214, 0, 0.10);
       display: inline-block;
     }
-    .limited-content h2, .limited-content p {
+
+    .limited-content h2,
+    .limited-content p {
       color: #222;
       text-shadow: none;
     }
+
     /* FAQ */
     .faq-section {
       background: #fff;
@@ -411,10 +489,12 @@
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .faq-title {
       text-align: center;
       margin-bottom: 2.2rem;
     }
+
     .faq-list {
       display: flex;
       flex-direction: column;
@@ -422,6 +502,7 @@
       max-width: 800px;
       margin: 0 auto;
     }
+
     .faq-item {
       display: flex;
       align-items: flex-start;
@@ -429,8 +510,9 @@
       background: #f7f8fa;
       border-radius: 0.8em;
       padding: 1.2em 1em;
-      box-shadow: 0 1px 6px 0 rgba(8,85,177,0.04);
+      box-shadow: 0 1px 6px 0 rgba(8, 85, 177, 0.04);
     }
+
     .faq-icon {
       width: 38px;
       height: 38px;
@@ -438,11 +520,13 @@
       flex-shrink: 0;
       margin-top: 0.2em;
     }
+
     .faq-q {
       font-weight: 600;
       color: var(--brand-blue);
       margin-bottom: 0.3em;
     }
+
     /* Contact Form */
     .contact-section {
       background: url('https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/form_background_pattern.webp') repeat;
@@ -453,10 +537,11 @@
       align-items: center;
       justify-content: center;
     }
+
     .contact-card {
       background: #fff;
       border-radius: 1.2em;
-      box-shadow: 0 4px 32px 0 rgba(8,85,177,0.10);
+      box-shadow: 0 4px 32px 0 rgba(8, 85, 177, 0.10);
       padding: 2.5em 1.5em 2em 1.5em;
       max-width: 420px;
       width: 100%;
@@ -465,11 +550,13 @@
       flex-direction: column;
       gap: 1.2em;
     }
+
     .contact-card h2 {
       color: var(--brand-blue);
       margin-bottom: 0.5em;
       text-align: center;
     }
+
     .contact-form label {
       font-weight: 600;
       color: var(--brand-blue);
@@ -477,7 +564,9 @@
       display: block;
       font-size: 1rem;
     }
-    .contact-form input, .contact-form select {
+
+    .contact-form input,
+    .contact-form select {
       width: 100%;
       padding: 0.7em 0.9em;
       border: 1px solid #dbe6f7;
@@ -488,11 +577,14 @@
       transition: border var(--transition);
       font-family: inherit;
     }
-    .contact-form input:focus, .contact-form select:focus {
+
+    .contact-form input:focus,
+    .contact-form select:focus {
       border: 1.5px solid var(--brand-blue);
       outline: none;
       background: #fff;
     }
+
     /* Final CTA */
     .final-cta-section {
       position: relative;
@@ -501,6 +593,7 @@
       color: #fff;
       text-align: center;
     }
+
     .final-cta-content {
       position: relative;
       z-index: 2;
@@ -512,10 +605,12 @@
       align-items: center;
       justify-content: center;
     }
+
     .final-cta-content h2 {
       color: #fff;
-      text-shadow: 0 2px 16px rgba(8,85,177,0.18);
+      text-shadow: 0 2px 16px rgba(8, 85, 177, 0.18);
     }
+
     /* Footer */
     .footer {
       background: var(--brand-dark);
@@ -525,52 +620,79 @@
       font-size: 1rem;
       letter-spacing: 0.01em;
     }
+
     .footer a {
       color: #fff;
       text-decoration: underline;
       font-weight: 600;
       transition: color var(--transition);
     }
+
     .footer a:hover {
       color: var(--brand-yellow);
     }
+
     /* Utility */
     .visually-hidden {
       position: absolute !important;
-      height: 1px; width: 1px;
+      height: 1px;
+      width: 1px;
       overflow: hidden;
-      clip: rect(1px,1px,1px,1px);
+      clip: rect(1px, 1px, 1px, 1px);
       white-space: nowrap;
     }
+
     /* Scroll reveal animations */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
+
     .fade-in {
       opacity: 0;
       animation: fadeInUp 0.6s ease-out forwards;
     }
+
     .fade-in-visible {
       opacity: 1;
     }
 
     /* Responsive Tweaks */
     @media (max-width: 600px) {
-      h1 { font-size: 1.5rem; }
-      .section, .testimonials-content, .faq-section, .contact-section, .final-cta-content, .limited-content {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .section,
+      .testimonials-content,
+      .faq-section,
+      .contact-section,
+      .final-cta-content,
+      .limited-content {
         padding: var(--spacing-md) var(--spacing-xs);
       }
-      .split__img, .offer-stack__img {
+
+      .split__img,
+      .offer-stack__img {
         min-height: 140px;
       }
+
       .offer-table {
         padding: 1.2em 0.5em;
       }
+
       .contact-card {
         padding: 1.2em 0.5em 1em 0.5em;
       }
     }
+
     .pricing-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -578,34 +700,43 @@
       max-width: 1000px;
       margin: 0 auto;
     }
+
     @media (min-width: 1200px) {
-      .pricing-grid { grid-template-columns: repeat(3, 1fr); gap: 3rem; }
+      .pricing-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
     }
+
     .pricing-card {
       background: #fff;
       border-radius: 1.2em;
-      box-shadow: 0 2px 16px 0 rgba(8,85,177,0.08);
+      box-shadow: 0 2px 16px 0 rgba(8, 85, 177, 0.08);
       padding: 2rem;
       text-align: left;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .pricing-card ul {
       list-style: none;
       padding: 0;
       margin: 0 0 1.5em 0;
       line-height: 1.7;
     }
+
     .section-title {
       text-align: center;
       margin-bottom: 0.5rem;
     }
+
     .section-subtitle {
       text-align: center;
       margin-bottom: 2.5rem;
       font-size: 1.1rem;
     }
+
     .pricing-price {
       font-size: 2.5rem;
       font-weight: 700;
@@ -613,28 +744,34 @@
       margin-bottom: 0.2em;
       color: var(--brand-blue);
     }
+
     .pricing-price__unit {
       font-size: 1rem;
       color: var(--gray-text);
       font-weight: 400;
     }
+
     .pricing-description {
       text-align: center;
       min-height: 4.5em;
       font-size: 0.95rem;
     }
+
     .pricing-list {
       align-self: flex-start;
       margin-bottom: 2em;
     }
+
     .pricing-card__cta {
       width: 100%;
       margin-top: auto;
     }
+
     .pricing-card__heading {
       text-align: center;
       color: var(--brand-blue);
     }
+
     .pricing-promo-badge {
       background: var(--brand-yellow);
       color: var(--brand-dark);
@@ -643,35 +780,44 @@
       padding: 0.35em 1em;
       border-radius: 2em;
       display: inline-block;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
+
     .pricing-promo-badge--savings {
       margin: 0.5em auto;
     }
+
     .pricing-promo-badge--popular {
       margin-bottom: 1em;
     }
+
     .pricing-card--highlight .pricing-price {
       color: #fff;
     }
+
     .pricing-card--highlight .pricing-price__unit {
       color: #e3eefd;
     }
+
     .pricing-card--highlight .pricing-description {
       color: #e3eefd;
     }
+
     .pricing-card--highlight .pricing-list {
       color: #e3eefd;
     }
+
     .pricing-card--highlight .pricing-card__heading {
       color: #fff;
     }
+
     .pricing-card--highlight {
       background: var(--brand-blue);
       color: #fff;
-      box-shadow: 0 6px 28px 0 rgba(8,85,177,0.18);
+      box-shadow: 0 6px 28px 0 rgba(8, 85, 177, 0.18);
       position: relative;
     }
+
     .pricing-card--highlight .badge {
       position: absolute;
       top: -14px;
@@ -683,15 +829,24 @@
       font-size: 0.9rem;
       padding: 0.35em 1em;
       border-radius: 2em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     }
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(8px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out both;
-}
+
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out both;
+    }
   </style>
   <!-- SEO Structured Data -->
   <script type="application/ld+json">
@@ -731,41 +886,43 @@
   </script>
   <!-- Google Tag Manager -->
   <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-M48D4D56');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var f = d.getElementsByTagName(s)[0], j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-M48D4D56');
   </script>
   <!-- End Google Tag Manager -->
 </head>
+
 <body id="top">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M48D4D56"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M48D4D56" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
   <a href="/" class="block text-center py-2">
-  <img
-    src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_logo.webp"
-    alt="Mailbox Plus logo"
-    class="mx-auto h-10 sm:h-12 md:h-14 w-auto"
-    style="max-width:220px;"
-  />
-</a>
+    <img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_logo.webp" alt="Mailbox Plus logo"
+      class="mx-auto h-10 sm:h-12 md:h-14 w-auto" style="max-width:220px;" />
+  </a>
   <!-- 1️⃣ HERO SECTION -->
   <section class="section section--image hero-section fade-in" id="hero">
-    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image_mobile.webp" alt="Mailboxes at Mailbox Plus" loading="eager" />
+    <img class="section-image-bg"
+      src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_storefront_hero_image_mobile.webp"
+      alt="Mailboxes at Mailbox Plus" loading="eager" />
     <div class="overlay overlay--blue"></div>
     <div class="section-content hero-content">
       <h1 class="hero-headline">Get Up to 4 Months Free – Secure Your Private Mailbox Today!</h1>
-      <p class="hero-subtext font-semibold">Protect your packages from porch pirates and missed deliveries. Limited-time offer — no setup fee, free notifications, and up to 4 months free.</p>
-      <p class="hero-subtext">Your secure mailbox comes with package alerts, extended pickup hours, and friendly local service.</p>
-      <a href="#reserve" class="btn btn--yellow hero-cta-btn animate-bounce" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+      <p class="hero-subtext font-semibold">Protect your packages from porch pirates and missed deliveries. Limited-time
+        offer — no setup fee, free notifications, and up to 4 months free.</p>
+      <p class="hero-subtext">Your secure mailbox comes with package alerts, extended pickup hours, and friendly local
+        service.</p>
+      <a href="#reserve" class="btn btn--yellow hero-cta-btn animate-bounce"
+        onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       <p class="hero-note">
         Only 9 boxes available — lock in your deal now.
       </p>
@@ -773,7 +930,7 @@
   </section>
   <div class="section-divider">
     <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
-      <path d="M0,0 C300,80 900,0 1200,80 L1200,0 L0,0 Z" fill="#fff"/>
+      <path d="M0,0 C300,80 900,0 1200,80 L1200,0 L0,0 Z" fill="#fff" />
     </svg>
   </div>
 
@@ -794,7 +951,8 @@
           <li>✔️ Priority box selection</li>
           <li>✔️ Lock in your rate for 12 months</li>
         </ul>
-        <a href="#reserve" class="btn btn--yellow pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn btn--yellow pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 2: 6-Month Prepay -->
@@ -802,12 +960,13 @@
         <div class="pricing-promo-badge pricing-promo-badge--popular">Most Popular</div>
         <h3 class="pricing-card__heading">6-Month Prepay</h3>
         <p class="pricing-price">$150<span class="pricing-price__unit"> total</span></p>
-        <p class="pricing-description">2 months free - pay for 4, get 6! Save $50 compared to monthly.</p>
+        <p class="pricing-description"></p>
         <ul class="pricing-list">
           <li>✔️ All features from Month-to-Month</li>
           <li>✔️ Free setup (a $15 value)</li>
         </ul>
-        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 1: Month-to-Month -->
@@ -821,19 +980,24 @@
           <li>✔️ Accepts all carriers (UPS, FedEx, USPS, DHL)</li>
           <li>✔️ Mail and package pickup during store hours</li>
         </ul>
-        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
     </div>
-    <p style="text-align:center;"><a href="#whats-included" class="text-blue-600 hover:underline text-sm">Compare What’s Included ↓</a></p>
+    <p style="text-align:center;"><a href="#whats-included" class="text-blue-600 hover:underline text-sm">Compare What’s
+        Included ↓</a></p>
   </section>
   <!-- 2️⃣ THE PROBLEM -->
   <section class="section bg-gray-50" id="problem">
     <!-- Problem split: image left on desktop, top on mobile -->
     <div class="split">
-      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/porch_packages_rain.webp" alt="Packages left in the rain" loading="lazy" />
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/porch_packages_rain.webp"
+        alt="Packages left in the rain" loading="lazy" />
       <div class="split__content">
         <h2>Are Your Packages Safe?</h2>
-        <p>Porch pirates, unpredictable weather, and missed deliveries are a headache for anyone who shops online or runs a business from home. Packages left outside can be stolen, damaged, or lost—leaving you frustrated and out of pocket.</p>
+        <p>Porch pirates, unpredictable weather, and missed deliveries are a headache for anyone who shops online or
+          runs a business from home. Packages left outside can be stolen, damaged, or lost—leaving you frustrated and
+          out of pocket.</p>
         <a href="#pricing" style="color:var(--brand-blue);font-weight:600;text-decoration:underline;">
           There’s a better way to protect your mail and packages.
         </a>
@@ -846,7 +1010,8 @@
     <div class="split split--reverse">
       <div class="split__content">
         <h2>Imagine Life After Mailbox Plus</h2>
-        <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
+        <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a
+          real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
         <ul style="padding-left:1.2em; margin-bottom:0.8em;">
           <li><strong>✔️ Package notifications</strong></li>
           <li><strong>✔️ No more missed or stolen deliveries</strong></li>
@@ -858,30 +1023,58 @@
           Pickup your mail and packages during our extended business hours — open early, open late for your convenience.
         </p>
       </div>
-      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp" alt="Happy customer receiving mail" loading="lazy" />
+      <img class="split__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp"
+        alt="Happy customer receiving mail" loading="lazy" />
     </div>
   </section>
 
   <!-- 4️⃣ OFFER STACK / WHAT YOU GET -->
   <section class="section section--white py-12" id="offer">
     <div class="offer-stack">
-      <img class="offer-stack__img" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp" alt="Mailbox keys and envelopes" loading="lazy" />
+      <img class="offer-stack__img"
+        src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_keys_envelopes_flatlay.webp"
+        alt="Mailbox keys and envelopes" loading="lazy" />
       <div class="offer-stack__content">
-        <h2 id="whats-included" class="text-2xl font-bold text-gray-900 mb-4 text-center">See Everything That’s Included</h2>
+        <h2 id="whats-included" class="text-2xl font-bold text-gray-900 mb-4 text-center">See Everything That’s Included
+        </h2>
         <div class="overflow-x-auto">
           <table class="offer-table w-full min-w-[320px]">
             <caption class="sr-only">Mailbox rental plan value breakdown</caption>
             <thead>
-              <tr><th>What’s Included</th><th>Value</th></tr>
+              <tr>
+                <th>What’s Included</th>
+                <th>Value</th>
+              </tr>
             </thead>
             <tbody>
-              <tr><td>Private, secure mailbox (real street address)</td><td>$25/mo</td></tr>
-              <tr><td>Package acceptance from all carriers</td><td>Included</td></tr>
-              <tr><td>Free electronic notifications</td><td>$60/yr</td></tr>
-              <tr><td>No setup fee (normally $25)</td><td>$25</td></tr>
-              <tr><td>Key deposit only $5 (normally $10)</td><td>$5 savings</td></tr>
-              <tr><td>2 months free (6-month plan) / 4 months free (12-month plan)</td><td>Up to $100 value</td></tr>
-              <tr><td>Local, friendly support</td><td>Priceless</td></tr>
+              <tr>
+                <td>Private, secure mailbox (real street address)</td>
+                <td>$25/mo</td>
+              </tr>
+              <tr>
+                <td>Package acceptance from all carriers</td>
+                <td>Included</td>
+              </tr>
+              <tr>
+                <td>Free electronic notifications</td>
+                <td>$60/yr</td>
+              </tr>
+              <tr>
+                <td>No setup fee (normally $25)</td>
+                <td>$25</td>
+              </tr>
+              <tr>
+                <td>Key deposit only $5 (normally $10)</td>
+                <td>$5 savings</td>
+              </tr>
+              <tr>
+                <td>2 months free (6-month plan) / 4 months free (12-month plan)</td>
+                <td>Up to $100 value</td>
+              </tr>
+              <tr>
+                <td>Local, friendly support</td>
+                <td>Priceless</td>
+              </tr>
             </tbody>
           </table>
         </div>
@@ -889,7 +1082,8 @@
           Total value up to $420 — you pay as low as $300!
         </p>
         <div style="text-align:center;margin-top:1.5em;">
-          <a href="#reserve" class="btn btn--yellow w-full mt-4" style="font-size:1.05rem;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+          <a href="#reserve" class="btn btn--yellow w-full mt-4" style="font-size:1.05rem;"
+            onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
         </div>
       </div>
     </div>
@@ -898,7 +1092,8 @@
   <!-- 💳 MAILBOX PLANS OVERVIEW -->
   <section class="section bg-blue-50" id="plans">
     <div class="flex justify-center mb-3">
-      <span class="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-yellow-400 text-white text-sm font-semibold animate-pulse shadow-sm">
+      <span
+        class="inline-flex items-center px-4 py-1.5 rounded-full bg-gradient-to-r from-blue-600 to-yellow-400 text-white text-sm font-semibold animate-pulse shadow-sm">
         🚀 Limited Time Offer — Up to 4 Months Free!
       </span>
     </div>
@@ -916,19 +1111,21 @@
           <li>✔️ Accepts all carriers (UPS, FedEx, USPS, DHL)</li>
           <li>✔️ Mail and package pickup during store hours</li>
         </ul>
-        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 2: 6-Month Prepay -->
       <div class="pricing-card">
         <h3 class="pricing-card__heading">6-Month Prepay</h3>
         <p class="pricing-price">$150<span class="pricing-price__unit"> total</span></p>
-        <p class="pricing-description">2 months free - pay for 4, get 6! Save $50 compared to monthly.</p>
+        <p class="pricing-description"></p>
         <ul class="pricing-list">
           <li>✔️ All features from Month-to-Month</li>
           <li>✔️ Free setup (a $15 value)</li>
         </ul>
-        <a href="#reserve" class="btn pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
 
       <!-- Plan 3: 12-Month Prepay (Highlight) -->
@@ -942,22 +1139,27 @@
           <li>✔️ Priority box selection</li>
           <li>✔️ Lock in your rate for 12 months</li>
         </ul>
-        <a href="#reserve" class="btn btn--yellow pricing-card__cta" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+        <a href="#reserve" class="btn btn--yellow pricing-card__cta"
+          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
     </div>
-    <p style="text-align:center; margin-top: 2.5rem; font-weight: 600;">⚡ Only 9 boxes left at this promotional rate — lock in your deal today.</p>
+    <p style="text-align:center; margin-top: 2.5rem; font-weight: 600;">⚡ Only 9 boxes left at this promotional rate —
+      lock in your deal today.</p>
   </section>
 
   <!-- 5️⃣ TESTIMONIALS -->
   <section class="testimonials-section section--image" id="testimonials">
-    <img class="testimonials-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customers_collage_local_businesses.webp" alt="Happy Mailbox Plus customers" loading="lazy" />
+    <img class="testimonials-bg"
+      src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customers_collage_local_businesses.webp"
+      alt="Happy Mailbox Plus customers" loading="lazy" />
     <div class="overlay bg-blue-900/70"></div>
     <div class="testimonials-content">
       <p class="text-center text-sm mb-2">⭐⭐⭐⭐⭐ Trusted by hundreds of local customers.</p>
       <h2 style="color:#fff;">What Our Customers Say</h2>
       <div class="testimonials-grid">
         <div class="testimonial-card">
-          <p>“I never worry about missing a delivery anymore. The staff is always friendly and my packages are safe and dry every time.”</p>
+          <p>“I never worry about missing a delivery anymore. The staff is always friendly and my packages are safe and
+            dry every time.”</p>
           <div class="testimonial-author">— Sarah L., Home Business Owner</div>
         </div>
         <div class="testimonial-card">
@@ -965,7 +1167,8 @@
           <div class="testimonial-author">— Mike D., Online Seller</div>
         </div>
         <div class="testimonial-card">
-          <p>“The notifications are a game-changer. I know exactly when my mail arrives, and the location is super convenient.”</p>
+          <p>“The notifications are a game-changer. I know exactly when my mail arrives, and the location is super
+            convenient.”</p>
           <div class="testimonial-author">— Lisa P., Frequent Traveler</div>
         </div>
       </div>
@@ -975,16 +1178,20 @@
   <!-- 6️⃣ FOUNDER STORY -->
   <section class="section section--alt" id="founder">
     <div class="split">
-      <img class="split__img p-4" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_team_photo.webp" alt="Mailbox Plus team" loading="lazy" />
+      <img class="split__img p-4" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_team_photo.webp"
+        alt="Mailbox Plus team" loading="lazy" />
       <!-- 💥 Local CTA upgrade -->
       <div class="relative mt-4 mb-4 text-center md:text-left">
-        <div class="inline-flex flex-col md:flex-row items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold px-6 py-3 rounded-xl shadow-lg animate-fade-in-up">
+        <div
+          class="inline-flex flex-col md:flex-row items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-semibold px-6 py-3 rounded-xl shadow-lg animate-fade-in-up">
           </a>
         </div>
       </div>
       <div class="split__content">
         <h2>Meet the Team Behind Mailbox Plus</h2>
-        <p>We’re a local, family-owned business dedicated to making your life easier. Our team believes everyone deserves a secure, reliable place for their mail and packages—without the stress of missed deliveries or theft.</p>
+        <p>We’re a local, family-owned business dedicated to making your life easier. Our team believes everyone
+          deserves a secure, reliable place for their mail and packages—without the stress of missed deliveries or
+          theft.</p>
         <p>Stop by and say hello! We’re here to help you every step of the way.</p>
       </div>
     </div>
@@ -992,142 +1199,160 @@
 
   <!-- 7️⃣ LIMITED AVAILABILITY -->
   <section class="limited-section section--image fade-in py-12" id="limited">
-    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_wall_reserved_sign.webp" alt="Reserved mailboxes" loading="lazy" />
+    <img class="section-image-bg"
+      src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_wall_reserved_sign.webp" alt="Reserved mailboxes"
+      loading="lazy" />
     <div class="overlay overlay--yellow"></div>
     <div class="limited-content">
-      <div class="limited-cta">🚨 Only 9 discounted boxes left at this special rate — once they’re gone, prices return to normal.</div>
+      <div class="limited-cta">🚨 Only 9 discounted boxes left at this special rate — once they’re gone, prices return
+        to normal.</div>
       <p class="font-semibold text-center mb-4">Free setup • Free notifications • Up to 4 months free</p>
       <h2>Don’t Miss Out</h2>
-      <p>Mailbox Plus is trusted by hundreds of local residents and businesses. Secure your spot before they’re gone.</p>
+      <p>Mailbox Plus is trusted by hundreds of local residents and businesses. Secure your spot before they’re gone.
+      </p>
       <p style="margin-top:0.7em;font-size:1.05em;color:#b71c1c;">
         We’re offering this limited deal to fill the remaining boxes for the year — after that, rates return to normal.
       </p>
-      <a href="#reserve" class="btn btn--yellow" style="font-size:1.1rem;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+      <a href="#reserve" class="btn btn--yellow" style="font-size:1.1rem;"
+        onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
     </div>
   </section>
 
-<!-- 8️⃣ FAQ -->
-<section class="faq-section section--white" id="faq">
-  <h2 class="faq-title">Frequently Asked Questions</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0110 0v4"></path>
-      </svg>
-      <div>
-        <div class="faq-q">Is this a real street address?</div>
-        <div>Yes! You get a real street address, not a PO Box. This means you can receive packages from all carriers, including UPS, FedEx, and Amazon.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0110 0v4"></path>
-      </svg>
-      <div>
-        <div class="faq-q">Can I access my mailbox after hours?</div>
-        <div>Access is available during all regular business hours. Our friendly team is here to assist you whenever we’re open.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0110 0v4"></path>
-      </svg>
-      <div>
-        <div class="faq-q">Will you notify me when I get mail or packages?</div>
-        <div>Yes, we offer free notifications so you know exactly when your mail or packages arrive.</div>
-      </div>
-    </div>
-    <div class="faq-item">
-      <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0110 0v4"></path>
-      </svg>
-      <div>
-        <div class="faq-q">How do I sign up?</div>
-        <div>Just fill out the form below or stop by our store. We’ll help you get started in minutes!</div>
-      </div>
-    </div>
-
-    <div class="faq-item">
-      <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-        <path d="M7 11V7a5 5 0 0110 0v4"></path>
-      </svg>
-      <div>
-        <div class="faq-q">Can I upgrade my plan later?</div>
-        <div>Yes, you can easily extend or upgrade to annual at any time — just stop in or call us.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 9️⃣ CONTACT FORM -->
-<section id="reserve" style="background:linear-gradient(to bottom,#ffffff,#f9fafb);padding:4rem 1rem;">
-  <div style="max-width:420px;margin:0 auto;text-align:center;">
-    <div style="background:#fff;border:1px solid #e5e7eb;border-radius:1.25rem;box-shadow:0 4px 12px rgba(0,0,0,0.06);padding:2rem;">
-      <h2 style="font-size:1.75rem;font-weight:700;color:#111827;margin-bottom:1.5rem;">Reserve Your Mailbox</h2>
-      
-      <form id="reserve-form" style="display:flex;flex-direction:column;gap:1rem;">
-        <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-          <input id="name" name="name" type="text" required placeholder="Your Name"
-            style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
-            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
-            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
-
-          <input id="email" name="email" type="email" required placeholder="you@email.com"
-            style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
-            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
-            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+  <!-- 8️⃣ FAQ -->
+  <section class="faq-section section--white" id="faq">
+    <h2 class="faq-title">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+        <div>
+          <div class="faq-q">Is this a real street address?</div>
+          <div>Yes! You get a real street address, not a PO Box. This means you can receive packages from all carriers,
+            including UPS, FedEx, and Amazon.</div>
         </div>
+      </div>
+      <div class="faq-item">
+        <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+        <div>
+          <div class="faq-q">Can I access my mailbox after hours?</div>
+          <div>Access is available during all regular business hours. Our friendly team is here to assist you whenever
+            we’re open.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+        <div>
+          <div class="faq-q">Will you notify me when I get mail or packages?</div>
+          <div>Yes, we offer free notifications so you know exactly when your mail or packages arrive.</div>
+        </div>
+      </div>
+      <div class="faq-item">
+        <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+        <div>
+          <div class="faq-q">How do I sign up?</div>
+          <div>Just fill out the form below or stop by our store. We’ll help you get started in minutes!</div>
+        </div>
+      </div>
 
-        <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
-          style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;" 
-          onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
-          onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
-
-        <select id="plan" name="plan" required
-          style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;color:#374151;transition:border-color 0.2s,box-shadow 0.2s;"
-          onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'" 
-          onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
-          <option value="">Select a plan</option>
-          <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
-          <option value="6months">6 Months – 2 Months Free ($150 total)</option>
-          <option value="12months">12 Months – 4 Months Free ($300 total)</option>
-        </select>
-
-        <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.</p>
-
-        <button type="submit"
-          style="width:100%;background:linear-gradient(90deg,#facc15,#fde047);color:#111827;font-weight:600;padding:0.8rem 0;border:none;border-radius:9999px;box-shadow:0 2px 6px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;"
-          onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)'" 
-          onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'"
-          onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">
-          Reserve My Box Now
-        </button>
-      </form>
-
-      <div style="font-size:0.9rem;color:#4b5563;margin-top:1.25rem;line-height:1.5;">
-        <p>All plans include free notifications, no setup fee, and a $5 key deposit.</p>
-        <p style="margin-top:0.4rem;">Or call us: 
-          <a href="tel:14405556245" style="color:#0855B1;font-weight:600;text-decoration:none;">(440) 709-1946</a>
-        </p>
+      <div class="faq-item">
+        <svg class="faq-icon text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0110 0v4"></path>
+        </svg>
+        <div>
+          <div class="faq-q">Can I upgrade my plan later?</div>
+          <div>Yes, you can easily extend or upgrade to annual at any time — just stop in or call us.</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- 9️⃣ CONTACT FORM -->
+  <section id="reserve" style="background:linear-gradient(to bottom,#ffffff,#f9fafb);padding:4rem 1rem;">
+    <div style="max-width:420px;margin:0 auto;text-align:center;">
+      <div
+        style="background:#fff;border:1px solid #e5e7eb;border-radius:1.25rem;box-shadow:0 4px 12px rgba(0,0,0,0.06);padding:2rem;">
+        <h2 style="font-size:1.75rem;font-weight:700;color:#111827;margin-bottom:1.5rem;">Reserve Your Mailbox</h2>
+
+        <form id="reserve-form" style="display:flex;flex-direction:column;gap:1rem;">
+          <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
+            <input id="name" name="name" type="text" required placeholder="Your Name"
+              style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+              onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+              onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+
+            <input id="email" name="email" type="email" required placeholder="you@email.com"
+              style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+              onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+              onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+          </div>
+
+          <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
+            style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+
+          <select id="plan" name="plan" required
+            style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;color:#374151;transition:border-color 0.2s,box-shadow 0.2s;"
+            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+            <option value="">Select a plan</option>
+            <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
+            <option value="6months">6 Months – 2 Months Free ($150 total)</option>
+            <option value="12months">12 Months – 4 Months Free ($300 total)</option>
+          </select>
+
+          <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.
+          </p>
+
+          <button type="submit"
+            style="width:100%;background:linear-gradient(90deg,#facc15,#fde047);color:#111827;font-weight:600;padding:0.8rem 0;border:none;border-radius:9999px;box-shadow:0 2px 6px rgba(0,0,0,0.1);cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;"
+            onmouseover="this.style.transform='scale(1.03)';this.style.boxShadow='0 4px 10px rgba(0,0,0,0.12)'"
+            onmouseout="this.style.transform='scale(1)';this.style.boxShadow='0 2px 6px rgba(0,0,0,0.1)'"
+            onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">
+            Reserve My Box Now
+          </button>
+        </form>
+
+        <div style="font-size:0.9rem;color:#4b5563;margin-top:1.25rem;line-height:1.5;">
+          <p>All plans include free notifications, no setup fee, and a $5 key deposit.</p>
+          <p style="margin-top:0.4rem;">Or call us:
+            <a href="tel:14405556245" style="color:#0855B1;font-weight:600;text-decoration:none;">(440) 709-1946</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
   <!-- 🔟 FINAL CTA -->
   <section class="final-cta-section section--image fade-in pt-16" id="final-cta">
-    <img class="section-image-bg" src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_smiling_customer_with_packages.webp" alt="Smiling customer with packages" loading="lazy" />
+    <img class="section-image-bg"
+      src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_smiling_customer_with_packages.webp"
+      alt="Smiling customer with packages" loading="lazy" />
     <div class="overlay overlay--blue"></div>
     <div class="final-cta-content">
       <h2>Ready to Secure Your Mailbox?</h2>
-      <p style="font-size:1.15rem; color:#e3eefd;">Join hundreds of happy customers who trust Mailbox Plus for safe, reliable mail and package delivery.</p>
-      <a href="#reserve" class="btn btn--yellow" style="font-size:1.15rem;" onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
+      <p style="font-size:1.15rem; color:#e3eefd;">Join hundreds of happy customers who trust Mailbox Plus for safe,
+        reliable mail and package delivery.</p>
+      <a href="#reserve" class="btn btn--yellow" style="font-size:1.15rem;"
+        onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       <a href="#top" class="text-blue-600 text-sm hover:underline mt-2 block text-center">Back to Top ↑</a>
     </div>
   </section>
@@ -1135,7 +1360,8 @@
   <!-- 11️⃣ FOOTER -->
   <footer class="footer">
     <div>
-      &copy; 2025 Mailbox Plus &mdash; 7554 Fredle Dr., Concord Township, OH 44077 &mdash; <a href="tel:14407091946">(440) 709-1946</a>
+      &copy; 2025 Mailbox Plus &mdash; 7554 Fredle Dr., Concord Township, OH 44077 &mdash; <a
+        href="tel:14407091946">(440) 709-1946</a>
     </div>
     <div style="margin-top:0.5em; font-size:0.95em;">
       <a href="https://mailboxplusohio.com" target="_blank" rel="noopener">Visit Main Website</a>
@@ -1143,26 +1369,27 @@
   </footer>
 </body>
 <script>
-document.getElementById("reserve-form").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const formData = Object.fromEntries(new FormData(e.target).entries());
+  document.getElementById("reserve-form").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(e.target).entries());
 
-  try {
-    const response = await fetch("/.netlify/functions/sendReservationEmail", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("/.netlify/functions/sendReservationEmail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
 
-    if (response.ok) {
-      alert("✅ Thank you! Your reservation has been received.");
-      e.target.reset();
-    } else {
-      alert("⚠️ There was a problem submitting your form. Please try again.");
+      if (response.ok) {
+        alert("✅ Thank you! Your reservation has been received.");
+        e.target.reset();
+      } else {
+        alert("⚠️ There was a problem submitting your form. Please try again.");
+      }
+    } catch (err) {
+      alert("❌ Network error — please try again later.");
     }
-  } catch (err) {
-    alert("❌ Network error — please try again later.");
-  }
-});
+  });
 </script>
+
 </html>

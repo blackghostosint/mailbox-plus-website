@@ -1,3 +1,16 @@
+## 2025-12-31 — Remove 6-Month Plan Promotional Text
+
+**Summary**
+Removed the promotional description "2 months free - pay for 4, get 6! Save $50 compared to monthly." from the 6-Month Prepay pricing card to streamline messaging.
+
+**Scope**
+- `public/MailboxPlusSalesPage.html` - Cleared content from two instances of `pricing-description` paragraph (lines 805 and 926)
+
+**Notes**
+- Text appeared in two separate "Mailbox Rental Plans" sections on the sales page
+- Pricing structure and other details remain intact
+- Empty paragraph elements retained to preserve page layout
+
 ## 2025-12-30 — Fix Internal Link Violations in AmazonReturnGuide
 
 **Summary**
