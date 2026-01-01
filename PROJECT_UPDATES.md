@@ -1,3 +1,19 @@
+## 2025-12-31 — Add Business Owners Section to Sales Page
+
+**Summary**
+Added comprehensive business owners section targeting work-from-home professionals and service business owners. Section includes 4 sub-sections with split layouts, professional messaging about privacy and business infrastructure, bullet lists highlighting benefits, and strategic CTA. Positioned between second pricing section and testimonials to convert business users after pricing exposure.
+
+**Scope**
+- `public/MailboxPlusSalesPage.html` - Added 94-line business section (lines 1158-1251) with intro, professional/privacy benefits, delivery reliability, and infrastructure CTA
+
+**Notes**
+- Section uses existing CSS classes (`.split`, `.section--white`, `.section--alt`) for consistency
+- Three images integrated: homebasedbusinesssecurity.webp, customer_receiving_mailbox.webp, keep_out.webp
+- Initial implementation used placeholder images; fixed by replacing with existing CDN assets
+- Messaging emphasizes "real street address" vs PO Box, privacy protection, and business infrastructure positioning
+- CTA links to existing `#reserve` form anchor with analytics tracking
+- Browser verified: all images load correctly, layout matches existing sections
+
 ## 2025-12-31 — Improve Limited Availability Section Readability
 
 **Summary**
