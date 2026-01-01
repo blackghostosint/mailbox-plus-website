@@ -1,3 +1,24 @@
+## 2026-01-01 — Upgrade ESLint from Version 8 to Version 9
+
+**Summary**
+Resolved `package.json` dependency conflicts by upgrading ESLint from v8.56.0 to v9.17.0. Migrated configuration from deprecated `.eslintrc.*` format to new ESLint 9 flat config (`eslint.config.js`). All linting rules, custom restrictions, and plugin configurations successfully migrated and verified working.
+
+**Scope**
+- Updated `package.json`: ESLint (8.56.0 → 9.17.0), eslint-plugin-react (7.34.3 → 7.37.2), eslint-plugin-react-hooks (5.1.0-rc.0 → 5.1.0 stable)
+- Created `eslint.config.js` using ESLint 9 flat config format with explicit parser configuration
+- Migrated all rules from `.eslintrc.cjs` (TypeScript rules, custom import restrictions, deprecated component warnings) and `.eslintrc.json` (jsx-a11y rules)
+- Removed deprecated files: `.eslintrc.cjs`, `.eslintrc.json`, `.eslintignore`
+- Moved ignore patterns from `.eslintignore` into `eslint.config.js` ignores array
+
+**Notes**
+- Resolution prevents red underline errors in VS Code caused by ESLint 8/9 incompatibility
+- TypeScript ESLint v8.x requires ESLint v9 (not v8) to function properly
+- Initial config attempts using `tseslint.config()` helper caused TypeScript rule loading errors; resolved by using plain array format with explicit `tseslint.parser` and `tseslint.plugin` declarations
+- `.eslintignore` no longer supported in ESLint 9 (generates deprecation warnings)
+- All existing lint rules preserved: React JSX scope, import restrictions for micro-problem shards, ServicePage deprecation warning, jsx-a11y accessibility rules
+- Linting successfully identifies existing code issues (12 jsx-a11y errors found during verification)
+- Clean dependency install completed: added 11 packages, removed 19 packages, changed 10 packages
+
 ## 2026-01-01 — Create "Ship with Guaranteed Proof & Tracking" Micro-Problem Page from Reddit Complaint
 
 **Summary**
@@ -137,4 +158,3 @@ Fixed critical bug where the Premier Signup popup kept reappearing ~2 seconds af
 - Session guard prevents re-triggers during scroll/navigation within same session
 - Verified with 11+ second wait periods, scroll events, and page reloads
 - TypeScript lint error resolved for `premierSignupUrl` property
-
