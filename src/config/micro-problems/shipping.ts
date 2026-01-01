@@ -599,5 +599,72 @@ export const shippingMicroProblems: Service[] = [
             buttonText: 'Get Directions',
             buttonLink: '/contact-us'
         }
+    },
+    {
+        id: "ship-with-guaranteed-proof-and-tracking-concord-township",
+        intentKey: "ship-with-guaranteed-proof",
+        category: "micro-problem",
+        city: "Concord Township",
+        serviceName: "Ship with Guaranteed Proof & Tracking",
+        slug: "/ship-with-guaranteed-proof-and-tracking-concord-township",
+        pageTitle: "Ship with Guaranteed Proof & Tracking in Concord Township | Mailbox Plus",
+        metaDescription: "Burned by lost receipts or unresponsive stores? We guarantee tracking numbers, printed receipts, and responsive service. Walk out with proof your package was shipped—every time.",
+        heroTitle: "Ship with Guaranteed Proof & Tracking",
+        heroSubtitle: "Lost a receipt? Package never showed up in tracking? Store won't answer? We guarantee you'll walk out with a printed receipt, tracking number, and responsive service if something goes wrong.",
+        heroImage: getServiceImageUrl("/images/micro/pack-ship.webp"),
+        content: [
+            {
+                heading: "What We Do",
+                body: "Every package gets logged, tracked, and documented. You get a printed receipt with the tracking number. We keep records. If you call us a week later asking for proof, we can pull it up. That's the difference."
+            },
+            {
+                heading: "Why This Happens",
+                body: "Big-box stores move fast. They hand you a crumpled receipt, sometimes it doesn't print, sometimes you lose it. When the package goes missing, they can't help—no records, no responsiveness. We're a local business. We answer the phone."
+            },
+            {
+                heading: "How We Help",
+                body: `<ol>
+<li>Bring your item—we pack it or accept your pre-packed box</li>
+<li>We weigh, measure, and create the shipment in the system</li>
+<li>We print a tracking label and hand you a receipt</li>
+<li>We scan it into the carrier system BEFORE it leaves</li>
+<li>You get tracking confirmation via email (if you want it)</li>
+<li>We keep a digital record of all shipments</li>
+<li>If you call us later, we can look it up and help</li>
+</ol>`
+            },
+            {
+                heading: "What to Bring",
+                body: `<ul>
+<li>The item you're shipping</li>
+<li>Destination address</li>
+<li>Your email if you want tracking updates</li>
+<li>Any carrier preferences (UPS, FedEx, USPS)</li>
+</ul>`
+            }
+        ],
+        faqs: [
+            {
+                question: "What if I lose the receipt?",
+                answer: "Call us. We keep digital records of all shipments. We can look it up by your name, date, or destination address."
+            },
+            {
+                question: "Will the package show up in tracking right away?",
+                answer: "Yes. We scan it into the carrier system before it leaves our store. You'll see the first tracking scan within hours."
+            },
+            {
+                question: "What if the carrier loses the package?",
+                answer: "We file the claim for you. We have the proof: receipt, tracking number, weight, dimensions, and carrier acceptance scan."
+            },
+            {
+                question: "Do you answer the phone?",
+                answer: "Yes. We're a local business in Concord Township. Call during business hours and you'll talk to a real person who can help."
+            }
+        ],
+        cta: {
+            title: "Walk out with proof. Every time.",
+            buttonText: "Visit Our Store",
+            buttonLink: "/contact-us"
+        }
     }
 ];

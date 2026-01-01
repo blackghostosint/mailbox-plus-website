@@ -1,3 +1,35 @@
+## 2026-01-01 — Create "Ship with Guaranteed Proof & Tracking" Micro-Problem Page from Reddit Complaint
+
+**Summary**
+Created new micro-problem page targeting customers fearful of lost receipts and unresponsive stores, based on Reddit complaint analysis. Page emphasizes Mailbox Plus' guaranteed tracking, printed receipts, digital record-keeping, and responsive customer service as differentiators from big-box franchise stores.
+
+**Scope**
+- Added configuration to `src/config/micro-problems/shipping.ts` (intentKey: `ship-with-guaranteed-proof`)
+- Added route `/ship-with-guaranteed-proof-and-tracking-concord-township` to `src/data/routes.json`
+- Added React Router route to `src/App.tsx` (required for page accessibility)
+
+**Notes**
+- Source: Reddit thread about customer with lost UPS Store receipt, no tracking, unresponsive store
+- Governance validation: Signal A (addresses real friction), Signal B (staff differentiator), Signal C (unique intentKey, no overlaps)
+- Checked all 14 existing shipping micro-problem pages - confirmed NO conflicts
+- Messaging uses customer pain language: "lost receipt", "package never showed up in tracking", "store won't answer"
+- Competitive positioning: Local business reliability vs. franchise unresponsiveness
+- intentKey validation passed (no duplicates in system)
+
+## 2026-01-01 — Move Micro-Problem GEMINI.md to Subdirectory
+
+**Summary**
+Moved `GEMINI.md - Micro-Problem Governance & Architecture.md` from project root to `src/config/micro-problems/GEMINI.md` to leverage hierarchical context system. This allows the AI agent to receive micro-problem-specific directives when working in this directory, supplementing the root-level `Gemini.md` project-wide context.
+
+**Scope**
+- Moved `GEMINI.md - Micro-Problem Governance & Architecture.md` → `src/config/micro-problems/GEMINI.md`
+
+**Notes**
+- Hierarchical context system: more specific GEMINI.md files (subdirectories) override/supplement general context (root)
+- When working in `src/config/micro-problems/`, AI now receives both project-wide AND micro-problem-specific governance rules
+- File renamed to standard `GEMINI.md` format for proper context detection
+- Content unchanged - focus on PRAR workflow, Signal A/B/C audits, and intentKey validation
+
 ## 2025-12-31 — Redesign Testimonials Section for Improved Readability
 
 **Summary**
