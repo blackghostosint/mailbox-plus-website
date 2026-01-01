@@ -1,4 +1,20 @@
+## 2026-01-01 — Remove Unused Dependencies
+
+**Summary**
+Removed 3 unused packages from dependencies to clean up the project: `@radix-ui/react-accordion`, `clsx`, and `dotenv`. These packages were never imported or used in the codebase.
+
+**Scope**
+- Updated `package.json` - Removed 3 unused dependencies
+- Ran `npm install` to update lock file
+
+**Notes**
+- Removal verified by codebase-wide grep search showing zero imports for all 3 packages
+- `dotenv` is unnecessary in Vite projects (Vite handles `.env` files natively)
+- Clean install removed 16 packages total (including transitive dependencies)
+- No functionality impacted - all removed packages were dead code
+
 ## 2026-01-01 — Upgrade ESLint from Version 8 to Version 9
+
 
 **Summary**
 Resolved `package.json` dependency conflicts by upgrading ESLint from v8.56.0 to v9.17.0. Migrated configuration from deprecated `.eslintrc.*` format to new ESLint 9 flat config (`eslint.config.js`). All linting rules, custom restrictions, and plugin configurations successfully migrated and verified working.
