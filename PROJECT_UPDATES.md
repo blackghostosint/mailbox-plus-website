@@ -1,17 +1,21 @@
-## 2026-01-01 — Remove Unused Dependencies
+## 2026-01-01 — Remove Unused Dependency (dotenv)
 
 **Summary**
-Removed 3 unused packages from dependencies to clean up the project: `@radix-ui/react-accordion`, `clsx`, and `dotenv`. These packages were never imported or used in the codebase.
+Removed `dotenv` from dependencies as it is unnecessary in Vite projects (Vite handles `.env` files natively). Initially removed `@radix-ui/react-accordion` and `clsx` as well, but these were actually in use and had to be reinstalled to fix Netlify build failure.
 
 **Scope**
-- Updated `package.json` - Removed 3 unused dependencies
+- Updated `package.json` - Removed `dotenv` only
+- Initially removed `@radix-ui/react-accordion` and `clsx`, but reinstalled them after build failure
 - Ran `npm install` to update lock file
 
 **Notes**
-- Removal verified by codebase-wide grep search showing zero imports for all 3 packages
-- `dotenv` is unnecessary in Vite projects (Vite handles `.env` files natively)
-- Clean install removed 16 packages total (including transitive dependencies)
-- No functionality impacted - all removed packages were dead code
+- `dotenv` was correctly identified as unused (zero imports found)
+- `@radix-ui/react-accordion` is used by `accordion.tsx` component (used in 4 pages: PickupHours, fedex-easy-returns, ask-mailbox-plus, AmazonReturnGuide)
+- `clsx` is used by `src/lib/utils.ts` for the `cn()` className utility function
+- Initial grep search failed to detect these imports due to search pattern limitations
+- Netlify build error revealed the dependencies were needed: "Rollup failed to resolve import"
+- Local build now passes successfully after reinstalling both packages
+
 
 ## 2026-01-01 — Upgrade ESLint from Version 8 to Version 9
 
