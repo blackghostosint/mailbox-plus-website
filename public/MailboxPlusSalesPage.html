@@ -1247,32 +1247,84 @@
 
 
   <!-- 5️⃣ TESTIMONIALS -->
-  <section class="testimonials-section section--image" id="testimonials">
-    <img class="testimonials-bg"
-      src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customers_collage_local_businesses.webp"
-      alt="Happy Mailbox Plus customers" loading="lazy" />
-    <div class="overlay bg-blue-900/70"></div>
-    <div class="testimonials-content">
-      <p class="text-center text-sm mb-2">⭐⭐⭐⭐⭐ Trusted by hundreds of local customers.</p>
-      <h2 style="color:#fff;">What Our Customers Say</h2>
-      <div class="testimonials-grid">
-        <div class="testimonial-card">
-          <p>“I never worry about missing a delivery anymore. The staff is always friendly and my packages are safe and
-            dry every time.”</p>
-          <div class="testimonial-author">— Sarah L., Home Business Owner</div>
+  <section class="section section--white" id="testimonials">
+    <div style="text-align: center; margin-bottom: 2.5rem;">
+      <p style="color: var(--brand-blue); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">
+        ⭐⭐⭐⭐⭐ Trusted by hundreds of local customers
+      </p>
+      <h2>What Our Customers Say</h2>
+    </div>
+
+    <div id="testimonials-grid" style="display: grid; gap: 2rem; max-width: 1100px; margin: 0 auto;">
+      <!-- Testimonial 1 -->
+      <div
+        style="background: #fff; border-radius: 1.2em; box-shadow: 0 4px 20px rgba(8, 85, 177, 0.10); overflow: hidden; border: 1px solid rgba(8, 85, 177, 0.08);">
+        <img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/the_handshake.webp"
+          alt="Sarah L., Home Business Owner" style="width: 100%; height: 240px; object-fit: cover; display: block;"
+          loading="lazy" />
+        <div style="padding: 1.8rem 2rem;">
+          <p
+            style="font-size: 1.1rem; line-height: 1.7; color: var(--gray-text); font-style: italic; margin-bottom: 1.2rem;">
+            "I never worry about missing a delivery anymore. The staff is always friendly and my packages are safe and
+            dry every time."
+          </p>
+          <div style="color: var(--brand-blue); font-weight: 600; font-size: 0.95rem;">
+            — Sarah L., Home Business Owner
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p>“Mailbox Plus gives me peace of mind. No more porch pirates, and I love the friendly staff!”</p>
-          <div class="testimonial-author">— Mike D., Online Seller</div>
+      </div>
+
+      <!-- Testimonial 2 -->
+      <div
+        style="background: #fff; border-radius: 1.2em; box-shadow: 0 4px 20px rgba(8, 85, 177, 0.10); overflow: hidden; border: 1px solid rgba(8, 85, 177, 0.08);">
+        <img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_team_photo.webp"
+          alt="Mike D., Online Seller" style="width: 100%; height: 240px; object-fit: cover; display: block;"
+          loading="lazy" />
+        <div style="padding: 1.8rem 2rem;">
+          <p
+            style="font-size: 1.1rem; line-height: 1.7; color: var(--gray-text); font-style: italic; margin-bottom: 1.2rem;">
+            "Mailbox Plus gives me peace of mind. No more porch pirates, and I love the friendly staff!"
+          </p>
+          <div style="color: var(--brand-blue); font-weight: 600; font-size: 0.95rem;">
+            — Mike D., Online Seller
+          </div>
         </div>
-        <div class="testimonial-card">
-          <p>“The notifications are a game-changer. I know exactly when my mail arrives, and the location is super
-            convenient.”</p>
-          <div class="testimonial-author">— Lisa P., Frequent Traveler</div>
+      </div>
+
+      <!-- Testimonial 3 -->
+      <div
+        style="background: #fff; border-radius: 1.2em; box-shadow: 0 4px 20px rgba(8, 85, 177, 0.10); overflow: hidden; border: 1px solid rgba(8, 85, 177, 0.08);">
+        <img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/customer_receiving_mailbox.webp"
+          alt="Lisa P., Frequent Traveler" style="width: 100%; height: 240px; object-fit: cover; display: block;"
+          loading="lazy" />
+        <div style="padding: 1.8rem 2rem;">
+          <p
+            style="font-size: 1.1rem; line-height: 1.7; color: var(--gray-text); font-style: italic; margin-bottom: 1.2rem;">
+            "The notifications are a game-changer. I know exactly when my mail arrives, and the location is super
+            convenient."
+          </p>
+          <div style="color: var(--brand-blue); font-weight: 600; font-size: 0.95rem;">
+            — Lisa P., Frequent Traveler
+          </div>
         </div>
       </div>
     </div>
+
+    <style>
+      /* Mobile first: 1 column by default */
+      #testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Desktop: 3 columns */
+      @media (min-width: 768px) {
+        #testimonials-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+    </style>
   </section>
+
 
   <!-- 6️⃣ FOUNDER STORY -->
   <section class="section section--alt" id="founder">

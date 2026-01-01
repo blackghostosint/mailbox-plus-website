@@ -1,3 +1,20 @@
+## 2025-12-31 — Redesign Testimonials Section for Improved Readability
+
+**Summary**
+Completely redesigned testimonials section to improve readability and visual appeal. Moved "trusted by hundreds" text above testimonial cards, created clean card-based layout with images on top and quotes below (eliminating previous overlay design), implemented responsive 3-column grid for desktop and single-column stack for mobile. Text now clearly readable against white card backgrounds instead of overlaid on images.
+
+**Scope**
+- `public/MailboxPlusSalesPage.html` - Redesigned testimonials section (lines 1250-1325) with new card structure, responsive grid CSS, and improved typography
+
+**Notes**
+- Previous design had quotes overlaid on background images causing readability issues
+- New design uses clean white cards with soft shadows and brand-colored borders
+- Images (customers_collage_local_businesses.webp, mailbox_plus_team_photo.webp, customer_receiving_mailbox.webp) now serve as headers for each card
+- Responsive grid: 3 columns on desktop (>=768px), 1 column on mobile
+- "Trusted by hundreds" header moved from overlaid position to dedicated header above cards
+- Typography: Italic quotes at 1.1rem, blue attribution text for visual hierarchy
+- Browser verified: Desktop 3-column grid and mobile stacking both work correctly
+
 ## 2025-12-31 — Add Business Owners Section to Sales Page
 
 **Summary**
