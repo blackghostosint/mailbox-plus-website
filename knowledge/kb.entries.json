@@ -1,0 +1,748 @@
+{
+    "entries": [
+        {
+            "id": "faq-shipping-carriers",
+            "intent": "faq",
+            "title": "Which carriers do you work with?",
+            "questionVariants": [
+                "Which carriers do you work with?",
+                "What shipping carriers do you use?",
+                "Do you ship with FedEx?",
+                "Do you ship with UPS?",
+                "What carriers are available?"
+            ],
+            "answer": "We ship with FedEx, UPS, USPS, and DHL to provide you with flexible options for domestic and international shipping.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "fedex",
+                "ups",
+                "usps",
+                "dhl",
+                "carriers"
+            ],
+            "searchText": "carriers shipping fedex ups usps dhl domestic international"
+        },
+        {
+            "id": "faq-shipping-tracking",
+            "intent": "faq",
+            "title": "Will I receive tracking information?",
+            "questionVariants": [
+                "Will I receive tracking information?",
+                "Do you provide tracking numbers?",
+                "Can I track my package?",
+                "How do I track my shipment?"
+            ],
+            "answer": "Yes, every shipment comes with a tracking number so you can monitor your package in real-time.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "tracking",
+                "delivery status",
+                "shipping updates"
+            ],
+            "searchText": "tracking number monitor package real-time delivery status updates"
+        },
+        {
+            "id": "faq-shipping-insurance",
+            "intent": "faq",
+            "title": "Do you offer shipping insurance?",
+            "questionVariants": [
+                "Do you offer shipping insurance?",
+                "Can I insure my shipment?",
+                "How do I get insurance for my package?",
+                "Is shipping insurance available?"
+            ],
+            "answer": "Yes, we provide third-party insurance for high-value shipments. Coverage amounts depend on the carrier and declared value.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "insurance",
+                "coverage",
+                "value"
+            ],
+            "searchText": "insurance coverage high-value shipments third-party declared value"
+        },
+        {
+            "id": "faq-shipping-international",
+            "intent": "faq",
+            "title": "Can you ship internationally?",
+            "questionVariants": [
+                "Can you ship internationally?",
+                "Do you offer international shipping?",
+                "Can I send packages overseas?",
+                "Do you ship to other countries?"
+            ],
+            "answer": "Absolutely. We provide international shipping services, including assistance with customs documentation and duties.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "international",
+                "customs",
+                "duties"
+            ],
+            "searchText": "international shipping overseas customs documentation duties"
+        },
+        {
+            "id": "faq-shipping-customs",
+            "intent": "faq",
+            "title": "Do you handle customs paperwork?",
+            "questionVariants": [
+                "Do you handle customs paperwork?",
+                "Can you help with customs forms?",
+                "Do you fill out customs documentation?",
+                "Who handles customs paperwork?"
+            ],
+            "answer": "Yes, our team can prepare and guide you through the required customs forms for international shipments.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "customs paperwork",
+                "forms",
+                "international"
+            ],
+            "searchText": "customs paperwork forms international shipments documentation"
+        },
+        {
+            "id": "faq-shipping-restricted-items",
+            "intent": "faq",
+            "title": "Are there items you cannot ship?",
+            "questionVariants": [
+                "Are there items you cannot ship?",
+                "What items can't be shipped?",
+                "Can you ship hazardous materials?",
+                "Are there shipping restrictions?"
+            ],
+            "answer": "Yes, certain items such as hazardous materials, perishables, and restricted goods may not be eligible for shipment. We'll advise you case by case.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "restricted items",
+                "hazmat",
+                "perishable"
+            ],
+            "searchText": "restricted items hazardous materials perishables shipping restrictions"
+        },
+        {
+            "id": "faq-shipping-fragile-items",
+            "intent": "faq",
+            "title": "Can you pack fragile items?",
+            "questionVariants": [
+                "Can you pack fragile items?",
+                "Do you pack glass?",
+                "Can you ship fragile things?",
+                "How do you handle fragile items?"
+            ],
+            "answer": "Yes, our expert team provides professional packing services with materials designed for fragile and high-value items.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "fragile",
+                "glass",
+                "packing"
+            ],
+            "searchText": "fragile items glass packing professional services high-value"
+        },
+        {
+            "id": "faq-shipping-custom-boxes",
+            "intent": "faq",
+            "title": "Do you make custom boxes?",
+            "questionVariants": [
+                "Do you make custom boxes?",
+                "Can you cut boxes to size?",
+                "Do you make crates?",
+                "Can you build custom packaging?"
+            ],
+            "answer": "Yes, we can design and cut custom boxes or crates for items that don't fit standard packaging.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "custom boxes",
+                "crating",
+                "oversized"
+            ],
+            "searchText": "custom boxes crates design cut packaging oversized"
+        },
+        {
+            "id": "faq-shipping-delivery-time",
+            "intent": "faq",
+            "title": "How long will shipping take?",
+            "questionVariants": [
+                "How long will shipping take?",
+                "How fast is shipping?",
+                "What are the delivery times?",
+                "When will my package arrive?"
+            ],
+            "answer": "Transit times vary by carrier and destination. We'll show you multiple options—overnight, 2-day, ground, or international delivery speeds.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "delivery time",
+                "overnight",
+                "2-day",
+                "ground"
+            ],
+            "searchText": "delivery time transit shipping overnight 2-day ground international"
+        },
+        {
+            "id": "faq-shipping-dropoff",
+            "intent": "faq",
+            "title": "Can I drop off pre-labeled packages?",
+            "questionVariants": [
+                "Can I drop off pre-labeled packages?",
+                "Do you accept pre-labeled packages?",
+                "Can I drop off packages with labels?",
+                "Do you take drop-offs?"
+            ],
+            "answer": "Yes, we accept drop-offs for FedEx, UPS, USPS, and DHL. Just bring your labeled package to our store.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "drop-off",
+                "pre-labeled",
+                "returns"
+            ],
+            "searchText": "drop-off pre-labeled packages fedex ups usps dhl returns"
+        },
+        {
+            "id": "faq-shipping-pickup",
+            "intent": "faq",
+            "title": "Do you offer pickup service?",
+            "questionVariants": [
+                "Do you offer pickup service?",
+                "Can you pick up packages?",
+                "Do carriers pick up from your location?",
+                "Can I schedule a pickup?"
+            ],
+            "answer": "We can help arrange pickup with carriers for larger shipments or recurring business accounts.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "pickup",
+                "scheduled pickup",
+                "business accounts"
+            ],
+            "searchText": "pickup service carriers larger shipments business accounts"
+        },
+        {
+            "id": "faq-shipping-returns",
+            "intent": "faq",
+            "title": "Can you handle product returns?",
+            "questionVariants": [
+                "Can you handle product returns?",
+                "Do you process returns?",
+                "Can I return items here?",
+                "Do you accept Amazon returns?"
+            ],
+            "answer": "Yes, we process returns for Amazon, UPS, FedEx, and other retailers. Bring your return label or QR code.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "returns",
+                "amazon",
+                "qr code"
+            ],
+            "searchText": "returns amazon ups fedex retailers qr code label"
+        },
+        {
+            "id": "faq-shipping-cost",
+            "intent": "faq",
+            "title": "How are shipping rates calculated?",
+            "questionVariants": [
+                "How are shipping rates calculated?",
+                "How much does shipping cost?",
+                "What affects shipping price?",
+                "How do you determine shipping rates?"
+            ],
+            "answer": "Rates are based on carrier, package size, weight, destination, and service speed. We'll compare carriers to find the best option.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "rates",
+                "pricing",
+                "carriers"
+            ],
+            "searchText": "shipping rates pricing cost carrier size weight destination speed"
+        },
+        {
+            "id": "faq-shipping-bulk",
+            "intent": "faq",
+            "title": "Do you offer discounts for bulk shipping?",
+            "questionVariants": [
+                "Do you offer discounts for bulk shipping?",
+                "Are there volume discounts?",
+                "Do you have business shipping rates?",
+                "Can I get a discount for multiple shipments?"
+            ],
+            "answer": "Yes, we can arrange volume-based discounts for businesses and organizations with regular shipping needs.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "bulk",
+                "discounts",
+                "business"
+            ],
+            "searchText": "bulk shipping discounts volume business organizations regular"
+        },
+        {
+            "id": "faq-shipping-mailboxes",
+            "intent": "faq",
+            "title": "Can I receive packages at your store?",
+            "questionVariants": [
+                "Can I receive packages at your store?",
+                "Do you offer mailbox rental?",
+                "Can I have packages delivered to your location?",
+                "Can I use your address for deliveries?"
+            ],
+            "answer": "Yes, with a Mailbox Plus rental, you can have packages securely delivered to our location for pickup at your convenience.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "mailbox rental",
+                "receiving",
+                "secure"
+            ],
+            "searchText": "receive packages mailbox rental delivery secure pickup convenience"
+        },
+        {
+            "id": "faq-shipping-size-limits",
+            "intent": "faq",
+            "title": "Is there a maximum size or weight limit?",
+            "questionVariants": [
+                "Is there a maximum size or weight limit?",
+                "What's the biggest package you can ship?",
+                "Can you ship oversized items?",
+                "Are there weight restrictions?"
+            ],
+            "answer": "We handle shipments from small parcels to large items. Size and weight limits depend on the carrier and service. If it fits through the door; We will ship it.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "oversized",
+                "freight",
+                "limits"
+            ],
+            "searchText": "size weight limits maximum oversized large items carrier"
+        },
+        {
+            "id": "faq-shipping-holiday",
+            "intent": "faq",
+            "title": "Do shipping times change during holidays?",
+            "questionVariants": [
+                "Do shipping times change during holidays?",
+                "Are there delays during holidays?",
+                "How does holiday season affect shipping?",
+                "Is shipping slower during peak season?"
+            ],
+            "answer": "Yes, carriers may experience delays during peak seasons. We recommend shipping early to avoid disruptions.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "holidays",
+                "delays",
+                "peak season"
+            ],
+            "searchText": "holidays delays peak season shipping times disruptions"
+        },
+        {
+            "id": "faq-shipping-packing-service",
+            "intent": "faq",
+            "title": "Do you offer full-service packing?",
+            "questionVariants": [
+                "Do you offer full-service packing?",
+                "Can you pack my items?",
+                "Do you provide packing materials?",
+                "Will you pack and ship for me?"
+            ],
+            "answer": "Yes, we handle everything—boxes, bubble wrap, tape, and secure packing—so your items are shipment-ready.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "packing service",
+                "boxes",
+                "bubble wrap"
+            ],
+            "searchText": "full-service packing boxes bubble wrap tape secure shipment-ready"
+        },
+        {
+            "id": "faq-shipping-high-value",
+            "intent": "faq",
+            "title": "What if I'm shipping high-value items?",
+            "questionVariants": [
+                "What if I'm shipping high-value items?",
+                "How do I ship expensive items?",
+                "Can you ship valuable items?",
+                "What about insurance for valuable packages?"
+            ],
+            "answer": "We recommend professional packing and insurance coverage to ensure maximum protection for your shipment.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "high-value",
+                "protection",
+                "coverage"
+            ],
+            "searchText": "high-value expensive items professional packing insurance coverage protection"
+        },
+        {
+            "id": "faq-shipping-status",
+            "intent": "faq",
+            "title": "How do I check my shipment status?",
+            "questionVariants": [
+                "How do I check my shipment status?",
+                "How can I track my package?",
+                "Where is my shipment?",
+                "How do I find my tracking number?"
+            ],
+            "answer": "You can use the tracking number provided or ask our team to help track your package in-store.",
+            "confidence": {
+                "minimumSimilarity": 0.78,
+                "requiresExactMatch": false
+            },
+            "sources": [
+                {
+                    "type": "page",
+                    "url": "https://mailboxplusohio.com/pack-ship",
+                    "lastVerified": "2026-01-02"
+                }
+            ],
+            "constraints": {
+                "requiresHuman": false,
+                "disallowedFollowups": []
+            },
+            "escalation": {
+                "enabled": false,
+                "message": ""
+            },
+            "tags": [
+                "status",
+                "tracking",
+                "updates"
+            ],
+            "searchText": "shipment status tracking number package in-store help"
+        }
+    ]
+}
