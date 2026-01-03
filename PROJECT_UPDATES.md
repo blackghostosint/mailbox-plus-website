@@ -1,3 +1,24 @@
+## 2026-01-02 — Create Retrieval Test Suite for Chatbot Knowledge Base
+
+**Summary**
+Created comprehensive authoritative test suite to validate chatbot retrieval behavior before UI implementation. System tests correct answering when FAQs exist, proper refusal when information is missing/out-of-scope, and prevents hallucination or operational drift. Test suite implements strict pass/fail criteria where one fail blocks UI rollout.
+
+**Scope**
+- Added `knowledge/retrieval-test-suite.ts` - 24 test cases across 5 categories (direct match, paraphrase, ambiguous, operational, out-of-scope)
+- Added `knowledge/retrieval-test-runner.ts` - Test execution engine with simple string similarity matching, result validation, and markdown report generation
+- Added `knowledge/RETRIEVAL_TEST_SPEC.md` - Complete documentation of retrieval contract, test matrix, scoring rules, and exit criteria
+- Updated `package.json` - Added `test:retrieval` npm script and `tsx` dev dependency
+- Generated `knowledge/RETRIEVAL_TEST_REPORT.md` - Auto-generated test results with pass/fail summary and recommendations
+
+**Notes**
+- Implements strict retrieval contract: ACCEPT (return FAQ verbatim) vs REFUSE (return fallback message)
+- Exit criteria requires 100% pass rate: all direct/paraphrase tests must answer correctly, all ambiguous/operational/out-of-scope tests must refuse
+- Initial test run: 18/24 passed (75%) - paraphrase tests failed as expected with simple string similarity (need semantic embeddings for production)
+- Test infrastructure working correctly - failures demonstrate proper validation of retrieval logic
+- Fallback response: "I don't have that information. Please contact the store directly or visit us in person."
+- Tests loaded all 109 FAQ entries from `kb.entries.json` successfully
+- Allowed fixes: adjust minimumSimilarity threshold or improve searchText (do NOT rewrite answers)
+
 ## 2026-01-01 — Remove Unused Dependency (dotenv)
 
 **Summary**

@@ -1,748 +1,3765 @@
 {
-    "entries": [
+  "entries": [
+    {
+      "id": "faq-shipping-carriers",
+      "intent": "faq",
+      "title": "Which carriers do you work with?",
+      "questionVariants": [
+        "Which carriers do you work with?",
+        "What shipping carriers do you use?",
+        "Do you ship with FedEx?",
+        "Do you ship with UPS?",
+        "What carriers are available?"
+      ],
+      "answer": "We ship with FedEx, UPS, USPS, and DHL to provide you with flexible options for domestic and international shipping.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
         {
-            "id": "faq-shipping-carriers",
-            "intent": "faq",
-            "title": "Which carriers do you work with?",
-            "questionVariants": [
-                "Which carriers do you work with?",
-                "What shipping carriers do you use?",
-                "Do you ship with FedEx?",
-                "Do you ship with UPS?",
-                "What carriers are available?"
-            ],
-            "answer": "We ship with FedEx, UPS, USPS, and DHL to provide you with flexible options for domestic and international shipping.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "fedex",
-                "ups",
-                "usps",
-                "dhl",
-                "carriers"
-            ],
-            "searchText": "carriers shipping fedex ups usps dhl domestic international"
-        },
-        {
-            "id": "faq-shipping-tracking",
-            "intent": "faq",
-            "title": "Will I receive tracking information?",
-            "questionVariants": [
-                "Will I receive tracking information?",
-                "Do you provide tracking numbers?",
-                "Can I track my package?",
-                "How do I track my shipment?"
-            ],
-            "answer": "Yes, every shipment comes with a tracking number so you can monitor your package in real-time.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "tracking",
-                "delivery status",
-                "shipping updates"
-            ],
-            "searchText": "tracking number monitor package real-time delivery status updates"
-        },
-        {
-            "id": "faq-shipping-insurance",
-            "intent": "faq",
-            "title": "Do you offer shipping insurance?",
-            "questionVariants": [
-                "Do you offer shipping insurance?",
-                "Can I insure my shipment?",
-                "How do I get insurance for my package?",
-                "Is shipping insurance available?"
-            ],
-            "answer": "Yes, we provide third-party insurance for high-value shipments. Coverage amounts depend on the carrier and declared value.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "insurance",
-                "coverage",
-                "value"
-            ],
-            "searchText": "insurance coverage high-value shipments third-party declared value"
-        },
-        {
-            "id": "faq-shipping-international",
-            "intent": "faq",
-            "title": "Can you ship internationally?",
-            "questionVariants": [
-                "Can you ship internationally?",
-                "Do you offer international shipping?",
-                "Can I send packages overseas?",
-                "Do you ship to other countries?"
-            ],
-            "answer": "Absolutely. We provide international shipping services, including assistance with customs documentation and duties.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "international",
-                "customs",
-                "duties"
-            ],
-            "searchText": "international shipping overseas customs documentation duties"
-        },
-        {
-            "id": "faq-shipping-customs",
-            "intent": "faq",
-            "title": "Do you handle customs paperwork?",
-            "questionVariants": [
-                "Do you handle customs paperwork?",
-                "Can you help with customs forms?",
-                "Do you fill out customs documentation?",
-                "Who handles customs paperwork?"
-            ],
-            "answer": "Yes, our team can prepare and guide you through the required customs forms for international shipments.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "customs paperwork",
-                "forms",
-                "international"
-            ],
-            "searchText": "customs paperwork forms international shipments documentation"
-        },
-        {
-            "id": "faq-shipping-restricted-items",
-            "intent": "faq",
-            "title": "Are there items you cannot ship?",
-            "questionVariants": [
-                "Are there items you cannot ship?",
-                "What items can't be shipped?",
-                "Can you ship hazardous materials?",
-                "Are there shipping restrictions?"
-            ],
-            "answer": "Yes, certain items such as hazardous materials, perishables, and restricted goods may not be eligible for shipment. We'll advise you case by case.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "restricted items",
-                "hazmat",
-                "perishable"
-            ],
-            "searchText": "restricted items hazardous materials perishables shipping restrictions"
-        },
-        {
-            "id": "faq-shipping-fragile-items",
-            "intent": "faq",
-            "title": "Can you pack fragile items?",
-            "questionVariants": [
-                "Can you pack fragile items?",
-                "Do you pack glass?",
-                "Can you ship fragile things?",
-                "How do you handle fragile items?"
-            ],
-            "answer": "Yes, our expert team provides professional packing services with materials designed for fragile and high-value items.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "fragile",
-                "glass",
-                "packing"
-            ],
-            "searchText": "fragile items glass packing professional services high-value"
-        },
-        {
-            "id": "faq-shipping-custom-boxes",
-            "intent": "faq",
-            "title": "Do you make custom boxes?",
-            "questionVariants": [
-                "Do you make custom boxes?",
-                "Can you cut boxes to size?",
-                "Do you make crates?",
-                "Can you build custom packaging?"
-            ],
-            "answer": "Yes, we can design and cut custom boxes or crates for items that don't fit standard packaging.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "custom boxes",
-                "crating",
-                "oversized"
-            ],
-            "searchText": "custom boxes crates design cut packaging oversized"
-        },
-        {
-            "id": "faq-shipping-delivery-time",
-            "intent": "faq",
-            "title": "How long will shipping take?",
-            "questionVariants": [
-                "How long will shipping take?",
-                "How fast is shipping?",
-                "What are the delivery times?",
-                "When will my package arrive?"
-            ],
-            "answer": "Transit times vary by carrier and destination. We'll show you multiple options—overnight, 2-day, ground, or international delivery speeds.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "delivery time",
-                "overnight",
-                "2-day",
-                "ground"
-            ],
-            "searchText": "delivery time transit shipping overnight 2-day ground international"
-        },
-        {
-            "id": "faq-shipping-dropoff",
-            "intent": "faq",
-            "title": "Can I drop off pre-labeled packages?",
-            "questionVariants": [
-                "Can I drop off pre-labeled packages?",
-                "Do you accept pre-labeled packages?",
-                "Can I drop off packages with labels?",
-                "Do you take drop-offs?"
-            ],
-            "answer": "Yes, we accept drop-offs for FedEx, UPS, USPS, and DHL. Just bring your labeled package to our store.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "drop-off",
-                "pre-labeled",
-                "returns"
-            ],
-            "searchText": "drop-off pre-labeled packages fedex ups usps dhl returns"
-        },
-        {
-            "id": "faq-shipping-pickup",
-            "intent": "faq",
-            "title": "Do you offer pickup service?",
-            "questionVariants": [
-                "Do you offer pickup service?",
-                "Can you pick up packages?",
-                "Do carriers pick up from your location?",
-                "Can I schedule a pickup?"
-            ],
-            "answer": "We can help arrange pickup with carriers for larger shipments or recurring business accounts.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "pickup",
-                "scheduled pickup",
-                "business accounts"
-            ],
-            "searchText": "pickup service carriers larger shipments business accounts"
-        },
-        {
-            "id": "faq-shipping-returns",
-            "intent": "faq",
-            "title": "Can you handle product returns?",
-            "questionVariants": [
-                "Can you handle product returns?",
-                "Do you process returns?",
-                "Can I return items here?",
-                "Do you accept Amazon returns?"
-            ],
-            "answer": "Yes, we process returns for Amazon, UPS, FedEx, and other retailers. Bring your return label or QR code.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "returns",
-                "amazon",
-                "qr code"
-            ],
-            "searchText": "returns amazon ups fedex retailers qr code label"
-        },
-        {
-            "id": "faq-shipping-cost",
-            "intent": "faq",
-            "title": "How are shipping rates calculated?",
-            "questionVariants": [
-                "How are shipping rates calculated?",
-                "How much does shipping cost?",
-                "What affects shipping price?",
-                "How do you determine shipping rates?"
-            ],
-            "answer": "Rates are based on carrier, package size, weight, destination, and service speed. We'll compare carriers to find the best option.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "rates",
-                "pricing",
-                "carriers"
-            ],
-            "searchText": "shipping rates pricing cost carrier size weight destination speed"
-        },
-        {
-            "id": "faq-shipping-bulk",
-            "intent": "faq",
-            "title": "Do you offer discounts for bulk shipping?",
-            "questionVariants": [
-                "Do you offer discounts for bulk shipping?",
-                "Are there volume discounts?",
-                "Do you have business shipping rates?",
-                "Can I get a discount for multiple shipments?"
-            ],
-            "answer": "Yes, we can arrange volume-based discounts for businesses and organizations with regular shipping needs.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "bulk",
-                "discounts",
-                "business"
-            ],
-            "searchText": "bulk shipping discounts volume business organizations regular"
-        },
-        {
-            "id": "faq-shipping-mailboxes",
-            "intent": "faq",
-            "title": "Can I receive packages at your store?",
-            "questionVariants": [
-                "Can I receive packages at your store?",
-                "Do you offer mailbox rental?",
-                "Can I have packages delivered to your location?",
-                "Can I use your address for deliveries?"
-            ],
-            "answer": "Yes, with a Mailbox Plus rental, you can have packages securely delivered to our location for pickup at your convenience.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "mailbox rental",
-                "receiving",
-                "secure"
-            ],
-            "searchText": "receive packages mailbox rental delivery secure pickup convenience"
-        },
-        {
-            "id": "faq-shipping-size-limits",
-            "intent": "faq",
-            "title": "Is there a maximum size or weight limit?",
-            "questionVariants": [
-                "Is there a maximum size or weight limit?",
-                "What's the biggest package you can ship?",
-                "Can you ship oversized items?",
-                "Are there weight restrictions?"
-            ],
-            "answer": "We handle shipments from small parcels to large items. Size and weight limits depend on the carrier and service. If it fits through the door; We will ship it.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "oversized",
-                "freight",
-                "limits"
-            ],
-            "searchText": "size weight limits maximum oversized large items carrier"
-        },
-        {
-            "id": "faq-shipping-holiday",
-            "intent": "faq",
-            "title": "Do shipping times change during holidays?",
-            "questionVariants": [
-                "Do shipping times change during holidays?",
-                "Are there delays during holidays?",
-                "How does holiday season affect shipping?",
-                "Is shipping slower during peak season?"
-            ],
-            "answer": "Yes, carriers may experience delays during peak seasons. We recommend shipping early to avoid disruptions.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "holidays",
-                "delays",
-                "peak season"
-            ],
-            "searchText": "holidays delays peak season shipping times disruptions"
-        },
-        {
-            "id": "faq-shipping-packing-service",
-            "intent": "faq",
-            "title": "Do you offer full-service packing?",
-            "questionVariants": [
-                "Do you offer full-service packing?",
-                "Can you pack my items?",
-                "Do you provide packing materials?",
-                "Will you pack and ship for me?"
-            ],
-            "answer": "Yes, we handle everything—boxes, bubble wrap, tape, and secure packing—so your items are shipment-ready.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "packing service",
-                "boxes",
-                "bubble wrap"
-            ],
-            "searchText": "full-service packing boxes bubble wrap tape secure shipment-ready"
-        },
-        {
-            "id": "faq-shipping-high-value",
-            "intent": "faq",
-            "title": "What if I'm shipping high-value items?",
-            "questionVariants": [
-                "What if I'm shipping high-value items?",
-                "How do I ship expensive items?",
-                "Can you ship valuable items?",
-                "What about insurance for valuable packages?"
-            ],
-            "answer": "We recommend professional packing and insurance coverage to ensure maximum protection for your shipment.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "high-value",
-                "protection",
-                "coverage"
-            ],
-            "searchText": "high-value expensive items professional packing insurance coverage protection"
-        },
-        {
-            "id": "faq-shipping-status",
-            "intent": "faq",
-            "title": "How do I check my shipment status?",
-            "questionVariants": [
-                "How do I check my shipment status?",
-                "How can I track my package?",
-                "Where is my shipment?",
-                "How do I find my tracking number?"
-            ],
-            "answer": "You can use the tracking number provided or ask our team to help track your package in-store.",
-            "confidence": {
-                "minimumSimilarity": 0.78,
-                "requiresExactMatch": false
-            },
-            "sources": [
-                {
-                    "type": "page",
-                    "url": "https://mailboxplusohio.com/pack-ship",
-                    "lastVerified": "2026-01-02"
-                }
-            ],
-            "constraints": {
-                "requiresHuman": false,
-                "disallowedFollowups": []
-            },
-            "escalation": {
-                "enabled": false,
-                "message": ""
-            },
-            "tags": [
-                "status",
-                "tracking",
-                "updates"
-            ],
-            "searchText": "shipment status tracking number package in-store help"
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
         }
-    ]
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fedex",
+        "ups",
+        "usps",
+        "dhl",
+        "carriers"
+      ],
+      "searchText": "carriers shipping fedex ups usps dhl domestic international"
+    },
+    {
+      "id": "faq-shipping-tracking",
+      "intent": "faq",
+      "title": "Will I receive tracking information?",
+      "questionVariants": [
+        "Will I receive tracking information?",
+        "Do you provide tracking numbers?",
+        "Can I track my package?",
+        "How do I track my shipment?"
+      ],
+      "answer": "Yes, every shipment comes with a tracking number so you can monitor your package in real-time.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "tracking",
+        "delivery status",
+        "shipping updates"
+      ],
+      "searchText": "tracking number monitor package real-time delivery status updates"
+    },
+    {
+      "id": "faq-shipping-insurance",
+      "intent": "faq",
+      "title": "Do you offer shipping insurance?",
+      "questionVariants": [
+        "Do you offer shipping insurance?",
+        "Can I insure my shipment?",
+        "How do I get insurance for my package?",
+        "Is shipping insurance available?"
+      ],
+      "answer": "Yes, we provide third-party insurance for high-value shipments. Coverage amounts depend on the carrier and declared value.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "insurance",
+        "coverage",
+        "value"
+      ],
+      "searchText": "insurance coverage high-value shipments third-party declared value"
+    },
+    {
+      "id": "faq-shipping-international",
+      "intent": "faq",
+      "title": "Can you ship internationally?",
+      "questionVariants": [
+        "Can you ship internationally?",
+        "Do you offer international shipping?",
+        "Can I send packages overseas?",
+        "Do you ship to other countries?"
+      ],
+      "answer": "Absolutely. We provide international shipping services, including assistance with customs documentation and duties.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "international",
+        "customs",
+        "duties"
+      ],
+      "searchText": "international shipping overseas customs documentation duties"
+    },
+    {
+      "id": "faq-shipping-customs",
+      "intent": "faq",
+      "title": "Do you handle customs paperwork?",
+      "questionVariants": [
+        "Do you handle customs paperwork?",
+        "Can you help with customs forms?",
+        "Do you fill out customs documentation?",
+        "Who handles customs paperwork?"
+      ],
+      "answer": "Yes, our team can prepare and guide you through the required customs forms for international shipments.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "customs paperwork",
+        "forms",
+        "international"
+      ],
+      "searchText": "customs paperwork forms international shipments documentation"
+    },
+    {
+      "id": "faq-shipping-restricted-items",
+      "intent": "faq",
+      "title": "Are there items you cannot ship?",
+      "questionVariants": [
+        "Are there items you cannot ship?",
+        "What items can't be shipped?",
+        "Can you ship hazardous materials?",
+        "Are there shipping restrictions?"
+      ],
+      "answer": "Yes, certain items such as hazardous materials, perishables, and restricted goods may not be eligible for shipment. We'll advise you case by case.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "restricted items",
+        "hazmat",
+        "perishable"
+      ],
+      "searchText": "restricted items hazardous materials perishables shipping restrictions"
+    },
+    {
+      "id": "faq-shipping-fragile-items",
+      "intent": "faq",
+      "title": "Can you pack fragile items?",
+      "questionVariants": [
+        "Can you pack fragile items?",
+        "Do you pack glass?",
+        "Can you ship fragile things?",
+        "How do you handle fragile items?"
+      ],
+      "answer": "Yes, our expert team provides professional packing services with materials designed for fragile and high-value items.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fragile",
+        "glass",
+        "packing"
+      ],
+      "searchText": "fragile items glass packing professional services high-value"
+    },
+    {
+      "id": "faq-shipping-custom-boxes",
+      "intent": "faq",
+      "title": "Do you make custom boxes?",
+      "questionVariants": [
+        "Do you make custom boxes?",
+        "Can you cut boxes to size?",
+        "Do you make crates?",
+        "Can you build custom packaging?"
+      ],
+      "answer": "Yes, we can design and cut custom boxes or crates for items that don't fit standard packaging.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "custom boxes",
+        "crating",
+        "oversized"
+      ],
+      "searchText": "custom boxes crates design cut packaging oversized"
+    },
+    {
+      "id": "faq-shipping-delivery-time",
+      "intent": "faq",
+      "title": "How long will shipping take?",
+      "questionVariants": [
+        "How long will shipping take?",
+        "How fast is shipping?",
+        "What are the delivery times?",
+        "When will my package arrive?"
+      ],
+      "answer": "Transit times vary by carrier and destination. We'll show you multiple options—overnight, 2-day, ground, or international delivery speeds.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "delivery time",
+        "overnight",
+        "2-day",
+        "ground"
+      ],
+      "searchText": "delivery time transit shipping overnight 2-day ground international"
+    },
+    {
+      "id": "faq-shipping-dropoff",
+      "intent": "faq",
+      "title": "Can I drop off pre-labeled packages?",
+      "questionVariants": [
+        "Can I drop off pre-labeled packages?",
+        "Do you accept pre-labeled packages?",
+        "Can I drop off packages with labels?",
+        "Do you take drop-offs?"
+      ],
+      "answer": "Yes, we accept drop-offs for FedEx, UPS, USPS, and DHL. Just bring your labeled package to our store.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "drop-off",
+        "pre-labeled",
+        "returns"
+      ],
+      "searchText": "drop-off pre-labeled packages fedex ups usps dhl returns"
+    },
+    {
+      "id": "faq-shipping-pickup",
+      "intent": "faq",
+      "title": "Do you offer pickup service?",
+      "questionVariants": [
+        "Do you offer pickup service?",
+        "Can you pick up packages?",
+        "Do carriers pick up from your location?",
+        "Can I schedule a pickup?"
+      ],
+      "answer": "We can help arrange pickup with carriers for larger shipments or recurring business accounts.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "pickup",
+        "scheduled pickup",
+        "business accounts"
+      ],
+      "searchText": "pickup service carriers larger shipments business accounts"
+    },
+    {
+      "id": "faq-shipping-returns",
+      "intent": "faq",
+      "title": "Can you handle product returns?",
+      "questionVariants": [
+        "Can you handle product returns?",
+        "Do you process returns?",
+        "Can I return items here?",
+        "Do you accept Amazon returns?"
+      ],
+      "answer": "Yes, we process returns for Amazon, UPS, FedEx, and other retailers. Bring your return label or QR code.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "returns",
+        "amazon",
+        "qr code"
+      ],
+      "searchText": "returns amazon ups fedex retailers qr code label"
+    },
+    {
+      "id": "faq-shipping-cost",
+      "intent": "faq",
+      "title": "How are shipping rates calculated?",
+      "questionVariants": [
+        "How are shipping rates calculated?",
+        "How much does shipping cost?",
+        "What affects shipping price?",
+        "How do you determine shipping rates?"
+      ],
+      "answer": "Rates are based on carrier, package size, weight, destination, and service speed. We'll compare carriers to find the best option.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "rates",
+        "pricing",
+        "carriers"
+      ],
+      "searchText": "shipping rates pricing cost carrier size weight destination speed"
+    },
+    {
+      "id": "faq-shipping-bulk",
+      "intent": "faq",
+      "title": "Do you offer discounts for bulk shipping?",
+      "questionVariants": [
+        "Do you offer discounts for bulk shipping?",
+        "Are there volume discounts?",
+        "Do you have business shipping rates?",
+        "Can I get a discount for multiple shipments?"
+      ],
+      "answer": "Yes, we can arrange volume-based discounts for businesses and organizations with regular shipping needs.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "bulk",
+        "discounts",
+        "business"
+      ],
+      "searchText": "bulk shipping discounts volume business organizations regular"
+    },
+    {
+      "id": "faq-shipping-mailboxes",
+      "intent": "faq",
+      "title": "Can I receive packages at your store?",
+      "questionVariants": [
+        "Can I receive packages at your store?",
+        "Do you offer mailbox rental?",
+        "Can I have packages delivered to your location?",
+        "Can I use your address for deliveries?"
+      ],
+      "answer": "Yes, with a Mailbox Plus rental, you can have packages securely delivered to our location for pickup at your convenience.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "mailbox rental",
+        "receiving",
+        "secure"
+      ],
+      "searchText": "receive packages mailbox rental delivery secure pickup convenience"
+    },
+    {
+      "id": "faq-shipping-size-limits",
+      "intent": "faq",
+      "title": "Is there a maximum size or weight limit?",
+      "questionVariants": [
+        "Is there a maximum size or weight limit?",
+        "What's the biggest package you can ship?",
+        "Can you ship oversized items?",
+        "Are there weight restrictions?"
+      ],
+      "answer": "We handle shipments from small parcels to large items. Size and weight limits depend on the carrier and service. If it fits through the door; We will ship it.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "oversized",
+        "freight",
+        "limits"
+      ],
+      "searchText": "size weight limits maximum oversized large items carrier"
+    },
+    {
+      "id": "faq-shipping-holiday",
+      "intent": "faq",
+      "title": "Do shipping times change during holidays?",
+      "questionVariants": [
+        "Do shipping times change during holidays?",
+        "Are there delays during holidays?",
+        "How does holiday season affect shipping?",
+        "Is shipping slower during peak season?"
+      ],
+      "answer": "Yes, carriers may experience delays during peak seasons. We recommend shipping early to avoid disruptions.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "holidays",
+        "delays",
+        "peak season"
+      ],
+      "searchText": "holidays delays peak season shipping times disruptions"
+    },
+    {
+      "id": "faq-shipping-packing-service",
+      "intent": "faq",
+      "title": "Do you offer full-service packing?",
+      "questionVariants": [
+        "Do you offer full-service packing?",
+        "Can you pack my items?",
+        "Do you provide packing materials?",
+        "Will you pack and ship for me?"
+      ],
+      "answer": "Yes, we handle everything—boxes, bubble wrap, tape, and secure packing—so your items are shipment-ready.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "packing service",
+        "boxes",
+        "bubble wrap"
+      ],
+      "searchText": "full-service packing boxes bubble wrap tape secure shipment-ready"
+    },
+    {
+      "id": "faq-shipping-high-value",
+      "intent": "faq",
+      "title": "What if I'm shipping high-value items?",
+      "questionVariants": [
+        "What if I'm shipping high-value items?",
+        "How do I ship expensive items?",
+        "Can you ship valuable items?",
+        "What about insurance for valuable packages?"
+      ],
+      "answer": "We recommend professional packing and insurance coverage to ensure maximum protection for your shipment.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "high-value",
+        "protection",
+        "coverage"
+      ],
+      "searchText": "high-value expensive items professional packing insurance coverage protection"
+    },
+    {
+      "id": "faq-shipping-status",
+      "intent": "faq",
+      "title": "How do I check my shipment status?",
+      "questionVariants": [
+        "How do I check my shipment status?",
+        "How can I track my package?",
+        "Where is my shipment?",
+        "How do I find my tracking number?"
+      ],
+      "answer": "You can use the tracking number provided or ask our team to help track your package in-store.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "status",
+        "tracking",
+        "updates"
+      ],
+      "searchText": "shipment status tracking number package in-store help"
+    },
+    {
+      "id": "faq-business-cards-design",
+      "intent": "faq",
+      "title": "Can you help design my business card?",
+      "questionVariants": [
+        "Can you help design my business card?"
+      ],
+      "answer": "Yes, our team can assist with design or accept your own file.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/business-cards",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "business cards",
+        "design"
+      ],
+      "searchText": "can you help design my business card? yes, our team can assist with design or accept your own file."
+    },
+    {
+      "id": "faq-business-cards-printing-time",
+      "intent": "faq",
+      "title": "How long does printing take?",
+      "questionVariants": [
+        "How long does printing take?"
+      ],
+      "answer": "Most orders are ready within 3–5 business days.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/business-cards",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "business cards",
+        "printing",
+        "turnaround"
+      ],
+      "searchText": "how long does printing take? most orders are ready within 3–5 business days."
+    },
+    {
+      "id": "faq-business-cards-paper-stocks",
+      "intent": "faq",
+      "title": "What paper stocks are available?",
+      "questionVariants": [
+        "What paper stocks are available?"
+      ],
+      "answer": "We offer multiple card stocks including matte, glossy, and premium finishes.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/business-cards",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "business cards",
+        "paper",
+        "materials"
+      ],
+      "searchText": "what paper stocks are available? we offer multiple card stocks including matte, glossy, and premium finishes."
+    },
+    {
+      "id": "faq-copies-color",
+      "intent": "faq",
+      "title": "Do you offer color copies?",
+      "questionVariants": [
+        "Do you offer color copies?"
+      ],
+      "answer": "Yes, we provide both black-and-white and full-color copies.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/copies",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "copies",
+        "color",
+        "black and white"
+      ],
+      "searchText": "do you offer color copies? yes, we provide both black-and-white and full-color copies."
+    },
+    {
+      "id": "faq-copies-bulk-discounts",
+      "intent": "faq",
+      "title": "Do you provide bulk discounts?",
+      "questionVariants": [
+        "Do you provide bulk discounts?"
+      ],
+      "answer": "Yes, large orders receive reduced per-page pricing.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/copies",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "copies",
+        "bulk",
+        "discounts"
+      ],
+      "searchText": "do you provide bulk discounts? yes, large orders receive reduced per-page pricing."
+    },
+    {
+      "id": "faq-copies-bound-materials",
+      "intent": "faq",
+      "title": "Can you copy from books or magazines?",
+      "questionVariants": [
+        "Can you copy from books or magazines?"
+      ],
+      "answer": "Yes, we can carefully copy from bound materials.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/copies",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "copies",
+        "books",
+        "magazines"
+      ],
+      "searchText": "can you copy from books or magazines? yes, we can carefully copy from bound materials."
+    },
+    {
+      "id": "faq-document-printing-file-types",
+      "intent": "faq",
+      "title": "What file types do you accept?",
+      "questionVariants": [
+        "What file types do you accept?"
+      ],
+      "answer": "We accept PDF, Word, Excel, PowerPoint, and most common formats.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/document-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document printing",
+        "file formats"
+      ],
+      "searchText": "what file types do you accept? we accept pdf, word, excel, powerpoint, and most common formats."
+    },
+    {
+      "id": "faq-document-printing-double-sided",
+      "intent": "faq",
+      "title": "Can you print double-sided?",
+      "questionVariants": [
+        "Can you print double-sided?"
+      ],
+      "answer": "Yes, we offer single and double-sided printing.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/document-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document printing",
+        "double-sided"
+      ],
+      "searchText": "can you print double-sided? yes, we offer single and double-sided printing."
+    },
+    {
+      "id": "faq-document-printing-same-day",
+      "intent": "faq",
+      "title": "Do you offer same-day printing?",
+      "questionVariants": [
+        "Do you offer same-day printing?"
+      ],
+      "answer": "Yes, most jobs can be completed the same day.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/document-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document printing",
+        "same-day",
+        "turnaround"
+      ],
+      "searchText": "do you offer same-day printing? yes, most jobs can be completed the same day."
+    },
+    {
+      "id": "faq-flyers-brochures-bulk-pricing",
+      "intent": "faq",
+      "title": "Do you offer bulk pricing?",
+      "questionVariants": [
+        "Do you offer bulk pricing?"
+      ],
+      "answer": "Yes, larger orders receive discounted rates.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/flyers-brochures",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "flyers",
+        "brochures",
+        "bulk",
+        "discounts"
+      ],
+      "searchText": "do you offer bulk pricing? yes, larger orders receive discounted rates."
+    },
+    {
+      "id": "faq-flyers-brochures-design",
+      "intent": "faq",
+      "title": "Can you help design my flyer?",
+      "questionVariants": [
+        "Can you help design my flyer?"
+      ],
+      "answer": "Yes, design services are available.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/flyers-brochures",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "flyers",
+        "design"
+      ],
+      "searchText": "can you help design my flyer? yes, design services are available."
+    },
+    {
+      "id": "faq-flyers-brochures-sizes",
+      "intent": "faq",
+      "title": "What sizes can you print?",
+      "questionVariants": [
+        "What sizes can you print?"
+      ],
+      "answer": "We print flyers and brochures in standard and custom sizes.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/flyers-brochures",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "flyers",
+        "brochures",
+        "sizes"
+      ],
+      "searchText": "what sizes can you print? we print flyers and brochures in standard and custom sizes."
+    },
+    {
+      "id": "faq-graphic-design-logos",
+      "intent": "faq",
+      "title": "Do you design logos?",
+      "questionVariants": [
+        "Do you design logos?"
+      ],
+      "answer": "Yes, we can help create a new logo or refresh your existing brand.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/graphic-design",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "graphic design",
+        "logos",
+        "branding"
+      ],
+      "searchText": "do you design logos? yes, we can help create a new logo or refresh your existing brand."
+    },
+    {
+      "id": "faq-graphic-design-file-types",
+      "intent": "faq",
+      "title": "What file types can I bring?",
+      "questionVariants": [
+        "What file types can I bring?"
+      ],
+      "answer": "We accept PDF, AI, PSD, PNG, and more.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/graphic-design",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "graphic design",
+        "file formats"
+      ],
+      "searchText": "what file types can i bring? we accept pdf, ai, psd, png, and more."
+    },
+    {
+      "id": "faq-graphic-design-timeline",
+      "intent": "faq",
+      "title": "How long does design work take?",
+      "questionVariants": [
+        "How long does design work take?"
+      ],
+      "answer": "Timeline varies by project complexity. We'll provide an estimate upfront.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/graphic-design",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "graphic design",
+        "timeline",
+        "turnaround"
+      ],
+      "searchText": "how long does design work take? timeline varies by project complexity. we'll provide an estimate upfront."
+    },
+    {
+      "id": "faq-postcard-printing-bulk-orders",
+      "intent": "faq",
+      "title": "Do you handle bulk orders?",
+      "questionVariants": [
+        "Do you handle bulk orders?"
+      ],
+      "answer": "Yes, we offer discounts on larger runs.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/postcard-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "postcards",
+        "bulk",
+        "discounts"
+      ],
+      "searchText": "do you handle bulk orders? yes, we offer discounts on larger runs."
+    },
+    {
+      "id": "faq-postcard-printing-mailing",
+      "intent": "faq",
+      "title": "Can you mail postcards for me?",
+      "questionVariants": [
+        "Can you mail postcards for me?"
+      ],
+      "answer": "Yes, we provide Every Door Direct Mail (EDDM) options.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/postcard-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "postcards",
+        "mailing",
+        "EDDM"
+      ],
+      "searchText": "can you mail postcards for me? yes, we provide every door direct mail (eddm) options."
+    },
+    {
+      "id": "faq-postcard-printing-sizes",
+      "intent": "faq",
+      "title": "What sizes do you print?",
+      "questionVariants": [
+        "What sizes do you print?"
+      ],
+      "answer": "We print standard postcard sizes including 4x6, 5x7, and custom sizes.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/postcard-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "postcards",
+        "sizes"
+      ],
+      "searchText": "what sizes do you print? we print standard postcard sizes including 4x6, 5x7, and custom sizes."
+    },
+    {
+      "id": "faq-poster-banner-printing-vinyl",
+      "intent": "faq",
+      "title": "Can you print vinyl banners?",
+      "questionVariants": [
+        "Can you print vinyl banners?"
+      ],
+      "answer": "Yes, we offer durable vinyl options.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/poster-banner-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "posters",
+        "banners",
+        "vinyl"
+      ],
+      "searchText": "can you print vinyl banners? yes, we offer durable vinyl options."
+    },
+    {
+      "id": "faq-poster-banner-printing-design",
+      "intent": "faq",
+      "title": "Do you design posters?",
+      "questionVariants": [
+        "Do you design posters?"
+      ],
+      "answer": "Yes, our design team can help.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/poster-banner-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "posters",
+        "banners",
+        "design"
+      ],
+      "searchText": "do you design posters? yes, our design team can help."
+    },
+    {
+      "id": "faq-poster-banner-printing-outdoor",
+      "intent": "faq",
+      "title": "Are banners suitable for outdoor use?",
+      "questionVariants": [
+        "Are banners suitable for outdoor use?"
+      ],
+      "answer": "Yes, we have weather-resistant materials for outdoor displays.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/poster-banner-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "banners",
+        "outdoor",
+        "weather-resistant"
+      ],
+      "searchText": "are banners suitable for outdoor use? yes, we have weather-resistant materials for outdoor displays."
+    },
+    {
+      "id": "faq-posters-printing-sizes",
+      "intent": "faq",
+      "title": "What sizes are available?",
+      "questionVariants": [
+        "What sizes are available?"
+      ],
+      "answer": "We print posters from 11x17 up to 36 inches wide in custom lengths.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/posters-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "posters",
+        "sizes",
+        "large format"
+      ],
+      "searchText": "what sizes are available? we print posters from 11x17 up to 36 inches wide in custom lengths."
+    },
+    {
+      "id": "faq-posters-printing-turnaround",
+      "intent": "faq",
+      "title": "How long does printing take?",
+      "questionVariants": [
+        "How long does printing take?"
+      ],
+      "answer": "Most poster orders are ready within 24-48 hours.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/posters-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "posters",
+        "turnaround",
+        "printing"
+      ],
+      "searchText": "how long does printing take? most poster orders are ready within 24-48 hours."
+    },
+    {
+      "id": "faq-posters-printing-custom-design",
+      "intent": "faq",
+      "title": "Can I use my own design?",
+      "questionVariants": [
+        "Can I use my own design?"
+      ],
+      "answer": "Yes, you can upload your own design or work with our team.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/posters-printing",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "posters",
+        "design",
+        "custom"
+      ],
+      "searchText": "can i use my own design? yes, you can upload your own design or work with our team."
+    },
+    {
+      "id": "faq-document-finishing-laminating",
+      "intent": "faq",
+      "title": "Do you laminate IDs?",
+      "questionVariants": [
+        "Do you laminate IDs?"
+      ],
+      "answer": "Yes, we can laminate small or large documents.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "laminating",
+        "document finishing"
+      ],
+      "searchText": "do you laminate ids? yes, we can laminate small or large documents."
+    },
+    {
+      "id": "faq-document-finishing-binding",
+      "intent": "faq",
+      "title": "What types of binding do you offer?",
+      "questionVariants": [
+        "What types of binding do you offer?"
+      ],
+      "answer": "We provide comb, spiral, and staple binding.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "binding",
+        "document finishing"
+      ],
+      "searchText": "what types of binding do you offer? we provide comb, spiral, and staple binding."
+    },
+    {
+      "id": "faq-document-finishing-same-day",
+      "intent": "faq",
+      "title": "Can you finish same-day?",
+      "questionVariants": [
+        "Can you finish same-day?"
+      ],
+      "answer": "Yes, most finishing services can be completed the same day.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document finishing",
+        "same-day",
+        "turnaround"
+      ],
+      "searchText": "can you finish same-day? yes, most finishing services can be completed the same day."
+    },
+    {
+      "id": "faq-print-document-services-same-day",
+      "intent": "faq",
+      "title": "Do you offer same-day printing?",
+      "questionVariants": [
+        "Do you offer same-day printing?"
+      ],
+      "answer": "Yes, many jobs can be completed the same day.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "printing",
+        "same-day",
+        "turnaround"
+      ],
+      "searchText": "do you offer same-day printing? yes, many jobs can be completed the same day."
+    },
+    {
+      "id": "faq-print-document-services-scanning",
+      "intent": "faq",
+      "title": "Can you scan and email documents?",
+      "questionVariants": [
+        "Can you scan and email documents?"
+      ],
+      "answer": "Yes, we provide scanning and emailing services.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "scanning",
+        "email",
+        "digital services"
+      ],
+      "searchText": "can you scan and email documents? yes, we provide scanning and emailing services."
+    },
+    {
+      "id": "faq-print-document-services-finishing",
+      "intent": "faq",
+      "title": "What finishing options are available?",
+      "questionVariants": [
+        "What finishing options are available?"
+      ],
+      "answer": "We offer binding, laminating, stapling, and more.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "finishing",
+        "binding",
+        "laminating"
+      ],
+      "searchText": "what finishing options are available? we offer binding, laminating, stapling, and more."
+    },
+    {
+      "id": "faq-digital-mailbox-forward-mail",
+      "intent": "faq",
+      "title": "Can I forward mail?",
+      "questionVariants": [
+        "Can I forward mail?"
+      ],
+      "answer": "Yes, you can request forwarding to any address.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/digital-mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "digital mailbox",
+        "forwarding",
+        "mail"
+      ],
+      "searchText": "can i forward mail? yes, you can request forwarding to any address."
+    },
+    {
+      "id": "faq-digital-mailbox-for-businesses",
+      "intent": "faq",
+      "title": "Is this service for businesses?",
+      "questionVariants": [
+        "Is this service for businesses?"
+      ],
+      "answer": "Yes, both individuals and businesses can use it.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/digital-mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "digital mailbox",
+        "business",
+        "individuals"
+      ],
+      "searchText": "is this service for businesses? yes, both individuals and businesses can use it."
+    },
+    {
+      "id": "faq-digital-mailbox-online-access",
+      "intent": "faq",
+      "title": "How do I access my mail online?",
+      "questionVariants": [
+        "How do I access my mail online?"
+      ],
+      "answer": "You'll receive secure online access to view scanned mail and manage forwarding requests.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/digital-mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "digital mailbox",
+        "online access",
+        "scanning"
+      ],
+      "searchText": "how do i access my mail online? you'll receive secure online access to view scanned mail and manage forwarding requests."
+    },
+    {
+      "id": "faq-document-scanning-file-formats",
+      "intent": "faq",
+      "title": "What file formats do you provide?",
+      "questionVariants": [
+        "What file formats do you provide?"
+      ],
+      "answer": "We can scan to PDF, JPEG, or TIFF.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/document-scanning",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document scanning",
+        "file formats",
+        "PDF"
+      ],
+      "searchText": "what file formats do you provide? we can scan to pdf, jpeg, or tiff."
+    },
+    {
+      "id": "faq-document-scanning-bulk",
+      "intent": "faq",
+      "title": "Do you offer bulk scanning?",
+      "questionVariants": [
+        "Do you offer bulk scanning?"
+      ],
+      "answer": "Yes, bulk scanning is available.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/document-scanning",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document scanning",
+        "bulk"
+      ],
+      "searchText": "do you offer bulk scanning? yes, bulk scanning is available."
+    },
+    {
+      "id": "faq-document-scanning-photos",
+      "intent": "faq",
+      "title": "Can you scan photos?",
+      "questionVariants": [
+        "Can you scan photos?"
+      ],
+      "answer": "Yes, we can scan photos and convert them to digital formats.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/document-scanning",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document scanning",
+        "photos",
+        "digital"
+      ],
+      "searchText": "can you scan photos? yes, we can scan photos and convert them to digital formats."
+    },
+    {
+      "id": "faq-eddm-mailing-list",
+      "intent": "faq",
+      "title": "Do I need a mailing list?",
+      "questionVariants": [
+        "Do I need a mailing list?"
+      ],
+      "answer": "No, USPS EDDM delivers to every address in chosen areas.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/every-door-direct-mail",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "EDDM",
+        "mailing list",
+        "USPS"
+      ],
+      "searchText": "do i need a mailing list? no, usps eddm delivers to every address in chosen areas."
+    },
+    {
+      "id": "faq-eddm-design-postcards",
+      "intent": "faq",
+      "title": "Can you design my postcards?",
+      "questionVariants": [
+        "Can you design my postcards?"
+      ],
+      "answer": "Yes, we provide design and printing.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/every-door-direct-mail",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "EDDM",
+        "design",
+        "postcards"
+      ],
+      "searchText": "can you design my postcards? yes, we provide design and printing."
+    },
+    {
+      "id": "faq-eddm-target-areas",
+      "intent": "faq",
+      "title": "What areas can I target?",
+      "questionVariants": [
+        "What areas can I target?"
+      ],
+      "answer": "You can target specific ZIP codes or carrier routes in your desired neighborhoods.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/every-door-direct-mail",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "EDDM",
+        "targeting",
+        "ZIP codes"
+      ],
+      "searchText": "what areas can i target? you can target specific zip codes or carrier routes in your desired neighborhoods."
+    },
+    {
+      "id": "faq-fax-services-number",
+      "intent": "faq",
+      "title": "What is your fax number?",
+      "questionVariants": [
+        "What is your fax number?"
+      ],
+      "answer": "Contact us directly for our current fax number.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/fax-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fax",
+        "fax number"
+      ],
+      "searchText": "what is your fax number? contact us directly for our current fax number."
+    },
+    {
+      "id": "faq-fax-services-confirmations",
+      "intent": "faq",
+      "title": "Do you provide confirmations?",
+      "questionVariants": [
+        "Do you provide confirmations?"
+      ],
+      "answer": "Yes, we provide fax confirmation pages.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/fax-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fax",
+        "confirmations"
+      ],
+      "searchText": "do you provide confirmations? yes, we provide fax confirmation pages."
+    },
+    {
+      "id": "faq-fax-services-receive",
+      "intent": "faq",
+      "title": "Can I receive faxes at your location?",
+      "questionVariants": [
+        "Can I receive faxes at your location?"
+      ],
+      "answer": "Yes, you can use our fax number and pick up documents securely.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/fax-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fax",
+        "receiving",
+        "secure"
+      ],
+      "searchText": "can i receive faxes at your location? yes, you can use our fax number and pick up documents securely."
+    },
+    {
+      "id": "faq-mailbox-rental-all-carriers",
+      "intent": "faq",
+      "title": "Can I receive packages from all carriers?",
+      "questionVariants": [
+        "Can I receive packages from all carriers?"
+      ],
+      "answer": "Yes, we accept deliveries from FedEx, UPS, USPS, and DHL.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "mailbox rental",
+        "packages",
+        "carriers"
+      ],
+      "searchText": "can i receive packages from all carriers? yes, we accept deliveries from fedex, ups, usps, and dhl."
+    },
+    {
+      "id": "faq-mailbox-rental-id-required",
+      "intent": "faq",
+      "title": "Do I need ID to rent a mailbox?",
+      "questionVariants": [
+        "Do I need ID to rent a mailbox?"
+      ],
+      "answer": "Yes, two valid forms of ID are required.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "mailbox rental",
+        "ID",
+        "requirements"
+      ],
+      "searchText": "do i need id to rent a mailbox? yes, two valid forms of id are required."
+    },
+    {
+      "id": "faq-mailbox-rental-vs-po-box",
+      "intent": "faq",
+      "title": "What's the difference between this and a PO Box?",
+      "questionVariants": [
+        "What's the difference between this and a PO Box?"
+      ],
+      "answer": "Our mailboxes provide a real street address, making package deliveries and business use easier than a standard PO Box.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/mailbox-rental",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "mailbox rental",
+        "PO Box",
+        "street address"
+      ],
+      "searchText": "what's the difference between this and a po box? our mailboxes provide a real street address, making package deliveries and business use easier than a standard po box."
+    },
+    {
+      "id": "faq-shredding-onsite",
+      "intent": "faq",
+      "title": "Do you shred on-site?",
+      "questionVariants": [
+        "Do you shred on-site?"
+      ],
+      "answer": "We use secure, off-site shredding partners.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/shredding",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "shredding",
+        "secure",
+        "off-site"
+      ],
+      "searchText": "do you shred on-site? we use secure, off-site shredding partners."
+    },
+    {
+      "id": "faq-shredding-watch",
+      "intent": "faq",
+      "title": "Can I watch my documents being shredded?",
+      "questionVariants": [
+        "Can I watch my documents being shredded?"
+      ],
+      "answer": "Yes, ask about our in-store shredding schedule.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/shredding",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "shredding",
+        "in-store",
+        "witness"
+      ],
+      "searchText": "can i watch my documents being shredded? yes, ask about our in-store shredding schedule."
+    },
+    {
+      "id": "faq-shredding-quantity",
+      "intent": "faq",
+      "title": "Is there a minimum or maximum amount?",
+      "questionVariants": [
+        "Is there a minimum or maximum amount?"
+      ],
+      "answer": "We can handle small or large quantities—contact us for bulk shredding options.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/shredding",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "shredding",
+        "bulk",
+        "quantity"
+      ],
+      "searchText": "is there a minimum or maximum amount? we can handle small or large quantities—contact us for bulk shredding options."
+    },
+    {
+      "id": "faq-notary-id-required",
+      "intent": "faq",
+      "title": "Do I need ID?",
+      "questionVariants": [
+        "Do I need ID?"
+      ],
+      "answer": "Yes, valid government-issued ID is required.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/notary-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "notary",
+        "ID",
+        "identification"
+      ],
+      "searchText": "do i need id? yes, valid government-issued id is required."
+    },
+    {
+      "id": "faq-notary-real-estate",
+      "intent": "faq",
+      "title": "Do you notarize real estate documents?",
+      "questionVariants": [
+        "Do you notarize real estate documents?"
+      ],
+      "answer": "Yes, but call ahead for complex documents.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/notary-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "notary",
+        "real estate",
+        "documents"
+      ],
+      "searchText": "do you notarize real estate documents? yes, but call ahead for complex documents."
+    },
+    {
+      "id": "faq-notary-cost",
+      "intent": "faq",
+      "title": "How much does notary service cost?",
+      "questionVariants": [
+        "How much does notary service cost?"
+      ],
+      "answer": "Contact us for current notary fees, which are set by state law.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/notary-services",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "notary",
+        "cost",
+        "fees"
+      ],
+      "searchText": "how much does notary service cost? contact us for current notary fees, which are set by state law."
+    },
+    {
+      "id": "faq-fingerprint-vs-namecheck",
+      "intent": "faq",
+      "title": "Why is a fingerprint-based background check better than a name search?",
+      "questionVariants": [
+        "Why is a fingerprint-based background check better than a name search?"
+      ],
+      "answer": "Fingerprint-based checks are the most reliable and comprehensive because they match directly against state and federal criminal records. Unlike name-only searches, fingerprints cannot be falsified, reducing the hiring risk and ensuring more accurate results.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fingerprinting",
+        "background-checks",
+        "security"
+      ],
+      "searchText": "why is a fingerprint-based background check better than a name search? fingerprint-based checks are the most reliable and comprehensive because they match directly against state and federal criminal records. unlike name-only searches, fingerprints cannot be falsified, reducing the hiring risk and ensuring more accurate results."
+    },
+    {
+      "id": "faq-livescan-process",
+      "intent": "faq",
+      "title": "What is Live Scan fingerprinting and how does it work?",
+      "questionVariants": [
+        "What is Live Scan fingerprinting and how does it work?"
+      ],
+      "answer": "Live Scan is an electronic fingerprinting system that captures high-resolution digital prints in less than 5 minutes. Using SafePrintScan software and National WebCheck (NWC), FastFingerprints transmits your prints securely to state or federal agencies, avoiding errors and delays common with ink cards.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "livescan",
+        "safeprintscan",
+        "digital"
+      ],
+      "searchText": "what is live scan fingerprinting and how does it work? live scan is an electronic fingerprinting system that captures high-resolution digital prints in less than 5 minutes. using safeprintscan software and national webcheck (nwc), fastfingerprints transmits your prints securely to state or federal agencies, avoiding errors and delays common with ink cards."
+    },
+    {
+      "id": "faq-safeprintscan",
+      "intent": "faq",
+      "title": "What is SafePrintScan?",
+      "questionVariants": [
+        "What is SafePrintScan?"
+      ],
+      "answer": "SafePrintScan is FastFingerprints' proprietary software used with Live Scan systems. It ensures secure, encrypted fingerprint submissions to state and federal databases, provides storage and retrieval for digital records, and virtually eliminates processing errors.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "safeprintscan",
+        "software",
+        "security"
+      ],
+      "searchText": "what is safeprintscan? safeprintscan is fastfingerprints' proprietary software used with live scan systems. it ensures secure, encrypted fingerprint submissions to state and federal databases, provides storage and retrieval for digital records, and virtually eliminates processing errors."
+    },
+    {
+      "id": "faq-fingerprint-card-service",
+      "intent": "faq",
+      "title": "Do you provide fingerprint cards?",
+      "questionVariants": [
+        "Do you provide fingerprint cards?"
+      ],
+      "answer": "Yes. For $35.00, fingerprints can be captured electronically and printed onto FD-258 fingerprint cards. This is useful for applications that require mailing fingerprint cards instead of electronic submission.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fingerprint-cards",
+        "FD-258",
+        "electronic"
+      ],
+      "searchText": "do you provide fingerprint cards? yes. for $35.00, fingerprints can be captured electronically and printed onto fd-258 fingerprint cards. this is useful for applications that require mailing fingerprint cards instead of electronic submission."
+    },
+    {
+      "id": "faq-ohio-pricing",
+      "intent": "faq",
+      "title": "What are the costs for Ohio background checks?",
+      "questionVariants": [
+        "What are the costs for Ohio background checks?"
+      ],
+      "answer": "Ohio background checks start at $40.00 for BCI-only. FBI-only checks are $52.00, and combined BCI & FBI checks are $72.00. Results are delivered through the secure Web Results portal.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "Ohio",
+        "BCI",
+        "FBI",
+        "pricing"
+      ],
+      "searchText": "what are the costs for ohio background checks? ohio background checks start at $40.00 for bci-only. fbi-only checks are $52.00, and combined bci & fbi checks are $72.00. results are delivered through the secure web results portal."
+    },
+    {
+      "id": "faq-florida-pricing",
+      "intent": "faq",
+      "title": "What are the costs for Florida Level 2 background checks?",
+      "questionVariants": [
+        "What are the costs for Florida Level 2 background checks?"
+      ],
+      "answer": "Florida Level 2 checks cost $75.00. With the AHCA-required photo included, the cost is $94.00. These checks search both state and FBI databases and are required for many licensing and employment positions.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "Florida",
+        "FDLE",
+        "AHCA",
+        "Level 2"
+      ],
+      "searchText": "what are the costs for florida level 2 background checks? florida level 2 checks cost $75.00. with the ahca-required photo included, the cost is $94.00. these checks search both state and fbi databases and are required for many licensing and employment positions."
+    },
+    {
+      "id": "faq-ohio-bci",
+      "intent": "faq",
+      "title": "What is an Ohio BCI check?",
+      "questionVariants": [
+        "What is an Ohio BCI check?"
+      ],
+      "answer": "An Ohio BCI check is a state-level background check conducted by the Attorney General's Office. It is required for employment, volunteer work, or licensing in Ohio. Results are securely delivered through the Web Results portal.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "Ohio",
+        "BCI",
+        "background-check"
+      ],
+      "searchText": "what is an ohio bci check? an ohio bci check is a state-level background check conducted by the attorney general's office. it is required for employment, volunteer work, or licensing in ohio. results are securely delivered through the web results portal."
+    },
+    {
+      "id": "faq-florida-level2",
+      "intent": "faq",
+      "title": "What is a Florida Level 2 background check?",
+      "questionVariants": [
+        "What is a Florida Level 2 background check?"
+      ],
+      "answer": "A Florida Level 2 check is a fingerprint-based search of FDLE state records and the FBI database. It is required for positions such as childcare, healthcare, and licensing in Florida. FastFingerprints is FDLE-approved to perform these checks.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "Florida",
+        "FDLE",
+        "Level 2"
+      ],
+      "searchText": "what is a florida level 2 background check? a florida level 2 check is a fingerprint-based search of fdle state records and the fbi database. it is required for positions such as childcare, healthcare, and licensing in florida. fastfingerprints is fdle-approved to perform these checks."
+    },
+    {
+      "id": "faq-fbi-channeler",
+      "intent": "faq",
+      "title": "What does it mean that FastFingerprints is an FBI-approved Channeler?",
+      "questionVariants": [
+        "What does it mean that FastFingerprints is an FBI-approved Channeler?"
+      ],
+      "answer": "As an FBI Channeler, FastFingerprints can securely submit fingerprints to the FBI on behalf of authorized recipients. This service is used for expedited non-criminal justice purposes such as personal review, housing, or federally regulated industries.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "FBI",
+        "channeler",
+        "criminal-records"
+      ],
+      "searchText": "what does it mean that fastfingerprints is an fbi-approved channeler? as an fbi channeler, fastfingerprints can securely submit fingerprints to the fbi on behalf of authorized recipients. this service is used for expedited non-criminal justice purposes such as personal review, housing, or federally regulated industries."
+    },
+    {
+      "id": "faq-personal-fbi-checks",
+      "intent": "faq",
+      "title": "Can I request my own FBI background check?",
+      "questionVariants": [
+        "Can I request my own FBI background check?"
+      ],
+      "answer": "Yes. Individuals may request a copy of their FBI record for personal review or correction under Departmental Order 556-73. This cannot be used for employment or licensing in the U.S. Results must be sent to a U.S. address.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "FBI",
+        "personal-records",
+        "departmental-order"
+      ],
+      "searchText": "can i request my own fbi background check? yes. individuals may request a copy of their fbi record for personal review or correction under departmental order 556-73. this cannot be used for employment or licensing in the u.s. results must be sent to a u.s. address."
+    },
+    {
+      "id": "faq-channeler-restrictions",
+      "intent": "faq",
+      "title": "Are there restrictions on FBI Channeling?",
+      "questionVariants": [
+        "Are there restrictions on FBI Channeling?"
+      ],
+      "answer": "Yes. FBI Channeling cannot be used for U.S. employment or licensing purposes. Results cannot be shipped overseas and an apostille cannot be processed by Channelers. Only U.S. citizens or lawful permanent residents are eligible.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "restrictions",
+        "channeler",
+        "FBI"
+      ],
+      "searchText": "are there restrictions on fbi channeling? yes. fbi channeling cannot be used for u.s. employment or licensing purposes. results cannot be shipped overseas and an apostille cannot be processed by channelers. only u.s. citizens or lawful permanent residents are eligible."
+    },
+    {
+      "id": "faq-other-services",
+      "intent": "faq",
+      "title": "Do you offer services besides fingerprinting?",
+      "questionVariants": [
+        "Do you offer services besides fingerprinting?"
+      ],
+      "answer": "Yes. FastFingerprints also provides drug screening and name search background checks in addition to electronic fingerprinting services.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "drug-screening",
+        "name-search",
+        "background-checks"
+      ],
+      "searchText": "do you offer services besides fingerprinting? yes. fastfingerprints also provides drug screening and name search background checks in addition to electronic fingerprinting services."
+    },
+    {
+      "id": "faq-storage-reuse",
+      "intent": "faq",
+      "title": "Can fingerprints be stored and reused later?",
+      "questionVariants": [
+        "Can fingerprints be stored and reused later?"
+      ],
+      "answer": "Yes. Digital records can be securely stored, searched, and retrieved. This allows employers to capture prints during the interview process and only pay when a candidate is hired.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "recordkeeping",
+        "fingerprinting",
+        "digital"
+      ],
+      "searchText": "can fingerprints be stored and reused later? yes. digital records can be securely stored, searched, and retrieved. this allows employers to capture prints during the interview process and only pay when a candidate is hired."
+    },
+    {
+      "id": "faq-process-time",
+      "intent": "faq",
+      "title": "How long does the fingerprinting process take?",
+      "questionVariants": [
+        "How long does the fingerprinting process take?"
+      ],
+      "answer": "The actual fingerprint capture takes less than 5 minutes. Results are typically available quickly depending on the agency or recipient.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fingerprinting",
+        "time",
+        "livescan"
+      ],
+      "searchText": "how long does the fingerprinting process take? the actual fingerprint capture takes less than 5 minutes. results are typically available quickly depending on the agency or recipient."
+    },
+    {
+      "id": "faq-fingerprinting-security",
+      "intent": "faq",
+      "title": "How secure is the fingerprint submission process?",
+      "questionVariants": [
+        "How secure is the fingerprint submission process?"
+      ],
+      "answer": "All fingerprints are submitted electronically through encrypted channels using the National WebCheck system. This ensures secure, confidential, and accurate processing.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "security",
+        "encryption",
+        "safe"
+      ],
+      "searchText": "how secure is the fingerprint submission process? all fingerprints are submitted electronically through encrypted channels using the national webcheck system. this ensures secure, confidential, and accurate processing."
+    },
+    {
+      "id": "faq-fingerprinting-appointments",
+      "intent": "faq",
+      "title": "Do I need an appointment for fingerprinting?",
+      "questionVariants": [
+        "Do I need an appointment for fingerprinting?"
+      ],
+      "answer": "Yes. Appointments must be made online at [register.fastfingerprints.com](https://register.fastfingerprints.com/account-entry). Walk-ins are not accepted.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "appointments",
+        "fingerprinting",
+        "schedule"
+      ],
+      "searchText": "do i need an appointment for fingerprinting? yes. appointments must be made online at [register.fastfingerprints.com](https://register.fastfingerprints.com/account-entry). walk-ins are not accepted."
+    },
+    {
+      "id": "faq-fingerprinting-reschedule",
+      "intent": "faq",
+      "title": "Can I cancel or reschedule my appointment?",
+      "questionVariants": [
+        "Can I cancel or reschedule my appointment?"
+      ],
+      "answer": "Yes. You can cancel or reschedule your fingerprinting appointment online at [fastfingerprints.com/cancel-appointment](https://www.fastfingerprints.com/cancel-appointment/).",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "appointments",
+        "cancel",
+        "reschedule"
+      ],
+      "searchText": "can i cancel or reschedule my appointment? yes. you can cancel or reschedule your fingerprinting appointment online at [fastfingerprints.com/cancel-appointment](https://www.fastfingerprints.com/cancel-appointment/)."
+    },
+    {
+      "id": "faq-status-receipt",
+      "intent": "faq",
+      "title": "How can I check my background check status or get my receipt?",
+      "questionVariants": [
+        "How can I check my background check status or get my receipt?"
+      ],
+      "answer": "You can check the status of your background check or retrieve your receipt online at [fastfingerprints.com/check-my-status](https://www.fastfingerprints.com/check-my-status/).",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "status",
+        "receipt",
+        "results"
+      ],
+      "searchText": "how can i check my background check status or get my receipt? you can check the status of your background check or retrieve your receipt online at [fastfingerprints.com/check-my-status](https://www.fastfingerprints.com/check-my-status/)."
+    },
+    {
+      "id": "faq-out-of-state",
+      "intent": "faq",
+      "title": "Can out-of-state applicants use your services?",
+      "questionVariants": [
+        "Can out-of-state applicants use your services?"
+      ],
+      "answer": "Yes. FastFingerprints has a nationwide network of Live Scan locations, making it possible for applicants outside Ohio or Florida to complete fingerprinting services.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "out-of-state",
+        "nationwide",
+        "fingerprinting"
+      ],
+      "searchText": "can out-of-state applicants use your services? yes. fastfingerprints has a nationwide network of live scan locations, making it possible for applicants outside ohio or florida to complete fingerprinting services."
+    },
+    {
+      "id": "faq-fingerprinting-location",
+      "intent": "faq",
+      "title": "Where is Mailbox Plus located for fingerprinting services?",
+      "questionVariants": [
+        "Where is Mailbox Plus located for fingerprinting services?"
+      ],
+      "answer": "We are located in Gristmill Village, next to Pub Frato in Concord Township, Ohio. Our store provides convenient access to FastFingerprints services for Lake County residents, including Mentor, Painesville, and Eastlake.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "Concord Township",
+        "location",
+        "Lake County"
+      ],
+      "searchText": "where is mailbox plus located for fingerprinting services? we are located in gristmill village, next to pub frato in concord township, ohio. our store provides convenient access to fastfingerprints services for lake county residents, including mentor, painesville, and eastlake."
+    },
+    {
+      "id": "faq-insurance-what-is",
+      "intent": "faq",
+      "title": "What is shipping insurance?",
+      "questionVariants": [
+        "What is shipping insurance?"
+      ],
+      "answer": "Shipping insurance provides financial protection for your package if it is lost or damaged during transit. Our coverage is offered through Marsh, a trusted third-party insurer.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "insurance",
+        "coverage",
+        "marsh"
+      ],
+      "searchText": "what is shipping insurance? shipping insurance provides financial protection for your package if it is lost or damaged during transit. our coverage is offered through marsh, a trusted third-party insurer."
+    },
+    {
+      "id": "faq-insurance-why-needed",
+      "intent": "faq",
+      "title": "Why do I need shipping insurance?",
+      "questionVariants": [
+        "Why do I need shipping insurance?"
+      ],
+      "answer": "Standard carrier liability is limited and may not fully cover the value of your items. Insurance ensures you're reimbursed up to the declared value if your package is lost or damaged.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "insurance",
+        "carrier",
+        "limits"
+      ],
+      "searchText": "why do i need shipping insurance? standard carrier liability is limited and may not fully cover the value of your items. insurance ensures you're reimbursed up to the declared value if your package is lost or damaged."
+    },
+    {
+      "id": "faq-insurance-coverage-amount",
+      "intent": "faq",
+      "title": "How much coverage can I purchase?",
+      "questionVariants": [
+        "How much coverage can I purchase?"
+      ],
+      "answer": "We offer coverage up to $50,000 per package when packed by our professional staff, subject to Marsh's policy terms.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "coverage",
+        "limits",
+        "marsh"
+      ],
+      "searchText": "how much coverage can i purchase? we offer coverage up to $50,000 per package when packed by our professional staff, subject to marsh's policy terms."
+    },
+    {
+      "id": "faq-insurance-eligible-items",
+      "intent": "faq",
+      "title": "What types of items are eligible for insurance?",
+      "questionVariants": [
+        "What types of items are eligible for insurance?"
+      ],
+      "answer": "Most standard shipments can be insured. However, certain prohibited or restricted items—like cash, hazardous goods, or perishables—are not eligible. Ask us before shipping high-value or unusual items.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "eligibility",
+        "restricted",
+        "items"
+      ],
+      "searchText": "what types of items are eligible for insurance? most standard shipments can be insured. however, certain prohibited or restricted items—like cash, hazardous goods, or perishables—are not eligible. ask us before shipping high-value or unusual items."
+    },
+    {
+      "id": "faq-insurance-require-professional-packing",
+      "intent": "faq",
+      "title": "Do I need to use your packing services to qualify?",
+      "questionVariants": [
+        "Do I need to use your packing services to qualify?"
+      ],
+      "answer": "Yes. For insurance to apply, packages must be packed by our professional staff. This ensures your item is properly protected and meets claim requirements.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "packing",
+        "requirements",
+        "claims"
+      ],
+      "searchText": "do i need to use your packing services to qualify? yes. for insurance to apply, packages must be packed by our professional staff. this ensures your item is properly protected and meets claim requirements."
+    },
+    {
+      "id": "faq-insurance-proof-of-value",
+      "intent": "faq",
+      "title": "What proof of value do I need?",
+      "questionVariants": [
+        "What proof of value do I need?"
+      ],
+      "answer": "Claims require proof of value, such as a sales receipt, appraisal, or invoice. This ensures reimbursement matches the true value of your shipment.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "proof",
+        "value",
+        "claims"
+      ],
+      "searchText": "what proof of value do i need? claims require proof of value, such as a sales receipt, appraisal, or invoice. this ensures reimbursement matches the true value of your shipment."
+    },
+    {
+      "id": "faq-insurance-how-to-file",
+      "intent": "faq",
+      "title": "How do I file a claim?",
+      "questionVariants": [
+        "How do I file a claim?"
+      ],
+      "answer": "If your package is lost or damaged, notify us immediately. We'll guide you through the Marsh claim process and assist with the necessary documentation.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "claims",
+        "marsh",
+        "process"
+      ],
+      "searchText": "how do i file a claim? if your package is lost or damaged, notify us immediately. we'll guide you through the marsh claim process and assist with the necessary documentation."
+    },
+    {
+      "id": "faq-insurance-claim-timeline",
+      "intent": "faq",
+      "title": "How long does it take to resolve a claim?",
+      "questionVariants": [
+        "How long does it take to resolve a claim?"
+      ],
+      "answer": "Most claims are processed within 2–4 weeks once all required documentation is provided, though timelines may vary by case.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "claims",
+        "timeline",
+        "processing"
+      ],
+      "searchText": "how long does it take to resolve a claim? most claims are processed within 2–4 weeks once all required documentation is provided, though timelines may vary by case."
+    },
+    {
+      "id": "faq-insurance-exclusions",
+      "intent": "faq",
+      "title": "Are there exclusions to coverage?",
+      "questionVariants": [
+        "Are there exclusions to coverage?"
+      ],
+      "answer": "Yes. Coverage excludes prohibited items, improper packaging, concealed damage not reported promptly, and shipments not packed by our team.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "exclusions",
+        "limits",
+        "policy"
+      ],
+      "searchText": "are there exclusions to coverage? yes. coverage excludes prohibited items, improper packaging, concealed damage not reported promptly, and shipments not packed by our team."
+    },
+    {
+      "id": "faq-insurance-declare-value",
+      "intent": "faq",
+      "title": "How do I declare a shipment's value?",
+      "questionVariants": [
+        "How do I declare a shipment's value?"
+      ],
+      "answer": "At the time of shipping, we'll record the declared value of your item. This amount determines the maximum coverage available.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "value",
+        "declare",
+        "coverage"
+      ],
+      "searchText": "how do i declare a shipment's value? at the time of shipping, we'll record the declared value of your item. this amount determines the maximum coverage available."
+    },
+    {
+      "id": "faq-insurance-fragile-items",
+      "intent": "faq",
+      "title": "Are fragile or antique items covered?",
+      "questionVariants": [
+        "Are fragile or antique items covered?"
+      ],
+      "answer": "Yes, provided they are packed by our professional staff and declared at the correct value. Proper packing is critical for coverage eligibility.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fragile",
+        "antiques",
+        "coverage"
+      ],
+      "searchText": "are fragile or antique items covered? yes, provided they are packed by our professional staff and declared at the correct value. proper packing is critical for coverage eligibility."
+    },
+    {
+      "id": "faq-insurance-oversized",
+      "intent": "faq",
+      "title": "Can oversized shipments be insured?",
+      "questionVariants": [
+        "Can oversized shipments be insured?"
+      ],
+      "answer": "Yes, oversized items can be insured if they are professionally packed and fall within Marsh's coverage guidelines.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "oversized",
+        "freight",
+        "coverage"
+      ],
+      "searchText": "can oversized shipments be insured? yes, oversized items can be insured if they are professionally packed and fall within marsh's coverage guidelines."
+    },
+    {
+      "id": "faq-insurance-intl-shipping",
+      "intent": "faq",
+      "title": "Does insurance cover international shipments?",
+      "questionVariants": [
+        "Does insurance cover international shipments?"
+      ],
+      "answer": "Yes, insurance can cover international shipments, but some restrictions and additional documentation may apply depending on destination country.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "international",
+        "coverage",
+        "shipping"
+      ],
+      "searchText": "does insurance cover international shipments? yes, insurance can cover international shipments, but some restrictions and additional documentation may apply depending on destination country."
+    },
+    {
+      "id": "faq-insurance-cost",
+      "intent": "faq",
+      "title": "How much does shipping insurance cost?",
+      "questionVariants": [
+        "How much does shipping insurance cost?"
+      ],
+      "answer": "Rates are based on the declared value of your shipment. We'll calculate the cost at the time of shipping so you know exactly what you're paying for protection.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "cost",
+        "pricing",
+        "coverage"
+      ],
+      "searchText": "how much does shipping insurance cost? rates are based on the declared value of your shipment. we'll calculate the cost at the time of shipping so you know exactly what you're paying for protection."
+    },
+    {
+      "id": "faq-insurance-multiple-items",
+      "intent": "faq",
+      "title": "Can I insure multiple items in one shipment?",
+      "questionVariants": [
+        "Can I insure multiple items in one shipment?"
+      ],
+      "answer": "Yes, as long as the items are packed securely in one box or crate by our staff. Each package is insured separately by value.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "multiple",
+        "shipments",
+        "coverage"
+      ],
+      "searchText": "can i insure multiple items in one shipment? yes, as long as the items are packed securely in one box or crate by our staff. each package is insured separately by value."
+    },
+    {
+      "id": "faq-insurance-report-damage",
+      "intent": "faq",
+      "title": "How soon should I report damage?",
+      "questionVariants": [
+        "How soon should I report damage?"
+      ],
+      "answer": "Immediately. All visible damage must be reported at the time of delivery or as soon as possible to keep your claim valid.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "damage",
+        "reporting",
+        "claims"
+      ],
+      "searchText": "how soon should i report damage? immediately. all visible damage must be reported at the time of delivery or as soon as possible to keep your claim valid."
+    },
+    {
+      "id": "faq-insurance-track",
+      "intent": "faq",
+      "title": "Will insurance include tracking?",
+      "questionVariants": [
+        "Will insurance include tracking?"
+      ],
+      "answer": "Insurance does not replace tracking but works alongside it. All insured shipments are shipped with a trackable service for added visibility.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "tracking",
+        "insurance"
+      ],
+      "searchText": "will insurance include tracking? insurance does not replace tracking but works alongside it. all insured shipments are shipped with a trackable service for added visibility."
+    },
+    {
+      "id": "faq-insurance-peace-of-mind",
+      "intent": "faq",
+      "title": "What is the Peace of Mind Guarantee?",
+      "questionVariants": [
+        "What is the Peace of Mind Guarantee?"
+      ],
+      "answer": "Our Peace of Mind Guarantee means your package is packed by professionals, insured up to its declared value, and handled with the highest level of care.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/insurance",
+          "lastVerified": "2026-01-02"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "peace of mind",
+        "guarantee",
+        "insurance"
+      ],
+      "searchText": "what is the peace of mind guarantee? our peace of mind guarantee means your package is packed by professionals, insured up to its declared value, and handled with the highest level of care."
+    }
+  ]
 }

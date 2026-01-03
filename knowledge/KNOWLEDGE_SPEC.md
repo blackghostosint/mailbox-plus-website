@@ -9,3 +9,10 @@ The AI must:
 - Not populate business facts unless explicitly instructed
 
 The chatbot is retrieval-only.
+
+Rule:
+No non-FAQ content (micro-problems, services, policies) may be added until all FAQ categories are fully ingested and retrieval tests pass.
+
+Content Freeze Rule
+kb.entries.json may not be modified until retrieval testing and refusal behavior are validated.
+
