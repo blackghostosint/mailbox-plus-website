@@ -1,0 +1,24 @@
+[dotenv@17.2.3] injecting env (1) from .env.local -- tip: ΓÜÖ∩╕Å  override existing env vars with { override: true }
+[dotenv@17.2.3] injecting env (0) from .env -- tip: ≡ƒæÑ sync secrets across teammates & machines: https://dotenvx.com/ops
+Question | Actual | FAQ ID | Score
+---|---|---|---
+Which shipping companies can I use there? | ACCEPT | faq-shipping-carriers | 1.0000
+Can you ship packages internationally? | ACCEPT | faq-shipping-international | 0.9236
+Do you provide tracking numbers after I ship? | ACCEPT | faq-shipping-tracking | 1.0000
+Do you offer shipping insurance? | ACCEPT | faq-shipping-insurance | 1.0000
+Can I return an Amazon package at your store? | ACCEPT | faq-shipping-returns | 0.8264
+Do you pack fragile or breakable items? | ACCEPT | faq-shipping-fragile-items | 0.9307
+Can you print business cards for me? | ACCEPT | faq-business-cards-design | 0.8252
+Do you print flyers or brochures? | ACCEPT | faq-flyers-brochures | 1.0000
+Can you design something before printing it? | ACCEPT | faq-graphic-design | 1.0000
+Do you print postcards for mailing? | ACCEPT | faq-postcard-printing | 1.0000
+Can you help me print a document quickly? | ACCEPT | faq-document-printing | 0.8551
+Can I use a mailbox for my business address? | ACCEPT | faq-business-mailbox-address | 1.0000
+Do you scan documents for customers? | ACCEPT | faq-document-scanning | 1.0000
+Do you offer fax services? | ACCEPT | faq-fax-services | 1.0000
+Can you shred documents securely? | ACCEPT | faq-document-shredding | 1.0000
+Do you offer digital fingerprinting? | ACCEPT | faq-digital-fingerprinting | 1.0000
+Can I get documents notarized there? | ACCEPT | faq-notary-services | 1.0000
+Where is my package right now? | REFUSE | - | 0.9343
+How much does shipping usually cost? | ACCEPT | faq-shipping-cost | 0.9566
+Which carrier should I use for fastest delivery? | REFUSE | - | 0.7566

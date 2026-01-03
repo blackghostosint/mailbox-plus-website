@@ -1,3 +1,32 @@
+## 2026-01-03 — Add 10 Service Discovery FAQ Entries
+
+**Summary**
+Created 10 new FAQ entries to answer general service discovery questions using customer-language patterns ("Do you...?", "Can you...?"). Each entry follows strict non-promissory formatting with factual answers that confirm service availability without making guarantees about timing, pricing, or staff availability.
+
+**Scope**
+- `knowledge/kb.entries.json`: Added 10 new FAQ entries for service discovery queries
+
+**Notes**
+- Services covered: Flyers/Brochures, Graphic Design, Postcard Printing, Document Printing, Business Mailbox Address, Document Scanning, Fax Services, Document Shredding, Digital Fingerprinting, and Notary Services
+- All entries use standardized answer pattern: "Yes, we offer [service]. You can bring your items into the store and we'll help you with this service."
+- Each entry includes 2 question variants using natural customer phrasing
+- All entries reference verified service page URLs on mailboxplusohio.com
+- minimumSimilarity set to exactly 0.78 for all entries
+- Total knowledge base size: 119 entries
+
+## 2026-01-03 — Update FAQ Question Variants and Fix JSON Syntax
+
+**Summary**
+Added missing `questionVariants` to shipping-related FAQ entries (`faq-shipping-carriers` and `faq-shipping-tracking`) to improve customer-language coverage for the chatbot. Also fixed a pre-existing JSON syntax error in `kb.entries.json` that was causing the retrieval test runner to fail.
+
+**Scope**
+- `knowledge/kb.entries.json`: Added variants to `faq-shipping-carriers` and `faq-shipping-tracking`; fixed syntax in `faq-shipping-cost`.
+
+**Notes**
+- Added variants verbatim as requested by user.
+- Fixed a duplicate variant issue during the update process.
+- JSON syntax fix resolved a missing comma and extra quotes in the `faq-shipping-cost` entry.
+
 ## 2026-01-02 — Create Retrieval Test Suite for Chatbot Knowledge Base
 
 **Summary**

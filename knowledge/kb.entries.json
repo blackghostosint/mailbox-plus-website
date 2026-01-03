@@ -9,7 +9,10 @@
         "What shipping carriers do you use?",
         "Do you ship with FedEx?",
         "Do you ship with UPS?",
-        "What carriers are available?"
+        "What carriers are available?",
+        "Which shipping companies can I use there?",
+        "What shipping companies do you work with?",
+        "Who do you ship through?"
       ],
       "answer": "We ship with FedEx, UPS, USPS, and DHL to provide you with flexible options for domestic and international shipping.",
       "confidence": {
@@ -38,7 +41,7 @@
         "dhl",
         "carriers"
       ],
-      "searchText": "carriers shipping fedex ups usps dhl domestic international"
+      "searchText": "carriers shipping companies fedex ups usps dhl domestic international what carriers which carriers choose from work with available options"
     },
     {
       "id": "faq-shipping-tracking",
@@ -48,7 +51,10 @@
         "Will I receive tracking information?",
         "Do you provide tracking numbers?",
         "Can I track my package?",
-        "How do I track my shipment?"
+        "How do I track my shipment?",
+        "Will you give me a tracking number?",
+        "Do you provide tracking numbers after I ship?",
+        "Will I get a tracking number?"
       ],
       "answer": "Yes, every shipment comes with a tracking number so you can monitor your package in real-time.",
       "confidence": {
@@ -75,7 +81,7 @@
         "delivery status",
         "shipping updates"
       ],
-      "searchText": "tracking number monitor package real-time delivery status updates"
+      "searchText": "tracking number monitor package real-time delivery status updates will you give me tracking will I receive tracking information provide tracking"
     },
     {
       "id": "faq-shipping-insurance",
@@ -112,7 +118,7 @@
         "coverage",
         "value"
       ],
-      "searchText": "insurance coverage high-value shipments third-party declared value"
+      "searchText": "insurance coverage high-value shipments third-party declared value do you offer insurance shipping insurance available insure shipment"
     },
     {
       "id": "faq-shipping-international",
@@ -149,7 +155,7 @@
         "customs",
         "duties"
       ],
-      "searchText": "international shipping overseas customs documentation duties"
+      "searchText": "international shipping overseas customs documentation duties can you ship internationally send packages to other countries abroad global worldwide"
     },
     {
       "id": "faq-shipping-customs",
@@ -260,7 +266,7 @@
         "glass",
         "packing"
       ],
-      "searchText": "fragile items glass packing professional services high-value"
+      "searchText": "fragile items glass packing professional services high-value delicate breakable handle pack ship"
     },
     {
       "id": "faq-shipping-custom-boxes",
@@ -335,7 +341,7 @@
         "2-day",
         "ground"
       ],
-      "searchText": "delivery time transit shipping overnight 2-day ground international"
+      "searchText": "delivery time transit shipping overnight 2-day ground international how long does shipping take how much time delivery usually take when will arrive"
     },
     {
       "id": "faq-shipping-dropoff",
@@ -446,7 +452,7 @@
         "amazon",
         "qr code"
       ],
-      "searchText": "returns amazon ups fedex retailers qr code label"
+      "searchText": "returns amazon ups fedex retailers qr code label accept amazon returns process returns return items here return purchases location"
     },
     {
       "id": "faq-shipping-cost",
@@ -458,7 +464,7 @@
         "What affects shipping price?",
         "How do you determine shipping rates?"
       ],
-      "answer": "Rates are based on carrier, package size, weight, destination, and service speed. We'll compare carriers to find the best option.",
+      "answer": "Shipping costs vary based on the carrier, package size, weight, destination, and service speed. To get an exact price, bring your item into the store and we’ll review the available shipping options with you.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
@@ -472,7 +478,12 @@
       ],
       "constraints": {
         "requiresHuman": false,
-        "disallowedFollowups": []
+        "disallowedFollowups": [
+          "exact price",
+          "quote",
+          "cheapest",
+          "how much to ship"
+        ]
       },
       "escalation": {
         "enabled": false,
@@ -3760,6 +3771,366 @@
         "insurance"
       ],
       "searchText": "what is the peace of mind guarantee? our peace of mind guarantee means your package is packed by professionals, insured up to its declared value, and handled with the highest level of care."
+    },
+    {
+      "id": "faq-flyers-brochures",
+      "intent": "faq",
+      "title": "Do you print flyers or brochures?",
+      "questionVariants": [
+        "Do you print flyers or brochures?",
+        "Can you print marketing materials?"
+      ],
+      "answer": "Yes, we offer flyer and brochure printing. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/flyers-brochures",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "flyers",
+        "brochures",
+        "printing",
+        "marketing"
+      ],
+      "searchText": "flyers brochures print printing marketing materials promotional do you print can you print"
+    },
+    {
+      "id": "faq-graphic-design",
+      "intent": "faq",
+      "title": "Can you design something before printing it?",
+      "questionVariants": [
+        "Can you design something before printing it?",
+        "Do you offer design services?"
+      ],
+      "answer": "Yes, we offer graphic design services. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/graphic-design",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "graphic design",
+        "design",
+        "layout",
+        "creative"
+      ],
+      "searchText": "graphic design design services layout creative can you design do you design before printing"
+    },
+    {
+      "id": "faq-postcard-printing",
+      "intent": "faq",
+      "title": "Do you print postcards for mailing?",
+      "questionVariants": [
+        "Do you print postcards for mailing?",
+        "Can you print postcards?"
+      ],
+      "answer": "Yes, we offer postcard printing. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/postcard-printing",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "postcards",
+        "printing",
+        "mailing",
+        "direct mail"
+      ],
+      "searchText": "postcards postcard printing mailing direct mail do you print can you print"
+    },
+    {
+      "id": "faq-document-printing",
+      "intent": "faq",
+      "title": "Can you help me print a document?",
+      "questionVariants": [
+        "Can you help me print a document?",
+        "Do you offer document printing?"
+      ],
+      "answer": "Yes, we offer document printing. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/copy-print/document-printing",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "document",
+        "printing",
+        "copies",
+        "print"
+      ],
+      "searchText": "document printing print copies can you print do you print help me print"
+    },
+    {
+      "id": "faq-business-mailbox-address",
+      "intent": "faq",
+      "title": "Can I use a mailbox for my business address?",
+      "questionVariants": [
+        "Can I use a mailbox for my business address?",
+        "Do you offer business mailbox rental?"
+      ],
+      "answer": "Yes, we offer business mailbox rental. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/mailbox-rental",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "business address",
+        "mailbox rental",
+        "professional address",
+        "business"
+      ],
+      "searchText": "business address mailbox rental professional address business mailbox can I use do you offer"
+    },
+    {
+      "id": "faq-document-scanning",
+      "intent": "faq",
+      "title": "Do you scan documents for customers?",
+      "questionVariants": [
+        "Do you scan documents for customers?",
+        "Can you digitize my documents?"
+      ],
+      "answer": "Yes, we offer document scanning. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/document-scanning",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "scanning",
+        "digitize",
+        "document conversion",
+        "digital"
+      ],
+      "searchText": "document scanning scan digitize digital conversion do you scan can you scan"
+    },
+    {
+      "id": "faq-fax-services",
+      "intent": "faq",
+      "title": "Do you offer fax services?",
+      "questionVariants": [
+        "Do you offer fax services?",
+        "Can I send a fax there?"
+      ],
+      "answer": "Yes, we offer fax services. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/fax-services",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fax",
+        "faxing",
+        "send fax",
+        "receive fax"
+      ],
+      "searchText": "fax services faxing send fax receive fax do you offer can I send"
+    },
+    {
+      "id": "faq-document-shredding",
+      "intent": "faq",
+      "title": "Can you shred documents securely?",
+      "questionVariants": [
+        "Can you shred documents securely?",
+        "Do you offer shredding services?"
+      ],
+      "answer": "Yes, we offer document shredding. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/shredding",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "shredding",
+        "secure destruction",
+        "document disposal",
+        "privacy"
+      ],
+      "searchText": "shredding shred documents secure destruction disposal privacy can you shred do you offer"
+    },
+    {
+      "id": "faq-digital-fingerprinting",
+      "intent": "faq",
+      "title": "Do you offer digital fingerprinting?",
+      "questionVariants": [
+        "Do you offer digital fingerprinting?",
+        "Can I get fingerprinted there?"
+      ],
+      "answer": "Yes, we offer digital fingerprinting. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/specialty/digital-fingerprinting",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fingerprinting",
+        "digital fingerprinting",
+        "background check",
+        "biometric"
+      ],
+      "searchText": "digital fingerprinting fingerprinting background check biometric do you offer can I get fingerprinted"
+    },
+    {
+      "id": "faq-notary-services",
+      "intent": "faq",
+      "title": "Can I get documents notarized there?",
+      "questionVariants": [
+        "Can I get documents notarized there?",
+        "Do you offer notary services?"
+      ],
+      "answer": "Yes, we offer notary services. You can bring your items into the store and we'll help you with this service.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/home-business/notary-services",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "notary",
+        "notarization",
+        "notary public",
+        "legal documents"
+      ],
+      "searchText": "notary services notarization notary public legal documents can I get notarized do you offer"
     }
   ]
 }
