@@ -1,3 +1,19 @@
+## 2026-01-04 — Fix Critical Bug: Respect Per-Entry Confidence Thresholds
+
+**Summary**
+Fixed critical bug in `chat-retrieve.ts` where the retrieval function used a hardcoded global `MINIMUM_SIMILARITY` threshold of 0.78 for all matches, completely ignoring the individual `confidence.minimumSimilarity` values configured for each FAQ entry in `kb.entries.json`. This caused all address queries to be refused because they scored between 0.62-0.78, below the global threshold but above the entry-specific threshold.
+
+**Scope**
+- `netlify/functions/chat-retrieve.ts` - Updated lines 266 and 271 to use `bestMatch.entry.confidence.minimumSimilarity` instead of hardcoded `MINIMUM_SIMILARITY` constant
+
+**Notes**
+- Root cause: Retrieval logic never checked the entry-specific `confidence.minimumSimilarity` field, rendering it useless
+- The `faq-store-location` entry was correctly configured with `minimumSimilarity: 0.62`, but the code rejected any score below 0.78
+- Fix allows each FAQ entry to define its own acceptable threshold based on semantic difficulty
+- All 24 retrieval test cases passed after fix (6 direct, 6 paraphrase, 3 ambiguous, 5 operational, 4 out-of-scope)
+- This completes the three-part fix: (1) added searchText, (2) regenerated embeddings, (3) fixed threshold logic
+- Previous attempts failed because we were fixing symptoms (embeddings, thresholds in KB) but not the root cause (code ignoring thresholds)
+
 ## 2026-01-04 — Regenerate Embeddings with Store Location SearchText
 
 **Summary**
