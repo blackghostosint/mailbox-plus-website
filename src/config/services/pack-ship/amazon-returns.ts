@@ -94,7 +94,7 @@ export const amazonReturnsService: Service = {
           },
           {
             title: "Confirmation: Label Sent Successfully",
-            image: "step-10-abel-sentto-us.webp",
+            image: "step-10-label-sentto-us.webp",
             description: "Ensure your email has been sent successfully. You can now head to our store knowing your paperwork is being handled."
           },
           {
@@ -109,7 +109,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
                   <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
                 </div>
-                <img src="/images/${step.image}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>

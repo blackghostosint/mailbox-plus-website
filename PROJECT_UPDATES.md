@@ -150,7 +150,10 @@ Standardized Artwork, Bicycle, and Golf Club shipping pages to full V2 complianc
 - `src/config/services/pack-ship/specialty-shipping.ts`
 - `src/pages/ArtworkShipping.tsx`
 - `src/pages/BicycleShipping.tsx`
-- `src/pages/GolfClubShipping.tsx`
+- Deleted redundant legacy files (`DocumentShredding.tsx`)
 
 **Notes**
+- Fixed broken image links on Amazon Returns page by implementing `getServiceImageUrl` for step-by-step guide and correcting filename typo (`abel` -> `label`).
+- Confirmed all images are served from Cloudflare R2 per requirements.
+- Preserved the exact 11-step flow and all image references for Amazon Returns.
 - All specialty shipping pages are now fully configuration-driven and V2-compliant.
