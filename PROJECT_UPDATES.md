@@ -1,3 +1,19 @@
+## 2026-01-04 — Fix Critical Netlify Deployment Bug for Embeddings
+
+**Summary**
+Fixed production deployment issue where chatbot was refusing all queries due to missing embeddings file in Netlify function bundle. The `netlify.toml` configuration was still referencing the old `.embedding-cache.json` instead of the new `embeddings.json`, preventing the precomputed embeddings from being deployed.
+
+**Scope**
+- `netlify.toml` - Updated `included_files` to reference `embeddings.json` instead of `.embedding-cache.json`
+
+**Notes**
+- Root cause: Netlify's function bundler excluded `embeddings.json` because it wasn't listed in `included_files`
+- Symptom: All chatbot queries returned refusal message despite passing local tests
+- Function logs showed only "/" indicating initialization failure
+- `chat-retrieve.ts` was throwing error when embeddings.json not found, falling back to refuse on all queries
+- After this fix, embeddings.json (5.2MB) will be included in every function deployment
+- This completes the build-time embeddings migration for production
+
 ## 2026-01-04 — Implement Build-Time Embeddings for Chatbot Retrieval
 
 **Summary**
