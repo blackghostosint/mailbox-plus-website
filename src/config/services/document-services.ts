@@ -46,7 +46,28 @@ export const documentServices: Service[] = [
             },
             {
                 heading: "Full-Service EDDM Support",
-                body: "Mailbox Plus handles the entire process: \n• <strong>Design and printing</strong> of postcards\n• <strong>Sorting and bundling</strong> for USPS route delivery\n• <strong>Paperwork assistance</strong> with the USPS program\n• <strong>Drop-off coordination</strong> with the local post office",
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Design & Printing:</strong> Professional postcards and brochures.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
+                        </li>
+                    </ul>
+                `,
                 isFullWidth: true
             }
         ],

@@ -24,11 +24,47 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is Better for Drop Offs",
-                body: "• <strong>Speed:</strong> We get you in and out fast so you can get back to your day.\n• <strong>No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.\n• <strong>Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.\n• <strong>Multi-Carrier:</strong> We accept drop-offs for FedEx and USPS packages too.\n• <strong>Friendly Staff:</strong> Our team is always ready to help with a smile.\n• <strong>Convenience:</strong> Easy parking and a central location in Concord Township."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Speed:</strong> In and out fast so you can get back to your day.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Your Local Shipping Center",
-                body: "• <strong>UPS Services:</strong> Authorized drop-off point for all UPS Ground and Air packages.\n• <strong>FedEx & USPS:</strong> We also accept drop-offs for FedEx and USPS shipments.\n• <strong>Packing Help:</strong> Need to repackage? We have boxes, tape, and bubble wrap for sale.\n• <strong>Label Printing:</strong> We can print your shipping label for you if you don't have a printer."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier:</strong> We accept drop-offs for UPS, FedEx and USPS packages.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Packing Help:</strong> Professional supplies and expertise available on-site.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -124,11 +160,47 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus?",
-                body: "• <strong>Faster Service:</strong> We value your time and ensure a quick, efficient experience.\n• <strong>No Long Lines:</strong> Get the services you need without the wait.\n• <strong>Local Ownership:</strong> We are proud members of the Concord Township community.\n• <strong>Multi-Carrier Options:</strong> Access to all major carriers (UPS, FedEx, USPS, DHL) in one place.\n• <strong>Transparent Pricing:</strong> Competitive rates with no hidden fees.\n• <strong>More Services:</strong> Offering everything from notary services to passport photos."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We value your time and ensure a quick, efficient experience.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> Access to UPS, FedEx, USPS, and DHL in one place.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Local Ownership:</strong> Proud members of the Concord Township community.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Complete Business & Shipping Solutions",
-                body: "• <strong>Multi-Carrier Shipping:</strong> We ship everything from letters to freight using UPS, FedEx, USPS, and DHL.\n• <strong>Mailbox Rentals:</strong> Secure private mailboxes with a real street address, perfect for home-based businesses.\n• <strong>Professional Printing:</strong> From business cards to wide-format posters, we handle all your printing needs.\n• <strong>Notary & More:</strong> On-site notary public, faxing, scanning, and secure document shredding."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Mailbox Rentals:</strong> Secure private mailboxes with a real street address.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Printing & Notary:</strong> Full range of business support services on-site.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -170,11 +242,41 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus Beats the Competition",
-                body: "• <strong>Faster Service:</strong> Skip the long lines typical of big box stores.\n• <strong>No Long Lines:</strong> We value your time and get you on your way quickly.\n• <strong>Local Ownership:</strong> We are a dedicated part of the Concord Township community.\n• <strong>Multi-Carrier Options:</strong> We aren't limited to just FedEx; we offer UPS, USPS, and DHL too.\n• <strong>Transparent Pricing:</strong> Honest rates with no hidden surprises.\n• <strong>More Services:</strong> From notary public to key duplication, we do it all."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> Skip the long lines typical of big box stores.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Choice:</strong> Compare rates across FedEx, UPS, USPS, and DHL.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Your One-Stop Business Center",
-                body: "• <strong>Authorized Shipping:</strong> Official ship center for FedEx, UPS, USPS, and DHL.\n• <strong>Print & Copy:</strong> Professional color and B&W copies, binding, laminating, and business cards.\n• <strong>Office Services:</strong> Notary public, faxing, scanning, and secure document shredding.\n• <strong>Rentals & Returns:</strong> Private mailbox rentals and easy returns for FedEx, Amazon, and more."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Print & Copy:</strong> Professional document finishing and business cards.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Office Services:</strong> Notary public, faxing, scanning, and secure shredding.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -216,11 +318,41 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Choose Mailbox Plus Over the Post Office?",
-                body: "• <strong>Faster Service:</strong> We pride ourselves on quick, efficient transactions.\n• <strong>No Long Lines:</strong> Don't waste your lunch break waiting in line.\n• <strong>Local Ownership:</strong> We are a small business dedicated to our Concord Township community.\n• <strong>Multi-Carrier Options:</strong> Unlike the Post Office, we offer UPS, FedEx, and DHL options too.\n• <strong>Transparent Pricing:</strong> We help you find the most cost-effective shipping method.\n• <strong>More Services:</strong> Notary, fax, copy, and shredding services are all available here."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We pride ourselves on quick, efficient transactions.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Choice:</strong> Access to UPS, FedEx, and DHL for when USPS isn't the best fit.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Complete Shipping & Postal Services",
-                body: "• <strong>USPS Shipping:</strong> Access Priority Mail, Express, First Class, and International shipping.\n• <strong>Private Mailboxes:</strong> Secure mailboxes with a street address, package receiving, and 24/7 access options.\n• <strong>Stamps & Supplies:</strong> Buy stamps and get professional packing supplies without the hassle.\n• <strong>Multi-Carrier Choice:</strong> We also ship via UPS, FedEx, and DHL for when USPS isn't the best fit."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">USPS Shipping:</strong> Priority Mail, Express, First Class, and International.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Private Mailboxes:</strong> Secure mailboxes with real street addresses and 24/7 access.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -266,11 +398,41 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is Concord Township's Top Shipping Choice",
-                body: "• <strong>Convenience:</strong> One stop for all your shipping, packing, and business needs.\n• <strong>Choice:</strong> We are the only local center offering UPS, FedEx, USPS, and DHL under one roof.\n• <strong>Local Ownership:</strong> We are your neighbors, dedicated to serving our community with care.\n• <strong>Efficiency:</strong> Fast service means you get back to your day sooner.\n• <strong>Expertise:</strong> Our staff are trained packing and shipping professionals.\n• <strong>Value:</strong> Competitive pricing and the ability to shop around for the best rate."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Choice:</strong> Only local center offering UPS, FedEx, USPS, and DHL under one roof.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Expertise:</strong> Trained professionals for packing and global logistics.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Full-Service Shipping Solutions",
-                body: "• <strong>Domestic Shipping:</strong> Ground, Express, and Overnight shipping options to anywhere in the US.\n• <strong>International Shipping:</strong> Reach the world with our global shipping partners: DHL, FedEx, and UPS.\n• <strong>Professional Packing:</strong> We pack it right to protect your items and meet carrier insurance standards.\n• <strong>Package Receiving:</strong> Never worry about porch pirates again with our secure package receiving service."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Domestic & International:</strong> Ground, Express, and Overnight to anywhere in the world.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Package Receiving:</strong> Secure site for all your incoming deliveries.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -506,11 +668,41 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Your Business Logistics Partner",
-                body: "• <strong>Time Efficiency:</strong> Drop off all your packages for different carriers in one stop.\n• <strong>Cost Savings:</strong> We help you find the most economical shipping method for every order.\n• <strong>Professional Image:</strong> Rent a mailbox for a professional street address, not a PO Box.\n• <strong>Reliability:</strong> Trust us to pack and ship your products safely to your customers.\n• <strong>Support:</strong> We are always here to answer your questions and solve shipping problems.\n• <strong>Local Focus:</strong> We understand the needs of local businesses in Concord Township."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Efficiency:</strong> Single stop for UPS, FedEx, USPS, and DHL logistics.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Professional Image:</strong> Prestigious street address for your home-based business.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Services That Scale With You",
-                body: "• <strong>Multi-Carrier Shipping:</strong> Choose the best carrier for each shipment based on price and speed.\n• <strong>Business Printing:</strong> Marketing materials, invoices, and labels printed on demand.\n• <strong>Mailbox Rentals:</strong> Secure package receiving from all carriers to keep your home address private.\n• <strong>Fulfillment Help:</strong> We can help pack and ship your orders during busy seasons."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">On-Demand Printing:</strong> Marketing materials and invoices printed when you need them.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Fulfillment Support:</strong> Expert packing and shipping assistance during peak seasons.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
@@ -556,11 +748,41 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Drop Off at Mailbox Plus?",
-                body: "• <strong>Faster Service:</strong> In and out in minutes—no waiting in endless lines.\n• <strong>No Long Lines:</strong> A more convenient alternative to the busy Post Office.\n• <strong>Local Ownership:</strong> Supporting a local business that cares about your satisfaction.\n• <strong>Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.\n• <strong>Transparent Pricing:</strong> If you need to buy postage, we offer fair and clear rates.\n• <strong>More Services:</strong> Pick up some stamps, rent a mailbox, or get documents notarized while you're here."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> In and out in minutes—no waiting in endless lines.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Your Local Shipping Hub",
-                body: "• <strong>USPS Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.\n• <strong>Package Drop-Offs:</strong> Accepting pre-labeled packages for USPS, UPS, and FedEx.\n• <strong>Multi-Carrier Shipping:</strong> Compare rates across carriers to save money on your shipments.\n• <strong>Packing Services:</strong> Professional packing to ensure your items arrive safely."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Postal Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Packing Services:</strong> Professional packing to ensure your items arrive safely.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [
