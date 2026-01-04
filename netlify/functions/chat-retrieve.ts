@@ -73,14 +73,38 @@ function initializeResources(): void {
         return; // Already initialized
     }
 
-    // Load KB
-    const kbPath = join(process.cwd(), 'knowledge', 'kb.entries.json');
-    kb = JSON.parse(readFileSync(kbPath, 'utf-8'));
+    // Load KB - Try multiple possible paths for serverless environment
+    const kbPaths = [
+        join(process.cwd(), 'knowledge', 'kb.entries.json'),
+        join(process.cwd(), '..', 'knowledge', 'kb.entries.json'),
+        join(__dirname, '..', '..', 'knowledge', 'kb.entries.json')
+    ];
+
+    let foundKb = false;
+    for (const path of kbPaths) {
+        if (existsSync(path)) {
+            kb = JSON.parse(readFileSync(path, 'utf-8'));
+            foundKb = true;
+            break;
+        }
+    }
+
+    if (!foundKb) {
+        throw new Error('Knowledge base not found');
+    }
 
     // Load embedding cache
-    const cachePath = join(process.cwd(), 'knowledge', '.embedding-cache.json');
-    if (existsSync(cachePath)) {
-        embeddingCache = JSON.parse(readFileSync(cachePath, 'utf-8'));
+    const cachePaths = [
+        join(process.cwd(), 'knowledge', '.embedding-cache.json'),
+        join(process.cwd(), '..', 'knowledge', '.embedding-cache.json'),
+        join(__dirname, '..', '..', 'knowledge', '.embedding-cache.json')
+    ];
+
+    for (const path of cachePaths) {
+        if (existsSync(path)) {
+            embeddingCache = JSON.parse(readFileSync(path, 'utf-8'));
+            break;
+        }
     }
 
     // Initialize Gemini
@@ -143,19 +167,17 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 /**
  * Calculate semantic similarity using Gemini embeddings and cosine similarity
  */
-async function calculateSimilarity(query: string, entryId: string, entryTexts: string[]): Promise<number> {
-    const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
-
+function calculateSimilarity(queryEmbedding: number[], entryId: string, entryTexts: string[]): number {
     let maxSimilarity = 0;
 
     for (const text of entryTexts) {
         const cacheKey = `${entryId}::${text}`;
-        let entryEmbedding = embeddingCache[cacheKey];
+        const entryEmbedding = embeddingCache[cacheKey];
 
-        // Generate embedding on-the-fly if not cached
+        // We no longer generate embeddings on-the-fly here to avoid excessive API calls
+        // and timeouts. We rely on the pre-generated cache.
         if (!entryEmbedding) {
-            entryEmbedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
-            embeddingCache[cacheKey] = entryEmbedding; // Cache for next request
+            continue;
         }
 
         const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
@@ -173,6 +195,9 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
         throw new Error('Knowledge base not initialized');
     }
 
+    // Generate query embedding ONCE
+    const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
+
     let bestMatch: { entry: KBEntry; score: number } | null = null;
     let secondBestScore = 0;
 
@@ -183,7 +208,7 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
             entry.title
         ];
 
-        const score = await calculateSimilarity(query, entry.id, textsToCheck);
+        const score = calculateSimilarity(queryEmbedding, entry.id, textsToCheck);
 
         if (score > (bestMatch?.score || 0)) {
             secondBestScore = bestMatch?.score || 0;
