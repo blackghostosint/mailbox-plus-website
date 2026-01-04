@@ -3,13 +3,11 @@
   publish = "dist"
   functions = "netlify/functions"
 
-[[redirects]]
-  from = "/api/chat/retrieve"
-  to = "/.netlify/functions/chat-retrieve"
-  status = 200
-
 [functions]
-  included_files = ["knowledge/kb.entries.json", "knowledge/embeddings.json"]
+  included_files = [
+    "knowledge/kb.entries.json",
+    "knowledge/embeddings.json"
+  ]
 
 [[redirects]]
   from = "/api/*"
