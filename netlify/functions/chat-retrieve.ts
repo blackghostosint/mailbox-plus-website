@@ -439,9 +439,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                type: 'refuse',
-                debugError: (error as Error).message,
-                debugStack: (error as Error).stack
+                type: 'refuse'
             })
         };
     }
