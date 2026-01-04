@@ -69,17 +69,20 @@ let embeddingModel: any = null;
  * Initialize resources on cold start
  */
 function initializeResources(): void {
-    if (kb && genAI) {
-        return; // Already initialized
+    // Only return early if EVERYTHING is initialized
+    if (kb && genAI && Object.keys(embeddingCache || {}).length > 0) {
+        return;
     }
+
+    console.log('--- Initializing Resources ---');
 
     // Load KB - Try multiple possible paths for serverless environment
     const kbPaths = [
         join(process.cwd(), 'knowledge', 'kb.entries.json'),
         join(process.cwd(), '..', 'knowledge', 'kb.entries.json'),
         join(__dirname, '..', '..', 'knowledge', 'kb.entries.json'),
-        join(__dirname, 'knowledge', 'kb.entries.json'), // Often for bundled functions
-        '/var/task/knowledge/kb.entries.json' // Absolute path in some serverless environments
+        join(__dirname, 'knowledge', 'kb.entries.json'),
+        '/var/task/knowledge/kb.entries.json'
     ];
 
     let foundKb = false;
@@ -87,32 +90,21 @@ function initializeResources(): void {
         if (existsSync(path)) {
             try {
                 const raw = readFileSync(path, 'utf-8');
-                console.log('Parsing JSON source', {
-                    source: 'kb',
-                    path: path,
-                    length: raw.length,
-                    preview: raw.slice(0, 100)
-                });
                 kb = JSON.parse(raw);
                 foundKb = true;
-                console.log(`Successfully loaded ${kb.entries?.length || 0} KB entries`);
+                console.log(`Successfully loaded ${kb?.entries?.length || 0} KB entries from ${path}`);
                 break;
             } catch (err) {
-                console.error('Failed to parse KB JSON file', {
-                    path,
-                    error: err
-                });
-                throw new Error(`Invalid JSON in ${path}: ${(err as Error).message}`);
+                console.error(`Failed to parse KB JSON at ${path}`, err);
             }
         }
     }
 
     if (!foundKb) {
-        // Fallback or detailed error
-        throw new Error(`Knowledge base not found. Checked: ${kbPaths.join(', ')}`);
+        throw new Error(`Knowledge base not found. Paths checked: ${kbPaths.join(', ')}`);
     }
 
-    // Load precomputed embeddings from build-time artifact
+    // Load precomputed embeddings
     const embeddingPaths = [
         join(process.cwd(), 'knowledge', 'embeddings.json'),
         join(process.cwd(), '..', 'knowledge', 'embeddings.json'),
@@ -126,29 +118,19 @@ function initializeResources(): void {
         if (existsSync(path)) {
             try {
                 const fileContent = readFileSync(path, 'utf-8');
-                console.log('Parsing JSON source', {
-                    source: 'embeddings',
-                    path: path,
-                    length: fileContent.length,
-                    preview: fileContent.slice(0, 100)
-                });
                 const embeddingData = JSON.parse(fileContent);
                 embeddingCache = embeddingData.embeddings || {};
                 foundEmbeddings = true;
-                console.log(`Successfully loaded ${Object.keys(embeddingCache).length} embeddings`);
+                console.log(`Successfully loaded ${Object.keys(embeddingCache).length} embeddings from ${path}`);
                 break;
             } catch (error) {
-                console.error('Failed to parse embeddings JSON file', {
-                    path,
-                    error: error
-                });
-                throw new Error(`Invalid JSON in ${path}: ${(error as Error).message}`);
+                console.error(`Failed to parse embeddings JSON at ${path}`, error);
             }
         }
     }
 
     if (!foundEmbeddings) {
-        throw new Error('Precomputed embeddings not found. Run `npm run build:embeddings` first.');
+        throw new Error('Precomputed embeddings not found. Ensure knowledge/embeddings.json exists.');
     }
 
     // Initialize Gemini
@@ -158,6 +140,7 @@ function initializeResources(): void {
     }
     genAI = new GoogleGenerativeAI(apiKey);
     embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+    console.log('--- Initialization Complete ---');
 }
 
 // ========================================
@@ -415,7 +398,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
         const result = await retrieveAnswer(question.trim());
 
         // Build response
-        const response: ChatbotResponse = result.matched
+        const response: any = result.matched
             ? {
                 type: 'accept',
                 answer: result.answer!,
@@ -424,7 +407,15 @@ export const handler: Handler = async (event: HandlerEvent) => {
                 confidence: result.confidence!
             }
             : {
-                type: 'refuse'
+                type: 'refuse',
+                // TEMPORARY DEBUG INFO
+                debug: {
+                    bestMatchId: (result as any).faqId,
+                    score: (result as any).confidence,
+                    effectiveMin: (result as any).effectiveMin,
+                    gap: (result as any).gap,
+                    cacheSize: Object.keys(embeddingCache || {}).length
+                }
             };
 
         return {
