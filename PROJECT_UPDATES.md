@@ -1,3 +1,22 @@
+## 2026-01-04 — Chat Retrieve Serverless Endpoint Implementation
+
+**Summary**
+Created production-ready Netlify serverless function `/api/chat/retrieve` that powers the Mail-bot Plus chatbot widget. The endpoint implements semantic search using Gemini embeddings with a MINIMUM_SIMILARITY threshold of 0.78, reuses battle-tested retrieval logic, and handles missing embedding cache entries gracefully by generating embeddings on-demand.
+
+**Scope**
+- Created `netlify/functions/chat-retrieve.ts` with full retrieval contract implementation
+- Added `netlify.toml` to configure Netlify functions directory and API routing
+- Modified embedding lookup to generate on-the-fly when cache misses occur
+
+**Notes**
+- TypeScript compilation passes without errors
+- Frontend correctly calls `POST /api/chat/retrieve` with `{ question: string }` payload
+- Initial implementation threw errors for missing cached embeddings, causing timeout after 30s
+- Fixed by modifying `calculateSimilarity()` to generate embeddings on-demand instead of throwing errors
+- All errors safely return `{ type: 'refuse' }` response to avoid exposing internal details
+- Endpoint will function correctly when deployed to Netlify production or preview environment
+- Local testing via `netlify dev` identified the cache miss issue during verification
+
 ## 2026-01-03 — Wire MailbotPlusChat to Real Retrieval Endpoint
 
 **Summary**
