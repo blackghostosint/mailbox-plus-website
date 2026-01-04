@@ -310,11 +310,18 @@ export const handler: Handler = async (event: HandlerEvent) => {
         };
 
     } catch (error) {
-        // Never expose error details - always refuse
+        // Log error for Netlify function logs
+        console.error('Retrieval Error:', error);
+
+        // Temporarily expose error for debugging production paths
         return {
             statusCode: 200,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ type: 'refuse' })
+            body: JSON.stringify({
+                type: 'refuse',
+                debugError: (error as Error).message,
+                debugStack: (error as Error).stack
+            })
         };
     }
 };
