@@ -330,7 +330,7 @@ export function MailbotPlusChat({
                                 disabled={isAwaitingResponse}
                                 className="flex-1 resize-none border border-slate-200 rounded-xl px-3 py-2 focus:outline-none disabled:opacity-50 transition-all duration-200"
                                 style={{
-                                    focusBoxShadow: '0 0 0 2px rgba(8, 85, 177, 0.25)',
+                                    boxShadow: '0 0 0 2px rgba(8, 85, 177, 0.25)',
                                 }}
                                 onFocus={(e) => {
                                     e.currentTarget.style.borderColor = '#0855B1';

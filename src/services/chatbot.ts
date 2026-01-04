@@ -14,7 +14,7 @@ type ChatbotResponse = ChatbotAcceptResponse | ChatbotRefuseResponse;
 
 export async function submitChatQuestion(question: string): Promise<ChatbotResponse> {
     try {
-        const response = await fetch('/api/chat-retrieve', {
+        const response = await fetch('/.netlify/functions/chat-retrieve', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
