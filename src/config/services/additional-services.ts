@@ -43,16 +43,16 @@ export const additionalServices: Service[] = [
                 body: "Our certified notary ensures documents are handled legally and securely."
             },
             {
-                heading: "Notary Public Services in Concord Township, Ohio",
-                body: `<strong>Get your important documents notarized quickly and professionally</strong> at Mailbox Plus in Concord Township, Ohio. Our <strong>on-site notary public</strong> is available to verify signatures, witness legal documents, and ensure your paperwork meets all official requirements.
-
-We handle a wide range of documents, including <strong>affidavits, contracts, real estate forms, titles, powers of attorney, and legal declarations</strong>. Whether you need a one-time notarization or ongoing business support, our team provides <strong>accurate, efficient, and confidential notary services</strong>.
-
-You’ll need to bring <strong>valid government-issued photo identification</strong> (such as a driver’s license, state ID, or passport) for all signers. Documents must be signed in the presence of the notary to be legally valid.
-
-Mailbox Plus also offers <strong>printing, copying, and scanning</strong> on-site, so you can prepare, notarize, and duplicate your paperwork in one convenient stop.
-
-If you’re searching for <em>notary services near Concord Township</em> or need <em>professional document notarization in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you complete your notarization accurately, securely, and without delay.`,
+                heading: "Professional Notary Services",
+                body: "<strong>Get your important documents notarized quickly and professionally</strong> at Mailbox Plus. Our <strong>on-site notary public</strong> is available to verify signatures and ensure your paperwork meets all official requirements."
+            },
+            {
+                heading: "Witness & Authentication Experts",
+                body: "We handle a wide range of documents, including <strong>affidavits, contracts, real estate forms, titles, and powers of attorney</strong>. Our team provides <strong>accurate and efficient notary services</strong>."
+            },
+            {
+                heading: "What to Bring",
+                body: "You’ll need to bring <strong>valid government-issued photo identification</strong> (such as a driver’s license, state ID, or passport) for all signers. Documents must be signed in the presence of the notary.",
                 isFullWidth: true
             }
         ],
@@ -230,14 +230,16 @@ If you’re searching for <em>notary services near Concord Township</em> or need
                 </ul>`
             },
             {
-                heading: "Nuuly Returns in Concord Township, Ohio",
-                body: `Mailbox Plus is your local, convenient solution for <strong>Nuuly clothing rental returns</strong> in Concord Township and Lake County, Ohio. As an <strong>authorized UPS drop-off location</strong>, we accept Nuuly returns with prepaid UPS labels and provide immediate scanning to help you unlock your next Nuuly box as quickly as possible.
-
-Nuuly is a popular monthly clothing rental subscription from URBN (the parent company of Anthropologie, Free People, and Urban Outfitters), allowing you to rent six items per month for a flat fee. When you're ready to return your items, simply pack them in the reusable Nuuly bag, attach the prepaid UPS return label, and drop it off at Mailbox Plus.
-
-Our team will <strong>scan your return immediately</strong> and provide you with a <strong>UPS receipt for your records</strong>. This ensures your return is tracked and processed quickly, so you can access your next clothing selection without delay.
-
-Whether you're searching for <em>Nuuly returns near Concord Township</em> or need a <em>fast UPS drop-off in Lake County, Ohio</em>, Mailbox Plus offers the friendly, efficient service you need. Visit us today and experience hassle-free Nuuly returns!`,
+                heading: "Simple Nuuly Returns",
+                body: "Mailbox Plus is your local, convenient solution for <strong>Nuuly clothing rental returns</strong>. As an <strong>authorized UPS drop-off location</strong>, we accept Nuuly returns with prepaid labels and provide immediate scanning."
+            },
+            {
+                heading: "How It Works",
+                body: "Nuuly is a monthly clothing rental subscription. When you're ready to return, simply pack your items in the reusable Nuuly bag, attach the prepaid UPS return label, and drop it off at Mailbox Plus."
+            },
+            {
+                heading: "Fast Scanning & Recycling",
+                body: "Our team will <strong>scan your return immediately</strong> and provide you with a <strong>UPS receipt</strong>. This ensures your return is tracked and processed quickly, so you can access your next box without delay.",
                 isFullWidth: true
             }
         ],

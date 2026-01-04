@@ -4,11 +4,12 @@
 Restructured over-dense text blocks across service configuration files to improve readability and conform to the V2 Design System's whitespace requirements. Large "walls of text" were broken into multiple, smaller content sections with distinct headings, triggering the alternating layout pattern in `ServicePageV2`.
 
 **Scope**
-- `src/config/services/pack-ship/packing-services.ts`
-- `src/config/services/pack-ship/carriers.ts`
+- `src/config/services/pack-ship/local-seo.ts`
+- `src/config/services/copy-print.ts`
 - `src/config/services/pack-ship/specialty-shipping.ts`
-- `src/config/micro-problems/packaging.ts`
-- `src/config/micro-problems/shipping.ts`
+- `src/config/services/document-services.ts`
+- `src/config/services/additional-services.ts`
+- `src/config/micro-problems/*.ts` (Audit)
 
 **Notes**
 - Specifically improved "Custom Box Making" and "UPS Authorized Shipper Outlet" pages as requested.

@@ -37,20 +37,16 @@ export const documentServices: Service[] = [
                 body: "EDDM is easy to use and cost-effective."
             },
             {
-                heading: "Every Door Direct Mail Services in Concord Township, Ohio",
-                body: `<strong>Every Door Direct Mail (EDDM)</strong> from Mailbox Plus makes it easy and affordable to reach potential customers in your local area—without needing a mailing list. Serving Concord Township and Lake County, Ohio, we help businesses design, print, and deliver targeted mail campaigns through the <strong>United States Postal Service (USPS)</strong>.
-
-With EDDM, you can <strong>choose specific postal routes</strong> and deliver your postcards, flyers, or brochures directly to every home and business in that area. It’s a powerful way to promote <em>local sales, events, grand openings, and seasonal offers</em>—perfect for small businesses, restaurants, realtors, and service providers.
-
-Mailbox Plus handles the entire process from start to finish, including:
-• <strong>Design and printing</strong> of postcards and mailers
-• <strong>Sorting and bundling</strong> for USPS route delivery
-• <strong>Filing and paperwork assistance</strong> with the USPS EDDM program
-• <strong>Drop-off coordination</strong> with the local post office
-
-We ensure your marketing materials meet USPS size and format requirements while maximizing your reach and minimizing postage costs.
-
-If you’re searching for <em>Every Door Direct Mail services near Concord Township</em> or need <em>local business mail marketing in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you plan, print, and deliver your message straight into your customers’ hands.`,
+                heading: "Reach Every Neighborhood",
+                body: "<strong>Every Door Direct Mail (EDDM)</strong> from Mailbox Plus makes it easy and affordable to reach potential customers in your local area—without needing a mailing list."
+            },
+            {
+                heading: "Targeted Local Marketing",
+                body: "With EDDM, you can <strong>choose specific postal routes</strong> and deliver postcards or brochures directly to every home in that area. It’s a powerful way to promote local sales, events, and grand openings."
+            },
+            {
+                heading: "Full-Service EDDM Support",
+                body: "Mailbox Plus handles the entire process: \n• <strong>Design and printing</strong> of postcards\n• <strong>Sorting and bundling</strong> for USPS route delivery\n• <strong>Paperwork assistance</strong> with the USPS program\n• <strong>Drop-off coordination</strong> with the local post office",
                 isFullWidth: true
             }
         ],
@@ -83,14 +79,16 @@ If you’re searching for <em>Every Door Direct Mail services near Concord Towns
                 body: "Drop off your documents and we’ll handle the rest with secure shredding."
             },
             {
-                heading: "Secure Document Shredding Services in Concord Township, Ohio",
-                body: `<strong>Protect your privacy and prevent identity theft</strong> with professional document shredding from Mailbox Plus in Concord Township, Ohio. We offer <strong>secure shredding for personal, business, and legal documents</strong>, ensuring sensitive information is permanently destroyed in compliance with privacy regulations.
-
-Our shredding process is <strong>safe, fast, and confidential</strong>—ideal for old files, receipts, invoices, financial records, or any documents containing personal information. Drop off your paperwork and we’ll handle it securely from start to finish. All shredded materials are <em>recycled responsibly</em> to help protect both your identity and the environment.
-
-Mailbox Plus partners with certified shredding providers to guarantee your materials are handled according to <strong>industry and government compliance standards</strong>. Whether you need a one-time purge or ongoing shredding support for your business, we make it convenient and affordable.
-
-If you’re searching for <em>secure document shredding near Concord Township</em> or need <em>confidential paper destruction in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you dispose of your sensitive documents safely, securely, and sustainably.`,
+                heading: "Protect Your Privacy",
+                body: "<strong>Protect your privacy and prevent identity theft</strong> with professional document shredding from Mailbox Plus. We offer <strong>secure shredding for personal, business, and legal documents</strong>, ensuring sensitive information is permanently destroyed."
+            },
+            {
+                heading: "Safe & Confidential Destruction",
+                body: "Our shredding process is <strong>safe, fast, and confidential</strong>—ideal for old files, receipts, or financial records. Drop off your paperwork and we’ll handle it securely from start to finish. All shredded materials are <em>recycled responsibly</em>."
+            },
+            {
+                heading: "Compliance & Security",
+                body: "Mailbox Plus partners with certified shredding providers to guarantee your materials are handled according to <strong>industry and government compliance standards</strong>. Whether you need a one-time purge or ongoing support, we make it convenient.",
                 isFullWidth: true
             }
         ],
@@ -123,14 +121,16 @@ If you’re searching for <em>secure document shredding near Concord Township</e
                 body: "Your files are scanned with care and stored digitally."
             },
             {
-                heading: "Document Scanning Services in Concord Township, Ohio",
-                body: `<strong>Preserve, organize, and digitize your important paperwork</strong> with professional document scanning services from Mailbox Plus in Concord Township, Ohio. We provide <strong>secure, high-resolution scanning</strong> for personal, legal, and business documents—helping you convert cluttered paper files into easy-to-access digital copies.
-
-Our team handles everything from <strong>single-page scans to bulk scanning projects</strong>, ensuring every page is captured clearly and confidentially. We can deliver files in your preferred format (PDF, JPEG, TIFF, or searchable PDF) on a flash drive, email, or cloud storage.
-
-Whether you're a business owner archiving records, a homeowner protecting vital documents, or a student organizing notes, Mailbox Plus ensures <strong>fast turnaround and total privacy</strong>. Your originals are returned to you intact, and all digital copies are securely transferred.
-
-If you're searching for <em>document scanning near Concord Township</em> or need <em>secure digital conversion services in Lake County, Ohio</em>, visit Mailbox Plus today. We'll help you protect your records, reduce clutter, and modernize your document storage with ease.`,
+                heading: "Go Paperless",
+                body: "<strong>Preserve and organize your important paperwork</strong> with professional document scanning. We provide <strong>secure, high-resolution scanning</strong> for personal, legal, and business documents—helping you convert cluttered paper files into digital copies."
+            },
+            {
+                heading: "Digital Archiving Experts",
+                body: "Our team handles everything from <strong>single-page scans to bulk projects</strong>, delivering files in your preferred format (PDF, JPEG, or searchable PDF) on a flash drive, email, or cloud storage."
+            },
+            {
+                heading: "Safe & Secure Preservation",
+                body: "Whether you're archiving records or protecting vital documents, we ensure <strong>fast turnaround and total privacy</strong>. Your originals are returned intact, and all digital copies are securely transferred.",
                 isFullWidth: true
             }
         ],
@@ -163,14 +163,16 @@ If you're searching for <em>document scanning near Concord Township</em> or need
                 body: "Use our store as your fax number and pick up documents securely."
             },
             {
-                heading: "Fax Services in Concord Township, Ohio",
-                body: `<strong>Send and receive faxes quickly and securely</strong> with professional fax services from Mailbox Plus in Concord Township, Ohio. Whether you need to transmit <strong>legal documents, forms, applications, or business papers</strong>, we make faxing fast, easy, and reliable—no fax machine required.
-    
-    Our in-store team can help you <strong>send local, domestic, and international faxes</strong> while ensuring your information remains private and confidential. You’ll receive a printed confirmation sheet for every fax sent, giving you proof of transmission for your records.
-    
-    We also provide <strong>fax receiving services</strong>—simply have your sender fax their documents to our store, and we’ll securely hold them for pickup. This is a convenient solution for individuals and small businesses who don’t have their own fax equipment but still need a trusted location for document transmission.
-    
-    If you’re searching for <em>fax services near Concord Township</em> or need <em>secure fax sending and receiving in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll help you handle your faxing needs quickly, accurately, and confidentially.`,
+                heading: "Secure Fax Transmission",
+                body: "<strong>Send and receive faxes quickly and securely</strong> at Mailbox Plus. Whether you need to transmit <strong>legal documents, forms, or business papers</strong>, we make faxing fast and reliable—no fax machine required."
+            },
+            {
+                heading: "Global & Domestic Faxing",
+                body: "Our in-store team helps you <strong>send local, domestic, and international faxes</strong> while ensuring your information remains private. You’ll receive a printed confirmation sheet for every fax sent for your records."
+            },
+            {
+                heading: "Reliable Fax Receiving",
+                body: "We also provide <strong>fax receiving services</strong>—simply have your sender fax their documents to our store, and we’ll securely hold them for pickup. Perfect for individuals and small businesses.",
                 isFullWidth: true
             }
         ],

@@ -36,15 +36,16 @@ export const copyPrintServices: Service[] = [
                 body: "Our designers create professional layouts for business cards, flyers, brochures, and more."
             },
             {
-                heading: "Graphic Design Services in Concord Township, Ohio",
-                body: `<strong>Bring your ideas to life with professional graphic design services</strong> from Mailbox Plus in Concord Township, Ohio. Whether you need a custom logo, marketing materials, or branded print products, our design experts can create <strong>eye-catching visuals that make your business stand out</strong>.
-
-We specialize in <strong>business cards, flyers, brochures, postcards, posters, and banners</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is clean, professional, and print-ready.
-
-At Mailbox Plus, we use <strong>industry-standard design tools and color management practices</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is perfect.
-
-If you’re searching for <em>graphic design near Concord Township</em> or need <em>custom print design services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you create stunning designs that communicate your message clearly and professionally.`,
-                isFullWidth: true
+                heading: "Custom Visual Branding",
+                body: "<strong>Bring your ideas to life with professional graphic design services</strong> from Mailbox Plus in Concord Township, Ohio. Whether you need a custom logo or marketing materials, our design experts can create eye-catching visuals that make your business stand out."
+            },
+            {
+                heading: "Clean & Professional Layouts",
+                body: "We specialize in <strong>business cards, flyers, brochures, and more</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is print-ready."
+            },
+            {
+                heading: "Industry-Standard Precision",
+                body: "At Mailbox Plus, we use <strong>industry-standard design tools</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is exactly as you envisioned."
             }
         ],
         features: [
@@ -76,15 +77,16 @@ If you’re searching for <em>graphic design near Concord Township</em> or need 
                 body: "We work with top print suppliers to deliver business cards that reflect your brand. Choose from matte, glossy, and premium finishes."
             },
             {
-                heading: "Professional Business Card Printing in Concord Township, Ohio",
-                body: `Make a lasting first impression with <strong>custom business cards professionally printed at Mailbox Plus</strong> in Concord Township, Ohio. We help entrepreneurs, small businesses, and professionals throughout Lake County create <strong>high-quality, full-color business cards</strong> that reflect their brand, mission, and style.
-
-Our design and printing team offers <strong>matte, glossy, and premium cardstock finishes</strong>, along with specialty upgrades such as <em>spot UV, raised lettering, double-sided prints, and custom-cut corners.</em> Whether you need 100 cards or 10,000, we ensure crisp detail, vibrant color, and fast turnaround times.
-
-Don’t have a design yet? We can help you create one from scratch or polish your existing layout for print. Every card is printed using <strong>professional-grade printers and durable materials</strong> to make sure your brand stands out with confidence and clarity.
-
-If you’re searching for <em>business card printing near Concord Township</em> or need <em>custom business cards in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you design and print cards that open doors, start conversations, and make your business unforgettable.`,
-                isFullWidth: true
+                heading: "Premium Brand Impressions",
+                body: "Make a lasting first impression with <strong>custom business cards</strong> professionally printed at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style."
+            },
+            {
+                heading: "Quality Finishes",
+                body: "Our team offers <strong>matte, glossy, and premium cardstock finishes</strong>. Whether you need 100 cards or 10,000, we ensure crisp detail and vibrant color. We can help you create a design from scratch or polish your existing layout for print."
+            },
+            {
+                heading: "Durable & Professional",
+                body: "Every card is printed using <strong>professional-grade printers</strong> to make sure your brand stands out with confidence. If you need <em>business card printing near Concord Township</em>, visit Mailbox Plus for cards that start conversations."
             }
         ],
         features: [
@@ -116,15 +118,16 @@ If you’re searching for <em>business card printing near Concord Township</em> 
                 body: "Our print partners provide full-color, double-sided printing on premium paper stocks."
             },
             {
-                heading: "Flyer and Brochure Printing Services in Concord Township, Ohio",
-                body: `Promote your business, event, or product with <strong>professional flyer and brochure printing</strong> from Mailbox Plus in Concord Township, Ohio. We help businesses and organizations across Lake County design and print <strong>eye-catching marketing materials</strong> that deliver your message clearly and effectively.
-
-Our print specialists offer a variety of <strong>sizes, paper weights, and finishes</strong>—including <em>glossy, matte, tri-fold, and double-sided layouts</em>—so you can customize your flyers and brochures to match your brand and purpose. From small business promotions to community events and real estate listings, we ensure every print looks sharp, vibrant, and ready to impress.
-
-Need help with design? Our team can assist with <strong>layout creation, color optimization, and brand consistency</strong> to ensure your materials look polished and professional. We print in both small and bulk quantities with fast turnaround times and affordable pricing.
-
-If you’re searching for <em>flyer printing near Concord Township</em> or need <em>custom brochure printing in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll help you turn your ideas into professional marketing pieces that get noticed and get results.`,
-                isFullWidth: true
+                heading: "High-Impact Marketing",
+                body: "Promote your business or event with <strong>professional flyer and brochure printing</strong> from Mailbox Plus. We help organizations across Lake County design and print eye-catching materials that deliver your message effectively."
+            },
+            {
+                heading: "Custom Stocks & Sizes",
+                body: "We offer a variety of <strong>sizes, paper weights, and finishes</strong>—including tri-fold and glossy layouts. From small business promotions to community events, we ensure every print looks sharp and ready to impress."
+            },
+            {
+                heading: "Polished Professionalism",
+                body: "Our team can assist with <strong>layout creation and brand consistency</strong> to ensure your materials look professional. We print in all quantities with fast turnaround times and affordable pricing to get your message noticed."
             }
         ],
         features: [
@@ -156,15 +159,16 @@ If you’re searching for <em>flyer printing near Concord Township</em> or need 
                 body: "Most printing jobs are completed the same day, so you can get your documents when you need them."
             },
             {
-                heading: "Document Printing Services in Concord Township, Ohio",
-                body: `Mailbox Plus provides fast, affordable, and high-quality <strong>document printing services</strong> for residents, students, and businesses throughout Concord Township and Lake County, Ohio. Whether you need to print <strong>resumes, presentations, contracts, forms, or reports</strong>, we make it simple to get crisp, professional results—right when you need them.
-
-Our on-site printers produce <strong>black-and-white and full-color documents</strong> with a variety of finishing options, including <em>stapling, hole-punching, collating, and binding</em>. We can print directly from email, USB drive, cloud storage, or hard copy, and every print job is handled with care and confidentiality.
-
-Mailbox Plus also offers <strong>bulk printing, scanning, and faxing services</strong> for small offices, local professionals, and community organizations. Need quick turnaround? Most document printing jobs are completed the same day or while you wait.
-
-If you’re searching for <em>document printing near Concord Township</em> or need <em>professional printing and copying services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you print it right—the first time.`,
-                isFullWidth: true
+                heading: "Fast & Reliable Results",
+                body: "Mailbox Plus provides <strong>high-quality document printing</strong> for residents, students, and businesses in Concord Township. Whether you need resumes, presentations, or reports, we make it simple to get crisp results right when you need them."
+            },
+            {
+                heading: "Custom Finishing Options",
+                body: "Our on-site printers produce <strong>black-and-white and full-color</strong> documents with finishing options like stapling and binding. We can print directly from email, USB, or cloud storage with total confidentiality."
+            },
+            {
+                heading: "One-Stop Solutions",
+                body: "We also offer <strong>bulk printing, scanning, and faxing</strong> for small offices and local professionals. Most jobs are completed same-day or while you wait, helping you get it right the first time."
             }
         ],
         features: [
@@ -196,15 +200,12 @@ If you’re searching for <em>document printing near Concord Township</em> or ne
                 body: "Choose from standard sizes or request custom dimensions to fit your specific needs."
             },
             {
-                heading: "Large Format Poster Printing in Concord Township, Ohio",
-                body: `Make a bold statement with <strong>custom poster printing</strong> from Mailbox Plus in Concord Township, Ohio. We specialize in creating <strong>vibrant, high-resolution posters</strong> for businesses, schools, events, and organizations throughout Lake County—perfect for promotions, presentations, displays, and special occasions.
-
-Our print team uses <strong>professional-grade printers and premium photo-quality paper</strong> to ensure your posters look sharp, colorful, and durable. Choose from a variety of <em>sizes, finishes, and materials</em>, including glossy, matte, and laminated options. We can print everything from a single poster to a full campaign run, all with fast turnaround times.
-
-Need help designing your poster? Our in-store experts can assist with <strong>layout, sizing, and color matching</strong> to make sure your artwork stands out and communicates your message clearly.
-
-If you’re searching for <em>poster printing near Concord Township</em> or need <em>large-format printing services in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll help you create professional posters that get attention—whether you’re advertising a sale, promoting an event, or decorating your space.`,
-                isFullWidth: true
+                heading: "Bold Visual Impact",
+                body: "Make a statement with <strong>custom poster printing</strong> from Mailbox Plus. We specialize in high-resolution posters for businesses and schools throughout Lake County—perfect for promotions and special occasions."
+            },
+            {
+                heading: "Premium Quality Prints",
+                body: "Our team uses <strong>professional-grade printers</strong> and photo-quality paper to ensure your posters look sharp and durable. Choose from glossy, matte, or laminated finishes in a variety of custom sizes."
             }
         ],
         features: [
@@ -236,15 +237,12 @@ If you’re searching for <em>poster printing near Concord Township</em> or need
                 body: "We work with top print suppliers to deliver postcards that reflect your brand. Choose from matte, glossy, and premium finishes."
             },
             {
-                heading: "Custom Postcard Printing in Concord Township, Ohio",
-                body: `Reach customers, friends, and the community with <strong>custom postcard printing</strong> from Mailbox Plus in Concord Township, Ohio. We create <strong>high-quality, full-color postcards</strong> that are perfect for direct mail campaigns, event promotions, thank-you cards, and special announcements—all printed locally for fast turnaround and professional results.
-
-Our printing team offers a range of <strong>sizes, finishes, and paper stocks</strong> to fit your message and style. Choose from <em>standard, glossy, matte, or premium heavyweight cards</em>, all printed with sharp detail and vibrant color. Whether you’re sending 25 postcards or 2,500, we ensure every card reflects your brand’s quality and attention to detail.
-
-Need mailing help? We also provide <strong>address printing, EDDM (Every Door Direct Mail) preparation, and USPS delivery coordination</strong> to make your postcard marketing effortless and effective.
-
-If you’re searching for <em>postcard printing near Concord Township</em> or need <em>custom mailer design and printing in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you design, print, and mail postcards that get noticed and deliver results.`,
-                isFullWidth: true
+                heading: "Custom Marketing Cards",
+                body: "Reach your audience with <strong>custom postcard printing</strong> from Mailbox Plus. We create high-quality, full-color postcards perfect for direct mail campaigns, event promotions, and special announcements."
+            },
+            {
+                heading: "Professional Mailing Support",
+                body: "We offer a range of sizes and finishes, from glossy to heavyweight stocks. We also provide <strong>address printing and EDDM preparation</strong> to make your postcard marketing effortless and effective."
             }
         ],
         features: [
@@ -276,15 +274,12 @@ If you’re searching for <em>postcard printing near Concord Township</em> or ne
                 body: "Save more when you print larger volumes."
             },
             {
-                heading: "Fast and Affordable Copy Services in Concord Township, Ohio",
-                body: `Mailbox Plus provides quick, reliable, and high-quality <strong>copy and duplication services</strong> for individuals, students, and businesses across Concord Township and Lake County, Ohio. Whether you need a few pages or hundreds of copies, our professional-grade printers ensure <strong>crisp, clean, and accurate reproductions</strong> every time.
-
-We offer both <strong>black-and-white and full-color copying</strong> with flexible options for <em>single-sided, double-sided, collated, and stapled copies</em>. Our team can also help you scale documents, adjust formatting, or reproduce large quantities for presentations, training materials, flyers, and handouts.
-
-Mailbox Plus also provides <strong>document scanning, faxing, and binding services</strong>—so you can handle all your document needs in one stop. Whether it’s business forms, personal paperwork, or school projects, we make sure your copies are handled with care, speed, and precision.
-
-If you’re searching for <em>copy services near Concord Township</em> or need <em>professional printing and duplication in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you copy it right the first time—fast, easy, and affordable.`,
-                isFullWidth: true
+                heading: "Fast Reproduction Services",
+                body: "Mailbox Plus provides <strong>high-quality copy services</strong> for businesses and individuals in Concord Township. Whether you need a few pages or hundreds of copies, our professional printers ensure accurate reproductions every time."
+            },
+            {
+                heading: "Full-Service Document Handling",
+                body: "We offer <strong>black-and-white and full-color</strong> copying with stapling and collating options. Our team can also help with document scanning and faxing, making us your local one-stop document hub."
             }
         ],
         features: [

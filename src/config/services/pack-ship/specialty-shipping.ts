@@ -27,12 +27,11 @@ export const specialtyShippingServices: Service[] = [
         content: [
             {
                 heading: "Professional Artwork Shipping & Preservation",
-                body: `<p class="text-lg leading-relaxed mb-6">
-                    Trust your masterpiece to the experts. We understand the unique challenges of transporting fine art, 
-                    from delicate oil paintings to heavy sculptures. Our white-glove approach ensures every piece is handled 
-                    with the highest standards of care and preservation.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                body: "Trust your masterpiece to the experts. We understand the unique challenges of transporting fine art, from delicate oil paintings to heavy sculptures. Our white-glove approach ensures every piece is handled with the highest standards of care and preservation."
+            },
+            {
+                heading: "Gallery-Ready Protection",
+                body: `<div class="grid md:grid-cols-2 gap-8 mt-8">
                     <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
                         <h4 class="text-xl font-bold text-blue-900 mb-4">White-Glove Art Handling</h4>
                         <ul class="space-y-3">
@@ -93,12 +92,11 @@ export const specialtyShippingServices: Service[] = [
         content: [
             {
                 heading: "Expert Bicycle Logistics & Packing",
-                body: `<p class="text-lg leading-relaxed mb-6">
-                    Planning a cycling trip or selling your ride? We take the stress out of bicycle logistics. 
-                    From high-performance road bikes to heavy e-bikes, our team ensures your bicycle is packed securely 
-                    and shipped via the most reliable carriers.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mt-8 bg-gray-50 p-8 rounded-3xl">
+                body: "Planning a cycling trip or selling your ride? We take the stress out of bicycle logistics. From high-performance road bikes to heavy e-bikes, our team ensures your bicycle is packed securely and shipped via the most reliable carriers."
+            },
+            {
+                heading: "Professional Standards",
+                body: `<div class="grid md:grid-cols-2 gap-8 mt-8 bg-gray-50 p-8 rounded-3xl">
                     <div class="space-y-4">
                         <h4 class="text-xl font-bold text-gray-900 border-l-4 border-blue-500 pl-4">Carrier Flexibility</h4>
                         <p class="text-gray-600">
@@ -163,12 +161,11 @@ export const specialtyShippingServices: Service[] = [
         content: [
             {
                 heading: "Tee-to-Green Golf Club Shipping",
-                body: `<p class="text-lg leading-relaxed mb-6">
-                    Travel light and hit the links without the hassle of airport baggage lines. 
-                    Mailbox Plus specializes in secure golf club shipping, ensuring your gear arrives at your destination 
-                    safely, on time, and ready for your first tee time.
-                </p>
-                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                body: "Travel light and hit the links without the hassle of airport baggage lines. Mailbox Plus specializes in secure golf club shipping, ensuring your gear arrives at your destination safely, on time, and ready for your first tee time."
+            },
+            {
+                heading: "Shaft & Head Protection",
+                body: `<div class="grid md:grid-cols-2 gap-8 mt-8">
                     <div class="border border-gray-200 p-8 rounded-3xl shadow-sm bg-white">
                         <h4 class="text-xl font-bold text-gray-900 mb-4">Travel Smarter</h4>
                         <p class="text-gray-600 mb-6">
@@ -182,7 +179,7 @@ export const specialtyShippingServices: Service[] = [
                         </div>
                     </div>
                     <div class="bg-blue-600 text-white p-8 rounded-3xl shadow-xl flex flex-col justify-center">
-                        <h4 class="text-xl font-bold mb-2">Shaft & Head Protection</h4>
+                        <h4 class="text-xl font-bold mb-2">Maximum Protection</h4>
                         <p class="text-blue-100 italic leading-relaxed">
                             "Most golf club damage happens from pressure in cargo holds. Our packing methods use 
                             structural reinforcement to ensure your bag arrives exactly as you left it."
