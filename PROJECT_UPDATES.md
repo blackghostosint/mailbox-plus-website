@@ -121,3 +121,22 @@ Updated the `faq-store-location` entry to resolve address/location query failure
 - Old `searchText` contained full street address, landmarks, and directions which diluted semantic matching
 - Embeddings rebuilt using existing build workflow (`npm run build:embeddings`)
 - No changes to global thresholds, retrieval logic, or refusal behavior
+
+## 2026-01-04 — Standardized Legacy Service Pages to V2
+
+**Summary**
+Refactored 5 legacy hardcoded service pages to use the `ServicePageV2` component and centralized their content in the appropriate configuration shards. This ensures site-wide adherence to the V2 Design System, improves maintainability, and enhances the visual presentation with V2-compliant HTML grids and tables.
+
+**Scope**
+- `src/pages/document-services-concord-township.tsx`
+- `src/pages/ups-fedex-usps-dhl-shipping-concord-township.tsx`
+- `src/pages/printing-services-concord-township.tsx`
+- `src/pages/office-depot-alternative-concord-township.tsx`
+- `src/pages/staples-printing-alternative-concord-township.tsx`
+- `src/config/services/document-services.ts`
+- `src/config/services/pack-ship/local-seo.ts`
+- `src/config/services/copy-print.ts`
+
+**Notes**
+- All uniquely hardcoded content was successfully migrated and enhanced with V2 aesthetics.
+- The site is now 100% V2-compliant for all service-related landing pages.

@@ -308,16 +308,65 @@ If you’re searching for <em>copy services near Concord Township</em> or need <
         heroImage: getServiceImageUrl("/images/document-printing.webp"),
         content: [
             {
-                heading: "The Best Staples Printing Alternative in Concord Township: Mailbox Plus",
-                body: "Need a <strong>Staples alternative for printing and shipping in Concord Township, Ohio</strong>? \nMailbox Plus offers high-quality document services without the big-box store hassle. Whether you need \nbusiness cards, flyers, or secure shredding, our local team provides the personalized attention your projects deserve. \nWe are also a full-service shipping center for <strong>UPS, FedEx, USPS, and DHL</strong>, making us a one-stop shop \nfor all your business needs. Experience the difference of a locally owned business that puts quality and customer service first."
+                heading: "The Best Staples Printing Alternative",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Need a <strong>Staples alternative for printing and shipping in Concord Township, Ohio</strong>? 
+                    Mailbox Plus offers high-quality document services without the big-box store hassle. 
+                    Whether you need business cards, flyers, or secure shredding, our local team provides the personalized attention your projects deserve.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 flex gap-4 items-start">
+                        <div class="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Printing & Business Services</h4>
+                            <p class="text-sm text-gray-600">Document services, print marketing, and secure shredding.</p>
+                        </div>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white shadow-sm border border-gray-100 flex gap-4 items-start">
+                        <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-900 mb-1">Multi-Carrier Shipping</h4>
+                            <p class="text-sm text-gray-600">We ship via UPS, FedEx, USPS, and DHL (unlike Staples).</p>
+                        </div>
+                    </div>
+                </div>`,
+                isFullWidth: true
             },
             {
-                heading: "Why Choose Mailbox Plus Over Staples?",
-                body: "• **Personalized Attention:** We take the time to ensure your print jobs are perfect.\n• **No Long Lines:** Get your errands done quickly without the crowd.\n• **Local Ownership:** Your business supports the Concord Township community.\n• **Multi-Carrier Shipping:** Unlike Staples (which often limits carrier options), we ship via UPS, FedEx, USPS, and DHL.\n• **Transparent Pricing:** Competitive rates for printing and shipping.\n• **More Services:** We offer notary, fingerprinting, and mailbox rentals too."
-            },
-            {
-                heading: "Printing & Business Services",
-                body: "• **Document Services:** Color/B&W copies, laminating, binding, and scanning services.\n• **Print Marketing:** Business cards, flyers, brochures, and postcards to promote your business.\n• **Shipping Center:** Authorized shipping for all major carriers: UPS, FedEx, USPS, DHL.\n• **Secure Shredding:** Safe and secure document destruction to protect your sensitive information."
+                heading: "Comparison: Mailbox Plus vs. Staples",
+                body: `<div class="overflow-x-auto">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr class="bg-blue-50/50">
+                                <th class="p-4 border-b border-blue-100 font-bold text-blue-900">Feature</th>
+                                <th class="p-4 border-b border-blue-100 font-bold text-blue-900">Mailbox Plus</th>
+                                <th class="p-4 border-b border-blue-100 font-bold text-blue-900 text-opacity-60 italic">Staples</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100">
+                            <tr>
+                                <td class="p-4 text-gray-700 font-medium">Customer Focus</td>
+                                <td class="p-4 text-blue-700">Personalized Local Service</td>
+                                <td class="p-4 text-gray-400">Big Box Retail</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-gray-700 font-medium">Shipping Options</td>
+                                <td class="p-4 text-blue-700">UPS, FedEx, USPS, DHL</td>
+                                <td class="p-4 text-gray-400">Limited (Usually UPS only)</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-gray-700 font-medium">Efficiency</td>
+                                <td class="p-4 text-blue-700">Fast In & Out</td>
+                                <td class="p-4 text-gray-400">Often Busy / Long Waits</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
+                isFullWidth: true
             }
         ],
         features: [
@@ -354,16 +403,38 @@ If you’re searching for <em>copy services near Concord Township</em> or need <
         heroImage: getServiceImageUrl("/images/document-printing.webp"),
         content: [
             {
-                heading: "The Best Office Depot Alternative in Concord Township: Mailbox Plus",
-                body: "Looking for an <strong>Office Depot alternative in Concord Township, Ohio</strong>? \nMailbox Plus provides the essential business services you rely on, right in your neighborhood. \nFrom professional printing and copying to shipping and mailbox rentals, we offer a more personalized and efficient experience than the big chain stores. \nPlus, as a multi-carrier shipping center, we give you more choices with <strong>UPS, FedEx, USPS, and DHL</strong> all in one location. \nChoose Mailbox Plus for friendly service and expert solutions."
-            },
-            {
-                heading: "Why Mailbox Plus is Your Best Choice",
-                body: "• **Faster Service:** We get you in and out quickly, respecting your busy schedule.\n• **No Long Lines:** Avoid the wait times often found at Office Depot.\n• **Local Ownership:** We are a locally owned business invested in our community.\n• **Multi-Carrier Shipping:** Compare rates and services from UPS, FedEx, USPS, and DHL.\n• **Transparent Pricing:** Fair prices for all our services.\n• **More Services:** We offer comprehensive solutions like notary, shredding, and fingerprinting."
-            },
-            {
-                heading: "Comprehensive Business Services",
-                body: "• **Printing & Copying:** High-quality copies, business cards, flyers, and document finishing services.\n• **Shipping & Packing:** Authorized shipping center for UPS, FedEx, USPS, and DHL with professional packing.\n• **Mailbox Services:** Secure private mailboxes with package receiving from all carriers.\n• **Office Essentials:** Notary public, faxing, scanning, and secure shredding services."
+                heading: "The Best Office Depot Alternative",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Looking for a more personal experience than the big chain stores? 
+                    Mailbox Plus provides the essential business services you rely on, right in your neighborhood.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center bg-gray-50 rounded-3xl p-8">
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-gray-700"><strong>Faster Service:</strong> We respect your busy schedule.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-gray-700"><strong>No Long Lines:</strong> Skip the frustration found at mega-retailers.</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-gray-700"><strong>Multi-Carrier Choice:</strong> UPS, FedEx, USPS, and DHL in one location.</span>
+                        </div>
+                    </div>
+                    <div class="p-6 bg-white rounded-2xl border border-gray-100 shadow-sm">
+                        <h4 class="font-bold text-blue-900 mb-3 text-center">Comprehensive Services</h4>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Printing</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Copying</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Mailbox</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Notary</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-semibold">Shredding</span>
+                        </div>
+                    </div>
+                </div>`,
+                isFullWidth: true
             }
         ],
         features: [
@@ -400,16 +471,30 @@ If you’re searching for <em>copy services near Concord Township</em> or need <
         heroImage: getServiceImageUrl("/images/document-printing.webp"),
         content: [
             {
-                heading: "High-Quality Printing Services in Concord Township: Mailbox Plus",
-                body: "Looking for professional <strong>printing services in Concord Township, Ohio</strong>? \nMailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations. \nWe offer high-quality color and black & white printing with fast turnaround times. Whether you're a student, \na small business owner, or just need a few copies, our friendly team is here to help your projects look their best. \nPlus, we can ship your printed materials anywhere with <strong>UPS, FedEx, USPS, and DHL</strong>."
-            },
-            {
-                heading: "Why Print with Mailbox Plus?",
-                body: "• **Quality:** We use professional-grade equipment for crisp, clear results.\n• **Speed:** Same-day service available for many print jobs.\n• **Convenience:** Email us your files or bring them in on a USB drive.\n• **Personal Service:** We take the time to check your files and ensure they print correctly.\n• **Full Service:** We can print, bind, laminate, and ship your documents all in one visit.\n• **Local Value:** Competitive pricing without the big box store hassle."
-            },
-            {
-                heading: "Complete Printing Solutions",
-                body: "• **Document Printing:** Resumes, reports, presentations, and flyers in color or B&W.\n• **Business Cards:** Make a great first impression with professionally printed business cards.\n• **Finishing Services:** Binding, laminating, stapling, and folding to give your project a polished look.\n• **Digital Services:** Scan documents to email or USB for easy digital archiving."
+                heading: "High-Quality Local Printing",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Whatever you need to print, Mailbox Plus handles it with professional precision. 
+                    From student projects to large-scale business materials, we ensure your work looks sharp and standout.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-2">Quality</h4>
+                        <p class="text-sm text-gray-600">Professional-grade equipment for crisp, clear results.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-2">Speed</h4>
+                        <p class="text-sm text-gray-600">Same-day service available for many jobs.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-2">Ease</h4>
+                        <p class="text-sm text-gray-600">Email us your files or bring them on a USB drive.</p>
+                    </div>
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="font-bold text-blue-900 mb-2">Value</h4>
+                        <p class="text-sm text-gray-600">Competitive pricing without big box hassle.</p>
+                    </div>
+                </div>`,
+                isFullWidth: true
             }
         ],
         features: [

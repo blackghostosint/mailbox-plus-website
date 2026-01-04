@@ -353,16 +353,75 @@ export const localSeoServices: Service[] = [
         heroImage: getServiceImageUrl("/images/pack-ship.webp"),
         content: [
             {
-                heading: "Ship with UPS, FedEx, USPS, and DHL in Concord Township: Mailbox Plus",
-                body: "Looking for a place where you can ship with <strong>UPS, FedEx, USPS, and DHL in Concord Township, Ohio</strong>? \nMailbox Plus is your all-in-one shipping destination. Why limit yourself to just one carrier when you can have them all? \nWe are authorized shipping partners for all major carriers, giving you the power to compare rates, delivery speeds, \nand services to find the perfect fit for every package. From overnight documents to international freight, \nwe have the right solution for you."
-            },
-            {
                 heading: "The Power of Choice at Mailbox Plus",
-                body: "• <strong>Compare & Save:</strong> We can show you rates from all 4 carriers side-by-side.\n• <strong>One Stop Shop:</strong> No need to drive to multiple stores to ship different packages.\n• <strong>Expert Advice:</strong> Our staff understands the strengths of each carrier and can guide you.\n• <strong>Local Convenience:</strong> Located right here in Concord Township for easy access.\n• <strong>Authorized Center:</strong> We are official partners, ensuring your packages are handled correctly.\n• <strong>Returns Accepted:</strong> We accept drop-offs for all carriers too."
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Why limit yourself to just one carrier when you can have them all? 
+                    Mailbox Plus is your <strong>all-in-one shipping destination in Concord Township, Ohio</strong>. 
+                    We are authorized shipping partners for all major carriers, giving you the power to compare rates, delivery speeds, 
+                    and services to find the perfect fit for every package.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-blue-900 mb-2">UPS</h4>
+                        <p class="text-sm text-gray-600">Reliable ground and air services for domestic and international.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-purple-900 mb-2">FedEx</h4>
+                        <p class="text-sm text-gray-600">Fast express and economical ground options for time-sensitive items.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-red-900 mb-2">USPS</h4>
+                        <p class="text-sm text-gray-600">Priority Mail and flat-rate boxes for cost-effective shipping.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-yellow-900 mb-2">DHL</h4>
+                        <p class="text-sm text-gray-600">The world leader in international shipping for documents and parcels.</p>
+                    </div>
+                </div>`,
+                isFullWidth: true
             },
             {
-                heading: "Our Shipping Partners",
-                body: "• <strong>UPS Shipping:</strong> Reliable ground and air services for domestic and international shipments.\n• <strong>FedEx Shipping:</strong> Fast express and economical ground options for time-sensitive packages.\n• <strong>USPS Shipping:</strong> Priority Mail, First Class, and flat-rate boxes for cost-effective shipping.\n• <strong>DHL International:</strong> The world leader in international shipping for documents and parcels."
+                heading: "Why Direct Choice Matters",
+                body: `<div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900">Compare & Save</h5>
+                                    <p class="text-gray-600">We show you rates from all 4 carriers side-by-side.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900">One Stop Shop</h5>
+                                    <p class="text-gray-600">No need to drive to multiple stores for different carriers.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-gray-900">Expert Advice</h5>
+                                    <p class="text-gray-600">Our staff understands the strengths of each carrier.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-gray-900 text-white p-8 rounded-3xl shadow-xl">
+                        <h4 class="text-xl font-bold mb-4">Express Returns Too!</h4>
+                        <p class="text-gray-400 leading-relaxed mb-6">
+                            We accept prepaid drop-off packages for all four carriers, making your online returns effortless.
+                        </p>
+                        <div class="border-t border-white/10 pt-6 flex items-center gap-4">
+                            <div class="p-3 bg-white/10 rounded-xl">
+                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <span class="text-sm font-medium">Authorized Ship Center for all 4 carriers</span>
+                        </div>
+                    </div>
+                </div>`,
+                isFullWidth: true
             }
         ],
         features: [

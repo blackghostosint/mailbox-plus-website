@@ -195,16 +195,61 @@ If you're searching for <em>document scanning near Concord Township</em> or need
         heroImage: getServiceImageUrl("/images/document-printing.webp"),
         content: [
             {
-                heading: "Professional Document Services in Concord Township: Mailbox Plus",
-                body: "Mailbox Plus is your trusted provider of <strong>document services in Concord Township, Ohio</strong>. \nWhether you need to print a report, notarize a legal form, or securely shred sensitive files, our experienced team \nis here to assist. We offer a full suite of services to help you manage your personal and business paperwork \nwith ease and confidentiality. Skip the office supply store lines and enjoy personalized service right in your neighborhood."
+                heading: "Professional Document Services in Concord Township",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Mailbox Plus is your trusted provider of <strong>document services in Concord Township, Ohio</strong>. 
+                    Whether you need to print a report, notarize a legal form, or securely shred sensitive files, our experienced team 
+                    is here to assist. We offer a full suite of services to help you manage your personal and business paperwork 
+                    with ease and confidentiality.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="text-xl font-bold text-blue-900 mb-4">Complete Document Solutions</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Printing & Copying:</strong> High-quality color and B&W.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Notary Services:</strong> Official notarization for legal forms.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Secure Shredding:</strong> Safe destruction of confidential files.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Scanning & Faxing:</strong> Digitize or send files quickly.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4">Why Local Choice Matters</h4>
+                        <p class="text-gray-600 leading-relaxed italic">
+                            "Skip the office supply store lines and enjoy personalized service right in your neighborhood. 
+                            We handle your sensitive documents with the utmost care and confidentiality."
+                        </p>
+                    </div>
+                </div>`,
+                isFullWidth: true
             },
             {
                 heading: "Why Choose Mailbox Plus for Documents?",
-                body: "• **Security:** We handle your sensitive documents with the utmost care and confidentiality.\n• **Convenience:** Print, scan, fax, notarize, and shred all in one place.\n• **Expertise:** Our staff is trained to handle complex print jobs and notary requirements.\n• **Speed:** Get your tasks done quickly so you can get back to your day.\n• **Local Focus:** We are proud to serve the document needs of the Concord Township community.\n• **One-Stop Shop:** We also offer shipping and packing services if you need to send your documents."
-            },
-            {
-                heading: "Complete Document Solutions",
-                body: "• **Printing & Copying:** High-quality color and B&W reproduction for all your document needs.\n• **Notary Services:** Official notarization for wills, deeds, contracts, and other legal forms.\n• **Secure Shredding:** Safe destruction of confidential documents to prevent identity theft.\n• **Scanning & Faxing:** Digitize your paper files or send them quickly via fax."
+                body: `<div class="grid md:grid-cols-3 gap-6">
+                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
+                        <h5 class="font-bold text-blue-900">Security</h5>
+                        <p class="text-sm text-gray-600">Utmost care and confidentiality for all sensitive files.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
+                        <h5 class="font-bold text-blue-900">Expertise</h5>
+                        <p class="text-sm text-gray-600">Staff trained for complex print jobs and notary requirements.</p>
+                    </div>
+                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
+                        <h5 class="font-bold text-blue-900">Speed</h5>
+                        <p class="text-sm text-gray-600">Get your tasks done quickly and get back to your day.</p>
+                    </div>
+                </div>`
             }
         ],
         features: [
