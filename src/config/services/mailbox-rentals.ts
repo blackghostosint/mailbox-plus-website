@@ -298,31 +298,67 @@ export const mailboxRentalServices: Service[] = [
                 body: "Moving temporarily? Traveling for the season? Or just need your business mail at your current location? Mailbox Plus provides <strong>seamless mail forwarding</strong> from Concord Township to anywhere in the world. We bundle your mail into consolidated shipments to save you money and ensure you never miss a critical document."
             },
             {
-                heading: "Flexible Forwarding Options",
+                heading: "Flexible Forwarding & Management",
                 body: `<div class="grid gap-6 md:grid-cols-2 my-8">
-                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+                        <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
-                            <h3 class="font-bold text-slate-900 text-lg">Scheduled Forwarding</h3>
+                            <h3 class="font-bold text-slate-900 text-lg">Scheduled or On-Demand</h3>
                         </div>
-                        <p class="text-sm text-slate-600 leading-relaxed font-medium">Choose a frequency that works for you—weekly, bi-weekly, or monthly. We consolidate everything into one secure shipment.</p>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium">Choose a frequency that works for you—weekly, bi-weekly, or monthly. Or simply call us when you're ready for a bundle. You have total control.</p>
                     </div>
-                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-sm">
-                        <div class="flex items-center gap-3 mb-3">
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+                        <div class="flex items-center gap-3 mb-4">
                             <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                             </div>
-                            <h3 class="font-bold text-slate-900 text-lg">On-Demand Forwarding</h3>
+                            <h3 class="font-bold text-slate-900 text-lg">Consolidated Savings</h3>
                         </div>
-                        <p class="text-sm text-slate-600 leading-relaxed font-medium">Just call or email us when you're ready for your mail. Perfect for travelers and digital nomads with shifting schedules.</p>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium">We can repack multiple envelopes and packages into a single box to significantly reduce your shipping costs while ensuring security.</p>
                     </div>
                 </div>`
             },
             {
-                heading: "The Foundation of Convenience",
-                body: "Our forwarding service is a core benefit for all private mailbox holders. We utilize our relationships with <strong>UPS, FedEx, DHL, and USPS</strong> to find the most cost-effective or fastest method to get your mail to your doorstep, wherever you are."
+                heading: "Mailbox Plus vs. Standard USPS Forwarding",
+                body: `<div class="overflow-x-auto my-6">
+                    <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm bg-white/40">
+                        <thead class="bg-slate-100/60">
+                            <tr>
+                                <th class="p-4 font-semibold text-slate-900">Feature</th>
+                                <th class="p-4 font-semibold text-[#0855B1]">Mailbox Plus</th>
+                                <th class="p-4 font-semibold text-slate-900">USPS Forwarding</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Package Forwarding</td>
+                                <td class="p-4 text-slate-900 font-bold">Yes (All Carriers)</td>
+                                <td class="p-4 text-slate-600 italic">Limited / Pricey</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Frequency Control</td>
+                                <td class="p-4 text-slate-900 font-bold">Custom/On-Demand</td>
+                                <td class="p-4 text-slate-600 italic">Automatic/Bulk</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Carrier Options</td>
+                                <td class="p-4 text-slate-900 font-bold">UPS, FedEx, DHL, USPS</td>
+                                <td class="p-4 text-slate-600 italic">USPS Only</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Local Reliability</td>
+                                <td class="p-4 text-slate-900 font-bold">Lake County Staff</td>
+                                <td class="p-4 text-slate-600 italic">Automated System</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`
+            },
+            {
+                heading: "Serving Lake County Travelers",
+                body: "Don't let your mail pile up while you're away. Residents of <strong>Concord Township, Ohio</strong>, Mentor, Painesville, and Willoughby trust Mailbox Plus to manage their mail forwarding needs with professionalism and care. Our service is a core benefit for all private mailbox holders, finding the fastest and most cost-effective way to get your mail to your doorstep, wherever you are."
             }
         ],
         features: [
