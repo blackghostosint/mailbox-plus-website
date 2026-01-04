@@ -9,7 +9,7 @@
   status = 200
 
 [functions]
-  included_files = ["knowledge/kb.entries.json", "knowledge/.embedding-cache.json"]
+  included_files = ["knowledge/kb.entries.json", "knowledge/embeddings.json"]
 
 [[redirects]]
   from = "/api/*"
