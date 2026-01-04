@@ -77,7 +77,9 @@ function initializeResources(): void {
     const kbPaths = [
         join(process.cwd(), 'knowledge', 'kb.entries.json'),
         join(process.cwd(), '..', 'knowledge', 'kb.entries.json'),
-        join(__dirname, '..', '..', 'knowledge', 'kb.entries.json')
+        join(__dirname, '..', '..', 'knowledge', 'kb.entries.json'),
+        join(__dirname, 'knowledge', 'kb.entries.json'), // Often for bundled functions
+        '/var/task/knowledge/kb.entries.json' // Absolute path in some serverless environments
     ];
 
     let foundKb = false;
@@ -90,21 +92,30 @@ function initializeResources(): void {
     }
 
     if (!foundKb) {
-        throw new Error('Knowledge base not found');
+        // Fallback or detailed error
+        throw new Error(`Knowledge base not found. Checked: ${kbPaths.join(', ')}`);
     }
 
     // Load embedding cache
     const cachePaths = [
         join(process.cwd(), 'knowledge', '.embedding-cache.json'),
         join(process.cwd(), '..', 'knowledge', '.embedding-cache.json'),
-        join(__dirname, '..', '..', 'knowledge', '.embedding-cache.json')
+        join(__dirname, '..', '..', 'knowledge', '.embedding-cache.json'),
+        join(__dirname, 'knowledge', '.embedding-cache.json'),
+        '/var/task/knowledge/.embedding-cache.json'
     ];
 
+    let foundCache = false;
     for (const path of cachePaths) {
         if (existsSync(path)) {
             embeddingCache = JSON.parse(readFileSync(path, 'utf-8'));
+            foundCache = true;
             break;
         }
+    }
+
+    if (!foundCache) {
+        console.warn('Embedding cache not found. Retrieval will be slow or failed.');
     }
 
     // Initialize Gemini
