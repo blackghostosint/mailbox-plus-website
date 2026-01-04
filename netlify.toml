@@ -8,6 +8,9 @@
   to = "/.netlify/functions/chat-retrieve"
   status = 200
 
+[functions]
+  included_files = ["knowledge/kb.entries.json", "knowledge/.embedding-cache.json"]
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
