@@ -85,9 +85,25 @@ function initializeResources(): void {
     let foundKb = false;
     for (const path of kbPaths) {
         if (existsSync(path)) {
-            kb = JSON.parse(readFileSync(path, 'utf-8'));
-            foundKb = true;
-            break;
+            try {
+                const raw = readFileSync(path, 'utf-8');
+                console.log('Parsing JSON source', {
+                    source: 'kb',
+                    path: path,
+                    length: raw.length,
+                    preview: raw.slice(0, 100)
+                });
+                kb = JSON.parse(raw);
+                foundKb = true;
+                console.log(`Successfully loaded ${kb.entries?.length || 0} KB entries`);
+                break;
+            } catch (err) {
+                console.error('Failed to parse KB JSON file', {
+                    path,
+                    error: err
+                });
+                throw new Error(`Invalid JSON in ${path}: ${(err as Error).message}`);
+            }
         }
     }
 
@@ -110,16 +126,23 @@ function initializeResources(): void {
         if (existsSync(path)) {
             try {
                 const fileContent = readFileSync(path, 'utf-8');
-                console.log(`Found embeddings at: ${path}, size: ${fileContent.length} bytes`);
-                console.log(`First 100 chars: ${fileContent.substring(0, 100)}`);
+                console.log('Parsing JSON source', {
+                    source: 'embeddings',
+                    path: path,
+                    length: fileContent.length,
+                    preview: fileContent.slice(0, 100)
+                });
                 const embeddingData = JSON.parse(fileContent);
                 embeddingCache = embeddingData.embeddings || {};
                 foundEmbeddings = true;
                 console.log(`Successfully loaded ${Object.keys(embeddingCache).length} embeddings`);
                 break;
             } catch (error) {
-                console.error(`Failed to parse embeddings from ${path}:`, error);
-                throw error; // Re-throw to see in Netlify logs
+                console.error('Failed to parse embeddings JSON file', {
+                    path,
+                    error: error
+                });
+                throw new Error(`Invalid JSON in ${path}: ${(error as Error).message}`);
             }
         }
     }
@@ -311,8 +334,32 @@ export const handler: Handler = async (event: HandlerEvent) => {
             };
         }
 
-        // Parse body
-        const body = JSON.parse(event.body);
+        // Parse body with defensive parsing
+        let body: any = null;
+        try {
+            console.log('Parsing JSON source', {
+                source: 'event.body',
+                length: event.body?.length,
+                preview: event.body?.slice(0, 100)
+            });
+            body = typeof event.body === 'string'
+                ? JSON.parse(event.body)
+                : event.body;
+        } catch (err) {
+            console.error('Invalid JSON body', {
+                body: event.body,
+                error: err
+            });
+            return {
+                statusCode: 400,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'refuse',
+                    reason: 'invalid_json_body'
+                })
+            };
+        }
+
         const question = body.question;
 
         // Validate question
