@@ -1,6 +1,6 @@
 # Retrieval Test Report (Gemini Embeddings)
 
-**Generated:** 2026-01-04T13:00:08.818Z
+**Generated:** 2026-01-04T14:52:37.970Z
 
 **Embedding Model:** text-embedding-004
 **Minimum Similarity Threshold:** 0.78
