@@ -38,9 +38,9 @@ export const mailboxRentalServices: Service[] = [
                 heading: "Secure Mailbox Rentals in Concord Township, Ohio",
                 body: `Keep your mail and packages safe with <strong>secure mailbox rentals</strong> from Mailbox Plus in Concord Township, Ohio. Whether for personal, business, or seasonal use, our private mailboxes provide a professional address and reliable delivery from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>.
 
-We offer two flexible mailbox plans:
-• <strong>$20.00 per month</strong> for our basic mailbox service, which includes up to five (5) packages per month, with a <strong>$5.00 per package fee after the fifth</strong>.
-• <strong>$25.00 per month mailbox service with electronic notification</strong>, which includes ten (10) packages per month and a <strong>$5.00 per package fee after the tenth</strong>.
+We offer two flexible mailbox sizes:
+• <strong>Small: $25.00 per month</strong>, which includes up to five (5) packages per month, with a <strong>$5.00 per package fee after the fifth</strong>.
+• <strong>Large: $35.00 per month</strong>, which includes up to five (5) packages per month, with a <strong>$5.00 per package fee after the fifth</strong>.
 
 Mailbox access is available during our <strong>regular business hours</strong>, and rentals are available in convenient <strong>3-month, 6-month, and 12-month terms</strong>. Whether you’re looking to protect deliveries, separate business mail, or simplify shipping logistics, our secure mailboxes are an ideal solution.
 

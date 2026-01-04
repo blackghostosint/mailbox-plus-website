@@ -958,7 +958,7 @@
       <!-- Plan 3: 12-Month Prepay (Highlight) -->
       <div class="pricing-card pricing-card--highlight">
         <div class="badge">Best Value!</div>
-        <h3 class="pricing-card__heading">12-Month Prepay</h3>
+        <h3 class="pricing-card__heading">Small Box<br>12-Month Prepay</h3>
         <p class="pricing-price">$300<span class="pricing-price__unit"> total</span></p>
         <div class="pricing-promo-badge pricing-promo-badge--savings">No Rebilling vs monthly</div>
         <p class="pricing-description">Best overall value.</p>
@@ -988,7 +988,7 @@
 
       <!-- Plan 1: Month-to-Month -->
       <div class="pricing-card">
-        <h3 class="pricing-card__heading">Month-to-Month</h3>
+        <h3 class="pricing-card__heading">Small Box<br>Month-to-Month</h3>
         <p class="pricing-price">$25<span class="pricing-price__unit">/mo</span></p>
         <p class="pricing-description">Flexible plan with a 3-month minimum commitment.</p>
         <ul class="pricing-list">
@@ -1063,12 +1063,20 @@
             </thead>
             <tbody>
               <tr>
-                <td>Private, secure mailbox (real street address)</td>
+                <td>Small Private Mailbox (real street address)</td>
                 <td>$25/mo</td>
               </tr>
               <tr>
-                <td>Package acceptance from all carriers</td>
+                <td>Large Private Mailbox (real street address)</td>
+                <td>$35/mo</td>
+              </tr>
+              <tr>
+                <td>Package acceptance (up to 5/mo included)</td>
                 <td>Included</td>
+              </tr>
+              <tr>
+                <td>Additional packages (after 5th)</td>
+                <td>$5.00 ea</td>
               </tr>
               <tr>
                 <td>Free electronic notifications</td>
@@ -1107,7 +1115,7 @@
     <div class="pricing-grid">
       <!-- Plan 1: Month-to-Month -->
       <div class="pricing-card">
-        <h3 class="pricing-card__heading">Month-to-Month</h3>
+        <h3 class="pricing-card__heading">Small Box<br>Month-to-Month</h3>
         <p class="pricing-price">$25<span class="pricing-price__unit">/mo</span></p>
         <p class="pricing-description">Flexible plan with a 3-month minimum commitment.</p>
         <ul class="pricing-list">
@@ -1137,8 +1145,8 @@
       <!-- Plan 3: 12-Month Prepay (Highlight) -->
       <div class="pricing-card pricing-card--highlight">
         <div class="badge">Best Value!</div>
-        <h3 class="pricing-card__heading">12-Month Prepay</h3>
-        <p class="pricing-price">$250<span class="pricing-price__unit"> total</span></p>
+        <h3 class="pricing-card__heading">Small Box<br>12-Month Prepay</h3>
+        <p class="pricing-price">$300<span class="pricing-price__unit"> total</span></p>
         <p class="pricing-description"></p>
         <ul class="pricing-list">
           <li>✔️ All 6-Month features</li>
@@ -1149,7 +1157,9 @@
           onclick="dataLayer.push({ event: 'reserve_box_click', label: 'Reserve My Box Now' })">Reserve My Box Now</a>
       </div>
     </div>
-    <p style="text-align:center; margin-top: 2.5rem; font-weight: 600;">⚡ Only 11 boxes left at this promotional rate —
+    <p style="text-align:center; margin-top: 1.5rem; font-weight: 500;">Looking for a Large Box? $35/mo (Includes 5
+      pkgs/mo). Select in form below.</p>
+    <p style="text-align:center; margin-top: 1rem; font-weight: 600;">⚡ Only 11 boxes left at this promotional rate —
       lock in your deal today.</p>
   </section>
 
@@ -1458,9 +1468,10 @@
             onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
             onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
             <option value="">Select a plan</option>
-            <option value="month">Month-to-Month ($25/mo) – 3 Month Minimum</option>
-            <option value="6months">6 Months – 2 Months Free ($150 total)</option>
-            <option value="12months">12 Months – 4 Months Free ($300 total)</option>
+            <option value="small-month">Small: Month-to-Month ($25/mo)</option>
+            <option value="small-6months">Small: 6 Months ($150 total)</option>
+            <option value="small-12months">Small: 12 Months ($300 total)</option>
+            <option value="large-month">Large: Month-to-Month ($35/mo)</option>
           </select>
 
           <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.
