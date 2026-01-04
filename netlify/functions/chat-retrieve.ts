@@ -108,10 +108,19 @@ function initializeResources(): void {
     let foundEmbeddings = false;
     for (const path of embeddingPaths) {
         if (existsSync(path)) {
-            const embeddingData = JSON.parse(readFileSync(path, 'utf-8'));
-            embeddingCache = embeddingData.embeddings || {};
-            foundEmbeddings = true;
-            break;
+            try {
+                const fileContent = readFileSync(path, 'utf-8');
+                console.log(`Found embeddings at: ${path}, size: ${fileContent.length} bytes`);
+                console.log(`First 100 chars: ${fileContent.substring(0, 100)}`);
+                const embeddingData = JSON.parse(fileContent);
+                embeddingCache = embeddingData.embeddings || {};
+                foundEmbeddings = true;
+                console.log(`Successfully loaded ${Object.keys(embeddingCache).length} embeddings`);
+                break;
+            } catch (error) {
+                console.error(`Failed to parse embeddings from ${path}:`, error);
+                throw error; // Re-throw to see in Netlify logs
+            }
         }
     }
 
