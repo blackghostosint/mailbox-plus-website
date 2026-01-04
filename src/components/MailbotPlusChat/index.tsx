@@ -226,11 +226,12 @@ export function MailbotPlusChat({
                     ref={launcherRef}
                     onClick={handleOpen}
                     aria-label="Open Mail-bot Plus chat assistant"
-                    className={`fixed bottom-6 right-6 ${isMobile ? 'w-14 h-14' : 'w-15 h-15'
-                        } rounded-2xl transition-all duration-300 ease-out flex items-center justify-center text-white font-semibold text-sm ${launcherClassName}`}
+                    className={`fixed bottom-6 right-6 rounded-full transition-all duration-300 ease-out flex items-center gap-3 text-white font-medium text-base px-5 ${launcherClassName}`}
                     style={{
                         background: '#0855B1',
                         boxShadow: '0 12px 30px rgba(15, 23, 42, 0.20)',
+                        height: isMobile ? '56px' : '60px',
+                        minWidth: isMobile ? '200px' : '220px',
                     }}
                     onMouseEnter={(e) => {
                         e.currentTarget.style.transform = 'translateY(-4px)';
@@ -241,7 +242,21 @@ export function MailbotPlusChat({
                         e.currentTarget.style.boxShadow = '0 12px 30px rgba(15, 23, 42, 0.20)';
                     }}
                 >
-                    MB+
+                    {/* Chat Icon */}
+                    <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="flex-shrink-0"
+                    >
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span className="whitespace-nowrap">Mail-bot Plus Helper</span>
                 </button>
             )}
 

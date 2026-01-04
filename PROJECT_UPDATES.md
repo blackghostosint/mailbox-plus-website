@@ -1,3 +1,23 @@
+## 2026-01-03 — Redesign Launcher as Helper Pill
+
+**Summary**
+Redesigned the Mail-bot Plus launcher from a small circular button to a prominent pill-shaped helper button with clear affordance and interactive design.
+
+**Scope**
+- `src/components/MailbotPlusChat/index.tsx` - Launcher button redesign
+
+**Notes**
+- **Previous design**: Small circular button (56-60px) with only "MB+" text
+- **New design**: Pill-shaped button with chat icon + "Mail-bot Plus Helper" text label
+- Dimensions: 200-220px width (mobile: 200px, desktop: 220px), 56-60px height (mobile: 56px, desktop: 60px)
+- Shape: `rounded-full` for pill appearance
+- Icon: 24px chat bubble icon (message square with tail)
+- Text: "Mail-bot Plus Helper" in white, font-medium, base size
+- Spacing: 3-unit gap between icon and text, 5-unit horizontal padding
+- V2 Design System compliance: Brand blue #0855B1, soft shadow `0 12px 30px rgba(15,23,42,0.20)`, vertical lift hover
+- Clearly visible and interactive at a glance
+- Always rendered and accessible (never hidden)
+
 ## 2026-01-03 — Fix Critical Launcher Suppression Behavior
 
 **Summary**
