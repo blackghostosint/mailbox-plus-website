@@ -26,20 +26,39 @@ export const specialtyShippingServices: Service[] = [
         heroImage: getServiceImageUrl("/images/artwork-shipping.webp"),
         content: [
             {
-                heading: "Expert Art Handling",
-                body: "We understand the unique challenges of transporting artwork. From canvases to sculptures, our packing methods are tailored to protect every piece."
-            },
-            {
-                heading: "Trusted by Collectors & Galleries",
-                body: "Our team regularly works with private collectors, galleries, and artists to ensure their valuable items are packed and shipped with the highest standards."
-            },
-            {
-                heading: "Professional Artwork Shipping in Concord Township, Ohio",
-                body: `At Mailbox Plus, we specialize in the careful, professional packing and shipping of fine artwork throughout Concord Township, Lake County, and beyond. Whether you're an artist, collector, or gallery owner, our team provides white-glove service using archival-grade materials, custom-fit crates, and shock-resistant packaging. Each shipment is designed to protect the integrity of your art—from oil paintings and framed prints to sculptures and antiques—during domestic and international transport.
-
-Our shipping experts coordinate with trusted carriers including FedEx, UPS, DHL, and USPS, ensuring your art arrives safely and on time. We also offer specialized insurance coverage for high-value pieces, so you can ship with confidence. As part of the local art community, we understand the value of craftsmanship, preservation, and presentation—and treat every item with the care it deserves.
-
-If you're searching for <strong>artwork shipping near Concord Township</strong>, or need <strong>professional fine art packing in Lake County</strong>, visit us today or schedule a free consultation. We'll handle every detail—so your masterpiece arrives ready to impress.`,
+                heading: "Professional Artwork Shipping & Preservation",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Trust your masterpiece to the experts. We understand the unique challenges of transporting fine art, 
+                    from delicate oil paintings to heavy sculptures. Our white-glove approach ensures every piece is handled 
+                    with the highest standards of care and preservation.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+                        <h4 class="text-xl font-bold text-blue-900 mb-4">White-Glove Art Handling</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Archival Materials:</strong> We use acid-free packing supplies.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Custom Crating:</strong> Precision-fit crates for fragile items.</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                                <span class="text-gray-700"><strong>Expert Advice:</strong> Guidance on insurance and customs.</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                        <h4 class="text-xl font-bold text-slate-900 mb-4">Gallery-Ready Service</h4>
+                        <p class="text-gray-600 leading-relaxed italic">
+                            "We bridge the gap between local creation and global delivery. Learn more about our 
+                            <a href="/pack-ship/professional-packing" class="text-blue-600 font-semibold hover:underline">professional packing</a> 
+                            for museum-grade protection."
+                        </p>
+                    </div>
+                </div>`,
                 isFullWidth: true
             }
         ],
@@ -73,20 +92,43 @@ If you're searching for <strong>artwork shipping near Concord Township</strong>,
         heroImage: getServiceImageUrl("/images/bicycle-shipping.webp"),
         content: [
             {
-                heading: "Shipping Bikes Made Simple",
-                body: "Whether you're a cycling enthusiast or sending a bike to a loved one, we take care of the entire process from packing to shipping."
-            },
-            {
-                heading: "E-Bike & Specialty Handling",
-                body: "We can accommodate e-bikes and specialty bikes with safe packaging and compliance for battery shipments."
-            },
-            {
-                heading: "Bicycle Shipping Experts in Concord Township, Ohio",
-                body: `At Mailbox Plus, we make shipping your bicycle simple, safe, and stress-free. Whether you're sending your road bike across the country for a race, shipping an e-bike to a new owner, or returning a mountain bike from repair, our expert team handles every detail with care. We use high-quality bike boxes, protective foam, and frame stabilizers to ensure your ride arrives in perfect condition.
-
-We ship through trusted carriers including UPS, FedEx, DHL, and USPS, giving you the best balance of speed and value. You can even track your shipment every step of the way. Need help packing? Our team can disassemble handlebars, pedals, and accessories, then reassemble your bike's packaging for a professional fit that meets carrier standards.
-
-As your local bicycle shipping partner in Concord Township and Lake County, we're proud to help cyclists, clubs, and shops move bikes safely nationwide. If you're searching for <strong>"bike shipping near Concord Township"</strong> or <strong>"ship my bicycle in Lake County"</strong>, visit Mailbox Plus today — we'll handle the packing, labeling, and shipping, so you can focus on the ride ahead.`,
+                heading: "Expert Bicycle Logistics & Packing",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Planning a cycling trip or selling your ride? We take the stress out of bicycle logistics. 
+                    From high-performance road bikes to heavy e-bikes, our team ensures your bicycle is packed securely 
+                    and shipped via the most reliable carriers.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-8 bg-gray-50 p-8 rounded-3xl">
+                    <div class="space-y-4">
+                        <h4 class="text-xl font-bold text-gray-900 border-l-4 border-blue-500 pl-4">Carrier Flexibility</h4>
+                        <p class="text-gray-600">
+                            We ship your bike via 
+                            <a href="/pack-ship/fedex-shipping" class="font-bold text-gray-900 hover:text-blue-600 underline decoration-blue-500/30">FedEx</a> or 
+                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="font-bold text-gray-900 hover:text-blue-600 underline decoration-blue-500/30">UPS</a>, 
+                            comparing rates to find the best value for your route.
+                        </p>
+                        <div class="pt-2">
+                             <a href="/pack-ship" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block">Professional Packing Help</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">The Specialty Standard</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span class="text-gray-700 font-medium">Reinforced, double-wall bike boxes</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span class="text-gray-700 font-medium">Foam-wrap and axle protection</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <span class="text-green-600">✓</span>
+                                <span class="text-gray-700 font-medium">Liability coverage for peace of mind</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>`,
                 isFullWidth: true
             }
         ],
@@ -120,20 +162,33 @@ As your local bicycle shipping partner in Concord Township and Lake County, we'r
         heroImage: getServiceImageUrl("/images/golf-club-shipping.webp"),
         content: [
             {
-                heading: "Safe Shipping for Your Clubs",
-                body: "Whether you’re traveling for a tournament or sending clubs to a destination, we pack and ship them securely."
-            },
-            {
-                heading: "Trusted by Golfers",
-                body: "We've shipped golf bags and club sets for recreational players and professionals alike."
-            },
-            {
-                heading: "Golf Club Shipping Experts in Concord Township, Ohio",
-                body: `At Mailbox Plus, we specialize in safely packing and shipping golf clubs, bags, and equipment for players throughout Concord Township, Lake County, and beyond. Whether you're heading to a tournament, shipping clubs to a vacation destination, or returning gear to a manufacturer, we make the process simple, affordable, and secure.
-
-Our expert team uses reinforced boxes, shaft guards, bubble wrap, and cushioning materials designed to protect your clubs from impact or pressure during transit. We work with trusted carriers including UPS, FedEx, DHL, and USPS to offer the best balance of price and delivery speed—so your gear arrives on time and ready to play.
-
-As your local shipping partner, we understand how important your clubs are. We offer insurance options for added peace of mind and handle all the labeling, documentation, and drop-off logistics for you. If you're searching for **"golf club shipping near Concord Township"** or need **safe golf bag delivery in Lake County**, visit Mailbox Plus today. Let us handle your shipment from tee to green—so you can focus on your next round.`,
+                heading: "Tee-to-Green Golf Club Shipping",
+                body: `<p class="text-lg leading-relaxed mb-6">
+                    Travel light and hit the links without the hassle of airport baggage lines. 
+                    Mailbox Plus specializes in secure golf club shipping, ensuring your gear arrives at your destination 
+                    safely, on time, and ready for your first tee time.
+                </p>
+                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                    <div class="border border-gray-200 p-8 rounded-3xl shadow-sm bg-white">
+                        <h4 class="text-xl font-bold text-gray-900 mb-4">Travel Smarter</h4>
+                        <p class="text-gray-600 mb-6">
+                            Skip the heavy lifting. We offer 
+                            <a href="/pack-ship/professional-packing" class="text-blue-600 font-semibold hover:underline">professional packing</a> 
+                            for golf sets and bags, using specialized materials to protect delicate shafts and heads.
+                        </p>
+                        <div class="flex gap-4">
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">UPS Authorized</span>
+                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">FedEx Expert</span>
+                        </div>
+                    </div>
+                    <div class="bg-blue-600 text-white p-8 rounded-3xl shadow-xl flex flex-col justify-center">
+                        <h4 class="text-xl font-bold mb-2">Shaft & Head Protection</h4>
+                        <p class="text-blue-100 italic leading-relaxed">
+                            "Most golf club damage happens from pressure in cargo holds. Our packing methods use 
+                            structural reinforcement to ensure your bag arrives exactly as you left it."
+                        </p>
+                    </div>
+                </div>`,
                 isFullWidth: true
             }
         ],

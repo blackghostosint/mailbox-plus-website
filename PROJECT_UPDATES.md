@@ -140,3 +140,17 @@ Refactored 5 legacy hardcoded service pages to use the `ServicePageV2` component
 **Notes**
 - All uniquely hardcoded content was successfully migrated and enhanced with V2 aesthetics.
 - The site is now 100% V2-compliant for all service-related landing pages.
+
+## 2026-01-04 — Standardized Specialty Shipping to V2
+
+**Summary**
+Standardized Artwork, Bicycle, and Golf Club shipping pages to full V2 compliance. Refactored the `specialty-shipping.ts` configuration to use visually rich HTML grids and panels, and converted the page files into minimal `ServicePageV2` wrappers, eliminating hardcoded elements and ensuring consistent aesthetics.
+
+**Scope**
+- `src/config/services/pack-ship/specialty-shipping.ts`
+- `src/pages/ArtworkShipping.tsx`
+- `src/pages/BicycleShipping.tsx`
+- `src/pages/GolfClubShipping.tsx`
+
+**Notes**
+- All specialty shipping pages are now fully configuration-driven and V2-compliant.
