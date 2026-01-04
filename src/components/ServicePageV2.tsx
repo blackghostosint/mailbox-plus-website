@@ -60,7 +60,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     const reveal = {
         initial: prefersReducedMotion ? {} : { opacity: 0, y: 32 },
         whileInView: prefersReducedMotion ? {} : { opacity: 1, y: 0 },
-        viewport: { once: true, amount: 0.25 },
+        viewport: { once: true, amount: 0.05 },
         transition: { duration: 0.55, ease: "easeOut" as const },
     };
 
@@ -129,8 +129,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                                         <Star
                                             key={i}
                                             className={`w-4 h-4 ${i < Math.floor(aggregateRating.ratingValue)
-                                                    ? "fill-yellow-400 text-yellow-400"
-                                                    : "text-blue-100/80"
+                                                ? "fill-yellow-400 text-yellow-400"
+                                                : "text-blue-100/80"
                                                 }`}
                                         />
                                     ))}

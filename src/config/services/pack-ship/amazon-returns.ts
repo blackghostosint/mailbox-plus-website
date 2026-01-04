@@ -43,7 +43,7 @@ export const amazonReturnsService: Service = {
       isFullWidth: true
     },
     {
-      heading: "Step-by-Step: How to Start an Amazon Return",
+      heading: "Step-by-Step: How to Start an Amazon Return (Part 1)",
       body: `
         <div class="space-y-12 mt-8">
           ${[
@@ -66,7 +66,31 @@ export const amazonReturnsService: Service = {
             title: "Select Refund or Replacement",
             image: "step-04-select-refund-replacement.webp",
             description: "Choose your preferred resolution: receive a refund to your original payment method (or Amazon balance) or request a replacement item if available."
-          },
+          }
+        ].map((step, idx) => `
+            <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="w-full md:w-1/3">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
+                  <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
+                </div>
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
+              </div>
+              <div class="w-full md:w-2/3">
+                <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
+                <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `,
+      isFullWidth: true
+    },
+    {
+      heading: "Step-by-Step: Managing Labels & Sharing (Part 2)",
+      body: `
+        <div class="space-y-12 mt-8">
+          ${[
           {
             title: "Describe the Issue and Proceed",
             image: "step-05-describe-issue-and-proceed.webp",
@@ -86,7 +110,31 @@ export const amazonReturnsService: Service = {
             title: "Email the Label to Us",
             image: "step-08-email-label-to-us.webp",
             description: "Select your preferred email app and prepare to send the label file directly to our store for fast printing."
-          },
+          }
+        ].map((step, idx) => `
+            <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+              <div class="w-full md:w-1/3">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
+                  <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
+                </div>
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 5}" class="rounded-lg shadow-sm w-full" />
+              </div>
+              <div class="w-full md:w-2/3">
+                <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
+                <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+      `,
+      isFullWidth: true
+    },
+    {
+      heading: "Step-by-Step: Printing & Final Drop-Off (Part 3)",
+      body: `
+        <div class="space-y-12 mt-8">
+          ${[
           {
             title: "Send the Label to Mailbox Plus",
             image: "step-09-use-our-email-address.webp",
@@ -106,10 +154,10 @@ export const amazonReturnsService: Service = {
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
+                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
                   <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 9}" class="rounded-lg shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
