@@ -1,7 +1,7 @@
 {
   "metadata": {
     "model": "text-embedding-004",
-    "generatedAt": "2026-01-04T14:07:51.930Z"
+    "generatedAt": "2026-01-04T14:14:18.670Z"
   },
   "embeddings": {
     "RETRIEVAL_QUERY::Which carriers do you work with?": [
