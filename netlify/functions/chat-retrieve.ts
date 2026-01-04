@@ -263,12 +263,14 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
         }
     }
 
-    if (!bestMatch || bestMatch.score < bestMatch.entry.confidence.minimumSimilarity) {
+    const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? MINIMUM_SIMILARITY;
+
+    if (!bestMatch || bestMatch.score < effectiveMin) {
         return { matched: false };
     }
 
     const scoreGap = bestMatch.score - secondBestScore;
-    if (scoreGap < 0.1 && secondBestScore >= bestMatch.entry.confidence.minimumSimilarity) {
+    if (scoreGap < 0.1 && secondBestScore >= effectiveMin) {
         return { matched: false };
     }
 
