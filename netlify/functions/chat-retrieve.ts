@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as dotenv from 'dotenv';
+import { formatMailbotResponse } from './lib/mailbot-response-template-v1';
 
 dotenv.config();
 
@@ -415,7 +416,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
         const response: any = result.matched
             ? {
                 type: 'accept',
-                answer: result.answer!,
+                answer: formatMailbotResponse(result.answer!), // Apply V1 template formatting
                 sourceUrl: result.sourceUrl!,
                 faqId: result.faqId!,
                 confidence: result.confidence!

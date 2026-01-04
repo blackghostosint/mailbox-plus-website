@@ -1,3 +1,20 @@
+## 2026-01-04 — Implement Mail-bot Plus Response Template V1
+
+**Summary**
+Implemented an enforced 4-part response structure for the chatbot to ensure consistent, human-friendly answers. The V1 template applies a runtime formatting system that validates responses against tone, length, and content rules before delivering them to users, ensuring the chatbot sounds like a helpful local employee rather than a corporate AI system.
+
+**Scope**
+- `netlify/functions/lib/mailbot-response-template-v1.ts` - Core template formatter with validation rules
+- `netlify/functions/chat-retrieve.ts` - Integrated formatter into response building
+- `knowledge/MAILBOT_RESPONSE_TEMPLATE_SPEC.md` - Comprehensive specification and examples
+
+**Notes**
+- Template Structure: (1) Acknowledgment (≤12 words), (2) Answer (direct, conversational), (3) Optional Context (local grounding), (4) Hand-off (next-step question)
+- Validation Guardrails: Length limits (≤6 lines), forbidden phrase filter (blocks AI/corporate language), section presence checks
+- Runtime Formatting: Uses intelligent parser to wrap legacy FAQ answers in V1 structure without modifying `kb.entries.json`
+- Versioning: Template explicitly versioned as `mailbot.response.template.v1` for future evolution
+- TypeScript compilation passed; validation warnings logged but do not block responses
+
 ## 2026-01-04 — Enhanced Mailbox Retrieval Variants
 
 **Summary**
