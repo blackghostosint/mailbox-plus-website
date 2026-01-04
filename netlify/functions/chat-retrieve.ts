@@ -96,26 +96,27 @@ function initializeResources(): void {
         throw new Error(`Knowledge base not found. Checked: ${kbPaths.join(', ')}`);
     }
 
-    // Load embedding cache
-    const cachePaths = [
-        join(process.cwd(), 'knowledge', '.embedding-cache.json'),
-        join(process.cwd(), '..', 'knowledge', '.embedding-cache.json'),
-        join(__dirname, '..', '..', 'knowledge', '.embedding-cache.json'),
-        join(__dirname, 'knowledge', '.embedding-cache.json'),
-        '/var/task/knowledge/.embedding-cache.json'
+    // Load precomputed embeddings from build-time artifact
+    const embeddingPaths = [
+        join(process.cwd(), 'knowledge', 'embeddings.json'),
+        join(process.cwd(), '..', 'knowledge', 'embeddings.json'),
+        join(__dirname, '..', '..', 'knowledge', 'embeddings.json'),
+        join(__dirname, 'knowledge', 'embeddings.json'),
+        '/var/task/knowledge/embeddings.json'
     ];
 
-    let foundCache = false;
-    for (const path of cachePaths) {
+    let foundEmbeddings = false;
+    for (const path of embeddingPaths) {
         if (existsSync(path)) {
-            embeddingCache = JSON.parse(readFileSync(path, 'utf-8'));
-            foundCache = true;
+            const embeddingData = JSON.parse(readFileSync(path, 'utf-8'));
+            embeddingCache = embeddingData.embeddings || {};
+            foundEmbeddings = true;
             break;
         }
     }
 
-    if (!foundCache) {
-        console.warn('Embedding cache not found. Retrieval will be slow or failed.');
+    if (!foundEmbeddings) {
+        throw new Error('Precomputed embeddings not found. Run `npm run build:embeddings` first.');
     }
 
     // Initialize Gemini
@@ -178,15 +179,14 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 /**
  * Calculate semantic similarity using Gemini embeddings and cosine similarity
  */
-function calculateSimilarity(queryEmbedding: number[], entryId: string, entryTexts: string[]): number {
+function calculateSimilarity(queryEmbedding: number[], entryTexts: Array<{ text: string; taskType: string }>): number {
     let maxSimilarity = 0;
 
-    for (const text of entryTexts) {
-        const cacheKey = `${entryId}::${text}`;
+    for (const { text, taskType } of entryTexts) {
+        const cacheKey = `${taskType}::${text}`;
         const entryEmbedding = embeddingCache[cacheKey];
 
-        // We no longer generate embeddings on-the-fly here to avoid excessive API calls
-        // and timeouts. We rely on the pre-generated cache.
+        // Skip if embedding not found
         if (!entryEmbedding) {
             continue;
         }
@@ -213,13 +213,15 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
     let secondBestScore = 0;
 
     for (const entry of kb.entries) {
+        // Build text array with task types
         const textsToCheck = [
-            ...entry.questionVariants,
-            entry.searchText,
-            entry.title
+            ...entry.questionVariants.map(text => ({ text, taskType: 'RETRIEVAL_QUERY' })),
+            { text: entry.searchText, taskType: 'RETRIEVAL_DOCUMENT' },
+            { text: entry.title, taskType: 'RETRIEVAL_DOCUMENT' }
         ];
 
-        const score = calculateSimilarity(queryEmbedding, entry.id, textsToCheck);
+        const score = calculateSimilarity(queryEmbedding, textsToCheck);
+
 
         if (score > (bestMatch?.score || 0)) {
             secondBestScore = bestMatch?.score || 0;

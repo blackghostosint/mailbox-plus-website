@@ -12,7 +12,8 @@
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "audit:micro-problems": "node scripts/audit-micro-problems.cjs",
     "audit:micro-problems:report": "node scripts/audit-micro-problems.cjs",
-    "test:retrieval": "tsx knowledge/retrieval-test-runner.ts"
+    "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
+    "build:embeddings": "tsx scripts/build-embeddings.ts"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
