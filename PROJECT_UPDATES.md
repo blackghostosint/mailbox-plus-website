@@ -1,3 +1,33 @@
+## 2026-01-03 — Wire MailbotPlusChat to Real Retrieval Endpoint
+
+**Summary**
+Replaced mock chatbot handler with real API service that calls `/api/chat/retrieve` endpoint. Chatbot now connects to actual retrieval system instead of returning hardcoded test responses.
+
+**Scope**
+- `src/services/chatbot.ts` - New service file with `submitChatQuestion` function
+- `src/App.tsx` - Removed mock handler, imported and wired real service
+
+**Notes**
+- Service makes POST request to `/api/chat/retrieve` with `{ question }` body
+- Defensive validation of response shape (checks all required fields)
+- Fail-closed error handling: returns `{ type: 'refuse' }` on network errors, invalid responses, or missing fields
+- No UI changes to MailbotPlusChat component
+- Contract between App.tsx and MailbotPlusChat remains identical
+
+## 2026-01-03 — Fix Saturday Store Hours Inconsistency in Chatbot Mock Handler
+
+**Summary**
+Corrected Saturday store hours in the chatbot mock handler from incorrect "10:00 AM - 3:00 PM" to actual hours "9:00 AM - 2:00 PM" to match the authoritative `siteConfig.ts` configuration.
+
+**Scope**
+- `src/App.tsx` - Updated chatbot mock response for hours-related questions
+
+**Notes**
+- Inconsistency was discovered during codebase audit for store hours references
+- All other locations (ContactUs, StoreHours, Home, Services, Header) already referenced correct Saturday hours from `siteConfig.ts`
+- This was the only file with incorrect Saturday hours (10:00 AM - 3:00 PM)
+- Correct hours: Monday-Friday 9:00 AM - 6:00 PM, Saturday 9:00 AM - 2:00 PM, Sunday Closed
+
 ## 2026-01-03 — Redesign Launcher as Helper Pill
 
 **Summary**
