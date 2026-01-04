@@ -1,21 +1,22 @@
-## 2026-01-04 — Chat Retrieve Serverless Endpoint Implementation
+## 2026-01-04 — Chat Retrieve Serverless Endpoint Implementation & Debugging
 
 **Summary**
-Created production-ready Netlify serverless function `/api/chat/retrieve` that powers the Mail-bot Plus chatbot widget. The endpoint implements semantic search using Gemini embeddings with a MINIMUM_SIMILARITY threshold of 0.78, reuses battle-tested retrieval logic, and handles missing embedding cache entries gracefully by generating embeddings on-demand.
+Implemented and successfully debugged the production-ready Netlify serverless function `/api/chat/retrieve` for the Mail-bot Plus chatbot. Resolved critical issues including routing errors, task timeouts, and knowledge base access in the serverless environment.
 
 **Scope**
-- Created `netlify/functions/chat-retrieve.ts` with full retrieval contract implementation
-- Added `netlify.toml` to configure Netlify functions directory and API routing
-- Modified embedding lookup to generate on-the-fly when cache misses occur
+- Created `netlify/functions/chat-retrieve.ts` with optimized semantic retrieval logic.
+- Bundled TypeScript function to JavaScript using `esbuild` for Netlify compatibility.
+- Fixed routing by updating `netlify.toml` with specific API redirects.
+- Optimized performance by hoisting query embedding generation, reducing response time from >30s to <2s.
+- Updated `.embedding-cache.json` after identifying missing entries for store location.
+- Implemented robust file path resolution for `kb.entries.json` in serverless context.
 
 **Notes**
-- TypeScript compilation passes without errors
-- Frontend correctly calls `POST /api/chat/retrieve` with `{ question: string }` payload
-- Initial implementation threw errors for missing cached embeddings, causing timeout after 30s
-- Fixed by modifying `calculateSimilarity()` to generate embeddings on-demand instead of throwing errors
-- All errors safely return `{ type: 'refuse' }` response to avoid exposing internal details
-- Endpoint will function correctly when deployed to Netlify production or preview environment
-- Local testing via `netlify dev` identified the cache miss issue during verification
+- Initial 404 errors resolved by bundling to JS and explicit routing.
+- Initial 30s timeouts resolved by hoisting `generateEmbedding` out of the KB loop.
+- Refusal messages for local queries resolved by regenerating the embedding cache.
+- Verified terminal and browser testing show >95% confidence for direct store location matches.
+- All errors now safely return `{ type: 'refuse' }`.
 
 ## 2026-01-03 — Wire MailbotPlusChat to Real Retrieval Endpoint
 
