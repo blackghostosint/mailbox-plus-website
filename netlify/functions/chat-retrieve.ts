@@ -263,14 +263,32 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
         }
     }
 
+    if (!bestMatch) {
+        console.log("Similarity decision: No match found");
+        return { matched: false };
+    }
+
     const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? MINIMUM_SIMILARITY;
 
-    if (!bestMatch || bestMatch.score < effectiveMin) {
+    console.log("Similarity decision", {
+        id: bestMatch.entry.id,
+        score: bestMatch.score,
+        effectiveMin,
+        globalMin: MINIMUM_SIMILARITY
+    });
+
+    if (bestMatch.score < effectiveMin) {
         return { matched: false };
     }
 
     const scoreGap = bestMatch.score - secondBestScore;
     if (scoreGap < 0.1 && secondBestScore >= effectiveMin) {
+        console.log("Ambiguity check failed", {
+            bestId: bestMatch.entry.id,
+            bestScore: bestMatch.score,
+            secondBestScore,
+            gap: scoreGap
+        });
         return { matched: false };
     }
 
