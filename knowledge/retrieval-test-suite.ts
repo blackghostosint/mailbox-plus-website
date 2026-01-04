@@ -136,6 +136,38 @@ export const retrievalTests: TestCase[] = [
         expectedFaqId: 'faq-shipping-delivery-time',
         notes: 'Same intent as "How long will shipping take?"'
     },
+    {
+        id: 'paraphrase-07',
+        category: 'paraphrase',
+        query: 'Do you offer Private Mailbox (PMB) services?',
+        expectedResult: 'ACCEPT',
+        expectedFaqId: 'faq-shipping-mailboxes',
+        notes: 'Search for private mailbox / PMB'
+    },
+    {
+        id: 'paraphrase-08',
+        category: 'paraphrase',
+        query: 'Can I rent a PMB there?',
+        expectedResult: 'ACCEPT',
+        expectedFaqId: 'faq-shipping-mailboxes',
+        notes: 'Search for PMB'
+    },
+    {
+        id: 'paraphrase-09',
+        category: 'paraphrase',
+        query: 'What is a P.O. Box alternative?',
+        expectedResult: 'ACCEPT',
+        expectedFaqId: 'faq-mailbox-rental-vs-po-box',
+        notes: 'Search for P.O. Box alternative'
+    },
+    {
+        id: 'paraphrase-10',
+        category: 'paraphrase',
+        query: 'Can I use a Private Mailbox for my business?',
+        expectedResult: 'ACCEPT',
+        expectedFaqId: 'faq-business-mailbox-address',
+        notes: 'Search for business use of private mailbox'
+    },
 
     // ========================================
     // C. AMBIGUOUS TESTS (must refuse)

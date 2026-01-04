@@ -1,3 +1,16 @@
+## 2026-01-04 — Enhanced Mailbox Retrieval Variants
+
+**Summary**
+Improved the chatbot's retrieval accuracy for physical mailbox rentals by incorporating "Private Mailbox", "PMB", and "P.O. Box alternative" variants into the knowledge base. Resolved retrieval competition issues by uniquely mapping variants to primary FAQ entries.
+
+**Scope**
+- `knowledge/kb.entries.json` - Added variants and refined `searchText` for mailbox entries.
+- `knowledge/retrieval-test-suite.ts` - Added 4 new test cases for the variations.
+
+**Notes**
+- All 28 retrieval tests passed with 100% success rate.
+- "PMB" and "P.O. Box alternative" now match with 100% confidence.
+
 ## 2026-01-04 — List Visual Standardization (V2 Style)
 
 **Summary**

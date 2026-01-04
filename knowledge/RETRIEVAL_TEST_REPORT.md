@@ -1,6 +1,6 @@
 # Retrieval Test Report (Gemini Embeddings)
 
-**Generated:** 2026-01-04T14:52:37.970Z
+**Generated:** 2026-01-04T21:22:53.207Z
 
 **Embedding Model:** text-embedding-004
 **Minimum Similarity Threshold:** 0.78
@@ -9,8 +9,8 @@
 
 | Metric | Value |
 |--------|-------|
-| Total Tests | 24 |
-| Passed | 24 |
+| Total Tests | 28 |
+| Passed | 28 |
 | Failed | 0 |
 | Pass Rate | 100.0% |
 
@@ -23,7 +23,7 @@
 | Category | Count | Should Accept | Should Refuse |
 |----------|-------|---------------|---------------|
 | direct_match | 6 | 6 | 0 |
-| paraphrase | 6 | 6 | 0 |
+| paraphrase | 10 | 10 | 0 |
 | ambiguous | 3 | 0 | 3 |
 | operational | 5 | 0 | 5 |
 | out_of_scope | 4 | 0 | 4 |
@@ -44,6 +44,10 @@
 | paraphrase-04 | Do you handle delicate or breakable items? | ACCEPT | ACCEPT | ✅ | 90.4% | Same intent as "Can you pack fragile items?" |
 | paraphrase-05 | Can I return Amazon purchases at your location? | ACCEPT | ACCEPT | ✅ | 83.0% | Same intent as "Do you accept Amazon returns?" |
 | paraphrase-06 | How much time does delivery usually take? | ACCEPT | ACCEPT | ✅ | 95.5% | Same intent as "How long will shipping take?" |
+| paraphrase-07 | Do you offer Private Mailbox (PMB) services? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for private mailbox / PMB |
+| paraphrase-08 | Can I rent a PMB there? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for PMB |
+| paraphrase-09 | What is a P.O. Box alternative? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for P.O. Box alternative |
+| paraphrase-10 | Can I use a Private Mailbox for my business? | ACCEPT | ACCEPT | ✅ | 94.0% | Search for business use of private mailbox |
 | ambiguous-01 | What business services do you offer? | REFUSE | REFUSE | ✅ | N/A | Spans multiple FAQs - too broad to answer safely |
 | ambiguous-02 | What can you help me with? | REFUSE | REFUSE | ✅ | N/A | Extremely broad - would require listing multiple services |
 | ambiguous-03 | What services does Mailbox Plus provide? | REFUSE | REFUSE | ✅ | N/A | Covers entire service catalog - ambiguous intent |

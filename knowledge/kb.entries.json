@@ -541,7 +541,11 @@
         "Can I receive packages at your store?",
         "Do you offer mailbox rental?",
         "Can I have packages delivered to your location?",
-        "Can I use your address for deliveries?"
+        "Can I use your address for deliveries?",
+        "Do you offer Private Mailbox (PMB) services?",
+        "Can I rent a private mailbox here?",
+        "Can I rent a PMB there?",
+        "What are your mailbox rental rates?"
       ],
       "answer": "Yes, with a Mailbox Plus rental, you can have packages securely delivered to our location for pickup at your convenience.",
       "confidence": {
@@ -568,7 +572,7 @@
         "receiving",
         "secure"
       ],
-      "searchText": "receive packages mailbox rental delivery secure pickup convenience"
+      "searchText": "receive packages mailbox rental delivery secure pickup convenience private mailbox PMB"
     },
     {
       "id": "faq-shipping-size-limits",
@@ -2246,7 +2250,9 @@
       "intent": "faq",
       "title": "What's the difference between this and a PO Box?",
       "questionVariants": [
-        "What's the difference between this and a PO Box?"
+        "What's the difference between this and a PO Box?",
+        "Are you a P.O. Box alternative?",
+        "What is a P.O. Box alternative?"
       ],
       "answer": "Our mailboxes provide a real street address, making package deliveries and business use easier than a standard PO Box.",
       "confidence": {
@@ -2273,7 +2279,7 @@
         "PO Box",
         "street address"
       ],
-      "searchText": "what's the difference between this and a po box? our mailboxes provide a real street address, making package deliveries and business use easier than a standard po box."
+      "searchText": "what's the difference between this and a po box? our mailboxes provide a real street address, making package deliveries and business use easier than a standard po box. P.O. Box alternative"
     },
     {
       "id": "faq-shredding-onsite",
@@ -3921,8 +3927,8 @@
       "intent": "faq",
       "title": "Can I use a mailbox for my business address?",
       "questionVariants": [
-        "Can I use a mailbox for my business address?",
-        "Do you offer business mailbox rental?"
+        "Do you offer business mailbox rental?",
+        "Can I use a Private Box for my business address?"
       ],
       "answer": "Yes, we offer business mailbox rental. You can bring your items into the store and we'll help you with this service.",
       "confidence": {
@@ -3950,7 +3956,7 @@
         "professional address",
         "business"
       ],
-      "searchText": "business address mailbox rental professional address business mailbox can I use do you offer"
+      "searchText": "business address mailbox rental professional address business mailbox can I use do you offer Private Box"
     },
     {
       "id": "faq-document-scanning",
