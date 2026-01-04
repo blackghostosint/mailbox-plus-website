@@ -1,3 +1,17 @@
+## 2026-01-04 — Regenerate Embeddings with Store Location SearchText
+
+**Summary**
+Regenerated embeddings to include the updated `searchText` for the `faq-store-location` entry that was added in the previous fix. The live site was still refusing address queries because the embeddings file hadn't been regenerated after the kb.entries.json changes.
+
+**Scope**
+- `knowledge/embeddings.json` - Regenerated all 345 embeddings using `npm run build:embeddings`
+
+**Notes**
+- Root cause: Previous fix updated `kb.entries.json` with new searchText and lowered threshold to 0.62, but forgot to regenerate `embeddings.json`
+- Live production site was using stale embeddings that didn't include the enhanced searchText
+- Confirmed new embeddings include both `RETRIEVAL_QUERY::Where is your store located?` and `RETRIEVAL_DOCUMENT::store address location where is your store located what is your address Mailbox Plus Concord Township Ohio`
+- This completes the store location FAQ fix end-to-end
+
 ## 2026-01-04 — Fix Critical Netlify Deployment Bug for Embeddings
 
 **Summary**
