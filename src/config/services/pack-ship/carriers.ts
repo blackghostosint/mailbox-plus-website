@@ -35,15 +35,16 @@ export const carrierServices: Service[] = [
                 body: "Choose from FedEx Express, Ground, and International services depending on your delivery timeline and budget."
             },
             {
-                heading: "Your Trusted FedEx Shipping Partner in Concord Township, Ohio",
-                body: `At Mailbox Plus, we’re proud to be your local <strong>Authorized FedEx Shipping Center</strong>—serving Concord Township, Lake County, and surrounding communities. Whether you’re sending important business documents, e-commerce packages, or personal gifts, our team ensures your shipment is packed, labeled, and processed according to FedEx’s professional standards.
-
-We offer the full range of <strong>FedEx Express, Ground, and International</strong> services to meet your needs. From overnight document delivery to secure international shipping, our experts can help you choose the best option for your destination, timeline, and budget. Every package is packed with care using high-quality materials that protect against vibration, compression, and handling stress.
-
-As part of our commitment to exceptional service, we provide <strong>real-time tracking, shipment insurance, and on-site packing assistance</strong>—so you can ship with confidence. Whether you’re searching for <em>FedEx drop-off near Concord Township</em> or need <em>FedEx printing and shipping services in Lake County</em>, Mailbox Plus makes the process fast, easy, and reliable.
-
-Visit us today and experience the convenience of working with a local FedEx partner that truly cares about your packages—and your peace of mind.`,
-                isFullWidth: true
+                heading: "Trusted FedEx Partner",
+                body: "At Mailbox Plus, we’re proud to be your local <strong>Authorized FedEx Shipping Center</strong>—serving Concord Township and Lake County. Our team ensures your shipment is packed, labeled, and processed according to FedEx’s professional standards."
+            },
+            {
+                heading: "Global & Domestic Reach",
+                body: "We offer the full range of <strong>FedEx Express, Ground, and International</strong> services. From overnight document delivery to secure international shipping, we help you choose the best option for your destination and budget."
+            },
+            {
+                heading: "Professional Shipping Standards",
+                body: "Every package is packed with care using high-quality materials that protect against vibration and compression. We provide <strong>real-time tracking, shipment insurance, and on-site packing assistance</strong> for your peace of mind."
             }
         ],
         features: [
@@ -75,15 +76,16 @@ Visit us today and experience the convenience of working with a local FedEx part
                 body: "Ground, Next Day Air, and International services available to meet your business shipping needs."
             },
             {
-                heading: "Authorized UPS Shipping Center in Concord Township, Ohio",
-                body: `Mailbox Plus is your trusted <strong>Authorized UPS Shipping Center</strong>—serving Concord Township, Lake County, and nearby communities with reliable packing and shipping solutions. Whether you're sending business documents, heavy packages, or time-sensitive materials, our trained staff ensures your shipment meets <strong>UPS packaging and handling standards</strong> for safety and speed.
-
-We offer a full suite of <strong>UPS services</strong> including <em>UPS Ground, 2nd Day Air, Next Day Air, and International</em> options. Our experts help you choose the best method for your timeline and budget while guaranteeing secure packaging that protects your items in transit. Every box is prepared with professional materials designed to reduce impact, vibration, and compression damage.
-
-As a local business in Gristmill Village, we take pride in providing fast, friendly, and accurate UPS drop-off and shipping assistance. You'll enjoy the convenience of <strong>on-site packing, printed shipping labels, tracking, and optional insurance coverage</strong>—all handled in one stop.
-
-If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an authorized UPS drop-off location in Lake County</em>, visit Mailbox Plus today. We'll handle your package with care, so you can ship with confidence.`,
-                isFullWidth: true
+                heading: "Local UPS Shipping Hub",
+                body: "Mailbox Plus is your <strong>Authorized UPS Shipping Center</strong>—serving Concord Township with reliable packing and shipping solutions. Our staff ensures your shipment meets <strong>UPS packaging and handling standards</strong> for safety and speed."
+            },
+            {
+                heading: "Comprehensive UPS Services",
+                body: "We offer a full suite of services including <em>UPS Ground, 2nd Day Air, Next Day Air, and International</em> options. Our experts help you choose the best method for your budget while guaranteeing secure packaging."
+            },
+            {
+                heading: "Convenient One-Stop Shop",
+                body: "As a local business in Gristmill Village, we provide fast UPS drop-off and shipping assistance. Enjoy <strong>on-site packing, printed labels, tracking, and insurance coverage</strong> all in one stop."
             }
         ],
         features: [
@@ -115,15 +117,16 @@ If you're looking for <em>UPS shipping near Concord Township</em> or need <em>an
                 body: "From stamps to international shipments, we cover all your USPS needs."
             },
             {
-                heading: "Official USPS Postal Services in Concord Township, Ohio",
-                body: `Mailbox Plus is your convenient, locally owned hub for <strong>USPS postal and shipping services</strong> in Concord Township and Lake County. As an authorized provider, we handle everything from <strong>First-Class Mail</strong> and <strong>Priority Mail</strong> to <em>Certified Mail, Flat Rate Boxes, and International Shipping</em>—all in one friendly location.
-
-Avoid the long lines at the post office. Our team provides fast, accurate service with expert packing, custom labeling, and on-the-spot postage for envelopes, boxes, and parcels of all sizes. We help individuals and businesses alike save time and ship with confidence using trusted <strong>United States Postal Service</strong> options.
-
-Whether you need to send a single letter or manage regular mailings, Mailbox Plus offers <strong>secure USPS drop-off, tracking assistance, and bulk mailing support</strong> right here in your community.
-
-If you’re searching for <em>USPS services near Concord Township</em> or need <em>postal shipping in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll take care of your mail from start to finish—quickly, efficiently, and with a smile.`,
-                isFullWidth: true
+                heading: "Convenient USPS Hub",
+                body: "Mailbox Plus is your hub for <strong>USPS postal and shipping services</strong> in Concord Township. As an authorized provider, we handle <strong>First-Class Mail</strong>, <strong>Priority Mail</strong>, and <em>Certified Mail</em> in one friendly location."
+            },
+            {
+                heading: "Efficient Mailing Support",
+                body: "Avoid the long lines at the post office. Our team provides fast, accurate service with expert packing, custom labeling, and on-the-spot postage for envelopes and parcels of all sizes."
+            },
+            {
+                heading: "Small Business & Personal Solutions",
+                body: "Whether you need to send a single letter or manage regular mailings, we offer <strong>secure USPS drop-off, tracking assistance, and bulk mailing support</strong> right here in your community."
             }
         ],
         features: [
@@ -155,15 +158,16 @@ If you’re searching for <em>USPS services near Concord Township</em> or need <
                 body: "DHL is known for its reliability and global network."
             },
             {
-                heading: "DHL Express International Shipping in Concord Township, Ohio",
-                body: `At Mailbox Plus, we proudly serve as your local access point for <strong>DHL Express international shipping</strong>—helping residents and businesses in Concord Township and Lake County send packages quickly and securely around the world. Whether you’re shipping documents to Europe, products to Asia, or gifts overseas, our team ensures every shipment is <strong>professionally packed, labeled, and customs-ready</strong> before it leaves our store.
-
-DHL is recognized worldwide for its speed, reliability, and global reach. We offer <strong>DHL Express Worldwide</strong> and <strong>DHL Express Envelope</strong> services, with expert guidance on <em>customs forms, international restrictions, and packaging requirements</em>. Every shipment comes with detailed tracking and delivery confirmation, giving you peace of mind from drop-off to destination.
-
-Our shipping specialists at Mailbox Plus can also combine DHL with other carriers like FedEx, UPS, or USPS to provide the most cost-effective solution for your timeline and budget.
-
-If you’re searching for <em>DHL Express shipping near Concord Township</em> or need <em>international delivery in Lake County, Ohio</em>, stop by Mailbox Plus today. We’ll help you send your packages anywhere in the world—safely, efficiently, and with the care only a local expert can provide.`,
-                isFullWidth: true
+                heading: "Global Express Service Point",
+                body: "At Mailbox Plus, we serve as your local access point for <strong>DHL Express international shipping</strong>—helping you send packages quickly and securely around the world via the same 220-country network as any DHL location."
+            },
+            {
+                heading: "Expert International Readiness",
+                body: "Our team ensures every shipment is <strong>professionally packed and customs-ready</strong>. We provide expert guidance on <em>customs forms, international restrictions, and packaging requirements</em> for DHL Express Worldwide."
+            },
+            {
+                heading: "Peace of Mind Worldwide",
+                body: "Every DHL shipment comes with detailed tracking and delivery confirmation. We can also combine DHL with other carriers like FedEx or UPS to provide the most cost-effective solution for your budget."
             }
         ],
         features: [
@@ -191,15 +195,12 @@ If you’re searching for <em>DHL Express shipping near Concord Township</em> or
                 body: "Pick up individual stamps or full books for personal or business use."
             },
             {
-                heading: "Postage Stamps and Mailing Services in Concord Township, Ohio",
-                body: `Mailbox Plus is your convenient local source for <strong>postage stamps, mailing supplies, and USPS shipping services</strong> in Concord Township and Lake County. Whether you need to send a single letter, pay a bill, or mail a bulk set of invitations, our store makes it easy to get the exact postage you need—without waiting in long post office lines.
-    
-    We carry <strong>Forever Stamps, commemorative stamps, and standard USPS postage options</strong> for both domestic and international mail. Our staff can help you calculate postage rates, weigh envelopes, and prepare your items for shipment through the <strong>United States Postal Service</strong>.
-    
-    Mailbox Plus also offers <strong>envelopes, shipping labels, and packaging supplies</strong> to make your mailing process simple and efficient. Whether it’s personal correspondence or business mail, we’re here to help you get it there quickly and correctly.
-    
-    If you’re searching for <em>postage stamps near Concord Township</em> or need <em>mailing supplies and USPS services in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll handle your postage needs with friendly, local service—and help make sending mail easier than ever.`,
-                isFullWidth: true
+                heading: "Local Postage & Mailing",
+                body: "Mailbox Plus is your local source for <strong>postage stamps and mailing supplies</strong> in Concord Township. Get the exact postage you need for personal or business mail—without waiting in long post office lines."
+            },
+            {
+                heading: "Stamps & Custom Metering",
+                body: "We carry <strong>Forever Stamps and standard USPS postage options</strong> for domestic and international mail. Our staff can help you calculate exact rates, weigh envelopes, and prepare your items for shipment."
             }
         ],
         features: [

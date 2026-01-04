@@ -1,3 +1,19 @@
+## 2026-01-04 — Content Density Restoration (V2 Spec)
+
+**Summary**
+Restructured over-dense text blocks across service configuration files to improve readability and conform to the V2 Design System's whitespace requirements. Large "walls of text" were broken into multiple, smaller content sections with distinct headings, triggering the alternating layout pattern in `ServicePageV2`.
+
+**Scope**
+- `src/config/services/pack-ship/packing-services.ts`
+- `src/config/services/pack-ship/carriers.ts`
+- `src/config/services/pack-ship/specialty-shipping.ts`
+- `src/config/micro-problems/packaging.ts`
+- `src/config/micro-problems/shipping.ts`
+
+**Notes**
+- Specifically improved "Custom Box Making" and "UPS Authorized Shipper Outlet" pages as requested.
+- Maintained all original value propositions while drastically improving scannability.
+
 ## 2026-01-04 — Enable Chatbot Question Tracking via GTM
 
 **Summary**
