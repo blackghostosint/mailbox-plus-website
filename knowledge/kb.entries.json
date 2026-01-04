@@ -4150,7 +4150,7 @@
       ],
       "answer": "We're located at 7554 Fredle Drive, Concord Township, Ohio 44077 in Lake County. You'll find us in The Gristmill Village Shopping Center, right next door to Pub Frato.",
       "confidence": {
-        "minimumSimilarity": 0.78,
+        "minimumSimilarity": 0.62,
         "requiresExactMatch": false
       },
       "sources": [
@@ -4175,7 +4175,7 @@
         "store location",
         "concord township"
       ],
-      "searchText": "location address where located 7554 Fredle Drive Concord Township Ohio 44077 Lake County Gristmill Village Shopping Center Pub Frato directions how to find store shop"
+      "searchText": "store address location where is your store located what is your address Mailbox Plus Concord Township Ohio"
     },
     {
       "id": "faq-stamps",

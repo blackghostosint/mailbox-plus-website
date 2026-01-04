@@ -34,4 +34,20 @@ Migrated chatbot retrieval from runtime embedding generation to build-time preco
 - Performance improvement: retrieval function no longer makes thousands of Gemini API calls per request
 - Production-safe: serverless functions now operate in read-only mode for KB embeddings
 
-${readFileSync('d:\\mailbox-plus-website\\mailbox-plus-website\\PROJECT_UPDATES.md', 'utf-8')}
+
+## 2026-01-04 — Fix Address FAQ Retrieval Threshold & Embedding Alignment
+
+**Summary**
+Updated the `faq-store-location` entry to resolve address/location query failures caused by low cosine similarity scores. Modified the `searchText` field to use a short, intent-aligned semantic anchor instead of the verbose address string, improving semantic matching for queries like "what is your address" and "where are you located".
+
+**Scope**
+- `knowledge/kb.entries.json` - Updated `searchText` for `faq-store-location` entry
+- `knowledge/embeddings.json` - Regenerated all embeddings with updated FAQ entry
+
+**Notes**
+- Root cause: Short factual queries ("what is your address") had low cosine similarity with long, verbose address strings
+- Confidence threshold was already correctly set to 0.62 (lowered from default 0.78)
+- New `searchText`: "store address location where is your store located what is your address Mailbox Plus Concord Township Ohio"
+- Old `searchText` contained full street address, landmarks, and directions which diluted semantic matching
+- Embeddings rebuilt using existing build workflow (`npm run build:embeddings`)
+- No changes to global thresholds, retrieval logic, or refusal behavior
