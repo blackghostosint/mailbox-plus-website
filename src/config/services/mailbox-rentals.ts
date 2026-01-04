@@ -27,45 +27,64 @@ export const mailboxRentalServices: Service[] = [
         heroImage: getServiceImageUrl("/images/mailbox-rental.webp"),
         content: [
             {
-                heading: "A Real Address for Your Mail",
-                body: "Unlike a standard PO Box, our mailbox rentals provide you with a real street address, making it easier for package deliveries and business use."
+                heading: "Your Professional Street Address",
+                body: "Stop relying on a PO Box or putting your home address at risk. A private mailbox at Mailbox Plus provides a <strong>real street address</strong> in Concord Township, Ohio. This allows you to receive packages from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>—and build a professional image for your home-based business."
             },
             {
-                heading: "Safe & Secure Access",
-                body: "Enjoy peace of mind with 24/7 secure access and professional staff to handle your deliveries."
+                heading: "Transparent Pricing & Standardized Sizes",
+                body: `<div class="overflow-x-auto my-6">
+                    <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm">
+                        <thead class="bg-slate-100/80">
+                            <tr>
+                                <th class="p-4 font-semibold text-slate-900">Mailbox Size</th>
+                                <th class="p-4 font-semibold text-slate-900">Monthly Price</th>
+                                <th class="p-4 font-semibold text-slate-900">Package Inclusion</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="p-4 text-slate-700">Small Box</td>
+                                <td class="p-4 font-bold text-[#0855B1]">$25.00</td>
+                                <td class="p-4 text-slate-600">5 pkgs included</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700">Large Box</td>
+                                <td class="p-4 font-bold text-[#0855B1]">$35.00</td>
+                                <td class="p-4 text-slate-600">5 pkgs included</td>
+                            </tr>
+                            <tr class="bg-blue-50/30">
+                                <td class="p-4 text-slate-700 font-semibold">12-Month Prepay</td>
+                                <td class="p-4 font-bold text-[#0855B1]">$300.00</td>
+                                <td class="p-4 text-slate-600">Best Value</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="text-sm text-slate-500 italic mt-2">Note: Additional packages beyond the monthly inclusion are \$5.00 each. Rentals available in 3, 6, and 12-month terms.</p>`
             },
             {
-                heading: "Secure Mailbox Rentals in Concord Township, Ohio",
-                body: `Keep your mail and packages safe with <strong>secure mailbox rentals</strong> from Mailbox Plus in Concord Township, Ohio. Whether for personal, business, or seasonal use, our private mailboxes provide a professional address and reliable delivery from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>.
-
-We offer two flexible mailbox sizes:
-• <strong>Small: $25.00 per month</strong>, which includes up to five (5) packages per month, with a <strong>$5.00 per package fee after the fifth</strong>.
-• <strong>Large: $35.00 per month</strong>, which includes up to five (5) packages per month, with a <strong>$5.00 per package fee after the fifth</strong>.
-
-Mailbox access is available during our <strong>regular business hours</strong>, and rentals are available in convenient <strong>3-month, 6-month, and 12-month terms</strong>. Whether you’re looking to protect deliveries, separate business mail, or simplify shipping logistics, our secure mailboxes are an ideal solution.
-
-To open a mailbox, you’ll need to complete <strong>USPS Form 1583</strong>, which authorizes Mailbox Plus as your Commercial Mail Receiving Agency (CMRA). The setup is quick and easy:
-
-1. <strong>Complete USPS Form 1583</strong>
-   Fill in your personal or business details, including your current address and any authorized recipients. Each additional person (such as family members or business associates) will need to provide their own identification.
-
-2. <strong>Provide Two Forms of Identification</strong>
-   • One primary photo ID (such as a <em>passport, driver’s license, military ID, or green card</em>).
-   • One secondary ID showing your current address (such as a <em>lease, utility bill, voter registration card, or insurance policy</em>).
-
-3. <strong>Sign and Submit</strong>
-   Bring your completed Form 1583 and IDs to Mailbox Plus. Remember, <strong>the form must be submitted</strong> before we can legally accept mail on your behalf.
-
-With secure mail handling, privacy protection, and convenient carrier access, our mailbox rentals are a smart choice for anyone looking to prevent lost deliveries and avoid porch theft.
-
-If you’re searching for <em>mailbox rentals near Concord Township</em> or need <em>secure mail and package receiving in Lake County, Ohio</em>, visit Mailbox Plus today. We’ll help you set up your private mailbox quickly, affordably, and legally.`,
-                isFullWidth: true
+                heading: "Quick & Easy Setup (USPS Form 1583)",
+                body: `<p class="mb-4">Setting up your secure mailbox is a straightforward legal process. As a CMRA, we require two forms of ID and a completed USPS Form 1583 to begin accepting your mail.</p>
+                <div class="grid gap-6 md:grid-cols-3">
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg">1. Complete Form</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Fill in your personal/business details on USPS Form 1583. Each authorized recipient needs their own ID check.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg">2. Provide ID</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Bring one primary photo ID (Passport, DL) and one secondary ID showing your address (Lease, Utility Bill).</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg">3. Submit & Start</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Bring these to Mailbox Plus. Once verified, we can legally accept and protect your mail and packages instantly.</p>
+                    </div>
+                </div>`
             }
         ],
         features: [
-            { icon: Lock, title: "Private Mailbox", description: "Your mail stays secure and confidential." },
-            { icon: Package, title: "Package Receiving", description: "We sign for packages so you never miss a delivery." },
-            { icon: MapPin, title: "Convenient Location", description: "Located in Concord Township, serving all of Lake County." }
+            { icon: MapPin, title: "Real Street Address", description: "Standard physical address, perfect for business identity." },
+            { icon: Package, title: "All-Carrier Acceptance", description: "We accept and sign for UPS, FedEx, USPS, and DHL." },
+            { icon: Lock, title: "Secure & Private", description: "Your mail is held safely behind our counter icons." }
         ],
         faqs: [...generalHomeBusinessFaqs, ...mailboxRentalFaqs]
     },
