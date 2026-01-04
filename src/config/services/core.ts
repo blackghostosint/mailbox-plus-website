@@ -21,12 +21,45 @@ export const coreServices: Service[] = [
         heroImage: getServiceImageUrl("/images/pack-ship.webp"),
         content: [
             {
-                heading: "Your Local Shipping Experts",
-                body: "Mailbox Plus provides trusted shipping solutions for individuals and businesses throughout Lake County. With multiple carrier options, you can choose the speed and service that best fits your needs."
+                heading: "Our Pack & Ship Services",
+                body: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">🏛️</div>
+                            <h3 class="text-xl font-bold mb-2">Carrier Services</h3>
+                            <p class="text-slate-600 mb-4">UPS, FedEx, USPS, and DHL shipping all in one place.</p>
+                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-blue-600 font-semibold hover:underline">Compare Carriers →</a>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">🎨</div>
+                            <h3 class="text-xl font-bold mb-2">Specialty Shipping</h3>
+                            <p class="text-slate-600 mb-4">Custom shipping for artwork, bicycles, and golf clubs.</p>
+                            <a href="/pack-ship/artwork-shipping" class="text-blue-600 font-semibold hover:underline">See Specialty →</a>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">📦</div>
+                            <h3 class="text-xl font-bold mb-2">Packing Services</h3>
+                            <p class="text-slate-600 mb-4">Professional packing for fragile or heavy items.</p>
+                            <a href="/pack-ship/packing-services" class="text-blue-600 font-semibold hover:underline">Meet the Pros →</a>
+                        </div>
+                    </div>
+                `,
+                isFullWidth: true
             },
             {
-                heading: "Convenience & Flexibility",
-                body: "Our one-stop location means you don’t have to visit multiple carrier stores. Bring your packages here and we’ll help you find the best rate and option available."
+                heading: "Your Local Concord Township Shipping Center",
+                body: `
+                    <div class="text-center py-8">
+                        <p class="text-slate-700 leading-relaxed max-w-3xl mx-auto">
+                            As your complete <a href="/ups-fedex-usps-dhl-shipping-concord-township" class="text-blue-600 hover:underline">shipping center in Concord Township</a>, 
+                            we offer <a href="/shipping-center-concord-township" class="text-blue-600 hover:underline">multi-carrier shipping services</a> including 
+                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-blue-600 hover:underline">UPS</a>, 
+                            <a href="/pack-ship/fedex-shipping" class="text-blue-600 hover:underline">FedEx</a>, and 
+                            <a href="/pack-ship/usps-services" class="text-blue-600 hover:underline">USPS</a> to help you find the best rate and delivery time.
+                        </p>
+                    </div>
+                `,
+                isFullWidth: true
             }
         ],
         features: [
@@ -51,7 +84,43 @@ export const coreServices: Service[] = [
         content: [
             {
                 heading: "Our Printing Services",
-                body: "From everyday copying to professional marketing materials, we provide comprehensive printing solutions for all your needs."
+                body: `
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">📄</div>
+                            <h3 class="text-xl font-bold mb-2">Document Printing</h3>
+                            <p class="text-slate-600 mb-4">High-quality copies, manuals, and presentations.</p>
+                            <a href="/copy-print/document-printing" class="text-blue-600 font-semibold hover:underline">Print Now →</a>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">🏗️</div>
+                            <h3 class="text-xl font-bold mb-2">Blueprints</h3>
+                            <p class="text-slate-600 mb-4">Oversized prints for architects and engineers.</p>
+                            <a href="/copy-print/blueprints" class="text-blue-600 font-semibold hover:underline">View Options →</a>
+                        </div>
+                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
+                            <div class="text-3xl mb-4">🪪</div>
+                            <h3 class="text-xl font-bold mb-2">Business Cards</h3>
+                            <p class="text-slate-600 mb-4">Professional cards that leave a lasting impression.</p>
+                            <a href="/copy-print/business-cards" class="text-blue-600 font-semibold hover:underline">Get Noticed →</a>
+                        </div>
+                    </div>
+                `,
+                isFullWidth: true
+            },
+            {
+                heading: "The Local Staples Printing Alternative",
+                body: `
+                    <div class="text-center py-8">
+                        <p class="text-slate-700 leading-relaxed max-w-3xl mx-auto">
+                            For professional <a href="/printing-services-concord-township" class="text-blue-600 hover:underline">local printing services</a>, 
+                            we are your convenient <a href="/staples-printing-alternative-concord-township" class="text-blue-600 hover:underline">Staples printing alternative</a> in Concord Township. 
+                            We also offer <a href="/home-business/notary-services" class="text-blue-600 hover:underline">notary public services</a> and 
+                            <a href="/copy-print/document-printing" class="text-blue-600 hover:underline">document finishing</a>.
+                        </p>
+                    </div>
+                `,
+                isFullWidth: true
             }
         ],
         features: [

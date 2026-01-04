@@ -299,24 +299,51 @@ export const localSeoServices: Service[] = [
                 body: "When you need expert <strong>pack and ship services in Concord Township, Ohio</strong>, trust the pros at Mailbox Plus. \nPacking can be stressful and time-consuming, but our team makes it easy. We use high-quality materials and professional \ntechniques to ensure your items—whether fragile, valuable, or awkward—arrive safely. As an authorized \nshipper for <strong>UPS, FedEx, USPS, and DHL</strong>, we can pack your item and ship it using the carrier that best fits \nyour budget and timeline."
             },
             {
-                heading: "Why Choose Mailbox Plus for Packing?",
-                body: `<ul class="list-disc pl-5 space-y-2">
-<li><strong>Expert Packing:</strong> We know exactly how to protect your items for transit.</li>
-<li><strong>Peace of Mind:</strong> Our professional packing often qualifies for carrier insurance guarantees.</li>
-<li><strong>Convenience:</strong> Bring in your item, and we'll handle the box, bubble wrap, and tape.</li>
-<li><strong>Multi-Carrier Shipping:</strong> Once packed, we can ship it via UPS, FedEx, USPS, or DHL.</li>
-<li><strong>Time Saving:</strong> Stop hunting for the right size box—we have it all here.</li>
-<li><strong>Custom Solutions:</strong> We can build custom boxes for odd-shaped or large items.</li>
-</ul>`
+                heading: "Mailbox Plus vs. DIY Packing",
+                body: `
+                    <div class="overflow-x-auto my-6">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Feature</th>
+                                    <th class="border-b-2 border-blue-200 p-4 bg-blue-50 text-blue-900">Mailbox Plus</th>
+                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">DIY Packing</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Safety</td>
+                                    <td class="border-b border-slate-100 p-4 text-blue-700">Professional Standards</td>
+                                    <td class="border-b border-slate-100 p-4 text-slate-600">Risk of Damage</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Materials</td>
+                                    <td class="border-b border-slate-100 p-4 text-blue-700">Industrial Strength</td>
+                                    <td class="border-b border-slate-100 p-4 text-slate-600">Consumer Grade</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Insurance</td>
+                                    <td class="border-b border-slate-100 p-4 text-blue-700">Guarantee Eligible</td>
+                                    <td class="border-b border-slate-100 p-4 text-slate-600">Claims often denied</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `,
+                isFullWidth: true
             },
             {
-                heading: "Complete Packing & Shipping Solutions",
-                body: `<ul class="list-disc pl-5 space-y-2">
-<li><strong>Professional Packing:</strong> From antiques to electronics, we pack it all with care and precision.</li>
-<li><strong>Custom Boxing:</strong> We create custom boxes to fit unique items perfectly.</li>
-<li><strong>Shipping Supplies:</strong> Purchase boxes, tape, bubble wrap, and peanuts for your DIY packing needs.</li>
-<li><strong>Freight Shipping:</strong> Assistance with palletizing and shipping larger freight items.</li>
-</ul>`
+                heading: "Concord Township's Packing Experts",
+                body: `
+                    <div class="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
+                        <p class="text-blue-900 leading-relaxed text-lg">
+                            Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing needs. 
+                            We also serve the surrounding communities of Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping 
+                            your gifts, returns, and business packages.
+                        </p>
+                    </div>
+                `,
+                isFullWidth: true
             }
         ],
         features: [
@@ -554,12 +581,46 @@ export const localSeoServices: Service[] = [
                 body: "Need <strong>USPS package help in Concord Township, Ohio</strong>? \nWhether you're unsure about postage, need help packing a fragile item, or want to track a shipment, \nMailbox Plus is here to assist. As an authorized shipping center, we provide expert guidance on all \n<strong> USPS, UPS, FedEx, and DHL</strong> services. Don't struggle with complicated shipping rules or \nwait on hold—come to Mailbox Plus for personal, face-to-face assistance from our knowledgeable staff."
             },
             {
-                heading: "Why Get Help at Mailbox Plus?",
-                body: "• <strong>Expert Advice:</strong> We know the ins and outs of shipping and can recommend the best options.\n• <strong>No Long Lines:</strong> Get your questions answered quickly without the Post Office wait.\n• <strong>Local Ownership:</strong> We care about our customers and provide a friendly, helpful atmosphere.\n• <strong>Multi-Carrier Solutions:</strong> If USPS isn't the right fit, we can suggest UPS, FedEx, or DHL.\n• <strong>Transparent Pricing:</strong> We'll help you find the most affordable way to ship.\n• <strong>More Services:</strong> From professional packing to insurance, we have you covered."
+                heading: "Mailbox Plus vs. DIY Shipping",
+                body: `
+                    <div class="overflow-x-auto my-6">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Feature</th>
+                                    <th class="border-b-2 border-blue-200 p-4 bg-blue-50 text-blue-900">Mailbox Plus</th>
+                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Doing It Yourself</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Convenience</td>
+                                    <td class="border-b border-slate-100 p-4 text-blue-700">We do the work for you</td>
+                                    <td class="border-b border-slate-100 p-4 text-slate-600">Time-consuming</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Cost Savings</td>
+                                    <td class="border-b border-slate-100 p-4 text-blue-700">Compare carrier rates</td>
+                                    <td class="border-b border-slate-100 p-4 text-slate-600">Limited to one carrier</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `,
+                isFullWidth: true
             },
             {
-                heading: "Complete Shipping Assistance",
-                body: "• <strong>Packing Services:</strong> Let us pack your items professionally to ensure they arrive safely.\n• <strong>Shipping Options:</strong> We'll help you choose between Priority Mail, Express, Ground, and more.\n• <strong>International Shipping:</strong> Guidance on customs forms and international shipping regulations.\n• <strong>Returns Assistance:</strong> Help with printing labels and returning packages to online retailers."
+                heading: "Helping Concord Township Ship Smarter",
+                body: `
+                    <div class="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
+                        <p class="text-blue-900 leading-relaxed text-lg">
+                            Mailbox Plus is dedicated to making shipping easy for the residents of <strong>Concord Township, Ohio</strong>. 
+                            Whether you're in Mentor, Painesville, or anywhere in Lake County, our expert team is ready to help you with 
+                            all your package needs.
+                        </p>
+                    </div>
+                `,
+                isFullWidth: true
             }
         ],
         features: [
