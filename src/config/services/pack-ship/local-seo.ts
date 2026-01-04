@@ -110,11 +110,53 @@ export const localSeoServices: Service[] = [
             },
             {
                 heading: "Why Mailbox Plus is the Better Choice",
-                body: "• <strong>Faster Service:</strong> We prioritize efficiency so you can get in and out quickly without the long wait times.\n• <strong>No Long Lines:</strong> Avoid the crowds often found at franchise locations.\n• <strong>Local Ownership:</strong> We are part of the Concord Township community and care about our neighbors.\n• <strong>Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL, allowing you to compare rates and delivery speeds.\n• <strong>Transparent Pricing:</strong> No hidden fees or surprises—just honest, competitive rates.\n• <strong>More Services:</strong> From fingerprinting to key duplication, we offer services that go beyond standard shipping."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We prioritize efficiency so you can get in and out quickly.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Local Ownership:</strong> We are part of the Concord Township community.</div>
+                        </li>
+                    </ul>
+                `
             },
             {
                 heading: "Services We Offer",
-                body: "• <strong>Shipping & Packing:</strong> Authorized shipping for UPS, FedEx, USPS, and DHL. Professional packing for fragile and high-value items.\n• <strong>Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding services.\n• <strong>Printing & Copying:</strong> High-quality color and B&W copies, business cards, flyers, and document finishing.\n• <strong>Specialty Services:</strong> Digital fingerprinting, passport photos, key cutting, and secure document destruction."
+                body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Shipping & Packing:</strong> Authorized for UPS, FedEx, USPS, and DHL with professional packing services.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Printing & Copying:</strong> High-quality color and B&W copies with document finishing.</div>
+                        </li>
+                    </ul>
+                `
             }
         ],
         features: [

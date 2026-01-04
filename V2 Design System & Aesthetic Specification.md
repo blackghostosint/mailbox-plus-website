@@ -133,6 +133,39 @@ Typography hierarchy (descending order):
 * Centered content for hero and CTA blocks
 * Never stretch text full-width
 
+4.5 List Formatting Standards
+
+All lists in content sections must use structured HTML with premium visual styling:
+
+**Standard List Template:**
+
+```html
+<ul class="space-y-4 my-6">
+  <li class="flex items-start gap-4">
+    <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path>
+      </svg>
+    </div>
+    <div class="text-gray-700 leading-relaxed">
+      <strong class="text-gray-900">Feature Name:</strong> Description text.
+    </div>
+  </li>
+</ul>
+```
+
+**Prohibited:**
+* Manual bullet characters (`•`, `-`, `*`) in paragraph text
+* Plain text lists without visual structure
+* Lists without proper vertical spacing
+
+**Required:**
+* Premium SVG checkmark icons in rounded blue badges
+* Proper flex layout with `gap-4` for icon-text alignment
+* Vertical spacing using `space-y-4`
+* Bold headings followed by descriptive text
+* Responsive design that maintains hierarchy on all screen sizes
+
 ---
 
 # 5. Glass Components Specification

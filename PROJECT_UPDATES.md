@@ -4,13 +4,15 @@
 Replaced all manual bullet-point characters (`•`) in service configuration files with structured HTML lists using premium SVG checkmarks, proper Tailwind spacing, and V2-compliant visual hierarchy. This ensures consistent, scannable, and premium aesthetics across all service pages.
 
 **Scope**
-- `src/config/services/pack-ship/local-seo.ts` (16 sections)
+- `src/config/services/pack-ship/local-seo.ts` (18 sections total - corrected)
 - `src/config/services/document-services.ts` (1 section)
 - Audited `carriers.ts` and `additional-services.ts` (no manual bullets found)
 
 **Notes**
 - All lists now use the V2 Standard List Template with rounded blue badges and checkmark SVGs.
-- Typecheck passed with exit code 0, confirming no HTML escaping issues.
+- Fixed two remaining sections in "UPS Store Alternative" page after user identified violations via live site screenshot.
+- Final site-wide audit confirms zero manual bullet violations across all 92 files.
+- Typecheck passed with exit code 0.
 
 ## 2026-01-04 — Content Density Restoration (V2 Spec)
 
