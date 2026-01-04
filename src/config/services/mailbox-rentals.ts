@@ -102,29 +102,30 @@ export const mailboxRentalServices: Service[] = [
         heroImage: getServiceImageUrl("/images/digital-mailbox-rental.webp"),
         content: [
             {
-                heading: "Virtual Mailbox Access",
-                body: "Get notifications, scan your mail, and forward packages all from your phone or computer."
+                heading: "Digital Freedom: Your Mail, Anywhere",
+                body: "Stop letting physical mail tie you down. With a digital mailbox from Mailbox Plus, you can manage your postal mail from any device. We receive your mail at our secure Concord Township facility, scan the envelopes, and you decide the rest. Whether you're traveling, running a remote business, or just want a paperless lifestyle, our virtual solutions give you 24/7 control."
             },
             {
-                heading: "Remote Access",
-                body: "Manage your mail from anywhere."
+                heading: "Premium Digital Mail Features",
+                body: `<div class="grid gap-6 md:grid-cols-3 my-8">
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Scan & View</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Instantly view high-resolution scans of your envelopes and requested documents through your secure portal.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Forward & Shred</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Consolidate packages for forwarding or request secure shredding of sensitive documents with a single click.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
+                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Real-Time Alerts</div>
+                        <p class="text-sm leading-relaxed text-slate-600 font-medium">Receive push notifications the moment your mail or packages arrive at our Concord Township location.</p>
+                    </div>
+                </div>
+                <p>We partner with leading providers like <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">PostScan Mail</a> to give you the most flexible virtual mailbox experience in Lake County.</p>`
             },
             {
-                heading: "Digital Mailbox Rentals in Concord Township, Ohio",
-                body: `Manage your mail and packages from anywhere with <strong>digital mailbox rentals</strong> from Mailbox Plus in Concord Township, Ohio. Our virtual mailbox solutions make it easy to <strong>view, forward, scan, and manage your mail online</strong>—whether you're traveling, running a business, or working remotely.
-
-Mailbox Plus partners with industry-leading digital mailbox providers, including <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] underline">PostScan Mail</a>, giving you flexible and secure access to your mail 24/7 through your computer or mobile device. With these services, you can:
-• View envelopes and packages online in real time.
-• Request mail scanning or forwarding to any address.
-• Store mail digitally for easy organization.
-• Receive notifications when new mail or packages arrive.
-
-Each digital mailbox plan provides a unique <strong>Concord Township street address</strong>—not a P.O. Box—allowing you to receive packages from all major carriers, including UPS, FedEx, USPS, and DHL.
-
-This service is ideal for small business owners, frequent travelers, snowbirds, and anyone who values convenience and privacy.
-
-If you're searching for <em>digital mailbox rentals near Concord Township</em> or need <em>virtual mail management in Lake County, Ohio</em>, visit Mailbox Plus today. We'll help you choose the digital mailbox platform that best fits your needs and set you up with secure, online access to your physical mail—anytime, anywhere.`,
-                isFullWidth: true
+                heading: "Not a P.O. Box",
+                body: "Every digital mailbox plan provides a unique <strong>Concord Township street address</strong>. This means you can receive packages from all major carriers, including UPS, FedEx, and DHL, which standard P.O. Boxes often reject."
             }
         ],
         features: [
@@ -148,16 +149,48 @@ If you're searching for <em>digital mailbox rentals near Concord Township</em> o
         heroImage: getServiceImageUrl("/images/mailbox-rental.webp"),
         content: [
             {
-                heading: "Secure Private Mailbox Rental in Concord Township: Mailbox Plus",
-                body: "Looking for a secure and professional <strong>private mailbox rental in Concord Township, Ohio</strong>? \nMailbox Plus offers more than just a key and a box; we provide a complete mail management solution. \nUnlike a standard PO Box, our mailboxes come with a real street address, allowing you to receive packages from \n<strong> UPS, FedEx, USPS, and DHL</strong>. Whether you run a home-based business or just want extra privacy \nfor your personal mail, our private mailboxes are the perfect answer."
+                heading: "The Security of a Physical Presence",
+                body: "A private mailbox at Mailbox Plus is more than just a place to store mail—it's a <strong>complete mail management solution</strong>. Whether you're a home-based business looking for a professional image or a resident concerned about porch theft, our secure facility and professional staff ensure your items are handled with care and discretion."
             },
             {
-                heading: "Benefits of Renting a Mailbox at Mailbox Plus",
-                body: "• **Real Street Address:** Enhance your professional image with a physical address, not a PO Box number.\n• **Package Receiving:** We accept packages from all carriers, so you never miss a delivery.\n• **Security:** Keep your mail safe and your home address private.\n• **Notification:** We can let you know when you have mail, saving you unnecessary trips.\n• **24-Hour Access:** (Optional) Ask about our 24/7 access options for your convenience.\n• **Mail Forwarding:** Traveling? We can forward your mail to you wherever you are."
+                heading: "Why Upgrade to Private Mailbox Rental?",
+                body: `<div class="overflow-x-auto my-6">
+                    <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm bg-white/40">
+                        <thead class="bg-slate-100/60">
+                            <tr>
+                                <th class="p-4 font-semibold text-slate-900">Feature</th>
+                                <th class="p-4 font-semibold text-slate-900">Standard P.O. Box</th>
+                                <th class="p-4 font-semibold text-[#0855B1]">Mailbox Plus Private</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Address Type</td>
+                                <td class="p-4 text-slate-600 italic">Box Number Only</td>
+                                <td class="p-4 text-slate-900 font-bold">Real Street Address</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Carrier Access</td>
+                                <td class="p-4 text-slate-600 italic">USPS Only</td>
+                                <td class="p-4 text-slate-900 font-bold">UPS, FedEx, DHL, USPS</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Package Security</td>
+                                <td class="p-4 text-slate-600 italic">Limited Sizes</td>
+                                <td class="p-4 text-slate-900 font-bold">Standard Signing Incl.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 text-slate-700 font-medium">Privacy</td>
+                                <td class="p-4 text-slate-600 italic">Standard</td>
+                                <td class="p-4 text-slate-900 font-bold">Elite Protection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`
             },
             {
-                heading: "More Than Just a Mailbox",
-                body: "• **Package Acceptance:** We sign for your packages so they aren't left unattended on your porch.\n• **Business Address:** Use our address for your business cards, website, and registration.\n• **Mail Forwarding:** We can bundle and ship your mail to you anywhere in the world.\n• **Call-in Check:** Call us to see if you have mail before you drive over."
+                heading: "Maximum Convenience",
+                body: "Stop driving to the store just to find an empty box. We offer <strong>mail notification services</strong> so you know exactly when your important documents or high-value packages have arrived. From business registration to personal privacy, we provide the stability of a physical location with the flexibility of modern service."
             }
         ],
         features: [
@@ -194,16 +227,37 @@ If you're searching for <em>digital mailbox rentals near Concord Township</em> o
         heroImage: getServiceImageUrl("/images/digital-mailbox-rental.webp"),
         content: [
             {
-                heading: "Digital & Virtual Mailbox Services in Concord Township: Mailbox Plus",
-                body: "Welcome to the future of mail management with Mailbox Plus's <strong>virtual mailbox services in Concord Township, Ohio</strong>. \nPerfect for travelers, snowbirds, and digital nomads, a virtual mailbox allows you to view and manage your postal mail online \nfrom anywhere in the world. We receive your mail, scan the envelope, and you decide whether to have it opened and scanned, \nforwarded, or shredded. Stay connected to your physical mail without being tied to a physical location."
+                heading: "The Modern Way to Manage Physical Mail",
+                body: "Perfect for digital nomads, frequent travelers, and small business owners, our <strong>Virtual Mailbox service</strong> bridges the gap between physical mail and your digital life. Your mail arrives at our Concord Township facility, and we instantly provide a digital preview, allowing you to manage your post from anywhere in the world."
             },
             {
-                heading: "Why Choose a Virtual Mailbox?",
-                body: "• **Remote Access:** Check your postal mail from your smartphone or computer 24/7.\n• **Convenience:** No need to drive to the mailbox; we bring the mailbox to you digitally.\n• **Security:** Your physical mail is stored securely until you decide what to do with it.\n• **Efficiency:** Quickly sort through junk mail and important documents with a click.\n• **Professional Address:** Use our street address for your business, even if you work remotely.\n• **Package Management:** We can receive and hold packages for you from all carriers."
+                heading: "How Your Virtual Mailbox Works",
+                body: `<div class="grid gap-4 md:grid-cols-4 my-8">
+                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
+                        <div class="text-2xl font-bold text-[#0855B1] mb-2">01</div>
+                        <div class="font-bold text-slate-900 mb-1">We Receive</div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Mail arrives at our secure Lake County facility.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
+                        <div class="text-2xl font-bold text-[#0855B1] mb-2">02</div>
+                        <div class="font-bold text-slate-900 mb-1">We Scan</div>
+                        <p class="text-xs text-slate-600 leading-relaxed">We scan the envelope and upload it to your portal.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
+                        <div class="text-2xl font-bold text-[#0855B1] mb-2">03</div>
+                        <div class="font-bold text-slate-900 mb-1">You Decide</div>
+                        <p class="text-xs text-slate-600 leading-relaxed">Tell us to scan contents, forward, or shred.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
+                        <div class="text-2xl font-bold text-[#0855B1] mb-2">04</div>
+                        <div class="font-bold text-slate-900 mb-1">We Action</div>
+                        <p class="text-xs text-slate-600 leading-relaxed">We execute your request quickly and securely.</p>
+                    </div>
+                </div>`
             },
             {
-                heading: "How It Works",
-                body: "• **1. We Receive:** Your mail arrives at our secure Concord Township facility.\n• **2. We Scan:** We scan the front of the envelope and upload it to your secure online portal.\n• **3. You Decide:** Log in and tell us to open & scan, forward, shred, or hold the item.\n• **4. We Action:** We execute your request quickly and professionally."
+                heading: "Unmatched Privacy & Security",
+                body: "By choosing a virtual mailbox in Concord Township, you gain the benefit of a professional street address while keeping your actual location private. Every piece of mail is handled by our trained staff and stored in a restricted area until you decide its final destination. No more cluttered mailboxes or missed packages while you're away."
             }
         ],
         features: [
@@ -240,16 +294,35 @@ If you're searching for <em>digital mailbox rentals near Concord Township</em> o
         heroImage: getServiceImageUrl("/images/mailbox-rental.webp"),
         content: [
             {
-                heading: "Reliable Mail Forwarding in Concord Township: Mailbox Plus",
-                body: "Whether you're traveling for the winter, moving temporarily, or managing a business remotely, \nMailbox Plus offers reliable <strong>mail forwarding in Concord Township, Ohio</strong>. \nWe ensure you never miss an important document or package. Rent a private mailbox with us, and we can \nbundle your mail and forward it to you anywhere in the world using <strong>UPS, FedEx, USPS, or DHL</strong>. \nStay connected to your mail no matter where life takes you."
+                heading: "Reliable Mail Forwarding Across the Globe",
+                body: "Moving temporarily? Traveling for the season? Or just need your business mail at your current location? Mailbox Plus provides <strong>seamless mail forwarding</strong> from Concord Township to anywhere in the world. We bundle your mail into consolidated shipments to save you money and ensure you never miss a critical document."
             },
             {
-                heading: "Why Use Our Mail Forwarding Service?",
-                body: "• **Flexibility:** Choose how often you want your mail forwarded (weekly, monthly, or on demand).\n• **Carrier Choice:** We select the most cost-effective or fastest carrier to get your mail to you.\n• **Security:** Your mail stays safe in our secure facility until it's time to ship.\n• **Consolidation:** We can repack your items into one box to save you money on shipping.\n• **Personal Service:** Just call or email us when you're ready for your mail.\n• **Peace of Mind:** Relax knowing your mail is being handled by professionals."
+                heading: "Flexible Forwarding Options",
+                body: `<div class="grid gap-6 md:grid-cols-2 my-8">
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg">Scheduled Forwarding</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium">Choose a frequency that works for you—weekly, bi-weekly, or monthly. We consolidate everything into one secure shipment.</p>
+                    </div>
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-sm">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+                            </div>
+                            <h3 class="font-bold text-slate-900 text-lg">On-Demand Forwarding</h3>
+                        </div>
+                        <p class="text-sm text-slate-600 leading-relaxed font-medium">Just call or email us when you're ready for your mail. Perfect for travelers and digital nomads with shifting schedules.</p>
+                    </div>
+                </div>`
             },
             {
-                heading: "Mail Management Solutions",
-                body: "• **Private Mailbox Rental:** The foundation of our forwarding service—a secure street address for your mail.\n• **Package Forwarding:** We can receive packages from Amazon, UPS, etc., and forward them to your new location.\n• **International Forwarding:** Living abroad? We can ship your mail and packages internationally via DHL or FedEx.\n• **Mail Holding:** We can hold your mail while you are away and have it ready for pickup when you return."
+                heading: "The Foundation of Convenience",
+                body: "Our forwarding service is a core benefit for all private mailbox holders. We utilize our relationships with <strong>UPS, FedEx, DHL, and USPS</strong> to find the most cost-effective or fastest method to get your mail to your doorstep, wherever you are."
             }
         ],
         features: [
