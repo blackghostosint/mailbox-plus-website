@@ -1,3 +1,44 @@
+## 2026-01-03 — Update MailbotPlusChat to V2 Design System
+
+**Summary**
+Updated MailbotPlusChat component to conform to V2 Design System & Aesthetic Specification, replacing all hardcoded colors, shadows, border radii, and custom styles with V2-compliant design tokens and patterns.
+
+**Scope**
+- `src/components/MailbotPlusChat/index.tsx` - Complete styling overhaul to match V2 premium aesthetic
+
+**Notes**
+- Primary blue: Changed from generic `bg-blue-600` to V2 brand color `#0855B1`
+- Border radius: Updated launcher to `rounded-2xl` (16px per V2 icon container spec), chat panel to `rounded-3xl` (24px per V2 card spec), buttons and inputs to `rounded-xl` (12px)
+- Shadows: Replaced generic Tailwind shadows with V2-compliant soft elevations (`0 18px 45px rgba(15,23,42,0.20)` for panel, `0 12px 30px rgba(15,23,42,0.20)` for launcher)
+- Bot avatar: Updated to use V2 glassmorphic gradient background (`linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,50,255,0.10))`) instead of flat `bg-blue-100`
+- Color palette: Migrated from generic grays to V2 slate palette (`#F8FAFC` for message background, `border-slate-200`, `text-slate-700`)
+- Hover states: Implemented V2 motion guidelines with vertical lift (4px for launcher, 1px for buttons) and transition timing (`duration-300 ease-out` for launcher, `duration-200` for interactions)
+- Focus states: Custom focus styling with V2-compliant blue ring glow (`0 0 0 3px rgba(8,85,177,0.10)`)
+- Typography: Updated text colors to use V2 palette hierarchy
+- Build verified successfully
+
+## 2026-01-03 — Implement MailbotPlusChat React Component
+
+**Summary**
+Created complete frontend implementation of the Mail-bot Plus chatbot popup component as a reusable React + TypeScript component with Tailwind CSS styling. Component provides floating launcher button that appears based on trigger conditions, expandable chat panel for user interaction, and proper suppression/dismissal logic.
+
+**Scope**
+- `src/components/MailbotPlusChat/index.tsx` - Main component with message display, input handling, and analytics event emission
+- `src/components/MailbotPlusChat/hooks/useSuppression.ts` - 7-day localStorage suppression logic
+- `src/components/MailbotPlusChat/hooks/useTriggerConditions.ts` - Trigger logic for normal vs high-intent pages
+- `src/components/MailbotPlusChat/hooks/useMediaQuery.ts` - Responsive mobile detection hook
+- `package.json` - Added `uuid` and `@types/uuid` dependencies
+
+**Notes**
+- Implemented 5 required corrections: (1) no auto-expand behavior, (2) proper suppression on close, (3) one appearance per page view, (4) deterministic high-intent detection via prop, (5) correct trigger logic (normal: timer AND scroll, high-intent: timer OR hero scroll)
+- Launcher appears automatically when conditions met but chat panel only opens on user click
+- Desktop: floating panel (384px × 600px), Mobile: bottom sheet (max 80vh)
+- Analytics events: launcher_shown, chat_opened, chat_closed, question_asked, answer_served, refusal_served, source_link_clicked, cta_clicked
+- Full accessibility: ARIA labels, keyboard navigation (Esc closes), focus management
+- Exact UX copy: greeting message, input placeholder, refusal message all match specification
+- Backend integration via onSubmitQuestion prop (implementation not included per requirements)
+- Build verified successfully
+
 ## 2026-01-03 — Add 10 Service Discovery FAQ Entries
 
 **Summary**

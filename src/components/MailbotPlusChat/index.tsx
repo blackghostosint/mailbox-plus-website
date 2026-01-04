@@ -231,7 +231,19 @@ export function MailbotPlusChat({
                     onClick={handleOpen}
                     aria-label="Open Mail-bot Plus chat assistant"
                     className={`fixed bottom-6 right-6 ${isMobile ? 'w-14 h-14' : 'w-15 h-15'
-                        } rounded-full bg-blue-600 shadow-lg hover:bg-blue-700 transition-colors flex items-center justify-center text-white font-semibold text-sm ${launcherClassName}`}
+                        } rounded-2xl transition-all duration-300 ease-out flex items-center justify-center text-white font-semibold text-sm ${launcherClassName}`}
+                    style={{
+                        background: '#0855B1',
+                        boxShadow: '0 12px 30px rgba(15, 23, 42, 0.20)',
+                    }}
+                    onMouseEnter={(e) => {
+                        e.currentTarget.style.transform = 'translateY(-4px)';
+                        e.currentTarget.style.boxShadow = '0 18px 45px rgba(15, 23, 42, 0.25)';
+                    }}
+                    onMouseLeave={(e) => {
+                        e.currentTarget.style.transform = 'translateY(0)';
+                        e.currentTarget.style.boxShadow = '0 12px 30px rgba(15, 23, 42, 0.20)';
+                    }}
                 >
                     MB+
                 </button>
@@ -243,21 +255,25 @@ export function MailbotPlusChat({
                     role="dialog"
                     aria-labelledby="chatbot-header"
                     aria-modal="false"
-                    className={`fixed bg-white shadow-2xl ${isMobile
-                            ? 'bottom-0 left-0 right-0 rounded-t-xl'
-                            : 'bottom-6 right-6 rounded-lg w-96'
+                    className={`fixed bg-white ${isMobile
+                        ? 'bottom-0 left-0 right-0 rounded-t-3xl'
+                        : 'bottom-6 right-6 rounded-3xl w-96'
                         } flex flex-col`}
-                    style={{ height: isMobile ? '80vh' : '600px' }}
+                    style={{
+                        height: isMobile ? '80vh' : '600px',
+                        boxShadow: '0 18px 45px rgba(15, 23, 42, 0.20)',
+                    }}
                 >
                     {/* HEADER */}
-                    <div className={`flex items-center justify-between px-4 border-b ${isMobile ? 'h-13' : 'h-14'}`}>
-                        <h2 id="chatbot-header" className="font-semibold text-gray-900">
+                    <div className={`flex items-center justify-between px-4 border-b border-slate-200 ${isMobile ? 'h-13' : 'h-14'}`}>
+                        <h2 id="chatbot-header" className="font-semibold" style={{ color: '#0855B1' }}>
                             Mail-bot Plus
                         </h2>
                         <button
                             onClick={() => handleClose('close_button')}
                             aria-label="Close chat"
-                            className="p-2 hover:bg-gray-100 rounded transition-colors"
+                            className="p-2 hover:bg-slate-50 rounded-xl transition-all duration-200"
+                            style={{ color: '#64748b' }}
                         >
                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -272,6 +288,7 @@ export function MailbotPlusChat({
                         aria-live="polite"
                         aria-atomic="false"
                         className="flex-1 overflow-y-auto p-4 space-y-4"
+                        style={{ background: '#F8FAFC' }}
                     >
                         {messages.map((msg) =>
                             msg.role === 'bot' ? (
@@ -289,7 +306,7 @@ export function MailbotPlusChat({
                     </div>
 
                     {/* INPUT FIELD */}
-                    <div className={`border-t p-3 ${isMobile ? 'pb-4' : ''}`}>
+                    <div className={`border-t border-slate-200 p-3 bg-white ${isMobile ? 'pb-4' : ''}`}>
                         <div className="flex gap-2">
                             <textarea
                                 ref={inputRef}
@@ -300,14 +317,38 @@ export function MailbotPlusChat({
                                 aria-label="Ask Mail-bot Plus a question"
                                 rows={1}
                                 disabled={isAwaitingResponse}
-                                className="flex-1 resize-none border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 disabled:opacity-50"
+                                className="flex-1 resize-none border border-slate-200 rounded-xl px-3 py-2 focus:outline-none disabled:opacity-50 transition-all duration-200"
+                                style={{
+                                    focusBoxShadow: '0 0 0 2px rgba(8, 85, 177, 0.25)',
+                                }}
+                                onFocus={(e) => {
+                                    e.currentTarget.style.borderColor = '#0855B1';
+                                    e.currentTarget.style.boxShadow = '0 0 0 3px rgba(8, 85, 177, 0.10)';
+                                }}
+                                onBlur={(e) => {
+                                    e.currentTarget.style.borderColor = '#e2e8f0';
+                                    e.currentTarget.style.boxShadow = 'none';
+                                }}
                                 inputMode="text"
                             />
                             <button
                                 onClick={handleSubmit}
                                 disabled={!inputValue.trim() || isAwaitingResponse}
                                 aria-label="Send question"
-                                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                className="px-4 py-2 text-white text-sm rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
+                                style={{
+                                    background: '#0855B1',
+                                }}
+                                onMouseEnter={(e) => {
+                                    if (!e.currentTarget.disabled) {
+                                        e.currentTarget.style.transform = 'translateY(-1px)';
+                                        e.currentTarget.style.boxShadow = '0 4px 12px rgba(8, 85, 177, 0.25)';
+                                    }
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.transform = 'translateY(0)';
+                                    e.currentTarget.style.boxShadow = 'none';
+                                }}
                             >
                                 Send
                             </button>
@@ -336,18 +377,25 @@ function BotMessage({
 
     return (
         <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600 text-xs font-bold">
+            <div
+                className="w-8 h-8 rounded-2xl flex-shrink-0 flex items-center justify-center text-xs font-bold"
+                style={{
+                    background: 'linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,50,255,0.10))',
+                    color: '#0855B1',
+                }}
+            >
                 MB+
             </div>
             <div className="flex-1">
-                <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">{message.content}</p>
+                <p className="text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">{message.content}</p>
                 {message.sourceUrl && message.faqId && (
                     <a
                         href={message.sourceUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => onLinkClick(message.sourceUrl!, message.faqId!)}
-                        className="inline-flex items-center gap-1 mt-3 text-sm text-blue-600 hover:underline"
+                        className="inline-flex items-center gap-1 mt-3 text-sm hover:underline transition-all duration-200"
+                        style={{ color: '#0855B1' }}
                     >
                         Learn more →
                     </a>
@@ -357,7 +405,18 @@ function BotMessage({
                         <a
                             href="/contact"
                             onClick={() => onCTAClick('contact')}
-                            className="inline-block px-4 py-2 bg-blue-600 text-white text-sm rounded hover:bg-blue-700 transition-colors"
+                            className="inline-block px-4 py-2 text-white text-sm rounded-xl transition-all duration-200"
+                            style={{
+                                background: '#0855B1',
+                            }}
+                            onMouseEnter={(e) => {
+                                e.currentTarget.style.transform = 'translateY(-1px)';
+                                e.currentTarget.style.boxShadow = '0 4px 12px rgba(8, 85, 177, 0.25)';
+                            }}
+                            onMouseLeave={(e) => {
+                                e.currentTarget.style.transform = 'translateY(0)';
+                                e.currentTarget.style.boxShadow = 'none';
+                            }}
                         >
                             View contact info
                         </a>
@@ -371,7 +430,12 @@ function BotMessage({
 function UserMessage({ message }: { message: ChatMessage }) {
     return (
         <div className="flex justify-end">
-            <div className="max-w-[80%] bg-blue-600 text-white rounded-lg px-4 py-2">
+            <div
+                className="max-w-[80%] text-white rounded-2xl px-4 py-2"
+                style={{
+                    background: '#0855B1',
+                }}
+            >
                 <p className="text-sm whitespace-pre-wrap">{message.content}</p>
             </div>
         </div>
@@ -381,13 +445,19 @@ function UserMessage({ message }: { message: ChatMessage }) {
 function TypingIndicator() {
     return (
         <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0 flex items-center justify-center text-blue-600 text-xs font-bold">
+            <div
+                className="w-8 h-8 rounded-2xl flex-shrink-0 flex items-center justify-center text-xs font-bold"
+                style={{
+                    background: 'linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,50,255,0.10))',
+                    color: '#0855B1',
+                }}
+            >
                 MB+
             </div>
             <div className="flex items-center gap-1 px-3 py-2">
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
             </div>
         </div>
     );

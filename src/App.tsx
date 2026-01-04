@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
+import { MailbotPlusChat } from "./components/MailbotPlusChat";
 
 // Helper for lazy loading named exports
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -109,6 +110,29 @@ const DebugRoutes: React.FC = () => {
 
 const App: React.FC = () => {
   // console.log('App.tsx: App component rendering');
+
+  // Mock backend handler for testing
+  const handleSubmitQuestion = async (question: string) => {
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    // Simple mock logic
+    if (question.toLowerCase().includes('hours') || question.toLowerCase().includes('open')) {
+      return {
+        type: 'accept' as const,
+        answer: 'We are open Monday-Friday, 9:00 AM - 6:00 PM, and Saturday, 10:00 AM - 3:00 PM. We are closed on Sundays.',
+        sourceUrl: '/contact-us',
+        faqId: 'faq-hours',
+        confidence: 0.95,
+      };
+    }
+
+    return { type: 'refuse' as const };
+  };
+
+  const handleAnalytics = (eventName: string, payload: Record<string, any>) => {
+    console.log('[Analytics]', eventName, payload);
+  };
+
   return (
     <Router>
       <ScrollToTop />
@@ -237,6 +261,11 @@ const App: React.FC = () => {
           </Routes>
         </React.Suspense>
       </Layout>
+      <MailbotPlusChat
+        isHighIntentPage={false}
+        onSubmitQuestion={handleSubmitQuestion}
+        onAnalyticsEvent={handleAnalytics}
+      />
     </Router>
   );
 };
