@@ -112,6 +112,15 @@ const DebugRoutes: React.FC = () => {
 const App: React.FC = () => {
   const handleAnalytics = (eventName: string, payload: Record<string, any>) => {
     console.log('[Analytics]', eventName, payload);
+    try {
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push({
+        event: eventName,
+        ...payload,
+      });
+    } catch (err) {
+      console.error('[Analytics Error]', err);
+    }
   };
 
   return (

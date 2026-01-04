@@ -1,3 +1,16 @@
+## 2026-01-04 — Enable Chatbot Question Tracking via GTM
+
+**Summary**
+Implemented analytics tracking for the chatbot by integrating internal events with Google Tag Manager's `dataLayer`. Enhanced the `answer_served` event to include the original user question text, allowing for deeper analysis of customer intent and frequency of specific queries (e.g., hours and location).
+
+**Scope**
+- `src/App.tsx` - Updated `handleAnalytics` to push events to `window.dataLayer`.
+- `src/components/MailbotPlusChat/index.tsx` - Enhanced `answer_served` payload with `question` text.
+
+**Notes**
+- All events (`question_asked`, `answer_served`, `refusal_served`, etc.) are now persisted to the GTM data layer.
+- Verified that typechecking passes with the new `dataLayer` usage.
+
 ## 2026-01-04 — Final Resolution: Persistent Address Refusal Fixed
 
 **Summary**

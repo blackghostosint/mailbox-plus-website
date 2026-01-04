@@ -174,6 +174,7 @@ export function MailbotPlusChat({
                 onAnalyticsEvent?.('answer_served', {
                     faqId: response.faqId!,
                     confidence: response.confidence!,
+                    question: trimmedInput,
                 });
             } else {
                 onAnalyticsEvent?.('refusal_served', { query: trimmedInput });
