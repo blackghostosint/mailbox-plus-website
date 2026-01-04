@@ -319,11 +319,8 @@ export const handler: Handler = async (event: HandlerEvent) => {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    ok: true,
-                    service: 'chat-retrieve',
-                    mode: 'healthcheck',
-                    cacheSize: Object.keys(embeddingCache || {}).length,
-                    keysSample: Object.keys(embeddingCache || {}).slice(0, 5)
+                    status: 'ok',
+                    timestamp: new Date().toISOString()
                 })
             };
         }
@@ -424,15 +421,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
                 confidence: result.confidence!
             }
             : {
-                type: 'refuse',
-                // TEMPORARY DEBUG INFO
-                debug: {
-                    bestMatchId: (result as any).faqId,
-                    score: (result as any).confidence,
-                    effectiveMin: (result as any).effectiveMin,
-                    gap: (result as any).gap,
-                    cacheSize: Object.keys(embeddingCache || {}).length
-                }
+                type: 'refuse'
             };
 
         return {

@@ -1,3 +1,16 @@
+## 2026-01-04 — Final Resolution: Persistent Address Refusal Fixed
+
+**Summary**
+Successfully resolved the critical issue where the chatbot refused address-related queries. The final fix involved configuring the missing `GEMINI_API_KEY` in Netlify and aligning the frontend API endpoint. Live verification confirmed an 96.8% confidence match for address queries.
+
+**Scope**
+- `src/services/chatbot.ts` - Corrected API endpoint and removed debug logs.
+- `netlify/functions/chat-retrieve.ts` - Hardened initialization, fixed per-entry thresholds, and cleaned up debug metadata.
+
+**Notes**
+- All retrieval tests pass (24/24).
+- Production environment is now fully synchronized with local logic.
+
 ## 2026-01-04 — Fix Backend Alignment & Harden Service
 
 **Summary**

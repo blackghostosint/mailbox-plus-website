@@ -27,7 +27,6 @@ export async function submitChatQuestion(question: string): Promise<ChatbotRespo
         }
 
         const data = await response.json();
-        console.log('[Chatbot API Response]', data);
 
         if (data?.type === 'accept' &&
             typeof data.answer === 'string' &&
