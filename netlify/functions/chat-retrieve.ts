@@ -311,13 +311,16 @@ export const handler: Handler = async (event: HandlerEvent) => {
     try {
         // Health check endpoint (GET only, no auth required)
         if (event.httpMethod === 'GET') {
+            initializeResources();
             return {
                 statusCode: 200,
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     ok: true,
                     service: 'chat-retrieve',
-                    mode: 'healthcheck'
+                    mode: 'healthcheck',
+                    cacheSize: Object.keys(embeddingCache || {}).length,
+                    keysSample: Object.keys(embeddingCache || {}).slice(0, 5)
                 })
             };
         }
