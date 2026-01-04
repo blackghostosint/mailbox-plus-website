@@ -248,7 +248,7 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
 
     if (!bestMatch) {
         console.log("Similarity decision: No match found");
-        return { matched: false };
+        return { matched: false } as any;
     }
 
     const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? MINIMUM_SIMILARITY;
@@ -261,7 +261,12 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
     });
 
     if (bestMatch.score < effectiveMin) {
-        return { matched: false };
+        return {
+            matched: false,
+            faqId: bestMatch.entry.id,
+            confidence: bestMatch.score,
+            effectiveMin
+        } as any;
     }
 
     const scoreGap = bestMatch.score - secondBestScore;
@@ -272,7 +277,13 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
             secondBestScore,
             gap: scoreGap
         });
-        return { matched: false };
+        return {
+            matched: false,
+            faqId: bestMatch.entry.id,
+            confidence: bestMatch.score,
+            effectiveMin,
+            gap: scoreGap
+        } as any;
     }
 
     return {
