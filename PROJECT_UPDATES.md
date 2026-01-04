@@ -1,3 +1,22 @@
+## 2026-01-03 — Fix Critical Launcher Suppression Behavior
+
+**Summary**
+Fixed critical UX flaw where suppression was completely hiding the Mail-bot Plus launcher, making the chatbot unreachable. Launcher now remains always visible and clickable regardless of suppression state.
+
+**Scope**
+- `src/components/MailbotPlusChat/index.tsx` - Removed suppression-based render blocking logic
+
+**Notes**
+- **Previous (incorrect) behavior**: Launcher disappeared entirely when suppression was active or before auto-trigger fired
+- **New (correct) behavior**: Launcher is ALWAYS rendered and clickable; suppression only affects auto-show behavior
+- Removed `if (isSuppressed) return null` check
+- Removed `if (!hasAppeared) return null` check
+- Suppression now ONLY prevents automatic launcher appearance via trigger conditions (15s timer + scroll)
+- Users can ALWAYS manually click launcher to open chat, even during 7-day suppression period
+- Closing chat (X button or Esc key) sets suppression flag which prevents auto-triggers but never hides launcher
+- Fixed contact page link from `/contact` to `/contact-us`
+- This ensures chatbot is never unreachable
+
 ## 2026-01-03 — Update MailbotPlusChat to V2 Design System
 
 **Summary**

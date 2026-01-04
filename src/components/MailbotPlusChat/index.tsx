@@ -83,7 +83,7 @@ export function MailbotPlusChat({
     });
     const isMobile = useMediaQuery('(max-width: 767px)');
 
-    // Show launcher when conditions met
+    // Auto-show launcher when conditions met (only if not suppressed)
     useEffect(() => {
         if (shouldShowLauncher && !hasAppeared && !isSuppressed) {
             setHasAppeared(true);
@@ -216,11 +216,7 @@ export function MailbotPlusChat({
         [onAnalyticsEvent]
     );
 
-    // Don't render if suppressed
-    if (isSuppressed) return null;
-
-    // Don't render launcher if hasn't appeared yet
-    if (!hasAppeared) return null;
+    // Launcher is ALWAYS rendered - suppression only affects auto-show behavior
 
     return (
         <div className={className}>
@@ -403,7 +399,7 @@ function BotMessage({
                 {isRefusal && (
                     <div className="mt-3">
                         <a
-                            href="/contact"
+                            href="/contact-us"
                             onClick={() => onCTAClick('contact')}
                             className="inline-block px-4 py-2 text-white text-sm rounded-xl transition-all duration-200"
                             style={{
