@@ -263,35 +263,81 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
 // ========================================
 
 export const handler: Handler = async (event: HandlerEvent) => {
+    // MUST BE FIRST: Log every invocation for observability
+    console.log("chat-retrieve invoked", {
+        method: event.httpMethod,
+        path: event.path,
+        hasBody: !!event.body,
+        contentType: event.headers["content-type"] || event.headers["Content-Type"],
+    });
+
     try {
-        // Only accept POST
+        // Health check endpoint (GET only, no auth required)
+        if (event.httpMethod === 'GET') {
+            return {
+                statusCode: 200,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    ok: true,
+                    service: 'chat-retrieve',
+                    mode: 'healthcheck'
+                })
+            };
+        }
+
+        // Explicit POST gate with structured error
         if (event.httpMethod !== 'POST') {
+            console.warn(`chat-retrieve refused: method ${event.httpMethod} not allowed`);
             return {
                 statusCode: 405,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ type: 'refuse' })
+                body: JSON.stringify({
+                    type: 'refuse',
+                    reason: 'method_not_allowed'
+                })
+            };
+        }
+
+        // Body validation with logging
+        if (!event.body) {
+            console.warn('chat-retrieve refused: missing body');
+            return {
+                statusCode: 400,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    type: 'refuse',
+                    reason: 'missing_body'
+                })
             };
         }
 
         // Parse body
-        const body = event.body ? JSON.parse(event.body) : {};
+        const body = JSON.parse(event.body);
         const question = body.question;
 
         // Validate question
         if (!question || typeof question !== 'string' || question.trim().length === 0) {
+            console.warn('chat-retrieve refused: invalid or empty question');
             return {
-                statusCode: 200,
+                statusCode: 400,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ type: 'refuse' })
+                body: JSON.stringify({
+                    type: 'refuse',
+                    reason: 'invalid_question'
+                })
             };
         }
 
         // Enforce length limit
         if (question.length > MAX_QUESTION_LENGTH) {
+            console.warn(`chat-retrieve refused: question too long (${question.length} > ${MAX_QUESTION_LENGTH})`);
             return {
-                statusCode: 200,
+                statusCode: 400,
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ type: 'refuse' })
+                body: JSON.stringify({
+                    type: 'refuse',
+                    reason: 'question_too_long'
+                })
             };
         }
 
