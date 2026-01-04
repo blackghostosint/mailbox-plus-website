@@ -1,3 +1,17 @@
+## 2026-01-04 — Fix Backend Alignment & Harden Service
+
+**Summary**
+Identified and fixed a primary point of failure where the frontend was calling an incorrect API endpoint (`/api/chat/retrieve`) while the backend function was named `chat-retrieve.ts`. This mismatch caused 404 errors in production. Also hardened the serverless initialization logic to ensure embeddings and knowledge base resources are always re-verified during container reuse.
+
+**Scope**
+- `src/services/chatbot.ts` - Aligned endpoint URL to `/api/chat-retrieve`
+- `netlify/functions/chat-retrieve.ts` - Improved `initializeResources` with path checking and population verification
+
+**Notes**
+- This explains why local tests passed but production failed: local tests bypassed the URL routing mismatch.
+- Deployment now correctly routes frontend queries to the functional backend.
+- Temporary debug metadata remains in the refusal response for final verification.
+
 ## 2026-01-04 — Fix Critical Bug: Respect Per-Entry Confidence Thresholds
 
 **Summary**
