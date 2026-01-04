@@ -263,12 +263,12 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
         }
     }
 
-    if (!bestMatch || bestMatch.score < MINIMUM_SIMILARITY) {
+    if (!bestMatch || bestMatch.score < bestMatch.entry.confidence.minimumSimilarity) {
         return { matched: false };
     }
 
     const scoreGap = bestMatch.score - secondBestScore;
-    if (scoreGap < 0.1 && secondBestScore >= MINIMUM_SIMILARITY) {
+    if (scoreGap < 0.1 && secondBestScore >= bestMatch.entry.confidence.minimumSimilarity) {
         return { matched: false };
     }
 
