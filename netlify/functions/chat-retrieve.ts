@@ -2,6 +2,9 @@ import { Handler, HandlerEvent } from '@netlify/functions';
 import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
+import * as dotenv from 'dotenv';
+
+dotenv.config();
 
 // ========================================
 // Types
