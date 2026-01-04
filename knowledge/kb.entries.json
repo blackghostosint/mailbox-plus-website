@@ -4131,6 +4131,144 @@
         "legal documents"
       ],
       "searchText": "notary services notarization notary public legal documents can I get notarized do you offer"
+    },
+    {
+      "id": "faq-store-location",
+      "intent": "faq",
+      "title": "Where is your store located?",
+      "questionVariants": [
+        "Where is your store located?",
+        "What is your address?",
+        "Where are you located?",
+        "How do I find you?",
+        "What's your location?",
+        "Where is your shop?",
+        "What is your store address?",
+        "Where can I find you?",
+        "How do I get to your store?",
+        "What's your street address?"
+      ],
+      "answer": "We're located at 7554 Fredle Drive, Concord Township, Ohio 44077 in Lake County. You'll find us in The Gristmill Village Shopping Center, right next door to Pub Frato.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/contact",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "location",
+        "address",
+        "directions",
+        "store location",
+        "concord township"
+      ],
+      "searchText": "location address where located 7554 Fredle Drive Concord Township Ohio 44077 Lake County Gristmill Village Shopping Center Pub Frato directions how to find store shop"
+    },
+    {
+      "id": "faq-stamps",
+      "intent": "faq",
+      "title": "Do you sell stamps?",
+      "questionVariants": [
+        "Do you sell stamps?",
+        "Can I buy stamps here?",
+        "Do you have stamps?",
+        "Where can I get stamps?",
+        "Can I purchase stamps?",
+        "Do you sell postage stamps?",
+        "Can I buy a book of stamps?",
+        "Do you have rolls of stamps?",
+        "Can I get individual stamps?"
+      ],
+      "answer": "Yes, we sell individual stamps, books of stamps, and rolls of stamps for your mailing needs.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/pack-ship",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": [
+          "how much",
+          "price",
+          "cost",
+          "pricing"
+        ]
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "stamps",
+        "postage",
+        "mailing",
+        "usps"
+      ],
+      "searchText": "stamps postage stamps individual stamps book of stamps roll of stamps buy purchase sell do you have where can I get mailing usps"
+    },
+    {
+      "id": "faq-store-hours",
+      "intent": "faq",
+      "title": "What are your store hours?",
+      "questionVariants": [
+        "What are your store hours?",
+        "When are you open?",
+        "What time do you open?",
+        "What time do you close?",
+        "Are you open on weekends?",
+        "Are you open on Saturday?",
+        "Are you open on Sunday?",
+        "What are your hours of operation?",
+        "What time can I come in?",
+        "When can I visit?"
+      ],
+      "answer": "We're open Monday through Friday from 9:00 AM to 6:00 PM, and Saturday from 9:00 AM to 2:00 PM. We're closed on Sundays.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/contact",
+          "lastVerified": "2026-01-03"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "hours",
+        "store hours",
+        "operating hours",
+        "open",
+        "closed"
+      ],
+      "searchText": "store hours operating hours business hours open close when what time monday tuesday wednesday thursday friday saturday sunday weekend 9:00 AM 6:00 PM 2:00 PM visit come in"
     }
   ]
 }
