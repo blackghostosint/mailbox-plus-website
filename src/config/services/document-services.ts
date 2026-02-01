@@ -94,19 +94,23 @@ export const documentServices: Service[] = [
         serviceName: "Shredding Services",
         slug: "/home-business/shredding",
         pageTitle: "Shredding Services in Concord Township, Ohio | Mailbox Plus",
-        metaDescription: "Secure document shredding in Concord Township. Protect your identity and business data with our safe, confidential drop-off shredding service.",
-        keywords: "shredding, document destruction, concord township, lake county",
+        metaDescription: "Secure micro-cut document shredding (P-4 security) in Concord Township. Protect your identity with safe, instant cross-cut destruction.",
+        keywords: "shredding, micro-cut, P-4 security, document destruction, concord township, lake county",
         heroTitle: "Secure Shredding",
-        heroSubtitle: "Protect your personal information with our shredding services.",
+        heroSubtitle: "Protect your personal information with our high-security micro-cut shredding.",
         heroImage: getServiceImageUrl("/images/shredding.webp"),
         content: [
             {
                 heading: "Why Shred Documents?",
-                body: "Prevent identity theft and protect sensitive information by securely shredding your documents."
+                body: "Prevent identity theft and protect sensitive information by securely shredding your documents with our advanced equipment."
             },
             {
-                heading: "Convenient & Affordable",
-                body: "Drop off your documents and we’ll handle the rest with secure shredding."
+                heading: "High-Security Micro-Cut Technology",
+                body: "We use a <strong>micro-cut shredder</strong> that turns paper into tiny confetti-like pieces measuring <strong>5/32 by 15/32 inches (4 by 12 mm)</strong>. This meets <strong>high security level P-4 standards</strong> and shreds material <strong>6x smaller</strong> than standard cross-cut shredders (2,235 pieces vs. 360 pieces per sheet). Your data is virtually unrecoverable."
+            },
+            {
+                heading: "We Are Better Than Off-Site Shredding",
+                body: "Many competitors mistakenly just toss your documents into a locked bin that sits around for weeks waiting for a truck to come pick it up for off-site destruction. At <strong>Mailbox Plus</strong>, we shred your documents <strong>on-site</strong> so you can have peace of mind knowing they are destroyed immediately and not sitting in a bin accessible to others."
             },
             {
                 heading: "Protect Your Privacy",
@@ -118,12 +122,48 @@ export const documentServices: Service[] = [
             },
             {
                 heading: "Compliance & Security",
-                body: "Mailbox Plus partners with certified shredding providers to guarantee your materials are handled according to <strong>industry and government compliance standards</strong>. Whether you need a one-time purge or ongoing support, we make it convenient.",
+                body: `
+                    <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                        Did you know that federal laws often <strong>require</strong> the proper disposal of personal information? We make it easy for you and your business to comply with major privacy regulations:
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900 block">The Fair and Accurate Credit Transactions Act (FACTA)</strong>
+                                Ensures businesses take appropriate measures to dispose of consumer report information to protect against unauthorized access.
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900 block">The Health Insurance Portability and Accountability Act (HIPAA)</strong>
+                                Requires healthcare providers and insurers to safeguard the disposal of protected health information (PHI).
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-gray-700 leading-relaxed">
+                                <strong class="text-gray-900 block">The Gramm-Leach-Bliley Act (GLBA)</strong>
+                                Mandates that financial institutions must securely protect the confidentiality and proper disposal of consumer records.
+                            </div>
+                        </li>
+                    </ul>
+                    <p class="text-slate-700 leading-relaxed">
+                        <strong class="text-gray-900">State-Specific Regulations:</strong> In addition to federal laws, many states have their own regulations regarding document destruction. Our secure content destruction helps you meet requirements that act alongside federal standards, ensuring your sensitive records are handled with the highest level of security.
+                    </p>
+                `,
                 isFullWidth: true
             }
         ],
         features: [
-            { icon: Scissors, title: "Confidential Destruction", description: "Your documents are securely shredded." },
+            { icon: Scissors, title: "Micro-Cut Security", description: "P-4 Level security (4x12mm pieces)." },
             { icon: Shield, title: "Privacy Protection", description: "Protects against identity theft and fraud." },
             { icon: Archive, title: "Bulk Shredding", description: "We can handle small or large quantities." }
         ],

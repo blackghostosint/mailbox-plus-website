@@ -221,3 +221,16 @@ Standardized Artwork, Bicycle, and Golf Club shipping pages to full V2 complianc
 - Confirmed all images are served from Cloudflare R2 per requirements.
 - Preserved the exact 11-step flow and all image references for Amazon Returns.
 - All specialty shipping pages are now fully configuration-driven and V2-compliant.
+## 2026-01-31 — Update Shredding Service Page
+
+**Summary**
+Updated the existing `shredding` service configuration to clearly highlight the security benefits of our on-site micro-cut shredder compared to off-site alternatives. Added technical specifications about standard P-4 security compliance.
+
+**Scope**
+- `src/config/services/document-services.ts`: Updated `shredding` object with new `metaDescription`, `heroSubtitle`, rewrote `content` sections to include micro-cut details, and updated `features`.
+
+**Notes**
+
+**Refinement**
+- Changed compliance wording from "guarantees" to "promises" per user request.
+- Expanded "Compliance & Security" section with detailed, conversational info on FACTA, HIPAA, GLBA, and state regulations using V2 list styling.
