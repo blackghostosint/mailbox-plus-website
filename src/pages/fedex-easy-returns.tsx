@@ -1,15 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  Printer,
-  Scan,
-  Package,
-  CheckCircle,
-  MapPin,
-  Clock,
-  ShieldCheck,
-  ArrowRight
-} from "lucide-react";
+import Printer from '~icons/lucide/printer';
+import Scan from '~icons/lucide/scan';
+import Package from '~icons/lucide/package';
+import CheckCircle from '~icons/lucide/check-circle';
+import MapPin from '~icons/lucide/map-pin';
+import Clock from '~icons/lucide/clock';
+import ShieldCheck from '~icons/lucide/shield-check';
+import ArrowRight from '~icons/lucide/arrow-right';
 import { Meta, Breadcrumbs, JsonLd } from "../components";
 import { Button } from "../components/ui";
 import { InternalLink } from "../components/ui/InternalLink";

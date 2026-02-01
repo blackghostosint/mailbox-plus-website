@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { InternalLink } from "./InternalLink";
-import { ChevronRight, Home } from "lucide-react";
+import ChevronRight from '~icons/lucide/chevron-right';
+import Home from '~icons/lucide/home';
 import { getBreadcrumbs } from "../../utils/internal-links";
 import { JsonLd } from "../JsonLd";
 

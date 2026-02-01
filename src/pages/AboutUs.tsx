@@ -4,7 +4,14 @@ import { motion } from "framer-motion";
 import { fadeUp } from "../utils/animations";
 import { InternalLink } from "../components/ui/InternalLink";
 import { Button } from "../components/ui";
-import { ArrowRight, MapPin, Package, Printer, Mail, FileText, ScanLine, Box } from "lucide-react";
+import ArrowRight from '~icons/lucide/arrow-right';
+import MapPin from '~icons/lucide/map-pin';
+import Package from '~icons/lucide/package';
+import Printer from '~icons/lucide/printer';
+import Mail from '~icons/lucide/mail';
+import FileText from '~icons/lucide/file-text';
+import ScanLine from '~icons/lucide/scan-line';
+import Box from '~icons/lucide/box';
 import { getServiceImageUrl } from "../lib/storage";
 
 export function AboutUs() {

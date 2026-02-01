@@ -1,6 +1,11 @@
-import {
-    Users, Palette, Star, Printer, Layers, FileText, Truck, Clock
-} from "lucide-react";
+import Users from '~icons/lucide/users';
+import Palette from '~icons/lucide/palette';
+import Star from '~icons/lucide/star';
+import Printer from '~icons/lucide/printer';
+import Layers from '~icons/lucide/layers';
+import FileText from '~icons/lucide/file-text';
+import Truck from '~icons/lucide/truck';
+import Clock from '~icons/lucide/clock';
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {

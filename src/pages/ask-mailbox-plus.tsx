@@ -11,7 +11,8 @@ import { SmartImage } from "../components/SmartImage";
 import { getServiceImageUrl } from "../lib/storage";
 import { InternalLink } from "../components/ui/InternalLink";
 import { Button } from "../components/ui";
-import { MapPin, Phone } from "lucide-react";
+import MapPin from '~icons/lucide/map-pin';
+import Phone from '~icons/lucide/phone';
 import { fadeUp } from "../utils/animations";
 import { siteConfig } from "../config/siteConfig";
 

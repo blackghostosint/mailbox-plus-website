@@ -1,6 +1,7 @@
-import {
-    Box, Shield, Package, Star
-} from "lucide-react";
+import Box from '~icons/lucide/box';
+import Shield from '~icons/lucide/shield';
+import Package from '~icons/lucide/package';
+import Star from '~icons/lucide/star';
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 import {

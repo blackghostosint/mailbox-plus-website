@@ -1,7 +1,12 @@
 import React, { useState, useMemo } from "react";
 import { InternalLink } from "../components/ui/InternalLink";
 import { motion } from "framer-motion";
-import { Search, Truck, ExternalLink, PackageCheck, AlertCircle, Bell } from "lucide-react";
+import Search from '~icons/lucide/search';
+import Truck from '~icons/lucide/truck';
+import ExternalLink from '~icons/lucide/external-link';
+import PackageCheck from '~icons/lucide/package-check';
+import AlertCircle from '~icons/lucide/alert-circle';
+import Bell from '~icons/lucide/bell';
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { getServiceImageUrl } from "../lib/storage";

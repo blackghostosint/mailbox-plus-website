@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import Star from '~icons/lucide/star';
 
 // Barrel exports
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from ".";

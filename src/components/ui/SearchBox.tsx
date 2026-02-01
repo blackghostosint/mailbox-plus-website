@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InternalLink } from './InternalLink';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, X } from 'lucide-react';
+import Search from '~icons/lucide/search';
+import X from '~icons/lucide/x';
 import { services } from '../../config/services';
 import { serviceAreas } from '../../config/serviceAreas';
 

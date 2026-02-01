@@ -1,6 +1,8 @@
 import React from 'react';
 import { InternalLink } from '../ui/InternalLink';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import Phone from '~icons/lucide/phone';
+import Mail from '~icons/lucide/mail';
+import MapPin from '~icons/lucide/map-pin';
 import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';

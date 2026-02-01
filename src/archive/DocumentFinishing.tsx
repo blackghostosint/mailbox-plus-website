@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, Scissors, Shield, Star } from 'lucide-react';
+import BookOpen from '~icons/lucide/book-open';
+import Scissors from '~icons/lucide/scissors';
+import Shield from '~icons/lucide/shield';
+import Star from '~icons/lucide/star';
 import { Button } from '../components/ui';
 
 export const DocumentFinishing: React.FC = () => {

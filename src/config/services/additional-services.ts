@@ -1,12 +1,10 @@
-import {
-    Users,
-    Star,
-    NotebookText,
-    Shield,
-    Clock,
-    Truck,
-    Printer
-} from "lucide-react";
+import Users from '~icons/lucide/users';
+import Star from '~icons/lucide/star';
+import NotebookText from '~icons/lucide/notebook-text';
+import Shield from '~icons/lucide/shield';
+import Clock from '~icons/lucide/clock';
+import Truck from '~icons/lucide/truck';
+import Printer from '~icons/lucide/printer';
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {

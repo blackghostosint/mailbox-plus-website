@@ -3,11 +3,16 @@ import react from '@vitejs/plugin-react';
 import sitemap from 'vite-plugin-sitemap';
 import path from 'path';
 import { splitVendorChunkPlugin } from 'vite';
+import Icons from 'unplugin-icons/vite';
 import routes from './src/data/routes.json';
 
 export default defineConfig({
   plugins: [
     react(),
+    Icons({
+      compiler: 'jsx',
+      jsx: 'react',
+    }),
     sitemap({
       hostname: 'https://mailboxplusohio.com',
       dynamicRoutes: routes,

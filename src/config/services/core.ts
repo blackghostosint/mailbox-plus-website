@@ -1,4 +1,10 @@
-import { Package, Shield, Truck, Printer, FileText, Palette, Star } from "lucide-react";
+import Package from '~icons/lucide/package';
+import Shield from '~icons/lucide/shield';
+import Truck from '~icons/lucide/truck';
+import Printer from '~icons/lucide/printer';
+import FileText from '~icons/lucide/file-text';
+import Palette from '~icons/lucide/palette';
+import Star from '~icons/lucide/star';
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import { packShipFaqs, generalCopyPrintFaqs } from "../faqs";

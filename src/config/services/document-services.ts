@@ -1,6 +1,15 @@
-import {
-    Mail, Users, Star, Scissors, Shield, Archive, FileText, FolderOpen, Printer, MapPin, Lock, Clock
-} from "lucide-react";
+import Mail from '~icons/lucide/mail';
+import Users from '~icons/lucide/users';
+import Star from '~icons/lucide/star';
+import Scissors from '~icons/lucide/scissors';
+import Shield from '~icons/lucide/shield';
+import Archive from '~icons/lucide/archive';
+import FileText from '~icons/lucide/file-text';
+import FolderOpen from '~icons/lucide/folder-open';
+import Printer from '~icons/lucide/printer';
+import MapPin from '~icons/lucide/map-pin';
+import Lock from '~icons/lucide/lock';
+import Clock from '~icons/lucide/clock';
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {

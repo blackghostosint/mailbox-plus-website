@@ -1,5 +1,5 @@
 import React from "react";
-import { AlertTriangle } from "lucide-react";
+import AlertTriangle from '~icons/lucide/alert-triangle';
 import { ServicePageV2 } from "../components/ServicePageV2";
 import { amazonReturnsService } from "../config/services/pack-ship/amazon-returns";
 import { InternalLink } from "../components/ui/InternalLink";

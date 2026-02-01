@@ -1,6 +1,6 @@
 import React from 'react';
 import { InternalLink } from '../ui/InternalLink';
-import { ArrowRight } from 'lucide-react';
+import ArrowRight from '~icons/lucide/arrow-right';
 import siteStructure from '../../data/siteStructure.json';
 
 interface ServiceGridProps {

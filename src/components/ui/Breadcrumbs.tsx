@@ -1,6 +1,6 @@
 import React from "react";
 import { InternalLink } from "./InternalLink";
-import { ChevronRight } from "lucide-react";
+import ChevronRight from '~icons/lucide/chevron-right';
 import { Service } from "../../types/services";
 import { getServiceBreadcrumbs } from "../../utils/services-helpers";
 import { JsonLd } from "../JsonLd";

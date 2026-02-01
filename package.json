@@ -36,6 +36,9 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
+    "@iconify-json/lucide": "^1.2.87",
+    "@svgr/core": "^8.1.0",
+    "@svgr/plugin-jsx": "^8.1.0",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
     "@types/react-google-recaptcha": "^2.1.9",
@@ -56,6 +59,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
+    "unplugin-icons": "^23.0.1",
     "vite": "^5.4.21",
     "vite-plugin-sitemap": "^0.8.2"
   }

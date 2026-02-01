@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Clock, Send } from 'lucide-react';
+import Phone from '~icons/lucide/phone';
+import Mail from '~icons/lucide/mail';
+import MapPin from '~icons/lucide/map-pin';
+import Clock from '~icons/lucide/clock';
+import Send from '~icons/lucide/send';
 import ReCAPTCHA from "react-google-recaptcha";
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';

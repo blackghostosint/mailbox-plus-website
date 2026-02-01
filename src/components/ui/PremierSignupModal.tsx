@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
-import { X } from 'lucide-react';
+import X from '~icons/lucide/x';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { usePremierGating } from '../../hooks/usePremierGating';

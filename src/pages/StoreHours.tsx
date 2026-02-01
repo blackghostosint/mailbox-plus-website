@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Clock, MapPin, Phone, Calendar } from 'lucide-react';
+import Clock from '~icons/lucide/clock';
+import MapPin from '~icons/lucide/map-pin';
+import Phone from '~icons/lucide/phone';
+import Calendar from '~icons/lucide/calendar';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';

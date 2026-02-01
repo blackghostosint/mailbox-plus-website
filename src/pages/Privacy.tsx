@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Shield, Eye, Lock, FileText } from 'lucide-react';
+import Shield from '~icons/lucide/shield';
+import Eye from '~icons/lucide/eye';
+import Lock from '~icons/lucide/lock';
+import FileText from '~icons/lucide/file-text';
 
 export const Privacy: React.FC = () => {
   const sections = [

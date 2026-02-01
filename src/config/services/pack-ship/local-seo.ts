@@ -1,6 +1,11 @@
-import {
-    Clock, Users, FileText, Truck, MapPin, Star, Shield, Box
-} from "lucide-react";
+import Clock from '~icons/lucide/clock';
+import Users from '~icons/lucide/users';
+import FileText from '~icons/lucide/file-text';
+import Truck from '~icons/lucide/truck';
+import MapPin from '~icons/lucide/map-pin';
+import Star from '~icons/lucide/star';
+import Shield from '~icons/lucide/shield';
+import Box from '~icons/lucide/box';
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 

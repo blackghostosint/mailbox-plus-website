@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { cn } from "../../lib/utils";
-import { X } from "lucide-react";
+import X from '~icons/lucide/x';
 import { SmartImage } from "../SmartImage";
 
 interface FloatingReviewButtonProps {

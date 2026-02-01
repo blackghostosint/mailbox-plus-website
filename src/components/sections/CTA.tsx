@@ -2,7 +2,7 @@ import React from "react";
 import type { CTA } from "../../types/services";
 import { Button } from "../ui";
 import { cn } from "../../lib/utils";
-import { ArrowRight } from "lucide-react";
+import ArrowRight from '~icons/lucide/arrow-right';
 import { Link } from "react-router-dom";
 // import { InternalLink } from "../ui/InternalLink";
 

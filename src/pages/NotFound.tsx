@@ -1,7 +1,8 @@
 import React from 'react';
 import { InternalLink } from '../components/ui/InternalLink';
 import { motion } from 'framer-motion';
-import { Home, ArrowLeft } from 'lucide-react';
+import Home from '~icons/lucide/home';
+import ArrowLeft from '~icons/lucide/arrow-left';
 import { Button } from '../components/ui';
 
 export const NotFound: React.FC = () => {

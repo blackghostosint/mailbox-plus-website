@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { InternalLink } from "../components/ui/InternalLink";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, MapPin, Phone, Clock, ChevronUp } from "lucide-react";
+import ArrowRight from '~icons/lucide/arrow-right';
+import MapPin from '~icons/lucide/map-pin';
+import Phone from '~icons/lucide/phone';
+import Clock from '~icons/lucide/clock';
+import ChevronUp from '~icons/lucide/chevron-up';
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { services } from "../config/services";

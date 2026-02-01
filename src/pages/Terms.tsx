@@ -1,6 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Shield, AlertTriangle, Scale, Mail, Fingerprint, Gavel, RefreshCw, Phone } from 'lucide-react';
+import FileText from '~icons/lucide/file-text';
+import Shield from '~icons/lucide/shield';
+import AlertTriangle from '~icons/lucide/alert-triangle';
+import Scale from '~icons/lucide/scale';
+import Mail from '~icons/lucide/mail';
+import Fingerprint from '~icons/lucide/fingerprint';
+import Gavel from '~icons/lucide/gavel';
+import RefreshCw from '~icons/lucide/refresh-cw';
+import Phone from '~icons/lucide/phone';
 
 const BulletPoint: React.FC<{children: React.ReactNode}> = ({children}) => (
   <li className="flex items-start">

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { MapPin, Truck } from "lucide-react";
+import MapPin from '~icons/lucide/map-pin';
+import Truck from '~icons/lucide/truck';
 import { Meta } from "../components/Meta";
 import { InternalLink } from "../components/ui/InternalLink";
 import { JsonLd } from "../components/JsonLd";

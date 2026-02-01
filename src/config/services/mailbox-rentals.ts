@@ -1,6 +1,10 @@
-import {
-    Lock, Package, MapPin, Mail, Globe, Star, Truck
-} from "lucide-react";
+import Lock from '~icons/lucide/lock';
+import Package from '~icons/lucide/package';
+import MapPin from '~icons/lucide/map-pin';
+import Mail from '~icons/lucide/mail';
+import Globe from '~icons/lucide/globe';
+import Star from '~icons/lucide/star';
+import Truck from '~icons/lucide/truck';
 import { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {

@@ -1,6 +1,9 @@
-import {
-    Truck, Shield, Globe, Mail, Package, Star
-} from "lucide-react";
+import Truck from '~icons/lucide/truck';
+import Shield from '~icons/lucide/shield';
+import Globe from '~icons/lucide/globe';
+import Mail from '~icons/lucide/mail';
+import Package from '~icons/lucide/package';
+import Star from '~icons/lucide/star';
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 import {

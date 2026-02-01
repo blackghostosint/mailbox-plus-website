@@ -1,6 +1,8 @@
-import {
-    Package, Truck, MapPin, Shield, Clock
-} from "lucide-react";
+import Package from '~icons/lucide/package';
+import Truck from '~icons/lucide/truck';
+import MapPin from '~icons/lucide/map-pin';
+import Shield from '~icons/lucide/shield';
+import Clock from '~icons/lucide/clock';
 import { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 import {

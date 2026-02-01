@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  ArrowRight,
-  MapPin,
-  Phone,
-  Clock,
-} from "lucide-react";
+import ArrowRight from '~icons/lucide/arrow-right';
+import MapPin from '~icons/lucide/map-pin';
+import Phone from '~icons/lucide/phone';
+import Clock from '~icons/lucide/clock';
 import { Button } from "../components/ui";
 import { siteConfig } from "../config/siteConfig";
 import { CarrierLogos } from "../components/CarrierLogos";
