@@ -101,6 +101,20 @@ Identified and fixed a primary point of failure where the frontend was calling a
 - Deployment now correctly routes frontend queries to the functional backend.
 - Temporary debug metadata remains in the refusal response for final verification.
 
+## 2026-02-04 — Fix Sitemap Lastmod Dates
+
+**Summary**
+Updated sitemap generation to use actual git commit dates for `lastmod` instead of a uniform build timestamp. This resolves the "Uniform lastmod dates" Search Console warning and improves crawl efficiency by signaling to Google exactly which pages have been updated.
+
+**Scope**
+- `scripts/generate-sitemap-routes.cjs`: Implemented `getLastModified` using `git log`, with fallbacks to file system and current date.
+- `vite.config.ts`: Updated to consume the new `sitemap-config.json` with `lastmod` map.
+- `src/data/sitemap-config.json`: New generated artifact replacing `routes.json`.
+
+**Notes**
+- Requires `git` in the build environment for accurate history; falls back gracefully if missing.
+- Verified that service pages now show their true modification dates (e.g., Nov 2025) while recently changed pages show recent dates.
+
 ## 2026-01-04 — Fix Critical Bug: Respect Per-Entry Confidence Thresholds
 
 **Summary**

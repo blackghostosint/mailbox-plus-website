@@ -4,7 +4,13 @@ import sitemap from 'vite-plugin-sitemap';
 import path from 'path';
 import { splitVendorChunkPlugin } from 'vite';
 import Icons from 'unplugin-icons/vite';
-import routes from './src/data/routes.json';
+import sitemapConfig from './src/data/sitemap-config.json';
+
+// Convert string dates to Date objects for the plugin
+const lastmodMap = Object.entries(sitemapConfig.lastmod).reduce((acc, [route, dateStr]) => {
+  acc[route] = new Date(dateStr);
+  return acc;
+}, {} as Record<string, Date>);
 
 export default defineConfig({
   plugins: [
@@ -15,7 +21,8 @@ export default defineConfig({
     }),
     sitemap({
       hostname: 'https://mailboxplusohio.com',
-      dynamicRoutes: routes,
+      dynamicRoutes: sitemapConfig.routes,
+      lastmod: lastmodMap,
       generateRobotsTxt: false,
     }),
     splitVendorChunkPlugin(),
