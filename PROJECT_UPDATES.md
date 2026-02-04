@@ -234,3 +234,14 @@ Updated the existing `shredding` service configuration to clearly highlight the 
 **Refinement**
 - Changed compliance wording from "guarantees" to "promises" per user request.
 - Expanded "Compliance & Security" section with detailed, conversational info on FACTA, HIPAA, GLBA, and state regulations using V2 list styling.
+
+## 2026-02-04 — Fix Duplicate Sitemap Homepage
+
+**Summary**
+Resolved an issue where the site root (`/`) appeared twice in the `sitemap.xml`. This was caused by an explicit entry for `"/"` in `src/data/routes.json` conflicting with `vite-plugin-sitemap`'s default behavior of automatically including the hostname root. Removed the explicit entry to ensure a clean, single listing for the homepage.
+
+**Scope**
+- `src/data/routes.json`: Removed `"/"` from the routes array.
+
+**Notes**
+- Confirmed fix by rebuilding the project (`npm run build`) and verifying `dist/sitemap.xml` contains only one `<loc>https://mailboxplusohio.com/</loc>` entry.
