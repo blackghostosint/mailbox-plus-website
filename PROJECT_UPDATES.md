@@ -1,4 +1,21 @@
+## 2026-02-05 — Integrate Stripe Pricing Table for Mailbox Sales Page
+
+**Summary**
+Replaced two custom HTML pricing sections in the standalone `MailboxPlusSalesPage.html` with Stripe's embedded pricing table component. This enables direct payment processing through Stripe Checkout for mailbox rental subscriptions (Month-to-Month, 6-Month, and 12-Month plans) without requiring manual form submissions.
+
+**Scope**
+- `MailboxPlusSalesPage.html`: Added Stripe pricing table script to `<head>` and replaced both pricing grid sections (lines 937-989 and 1088-1139) with `<stripe-pricing-table>` web component.
+
+**Notes**
+- Pricing table ID: `prctbl_1SxdJZGfcIcZOCWheFiYECbL`
+- Using live publishable key for production: `pk_live_51RJ0FlGfcIcZOCWhekuaZ04Fkerve2Q0ZSOVFEoAoMgnr51yDgAGYCkcVnBZPgekGircqgr6LTdDbsLmOwwoND5D000RkuLoWh`
+- All payment processing now handled by Stripe, eliminating the need for backend webhook configuration for this sales page
+- Maintained existing section headers and subtitles for SEO and brand consistency
+- Removed approximately 100 lines of custom pricing card HTML
+- Page remains standalone (not integrated with React SPA routing)
+
 ## 2026-01-04 — Implement Mail-bot Plus Response Template V1
+
 
 **Summary**
 Implemented an enforced 4-part response structure for the chatbot to ensure consistent, human-friendly answers. The V1 template applies a runtime formatting system that validates responses against tone, length, and content rules before delivering them to users, ensuring the chatbot sounds like a helpful local employee rather than a corporate AI system.
