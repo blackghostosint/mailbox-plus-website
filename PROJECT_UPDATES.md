@@ -194,18 +194,6 @@ Updated sitemap generation to use actual git commit dates for `lastmod` instead 
 
 **Scope**
 - `scripts/generate-sitemap-routes.cjs`: Implemented `getLastModified` using `git log`, with fallbacks to file system and current date.
-- `vite.config.ts`: Updated to consume the new `sitemap-config.json` with `lastmod` map.
-- `src/data/sitemap-config.json`: New generated artifact replacing `routes.json`.
-
-**Notes**
-- Requires `git` in the build environment for accurate history; falls back gracefully if missing.
-- Verified that service pages now show their true modification dates (e.g., Nov 2025) while recently changed pages show recent dates.
-
-## 2026-01-04 — Fix Critical Bug: Respect Per-Entry Confidence Thresholds
-
-**Summary**
-Fixed critical bug in `chat-retrieve.ts` where the retrieval function used a hardcoded global `MINIMUM_SIMILARITY` threshold of 0.78 for all matches, completely ignoring the individual `confidence.minimumSimilarity` values configured for each FAQ entry in `kb.entries.json`. This caused all address queries to be refused because they scored between 0.62-0.78, below the global threshold but above the entry-specific threshold.
-
 **Scope**
 - `netlify/functions/chat-retrieve.ts` - Updated lines 266 and 271 to use `bestMatch.entry.confidence.minimumSimilarity` instead of hardcoded `MINIMUM_SIMILARITY` constant
 
@@ -345,3 +333,24 @@ Resolved an issue where the site root (`/`) appeared twice in the `sitemap.xml`.
 
 **Notes**
 - Confirmed fix by rebuilding the project (`npm run build`) and verifying `dist/sitemap.xml` contains only one `<loc>https://mailboxplusohio.com/</loc>` entry.
+
+## 2026-02-06 — Competitive Intelligence Report Created
+
+**Summary**
+Generated a comprehensive business profile and competitor analysis of Mailbox Plus from an adversarial perspective. This report serves as a source of truth for marketing, sales, and operations, identifying core strengths, vulnerabilities, and strategic attack vectors.
+
+**Scope**
+- [NEW] COMPETITOR_ANALYSIS_MAILBOX_PLUS.md
+
+**Notes**
+- Analysis identifies \ Complexity Trap\ in specialty shipping and \Staff Dependency\ as key vulnerabilities.
+- Location confusion between siteConfig.ts and locations.ts was noted as a fragility.
+
+## 2026-02-06 — Research Folder Organization
+
+**Summary**
+Moved the competitive intelligence report to a new /research directory to maintain a clean project root.
+
+**Scope**
+- [NEW] /research/
+- [MOVE] COMPETITOR_ANALYSIS_MAILBOX_PLUS.md

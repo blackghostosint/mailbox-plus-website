@@ -24,7 +24,7 @@ export const mailboxRentalServices: Service[] = [
         serviceName: "Mailbox Rental",
         slug: "/home-business/mailbox-rental",
         pageTitle: "Mailbox Rental in Concord Township, Ohio | Mailbox Plus",
-        metaDescription: "Secure private mailbox rentals in Concord Township with a real street address. Package receiving from all carriers (UPS, FedEx, USPS, DHL) and 24/7 access options.",
+        metaDescription: "Secure private mailbox rentals in Concord Township with a real street address. Package receiving from all carriers (UPS, FedEx, USPS, DHL).",
         keywords: "mailbox rental, secure address, Concord Township, Lake County",
         heroTitle: "Secure Mailbox Rentals",
         heroSubtitle: "Get a private, secure mailbox with a real street address.",

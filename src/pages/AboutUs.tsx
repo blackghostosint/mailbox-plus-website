@@ -221,7 +221,7 @@ export function AboutUs() {
             {[
               { title: "Pack & Ship", link: "/pack-ship", icon: Package, desc: "UPS, FedEx, DHL, USPS" },
               { title: "Print Services", link: "/copy-print", icon: Printer, desc: "Copies, Blueprints, Photos" },
-              { title: "Mailbox Rentals", link: "/home-business/mailbox-rental", icon: Mail, desc: "Secure, Private, 24/7 Access" },
+              { title: "Mailbox Rentals", link: "/home-business/mailbox-rental", icon: Mail, desc: "Secure, Private, Business Hours" },
               { title: "Notary Public", link: "/home-business/notary-services", icon: FileText, desc: "Official Notarizations" },
               { title: "Scanning", link: "/home-business/document-scanning", icon: ScanLine, desc: "Digitize Your Documents" },
               { title: "Package Receiving", link: "/pack-ship/package-receiving", icon: Box, desc: "Never Miss a Delivery" },

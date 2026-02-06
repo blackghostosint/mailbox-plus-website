@@ -396,7 +396,7 @@ export const localSeoServices: Service[] = [
                             <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Private Mailboxes:</strong> Secure mailboxes with real street addresses and 24/7 access.</div>
+                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Private Mailboxes:</strong> Secure mailboxes with real street addresses.</div>
                         </li>
                     </ul>
                 `

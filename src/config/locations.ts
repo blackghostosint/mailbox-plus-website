@@ -16,7 +16,7 @@ export interface LocationData {
   slug: string;
   county: string;
   population?: number;
-  
+
   // CRITICAL: Unique local content to avoid thin content penalties
   uniqueContent: {
     directions: string;           // How to get to Mailbox Plus from this city
@@ -25,7 +25,7 @@ export interface LocationData {
     driveTime: string;            // Approximate drive time to our store
     nearbyHighways?: string[];    // Major roads connecting this city to us
   };
-  
+
   // SEO modifiers for this location
   seo: {
     demonymSingular: string;      // "Mentor resident", "Painesville business"
@@ -264,7 +264,7 @@ export const locationEligibleServices = [
     serviceName: 'Mailbox Rental',
     slug: 'mailbox-rental',
     searchPattern: 'mailbox rental near me',
-    metaTemplate: 'Rent a private mailbox near {city}. Real street address, package acceptance, secure 24/7 access.',
+    metaTemplate: 'Rent a private mailbox near {city}. Real street address, package acceptance, secure and professional service.',
   },
   {
     serviceName: 'Printing Services',
@@ -302,7 +302,7 @@ export function generateLocationPageConfig(
   location: LocationData
 ) {
   const uniqueId = `${service.slug}-${location.slug}`;
-  
+
   return {
     id: uniqueId,
     category: 'location-page' as const,
@@ -313,7 +313,7 @@ export function generateLocationPageConfig(
     metaDescription: service.metaTemplate.replace('{city}', location.name),
     heroTitle: `${service.serviceName} in ${location.name}`,
     heroSubtitle: `We're just ${location.uniqueContent.driveTime} from ${location.name}. ${location.uniqueContent.directions}`,
-    
+
     // UNIQUE CONTENT: This is what makes it NOT a doorway page
     uniqueLocalContent: {
       directions: location.uniqueContent.directions,
@@ -322,7 +322,7 @@ export function generateLocationPageConfig(
       driveTime: location.uniqueContent.driveTime,
       nearbyHighways: location.uniqueContent.nearbyHighways,
     },
-    
+
     // Content sections with location-specific details
     content: [
       {
@@ -331,18 +331,17 @@ export function generateLocationPageConfig(
       },
       {
         heading: `How to Find Us from ${location.name}`,
-        body: `${location.uniqueContent.directions} Look for Capital Plaza on Auburn Road - we're next to Pet Supplies Plus.${
-          location.uniqueContent.nearbyHighways 
-            ? ` Easy access from ${location.uniqueContent.nearbyHighways.join(', ')}.` 
+        body: `${location.uniqueContent.directions} Look for Capital Plaza on Auburn Road - we're next to Pet Supplies Plus.${location.uniqueContent.nearbyHighways
+            ? ` Easy access from ${location.uniqueContent.nearbyHighways.join(', ')}.`
             : ''
-        }`
+          }`
       },
       {
         heading: `Why ${location.seo.demonymPlural} Choose Mailbox Plus`,
         body: `Unlike the big box stores, we're a local business. We remember your name. ${location.seo.demonymPlural} know they can count on us for fast, friendly service without the lines.`
       }
     ],
-    
+
     // Location-specific FAQs
     faqs: [
       {
@@ -354,13 +353,13 @@ export function generateLocationPageConfig(
         answer: `We're one of the most convenient options for ${location.seo.demonymPlural}. We're located in ${location.seo.areaDescriptor}, easy to reach from ${location.uniqueContent.landmarks[0]} and surrounding areas.`
       }
     ],
-    
+
     cta: {
       title: `Stop by from ${location.name} - we're open 6 days a week`,
       buttonText: 'Get Directions',
       buttonLink: '/contact-us'
     },
-    
+
     // Schema.org structured data hints
     structuredData: {
       areaServed: location.name,
@@ -375,13 +374,13 @@ export function generateLocationPageConfig(
  */
 export function generatePhase1LocationPages() {
   const pages = [];
-  
+
   for (const location of primaryLocations) {
     for (const service of locationEligibleServices) {
       pages.push(generateLocationPageConfig(service, location));
     }
   }
-  
+
   return pages;
 }
 
@@ -391,13 +390,13 @@ export function generatePhase1LocationPages() {
  */
 export function generatePhase2LocationPages() {
   const pages = [];
-  
+
   for (const location of secondaryLocations) {
     for (const service of locationEligibleServices) {
       pages.push(generateLocationPageConfig(service, location));
     }
   }
-  
+
   return pages;
 }
 
