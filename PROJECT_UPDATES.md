@@ -1,3 +1,19 @@
+## 2026-02-05 — Add Stripe Checkout Redirect to Reserve Mailbox Form
+
+**Summary**
+Updated the "Reserve Your Mailbox" form to redirect users to Stripe Checkout after form submission. The form still sends an email notification to Mailbox Plus, but now also redirects the user to the appropriate Stripe payment page based on their selected plan. Added new plan options: Large Annual, Corporate Mailbox, Business Pro, and Business Pro Large Mailbox.
+
+**Scope**
+- `public/MailboxPlusSalesPage.html`: Updated plan dropdown options and added Stripe checkout redirect logic to form submission handler.
+
+**Notes**
+- Each plan now maps to a specific Stripe checkout URL
+- Removed 6-month options in favor of monthly and annual billing cycles
+- Email notification still sent before redirect to ensure Mailbox Plus receives the lead information
+- Fallback alert message displays if somehow no Stripe URL is found for the selected plan
+
+---
+
 ## 2026-02-05 — Integrate Stripe Pricing Table for Mailbox Sales Page
 
 **Summary**

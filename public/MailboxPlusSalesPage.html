@@ -1383,10 +1383,13 @@
             onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
             onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
             <option value="">Select a plan</option>
-            <option value="small-month">Small: Month-to-Month ($25/mo)</option>
-            <option value="small-6months">Small: 6 Months ($150 total)</option>
-            <option value="small-12months">Small: 12 Months ($300 total)</option>
-            <option value="large-month">Large: Month-to-Month ($35/mo)</option>
+            <option value="small-month">Small Mailbox: Monthly ($25/mo)</option>
+            <option value="small-annual">Small Mailbox: Annual ($300/year)</option>
+            <option value="large-month">Large Mailbox: Monthly ($35/mo)</option>
+            <option value="large-annual">Large Mailbox: Annual ($420/year)</option>
+            <option value="corporate">Corporate Mailbox</option>
+            <option value="business-pro">Business Pro</option>
+            <option value="business-pro-large">Business Pro Large Mailbox</option>
           </select>
 
           <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.
@@ -1440,11 +1443,24 @@
   </footer>
 </body>
 <script>
+  // Stripe checkout URLs mapped by plan value
+  const stripeLinks = {
+    'small-month': 'https://buy.stripe.com/cNicN5ada3jZ87F87p7N601',
+    'small-annual': 'https://buy.stripe.com/28EbJ1adacUzafNdrJ7N603',
+    'large-month': 'https://buy.stripe.com/cNi28r2KI07N73BcnF7N602',
+    'large-annual': 'https://buy.stripe.com/4gM9AT8526wb73B87p7N604',
+    'corporate': 'https://buy.stripe.com/6oUfZh3OMdYD73B3R97N605',
+    'business-pro': 'https://buy.stripe.com/7sYbJ12KI6wbfA773l7N606',
+    'business-pro-large': 'https://buy.stripe.com/8x29AT3OMcUzcnV1J17N607'
+  };
+
   document.getElementById("reserve-form").addEventListener("submit", async (e) => {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target).entries());
+    const selectedPlan = formData.plan;
 
     try {
+      // Send the email notification to Mailbox Plus
       const response = await fetch("/.netlify/functions/sendReservationEmail", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -1452,8 +1468,15 @@
       });
 
       if (response.ok) {
-        alert("✅ Thank you! Your reservation has been received.");
-        e.target.reset();
+        // Redirect to Stripe checkout for the selected plan
+        const stripeUrl = stripeLinks[selectedPlan];
+        if (stripeUrl) {
+          window.location.href = stripeUrl;
+        } else {
+          // Fallback if no Stripe link (shouldn't happen with current options)
+          alert("✅ Thank you! Your reservation has been received. We will contact you shortly.");
+          e.target.reset();
+        }
       } else {
         alert("⚠️ There was a problem submitting your form. Please try again.");
       }
