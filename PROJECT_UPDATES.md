@@ -1,3 +1,39 @@
+## 2026-02-05 — Location Page Configuration for Programmatic SEO
+
+**Summary**
+Created `src/config/locations.ts` to implement the **Locations Playbook** from programmatic SEO. This configuration enables generating "[service] in [city]" pages at scale while maintaining unique local content per page to avoid Google doorway page penalties.
+
+**Scope**
+- `src/config/locations.ts`: New configuration file with 10 Lake County cities and 8 core services
+- `.agent/skills/programmatic-seo/SKILL.md`: Already installed skill providing implementation guidance
+
+**Notes**
+- **Phase 1 generates 40 location pages**: 5 primary cities (Concord, Mentor, Painesville, Willoughby, Chardon) × 8 services
+- **Phase 2 adds 40 more**: 5 secondary cities (Kirtland, Madison, Eastlake, Wickliffe, Mentor-on-the-Lake)
+- Each location includes **unique local content**: driving directions, landmarks, local examples, drive times
+- Configuration follows skill's core principles: unique value per page, proprietary data, clean URL structure
+- Function `generateLocationPageConfig()` creates full page configs with SEO metadata, content sections, FAQs, and Schema.org hints
+- Ready for integration with React routing and ServicePageV2 component
+
+---
+
+## 2026-02-05 — Install Programmatic SEO Skill
+
+**Summary**
+Installed the `programmatic-seo` skill from the `coreyhaines31/marketingskills` GitHub repository. This skill provides expert guidance for building SEO-optimized pages at scale using templates and data, with 12 playbooks covering patterns like location pages, comparison pages, personas, and directories.
+
+**Scope**
+- `.agents/skills/programmatic-seo/` (universal skill location)
+- Symlinked to `.agent/skills/` (Antigravity) and `.claude/skills/` (Claude Code)
+
+**Notes**
+- Installed via `npx skills add https://github.com/coreyhaines31/marketingskills --skill programmatic-seo`
+- Aligns well with existing micro-problems architecture and GEMINI.md governance
+- Key playbooks for Mailbox Plus: Locations ("mailbox rental in [city]"), Personas ("mailbox for [business type]"), Comparisons
+- Includes pre-launch quality checklist that extends the existing Q1 audit workflow
+
+---
+
 ## 2026-02-05 — UI/UX Improvements for MailboxPlusSalesPage (ui-ux-pro-max Audit)
 
 **Summary**
