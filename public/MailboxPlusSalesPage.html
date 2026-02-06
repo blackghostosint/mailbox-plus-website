@@ -681,6 +681,91 @@
       opacity: 1;
     }
 
+    /* Accessibility: Respect reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    /* Interactive elements cursor */
+    .clickable,
+    .testimonial-card,
+    .faq-item,
+    .pricing-card,
+    a:not(.btn) {
+      cursor: pointer;
+    }
+
+    /* Enhanced focus states for form inputs */
+    input:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--brand-blue);
+      outline-offset: 2px;
+      border-color: var(--brand-blue) !important;
+    }
+
+    /* Visually hidden but accessible labels */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* SVG icon utilities */
+    .icon {
+      width: 1.25em;
+      height: 1.25em;
+      vertical-align: -0.25em;
+      display: inline-block;
+    }
+
+    .icon-sm {
+      width: 1em;
+      height: 1em;
+    }
+
+    .icon-lg {
+      width: 1.5em;
+      height: 1.5em;
+    }
+
+    /* Trust badge styles */
+    .trust-badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+    }
+
+    .trust-badge {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--brand-blue);
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .trust-badge svg {
+      width: 24px;
+      height: 24px;
+      color: var(--brand-blue);
+    }
+
     /* Responsive Tweaks */
     @media (max-width: 600px) {
       h1 {
@@ -951,6 +1036,43 @@
     </svg>
   </div>
 
+  <!-- Trust Badges -->
+  <section class="section section--white" style="padding-top: 1.5rem; padding-bottom: 1.5rem;">
+    <div class="trust-badges" role="list" aria-label="Trust indicators">
+      <div class="trust-badge" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M12.516 2.17a.75.75 0 00-1.032 0 11.209 11.209 0 01-7.877 3.08.75.75 0 00-.722.515A12.74 12.74 0 002.25 9.75c0 5.942 4.064 10.933 9.563 12.348a.749.749 0 00.374 0c5.499-1.415 9.563-6.406 9.563-12.348 0-1.39-.223-2.73-.635-3.985a.75.75 0 00-.722-.516 11.209 11.209 0 01-7.877-3.08zm.945 6.705a.75.75 0 00-1.06-1.06L9 11.215l-1.4-1.4a.75.75 0 10-1.06 1.06l1.93 1.93a.75.75 0 001.06 0l3.93-3.93z"
+            clip-rule="evenodd" />
+        </svg>
+        <span>Secure & Protected</span>
+      </div>
+      <div class="trust-badge" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path
+            d="M3.375 4.5C2.339 4.5 1.5 5.34 1.5 6.375V13.5h12V6.375c0-1.036-.84-1.875-1.875-1.875h-8.25zM13.5 15h-12v2.625c0 1.035.84 1.875 1.875 1.875h.375a3 3 0 116 0h3a3 3 0 116 0h.375c1.035 0 1.875-.84 1.875-1.875V11.25h-3.375A1.875 1.875 0 0116.5 9.375v-4.5c0-.276.224-.5.5-.5h2.7a.5.5 0 01.424.235l1.696 2.969a.5.5 0 01.076.265V9.5h.5a.5.5 0 01.5.5v3.375m-10.125 0H3.375m0 0v2.625m10.125-2.625V15m0 0v2.625m0-2.625h2.625m-10.125 5.25a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm9 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z" />
+        </svg>
+        <span>All Carriers Accepted</span>
+      </div>
+      <div class="trust-badge" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M11.54 22.351l.07.04.028.016a.76.76 0 00.723 0l.028-.015.071-.041a16.975 16.975 0 001.144-.742 19.58 19.58 0 002.683-2.282c1.944-1.99 3.963-4.98 3.963-8.827a8.25 8.25 0 00-16.5 0c0 3.846 2.02 6.837 3.963 8.827a19.58 19.58 0 002.682 2.282 16.975 16.975 0 001.145.742zM12 13.5a3 3 0 100-6 3 3 0 000 6z"
+            clip-rule="evenodd" />
+        </svg>
+        <span>Local Family Business</span>
+      </div>
+      <div class="trust-badge" role="listitem">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <span>5-Star Rated</span>
+      </div>
+    </div>
+  </section>
+
   <!-- 💳 MAILBOX PLANS OVERVIEW -->
   <section class="section section--white" id="plans">
     <h2 class="section-title">Mailbox Rental Plans</h2>
@@ -984,9 +1106,25 @@
         <h2>Imagine Life After Mailbox Plus</h2>
         <p>Every delivery is safe, dry, and waiting for you—no matter your schedule. With a private mailbox, you get a
           real street address, package acceptance from all carriers, and peace of mind knowing your mail is secure.</p>
-        <ul style="padding-left:1.2em; margin-bottom:0.8em;">
-          <li><strong>✔️ Package notifications</strong></li>
-          <li><strong>✔️ No more missed or stolen deliveries</strong></li>
+        <ul style="padding-left:1.2em; margin-bottom:0.8em; list-style: none;">
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg class="icon" style="color: #22c55e; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                clip-rule="evenodd" />
+            </svg>
+            <strong>Package notifications</strong>
+          </li>
+          <li style="display: flex; align-items: center; gap: 0.5rem;">
+            <svg class="icon" style="color: #22c55e; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+                clip-rule="evenodd" />
+            </svg>
+            <strong>No more missed or stolen deliveries</strong>
+          </li>
         </ul>
         <p style="font-weight:600;color:var(--brand-blue);margin-bottom:0.5em;">
           Access during all business hours — with friendly staff ready to help.
@@ -1074,8 +1212,16 @@
     </stripe-pricing-table>
     <p style="text-align:center; margin-top: 1.5rem; font-weight: 500;">Looking for a Large Box? $35/mo (Includes 5
       pkgs/mo). Select in form below.</p>
-    <p style="text-align:center; margin-top: 1rem; font-weight: 600;">⚡ Only 11 boxes left at this promotional rate —
-      lock in your deal today.</p>
+    <p
+      style="text-align:center; margin-top: 1rem; font-weight: 600; display: flex; align-items: center; justify-content: center; gap: 0.35rem;">
+      <svg style="width: 1.25rem; height: 1.25rem; color: var(--brand-yellow);" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24" fill="currentColor">
+        <path fill-rule="evenodd"
+          d="M14.615 1.595a.75.75 0 01.359.852L12.982 9.75h7.268a.75.75 0 01.548 1.262l-10.5 11.25a.75.75 0 01-1.272-.71l1.992-7.302H3.75a.75.75 0 01-.548-1.262l10.5-11.25a.75.75 0 01.913-.143z"
+          clip-rule="evenodd" />
+      </svg>
+      Only 11 boxes left at this promotional rate — lock in your deal today.
+    </p>
   </section>
 
   <!-- 💼 BUSINESS OWNERS SECTION -->
@@ -1172,8 +1318,39 @@
   <!-- 5️⃣ TESTIMONIALS -->
   <section class="section section--white" id="testimonials">
     <div style="text-align: center; margin-bottom: 2.5rem;">
-      <p style="color: var(--brand-blue); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem;">
-        ⭐⭐⭐⭐⭐ Trusted by hundreds of local customers
+      <p
+        style="color: var(--brand-blue); font-weight: 600; font-size: 1rem; margin-bottom: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.25rem;">
+        <svg class="icon" style="color: #facc15;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg class="icon" style="color: #facc15;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg class="icon" style="color: #facc15;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg class="icon" style="color: #facc15;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <svg class="icon" style="color: #facc15;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+          fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+            clip-rule="evenodd" />
+        </svg>
+        <span style="margin-left: 0.5rem;">Trusted by hundreds of local customers</span>
       </p>
       <h2>What Our Customers Say</h2>
     </div>
@@ -1278,7 +1455,15 @@
       loading="lazy" />
     <div class="overlay overlay--dark-yellow"></div>
     <div class="limited-content">
-      <div class="limited-cta">🚨 Limited number of boxes available this month due to space and staff capacity.</div>
+      <div class="limited-cta" style="display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+        <svg style="width: 1.5rem; height: 1.5rem; color: #b71c1c; flex-shrink: 0;" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24" fill="currentColor">
+          <path fill-rule="evenodd"
+            d="M9.401 3.003c1.155-2 4.043-2 5.197 0l7.355 12.748c1.154 2-.29 4.5-2.599 4.5H4.645c-2.309 0-3.752-2.5-2.598-4.5L9.4 3.003zM12 8.25a.75.75 0 01.75.75v3.75a.75.75 0 01-1.5 0V9a.75.75 0 01.75-.75zm0 8.25a.75.75 0 100-1.5.75.75 0 000 1.5z"
+            clip-rule="evenodd" />
+        </svg>
+        Limited number of boxes available this month due to space and staff capacity.
+      </div>
       <h2>Don’t Miss Out</h2>
       <p>Mailbox Plus is trusted by hundreds of local residents and businesses. We're offering this limited deal to fill
         the remaining boxes for the year — once they're gone, rates return to normal.
@@ -1362,35 +1547,47 @@
 
         <form id="reserve-form" style="display:flex;flex-direction:column;gap:1rem;">
           <div style="display:flex;flex-wrap:wrap;gap:0.75rem;">
-            <input id="name" name="name" type="text" required placeholder="Your Name"
-              style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
-              onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
-              onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+            <div style="flex:1;min-width:47%;">
+              <label for="name" class="sr-only">Your Name</label>
+              <input id="name" name="name" type="text" required placeholder="Your Name" aria-label="Your Name"
+                style="width:100%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+                onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+                onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+            </div>
+            <div style="flex:1;min-width:47%;">
+              <label for="email" class="sr-only">Email Address</label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com"
+                aria-label="Email Address"
+                style="width:100%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+                onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+                onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+            </div>
+          </div>
 
-            <input id="email" name="email" type="email" required placeholder="you@email.com"
-              style="flex:1;min-width:47%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
+          <div>
+            <label for="phone" class="sr-only">Phone Number</label>
+            <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567" aria-label="Phone Number"
+              style="width:100%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
               onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
               onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
           </div>
 
-          <input id="phone" name="phone" type="tel" required placeholder="(555) 123-4567"
-            style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;transition:border-color 0.2s,box-shadow 0.2s;"
-            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
-            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
-
-          <select id="plan" name="plan" required
-            style="padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;color:#374151;transition:border-color 0.2s,box-shadow 0.2s;"
-            onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
-            onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
-            <option value="">Select a plan</option>
-            <option value="small-month">Small Mailbox: Monthly ($25/mo)</option>
-            <option value="small-annual">Small Mailbox: Annual ($300/year)</option>
-            <option value="large-month">Large Mailbox: Monthly ($35/mo)</option>
-            <option value="large-annual">Large Mailbox: Annual ($420/year)</option>
-            <option value="corporate">Corporate Mailbox</option>
-            <option value="business-pro">Business Pro</option>
-            <option value="business-pro-large">Business Pro Large Mailbox</option>
-          </select>
+          <div>
+            <label for="plan" class="sr-only">Select a Plan</label>
+            <select id="plan" name="plan" required aria-label="Select a Plan"
+              style="width:100%;padding:0.6rem 0.9rem;border:1px solid #d1d5db;border-radius:0.5rem;font-size:1rem;color:#374151;transition:border-color 0.2s,box-shadow 0.2s;"
+              onfocus="this.style.borderColor='#0855B1';this.style.boxShadow='0 0 0 2px rgba(8,85,177,0.25)'"
+              onblur="this.style.borderColor='#d1d5db';this.style.boxShadow='none'">
+              <option value="">Select a plan</option>
+              <option value="small-month">Small Mailbox: Monthly ($25/mo)</option>
+              <option value="small-annual">Small Mailbox: Annual ($300/year)</option>
+              <option value="large-month">Large Mailbox: Monthly ($35/mo)</option>
+              <option value="large-annual">Large Mailbox: Annual ($420/year)</option>
+              <option value="corporate">Corporate Mailbox</option>
+              <option value="business-pro">Business Pro</option>
+              <option value="business-pro-large">Business Pro Large Mailbox</option>
+            </select>
+          </div>
 
           <p style="font-size:0.875rem;color:#6b7280;margin-top:0.25rem;">Your information is secure and never shared.
           </p>
