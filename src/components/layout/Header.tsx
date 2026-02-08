@@ -21,7 +21,6 @@ export const Header: React.FC = () => {
     { name: 'Services', href: '/services' },
     { name: 'Tracking', href: '/tracking' },
     { name: 'Pickup Hours', href: '/pickup-hours' },
-    { name: 'Shipping Partners', href: '/shipping-partners' },
     { name: 'Contact', href: '/contact-us' },
     // External link to standalone sales page
     { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true }
