@@ -4,7 +4,7 @@ import { Article, ArticleFrontmatter } from '../types/article.types';
 // Since valid filesystem access isn't available in the browser during runtime,
 // we need to import all markdown files via Vite's glob import.
 // This creates a map of paths to module loaders.
-const articleModules = import.meta.glob('/content/articles/**/*.md', { as: 'raw', eager: true });
+const articleModules = import.meta.glob('../../content/articles/**/*.md', { as: 'raw', eager: true });
 
 export const articleLoader = {
     getAllArticles: async (): Promise<Article[]> => {

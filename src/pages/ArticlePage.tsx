@@ -45,25 +45,21 @@ const ArticlePage: React.FC = () => {
 
     if (loading) {
         return (
-            <Layout>
-                <div className="min-h-[60vh] flex items-center justify-center">
-                    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
-                </div>
-            </Layout>
+            <div className="min-h-[60vh] flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+            </div>
         );
     }
 
     if (error || !article) {
         return (
-            <Layout>
-                <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-                    <h1 className="text-4xl font-bold text-slate-900 mb-4">Article Not Found</h1>
-                    <p className="text-lg text-slate-600 mb-8">The article you are looking for does not exist or has been moved.</p>
-                    <Link to="/">
-                        <Button>Return Home</Button>
-                    </Link>
-                </div>
-            </Layout>
+            <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
+                <h1 className="text-4xl font-bold text-slate-900 mb-4">Article Not Found</h1>
+                <p className="text-lg text-slate-600 mb-8">The article you are looking for does not exist or has been moved.</p>
+                <Link to="/">
+                    <Button>Return Home</Button>
+                </Link>
+            </div>
         );
     }
 
@@ -75,7 +71,8 @@ const ArticlePage: React.FC = () => {
     });
 
     return (
-        <Layout>
+    return (
+        <>
             <Helmet>
                 <title>{title} | Mailbox Plus</title>
                 <meta name="description" content={description} />
@@ -179,7 +176,8 @@ const ArticlePage: React.FC = () => {
 
                 </div>
             </div>
-        </Layout>
+        </>
+    );
     );
 };
 
