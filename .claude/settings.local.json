@@ -4,7 +4,12 @@
       "Bash(dir:*)",
       "Bash(node scripts/validate-articles.cjs:*)",
       "Bash(del \"D:\\\\mailbox-plus-website\\\\article-inbox\\\\pack-ship-concord-township.md\")",
-      "Bash(npm run audit:articles:*)"
+      "Bash(npm run audit:articles:*)",
+      "WebFetch(domain:developers.google.com)",
+      "WebFetch(domain:zyppy.com)",
+      "WebSearch",
+      "Bash(python3:*)",
+      "Bash(python:*)"
     ]
   }
 }

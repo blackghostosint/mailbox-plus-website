@@ -88,12 +88,11 @@ export const Home: React.FC = () => {
             ]}
             src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
+            className="w-full h-full object-cover opacity-30"
             style={{ objectPosition: 'center' }}
           />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+          {/* Simplified gradient overlay for better image visibility */}
+          <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-slate-900/85"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -101,7 +100,7 @@ export const Home: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
+            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm font-heading"
           >
             Pack & Ship in{" "}
             <span className="text-blue-200">Concord Twp, Ohio</span>
@@ -173,7 +172,7 @@ export const Home: React.FC = () => {
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
       <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-heading">
             Visit Us in Concord Township Today
           </h2>
           <p className="text-xl text-blue-100 mb-3 max-w-3xl mx-auto">
@@ -234,7 +233,7 @@ export const Home: React.FC = () => {
       {/* ====================== SERVICE AREA SECTION ======================= */}
       <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-10 font-heading">
             Service Areas
           </h2>
 
@@ -247,7 +246,7 @@ export const Home: React.FC = () => {
                   key={area}
                   variant="secondary" // outlined style
                   size="sm"
-                  className="!rounded-full border-blue-200 bg-white text-blue-900 hover:bg-blue-50"
+                  className="!rounded-full border-2 border-blue-600 bg-white text-blue-900 hover:bg-blue-50 hover:border-blue-700"
                   onClick={() => navigate(`/service-area/${slug}`)}
                 >
                   {area}

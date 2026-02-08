@@ -11,14 +11,14 @@ interface ArticleMarkdownProps {
 
 export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => {
     return (
-        <div className="article-content max-w-none">
+        <div className="article-content max-w-prose">
             <ReactMarkdown
                 remarkPlugins={[remarkGfm]}
                 components={{
                     // Override headings to match design system
-                    h1: ({ node, ...props }) => <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-12 mb-6 tracking-tight" {...props} />,
-                    h2: ({ node, ...props }) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 tracking-tight" {...props} />,
-                    h3: ({ node, ...props }) => <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4" {...props} />,
+                    h1: ({ node, ...props }) => <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-12 mb-6 tracking-tight font-heading" {...props} />,
+                    h2: ({ node, ...props }) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 tracking-tight font-heading" {...props} />,
+                    h3: ({ node, ...props }) => <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 font-heading" {...props} />,
 
                     // Override paragraph
                     p: ({ node, ...props }) => <p className="text-lg text-slate-700 leading-relaxed mb-6" {...props} />,

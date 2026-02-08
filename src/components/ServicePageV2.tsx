@@ -147,7 +147,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                             initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
                             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.05 }}
-                            className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl mb-4"
+                            className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl mb-4 font-heading"
                         >
                             {heroTitle}
                         </motion.h1>
@@ -196,7 +196,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                         {features && features.length > 0 && (
                             <motion.section {...reveal} className="max-w-6xl mx-auto">
                                 <div className="flex flex-col gap-2 mb-6">
-                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
                                         <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
                                             Why customers choose this service
                                         </span>
@@ -260,7 +260,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                                                 : "",
                                         ].join(" ")}
                                     >
-                                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                                        <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 font-heading">
                                             {block.heading}
                                         </h2>
                                         <div
@@ -280,7 +280,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                                 <div className="max-w-4xl mx-auto">
                                     <div className="relative rounded-[30px] bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_20px_60px_rgba(15,23,42,0.18)] px-4 md:px-8 py-8 md:py-10">
                                         <div className="text-center mb-6 md:mb-8">
-                                            <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
+                                            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
                                                 Frequently Asked Questions
                                             </h2>
                                             <p className="mt-2 text-sm md:text-base text-slate-600 max-w-xl mx-auto">

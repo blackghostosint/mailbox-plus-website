@@ -33,6 +33,14 @@ When ready to integrate articles:
   - `/specialty/` — specialty services
   - `/service-area/` — service area pages
 
+#### Internal Linking Best Practices
+- **Target**: 5-10 contextual internal links per article
+- **Anchor text**: Use descriptive, exact-match phrases naturally (avoid generic "click here")
+- **Link to**: Service pages, related articles, micro-problems, service areas, contact page
+- **Avoid**: Forced or unnatural placement, keyword stuffing
+- **External links**: 1-3 authoritative sources when citing data/research only
+- **Note**: More links can be added later during quarterly audits
+
 ### 4. Post-Processing
 After moving to `/content/articles/`:
 - Add strategic internal links
