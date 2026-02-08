@@ -1,14 +1,14 @@
 ---
-title: Pack and Ship Near Grand River, OH: Fast, Multi-Carrier Solutions
-description: Looking for a one-stop shop for shipping in Grand River? Mailbox Plus offers FedEx, UPS, and DHL shipping, professional packing, and notary services just minutes away.
-slug: pack-ship-grand-river
-category: pack-ship
-intentKey: pack-ship-grand-river
+title: "Pack and Ship Near Grand River, OH: Fast, Multi-Carrier Solutions"
+description: "Looking for a one-stop shop for shipping in Grand River? Mailbox Plus offers FedEx, UPS, and DHL shipping, professional packing, and notary services just minutes away."
+slug: "pack-ship-grand-river"
+category: "pack-ship"
+intentKey: "pack-ship-grand-river"
 pubDate: "2026-02-08T09:30:00-05:00"
 image: "articles/pack-ship/pack-ship-grand-river-featured.webp"
-imageAlt: Mailbox Plus service counter in Concord Township providing professional packing and multi-carrier shipping for Grand River residents.
-location: Grand River, OH
-keywords: [pack & ship grand river, shipping services grand river ohio, professional packing grand river, fedex grand river, ups grand river]
+imageAlt: "Mailbox Plus service counter in Concord Township providing professional packing and multi-carrier shipping for Grand River residents."
+location: "Grand River, OH"
+keywords: ["pack & ship grand river", "shipping services grand river ohio", "professional packing grand river", "fedex grand river", "ups grand river"]
 relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet", "/pack-ship/dhl-express"]
 author: "Mailbox Plus Team"
 ---

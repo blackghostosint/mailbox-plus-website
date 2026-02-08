@@ -1,14 +1,14 @@
 ---
-title: Pack and Ship Fairport Harbor, OH: Your Complete Guide
-description: Looking for reliable pack and ship services in Fairport Harbor? Discover multi-carrier shipping, professional packing, and notary services at Mailbox Plus.
-slug: pack-ship-fairport-harbor
-category: pack-ship
-intentKey: pack-ship-fairport-harbor
+title: "Pack and Ship Fairport Harbor, OH: Your Complete Guide"
+description: "Looking for reliable pack and ship services in Fairport Harbor? Discover multi-carrier shipping, professional packing, and notary services at Mailbox Plus."
+slug: "pack-ship-fairport-harbor"
+category: "pack-ship"
+intentKey: "pack-ship-fairport-harbor"
 pubDate: "2026-02-08T08:30:00-05:00"
 image: "articles/pack-ship/pack-ship-fairport-harbor-featured.webp"
-imageAlt: Mailbox Plus storefront in Concord Township offering FedEx and UPS shipping services for Fairport Harbor residents.
-location: Fairport Harbor, OH
-keywords: [pack & ship fairport harbor, shipping services fairport harbor ohio, professional packing fairport harbor]
+imageAlt: "Mailbox Plus storefront in Concord Township offering FedEx and UPS shipping services for Fairport Harbor residents."
+location: "Fairport Harbor, OH"
+keywords: ["pack & ship fairport harbor", "shipping services fairport harbor ohio", "professional packing fairport harbor"]
 relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet", "/pack-ship/dhl-express"]
 author: "Mailbox Plus Team"
 ---

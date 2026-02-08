@@ -1,14 +1,14 @@
 ---
-title: Pack and Ship Near Chardon City, OH: The High-Service Choice
-description: Skip the long lines at the Chardon Post Office. Mailbox Plus in nearby Concord offers Chardon City residents and businesses multi-carrier shipping and professional packing.
-slug: pack-ship-chardon-city
-category: pack-ship
-intentKey: pack-ship-chardon-city
+title: "Pack and Ship Near Chardon City, OH: The High-Service Choice"
+description: "Skip the long lines at the Chardon Post Office. Mailbox Plus in nearby Concord offers Chardon City residents and businesses multi-carrier shipping and professional packing."
+slug: "pack-ship-chardon-city"
+category: "pack-ship"
+intentKey: "pack-ship-chardon-city"
 pubDate: "2026-02-08T09:15:00-05:00"
 image: "articles/pack-ship/pack-ship-chardon-city-featured.webp"
-imageAlt: Mailbox Plus modern retail interior in Concord Township, providing priority shipping and professional packing for Chardon City professionals.
-location: Chardon City, OH
-keywords: [pack & ship chardon city, chardon ohio shipping services, professional packing chardon, fedex chardon square, ups chardon ohio]
+imageAlt: "Mailbox Plus modern retail interior in Concord Township, providing priority shipping and professional packing for Chardon City professionals."
+location: "Chardon City, OH"
+keywords: ["pack & ship chardon city", "chardon ohio shipping services", "professional packing chardon", "fedex chardon square", "ups chardon ohio"]
 relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet", "/pack-ship/professional-packing"]
 author: "Mailbox Plus Team"
 ---

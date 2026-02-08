@@ -1,14 +1,14 @@
 ---
-title: Pack and Ship Solutions for Leroy Township, OH: Stop the Drive
-description: Tired of driving across Lake County to ship packages? Mailbox Plus in Concord offers Leroy Township residents multi-carrier shipping and professional packing just minutes away.
-slug: pack-ship-leroy-township
-category: pack-ship
-intentKey: pack-ship-leroy-township
+title: "Pack and Ship Solutions for Leroy Township, OH: Stop the Drive"
+description: "Tired of driving across Lake County to ship packages? Mailbox Plus in Concord offers Leroy Township residents multi-carrier shipping and professional packing just minutes away."
+slug: "pack-ship-leroy-township"
+category: "pack-ship"
+intentKey: "pack-ship-leroy-township"
 pubDate: "2026-02-08T09:45:00-05:00"
 image: "articles/pack-ship/pack-ship-leroy-township-featured.webp"
-imageAlt: Mailbox Plus interior in Concord Township, featuring high-quality packing materials and shipping services for Leroy Township neighbors.
-location: Leroy Township, OH
-keywords: [pack & ship leroy township, shipping services leroy ohio, leroy township shipping hub, fedex near leroy township, ups near leroy township]
+imageAlt: "Mailbox Plus interior in Concord Township, featuring high-quality packing materials and shipping services for Leroy Township neighbors."
+location: "Leroy Township, OH"
+keywords: ["pack & ship leroy township", "shipping services leroy ohio", "leroy township shipping hub", "fedex near leroy township", "ups near leroy township"]
 relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet", "/pack-ship/professional-packing"]
 author: "Mailbox Plus Team"
 ---
