@@ -14,7 +14,7 @@ dotenv.config({ path: join(__dirname, '..', '.env.local') });
 
 const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
 const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
-const MODEL_NAME = 'text-embedding-004';
+const MODEL_NAME = 'gemini-embedding-001';
 
 interface KBEntry {
     id: string;
@@ -87,7 +87,7 @@ async function buildEmbeddings() {
         const cacheKey = `${taskType}::${text}`;
 
         try {
-            process.stdout.write(`[\${count}/\${uniqueTexts.length}] Embedding: \${text.substring(0, 30)}... `);
+            process.stdout.write(`[${count}/${uniqueTexts.length}] Embedding: ${text.substring(0, 30)}... `);
             const embeddingResponse = await model.embedContent({
                 content: { parts: [{ text }] },
                 taskType
@@ -100,14 +100,14 @@ async function buildEmbeddings() {
                 console.log('❌ (No values)');
             }
         } catch (error) {
-            console.log(`❌ (\${(error as Error).message})`);
+            console.log(`❌ (${(error as Error).message})`);
         }
 
         // Slight delay to be nice to the API if needed
         // await new Promise(resolve => setTimeout(resolve, 50));
     }
 
-    console.log(`Saving results to: \${OUTPUT_PATH}`);
+    console.log(`Saving results to: ${OUTPUT_PATH}`);
     writeFileSync(OUTPUT_PATH, JSON.stringify(result, null, 2));
     console.log('--- Done! ---');
 }

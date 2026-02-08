@@ -764,7 +764,14 @@
       "intent": "faq",
       "title": "Can you help design my business card?",
       "questionVariants": [
-        "Can you help design my business card?"
+        "Can you help design my business card?",
+        "Do you offer business card design?",
+        "Can you design business cards?",
+        "Do you have a designer for business cards?",
+        "Can someone design my business cards here?",
+        "Do you do business card design services?",
+        "Can I get help designing business cards?",
+        "Do you design and print business cards?"
       ],
       "answer": "Yes, our team can assist with design or accept your own file.",
       "confidence": {
@@ -795,9 +802,15 @@
     {
       "id": "faq-business-cards-printing-time",
       "intent": "faq",
-      "title": "How long does printing take?",
+      "title": "How long does business card printing take?",
       "questionVariants": [
-        "How long does printing take?"
+        "How long does business card printing take?",
+        "How long for business cards?",
+        "What's your turnaround time for business cards?",
+        "How fast can you print business cards?",
+        "Can I get business cards same day?",
+        "How quickly can you make business cards?",
+        "When will my business cards be ready?"
       ],
       "answer": "Most orders are ready within 3–5 business days.",
       "confidence": {
@@ -831,7 +844,13 @@
       "intent": "faq",
       "title": "What paper stocks are available?",
       "questionVariants": [
-        "What paper stocks are available?"
+        "What paper stocks are available?",
+        "What paper options do you have?",
+        "What kind of paper can I choose?",
+        "Do you have different paper types?",
+        "What paper choices are there for business cards?",
+        "Can I choose the paper quality?",
+        "What cardstock options do you offer?"
       ],
       "answer": "We offer multiple card stocks including matte, glossy, and premium finishes.",
       "confidence": {
@@ -865,7 +884,14 @@
       "intent": "faq",
       "title": "Do you offer color copies?",
       "questionVariants": [
-        "Do you offer color copies?"
+        "Do you offer color copies?",
+        "Can I make color copies?",
+        "Do you do color copying?",
+        "Can you copy in color?",
+        "Is color copying available?",
+        "Do you have color copiers?",
+        "Can I get color copies made?",
+        "Do you copy in color or just black and white?"
       ],
       "answer": "Yes, we provide both black-and-white and full-color copies.",
       "confidence": {
@@ -899,7 +925,13 @@
       "intent": "faq",
       "title": "Do you provide bulk discounts?",
       "questionVariants": [
-        "Do you provide bulk discounts?"
+        "Do you provide bulk discounts?",
+        "Do you offer discounts for large orders?",
+        "Is there a volume discount?",
+        "Can I get a discount for bulk copying?",
+        "Do large copy jobs cost less per page?",
+        "Are there discounts for high-volume copies?",
+        "Do you have bulk pricing?"
       ],
       "answer": "Yes, large orders receive reduced per-page pricing.",
       "confidence": {
@@ -933,7 +965,13 @@
       "intent": "faq",
       "title": "Can you copy from books or magazines?",
       "questionVariants": [
-        "Can you copy from books or magazines?"
+        "Can you copy from books or magazines?",
+        "Can you copy bound documents?",
+        "Do you copy from books?",
+        "Can I copy pages from a magazine?",
+        "Can you photocopy a book?",
+        "Do you handle bound materials?",
+        "Can you copy spiral-bound documents?"
       ],
       "answer": "Yes, we can carefully copy from bound materials.",
       "confidence": {
@@ -967,7 +1005,13 @@
       "intent": "faq",
       "title": "What file types do you accept?",
       "questionVariants": [
-        "What file types do you accept?"
+        "What file types do you accept?",
+        "What file formats can you print?",
+        "Can you print PDFs?",
+        "What formats do you accept for printing?",
+        "Do you accept Word documents?",
+        "What types of files can I bring?",
+        "Can you print from Excel or PowerPoint?"
       ],
       "answer": "We accept PDF, Word, Excel, PowerPoint, and most common formats.",
       "confidence": {
@@ -1000,7 +1044,13 @@
       "intent": "faq",
       "title": "Can you print double-sided?",
       "questionVariants": [
-        "Can you print double-sided?"
+        "Can you print double-sided?",
+        "Do you do duplex printing?",
+        "Can you print on both sides?",
+        "Is double-sided printing available?",
+        "Can I get front and back printing?",
+        "Do you offer two-sided printing?",
+        "Can documents be printed on both sides?"
       ],
       "answer": "Yes, we offer single and double-sided printing.",
       "confidence": {
@@ -1033,7 +1083,13 @@
       "intent": "faq",
       "title": "Do you offer same-day printing?",
       "questionVariants": [
-        "Do you offer same-day printing?"
+        "Do you offer same-day printing?",
+        "Can I get it printed today?",
+        "Is same-day printing available?",
+        "Can you print documents same day?",
+        "How fast can you print?",
+        "Do you do rush printing?",
+        "Can I get my documents printed right away?"
       ],
       "answer": "Yes, most jobs can be completed the same day.",
       "confidence": {
@@ -1067,7 +1123,13 @@
       "intent": "faq",
       "title": "Do you offer bulk pricing?",
       "questionVariants": [
-        "Do you offer bulk pricing?"
+        "Do you offer bulk pricing?",
+        "Do large orders get discounts?",
+        "Is there a volume discount for flyers?",
+        "Can I get a better price for bulk orders?",
+        "Do you have bulk rates?",
+        "Are there discounts for printing lots of flyers?",
+        "What's the price for large quantities?"
       ],
       "answer": "Yes, larger orders receive discounted rates.",
       "confidence": {
@@ -1102,7 +1164,13 @@
       "intent": "faq",
       "title": "Can you help design my flyer?",
       "questionVariants": [
-        "Can you help design my flyer?"
+        "Can you help design my flyer?",
+        "Do you offer flyer design?",
+        "Can someone design my flyers?",
+        "Do you have graphic design for flyers?",
+        "Can you design and print flyers?",
+        "Do you do brochure design?",
+        "Can I get help designing a brochure?"
       ],
       "answer": "Yes, design services are available.",
       "confidence": {
@@ -1135,7 +1203,13 @@
       "intent": "faq",
       "title": "What sizes can you print?",
       "questionVariants": [
-        "What sizes can you print?"
+        "What sizes can you print?",
+        "What flyer sizes do you offer?",
+        "Can you print custom sizes?",
+        "What print sizes are available?",
+        "Do you print 8.5x11 flyers?",
+        "What dimensions can you do?",
+        "Can you print large format?"
       ],
       "answer": "We print flyers and brochures in standard and custom sizes.",
       "confidence": {
@@ -1169,7 +1243,13 @@
       "intent": "faq",
       "title": "Do you design logos?",
       "questionVariants": [
-        "Do you design logos?"
+        "Do you design logos?",
+        "Can you create a logo for my business?",
+        "Do you offer logo design services?",
+        "Can someone design my company logo?",
+        "Do you do custom logo design?",
+        "Can you make a logo?",
+        "Do you have a graphic designer for logos?"
       ],
       "answer": "Yes, we can help create a new logo or refresh your existing brand.",
       "confidence": {
@@ -1203,7 +1283,13 @@
       "intent": "faq",
       "title": "What file types can I bring?",
       "questionVariants": [
-        "What file types can I bring?"
+        "What file types can I bring?",
+        "What file formats do you accept?",
+        "Can you work with my files?",
+        "What design files can I provide?",
+        "Do you accept PDF or AI files?",
+        "What formats work for design?",
+        "Can I bring my own design files?"
       ],
       "answer": "We accept PDF, AI, PSD, PNG, and more.",
       "confidence": {
@@ -1236,7 +1322,13 @@
       "intent": "faq",
       "title": "How long does design work take?",
       "questionVariants": [
-        "How long does design work take?"
+        "How long does design work take?",
+        "What's the turnaround for design?",
+        "How fast can you create a design?",
+        "How long until my design is ready?",
+        "When will my graphic design be done?",
+        "How quickly can you design something?",
+        "What's your design timeline?"
       ],
       "answer": "Timeline varies by project complexity. We'll provide an estimate upfront.",
       "confidence": {
@@ -1505,9 +1597,15 @@
     {
       "id": "faq-posters-printing-turnaround",
       "intent": "faq",
-      "title": "How long does printing take?",
+      "title": "How long does poster printing take?",
       "questionVariants": [
-        "How long does printing take?"
+        "How long does poster printing take?",
+        "What's the turnaround for posters?",
+        "How fast can you print posters?",
+        "When will my poster be ready?",
+        "How long for poster orders?",
+        "Can I get posters same day?",
+        "How quickly can you print a poster?"
       ],
       "answer": "Most poster orders are ready within 24-48 hours.",
       "confidence": {
@@ -1669,40 +1767,6 @@
         "turnaround"
       ],
       "searchText": "can you finish same-day? yes, most finishing services can be completed the same day."
-    },
-    {
-      "id": "faq-print-document-services-same-day",
-      "intent": "faq",
-      "title": "Do you offer same-day printing?",
-      "questionVariants": [
-        "Do you offer same-day printing?"
-      ],
-      "answer": "Yes, many jobs can be completed the same day.",
-      "confidence": {
-        "minimumSimilarity": 0.78,
-        "requiresExactMatch": false
-      },
-      "sources": [
-        {
-          "type": "page",
-          "url": "https://mailboxplusohio.com/copy-print",
-          "lastVerified": "2026-01-02"
-        }
-      ],
-      "constraints": {
-        "requiresHuman": false,
-        "disallowedFollowups": []
-      },
-      "escalation": {
-        "enabled": false,
-        "message": ""
-      },
-      "tags": [
-        "printing",
-        "same-day",
-        "turnaround"
-      ],
-      "searchText": "do you offer same-day printing? yes, many jobs can be completed the same day."
     },
     {
       "id": "faq-print-document-services-scanning",
@@ -2594,7 +2658,7 @@
       "questionVariants": [
         "Do you provide fingerprint cards?"
       ],
-      "answer": "Yes. For $35.00, fingerprints can be captured electronically and printed onto FD-258 fingerprint cards. This is useful for applications that require mailing fingerprint cards instead of electronic submission.",
+      "answer": "Yes, we provide fingerprint cards. Fingerprints can be captured electronically and printed onto FD-258 fingerprint cards. This is useful for applications that require mailing fingerprint cards instead of electronic submission. Contact us for current pricing.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
@@ -2628,7 +2692,7 @@
       "questionVariants": [
         "What are the costs for Ohio background checks?"
       ],
-      "answer": "Ohio background checks start at $40.00 for BCI-only. FBI-only checks are $52.00, and combined BCI & FBI checks are $72.00. Results are delivered through the secure Web Results portal.",
+      "answer": "Contact us for current pricing on Ohio background checks. We offer BCI-only, FBI-only, and combined BCI & FBI checks. Results are delivered through the secure Web Results portal.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
@@ -2663,7 +2727,7 @@
       "questionVariants": [
         "What are the costs for Florida Level 2 background checks?"
       ],
-      "answer": "Florida Level 2 checks cost $75.00. With the AHCA-required photo included, the cost is $94.00. These checks search both state and FBI databases and are required for many licensing and employment positions.",
+      "answer": "Contact us for current pricing on Florida Level 2 background checks. These checks search both state and FBI databases and are required for many licensing and employment positions. AHCA-required photos are also available.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
@@ -3242,7 +3306,7 @@
       "questionVariants": [
         "How much coverage can I purchase?"
       ],
-      "answer": "We offer coverage up to $50,000 per package when packed by our professional staff, subject to Marsh's policy terms.",
+      "answer": "We offer high-value coverage for packages packed by our professional staff, subject to Marsh's policy terms. Contact us for specific coverage limits and pricing.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
@@ -4036,7 +4100,13 @@
       "title": "Can you shred documents securely?",
       "questionVariants": [
         "Can you shred documents securely?",
-        "Do you offer shredding services?"
+        "Do you offer shredding services?",
+        "Do you offer shredding?",
+        "Can you shred documents?",
+        "Do you shred?",
+        "Can I shred documents here?",
+        "Do you have shredding?",
+        "Can I get documents shredded?"
       ],
       "answer": "Yes, we offer document shredding. You can bring your items into the store and we'll help you with this service.",
       "confidence": {
@@ -4275,6 +4345,213 @@
         "closed"
       ],
       "searchText": "store hours operating hours business hours open close when what time monday tuesday wednesday thursday friday saturday sunday weekend 9:00 AM 6:00 PM 2:00 PM visit come in"
+    },
+    {
+      "id": "faq-fedex-easy-returns-qr-code",
+      "intent": "faq",
+      "title": "Do I need to print my FedEx return label?",
+      "questionVariants": [
+        "Do I need to print my FedEx return label?",
+        "Can I use a QR code for FedEx returns?",
+        "Do you scan QR codes for returns?",
+        "Can I just bring my phone for a return?",
+        "Do I need a printer for FedEx Easy Returns?",
+        "Can you print my return label?",
+        "Do you accept QR code returns?"
+      ],
+      "answer": "No printer needed! If you have a QR code from your retailer, just bring it on your phone. We'll scan it and print the label for you.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/fedex-easy-returns",
+          "lastVerified": "2026-02-08"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fedex",
+        "returns",
+        "QR code",
+        "label printing"
+      ],
+      "searchText": "fedex easy returns qr code print label scan phone no printer needed retailer"
+    },
+    {
+      "id": "faq-fedex-easy-returns-cost",
+      "intent": "faq",
+      "title": "Does FedEx Easy Returns cost anything?",
+      "questionVariants": [
+        "Does FedEx Easy Returns cost anything?",
+        "Is there a fee for FedEx Easy Returns?",
+        "How much does FedEx Easy Returns cost?",
+        "Do I pay for drop-off?",
+        "Is FedEx Easy Returns free?",
+        "What does it cost to return with FedEx?",
+        "Are there charges for returns?"
+      ],
+      "answer": "Dropping off a package with your QR code is free for you. We provide the receipt and tracking information at no charge.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/fedex-easy-returns",
+          "lastVerified": "2026-02-08"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fedex",
+        "returns",
+        "cost",
+        "free",
+        "pricing"
+      ],
+      "searchText": "fedex easy returns cost free fee price drop-off receipt tracking no charge"
+    },
+    {
+      "id": "faq-fedex-easy-returns-packing",
+      "intent": "faq",
+      "title": "Can you pack my FedEx return?",
+      "questionVariants": [
+        "Can you pack my FedEx return?",
+        "Do you pack returns?",
+        "Can I get help packing my return?",
+        "Do you provide boxes for returns?",
+        "Can you pack items for FedEx Easy Returns?",
+        "Do you offer packing for returns?",
+        "Will you pack my return item?"
+      ],
+      "answer": "Yes! We can pack your return item for you. Packing fees may apply depending on the item and materials needed.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/fedex-easy-returns",
+          "lastVerified": "2026-02-08"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "fedex",
+        "returns",
+        "packing",
+        "boxes"
+      ],
+      "searchText": "fedex easy returns pack packing boxes materials help item return fees"
+    },
+    {
+      "id": "faq-nuuly-returns",
+      "intent": "faq",
+      "title": "Do you accept Nuuly returns?",
+      "questionVariants": [
+        "Do you accept Nuuly returns?",
+        "Can I return Nuuly here?",
+        "Do you take Nuuly clothing returns?",
+        "Can I drop off Nuuly rental returns?",
+        "Are you a Nuuly drop-off location?",
+        "Do you handle Nuuly returns?",
+        "Can I return my Nuuly rental here?"
+      ],
+      "answer": "Yes! We accept Nuuly clothing rental returns as an authorized UPS location. We provide same-day scanning and receipts for all Nuuly returns.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/nuuly-returns",
+          "lastVerified": "2026-02-08"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "nuuly",
+        "returns",
+        "ups",
+        "clothing rental"
+      ],
+      "searchText": "nuuly returns clothing rental drop-off ups authorized same-day scanning receipts"
+    },
+    {
+      "id": "faq-packaging-supplies",
+      "intent": "faq",
+      "title": "Do you sell packaging supplies?",
+      "questionVariants": [
+        "Do you sell packaging supplies?",
+        "Can I buy boxes here?",
+        "Do you have packing materials?",
+        "Can I get bubble wrap?",
+        "Do you sell tape?",
+        "What packing supplies do you have?",
+        "Can I buy shipping boxes?"
+      ],
+      "answer": "Yes! We sell a variety of packaging supplies including boxes, tape, bubble wrap, and other materials for your shipping needs.",
+      "confidence": {
+        "minimumSimilarity": 0.78,
+        "requiresExactMatch": false
+      },
+      "sources": [
+        {
+          "type": "page",
+          "url": "https://mailboxplusohio.com/packaging-supplies",
+          "lastVerified": "2026-02-08"
+        }
+      ],
+      "constraints": {
+        "requiresHuman": false,
+        "disallowedFollowups": []
+      },
+      "escalation": {
+        "enabled": false,
+        "message": ""
+      },
+      "tags": [
+        "packaging",
+        "supplies",
+        "boxes",
+        "tape",
+        "bubble wrap"
+      ],
+      "searchText": "packaging supplies boxes tape bubble wrap materials shipping packing sell buy purchase"
     }
   ]
 }
