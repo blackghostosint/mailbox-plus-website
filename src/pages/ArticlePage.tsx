@@ -6,7 +6,7 @@ import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
 import { SmartImage } from '../components/SmartImage';
-import { Button } from '../components/ui/button';
+import { Button } from '../components/ui/Button';
 import ArrowRight from '~icons/lucide/arrow-right';
 import Calendar from '~icons/lucide/calendar';
 import Tag from '~icons/lucide/tag';
