@@ -39,6 +39,7 @@ After moving to `/content/articles/`:
 - Update sitemap configuration
 - Run validation scripts
 - Build and deploy
+- **Provide the finalized URL** (format: `https://mailboxplusohio.com/articles/{slug}`)
 
 ## Processing Status
 Articles in this folder are **UNPROCESSED**.
