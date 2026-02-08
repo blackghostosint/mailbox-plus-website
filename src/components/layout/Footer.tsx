@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
 
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8">
           
           {/* Company Info */}
           <div className="space-y-4">
@@ -53,10 +53,10 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Contact Info */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:text-center">
             <h4 className="text-lg font-semibold text-[#111827]">Contact</h4>
             <div className="space-y-3">
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 lg:justify-center">
                 <MapPin className="w-4 h-4 text-[#0855B1] flex-shrink-0" />
                 <div className="text-sm text-[#4B5563]">
                   <a
@@ -69,18 +69,18 @@ export const Footer: React.FC = () => {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 lg:justify-center">
                 <Phone className="w-4 h-4 text-[#0855B1] flex-shrink-0" />
-                <a 
+                <a
                   href={`tel:${siteConfig.contact.phone}`}
                   className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </div>
-              <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-3 lg:justify-center">
                 <Mail className="w-4 h-4 text-[#0855B1] flex-shrink-0" />
-                <a 
+                <a
                   href={`mailto:${siteConfig.contact.email}`}
                   className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
                 >
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Store Hours (dynamic) */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:text-center">
             <h4 className="text-lg font-semibold text-[#111827]">Store Hours</h4>
             <div className="space-y-2 text-sm text-[#4B5563]">
               {Object.entries(siteConfig.hours).map(([day, hours]) => (
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Quick Links */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:text-center">
             <h4 className="text-lg font-semibold text-[#111827]">Services</h4>
             <nav className="space-y-2" aria-label="Footer Services">
               {quickLinks.map((link) => (
@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
           </div>
 
           {/* Resources */}
-          <div className="space-y-4">
+          <div className="space-y-4 lg:text-center">
             <h4 className="text-lg font-semibold text-[#111827]">Resources</h4>
             <nav className="space-y-2" aria-label="Footer Resources">
               <InternalLink
