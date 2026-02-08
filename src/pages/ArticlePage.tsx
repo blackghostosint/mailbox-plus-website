@@ -71,7 +71,7 @@ const ArticlePage: React.FC = () => {
     });
 
     return (
-    return (
+
         <>
             <Helmet>
                 <title>{title} | Mailbox Plus</title>
