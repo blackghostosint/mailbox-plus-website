@@ -44,7 +44,7 @@ export const primaryLocations: LocationData[] = [
     county: 'Lake',
     population: 18000,
     uniqueContent: {
-      directions: "We're located at 7507 Auburn Rd in the Capital Plaza, right next to Pet Supplies Plus.",
+      directions: "We're located at 7554 Fredle Drive in the Capital Plaza, right next to Pet Supplies Plus.",
       landmarks: ['Great Lakes Mall', 'Target Plaza', 'Quail Hollow', 'Auburn Career Center'],
       localExample: "We help Quail Hollow families ship packages to college students every fall.",
       driveTime: "You're already here!",
@@ -80,7 +80,7 @@ export const primaryLocations: LocationData[] = [
     county: 'Lake',
     population: 20000,
     uniqueContent: {
-      directions: "From downtown Painesville, take Route 44 south about 6 miles. We're in Capital Plaza on Auburn Road.",
+      directions: "From downtown Painesville, take Route 44 south about 6 miles. We're located at 7554 Fredle Drive in the Capital Plaza (on Auburn Road).",
       landmarks: ['Lake County Courthouse', 'Painesville Square', 'Lake Erie College', 'Riverside High School'],
       localExample: "Lake Erie College students trust us for care package shipping.",
       driveTime: "About 10-12 minutes from Painesville Square",
@@ -116,7 +116,7 @@ export const primaryLocations: LocationData[] = [
     county: 'Geauga',
     population: 5200,
     uniqueContent: {
-      directions: "From Chardon Square, take Route 44 north about 8 miles. We're in Capital Plaza on Auburn Road in Concord Township.",
+      directions: "From Chardon Square, take Route 44 north about 8 miles. We're located at 7554 Fredle Drive in the Capital Plaza (on Auburn Road) in Concord Township.",
       landmarks: ['Chardon Square', 'Geauga County Courthouse', 'Maple Highlands Trail', 'Chardon High School'],
       localExample: "Chardon businesses ship maple products nationwide through us every spring.",
       driveTime: "About 15 minutes from Chardon Square",
@@ -331,9 +331,9 @@ export function generateLocationPageConfig(
       },
       {
         heading: `How to Find Us from ${location.name}`,
-        body: `${location.uniqueContent.directions} Look for Capital Plaza on Auburn Road - we're next to Pet Supplies Plus.${location.uniqueContent.nearbyHighways
-            ? ` Easy access from ${location.uniqueContent.nearbyHighways.join(', ')}.`
-            : ''
+        body: `${location.uniqueContent.directions} Look for 7554 Fredle Drive in Capital Plaza - we're next to Pet Supplies Plus.${location.uniqueContent.nearbyHighways
+          ? ` Easy access from ${location.uniqueContent.nearbyHighways.join(', ')}.`
+          : ''
           }`
       },
       {

@@ -1,3 +1,47 @@
+## 2026-02-07 — Programmatic SEO Article System Implementation
+
+**Summary**
+Implemented a scalable, file-based article rendering system to support the programmatic SEO strategy. This system allows for dropping markdown files into `content/articles/` which are then automatically rendered as high-performance, SEO-optimized pages under the `/articles/` route.
+
+**Refactor Update (20 minutes later)**
+Refactored the entire system to use the industry-standard Markdown stack:
+- Installed `gray-matter` for robust frontmatter parsing (replacing custom regex)
+- Installed `react-markdown` + `remark-gfm` for complete Markdown feature support
+- Installed `@tailwindcss/typography` for beautiful `prose` styling
+- Updated `articleLoader.ts` and `ArticleMarkdown.tsx` to use these libraries
+- Updated `scripts/validate-articles.cjs` to use `gray-matter` for accurate audits
+
+**Scope**
+- `src/pages/ArticlePage.tsx`: New dynamic page component with premium hero design and "Related Services" sidebar.
+- `src/components/ArticleMarkdown.tsx`: Custom markdown renderer supporting Tailwind typography.
+- `src/utils/articleLoader.ts`: Utility to load, parse, and cache markdown content via Vite glob imports.
+- `src/types/article.types.ts`: Strong TypeScript definitions for article frontmatter.
+- `scripts/validate-articles.cjs`: Automated audit script to enforce unique `intentKey` and metadata completeness.
+- `scripts/generate-article-sitemap.cjs`: Script to generate sitemap entries for new articles.
+
+**Notes**
+- **First Article Live**: `pack-ship-painesville-city.md` is now live at `/articles/pack-ship-painesville-city`.
+- **Hybrid Routing**: Used `/articles/:slug` to ensure no collisions with existing service pages and to provide a clean namespace for 5000+ potential future pages.
+- **Image Handling**: integrated with existing R2 image hosting pattern.
+
+---
+
+## 2026-02-06 — Standardized Store Address Across Codebase
+
+**Summary**
+Ensured the canonical store address (**7554 Fredle Drive, Concord Township, Ohio 44077**) is used consistently across all configuration and legal files. This resolves discrepancies where the business was previously referred to by the intersecting street ("Auburn Road") or inconsistent addresses. Updated the "Last updated" dates on legal pages to reflect this standardization.
+
+**Scope**
+- `src/config/locations.ts`: Updated driving directions and content templates with explicit canonical address.
+- `src/pages/Terms.tsx`: Refreshed "Last updated" date to February 2026.
+- `src/pages/Privacy.tsx`: Refreshed "Last updated" date to February 2026.
+
+**Notes**
+- Site structure and SEO metadata were audited for address consistency. 
+- Legal compliance sections in Terms and Privacy were verified.
+
+---
+
 ## 2026-02-05 — Location Page Configuration for Programmatic SEO
 
 **Summary**
@@ -354,3 +398,16 @@ Moved the competitive intelligence report to a new /research directory to mainta
 **Scope**
 - [NEW] /research/
 - [MOVE] COMPETITOR_ANALYSIS_MAILBOX_PLUS.md
+
+## 2026-02-06 — Established Canonical Source of Truth
+
+**Summary**
+Created a canonical MAILBOX_PLUS_SOURCE_OF_TRUTH.md document to serve as the authoritative internal and external expression of business truth. Reconciled a major address discrepancy in the codebase (Fredle Dr vs Auburn Rd) to ensure consistency across all local SEO and marketing assets.
+
+**Scope**
+- [NEW] MAILBOX_PLUS_SOURCE_OF_TRUTH.md
+- [MODIFY] src/config/locations.ts
+
+**Notes**
+- 7554 Fredle Drive is now the confirmed canonical address.
+- Pricing truth documented as $25/mo standard; promotional "4 months free" flagged for future alignment.

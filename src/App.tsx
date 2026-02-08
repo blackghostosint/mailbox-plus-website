@@ -102,6 +102,7 @@ const AskMailboxPlus = React.lazy(() => import("./pages/ask-mailbox-plus")); // 
 const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
 
 const MicroProblemPage = React.lazy(() => import("./pages/micro/MicroProblemPage"));
+const ArticlePage = React.lazy(() => import("./pages/ArticlePage"));
 
 const DebugRoutes: React.FC = () => {
   // const location = useLocation();
@@ -244,6 +245,10 @@ const App: React.FC = () => {
             <Route path="/get-help-choosing-the-right-box-for-shipping-in-concord-township" element={<MicroProblemPage />} />
             <Route path="/fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township" element={<MicroProblemPage />} />
             <Route path="/ship-with-guaranteed-proof-and-tracking-concord-township" element={<MicroProblemPage />} />
+
+
+            {/* Articles */}
+            <Route path="/articles/:slug" element={<ArticlePage />} />
 
 
             {/* Catch-all route for unmatched paths */}

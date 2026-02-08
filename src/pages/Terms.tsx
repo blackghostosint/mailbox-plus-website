@@ -10,7 +10,7 @@ import Gavel from '~icons/lucide/gavel';
 import RefreshCw from '~icons/lucide/refresh-cw';
 import Phone from '~icons/lucide/phone';
 
-const BulletPoint: React.FC<{children: React.ReactNode}> = ({children}) => (
+const BulletPoint: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <li className="flex items-start">
     <div className="w-2 h-2 bg-[#0855B1] rounded-full mt-2 mr-3 flex-shrink-0"></div>
     <span className="text-[#4B5563] leading-relaxed">{children}</span>
@@ -127,7 +127,7 @@ export const Terms: React.FC = () => {
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -136,22 +136,22 @@ export const Terms: React.FC = () => {
               Terms of{' '}
               <span className="text-[#0855B1]">Service</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              These terms and conditions govern your use of our services. Please read 
+              These terms and conditions govern your use of our services. Please read
               them carefully before using our shipping, printing, and business services.
             </motion.p>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-sm text-[#4B5563]"
             >
-              Last updated: January 2025
+              Last updated: February 2026
             </motion.p>
           </div>
         </div>
@@ -178,13 +178,13 @@ export const Terms: React.FC = () => {
                     )}
                     <h2 className="text-2xl font-bold text-[#111827]">{section.title}</h2>
                   </div>
-                  
+
                   {section.body && (
                     <p className="text-[#4B5563] leading-relaxed mb-4">
                       {section.body}
                     </p>
                   )}
-                  
+
                   {section.content && (
                     <ul className="space-y-3">
                       {section.content.map((item, itemIndex) => (

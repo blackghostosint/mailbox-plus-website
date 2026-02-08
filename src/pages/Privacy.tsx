@@ -56,7 +56,7 @@ export const Privacy: React.FC = () => {
       <section className="relative bg-white py-20 lg:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
@@ -65,22 +65,22 @@ export const Privacy: React.FC = () => {
               Privacy{' '}
               <span className="text-[#0855B1]">Policy</span>
             </motion.h1>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              Your privacy is important to us. This policy explains how we collect, 
+              Your privacy is important to us. This policy explains how we collect,
               use, and protect your personal information when you use our services.
             </motion.p>
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-sm text-[#4B5563]"
             >
-              Last updated: November 2025
+              Last updated: February 2026
             </motion.p>
           </div>
         </div>
@@ -184,9 +184,9 @@ export const Privacy: React.FC = () => {
             >
               <h2 className="text-2xl font-bold text-[#111827] mb-4">Data Retention</h2>
               <p className="text-[#4B5563] leading-relaxed">
-                We retain your personal information only as long as necessary to provide our services 
-                and comply with legal obligations. Shipping records may be kept for tax and business 
-                purposes as required by law. You may request deletion of your information at any time, 
+                We retain your personal information only as long as necessary to provide our services
+                and comply with legal obligations. Shipping records may be kept for tax and business
+                purposes as required by law. You may request deletion of your information at any time,
                 subject to legal requirements.
               </p>
             </motion.div>
@@ -198,8 +198,8 @@ export const Privacy: React.FC = () => {
             >
               <h2 className="text-2xl font-bold text-[#111827] mb-4">Changes to This Policy</h2>
               <p className="text-[#4B5563] leading-relaxed">
-                We may update this privacy policy from time to time to reflect changes in our practices 
-                or legal requirements. We will notify you of any significant changes by posting the 
+                We may update this privacy policy from time to time to reflect changes in our practices
+                or legal requirements. We will notify you of any significant changes by posting the
                 updated policy on our website with a new effective date.
               </p>
             </motion.div>
@@ -212,7 +212,7 @@ export const Privacy: React.FC = () => {
             >
               <h2 className="text-2xl font-bold text-[#111827] mb-4">Contact Us</h2>
               <p className="text-[#4B5563] leading-relaxed mb-4">
-                If you have questions about this privacy policy or how we handle your personal information, 
+                If you have questions about this privacy policy or how we handle your personal information,
                 please contact us:
               </p>
               <div className="space-y-2 text-[#4B5563]">
