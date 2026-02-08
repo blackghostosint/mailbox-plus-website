@@ -4,14 +4,26 @@ import { Article, ArticleFrontmatter } from '../types/article.types';
 // Since valid filesystem access isn't available in the browser during runtime,
 // we need to import all markdown files via Vite's glob import.
 // This creates a map of paths to module loaders.
-const articleModules = import.meta.glob('../../content/articles/**/*.md', { as: 'raw', eager: true });
+// Exclude README.md files from the glob pattern
+const articleModules = import.meta.glob('../../content/articles/**/*.md', {
+    as: 'raw',
+    eager: true
+});
+
+// Filter out README.md files
+const filteredModules = Object.keys(articleModules).reduce((acc, key) => {
+    if (!key.includes('README.md')) {
+        acc[key] = articleModules[key];
+    }
+    return acc;
+}, {} as Record<string, string>);
 
 export const articleLoader = {
     getAllArticles: async (): Promise<Article[]> => {
         const articles: Article[] = [];
 
-        for (const path in articleModules) {
-            const rawContent = articleModules[path] as string;
+        for (const path in filteredModules) {
+            const rawContent = filteredModules[path] as string;
             try {
                 const { data, content } = matter(rawContent);
                 // Ensure required fields are present or provide defaults to avoid crashes
@@ -33,11 +45,11 @@ export const articleLoader = {
     getArticleBySlug: async (slug: string): Promise<Article | null> => {
         // Find the file that matches the slug in its frontmatter or filename
         // Since we can't efficiently query by frontmatter without loading, we load all.
-        // Optimization: In a real app with 5000+ files, this should be done at build time 
+        // Optimization: In a real app with 5000+ files, this should be done at build time
         // to generate a JSON index. For now, we scan.
 
-        for (const path in articleModules) {
-            const rawContent = articleModules[path] as string;
+        for (const path in filteredModules) {
+            const rawContent = filteredModules[path] as string;
             try {
                 const { data, content } = matter(rawContent);
                 if (data.slug === slug) {
