@@ -9,7 +9,7 @@ image: "articles/pack-ship/pack-ship-painesville-city-featured.webp"
 imageAlt: "Full-service pack and ship center near Painesville City Ohio offering UPS FedEx USPS and DHL shipping with expert packing services"
 location: "painesville-city"
 keywords: ["pack and ship 44077", "painesville shipping", "fedex painesville", "ups painesville", "dhl painesville", "shipping painesville city"]
-relatedServices: ["/services/pack-ship", "/services/fedex-shipping", "/services/ups-shipping"]
+relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet"]
 author: "Mailbox Plus Team"
 ---
 
