@@ -4,6 +4,7 @@ import sitemap from 'vite-plugin-sitemap';
 import path from 'path';
 import { splitVendorChunkPlugin } from 'vite';
 import Icons from 'unplugin-icons/vite';
+import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import sitemapConfig from './src/data/sitemap-config.json';
 
 // Convert string dates to Date objects for the plugin
@@ -15,6 +16,7 @@ const lastmodMap = Object.entries(sitemapConfig.lastmod).reduce((acc, [route, da
 export default defineConfig({
   plugins: [
     react(),
+    nodePolyfills(),
     Icons({
       compiler: 'jsx',
       jsx: 'react',
