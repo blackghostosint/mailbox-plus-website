@@ -103,6 +103,7 @@ const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
 
 const MicroProblemPage = React.lazy(() => import("./pages/micro/MicroProblemPage"));
 const ArticlePage = React.lazy(() => import("./pages/ArticlePage"));
+const ArticlesIndex = React.lazy(() => import("./pages/ArticlesIndex"));
 
 const DebugRoutes: React.FC = () => {
   // const location = useLocation();
@@ -248,6 +249,7 @@ const App: React.FC = () => {
 
 
             {/* Articles */}
+            <Route path="/articles" element={<ArticlesIndex />} />
             <Route path="/articles/:slug" element={<ArticlePage />} />
 
 

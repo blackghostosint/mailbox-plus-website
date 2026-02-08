@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
 
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           
           {/* Company Info */}
           <div className="space-y-4">
@@ -118,6 +118,25 @@ export const Footer: React.FC = () => {
                   {link.name}
                 </InternalLink>
               ))}
+            </nav>
+          </div>
+
+          {/* Resources */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-[#111827]">Resources</h4>
+            <nav className="space-y-2" aria-label="Footer Resources">
+              <InternalLink
+                to="/articles"
+                className="block text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
+              >
+                Articles & Guides
+              </InternalLink>
+              <InternalLink
+                to="/ask-mailbox-plus"
+                className="block text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
+              >
+                FAQ
+              </InternalLink>
             </nav>
           </div>
         </div>
