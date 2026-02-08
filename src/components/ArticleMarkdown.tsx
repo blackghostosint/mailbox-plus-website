@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { SmartImage } from './SmartImage';
 import { Link } from 'react-router-dom';
+import { getServiceImageUrl } from '../lib/storage';
 
 interface ArticleMarkdownProps {
     content: string;
@@ -46,7 +47,7 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
                         return (
                             <div className="my-8 rounded-xl overflow-hidden shadow-lg border border-slate-100">
                                 <SmartImage
-                                    src={src || ''}
+                                    src={src ? getServiceImageUrl(src) : ''}
                                     alt={alt || ''}
                                     className="w-full h-auto object-cover"
                                 />

@@ -88,9 +88,7 @@ const ArticlePage: React.FC = () => {
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0 w-full h-full">
                     <SmartImage
-                        src={image} // Using raw image path from frontmatter, system should handle if it's external or needs prefix? 
-                        // If it's "articles/...", SmartImage might expect a full URL if it's R2.
-                        // We'll rely on SmartImage logic.
+                        src={getServiceImageUrl(image)}
                         alt={imageAlt || title}
                         className="w-full h-full object-cover opacity-20 blur-sm"
                     />
