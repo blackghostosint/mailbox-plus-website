@@ -143,7 +143,7 @@ function initializeResources(): void {
         throw new Error('GEMINI_API_KEY not configured');
     }
     genAI = new GoogleGenerativeAI(apiKey);
-    embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+    embeddingModel = genAI.getGenerativeModel({ model: 'gemini-embedding-001' });
     console.log('--- Initialization Complete ---');
 }
 
