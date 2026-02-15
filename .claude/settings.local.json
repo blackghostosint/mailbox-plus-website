@@ -27,7 +27,10 @@
       "Bash(git commit:*)",
       "Bash(git push:*)",
       "Bash(node:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git checkout:*)",
+      "Bash(chmod:*)",
+      "Bash(wc:*)"
     ]
   }
 }
