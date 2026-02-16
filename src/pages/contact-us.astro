@@ -1,12 +1,11 @@
 ---
+import ContactUsIsland from '../page-islands/ContactUsIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import { ContactUs as ContactUsPage } from '../page-components/ContactUs';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/contact-us'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={ContactUsPage} client:only="react" />
+    <ContactUsIsland client:only="react" />
 </Layout>

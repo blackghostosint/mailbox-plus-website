@@ -1,12 +1,11 @@
 ---
+import PostersPrintingIsland from '../../page-islands/PostersPrintingIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { PostersPrinting as PostersPrintingPage } from '../../page-components/PostersPrinting';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/copy-print/posters-printing'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={PostersPrintingPage} client:only="react" />
+    <PostersPrintingIsland client:only="react" />
 </Layout>

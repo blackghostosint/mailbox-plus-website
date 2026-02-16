@@ -1,12 +1,11 @@
 ---
+import CustomBoxMakingIsland from '../../page-islands/CustomBoxMakingIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { CustomBoxMaking as CustomBoxMakingPage } from '../../page-components/CustomBoxMaking';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/pack-ship/custom-box-making'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={CustomBoxMakingPage} client:only="react" />
+    <CustomBoxMakingIsland client:only="react" />
 </Layout>

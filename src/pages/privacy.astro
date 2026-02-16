@@ -1,12 +1,11 @@
 ---
+import PrivacyIsland from '../page-islands/PrivacyIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import { Privacy as PrivacyPage } from '../page-components/Privacy';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/privacy'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={PrivacyPage} client:only="react" />
+    <PrivacyIsland client:only="react" />
 </Layout>

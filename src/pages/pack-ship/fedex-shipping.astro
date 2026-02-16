@@ -1,12 +1,11 @@
 ---
+import FedExShippingIsland from '../../page-islands/FedExShippingIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { FedExShipping } from '../../page-components/FedExShipping';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/pack-ship/fedex-shipping'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={FedExShipping} client:only="react" />
+    <FedExShippingIsland client:only="react" />
 </Layout>

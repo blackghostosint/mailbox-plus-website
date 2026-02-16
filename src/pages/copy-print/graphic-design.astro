@@ -1,12 +1,11 @@
 ---
+import GraphicDesignIsland from '../../page-islands/GraphicDesignIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { GraphicDesign as GraphicDesignPage } from '../../page-components/GraphicDesign';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/copy-print/graphic-design'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={GraphicDesignPage} client:only="react" />
+    <GraphicDesignIsland client:only="react" />
 </Layout>

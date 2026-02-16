@@ -1,8 +1,7 @@
 ---
+import ArticlePageIsland from '../../page-islands/ArticlePageIsland';
 import { articleLoader } from '../../utils/articleLoader';
-import Layout from '../../layouts/Layout.astro';
-import { ArticlePageContent } from '../../page-components/ArticlePage';
-import { WithProviders } from '../../page-components/WithProviders';
+import Layout from '../../layouts/Layout.astro';
 
 export async function getStaticPaths() {
     const articles = await articleLoader.getAllArticles();
@@ -28,5 +27,5 @@ const ogImage = image ? `${r2Base}/${image}` : undefined;
     ogImage={ogImage}
     canonical={`/articles/${slug}`}
 >
-    <WithProviders component={ArticlePageContent} slug={slug} client:only="react" />
+    <ArticlePageIsland slug={slug} client:only="react" />
 </Layout>

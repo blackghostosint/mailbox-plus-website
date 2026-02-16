@@ -1,12 +1,11 @@
 ---
+import PostageStampsIsland from '../../page-islands/PostageStampsIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { PostageStamps as PostageStampsPage } from '../../page-components/PostageStamps';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/pack-ship/postage-stamps'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={PostageStampsPage} client:only="react" />
+    <PostageStampsIsland client:only="react" />
 </Layout>

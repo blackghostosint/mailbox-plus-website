@@ -1,12 +1,11 @@
 ---
+import DigitalMailboxRentalIsland from '../../page-islands/DigitalMailboxRentalIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { DigitalMailboxRental as DigitalMailboxRentalPage } from '../../page-components/DigitalMailboxRental';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/home-business/digital-mailbox-rental'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={DigitalMailboxRentalPage} client:only="react" />
+    <DigitalMailboxRentalIsland client:only="react" />
 </Layout>

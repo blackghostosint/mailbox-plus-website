@@ -1,12 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import ArticlesIndex from '../../page-components/ArticlesIndex';
-import { WithProviders } from '../../page-components/WithProviders';
+import ArticlesIndexIsland from '../../page-islands/ArticlesIndexIsland';
+import Layout from '../../layouts/Layout.astro';
 ---
 
 <Layout
     title="Shipping & Business Tips | Mailbox Plus Blog"
     description="Helpful articles on packing, shipping, printing, and business services from the team at Mailbox Plus in Concord Township, Ohio."
 >
-    <WithProviders component={ArticlesIndex} client:only="react" />
+    <ArticlesIndexIsland client:only="react" />
 </Layout>

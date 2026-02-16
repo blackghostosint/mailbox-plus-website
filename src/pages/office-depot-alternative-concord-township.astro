@@ -1,12 +1,11 @@
 ---
+import OfficeDepotAlternativePageIsland from '../page-islands/OfficeDepotAlternativePageIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import OfficeDepotAlternativePage from '../page-components/office-depot-alternative-concord-township';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/office-depot-alternative-concord-township'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={OfficeDepotAlternativePage} client:only="react" />
+    <OfficeDepotAlternativePageIsland client:only="react" />
 </Layout>

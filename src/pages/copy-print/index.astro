@@ -1,12 +1,11 @@
 ---
+import CopyPrintIsland from '../../page-islands/CopyPrintIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { CopyPrint } from '../../page-components/CopyPrint';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/copy-print'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={CopyPrint} client:only="react" />
+    <CopyPrintIsland client:only="react" />
 </Layout>

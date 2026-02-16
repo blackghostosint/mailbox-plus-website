@@ -1,12 +1,11 @@
 ---
+import StaplesAlternativePageIsland from '../page-islands/StaplesAlternativePageIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import StaplesAlternativePage from '../page-components/staples-printing-alternative-concord-township';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/staples-printing-alternative-concord-township'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={StaplesAlternativePage} client:only="react" />
+    <StaplesAlternativePageIsland client:only="react" />
 </Layout>

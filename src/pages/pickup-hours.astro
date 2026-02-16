@@ -1,12 +1,11 @@
 ---
+import PickupHoursPageIsland from '../page-islands/PickupHoursPageIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import PickupHoursPage from '../page-components/PickupHours';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/pickup-hours'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={PickupHoursPage} client:only="react" />
+    <PickupHoursPageIsland client:only="react" />
 </Layout>

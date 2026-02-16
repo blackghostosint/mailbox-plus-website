@@ -1,12 +1,11 @@
 ---
+import USPSPackageHelpPageIsland from '../page-islands/USPSPackageHelpPageIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import USPSPackageHelpPage from '../page-components/usps-package-help-concord-township';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/usps-package-help-concord-township'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={USPSPackageHelpPage} client:only="react" />
+    <USPSPackageHelpPageIsland client:only="react" />
 </Layout>

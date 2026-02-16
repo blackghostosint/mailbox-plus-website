@@ -1,12 +1,11 @@
 ---
+import DocumentScanningIsland from '../../page-islands/DocumentScanningIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { DocumentScanning as DocumentScanningPage } from '../../page-components/DocumentScanning';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/home-business/document-scanning'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={DocumentScanningPage} client:only="react" />
+    <DocumentScanningIsland client:only="react" />
 </Layout>

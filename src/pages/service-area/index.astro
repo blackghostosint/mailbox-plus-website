@@ -1,12 +1,11 @@
 ---
+import ServiceAreaIndexIsland from '../../page-islands/ServiceAreaIndexIsland';
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { ServiceAreaIndex } from '../../page-components/ServiceAreaIndex';
-import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/service-area'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={ServiceAreaIndex} client:only="react" />
+    <ServiceAreaIndexIsland client:only="react" />
 </Layout>

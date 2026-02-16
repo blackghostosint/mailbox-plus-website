@@ -1,12 +1,11 @@
 ---
+import MicroProblemContentIsland from '../page-islands/MicroProblemContentIsland';
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import { MicroProblemContent } from '../page-components/micro/MicroProblemPage';
-import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/ship-a-gift-without-the-receipt-or-invoice-in-concord-township'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={MicroProblemContent} slug="/ship-a-gift-without-the-receipt-or-invoice-in-concord-township" client:only="react" />
+    <MicroProblemContentIsland slug="/ship-a-gift-without-the-receipt-or-invoice-in-concord-township" client:only="react" />
 </Layout>
