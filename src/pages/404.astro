@@ -1,0 +1,13 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { NotFound } from '../page-components/NotFound';
+import { WithProviders } from '../page-components/WithProviders';
+---
+
+<Layout
+    title="Page Not Found | Mailbox Plus"
+    description="The page you are looking for does not exist. Visit Mailbox Plus in Concord Township, Ohio for shipping, printing, and business services."
+    robots="noindex"
+>
+    <WithProviders component={NotFound} client:only="react" />
+</Layout>

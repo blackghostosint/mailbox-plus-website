@@ -1,0 +1,32 @@
+---
+import { articleLoader } from '../../utils/articleLoader';
+import Layout from '../../layouts/Layout.astro';
+import { ArticlePageContent } from '../../page-components/ArticlePage';
+import { WithProviders } from '../../page-components/WithProviders';
+
+export async function getStaticPaths() {
+    const articles = await articleLoader.getAllArticles();
+    return articles.map((article) => ({
+        params: { slug: article.frontmatter.slug },
+        props: {
+            title: article.frontmatter.title,
+            description: article.frontmatter.description,
+            image: article.frontmatter.image,
+            slug: article.frontmatter.slug,
+        },
+    }));
+}
+
+const { title, description, image, slug } = Astro.props;
+const r2Base = import.meta.env.VITE_R2_PUBLIC_BASE_URL ?? '';
+const ogImage = image ? `${r2Base}/${image}` : undefined;
+---
+
+<Layout
+    title={title}
+    description={description}
+    ogImage={ogImage}
+    canonical={`/articles/${slug}`}
+>
+    <WithProviders component={ArticlePageContent} slug={slug} client:only="react" />
+</Layout>

@@ -5,4 +5,4 @@ User-agent: *
 Disallow: /search
 Allow: /
 
-Sitemap: https://mailboxplusohio.com/sitemap.xml
+Sitemap: https://mailboxplusohio.com/sitemap-index.xml

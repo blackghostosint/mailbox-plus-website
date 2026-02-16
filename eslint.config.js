@@ -10,13 +10,16 @@ export default [
     {
         ignores: [
             'dist',
+            '.astro',
             'node_modules',
             '*.config.js',
             '*.config.ts',
+            '*.config.mjs',
             '.eslintrc.cjs',
             '.eslintrc.json',
             'netlify/',
             'scripts/',
+            '**/*.astro',
         ],
     },
     js.configs.recommended,

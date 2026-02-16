@@ -70,10 +70,5 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /Pack-Ship/Packaging/* /pack-ship/:splat 301!
 
 
-# -----------------------------------
-# SPA FALLBACK (React Router)
-/* /index.html 200
-
-
 # TRUE 404 RULE
-/404 /404.html 404
+/404 /404/index.html 404

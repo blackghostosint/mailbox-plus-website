@@ -1,0 +1,29 @@
+---
+import { serviceAreas } from '../../config/serviceAreas';
+import Layout from '../../layouts/Layout.astro';
+import { ServiceAreaContent } from '../../page-components/ServiceAreaPage';
+import { WithProviders } from '../../page-components/WithProviders';
+
+export function getStaticPaths() {
+    return serviceAreas.map((area) => ({
+        params: { slug: area.slug },
+        props: {
+            title: area.pageTitle,
+            description: area.metaDescription,
+            slug: area.slug,
+        },
+    }));
+}
+
+const { title, description, slug } = Astro.props;
+---
+
+<Layout
+    title={title}
+    description={description}
+    geoRegion="US-OH"
+    geoPlacename="Concord Township, Ohio"
+    geoPosition="41.66497;-81.24164"
+>
+    <WithProviders component={ServiceAreaContent} slug={slug} client:only="react" />
+</Layout>

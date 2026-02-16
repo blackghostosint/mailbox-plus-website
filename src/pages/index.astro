@@ -1,0 +1,19 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageMeta } from '../config/pageMeta';
+import { Home } from '../page-components/Home';
+import { WithProviders } from '../page-components/WithProviders';
+
+const meta = pageMeta['/'];
+---
+
+<Layout
+    title={meta.title}
+    description={meta.description}
+    schema={meta.schema}
+    geoRegion="US-OH"
+    geoPlacename="Concord Township, Ohio"
+    geoPosition="41.66497;-81.24164"
+>
+    <WithProviders component={Home} client:only="react" />
+</Layout>

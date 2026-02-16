@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageMeta } from '../config/pageMeta';
+import { MicroProblemContent } from '../page-components/micro/MicroProblemPage';
+import { WithProviders } from '../page-components/WithProviders';
+
+const meta = pageMeta['/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
+---
+
+<Layout title={meta.title} description={meta.description} schema={meta.schema}>
+    <WithProviders component={MicroProblemContent} slug="/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics" client:only="react" />
+</Layout>

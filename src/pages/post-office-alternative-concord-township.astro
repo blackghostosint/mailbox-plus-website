@@ -1,0 +1,12 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { pageMeta } from '../config/pageMeta';
+import PostOfficeAlternativePage from '../page-components/post-office-alternative-concord-township';
+import { WithProviders } from '../page-components/WithProviders';
+
+const meta = pageMeta['/post-office-alternative-concord-township'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
+---
+
+<Layout title={meta.title} description={meta.description} schema={meta.schema}>
+    <WithProviders component={PostOfficeAlternativePage} client:only="react" />
+</Layout>

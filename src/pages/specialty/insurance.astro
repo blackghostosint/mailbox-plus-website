@@ -1,0 +1,12 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { pageMeta } from '../../config/pageMeta';
+import { Insurance } from '../../page-components/Insurance';
+import { WithProviders } from '../../page-components/WithProviders';
+
+const meta = pageMeta['/specialty/insurance'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
+---
+
+<Layout title={meta.title} description={meta.description} schema={meta.schema}>
+    <WithProviders component={Insurance} client:only="react" />
+</Layout>

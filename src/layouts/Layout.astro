@@ -1,0 +1,150 @@
+---
+import { siteConfig } from '../config/siteConfig';
+
+interface Props {
+    title: string;
+    description: string;
+    canonical?: string;
+    keywords?: string;
+    ogImage?: string;
+    schema?: object | object[];
+    robots?: string;
+    geoRegion?: string;
+    geoPlacename?: string;
+    geoPosition?: string;
+    pageH1?: string;
+}
+
+const {
+    title,
+    description,
+    canonical,
+    keywords,
+    ogImage,
+    schema,
+    robots = 'index, follow',
+    geoRegion,
+    geoPlacename,
+    geoPosition,
+    pageH1,
+} = Astro.props;
+
+// Auto-derive H1 from title by stripping common site-name suffixes
+const h1Text = pageH1 ?? title
+    .replace(/ \| Mailbox Plus Ohio$/, '')
+    .replace(/ \| Mailbox Plus$/, '')
+    .replace(/ - Mailbox Plus Ohio$/, '')
+    .replace(/ - Mailbox Plus$/, '')
+    .trim();
+
+const pathname = Astro.url.pathname;
+const cleanPath = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+const finalCanonical = canonical
+    ? (canonical.startsWith('/') ? `${siteConfig.domain}${canonical}` : canonical)
+    : `${siteConfig.domain}${cleanPath}`;
+
+const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
+const r2Base = import.meta.env.VITE_R2_PUBLIC_BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Google Tag Manager -->
+        <script is:inline>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-M48D4D56');
+        </script>
+        <!-- End Google Tag Manager -->
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Primary SEO -->
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="robots" content={robots} />
+        {keywords && <meta name="keywords" content={keywords} />}
+        <link rel="canonical" href={finalCanonical} />
+
+        <!-- Open Graph -->
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content={siteConfig.name} />
+        <meta property="og:url" content={finalCanonical} />
+        {ogImage && <meta property="og:image" content={ogImage} />}
+
+        <!-- Twitter Cards -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+        <!-- Geo meta for local SEO -->
+        {geoRegion && <meta name="geo.region" content={geoRegion} />}
+        {geoPlacename && <meta name="geo.placename" content={geoPlacename} />}
+        {geoPosition && <meta name="geo.position" content={geoPosition} />}
+        {geoPosition && <meta name="ICBM" content={geoPosition} />}
+
+        <!-- Favicons -->
+        <link rel="icon" type="image/png" sizes="32x32" href={`${r2Base}/favicon_io/favicon-32x32.png`} />
+        <link rel="icon" type="image/png" sizes="16x16" href={`${r2Base}/favicon_io/favicon-16x16.png`} />
+        <link rel="apple-touch-icon" sizes="180x180" href={`${r2Base}/favicon_io/apple-touch-icon.png`} />
+        <link rel="icon" type="image/png" sizes="192x192" href={`${r2Base}/favicon_io/android-chrome-192x192.png`} />
+        <link rel="icon" type="image/png" sizes="512x512" href={`${r2Base}/favicon_io/android-chrome-512x512.png`} />
+
+        <!-- PWA manifest -->
+        <link rel="manifest" href="/manifest.json" />
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            rel="preload"
+            as="style"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+        />
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+            media="print"
+            onload="this.media='all'"
+        />
+        <noscript>
+            <link
+                rel="stylesheet"
+                href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+            />
+        </noscript>
+
+        <!-- R2 CDN preconnect -->
+        <link rel="preconnect" href="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev" crossorigin />
+
+        <!-- JSON-LD Structured Data -->
+        {schemas.map((s) => (
+            <script type="application/ld+json" set:html={JSON.stringify(s)} />
+        ))}
+    </head>
+    <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-M48D4D56"
+                height="0"
+                width="0"
+                style="display:none;visibility:hidden"
+            ></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
+        <!-- Crawler-visible H1: React islands render the visible H1; this sr-only element
+             ensures crawlers (e.g. Bing) that don't execute JS can still find the H1. -->
+        <h1 style="position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">{h1Text}</h1>
+
+        <slot />
+    </body>
+</html>
