@@ -24,7 +24,7 @@ import * as specialtyFaqs from "../config/faqs/specialty";
 import * as notaryFaqs from "../config/faqs/notary";
 
 // Type for FAQ (imported for type safety)
-import { FAQ } from "../types/faq";
+import type { FAQ } from "../types/faq";
 
 // Helper to flatten all FAQ arrays from a category object
 function flattenFaqs(faqModule: Record<string, unknown>): FAQ[] {

@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const bicycleShippingFaqs: FAQ[] = [
   { question: "Do I need to disassemble my bike?", answer: "We handle the packing and disassembly if needed." },

@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const mailboxRentalFaqs: FAQ[] = [
   { question: "Can I receive packages from all carriers?", answer: "Yes, we accept deliveries from FedEx, UPS, USPS, and DHL." },

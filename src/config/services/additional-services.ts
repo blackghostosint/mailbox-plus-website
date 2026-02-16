@@ -5,7 +5,7 @@ import Shield from '~icons/lucide/shield';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import Printer from '~icons/lucide/printer';
-import { Service } from "../../types/services";
+import type { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {
     generalHomeBusinessFaqs,

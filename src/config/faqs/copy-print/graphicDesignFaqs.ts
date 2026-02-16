@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const graphicDesignFaqs: FAQ[] = [
   { question: "Do you design logos?", answer: "Yes, we can help create a new logo or refresh your existing brand." },

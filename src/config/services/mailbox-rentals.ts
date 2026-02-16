@@ -5,7 +5,7 @@ import Mail from '~icons/lucide/mail';
 import Globe from '~icons/lucide/globe';
 import Star from '~icons/lucide/star';
 import Truck from '~icons/lucide/truck';
-import { Service } from "../../types/services";
+import type { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import {
     generalHomeBusinessFaqs,

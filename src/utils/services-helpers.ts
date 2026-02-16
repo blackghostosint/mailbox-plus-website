@@ -1,5 +1,5 @@
 import { services } from "../config/services";
-import { Service, ServiceCategory } from "../types/services";
+import type { Service, ServiceCategory } from "../types/services";
 import { siteConfig } from "../config/siteConfig";
 
 /**

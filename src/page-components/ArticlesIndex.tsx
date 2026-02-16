@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { articleLoader } from '../utils/articleLoader';
-import { Article } from '../types/article.types';
+import type { Article } from '../types/article.types';
 import { SmartImage } from '../components/SmartImage';
 import { getServiceImageUrl } from '../lib/storage';
 import Calendar from '~icons/lucide/calendar';

@@ -1,12 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { Shredding } from '../../page-components/Shredding';
+import { Shredding as ShreddingPage } from '../../page-components/Shredding';
 import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/home-business/shredding'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={Shredding} client:only="react" />
+    <WithProviders component={ShreddingPage} client:only="react" />
 </Layout>

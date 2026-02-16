@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const fedexShippingFaqs: FAQ[] = [
   { question: "Can I drop off pre-labeled FedEx packages?", answer: "Yes, we accept drop-offs at no charge." },

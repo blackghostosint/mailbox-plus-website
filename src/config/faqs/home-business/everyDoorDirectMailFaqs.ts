@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const everyDoorDirectMailFaqs: FAQ[] = [
   { question: "Do I need a mailing list?", answer: "No, USPS EDDM delivers to every address in chosen areas." },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link, type LinkProps } from 'react-router-dom';
 import { getInternalLink, getAnchorText } from '../../utils/internal-links';
 
 interface InternalLinkProps extends Omit<LinkProps, 'to'> {

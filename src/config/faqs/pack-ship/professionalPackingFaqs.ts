@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const professionalPackingFaqs: FAQ[] = [
   { question: "Can you pack fragile glass items?", answer: "Yes, we use special methods for fragile shipments." },

@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const upsShippingFaqs: FAQ[] = [
   { question: "Do you accept Amazon UPS returns?", answer: "Yes, we can accept and ship labeled Amazon returns." },

@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const packageReceivingFaqs: FAQ[] = [
   { question: "Can businesses use this service?", answer: "Yes, we support individuals and businesses." },

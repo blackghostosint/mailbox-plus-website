@@ -1,12 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { pageMeta } from '../../config/pageMeta';
-import { ProfessionalPacking } from '../../page-components/ProfessionalPacking';
+import { ProfessionalPacking as ProfessionalPackingPage } from '../../page-components/ProfessionalPacking';
 import { WithProviders } from '../../page-components/WithProviders';
 
 const meta = pageMeta['/pack-ship/professional-packing'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={ProfessionalPacking} client:only="react" />
+    <WithProviders component={ProfessionalPackingPage} client:only="react" />
 </Layout>

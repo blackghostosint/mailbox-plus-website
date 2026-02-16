@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet-async';
 import { Layout } from '../components/layout/Layout';
 import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
-import { Article } from '../types/article.types';
+import type { Article } from '../types/article.types';
 import { SmartImage } from '../components/SmartImage';
 import { Button } from '../components/ui/Button';
 import ArrowRight from '~icons/lucide/arrow-right';

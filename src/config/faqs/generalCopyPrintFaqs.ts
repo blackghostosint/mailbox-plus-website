@@ -1,4 +1,4 @@
-import { FAQ } from "../../types/faq";
+import type { FAQ } from "../../types/faq";
 
 export const generalCopyPrintFaqs: FAQ[] = [
   { question: "What file types do you accept?", answer: "We accept PDF, Word, Excel, PowerPoint, and most common formats." },

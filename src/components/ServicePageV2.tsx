@@ -18,7 +18,7 @@ import {
 } from "./ui/accordion";
 
 // Types & utils
-import { Service } from "../types/services";
+import type { Service } from "../types/services";
 import {
     getWebPageSchema,
     getServiceSchema,

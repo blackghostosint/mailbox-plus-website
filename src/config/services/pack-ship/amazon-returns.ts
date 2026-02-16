@@ -1,7 +1,7 @@
 import CheckCircle from '~icons/lucide/check-circle';
 import HelpCircle from '~icons/lucide/help-circle';
 import AlertTriangle from '~icons/lucide/alert-triangle';
-import { Service } from "../../../types/services";
+import type { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 
 export const amazonReturnsService: Service = {

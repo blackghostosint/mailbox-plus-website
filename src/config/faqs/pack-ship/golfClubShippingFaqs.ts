@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const golfClubShippingFaqs: FAQ[] = [
   { question: "Can you ship a full golf bag?", answer: "Yes, we pack and ship entire golf bags or individual clubs." },

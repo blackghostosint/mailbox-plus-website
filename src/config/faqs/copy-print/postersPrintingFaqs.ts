@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const postersPrintingFaqs: FAQ[] = [
   { question: "What sizes are available?", answer: "We print posters from 11x17 up to 36 inches wide in custom lengths." },

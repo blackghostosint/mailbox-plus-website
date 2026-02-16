@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./ui";
-import { ButtonProps } from "./ui/Button";
+import type { ButtonProps } from "./ui/Button";
 
 interface VisitUsButtonProps extends Omit<ButtonProps, "children"> {
   defaultCity?: string; // e.g., "Concord Township"

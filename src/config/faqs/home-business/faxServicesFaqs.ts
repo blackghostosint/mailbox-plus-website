@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const faxServicesFaqs: FAQ[] = [
   { question: "What is your fax number?", answer: "Contact us directly for our current fax number." },

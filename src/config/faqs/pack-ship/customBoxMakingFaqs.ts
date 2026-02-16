@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const customBoxMakingFaqs: FAQ[] = [
   { question: "Can you make boxes for large items?", answer: "Yes, we build custom boxes for oversized shipments." },

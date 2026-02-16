@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const shreddingFaqs: FAQ[] = [
   { question: "Do you shred on-site?", answer: "We use secure, off-site shredding partners." },

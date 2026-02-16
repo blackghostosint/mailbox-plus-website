@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import { FAQ } from "./faq";
+import type { FAQ } from "./faq";
 
 // Icon component type compatible with both lucide-react and unplugin-icons
 export type IconComponent = React.ComponentType<SVGProps<SVGSVGElement> & { size?: number | string }>;

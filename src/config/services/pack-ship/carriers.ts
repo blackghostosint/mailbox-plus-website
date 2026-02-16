@@ -4,7 +4,7 @@ import Globe from '~icons/lucide/globe';
 import Mail from '~icons/lucide/mail';
 import Package from '~icons/lucide/package';
 import Star from '~icons/lucide/star';
-import { Service } from "../../../types/services";
+import type { Service } from "../../../types/services";
 import { getServiceImageUrl } from "../../../lib/storage";
 import {
     generalShippingFaqs,

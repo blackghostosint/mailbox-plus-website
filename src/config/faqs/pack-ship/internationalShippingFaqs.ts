@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const internationalShippingFaqs: FAQ[] = [
   { question: "Do you ship to Canada?", answer: "Yes, we ship to Canada and worldwide." },

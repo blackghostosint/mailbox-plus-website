@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const packShipFaqs: FAQ[] = [
   { question: "Which carriers can I ship with?", answer: "We ship with FedEx, UPS, USPS, and DHL." },

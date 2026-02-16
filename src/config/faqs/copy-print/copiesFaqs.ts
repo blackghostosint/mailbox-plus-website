@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const copiesFaqs: FAQ[] = [
   { question: "Do you offer color copies?", answer: "Yes, we provide both black-and-white and full-color copies." },

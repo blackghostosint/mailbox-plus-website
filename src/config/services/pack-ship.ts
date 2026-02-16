@@ -1,4 +1,4 @@
-import { Service } from "../../types/services";
+import type { Service } from "../../types/services";
 import { carrierServices } from "./pack-ship/carriers";
 import { specialtyShippingServices } from "./pack-ship/specialty-shipping";
 import { packingServices } from "./pack-ship/packing-services";

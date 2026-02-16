@@ -1,12 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { pageMeta } from '../config/pageMeta';
-import { NuulyReturns } from '../page-components/NuulyReturns';
+import { NuulyReturns as NuulyReturnsPage } from '../page-components/NuulyReturns';
 import { WithProviders } from '../page-components/WithProviders';
 
 const meta = pageMeta['/nuuly-returns'] ?? { title: 'Mailbox Plus Ohio', description: 'Community-focused pack & ship retail store in Concord Township, Ohio.' };
 ---
 
 <Layout title={meta.title} description={meta.description} schema={meta.schema}>
-    <WithProviders component={NuulyReturns} client:only="react" />
+    <WithProviders component={NuulyReturnsPage} client:only="react" />
 </Layout>

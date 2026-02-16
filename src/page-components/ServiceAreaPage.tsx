@@ -1,10 +1,10 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { serviceAreas } from "../config/serviceAreas";
-import { ServicePageV2 } from "../components/ServicePageV2";
+import type { ServicePageV2 } from "../components/ServicePageV2";
 import localPages from "../data/localPages.json";
 import { getServiceImageUrl } from "../lib/storage";
-import { Service } from "../types/services";
+import type { Service } from "../types/services";
 
 // Astro island variant — accepts slug as prop
 export const ServiceAreaContent: React.FC<{ slug: string }> = ({ slug }) => {

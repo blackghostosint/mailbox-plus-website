@@ -32,7 +32,9 @@
       "Bash(chmod:*)",
       "Bash(wc:*)",
       "Bash(npm install:*)",
-      "Bash(npx astro:*)"
+      "Bash(npx astro:*)",
+      "Bash(npm run typecheck:*)",
+      "Bash(npm run lint:*)"
     ]
   }
 }

@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const documentScanningFaqs: FAQ[] = [
   { question: "What file formats do you provide?", answer: "We can scan to PDF, JPEG, or TIFF." },

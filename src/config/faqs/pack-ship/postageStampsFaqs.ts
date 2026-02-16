@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const postageStampsFaqs: FAQ[] = [
   { question: "Do you sell international stamps?", answer: "Yes, ask us about global stamps." },

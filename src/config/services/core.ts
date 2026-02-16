@@ -5,7 +5,7 @@ import Printer from '~icons/lucide/printer';
 import FileText from '~icons/lucide/file-text';
 import Palette from '~icons/lucide/palette';
 import Star from '~icons/lucide/star';
-import { Service } from "../../types/services";
+import type { Service } from "../../types/services";
 import { getServiceImageUrl } from "../../lib/storage";
 import { packShipFaqs, generalCopyPrintFaqs } from "../faqs";
 

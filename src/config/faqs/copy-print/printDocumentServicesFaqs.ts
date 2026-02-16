@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const printDocumentServicesFaqs: FAQ[] = [
   { question: "Do you offer same-day printing?", answer: "Yes, many jobs can be completed the same day." },

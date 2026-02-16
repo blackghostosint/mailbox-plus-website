@@ -1,4 +1,4 @@
-import { FAQ } from "../../../types/faq";
+import type { FAQ } from "../../../types/faq";
 
 export const notaryServicesFaqs: FAQ[] = [
   { question: "Do I need ID?", answer: "Yes, valid government-issued ID is required." },

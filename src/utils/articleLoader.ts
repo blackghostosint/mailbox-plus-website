@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import { Article, ArticleFrontmatter } from '../types/article.types';
+import type { Article, ArticleFrontmatter } from '../types/article.types';
 
 // Since valid filesystem access isn't available in the browser during runtime,
 // we need to import all markdown files via Vite's glob import.
