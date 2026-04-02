@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { STORAGE_KEYS } from '../constants/storage';
+import { siteConfig } from '../config/siteConfig';
 
 const COOLDOWN_DAYS = 7;
 
@@ -11,6 +12,12 @@ export const usePremierGating = () => {
     const [shouldShow, setShouldShow] = useState(false);
 
     useEffect(() => {
+        // Hard disable the modal from config even if the component is mounted.
+        if (siteConfig.premierSignupModalEnabled !== true) {
+            setShouldShow(false);
+            return;
+        }
+
         const checkGating = () => {
             // 1. Permanent Suppression (Precedence: Member status check first)
             const isMember =
