@@ -22,6 +22,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const origin = (siteConfig.domain || "").replace(/\/+$/, ""); // remove trailing slash
   const localBusinessSchema = getLocalBusinessSchema(siteConfig);
   const webSiteSchema = getWebSiteSchema(siteConfig, `${origin}/search?q={search_term_string}`);
+  const showPremierSignupModal = siteConfig.premierSignupModalEnabled === true;
 
   return (
     <>
@@ -46,7 +47,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <FloatingReviewButton imageSrc={getServiceImageUrl("review-us-on-google.webp")} />
 
         {/* Premier Signup Modal */}
-        <PremierSignupModal />
+        {showPremierSignupModal ? <PremierSignupModal /> : null}
       </div>
     </>
   );
