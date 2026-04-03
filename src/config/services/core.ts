@@ -98,12 +98,7 @@ export const coreServices: Service[] = [
                             <p class="text-slate-600 mb-4">High-quality copies, manuals, and presentations.</p>
                             <a href="/copy-print/document-printing" class="text-blue-600 font-semibold hover:underline">Print Now →</a>
                         </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
-                            <div class="text-3xl mb-4">🏗️</div>
-                            <h3 class="text-xl font-bold mb-2">Blueprints</h3>
-                            <p class="text-slate-600 mb-4">Oversized prints for architects and engineers.</p>
-                            <a href="/copy-print/blueprints" class="text-blue-600 font-semibold hover:underline">View Options →</a>
-                        </div>
+                        
                         <div class="bg-white rounded-2xl p-6 shadow-sm border border-slate-200">
                             <div class="text-3xl mb-4">🪪</div>
                             <h3 class="text-xl font-bold mb-2">Business Cards</h3>

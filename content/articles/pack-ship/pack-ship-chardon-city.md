@@ -46,7 +46,7 @@ We’ve built Mailbox Plus to be more than just a place to send packages. We ser
 
 *   **[Secure Private Mailbox Rentals](/home-business/mailbox-rental):** Unlike a PO Box, our mailboxes provide a real street address ([7554 Fredle Drive](/contact-us)). This is essential for Chardon-based entrepreneurs who need a professional business image and a secure way to receive packages from any carrier.
 *   **[Notary Public](/home-business/notary-services) & Mobile Notary:** Get your contracts, affidavits, and legal forms notarized quickly and professionally.
-*   **[Printing & Digital Services](/copy-print):** High-quality color and black-and-white printing for marketing materials, project binders, and blueprints.
+*   **[Printing & Digital Services](/copy-print):** High-quality color and black-and-white printing for marketing materials and project binders.
 
 ## Conclusion: Join Your Chardon Neighbors at Mailbox Plus
 
