@@ -40,4 +40,5 @@ export interface SiteConfig {
   };
   premierSignupUrl?: string; // ✅ added for Premier signup modal
   premierSignupModalEnabled?: boolean;
+  mailbotEnabled?: boolean; // controls Mail-bot Plus chat launcher
 }

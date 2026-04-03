@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import { MailbotPlusChat } from "./components/MailbotPlusChat";
+import { siteConfig } from "./config/siteConfig";
 import { submitChatQuestion } from "./services/chatbot";
 
 // Helper for lazy loading named exports
@@ -258,11 +259,13 @@ const App: React.FC = () => {
           </Routes>
         </React.Suspense>
       </Layout>
-      <MailbotPlusChat
-        isHighIntentPage={false}
-        onSubmitQuestion={submitChatQuestion}
-        onAnalyticsEvent={handleAnalytics}
-      />
+      {siteConfig.mailbotEnabled !== false && (
+        <MailbotPlusChat
+          isHighIntentPage={false}
+          onSubmitQuestion={submitChatQuestion}
+          onAnalyticsEvent={handleAnalytics}
+        />
+      )}
     </Router>
   );
 };
