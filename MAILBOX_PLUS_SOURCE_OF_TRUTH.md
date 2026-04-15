@@ -126,3 +126,10 @@ The following must match this document:
 | Date | Change | Reason | Approved By | Updated Website? |
 | :--- | :--- | :--- | :--- | :--- |
 | 2026-02-06 | Initial Document Creation | Establishing canonical truth source. | Antigravity | Y |
+
+---
+
+## 10. Founding Year
+
+- **Founding year:** 2024
+- **Use in copy:** Approved as the canonical founding year for website and profile content unless superseded by a newer approved source.

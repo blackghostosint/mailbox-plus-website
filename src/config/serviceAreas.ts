@@ -12,7 +12,7 @@ export const serviceAreas: Service[] = [
     city: "Concord Township",
     pageTitle: "Shipping & Printing in Concord Township, Ohio",
     metaDescription:
-      "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location. Trusted by local families and small businesses since 2010.",
+      "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location. Trusted by local families and small businesses since 2024.",
     keywords:
       "Concord Township shipping, Concord Township printing, mailbox rentals Concord Township, UPS Concord Township, FedEx Concord Township, DHL Concord Township, Lake County business services, Gristmill Village shipping, Concord printing",
     heroTitle: "Serving Concord Township",
@@ -43,7 +43,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Convenient Location", description: "Next to Pub Frato in Gristmill Village" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
-      { title: "Community Focused", description: "Proudly serving Concord Township and Lake County since 2010" }
+      { title: "Community Focused", description: "Proudly serving Concord Township and Lake County since 2024" }
     ],
     faqs: [
       {
@@ -98,7 +98,7 @@ export const serviceAreas: Service[] = [
       }
     ],
     features: [
-      { title: "Local Expertise", description: "Deep roots in Lake County since 2010" },
+      { title: "Local Expertise", description: "Deep roots in Lake County since 2024" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one place" },
       { title: "Community Focused", description: "Proudly serving Mentor’s growing business community" }
     ],
@@ -155,7 +155,7 @@ export const serviceAreas: Service[] = [
       }
     ],
     features: [
-      { title: "Community Focused", description: "Serving Lake County since 2010" },
+      { title: "Community Focused", description: "Serving Lake County since 2024" },
       { title: "All Major Carriers", description: "UPS, FedEx, USPS & DHL access in one stop" },
       { title: "Trusted by Local Professionals", description: "Supporting Lake County offices, schools, and small businesses" }
     ],
@@ -214,7 +214,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Convenient Access", description: "Easy access from Eastlake to our Concord Township location" },
       { title: "Full Carrier Options", description: "UPS, FedEx, USPS & DHL available for all your shipping needs" },
-      { title: "Community Focused", description: "Supporting Lake County’s local families and small businesses since 2010" }
+      { title: "Community Focused", description: "Supporting Lake County’s local families and small businesses since 2024" }
     ],
     faqs: [
       {
@@ -271,7 +271,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Local Knowledge", description: "Understanding Willoughby's unique needs" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL in one place" },
-      { title: "Community Commitment", description: "Proudly serving Lake County since 2010" }
+      { title: "Community Commitment", description: "Proudly serving Lake County since 2024" }
     ],
     faqs: [
       {
@@ -328,7 +328,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Personalized Service", description: "Tailored solutions for Wickliffe customers" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL all in one stop" },
-      { title: "Rooted in Community", description: "Proudly serving Lake County since 2010" }
+      { title: "Rooted in Community", description: "Proudly serving Lake County since 2024" }
     ],
     faqs: [
       {
@@ -385,7 +385,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Quality Assurance", description: "Insured and secure handling for all shipments" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
-      { title: "Local Commitment", description: "Proudly serving Madison and Lake County since 2010" }
+      { title: "Local Commitment", description: "Proudly serving Madison and Lake County since 2024" }
     ],
     faqs: [
       {
@@ -442,7 +442,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Community Commitment", description: "Dedicated to serving Lake County communities" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
-      { title: "Trusted Local Partner", description: "Supporting Perry residents and small businesses since 2010" }
+      { title: "Trusted Local Partner", description: "Supporting Perry residents and small businesses since 2024" }
     ],
     faqs: [
       {
@@ -499,7 +499,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Community Commitment", description: "Dedicated to serving Lake County communities" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
-      { title: "Rooted in Local Heritage", description: "Proudly serving Kirtland’s historic and natural community since 2010" }
+      { title: "Rooted in Local Heritage", description: "Proudly serving Kirtland’s historic and natural community since 2024" }
     ],
     faqs: [
       {
@@ -556,7 +556,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Quality Assurance", description: "Insured and secure handling for all shipments" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
-      { title: "Community Connection", description: "Supporting Chardon and Geauga County since 2010" }
+      { title: "Community Connection", description: "Supporting Chardon and Geauga County since 2024" }
     ],
     faqs: [
       {
@@ -613,7 +613,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Personalized Service", description: "Tailored solutions for Fairport Harbor customers" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all in one convenient stop" },
-      { title: "Rooted in Community", description: "Proudly serving Fairport Harbor and Lake County since 2010" }
+      { title: "Rooted in Community", description: "Proudly serving Fairport Harbor and Lake County since 2024" }
     ],
     faqs: [
       {
@@ -670,7 +670,7 @@ export const serviceAreas: Service[] = [
     features: [
       { title: "Local Knowledge", description: "Understanding Geneva's unique needs" },
       { title: "Full Carrier Access", description: "UPS, FedEx, USPS & DHL — all under one roof" },
-      { title: "Rooted in Community", description: "Proudly serving Geneva and Ashtabula County since 2010" }
+      { title: "Rooted in Community", description: "Proudly serving Geneva and Ashtabula County since 2024" }
     ],
     faqs: [
       {
