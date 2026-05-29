@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
-import { Layout } from '../components/layout/Layout';
 import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
@@ -156,7 +155,7 @@ const ArticlePage: React.FC = () => {
                     <div className="mt-20 p-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl text-center text-white">
                         <h3 className="text-2xl font-bold mb-4">Have Questions?</h3>
                         <p className="text-blue-100 mb-8 max-w-xl mx-auto">
-                            Stop by our location in Concord Township or give us a call. We're here to help with all your shipping and printing needs.
+                            Stop by our location in Concord Township or give us a call. We&apos;re here to help with all your shipping and printing needs.
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
                             <Link to="/contact-us">

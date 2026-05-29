@@ -128,7 +128,7 @@ export const PremierSignupModal: React.FC = () => {
                             className="absolute top-5 right-5 p-1 text-slate-400 hover:text-slate-600 transition-colors z-10"
                             aria-label="Close modal"
                         >
-                            <X size={20} />
+                            <X width={20} height={20} />
                         </button>
 
                         <div className="p-8 sm:p-10 flex flex-col items-center text-center">

@@ -26,6 +26,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   sources,
   ...imgProps
 }) => {
+  const { alt } = imgProps;
   const loading = priority ? "eager" : "lazy";
   const fetchPriority = priority ? "high" : undefined;
   const decoding = "async";
@@ -42,6 +43,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
           />
         ))}
         <img
+          alt={alt}
           {...imgProps}
           loading={loading}
           fetchPriority={fetchPriority}
@@ -53,6 +55,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
 
   return (
     <img
+      alt={alt}
       {...imgProps}
       loading={loading}
       fetchPriority={fetchPriority}
