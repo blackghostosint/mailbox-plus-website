@@ -64,7 +64,7 @@ export const mailboxRentalServices: Service[] = [
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-slate-500 italic mt-2">Note: Additional packages beyond the monthly inclusion are \$5.00 each. Rentals available in 3, 6, and 12-month terms.</p>`
+                <p class="text-sm text-slate-500 italic mt-2">Note: Additional packages beyond the monthly inclusion are $5.00 each. Rentals available in 3, 6, and 12-month terms.</p>`
             },
             {
                 heading: "Quick & Easy Setup (USPS Form 1583)",

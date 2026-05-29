@@ -17,6 +17,7 @@ export default [
             '.eslintrc.json',
             'netlify/',
             'scripts/',
+            'knowledge/',
         ],
     },
     js.configs.recommended,
