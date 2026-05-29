@@ -29,7 +29,6 @@ const AmazonReturnGuide = lazyLoad(() => import("./pages/AmazonReturnGuide"), "A
 const UPSAuthorizedShipperOutlet = lazyLoad(() => import("./pages/UPSAuthorizedShipperOutlet"), "UPSAuthorizedShipperOutlet");
 const USPSServices = lazyLoad(() => import("./pages/USPSServices"), "USPSServices");
 const DHLExpress = lazyLoad(() => import("./pages/DHLExpress"), "DHLExpress");
-// const InternationalShippingPage = lazyLoad(() => import("./pages/InternationalShippingPage"), "InternationalShippingPage");
 const PackageDropOffs = lazyLoad(() => import("./pages/PackageDropOffs"), "PackageDropOffs");
 const PackageReceiving = lazyLoad(() => import("./pages/PackageReceiving"), "PackageReceiving");
 const CustomBoxMaking = lazyLoad(() => import("./pages/CustomBoxMaking"), "CustomBoxMaking");
@@ -42,9 +41,7 @@ const BusinessCardsPage = lazyLoad(() => import("./pages/BusinessCardsPage"), "B
 const FlyersBrochures = lazyLoad(() => import("./pages/FlyersBrochures"), "FlyersBrochures");
 const PostersPrinting = lazyLoad(() => import("./pages/PostersPrinting"), "PostersPrinting");
 const PostcardPrinting = lazyLoad(() => import("./pages/PostcardPrinting"), "PostcardPrinting");
-// const PosterBannerPrinting = lazyLoad(() => import("./pages/PosterBannerPrinting"), "PosterBannerPrinting");
 const DocumentPrinting = lazyLoad(() => import("./pages/DocumentPrinting"), "DocumentPrinting");
-// const DocumentFinishing = lazyLoad(() => import("./pages/DocumentFinishing"), "DocumentFinishing");
 const GraphicDesign = lazyLoad(() => import("./pages/GraphicDesign"), "GraphicDesign");
 const Copies = lazyLoad(() => import("./pages/Copies"), "Copies");
 
@@ -176,7 +173,6 @@ const App: React.FC = () => {
             <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
             <Route path="/pack-ship/usps-services" element={<USPSServices />} />
             <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
-            {/* <Route path="/pack-ship/international-shipping" element={<InternationalShippingPage />} /> */}
             <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
             <Route path="/pack-ship/package-receiving" element={<PackageReceiving />} />
             <Route path="/pack-ship/custom-box-making" element={<CustomBoxMaking />} />
@@ -189,7 +185,6 @@ const App: React.FC = () => {
             <Route path="/copy-print/flyers-brochures" element={<FlyersBrochures />} />
             <Route path="/copy-print/posters-printing" element={<PostersPrinting />} />
             <Route path="/copy-print/postcard-printing" element={<PostcardPrinting />} />
-            { /* <Route path="/copy-print/poster-banner-printing" element={<PosterBannerPrinting />} /> */}
             <Route path="/copy-print/document-printing" element={<DocumentPrinting />} />
             <Route path="/copy-print/graphic-design" element={<GraphicDesign />} />
             <Route path="/copy-print/copies" element={<Copies />} />
