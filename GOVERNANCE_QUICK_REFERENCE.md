@@ -1,6 +1,6 @@
 # Micro-Problem Page Governance - Quick Reference
 
-**Last Updated**: 2025-12-14  
+**Last Updated**: 2026-05-29
 **Status**: ✅ Active Permanent Policy
 
 ---
@@ -107,6 +107,53 @@ Before starting a quarterly audit:
 - ❌ Split one intent into multiple pages
 - ❌ Create redirects for deleted pages
 - ❌ Override data signals with opinions
+
+---
+
+## 🔧 Technical Maintenance
+
+**Last Updated**: 2026-05-29
+**Owner**: Marcus "Marc" Vance (Fractional CTO)
+
+### Dependency Management
+- **Patch/Minor updates**: Monthly (low risk, security fixes)
+- **Major updates**: Annually (test in `test/major-updates` branch first)
+- **Current status**: 
+  - ✅ Patch/minor updates completed (2026-05-29)
+  - ⚠️ Major updates pending: React 19, Vite 8, TypeScript 6
+  - ⚠️ 8 vulnerabilities in build tools (esbuild, vite, crypto-browserify)
+    - *Note: These are build-time only, not in production bundle*
+
+### Security Audits
+```bash
+# Monthly security check
+npm audit
+
+# Fix non-breaking issues
+npm audit fix
+
+# Check for outdated packages
+npm outdated
+```
+
+**Vulnerability policy**: Build tool vulns (esbuild, vite, polyfills) are **low risk** for static sites — they don't ship to production.
+
+### Audit Script Status
+- **Location**: `scripts/audit-micro-problems.cjs`
+- **Status**: ✅ **IMPLEMENTED** (2026-05-29)
+- **Previous status**: ❌ Placeholder (non-functional)
+- **Features**:
+  - Parses Google Search Console CSV exports
+  - Loads micro-problem config from `src/config/micro-problems/*.ts`
+  - Evaluates 3 signals (A: Search Console, B: Staff feedback, C: Intent overlap)
+  - Generates markdown audit reports
+  - Supports `--dry-run` mode with mock data
+
+### Technical Debt
+- **Cleanup tasks**:
+  - [ ] Review `src/archive/` for dead code
+  - [ ] Run `npx depcheck` for unused dependencies
+  - [ ] Test major dependency updates in branch
 
 ---
 
