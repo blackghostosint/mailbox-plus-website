@@ -40,7 +40,7 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
                     },
 
                     // Override images
-                    img: ({src, alt, ...props }) => {
+                    img: ({src, alt }) => {
                         // System should handle R2 paths or local paths. 
                         // If src is provided, SmartImage or standard img can be used.
                         // We wrap it in a container for styling.
