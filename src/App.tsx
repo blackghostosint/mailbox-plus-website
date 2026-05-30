@@ -10,8 +10,9 @@ import { siteConfig } from './config/siteConfig';
 import { submitChatQuestion } from './services/chatbot';
 
 // Helper for lazy loading named exports
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const lazyLoad = (importFunc: () => Promise<any>, componentName: string) => {
+type ModuleWithExports = Record<string, React.ComponentType>;
+
+const lazyLoad = (importFunc: () => Promise<ModuleWithExports>, componentName: string) => {
   return React.lazy(() => importFunc().then((module) => ({ default: module[componentName] })));
 };
 

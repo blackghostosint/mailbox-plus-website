@@ -35,10 +35,8 @@ export const Button: React.FC<ButtonProps> = ({
     link: 'text-[#0855B1] hover:text-[#064A9B] focus:ring-[#B2D3EB] p-0 bg-transparent shadow-none',
     ghost: 'bg-transparent text-[#0855B1] hover:bg-[#F0F7FF] focus:ring-[#B2D3EB] shadow-none',
   };
-
   // Map of motion components to avoid deep type instantiation from dynamic lookups
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const MotionComponent: any =
+  const MotionComponent: React.ElementType =
     as === 'button'
       ? motion.button
       : as === 'div'
@@ -57,9 +55,8 @@ export const Button: React.FC<ButtonProps> = ({
       }}
       whileTap={{ scale: variant === 'link' || variant === 'ghost' ? 1 : 0.97 }}
       className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-      // Framer Motion's props are complex and require any for proper spreading
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      {...(props as any)}
+      // Framer Motion's props are complex and require proper type assertion
+      {...props}
     >
       {children}
     </MotionComponent>
