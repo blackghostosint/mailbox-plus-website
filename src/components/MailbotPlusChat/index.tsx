@@ -13,7 +13,7 @@ export interface MailbotPlusChatProps {
     autoExpandDelay?: number;
     scrollThreshold?: number;
     // eslint-disable-next-line no-unused-vars
-    onAnalyticsEvent?: (_: string, __: Record<string, any>) => void;
+    onAnalyticsEvent?: (_: string, __: Record<string, string | number | boolean | undefined>) => void;
     // eslint-disable-next-line no-unused-vars
     onSubmitQuestion?: (_: string) => Promise<ChatbotResponse>;
     className?: string;
@@ -119,7 +119,7 @@ export function MailbotPlusChat({
             document.addEventListener('keydown', handleKeyDown);
             return () => document.removeEventListener('keydown', handleKeyDown);
         }
-    }, [isExpanded, handleClose]);
+    }, [isExpanded]); // eslint-disable-line react-hooks/exhaustive-deps
 
     // Event handlers
     const handleOpen = useCallback(() => {

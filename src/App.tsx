@@ -111,11 +111,22 @@ const DebugRoutes: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  const handleAnalytics = (eventName: string, payload: Record<string, any>) => {
+  // Type-safe GTM dataLayer
+  interface DataLayerEvent {
+    event: string;
+    [key: string]: string | number | boolean | undefined;
+  }
+  
+  interface WindowWithDataLayer extends Window {
+    dataLayer: DataLayerEvent[];
+  }
+  
+  const handleAnalytics = (eventName: string, payload: Record<string, string | number | boolean | undefined>) => {
     console.log('[Analytics]', eventName, payload);
     try {
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      (window as any).dataLayer.push({
+      const win = window as unknown as WindowWithDataLayer;
+      win.dataLayer = win.dataLayer || [];
+      win.dataLayer.push({
         event: eventName,
         ...payload,
       });

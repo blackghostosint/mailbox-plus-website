@@ -6,10 +6,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
+    "test": "npm run typecheck && npm run lint",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "lint": "eslint .",
     "lint:a11y": "node scripts/run-lint.cjs",
-    "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "audit:micro-problems": "node scripts/audit-micro-problems.cjs",
     "audit:micro-problems:report": "node scripts/audit-micro-problems.cjs",
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
