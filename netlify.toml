@@ -9,6 +9,14 @@
     "knowledge/embeddings.json"
   ]
 
+# Staging context - separate environment for testing
+[context.staging]
+  environment = { SITE_URL = "https://staging.mailboxplusohio.com" }
+
+# Production context
+[context.production]
+  environment = { SITE_URL = "https://mailboxplusohio.com" }
+
 [[redirects]]
   from = "/api/*"
   to = "/.netlify/functions/:splat"
@@ -22,12 +30,12 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy = """
+    Content-Security-Policy = """ 
       default-src 'self';
       script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
       font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev data:;
+      img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev;
       connect-src 'self' https://www.google.com;
       frame-src 'self' https://www.googletagmanager.com;
     """
