@@ -14,21 +14,22 @@ const eslintReport = JSON.parse(fs.readFileSync(reportPath, 'utf-8'));
 const issuesByRule = {};
 let totalIssues = 0;
 
-eslintReport.forEach(fileReport => {
-  fileReport.messages.forEach(message => {
+eslintReport.forEach((fileReport) => {
+  fileReport.messages.forEach((message) => {
     if (!issuesByRule[message.ruleId]) {
       issuesByRule[message.ruleId] = [];
     }
     issuesByRule[message.ruleId].push({
       filePath: fileReport.filePath,
-      ...message
+      ...message,
     });
     totalIssues++;
   });
 });
 
 if (totalIssues === 0) {
-  const markdownContent = '# Accessibility Report\n\n✅ No accessibility issues detected in the latest ESLint scan.';
+  const markdownContent =
+    '# Accessibility Report\n\n✅ No accessibility issues detected in the latest ESLint scan.';
   fs.writeFileSync(reportOutputPath, markdownContent);
   console.log('Accessibility Report updated — No issues found.');
   process.exit(0);
@@ -39,16 +40,16 @@ let markdownContent = '# Accessibility Report\n\n';
 markdownContent += '## Summary\n\n';
 markdownContent += '| Rule | Issues |\n';
 markdownContent += '|------|--------|\n';
-Object.keys(issuesByRule).forEach(ruleId => {
+Object.keys(issuesByRule).forEach((ruleId) => {
   markdownContent += `| ${ruleId} | ${issuesByRule[ruleId].length} |\n`;
 });
 markdownContent += '\n';
 
 markdownContent += '## Detailed Findings\n\n';
 
-Object.keys(issuesByRule).forEach(ruleId => {
+Object.keys(issuesByRule).forEach((ruleId) => {
   markdownContent += `### ${ruleId}\n\n`;
-  issuesByRule[ruleId].forEach(issue => {
+  issuesByRule[ruleId].forEach((issue) => {
     const relativePath = path.relative(process.cwd(), issue.filePath);
     markdownContent += `**File:** \`${relativePath}\`\n`;
     markdownContent += `**Location:** Line ${issue.line}, Column ${issue.column}\n`;
@@ -58,7 +59,7 @@ Object.keys(issuesByRule).forEach(ruleId => {
     const startLine = Math.max(0, issue.line - 3);
     const endLine = Math.min(fileContent.length, issue.line + 2);
     const codeContext = fileContent.slice(startLine, endLine).join('\n');
-    
+
     markdownContent += '```tsx\n';
     markdownContent += codeContext;
     markdownContent += '\n```\n\n';
@@ -91,8 +92,9 @@ markdownContent += '// Good\n';
 markdownContent += '<a href="/home">Home</a>\n';
 markdownContent += '```\n\n';
 
-
 fs.writeFileSync(reportOutputPath, markdownContent);
 
 const ruleCount = Object.keys(issuesByRule).length;
-console.log(`Accessibility Report updated — ${totalIssues} issues found across ${ruleCount} rules.`);
+console.log(
+  `Accessibility Report updated — ${totalIssues} issues found across ${ruleCount} rules.`
+);

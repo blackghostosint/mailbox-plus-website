@@ -1,28 +1,28 @@
-import React from "react";
-import { getServiceImageUrl } from "../lib/storage";
-import { SmartImage } from "./SmartImage";
+import React from 'react';
+import { getServiceImageUrl } from '../lib/storage';
+import { SmartImage } from './SmartImage';
 
 export const CarrierLogos: React.FC = () => {
   const carriers = [
     {
-      name: "FedEx",
-      logo: getServiceImageUrl("fedex-logo.webp"),
-      url: "https://www.fedex.com/",
+      name: 'FedEx',
+      logo: getServiceImageUrl('fedex-logo.webp'),
+      url: 'https://www.fedex.com/',
     },
     {
-      name: "UPS",
-      logo: getServiceImageUrl("ups-logo.webp"),
-      url: "https://www.ups.com/",
+      name: 'UPS',
+      logo: getServiceImageUrl('ups-logo.webp'),
+      url: 'https://www.ups.com/',
     },
     {
-      name: "USPS",
-      logo: getServiceImageUrl("usps-logo.webp"),
-      url: "https://www.usps.com/",
+      name: 'USPS',
+      logo: getServiceImageUrl('usps-logo.webp'),
+      url: 'https://www.usps.com/',
     },
     {
-      name: "DHL",
-      logo: getServiceImageUrl("dhl-logo.webp"),
-      url: "https://www.dhl.com/",
+      name: 'DHL',
+      logo: getServiceImageUrl('dhl-logo.webp'),
+      url: 'https://www.dhl.com/',
     },
   ];
 

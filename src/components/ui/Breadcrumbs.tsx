@@ -1,9 +1,9 @@
-import React from "react";
-import { InternalLink } from "./InternalLink";
+import React from 'react';
+import { InternalLink } from './InternalLink';
 import ChevronRight from '~icons/lucide/chevron-right';
-import { Service } from "../../types/services";
-import { getServiceBreadcrumbs } from "../../utils/services-helpers";
-import { JsonLd } from "../JsonLd";
+import { Service } from '../../types/services';
+import { getServiceBreadcrumbs } from '../../utils/services-helpers';
+import { JsonLd } from '../JsonLd';
 
 interface BreadcrumbsProps {
   service: Service;
@@ -11,11 +11,7 @@ interface BreadcrumbsProps {
   baseLabel?: string;
 }
 
-export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
-  service,
-  baseUrl = "",
-  baseLabel,
-}) => {
+export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '', baseLabel }) => {
   const items = getServiceBreadcrumbs(service, baseUrl, baseLabel);
 
   return (
@@ -36,10 +32,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
               itemType="https://schema.org/ListItem"
             >
               {index > 0 && (
-                <ChevronRight
-                  className="w-4 h-4 mx-1 text-gray-400"
-                  aria-hidden="true"
-                />
+                <ChevronRight className="w-4 h-4 mx-1 text-gray-400" aria-hidden="true" />
               )}
 
               {index < items.length - 1 ? (
@@ -75,14 +68,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({
       {/* JSON-LD breadcrumbs */}
       <JsonLd
         schema={{
-          "@context": "https://schema.org",
-          "@type": "BreadcrumbList",
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
           itemListElement: items.map((item, index) => ({
-            "@type": "ListItem",
+            '@type': 'ListItem',
             position: index + 1,
             item: {
-              "@type": "Thing",
-              "@id": item.url,
+              '@type': 'Thing',
+              '@id': item.url,
               name: item.name,
             },
           })),

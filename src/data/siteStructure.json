@@ -11,18 +11,54 @@
       "description": "Professional packing and shipping services with FedEx, UPS, USPS, and DHL.",
       "children": [
         { "id": "fedex-shipping", "url": "/pack-ship/fedex-shipping", "title": "FedEx Shipping" },
-        { "id": "ups-shipping", "url": "/pack-ship/ups-authorized-shipper-outlet", "title": "UPS Shipping" },
+        {
+          "id": "ups-shipping",
+          "url": "/pack-ship/ups-authorized-shipper-outlet",
+          "title": "UPS Shipping"
+        },
         { "id": "usps-services", "url": "/pack-ship/usps-services", "title": "USPS Services" },
         { "id": "dhl-express", "url": "/pack-ship/dhl-express", "title": "DHL Express" },
-        { "id": "package-drop-offs", "url": "/pack-ship/package-drop-offs", "title": "Package Drop-Offs" },
-        { "id": "professional-packing", "url": "/pack-ship/professional-packing", "title": "Professional Packing" },
-        { "id": "custom-box-making", "url": "/pack-ship/custom-box-making", "title": "Custom Box Making" },
-        { "id": "packaging-supplies", "url": "/pack-ship/packaging-supplies", "title": "Packaging Supplies" },
-        { "id": "artwork-shipping", "url": "/pack-ship/artwork-shipping", "title": "Artwork Shipping" },
-        { "id": "bicycle-shipping", "url": "/pack-ship/bicycle-shipping", "title": "Bicycle Shipping" },
-        { "id": "golf-club-shipping", "url": "/pack-ship/golf-club-shipping", "title": "Golf Club Shipping" },
+        {
+          "id": "package-drop-offs",
+          "url": "/pack-ship/package-drop-offs",
+          "title": "Package Drop-Offs"
+        },
+        {
+          "id": "professional-packing",
+          "url": "/pack-ship/professional-packing",
+          "title": "Professional Packing"
+        },
+        {
+          "id": "custom-box-making",
+          "url": "/pack-ship/custom-box-making",
+          "title": "Custom Box Making"
+        },
+        {
+          "id": "packaging-supplies",
+          "url": "/pack-ship/packaging-supplies",
+          "title": "Packaging Supplies"
+        },
+        {
+          "id": "artwork-shipping",
+          "url": "/pack-ship/artwork-shipping",
+          "title": "Artwork Shipping"
+        },
+        {
+          "id": "bicycle-shipping",
+          "url": "/pack-ship/bicycle-shipping",
+          "title": "Bicycle Shipping"
+        },
+        {
+          "id": "golf-club-shipping",
+          "url": "/pack-ship/golf-club-shipping",
+          "title": "Golf Club Shipping"
+        },
         { "id": "postage-stamps", "url": "/pack-ship/postage-stamps", "title": "Postage Stamps" },
-        { "id": "package-receiving", "url": "/pack-ship/package-receiving", "title": "Package Receiving" }
+        {
+          "id": "package-receiving",
+          "url": "/pack-ship/package-receiving",
+          "title": "Package Receiving"
+        }
       ]
     },
     {
@@ -31,11 +67,27 @@
       "url": "/copy-print",
       "description": "High-quality printing, copying, and graphic design services.",
       "children": [
-        { "id": "document-printing", "url": "/copy-print/document-printing", "title": "Document Printing" },
+        {
+          "id": "document-printing",
+          "url": "/copy-print/document-printing",
+          "title": "Document Printing"
+        },
         { "id": "business-cards", "url": "/copy-print/business-cards", "title": "Business Cards" },
-        { "id": "flyers-brochures", "url": "/copy-print/flyers-brochures", "title": "Flyers & Brochures" },
-        { "id": "posters-printing", "url": "/copy-print/posters-printing", "title": "Posters Printing" },
-        { "id": "postcard-printing", "url": "/copy-print/postcard-printing", "title": "Postcard Printing" },
+        {
+          "id": "flyers-brochures",
+          "url": "/copy-print/flyers-brochures",
+          "title": "Flyers & Brochures"
+        },
+        {
+          "id": "posters-printing",
+          "url": "/copy-print/posters-printing",
+          "title": "Posters Printing"
+        },
+        {
+          "id": "postcard-printing",
+          "url": "/copy-print/postcard-printing",
+          "title": "Postcard Printing"
+        },
         { "id": "graphic-design", "url": "/copy-print/graphic-design", "title": "Graphic Design" },
         { "id": "copies", "url": "/copy-print/copies", "title": "Copies" }
       ]
@@ -46,12 +98,28 @@
       "url": "/home-business",
       "description": "Essential business services including mailbox rentals, shredding, and scanning.",
       "children": [
-        { "id": "mailbox-rental", "url": "/home-business/mailbox-rental", "title": "Mailbox Rental" },
-        { "id": "digital-mailbox-rental", "url": "/home-business/digital-mailbox-rental", "title": "Digital Mailbox Rental" },
+        {
+          "id": "mailbox-rental",
+          "url": "/home-business/mailbox-rental",
+          "title": "Mailbox Rental"
+        },
+        {
+          "id": "digital-mailbox-rental",
+          "url": "/home-business/digital-mailbox-rental",
+          "title": "Digital Mailbox Rental"
+        },
         { "id": "shredding", "url": "/home-business/shredding", "title": "Shredding Services" },
-        { "id": "document-scanning", "url": "/home-business/document-scanning", "title": "Document Scanning" },
+        {
+          "id": "document-scanning",
+          "url": "/home-business/document-scanning",
+          "title": "Document Scanning"
+        },
         { "id": "fax-services", "url": "/home-business/fax-services", "title": "Fax Services" },
-        { "id": "every-door-direct-mail", "url": "/home-business/every-door-direct-mail", "title": "Every Door Direct Mail (EDDM)" }
+        {
+          "id": "every-door-direct-mail",
+          "url": "/home-business/every-door-direct-mail",
+          "title": "Every Door Direct Mail (EDDM)"
+        }
       ]
     },
     {
@@ -60,7 +128,11 @@
       "url": "/specialty",
       "description": "Specialized services including fingerprinting and insurance.",
       "children": [
-        { "id": "digital-fingerprinting", "url": "/specialty/digital-fingerprinting", "title": "Digital Fingerprinting" },
+        {
+          "id": "digital-fingerprinting",
+          "url": "/specialty/digital-fingerprinting",
+          "title": "Digital Fingerprinting"
+        },
         { "id": "insurance", "url": "/specialty/insurance", "title": "Shipping Insurance" }
       ]
     }

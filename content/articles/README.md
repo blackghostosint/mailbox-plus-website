@@ -1,6 +1,7 @@
 # Published Articles
 
 ## Structure
+
 Articles are organized by category:
 
 ```
@@ -18,9 +19,11 @@ Articles are organized by category:
 ```
 
 ## Article Status
+
 Articles in this directory are **PROCESSED AND PUBLISHED**.
 
 ## Categories
+
 - `pack-ship/` - Packing and shipping services
 - `mailbox-rentals/` - Mailbox and virtual address services
 - `notary/` - Notary and legal services
@@ -28,12 +31,15 @@ Articles in this directory are **PROCESSED AND PUBLISHED**.
 - `printing/` - Printing and document services
 
 ## Frontmatter Requirements
+
 Every article must have:
+
 - `title`, `description`, `slug`, `category`, `intentKey`, `pubDate`
 - `image` (R2 path: articles/{category}/{slug}-featured.webp)
 - `imageAlt`
 
 ## Governance
+
 - Each `intentKey` must be unique across all articles
 - Quarterly audits follow the same process as micro-problems
 - Changes logged in `PROJECT_UPDATES.md`

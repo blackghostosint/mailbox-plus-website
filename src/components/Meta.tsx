@@ -1,7 +1,7 @@
-import React from "react";
-import { Helmet } from "react-helmet-async";
-import { useLocation } from "react-router-dom";
-import { siteConfig } from "../config/siteConfig";
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { useLocation } from 'react-router-dom';
+import { siteConfig } from '../config/siteConfig';
 
 interface MetaProps {
   title: string;
@@ -30,7 +30,7 @@ export const Meta: React.FC<MetaProps> = ({
   geoPosition,
   icbm,
   themeColor,
-  robots = "index, follow"
+  robots = 'index, follow',
 }) => {
   const location = useLocation();
   const schemas = Array.isArray(schema) ? schema : schema ? [schema] : [];
@@ -42,14 +42,12 @@ export const Meta: React.FC<MetaProps> = ({
     // Auto-generate from current location
     const pathname = location.pathname;
     // Remove trailing slash if not root
-    const cleanPath = pathname !== "/" && pathname.endsWith("/")
-      ? pathname.slice(0, -1)
-      : pathname;
+    const cleanPath = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
     finalCanonical = `${siteConfig.domain}${cleanPath}`;
   } else {
     // If relative path provided, prepend domain
-    if (finalCanonical.startsWith("/")) {
+    if (finalCanonical.startsWith('/')) {
       finalCanonical = `${siteConfig.domain}${finalCanonical}`;
     }
   }

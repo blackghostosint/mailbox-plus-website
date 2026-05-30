@@ -1,97 +1,108 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React from 'react';
+import { motion } from 'framer-motion';
 import MapPin from '~icons/lucide/map-pin';
 import Truck from '~icons/lucide/truck';
-import { Meta } from "../components/Meta";
-import { InternalLink } from "../components/ui/InternalLink";
-import { JsonLd } from "../components/JsonLd";
-import { siteConfig, defaultCTA } from "../config/siteConfig";
-import { CTASection } from "../components/sections/CTA";
+import { Meta } from '../components/Meta';
+import { InternalLink } from '../components/ui/InternalLink';
+import { JsonLd } from '../components/JsonLd';
+import { siteConfig, defaultCTA } from '../config/siteConfig';
+import { CTASection } from '../components/sections/CTA';
 import {
   getWebPageSchema,
   getServiceSchema,
   getFAQSchema,
-  getLocalBusinessSchema
-} from "../utils/schema";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "../components/ui/accordion";
-import { AutoBreadcrumbs } from "../components/ui/AutoBreadcrumbs";
-import { getServiceImageUrl } from "../lib/storage";
-import { SmartImage } from "../components/SmartImage";
+  getLocalBusinessSchema,
+} from '../utils/schema';
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from '../components/ui/accordion';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
+import { getServiceImageUrl } from '../lib/storage';
+import { SmartImage } from '../components/SmartImage';
 
 // V2 Design System: Clear Glassmorphic Styling
-const v2GlassCard = "bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_18px_45px_rgba(15,23,42,0.10)] rounded-[26px]";
+const v2GlassCard =
+  'bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_18px_45px_rgba(15,23,42,0.10)] rounded-[26px]';
 
 const pickupHours = [
   {
-    carrier: "USPS Pickup",
+    carrier: 'USPS Pickup',
     times: [
-      { day: "Monday – Friday", time: "2:30 PM" },
-      { day: "Saturday", time: "12:00 PM (Noon)" },
-      { day: "Sunday", time: "No pickup" },
+      { day: 'Monday – Friday', time: '2:30 PM' },
+      { day: 'Saturday', time: '12:00 PM (Noon)' },
+      { day: 'Sunday', time: 'No pickup' },
     ],
-    details: "Accepts stamped mail, prepaid labels, Priority Mail, and returns.",
-    accentColor: "bg-[#0B4BB6]", // Brand Primary
-    iconColor: "text-[#0B4BB6]",
-    bgTint: "bg-blue-50/40",
+    details: 'Accepts stamped mail, prepaid labels, Priority Mail, and returns.',
+    accentColor: 'bg-[#0B4BB6]', // Brand Primary
+    iconColor: 'text-[#0B4BB6]',
+    bgTint: 'bg-blue-50/40',
   },
   {
-    carrier: "UPS Pickup",
+    carrier: 'UPS Pickup',
     times: [
-      { day: "Monday – Friday", time: "4:00 PM" },
-      { day: "Saturday", time: "No pickup" },
-      { day: "Sunday", time: "No pickup" },
+      { day: 'Monday – Friday', time: '4:00 PM' },
+      { day: 'Saturday', time: 'No pickup' },
+      { day: 'Sunday', time: 'No pickup' },
     ],
-    details: "Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.",
-    accentColor: "bg-[#1A6DFF]", // Brand Light
-    iconColor: "text-[#1A6DFF]",
-    bgTint: "bg-blue-50/30",
+    details: 'Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.',
+    accentColor: 'bg-[#1A6DFF]', // Brand Light
+    iconColor: 'text-[#1A6DFF]',
+    bgTint: 'bg-blue-50/30',
   },
   {
-    carrier: "FedEx Express",
+    carrier: 'FedEx Express',
     times: [
-      { day: "Monday – Friday", time: "5:00 PM" },
-      { day: "Saturday", time: "12:00 PM (Noon)" },
-      { day: "Sunday", time: "No pickup" },
+      { day: 'Monday – Friday', time: '5:00 PM' },
+      { day: 'Saturday', time: '12:00 PM (Noon)' },
+      { day: 'Sunday', time: 'No pickup' },
     ],
-    details: "For overnight, 2-day, and express saver shipments. Separate from Ground.",
-    accentColor: "bg-[#021B4A]", // Brand Dark
-    iconColor: "text-[#021B4A]",
-    bgTint: "bg-slate-50/50",
+    details: 'For overnight, 2-day, and express saver shipments. Separate from Ground.',
+    accentColor: 'bg-[#021B4A]', // Brand Dark
+    iconColor: 'text-[#021B4A]',
+    bgTint: 'bg-slate-50/50',
   },
   {
-    carrier: "FedEx Ground",
+    carrier: 'FedEx Ground',
     times: [
-      { day: "Monday – Friday", time: "4:00 PM" },
-      { day: "Saturday", time: "No pickup" },
-      { day: "Sunday", time: "No pickup" },
+      { day: 'Monday – Friday', time: '4:00 PM' },
+      { day: 'Saturday', time: 'No pickup' },
+      { day: 'Sunday', time: 'No pickup' },
     ],
-    details: "Standard ground shipping and Home Delivery packages.",
-    accentColor: "bg-sky-500", // Sky Blue
-    iconColor: "text-sky-600",
-    bgTint: "bg-sky-50/30",
+    details: 'Standard ground shipping and Home Delivery packages.',
+    accentColor: 'bg-sky-500', // Sky Blue
+    iconColor: 'text-sky-600',
+    bgTint: 'bg-sky-50/30',
   },
 ];
 
 const faqs = [
   {
-    question: "What time do I need to drop off my package for same-day shipping?",
-    answer: "To ensure your package goes out the same day, please drop it off at least 15 minutes before the posted pickup time. For USPS, the cutoff is 2:15 PM Mon-Fri. For UPS, it's 3:45 PM. For FedEx, please arrive by 4:45 PM.",
+    question: 'What time do I need to drop off my package for same-day shipping?',
+    answer:
+      "To ensure your package goes out the same day, please drop it off at least 15 minutes before the posted pickup time. For USPS, the cutoff is 2:15 PM Mon-Fri. For UPS, it's 3:45 PM. For FedEx, please arrive by 4:45 PM.",
   },
   {
-    question: "Do you accept QR codes for Amazon returns?",
-    answer: "No, we cannot process QR codes that require the 'The UPS Store' specifically. We accept pre-printed labels or can help you print a label if you have the PDF file.",
+    question: 'Do you accept QR codes for Amazon returns?',
+    answer:
+      "No, we cannot process QR codes that require the 'The UPS Store' specifically. We accept pre-printed labels or can help you print a label if you have the PDF file.",
   },
   {
-    question: "Is there a pickup on Saturday?",
-    answer: "Yes! USPS picks up at 12:00 PM (Noon) and FedEx Express picks up at 12:00 PM (Noon) on Saturdays. UPS and FedEx Ground do not have regular Saturday pickups.",
+    question: 'Is there a pickup on Saturday?',
+    answer:
+      'Yes! USPS picks up at 12:00 PM (Noon) and FedEx Express picks up at 12:00 PM (Noon) on Saturdays. UPS and FedEx Ground do not have regular Saturday pickups.',
   },
   {
-    question: "Can I drop off a package after the pickup time?",
-    answer: "Absolutely. You can drop off packages anytime during our store hours. If you miss the daily pickup, your package will be securely stored and sent out with the next business day's pickup.",
+    question: 'Can I drop off a package after the pickup time?',
+    answer:
+      "Absolutely. You can drop off packages anytime during our store hours. If you miss the daily pickup, your package will be securely stored and sent out with the next business day's pickup.",
   },
   {
-    question: "Do you pick up packages from my house?",
-    answer: "We are a retail drop-off location and do not offer residential pickup services. You must bring your packages to our store at 7554 Fredle Drive, Concord Township.",
+    question: 'Do you pick up packages from my house?',
+    answer:
+      'We are a retail drop-off location and do not offer residential pickup services. You must bring your packages to our store at 7554 Fredle Drive, Concord Township.',
   },
 ];
 
@@ -100,12 +111,13 @@ const reveal = {
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" as const }
+  transition: { duration: 0.55, ease: 'easeOut' as const },
 };
 
 const PickupHours: React.FC = () => {
-  const pageTitle = "Carrier Pickup Hours | UPS, FedEx, USPS | Mailbox Plus";
-  const metaDescription = "Check daily pickup times for UPS, FedEx, and USPS at Mailbox Plus in Concord Township. Miss the truck? We'll secure your package for the next day.";
+  const pageTitle = 'Carrier Pickup Hours | UPS, FedEx, USPS | Mailbox Plus';
+  const metaDescription =
+    "Check daily pickup times for UPS, FedEx, and USPS at Mailbox Plus in Concord Township. Miss the truck? We'll secure your package for the next day.";
   const url = `${siteConfig.domain}/pickup-hours`;
 
   return (
@@ -118,8 +130,16 @@ const PickupHours: React.FC = () => {
       />
 
       <JsonLd schema={getLocalBusinessSchema(siteConfig)} />
-      <JsonLd schema={getWebPageSchema(siteConfig, { name: pageTitle, description: metaDescription, url })} />
-      <JsonLd schema={getServiceSchema(siteConfig, { serviceName: "Carrier Pickup Services", url })} />
+      <JsonLd
+        schema={getWebPageSchema(siteConfig, {
+          name: pageTitle,
+          description: metaDescription,
+          url,
+        })}
+      />
+      <JsonLd
+        schema={getServiceSchema(siteConfig, { serviceName: 'Carrier Pickup Services', url })}
+      />
       <JsonLd schema={getFAQSchema(siteConfig, faqs)} />
 
       {/* Hero Section - V2 Gradient */}
@@ -132,7 +152,7 @@ const PickupHours: React.FC = () => {
         >
           <SmartImage
             priority
-            src={getServiceImageUrl("package-drop-offs.jpg")}
+            src={getServiceImageUrl('package-drop-offs.jpg')}
             alt="Packages ready for pickup"
             className="w-full h-full object-cover mix-blend-overlay"
           />
@@ -168,14 +188,26 @@ const PickupHours: React.FC = () => {
 
         {/* Intro Text in Glass Card */}
         <div className="max-w-3xl mx-auto mb-16">
-          <motion.div
-            {...reveal}
-            className={`${v2GlassCard} p-8 md:p-10 text-center`}
-          >
+          <motion.div {...reveal} className={`${v2GlassCard} p-8 md:p-10 text-center`}>
             <p className="text-lg text-slate-600 leading-relaxed">
               Knowing the exact pickup times ensures your important shipments go out the same day.
-              We are an authorized ship center for <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">UPS</InternalLink>, <InternalLink variant="geo" to="/pack-ship/fedex-shipping">FedEx</InternalLink>, and <InternalLink variant="geo" to="/pack-ship/usps-services">USPS</InternalLink>.
-              Residents of <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>, Mentor, and Painesville rely on us for timely processing.
+              We are an authorized ship center for{' '}
+              <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">
+                UPS
+              </InternalLink>
+              ,{' '}
+              <InternalLink variant="geo" to="/pack-ship/fedex-shipping">
+                FedEx
+              </InternalLink>
+              , and{' '}
+              <InternalLink variant="geo" to="/pack-ship/usps-services">
+                USPS
+              </InternalLink>
+              . Residents of{' '}
+              <InternalLink variant="geo" to="/shipping-center-concord-township">
+                Concord Township
+              </InternalLink>
+              , Mentor, and Painesville rely on us for timely processing.
             </p>
           </motion.div>
         </div>
@@ -193,7 +225,9 @@ const PickupHours: React.FC = () => {
               className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
             >
               {/* Decorative accent bar */}
-              <div className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}></div>
+              <div
+                className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}
+              ></div>
 
               <div className="flex items-center gap-4 mb-6 relative z-10">
                 <div className={`p-3 rounded-xl bg-white/80 shadow-sm ${item.iconColor}`}>
@@ -204,7 +238,10 @@ const PickupHours: React.FC = () => {
 
               <ul className="space-y-4 mb-8 relative z-10">
                 {item.times.map((t) => (
-                  <li key={t.day} className="flex justify-between items-center text-slate-700 border-b border-slate-200/60 pb-2 last:border-0">
+                  <li
+                    key={t.day}
+                    className="flex justify-between items-center text-slate-700 border-b border-slate-200/60 pb-2 last:border-0"
+                  >
                     <span className="font-medium">{t.day}</span>
                     <span className="font-bold text-slate-900 text-lg">{t.time}</span>
                   </li>
@@ -232,22 +269,40 @@ const PickupHours: React.FC = () => {
               <div className="p-3 bg-blue-100 rounded-xl">
                 <MapPin className="w-6 h-6 text-[#0855B1]" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">Serving Lake County & Surrounding Areas</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mt-1">
+                Serving Lake County & Surrounding Areas
+              </h3>
             </div>
             <p className="text-slate-700 leading-relaxed mb-6 pl-[4.5rem]">
-              Whether you are coming from <InternalLink variant="geo" to="/pack-ship">Mentor</InternalLink>, <InternalLink variant="geo" to="/pack-ship">Painesville</InternalLink>, or right here in <InternalLink variant="geo" to="/shipping-center-concord-township">Concord Township</InternalLink>,
-              Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the post office or the remote drop boxes that may not be secure.
+              Whether you are coming from{' '}
+              <InternalLink variant="geo" to="/pack-ship">
+                Mentor
+              </InternalLink>
+              ,{' '}
+              <InternalLink variant="geo" to="/pack-ship">
+                Painesville
+              </InternalLink>
+              , or right here in{' '}
+              <InternalLink variant="geo" to="/shipping-center-concord-township">
+                Concord Township
+              </InternalLink>
+              , Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the
+              post office or the remote drop boxes that may not be secure.
             </p>
             <p className="text-slate-700 leading-relaxed pl-[4.5rem]">
-              We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid labels, and can help you pack your items if they aren&apos;t ready to ship.
-              Visit our <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a secure place to receive packages instead of sending them!
+              We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid
+              labels, and can help you pack your items if they aren&apos;t ready to ship. Visit our{' '}
+              <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a
+              secure place to receive packages instead of sending them!
             </p>
           </div>
         </motion.section>
 
         {/* FAQs */}
         <section className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center text-slate-900 mb-10">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-center text-slate-900 mb-10">
+            Frequently Asked Questions
+          </h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
             {faqs.map((faq, i) => (
               <AccordionItem

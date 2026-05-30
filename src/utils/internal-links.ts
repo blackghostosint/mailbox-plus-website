@@ -11,11 +11,11 @@ export const getInternalLink = (serviceId: string) => {
   // Find the service in the site structure
   for (const pillar of siteStructure.pillars) {
     if (pillar.id === serviceId) return pillar;
-    const child = pillar.children.find(c => c.id === serviceId);
+    const child = pillar.children.find((c) => c.id === serviceId);
     if (child) return child;
   }
   // Check sub-supporting
-  const sub = siteStructure.subSupporting.find(s => s.id === serviceId);
+  const sub = siteStructure.subSupporting.find((s) => s.id === serviceId);
   if (sub) return sub;
 
   return null;
@@ -47,13 +47,13 @@ export const getParentPillar = (serviceId: ServiceId) => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const linkData = (internalLinks as any)[serviceId];
   if (!linkData || !linkData.parent) return null;
-  return siteStructure.pillars.find(p => p.id === linkData.parent);
+  return siteStructure.pillars.find((p) => p.id === linkData.parent);
 };
 
 export const getLocalPriorityServices = (citySlug: string) => {
-  const city = serviceAreas.find(c => c.slug === citySlug);
+  const city = serviceAreas.find((c) => c.slug === citySlug);
   if (!city || !city.priorityServices) return [];
-  return city.priorityServices.map(id => services.find(s => s.id === id)).filter(Boolean);
+  return city.priorityServices.map((id) => services.find((s) => s.id === id)).filter(Boolean);
 };
 
 export const getBreadcrumbs = (pathname: string) => {
@@ -62,33 +62,33 @@ export const getBreadcrumbs = (pathname: string) => {
   if (path === '') return [];
 
   // Check Pillars
-  const pillar = siteStructure.pillars.find(p => p.url === path);
+  const pillar = siteStructure.pillars.find((p) => p.url === path);
   if (pillar) {
     return [
       { label: 'Home', url: '/' },
-      { label: pillar.title, url: pillar.url, active: true }
+      { label: pillar.title, url: pillar.url, active: true },
     ];
   }
 
   // Check Children
   for (const p of siteStructure.pillars) {
-    const child = p.children.find(c => c.url === path);
+    const child = p.children.find((c) => c.url === path);
     if (child) {
       return [
         { label: 'Home', url: '/' },
         { label: p.title, url: p.url },
-        { label: child.title, url: child.url, active: true }
+        { label: child.title, url: child.url, active: true },
       ];
     }
   }
 
   // Check Local Pages
-  const local = serviceAreas.find(l => l.canonicalUrl === path);
+  const local = serviceAreas.find((l) => l.canonicalUrl === path);
   if (local) {
     return [
       { label: 'Home', url: '/' },
       { label: 'Service Areas', url: '/service-area' },
-      { label: local.city, url: local.canonicalUrl, active: true }
+      { label: local.city, url: local.canonicalUrl, active: true },
     ];
   }
 
@@ -99,13 +99,13 @@ export const getBreadcrumbs = (pathname: string) => {
     '/printing-services-concord-township': 'Printing Services',
     '/office-depot-alternative-concord-township': 'Office Depot Alternative',
     '/mail-forwarding-concord-township': 'Mail Forwarding',
-    '/document-services-concord-township': 'Document Services'
+    '/document-services-concord-township': 'Document Services',
   };
 
   if (landingPages[path]) {
     return [
       { label: 'Home', url: '/' },
-      { label: landingPages[path], url: path, active: true }
+      { label: landingPages[path], url: path, active: true },
     ];
   }
 

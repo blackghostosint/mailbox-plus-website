@@ -14,19 +14,19 @@ interface SearchResult {
 }
 
 // Transform services into search data
-const serviceResults: SearchResult[] = services.map(service => ({
+const serviceResults: SearchResult[] = services.map((service) => ({
   title: service.serviceName,
   description: service.heroSubtitle || service.metaDescription, // Use subtitle or meta description
   href: service.slug || service.id || '#',
-  category: service.category.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase()) // Format category name
+  category: service.category.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase()), // Format category name
 }));
 
 // Transform local pages into search data
-const locationResults: SearchResult[] = serviceAreas.map(page => ({
+const locationResults: SearchResult[] = serviceAreas.map((page) => ({
   title: `Shipping & Printing in ${page.city}`,
   description: `Local services for ${page.city}, Ohio`,
   href: page.canonicalUrl || page.slug || '#',
-  category: 'Locations'
+  category: 'Locations',
 }));
 
 const generalResults: SearchResult[] = [
@@ -34,26 +34,26 @@ const generalResults: SearchResult[] = [
     title: 'Track a Package',
     description: 'Track your FedEx, UPS, USPS, or DHL shipment',
     href: '/tracking',
-    category: 'Tools'
+    category: 'Tools',
   },
   {
     title: 'About Us',
     description: 'Learn more about Mailbox Plus and our team',
     href: '/about-us',
-    category: 'Company'
+    category: 'Company',
   },
   {
     title: 'Contact Us',
     description: 'Get in touch with us or find our location',
     href: '/contact-us',
-    category: 'Company'
+    category: 'Company',
   },
   {
     title: 'Shipping Partners',
     description: 'View our carrier partners and shipping options',
     href: '/shipping-partners',
-    category: 'Company'
-  }
+    category: 'Company',
+  },
 ];
 
 const searchData: SearchResult[] = [...serviceResults, ...locationResults, ...generalResults];
@@ -82,11 +82,14 @@ export const SearchBox: React.FC = () => {
       return;
     }
 
-    const filteredResults = searchData.filter(item =>
-      item.title.toLowerCase().includes(query.toLowerCase()) ||
-      item.description.toLowerCase().includes(query.toLowerCase()) ||
-      item.category.toLowerCase().includes(query.toLowerCase())
-    ).slice(0, 8); // Limit to 8 results
+    const filteredResults = searchData
+      .filter(
+        (item) =>
+          item.title.toLowerCase().includes(query.toLowerCase()) ||
+          item.description.toLowerCase().includes(query.toLowerCase()) ||
+          item.category.toLowerCase().includes(query.toLowerCase())
+      )
+      .slice(0, 8); // Limit to 8 results
 
     setResults(filteredResults);
   }, [query]);
@@ -118,10 +121,11 @@ export const SearchBox: React.FC = () => {
           aria-expanded={isOpen}
           aria-haspopup="dialog"
           aria-controls="search-results"
-          className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${isOpen
-            ? 'border-[#0855B1] bg-white shadow-lg w-80'
-            : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
-            }`}
+          className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${
+            isOpen
+              ? 'border-[#0855B1] bg-white shadow-lg w-80'
+              : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
+          }`}
         >
           <span className="sr-only">
             {isOpen ? 'Focus the service search input' : 'Open service search'}

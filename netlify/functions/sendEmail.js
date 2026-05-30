@@ -12,8 +12,8 @@ export const handler = async (event) => {
       text: `
 Name: ${data.name}
 Email: ${data.email}
-Phone: ${data.phone || "N/A"}
-Service: ${data.service || "N/A"}
+Phone: ${data.phone || 'N/A'}
+Service: ${data.service || 'N/A'}
 Message:
 ${data.message}
       `,
@@ -24,10 +24,10 @@ ${data.message}
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error("Resend sendEmail error:", error);
+    console.error('Resend sendEmail error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send message" }),
+      body: JSON.stringify({ error: 'Failed to send message' }),
     };
   }
 };

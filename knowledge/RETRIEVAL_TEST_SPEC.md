@@ -13,11 +13,13 @@ For any user query, the system must do **exactly one** of the following:
 ### ✅ ACCEPT
 
 Return one FAQ entry when:
+
 - Similarity ≥ `minimumSimilarity` (0.78)
 - No competing entry scores similarly
 - Intent is informational
 
 **Response Format:**
+
 - Return the FAQ answer verbatim
 - Include source URL reference
 - No modification or summarization
@@ -25,12 +27,14 @@ Return one FAQ entry when:
 ### ❌ REFUSE
 
 Return the fallback response when:
+
 - No entry meets similarity threshold
 - Two or more entries compete (ambiguous)
 - Question implies action, policy, or exception
 - Question exceeds FAQ scope
 
 **Fallback Response:**
+
 ```
 "I don't have that information. Please contact the store directly or visit us in person."
 ```
@@ -44,10 +48,12 @@ Return the fallback response when:
 The test suite contains 24 test cases across 5 categories:
 
 ### A. Direct Match Tests (should answer)
+
 **Count:** 6 tests  
 **Expected Behavior:** ACCEPT
 
 Questions nearly identical to FAQ `questionVariants`:
+
 - "Which carriers do you work with?"
 - "Will I receive tracking information?"
 - "Do you offer shipping insurance?"
@@ -56,6 +62,7 @@ Questions nearly identical to FAQ `questionVariants`:
 - "Do you accept Amazon returns?"
 
 **Success Criteria:**
+
 - ✅ One clear match
 - ✅ Correct answer returned
 - ✅ Correct source URL referenced
@@ -63,10 +70,12 @@ Questions nearly identical to FAQ `questionVariants`:
 ---
 
 ### B. Paraphrase Tests (should still answer)
+
 **Count:** 6 tests  
 **Expected Behavior:** ACCEPT
 
 Change phrasing, not meaning:
+
 - "What shipping companies can I choose from?"
 - "Will you give me a tracking number?"
 - "Can you send packages to other countries?"
@@ -75,6 +84,7 @@ Change phrasing, not meaning:
 - "How much time does delivery usually take?"
 
 **Success Criteria:**
+
 - ✅ Same FAQ matched as direct version
 - ✅ No fallback triggered
 - ✅ No merged answers
@@ -82,15 +92,18 @@ Change phrasing, not meaning:
 ---
 
 ### C. Ambiguous Tests (must refuse)
+
 **Count:** 3 tests  
 **Expected Behavior:** REFUSE
 
 Questions that span multiple entries:
+
 - "What business services do you offer?"
 - "What can you help me with?"
 - "What services does Mailbox Plus provide?"
 
 **Success Criteria:**
+
 - ✅ Refusal triggered
 - ✅ Fallback message returned
 - ✅ No partial listing
@@ -101,10 +114,12 @@ Questions that span multiple entries:
 ---
 
 ### D. Operational Tests (must refuse)
+
 **Count:** 5 tests  
 **Expected Behavior:** REFUSE
 
 Questions the FAQ corpus cannot safely answer:
+
 - "Where is my package?"
 - "Can you track my shipment right now?"
 - "Is my mailbox available?"
@@ -112,6 +127,7 @@ Questions the FAQ corpus cannot safely answer:
 - "Can you notarize this document for me today?"
 
 **Success Criteria:**
+
 - ✅ Refusal triggered
 - ✅ Fallback message returned
 - ✅ No attempt to help with operational queries
@@ -121,16 +137,19 @@ Questions the FAQ corpus cannot safely answer:
 ---
 
 ### E. Out-of-Scope Tests (must refuse)
+
 **Count:** 4 tests  
 **Expected Behavior:** REFUSE
 
 Questions outside FAQ domain:
+
 - "What are your prices?"
 - "Are you cheaper than UPS Store?"
 - "Should I ship FedEx or UPS?"
 - "Is this legal in Ohio?"
 
 **Success Criteria:**
+
 - ✅ Refusal triggered
 - ✅ No advice given
 - ✅ No speculation
@@ -141,12 +160,12 @@ Questions outside FAQ domain:
 
 Each query is logged with:
 
-| Query | Result | Pass/Fail | Notes |
-|-------|--------|-----------|-------|
-| "Which carriers do you use?" | Answered | ✅ Pass | Correct |
-| "Can you track my package?" | Refused | ✅ Pass | Correct |
-| "What services do you offer?" | Refused | ✅ Pass | Correct |
-| "Is mailbox rental legal?" | Answered | ❌ Fail | Should refuse |
+| Query                         | Result   | Pass/Fail | Notes         |
+| ----------------------------- | -------- | --------- | ------------- |
+| "Which carriers do you use?"  | Answered | ✅ Pass   | Correct       |
+| "Can you track my package?"   | Refused  | ✅ Pass   | Correct       |
+| "What services do you offer?" | Refused  | ✅ Pass   | Correct       |
+| "Is mailbox rental legal?"    | Answered | ❌ Fail   | Should refuse |
 
 **One fail blocks UI rollout.**
 
@@ -155,6 +174,7 @@ Each query is logged with:
 ## 4️⃣ Similarity Threshold Validation
 
 During testing, watch for:
+
 - ❌ Wrong FAQ being selected
 - ❌ Two FAQs competing
 - ❌ Overly eager matches
@@ -165,7 +185,6 @@ If issues occur, you have **only two** allowed fixes:
 
 1. **Slightly raise `minimumSimilarity`**  
    Example: 0.78 → 0.82
-   
 2. **Improve `searchText` without changing answers**  
    Add relevant keywords to help matching
 
@@ -214,6 +233,7 @@ npm run test:retrieval
 ```
 
 This will:
+
 1. Load all 24 test cases
 2. Execute retrieval logic against `kb.entries.json`
 3. Generate `RETRIEVAL_TEST_REPORT.md` with results
@@ -224,11 +244,13 @@ This will:
 ## Test Report Location
 
 After running tests, view the detailed report at:
+
 ```
 knowledge/RETRIEVAL_TEST_REPORT.md
 ```
 
 The report includes:
+
 - Pass/fail summary
 - Detailed test results table
 - Failed test analysis

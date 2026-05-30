@@ -1,108 +1,149 @@
-import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Layout } from "./components/layout/Layout";
-import ScrollToTop from "./components/ScrollToTop";
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Layout } from './components/layout/Layout';
+import ScrollToTop from './components/ScrollToTop';
 // Lazy load MailbotPlusChat to reduce main bundle size
-const MailbotPlusChat = React.lazy(() => import("./components/MailbotPlusChat").then(module => ({ default: module.MailbotPlusChat })));
-import { siteConfig } from "./config/siteConfig";
-import { submitChatQuestion } from "./services/chatbot";
+const MailbotPlusChat = React.lazy(() =>
+  import('./components/MailbotPlusChat').then((module) => ({ default: module.MailbotPlusChat }))
+);
+import { siteConfig } from './config/siteConfig';
+import { submitChatQuestion } from './services/chatbot';
 
 // Helper for lazy loading named exports
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const lazyLoad = (importFunc: () => Promise<any>, componentName: string) => {
-  return React.lazy(() =>
-    importFunc().then((module) => ({ default: module[componentName] }))
-  );
+  return React.lazy(() => importFunc().then((module) => ({ default: module[componentName] })));
 };
 
 // Core
-const Home = lazyLoad(() => import("./pages/Home"), "Home");
-const PackShip = lazyLoad(() => import("./pages/PackShip"), "PackShip");
+const Home = lazyLoad(() => import('./pages/Home'), 'Home');
+const PackShip = lazyLoad(() => import('./pages/PackShip'), 'PackShip');
 
 // Pack & Ship
-const ArtworkShipping = lazyLoad(() => import("./pages/ArtworkShipping"), "ArtworkShipping");
-const BicycleShipping = lazyLoad(() => import("./pages/BicycleShipping"), "BicycleShipping");
-const GolfClubShipping = lazyLoad(() => import("./pages/GolfClubShipping"), "GolfClubShipping");
-const FedExShipping = lazyLoad(() => import("./pages/FedExShipping"), "FedExShipping");
-const FedExEasyReturns = lazyLoad(() => import("./pages/fedex-easy-returns"), "FedExEasyReturns");
-const NuulyReturns = lazyLoad(() => import("./pages/NuulyReturns"), "NuulyReturns");
-const AmazonReturnGuide = lazyLoad(() => import("./pages/AmazonReturnGuide"), "AmazonReturnGuide");
-const UPSAuthorizedShipperOutlet = lazyLoad(() => import("./pages/UPSAuthorizedShipperOutlet"), "UPSAuthorizedShipperOutlet");
-const USPSServices = lazyLoad(() => import("./pages/USPSServices"), "USPSServices");
-const DHLExpress = lazyLoad(() => import("./pages/DHLExpress"), "DHLExpress");
-const PackageDropOffs = lazyLoad(() => import("./pages/PackageDropOffs"), "PackageDropOffs");
-const PackageReceiving = lazyLoad(() => import("./pages/PackageReceiving"), "PackageReceiving");
-const CustomBoxMaking = lazyLoad(() => import("./pages/CustomBoxMaking"), "CustomBoxMaking");
-const ProfessionalPacking = lazyLoad(() => import("./pages/ProfessionalPacking"), "ProfessionalPacking");
-const PackagingSupplies = lazyLoad(() => import("./pages/PackagingSupplies"), "PackagingSupplies");
-const PostageStamps = lazyLoad(() => import("./pages/PostageStamps"), "PostageStamps");
+const ArtworkShipping = lazyLoad(() => import('./pages/ArtworkShipping'), 'ArtworkShipping');
+const BicycleShipping = lazyLoad(() => import('./pages/BicycleShipping'), 'BicycleShipping');
+const GolfClubShipping = lazyLoad(() => import('./pages/GolfClubShipping'), 'GolfClubShipping');
+const FedExShipping = lazyLoad(() => import('./pages/FedExShipping'), 'FedExShipping');
+const FedExEasyReturns = lazyLoad(() => import('./pages/fedex-easy-returns'), 'FedExEasyReturns');
+const NuulyReturns = lazyLoad(() => import('./pages/NuulyReturns'), 'NuulyReturns');
+const AmazonReturnGuide = lazyLoad(() => import('./pages/AmazonReturnGuide'), 'AmazonReturnGuide');
+const UPSAuthorizedShipperOutlet = lazyLoad(
+  () => import('./pages/UPSAuthorizedShipperOutlet'),
+  'UPSAuthorizedShipperOutlet'
+);
+const USPSServices = lazyLoad(() => import('./pages/USPSServices'), 'USPSServices');
+const DHLExpress = lazyLoad(() => import('./pages/DHLExpress'), 'DHLExpress');
+const PackageDropOffs = lazyLoad(() => import('./pages/PackageDropOffs'), 'PackageDropOffs');
+const PackageReceiving = lazyLoad(() => import('./pages/PackageReceiving'), 'PackageReceiving');
+const CustomBoxMaking = lazyLoad(() => import('./pages/CustomBoxMaking'), 'CustomBoxMaking');
+const ProfessionalPacking = lazyLoad(
+  () => import('./pages/ProfessionalPacking'),
+  'ProfessionalPacking'
+);
+const PackagingSupplies = lazyLoad(() => import('./pages/PackagingSupplies'), 'PackagingSupplies');
+const PostageStamps = lazyLoad(() => import('./pages/PostageStamps'), 'PostageStamps');
 
 // Copy & Print
-const BusinessCardsPage = lazyLoad(() => import("./pages/BusinessCardsPage"), "BusinessCardsPage");
-const FlyersBrochures = lazyLoad(() => import("./pages/FlyersBrochures"), "FlyersBrochures");
-const PostersPrinting = lazyLoad(() => import("./pages/PostersPrinting"), "PostersPrinting");
-const PostcardPrinting = lazyLoad(() => import("./pages/PostcardPrinting"), "PostcardPrinting");
-const DocumentPrinting = lazyLoad(() => import("./pages/DocumentPrinting"), "DocumentPrinting");
-const GraphicDesign = lazyLoad(() => import("./pages/GraphicDesign"), "GraphicDesign");
-const Copies = lazyLoad(() => import("./pages/Copies"), "Copies");
+const BusinessCardsPage = lazyLoad(() => import('./pages/BusinessCardsPage'), 'BusinessCardsPage');
+const FlyersBrochures = lazyLoad(() => import('./pages/FlyersBrochures'), 'FlyersBrochures');
+const PostersPrinting = lazyLoad(() => import('./pages/PostersPrinting'), 'PostersPrinting');
+const PostcardPrinting = lazyLoad(() => import('./pages/PostcardPrinting'), 'PostcardPrinting');
+const DocumentPrinting = lazyLoad(() => import('./pages/DocumentPrinting'), 'DocumentPrinting');
+const GraphicDesign = lazyLoad(() => import('./pages/GraphicDesign'), 'GraphicDesign');
+const Copies = lazyLoad(() => import('./pages/Copies'), 'Copies');
 
 // Home & Business
-const MailboxRentalPage = lazyLoad(() => import("./pages/MailboxRentalPage"), "MailboxRentalPage");
-const DigitalMailboxRental = lazyLoad(() => import("./pages/DigitalMailboxRental"), "DigitalMailboxRental");
-const EveryDoorDirectMail = lazyLoad(() => import("./pages/EveryDoorDirectMail"), "EveryDoorDirectMail");
-const Shredding = lazyLoad(() => import("./pages/Shredding"), "Shredding");
-const DocumentScanning = lazyLoad(() => import("./pages/DocumentScanning"), "DocumentScanning");
-const FaxServices = lazyLoad(() => import("./pages/FaxServices"), "FaxServices");
-const NotaryServices = lazyLoad(() => import("./pages/NotaryServices"), "NotaryServices");
+const MailboxRentalPage = lazyLoad(() => import('./pages/MailboxRentalPage'), 'MailboxRentalPage');
+const DigitalMailboxRental = lazyLoad(
+  () => import('./pages/DigitalMailboxRental'),
+  'DigitalMailboxRental'
+);
+const EveryDoorDirectMail = lazyLoad(
+  () => import('./pages/EveryDoorDirectMail'),
+  'EveryDoorDirectMail'
+);
+const Shredding = lazyLoad(() => import('./pages/Shredding'), 'Shredding');
+const DocumentScanning = lazyLoad(() => import('./pages/DocumentScanning'), 'DocumentScanning');
+const FaxServices = lazyLoad(() => import('./pages/FaxServices'), 'FaxServices');
+const NotaryServices = lazyLoad(() => import('./pages/NotaryServices'), 'NotaryServices');
 
 // Specialty
-const DigitalFingerprinting = lazyLoad(() => import("./pages/DigitalFingerprinting"), "DigitalFingerprinting");
-const Insurance = lazyLoad(() => import("./pages/Insurance"), "Insurance");
+const DigitalFingerprinting = lazyLoad(
+  () => import('./pages/DigitalFingerprinting'),
+  'DigitalFingerprinting'
+);
+const Insurance = lazyLoad(() => import('./pages/Insurance'), 'Insurance');
 
 // Service Landing Pages
-const CopyPrint = lazyLoad(() => import("./pages/CopyPrint"), "CopyPrint");
-const HomeBusiness = lazyLoad(() => import("./pages/HomeBusiness"), "HomeBusiness");
+const CopyPrint = lazyLoad(() => import('./pages/CopyPrint'), 'CopyPrint');
+const HomeBusiness = lazyLoad(() => import('./pages/HomeBusiness'), 'HomeBusiness');
 
 // SEO Landing Pages
 // Note: Default exports can be lazy loaded directly if needed, but using the helper for consistency if they are named exports or default
-const UPSStoreAlternativePage = React.lazy(() => import("./pages/ups-store-alternative-concord-township"));
-const MailBoxesEtcAlternativePage = React.lazy(() => import("./pages/mail-boxes-etc-alternative-concord-township"));
-const FedExOfficeAlternativePage = React.lazy(() => import("./pages/fedex-office-alternative-concord-township"));
-const StaplesAlternativePage = React.lazy(() => import("./pages/staples-printing-alternative-concord-township"));
-const OfficeDepotAlternativePage = React.lazy(() => import("./pages/office-depot-alternative-concord-township"));
-const USPSDropOffAlternativePage = React.lazy(() => import("./pages/usps-drop-off-alternative-concord-township"));
-const PostOfficeAlternativePage = React.lazy(() => import("./pages/post-office-alternative-concord-township"));
-const USPSPackageHelpPage = React.lazy(() => import("./pages/usps-package-help-concord-township"));
-const ShippingCenterPage = React.lazy(() => import("./pages/shipping-center-concord-township"));
-const PackAndShipServicesPage = React.lazy(() => import("./pages/pack-and-ship-services-concord-township"));
-const MultiCarrierShippingPage = React.lazy(() => import("./pages/ups-fedex-usps-dhl-shipping-concord-township"));
-const SmallBusinessShippingPage = React.lazy(() => import("./pages/small-business-shipping-concord-township"));
-const AmazonReturnsPage = React.lazy(() => import("./pages/amazon-returns-drop-off-concord-township"));
-const UPSDropOffAlternativePage = React.lazy(() => import("./pages/ups-drop-off-alternative-concord-township"));
-const PrintingServicesPage = React.lazy(() => import("./pages/printing-services-concord-township"));
-const BusinessServicesPage = React.lazy(() => import("./pages/business-services-concord-township"));
-const DocumentServicesPage = React.lazy(() => import("./pages/document-services-concord-township"));
-const PrivateMailboxRentalPage = React.lazy(() => import("./pages/private-mailbox-rental-concord-township"));
-const VirtualMailboxPage = React.lazy(() => import("./pages/virtual-mailbox-concord-township"));
-const MailForwardingPage = React.lazy(() => import("./pages/mail-forwarding-concord-township"));
+const UPSStoreAlternativePage = React.lazy(
+  () => import('./pages/ups-store-alternative-concord-township')
+);
+const MailBoxesEtcAlternativePage = React.lazy(
+  () => import('./pages/mail-boxes-etc-alternative-concord-township')
+);
+const FedExOfficeAlternativePage = React.lazy(
+  () => import('./pages/fedex-office-alternative-concord-township')
+);
+const StaplesAlternativePage = React.lazy(
+  () => import('./pages/staples-printing-alternative-concord-township')
+);
+const OfficeDepotAlternativePage = React.lazy(
+  () => import('./pages/office-depot-alternative-concord-township')
+);
+const USPSDropOffAlternativePage = React.lazy(
+  () => import('./pages/usps-drop-off-alternative-concord-township')
+);
+const PostOfficeAlternativePage = React.lazy(
+  () => import('./pages/post-office-alternative-concord-township')
+);
+const USPSPackageHelpPage = React.lazy(() => import('./pages/usps-package-help-concord-township'));
+const ShippingCenterPage = React.lazy(() => import('./pages/shipping-center-concord-township'));
+const PackAndShipServicesPage = React.lazy(
+  () => import('./pages/pack-and-ship-services-concord-township')
+);
+const MultiCarrierShippingPage = React.lazy(
+  () => import('./pages/ups-fedex-usps-dhl-shipping-concord-township')
+);
+const SmallBusinessShippingPage = React.lazy(
+  () => import('./pages/small-business-shipping-concord-township')
+);
+const AmazonReturnsPage = React.lazy(
+  () => import('./pages/amazon-returns-drop-off-concord-township')
+);
+const UPSDropOffAlternativePage = React.lazy(
+  () => import('./pages/ups-drop-off-alternative-concord-township')
+);
+const PrintingServicesPage = React.lazy(() => import('./pages/printing-services-concord-township'));
+const BusinessServicesPage = React.lazy(() => import('./pages/business-services-concord-township'));
+const DocumentServicesPage = React.lazy(() => import('./pages/document-services-concord-township'));
+const PrivateMailboxRentalPage = React.lazy(
+  () => import('./pages/private-mailbox-rental-concord-township')
+);
+const VirtualMailboxPage = React.lazy(() => import('./pages/virtual-mailbox-concord-township'));
+const MailForwardingPage = React.lazy(() => import('./pages/mail-forwarding-concord-township'));
 
 // Additional Pages
-const AboutUs = lazyLoad(() => import("./pages/AboutUs"), "AboutUs");
-const ContactUs = lazyLoad(() => import("./pages/ContactUs"), "ContactUs");
-const Services = lazyLoad(() => import("./pages/Services"), "Services");
-const Tracking = lazyLoad(() => import("./pages/Tracking"), "Tracking");
-const ServiceAreaPage = lazyLoad(() => import("./pages/ServiceAreaPage"), "ServiceAreaPage");
-const ServiceAreaIndex = lazyLoad(() => import("./pages/ServiceAreaIndex"), "ServiceAreaIndex");
-const Privacy = lazyLoad(() => import("./pages/Privacy"), "Privacy");
-const Terms = lazyLoad(() => import("./pages/Terms"), "Terms");
-const ShippingPartners = React.lazy(() => import("./pages/ShippingPartners")); // Default export
-const PickupHours = React.lazy(() => import("./pages/PickupHours")); // Default export
-const AskMailboxPlus = React.lazy(() => import("./pages/ask-mailbox-plus")); // Default export
-const NotFound = lazyLoad(() => import("./pages/NotFound"), "NotFound");
+const AboutUs = lazyLoad(() => import('./pages/AboutUs'), 'AboutUs');
+const ContactUs = lazyLoad(() => import('./pages/ContactUs'), 'ContactUs');
+const Services = lazyLoad(() => import('./pages/Services'), 'Services');
+const Tracking = lazyLoad(() => import('./pages/Tracking'), 'Tracking');
+const ServiceAreaPage = lazyLoad(() => import('./pages/ServiceAreaPage'), 'ServiceAreaPage');
+const ServiceAreaIndex = lazyLoad(() => import('./pages/ServiceAreaIndex'), 'ServiceAreaIndex');
+const Privacy = lazyLoad(() => import('./pages/Privacy'), 'Privacy');
+const Terms = lazyLoad(() => import('./pages/Terms'), 'Terms');
+const ShippingPartners = React.lazy(() => import('./pages/ShippingPartners')); // Default export
+const PickupHours = React.lazy(() => import('./pages/PickupHours')); // Default export
+const AskMailboxPlus = React.lazy(() => import('./pages/ask-mailbox-plus')); // Default export
+const NotFound = lazyLoad(() => import('./pages/NotFound'), 'NotFound');
 
-const MicroProblemPage = React.lazy(() => import("./pages/micro/MicroProblemPage"));
-const ArticlePage = React.lazy(() => import("./pages/ArticlePage"));
-const ArticlesIndex = React.lazy(() => import("./pages/ArticlesIndex"));
+const MicroProblemPage = React.lazy(() => import('./pages/micro/MicroProblemPage'));
+const ArticlePage = React.lazy(() => import('./pages/ArticlePage'));
+const ArticlesIndex = React.lazy(() => import('./pages/ArticlesIndex'));
 
 const DebugRoutes: React.FC = () => {
   // const location = useLocation();
@@ -116,12 +157,15 @@ const App: React.FC = () => {
     event: string;
     [key: string]: string | number | boolean | undefined;
   }
-  
+
   interface WindowWithDataLayer extends Window {
     dataLayer: DataLayerEvent[];
   }
-  
-  const handleAnalytics = (eventName: string, payload: Record<string, string | number | boolean | undefined>) => {
+
+  const handleAnalytics = (
+    eventName: string,
+    payload: Record<string, string | number | boolean | undefined>
+  ) => {
     console.log('[Analytics]', eventName, payload);
     try {
       const win = window as unknown as WindowWithDataLayer;
@@ -140,7 +184,7 @@ const App: React.FC = () => {
       <ScrollToTop />
       <Layout>
         <DebugRoutes />
-        <React.Suspense fallback={<div style={{ padding: 32, textAlign: "center" }}>Loading…</div>}>
+        <React.Suspense fallback={<div style={{ padding: 32, textAlign: 'center' }}>Loading…</div>}>
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<Home />} />
@@ -150,24 +194,63 @@ const App: React.FC = () => {
             <Route path="/home-business" element={<HomeBusiness />} />
 
             {/* SEO Landing Pages */}
-            <Route path="/ups-store-alternative-concord-township" element={<UPSStoreAlternativePage />} />
-            <Route path="/mail-boxes-etc-alternative-concord-township" element={<MailBoxesEtcAlternativePage />} />
-            <Route path="/fedex-office-alternative-concord-township" element={<FedExOfficeAlternativePage />} />
-            <Route path="/staples-printing-alternative-concord-township" element={<StaplesAlternativePage />} />
-            <Route path="/office-depot-alternative-concord-township" element={<OfficeDepotAlternativePage />} />
-            <Route path="/usps-drop-off-alternative-concord-township" element={<USPSDropOffAlternativePage />} />
-            <Route path="/post-office-alternative-concord-township" element={<PostOfficeAlternativePage />} />
+            <Route
+              path="/ups-store-alternative-concord-township"
+              element={<UPSStoreAlternativePage />}
+            />
+            <Route
+              path="/mail-boxes-etc-alternative-concord-township"
+              element={<MailBoxesEtcAlternativePage />}
+            />
+            <Route
+              path="/fedex-office-alternative-concord-township"
+              element={<FedExOfficeAlternativePage />}
+            />
+            <Route
+              path="/staples-printing-alternative-concord-township"
+              element={<StaplesAlternativePage />}
+            />
+            <Route
+              path="/office-depot-alternative-concord-township"
+              element={<OfficeDepotAlternativePage />}
+            />
+            <Route
+              path="/usps-drop-off-alternative-concord-township"
+              element={<USPSDropOffAlternativePage />}
+            />
+            <Route
+              path="/post-office-alternative-concord-township"
+              element={<PostOfficeAlternativePage />}
+            />
             <Route path="/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
             <Route path="/shipping-center-concord-township" element={<ShippingCenterPage />} />
-            <Route path="/pack-and-ship-services-concord-township" element={<PackAndShipServicesPage />} />
-            <Route path="/ups-fedex-usps-dhl-shipping-concord-township" element={<MultiCarrierShippingPage />} />
-            <Route path="/small-business-shipping-concord-township" element={<SmallBusinessShippingPage />} />
-            <Route path="/amazon-returns-drop-off-concord-township" element={<AmazonReturnsPage />} />
-            <Route path="/ups-drop-off-alternative-concord-township" element={<UPSDropOffAlternativePage />} />
+            <Route
+              path="/pack-and-ship-services-concord-township"
+              element={<PackAndShipServicesPage />}
+            />
+            <Route
+              path="/ups-fedex-usps-dhl-shipping-concord-township"
+              element={<MultiCarrierShippingPage />}
+            />
+            <Route
+              path="/small-business-shipping-concord-township"
+              element={<SmallBusinessShippingPage />}
+            />
+            <Route
+              path="/amazon-returns-drop-off-concord-township"
+              element={<AmazonReturnsPage />}
+            />
+            <Route
+              path="/ups-drop-off-alternative-concord-township"
+              element={<UPSDropOffAlternativePage />}
+            />
             <Route path="/printing-services-concord-township" element={<PrintingServicesPage />} />
             <Route path="/business-services-concord-township" element={<BusinessServicesPage />} />
             <Route path="/document-services-concord-township" element={<DocumentServicesPage />} />
-            <Route path="/private-mailbox-rental-concord-township" element={<PrivateMailboxRentalPage />} />
+            <Route
+              path="/private-mailbox-rental-concord-township"
+              element={<PrivateMailboxRentalPage />}
+            />
             <Route path="/virtual-mailbox-concord-township" element={<VirtualMailboxPage />} />
             <Route path="/mail-forwarding-concord-township" element={<MailForwardingPage />} />
 
@@ -182,7 +265,10 @@ const App: React.FC = () => {
             <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
             <Route path="/nuuly-returns" element={<NuulyReturns />} />
             <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
-            <Route path="/pack-ship/ups-authorized-shipper-outlet" element={<UPSAuthorizedShipperOutlet />} />
+            <Route
+              path="/pack-ship/ups-authorized-shipper-outlet"
+              element={<UPSAuthorizedShipperOutlet />}
+            />
             <Route path="/pack-ship/usps-services" element={<USPSServices />} />
             <Route path="/pack-ship/dhl-express" element={<DHLExpress />} />
             <Route path="/pack-ship/package-drop-offs" element={<PackageDropOffs />} />
@@ -203,7 +289,10 @@ const App: React.FC = () => {
 
             {/* Home & Business */}
             <Route path="/home-business/mailbox-rental" element={<MailboxRentalPage />} />
-            <Route path="/home-business/digital-mailbox-rental" element={<DigitalMailboxRental />} />
+            <Route
+              path="/home-business/digital-mailbox-rental"
+              element={<DigitalMailboxRental />}
+            />
             <Route path="/home-business/every-door-direct-mail" element={<EveryDoorDirectMail />} />
             <Route path="/home-business/shredding" element={<Shredding />} />
             <Route path="/home-business/document-scanning" element={<DocumentScanning />} />
@@ -231,35 +320,96 @@ const App: React.FC = () => {
             <Route path="/print-return-label-without-printer" element={<MicroProblemPage />} />
             <Route path="/return-without-original-box" element={<MicroProblemPage />} />
             <Route path="/print-amazon-return-label" element={<MicroProblemPage />} />
-            <Route path="/package-a-return-so-its-accepted-by-the-carrier" element={<MicroProblemPage />} />
-            <Route path="/ups-drop-off-near-concord-township-not-sure-if-its-packed-right" element={<MicroProblemPage />} />
-            <Route path="/fedex-drop-off-in-concord-township-have-label-need-packaging" element={<MicroProblemPage />} />
-            <Route path="/usps-drop-off-in-concord-township-label-printing-and-packaging-help" element={<MicroProblemPage />} />
-            <Route path="/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics" element={<MicroProblemPage />} />
-            <Route path="/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment" element={<MicroProblemPage />} />
-            <Route path="/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected" element={<MicroProblemPage />} />
-            <Route path="/repackage-a-damaged-or-torn-shipping-box-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers" element={<MicroProblemPage />} />
-            <Route path="/ship-artwork-framed-items-or-collectibles-safely-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers" element={<MicroProblemPage />} />
-            <Route path="/ship-a-gift-without-the-receipt-or-invoice-in-concord-township" element={<MicroProblemPage />} />
+            <Route
+              path="/package-a-return-so-its-accepted-by-the-carrier"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ups-drop-off-near-concord-township-not-sure-if-its-packed-right"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/fedex-drop-off-in-concord-township-have-label-need-packaging"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/usps-drop-off-in-concord-township-label-printing-and-packaging-help"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/repackage-a-damaged-or-torn-shipping-box-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-artwork-framed-items-or-collectibles-safely-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-a-gift-without-the-receipt-or-invoice-in-concord-township"
+              element={<MicroProblemPage />}
+            />
             <Route path="/unsure-of-carrier-rules" element={<MicroProblemPage />} />
-            <Route path="/drop-off-a-prepaid-label-from-your-phone" element={<MicroProblemPage />} />
-            <Route path="/package-multiple-items-into-one-shipment-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/ship-something-with-no-original-packaging-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/print-and-attach-a-shipping-label-correctly-in-concord-township" element={<MicroProblemPage />} />
+            <Route
+              path="/drop-off-a-prepaid-label-from-your-phone"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/package-multiple-items-into-one-shipment-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-something-with-no-original-packaging-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/print-and-attach-a-shipping-label-correctly-in-concord-township"
+              element={<MicroProblemPage />}
+            />
             <Route path="/ship-return-strict-size-weight-limits" element={<MicroProblemPage />} />
-            <Route path="/ship-an-item-that-needs-extra-protection-or-padding-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/ship-a-package-when-youre-short-on-time-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/get-help-choosing-the-right-box-for-shipping-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township" element={<MicroProblemPage />} />
-            <Route path="/ship-with-guaranteed-proof-and-tracking-concord-township" element={<MicroProblemPage />} />
-
+            <Route
+              path="/ship-an-item-that-needs-extra-protection-or-padding-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-a-package-when-youre-short-on-time-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/get-help-choosing-the-right-box-for-shipping-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township"
+              element={<MicroProblemPage />}
+            />
+            <Route
+              path="/ship-with-guaranteed-proof-and-tracking-concord-township"
+              element={<MicroProblemPage />}
+            />
 
             {/* Articles */}
             <Route path="/articles" element={<ArticlesIndex />} />
             <Route path="/articles/:slug" element={<ArticlePage />} />
-
 
             {/* Catch-all route for unmatched paths */}
             <Route path="*" element={<NotFound />} />

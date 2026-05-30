@@ -1,3 +1,3 @@
-import { Service } from "../../types/services";
+import { Service } from '../../types/services';
 
 export const miscMicroProblems: Service[] = [];

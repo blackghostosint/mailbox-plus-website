@@ -1,23 +1,49 @@
 {
   "mailbox-rental": {
     "exact": ["Mailbox Rental", "Private Mailbox Rental", "Rent a Mailbox"],
-    "lsi": ["secure mailbox", "business address service", "receive packages securely", "street address mailbox"],
-    "geo": ["mailbox rental in Concord Township", "private mailbox near Mentor", "business mailbox in Lake County"]
+    "lsi": [
+      "secure mailbox",
+      "business address service",
+      "receive packages securely",
+      "street address mailbox"
+    ],
+    "geo": [
+      "mailbox rental in Concord Township",
+      "private mailbox near Mentor",
+      "business mailbox in Lake County"
+    ]
   },
   "fedex-shipping": {
     "exact": ["FedEx Shipping", "Authorized FedEx ShipCenter"],
     "lsi": ["overnight shipping", "FedEx drop-off", "express shipping", "international shipping"],
-    "geo": ["FedEx shipping near Concord Township", "FedEx drop-off in Mentor", "FedEx location in Painesville"]
+    "geo": [
+      "FedEx shipping near Concord Township",
+      "FedEx drop-off in Mentor",
+      "FedEx location in Painesville"
+    ]
   },
   "digital-fingerprinting": {
     "exact": ["Digital Fingerprinting", "Fingerprinting Services"],
     "lsi": ["background checks", "BCI check", "FBI background check", "electronic fingerprinting"],
-    "geo": ["fingerprinting in Lake County", "background checks in Concord Township", "livescan fingerprinting near Mentor"]
+    "geo": [
+      "fingerprinting in Lake County",
+      "background checks in Concord Township",
+      "livescan fingerprinting near Mentor"
+    ]
   },
   "business-cards": {
     "exact": ["Business Cards", "Business Card Printing"],
-    "lsi": ["custom business cards", "professional cards", "networking cards", "print business cards"],
-    "geo": ["business cards in Concord Township", "printing services near Mentor", "custom cards in Lake County"]
+    "lsi": [
+      "custom business cards",
+      "professional cards",
+      "networking cards",
+      "print business cards"
+    ],
+    "geo": [
+      "business cards in Concord Township",
+      "printing services near Mentor",
+      "custom cards in Lake County"
+    ]
   },
   "pack-ship": {
     "exact": ["Pack & Ship", "Packing and Shipping"],

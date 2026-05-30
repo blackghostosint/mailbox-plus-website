@@ -9,10 +9,7 @@
     "metaDescription": "Mailbox Plus proudly serves Auburn Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
     "canonical": "/service-area/auburn-township",
     "heroImage": "/images/auburn-township.webp",
-    "services": [
-      "pack-ship",
-      "mailbox-rental"
-    ]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "chardon",
@@ -24,10 +21,7 @@
     "metaDescription": "Mailbox Plus proudly serves Chardon, Ohio, with professional shipping, printing, and mailbox services. From historic downtown businesses to local families, we deliver fast, friendly, and reliable solutions year-round.",
     "canonical": "/service-area/chardon",
     "heroImage": "/images/chardon.webp",
-    "services": [
-      "pack-ship",
-      "packaging-supplies"
-    ]
+    "services": ["pack-ship", "packaging-supplies"]
   },
   {
     "slug": "concord-township",
@@ -39,11 +33,7 @@
     "metaDescription": "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location. Trusted by local families and small businesses since 2024.",
     "canonical": "/service-area/concord-township",
     "heroImage": "/images/concord-township.webp",
-    "services": [
-      "pack-ship",
-      "mailbox-rental",
-      "fedex-shipping"
-    ]
+    "services": ["pack-ship", "mailbox-rental", "fedex-shipping"]
   },
   {
     "slug": "eastlake",
@@ -55,10 +45,7 @@
     "metaDescription": "Mailbox Plus proudly serves Eastlake, Ohio with dependable shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver fast, friendly solutions you can trust.",
     "canonical": "/service-area/eastlake",
     "heroImage": "/images/eastlake.webp",
-    "services": [
-      "pack-ship",
-      "mailbox-rental"
-    ]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "fairport-harbor",
@@ -70,10 +57,7 @@
     "metaDescription": "Mailbox Plus proudly serves Fairport Harbor, Ohio, with reliable shipping, printing, and mailbox services. From lakefront residents to local businesses, we deliver friendly, dependable service rooted in community care.",
     "canonical": "/service-area/fairport-harbor",
     "heroImage": "/images/Fairport_Harbor.webp",
-    "services": [
-      "pack-ship",
-      "postage-stamps"
-    ]
+    "services": ["pack-ship", "postage-stamps"]
   },
   {
     "slug": "kirtland",
@@ -85,10 +69,7 @@
     "metaDescription": "Mailbox Plus proudly serves Kirtland, Ohio, with professional shipping, printing, and mailbox services. From local businesses to families, we deliver dependable solutions rooted in community care and Lake County pride.",
     "canonical": "/service-area/kirtland",
     "heroImage": "/images/kirtland.webp",
-    "services": [
-      "pack-ship",
-      "copies"
-    ]
+    "services": ["pack-ship", "copies"]
   },
   {
     "slug": "leroy-township",
@@ -100,10 +81,7 @@
     "metaDescription": "Mailbox Plus proudly serves Leroy Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
     "canonical": "/service-area/leroy-township",
     "heroImage": "/images/leroy-township.webp",
-    "services": [
-      "pack-ship",
-      "mailbox-rental"
-    ]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "madison",
@@ -115,10 +93,7 @@
     "metaDescription": "Mailbox Plus proudly serves Madison, Ohio, with professional shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver trusted, local solutions with speed and reliability.",
     "canonical": "/service-area/madison",
     "heroImage": "/images/madison.webp",
-    "services": [
-      "pack-ship",
-      "shipping-insurance"
-    ]
+    "services": ["pack-ship", "shipping-insurance"]
   },
   {
     "slug": "mayfield",
@@ -130,10 +105,7 @@
     "metaDescription": "Mailbox Plus proudly serves Mayfield, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
     "canonical": "/service-area/mayfield",
     "heroImage": "/images/mayfield.webp",
-    "services": [
-      "pack-ship",
-      "mailbox-rental"
-    ]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "mentor",
@@ -145,11 +117,7 @@
     "metaDescription": "From bulk mailings to secure package shipping, Mailbox Plus supports Mentor residents and businesses with reliable shipping, printing, and mailbox services.",
     "canonical": "/service-area/mentor",
     "heroImage": "/images/mentor.webp",
-    "services": [
-      "pack-ship",
-      "business-cards",
-      "digital-fingerprinting"
-    ]
+    "services": ["pack-ship", "business-cards", "digital-fingerprinting"]
   },
   {
     "slug": "painesville",
@@ -161,11 +129,7 @@
     "metaDescription": "Mailbox Plus proudly serves Painesville, Ohio, with expert shipping, printing, and mailbox rental services. From courthouse professionals to Lake Erie families, we deliver trusted business solutions rooted in local care.",
     "canonical": "/service-area/painesville",
     "heroImage": "/images/painesville.webp",
-    "services": [
-      "pack-ship",
-      "document-printing",
-      "notary-services"
-    ]
+    "services": ["pack-ship", "document-printing", "notary-services"]
   },
   {
     "slug": "perry",
@@ -177,10 +141,7 @@
     "metaDescription": "Mailbox Plus proudly serves Perry, Ohio, with reliable shipping, packaging, and printing services. From local farms to families and small businesses, we deliver trusted solutions with hometown care.",
     "canonical": "/service-area/perry",
     "heroImage": "/images/perry.webp",
-    "services": [
-      "pack-ship",
-      "professional-packing"
-    ]
+    "services": ["pack-ship", "professional-packing"]
   },
   {
     "slug": "wickliffe",
@@ -192,10 +153,7 @@
     "metaDescription": "Mailbox Plus proudly serves Wickliffe, Ohio, with professional shipping, printing, and mailbox services. From local businesses to Lake County families, we deliver friendly, reliable solutions built on community trust.",
     "canonical": "/service-area/wickliffe",
     "heroImage": "/images/wickliffe.webp",
-    "services": [
-      "pack-ship",
-      "custom-box-making"
-    ]
+    "services": ["pack-ship", "custom-box-making"]
   },
   {
     "slug": "willoughby",
@@ -207,9 +165,6 @@
     "metaDescription": "Mailbox Plus proudly supports Willoughby, Ohio with expert shipping, custom packaging, printing, and mailbox rentals. From historic downtown to busy business corridors, we deliver trusted, local solutions.",
     "canonical": "/service-area/willoughby",
     "heroImage": "/images/willoughby.webp",
-    "services": [
-      "pack-ship",
-      "flyers-brochures"
-    ]
+    "services": ["pack-ship", "flyers-brochures"]
   }
 ]

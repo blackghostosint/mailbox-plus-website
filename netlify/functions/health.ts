@@ -4,19 +4,19 @@
  * Used for uptime monitoring and load balancer health checks
  */
 
-import type { Context } from "https://edge.netlify.com/";
+import type { Context } from 'https://edge.netlify.com/';
 
 export default async (request: Request, context: Context) => {
   const startTime = Date.now();
-  
+
   // Basic health checks
   const healthData = {
-    status: "healthy",
+    status: 'healthy',
     timestamp: new Date().toISOString(),
-    environment: Netlify.env.get("CONTEXT") || "unknown",
+    environment: Netlify.env.get('CONTEXT') || 'unknown',
     checks: {
       // Add more checks as needed (database, external APIs, etc.)
-      server: "ok",
+      server: 'ok',
     },
     responseTime: 0, // Will be calculated below
   };
@@ -32,9 +32,9 @@ export default async (request: Request, context: Context) => {
   return new Response(JSON.stringify(healthData, null, 2), {
     status: 200,
     headers: {
-      "Content-Type": "application/json",
-      "Cache-Control": "no-cache, no-store, must-revalidate",
-      "X-Health-Check": "true",
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'X-Health-Check': 'true',
     },
   });
 };

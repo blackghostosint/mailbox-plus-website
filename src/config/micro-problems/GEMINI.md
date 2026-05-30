@@ -81,6 +81,6 @@ CI/CD: Automated sitemap generation via vite-plugin-sitemap must run after every
 - **Signal A Latency**: Search Console data has a 2-3 day lag; always use the "Last 90 Days" filter for consistency.
 - **Redirect Policy**: Per Governance Policy, do **not** create 301 redirects for deleted micro-problem pages; allow them to 404 to clean the index naturally.
 
-------
+---
 
 **Next Step**: Would you like me to generate the **Q1 Audit Report** template based on this new `GEMINI.md` structure?

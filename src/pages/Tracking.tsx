@@ -1,56 +1,52 @@
-import React, { useState, useMemo } from "react";
-import { InternalLink } from "../components/ui/InternalLink";
-import { motion } from "framer-motion";
+import React, { useState, useMemo } from 'react';
+import { InternalLink } from '../components/ui/InternalLink';
+import { motion } from 'framer-motion';
 import Search from '~icons/lucide/search';
 import Truck from '~icons/lucide/truck';
 import ExternalLink from '~icons/lucide/external-link';
 import PackageCheck from '~icons/lucide/package-check';
 import AlertCircle from '~icons/lucide/alert-circle';
 import Bell from '~icons/lucide/bell';
-import { Button } from "../components/ui";
-import { siteConfig } from "../config/siteConfig";
-import { getServiceImageUrl } from "../lib/storage";
-import { getTrackingSchema } from "../utils/schema";
-import { SmartImage } from "../components/SmartImage";
+import { Button } from '../components/ui';
+import { siteConfig } from '../config/siteConfig';
+import { getServiceImageUrl } from '../lib/storage';
+import { getTrackingSchema } from '../utils/schema';
+import { SmartImage } from '../components/SmartImage';
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
-
 
 // V2 Animation Constants
 const reveal = {
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" as const }
+  transition: { duration: 0.55, ease: 'easeOut' as const },
 };
 
 export const Tracking: React.FC = () => {
-  const [trackingNumber, setTrackingNumber] = useState("");
-  const [selectedCarrier, setSelectedCarrier] = useState("FedEx");
+  const [trackingNumber, setTrackingNumber] = useState('');
+  const [selectedCarrier, setSelectedCarrier] = useState('FedEx');
 
   // ✅ Carrier templates
   const carriers = useMemo(
     () => [
       {
-        name: "FedEx",
-        urlTemplate:
-          "https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER",
+        name: 'FedEx',
+        urlTemplate: 'https://www.fedex.com/fedextrack/?tracknumbers=TRACKINGNUMBER',
       },
       {
-        name: "UPS",
-        urlTemplate:
-          "https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER",
+        name: 'UPS',
+        urlTemplate: 'https://wwwapps.ups.com/WebTracking/track?track=yes&trackNums=TRACKINGNUMBER',
       },
       {
-        name: "USPS",
-        urlTemplate:
-          "https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER",
+        name: 'USPS',
+        urlTemplate: 'https://tools.usps.com/go/TrackConfirmAction?tLabels=TRACKINGNUMBER',
       },
       {
-        name: "DHL",
+        name: 'DHL',
         urlTemplate:
-          "https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER",
+          'https://www.dhl.com/us-en/home/tracking/tracking-express.html?tracking-id=TRACKINGNUMBER',
       },
     ],
     []
@@ -59,15 +55,10 @@ export const Tracking: React.FC = () => {
   // ✅ Detect carrier by number format
   const detectCarrier = (num: string): string | null => {
     const trimmed = num.trim().toUpperCase();
-    if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return "UPS"; // UPS
-    if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed))
-      return "FedEx"; // FedEx
-    if (
-      /^[0-9]{20,22}$/.test(trimmed) ||
-      /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed)
-    )
-      return "USPS"; // USPS
-    if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return "DHL"; // DHL
+    if (/^1Z[0-9A-Z]{16}$/.test(trimmed)) return 'UPS'; // UPS
+    if (/^[0-9]{12}$|^[0-9]{15}$|^[0-9]{20}$|^[0-9]{22}$/.test(trimmed)) return 'FedEx'; // FedEx
+    if (/^[0-9]{20,22}$/.test(trimmed) || /^[A-Z]{2}[0-9]{9}[A-Z]{2}$/.test(trimmed)) return 'USPS'; // USPS
+    if (/^[0-9]{10}$/.test(trimmed) || /^JD[0-9]+$/.test(trimmed)) return 'DHL'; // DHL
     return null;
   };
 
@@ -78,10 +69,10 @@ export const Tracking: React.FC = () => {
     const carrier = carriers.find((c) => c.name === carrierName);
     if (carrier) {
       const finalUrl = carrier.urlTemplate.replace(
-        "TRACKINGNUMBER",
+        'TRACKINGNUMBER',
         encodeURIComponent(trackingNumber)
       );
-      window.open(finalUrl, "_blank");
+      window.open(finalUrl, '_blank');
     }
   };
 
@@ -92,7 +83,7 @@ export const Tracking: React.FC = () => {
     const carrierName = detectCarrier(trackingNumber) || selectedCarrier;
     const carrier = carriers.find((c) => c.name === carrierName);
     const trackingUrl = carrier?.urlTemplate.replace(
-      "TRACKINGNUMBER",
+      'TRACKINGNUMBER',
       encodeURIComponent(trackingNumber)
     );
 
@@ -100,7 +91,7 @@ export const Tracking: React.FC = () => {
       siteConfig,
       trackingNumber,
       carrierName,
-      trackingUrl || ""
+      trackingUrl || ''
     );
 
     return [trackingSchema];
@@ -109,24 +100,24 @@ export const Tracking: React.FC = () => {
   // ✅ Tracking tips
   const trackingTips = [
     {
-      title: "Keep Your Receipt",
-      description: "Your tracking number is on your shipping receipt. Keep it safe until delivery.",
-      icon: PackageCheck
+      title: 'Keep Your Receipt',
+      description: 'Your tracking number is on your shipping receipt. Keep it safe until delivery.',
+      icon: PackageCheck,
     },
     {
-      title: "Check Multiple Times",
-      description: "Tracking information updates throughout the day as your package moves.",
-      icon: Truck
+      title: 'Check Multiple Times',
+      description: 'Tracking information updates throughout the day as your package moves.',
+      icon: Truck,
     },
     {
-      title: "Delivery Notifications",
-      description: "Sign up for text or email notifications to stay updated on delivery status.",
-      icon: Bell
+      title: 'Delivery Notifications',
+      description: 'Sign up for text or email notifications to stay updated on delivery status.',
+      icon: Bell,
     },
     {
-      title: "Need Help?",
+      title: 'Need Help?',
       description: "Can't find your package? Contact us and we'll help track it down.",
-      icon: AlertCircle
+      icon: AlertCircle,
     },
   ];
 
@@ -134,10 +125,7 @@ export const Tracking: React.FC = () => {
     <div className="bg-slate-50 min-h-screen">
       {/* ✅ Inject LocalBusiness + ParcelDelivery schema */}
       {jsonLd && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
       )}
 
       {/* ====================== HERO (V2 Standard) ======================= */}
@@ -154,7 +142,7 @@ export const Tracking: React.FC = () => {
         >
           <SmartImage
             priority
-            src={getServiceImageUrl("/images/tracking.webp")}
+            src={getServiceImageUrl('/images/tracking.webp')}
             alt="Background pattern"
             className="w-full h-full object-cover mix-blend-overlay"
           />
@@ -185,20 +173,14 @@ export const Tracking: React.FC = () => {
 
       {/* ====================== MAIN CONTENT ======================= */}
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
-
         {/* Tracking Form Glass Panel */}
-        <motion.div
-          {...reveal}
-          className="max-w-3xl mx-auto"
-        >
+        <motion.div {...reveal} className="max-w-3xl mx-auto">
           <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] p-8 md:p-10">
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[#0855B1]">
                 <Search className="w-6 h-6" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">
-                Enter Tracking Number
-              </h2>
+              <h2 className="text-2xl font-bold text-slate-900">Enter Tracking Number</h2>
             </div>
 
             <form
@@ -256,7 +238,13 @@ export const Tracking: React.FC = () => {
                     </select>
                     {/* Custom Arrow */}
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
-                      <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" /></svg>
+                      <svg
+                        className="h-4 w-4 fill-current"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
                     </div>
                   </div>
                 </div>
@@ -296,9 +284,7 @@ export const Tracking: React.FC = () => {
                 <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[#0855B1] shadow-inner">
                   <tip.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2">
-                  {tip.title}
-                </h3>
+                <h3 className="text-lg font-bold text-slate-800 mb-2">{tip.title}</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">{tip.description}</p>
               </motion.div>
             ))}
@@ -306,10 +292,7 @@ export const Tracking: React.FC = () => {
         </section>
 
         {/* Help Section - Glass Gradient Panel */}
-        <motion.section
-          {...reveal}
-          className="max-w-5xl mx-auto"
-        >
+        <motion.section {...reveal} className="max-w-5xl mx-auto">
           <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(15,23,42,0.25)]">
             {/* V2 Gradient Shell */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
@@ -322,8 +305,8 @@ export const Tracking: React.FC = () => {
                 Need Help Finding Your Package?
               </h2>
               <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-                Can&apos;t locate your tracking number or having trouble with tracking?
-                Our team is here to help you every step of the way.
+                Can&apos;t locate your tracking number or having trouble with tracking? Our team is
+                here to help you every step of the way.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <InternalLink to="/contact-us">
@@ -347,7 +330,6 @@ export const Tracking: React.FC = () => {
             </div>
           </div>
         </motion.section>
-
       </main>
     </div>
   );

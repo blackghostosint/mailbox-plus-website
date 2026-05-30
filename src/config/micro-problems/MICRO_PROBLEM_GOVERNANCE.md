@@ -25,11 +25,11 @@ To prevent SEO cannibalization, every micro-problem configuration **must** inclu
 
 Every 90 days (March 15, June 15, Sept 15, Dec 15), every page is evaluated against three signals:
 
-| **Signal**   | **Name**       | **FAIL Condition**                                           |
-| ------------ | -------------- | ------------------------------------------------------------ |
+| **Signal**   | **Name**       | **FAIL Condition**                                             |
+| ------------ | -------------- | -------------------------------------------------------------- |
 | **Signal A** | Performance    | 0 impressions OR 0 clicks in the last 90 days (Search Console) |
-| **Signal B** | Intent Reality | Staff reports customer confusion or mismatched expectations  |
-| **Signal C** | Intent Overlap | Duplicate `intentKey` found OR fails the "One-Sentence Test" |
+| **Signal B** | Intent Reality | Staff reports customer confusion or mismatched expectations    |
+| **Signal C** | Intent Overlap | Duplicate `intentKey` found OR fails the "One-Sentence Test"   |
 
 ## 4. Decision Matrix
 
@@ -64,7 +64,7 @@ Apply these rules in order to determine the page's fate:
 
 - **Condition**: Page passes all signals or provides measurable value.
 
-------
+---
 
 ## 5. Audit Workflow Execution
 

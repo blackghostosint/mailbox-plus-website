@@ -179,12 +179,12 @@ Now apply the decision rules based on signal results:
 
 ## Quick Reference Table
 
-| Signal A | Signal B | Signal C | Other Conditions | Decision |
-|----------|----------|----------|------------------|----------|
-| FAIL | - | FAIL | No links, no value | **DELETE** |
-| - | - | FAIL | Other page better | **MERGE** |
-| PASS | FAIL | - | - | **REWRITE** |
-| PASS | PASS | PASS | - | **KEEP** |
+| Signal A | Signal B | Signal C | Other Conditions   | Decision    |
+| -------- | -------- | -------- | ------------------ | ----------- |
+| FAIL     | -        | FAIL     | No links, no value | **DELETE**  |
+| -        | -        | FAIL     | Other page better  | **MERGE**   |
+| PASS     | FAIL     | -        | -                  | **REWRITE** |
+| PASS     | PASS     | PASS     | -                  | **KEEP**    |
 
 ---
 
@@ -192,22 +192,26 @@ Now apply the decision rules based on signal results:
 
 ### Page: "ship-breakable-products"
 
-**STEP 1**: Check Search Console  
-- Impressions: 0 in last 90 days  
+**STEP 1**: Check Search Console
+
+- Impressions: 0 in last 90 days
 - **Signal A = FAIL** ❌
 
-**STEP 2**: Check intentKey  
-- `intentKey: "ship-fragile-items"`  
-- Also found on page "ship-fragile-items"  
+**STEP 2**: Check intentKey
+
+- `intentKey: "ship-fragile-items"`
+- Also found on page "ship-fragile-items"
 - **Signal C = FAIL** ❌
 
-**STEP 3**: Check staff feedback  
-- No confusion reported  
+**STEP 3**: Check staff feedback
+
+- No confusion reported
 - **Signal B = PASS** ✅
 
 **DECISION MATRIX**:
 
 PATH 1 (DELETE):
+
 - ☑ Signal A = FAIL (0 impressions)
 - ☑ Signal C = FAIL (duplicate intentKey)
 - ☑ No internal links
@@ -231,6 +235,7 @@ PATH 1 (DELETE):
 ## Enforcement
 
 This flowchart implements the governance policy defined in:
+
 - `MICRO_PROBLEM_GOVERNANCE.md` (root)
 - `.agent/workflows/micro-problem-quarterly-audit.md`
 

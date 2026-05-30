@@ -3,6 +3,7 @@
 This file defines the ONLY allowed structure for the Mailbox Plus website chatbot knowledge base.
 
 The AI must:
+
 - Create files exactly as specified
 - Not invent fields
 - Not remove required fields
@@ -15,4 +16,3 @@ No non-FAQ content (micro-problems, services, policies) may be added until all F
 
 Content Freeze Rule
 kb.entries.json may not be modified until retrieval testing and refusal behavior are validated.
-

@@ -1,10 +1,10 @@
-import React from "react";
-import { useParams } from "react-router-dom";
-import { serviceAreas } from "../config/serviceAreas";
-import { ServicePageV2 } from "../components/ServicePageV2";
-import localPages from "../data/localPages.json";
-import { getServiceImageUrl } from "../lib/storage";
-import { Service } from "../types/services";
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { serviceAreas } from '../config/serviceAreas';
+import { ServicePageV2 } from '../components/ServicePageV2';
+import localPages from '../data/localPages.json';
+import { getServiceImageUrl } from '../lib/storage';
+import { Service } from '../types/services';
 
 export const ServiceAreaPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();

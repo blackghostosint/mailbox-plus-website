@@ -24,16 +24,13 @@ export const Footer: React.FC = () => {
       {/* Global Tagline */}
       <div className="bg-[#F9FAFB] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-          <h3 className="text-2xl font-semibold text-[#0855B1]">
-            {siteConfig.tagline}
-          </h3>
+          <h3 className="text-2xl font-semibold text-[#0855B1]">{siteConfig.tagline}</h3>
         </div>
       </div>
 
       {/* Footer Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8">
-          
           {/* Company Info */}
           <div className="space-y-4">
             <div className="flex items-center">
@@ -46,9 +43,10 @@ export const Footer: React.FC = () => {
               />
             </div>
             <p className="text-sm text-[#4B5563] leading-relaxed">
-              {siteConfig.name} is your trusted <strong>pack & ship, printing, and business services store </strong> 
-              serving Concord Township, Painesville, Mentor, and all of Lake County, Ohio. 
-              Locally owned, faith-guided, and committed to our community.
+              {siteConfig.name} is your trusted{' '}
+              <strong>pack & ship, printing, and business services store </strong>
+              serving Concord Township, Painesville, Mentor, and all of Lake County, Ohio. Locally
+              owned, faith-guided, and committed to our community.
             </p>
           </div>
 
@@ -60,12 +58,13 @@ export const Footer: React.FC = () => {
                 <MapPin className="w-4 h-4 text-[#0855B1] flex-shrink-0" />
                 <div className="text-sm text-[#4B5563]">
                   <a
-                    href={getGoogleMapsLink("directions", siteConfig.name)}
+                    href={getGoogleMapsLink('directions', siteConfig.name)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:text-[#0855B1]"
                   >
-                    {siteConfig.contact.address.street}, {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
+                    {siteConfig.contact.address.street}, {siteConfig.contact.address.city},{' '}
+                    {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
                   </a>
                 </div>
               </div>
@@ -96,9 +95,7 @@ export const Footer: React.FC = () => {
             <div className="space-y-2 text-sm text-[#4B5563]">
               {Object.entries(siteConfig.hours).map(([day, hours]) => (
                 <div key={day} className="flex justify-between">
-                  <span className="capitalize">
-                    {day.charAt(0).toUpperCase() + day.slice(1)}:
-                  </span>
+                  <span className="capitalize">{day.charAt(0).toUpperCase() + day.slice(1)}:</span>
                   <span className="text-[#111827] font-medium">{hours}</span>
                 </div>
               ))}
@@ -148,10 +145,16 @@ export const Footer: React.FC = () => {
               © 2025 Mailbox Plus of Ohio, LLC. All rights reserved.
             </p>
             <div className="flex items-center space-x-6">
-              <InternalLink to="/privacy" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
+              <InternalLink
+                to="/privacy"
+                className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
+              >
                 Privacy Policy
               </InternalLink>
-              <InternalLink to="/terms" className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors">
+              <InternalLink
+                to="/terms"
+                className="text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
+              >
                 Terms of Service
               </InternalLink>
             </div>

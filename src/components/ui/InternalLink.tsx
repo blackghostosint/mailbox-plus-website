@@ -11,7 +11,7 @@ interface InternalLinkProps extends Omit<LinkProps, 'to'> {
 export const InternalLink: React.FC<InternalLinkProps> = ({
   to,
   variant = 'exact',
-  className = "text-[#0855B1] hover:underline font-medium",
+  className = 'text-[#0855B1] hover:underline font-medium',
   children,
   showIcon = false,
   ...props
@@ -19,18 +19,31 @@ export const InternalLink: React.FC<InternalLinkProps> = ({
   // Extract ID from path if possible, or just use the path
   // This is a simplification; ideally we match exact service IDs
   const linkData = getInternalLink(to.split('/').pop() || '');
-  
+
   const anchor = children || (linkData ? getAnchorText(linkData.id, variant) : null);
 
   if (!anchor) {
-      // Fallback for unknown links
-      return <Link to={to} className={className} {...props}>{to}</Link>;
+    // Fallback for unknown links
+    return (
+      <Link to={to} className={className} {...props}>
+        {to}
+      </Link>
+    );
   }
 
   return (
-    <Link to={to} className={className} title={typeof anchor === 'string' ? anchor : undefined} {...props}>
+    <Link
+      to={to}
+      className={className}
+      title={typeof anchor === 'string' ? anchor : undefined}
+      {...props}
+    >
       {anchor}
-      {showIcon && <span aria-hidden="true" className="ml-1">→</span>}
+      {showIcon && (
+        <span aria-hidden="true" className="ml-1">
+          →
+        </span>
+      )}
     </Link>
   );
 };

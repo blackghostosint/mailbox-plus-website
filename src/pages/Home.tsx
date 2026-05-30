@@ -1,63 +1,60 @@
-import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
 import Clock from '~icons/lucide/clock';
-import { Button } from "../components/ui";
-import { siteConfig } from "../config/siteConfig";
-import { CarrierLogos } from "../components/CarrierLogos";
-import { getGoogleMapsLink } from "../utils/location";
-import { Meta } from "../components/Meta";
-import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/storage";
-import { pageMeta } from "../config/pageMeta";
+import { Button } from '../components/ui';
+import { siteConfig } from '../config/siteConfig';
+import { CarrierLogos } from '../components/CarrierLogos';
+import { getGoogleMapsLink } from '../utils/location';
+import { Meta } from '../components/Meta';
+import { SmartImage } from '../components/SmartImage';
+import { getServiceImageUrl } from '../lib/storage';
+import { pageMeta } from '../config/pageMeta';
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   // Detect reduced motion preference
   const prefersReducedMotion =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const serviceCategories = [
-    "Pack & Ship Services",
-    "Professional Printing",
-    "Mailbox Rentals",
-    "Document Services",
-    "Notary Services",
-    "Digital Fingerprinting",
-    "Fax & Scan Services",
-    "Packaging Supplies",
-    "Business Services",
-    "Shredding Services",
-    "Package Receiving",
-    "Copy Services",
-    "Drop-off Services",
+    'Pack & Ship Services',
+    'Professional Printing',
+    'Mailbox Rentals',
+    'Document Services',
+    'Notary Services',
+    'Digital Fingerprinting',
+    'Fax & Scan Services',
+    'Packaging Supplies',
+    'Business Services',
+    'Shredding Services',
+    'Package Receiving',
+    'Copy Services',
+    'Drop-off Services',
   ];
 
   const localAreas = [
-    "Concord Township",
-    "Mentor",
-    "Painesville",
-    "Eastlake",
-    "Willoughby",
-    "Wickliffe",
-    "Madison",
-    "Perry",
-    "Kirtland",
-    "Chardon",
-    "Fairport Harbor",
-    "Geneva",
+    'Concord Township',
+    'Mentor',
+    'Painesville',
+    'Eastlake',
+    'Willoughby',
+    'Wickliffe',
+    'Madison',
+    'Perry',
+    'Kirtland',
+    'Chardon',
+    'Fairport Harbor',
+    'Geneva',
   ];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentServiceIndex(
-        (prev) => (prev + 1) % serviceCategories.length
-      );
+      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
     }, 3000);
     return () => clearInterval(interval);
   }, [serviceCategories.length]);
@@ -76,17 +73,17 @@ export const Home: React.FC = () => {
             priority
             sources={[
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
-                media: "(max-width: 768px)",
-                type: "image/webp"
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
+                media: '(max-width: 768px)',
+                type: 'image/webp',
               },
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
-                media: "(min-width: 769px)",
-                type: "image/webp"
-              }
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
+                media: '(min-width: 769px)',
+                type: 'image/webp',
+              },
             ]}
-            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
             className="w-full h-full object-cover opacity-30"
             style={{ objectPosition: 'center' }}
@@ -102,8 +99,7 @@ export const Home: React.FC = () => {
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm font-heading"
           >
-            Pack & Ship in{" "}
-            <span className="text-blue-200">Concord Twp, Ohio</span>
+            Pack & Ship in <span className="text-blue-200">Concord Twp, Ohio</span>
           </motion.h1>
 
           {/* Rotating service tagline */}
@@ -128,8 +124,8 @@ export const Home: React.FC = () => {
           </motion.div>
 
           <p className="text-lg md:text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Your trusted local partner for shipping, printing, and business
-            services. Serving Lake County communities with integrity and care.
+            Your trusted local partner for shipping, printing, and business services. Serving Lake
+            County communities with integrity and care.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -142,7 +138,7 @@ export const Home: React.FC = () => {
             </Button>
             {/* Directions Button */}
             <a
-              href={getGoogleMapsLink("directions", siteConfig.name)}
+              href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -153,11 +149,14 @@ export const Home: React.FC = () => {
             </a>
             {/* View on Map Button */}
             <a
-              href={getGoogleMapsLink("view", siteConfig.name)}
+              href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]">
+              <Button
+                variant="ghost"
+                className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -179,14 +178,14 @@ export const Home: React.FC = () => {
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
           <p className="text-lg text-blue-200 mb-10 max-w-2xl mx-auto">
-            Stop by for all your shipping, printing, and business service needs.
-            Our friendly team is ready to help!
+            Stop by for all your shipping, printing, and business service needs. Our friendly team
+            is ready to help!
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {/* Directions Button */}
             <a
-              href={getGoogleMapsLink("directions", siteConfig.name)}
+              href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -198,11 +197,14 @@ export const Home: React.FC = () => {
 
             {/* View on Map Button */}
             <a
-              href={getGoogleMapsLink("view", siteConfig.name)}
+              href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]">
+              <Button
+                variant="ghost"
+                className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -220,9 +222,7 @@ export const Home: React.FC = () => {
           {/* Hours */}
           <div className="flex items-center justify-center gap-2 text-blue-100">
             <Clock className="w-5 h-5" />
-            <span className="text-sm">
-              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed
-            </span>
+            <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>
 
           {/* Carrier Logos */}
@@ -240,7 +240,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-wrap gap-4 justify-center">
             {localAreas.map((area) => {
               // turn "Concord Township" → "concord-township"
-              const slug = area.toLowerCase().replace(/\s+/g, "-");
+              const slug = area.toLowerCase().replace(/\s+/g, '-');
               return (
                 <Button
                   key={area}

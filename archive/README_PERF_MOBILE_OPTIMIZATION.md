@@ -3,12 +3,14 @@
 ## Verification Steps
 
 1. **Install dependencies and build:**
+
    ```sh
    npm install
    npm run build
    ```
 
 2. **Run a local server:**
+
    ```sh
    npm run preview
    # or use `npx serve dist`
@@ -46,5 +48,7 @@
 ## Rollback
 
 To revert, simply switch back to your main branch:
+
 ```sh
 git checkout main
+```

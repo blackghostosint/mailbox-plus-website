@@ -8,14 +8,17 @@
 ## 📚 Documentation Index
 
 ### Core Policy Documents (Project Root)
+
 - **[MICRO_PROBLEM_GOVERNANCE.md](./MICRO_PROBLEM_GOVERNANCE.md)** - Authoritative governance policy (READ THIS FIRST)
 - **[MICRO_PROBLEM_DECISION_FLOWCHART.md](./MICRO_PROBLEM_DECISION_FLOWCHART.md)** - Step-by-step decision guide
 
 ### Configuration & Technical Docs
+
 - **[src/config/micro-problems/README.md](./src/config/micro-problems/README.md)** - Configuration architecture
 - **[src/config/micro-problems/INTENT_KEY_GUIDE.md](./src/config/micro-problems/INTENT_KEY_GUIDE.md)** - How to use intentKey
 
 ### Audit Infrastructure
+
 - **[.agent/workflows/micro-problem-quarterly-audit.md](./.agent/workflows/micro-problem-quarterly-audit.md)** - Quarterly audit workflow
 - **[scripts/audits/README.md](./scripts/audits/README.md)** - Audit tooling and process
 
@@ -32,12 +35,12 @@ If it doesn't, it doesn't deserve to exist.
 
 ## ⏰ Quarterly Audit Schedule
 
-| Quarter | Audit Date | Status |
-|---------|------------|--------|
-| **Q1** | March 15 | ⏳ Pending |
-| **Q2** | June 15 | ⏳ Pending |
-| **Q3** | September 15 | ⏳ Pending |
-| **Q4** | December 15 | ⏳ Pending |
+| Quarter | Audit Date   | Status     |
+| ------- | ------------ | ---------- |
+| **Q1**  | March 15     | ⏳ Pending |
+| **Q2**  | June 15      | ⏳ Pending |
+| **Q3**  | September 15 | ⏳ Pending |
+| **Q4**  | December 15  | ⏳ Pending |
 
 **Next Audit Due**: [Set after first audit]
 
@@ -46,14 +49,17 @@ If it doesn't, it doesn't deserve to exist.
 ## 🔍 Three Signals
 
 ### Signal A: Search Console Performance
+
 - ❌ **FAIL**: 0 impressions OR impressions but 0 clicks
 - ✅ **PASS**: Has both impressions and clicks
 
-### Signal B: User Intent Reality  
+### Signal B: User Intent Reality
+
 - ❌ **FAIL**: Staff confusion, customer expectation mismatch, increased friction
 - ✅ **PASS**: No confusion reported
 
 ### Signal C: Intent Overlap
+
 - ❌ **FAIL**: Duplicate `intentKey` OR cannot explain difference in one sentence
 - ✅ **PASS**: Unique intentKey
 
@@ -61,12 +67,12 @@ If it doesn't, it doesn't deserve to exist.
 
 ## ⚖️ Four Decision Types
 
-| Decision | Criteria | Action |
-|----------|----------|--------|
-| **❌ DELETE** | Signal A FAIL + Signal C FAIL + no value | Remove config entry, no redirect |
-| **🔀 MERGE** | Signal C FAIL + one performs better | Keep stronger, fold copy, delete weaker |
-| **✏️ REWRITE** | Signal A PASS + Signal B FAIL | Clarify scope and limitations |
-| **✅ KEEP** | Passes signals or provides value | No action needed |
+| Decision       | Criteria                                 | Action                                  |
+| -------------- | ---------------------------------------- | --------------------------------------- |
+| **❌ DELETE**  | Signal A FAIL + Signal C FAIL + no value | Remove config entry, no redirect        |
+| **🔀 MERGE**   | Signal C FAIL + one performs better      | Keep stronger, fold copy, delete weaker |
+| **✏️ REWRITE** | Signal A PASS + Signal B FAIL            | Clarify scope and limitations           |
+| **✅ KEEP**    | Passes signals or provides value         | No action needed                        |
 
 ---
 
@@ -101,6 +107,7 @@ Before starting a quarterly audit:
 ## 🚫 Forbidden Actions
 
 **Never do these:**
+
 - ❌ Keep pages "just in case"
 - ❌ Chase keyword variations without unique value
 - ❌ Preserve pages for vanity metrics (impressions without clicks)
@@ -116,15 +123,17 @@ Before starting a quarterly audit:
 **Owner**: Marcus "Marc" Vance (Fractional CTO)
 
 ### Dependency Management
+
 - **Patch/Minor updates**: Monthly (low risk, security fixes)
 - **Major updates**: Annually (test in `test/major-updates` branch first)
-- **Current status**: 
+- **Current status**:
   - ✅ Patch/minor updates completed (2026-05-29)
   - ⚠️ Major updates pending: React 19, Vite 8, TypeScript 6
   - ⚠️ 8 vulnerabilities in build tools (esbuild, vite, crypto-browserify)
-    - *Note: These are build-time only, not in production bundle*
+    - _Note: These are build-time only, not in production bundle_
 
 ### Security Audits
+
 ```bash
 # Monthly security check
 npm audit
@@ -139,6 +148,7 @@ npm outdated
 **Vulnerability policy**: Build tool vulns (esbuild, vite, polyfills) are **low risk** for static sites — they don't ship to production.
 
 ### Audit Script Status
+
 - **Location**: `scripts/audit-micro-problems.cjs`
 - **Status**: ✅ **IMPLEMENTED** (2026-05-29)
 - **Previous status**: ❌ Placeholder (non-functional)
@@ -150,6 +160,7 @@ npm outdated
   - Supports `--dry-run` mode with mock data
 
 ### Technical Debt
+
 - **Cleanup tasks**:
   - [ ] Review `src/archive/` for dead code
   - [ ] Run `npx depcheck` for unused dependencies
@@ -160,6 +171,7 @@ npm outdated
 ## 📁 File Locations
 
 ### Config Files (edit these during audit)
+
 ```
 src/config/micro-problems/
 ├── returns.ts      # Return-related micro-problems
@@ -169,6 +181,7 @@ src/config/micro-problems/
 ```
 
 ### Audit Data
+
 ```
 scripts/audits/
 ├── search-console-data/  # CSV exports from Google Search Console
@@ -198,20 +211,24 @@ scripts/audits/
 ### Example: "ship-breakable-products"
 
 **Signal A** (Search Console):
+
 - Impressions: 0
 - Clicks: 0
 - **Result**: ❌ FAIL
 
 **Signal B** (Staff Feedback):
+
 - No confusion reported
 - **Result**: ✅ PASS
 
 **Signal C** (Intent Overlap):
+
 - intentKey: "ship-fragile-items"
 - Also used by: "ship-fragile-items" page
 - **Result**: ❌ FAIL (duplicate)
 
 **Decision**: ❌ **DELETE**
+
 - Rationale: No traffic (Signal A FAIL) + Intent overlap (Signal C FAIL) + No unique value
 - Action: Remove from `src/config/micro-problems/shipping.ts`
 
@@ -222,6 +239,7 @@ scripts/audits/
 ### New to Micro-Problem Governance?
 
 **Start here**:
+
 1. Read: `MICRO_PROBLEM_GOVERNANCE.md` (15 min)
 2. Review: `MICRO_PROBLEM_DECISION_FLOWCHART.md` (10 min)
 3. Practice: Run through example in section above (5 min)
@@ -229,6 +247,7 @@ scripts/audits/
 ### Before First Audit
 
 **Prepare by**:
+
 1. Understanding the three signals
 2. Reviewing decision matrix
 3. Checking existing micro-problems for intentKey duplicates
@@ -237,6 +256,7 @@ scripts/audits/
 ### After Audit
 
 **Follow up**:
+
 1. Document lessons learned
 2. Update staff on changes
 3. Monitor removed pages (should 404 naturally)

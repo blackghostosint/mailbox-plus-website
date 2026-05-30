@@ -8,7 +8,7 @@ interface ServiceGridProps {
 }
 
 export const ServiceGrid: React.FC<ServiceGridProps> = ({ pillarId }) => {
-  const pillar = siteStructure.pillars.find(p => p.id === pillarId);
+  const pillar = siteStructure.pillars.find((p) => p.id === pillarId);
 
   if (!pillar) return null;
 

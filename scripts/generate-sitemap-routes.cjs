@@ -21,7 +21,7 @@ function getLastModified(filePath) {
         const gitDate = execSync(`git log -1 --format=%cI "${filePath}"`, {
           encoding: 'utf-8',
           timeout: 1000, // Don't hang forever
-          stdio: ['pipe', 'pipe', 'ignore'] // Suppress stderr
+          stdio: ['pipe', 'pipe', 'ignore'], // Suppress stderr
         }).trim();
 
         if (gitDate) {
@@ -60,7 +60,7 @@ function getAllServiceSlugs() {
   // Recursive function to walk directory
   function walk(dir) {
     const files = fs.readdirSync(dir);
-    files.forEach(file => {
+    files.forEach((file) => {
       const filePath = path.join(dir, file);
       const stat = fs.statSync(filePath);
       if (stat.isDirectory()) {
@@ -97,7 +97,9 @@ function getMicroProblemUrls() {
     const content = fs.readFileSync(indexPath, 'utf-8');
 
     const shardImports = [];
-    const importMatches = content.matchAll(/import\s+\{\s*(\w+)\s*\}\s+from\s+['"]\.\/([\w-]+)['"]/g);
+    const importMatches = content.matchAll(
+      /import\s+\{\s*(\w+)\s*\}\s+from\s+['"]\.\/([\w-]+)['"]/g
+    );
     for (const match of importMatches) {
       const varName = match[1];
       const fileName = match[2];
@@ -114,7 +116,9 @@ function getMicroProblemUrls() {
 
       const shardContent = fs.readFileSync(shardPath, 'utf-8');
 
-      const objectMatches = shardContent.matchAll(/\{[^}]*category:\s*["']micro-problems?["'][^}]*\}/gs);
+      const objectMatches = shardContent.matchAll(
+        /\{[^}]*category:\s*["']micro-problems?["'][^}]*\}/gs
+      );
 
       for (const match of objectMatches) {
         const obj = match[0];
@@ -137,7 +141,7 @@ function getMicroProblemUrls() {
 
     return { urls, sourceMap };
   } catch (e) {
-    console.error("Error reading micro-problems config", e);
+    console.error('Error reading micro-problems config', e);
     return { urls: [], sourceMap: {} };
   }
 }
@@ -159,7 +163,7 @@ function getLocalPageUrls() {
         }
       }
     } catch (e) {
-      console.error("Error reading serviceAreas.ts", e);
+      console.error('Error reading serviceAreas.ts', e);
     }
   }
 
@@ -170,7 +174,7 @@ function getLocalPageUrls() {
       const content = fs.readFileSync(localPagesPath, 'utf-8');
       const localPages = JSON.parse(content);
       if (Array.isArray(localPages)) {
-        localPages.forEach(page => {
+        localPages.forEach((page) => {
           if (page.slug) {
             let url;
             if (page.canonical) {
@@ -184,7 +188,7 @@ function getLocalPageUrls() {
         });
       }
     } catch (e) {
-      console.error("Error reading localPages.json", e);
+      console.error('Error reading localPages.json', e);
     }
   }
 
@@ -215,7 +219,7 @@ function getAppRoutes() {
       }
     }
   } catch (e) {
-    console.error("Error parsing App.tsx", e);
+    console.error('Error parsing App.tsx', e);
   }
 
   return { routes: Array.from(routes), sourceMap };
@@ -228,28 +232,30 @@ function generateRoutes() {
   const appRouteData = getAppRoutes();
 
   // Combine all routes
-  const allRoutes = Array.from(new Set([
-    ...manualRoutes,
-    ...serviceData.slugs,
-    ...microProblemData.urls,
-    ...localPageData.urls,
-    ...appRouteData.routes
-  ])).sort();
+  const allRoutes = Array.from(
+    new Set([
+      ...manualRoutes,
+      ...serviceData.slugs,
+      ...microProblemData.urls,
+      ...localPageData.urls,
+      ...appRouteData.routes,
+    ])
+  ).sort();
 
   // Combine source maps
-  // Priority: if duplicate routes, subsequent sources overwrite previous ones. 
+  // Priority: if duplicate routes, subsequent sources overwrite previous ones.
   // Order here matters if there are collisions.
   const combinedSourceMap = {
     ...serviceData.sourceMap,
     ...microProblemData.sourceMap,
     ...localPageData.sourceMap,
-    ...appRouteData.sourceMap
+    ...appRouteData.sourceMap,
   };
 
   // Calculate lastmod for each route
   const lastmod = {};
 
-  allRoutes.forEach(route => {
+  allRoutes.forEach((route) => {
     let sourceFile = combinedSourceMap[route];
 
     // Default source for manual routes or anything missing
@@ -267,7 +273,7 @@ function generateRoutes() {
 
   return {
     routes: allRoutes,
-    lastmod: lastmod
+    lastmod: lastmod,
   };
 }
 
@@ -282,7 +288,9 @@ if (require.main === module) {
   if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
 
   fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
-  console.log(`Successfully generated configuration for ${config.routes.length} routes to ${outputPath}`);
+  console.log(
+    `Successfully generated configuration for ${config.routes.length} routes to ${outputPath}`
+  );
 }
 
 module.exports = { generateRoutes };

@@ -1,30 +1,30 @@
-import React from "react";
-import { Meta } from "../components/Meta";
-import { motion } from "framer-motion";
+import React from 'react';
+import { Meta } from '../components/Meta';
+import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "../components/ui/accordion";
-import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/storage";
-import { InternalLink } from "../components/ui/InternalLink";
-import { Button } from "../components/ui";
+} from '../components/ui/accordion';
+import { SmartImage } from '../components/SmartImage';
+import { getServiceImageUrl } from '../lib/storage';
+import { InternalLink } from '../components/ui/InternalLink';
+import { Button } from '../components/ui';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
-import { fadeUp } from "../utils/animations";
-import { siteConfig } from "../config/siteConfig";
+import { fadeUp } from '../utils/animations';
+import { siteConfig } from '../config/siteConfig';
 
 // Import all named FAQ arrays from each category index
-import * as packShipFaqs from "../config/faqs/pack-ship";
-import * as copyPrintFaqs from "../config/faqs/copy-print";
-import * as homeBusinessFaqs from "../config/faqs/home-business";
-import * as specialtyFaqs from "../config/faqs/specialty";
-import * as notaryFaqs from "../config/faqs/notary";
+import * as packShipFaqs from '../config/faqs/pack-ship';
+import * as copyPrintFaqs from '../config/faqs/copy-print';
+import * as homeBusinessFaqs from '../config/faqs/home-business';
+import * as specialtyFaqs from '../config/faqs/specialty';
+import * as notaryFaqs from '../config/faqs/notary';
 
 // Type for FAQ (imported for type safety)
-import { FAQ } from "../types/faq";
+import { FAQ } from '../types/faq';
 
 // Helper to flatten all FAQ arrays from a category object
 function flattenFaqs(faqModule: Record<string, unknown>): FAQ[] {
@@ -34,24 +34,24 @@ function flattenFaqs(faqModule: Record<string, unknown>): FAQ[] {
 }
 
 const categories = [
-  { title: "Pack & Ship", data: flattenFaqs(packShipFaqs) },
-  { title: "Copy & Print", data: flattenFaqs(copyPrintFaqs) },
-  { title: "Home & Business", data: flattenFaqs(homeBusinessFaqs) },
-  { title: "Specialty Services", data: flattenFaqs(specialtyFaqs) },
-  { title: "Notary", data: flattenFaqs(notaryFaqs) },
+  { title: 'Pack & Ship', data: flattenFaqs(packShipFaqs) },
+  { title: 'Copy & Print', data: flattenFaqs(copyPrintFaqs) },
+  { title: 'Home & Business', data: flattenFaqs(homeBusinessFaqs) },
+  { title: 'Specialty Services', data: flattenFaqs(specialtyFaqs) },
+  { title: 'Notary', data: flattenFaqs(notaryFaqs) },
 ];
 
 const allFaqs: FAQ[] = categories.flatMap((c) => c.data);
 
 const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": allFaqs.map((faq) => ({
-    "@type": "Question",
-    "name": faq.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": faq.answer,
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: allFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer,
     },
   })),
 };
@@ -69,7 +69,7 @@ const AskMailboxPlus: React.FC = () => (
       <div className="absolute inset-0 w-full h-full z-0">
         <SmartImage
           priority
-          src={getServiceImageUrl("/images/mailboxes.webp")}
+          src={getServiceImageUrl('/images/mailboxes.webp')}
           alt="Mailbox Plus Storefront"
           className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           style={{ objectPosition: 'center' }}
@@ -95,8 +95,8 @@ const AskMailboxPlus: React.FC = () => (
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
         >
-          Your local experts for shipping, printing, and business solutions in Concord Township.
-          Got questions? We have answers.
+          Your local experts for shipping, printing, and business solutions in Concord Township. Got
+          questions? We have answers.
         </motion.p>
       </div>
 
@@ -112,10 +112,24 @@ const AskMailboxPlus: React.FC = () => (
       >
         <h2 className="text-2xl font-bold text-slate-800 mb-4">Serving Lake County, Ohio</h2>
         <p className="text-slate-600 leading-relaxed text-lg mb-6">
-          Whether you are in <strong>Concord Township, Mentor, Painesville, Willoughby, or Kirtland</strong>,
-          Mailbox Plus is your neighborhood resource. We specialize in solving complex shipping problems,
-          handling <InternalLink to="/amazon-returns" className="text-[#0855B1] font-semibold hover:underline">Amazon returns</InternalLink>,
-          and providing secure <InternalLink to="/mailbox-rental" className="text-[#0855B1] font-semibold hover:underline">private mailbox rentals</InternalLink>.
+          Whether you are in{' '}
+          <strong>Concord Township, Mentor, Painesville, Willoughby, or Kirtland</strong>, Mailbox
+          Plus is your neighborhood resource. We specialize in solving complex shipping problems,
+          handling{' '}
+          <InternalLink
+            to="/amazon-returns"
+            className="text-[#0855B1] font-semibold hover:underline"
+          >
+            Amazon returns
+          </InternalLink>
+          , and providing secure{' '}
+          <InternalLink
+            to="/mailbox-rental"
+            className="text-[#0855B1] font-semibold hover:underline"
+          >
+            private mailbox rentals
+          </InternalLink>
+          .
         </p>
       </motion.div>
     </section>
@@ -141,7 +155,11 @@ const AskMailboxPlus: React.FC = () => (
           <div className="p-6 md:p-8">
             <Accordion type="single" collapsible className="space-y-4">
               {cat.data.map((faq, i) => (
-                <AccordionItem key={i} value={`item-${idx}-${i}`} className="border border-slate-200 rounded-xl px-4 data-[state=open]:bg-slate-50 data-[state=open]:border-blue-200 transition-colors">
+                <AccordionItem
+                  key={i}
+                  value={`item-${idx}-${i}`}
+                  className="border border-slate-200 rounded-xl px-4 data-[state=open]:bg-slate-50 data-[state=open]:border-blue-200 transition-colors"
+                >
                   <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-[#0855B1] py-4 text-lg">
                     {faq.question}
                   </AccordionTrigger>
@@ -159,21 +177,27 @@ const AskMailboxPlus: React.FC = () => (
     {/* ====================== CTA SECTION (V2 Gradient) ======================= */}
     <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] text-center">
       <div className="max-w-4xl mx-auto px-4">
-        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-          Still have questions?
-        </h2>
+        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Still have questions?</h2>
         <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
           Giving us a call is often the fastest way to get help. We&apos;re open 6 days a week!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <a href={`tel:${siteConfig.contact.phone}`}>
-            <Button size="lg" variant="secondary" className="font-bold shadow-lg border-none min-h-12 px-8">
+            <Button
+              size="lg"
+              variant="secondary"
+              className="font-bold shadow-lg border-none min-h-12 px-8"
+            >
               <Phone className="w-5 h-5 mr-2" />
               Call {siteConfig.contact.phone}
             </Button>
           </a>
           <InternalLink to="/contact">
-            <Button size="lg" variant="ghost" className="text-white border border-white/40 hover:bg-white/10">
+            <Button
+              size="lg"
+              variant="ghost"
+              className="text-white border border-white/40 hover:bg-white/10"
+            >
               <MapPin className="w-5 h-5 mr-2" />
               Get Directions
             </Button>

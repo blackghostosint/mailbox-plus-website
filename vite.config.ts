@@ -8,10 +8,13 @@ import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import sitemapConfig from './src/data/sitemap-config.json';
 
 // Convert string dates to Date objects for the plugin
-const lastmodMap = Object.entries(sitemapConfig.lastmod).reduce((acc, [route, dateStr]) => {
-  acc[route] = new Date(dateStr);
-  return acc;
-}, {} as Record<string, Date>);
+const lastmodMap = Object.entries(sitemapConfig.lastmod).reduce(
+  (acc, [route, dateStr]) => {
+    acc[route] = new Date(dateStr);
+    return acc;
+  },
+  {} as Record<string, Date>
+);
 
 export default defineConfig({
   plugins: [

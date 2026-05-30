@@ -1,31 +1,33 @@
-import React from "react";
-import type { SVGProps } from "react";
-import { FAQ } from "./faq";
+import React from 'react';
+import type { SVGProps } from 'react';
+import { FAQ } from './faq';
 
 // Icon component type compatible with both lucide-react and unplugin-icons
-export type IconComponent = React.ComponentType<SVGProps<SVGSVGElement> & { size?: number | string }>;
+export type IconComponent = React.ComponentType<
+  SVGProps<SVGSVGElement> & { size?: number | string }
+>;
 
 export type ServiceCategory =
-  | "core"
-  | "pack-ship"
-  | "copy-print"
-  | "mailbox-rentals"
-  | "document-services"
-  | "additional-services"
-  | "notary-services"
-  | "specialty"
-  | "micro-problem";
+  | 'core'
+  | 'pack-ship'
+  | 'copy-print'
+  | 'mailbox-rentals'
+  | 'document-services'
+  | 'additional-services'
+  | 'notary-services'
+  | 'specialty'
+  | 'micro-problem';
 
 // CTA type for reusable call-to-action sections
 export interface CTA {
   title: string;
   subtitle?: string;
   buttonText: string;
-  buttonLink: string;    // internal route or absolute URL
+  buttonLink: string; // internal route or absolute URL
   icon?: IconComponent;
-  bgImage?: string;      // optional background image path
-  align?: "left" | "center"; // layout preference
-  variant?: "brand" | "neutral" | "ghost"; // style variants
+  bgImage?: string; // optional background image path
+  align?: 'left' | 'center'; // layout preference
+  variant?: 'brand' | 'neutral' | 'ghost'; // style variants
 }
 
 export interface Service {

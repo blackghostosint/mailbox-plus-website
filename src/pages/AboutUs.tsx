@@ -1,9 +1,9 @@
-import { PageMeta } from "../components/SEO/PageMeta";
-import { SmartImage } from "../components/SmartImage";
-import { motion } from "framer-motion";
-import { fadeUp } from "../utils/animations";
-import { InternalLink } from "../components/ui/InternalLink";
-import { Button } from "../components/ui";
+import { PageMeta } from '../components/SEO/PageMeta';
+import { SmartImage } from '../components/SmartImage';
+import { motion } from 'framer-motion';
+import { fadeUp } from '../utils/animations';
+import { InternalLink } from '../components/ui/InternalLink';
+import { Button } from '../components/ui';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Package from '~icons/lucide/package';
@@ -12,7 +12,7 @@ import Mail from '~icons/lucide/mail';
 import FileText from '~icons/lucide/file-text';
 import ScanLine from '~icons/lucide/scan-line';
 import Box from '~icons/lucide/box';
-import { getServiceImageUrl } from "../lib/storage";
+import { getServiceImageUrl } from '../lib/storage';
 
 export function AboutUs() {
   return (
@@ -30,17 +30,17 @@ export function AboutUs() {
             priority
             sources={[
               {
-                srcSet: getServiceImageUrl("aboutus_mailbox_plus.webp"),
-                media: "(max-width: 768px)",
-                type: "image/webp"
+                srcSet: getServiceImageUrl('aboutus_mailbox_plus.webp'),
+                media: '(max-width: 768px)',
+                type: 'image/webp',
               },
               {
-                srcSet: getServiceImageUrl("aboutus_mailbox_plus.webp"),
-                media: "(min-width: 769px)",
-                type: "image/webp"
-              }
+                srcSet: getServiceImageUrl('aboutus_mailbox_plus.webp'),
+                media: '(min-width: 769px)',
+                type: 'image/webp',
+              },
             ]}
-            src={getServiceImageUrl("aboutus_mailbox_plus.webp")}
+            src={getServiceImageUrl('aboutus_mailbox_plus.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
             className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
             style={{ objectPosition: 'center' }}
@@ -66,8 +66,8 @@ export function AboutUs() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
           >
-            Your trusted local partner for shipping, printing, mailbox rentals,
-            and business services — proudly serving Concord Township and Lake County.
+            Your trusted local partner for shipping, printing, mailbox rentals, and business
+            services — proudly serving Concord Township and Lake County.
           </motion.p>
         </div>
 
@@ -81,7 +81,7 @@ export function AboutUs() {
       <section className="mt-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
         <motion.div {...fadeUp(0.1)} className="relative">
           <SmartImage
-            src={getServiceImageUrl("/images/mailboxes.webp")}
+            src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
             className="rounded-[26px] shadow-[0_18px_45px_rgba(15,23,42,0.15)] w-full aspect-video object-cover border border-white/50"
           />
@@ -93,23 +93,23 @@ export function AboutUs() {
         >
           <h2 className="text-3xl font-bold mb-6 text-slate-900">Our Story</h2>
           <p className="text-slate-600 leading-relaxed mb-4 text-lg">
-            Mailbox Plus is a locally owned and operated business located in the
-            heart of Concord Township, Ohio. We opened our doors to provide a
-            friendly, reliable, and convenient alternative to driving to Mentor,
-            Willoughby, or Painesville for shipping and business needs.
+            Mailbox Plus is a locally owned and operated business located in the heart of Concord
+            Township, Ohio. We opened our doors to provide a friendly, reliable, and convenient
+            alternative to driving to Mentor, Willoughby, or Painesville for shipping and business
+            needs.
           </p>
 
           <p className="text-slate-600 leading-relaxed mb-4 text-lg">
-            Our mission is simple: offer honest, personal, neighborly service that
-            you won’t find at big-box stores or national shipping chains. We combine
-            small-town hospitality with big-city capabilities — giving you access to
-            <strong className="text-[#0855B1]"> FedEx, UPS, USPS, and DHL</strong> all in one location.
+            Our mission is simple: offer honest, personal, neighborly service that you won’t find at
+            big-box stores or national shipping chains. We combine small-town hospitality with
+            big-city capabilities — giving you access to
+            <strong className="text-[#0855B1]"> FedEx, UPS, USPS, and DHL</strong> all in one
+            location.
           </p>
 
           <p className="text-slate-600 leading-relaxed mb-8 text-lg">
-            Whether you&apos;re shipping a package, printing documents, renting a private
-            mailbox, or handling business tasks, our team is here to help every step
-            of the way.
+            Whether you&apos;re shipping a package, printing documents, renting a private mailbox,
+            or handling business tasks, our team is here to help every step of the way.
           </p>
 
           <InternalLink to="/contact-us">
@@ -129,10 +129,10 @@ export function AboutUs() {
             Proudly Serving Concord Township & Lake County
           </motion.h2>
           <motion.p {...fadeUp(0.2)} className="text-gray-700 max-w-3xl mx-auto leading-relaxed">
-            Our customers come from Concord Township, Mentor, Painesville,
-            Willoughby, Eastlake, Madison, Chardon, Kirtland, Perry, and all across Lake County.
-            We are deeply committed to supporting our local residents, nearby businesses, and
-            community organizations with dependable service and genuine care.
+            Our customers come from Concord Township, Mentor, Painesville, Willoughby, Eastlake,
+            Madison, Chardon, Kirtland, Perry, and all across Lake County. We are deeply committed
+            to supporting our local residents, nearby businesses, and community organizations with
+            dependable service and genuine care.
           </motion.p>
         </div>
       </section>
@@ -153,7 +153,7 @@ export function AboutUs() {
           >
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
-                src={getServiceImageUrl("/images/frank.webp")}
+                src={getServiceImageUrl('/images/frank.webp')}
                 alt="Frank Schwarz"
                 className="w-full h-full rounded-full object-cover"
               />
@@ -161,9 +161,9 @@ export function AboutUs() {
             <h3 className="text-2xl font-bold text-slate-900">Frank Schwarz</h3>
             <p className="text-[#0855B1] font-semibold text-lg mb-4">Store Manager</p>
             <p className="text-slate-600 leading-relaxed mb-6">
-              Frank brings years of experience in customer service, operations, and
-              business management, operations, logistics, and shipping. Known for his friendly approach and attention to detail,
-              he ensures every customer leaves with a great experience.
+              Frank brings years of experience in customer service, operations, and business
+              management, operations, logistics, and shipping. Known for his friendly approach and
+              attention to detail, he ensures every customer leaves with a great experience.
             </p>
             <a
               href="https://www.linkedin.com/in/frank-schwarz/"
@@ -183,7 +183,7 @@ export function AboutUs() {
           >
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
-                src={getServiceImageUrl("/images/diana.webp")}
+                src={getServiceImageUrl('/images/diana.webp')}
                 alt="Diana Goebelt Schwarz"
                 className="w-full h-full rounded-full object-cover"
               />
@@ -191,9 +191,10 @@ export function AboutUs() {
             <h3 className="text-2xl font-bold text-slate-900">Diana Goebelt Schwarz</h3>
             <p className="text-[#0855B1] font-semibold text-lg mb-4">Owner</p>
             <p className="text-slate-600 leading-relaxed mb-6">
-              With a strong background in operations, logistics, and customer care,
-              Diana leads Mailbox Plus with a commitment to excellence and community-minded service.
-              Her leadership ensures we continue to grow while maintaining a welcoming, family-run atmosphere.
+              With a strong background in operations, logistics, and customer care, Diana leads
+              Mailbox Plus with a commitment to excellence and community-minded service. Her
+              leadership ensures we continue to grow while maintaining a welcoming, family-run
+              atmosphere.
             </p>
             <a
               href="https://www.linkedin.com/in/diana-goebelt-schwarz-94090737/"
@@ -213,18 +214,51 @@ export function AboutUs() {
       {/* -------------------------------- */}
       <section className="py-20 bg-slate-50 relative z-10">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2 {...fadeUp(0.1)} className="text-3xl font-bold text-center mb-12 text-slate-900">
+          <motion.h2
+            {...fadeUp(0.1)}
+            className="text-3xl font-bold text-center mb-12 text-slate-900"
+          >
             What We Offer
           </motion.h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Pack & Ship", link: "/pack-ship", icon: Package, desc: "UPS, FedEx, DHL, USPS" },
-              { title: "Print Services", link: "/copy-print", icon: Printer, desc: "Copies, Photos" },
-              { title: "Mailbox Rentals", link: "/home-business/mailbox-rental", icon: Mail, desc: "Secure, Private, Business Hours" },
-              { title: "Notary Public", link: "/home-business/notary-services", icon: FileText, desc: "Official Notarizations" },
-              { title: "Scanning", link: "/home-business/document-scanning", icon: ScanLine, desc: "Digitize Your Documents" },
-              { title: "Package Receiving", link: "/pack-ship/package-receiving", icon: Box, desc: "Never Miss a Delivery" },
+              {
+                title: 'Pack & Ship',
+                link: '/pack-ship',
+                icon: Package,
+                desc: 'UPS, FedEx, DHL, USPS',
+              },
+              {
+                title: 'Print Services',
+                link: '/copy-print',
+                icon: Printer,
+                desc: 'Copies, Photos',
+              },
+              {
+                title: 'Mailbox Rentals',
+                link: '/home-business/mailbox-rental',
+                icon: Mail,
+                desc: 'Secure, Private, Business Hours',
+              },
+              {
+                title: 'Notary Public',
+                link: '/home-business/notary-services',
+                icon: FileText,
+                desc: 'Official Notarizations',
+              },
+              {
+                title: 'Scanning',
+                link: '/home-business/document-scanning',
+                icon: ScanLine,
+                desc: 'Digitize Your Documents',
+              },
+              {
+                title: 'Package Receiving',
+                link: '/pack-ship/package-receiving',
+                icon: Box,
+                desc: 'Never Miss a Delivery',
+              },
             ].map((service, i) => (
               <motion.div
                 key={service.title}
@@ -257,11 +291,16 @@ export function AboutUs() {
             Let Us Handle Your Package!
           </h2>
           <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Stop in today — we&apos;re conveniently located at <span className="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
+            Stop in today — we&apos;re conveniently located at{' '}
+            <span className="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <InternalLink to="/contact-us">
-              <Button size="lg" variant="secondary" className="font-bold shadow-lg border-none min-h-12 px-8">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="font-bold shadow-lg border-none min-h-12 px-8"
+              >
                 Get in Touch
               </Button>
             </InternalLink>
@@ -270,7 +309,11 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="ghost" className="text-white border border-white/40 hover:bg-white/10">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white border border-white/40 hover:bg-white/10"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -278,7 +321,6 @@ export function AboutUs() {
           </div>
         </div>
       </section>
-
     </>
   );
 }

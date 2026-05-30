@@ -5,6 +5,7 @@ Implemented a scalable, file-based article rendering system to support the progr
 
 **Refactor Update (20 minutes later)**
 Refactored the entire system to use the industry-standard Markdown stack:
+
 - Installed `gray-matter` for robust frontmatter parsing (replacing custom regex)
 - Installed `react-markdown` + `remark-gfm` for complete Markdown feature support
 - Installed `@tailwindcss/typography` for beautiful `prose` styling
@@ -12,6 +13,7 @@ Refactored the entire system to use the industry-standard Markdown stack:
 - Updated `scripts/validate-articles.cjs` to use `gray-matter` for accurate audits
 
 **Scope**
+
 - `src/pages/ArticlePage.tsx`: New dynamic page component with premium hero design and "Related Services" sidebar.
 - `src/components/ArticleMarkdown.tsx`: Custom markdown renderer supporting Tailwind typography.
 - `src/utils/articleLoader.ts`: Utility to load, parse, and cache markdown content via Vite glob imports.
@@ -20,6 +22,7 @@ Refactored the entire system to use the industry-standard Markdown stack:
 - `scripts/generate-article-sitemap.cjs`: Script to generate sitemap entries for new articles.
 
 **Notes**
+
 - **First Article Live**: `pack-ship-painesville-city.md` is now live at `/articles/pack-ship-painesville-city`.
 - **Hybrid Routing**: Used `/articles/:slug` to ensure no collisions with existing service pages and to provide a clean namespace for 5000+ potential future pages.
 - **Image Handling**: integrated with existing R2 image hosting pattern.
@@ -32,12 +35,14 @@ Refactored the entire system to use the industry-standard Markdown stack:
 Ensured the canonical store address (**7554 Fredle Drive, Concord Township, Ohio 44077**) is used consistently across all configuration and legal files. This resolves discrepancies where the business was previously referred to by the intersecting street ("Auburn Road") or inconsistent addresses. Updated the "Last updated" dates on legal pages to reflect this standardization.
 
 **Scope**
+
 - `src/config/locations.ts`: Updated driving directions and content templates with explicit canonical address.
 - `src/pages/Terms.tsx`: Refreshed "Last updated" date to February 2026.
 - `src/pages/Privacy.tsx`: Refreshed "Last updated" date to February 2026.
 
 **Notes**
-- Site structure and SEO metadata were audited for address consistency. 
+
+- Site structure and SEO metadata were audited for address consistency.
 - Legal compliance sections in Terms and Privacy were verified.
 
 ---
@@ -48,10 +53,12 @@ Ensured the canonical store address (**7554 Fredle Drive, Concord Township, Ohio
 Created `src/config/locations.ts` to implement the **Locations Playbook** from programmatic SEO. This configuration enables generating "[service] in [city]" pages at scale while maintaining unique local content per page to avoid Google doorway page penalties.
 
 **Scope**
+
 - `src/config/locations.ts`: New configuration file with 10 Lake County cities and 8 core services
 - `.agent/skills/programmatic-seo/SKILL.md`: Already installed skill providing implementation guidance
 
 **Notes**
+
 - **Phase 1 generates 40 location pages**: 5 primary cities (Concord, Mentor, Painesville, Willoughby, Chardon) × 8 services
 - **Phase 2 adds 40 more**: 5 secondary cities (Kirtland, Madison, Eastlake, Wickliffe, Mentor-on-the-Lake)
 - Each location includes **unique local content**: driving directions, landmarks, local examples, drive times
@@ -67,10 +74,12 @@ Created `src/config/locations.ts` to implement the **Locations Playbook** from p
 Installed the `programmatic-seo` skill from the `coreyhaines31/marketingskills` GitHub repository. This skill provides expert guidance for building SEO-optimized pages at scale using templates and data, with 12 playbooks covering patterns like location pages, comparison pages, personas, and directories.
 
 **Scope**
+
 - `.agents/skills/programmatic-seo/` (universal skill location)
 - Symlinked to `.agent/skills/` (Antigravity) and `.claude/skills/` (Claude Code)
 
 **Notes**
+
 - Installed via `npx skills add https://github.com/coreyhaines31/marketingskills --skill programmatic-seo`
 - Aligns well with existing micro-problems architecture and GEMINI.md governance
 - Key playbooks for Mailbox Plus: Locations ("mailbox rental in [city]"), Personas ("mailbox for [business type]"), Comparisons
@@ -84,9 +93,11 @@ Installed the `programmatic-seo` skill from the `coreyhaines31/marketingskills` 
 Applied the ui-ux-pro-max skill to audit and improve `MailboxPlusSalesPage.html` against the pre-delivery checklist. Implemented accessibility fixes, replaced all emoji icons with SVG icons, added trust badges, and enhanced form accessibility.
 
 **Scope**
+
 - `public/MailboxPlusSalesPage.html`: Comprehensive UI/UX improvements
 
 **Notes**
+
 - **Accessibility**: Added `prefers-reduced-motion` CSS rule, enhanced focus states for form inputs, added `sr-only` labels and `aria-label` attributes to all form fields
 - **Icons**: Replaced ✔️, ⭐⭐⭐⭐⭐, 🚨, and ⚡ emojis with Heroicons SVG icons for WCAG compliance
 - **Interaction**: Added `cursor-pointer` to all interactive elements (testimonial cards, FAQ items, pricing cards)
@@ -101,9 +112,11 @@ Applied the ui-ux-pro-max skill to audit and improve `MailboxPlusSalesPage.html`
 Updated the "Reserve Your Mailbox" form to redirect users to Stripe Checkout after form submission. The form still sends an email notification to Mailbox Plus, but now also redirects the user to the appropriate Stripe payment page based on their selected plan. Added new plan options: Large Annual, Corporate Mailbox, Business Pro, and Business Pro Large Mailbox.
 
 **Scope**
+
 - `public/MailboxPlusSalesPage.html`: Updated plan dropdown options and added Stripe checkout redirect logic to form submission handler.
 
 **Notes**
+
 - Each plan now maps to a specific Stripe checkout URL
 - Removed 6-month options in favor of monthly and annual billing cycles
 - Email notification still sent before redirect to ensure Mailbox Plus receives the lead information
@@ -117,9 +130,11 @@ Updated the "Reserve Your Mailbox" form to redirect users to Stripe Checkout aft
 Replaced two custom HTML pricing sections in the standalone `MailboxPlusSalesPage.html` with Stripe's embedded pricing table component. This enables direct payment processing through Stripe Checkout for mailbox rental subscriptions (Month-to-Month, 6-Month, and 12-Month plans) without requiring manual form submissions.
 
 **Scope**
+
 - `MailboxPlusSalesPage.html`: Added Stripe pricing table script to `<head>` and replaced both pricing grid sections (lines 937-989 and 1088-1139) with `<stripe-pricing-table>` web component.
 
 **Notes**
+
 - Pricing table ID: `prctbl_1SxdJZGfcIcZOCWheFiYECbL`
 - Using live publishable key for production: `pk_live_51RJ0FlGfcIcZOCWhekuaZ04Fkerve2Q0ZSOVFEoAoMgnr51yDgAGYCkcVnBZPgekGircqgr6LTdDbsLmOwwoND5D000RkuLoWh`
 - All payment processing now handled by Stripe, eliminating the need for backend webhook configuration for this sales page
@@ -129,16 +144,17 @@ Replaced two custom HTML pricing sections in the standalone `MailboxPlusSalesPag
 
 ## 2026-01-04 — Implement Mail-bot Plus Response Template V1
 
-
 **Summary**
 Implemented an enforced 4-part response structure for the chatbot to ensure consistent, human-friendly answers. The V1 template applies a runtime formatting system that validates responses against tone, length, and content rules before delivering them to users, ensuring the chatbot sounds like a helpful local employee rather than a corporate AI system.
 
 **Scope**
+
 - `netlify/functions/lib/mailbot-response-template-v1.ts` - Core template formatter with validation rules
 - `netlify/functions/chat-retrieve.ts` - Integrated formatter into response building
 - `knowledge/MAILBOT_RESPONSE_TEMPLATE_SPEC.md` - Comprehensive specification and examples
 
 **Notes**
+
 - Template Structure: (1) Acknowledgment (≤12 words), (2) Answer (direct, conversational), (3) Optional Context (local grounding), (4) Hand-off (next-step question)
 - Validation Guardrails: Length limits (≤6 lines), forbidden phrase filter (blocks AI/corporate language), section presence checks
 - Runtime Formatting: Uses intelligent parser to wrap legacy FAQ answers in V1 structure without modifying `kb.entries.json`
@@ -151,10 +167,12 @@ Implemented an enforced 4-part response structure for the chatbot to ensure cons
 Improved the chatbot's retrieval accuracy for physical mailbox rentals by incorporating "Private Mailbox", "PMB", and "P.O. Box alternative" variants into the knowledge base. Resolved retrieval competition issues by uniquely mapping variants to primary FAQ entries.
 
 **Scope**
+
 - `knowledge/kb.entries.json` - Added variants and refined `searchText` for mailbox entries.
 - `knowledge/retrieval-test-suite.ts` - Added 4 new test cases for the variations.
 
 **Notes**
+
 - All 28 retrieval tests passed with 100% success rate.
 - "PMB" and "P.O. Box alternative" now match with 100% confidence.
 
@@ -164,11 +182,13 @@ Improved the chatbot's retrieval accuracy for physical mailbox rentals by incorp
 Replaced all manual bullet-point characters (`•`) in service configuration files with structured HTML lists using premium SVG checkmarks, proper Tailwind spacing, and V2-compliant visual hierarchy. This ensures consistent, scannable, and premium aesthetics across all service pages.
 
 **Scope**
+
 - `src/config/services/pack-ship/local-seo.ts` (18 sections total - corrected)
 - `src/config/services/document-services.ts` (1 section)
 - Audited `carriers.ts` and `additional-services.ts` (no manual bullets found)
 
 **Notes**
+
 - All lists now use the V2 Standard List Template with rounded blue badges and checkmark SVGs.
 - Fixed two remaining sections in "UPS Store Alternative" page after user identified violations via live site screenshot.
 - Final site-wide audit confirms zero manual bullet violations across all 92 files.
@@ -180,6 +200,7 @@ Replaced all manual bullet-point characters (`•`) in service configuration fil
 Restructured over-dense text blocks across service configuration files to improve readability and conform to the V2 Design System's whitespace requirements. Large "walls of text" were broken into multiple, smaller content sections with distinct headings, triggering the alternating layout pattern in `ServicePageV2`.
 
 **Scope**
+
 - `src/config/services/pack-ship/local-seo.ts`
 - `src/config/services/copy-print.ts`
 - `src/config/services/pack-ship/specialty-shipping.ts`
@@ -188,6 +209,7 @@ Restructured over-dense text blocks across service configuration files to improv
 - `src/config/micro-problems/*.ts` (Audit)
 
 **Notes**
+
 - Specifically improved "Custom Box Making" and "UPS Authorized Shipper Outlet" pages as requested.
 - Maintained all original value propositions while drastically improving scannability.
 
@@ -197,10 +219,12 @@ Restructured over-dense text blocks across service configuration files to improv
 Implemented analytics tracking for the chatbot by integrating internal events with Google Tag Manager's `dataLayer`. Enhanced the `answer_served` event to include the original user question text, allowing for deeper analysis of customer intent and frequency of specific queries (e.g., hours and location).
 
 **Scope**
+
 - `src/App.tsx` - Updated `handleAnalytics` to push events to `window.dataLayer`.
 - `src/components/MailbotPlusChat/index.tsx` - Enhanced `answer_served` payload with `question` text.
 
 **Notes**
+
 - All events (`question_asked`, `answer_served`, `refusal_served`, etc.) are now persisted to the GTM data layer.
 - Verified that typechecking passes with the new `dataLayer` usage.
 
@@ -210,10 +234,12 @@ Implemented analytics tracking for the chatbot by integrating internal events wi
 Successfully resolved the critical issue where the chatbot refused address-related queries. The final fix involved configuring the missing `GEMINI_API_KEY` in Netlify and aligning the frontend API endpoint. Live verification confirmed an 96.8% confidence match for address queries.
 
 **Scope**
+
 - `src/services/chatbot.ts` - Corrected API endpoint and removed debug logs.
 - `netlify/functions/chat-retrieve.ts` - Hardened initialization, fixed per-entry thresholds, and cleaned up debug metadata.
 
 **Notes**
+
 - All retrieval tests pass (24/24).
 - Production environment is now fully synchronized with local logic.
 
@@ -223,10 +249,12 @@ Successfully resolved the critical issue where the chatbot refused address-relat
 Identified and fixed a primary point of failure where the frontend was calling an incorrect API endpoint (`/api/chat/retrieve`) while the backend function was named `chat-retrieve.ts`. This mismatch caused 404 errors in production. Also hardened the serverless initialization logic to ensure embeddings and knowledge base resources are always re-verified during container reuse.
 
 **Scope**
+
 - `src/services/chatbot.ts` - Aligned endpoint URL to `/api/chat-retrieve`
 - `netlify/functions/chat-retrieve.ts` - Improved `initializeResources` with path checking and population verification
 
 **Notes**
+
 - This explains why local tests passed but production failed: local tests bypassed the URL routing mismatch.
 - Deployment now correctly routes frontend queries to the functional backend.
 - Temporary debug metadata remains in the refusal response for final verification.
@@ -237,11 +265,13 @@ Identified and fixed a primary point of failure where the frontend was calling a
 Updated sitemap generation to use actual git commit dates for `lastmod` instead of a uniform build timestamp. This resolves the "Uniform lastmod dates" Search Console warning and improves crawl efficiency by signaling to Google exactly which pages have been updated.
 
 **Scope**
+
 - `scripts/generate-sitemap-routes.cjs`: Implemented `getLastModified` using `git log`, with fallbacks to file system and current date.
-**Scope**
+  **Scope**
 - `netlify/functions/chat-retrieve.ts` - Updated lines 266 and 271 to use `bestMatch.entry.confidence.minimumSimilarity` instead of hardcoded `MINIMUM_SIMILARITY` constant
 
 **Notes**
+
 - Root cause: Retrieval logic never checked the entry-specific `confidence.minimumSimilarity` field, rendering it useless
 - The `faq-store-location` entry was correctly configured with `minimumSimilarity: 0.62`, but the code rejected any score below 0.78
 - Fix allows each FAQ entry to define its own acceptable threshold based on semantic difficulty
@@ -255,9 +285,11 @@ Updated sitemap generation to use actual git commit dates for `lastmod` instead 
 Regenerated embeddings to include the updated `searchText` for the `faq-store-location` entry that was added in the previous fix. The live site was still refusing address queries because the embeddings file hadn't been regenerated after the kb.entries.json changes.
 
 **Scope**
+
 - `knowledge/embeddings.json` - Regenerated all 345 embeddings using `npm run build:embeddings`
 
 **Notes**
+
 - Root cause: Previous fix updated `kb.entries.json` with new searchText and lowered threshold to 0.62, but forgot to regenerate `embeddings.json`
 - Live production site was using stale embeddings that didn't include the enhanced searchText
 - Confirmed new embeddings include both `RETRIEVAL_QUERY::Where is your store located?` and `RETRIEVAL_DOCUMENT::store address location where is your store located what is your address Mailbox Plus Concord Township Ohio`
@@ -269,9 +301,11 @@ Regenerated embeddings to include the updated `searchText` for the `faq-store-lo
 Fixed production deployment issue where chatbot was refusing all queries due to missing embeddings file in Netlify function bundle. The `netlify.toml` configuration was still referencing the old `.embedding-cache.json` instead of the new `embeddings.json`, preventing the precomputed embeddings from being deployed.
 
 **Scope**
+
 - `netlify.toml` - Updated `included_files` to reference `embeddings.json` instead of `.embedding-cache.json`
 
 **Notes**
+
 - Root cause: Netlify's function bundler excluded `embeddings.json` because it wasn't listed in `included_files`
 - Symptom: All chatbot queries returned refusal message despite passing local tests
 - Function logs showed only "/" indicating initialization failure
@@ -285,12 +319,14 @@ Fixed production deployment issue where chatbot was refusing all queries due to 
 Migrated chatbot retrieval from runtime embedding generation to build-time precomputed embeddings to eliminate Netlify serverless timeout issues and improve performance. The system now generates all embeddings at build time as a static artifact, dramatically reducing retrieval latency and improving production reliability.
 
 **Scope**
+
 - `scripts/build-embeddings.ts` - New build script to generate embeddings for all KB entries using Gemini API
 - `knowledge/embeddings.json` - 5.2MB static artifact containing 2,500+ precomputed embeddings
 - `netlify/functions/chat-retrieve.ts` - Updated to load precomputed embeddings instead of generating at runtime
 - `package.json` - Added `build:embeddings` npm script for developer workflow
 
 **Notes**
+
 - Resolved Netlify serverless persistence issue: embeddings are now committed as static files, not cached at runtime
 - Cache key format changed from `${entryId}::${text}` to `${taskType}::${text}` (RETRIEVAL_QUERY/RETRIEVAL_DOCUMENT)
 - Build script extracts and deduplicates all `title`, `searchText`, and `questionVariants` from kb.entries.json
@@ -299,17 +335,18 @@ Migrated chatbot retrieval from runtime embedding generation to build-time preco
 - Performance improvement: retrieval function no longer makes thousands of Gemini API calls per request
 - Production-safe: serverless functions now operate in read-only mode for KB embeddings
 
-
 ## 2026-01-04 — Fix Address FAQ Retrieval Threshold & Embedding Alignment
 
 **Summary**
 Updated the `faq-store-location` entry to resolve address/location query failures caused by low cosine similarity scores. Modified the `searchText` field to use a short, intent-aligned semantic anchor instead of the verbose address string, improving semantic matching for queries like "what is your address" and "where are you located".
 
 **Scope**
+
 - `knowledge/kb.entries.json` - Updated `searchText` for `faq-store-location` entry
 - `knowledge/embeddings.json` - Regenerated all embeddings with updated FAQ entry
 
 **Notes**
+
 - Root cause: Short factual queries ("what is your address") had low cosine similarity with long, verbose address strings
 - Confidence threshold was already correctly set to 0.62 (lowered from default 0.78)
 - New `searchText`: "store address location where is your store located what is your address Mailbox Plus Concord Township Ohio"
@@ -323,6 +360,7 @@ Updated the `faq-store-location` entry to resolve address/location query failure
 Refactored 5 legacy hardcoded service pages to use the `ServicePageV2` component and centralized their content in the appropriate configuration shards. This ensures site-wide adherence to the V2 Design System, improves maintainability, and enhances the visual presentation with V2-compliant HTML grids and tables.
 
 **Scope**
+
 - `src/pages/document-services-concord-township.tsx`
 - `src/pages/ups-fedex-usps-dhl-shipping-concord-township.tsx`
 - `src/pages/printing-services-concord-township.tsx`
@@ -333,6 +371,7 @@ Refactored 5 legacy hardcoded service pages to use the `ServicePageV2` component
 - `src/config/services/copy-print.ts`
 
 **Notes**
+
 - All uniquely hardcoded content was successfully migrated and enhanced with V2 aesthetics.
 - The site is now 100% V2-compliant for all service-related landing pages.
 
@@ -342,28 +381,33 @@ Refactored 5 legacy hardcoded service pages to use the `ServicePageV2` component
 Standardized Artwork, Bicycle, and Golf Club shipping pages to full V2 compliance. Refactored the `specialty-shipping.ts` configuration to use visually rich HTML grids and panels, and converted the page files into minimal `ServicePageV2` wrappers, eliminating hardcoded elements and ensuring consistent aesthetics.
 
 **Scope**
+
 - `src/config/services/pack-ship/specialty-shipping.ts`
 - `src/pages/ArtworkShipping.tsx`
 - `src/pages/BicycleShipping.tsx`
 - Deleted redundant legacy files (`DocumentShredding.tsx`)
 
 **Notes**
+
 - Fixed broken image links on Amazon Returns page by implementing `getServiceImageUrl` for step-by-step guide and correcting filename typo (`abel` -> `label`).
 - Resolved page loading issue by relaxing global animation trigger amount in `ServicePageV2` (from 0.25 to 0.05) and refactoring the Amazon 11-step guide into three smaller content blocks for better performance.
 - Confirmed all images are served from Cloudflare R2 per requirements.
 - Preserved the exact 11-step flow and all image references for Amazon Returns.
 - All specialty shipping pages are now fully configuration-driven and V2-compliant.
+
 ## 2026-01-31 — Update Shredding Service Page
 
 **Summary**
 Updated the existing `shredding` service configuration to clearly highlight the security benefits of our on-site micro-cut shredder compared to off-site alternatives. Added technical specifications about standard P-4 security compliance.
 
 **Scope**
+
 - `src/config/services/document-services.ts`: Updated `shredding` object with new `metaDescription`, `heroSubtitle`, rewrote `content` sections to include micro-cut details, and updated `features`.
 
 **Notes**
 
 **Refinement**
+
 - Changed compliance wording from "guarantees" to "promises" per user request.
 - Expanded "Compliance & Security" section with detailed, conversational info on FACTA, HIPAA, GLBA, and state regulations using V2 list styling.
 
@@ -373,9 +417,11 @@ Updated the existing `shredding` service configuration to clearly highlight the 
 Resolved an issue where the site root (`/`) appeared twice in the `sitemap.xml`. This was caused by an explicit entry for `"/"` in `src/data/routes.json` conflicting with `vite-plugin-sitemap`'s default behavior of automatically including the hostname root. Removed the explicit entry to ensure a clean, single listing for the homepage.
 
 **Scope**
+
 - `src/data/routes.json`: Removed `"/"` from the routes array.
 
 **Notes**
+
 - Confirmed fix by rebuilding the project (`npm run build`) and verifying `dist/sitemap.xml` contains only one `<loc>https://mailboxplusohio.com/</loc>` entry.
 
 ## 2026-02-06 — Competitive Intelligence Report Created
@@ -384,9 +430,11 @@ Resolved an issue where the site root (`/`) appeared twice in the `sitemap.xml`.
 Generated a comprehensive business profile and competitor analysis of Mailbox Plus from an adversarial perspective. This report serves as a source of truth for marketing, sales, and operations, identifying core strengths, vulnerabilities, and strategic attack vectors.
 
 **Scope**
+
 - [NEW] COMPETITOR_ANALYSIS_MAILBOX_PLUS.md
 
 **Notes**
+
 - Analysis identifies \ Complexity Trap\ in specialty shipping and \Staff Dependency\ as key vulnerabilities.
 - Location confusion between siteConfig.ts and locations.ts was noted as a fragility.
 
@@ -396,6 +444,7 @@ Generated a comprehensive business profile and competitor analysis of Mailbox Pl
 Moved the competitive intelligence report to a new /research directory to maintain a clean project root.
 
 **Scope**
+
 - [NEW] /research/
 - [MOVE] COMPETITOR_ANALYSIS_MAILBOX_PLUS.md
 
@@ -405,9 +454,11 @@ Moved the competitive intelligence report to a new /research directory to mainta
 Created a canonical MAILBOX_PLUS_SOURCE_OF_TRUTH.md document to serve as the authoritative internal and external expression of business truth. Reconciled a major address discrepancy in the codebase (Fredle Dr vs Auburn Rd) to ensure consistency across all local SEO and marketing assets.
 
 **Scope**
+
 - [NEW] MAILBOX_PLUS_SOURCE_OF_TRUTH.md
 - [MODIFY] src/config/locations.ts
 
 **Notes**
+
 - 7554 Fredle Drive is now the confirmed canonical address.
 - Pricing truth documented as $25/mo standard; promotional "4 months free" flagged for future alignment.

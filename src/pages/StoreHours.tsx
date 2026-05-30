@@ -16,7 +16,7 @@ export const StoreHours: React.FC = () => {
     { day: 'Thursday', time: '9:00 AM - 6:00 PM', isToday: false },
     { day: 'Friday', time: '9:00 AM - 6:00 PM', isToday: false },
     { day: 'Saturday', time: '9:00 AM - 2:00 PM', isToday: false },
-    { day: 'Sunday', time: 'Closed', isToday: false }
+    { day: 'Sunday', time: 'Closed', isToday: false },
   ];
 
   const holidays = [
@@ -25,7 +25,7 @@ export const StoreHours: React.FC = () => {
     { name: 'Independence Day', date: 'July 4', status: 'Closed' },
     { name: 'Labor Day', date: 'First Monday in September', status: 'Closed' },
     { name: 'Thanksgiving', date: 'Fourth Thursday in November', status: 'Closed' },
-    { name: 'Christmas Day', date: 'December 25', status: 'Closed' }
+    { name: 'Christmas Day', date: 'December 25', status: 'Closed' },
   ];
 
   return (
@@ -39,8 +39,7 @@ export const StoreHours: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6"
             >
-              Store{' '}
-              <span className="text-[#0855B1]">Hours</span>
+              Store <span className="text-[#0855B1]">Hours</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -48,8 +47,8 @@ export const StoreHours: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-[#4B5563] mb-8 leading-relaxed"
             >
-              Visit us during our convenient business hours. We&apos;re here to help with all
-              your shipping, printing, and business service needs.
+              Visit us during our convenient business hours. We&apos;re here to help with all your
+              shipping, printing, and business service needs.
             </motion.p>
           </div>
         </div>
@@ -76,16 +75,23 @@ export const StoreHours: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`flex justify-between items-center p-4 rounded-xl ${schedule.isToday ? 'bg-[#F0F7FF] border-2 border-[#0855B1]' : 'bg-gray-50'
-                    }`}
+                  className={`flex justify-between items-center p-4 rounded-xl ${
+                    schedule.isToday ? 'bg-[#F0F7FF] border-2 border-[#0855B1]' : 'bg-gray-50'
+                  }`}
                 >
-                  <span className={`font-semibold ${schedule.isToday ? 'text-[#0855B1]' : 'text-[#111827]'
-                    }`}>
+                  <span
+                    className={`font-semibold ${
+                      schedule.isToday ? 'text-[#0855B1]' : 'text-[#111827]'
+                    }`}
+                  >
                     {schedule.day}
                     {schedule.isToday && <span className="ml-2 text-sm">(Today)</span>}
                   </span>
-                  <span className={`font-bold ${schedule.time === 'Closed' ? 'text-red-600' : 'text-[#111827]'
-                    }`}>
+                  <span
+                    className={`font-bold ${
+                      schedule.time === 'Closed' ? 'text-red-600' : 'text-[#111827]'
+                    }`}
+                  >
                     {schedule.time}
                   </span>
                 </motion.div>
@@ -114,12 +120,8 @@ export const StoreHours: React.FC = () => {
               <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8 text-[#0855B1]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">
-                Call Us
-              </h3>
-              <p className="text-[#4B5563] mb-4">
-                {siteConfig.contact.phone}
-              </p>
+              <h3 className="text-lg font-semibold text-[#111827] mb-3">Call Us</h3>
+              <p className="text-[#4B5563] mb-4">{siteConfig.contact.phone}</p>
               <a href={`tel:${siteConfig.contact.phone}`}>
                 <Button variant="link" className="text-sm">
                   Call Now →
@@ -136,15 +138,15 @@ export const StoreHours: React.FC = () => {
               <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MapPin className="w-8 h-8 text-[#0855B1]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">
-                Visit Us
-              </h3>
+              <h3 className="text-lg font-semibold text-[#111827] mb-3">Visit Us</h3>
               <p className="text-[#4B5563] mb-4">
-                {siteConfig.contact.address.street}<br />
-                {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
+                {siteConfig.contact.address.street}
+                <br />
+                {siteConfig.contact.address.city}, {siteConfig.contact.address.state}{' '}
+                {siteConfig.contact.address.zip}
               </p>
               <a
-                href={getGoogleMapsLink("directions", siteConfig.name)}
+                href={getGoogleMapsLink('directions', siteConfig.name)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -163,11 +165,10 @@ export const StoreHours: React.FC = () => {
               <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-[#0855B1]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">
-                Plan Your Visit
-              </h3>
+              <h3 className="text-lg font-semibold text-[#111827] mb-3">Plan Your Visit</h3>
               <p className="text-[#4B5563] mb-4">
-                Extended hours Monday through Friday<br />
+                Extended hours Monday through Friday
+                <br />
                 Saturday morning availability
               </p>
               <Button variant="link" className="text-sm">
@@ -187,9 +188,7 @@ export const StoreHours: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl p-8 shadow-sm"
           >
-            <h2 className="text-2xl font-bold text-[#111827] mb-6 text-center">
-              Holiday Hours
-            </h2>
+            <h2 className="text-2xl font-bold text-[#111827] mb-6 text-center">Holiday Hours</h2>
             <p className="text-[#4B5563] text-center mb-8">
               We observe the following holidays. Please plan accordingly.
             </p>

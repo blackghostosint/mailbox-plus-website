@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,8 +7,8 @@ export const handler = async (event) => {
     const data = JSON.parse(event.body);
 
     await resend.emails.send({
-      from: "Mailbox Plus <no-reply@mailboxplusohio.com>",
-      to: "help@mailboxplusohio.com", // your Workspace inbox
+      from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
+      to: 'help@mailboxplusohio.com', // your Workspace inbox
       reply_to: data.email, // so replies go back to the sender
       subject: `New Contact Form Submission from ${data.name}`,
       html: `
@@ -26,10 +26,10 @@ export const handler = async (event) => {
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
-    console.error("Email sending error:", error);
+    console.error('Email sending error:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ error: "Failed to send message" }),
+      body: JSON.stringify({ error: 'Failed to send message' }),
     };
   }
 };

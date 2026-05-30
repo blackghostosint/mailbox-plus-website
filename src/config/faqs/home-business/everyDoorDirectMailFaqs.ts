@@ -1,7 +1,13 @@
-import { FAQ } from "../../../types/faq";
+import { FAQ } from '../../../types/faq';
 
 export const everyDoorDirectMailFaqs: FAQ[] = [
-  { question: "Do I need a mailing list?", answer: "No, USPS EDDM delivers to every address in chosen areas." },
-  { question: "Can you design my postcards?", answer: "Yes, we provide design and printing." },
-  { question: "What areas can I target?", answer: "You can target specific ZIP codes or carrier routes in your desired neighborhoods." }
+  {
+    question: 'Do I need a mailing list?',
+    answer: 'No, USPS EDDM delivers to every address in chosen areas.',
+  },
+  { question: 'Can you design my postcards?', answer: 'Yes, we provide design and printing.' },
+  {
+    question: 'What areas can I target?',
+    answer: 'You can target specific ZIP codes or carrier routes in your desired neighborhoods.',
+  },
 ];

@@ -1,9 +1,9 @@
 {
-    "pageId": "print-return-label-without-printer",
-    "feedback": "negative",
-    "confusion": true,
-    "falseExpectations": false,
-    "notes": "Customers often think we can print Amazon return labels automatically without them needing to pull it up on their phone. Need to clarify that they need to have the label ready.",
-    "date": "2026-05-15",
-    "staffMember": "John D."
+  "pageId": "print-return-label-without-printer",
+  "feedback": "negative",
+  "confusion": true,
+  "falseExpectations": false,
+  "notes": "Customers often think we can print Amazon return labels automatically without them needing to pull it up on their phone. Need to clarify that they need to have the label ready.",
+  "date": "2026-05-15",
+  "staffMember": "John D."
 }

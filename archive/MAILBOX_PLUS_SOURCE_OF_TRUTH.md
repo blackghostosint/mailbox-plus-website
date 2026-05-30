@@ -20,6 +20,7 @@ If something is not in this document, it is not approved to be said, published, 
 - **Website:** https://mailboxplusohio.com
 
 ### Business Hours
+
 - **Monday–Friday:** 9:00 AM – 6:00 PM
 - **Saturday:** 9:00 AM – 2:00 PM
 - **Sunday:** Closed
@@ -29,6 +30,7 @@ If something is not in this document, it is not approved to be said, published, 
 ## 2. Locations
 
 ### Concord Township (Lake County)
+
 - **Location Name:** Mailbox Plus Concord Township
 - **Street Address:** 7554 Fredle Drive
 - **City / State / ZIP:** Concord Township, OH 44077
@@ -44,6 +46,7 @@ If something is not in this document, it is not approved to be said, published, 
 **Owner:** Marketing + Ops
 
 ### UPS / FedEx / USPS Shipping
+
 - **Category:** Shipping
 - **Short Description:** Authorized shipping center for UPS, FedEx, and USPS.
 - **Who This Is For:** Residents and businesses needing reliable package handling.
@@ -51,6 +54,7 @@ If something is not in this document, it is not approved to be said, published, 
 - **Pricing Model:** Variable (based on weight, dimensions, destination, and carrier rates).
 
 ### Notary Services
+
 - **Category:** Document Services
 - **Short Description:** Walk-in notary public services.
 - **Prerequisites:** Valid government-issued photo ID; all signers must be present.
@@ -61,12 +65,14 @@ If something is not in this document, it is not approved to be said, published, 
 ## 4. Mailbox-Specific Truth
 
 **Mailbox Types & Pricing:**
+
 - **Small Mailbox:** $25.00/month (Includes 5 packages per month)
 - **Large Mailbox:** $35.00/month (Includes 5 packages per month)
 - **Annual Prepay (Small):** $300.00 (Standard)
 - **Annual Prepay (Large):** $420.00 (Standard)
 
 **Rules & Requirements:**
+
 - **USPS Form 1583:** Mandatory legal requirement. Requires two forms of ID (one photo).
 - **Package Notifications:** Free notifications included for all rentals.
 - **Key Deposit:** $5.00 refundable deposit.
@@ -77,12 +83,14 @@ If something is not in this document, it is not approved to be said, published, 
 ## 5. Claims, Guarantees & Prohibited Language
 
 **Allowed Claims:**
+
 - "We offer..."
 - "We can assist with..."
 - "Same-day service available for [Shipping/Express]..."
 - "Real street address for your business."
 
 **Prohibited Claims:**
+
 - "Guaranteed delivery" (unless carrier-insured/guaranteed)
 - "24/7 Access" (Access is restricted to business hours only)
 - "Unlimited" (unless specifically defined in a contract)
@@ -92,9 +100,11 @@ If something is not in this document, it is not approved to be said, published, 
 ## 6. Pricing Philosophy
 
 **We compete on:**
+
 - Trust, Convenience, Expert Packaging, and Friendly Service.
 
 **We do NOT compete on:**
+
 - Lowest price (we provide premium value and expert handling).
 
 ---
@@ -106,13 +116,14 @@ If something is not in this document, it is not approved to be said, published, 
 - **Q: Can I use your address for my business?**
   - **A:** Yes, you get a real street address suitable for business registration and professional identity.
 - **Q: When can I access my mailbox?**
-  - **A:** Access is available during all regular business hours. 
+  - **A:** Access is available during all regular business hours.
 
 ---
 
 ## 8. External Listings & Profiles
 
 The following must match this document:
+
 - Google Business Profile
 - Yelp
 - Apple Maps
@@ -123,9 +134,9 @@ The following must match this document:
 
 ## 9. Change Log (NON-OPTIONAL)
 
-| Date | Change | Reason | Approved By | Updated Website? |
-| :--- | :--- | :--- | :--- | :--- |
-| 2026-02-06 | Initial Document Creation | Establishing canonical truth source. | Antigravity | Y |
+| Date       | Change                    | Reason                               | Approved By | Updated Website? |
+| :--------- | :------------------------ | :----------------------------------- | :---------- | :--------------- |
+| 2026-02-06 | Initial Document Creation | Establishing canonical truth source. | Antigravity | Y                |
 
 ---
 

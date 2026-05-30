@@ -1,5 +1,5 @@
 {
-  "name": "vite-react-typescript-starter",
+  "name": "mailbox-plus-website",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -18,7 +18,10 @@
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
     "build:embeddings": "tsx scripts/build-embeddings.ts",
     "audit:articles": "node scripts/validate-articles.cjs",
-    "generate:article-sitemap": "node scripts/generate-article-sitemap.cjs"
+    "generate:article-sitemap": "node scripts/generate-article-sitemap.cjs",
+    "prepare": "husky",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
@@ -60,13 +63,18 @@
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.18",
     "eslint": "^9.17.0",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.2",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.11",
     "globals": "^15.9.0",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "lint-staged": "^17.0.6",
     "postcss": "^8.4.35",
+    "prettier": "^3.8.3",
     "schema-dts": "^1.1.5",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.19.2",
@@ -76,5 +84,14 @@
     "vite": "^5.4.21",
     "vite-plugin-sitemap": "^0.8.2",
     "vitest": "^4.1.7"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md,css,html}": [
+      "prettier --write"
+    ]
   }
 }

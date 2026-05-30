@@ -11,7 +11,8 @@
 ### 1. Content Security Policy (CSP) - **MISSING**
 
 **Status:** No CSP configured  
-**Location checked:** 
+**Location checked:**
+
 - `netlify.toml` - No CSP header
 - `index.html` - No CSP meta tag
 
@@ -36,6 +37,7 @@
 ```
 
 **Note:** The `'unsafe-inline'` directive is currently required due to:
+
 - Google Tag Manager usage
 - Inline styles from dynamic HTML content in configuration files
 - Vite dev server requirements
@@ -50,6 +52,7 @@
 **Reference:** See `SECURITY.md` for detailed audit
 
 **Findings:**
+
 - All vulnerabilities are in **dev dependencies only**
 - No production runtime code is affected
 - Main vulnerable packages: `elliptic`, `esbuild`, `browserify-sign`
@@ -57,6 +60,7 @@
 **Risk Assessment:** Low - Vulnerabilities only affect build tools, not production bundles.
 
 **Recommendations:**
+
 1. Monitor for non-breaking updates to Vite 5.x
 2. Plan upgrade to Vite 8+ in a future major version update
 3. Consider using `npm audit --omit=dev` in CI/CD to focus on production vulnerabilities
@@ -68,6 +72,7 @@
 **Status:** ✅ Properly configured
 
 **Findings:**
+
 - `.gitignore` correctly excludes `.env` files (line 23)
 - No `.env` files found in repository
 - No secrets committed to git history
@@ -86,6 +91,7 @@
 **Location:** `netlify.toml`
 
 **Current configuration:**
+
 ```toml
 [build]
   command = "npm run build"
@@ -105,6 +111,7 @@
 ```
 
 **Missing security headers:**
+
 - `X-Frame-Options` (clickjacking protection)
 - `X-Content-Type-Options` (MIME sniffing protection)
 - `Referrer-Policy` (referrer leakage protection)
@@ -130,23 +137,27 @@
 ### 5. Additional Security Findings
 
 #### 5.1 Google Tag Manager
+
 - **Status:** Present in `index.html` (GTM-M48D4D56)
 - **Risk:** Low - GTM requires careful management of tags
 - **Recommendation:** Regularly audit GTM tags to ensure no malicious scripts are injected
 
 #### 5.2 reCAPTCHA Implementation
+
 - **Status:** ✅ Properly implemented
 - Server-side verification in `netlify/functions/verifyRecaptcha.js`
 - Secret key stored in environment variable
 - **Recommendation:** Continue current practice
 
 #### 5.3 External Resources
+
 - **Fonts:** Loaded from fonts.googleapis.com (legitimate CDN)
 - **Images:** Loaded from Cloudflare R2 (pub-21518ce3034449a3a7b5a0b89551f710.r2.dev)
 - **Risk:** Low - using reputable CDNs
 - **Recommendation:** Consider self-hosting critical fonts to reduce external dependencies
 
 #### 5.4 API Endpoints
+
 - Contact form: `/.netlify/functions/sendEmail`
 - reCAPTCHA verification: `/.netlify/functions/verifyRecaptcha`
 - **Status:** ✅ Server-side only, no exposed API keys
@@ -156,14 +167,17 @@
 ## Implementation Priority
 
 ### High Priority (Implement Immediately)
+
 1. **Add security headers to `netlify.toml`** - Protects against clickjacking, MIME sniffing, and other attacks
 2. **Implement Content Security Policy** - Critical XSS protection
 
 ### Medium Priority (Implement Soon)
+
 3. **Add HSTS header** - Force HTTPS and prevent downgrade attacks
 4. **Set Referrer-Policy** - Control referrer information leakage
 
 ### Low Priority (Future Improvements)
+
 5. **Upgrade Vite** to version 8+ to resolve build tool vulnerabilities
 6. **Self-host Google Fonts** - Reduce dependency on external CDNs
 7. **Implement nonce-based CSP** - Eliminate `unsafe-inline` directives
@@ -193,12 +207,12 @@ git log --all --full-history -- '*.env' '*.key' '*.pem'
 
 ## Summary
 
-| Area | Status | Risk | Action Needed |
-|------|--------|------|---------------|
-| CSP | ❌ Missing | High | Add CSP headers |
-| Security Headers | ❌ Missing | Medium-High | Add to netlify.toml |
-| Dependencies | ⚠️ 8 vulnerabilities | Low | Monitor/plan upgrade |
-| Environment Variables | ✅ Secure | None | Continue practice |
-| Secret Management | ✅ Secure | None | Continue practice |
+| Area                  | Status               | Risk        | Action Needed        |
+| --------------------- | -------------------- | ----------- | -------------------- |
+| CSP                   | ❌ Missing           | High        | Add CSP headers      |
+| Security Headers      | ❌ Missing           | Medium-High | Add to netlify.toml  |
+| Dependencies          | ⚠️ 8 vulnerabilities | Low         | Monitor/plan upgrade |
+| Environment Variables | ✅ Secure            | None        | Continue practice    |
+| Secret Management     | ✅ Secure            | None        | Continue practice    |
 
 **Overall Security Posture:** The site has good foundational security (env vars, secret management) but lacks critical HTTP security headers. Implementing the high-priority recommendations will significantly improve the security posture.

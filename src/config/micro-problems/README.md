@@ -21,6 +21,7 @@ src/config/micro-problems/
 ## Domain Classification Rules
 
 ### returns.ts
+
 - Returns processing
 - Return label printing
 - Drop-offs related to returns
@@ -28,6 +29,7 @@ src/config/micro-problems/
 - Rejected return fixes
 
 ### shipping.ts
+
 - Outbound shipping of items
 - Carrier selection and rules
 - Fragile item shipping
@@ -36,6 +38,7 @@ src/config/micro-problems/
 - Time-sensitive shipments
 
 ### packaging.ts
+
 - Box selection
 - Repacking services
 - Label attachment
@@ -43,6 +46,7 @@ src/config/micro-problems/
 - Packaging without original materials
 
 ### misc.ts
+
 - **Use sparingly**
 - Only for items that don't fit other domains
 - Requires justification in code comments
@@ -53,17 +57,17 @@ src/config/micro-problems/
 
 ```typescript
 // From the public aggregation layer
-import { microProblems } from "@/config/micro-problems";
+import { microProblems } from '@/config/micro-problems';
 // Or the backward-compatible path
-import { microProblems } from "@/config/services/micro-problems";
+import { microProblems } from '@/config/services/micro-problems';
 ```
 
 ### Do NOT import shards directly (❌ Incorrect)
 
 ```typescript
 // ESLint will error on these imports
-import { returnMicroProblems } from "@/config/micro-problems/returns";
-import { shippingMicroProblems } from "@/config/micro-problems/shipping";
+import { returnMicroProblems } from '@/config/micro-problems/returns';
+import { shippingMicroProblems } from '@/config/micro-problems/shipping';
 ```
 
 ## Adding New Micro-Problems
@@ -81,13 +85,13 @@ import { shippingMicroProblems } from "@/config/micro-problems/shipping";
 export const returnMicroProblems: Service[] = [
   // ... existing problems
   {
-    id: "my-new-return-problem",
-    category: "micro-problem",
-    city: "Concord Township",
-    serviceName: "My New Return Problem",
-    slug: "/my-new-return-problem",
+    id: 'my-new-return-problem',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'My New Return Problem',
+    slug: '/my-new-return-problem',
     // ... rest of config
-  }
+  },
 ];
 ```
 
@@ -111,6 +115,7 @@ To prevent SEO cannibalization and customer confusion, the validator checks for 
 **See**: [`INTENT_KEY_GUIDE.md`](./INTENT_KEY_GUIDE.md) for detailed usage instructions.
 
 **Example Error**:
+
 ```
 Error: Duplicate intent detected: "ship-fragile-items"
 Conflicts:
@@ -131,21 +136,25 @@ Custom ESLint rules prevent:
 ## Architecture Benefits
 
 ### Scale to 500+ pages
+
 - Small, focused shard files
 - Parallel editing without conflicts
 - Clear domain boundaries
 
 ### Maintainability
+
 - One file to edit per change
 - No mega-files to navigate
 - Clear ownership by domain
 
 ### Safety
+
 - Runtime validation catches duplicates
 - ESLint prevents boundary violations
 - TypeScript ensures type safety
 
 ### AI-Friendly
+
 - Clear instructions can target specific shards
 - Minimal blast radius for changes
 - Self-documenting structure
@@ -155,7 +164,7 @@ Custom ESLint rules prevent:
 All existing consumers continue to work without modification. The old path:
 
 ```typescript
-import { microProblems } from "@/config/services/micro-problems";
+import { microProblems } from '@/config/services/micro-problems';
 ```
 
 ...now re-exports from the new location, maintaining full backward compatibility.

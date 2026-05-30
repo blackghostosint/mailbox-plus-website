@@ -1,16 +1,29 @@
 ---
-title: "Pack & Ship Services in Concord Township | Mailbox Plus"
-description: "Save the drive to Mentor! Mailbox Plus in Concord Township offers professional multi-carrier shipping (FedEx, UPS, USPS, DHL) and expert packing services."
-slug: "pack-ship-concord-township"
-category: "pack-ship"
-intentKey: "pack-ship-concord-township"
-pubDate: "2026-02-07T22:30:00-05:00"
-image: "articles/pack-ship/pack-ship-concord-township-featured.webp"
-imageAlt: "Professional multi-carrier shipping center in Concord Township Ohio offering FedEx UPS and USPS services"
-location: "concord-township"
-keywords: ["pack & ship concord township", "shipping services concord ohio", "FedEx Concord Township", "UPS Concord Township", "DHL Concord Township"]
-relatedServices: ["/pack-ship", "/pack-ship/fedex-shipping", "/pack-ship/ups-authorized-shipper-outlet", "/pack-ship/professional-packing"]
-author: "Mailbox Plus Team"
+title: 'Pack & Ship Services in Concord Township | Mailbox Plus'
+description: 'Save the drive to Mentor! Mailbox Plus in Concord Township offers professional multi-carrier shipping (FedEx, UPS, USPS, DHL) and expert packing services.'
+slug: 'pack-ship-concord-township'
+category: 'pack-ship'
+intentKey: 'pack-ship-concord-township'
+pubDate: '2026-02-07T22:30:00-05:00'
+image: 'articles/pack-ship/pack-ship-concord-township-featured.webp'
+imageAlt: 'Professional multi-carrier shipping center in Concord Township Ohio offering FedEx UPS and USPS services'
+location: 'concord-township'
+keywords:
+  [
+    'pack & ship concord township',
+    'shipping services concord ohio',
+    'FedEx Concord Township',
+    'UPS Concord Township',
+    'DHL Concord Township',
+  ]
+relatedServices:
+  [
+    '/pack-ship',
+    '/pack-ship/fedex-shipping',
+    '/pack-ship/ups-authorized-shipper-outlet',
+    '/pack-ship/professional-packing',
+  ]
+author: 'Mailbox Plus Team'
 ---
 
 # Pack & Ship Services in Concord Township
@@ -25,10 +38,10 @@ For residents and business owners in [Concord Township](/service-area/concord-to
 
 Why settle for just one shipping option? At Mailbox Plus, we believe in giving you the freedom to choose. We are an authorized shipping center for:
 
-*   **[FedEx](/pack-ship/fedex-shipping):** Reliable ground and express shipping for almost any destination.
-*   **[UPS](/pack-ship/ups-authorized-shipper-outlet):** The gold standard for heavy-duty shipments and business logistics.
-*   **[USPS](/pack-ship/usps-services):** The most cost-effective choice for letters and lightweight packages.
-*   **[DHL](/pack-ship/dhl-express):** Your specialized connection for international shipping needs.
+- **[FedEx](/pack-ship/fedex-shipping):** Reliable ground and express shipping for almost any destination.
+- **[UPS](/pack-ship/ups-authorized-shipper-outlet):** The gold standard for heavy-duty shipments and business logistics.
+- **[USPS](/pack-ship/usps-services):** The most cost-effective choice for letters and lightweight packages.
+- **[DHL](/pack-ship/dhl-express):** Your specialized connection for international shipping needs.
 
 Walk into our store, and we'll help you compare rates and delivery times across all four major carriers. We'll find the best fit for your budget and your timeline, all at a single counter.
 
@@ -39,9 +52,10 @@ Not every package fits in a standard box, and not everything is easy to wrap. If
 Our [professional packing services](/pack-ship/professional-packing) are designed to protect what matters most to you. We use industry-best materials and techniques to ensure your items arrive at their destination exactly as they left your hands. Whether it's a piece of delicate glassware or a piece of high-end electronics, we treat every package as if it were our own.
 
 While you're here, you can also stock up on [packaging supplies](/pack-ship/packaging-supplies), including:
-*   **Corrugated boxes** in various sizes
-*   **Bubble wrap** and packing peanuts
-*   **Heavy-duty shipping tape**
+
+- **Corrugated boxes** in various sizes
+- **Bubble wrap** and packing peanuts
+- **Heavy-duty shipping tape**
 
 ## Support Local while Shipping Global
 
@@ -54,8 +68,9 @@ Unlike the big franchises in [Mentor](/service-area/mentor), we pride ourselves 
 Skip the Mentor traffic and find us conveniently located at **[7554 Fredle Drive, Concord Township, OH 44077](/contact-us)**.
 
 We are open:
-*   **Monday – Friday:** 9:00 AM – 6:00 PM
-*   **Saturday:** 9:00 AM – 2:00 PM
+
+- **Monday – Friday:** 9:00 AM – 6:00 PM
+- **Saturday:** 9:00 AM – 2:00 PM
 
 Stop by today and let us handle your package. Whether you're a home-based business owner managing daily shipments or a resident sending a gift to family across the country, we're here to help.
 

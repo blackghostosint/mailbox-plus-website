@@ -23,6 +23,7 @@ scripts/audits/
 **Where**: Google Search Console > Performance > Search Results
 
 **Steps**:
+
 1. Set date range: Last 90 days
 2. Add filter: "Page" → "contains" → your micro-problem URL pattern
 3. Export to CSV
@@ -42,6 +43,7 @@ npm run audit:micro-problems -- --search-console=scripts/audits/search-console-d
 ```
 
 This will:
+
 - Analyze all micro-problems against governance signals
 - Generate a detailed audit report
 - Recommend actions (DELETE, MERGE, REWRITE, KEEP)
@@ -55,25 +57,28 @@ This will:
 ## Signals Evaluated
 
 ### Signal A: Search Console Performance
+
 - **FAIL**: 0 impressions OR impressions > 0 but clicks = 0
 - **Source**: Google Search Console CSV
 
 ### Signal B: User Intent Reality
+
 - **FAIL**: Staff confusion, customer mismatched expectations, increased friction
 - **Source**: Staff feedback log
 
-### Signal C: Intent Overlap  
+### Signal C: Intent Overlap
+
 - **FAIL**: Duplicate `intentKey` OR cannot explain difference in one sentence
 - **Source**: Config analysis
 
 ## Action Types
 
-| Action | Criteria | Result |
-|--------|----------|--------|
-| **DELETE** | Fails Signal A + no value + no unique intent | Remove config entry |
-| **MERGE** | Intent overlap + one performs better | Consolidate into stronger page |
-| **REWRITE** | Has traffic but unclear intent | Clarify copy and scope |
-| **KEEP** | Passes signals or provides clear value | No action |
+| Action      | Criteria                                     | Result                         |
+| ----------- | -------------------------------------------- | ------------------------------ |
+| **DELETE**  | Fails Signal A + no value + no unique intent | Remove config entry            |
+| **MERGE**   | Intent overlap + one performs better         | Consolidate into stronger page |
+| **REWRITE** | Has traffic but unclear intent               | Clarify copy and scope         |
+| **KEEP**    | Passes signals or provides clear value       | No action                      |
 
 ## Files
 

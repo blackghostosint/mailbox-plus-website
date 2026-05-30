@@ -23,7 +23,7 @@ export const Header: React.FC = () => {
     { name: 'Pickup Hours', href: '/pickup-hours' },
     { name: 'Contact', href: '/contact-us' },
     // External link to standalone sales page
-    { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true }
+    { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -61,9 +61,7 @@ export const Header: React.FC = () => {
                 </a>
               </div>
             </div>
-            <div className="text-[#4B5563]">
-              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM
-            </div>
+            <div className="text-[#4B5563]">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
           </div>
         </div>
       </div>
@@ -75,7 +73,7 @@ export const Header: React.FC = () => {
           <InternalLink to="/" className="flex items-center space-x-2">
             <SmartImage
               priority={true}
-              src={getServiceImageUrl("/images/mailbox_plus_logo.webp")}
+              src={getServiceImageUrl('/images/mailbox_plus_logo.webp')}
               alt="Mailbox Plus Concord Township Ohio Logo"
               width={256}
               height={80}
@@ -102,10 +100,9 @@ export const Header: React.FC = () => {
                 <InternalLink
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors ${isActive(item.href)
-                      ? 'text-[#0855B1]'
-                      : 'text-[#4B5563] hover:text-[#0855B1]'
-                    }`}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive(item.href) ? 'text-[#0855B1]' : 'text-[#4B5563] hover:text-[#0855B1]'
+                  }`}
                 >
                   {item.name}
                 </InternalLink>
@@ -122,7 +119,7 @@ export const Header: React.FC = () => {
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="md:hidden p-2 rounded-lg text-[#4B5563] hover:text-[#0855B1] hover:bg-[#F9FAFB]"
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -156,10 +153,9 @@ export const Header: React.FC = () => {
                     key={item.name}
                     to={item.href}
                     onClick={() => setIsMenuOpen(false)}
-                    className={`block text-base font-medium transition-colors ${isActive(item.href)
-                        ? 'text-[#0855B1]'
-                        : 'text-[#4B5563] hover:text-[#0855B1]'
-                      }`}
+                    className={`block text-base font-medium transition-colors ${
+                      isActive(item.href) ? 'text-[#0855B1]' : 'text-[#4B5563] hover:text-[#0855B1]'
+                    }`}
                   >
                     {item.name}
                   </InternalLink>
@@ -178,32 +174,29 @@ export const Header: React.FC = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "name": "Mailbox Plus",
-            "image": logoUrl, // ✅ Use Supabase logo URL
-            "@id": "https://mailboxplusohio.com",
-            "url": "https://mailboxplusohio.com",
-            "telephone": siteConfig.contact.phone,
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": siteConfig.contact.address.street,
-              "addressLocality": siteConfig.contact.address.city,
-              "addressRegion": siteConfig.contact.address.state,
-              "postalCode": siteConfig.contact.address.zip,
-              "addressCountry": "US"
+            '@context': 'https://schema.org',
+            '@type': 'LocalBusiness',
+            name: 'Mailbox Plus',
+            image: logoUrl, // ✅ Use Supabase logo URL
+            '@id': 'https://mailboxplusohio.com',
+            url: 'https://mailboxplusohio.com',
+            telephone: siteConfig.contact.phone,
+            address: {
+              '@type': 'PostalAddress',
+              streetAddress: siteConfig.contact.address.street,
+              addressLocality: siteConfig.contact.address.city,
+              addressRegion: siteConfig.contact.address.state,
+              postalCode: siteConfig.contact.address.zip,
+              addressCountry: 'US',
             },
-            "geo": {
-              "@type": "GeoCoordinates",
-              "latitude": 41.664959,
-              "longitude": -81.246493
+            geo: {
+              '@type': 'GeoCoordinates',
+              latitude: 41.664959,
+              longitude: -81.246493,
             },
-            "openingHours": [
-              "Mo-Fr 09:00-18:00",
-              "Sa 09:00-14:00"
-            ],
-            "priceRange": "$$"
-          })
+            openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00'],
+            priceRange: '$$',
+          }),
         }}
       />
     </header>

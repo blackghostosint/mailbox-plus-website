@@ -1,9 +1,9 @@
 {
-    "name": "mailbox-plus-functions",
-    "version": "1.0.0",
-    "type": "commonjs",
-    "dependencies": {
-        "@google/generative-ai": "^0.21.0",
-        "dotenv": "^17.2.3"
-    }
+  "name": "mailbox-plus-functions",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "dotenv": "^17.2.3"
+  }
 }

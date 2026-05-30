@@ -5,20 +5,20 @@ import Mail from '~icons/lucide/mail';
 import MapPin from '~icons/lucide/map-pin';
 import Clock from '~icons/lucide/clock';
 import Send from '~icons/lucide/send';
-import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from 'react-google-recaptcha';
 import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
-import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/storage";
+import { SmartImage } from '../components/SmartImage';
+import { getServiceImageUrl } from '../lib/storage';
 
 // Animation Constant
 const reveal = {
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" as const }
+  transition: { duration: 0.55, ease: 'easeOut' as const },
 };
 
 export const ContactUs: React.FC = () => {
@@ -29,57 +29,67 @@ export const ContactUs: React.FC = () => {
     service: '',
     message: '',
     recaptcha: '',
-    website: ''
+    website: '',
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (formData.website) {
-      console.warn("Spam detected via honeypot.");
+      console.warn('Spam detected via honeypot.');
       return;
     }
 
     if (!formData.recaptcha) {
-      alert("Please verify that you are not a robot.");
+      alert('Please verify that you are not a robot.');
       return;
     }
 
     try {
-      const verifyResponse = await fetch("/.netlify/functions/verifyRecaptcha", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const verifyResponse = await fetch('/.netlify/functions/verifyRecaptcha', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: formData.recaptcha }),
       });
 
       const verifyData = await verifyResponse.json();
       if (!verifyData.success) {
-        alert("reCAPTCHA verification failed. Please try again.");
+        alert('reCAPTCHA verification failed. Please try again.');
         return;
       }
 
-      const response = await fetch("/.netlify/functions/sendEmail", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/.netlify/functions/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         alert("✅ Message sent successfully! We'll get back to you soon.");
-        setFormData({ name: "", email: "", phone: "", service: "", message: "", recaptcha: "", website: "" });
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          service: '',
+          message: '',
+          recaptcha: '',
+          website: '',
+        });
       } else {
-        alert("⚠️ Something went wrong. Please try again later.");
+        alert('⚠️ Something went wrong. Please try again later.');
       }
     } catch (error) {
       console.error(error);
-      alert("❌ Unable to send message. Please check your connection.");
+      alert('❌ Unable to send message. Please check your connection.');
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -89,28 +99,28 @@ export const ContactUs: React.FC = () => {
       title: 'Phone',
       details: siteConfig.contact.phone,
       action: `tel:${siteConfig.contact.phone}`,
-      actionText: 'Call Now'
+      actionText: 'Call Now',
     },
     {
       icon: Mail,
       title: 'Email',
       details: siteConfig.contact.email,
       action: `mailto:${siteConfig.contact.email}`,
-      actionText: 'Send Email'
+      actionText: 'Send Email',
     },
     {
       icon: MapPin,
       title: 'Address',
       details: `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`,
-      action: getGoogleMapsLink("directions", siteConfig.name),
-      actionText: 'Get Directions'
-    }
+      action: getGoogleMapsLink('directions', siteConfig.name),
+      actionText: 'Get Directions',
+    },
   ];
 
   const hours = [
     { day: 'Monday - Friday', time: '9:00 AM - 6:00 PM' },
     { day: 'Saturday', time: '9:00 AM - 2:00 PM' },
-    { day: 'Sunday', time: 'Closed' }
+    { day: 'Sunday', time: 'Closed' },
   ];
 
   return (
@@ -129,17 +139,17 @@ export const ContactUs: React.FC = () => {
             priority
             sources={[
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
-                media: "(max-width: 768px)",
-                type: "image/webp"
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
+                media: '(max-width: 768px)',
+                type: 'image/webp',
               },
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
-                media: "(min-width: 769px)",
-                type: "image/webp"
-              }
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
+                media: '(min-width: 769px)',
+                type: 'image/webp',
+              },
             ]}
-            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
             className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
             style={{ objectPosition: 'center' }}
@@ -167,14 +177,14 @@ export const ContactUs: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="text-xl text-blue-100 mb-8 leading-relaxed"
           >
-            Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all your shipping, printing, and business service needs.
+            Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all
+            your shipping, printing, and business service needs.
           </motion.p>
         </div>
       </section>
 
       {/* ====================== MAIN CONTENT ======================= */}
       <div className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
-
         {/* Contact Info Cards (Glass) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contactInfo.map((info, index) => (
@@ -183,24 +193,23 @@ export const ContactUs: React.FC = () => {
               initial={{ opacity: 0, y: 32 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.55, ease: "easeOut", delay: index * 0.1 }}
+              transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
               className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] hover:bg-white/90 transition-all duration-300"
             >
               <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[#0855B1] shadow-inner">
                 <info.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">
-                {info.title}
-              </h3>
-              <p className="text-slate-600 mb-6 leading-relaxed flex-grow">
-                {info.details}
-              </p>
+              <h3 className="text-xl font-bold text-slate-900 mb-2">{info.title}</h3>
+              <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{info.details}</p>
               <a
                 href={info.action}
                 target={info.title === 'Address' ? '_blank' : undefined}
                 rel={info.title === 'Address' ? 'noopener noreferrer' : undefined}
               >
-                <Button variant="link" className="text-[#0855B1] font-bold text-base hover:text-[#064A9B] p-0">
+                <Button
+                  variant="link"
+                  className="text-[#0855B1] font-bold text-base hover:text-[#064A9B] p-0"
+                >
                   {info.actionText} →
                 </Button>
               </a>
@@ -210,21 +219,24 @@ export const ContactUs: React.FC = () => {
 
         {/* Form and Map Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-
           {/* Contact Form GLASS PANEL */}
           <motion.section {...reveal} className="relative">
             {/* Glass container */}
             <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_18px_45px_rgba(15,23,42,0.10)] h-full">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">Send Us a Message</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+                Send Us a Message
+              </h2>
               <p className="text-slate-600 mb-8 leading-relaxed">
-                Have a question about our services or need a custom quote?
-                Fill out the form below and we&apos;ll get back to you promptly.
+                Have a question about our services or need a custom quote? Fill out the form below
+                and we&apos;ll get back to you promptly.
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-semibold text-slate-700">Full Name *</label>
+                    <label htmlFor="name" className="text-sm font-semibold text-slate-700">
+                      Full Name *
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -238,7 +250,9 @@ export const ContactUs: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-semibold text-slate-700">Email Address *</label>
+                    <label htmlFor="email" className="text-sm font-semibold text-slate-700">
+                      Email Address *
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -255,7 +269,9 @@ export const ContactUs: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-semibold text-slate-700">Phone Number</label>
+                    <label htmlFor="phone" className="text-sm font-semibold text-slate-700">
+                      Phone Number
+                    </label>
                     <input
                       type="tel"
                       id="phone"
@@ -268,7 +284,9 @@ export const ContactUs: React.FC = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-semibold text-slate-700">Service Interest</label>
+                    <label htmlFor="service" className="text-sm font-semibold text-slate-700">
+                      Service Interest
+                    </label>
                     <select
                       id="service"
                       name="service"
@@ -288,7 +306,9 @@ export const ContactUs: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-semibold text-slate-700">Message *</label>
+                  <label htmlFor="message" className="text-sm font-semibold text-slate-700">
+                    Message *
+                  </label>
                   <textarea
                     id="message"
                     name="message"
@@ -310,9 +330,22 @@ export const ContactUs: React.FC = () => {
                 </div>
 
                 {/* Honeypot */}
-                <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={handleChange}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
 
-                <Button type="submit" size="lg" className="w-full group shadow-md hover:shadow-lg bg-[#0855B1] border-none text-white">
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full group shadow-md hover:shadow-lg bg-[#0855B1] border-none text-white"
+                >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
                 </Button>
@@ -332,7 +365,10 @@ export const ContactUs: React.FC = () => {
               </div>
               <div className="space-y-4">
                 {hours.map((schedule) => (
-                  <div key={schedule.day} className="flex justify-between items-center border-b border-slate-200/60 pb-2 last:border-0 last:pb-0">
+                  <div
+                    key={schedule.day}
+                    className="flex justify-between items-center border-b border-slate-200/60 pb-2 last:border-0 last:pb-0"
+                  >
                     <span className="text-slate-600 font-medium">{schedule.day}</span>
                     <span className="text-slate-900 font-bold">{schedule.time}</span>
                   </div>
@@ -357,14 +393,12 @@ export const ContactUs: React.FC = () => {
             {/* Directions Tip */}
             <div className="bg-blue-50/80 border border-blue-100/50 rounded-2xl p-6 text-center">
               <p className="text-sm text-blue-900 font-medium">
-                📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to I-90.
+                📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to
+                I-90.
               </p>
             </div>
-
           </motion.div>
-
         </div>
-
       </div>
     </div>
   );

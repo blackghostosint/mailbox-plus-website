@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "./ui";
-import { ButtonProps } from "./ui/Button";
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from './ui';
+import { ButtonProps } from './ui/Button';
 
-interface VisitUsButtonProps extends Omit<ButtonProps, "children"> {
+interface VisitUsButtonProps extends Omit<ButtonProps, 'children'> {
   defaultCity?: string; // e.g., "Concord Township"
 }
 
 export const VisitUsButton: React.FC<VisitUsButtonProps> = ({
-  defaultCity = "Concord Township",
+  defaultCity = 'Concord Township',
   className,
   ...props
 }) => {
@@ -35,8 +35,7 @@ export const VisitUsButton: React.FC<VisitUsButtonProps> = ({
           defaultCity;
 
         // If city is very small (like a village), prepend "near"
-        const displayCity =
-          address?.village || address?.town ? `near ${city}` : city;
+        const displayCity = address?.village || address?.town ? `near ${city}` : city;
 
         setUserCity(displayCity);
       } catch {

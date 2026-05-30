@@ -11,6 +11,7 @@ This project enforces strict **Quarterly Governance** for all micro-problem page
 - **[.agent/workflows/micro-problem-quarterly-audit.md](.agent/workflows/micro-problem-quarterly-audit.md)** (Audit Workflow)
 
 **Key Rule**:
+
 > A micro-problem page must reduce real-world friction. If it doesn't, it doesn't deserve to exist.
 
 ## Development

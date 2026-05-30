@@ -1,4 +1,4 @@
-import { siteConfig } from "../config/siteConfig";
+import { siteConfig } from '../config/siteConfig';
 
 /**
  * Generates a Google Maps URL for the business location.
@@ -17,13 +17,13 @@ import { siteConfig } from "../config/siteConfig";
  * @returns {string} A valid Google Maps URL.
  */
 export const getGoogleMapsLink = (
-  mode: "directions" | "view" = "directions",
+  mode: 'directions' | 'view' = 'directions',
   label?: string
 ): string => {
   const { lat, lng } = siteConfig.geo;
-  const encodedLabel = label ? `+(${encodeURIComponent(label)})` : "";
+  const encodedLabel = label ? `+(${encodeURIComponent(label)})` : '';
 
-  if (mode === "view") {
+  if (mode === 'view') {
     // ✅ Centers map exactly on coordinates
     return `https://www.google.com/maps/@${lat},${lng},17z`;
   }

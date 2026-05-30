@@ -12,45 +12,45 @@ dotenv.config();
 // ========================================
 
 interface KBEntry {
-    id: string;
-    intent: string;
-    title: string;
-    questionVariants: string[];
-    answer: string;
-    searchText: string;
-    confidence: {
-        minimumSimilarity: number;
-        requiresExactMatch: boolean;
-    };
-    sources: Array<{
-        type: string;
-        url: string;
-        lastVerified: string;
-    }>;
+  id: string;
+  intent: string;
+  title: string;
+  questionVariants: string[];
+  answer: string;
+  searchText: string;
+  confidence: {
+    minimumSimilarity: number;
+    requiresExactMatch: boolean;
+  };
+  sources: Array<{
+    type: string;
+    url: string;
+    lastVerified: string;
+  }>;
 }
 
 interface KnowledgeBase {
-    entries: KBEntry[];
+  entries: KBEntry[];
 }
 
 interface EmbeddingCache {
-    [key: string]: number[];
+  [key: string]: number[];
 }
 
 interface RetrievalResult {
-    matched: boolean;
-    faqId?: string;
-    answer?: string;
-    sourceUrl?: string;
-    confidence?: number;
+  matched: boolean;
+  faqId?: string;
+  answer?: string;
+  sourceUrl?: string;
+  confidence?: number;
 }
 
 interface ChatbotResponse {
-    type: 'accept' | 'refuse';
-    answer?: string;
-    sourceUrl?: string;
-    faqId?: string;
-    confidence?: number;
+  type: 'accept' | 'refuse';
+  answer?: string;
+  sourceUrl?: string;
+  faqId?: string;
+  confidence?: number;
 }
 
 // ========================================
@@ -73,78 +73,80 @@ let embeddingModel: any = null;
  * Initialize resources on cold start
  */
 function initializeResources(): void {
-    // Only return early if EVERYTHING is initialized
-    if (kb && genAI && Object.keys(embeddingCache || {}).length > 0) {
-        return;
+  // Only return early if EVERYTHING is initialized
+  if (kb && genAI && Object.keys(embeddingCache || {}).length > 0) {
+    return;
+  }
+
+  console.log('--- Initializing Resources ---');
+
+  // Load KB - Try multiple possible paths for serverless environment
+  const kbPaths = [
+    join(process.cwd(), 'knowledge', 'kb.entries.json'),
+    join(process.cwd(), '..', 'knowledge', 'kb.entries.json'),
+    join(__dirname, '..', '..', 'knowledge', 'kb.entries.json'),
+    join(__dirname, 'knowledge', 'kb.entries.json'),
+    '/var/task/knowledge/kb.entries.json',
+  ];
+
+  let foundKb = false;
+  for (const path of kbPaths) {
+    if (existsSync(path)) {
+      try {
+        const raw = readFileSync(path, 'utf-8');
+        kb = JSON.parse(raw);
+        foundKb = true;
+        console.log(`Successfully loaded ${kb?.entries?.length || 0} KB entries from ${path}`);
+        break;
+      } catch (err) {
+        console.error(`Failed to parse KB JSON at ${path}`, err);
+      }
     }
+  }
 
-    console.log('--- Initializing Resources ---');
+  if (!foundKb) {
+    throw new Error(`Knowledge base not found. Paths checked: ${kbPaths.join(', ')}`);
+  }
 
-    // Load KB - Try multiple possible paths for serverless environment
-    const kbPaths = [
-        join(process.cwd(), 'knowledge', 'kb.entries.json'),
-        join(process.cwd(), '..', 'knowledge', 'kb.entries.json'),
-        join(__dirname, '..', '..', 'knowledge', 'kb.entries.json'),
-        join(__dirname, 'knowledge', 'kb.entries.json'),
-        '/var/task/knowledge/kb.entries.json'
-    ];
+  // Load precomputed embeddings
+  const embeddingPaths = [
+    join(process.cwd(), 'knowledge', 'embeddings.json'),
+    join(process.cwd(), '..', 'knowledge', 'embeddings.json'),
+    join(__dirname, '..', '..', 'knowledge', 'embeddings.json'),
+    join(__dirname, 'knowledge', 'embeddings.json'),
+    '/var/task/knowledge/embeddings.json',
+  ];
 
-    let foundKb = false;
-    for (const path of kbPaths) {
-        if (existsSync(path)) {
-            try {
-                const raw = readFileSync(path, 'utf-8');
-                kb = JSON.parse(raw);
-                foundKb = true;
-                console.log(`Successfully loaded ${kb?.entries?.length || 0} KB entries from ${path}`);
-                break;
-            } catch (err) {
-                console.error(`Failed to parse KB JSON at ${path}`, err);
-            }
-        }
+  let foundEmbeddings = false;
+  for (const path of embeddingPaths) {
+    if (existsSync(path)) {
+      try {
+        const fileContent = readFileSync(path, 'utf-8');
+        const embeddingData = JSON.parse(fileContent);
+        embeddingCache = embeddingData.embeddings || {};
+        foundEmbeddings = true;
+        console.log(
+          `Successfully loaded ${Object.keys(embeddingCache).length} embeddings from ${path}`
+        );
+        break;
+      } catch (error) {
+        console.error(`Failed to parse embeddings JSON at ${path}`, error);
+      }
     }
+  }
 
-    if (!foundKb) {
-        throw new Error(`Knowledge base not found. Paths checked: ${kbPaths.join(', ')}`);
-    }
+  if (!foundEmbeddings) {
+    throw new Error('Precomputed embeddings not found. Ensure knowledge/embeddings.json exists.');
+  }
 
-    // Load precomputed embeddings
-    const embeddingPaths = [
-        join(process.cwd(), 'knowledge', 'embeddings.json'),
-        join(process.cwd(), '..', 'knowledge', 'embeddings.json'),
-        join(__dirname, '..', '..', 'knowledge', 'embeddings.json'),
-        join(__dirname, 'knowledge', 'embeddings.json'),
-        '/var/task/knowledge/embeddings.json'
-    ];
-
-    let foundEmbeddings = false;
-    for (const path of embeddingPaths) {
-        if (existsSync(path)) {
-            try {
-                const fileContent = readFileSync(path, 'utf-8');
-                const embeddingData = JSON.parse(fileContent);
-                embeddingCache = embeddingData.embeddings || {};
-                foundEmbeddings = true;
-                console.log(`Successfully loaded ${Object.keys(embeddingCache).length} embeddings from ${path}`);
-                break;
-            } catch (error) {
-                console.error(`Failed to parse embeddings JSON at ${path}`, error);
-            }
-        }
-    }
-
-    if (!foundEmbeddings) {
-        throw new Error('Precomputed embeddings not found. Ensure knowledge/embeddings.json exists.');
-    }
-
-    // Initialize Gemini
-    const apiKey = process.env.GEMINI_API_KEY;
-    if (!apiKey) {
-        throw new Error('GEMINI_API_KEY not configured');
-    }
-    genAI = new GoogleGenerativeAI(apiKey);
-    embeddingModel = genAI.getGenerativeModel({ model: 'gemini-embedding-001' });
-    console.log('--- Initialization Complete ---');
+  // Initialize Gemini
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+    throw new Error('GEMINI_API_KEY not configured');
+  }
+  genAI = new GoogleGenerativeAI(apiKey);
+  embeddingModel = genAI.getGenerativeModel({ model: 'gemini-embedding-001' });
+  console.log('--- Initialization Complete ---');
 }
 
 // ========================================
@@ -154,149 +156,154 @@ function initializeResources(): void {
 /**
  * Generate embedding for a single text using Gemini
  */
-async function generateEmbedding(text: string, taskType: string = 'RETRIEVAL_DOCUMENT'): Promise<number[]> {
-    if (!embeddingModel) {
-        throw new Error('Embedding model not initialized');
-    }
+async function generateEmbedding(
+  text: string,
+  taskType: string = 'RETRIEVAL_DOCUMENT'
+): Promise<number[]> {
+  if (!embeddingModel) {
+    throw new Error('Embedding model not initialized');
+  }
 
-    const result = await embeddingModel.embedContent({
-        content: { parts: [{ text }] },
-        taskType
-    });
+  const result = await embeddingModel.embedContent({
+    content: { parts: [{ text }] },
+    taskType,
+  });
 
-    if (!result.embedding || !result.embedding.values) {
-        throw new Error('Invalid embedding response from Gemini API');
-    }
+  if (!result.embedding || !result.embedding.values) {
+    throw new Error('Invalid embedding response from Gemini API');
+  }
 
-    return result.embedding.values;
+  return result.embedding.values;
 }
 
 /**
  * Calculate cosine similarity between two embedding vectors
  */
 function cosineSimilarity(vec1: number[], vec2: number[]): number {
-    if (vec1.length !== vec2.length) {
-        throw new Error('Vectors must have the same length');
-    }
+  if (vec1.length !== vec2.length) {
+    throw new Error('Vectors must have the same length');
+  }
 
-    let dotProduct = 0;
-    let mag1 = 0;
-    let mag2 = 0;
+  let dotProduct = 0;
+  let mag1 = 0;
+  let mag2 = 0;
 
-    for (let i = 0; i < vec1.length; i++) {
-        dotProduct += vec1[i] * vec2[i];
-        mag1 += vec1[i] * vec1[i];
-        mag2 += vec2[i] * vec2[i];
-    }
+  for (let i = 0; i < vec1.length; i++) {
+    dotProduct += vec1[i] * vec2[i];
+    mag1 += vec1[i] * vec1[i];
+    mag2 += vec2[i] * vec2[i];
+  }
 
-    const magnitude = Math.sqrt(mag1) * Math.sqrt(mag2);
-    if (magnitude === 0) return 0;
+  const magnitude = Math.sqrt(mag1) * Math.sqrt(mag2);
+  if (magnitude === 0) return 0;
 
-    return dotProduct / magnitude;
+  return dotProduct / magnitude;
 }
 
 /**
  * Calculate semantic similarity using Gemini embeddings and cosine similarity
  */
-function calculateSimilarity(queryEmbedding: number[], entryTexts: Array<{ text: string; taskType: string }>): number {
-    let maxSimilarity = 0;
+function calculateSimilarity(
+  queryEmbedding: number[],
+  entryTexts: Array<{ text: string; taskType: string }>
+): number {
+  let maxSimilarity = 0;
 
-    for (const { text, taskType } of entryTexts) {
-        const cacheKey = `${taskType}::${text}`;
-        const entryEmbedding = embeddingCache[cacheKey];
+  for (const { text, taskType } of entryTexts) {
+    const cacheKey = `${taskType}::${text}`;
+    const entryEmbedding = embeddingCache[cacheKey];
 
-        // Skip if embedding not found
-        if (!entryEmbedding) {
-            continue;
-        }
-
-        const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
-        maxSimilarity = Math.max(maxSimilarity, similarity);
+    // Skip if embedding not found
+    if (!entryEmbedding) {
+      continue;
     }
 
-    return maxSimilarity;
+    const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
+    maxSimilarity = Math.max(maxSimilarity, similarity);
+  }
+
+  return maxSimilarity;
 }
 
 /**
  * Retrieve answer for a given query
  */
 async function retrieveAnswer(query: string): Promise<RetrievalResult> {
-    if (!kb) {
-        throw new Error('Knowledge base not initialized');
+  if (!kb) {
+    throw new Error('Knowledge base not initialized');
+  }
+
+  // Generate query embedding ONCE
+  const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
+
+  let bestMatch: { entry: KBEntry; score: number } | null = null;
+  let secondBestScore = 0;
+
+  for (const entry of kb.entries) {
+    // Build text array with task types
+    const textsToCheck = [
+      ...entry.questionVariants.map((text) => ({ text, taskType: 'RETRIEVAL_QUERY' })),
+      { text: entry.searchText, taskType: 'RETRIEVAL_DOCUMENT' },
+      { text: entry.title, taskType: 'RETRIEVAL_DOCUMENT' },
+    ];
+
+    const score = calculateSimilarity(queryEmbedding, textsToCheck);
+
+    if (score > (bestMatch?.score || 0)) {
+      secondBestScore = bestMatch?.score || 0;
+      bestMatch = { entry, score };
+    } else if (score > secondBestScore) {
+      secondBestScore = score;
     }
+  }
 
-    // Generate query embedding ONCE
-    const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
+  if (!bestMatch) {
+    console.log('Similarity decision: No match found');
+    return { matched: false } as any;
+  }
 
-    let bestMatch: { entry: KBEntry; score: number } | null = null;
-    let secondBestScore = 0;
+  const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? MINIMUM_SIMILARITY;
 
-    for (const entry of kb.entries) {
-        // Build text array with task types
-        const textsToCheck = [
-            ...entry.questionVariants.map(text => ({ text, taskType: 'RETRIEVAL_QUERY' })),
-            { text: entry.searchText, taskType: 'RETRIEVAL_DOCUMENT' },
-            { text: entry.title, taskType: 'RETRIEVAL_DOCUMENT' }
-        ];
+  console.log('Similarity decision', {
+    id: bestMatch.entry.id,
+    score: bestMatch.score,
+    effectiveMin,
+    globalMin: MINIMUM_SIMILARITY,
+  });
 
-        const score = calculateSimilarity(queryEmbedding, textsToCheck);
-
-
-        if (score > (bestMatch?.score || 0)) {
-            secondBestScore = bestMatch?.score || 0;
-            bestMatch = { entry, score };
-        } else if (score > secondBestScore) {
-            secondBestScore = score;
-        }
-    }
-
-    if (!bestMatch) {
-        console.log("Similarity decision: No match found");
-        return { matched: false } as any;
-    }
-
-    const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? MINIMUM_SIMILARITY;
-
-    console.log("Similarity decision", {
-        id: bestMatch.entry.id,
-        score: bestMatch.score,
-        effectiveMin,
-        globalMin: MINIMUM_SIMILARITY
-    });
-
-    if (bestMatch.score < effectiveMin) {
-        return {
-            matched: false,
-            faqId: bestMatch.entry.id,
-            confidence: bestMatch.score,
-            effectiveMin
-        } as any;
-    }
-
-    const scoreGap = bestMatch.score - secondBestScore;
-    if (scoreGap < 0.1 && secondBestScore >= effectiveMin) {
-        console.log("Ambiguity check failed", {
-            bestId: bestMatch.entry.id,
-            bestScore: bestMatch.score,
-            secondBestScore,
-            gap: scoreGap
-        });
-        return {
-            matched: false,
-            faqId: bestMatch.entry.id,
-            confidence: bestMatch.score,
-            effectiveMin,
-            gap: scoreGap
-        } as any;
-    }
-
+  if (bestMatch.score < effectiveMin) {
     return {
-        matched: true,
-        faqId: bestMatch.entry.id,
-        answer: bestMatch.entry.answer,
-        sourceUrl: bestMatch.entry.sources[0]?.url,
-        confidence: bestMatch.score
-    };
+      matched: false,
+      faqId: bestMatch.entry.id,
+      confidence: bestMatch.score,
+      effectiveMin,
+    } as any;
+  }
+
+  const scoreGap = bestMatch.score - secondBestScore;
+  if (scoreGap < 0.1 && secondBestScore >= effectiveMin) {
+    console.log('Ambiguity check failed', {
+      bestId: bestMatch.entry.id,
+      bestScore: bestMatch.score,
+      secondBestScore,
+      gap: scoreGap,
+    });
+    return {
+      matched: false,
+      faqId: bestMatch.entry.id,
+      confidence: bestMatch.score,
+      effectiveMin,
+      gap: scoreGap,
+    } as any;
+  }
+
+  return {
+    matched: true,
+    faqId: bestMatch.entry.id,
+    answer: bestMatch.entry.answer,
+    sourceUrl: bestMatch.entry.sources[0]?.url,
+    confidence: bestMatch.score,
+  };
 }
 
 // ========================================
@@ -304,144 +311,143 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
 // ========================================
 
 export const handler: Handler = async (event: HandlerEvent) => {
-    // MUST BE FIRST: Log every invocation for observability
-    console.log("chat-retrieve invoked", {
-        method: event.httpMethod,
-        path: event.path,
-        hasBody: !!event.body,
-        contentType: event.headers["content-type"] || event.headers["Content-Type"],
-    });
+  // MUST BE FIRST: Log every invocation for observability
+  console.log('chat-retrieve invoked', {
+    method: event.httpMethod,
+    path: event.path,
+    hasBody: !!event.body,
+    contentType: event.headers['content-type'] || event.headers['Content-Type'],
+  });
 
-    try {
-        // Health check endpoint (GET only, no auth required)
-        if (event.httpMethod === 'GET') {
-            initializeResources();
-            return {
-                statusCode: 200,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    status: 'ok',
-                    timestamp: new Date().toISOString()
-                })
-            };
-        }
-
-        // Explicit POST gate with structured error
-        if (event.httpMethod !== 'POST') {
-            console.warn(`chat-retrieve refused: method ${event.httpMethod} not allowed`);
-            return {
-                statusCode: 405,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'refuse',
-                    reason: 'method_not_allowed'
-                })
-            };
-        }
-
-        // Body validation with logging
-        if (!event.body) {
-            console.warn('chat-retrieve refused: missing body');
-            return {
-                statusCode: 400,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'refuse',
-                    reason: 'missing_body'
-                })
-            };
-        }
-
-        // Parse body with defensive parsing
-        let body: any = null;
-        try {
-            console.log('Parsing JSON source', {
-                source: 'event.body',
-                length: event.body?.length,
-                preview: event.body?.slice(0, 100)
-            });
-            body = typeof event.body === 'string'
-                ? JSON.parse(event.body)
-                : event.body;
-        } catch (err) {
-            console.error('Invalid JSON body', {
-                body: event.body,
-                error: err
-            });
-            return {
-                statusCode: 400,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'refuse',
-                    reason: 'invalid_json_body'
-                })
-            };
-        }
-
-        const question = body.question;
-
-        // Validate question
-        if (!question || typeof question !== 'string' || question.trim().length === 0) {
-            console.warn('chat-retrieve refused: invalid or empty question');
-            return {
-                statusCode: 400,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'refuse',
-                    reason: 'invalid_question'
-                })
-            };
-        }
-
-        // Enforce length limit
-        if (question.length > MAX_QUESTION_LENGTH) {
-            console.warn(`chat-retrieve refused: question too long (${question.length} > ${MAX_QUESTION_LENGTH})`);
-            return {
-                statusCode: 400,
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    type: 'refuse',
-                    reason: 'question_too_long'
-                })
-            };
-        }
-
-        // Initialize resources
-        initializeResources();
-
-        // Execute retrieval
-        const result = await retrieveAnswer(question.trim());
-
-        // Build response
-        const response: any = result.matched
-            ? {
-                type: 'accept',
-                answer: formatMailbotResponse(result.answer!), // Apply V1 template formatting
-                sourceUrl: result.sourceUrl!,
-                faqId: result.faqId!,
-                confidence: result.confidence!
-            }
-            : {
-                type: 'refuse'
-            };
-
-        return {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(response)
-        };
-
-    } catch (error) {
-        // Log error for Netlify function logs
-        console.error('Retrieval Error:', error);
-
-        // Temporarily expose error for debugging production paths
-        return {
-            statusCode: 200,
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                type: 'refuse'
-            })
-        };
+  try {
+    // Health check endpoint (GET only, no auth required)
+    if (event.httpMethod === 'GET') {
+      initializeResources();
+      return {
+        statusCode: 200,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          status: 'ok',
+          timestamp: new Date().toISOString(),
+        }),
+      };
     }
+
+    // Explicit POST gate with structured error
+    if (event.httpMethod !== 'POST') {
+      console.warn(`chat-retrieve refused: method ${event.httpMethod} not allowed`);
+      return {
+        statusCode: 405,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'method_not_allowed',
+        }),
+      };
+    }
+
+    // Body validation with logging
+    if (!event.body) {
+      console.warn('chat-retrieve refused: missing body');
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'missing_body',
+        }),
+      };
+    }
+
+    // Parse body with defensive parsing
+    let body: any = null;
+    try {
+      console.log('Parsing JSON source', {
+        source: 'event.body',
+        length: event.body?.length,
+        preview: event.body?.slice(0, 100),
+      });
+      body = typeof event.body === 'string' ? JSON.parse(event.body) : event.body;
+    } catch (err) {
+      console.error('Invalid JSON body', {
+        body: event.body,
+        error: err,
+      });
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'invalid_json_body',
+        }),
+      };
+    }
+
+    const question = body.question;
+
+    // Validate question
+    if (!question || typeof question !== 'string' || question.trim().length === 0) {
+      console.warn('chat-retrieve refused: invalid or empty question');
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'invalid_question',
+        }),
+      };
+    }
+
+    // Enforce length limit
+    if (question.length > MAX_QUESTION_LENGTH) {
+      console.warn(
+        `chat-retrieve refused: question too long (${question.length} > ${MAX_QUESTION_LENGTH})`
+      );
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'question_too_long',
+        }),
+      };
+    }
+
+    // Initialize resources
+    initializeResources();
+
+    // Execute retrieval
+    const result = await retrieveAnswer(question.trim());
+
+    // Build response
+    const response: any = result.matched
+      ? {
+          type: 'accept',
+          answer: formatMailbotResponse(result.answer!), // Apply V1 template formatting
+          sourceUrl: result.sourceUrl!,
+          faqId: result.faqId!,
+          confidence: result.confidence!,
+        }
+      : {
+          type: 'refuse',
+        };
+
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(response),
+    };
+  } catch (error) {
+    // Log error for Netlify function logs
+    console.error('Retrieval Error:', error);
+
+    // Temporarily expose error for debugging production paths
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        type: 'refuse',
+      }),
+    };
+  }
 };

@@ -1,12 +1,15 @@
 # Article Inbox
 
 ## Purpose
+
 Drop new articles from your content pipeline into this folder for processing.
 
 ## Workflow
 
 ### 1. Drop Articles
+
 Place finished `.md` files from your pipeline here:
+
 ```
 /article-inbox/
   ├── pack-ship-painesville-city.md
@@ -15,13 +18,16 @@ Place finished `.md` files from your pipeline here:
 ```
 
 ### 2. Processing
+
 When ready to integrate articles:
+
 - Review frontmatter for completeness
 - Validate image paths (articles/{category}/{slug}-featured.webp)
 - Check for duplicate `intentKey` values
 - Move to `/content/articles/{category}/` based on frontmatter category
 
 ### 3. Internal Link Conventions
+
 - All internal paths must start with `/`
 - Use actual route paths (e.g., `/pack-ship/fedex-shipping`), **NOT** `/services/` prefixed paths
 - `relatedServices` should contain 2-4 valid route paths relevant to the article
@@ -34,6 +40,7 @@ When ready to integrate articles:
   - `/service-area/` — service area pages
 
 #### Internal Linking Best Practices
+
 - **Target**: 5-10 contextual internal links per article
 - **Anchor text**: Use descriptive, exact-match phrases naturally (avoid generic "click here")
 - **Link to**: Service pages, related articles, micro-problems, service areas, contact page
@@ -42,7 +49,9 @@ When ready to integrate articles:
 - **Note**: More links can be added later during quarterly audits
 
 ### 4. Post-Processing
+
 After moving to `/content/articles/`:
+
 - Add strategic internal links
 - Update sitemap configuration
 - Run validation scripts
@@ -50,10 +59,12 @@ After moving to `/content/articles/`:
 - **Provide the finalized URL** (format: `https://mailboxplusohio.com/articles/{slug}`)
 
 ## Processing Status
+
 Articles in this folder are **UNPROCESSED**.
 Once moved to `/content/articles/{category}/`, they are **PROCESSED**.
 
 ## Notes
+
 - You can drop 1 or 100 articles at a time
 - Files stay here until manually processed
 - This folder is gitignored (won't be committed)

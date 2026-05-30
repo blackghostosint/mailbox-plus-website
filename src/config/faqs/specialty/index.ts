@@ -1,2 +1,2 @@
-export * from "./digitalFingerprintingFaqs";
-export * from "./insuranceFaqs";
+export * from './digitalFingerprintingFaqs';
+export * from './insuranceFaqs';

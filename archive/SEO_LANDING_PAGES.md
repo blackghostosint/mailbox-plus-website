@@ -3,6 +3,7 @@
 This file lists all the SEO-focused landing pages created to target specific local search terms in Concord Township, with their full URLs for submission to Google Search Console.
 
 ## Pack & Ship and Carrier Alternatives
+
 - `https://mailboxplusohio.com/ups-store-alternative-concord-township`
 - `https://mailboxplusohio.com/mail-boxes-etc-alternative-concord-township`
 - `https://mailboxplusohio.com/fedex-office-alternative-concord-township`
@@ -16,21 +17,25 @@ This file lists all the SEO-focused landing pages created to target specific loc
 - `https://mailboxplusohio.com/usps-package-help-concord-township`
 
 ## Printing & Document Services
+
 - `https://mailboxplusohio.com/staples-printing-alternative-concord-township`
 - `https://mailboxplusohio.com/office-depot-alternative-concord-township`
 - `https://mailboxplusohio.com/printing-services-concord-township`
 - `https://mailboxplusohio.com/document-services-concord-township`
 
 ## Mailbox & Business Services
+
 - `https://mailboxplusohio.com/private-mailbox-rental-concord-township`
 - `https://mailboxplusohio.com/virtual-mailbox-concord-township`
 - `https://mailboxplusohio.com/mail-forwarding-concord-township`
 - `https://mailboxplusohio.com/business-services-concord-township`
 
 ## Specialty Services
+
 - `https://mailboxplusohio.com/amazon-returns-drop-off-concord-township`
 
 ## File Locations
+
 All these pages are located in `src/pages/`:
 
 1. `src/pages/amazon-returns-drop-off-concord-township.tsx`

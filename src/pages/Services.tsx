@@ -1,31 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { InternalLink } from "../components/ui/InternalLink";
-import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from 'react';
+import { InternalLink } from '../components/ui/InternalLink';
+import { motion, AnimatePresence } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
 import Clock from '~icons/lucide/clock';
 import ChevronUp from '~icons/lucide/chevron-up';
-import { Button } from "../components/ui";
-import { siteConfig } from "../config/siteConfig";
-import { services } from "../config/services";
-import { getGoogleMapsLink } from "../utils/location";
-import { Meta } from "../components/Meta";
-import { pageMeta } from "../config/pageMeta";
-import { SmartImage } from "../components/SmartImage";
-import { getServiceImageUrl } from "../lib/storage";
+import { Button } from '../components/ui';
+import { siteConfig } from '../config/siteConfig';
+import { services } from '../config/services';
+import { getGoogleMapsLink } from '../utils/location';
+import { Meta } from '../components/Meta';
+import { pageMeta } from '../config/pageMeta';
+import { SmartImage } from '../components/SmartImage';
+import { getServiceImageUrl } from '../lib/storage';
 
 // Utility to generate safe IDs
-const makeId = (str: string) =>
-  str.toLowerCase().replace(/\s+/g, "-").replace(/&/g, "and");
+const makeId = (str: string) => str.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 
 // Map display category → actual service.category value (from services.ts)
 const categoryMap: Record<string, string> = {
-  "Pack & Ship Services": "pack-ship",
-  "Professional Printing": "copy-print",
-  "Mailbox Rentals": "mailbox-rentals",
-  "Document Services": "document-services",
-  "Additional Services": "additional-services",
+  'Pack & Ship Services': 'pack-ship',
+  'Professional Printing': 'copy-print',
+  'Mailbox Rentals': 'mailbox-rentals',
+  'Document Services': 'document-services',
+  'Additional Services': 'additional-services',
 };
 
 // Animation constants (V2 Spec)
@@ -33,7 +32,7 @@ const reveal = {
   initial: { opacity: 0, y: 32 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.55, ease: "easeOut" as const }
+  transition: { duration: 0.55, ease: 'easeOut' as const },
 };
 
 export const Services: React.FC = () => {
@@ -42,17 +41,17 @@ export const Services: React.FC = () => {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      setPrefersReducedMotion(window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    if (typeof window !== 'undefined') {
+      setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
     }
   }, []);
 
   const serviceCategories = [
-    "Pack & Ship Services",
-    "Professional Printing",
-    "Mailbox Rentals",
-    "Document Services",
-    "Additional Services",
+    'Pack & Ship Services',
+    'Professional Printing',
+    'Mailbox Rentals',
+    'Document Services',
+    'Additional Services',
   ];
 
   // Rotate the tagline in hero
@@ -66,11 +65,11 @@ export const Services: React.FC = () => {
   // Toggle the Back to Top button
   useEffect(() => {
     const onScroll = () => setShowTopButton(window.scrollY > 400);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const { title, description, schema } = pageMeta['/services'];
 
@@ -86,17 +85,17 @@ export const Services: React.FC = () => {
             priority
             sources={[
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image_mobile.webp"),
-                media: "(max-width: 768px)",
-                type: "image/webp"
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
+                media: '(max-width: 768px)',
+                type: 'image/webp',
               },
               {
-                srcSet: getServiceImageUrl("mailbox_plus_storefront_hero_image.webp"),
-                media: "(min-width: 769px)",
-                type: "image/webp"
-              }
+                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
+                media: '(min-width: 769px)',
+                type: 'image/webp',
+              },
             ]}
-            src={getServiceImageUrl("mailbox_plus_storefront_hero_image.webp")}
+            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
             className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
             style={{ objectPosition: 'center' }}
@@ -139,28 +138,39 @@ export const Services: React.FC = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#categories">
-              <Button size="lg" variant="secondary" className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
+              >
                 View Categories <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </a>
             {/* Directions Button */}
             <a
-              href={getGoogleMapsLink("directions", siteConfig.name)}
+              href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" className="bg-[#0855B1] text-white hover:bg-[#064080] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]">
+              <Button
+                size="lg"
+                className="bg-[#0855B1] text-white hover:bg-[#064080] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
             {/* View on Map Button */}
             <a
-              href={getGoogleMapsLink("view", siteConfig.name)}
+              href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -190,11 +200,23 @@ export const Services: React.FC = () => {
             </div>
             <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
               <p>
-                Looking for <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">pack and ship services in Concord Township</InternalLink>?
-                Whether you need <InternalLink variant="geo" to="/shipping">UPS, FedEx, DHL, or USPS shipping</InternalLink>,
-                <InternalLink variant="geo" to="/printing">professional printing</InternalLink>, or a
-                <InternalLink variant="geo" to="/mailbox-rental">secure private mailbox</InternalLink>,
-                browse our full list of offerings below.
+                Looking for{' '}
+                <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">
+                  pack and ship services in Concord Township
+                </InternalLink>
+                ? Whether you need{' '}
+                <InternalLink variant="geo" to="/shipping">
+                  UPS, FedEx, DHL, or USPS shipping
+                </InternalLink>
+                ,
+                <InternalLink variant="geo" to="/printing">
+                  professional printing
+                </InternalLink>
+                , or a
+                <InternalLink variant="geo" to="/mailbox-rental">
+                  secure private mailbox
+                </InternalLink>
+                , browse our full list of offerings below.
               </p>
             </div>
           </div>
@@ -276,43 +298,76 @@ export const Services: React.FC = () => {
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
           <p className="text-lg text-blue-200 mb-10 max-w-2xl mx-auto">
-            Stop by for all your shipping, printing, and business service needs.
-            Our friendly team is ready to help!
+            Stop by for all your shipping, printing, and business service needs. Our friendly team
+            is ready to help!
           </p>
 
           <div className="mb-8 text-blue-100">
             <p>
-              We specialize in <InternalLink variant="geo" to="/amazon-returns" className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4">Amazon returns</InternalLink>,
-              <InternalLink variant="geo" to="/notary" className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4">notary services</InternalLink>, and
-              <InternalLink variant="geo" to="/pack-ship" className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4">custom packing</InternalLink>.
+              We specialize in{' '}
+              <InternalLink
+                variant="geo"
+                to="/amazon-returns"
+                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+              >
+                Amazon returns
+              </InternalLink>
+              ,
+              <InternalLink
+                variant="geo"
+                to="/notary"
+                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+              >
+                notary services
+              </InternalLink>
+              , and
+              <InternalLink
+                variant="geo"
+                to="/pack-ship"
+                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+              >
+                custom packing
+              </InternalLink>
+              .
             </p>
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {/* Directions Button */}
             <a
-              href={getGoogleMapsLink("directions", siteConfig.name)}
+              href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="secondary" className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11">
+              <Button
+                size="lg"
+                variant="secondary"
+                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
             {/* View on Map Button */}
             <a
-              href={getGoogleMapsLink("view", siteConfig.name)}
+              href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button size="lg" variant="ghost" className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]">
+              <Button
+                size="lg"
+                variant="ghost"
+                className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]"
+              >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
             </a>
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button size="lg" className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10 min-h-11">
+              <Button
+                size="lg"
+                className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10 min-h-11"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -321,9 +376,7 @@ export const Services: React.FC = () => {
 
           <div className="flex items-center justify-center gap-2 text-blue-100">
             <Clock className="w-5 h-5" />
-            <span className="text-sm">
-              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed
-            </span>
+            <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>
         </div>
       </section>

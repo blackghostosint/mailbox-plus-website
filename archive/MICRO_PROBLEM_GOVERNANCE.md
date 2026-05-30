@@ -26,6 +26,7 @@ Establish a **quarterly governance process** that determines whether each micro-
 - ❌ **DELETED** - Provides no value
 
 This process must be:
+
 - **Repeatable** - Same process every quarter
 - **Explicit** - Clear decision criteria
 - **Enforceable** - Backed by data signals, not opinions
@@ -38,12 +39,14 @@ This process must be:
 **This is not optional.**
 
 Evaluate all micro-problem pages in:
+
 - `src/config/micro-problems/returns.ts`
 - `src/config/micro-problems/shipping.ts`
 - `src/config/micro-problems/packaging.ts`
 - `src/config/micro-problems/misc.ts`
 
 **Quarterly Schedule**:
+
 - **Q1**: March 15
 - **Q2**: June 15
 - **Q3**: September 15
@@ -67,6 +70,7 @@ A page is considered **weak** if EITHER is true:
 **Data Source**: Google Search Console (Performance → Last 90 days)
 
 **Interpretation**:
+
 - **0 impressions** = Google doesn't think this page is relevant to any query
 - **0 clicks** = Users see this page in results but don't find it valuable enough to click
 
@@ -83,6 +87,7 @@ A page **fails** this signal if ANY are true:
 **Data Source**: Staff feedback log, customer service reports
 
 **Interpretation**:
+
 - The page sets false expectations
 - The page creates more work for staff
 - The page confuses customers rather than helping them
@@ -96,18 +101,20 @@ A page **fails** this signal if EITHER is true:
 ❌ You cannot explain the difference between two pages in one sentence
 ```
 
-**Evaluation Method**: 
+**Evaluation Method**:
+
 - Compare `intentKey` across all micro-problems
 - If two pages share the same `intentKey`, they overlap
 - If you cannot clearly articulate why both pages exist, they overlap
 
 **Example of FAIL**:
+
 ```typescript
 // Page 1
-intentKey: "ship-fragile-items"
+intentKey: 'ship-fragile-items';
 
-// Page 2  
-intentKey: "ship-fragile-items"
+// Page 2
+intentKey: 'ship-fragile-items';
 // ❌ FAIL: Same intentKey = intent overlap
 ```
 
@@ -125,12 +132,14 @@ intentKey: "ship-fragile-items"
 ```
 
 **Action**:
+
 1. Remove the config entry from the appropriate shard file
 2. **Do NOT** create a redirect
 3. Allow sitemap exclusion to occur naturally via config
 4. Document deletion reason in code comments
 
 **Example**:
+
 ```typescript
 // DELETED: 2025-Q1 Audit
 // Page: fix-rejected-return-packaging
@@ -141,6 +150,7 @@ intentKey: "ship-fragile-items"
 ```
 
 **Philosophy**:
+
 > Deletion is not failure.  
 > Deletion is maintenance.
 
@@ -155,6 +165,7 @@ intentKey: "ship-fragile-items"
 ```
 
 **Action**:
+
 1. **Keep** the stronger-performing page
 2. **Fold** any useful copy from the weaker page into the stronger
 3. **Delete** the weaker config entry
@@ -162,6 +173,7 @@ intentKey: "ship-fragile-items"
 5. Document merge in code comments
 
 **Example**:
+
 ```typescript
 // MERGED: 2025-Q1 Audit
 // INTO: ship-fragile-items (250 clicks)
@@ -181,6 +193,7 @@ intentKey: "ship-fragile-items"
 ```
 
 **Action**:
+
 1. **Rewrite** `heroTitle`, `heroSubtitle`, `metaDescription` to clarify scope
 2. **Clarify** what the service IS and what it IS NOT
 3. **Keep** the existing slug (unless the slug itself is misleading)
@@ -188,6 +201,7 @@ intentKey: "ship-fragile-items"
 5. Document rewrite reason in code comments
 
 **Example**:
+
 ```typescript
 // REWRITTEN: 2025-Q1 Audit
 // Page: ship-electronics-safely
@@ -206,6 +220,7 @@ intentKey: "ship-fragile-items"
 ### ✅ KEEP
 
 **Default action** for pages that:
+
 - Pass all signals, OR
 - Provide clear, measurable value even with low traffic
 
@@ -218,22 +233,22 @@ intentKey: "ship-fragile-items"
 ### Forbidden Actions
 
 ❌ **Do NOT keep pages "just in case"**  
-   → If it fails signals, delete it
+ → If it fails signals, delete it
 
 ❌ **Do NOT chase keyword variations**  
-   → One intent = one page
+ → One intent = one page
 
 ❌ **Do NOT preserve pages for vanity metrics**  
-   → Impressions without value are noise
+ → Impressions without value are noise
 
 ❌ **Do NOT split one intent into multiple pages**  
-   → Merge instead
+ → Merge instead
 
 ❌ **Do NOT create redirects for deleted pages**  
-   → Let them 404 naturally
+ → Let them 404 naturally
 
 ❌ **Do NOT override signals with opinions**  
-   → Data decides, not feelings
+ → Data decides, not feelings
 
 ---
 
@@ -247,6 +262,7 @@ For **each** reviewed micro-problem, output:
 **Decision**: KEEP | MERGE INTO <id> | REWRITE | DELETE
 
 **Signals**:
+
 - Signal A (Performance): PASS | FAIL - [specific data]
 - Signal B (Intent Reality): PASS | FAIL - [staff feedback or N/A]
 - Signal C (Intent Overlap): PASS | FAIL - [intentKey comparison]
@@ -264,6 +280,7 @@ For **each** reviewed micro-problem, output:
 **Decision**: KEEP
 
 **Signals**:
+
 - Signal A (Performance): PASS - 87 impressions, 12 clicks
 - Signal B (Intent Reality): PASS - No staff confusion reported
 - Signal C (Intent Overlap): PASS - Unique intentKey "remove-receipt-from-gift"
@@ -325,6 +342,7 @@ export interface Service {
 ```
 
 **Usage**:
+
 ```typescript
 {
   id: "ship-fragile-items",
@@ -334,6 +352,7 @@ export interface Service {
 ```
 
 **Validation**:
+
 - Dev-time validator should check for duplicate `intentKey` values
 - Flag duplicates as potential merges
 
@@ -344,6 +363,7 @@ export interface Service {
 ### Why This Policy Exists
 
 **Problem**: Without governance, micro-problem pages accumulate endlessly, creating:
+
 - SEO bloat (pages that don't rank)
 - Customer confusion (overlapping or misleading pages)
 - Maintenance burden (too many pages to manage)

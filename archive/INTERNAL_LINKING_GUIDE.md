@@ -4,14 +4,15 @@ We have implemented a structured, data-driven internal linking system to improve
 
 ## 1. Data Source (`src/data/`)
 
-*   **`siteStructure.json`**: Defines the hierarchy (Homepage -> Pillars -> Services).
-*   **`internalLinks.json`**: Defines parent-child relationships and "related" cross-links.
-*   **`anchorText.json`**: Contains SEO-optimized anchor text variations (Exact, LSI, Geo).
-*   **`localPages.json`**: Defines local landing pages and their priority services.
+- **`siteStructure.json`**: Defines the hierarchy (Homepage -> Pillars -> Services).
+- **`internalLinks.json`**: Defines parent-child relationships and "related" cross-links.
+- **`anchorText.json`**: Contains SEO-optimized anchor text variations (Exact, LSI, Geo).
+- **`localPages.json`**: Defines local landing pages and their priority services.
 
 ## 2. Components (`src/components/ui/`)
 
 ### `<InternalLink />`
+
 Use this component to create SEO-optimized links. It automatically selects anchor text if none is provided.
 
 ```tsx
@@ -30,6 +31,7 @@ import { InternalLink } from '../components/ui/InternalLink';
 ```
 
 ### `<AutoBreadcrumbs />`
+
 Place this at the top of page templates. It automatically generates Schema.org compliant breadcrumbs based on the URL path and `siteStructure.json`.
 
 ```tsx
@@ -44,24 +46,27 @@ export const PageTemplate = () => (
 ```
 
 ### `<ServiceGrid />`
+
 Use this on Pillar pages to list child services automatically.
 
 ```tsx
 import { ServiceGrid } from '../components/sections/ServiceGrid';
 
 // On /pack-ship page
-<ServiceGrid pillarId="pack-ship" />
+<ServiceGrid pillarId="pack-ship" />;
 ```
 
 ## 3. Utility Functions (`src/utils/internal-links.ts`)
 
-*   `getInternalLink(id)`: Get metadata for a service.
-*   `getAnchorText(id, variant)`: Get a random anchor text variant.
-*   `getRelatedServices(id)`: Get a list of related services for cross-linking.
-*   `getLocalPriorityServices(citySlug)`: Get priority services for a specific city.
+- `getInternalLink(id)`: Get metadata for a service.
+- `getAnchorText(id, variant)`: Get a random anchor text variant.
+- `getRelatedServices(id)`: Get a list of related services for cross-linking.
+- `getLocalPriorityServices(citySlug)`: Get priority services for a specific city.
 
 ## 4. Validation
+
 Run the validation script to check for orphan pages or missing anchors.
 
 ```bash
 node scripts/validate-links.cjs
+```

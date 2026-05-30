@@ -1,30 +1,29 @@
-import { services } from "../config/services";
-import { Service, ServiceCategory } from "../types/services";
-import { siteConfig } from "../config/siteConfig";
+import { services } from '../config/services';
+import { Service, ServiceCategory } from '../types/services';
+import { siteConfig } from '../config/siteConfig';
 
 /**
  * Get all services that belong to a specific category
  */
 export const getServicesByCategory = (category: ServiceCategory): Service[] =>
-  services.filter(s => s.category === category);
+  services.filter((s) => s.category === category);
 
 /**
  * Get all services marked as popular/featured
  */
-export const getPopularServices = (): Service[] =>
-  services.filter(s => s.popular);
+export const getPopularServices = (): Service[] => services.filter((s) => s.popular);
 
 /**
  * Find a service by its unique ID
  */
 export const getServiceById = (id: string): Service | undefined =>
-  services.find(s => s.id === id);
+  services.find((s) => s.id === id);
 
 /**
  * Find a service by its URL slug/href
  */
 export const getServiceByHref = (href: string): Service | undefined =>
-  services.find(s => s.slug === href);
+  services.find((s) => s.slug === href);
 
 /**
  * Search services by query string
@@ -33,15 +32,15 @@ export const getServiceByHref = (href: string): Service | undefined =>
 export const searchServices = (query: string): Service[] => {
   const lower = query.toLowerCase();
 
-  return services.filter(s =>
-    s.serviceName.toLowerCase().includes(lower) ||
-    s.heroSubtitle?.toLowerCase().includes(lower) ||
-    s.keywords?.toLowerCase().includes(lower) ||
-    s.metaDescription?.toLowerCase().includes(lower) ||
-    s.features?.some(f =>
-      f.title.toLowerCase().includes(lower) ||
-      f.description.toLowerCase().includes(lower)
-    )
+  return services.filter(
+    (s) =>
+      s.serviceName.toLowerCase().includes(lower) ||
+      s.heroSubtitle?.toLowerCase().includes(lower) ||
+      s.keywords?.toLowerCase().includes(lower) ||
+      s.metaDescription?.toLowerCase().includes(lower) ||
+      s.features?.some(
+        (f) => f.title.toLowerCase().includes(lower) || f.description.toLowerCase().includes(lower)
+      )
   );
 };
 
@@ -49,9 +48,7 @@ export const searchServices = (query: string): Service[] => {
  * Get random services (useful for "related services")
  */
 export const getRandomServices = (count: number, excludeId?: string): Service[] => {
-  const pool = excludeId
-    ? services.filter(s => s.id !== excludeId)
-    : services;
+  const pool = excludeId ? services.filter((s) => s.id !== excludeId) : services;
   return [...pool].sort(() => 0.5 - Math.random()).slice(0, count);
 };
 
@@ -75,7 +72,7 @@ export const sortServicesByRating = (): Service[] =>
  * Get services that include FAQs
  */
 export const getServicesWithFAQs = (): Service[] =>
-  services.filter(s => s.faqs && s.faqs.length > 0);
+  services.filter((s) => s.faqs && s.faqs.length > 0);
 
 /**
  * Validate service data structure (basic fields check)
@@ -98,17 +95,15 @@ export const validateService = (service: Service): boolean => {
  */
 export const getServiceBreadcrumbs = (
   service: Service,
-  baseUrl: string = "",
-  baseLabel: string = "Services"
+  baseUrl: string = '',
+  baseLabel: string = 'Services'
 ): { name: string; url: string }[] => {
-  const origin = siteConfig.domain.replace(/\/$/, ""); // normalize domain
+  const origin = siteConfig.domain.replace(/\/$/, ''); // normalize domain
 
   const normalize = (path: string): string =>
-    path.startsWith("http") ? path : `${origin}${path.startsWith("/") ? path : `/${path}`}`;
+    path.startsWith('http') ? path : `${origin}${path.startsWith('/') ? path : `/${path}`}`;
 
-  const breadcrumbs = [
-    { name: "Home", url: normalize("/") },
-  ];
+  const breadcrumbs = [{ name: 'Home', url: normalize('/') }];
 
   if (baseUrl) {
     breadcrumbs.push({
@@ -132,7 +127,7 @@ export const getServiceBreadcrumbs = (
 export const groupServicesByCategory = (): Record<ServiceCategory, Service[]> => {
   const grouped: Record<string, Service[]> = {};
 
-  services.forEach(service => {
+  services.forEach((service) => {
     if (!grouped[service.category]) {
       grouped[service.category] = [];
     }

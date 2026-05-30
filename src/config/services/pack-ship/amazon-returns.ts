@@ -1,25 +1,29 @@
 import CheckCircle from '~icons/lucide/check-circle';
 import HelpCircle from '~icons/lucide/help-circle';
 import AlertTriangle from '~icons/lucide/alert-triangle';
-import { Service } from "../../../types/services";
-import { getServiceImageUrl } from "../../../lib/storage";
+import { Service } from '../../../types/services';
+import { getServiceImageUrl } from '../../../lib/storage';
 
 export const amazonReturnsService: Service = {
-  id: "amazon-returns",
-  category: "additional-services",
-  city: "Concord Township",
-  serviceName: "Amazon Return Guide",
-  slug: "/amazon-returns",
-  canonicalUrl: "https://mailboxplus.com/amazon-returns",
-  pageTitle: "Amazon Return Guide | Easy Returns in Concord Township, Ohio",
-  metaDescription: "Learn how to easily return items to Amazon at Mailbox Plus. We help with packing, labeling, and shipping for all Lake County, Ohio residents.",
-  keywords: "amazon returns, return shipping, pack and ship, concord township, lake county, printable label",
-  heroTitle: "How to Return Items to Amazon",
-  heroSubtitle: "Local Guide for Lake County, Ohio",
-  heroImage: getServiceImageUrl("https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/how-to-return-items-to-amazon-2025-.webp"),
+  id: 'amazon-returns',
+  category: 'additional-services',
+  city: 'Concord Township',
+  serviceName: 'Amazon Return Guide',
+  slug: '/amazon-returns',
+  canonicalUrl: 'https://mailboxplus.com/amazon-returns',
+  pageTitle: 'Amazon Return Guide | Easy Returns in Concord Township, Ohio',
+  metaDescription:
+    'Learn how to easily return items to Amazon at Mailbox Plus. We help with packing, labeling, and shipping for all Lake County, Ohio residents.',
+  keywords:
+    'amazon returns, return shipping, pack and ship, concord township, lake county, printable label',
+  heroTitle: 'How to Return Items to Amazon',
+  heroSubtitle: 'Local Guide for Lake County, Ohio',
+  heroImage: getServiceImageUrl(
+    'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/how-to-return-items-to-amazon-2025-.webp'
+  ),
   content: [
     {
-      heading: "How Amazon Returns Work",
+      heading: 'How Amazon Returns Work',
       body: `
         <div class="bg-white rounded-2xl shadow-sm p-8 border border-slate-200">
           <ul class="space-y-4">
@@ -38,34 +42,40 @@ export const amazonReturnsService: Service = {
           </ul>
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "Step-by-Step: How to Start an Amazon Return (Part 1)",
+      heading: 'Step-by-Step: How to Start an Amazon Return (Part 1)',
       body: `
         <div class="space-y-12 mt-8">
           ${[
-          {
-            title: "Start Your Return in the Amazon App",
-            image: "step-01-return-replace-your-item.webp",
-            description: "Open the Amazon app or website and navigate to <strong>\"Your Orders.\"</strong> Locate the item you wish to return to begin the process."
-          },
-          {
-            title: "Pick Your Reason for Returning",
-            image: "step-02-why-are-you-returning-your-item.webp",
-            description: "Select the specific reason for your return from the provided list (e.g., \"defective,\" \"no longer needed\"). This helps Amazon process your request accurately."
-          },
-          {
-            title: "Confirm the Packaging Status",
-            image: "step-03-confirm-the-packaging-status.webp",
-            description: "Indicate whether the item is still in its original packaging. This information helps Amazon determine the correct return method and restocking requirements."
-          },
-          {
-            title: "Select Refund or Replacement",
-            image: "step-04-select-refund-replacement.webp",
-            description: "Choose your preferred resolution: receive a refund to your original payment method (or Amazon balance) or request a replacement item if available."
-          }
-        ].map((step, idx) => `
+            {
+              title: 'Start Your Return in the Amazon App',
+              image: 'step-01-return-replace-your-item.webp',
+              description:
+                'Open the Amazon app or website and navigate to <strong>"Your Orders."</strong> Locate the item you wish to return to begin the process.',
+            },
+            {
+              title: 'Pick Your Reason for Returning',
+              image: 'step-02-why-are-you-returning-your-item.webp',
+              description:
+                'Select the specific reason for your return from the provided list (e.g., "defective," "no longer needed"). This helps Amazon process your request accurately.',
+            },
+            {
+              title: 'Confirm the Packaging Status',
+              image: 'step-03-confirm-the-packaging-status.webp',
+              description:
+                'Indicate whether the item is still in its original packaging. This information helps Amazon determine the correct return method and restocking requirements.',
+            },
+            {
+              title: 'Select Refund or Replacement',
+              image: 'step-04-select-refund-replacement.webp',
+              description:
+                'Choose your preferred resolution: receive a refund to your original payment method (or Amazon balance) or request a replacement item if available.',
+            },
+          ]
+            .map(
+              (step, idx) => `
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
@@ -79,37 +89,45 @@ export const amazonReturnsService: Service = {
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "Step-by-Step: Managing Labels & Sharing (Part 2)",
+      heading: 'Step-by-Step: Managing Labels & Sharing (Part 2)',
       body: `
         <div class="space-y-12 mt-8">
           ${[
-          {
-            title: "Describe the Issue and Proceed",
-            image: "step-05-describe-issue-and-proceed.webp",
-            description: "Add any specific comments describing the problem if prompted, then continue to the next step to finalize your return details."
-          },
-          {
-            title: "Choose UPS Drop-Off (We can handle the Label!)",
-            image: "step-06-choose-ups-dropoff.webp",
-            description: "<strong>Crucial Step:</strong> Select a return method that provides a <strong>printable shipping label</strong> (often labeled as UPS Drop-off Points). <em>Avoid \"No Box/No Label\" options if you want to use Mailbox Plus.</em>"
-          },
-          {
-            title: "Share Your Return Label With Us ($2.00 fee)",
-            image: "step-07-share-label-with-friend.webp",
-            description: "No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to <strong>\"Share\"</strong> or <strong>\"Email\"</strong> the label from the app."
-          },
-          {
-            title: "Email the Label to Us",
-            image: "step-08-email-label-to-us.webp",
-            description: "Select your preferred email app and prepare to send the label file directly to our store for fast printing."
-          }
-        ].map((step, idx) => `
+            {
+              title: 'Describe the Issue and Proceed',
+              image: 'step-05-describe-issue-and-proceed.webp',
+              description:
+                'Add any specific comments describing the problem if prompted, then continue to the next step to finalize your return details.',
+            },
+            {
+              title: 'Choose UPS Drop-Off (We can handle the Label!)',
+              image: 'step-06-choose-ups-dropoff.webp',
+              description:
+                '<strong>Crucial Step:</strong> Select a return method that provides a <strong>printable shipping label</strong> (often labeled as UPS Drop-off Points). <em>Avoid "No Box/No Label" options if you want to use Mailbox Plus.</em>',
+            },
+            {
+              title: 'Share Your Return Label With Us ($2.00 fee)',
+              image: 'step-07-share-label-with-friend.webp',
+              description:
+                'No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to <strong>"Share"</strong> or <strong>"Email"</strong> the label from the app.',
+            },
+            {
+              title: 'Email the Label to Us',
+              image: 'step-08-email-label-to-us.webp',
+              description:
+                'Select your preferred email app and prepare to send the label file directly to our store for fast printing.',
+            },
+          ]
+            .map(
+              (step, idx) => `
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
@@ -123,32 +141,39 @@ export const amazonReturnsService: Service = {
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "Step-by-Step: Printing & Final Drop-Off (Part 3)",
+      heading: 'Step-by-Step: Printing & Final Drop-Off (Part 3)',
       body: `
         <div class="space-y-12 mt-8">
           ${[
-          {
-            title: "Send the Label to Mailbox Plus",
-            image: "step-09-use-our-email-address.webp",
-            description: "Send your shipping label to <strong>RETURNS@MAILBOXPLUSOHIO.COM</strong>. We will print it out and have it ready for your arrival."
-          },
-          {
-            title: "Confirmation: Label Sent Successfully",
-            image: "step-10-label-sentto-us.webp",
-            description: "Ensure your email has been sent successfully. You can now head to our store knowing your paperwork is being handled."
-          },
-          {
-            title: "Now Drop Off at Mailbox Plus",
-            image: "step-11-pack-label-dropoff.webp",
-            description: "Bring your item to <strong>Mailbox Plus at 7554 Fredle Drive</strong> in Concord Township. We'll professionally pack it (if needed), attach the label, and ship it out for you!"
-          }
-        ].map((step, idx) => `
+            {
+              title: 'Send the Label to Mailbox Plus',
+              image: 'step-09-use-our-email-address.webp',
+              description:
+                'Send your shipping label to <strong>RETURNS@MAILBOXPLUSOHIO.COM</strong>. We will print it out and have it ready for your arrival.',
+            },
+            {
+              title: 'Confirmation: Label Sent Successfully',
+              image: 'step-10-label-sentto-us.webp',
+              description:
+                'Ensure your email has been sent successfully. You can now head to our store knowing your paperwork is being handled.',
+            },
+            {
+              title: 'Now Drop Off at Mailbox Plus',
+              image: 'step-11-pack-label-dropoff.webp',
+              description:
+                "Bring your item to <strong>Mailbox Plus at 7554 Fredle Drive</strong> in Concord Township. We'll professionally pack it (if needed), attach the label, and ship it out for you!",
+            },
+          ]
+            .map(
+              (step, idx) => `
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
@@ -162,7 +187,9 @@ export const amazonReturnsService: Service = {
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
         <div class="mt-8 bg-blue-50 border-l-4 border-[#0855B1] p-6 rounded-r-2xl flex items-start gap-4">
           <div class="w-6 h-6 text-[#0855B1] shrink-0 mt-1">💡</div>
@@ -172,10 +199,10 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "How Mailbox Plus Helps With Amazon Returns",
+      heading: 'How Mailbox Plus Helps With Amazon Returns',
       body: `
         <div class="grid md:grid-cols-2 gap-8 my-8">
           <div class="bg-slate-900 text-white p-8 rounded-[28px] space-y-6 shadow-xl">
@@ -199,30 +226,38 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "Common Problems & How We Help",
+      heading: 'Common Problems & How We Help',
       body: `
         <div class="grid grid-cols-2 md:grid-cols-3 gap-4 my-8">
           ${[
-          "Wrong packaging", "Missing accessories", "Confusing labels",
-          "No printer at home", "Misreading steps", "QR code confusion"
-        ].map(problem => `
+            'Wrong packaging',
+            'Missing accessories',
+            'Confusing labels',
+            'No printer at home',
+            'Misreading steps',
+            'QR code confusion',
+          ]
+            .map(
+              (problem) => `
             <div class="bg-red-50/50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center gap-3">
               <span class="text-red-500 text-xl font-bold">!</span>
               <span class="font-semibold text-slate-800">${problem}</span>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
         <p class="text-center font-bold text-red-600 text-lg">
           "If Amazon only provides a QR code with no printable label, you must take that return to an authorized Amazon partner."
         </p>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "When You Should NOT Use Mailbox Plus",
+      heading: 'When You Should NOT Use Mailbox Plus',
       body: `
         <div class="bg-white p-8 rounded-[28px] shadow-sm border border-slate-200">
           <ul class="space-y-4 mb-6">
@@ -244,62 +279,83 @@ export const amazonReturnsService: Service = {
           </div>
         </div>
       `,
-      isFullWidth: true
+      isFullWidth: true,
     },
     {
-      heading: "Holiday Return Extensions",
-      body: "During the holiday season (typically November and December), Amazon often extends its return window. This means gifts purchased early can often be returned into January. Check your order details for specific deadlines."
+      heading: 'Holiday Return Extensions',
+      body: 'During the holiday season (typically November and December), Amazon often extends its return window. This means gifts purchased early can often be returned into January. Check your order details for specific deadlines.',
     },
     {
-      heading: "Why Local Customers Choose Us",
+      heading: 'Why Local Customers Choose Us',
       body: `
         <div class="grid md:grid-cols-2 gap-4 my-8">
           ${[
-          "Local, owner-operated business",
-          "Minutes from I-90 and OH-44",
-          "Friendly, knowledgeable team",
-          "Packing materials onsite",
-          "Fast, hassle-free service",
-          "Supports all major carriers"
-        ].map(reason => `
+            'Local, owner-operated business',
+            'Minutes from I-90 and OH-44',
+            'Friendly, knowledgeable team',
+            'Packing materials onsite',
+            'Fast, hassle-free service',
+            'Supports all major carriers',
+          ]
+            .map(
+              (reason) => `
             <div class="flex items-center gap-3 bg-white p-5 rounded-2xl shadow-sm border border-blue-100/50 hover:bg-blue-50/30 transition-colors">
               <span class="text-blue-600 font-bold">✓</span>
               <span class="text-slate-800 font-semibold">${reason}</span>
             </div>
-          `).join('')}
+          `
+            )
+            .join('')}
         </div>
         <p class="text-center text-3xl font-black text-[#0855B1] italic mt-8">
           “Let Us Handle Your Package!”
         </p>
       `,
-      isFullWidth: true
-    }
+      isFullWidth: true,
+    },
   ],
   features: [
-    { icon: HelpCircle, title: "Friendly Guidance", description: "Talk to real people, not algorithms." },
-    { icon: AlertTriangle, title: "Return Window Help", description: "We help you avoid missing deadlines." },
-    { icon: CheckCircle, title: "Carrier Flexibility", description: "UPS, USPS, and FedEx returns accepted." }
+    {
+      icon: HelpCircle,
+      title: 'Friendly Guidance',
+      description: 'Talk to real people, not algorithms.',
+    },
+    {
+      icon: AlertTriangle,
+      title: 'Return Window Help',
+      description: 'We help you avoid missing deadlines.',
+    },
+    {
+      icon: CheckCircle,
+      title: 'Carrier Flexibility',
+      description: 'UPS, USPS, and FedEx returns accepted.',
+    },
   ],
   faqs: [
     {
-      question: "Can Mailbox Plus scan my Amazon QR code?",
-      answer: "No. Mailbox Plus cannot scan or accept Amazon QR codes. These returns must be completed at Amazon-authorized partners such as The UPS Store, Kohl’s, Whole Foods, or Amazon Hub. We CAN help you with Amazon returns that include a printed shipping label."
+      question: 'Can Mailbox Plus scan my Amazon QR code?',
+      answer:
+        'No. Mailbox Plus cannot scan or accept Amazon QR codes. These returns must be completed at Amazon-authorized partners such as The UPS Store, Kohl’s, Whole Foods, or Amazon Hub. We CAN help you with Amazon returns that include a printed shipping label.',
     },
     {
-      question: "Do you charge for helping with Amazon returns?",
-      answer: "We may charge for packaging materials, packing services, or printing labels. If your item is already labeled and ready to ship, the cost is minimal."
+      question: 'Do you charge for helping with Amazon returns?',
+      answer:
+        'We may charge for packaging materials, packing services, or printing labels. If your item is already labeled and ready to ship, the cost is minimal.',
     },
     {
-      question: "Do you control whether Amazon approves my refund?",
-      answer: "No. Amazon controls all refund decisions. We handle the packing and shipping portion only."
+      question: 'Do you control whether Amazon approves my refund?',
+      answer:
+        'No. Amazon controls all refund decisions. We handle the packing and shipping portion only.',
     },
     {
-      question: "Can you print my Amazon label if I don’t have a printer?",
-      answer: "Yes. Send it to returns@mailboxplusohio.com. We charge a $2.00 fee for label printing."
+      question: 'Can you print my Amazon label if I don’t have a printer?',
+      answer:
+        'Yes. Send it to returns@mailboxplusohio.com. We charge a $2.00 fee for label printing.',
     },
     {
-      question: "Do you help with returns for other retailers besides Amazon?",
-      answer: "Yes. Bring any return label or instructions (UPS, USPS, FedEx, DHL) and we will assist."
-    }
-  ]
+      question: 'Do you help with returns for other retailers besides Amazon?',
+      answer:
+        'Yes. Bring any return label or instructions (UPS, USPS, FedEx, DHL) and we will assist.',
+    },
+  ],
 };

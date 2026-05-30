@@ -1,1 +1,1 @@
-export * from "./notaryServicesFaqs";
+export * from './notaryServicesFaqs';

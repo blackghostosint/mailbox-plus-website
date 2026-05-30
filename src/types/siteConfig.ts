@@ -29,11 +29,12 @@ export interface SiteConfig {
     lat: number;
     lng: number;
   };
-  mapUrl?: string;      // ✅ added for schema.ts
+  mapUrl?: string; // ✅ added for schema.ts
   areaServed?: string[]; // ✅ added for schema.ts
   knowsAbout?: string[]; // ✅ added for schema.ts
-  deliveryAddress?: {    // ✅ added for tracking schema
-    "@type": "PostalAddress";
+  deliveryAddress?: {
+    // ✅ added for tracking schema
+    '@type': 'PostalAddress';
     addressLocality: string;
     addressRegion: string;
     addressCountry: string;

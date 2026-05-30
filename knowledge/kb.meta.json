@@ -1,14 +1,8 @@
 {
-    "site": "mailboxplusohio.com",
-    "lastBuiltAt": "PLACEHOLDER_ISO_8601",
-    "contentVersion": "PLACEHOLDER_VERSION",
-    "embeddingModel": "PLACEHOLDER_MODEL",
-    "allowedIntents": [
-        "faq",
-        "service_info",
-        "micro_problem",
-        "hours_location",
-        "policies"
-    ],
-    "fallbackResponse": "PLACEHOLDER_FALLBACK_MESSAGE"
+  "site": "mailboxplusohio.com",
+  "lastBuiltAt": "PLACEHOLDER_ISO_8601",
+  "contentVersion": "PLACEHOLDER_VERSION",
+  "embeddingModel": "PLACEHOLDER_MODEL",
+  "allowedIntents": ["faq", "service_info", "micro_problem", "hours_location", "policies"],
+  "fallbackResponse": "PLACEHOLDER_FALLBACK_MESSAGE"
 }

@@ -1,7 +1,5 @@
 # This file defines RULES and CONSTRAINTS only. It is not a content source.
 
-
-
 You are converting a finalized micro-problem service page into a
 Mailbox Plus V2 service config object.
 
@@ -28,7 +26,7 @@ Business Name: Mailbox Plus
 Address: 7554 Fredle Drive  
 City: Concord Township  
 State: OH  
-ZIP: 44077  
+ZIP: 44077
 
 Primary Geo (ONLY): Concord Township  
 Category: "micro-problem"  
@@ -41,8 +39,8 @@ OUTPUT FORMAT
 Return ONE object matching the Service type used in services.ts.
 
 **Allowed Config Fields (Micro-Problem Pages)**
- Only the following fields may appear in the output:
- `id, category, city, serviceName, slug, pageTitle, metaDescription, heroTitle, heroSubtitle, heroImage`
+Only the following fields may appear in the output:
+`id, category, city, serviceName, slug, pageTitle, metaDescription, heroTitle, heroSubtitle, heroImage`
 
 Any other fields must be omitted.
 
@@ -86,7 +84,7 @@ Populate ONLY these fields:
 
 - heroImage  
   → If no specific image is implied, always use `getServiceImageUrl("/images/micro/pack-ship.webp")`
-  
+
   → Do NOT invent imagery concepts
 
 Canonical URLs are generated programmatically from slug + siteConfig.baseUrl.

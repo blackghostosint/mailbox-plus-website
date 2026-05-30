@@ -13,29 +13,31 @@ import type {
   AggregateRating,
   ContactPoint,
   OpeningHoursSpecification,
-} from "schema-dts";
+} from 'schema-dts';
 
-import type { SiteConfig } from "../types/siteConfig";
+import type { SiteConfig } from '../types/siteConfig';
 
 /** ---------- Small helpers ---------- */
-const getOrigin = (config: SiteConfig) =>
-  (config.domain || "").replace(/\/+$/, "");
+const getOrigin = (config: SiteConfig) => (config.domain || '').replace(/\/+$/, '');
 
 const slugify = (s: string) =>
-  s.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "");
+  s
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
 
 const dayName = (d: string) => {
   const map: Record<string, string> = {
-    monday: "Monday",
-    tuesday: "Tuesday",
-    wednesday: "Wednesday",
-    thursday: "Thursday",
-    friday: "Friday",
-    saturday: "Saturday",
-    sunday: "Sunday",
+    monday: 'Monday',
+    tuesday: 'Tuesday',
+    wednesday: 'Wednesday',
+    thursday: 'Thursday',
+    friday: 'Friday',
+    saturday: 'Saturday',
+    sunday: 'Sunday',
   };
-  const key = (d || "").toLowerCase();
-  return map[key] || (d.charAt(0).toUpperCase() + d.slice(1));
+  const key = (d || '').toLowerCase();
+  return map[key] || d.charAt(0).toUpperCase() + d.slice(1);
 };
 
 // Normalize "9:00 AM" / "09:00" to "HH:MM"
@@ -45,12 +47,12 @@ const toHHMM = (t: string) => {
   const ampm = t.trim().match(/^(\d{1,2})(?::(\d{2}))?\s*(am|pm)$/i);
   if (ampm) {
     let h = parseInt(ampm[1], 10);
-    const m = parseInt(ampm[2] || "0", 10);
+    const m = parseInt(ampm[2] || '0', 10);
     const isPM = /pm/i.test(ampm[3]);
     if (h === 12) h = isPM ? 12 : 0;
     else if (isPM) h += 12;
     if (h < 0 || h > 23 || m < 0 || m > 59) return t;
-    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
+    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
   }
 
   const hhmm = t.trim().match(/^(\d{1,2}):(\d{2})$/);
@@ -58,48 +60,44 @@ const toHHMM = (t: string) => {
     const h = parseInt(hhmm[1], 10);
     const m = parseInt(hhmm[2], 10);
     if (h < 0 || h > 23 || m < 0 || m > 59) return t;
-    return `${h.toString().padStart(2, "0")}:${m.toString().padStart(2, "0")}`;
+    return `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
   }
 
   return t;
 };
 
 /** ---------- LocalBusiness ---------- */
-export const getLocalBusinessSchema = (
-  config: SiteConfig
-): WithContext<LocalBusiness> => {
+export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBusiness> => {
   const socialLinks = Object.values(config.social || {}).filter(Boolean) as string[];
 
-  const openingHoursSpecification = Object.entries(config.hours || {}).flatMap(
-    ([day, hours]) => {
-      if (!hours || /closed/i.test(hours)) return [];
-      const parts = hours.split(/\s*-\s*/);
-      if (parts.length !== 2) return [];
-      const [opensRaw, closesRaw] = parts;
-      return [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: dayName(day),
-          opens: toHHMM(opensRaw),
-          closes: toHHMM(closesRaw),
-        } as OpeningHoursSpecification,
-      ];
-    }
-  );
+  const openingHoursSpecification = Object.entries(config.hours || {}).flatMap(([day, hours]) => {
+    if (!hours || /closed/i.test(hours)) return [];
+    const parts = hours.split(/\s*-\s*/);
+    if (parts.length !== 2) return [];
+    const [opensRaw, closesRaw] = parts;
+    return [
+      {
+        '@type': 'OpeningHoursSpecification',
+        dayOfWeek: dayName(day),
+        opens: toHHMM(opensRaw),
+        closes: toHHMM(closesRaw),
+      } as OpeningHoursSpecification,
+    ];
+  });
 
   return {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "@id": `${getOrigin(config)}#localbusiness`,
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${getOrigin(config)}#localbusiness`,
     name: config.name,
     image: config.logo,
     url: getOrigin(config),
     telephone: config.contact?.phone,
-    priceRange: "$$",
-    currenciesAccepted: "USD",
-    paymentAccepted: "Cash, Credit Card, Debit Card",
+    priceRange: '$$',
+    currenciesAccepted: 'USD',
+    paymentAccepted: 'Cash, Credit Card, Debit Card',
     address: {
-      "@type": "PostalAddress",
+      '@type': 'PostalAddress',
       streetAddress: config.contact?.address?.street,
       addressLocality: config.contact?.address?.city,
       addressRegion: config.contact?.address?.state,
@@ -107,7 +105,7 @@ export const getLocalBusinessSchema = (
       addressCountry: config.contact?.address?.country,
     },
     geo: config.geo && {
-      "@type": "GeoCoordinates",
+      '@type': 'GeoCoordinates',
       latitude: config.geo.lat,
       longitude: config.geo.lng,
     },
@@ -115,15 +113,13 @@ export const getLocalBusinessSchema = (
     ...(config.areaServed && { areaServed: config.areaServed }),
     ...(config.knowsAbout && { knowsAbout: config.knowsAbout }),
     contactPoint: {
-      "@type": "ContactPoint",
+      '@type': 'ContactPoint',
       telephone: config.contact?.phone,
-      contactType: "customer service",
-      areaServed: "US",
-      availableLanguage: "English",
+      contactType: 'customer service',
+      areaServed: 'US',
+      availableLanguage: 'English',
     } as ContactPoint,
-    ...(openingHoursSpecification.length
-      ? { openingHoursSpecification }
-      : {}),
+    ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
     ...(socialLinks.length ? { sameAs: socialLinks } : {}),
   } as WithContext<LocalBusiness>;
 };
@@ -134,20 +130,20 @@ export const getWebSiteSchema = (
   searchUrlTemplate?: string
 ): WithContext<WebSite> => {
   const schema: WithContext<WebSite> = {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "@id": `${getOrigin(config)}#website`,
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${getOrigin(config)}#website`,
     url: getOrigin(config),
     name: config.name,
-    publisher: { "@id": `${getOrigin(config)}#localbusiness` },
-    inLanguage: "en-US",
+    publisher: { '@id': `${getOrigin(config)}#localbusiness` },
+    inLanguage: 'en-US',
   };
 
   if (searchUrlTemplate) {
     schema.potentialAction = {
-      "@type": "SearchAction",
+      '@type': 'SearchAction',
       target: searchUrlTemplate,
-      queryInput: "required name=search_term_string",
+      queryInput: 'required name=search_term_string',
     } as SearchAction;
   }
 
@@ -175,26 +171,26 @@ export const getWebPageSchema = (
     aboutLocalBusiness?: boolean;
   }
 ): WithContext<WebPage> => {
-  const pageUrl = url.replace(/\/+$/, "");
+  const pageUrl = url.replace(/\/+$/, '');
   const schema: WithContext<WebPage> = {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": `${pageUrl}#webpage`,
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${pageUrl}#webpage`,
     name,
     description,
     url: pageUrl,
-    inLanguage: "en-US",
-    publisher: { "@id": `${getOrigin(config)}#localbusiness` },
+    inLanguage: 'en-US',
+    publisher: { '@id': `${getOrigin(config)}#localbusiness` },
     ...(datePublished && { datePublished }),
     ...(dateModified && { dateModified }),
-    ...(aboutLocalBusiness && { about: { "@id": `${getOrigin(config)}#localbusiness` } }),
+    ...(aboutLocalBusiness && { about: { '@id': `${getOrigin(config)}#localbusiness` } }),
   };
 
   if (breadcrumbItems?.length) {
     schema.breadcrumb = {
-      "@type": "BreadcrumbList",
+      '@type': 'BreadcrumbList',
       itemListElement: breadcrumbItems.map((item, i) => ({
-        "@type": "ListItem",
+        '@type': 'ListItem',
         position: i + 1,
         name: item.name,
         item: item.url,
@@ -235,11 +231,11 @@ export const getServiceSchema = (
 ): WithContext<Service> => {
   const id = `${getOrigin(config)}#service-${slugify(serviceName)}`;
   const schema: WithContext<Service> = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": id,
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': id,
     serviceType: serviceName,
-    provider: { "@id": `${getOrigin(config)}#localbusiness` },
+    provider: { '@id': `${getOrigin(config)}#localbusiness` },
     ...(url && { url }),
     ...(areaServed?.length ? { areaServed } : {}),
     ...(category && { category }),
@@ -248,23 +244,23 @@ export const getServiceSchema = (
 
   if (offers?.length) {
     schema.offers = offers.map<Offer>((o) => ({
-      "@type": "Offer",
+      '@type': 'Offer',
       name: o.name,
       price: o.price,
-      priceCurrency: o.currency || "USD",
-      availability: (o.availability as ItemAvailability) || "https://schema.org/InStock",
+      priceCurrency: o.currency || 'USD',
+      availability: (o.availability as ItemAvailability) || 'https://schema.org/InStock',
       url: url || getOrigin(config),
     }));
   }
 
   if (reviews?.length) {
     schema.review = reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author },
+      '@type': 'Review',
+      author: { '@type': 'Person', name: r.author },
       datePublished: r.datePublished,
       reviewBody: r.reviewBody,
       reviewRating: {
-        "@type": "Rating",
+        '@type': 'Rating',
         ratingValue: r.ratingValue,
         bestRating: 5,
         worstRating: 1,
@@ -274,7 +270,7 @@ export const getServiceSchema = (
 
   if (aggregateRating) {
     schema.aggregateRating = {
-      "@type": "AggregateRating",
+      '@type': 'AggregateRating',
       ratingValue: aggregateRating.ratingValue,
       reviewCount: aggregateRating.reviewCount,
       bestRating: 5,
@@ -290,15 +286,15 @@ export const getFAQSchema = (
   config: SiteConfig,
   faqs: { question: string; answer: string }[]
 ): WithContext<FAQPage> => ({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "@id": `${getOrigin(config)}#faq`,
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${getOrigin(config)}#faq`,
   mainEntity: faqs.map((faq, i) => ({
-    "@type": "Question",
-    "@id": `${getOrigin(config)}#faq-q${i + 1}`,
+    '@type': 'Question',
+    '@id': `${getOrigin(config)}#faq-q${i + 1}`,
     name: faq.question,
     acceptedAnswer: {
-      "@type": "Answer",
+      '@type': 'Answer',
       text: faq.answer,
     },
   })),
@@ -325,26 +321,26 @@ export const getProductSchema = (
     aggregateRating?: { ratingValue: number; reviewCount: number };
   }
 ): WithContext<Product> => ({
-  "@context": "https://schema.org",
-  "@type": "Product",
-  "@id": `${getOrigin(config)}#product-${slugify(name)}`,
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  '@id': `${getOrigin(config)}#product-${slugify(name)}`,
   name,
   description,
   ...(sku && { sku }),
-  ...(brand && { brand: { "@type": "Brand", name: brand } }),
+  ...(brand && { brand: { '@type': 'Brand', name: brand } }),
   ...(image && { image }),
   ...(offers?.length && {
     offers: offers.map<Offer>((o) => ({
-      "@type": "Offer",
+      '@type': 'Offer',
       price: o.price,
-      priceCurrency: o.currency || "USD",
-      availability: (o.availability as ItemAvailability) || "https://schema.org/InStock",
+      priceCurrency: o.currency || 'USD',
+      availability: (o.availability as ItemAvailability) || 'https://schema.org/InStock',
       url: getOrigin(config),
     })),
   }),
   ...(aggregateRating && {
     aggregateRating: {
-      "@type": "AggregateRating",
+      '@type': 'AggregateRating',
       ratingValue: aggregateRating.ratingValue,
       reviewCount: aggregateRating.reviewCount,
       bestRating: 5,
@@ -362,18 +358,17 @@ export const getTrackingSchema = (
 ): WithContext<ParcelDelivery> | null => {
   if (!trackingNumber) return null;
   return {
-    "@context": "https://schema.org",
-    "@type": "ParcelDelivery",
-    "@id": `${getOrigin(config)}#parcel-${trackingNumber}`,
+    '@context': 'https://schema.org',
+    '@type': 'ParcelDelivery',
+    '@id': `${getOrigin(config)}#parcel-${trackingNumber}`,
     trackingNumber,
-    provider: { "@type": "Organization", name: carrierName },
+    provider: { '@type': 'Organization', name: carrierName },
     trackingUrl,
-    deliveryAddress:
-      config.deliveryAddress || {
-        "@type": "PostalAddress",
-        addressLocality: "Concord Township",
-        addressRegion: "OH",
-        addressCountry: "US",
-      },
+    deliveryAddress: config.deliveryAddress || {
+      '@type': 'PostalAddress',
+      addressLocality: 'Concord Township',
+      addressRegion: 'OH',
+      addressCountry: 'US',
+    },
   } as WithContext<ParcelDelivery>;
 };

@@ -1,4 +1,4 @@
-import { Resend } from "resend";
+import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -7,8 +7,8 @@ export const handler = async (event) => {
     const { name, email, phone, plan } = JSON.parse(event.body);
 
     await resend.emails.send({
-      from: "Mailbox Plus <help@mailboxplusohio.com>",
-      to: "help@mailboxplusohio.com",
+      from: 'Mailbox Plus <help@mailboxplusohio.com>',
+      to: 'help@mailboxplusohio.com',
       subject: `📬 New Mailbox Reservation from ${name}`,
       html: `
         <h2>Mailbox Reservation Request</h2>
@@ -21,7 +21,7 @@ export const handler = async (event) => {
 
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
   } catch (error) {
-    console.error("Resend error:", error);
+    console.error('Resend error:', error);
     return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
   }
 };

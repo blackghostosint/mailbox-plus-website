@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { cn } from "../../lib/utils";
+import React, { useState, useEffect } from 'react';
+import { cn } from '../../lib/utils';
 import X from '~icons/lucide/x';
-import { SmartImage } from "../SmartImage";
+import { SmartImage } from '../SmartImage';
 
 interface FloatingReviewButtonProps {
   imageSrc: string;
@@ -12,8 +12,8 @@ interface FloatingReviewButtonProps {
 
 const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
   imageSrc,
-  alt = "Leave us a Google Review",
-  link = "https://g.page/r/CYyNUX4atT3PEBM/review",
+  alt = 'Leave us a Google Review',
+  link = 'https://g.page/r/CYyNUX4atT3PEBM/review',
   className,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
@@ -30,13 +30,13 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
 
     // Initial check
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -54,8 +54,8 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
   return (
     <div
       className={cn(
-        "fixed right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out block",
-        isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10 pointer-events-none",
+        'fixed right-4 top-1/2 -translate-y-1/2 z-50 transition-all duration-500 ease-in-out block',
+        isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10 pointer-events-none',
         className
       )}
     >
@@ -73,11 +73,7 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
           rel="noopener noreferrer"
           className="block hover:scale-105 active:scale-95 transition-transform"
         >
-          <SmartImage
-            src={imageSrc}
-            alt={alt}
-            className="w-28 md:w-36 h-auto drop-shadow-lg"
-          />
+          <SmartImage src={imageSrc} alt={alt} className="w-28 md:w-36 h-auto drop-shadow-lg" />
         </a>
       </div>
     </div>

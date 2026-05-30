@@ -14,8 +14,9 @@ description: Quarterly Micro-Problem Page Governance Audit
 This audit MUST run every 90 days without exception.
 
 Set a recurring calendar reminder for:
+
 - Q1: March 15
-- Q2: June 15  
+- Q2: June 15
 - Q3: September 15
 - Q4: December 15
 
@@ -32,6 +33,7 @@ Before beginning the audit, ensure you have access to:
 ### Step 1: Export Search Console Data
 
 // turbo
+
 1. Log into Google Search Console
 2. Navigate to Performance → Search Results
 3. Set date range: Last 90 days
@@ -41,14 +43,14 @@ Before beginning the audit, ensure you have access to:
 
 ### Step 2: Run Signal Analysis Script
 
-// turbo
-2. Navigate to the scripts directory and run the audit script:
+// turbo 2. Navigate to the scripts directory and run the audit script:
 
 ```bash
 npm run audit:micro-problems -- --search-console=scripts/audits/search-console-data/search-console-YYYY-MM-DD.csv
 ```
 
 This script will:
+
 - Load all micro-problems from config
 - Cross-reference with Search Console data
 - Identify pages with 0 impressions
@@ -61,6 +63,7 @@ This script will:
 3. Review staff feedback log for the past 90 days:
 
 **Check for:**
+
 - Customer confusion about services
 - Mismatch between page promise and actual service capability
 - Increased counter friction or explanation time
@@ -108,12 +111,14 @@ FAIL if EITHER:
 ```
 
 **Action:**
+
 - Remove config entry from appropriate shard file
 - Do NOT add redirect
 - Let sitemap exclusion happen naturally
 - Document in audit report
 
 **Example:**
+
 ```typescript
 // DELETED: Fix a Micro-Problem Nobody Searches For
 // Reason: 0 impressions, 0 internal links, no unique intent
@@ -129,6 +134,7 @@ FAIL if EITHER:
 ```
 
 **Action:**
+
 - Keep stronger performing page
 - Fold useful copy from weaker page into stronger
 - Delete weaker config entry
@@ -136,6 +142,7 @@ FAIL if EITHER:
 - Document merge in audit report
 
 **Example:**
+
 ```typescript
 // MERGED INTO: ship-fragile-items
 // FROM: ship-breakable-products (0 clicks vs 45 clicks)
@@ -150,6 +157,7 @@ FAIL if EITHER:
 ```
 
 **Action:**
+
 - Rewrite `heroTitle`, `heroSubtitle`, `metaDescription`
 - Clarify scope and limitations in content
 - Keep existing slug (unless misleading)
@@ -157,6 +165,7 @@ FAIL if EITHER:
 - Document rewrite in audit report
 
 **Example:**
+
 ```typescript
 // REWRITTEN: 2025-Q1 Audit
 // Reason: 120 impressions but staff reports customer confusion
@@ -169,8 +178,7 @@ All other pages that pass signals or provide clear value.
 
 ### Step 6: Generate Audit Report
 
-// turbo
-6. Generate the final audit report:
+// turbo 6. Generate the final audit report:
 
 ```bash
 npm run audit:micro-problems:report -- --output=YYYY-QX-audit-report.md
@@ -184,8 +192,9 @@ Output format for EACH reviewed page:
 **Decision**: KEEP | MERGE INTO <id> | REWRITE | DELETE
 
 **Signals**:
+
 - Signal A (Performance): PASS | FAIL - [reason]
-- Signal B (Intent Reality): PASS | FAIL - [reason]  
+- Signal B (Intent Reality): PASS | FAIL - [reason]
 - Signal C (Intent Overlap): PASS | FAIL - [reason]
 
 **Rationale**: [Reference signals, not opinions]
@@ -207,15 +216,13 @@ Output format for EACH reviewed page:
 
 ### Step 8: Validate and Deploy
 
-// turbo
-8. Validate changes don't break the build:
+// turbo 8. Validate changes don't break the build:
 
 ```bash
 npm run build
 ```
 
-// turbo
-9. Run tests if available:
+// turbo 9. Run tests if available:
 
 ```bash
 npm run test
@@ -239,6 +246,7 @@ Audit report: scripts/audits/YYYY-QX-audit-report.md"
 ## Forbidden Actions
 
 **DO NOT:**
+
 - ❌ Keep pages "just in case"
 - ❌ Chase keyword variations
 - ❌ Preserve pages for vanity metrics

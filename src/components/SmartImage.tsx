@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface SmartImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   /**
@@ -27,20 +27,15 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   ...imgProps
 }) => {
   const { alt } = imgProps;
-  const loading = priority ? "eager" : "lazy";
-  const fetchPriority = priority ? "high" : undefined;
-  const decoding = "async";
+  const loading = priority ? 'eager' : 'lazy';
+  const fetchPriority = priority ? 'high' : undefined;
+  const decoding = 'async';
 
   if (sources && sources.length > 0) {
     return (
       <picture>
         {sources.map((source, i) => (
-          <source
-            key={i}
-            srcSet={source.srcSet}
-            type={source.type}
-            media={source.media}
-          />
+          <source key={i} srcSet={source.srcSet} type={source.type} media={source.media} />
         ))}
         <img
           alt={alt}

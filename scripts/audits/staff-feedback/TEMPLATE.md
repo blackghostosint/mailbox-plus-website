@@ -12,6 +12,7 @@
 This log captures Signal B (User Intent Reality) for the quarterly micro-problem governance audit.
 
 For each observation, document:
+
 1. **Page/Service**: Which micro-problem page is affected
 2. **Observation**: What confusion or friction occurred
 3. **Customer Expectation**: What did the customer think we offered?
@@ -37,6 +38,7 @@ For each observation, document:
 [What we actually provide]
 
 **Impact**:
+
 - [ ] Increased explanation time
 - [ ] Customer frustration
 - [ ] Lost sale
@@ -44,6 +46,7 @@ For each observation, document:
 - [ ] Other: [describe]
 
 **Recommendation**:
+
 - [ ] KEEP - Page is clear, customer had different need
 - [ ] REWRITE - Clarify scope and limitations
 - [ ] DELETE - Page sets wrong expectations
@@ -65,6 +68,7 @@ For each observation, document:
 **Recommended Deletions**: [X]
 
 **Common Themes**:
+
 - [e.g., "Customers expect overnight shipping but we don't offer it"]
 - [e.g., "Insurance confusion - customers think we provide it"]
 

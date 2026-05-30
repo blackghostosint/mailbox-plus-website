@@ -7,10 +7,12 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 ## What Was Implemented
 
 ### 1. Type System Updates
+
 - ✅ Added `heroImage?: string` field to the `Service` interface (`/src/types/services.ts`)
 - This optional field stores the image URL or path for each service
 
 ### 2. Component Updates
+
 - ✅ Updated `ServicePage.tsx` to display hero images
 - Images appear above the hero title with a beautiful rounded border and shadow
 - Smooth fade-in animation using Framer Motion
@@ -18,10 +20,12 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 - Fixed height of 288px (h-72) with object-cover for consistent display
 
 ### 3. Data Configuration
+
 - ✅ Added `heroImage` URLs to all 31 services in `/src/config/services.ts`
 - Each service now references an image path like `/images/services/[service-name].jpg`
 
 ### 4. Supabase Storage Setup
+
 - ✅ Created `service-images` storage bucket in Supabase
 - ✅ Configured public read access for all users
 - ✅ Set up authenticated user permissions for upload/update/delete
@@ -29,6 +33,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 - ✅ Allowed image formats: JPEG, JPG, PNG, WebP, GIF
 
 ### 5. Infrastructure
+
 - ✅ Created Supabase client utility (`/src/lib/supabase.ts`)
 - ✅ Added helper function `getServiceImageUrl()` for flexible image URL handling
 - ✅ Created public directory structure: `/public/images/services/`
@@ -37,6 +42,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 ## Image Specifications
 
 **Recommended Settings:**
+
 - Format: JPEG (best for photos)
 - Dimensions: 1200x400px (3:1 aspect ratio)
 - File Size: Under 500KB
@@ -45,6 +51,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 ## Services with Hero Images (31 Total)
 
 **Pack & Ship Category (13 services):**
+
 - pack-ship.jpg
 - artwork-shipping.jpg
 - bicycle-shipping.jpg
@@ -60,6 +67,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 - packaging-supplies.jpg
 
 **Copy & Print Category (10 services):**
+
 - business-cards.jpg
 - flyers-brochures.jpg
 - document-finishing.jpg
@@ -70,6 +78,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 - copies.jpg
 
 **Home & Business Category (8 services):**
+
 - mailbox-rental.jpg
 - digital-mailbox-rental.jpg
 - every-door-direct-mail.jpg
@@ -81,11 +90,13 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 - notary-services.jpg
 
 **Specialty Category (1 service):**
+
 - digital-fingerprinting.jpg
 
 ## How to Add Images
 
 ### Method 1: Supabase Dashboard (Production)
+
 1. Go to https://supabase.com/dashboard
 2. Select your project
 3. Navigate to Storage > service-images
@@ -93,6 +104,7 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 5. Use exact filenames as listed above
 
 ### Method 2: Local Development
+
 1. Place image files in `/public/images/services/`
 2. Images will be served during local development
 3. Ensure filenames match the configuration
@@ -100,10 +112,12 @@ Hero images have been successfully added to all service pages in the Mailbox Plu
 ## Image Sources
 
 Use royalty-free stock photos from:
+
 - **Pexels** - https://pexels.com (recommended)
 - **Unsplash** - https://unsplash.com
 
 Search suggestions:
+
 - "shipping packages boxes"
 - "business card printing"
 - "mailbox postal service"
@@ -114,6 +128,7 @@ Search suggestions:
 ## Testing
 
 Visit any service page to see hero images in action:
+
 - http://localhost:5173/pack-ship
 - http://localhost:5173/pack-ship/artwork-shipping
 - http://localhost:5173/copy-print/business-cards
@@ -122,30 +137,35 @@ Visit any service page to see hero images in action:
 ## Technical Details
 
 ### Component Structure
+
 ```tsx
-{heroImage && (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.5 }}
-    className="mb-10"
-  >
-    <img
-      src={heroImage}
-      alt={heroTitle}
-      className="w-full h-72 object-cover rounded-2xl shadow-md"
-    />
-  </motion.div>
-)}
+{
+  heroImage && (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="mb-10"
+    >
+      <img
+        src={heroImage}
+        alt={heroTitle}
+        className="w-full h-72 object-cover rounded-2xl shadow-md"
+      />
+    </motion.div>
+  );
+}
 ```
 
 ### Storage Configuration
+
 - **Bucket Name:** service-images
 - **Access:** Public read, authenticated write
 - **Max File Size:** 5MB
 - **Allowed Types:** image/jpeg, image/jpg, image/png, image/webp, image/gif
 
 ### Supabase Storage URL Pattern
+
 ```
 https://[project-ref].supabase.co/storage/v1/object/public/service-images/[filename]
 ```
