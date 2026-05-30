@@ -1,30 +1,70 @@
-name: CI
+name: CI - Build, Lint, Test
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [main, staging]
   pull_request:
-    branches: [ "main" ]
+    branches: [main, staging]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: ${{ matrix.node-version }}
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Run tests (typecheck + lint)
-        run: npm run test
+      - name: TypeScript type check
+        run: npm run typecheck
+
+      - name: Lint check (zero warnings policy)
+        run: npm run lint
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Check bundle size
+        run: |
+          echo "Checking bundle sizes..."
+          npm run build 2>&1 | tee build-output.txt
+          # Extract main chunk size from build output
+          MAIN_CHUNK=$(grep -oP 'index-[A-Za-z0-9]+\.js\s+\K[0-9.]+' build-output.txt || echo "0")
+          echo "Main chunk size: ${MAIN_CHUNK} kB"
+          # Warn if over 500KB (continue build, just warn)
+          if (( $(echo "$MAIN_CHUNK > 500" | bc -l) )); then
+            echo "WARNING: Main chunk exceeds 500KB (currently ${MAIN_CHUNK} kB)"
+            echo "Consider code splitting or lazy loading."
+          fi
+
+      - name: Upload build artifacts (on PR)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: dist/
+          retention-days: 7
+
+  # Future: Add test job when Phase 2 implements vitest
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v4
+  #     - run: npm ci
+  #     - run: npm test
