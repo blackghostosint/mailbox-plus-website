@@ -40,11 +40,24 @@ export default defineConfig({
     chunkSizeWarningLimit: 700, // Suppress warning for chunks under 700KB
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
-          motion: ['framer-motion'],
-          markdown: ['react-markdown', 'remark-gfm'],
-          utils: ['uuid'],
+        manualChunks: (id) => {
+          // Separate framer-motion
+          if (id.includes('framer-motion')) {
+            return 'motion';
+          }
+          // Separate react-markdown and remark-gfm
+          if (id.includes('react-markdown') || id.includes('remark-gfm')) {
+            return 'markdown';
+          }
+          // Separate uuid
+          if (id.includes('uuid')) {
+            return 'utils';
+          }
+          // Let splitVendorChunkPlugin handle node_modules
+          if (id.includes('node_modules')) {
+            // This will be handled by splitVendorChunkPlugin()
+            return 'vendor';
+          }
         },
       },
     },
