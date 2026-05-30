@@ -28,3 +28,22 @@ dist-ssr
 # Article inbox (unprocessed articles)
 article-inbox/*.md
 !article-inbox/README.md
+
+# Temporary/diagnostic files (prevent clutter)
+*.txt
+*report.json
+*report.md
+diagnostic_report.json
+button-report.json
+lint-errors.txt
+lint-error.txt
+lint_output.txt
+lint_output_2.txt
+lint-test-output.txt
+ts_errors.txt
+build-error.txt
+test-output.txt
+test-v1-template.ts
+
+# Deno (not used in this project)
+deno.lock
