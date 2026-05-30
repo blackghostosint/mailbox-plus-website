@@ -232,6 +232,7 @@ export const ContactUs: React.FC = () => {
                       required
                       value={formData.name}
                       onChange={handleChange}
+                      aria-label="Full name"
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your name"
                     />
@@ -245,6 +246,7 @@ export const ContactUs: React.FC = () => {
                       required
                       value={formData.email}
                       onChange={handleChange}
+                      aria-label="Email address"
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your email"
                     />
@@ -260,6 +262,7 @@ export const ContactUs: React.FC = () => {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      aria-label="Phone number"
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
                       placeholder="(440) 555-0123"
                     />
@@ -271,6 +274,7 @@ export const ContactUs: React.FC = () => {
                       name="service"
                       value={formData.service}
                       onChange={handleChange}
+                      aria-label="Service interest"
                       className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm appearance-none"
                     >
                       <option value="">Select a service</option>
@@ -292,6 +296,7 @@ export const ContactUs: React.FC = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
+                    aria-label="Your message"
                     className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm resize-none"
                     placeholder="How can we help you?"
                   />
@@ -305,7 +310,7 @@ export const ContactUs: React.FC = () => {
                 </div>
 
                 {/* Honeypot */}
-                <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" />
+                <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
                 <Button type="submit" size="lg" className="w-full group shadow-md hover:shadow-lg bg-[#0855B1] border-none text-white">
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />

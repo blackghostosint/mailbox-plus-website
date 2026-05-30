@@ -12,8 +12,10 @@ export interface MailbotPlusChatProps {
     isHighIntentPage?: boolean;
     autoExpandDelay?: number;
     scrollThreshold?: number;
-    onAnalyticsEvent?: (eventName: string, payload: Record<string, any>) => void;
-    onSubmitQuestion?: (question: string) => Promise<ChatbotResponse>;
+    // eslint-disable-next-line no-unused-vars
+    onAnalyticsEvent?: (_: string, __: Record<string, any>) => void;
+    // eslint-disable-next-line no-unused-vars
+    onSubmitQuestion?: (_: string) => Promise<ChatbotResponse>;
     className?: string;
     launcherClassName?: string;
 }
@@ -117,7 +119,7 @@ export function MailbotPlusChat({
             document.addEventListener('keydown', handleKeyDown);
             return () => document.removeEventListener('keydown', handleKeyDown);
         }
-    }, [isExpanded]);
+    }, [isExpanded, handleClose]);
 
     // Event handlers
     const handleOpen = useCallback(() => {
@@ -179,7 +181,7 @@ export function MailbotPlusChat({
             } else {
                 onAnalyticsEvent?.('refusal_served', { query: trimmedInput });
             }
-        } catch (error) {
+        } catch {
             const errorMessage: ChatMessage = {
                 id: uuidv4(),
                 role: 'bot',
@@ -382,8 +384,10 @@ function BotMessage({
     onCTAClick,
 }: {
     message: ChatMessage;
-    onLinkClick: (sourceUrl: string, faqId: string) => void;
-    onCTAClick: (ctaType: 'contact' | 'visit') => void;
+    // eslint-disable-next-line no-unused-vars
+    onLinkClick: (_: string, __: string) => void;
+    // eslint-disable-next-line no-unused-vars
+    onCTAClick: (_: 'contact' | 'visit') => void;
 }) {
     const isRefusal = message.content === REFUSAL_TEXT;
 

@@ -134,6 +134,7 @@ export const SearchBox: React.FC = () => {
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search services..."
+              aria-label="Search services"
               className="flex-1 outline-none text-sm text-[#111827] placeholder-[#4B5563]"
             />
           ) : (

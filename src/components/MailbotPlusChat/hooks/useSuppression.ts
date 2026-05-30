@@ -30,7 +30,7 @@ export function useSuppression() {
                     localStorage.removeItem(SUPPRESSION_KEY);
                     setIsSuppressed(false);
                 }
-            } catch (error) {
+            } catch {
                 setIsSuppressed(false);
             }
         };

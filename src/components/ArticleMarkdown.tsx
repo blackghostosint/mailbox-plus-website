@@ -16,9 +16,9 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
                 remarkPlugins={[remarkGfm]}
                 components={{
                     // Override headings to match design system
-                    h1: ({...props }) => <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-12 mb-6 tracking-tight font-heading" {...props} />,
-                    h2: ({...props }) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 tracking-tight font-heading" {...props} />,
-                    h3: ({...props }) => <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 font-heading" {...props} />,
+                    h1: ({children, ...props }) => <h1 className="text-3xl md:text-4xl font-bold text-slate-900 mt-12 mb-6 tracking-tight font-heading" {...props}>{children}</h1>,
+                    h2: ({children, ...props }) => <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 tracking-tight font-heading" {...props}>{children}</h2>,
+                    h3: ({children, ...props }) => <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 font-heading" {...props}>{children}</h3>,
 
                     // Override paragraph
                     p: ({...props }) => <p className="text-lg text-slate-700 leading-relaxed mb-6" {...props} />,

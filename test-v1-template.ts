@@ -7,10 +7,8 @@
 
 import {
     formatMailbotResponse,
-    parseRawAnswer,
     validateV1Response,
     formatResponseToString,
-    DEFAULT_CONFIG,
     type V1Response
 } from '../netlify/functions/lib/mailbot-response-template-v1';
 

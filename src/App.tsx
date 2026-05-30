@@ -2,7 +2,8 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
-import { MailbotPlusChat } from "./components/MailbotPlusChat";
+// Lazy load MailbotPlusChat to reduce main bundle size
+const MailbotPlusChat = React.lazy(() => import("./components/MailbotPlusChat").then(module => ({ default: module.MailbotPlusChat })));
 import { siteConfig } from "./config/siteConfig";
 import { submitChatQuestion } from "./services/chatbot";
 
@@ -255,11 +256,13 @@ const App: React.FC = () => {
         </React.Suspense>
       </Layout>
       {siteConfig.mailbotEnabled !== false && (
-        <MailbotPlusChat
-          isHighIntentPage={false}
-          onSubmitQuestion={submitChatQuestion}
-          onAnalyticsEvent={handleAnalytics}
-        />
+        <React.Suspense fallback={null}>
+          <MailbotPlusChat
+            isHighIntentPage={false}
+            onSubmitQuestion={submitChatQuestion}
+            onAnalyticsEvent={handleAnalytics}
+          />
+        </React.Suspense>
       )}
     </Router>
   );

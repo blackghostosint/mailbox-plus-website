@@ -11,11 +11,13 @@ interface Props {
   className?: string;
 }
 
+/* eslint-disable no-unused-vars */
 declare global {
   interface Window {
-    plausible: (eventName: string, options?: { props: Record<string, string | undefined> }) => void;
+    plausible: (_: string, __: { props: Record<string, string | undefined> }) => void;
   }
 }
+/* eslint-enable no-unused-vars */
 
 export const CTASection: React.FC<Props> = ({ cta, className }) => {
   const {

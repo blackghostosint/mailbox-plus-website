@@ -227,6 +227,7 @@ export const Tracking: React.FC = () => {
                       const detected = detectCarrier(value);
                       if (detected) setSelectedCarrier(detected);
                     }}
+                    aria-label="Tracking number"
                     className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm text-lg"
                     placeholder="e.g., 1Z999AA1234567890"
                   />

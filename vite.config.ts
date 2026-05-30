@@ -37,11 +37,14 @@ export default defineConfig({
   build: {
     target: 'es2018',
     minify: 'esbuild',
+    chunkSizeWarningLimit: 700, // Suppress warning for chunks under 700KB
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ['react', 'react-dom', 'react-router-dom', 'react-helmet-async'],
           motion: ['framer-motion'],
+          markdown: ['react-markdown', 'remark-gfm'],
+          utils: ['uuid'],
         },
       },
     },
