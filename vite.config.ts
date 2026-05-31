@@ -40,6 +40,7 @@ export default defineConfig({
   build: {
     target: 'es2018',
     minify: 'esbuild',
+    drop: ['console'], // Strip all console.* calls from production builds
     chunkSizeWarningLimit: 700, // Suppress warning for chunks under 700KB
     rollupOptions: {
       output: {

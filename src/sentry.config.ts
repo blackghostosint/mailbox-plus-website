@@ -17,19 +17,40 @@ if (SENTRY_DSN) {
     // Error sampling
     sampleRate: SENTRY_ENVIRONMENT === 'production' ? 0.1 : 1.0,
 
-    // Optional: Enable session replay for staging
-    // replaysSessionSampleRate: 0.1,
-    // replaysOnErrorSampleRate: 1.0,
+    // Do not send PII by default
+    sendDefaultPii: false,
 
-    beforeSend(event) {
-      // Filter out specific errors if needed
+    beforeSend(event, hint) {
+      // Use hint below to avoid lint error
+      void hint;
+      // Filter out network errors
       if (event.exception) {
         const exception = event.exception.values?.[0];
-        // Example: Filter out network errors from dev tools
         if (exception?.type === 'NetworkError') {
           return null;
         }
       }
+
+      // Scrub potential PII from URLs
+      if (event.request?.url) {
+        try {
+          const url = new URL(event.request.url);
+          // Remove query params that might contain PII (email, phone, etc.)
+          ['email', 'phone', 'name', 'address', 'token', 'key', 'password'].forEach((param) => {
+            url.searchParams.delete(param);
+          });
+          event.request.url = url.toString();
+        } catch {
+          // Invalid URL, skip scrubbing
+        }
+      }
+
+      // Scrub user email/ID if somehow set
+      if (event.user) {
+        delete event.user.email;
+        delete event.user.ip_address;
+      }
+
       return event;
     },
   });
