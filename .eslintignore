@@ -1,0 +1,11 @@
+# One-off utility scripts (CommonJS, not part of the application build)
+convert-images.cjs
+replace-framer.py
+replace-framer-v2.py
+
+# Build output
+dist/
+build/
+
+# Dependencies
+node_modules/
