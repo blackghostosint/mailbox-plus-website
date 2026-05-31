@@ -38,7 +38,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         Skip to main content
       </a>
 
-      <div className="min-h-screen bg-[var(--color-bg-primary)] flex flex-col">
+      <div className="min-h-screen bg-[var(--color-bg-primary)] flex flex-col overflow-x-hidden">
         <Header />
         <main id="main-content" className="flex-1">
           {children}

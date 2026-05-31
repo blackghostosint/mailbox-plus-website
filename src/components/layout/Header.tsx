@@ -168,7 +168,7 @@ export const Header: React.FC = () => {
                 )
               )}
             </nav>
-            <div className="pt-4">
+            <div className="px-4 pb-4 pt-2">
               <SearchBox />
             </div>
           </motion.div>

@@ -66,7 +66,7 @@ export const Home: React.FC = () => {
       <Meta title={title} description={description} schema={schema} />
 
       {/* ====================== HERO SECTION (V2 Standard) ======================= */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
+      <section className="relative bg-center py-20 md:py-32 lg:py-48 overflow-hidden min-h-[70vh] md:min-h-[80vh]">
         {/* Background Image with V2 Overlay */}
         <div className="absolute inset-0 w-full h-full z-0">
           <SmartImage
@@ -96,7 +96,7 @@ export const Home: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm font-heading"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm font-heading"
           >
             Pack & Ship in <span className="text-blue-200">Concord Twp, Ohio</span>
           </motion.h1>
@@ -130,7 +130,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               variant="secondary"
-              className="font-bold shadow-lg border-none hover:bg-white hover:text-[var(--color-primary)] transition-colors"
+              className="w-full sm:w-auto font-bold shadow-lg border-none hover:bg-white hover:text-[var(--color-primary)] transition-colors"
               onClick={() => navigate('/services')}
             >
               View Services <ArrowRight className="w-5 h-5 ml-2" />
@@ -140,8 +140,9 @@ export const Home: React.FC = () => {
               href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              <Button className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-w-[48px] min-h-[48px]">
+              <Button className="w-full sm:w-auto bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -151,10 +152,11 @@ export const Home: React.FC = () => {
               href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
               <Button
                 variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
+                className="w-full sm:w-auto text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
@@ -187,8 +189,9 @@ export const Home: React.FC = () => {
               href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
-              <Button className="bg-white !text-[var(--color-primary)] hover:bg-gray-100 hover:!text-[var(--color-primary-deeper)] min-w-[48px] min-h-[48px]">
+              <Button className="w-full sm:w-auto bg-white !text-[var(--color-primary)] hover:bg-gray-100 hover:!text-[var(--color-primary-deeper)] min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -199,10 +202,11 @@ export const Home: React.FC = () => {
               href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
+              className="w-full sm:w-auto"
             >
               <Button
                 variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
+                className="w-full sm:w-auto text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
@@ -210,8 +214,8 @@ export const Home: React.FC = () => {
             </a>
 
             {/* Call Button */}
-            <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10">
+            <a href={`tel:${siteConfig.contact.phone}`} className="w-full sm:w-auto">
+              <Button className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white hover:bg-white/10">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
