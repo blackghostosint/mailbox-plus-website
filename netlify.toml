@@ -38,4 +38,8 @@
       img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev;
       connect-src 'self' https://www.google.com;
       frame-src 'self' https://www.googletagmanager.com;
+      report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
+      report-to csp-endpoint;
     """
+  [headers.values.report-to]
+    csp-endpoint = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
