@@ -46,8 +46,8 @@ export function AboutUs() {
             style={{ objectPosition: 'center' }}
           />
           {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -83,7 +83,7 @@ export function AboutUs() {
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
-            className="rounded-[26px] shadow-[0_18px_45px_rgba(15,23,42,0.15)] w-full aspect-video object-cover border border-white/50"
+            className="rounded-[26px] shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] w-full aspect-video object-cover border border-white/50"
           />
         </motion.div>
 
@@ -103,8 +103,8 @@ export function AboutUs() {
             Our mission is simple: offer honest, personal, neighborly service that you won’t find at
             big-box stores or national shipping chains. We combine small-town hospitality with
             big-city capabilities — giving you access to
-            <strong className="text-[#0855B1]"> FedEx, UPS, USPS, and DHL</strong> all in one
-            location.
+            <strong className="text-[var(--color-primary)]"> FedEx, UPS, USPS, and DHL</strong> all
+            in one location.
           </p>
 
           <p className="text-slate-600 leading-relaxed mb-8 text-lg">
@@ -159,7 +159,7 @@ export function AboutUs() {
               />
             </div>
             <h3 className="text-2xl font-bold text-slate-900">Frank Schwarz</h3>
-            <p className="text-[#0855B1] font-semibold text-lg mb-4">Store Manager</p>
+            <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">Store Manager</p>
             <p className="text-slate-600 leading-relaxed mb-6">
               Frank brings years of experience in customer service, operations, and business
               management, operations, logistics, and shipping. Known for his friendly approach and
@@ -170,7 +170,7 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="link" className="text-[#0855B1]">
+              <Button variant="link" className="text-[var(--color-primary)]">
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
@@ -189,7 +189,7 @@ export function AboutUs() {
               />
             </div>
             <h3 className="text-2xl font-bold text-slate-900">Diana Goebelt Schwarz</h3>
-            <p className="text-[#0855B1] font-semibold text-lg mb-4">Owner</p>
+            <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">Owner</p>
             <p className="text-slate-600 leading-relaxed mb-6">
               With a strong background in operations, logistics, and customer care, Diana leads
               Mailbox Plus with a commitment to excellence and community-minded service. Her
@@ -201,7 +201,7 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="link" className="text-[#0855B1]">
+              <Button variant="link" className="text-[var(--color-primary)]">
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
@@ -265,14 +265,14 @@ export function AboutUs() {
                 {...fadeUp(0.1 * i)}
                 className="group p-6 bg-white rounded-[26px] shadow-sm hover:shadow-lg border border-slate-100 hover:border-blue-100 transition-all duration-300 hover:translate-y-[-4px]"
               >
-                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#0855B1] transition-colors duration-300">
-                  <service.icon className="w-6 h-6 text-[#0855B1] group-hover:text-white transition-colors duration-300" />
+                <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
+                  <service.icon className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-slate-900">{service.title}</h3>
                 <p className="text-slate-600 mb-4">{service.desc}</p>
                 <InternalLink
                   to={service.link}
-                  className="inline-flex items-center text-[#0855B1] font-semibold hover:text-[#064A9B]"
+                  className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:text-[var(--color-primary-dark)]"
                 >
                   Learn More <ArrowRight className="w-4 h-4 ml-1" />
                 </InternalLink>
@@ -285,7 +285,7 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* CTA */}
       {/* -------------------------------- */}
-      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] text-center">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Let Us Handle Your Package!
