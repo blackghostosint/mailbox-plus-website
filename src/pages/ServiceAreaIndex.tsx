@@ -6,8 +6,8 @@ import { Button } from '../components/ui';
 export const ServiceAreaIndex: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-      <h1 className="text-4xl font-bold text-[#111827] mb-8 text-center">Our Service Areas</h1>
-      <p className="text-lg text-[#4B5563] mb-12 text-center max-w-3xl mx-auto">
+      <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8 text-center">Our Service Areas</h1>
+      <p className="text-lg text-[var(--color-text-secondary)] mb-12 text-center max-w-3xl mx-auto">
         Mailbox Plus proudly serves families, small businesses, and professionals across Lake County
         and Northeast Ohio. Explore our dedicated service pages for{' '}
         <InternalLink variant="geo" to="/shipping">
