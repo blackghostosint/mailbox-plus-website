@@ -35,9 +35,9 @@
       script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://ssl.gstatic.com https://www.google-analytics.com https://www.googleapis.com https://www.gstatic.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
       font-src 'self' https://fonts.gstatic.com;
-      img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev https://*.netlify.app data:;
-      connect-src 'self' https://www.google.com https://mailboxplusohio.com https://*.netlify.app;
-      frame-src 'self' https://www.googletagmanager.com https://www.google.com https://www.recaptcha.net;
+      img-src 'self' https://*.r2.dev https://*.netlify.app data:;
+      connect-src 'self' https://www.google.com https://analytics.google.com https://mailboxplusohio.com https://*.netlify.app;
+      frame-src 'self' https://www.googletagmanager.com https://www.google.com https://www.recaptcha.net https://app.netlify.com;
       report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
       report-to csp-endpoint;
     """
