@@ -111,7 +111,7 @@ const ShippingPartners: React.FC = () => {
                   />
                 </div>
 
-                <span className="text-lg font-bold text-slate-800 group-hover:text-[#0855B1] transition-colors">
+                <span className="text-lg font-bold text-slate-800 group-hover:text-[var(--color-primary)] transition-colors">
                   {partner.name}
                 </span>
                 <span className="text-sm text-slate-500 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -140,7 +140,7 @@ const ShippingPartners: React.FC = () => {
               </p>
               <InternalLink
                 to="/contact-us"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#0855B1] bg-white rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[var(--color-primary)] bg-white rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:scale-105"
               >
                 Visit Us Today
               </InternalLink>
