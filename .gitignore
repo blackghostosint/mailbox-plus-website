@@ -47,3 +47,4 @@ test-v1-template.ts
 
 # Deno (not used in this project)
 deno.lock
+convert-images.cjs

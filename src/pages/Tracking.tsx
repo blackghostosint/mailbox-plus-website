@@ -130,8 +130,8 @@ export const Tracking: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
         {/* Hero Image with Soft Blend */}
         <motion.div
@@ -175,9 +175,9 @@ export const Tracking: React.FC = () => {
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
         {/* Tracking Form Glass Panel */}
         <motion.div {...reveal} className="max-w-3xl mx-auto">
-          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] p-8 md:p-10">
+          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] p-8 md:p-10">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[#0855B1]">
+              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
                 <Search className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-bold text-slate-900">Enter Tracking Number</h2>
@@ -210,7 +210,7 @@ export const Tracking: React.FC = () => {
                       if (detected) setSelectedCarrier(detected);
                     }}
                     aria-label="Tracking number"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm text-lg"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg"
                     placeholder="e.g., 1Z999AA1234567890"
                   />
                 </div>
@@ -228,7 +228,7 @@ export const Tracking: React.FC = () => {
                       id="carrier"
                       value={selectedCarrier}
                       onChange={(e) => setSelectedCarrier(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
                     >
                       {carriers.map((carrier) => (
                         <option key={carrier.name} value={carrier.name}>
@@ -255,7 +255,7 @@ export const Tracking: React.FC = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full md:w-auto px-8 py-4 bg-[#0855B1] text-white hover:bg-[#06408A] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl font-bold flex items-center justify-center"
+                  className="w-full md:w-auto px-8 py-4 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deep)] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl font-bold flex items-center justify-center"
                 >
                   Track Package
                   <ExternalLink className="w-5 h-5 ml-2" />
@@ -279,9 +279,9 @@ export const Tracking: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-[0_10px_30px_rgba(0,0,0,0.08)] transition-all duration-300"
+                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-[0_10px_30px_rgba(var(--color-shadow),0.08)] transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[#0855B1] shadow-inner">
+                <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
                   <tip.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-slate-800 mb-2">{tip.title}</h3>
@@ -293,9 +293,9 @@ export const Tracking: React.FC = () => {
 
         {/* Help Section - Glass Gradient Panel */}
         <motion.section {...reveal} className="max-w-5xl mx-auto">
-          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(15,23,42,0.25)]">
+          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(var(--color-overlay),0.25)]">
             {/* V2 Gradient Shell */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
 
             <div className="relative z-10 px-8 py-16 text-center">
               <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">
@@ -312,7 +312,7 @@ export const Tracking: React.FC = () => {
                 <InternalLink to="/contact-us">
                   <Button
                     size="lg"
-                    className="bg-white text-[#0855B1] hover:bg-blue-50 border-none font-bold px-8 shadow-lg"
+                    className="bg-white text-[var(--color-primary)] hover:bg-blue-50 border-none font-bold px-8 shadow-lg"
                   >
                     Contact Support
                   </Button>

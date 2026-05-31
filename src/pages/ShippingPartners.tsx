@@ -26,8 +26,8 @@ const ShippingPartners: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
         {/* Soft Fade Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
@@ -59,7 +59,7 @@ const ShippingPartners: React.FC = () => {
           <div className="relative">
             {/* Note: Using rigid PRD styles */}
             <div className="pointer-events-none absolute inset-0 rounded-[30px] bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
-            <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.20)] px-6 py-6 md:px-10 md:py-8 text-center">
+            <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.20)] px-6 py-6 md:px-10 md:py-8 text-center">
               <p className="text-lg text-slate-700 leading-relaxed">
                 We are your one-stop{' '}
                 <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">
@@ -96,7 +96,7 @@ const ShippingPartners: React.FC = () => {
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col items-center p-8 rounded-[26px] bg-white/60 backdrop-blur-xl border border-white/60 shadow-sm hover:shadow-[0_12px_30px_rgba(15,23,42,0.12)] transition-all duration-300 hover:-translate-y-1"
+                className="group relative flex flex-col items-center p-8 rounded-[26px] bg-white/60 backdrop-blur-xl border border-white/60 shadow-sm hover:shadow-[0_12px_30px_rgba(var(--color-overlay),0.12)] transition-all duration-300 hover:-translate-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -111,7 +111,7 @@ const ShippingPartners: React.FC = () => {
                   />
                 </div>
 
-                <span className="text-lg font-bold text-slate-800 group-hover:text-[#0855B1] transition-colors">
+                <span className="text-lg font-bold text-slate-800 group-hover:text-[var(--color-primary)] transition-colors">
                   {partner.name}
                 </span>
                 <span className="text-sm text-slate-500 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
@@ -124,9 +124,9 @@ const ShippingPartners: React.FC = () => {
 
         {/* ====================== CTA SECTION (V2 Gradient Panel) ======================= */}
         <motion.section {...reveal} className="max-w-4xl mx-auto">
-          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(15,23,42,0.32)]">
+          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(var(--color-overlay),0.32)]">
             {/* V2 Gradient Shell */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
             {/* Inner Glass */}
             <div className="absolute inset-[1px] rounded-[28px] bg-white/10 backdrop-blur-xl border border-white/30" />
 
@@ -140,7 +140,7 @@ const ShippingPartners: React.FC = () => {
               </p>
               <InternalLink
                 to="/contact-us"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[#0855B1] bg-white rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[var(--color-primary)] bg-white rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:scale-105"
               >
                 Visit Us Today
               </InternalLink>

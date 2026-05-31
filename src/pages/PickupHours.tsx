@@ -25,7 +25,7 @@ import { SmartImage } from '../components/SmartImage';
 
 // V2 Design System: Clear Glassmorphic Styling
 const v2GlassCard =
-  'bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_18px_45px_rgba(15,23,42,0.10)] rounded-[26px]';
+  'bg-white/70 backdrop-blur-xl border border-white/50 shadow-[0_18px_45px_rgba(var(--color-overlay),0.10)] rounded-[26px]';
 
 const pickupHours = [
   {
@@ -36,8 +36,8 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'Accepts stamped mail, prepaid labels, Priority Mail, and returns.',
-    accentColor: 'bg-[#0B4BB6]', // Brand Primary
-    iconColor: 'text-[#0B4BB6]',
+    accentColor: 'bg-[var(--color-gradient-start)]', // Brand Primary
+    iconColor: 'text-[var(--color-gradient-start)]',
     bgTint: 'bg-blue-50/40',
   },
   {
@@ -48,8 +48,8 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.',
-    accentColor: 'bg-[#1A6DFF]', // Brand Light
-    iconColor: 'text-[#1A6DFF]',
+    accentColor: 'bg-[var(--color-accent)]', // Brand Light
+    iconColor: 'text-[var(--color-accent)]',
     bgTint: 'bg-blue-50/30',
   },
   {
@@ -60,8 +60,8 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'For overnight, 2-day, and express saver shipments. Separate from Ground.',
-    accentColor: 'bg-[#021B4A]', // Brand Dark
-    iconColor: 'text-[#021B4A]',
+    accentColor: 'bg-[var(--color-gradient-mid)]', // Brand Dark
+    iconColor: 'text-[var(--color-gradient-mid)]',
     bgTint: 'bg-slate-50/50',
   },
   {
@@ -143,7 +143,7 @@ const PickupHours: React.FC = () => {
       <JsonLd schema={getFAQSchema(siteConfig, faqs)} />
 
       {/* Hero Section - V2 Gradient */}
-      <section className="relative bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] py-16 lg:py-24 text-center overflow-hidden">
+      <section className="relative bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] py-16 lg:py-24 text-center overflow-hidden">
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.15 }}
@@ -222,7 +222,7 @@ const PickupHours: React.FC = () => {
               transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
+              className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(var(--color-shadow),0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
             >
               {/* Decorative accent bar */}
               <div
@@ -267,7 +267,7 @@ const PickupHours: React.FC = () => {
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
               <div className="p-3 bg-blue-100 rounded-xl">
-                <MapPin className="w-6 h-6 text-[#0855B1]" />
+                <MapPin className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
               <h3 className="text-2xl font-bold text-slate-900 mt-1">
                 Serving Lake County & Surrounding Areas
@@ -310,7 +310,7 @@ const PickupHours: React.FC = () => {
                 value={`faq-${i}`}
                 className="bg-white/60 backdrop-blur-md border border-white/60 rounded-[20px] shadow-sm hover:shadow-md transition-all px-2 overflow-hidden"
               >
-                <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[#0855B1] hover:no-underline hover:text-[#064A9B]">
+                <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[var(--color-primary)] hover:no-underline hover:text-[var(--color-primary-dark)]">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-4 pb-4 text-slate-600 leading-relaxed">

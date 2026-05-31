@@ -29,11 +29,12 @@ export const Button: React.FC<ButtonProps> = ({
 
   const variantClasses = {
     primary:
-      'bg-[#0855B1] text-white hover:bg-[#064A9B] hover:shadow-lg focus:ring-[#B2D3EB] shadow-md',
+      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] hover:shadow-lg focus:ring-[var(--color-border-blue)] shadow-md',
     secondary:
-      'border-2 border-[#0855B1] text-[#0855B1] bg-white hover:bg-[#F0F7FF] hover:border-[#064A9B] hover:shadow-md focus:ring-[#B2D3EB]',
-    link: 'text-[#0855B1] hover:text-[#064A9B] focus:ring-[#B2D3EB] p-0 bg-transparent shadow-none',
-    ghost: 'bg-transparent text-[#0855B1] hover:bg-[#F0F7FF] focus:ring-[#B2D3EB] shadow-none',
+      'border-2 border-[var(--color-primary)] text-[var(--color-primary)] bg-white hover:bg-[var(--color-bg-blue-tint)] hover:border-[var(--color-primary-dark)] hover:shadow-md focus:ring-[var(--color-border-blue)]',
+    link: 'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] focus:ring-[var(--color-border-blue)] p-0 bg-transparent shadow-none',
+    ghost:
+      'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)] focus:ring-[var(--color-border-blue)] shadow-none',
   };
   // Map of motion components to avoid deep type instantiation from dynamic lookups
   const MotionComponent: React.ElementType =

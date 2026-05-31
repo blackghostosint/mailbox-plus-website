@@ -232,18 +232,18 @@ export function MailbotPlusChat({
           aria-label="Open Mail-bot Plus chat assistant"
           className={`fixed bottom-6 right-6 rounded-full transition-all duration-300 ease-out flex items-center gap-3 text-white font-medium text-base px-5 ${launcherClassName}`}
           style={{
-            background: '#0855B1',
-            boxShadow: '0 12px 30px rgba(15, 23, 42, 0.20)',
+            background: 'var(--color-primary)',
+            boxShadow: '0 12px 30px var(--color-overlay)/20',
             height: isMobile ? '56px' : '60px',
             minWidth: isMobile ? '200px' : '220px',
           }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = 'translateY(-4px)';
-            e.currentTarget.style.boxShadow = '0 18px 45px rgba(15, 23, 42, 0.25)';
+            e.currentTarget.style.boxShadow = '0 18px 45px var(--color-overlay)/25';
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.transform = 'translateY(0)';
-            e.currentTarget.style.boxShadow = '0 12px 30px rgba(15, 23, 42, 0.20)';
+            e.currentTarget.style.boxShadow = '0 12px 30px var(--color-overlay)/20';
           }}
         >
           {/* Chat Icon */}
@@ -275,21 +275,25 @@ export function MailbotPlusChat({
           } flex flex-col`}
           style={{
             height: isMobile ? '80vh' : '600px',
-            boxShadow: '0 18px 45px rgba(15, 23, 42, 0.20)',
+            boxShadow: '0 18px 45px var(--color-overlay)/20',
           }}
         >
           {/* HEADER */}
           <div
             className={`flex items-center justify-between px-4 border-b border-slate-200 ${isMobile ? 'h-13' : 'h-14'}`}
           >
-            <h2 id="chatbot-header" className="font-semibold" style={{ color: '#0855B1' }}>
+            <h2
+              id="chatbot-header"
+              className="font-semibold"
+              style={{ color: 'var(--color-primary)' }}
+            >
               Mail-bot Plus
             </h2>
             <button
               onClick={() => handleClose('close_button')}
               aria-label="Close chat"
               className="p-2 hover:bg-slate-50 rounded-xl transition-all duration-200"
-              style={{ color: '#64748b' }}
+              style={{ color: 'var(--color-text-muted)' }}
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
@@ -309,7 +313,7 @@ export function MailbotPlusChat({
             aria-live="polite"
             aria-atomic="false"
             className="flex-1 overflow-y-auto p-4 space-y-4"
-            style={{ background: '#F8FAFC' }}
+            style={{ background: 'var(--color-bg-secondary)' }}
           >
             {messages.map((msg) =>
               msg.role === 'bot' ? (
@@ -340,14 +344,14 @@ export function MailbotPlusChat({
                 disabled={isAwaitingResponse}
                 className="flex-1 resize-none border border-slate-200 rounded-xl px-3 py-2 focus:outline-none disabled:opacity-50 transition-all duration-200"
                 style={{
-                  boxShadow: '0 0 0 2px rgba(8, 85, 177, 0.25)',
+                  boxShadow: '0 0 0 2px var(--color-primary)/25',
                 }}
                 onFocus={(e) => {
-                  e.currentTarget.style.borderColor = '#0855B1';
-                  e.currentTarget.style.boxShadow = '0 0 0 3px rgba(8, 85, 177, 0.10)';
+                  e.currentTarget.style.borderColor = 'var(--color-primary)';
+                  e.currentTarget.style.boxShadow = '0 0 0 3px var(--color-primary)/10';
                 }}
                 onBlur={(e) => {
-                  e.currentTarget.style.borderColor = '#e2e8f0';
+                  e.currentTarget.style.borderColor = 'var(--color-border)';
                   e.currentTarget.style.boxShadow = 'none';
                 }}
                 inputMode="text"
@@ -358,12 +362,12 @@ export function MailbotPlusChat({
                 aria-label="Send question"
                 className="px-4 py-2 text-white text-sm rounded-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200"
                 style={{
-                  background: '#0855B1',
+                  background: 'var(--color-primary)',
                 }}
                 onMouseEnter={(e) => {
                   if (!e.currentTarget.disabled) {
                     e.currentTarget.style.transform = 'translateY(-1px)';
-                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(8, 85, 177, 0.25)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px var(--color-primary)/25';
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -403,8 +407,8 @@ function BotMessage({
       <div
         className="w-8 h-8 rounded-2xl flex-shrink-0 flex items-center justify-center text-xs font-bold"
         style={{
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,50,255,0.10))',
-          color: '#0855B1',
+          background: 'linear-gradient(135deg, var(--color-shadow)/5, var(--color-primary)/10)',
+          color: 'var(--color-primary)',
         }}
       >
         MB+
@@ -420,7 +424,7 @@ function BotMessage({
             rel="noopener noreferrer"
             onClick={() => onLinkClick(message.sourceUrl!, message.faqId!)}
             className="inline-flex items-center gap-1 mt-3 text-sm hover:underline transition-all duration-200"
-            style={{ color: '#0855B1' }}
+            style={{ color: 'var(--color-primary)' }}
           >
             Learn more →
           </a>
@@ -432,11 +436,11 @@ function BotMessage({
               onClick={() => onCTAClick('contact')}
               className="inline-block px-4 py-2 text-white text-sm rounded-xl transition-all duration-200"
               style={{
-                background: '#0855B1',
+                background: 'var(--color-primary)',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-1px)';
-                e.currentTarget.style.boxShadow = '0 4px 12px rgba(8, 85, 177, 0.25)';
+                e.currentTarget.style.boxShadow = '0 4px 12px var(--color-primary)/25';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
@@ -458,7 +462,7 @@ function UserMessage({ message }: { message: ChatMessage }) {
       <div
         className="max-w-[80%] text-white rounded-2xl px-4 py-2"
         style={{
-          background: '#0855B1',
+          background: 'var(--color-primary)',
         }}
       >
         <p className="text-sm whitespace-pre-wrap">{message.content}</p>
@@ -473,8 +477,8 @@ function TypingIndicator() {
       <div
         className="w-8 h-8 rounded-2xl flex-shrink-0 flex items-center justify-center text-xs font-bold"
         style={{
-          background: 'linear-gradient(135deg, rgba(0,0,0,0.05), rgba(0,50,255,0.10))',
-          color: '#0855B1',
+          background: 'linear-gradient(135deg, var(--color-shadow)/5, var(--color-primary)/10)',
+          color: 'var(--color-primary)',
         }}
       >
         MB+

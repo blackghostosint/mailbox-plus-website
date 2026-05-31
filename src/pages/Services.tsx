@@ -101,8 +101,8 @@ export const Services: React.FC = () => {
             style={{ objectPosition: 'center' }}
           />
           {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -154,7 +154,7 @@ export const Services: React.FC = () => {
             >
               <Button
                 size="lg"
-                className="bg-[#0855B1] text-white hover:bg-[#064080] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
+                className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
@@ -192,7 +192,7 @@ export const Services: React.FC = () => {
                 <a
                   key={category}
                   href={`#${makeId(category)}`}
-                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-slate-700 hover:text-[#0855B1] transition-all shadow-sm flex items-center justify-center font-medium"
+                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-slate-700 hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
                 >
                   {category}
                 </a>
@@ -237,7 +237,7 @@ export const Services: React.FC = () => {
             transition={reveal.transition}
           >
             <h2 className="text-3xl font-bold mb-8 text-slate-900 flex items-center">
-              <span className="w-2 h-8 bg-gradient-to-b from-[#0B4BB6] to-[#1A6DFF] rounded-full mr-4"></span>
+              <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
               {category}
             </h2>
 
@@ -248,7 +248,7 @@ export const Services: React.FC = () => {
                   <motion.div
                     key={service.id}
                     whileHover={{ y: -4, scale: 1.01 }}
-                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(8,85,177,0.1)] transition-all flex flex-col group"
+                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-[0_10px_30px_rgba(var(--color-shadow),0.04)] hover:shadow-[0_20px_40px_rgba(var(--color-primary),0.1)] transition-all flex flex-col group"
                   >
                     {/* Thumbnail with fade overlay + subtle zoom */}
                     {service.heroImage ? (
@@ -258,11 +258,11 @@ export const Services: React.FC = () => {
                           alt={service.serviceName}
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-[#0855B1]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                        <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
                       </div>
                     ) : service.icon ? (
                       <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-blue-50/50 rounded-2xl group relative overflow-hidden border border-blue-100/50">
-                        <service.icon className="w-12 h-12 text-[#0855B1] transition-transform duration-500 group-hover:scale-110" />
+                        <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
                       </div>
                     ) : (
                       <div className="w-full aspect-[3/2] mb-6 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
@@ -270,7 +270,7 @@ export const Services: React.FC = () => {
                       </div>
                     )}
 
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[#0855B1] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[var(--color-primary)] transition-colors">
                       {service.serviceName}
                     </h3>
                     <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
@@ -289,7 +289,7 @@ export const Services: React.FC = () => {
       ))}
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
-      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Visit Us in Concord Township Today
@@ -385,7 +385,7 @@ export const Services: React.FC = () => {
       {showTopButton && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[#0855B1] text-white p-3 rounded-full shadow-lg hover:bg-[#064080] transition hover:scale-110 z-50"
+          className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
           aria-label="Back to Top"
         >
           <ChevronUp className="w-6 h-6" />

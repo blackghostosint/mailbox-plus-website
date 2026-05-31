@@ -155,8 +155,8 @@ export const ContactUs: React.FC = () => {
             style={{ objectPosition: 'center' }}
           />
           {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
         </div>
 
         {/* Soft Fade Bottom */}
@@ -194,9 +194,9 @@ export const ContactUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
-              className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(15,23,42,0.15)] hover:bg-white/90 transition-all duration-300"
+              className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] hover:bg-white/90 transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[#0855B1] shadow-inner">
+              <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
                 <info.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-slate-900 mb-2">{info.title}</h3>
@@ -208,7 +208,7 @@ export const ContactUs: React.FC = () => {
               >
                 <Button
                   variant="link"
-                  className="text-[#0855B1] font-bold text-base hover:text-[#064A9B] p-0"
+                  className="text-[var(--color-primary)] font-bold text-base hover:text-[var(--color-primary-dark)] p-0"
                 >
                   {info.actionText} →
                 </Button>
@@ -222,7 +222,7 @@ export const ContactUs: React.FC = () => {
           {/* Contact Form GLASS PANEL */}
           <motion.section {...reveal} className="relative">
             {/* Glass container */}
-            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_18px_45px_rgba(15,23,42,0.10)] h-full">
+            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_18px_45px_rgba(var(--color-overlay),0.10)] h-full">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Send Us a Message
               </h2>
@@ -245,7 +245,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       aria-label="Full name"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -261,7 +261,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       aria-label="Email address"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -279,7 +279,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       aria-label="Phone number"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="(440) 555-0123"
                     />
                   </div>
@@ -293,7 +293,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.service}
                       onChange={handleChange}
                       aria-label="Service interest"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm appearance-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm appearance-none"
                     >
                       <option value="">Select a service</option>
                       <option value="shipping">Pack & Ship</option>
@@ -317,7 +317,7 @@ export const ContactUs: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     aria-label="Your message"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[#0855B1] focus:ring-2 focus:ring-[#B2D3EB] focus:outline-none transition-all shadow-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm resize-none"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -344,7 +344,7 @@ export const ContactUs: React.FC = () => {
                 <Button
                   type="submit"
                   size="lg"
-                  className="w-full group shadow-md hover:shadow-lg bg-[#0855B1] border-none text-white"
+                  className="w-full group shadow-md hover:shadow-lg bg-[var(--color-primary)] border-none text-white"
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
@@ -358,7 +358,7 @@ export const ContactUs: React.FC = () => {
             {/* Hours Card */}
             <div className="rounded-[28px] p-8 bg-white/60 backdrop-blur border border-white/60 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 text-[#0855B1]">
+                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 text-[var(--color-primary)]">
                   <Clock className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-slate-900">Store Hours</h3>

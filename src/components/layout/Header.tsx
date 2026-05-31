@@ -34,34 +34,36 @@ export const Header: React.FC = () => {
   return (
     <header className="bg-white border-b border-gray-300 sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="bg-[#F9FAFB] border-b border-gray-300">
+      <div className="bg-[var(--color-bg-primary)] border-b border-gray-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-sm">
             <div className="flex items-center space-x-6">
               {/* Phone */}
-              <div className="flex items-center space-x-2 text-[#4B5563]">
+              <div className="flex items-center space-x-2 text-[var(--color-text-secondary)]">
                 <Phone className="w-4 h-4" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-[#0855B1] transition-colors"
+                  className="hover:text-[var(--color-primary)] transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </div>
               {/* Address linked to Google Maps */}
-              <div className="hidden sm:flex items-center space-x-2 text-[#4B5563]">
+              <div className="hidden sm:flex items-center space-x-2 text-[var(--color-text-secondary)]">
                 <MapPin className="w-4 h-4" />
                 <a
                   href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[#0855B1]"
+                  className="hover:text-[var(--color-primary)]"
                 >
                   Concord Township, OH
                 </a>
               </div>
             </div>
-            <div className="text-[#4B5563]">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
+            <div className="text-[var(--color-text-secondary)]">
+              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM
+            </div>
           </div>
         </div>
       </div>
@@ -101,7 +103,9 @@ export const Header: React.FC = () => {
                   key={item.name}
                   to={item.href}
                   className={`text-sm font-medium transition-colors ${
-                    isActive(item.href) ? 'text-[#0855B1]' : 'text-[#4B5563] hover:text-[#0855B1]'
+                    isActive(item.href)
+                      ? 'text-[var(--color-primary)]'
+                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
                   }`}
                 >
                   {item.name}
@@ -118,7 +122,7 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[#4B5563] hover:text-[#0855B1] hover:bg-[#F9FAFB]"
+            className="md:hidden p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-bg-primary)]"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -154,7 +158,9 @@ export const Header: React.FC = () => {
                     to={item.href}
                     onClick={() => setIsMenuOpen(false)}
                     className={`block text-base font-medium transition-colors ${
-                      isActive(item.href) ? 'text-[#0855B1]' : 'text-[#4B5563] hover:text-[#0855B1]'
+                      isActive(item.href)
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
                     }`}
                   >
                     {item.name}

@@ -42,13 +42,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '',
                   itemScope
                   itemType="https://schema.org/Thing"
                   itemID={item.url}
-                  className="hover:text-[#0855B1] transition-colors"
+                  className="hover:text-[var(--color-primary)] transition-colors"
                 >
                   <span itemProp="name">{item.name}</span>
                 </InternalLink>
               ) : (
                 <span
-                  className="font-semibold text-[#111827]"
+                  className="font-semibold text-[var(--color-text-primary)]"
                   aria-current="page"
                   itemProp="item"
                   itemScope

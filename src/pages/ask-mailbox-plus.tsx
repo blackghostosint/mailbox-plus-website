@@ -75,8 +75,8 @@ const AskMailboxPlus: React.FC = () => (
           style={{ objectPosition: 'center' }}
         />
         {/* V2 Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -118,14 +118,14 @@ const AskMailboxPlus: React.FC = () => (
           handling{' '}
           <InternalLink
             to="/amazon-returns"
-            className="text-[#0855B1] font-semibold hover:underline"
+            className="text-[var(--color-primary)] font-semibold hover:underline"
           >
             Amazon returns
           </InternalLink>
           , and providing secure{' '}
           <InternalLink
             to="/mailbox-rental"
-            className="text-[#0855B1] font-semibold hover:underline"
+            className="text-[var(--color-primary)] font-semibold hover:underline"
           >
             private mailbox rentals
           </InternalLink>
@@ -146,8 +146,8 @@ const AskMailboxPlus: React.FC = () => (
           className="mb-12 bg-white rounded-[26px] shadow-sm border border-slate-100 overflow-hidden"
         >
           <div className="bg-blue-50/50 p-6 border-b border-blue-100/50">
-            <h2 className="text-2xl font-bold text-[#0855B1] flex items-center">
-              <span className="w-2 h-8 bg-[#0855B1] rounded-full mr-4"></span>
+            <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center">
+              <span className="w-2 h-8 bg-[var(--color-primary)] rounded-full mr-4"></span>
               {cat.title}
             </h2>
           </div>
@@ -160,7 +160,7 @@ const AskMailboxPlus: React.FC = () => (
                   value={`item-${idx}-${i}`}
                   className="border border-slate-200 rounded-xl px-4 data-[state=open]:bg-slate-50 data-[state=open]:border-blue-200 transition-colors"
                 >
-                  <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-[#0855B1] py-4 text-lg">
+                  <AccordionTrigger className="text-left font-semibold text-slate-900 hover:text-[var(--color-primary)] py-4 text-lg">
                     {faq.question}
                   </AccordionTrigger>
                   <AccordionContent className="text-slate-600 leading-relaxed pb-4 text-base">
@@ -175,7 +175,7 @@ const AskMailboxPlus: React.FC = () => (
     </section>
 
     {/* ====================== CTA SECTION (V2 Gradient) ======================= */}
-    <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] text-center">
+    <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Still have questions?</h2>
         <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">

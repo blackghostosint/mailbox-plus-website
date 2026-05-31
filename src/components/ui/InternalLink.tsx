@@ -11,7 +11,7 @@ interface InternalLinkProps extends Omit<LinkProps, 'to'> {
 export const InternalLink: React.FC<InternalLinkProps> = ({
   to,
   variant = 'exact',
-  className = 'text-[#0855B1] hover:underline font-medium',
+  className = 'text-[var(--color-primary)] hover:underline font-medium',
   children,
   showIcon = false,
   ...props

@@ -123,14 +123,14 @@ export const SearchBox: React.FC = () => {
           aria-controls="search-results"
           className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${
             isOpen
-              ? 'border-[#0855B1] bg-white shadow-lg w-80'
-              : 'border-gray-300 bg-white hover:border-[#0855B1] hover:shadow-sm w-48'
+              ? 'border-[var(--color-primary)] bg-white shadow-lg w-80'
+              : 'border-gray-300 bg-white hover:border-[var(--color-primary)] hover:shadow-sm w-48'
           }`}
         >
           <span className="sr-only">
             {isOpen ? 'Focus the service search input' : 'Open service search'}
           </span>
-          <Search className="w-4 h-4 text-[#4B5563]" />
+          <Search className="w-4 h-4 text-[var(--color-text-secondary)]" />
           {isOpen ? (
             <input
               ref={inputRef}
@@ -139,10 +139,10 @@ export const SearchBox: React.FC = () => {
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Search services..."
               aria-label="Search services"
-              className="flex-1 outline-none text-sm text-[#111827] placeholder-[#4B5563]"
+              className="flex-1 outline-none text-sm text-[var(--color-text-primary)] placeholder-[var(--color-text-secondary)]"
             />
           ) : (
-            <span className="text-sm text-[#4B5563]">Search services...</span>
+            <span className="text-sm text-[var(--color-text-secondary)]">Search services...</span>
           )}
           {isOpen && query && (
             <button
@@ -151,7 +151,7 @@ export const SearchBox: React.FC = () => {
               className="p-1 hover:bg-gray-100 rounded-full transition-colors"
               aria-label="Clear search query"
             >
-              <X className="w-3 h-3 text-[#4B5563]" />
+              <X className="w-3 h-3 text-[var(--color-text-secondary)]" />
             </button>
           )}
         </button>
@@ -175,18 +175,18 @@ export const SearchBox: React.FC = () => {
                     key={result.href}
                     to={result.href}
                     onClick={handleResultClick}
-                    className="block px-4 py-3 hover:bg-[#F9FAFB] transition-colors border-b border-gray-100 last:border-b-0"
+                    className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-gray-100 last:border-b-0"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-[#111827] mb-1">
+                        <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1">
                           {result.title}
                         </h4>
-                        <p className="text-xs text-[#4B5563] leading-relaxed">
+                        <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
                           {result.description}
                         </p>
                       </div>
-                      <span className="text-xs text-[#0855B1] font-medium ml-3 flex-shrink-0">
+                      <span className="text-xs text-[var(--color-primary)] font-medium ml-3 flex-shrink-0">
                         {result.category}
                       </span>
                     </div>
@@ -195,21 +195,25 @@ export const SearchBox: React.FC = () => {
               </div>
             ) : query.trim() !== '' ? (
               <div className="py-8 text-center">
-                <p className="text-sm text-[#4B5563]">No services found for &quot;{query}&quot;</p>
-                <p className="text-xs text-[#4B5563] mt-1">
+                <p className="text-sm text-[var(--color-text-secondary)]">
+                  No services found for &quot;{query}&quot;
+                </p>
+                <p className="text-xs text-[var(--color-text-secondary)] mt-1">
                   Try searching for shipping, printing, or business services
                 </p>
               </div>
             ) : (
               <div className="py-4 px-4">
-                <p className="text-sm font-medium text-[#111827] mb-3">Popular Services</p>
+                <p className="text-sm font-medium text-[var(--color-text-primary)] mb-3">
+                  Popular Services
+                </p>
                 <div className="space-y-2">
                   {searchData.slice(0, 6).map((item) => (
                     <InternalLink
                       key={item.href}
                       to={item.href}
                       onClick={handleResultClick}
-                      className="block text-sm text-[#4B5563] hover:text-[#0855B1] transition-colors"
+                      className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
                     >
                       {item.title}
                     </InternalLink>

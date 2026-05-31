@@ -45,17 +45,17 @@ export const mailboxRentalServices: Service[] = [
                         <tbody class="divide-y divide-slate-100">
                             <tr>
                                 <td class="p-4 text-slate-700">Small Box</td>
-                                <td class="p-4 font-bold text-[#0855B1]">$25.00</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$25.00</td>
                                 <td class="p-4 text-slate-600">5 pkgs included</td>
                             </tr>
                             <tr>
                                 <td class="p-4 text-slate-700">Large Box</td>
-                                <td class="p-4 font-bold text-[#0855B1]">$35.00</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$35.00</td>
                                 <td class="p-4 text-slate-600">5 pkgs included</td>
                             </tr>
                             <tr class="bg-blue-50/30">
                                 <td class="p-4 text-slate-700 font-semibold">12-Month Prepay</td>
-                                <td class="p-4 font-bold text-[#0855B1]">$300.00</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$300.00</td>
                                 <td class="p-4 text-slate-600">Best Value</td>
                             </tr>
                         </tbody>
@@ -68,15 +68,15 @@ export const mailboxRentalServices: Service[] = [
         body: `<p class="mb-4">Setting up your secure mailbox is a straightforward legal process. As a CMRA, we require two forms of ID and a completed USPS Form 1583 to begin accepting your mail.</p>
                 <div class="grid gap-6 md:grid-cols-3">
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg">1. Complete Form</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">1. Complete Form</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Fill in your personal/business details on USPS Form 1583. Each authorized recipient needs their own ID check.</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg">2. Provide ID</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">2. Provide ID</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Bring one primary photo ID (Passport, DL) and one secondary ID showing your address (Lease, Utility Bill).</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg">3. Submit & Start</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">3. Submit & Start</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Bring these to Mailbox Plus. Once verified, we can legally accept and protect your mail and packages instantly.</p>
                     </div>
                 </div>`,
@@ -123,19 +123,19 @@ export const mailboxRentalServices: Service[] = [
         heading: 'Premium Digital Mail Features',
         body: `<div class="grid gap-6 md:grid-cols-3 my-8">
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Scan & View</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg italic">Scan & View</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Instantly view high-resolution scans of your envelopes and requested documents through your secure portal.</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Forward & Shred</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg italic">Forward & Shred</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Consolidate packages for forwarding or request secure shredding of sensitive documents with a single click.</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80 shadow-sm">
-                        <div class="font-bold text-[#0855B1] mb-2 text-lg italic">Real-Time Alerts</div>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg italic">Real-Time Alerts</div>
                         <p class="text-sm leading-relaxed text-slate-600 font-medium">Receive push notifications the moment your mail or packages arrive at our Concord Township location.</p>
                     </div>
                 </div>
-                <p>We partner with leading providers like <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[#0855B1] font-semibold underline">PostScan Mail</a> to give you the most flexible virtual mailbox experience in Lake County.</p>`,
+                <p>We partner with leading providers like <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">PostScan Mail</a> to give you the most flexible virtual mailbox experience in Lake County.</p>`,
       },
       {
         heading: 'Not a P.O. Box',
@@ -176,7 +176,7 @@ export const mailboxRentalServices: Service[] = [
                             <tr>
                                 <th class="p-4 font-semibold text-slate-900">Feature</th>
                                 <th class="p-4 font-semibold text-slate-900">Standard P.O. Box</th>
-                                <th class="p-4 font-semibold text-[#0855B1]">Mailbox Plus Private</th>
+                                <th class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus Private</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-slate-100">
@@ -252,23 +252,23 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'How Your Virtual Mailbox Works',
         body: `<div class="grid gap-4 md:grid-cols-4 my-8">
-                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
-                        <div class="text-2xl font-bold text-[#0855B1] mb-2">01</div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">01</div>
                         <div class="font-bold text-slate-900 mb-1">We Receive</div>
                         <p class="text-xs text-slate-600 leading-relaxed">Mail arrives at our secure Lake County facility.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
-                        <div class="text-2xl font-bold text-[#0855B1] mb-2">02</div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">02</div>
                         <div class="font-bold text-slate-900 mb-1">We Scan</div>
                         <p class="text-xs text-slate-600 leading-relaxed">We scan the envelope and upload it to your portal.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
-                        <div class="text-2xl font-bold text-[#0855B1] mb-2">03</div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">03</div>
                         <div class="font-bold text-slate-900 mb-1">You Decide</div>
                         <p class="text-xs text-slate-600 leading-relaxed">Tell us to scan contents, forward, or shred.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[#0855B1]/5 border border-[#0855B1]/10">
-                        <div class="text-2xl font-bold text-[#0855B1] mb-2">04</div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">04</div>
                         <div class="font-bold text-slate-900 mb-1">We Action</div>
                         <p class="text-xs text-slate-600 leading-relaxed">We execute your request quickly and securely.</p>
                     </div>
@@ -323,18 +323,18 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'Flexible Forwarding & Management',
         body: `<div class="grid gap-6 md:grid-cols-2 my-8">
-                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(var(--color-overlay),0.05)]">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
+                            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)]">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
                             <h3 class="font-bold text-slate-900 text-lg">Scheduled or On-Demand</h3>
                         </div>
                         <p class="text-sm text-slate-600 leading-relaxed font-medium">Choose a frequency that works for you—weekly, bi-weekly, or monthly. Or simply call us when you're ready for a bundle. You have total control.</p>
                     </div>
-                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(15,23,42,0.05)]">
+                    <div class="p-6 rounded-3xl bg-white/60 border border-white/80 shadow-[0_10px_30px_rgba(var(--color-overlay),0.05)]">
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-10 h-10 rounded-xl bg-[#0855B1]/10 flex items-center justify-center text-[#0855B1]">
+                            <div class="w-10 h-10 rounded-xl bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)]">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                             </div>
                             <h3 class="font-bold text-slate-900 text-lg">Consolidated Savings</h3>
@@ -350,7 +350,7 @@ export const mailboxRentalServices: Service[] = [
                         <thead class="bg-slate-100/60">
                             <tr>
                                 <th class="p-4 font-semibold text-slate-900">Feature</th>
-                                <th class="p-4 font-semibold text-[#0855B1]">Mailbox Plus</th>
+                                <th class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus</th>
                                 <th class="p-4 font-semibold text-slate-900">USPS Forwarding</th>
                             </tr>
                         </thead>

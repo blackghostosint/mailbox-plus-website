@@ -26,19 +26,25 @@ export const AutoBreadcrumbs: React.FC = () => {
               )}
 
               {index === 0 ? (
-                <InternalLink to="/" className="hover:text-[#0855B1] transition-colors">
+                <InternalLink
+                  to="/"
+                  className="hover:text-[var(--color-primary)] transition-colors"
+                >
                   <Home className="w-4 h-4" />
                   <span className="sr-only">Home</span>
                 </InternalLink>
               ) : index < items.length - 1 ? (
                 <InternalLink
                   to={item.url || '/'}
-                  className="hover:text-[#0855B1] transition-colors"
+                  className="hover:text-[var(--color-primary)] transition-colors"
                 >
                   <span>{item.label}</span>
                 </InternalLink>
               ) : (
-                <span className="font-semibold text-[#111827]" aria-current="page">
+                <span
+                  className="font-semibold text-[var(--color-text-primary)]"
+                  aria-current="page"
+                >
                   <span>{item.label}</span>
                 </span>
               )}

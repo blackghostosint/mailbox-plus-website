@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    /* Primary Brand */
+    --color-primary: #0855b1;
+    --color-primary-dark: #064a9b;
+    --color-primary-deeper: #064080;
+    --color-primary-deep: #06408a;
+
+    /* Secondary Accent */
+    --color-accent: #1a6dff;
+    --color-accent-light: #2f7cfb;
+    --color-alt-accent: #2da0ed;
+
+    /* Backgrounds */
+    --color-bg-primary: #f9fafb;
+    --color-bg-secondary: #f8fafc;
+    --color-bg-blue-tint: #f0f7ff;
+    --color-bg-cyan-tint: #e0f2fe;
+
+    /* Text */
+    --color-text-primary: #111827;
+    --color-text-secondary: #4b5563;
+    --color-text-muted: #64748b;
+
+    /* Surface/Borders */
+    --color-border: #e2e8f0;
+    --color-border-blue: #b2d3eb;
+
+    /* Gradient Stops */
+    --color-gradient-start: #0b4bb6;
+    --color-gradient-mid: #021b4a;
+    --color-gradient-end: #02152f;
+
+    /* Overlay bases (used with opacity modifiers) */
+    --color-overlay: #0f172a;
+    --color-overlay-blue: #0855b1;
+    --color-shadow: #000000;
+  }
+}

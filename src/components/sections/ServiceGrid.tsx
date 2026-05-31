@@ -20,10 +20,10 @@ export const ServiceGrid: React.FC<ServiceGridProps> = ({ pillarId }) => {
           to={service.url}
           className="group flex flex-col p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300"
         >
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[#0855B1] transition-colors">
+          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
             {service.title}
           </h3>
-          <div className="mt-4 flex items-center text-sm font-medium text-[#0855B1]">
+          <div className="mt-4 flex items-center text-sm font-medium text-[var(--color-primary)]">
             Learn more
             <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </div>
