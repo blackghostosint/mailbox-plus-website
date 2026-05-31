@@ -14,11 +14,11 @@ export const NotFound: React.FC = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <div className="text-9xl font-bold text-[#0855B1] mb-4">404</div>
-          <h1 className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6">
+          <div className="text-9xl font-bold text-[var(--color-primary)] mb-4">404</div>
+          <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6">
             Page Not Found
           </h1>
-          <p className="text-xl text-[#4B5563] mb-8 leading-relaxed">
+          <p className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed">
             Sorry, we couldn&apos;t find the page you&apos;re looking for. The page may have been
             moved, deleted, or you may have entered the wrong URL.
           </p>
@@ -41,25 +41,33 @@ export const NotFound: React.FC = () => {
             </Button>
           </div>
 
-          <div className="mt-12 p-6 bg-[#F9FAFB] rounded-2xl">
-            <h3 className="text-lg font-semibold text-[#111827] mb-3">
+          <div className="mt-12 p-6 bg-[var(--color-bg-primary)] rounded-2xl">
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
               Need Help Finding Something?
             </h3>
-            <p className="text-[#4B5563] mb-4">Visit our main pages or contact us directly:</p>
+            <p className="text-[var(--color-text-secondary)] mb-4">
+              Visit our main pages or contact us directly:
+            </p>
             <div className="flex flex-wrap justify-center gap-4 text-sm">
-              <InternalLink to="/services" className="text-[#0855B1] hover:underline">
+              <InternalLink to="/services" className="text-[var(--color-primary)] hover:underline">
                 Services
               </InternalLink>
-              <InternalLink to="/pack-ship" className="text-[#0855B1] hover:underline">
+              <InternalLink to="/pack-ship" className="text-[var(--color-primary)] hover:underline">
                 Pack & Ship
               </InternalLink>
-              <InternalLink to="/copy-print" className="text-[#0855B1] hover:underline">
+              <InternalLink
+                to="/copy-print"
+                className="text-[var(--color-primary)] hover:underline"
+              >
                 Copy & Print
               </InternalLink>
-              <InternalLink to="/tracking" className="text-[#0855B1] hover:underline">
+              <InternalLink to="/tracking" className="text-[var(--color-primary)] hover:underline">
                 Tracking
               </InternalLink>
-              <InternalLink to="/contact-us" className="text-[#0855B1] hover:underline">
+              <InternalLink
+                to="/contact-us"
+                className="text-[var(--color-primary)] hover:underline"
+              >
                 Contact Us
               </InternalLink>
             </div>
