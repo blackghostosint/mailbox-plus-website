@@ -213,7 +213,7 @@ export const FedExEasyReturns: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
+                className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
               >
                 <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
                   <benefit.icon className="w-7 h-7" />

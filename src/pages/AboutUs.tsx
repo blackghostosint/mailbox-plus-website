@@ -82,13 +82,13 @@ export function AboutUs() {
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
-            className="rounded-[26px] shadow-lg w-full aspect-video object-cover border border-white/50"
+            className="rounded-lg shadow-lg w-full aspect-video object-cover border border-white/50"
           />
         </motion.div>
 
         <motion.div
           {...fadeUp(0.2)}
-          className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-[26px] border border-white/50 shadow-lg"
+          className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-white/50 shadow-lg"
         >
           <h2 className="text-3xl font-bold mb-6 text-slate-900">Our Story</h2>
           <p className="text-slate-600 leading-relaxed mb-4 text-lg">
@@ -148,7 +148,7 @@ export function AboutUs() {
           {/* Frank */}
           <motion.div
             {...fadeUp(0.2)}
-            className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
+            className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
           >
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
@@ -178,7 +178,7 @@ export function AboutUs() {
           {/* Diana */}
           <motion.div
             {...fadeUp(0.3)}
-            className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
+            className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
           >
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
@@ -262,7 +262,7 @@ export function AboutUs() {
               <motion.div
                 key={service.title}
                 {...fadeUp(0.1 * i)}
-                className="group p-6 bg-white rounded-[26px] shadow-sm hover:shadow-lg border border-slate-100 hover:border-blue-100 transition-all duration-300 hover:translate-y-[-4px]"
+                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-slate-100 hover:border-blue-100 transition-all duration-300 hover:translate-y-[-4px]"
               >
                 <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
                   <service.icon className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300" />

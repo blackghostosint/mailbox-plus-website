@@ -193,7 +193,7 @@ export const ContactUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
-              className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300"
+              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300"
             >
               <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
                 <info.icon className="w-8 h-8" />

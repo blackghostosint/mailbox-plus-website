@@ -293,7 +293,7 @@ export const Tracking: React.FC = () => {
 
         {/* Help Section - Glass Gradient Panel */}
         <motion.section {...reveal} className="max-w-5xl mx-auto">
-          <div className="relative rounded-[30px] overflow-hidden shadow-xl">
+          <div className="relative rounded-xl overflow-hidden shadow-xl">
             {/* V2 Gradient Shell */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
 

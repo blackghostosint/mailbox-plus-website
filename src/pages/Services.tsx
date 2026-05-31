@@ -184,7 +184,7 @@ export const Services: React.FC = () => {
       {/* ====================== CATEGORY NAVIGATION ======================= */}
       <section id="categories" className="py-12 bg-slate-50 relative z-10 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/70 backdrop-blur-xl rounded-[26px] shadow-lg border border-white/50 p-8">
+          <div className="bg-white/70 backdrop-blur-xl rounded-lg shadow-lg border border-white/50 p-8">
             <h2 className="text-2xl font-bold mb-6 text-slate-800">Explore Our Services</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {serviceCategories.map((category) => (
@@ -247,7 +247,7 @@ export const Services: React.FC = () => {
                   <motion.div
                     key={service.id}
                     whileHover={{ y: -4, scale: 1.01 }}
-                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-sm hover:shadow-md transition-all flex flex-col group"
+                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col group"
                   >
                     {/* Thumbnail with fade overlay + subtle zoom */}
                     {service.heroImage ? (

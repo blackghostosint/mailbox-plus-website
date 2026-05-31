@@ -24,7 +24,7 @@ import { getServiceImageUrl } from '../lib/storage';
 import { SmartImage } from '../components/SmartImage';
 
 // V2 Design System: Clear Glassmorphic Styling
-const v2GlassCard = 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg rounded-[26px]';
+const v2GlassCard = 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg rounded-lg';
 
 const pickupHours = [
   {
@@ -221,7 +221,7 @@ const PickupHours: React.FC = () => {
               transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className={`relative rounded-[26px] p-8 border border-white/60 shadow-sm ${item.bgTint} backdrop-blur-md overflow-hidden group`}
+              className={`relative rounded-lg p-8 border border-white/60 shadow-sm ${item.bgTint} backdrop-blur-md overflow-hidden group`}
             >
               {/* Decorative accent bar */}
               <div
