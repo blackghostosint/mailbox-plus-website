@@ -37,15 +37,15 @@ export const StoreHours: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6"
+              className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6"
             >
-              Store <span className="text-[#0855B1]">Hours</span>
+              Store <span className="text-[var(--color-primary)]">Hours</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[#4B5563] mb-8 leading-relaxed"
+              className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed"
             >
               Visit us during our convenient business hours. We&apos;re here to help with all your
               shipping, printing, and business service needs.
@@ -55,7 +55,7 @@ export const StoreHours: React.FC = () => {
       </section>
 
       {/* Store Hours */}
-      <section className="py-20 bg-[#F9FAFB]">
+      <section className="py-20 bg-[var(--color-bg-primary)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -64,8 +64,8 @@ export const StoreHours: React.FC = () => {
             className="bg-white rounded-2xl p-8 shadow-sm"
           >
             <div className="flex items-center mb-8">
-              <Clock className="w-8 h-8 text-[#0855B1] mr-4" />
-              <h2 className="text-3xl font-bold text-[#111827]">Regular Hours</h2>
+              <Clock className="w-8 h-8 text-[var(--color-primary)] mr-4" />
+              <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Regular Hours</h2>
             </div>
 
             <div className="space-y-4">
@@ -76,12 +76,16 @@ export const StoreHours: React.FC = () => {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   className={`flex justify-between items-center p-4 rounded-xl ${
-                    schedule.isToday ? 'bg-[#F0F7FF] border-2 border-[#0855B1]' : 'bg-gray-50'
+                    schedule.isToday
+                      ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
+                      : 'bg-gray-50'
                   }`}
                 >
                   <span
                     className={`font-semibold ${
-                      schedule.isToday ? 'text-[#0855B1]' : 'text-[#111827]'
+                      schedule.isToday
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-text-primary)]'
                     }`}
                   >
                     {schedule.day}
@@ -89,7 +93,9 @@ export const StoreHours: React.FC = () => {
                   </span>
                   <span
                     className={`font-bold ${
-                      schedule.time === 'Closed' ? 'text-red-600' : 'text-[#111827]'
+                      schedule.time === 'Closed'
+                        ? 'text-red-600'
+                        : 'text-[var(--color-text-primary)]'
                     }`}
                   >
                     {schedule.time}
@@ -98,8 +104,8 @@ export const StoreHours: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-[#E0F2FE] rounded-xl">
-              <p className="text-[#0855B1] font-medium text-center">
+            <div className="mt-8 p-6 bg-[var(--color-bg-cyan-tint)] rounded-xl">
+              <p className="text-[var(--color-primary)] font-medium text-center">
                 📞 Call ahead during holiday seasons as hours may vary
               </p>
             </div>
@@ -117,11 +123,13 @@ export const StoreHours: React.FC = () => {
               transition={{ duration: 0.6 }}
               className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
             >
-              <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Phone className="w-8 h-8 text-[#0855B1]" />
+              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">Call Us</h3>
-              <p className="text-[#4B5563] mb-4">{siteConfig.contact.phone}</p>
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
+                Call Us
+              </h3>
+              <p className="text-[var(--color-text-secondary)] mb-4">{siteConfig.contact.phone}</p>
               <a href={`tel:${siteConfig.contact.phone}`}>
                 <Button variant="link" className="text-sm">
                   Call Now →
@@ -135,11 +143,13 @@ export const StoreHours: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
             >
-              <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <MapPin className="w-8 h-8 text-[#0855B1]" />
+              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <MapPin className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">Visit Us</h3>
-              <p className="text-[#4B5563] mb-4">
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
+                Visit Us
+              </h3>
+              <p className="text-[var(--color-text-secondary)] mb-4">
                 {siteConfig.contact.address.street}
                 <br />
                 {siteConfig.contact.address.city}, {siteConfig.contact.address.state}{' '}
@@ -162,11 +172,13 @@ export const StoreHours: React.FC = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
             >
-              <div className="w-16 h-16 bg-[#F0F7FF] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-8 h-8 text-[#0855B1]" />
+              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
-              <h3 className="text-lg font-semibold text-[#111827] mb-3">Plan Your Visit</h3>
-              <p className="text-[#4B5563] mb-4">
+              <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
+                Plan Your Visit
+              </h3>
+              <p className="text-[var(--color-text-secondary)] mb-4">
                 Extended hours Monday through Friday
                 <br />
                 Saturday morning availability
@@ -180,7 +192,7 @@ export const StoreHours: React.FC = () => {
       </section>
 
       {/* Holiday Hours */}
-      <section className="py-20 bg-[#F9FAFB]">
+      <section className="py-20 bg-[var(--color-bg-primary)]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -188,8 +200,10 @@ export const StoreHours: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="bg-white rounded-2xl p-8 shadow-sm"
           >
-            <h2 className="text-2xl font-bold text-[#111827] mb-6 text-center">Holiday Hours</h2>
-            <p className="text-[#4B5563] text-center mb-8">
+            <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">
+              Holiday Hours
+            </h2>
+            <p className="text-[var(--color-text-secondary)] text-center mb-8">
               We observe the following holidays. Please plan accordingly.
             </p>
 
@@ -203,8 +217,12 @@ export const StoreHours: React.FC = () => {
                   className="flex justify-between items-center p-4 bg-gray-50 rounded-xl"
                 >
                   <div>
-                    <span className="font-semibold text-[#111827]">{holiday.name}</span>
-                    <span className="text-[#4B5563] ml-2">({holiday.date})</span>
+                    <span className="font-semibold text-[var(--color-text-primary)]">
+                      {holiday.name}
+                    </span>
+                    <span className="text-[var(--color-text-secondary)] ml-2">
+                      ({holiday.date})
+                    </span>
                   </div>
                   <span className="font-bold text-red-600">{holiday.status}</span>
                 </motion.div>
