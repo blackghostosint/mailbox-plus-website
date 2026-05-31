@@ -48,3 +48,8 @@ test-v1-template.ts
 # Deno (not used in this project)
 deno.lock
 convert-images.cjs
+
+# Playwright
+e2e/report/
+test-results/
+playwright-report/

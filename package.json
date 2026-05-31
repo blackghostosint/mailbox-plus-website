@@ -10,6 +10,9 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:headed": "playwright test --headed",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "lint": "eslint .",
     "lint:a11y": "node scripts/run-lint.cjs",
@@ -49,6 +52,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.0",
     "@iconify-json/lucide": "^1.2.87",
+    "@playwright/test": "^1.60.0",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
     "@testing-library/jest-dom": "^6.9.1",
