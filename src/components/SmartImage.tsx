@@ -24,9 +24,9 @@ interface SmartImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 export const SmartImage: React.FC<SmartImageProps> = ({
   priority = false,
   sources,
+  alt = '',
   ...imgProps
 }) => {
-  const { alt } = imgProps;
   const loading = priority ? 'eager' : 'lazy';
   const fetchPriority = priority ? 'high' : undefined;
   const decoding = 'async';

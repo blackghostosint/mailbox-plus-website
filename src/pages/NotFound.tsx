@@ -6,13 +6,16 @@ import ArrowLeft from '~icons/lucide/arrow-left';
 import { Button } from '../components/ui';
 
 export const NotFound: React.FC = () => {
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <div className="bg-white min-h-screen flex items-center justify-center">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={prefersReducedMotion ? {} : { opacity: 0, y: 20 }}
+          animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+          transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
         >
           <div className="text-9xl font-bold text-[var(--color-primary)] mb-4">404</div>
           <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6">
