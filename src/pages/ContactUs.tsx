@@ -123,6 +123,9 @@ export const ContactUs: React.FC = () => {
     { day: 'Sunday', time: 'Closed' },
   ];
 
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <div className="bg-slate-50 min-h-screen">
       <Meta
@@ -163,17 +166,17 @@ export const ContactUs: React.FC = () => {
 
         <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
           <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
             Get in <span className="text-blue-200">Touch</span>
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: 0.15 }}
             className="text-xl text-blue-100 mb-8 leading-relaxed"
           >
             Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all

@@ -15,6 +15,9 @@ import Box from '~icons/lucide/box';
 import { getServiceImageUrl } from '../lib/storage';
 
 export function AboutUs() {
+  const prefersReducedMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   return (
     <>
       <PageMeta
@@ -51,18 +54,18 @@ export function AboutUs() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
           >
             About <span className="text-blue-200">Mailbox Plus</span>
           </motion.h1>
 
           <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
+            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
+            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
             className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
           >
             Your trusted local partner for shipping, printing, mailbox rentals, and business

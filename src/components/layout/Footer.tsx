@@ -24,9 +24,9 @@ export const Footer: React.FC = () => {
       {/* Global Tagline */}
       <div className="bg-[var(--color-bg-primary)] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-          <h3 className="text-2xl font-semibold text-[var(--color-primary)]">
+          <h2 className="text-2xl font-semibold text-[var(--color-primary)]">
             {siteConfig.tagline}
-          </h3>
+          </h2>
         </div>
       </div>
 
@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
 
           {/* Contact Info */}
           <div className="space-y-4 lg:text-center">
-            <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">Contact</h4>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 lg:justify-center">
                 <MapPin className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
@@ -93,7 +93,7 @@ export const Footer: React.FC = () => {
 
           {/* Store Hours (dynamic) */}
           <div className="space-y-4 lg:text-center">
-            <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">Store Hours</h4>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Store Hours</h3>
             <div className="space-y-2 text-sm text-[var(--color-text-secondary)]">
               {Object.entries(siteConfig.hours).map(([day, hours]) => (
                 <div key={day} className="flex justify-between">
@@ -106,7 +106,7 @@ export const Footer: React.FC = () => {
 
           {/* Quick Links */}
           <div className="space-y-4 lg:text-center">
-            <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">Services</h4>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Services</h3>
             <nav className="space-y-2" aria-label="Footer Services">
               {quickLinks.map((link) => (
                 <InternalLink
@@ -122,7 +122,7 @@ export const Footer: React.FC = () => {
 
           {/* Resources */}
           <div className="space-y-4 lg:text-center">
-            <h4 className="text-lg font-semibold text-[var(--color-text-primary)]">Resources</h4>
+            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Resources</h3>
             <nav className="space-y-2" aria-label="Footer Resources">
               <InternalLink
                 to="/articles"
