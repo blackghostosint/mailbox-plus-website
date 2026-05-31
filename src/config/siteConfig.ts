@@ -109,7 +109,6 @@ export const siteConfig: SiteConfig = {
   },
   premierSignupUrl: 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup',
   premierSignupModalEnabled: false,
-  mailbotEnabled: false,
 };
 
 export const defaultCTA: CTA = {

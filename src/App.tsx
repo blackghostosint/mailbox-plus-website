@@ -2,12 +2,6 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
-// Lazy load MailbotPlusChat to reduce main bundle size
-const MailbotPlusChat = React.lazy(() =>
-  import('./components/MailbotPlusChat').then((module) => ({ default: module.MailbotPlusChat }))
-);
-import { siteConfig } from './config/siteConfig';
-import { submitChatQuestion } from './services/chatbot';
 
 // Helper for lazy loading named exports
 type ModuleWithExports = Record<string, React.ComponentType>;
@@ -153,33 +147,6 @@ const DebugRoutes: React.FC = () => {
 };
 
 const App: React.FC = () => {
-  // Type-safe GTM dataLayer
-  interface DataLayerEvent {
-    event: string;
-    [key: string]: string | number | boolean | undefined;
-  }
-
-  interface WindowWithDataLayer extends Window {
-    dataLayer: DataLayerEvent[];
-  }
-
-  const handleAnalytics = (
-    eventName: string,
-    payload: Record<string, string | number | boolean | undefined>
-  ) => {
-    console.log('[Analytics]', eventName, payload);
-    try {
-      const win = window as unknown as WindowWithDataLayer;
-      win.dataLayer = win.dataLayer || [];
-      win.dataLayer.push({
-        event: eventName,
-        ...payload,
-      });
-    } catch (err) {
-      console.error('[Analytics Error]', err);
-    }
-  };
-
   return (
     <Router>
       <ScrollToTop />
@@ -417,15 +384,6 @@ const App: React.FC = () => {
           </Routes>
         </React.Suspense>
       </Layout>
-      {siteConfig.mailbotEnabled !== false && (
-        <React.Suspense fallback={null}>
-          <MailbotPlusChat
-            isHighIntentPage={false}
-            onSubmitQuestion={submitChatQuestion}
-            onAnalyticsEvent={handleAnalytics}
-          />
-        </React.Suspense>
-      )}
     </Router>
   );
 };
