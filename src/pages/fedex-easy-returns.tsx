@@ -120,8 +120,8 @@ export const FedExEasyReturns: React.FC = () => {
             style={{ objectPosition: 'center' }}
           />
           {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[#02152F]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
         </div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
@@ -168,7 +168,7 @@ export const FedExEasyReturns: React.FC = () => {
       {/* Intro Section */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-[#111827] mb-6">
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-6">
             Returning Items Has Never Been Easier
           </h2>
           <p className="text-lg text-gray-600 leading-relaxed">
@@ -183,7 +183,7 @@ export const FedExEasyReturns: React.FC = () => {
       <section className="py-20 bg-slate-50 relative z-10 -mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2 {...reveal} className="text-3xl font-bold text-[#111827]">
+            <motion.h2 {...reveal} className="text-3xl font-bold text-[var(--color-text-primary)]">
               Why Return with Us?
             </motion.h2>
           </div>
@@ -216,10 +216,12 @@ export const FedExEasyReturns: React.FC = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
               >
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[#0855B1]">
+                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
                   <benefit.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-lg font-bold text-[#111827] mb-3">{benefit.title}</h3>
+                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3">
+                  {benefit.title}
+                </h3>
                 <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
               </motion.div>
             ))}
@@ -235,7 +237,9 @@ export const FedExEasyReturns: React.FC = () => {
             className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
-            <h2 className="text-3xl font-bold text-[#0855B1] mb-6">What is FedEx Easy Returns?</h2>
+            <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">
+              What is FedEx Easy Returns?
+            </h2>
             <p className="text-slate-700 leading-relaxed text-lg">
               FedEx Easy Returns is a consumer-friendly service designed to streamline the process
               of sending items back to retailers. Instead of worrying about printing labels at home
@@ -250,7 +254,9 @@ export const FedExEasyReturns: React.FC = () => {
       {/* Steps Section */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#111827] text-center mb-12">How It Works</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] text-center mb-12">
+            How It Works
+          </h2>
           <div className="relative">
             {/* Connector Line (Desktop) */}
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
@@ -287,20 +293,24 @@ export const FedExEasyReturns: React.FC = () => {
                   <div className="flex-1 text-center md:text-right">
                     {index % 2 === 0 && (
                       <>
-                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                        <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
+                          {item.title}
+                        </h3>
                         <p className="text-gray-600">{item.desc}</p>
                       </>
                     )}
                   </div>
 
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#0B4BB6] to-[#1A6DFF] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-gradient-start)] to-[var(--color-accent)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
                     {item.step}
                   </div>
 
                   <div className="flex-1 text-center md:text-left">
                     {index % 2 !== 0 && (
                       <>
-                        <h3 className="text-xl font-bold text-[#111827] mb-2">{item.title}</h3>
+                        <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
+                          {item.title}
+                        </h3>
                         <p className="text-gray-600">{item.desc}</p>
                       </>
                     )}
@@ -315,7 +325,9 @@ export const FedExEasyReturns: React.FC = () => {
       {/* Common Items Grid */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-[#111827] mb-10">Items Commonly Returned</h2>
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-10">
+            Items Commonly Returned
+          </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
               'Clothing & Shoes',
@@ -341,7 +353,7 @@ export const FedExEasyReturns: React.FC = () => {
       {/* When to Visit */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#111827] mb-8 text-center">
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
             When to Visit Mailbox Plus
           </h2>
           <div className="space-y-4">
@@ -370,7 +382,7 @@ export const FedExEasyReturns: React.FC = () => {
       {/* FAQ Section */}
       <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
         <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-3xl font-bold text-[#111827] mb-8 text-center">
+          <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
             Frequently Asked Questions
           </h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
@@ -380,10 +392,10 @@ export const FedExEasyReturns: React.FC = () => {
                 value={`faq-${i}`}
                 className="bg-white border border-gray-200 rounded-xl shadow-sm px-2"
               >
-                <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[#0855B1] hover:underline">
+                <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[var(--color-primary)] hover:underline">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4 text-[#4B5563] leading-relaxed">
+                <AccordionContent className="px-4 pb-4 text-[var(--color-text-secondary)] leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -395,7 +407,9 @@ export const FedExEasyReturns: React.FC = () => {
       {/* Local SEO Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-[#111827] mb-6">Serving Your Local Community</h2>
+          <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6">
+            Serving Your Local Community
+          </h2>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
             We are proud to provide FedEx Easy Returns services to residents and businesses in:
           </p>
@@ -424,7 +438,7 @@ export const FedExEasyReturns: React.FC = () => {
       <CompetitorAlternativeSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A] text-center">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to return your package?
