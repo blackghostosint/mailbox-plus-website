@@ -20,6 +20,7 @@ if (SENTRY_DSN) {
     // Do not send PII by default
     sendDefaultPii: false,
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     beforeSend(event, _hint) {
       // Filter out network errors
       if (event.exception) {
