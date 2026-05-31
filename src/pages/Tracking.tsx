@@ -175,7 +175,7 @@ export const Tracking: React.FC = () => {
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
         {/* Tracking Form Glass Panel */}
         <motion.div {...reveal} className="max-w-3xl mx-auto">
-          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] p-8 md:p-10">
+          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg p-8 md:p-10">
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
                 <Search className="w-6 h-6" />
@@ -279,7 +279,7 @@ export const Tracking: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-[0_10px_30px_rgba(var(--color-shadow),0.08)] transition-all duration-300"
+                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-md transition-all duration-300"
               >
                 <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
                   <tip.icon className="w-6 h-6" />
@@ -293,7 +293,7 @@ export const Tracking: React.FC = () => {
 
         {/* Help Section - Glass Gradient Panel */}
         <motion.section {...reveal} className="max-w-5xl mx-auto">
-          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(var(--color-overlay),0.25)]">
+          <div className="relative rounded-xl overflow-hidden shadow-xl">
             {/* V2 Gradient Shell */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
 

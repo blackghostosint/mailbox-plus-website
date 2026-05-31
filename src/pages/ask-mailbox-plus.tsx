@@ -71,8 +71,7 @@ const AskMailboxPlus: React.FC = () => (
           priority
           src={getServiceImageUrl('/images/mailboxes.webp')}
           alt="Mailbox Plus Storefront"
-          className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          style={{ objectPosition: 'center' }}
+          className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
         />
         {/* V2 Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
@@ -108,7 +107,7 @@ const AskMailboxPlus: React.FC = () => (
     <section className="relative z-10 -mt-20 max-w-5xl mx-auto px-4 pb-16">
       <motion.div
         {...fadeUp(0.2)}
-        className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-lg border border-white/50 text-center"
+        className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center"
       >
         <h2 className="text-2xl font-bold text-slate-800 mb-4">Serving Lake County, Ohio</h2>
         <p className="text-slate-600 leading-relaxed text-lg mb-6">
@@ -143,7 +142,7 @@ const AskMailboxPlus: React.FC = () => (
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: idx * 0.1 }}
           viewport={{ once: true }}
-          className="mb-12 bg-white rounded-[26px] shadow-sm border border-slate-100 overflow-hidden"
+          className="mb-12 bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden"
         >
           <div className="bg-blue-50/50 p-6 border-b border-blue-100/50">
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center">

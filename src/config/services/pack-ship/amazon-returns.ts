@@ -82,7 +82,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-[28px] shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
@@ -134,7 +134,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 5}" class="rounded-lg shadow-sm w-full" />
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 5}" class="rounded-[28px] shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
@@ -180,7 +180,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 9}" class="rounded-lg shadow-sm w-full" />
+                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 9}" class="rounded-[28px] shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>

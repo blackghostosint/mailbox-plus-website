@@ -97,8 +97,7 @@ export const Services: React.FC = () => {
             ]}
             src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           />
           {/* V2 Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
@@ -185,7 +184,7 @@ export const Services: React.FC = () => {
       {/* ====================== CATEGORY NAVIGATION ======================= */}
       <section id="categories" className="py-12 bg-slate-50 relative z-10 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/70 backdrop-blur-xl rounded-[26px] shadow-lg border border-white/50 p-8">
+          <div className="bg-white/70 backdrop-blur-xl rounded-lg shadow-lg border border-white/50 p-8">
             <h2 className="text-2xl font-bold mb-6 text-slate-800">Explore Our Services</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {serviceCategories.map((category) => (
@@ -248,7 +247,7 @@ export const Services: React.FC = () => {
                   <motion.div
                     key={service.id}
                     whileHover={{ y: -4, scale: 1.01 }}
-                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-[0_10px_30px_rgba(var(--color-shadow),0.04)] hover:shadow-[0_20px_40px_rgba(var(--color-primary),0.1)] transition-all flex flex-col group"
+                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col group"
                   >
                     {/* Thumbnail with fade overlay + subtle zoom */}
                     {service.heroImage ? (

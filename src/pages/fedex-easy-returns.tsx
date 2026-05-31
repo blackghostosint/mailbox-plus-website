@@ -116,8 +116,7 @@ export const FedExEasyReturns: React.FC = () => {
             priority
             src={service.heroImage}
             alt="FedEx Easy Returns at Mailbox Plus"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           />
           {/* V2 Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
@@ -214,7 +213,7 @@ export const FedExEasyReturns: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/70 backdrop-blur-xl p-8 rounded-[26px] shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
+                className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
               >
                 <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
                   <benefit.icon className="w-7 h-7" />

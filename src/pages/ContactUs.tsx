@@ -151,8 +151,7 @@ export const ContactUs: React.FC = () => {
             ]}
             src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           />
           {/* V2 Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
@@ -194,7 +193,7 @@ export const ContactUs: React.FC = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
-              className="group relative flex flex-col items-center p-8 text-center rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] hover:bg-white/90 transition-all duration-300"
+              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300"
             >
               <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
                 <info.icon className="w-8 h-8" />
@@ -222,7 +221,7 @@ export const ContactUs: React.FC = () => {
           {/* Contact Form GLASS PANEL */}
           <motion.section {...reveal} className="relative">
             {/* Glass container */}
-            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-[0_18px_45px_rgba(var(--color-overlay),0.10)] h-full">
+            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-lg h-full">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
                 Send Us a Message
               </h2>
