@@ -248,7 +248,7 @@ export const Services: React.FC = () => {
                   <motion.div
                     key={service.id}
                     whileHover={{ y: -4, scale: 1.01 }}
-                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-[0_10px_30px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgba(var(--color-primary),0.1)] transition-all flex flex-col group"
+                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-[26px] shadow-[0_10px_30px_rgba(var(--color-shadow),0.04)] hover:shadow-[0_20px_40px_rgba(var(--color-primary),0.1)] transition-all flex flex-col group"
                   >
                     {/* Thumbnail with fade overlay + subtle zoom */}
                     {service.heroImage ? (
