@@ -222,7 +222,7 @@ const PickupHours: React.FC = () => {
               transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(0,0,0,0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
+              className={`relative rounded-[26px] p-8 border border-white/60 shadow-[0_10px_30px_rgba(var(--color-shadow),0.05)] ${item.bgTint} backdrop-blur-md overflow-hidden group`}
             >
               {/* Decorative accent bar */}
               <div
