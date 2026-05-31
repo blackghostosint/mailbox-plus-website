@@ -175,7 +175,7 @@ export const SearchBox: React.FC = () => {
                     key={result.href}
                     to={result.href}
                     onClick={handleResultClick}
-                    className="block px-4 py-3 hover:bg-[#F9FAFB] transition-colors border-b border-gray-100 last:border-b-0"
+                    className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-gray-100 last:border-b-0"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">
@@ -186,7 +186,7 @@ export const SearchBox: React.FC = () => {
                           {result.description}
                         </p>
                       </div>
-                      <span className="text-xs text-[#0855B1] font-medium ml-3 flex-shrink-0">
+                      <span className="text-xs text-[var(--color-primary)] font-medium ml-3 flex-shrink-0">
                         {result.category}
                       </span>
                     </div>
