@@ -59,7 +59,7 @@ const ShippingPartners: React.FC = () => {
           <div className="relative">
             {/* Note: Using rigid PRD styles */}
             <div className="pointer-events-none absolute inset-0 rounded-[30px] bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
-            <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_rgba(var(--color-overlay),0.20)] px-6 py-6 md:px-10 md:py-8 text-center">
+            <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg px-6 py-6 md:px-10 md:py-8 text-center">
               <p className="text-lg text-slate-700 leading-relaxed">
                 We are your one-stop{' '}
                 <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">
@@ -96,7 +96,7 @@ const ShippingPartners: React.FC = () => {
                 href={partner.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative flex flex-col items-center p-8 rounded-[26px] bg-white/60 backdrop-blur-xl border border-white/60 shadow-sm hover:shadow-[0_12px_30px_rgba(var(--color-overlay),0.12)] transition-all duration-300 hover:-translate-y-1"
+                className="group relative flex flex-col items-center p-8 rounded-[26px] bg-white/60 backdrop-blur-xl border border-white/60 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -124,7 +124,7 @@ const ShippingPartners: React.FC = () => {
 
         {/* ====================== CTA SECTION (V2 Gradient Panel) ======================= */}
         <motion.section {...reveal} className="max-w-4xl mx-auto">
-          <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(var(--color-overlay),0.32)]">
+          <div className="relative rounded-[30px] overflow-hidden shadow-xl">
             {/* V2 Gradient Shell */}
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
             {/* Inner Glass */}

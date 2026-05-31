@@ -85,8 +85,7 @@ export const Home: React.FC = () => {
             ]}
             src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover opacity-30"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center opacity-30"
           />
           {/* Simplified gradient overlay for better image visibility */}
           <div className="absolute inset-0 bg-gradient-to-br from-blue-900/80 via-blue-800/70 to-slate-900/85"></div>

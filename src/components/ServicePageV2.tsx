@@ -167,7 +167,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 <div className="relative">
                   {/* subtle gradient border */}
                   <div className="pointer-events-none absolute inset-0 rounded-[30px] bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
-                  <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-[0_18px_45px_var(--color-overlay)/20] px-6 py-6 md:px-10 md:py-8">
+                  <div className="relative rounded-[26px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg px-6 py-6 md:px-10 md:py-8">
                     {children}
                   </div>
                 </div>
@@ -200,7 +200,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                             ? {}
                             : { y: -6, scale: 1.01, transition: { duration: 0.2 } }
                         }
-                        className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-[0_10px_30px_var(--color-overlay)/8]"
+                        className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm"
                       >
                         {/* subtle overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-blue-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -229,7 +229,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 <motion.section key={idx} {...reveal} className="max-w-5xl mx-auto">
                   <div
                     className={[
-                      'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-[0_18px_45px_var(--color-overlay)/10]',
+                      'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg',
                       'bg-white/75 backdrop-blur-xl border border-white/80',
                       idx % 2 === 1
                         ? 'before:absolute before:inset-px before:rounded-[26px] before:bg-gradient-to-br before:from-blue-50/80 before:via-slate-50/50 before:to-blue-100/60 before:-z-10'
@@ -254,7 +254,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 className="py-12 rounded-[40px] bg-gradient-to-b from-slate-100/80 via-slate-200/70 to-slate-100/80"
               >
                 <div className="max-w-4xl mx-auto">
-                  <div className="relative rounded-[30px] bg-white/80 backdrop-blur-xl border border-white/80 shadow-[0_20px_60px_var(--color-overlay)/18] px-4 md:px-8 py-8 md:py-10">
+                  <div className="relative rounded-[30px] bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
                     <div className="text-center mb-6 md:mb-8">
                       <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
                         Frequently Asked Questions
@@ -289,7 +289,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {/* -------- CTA (GLASS + GRADIENT) -------- */}
             {cta && (
               <motion.section {...reveal} className="max-w-4xl mx-auto">
-                <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_var(--color-overlay)/32]">
+                <div className="relative rounded-[30px] overflow-hidden shadow-xl">
                   {/* gradient shell */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
                   {/* glass overlay */}

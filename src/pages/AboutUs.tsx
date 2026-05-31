@@ -42,8 +42,7 @@ export function AboutUs() {
             ]}
             src={getServiceImageUrl('aboutus_mailbox_plus.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           />
           {/* V2 Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
@@ -83,7 +82,7 @@ export function AboutUs() {
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
-            className="rounded-[26px] shadow-[0_18px_45px_rgba(var(--color-overlay),0.15)] w-full aspect-video object-cover border border-white/50"
+            className="rounded-[26px] shadow-lg w-full aspect-video object-cover border border-white/50"
           />
         </motion.div>
 

@@ -116,8 +116,7 @@ export const FedExEasyReturns: React.FC = () => {
             priority
             src={service.heroImage}
             alt="FedEx Easy Returns at Mailbox Plus"
-            className="w-full h-full object-cover mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-            style={{ objectPosition: 'center' }}
+            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
           />
           {/* V2 Gradient Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
