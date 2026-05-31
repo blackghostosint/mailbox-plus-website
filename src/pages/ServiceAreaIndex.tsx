@@ -28,8 +28,12 @@ export const ServiceAreaIndex: React.FC = () => {
             key={area.slug}
             className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center flex flex-col items-center justify-between"
           >
-            <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">{area.city}</h2>
-            <p className="text-sm text-[var(--color-text-secondary)] mb-6">{area.metaDescription}</p>
+            <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">
+              {area.city}
+            </h2>
+            <p className="text-sm text-[var(--color-text-secondary)] mb-6">
+              {area.metaDescription}
+            </p>
             <InternalLink to={`/service-area/${area.slug}`}>
               <Button variant="secondary" size="sm" className="!rounded-full">
                 View {area.city} Services
