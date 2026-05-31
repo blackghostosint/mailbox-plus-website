@@ -26,8 +26,8 @@ const ShippingPartners: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
         {/* Soft Fade Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
@@ -126,7 +126,7 @@ const ShippingPartners: React.FC = () => {
         <motion.section {...reveal} className="max-w-4xl mx-auto">
           <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(var(--color-overlay),0.32)]">
             {/* V2 Gradient Shell */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
             {/* Inner Glass */}
             <div className="absolute inset-[1px] rounded-[28px] bg-white/10 backdrop-blur-xl border border-white/30" />
 

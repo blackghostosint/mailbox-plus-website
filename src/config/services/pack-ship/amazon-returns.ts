@@ -191,7 +191,7 @@ export const amazonReturnsService: Service = {
             )
             .join('')}
         </div>
-        <div class="mt-8 bg-blue-50 border-l-4 border-[#0855B1] p-6 rounded-r-2xl flex items-start gap-4">
+        <div class="mt-8 bg-blue-50 border-l-4 border-[var(--color-primary)] p-6 rounded-r-2xl flex items-start gap-4">
           <div class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-1">💡</div>
           <div>
             <p class="font-bold text-[var(--color-primary)] text-lg">Tip:</p>

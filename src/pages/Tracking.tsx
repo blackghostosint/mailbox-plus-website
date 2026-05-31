@@ -130,7 +130,7 @@ export const Tracking: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: #0B4BB6 → #1A6DFF → #021B4A */}
+        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
         {/* Hero Image with Soft Blend */}
