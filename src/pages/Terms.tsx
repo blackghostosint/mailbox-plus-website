@@ -12,8 +12,8 @@ import Phone from '~icons/lucide/phone';
 
 const BulletPoint: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <li className="flex items-start">
-    <div className="w-2 h-2 bg-[#0855B1] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-    <span className="text-[#4B5563] leading-relaxed">{children}</span>
+    <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+    <span className="text-[var(--color-text-secondary)] leading-relaxed">{children}</span>
   </li>
 );
 
@@ -131,15 +131,15 @@ export const Terms: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold text-[#111827] tracking-tight mb-6"
+              className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6"
             >
-              Terms of <span className="text-[#0855B1]">Service</span>
+              Terms of <span className="text-[var(--color-primary)]">Service</span>
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[#4B5563] mb-8 leading-relaxed"
+              className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed"
             >
               These terms and conditions govern your use of our services. Please read them carefully
               before using our shipping, printing, and business services.
@@ -148,7 +148,7 @@ export const Terms: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm text-[#4B5563]"
+              className="text-sm text-[var(--color-text-secondary)]"
             >
               Last updated: February 2026
             </motion.p>
@@ -157,7 +157,7 @@ export const Terms: React.FC = () => {
       </section>
 
       {/* Terms Sections */}
-      <section className="py-20 bg-[#F9FAFB]">
+      <section className="py-20 bg-[var(--color-bg-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {sections.map((section, index) => (
@@ -169,19 +169,26 @@ export const Terms: React.FC = () => {
                 className={`${section.highlight ? 'lg:col-span-2' : ''}`}
               >
                 <div
-                  className={`${section.highlight ? 'bg-[#F9FAFB] rounded-2xl p-8' : 'bg-white rounded-2xl p-8 shadow-sm'}`}
+                  className={`${section.highlight ? 'bg-[var(--color-bg-primary)] rounded-2xl p-8' : 'bg-white rounded-2xl p-8 shadow-sm'}`}
                 >
                   <div className="flex items-center mb-6">
                     {section.icon && (
-                      <div className="w-12 h-12 bg-[#F0F7FF] rounded-xl flex items-center justify-center mr-4">
-                        <section.icon className="w-6 h-6 text-[#0855B1]" aria-hidden="true" />
+                      <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4">
+                        <section.icon
+                          className="w-6 h-6 text-[var(--color-primary)]"
+                          aria-hidden="true"
+                        />
                       </div>
                     )}
-                    <h2 className="text-2xl font-bold text-[#111827]">{section.title}</h2>
+                    <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+                      {section.title}
+                    </h2>
                   </div>
 
                   {section.body && (
-                    <p className="text-[#4B5563] leading-relaxed mb-4">{section.body}</p>
+                    <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
+                      {section.body}
+                    </p>
                   )}
 
                   {section.content && (
