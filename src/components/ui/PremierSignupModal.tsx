@@ -143,7 +143,7 @@ export const PremierSignupModal: React.FC = () => {
                 >
                   Join Mailbox Plus Premier
                 </h2>
-                <p className="mt-2 text-[#0855B1] font-medium text-sm sm:text-base">
+                <p className="mt-2 text-[var(--color-primary)] font-medium text-sm sm:text-base">
                   Your services, made more rewarding — automatically.
                 </p>
               </div>
@@ -164,7 +164,7 @@ export const PremierSignupModal: React.FC = () => {
                 </div>
                 <a
                   href={SIGNUP_URL}
-                  className="text-xs text-slate-400 hover:text-[#0855B1] transition-colors underline underline-offset-4"
+                  className="text-xs text-slate-400 hover:text-[var(--color-primary)] transition-colors underline underline-offset-4"
                 >
                   Continue on this device
                 </a>
@@ -178,7 +178,7 @@ export const PremierSignupModal: React.FC = () => {
 
                 <a
                   href={SIGNUP_URL}
-                  className="w-full py-4 bg-[#0855B1] text-white font-semibold rounded-2xl shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform text-center inline-block"
+                  className="w-full py-4 bg-[var(--color-primary)] text-white font-semibold rounded-2xl shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform text-center inline-block"
                 >
                   Add Premier Card to My Phone
                 </a>
