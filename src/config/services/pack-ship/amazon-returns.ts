@@ -79,13 +79,13 @@ export const amazonReturnsService: Service = {
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
-                  <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
+                  <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
+                  <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
                 <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-lg shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
-                <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
+                <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
@@ -131,13 +131,13 @@ export const amazonReturnsService: Service = {
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
-                  <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
+                  <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
+                  <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
                 <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 5}" class="rounded-lg shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
-                <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
+                <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
@@ -177,13 +177,13 @@ export const amazonReturnsService: Service = {
             <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
-                  <div class="w-10 h-10 rounded-full bg-[#0855B1] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
-                  <h3 class="text-lg font-bold text-[#0855B1] md:hidden">${step.title}</h3>
+                  <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
+                  <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
                 <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 9}" class="rounded-lg shadow-sm w-full" />
               </div>
               <div class="w-full md:w-2/3">
-                <h3 class="hidden md:block text-2xl font-bold text-[#0855B1] mb-3">${step.title}</h3>
+                <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
                 <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
@@ -192,9 +192,9 @@ export const amazonReturnsService: Service = {
             .join('')}
         </div>
         <div class="mt-8 bg-blue-50 border-l-4 border-[#0855B1] p-6 rounded-r-2xl flex items-start gap-4">
-          <div class="w-6 h-6 text-[#0855B1] shrink-0 mt-1">💡</div>
+          <div class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-1">💡</div>
           <div>
-            <p class="font-bold text-[#0855B1] text-lg">Tip:</p>
+            <p class="font-bold text-[var(--color-primary)] text-lg">Tip:</p>
             <p class="text-blue-900 text-lg">Start your return as early as possible to avoid missing the return window.</p>
           </div>
         </div>
@@ -307,7 +307,7 @@ export const amazonReturnsService: Service = {
             )
             .join('')}
         </div>
-        <p class="text-center text-3xl font-black text-[#0855B1] italic mt-8">
+        <p class="text-center text-3xl font-black text-[var(--color-primary)] italic mt-8">
           “Let Us Handle Your Package!”
         </p>
       `,

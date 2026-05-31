@@ -44,7 +44,7 @@ export const packingServices: Service[] = [
       },
       {
         heading: 'Online Custom Box Calculator',
-        body: `For customers who prefer a hands-on approach, we've developed an <strong>online custom box calculator</strong> available at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" style="color: #2DA0ED; font-weight: bold;">https://boxsize.cc/</a>. This free tool allows you to <em>design, measure, and visualize your own box layout at home</em> before bringing it in for professional assembly or packing assistance.`,
+        body: `For customers who prefer a hands-on approach, we've developed an <strong>online custom box calculator</strong> available at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" style="color: var(--color-alt-accent); font-weight: bold;">https://boxsize.cc/</a>. This free tool allows you to <em>design, measure, and visualize your own box layout at home</em> before bringing it in for professional assembly or packing assistance.`,
       },
       {
         heading: 'Local Expertise',
