@@ -1,34 +1,54 @@
-# Mailbox Plus Website (V2)
+# Mailbox Plus Website
 
-This is the codebase for the Mailbox Plus V2 website, built with React, TypeScript, and Vite.
+The official website for Mailbox Plus — a community-focused pack & ship retail store in Concord Township, Ohio.
 
-## 🚨 Micro-Problem Governance
+**Live site:** [mailboxplusohio.com](https://mailboxplusohio.com)
 
-This project enforces strict **Quarterly Governance** for all micro-problem pages to prevent SEO bloat and ensure content quality.
+## Tech Stack
 
-- **[GOVERNANCE_QUICK_REFERENCE.md](./GOVERNANCE_QUICK_REFERENCE.md)** (Start Here)
-- **[MICRO_PROBLEM_GOVERNANCE.md](./MICRO_PROBLEM_GOVERNANCE.md)** (Authoritative Policy)
-- **[.agent/workflows/micro-problem-quarterly-audit.md](.agent/workflows/micro-problem-quarterly-audit.md)** (Audit Workflow)
+| Layer         | Technology                                             |
+| ------------- | ------------------------------------------------------ |
+| Frontend      | React 19, TypeScript (strict), Vite 7                  |
+| Desktop shell | Tauri v2                                               |
+| Styling       | Tailwind CSS 3 + CSS custom properties (design tokens) |
+| Testing       | Vitest (unit), Playwright (E2E)                        |
+| CI/CD         | GitHub Actions → Netlify                               |
+| Monitoring    | Sentry                                                 |
+| Analytics     | Google Analytics 4, Google Tag Manager                 |
 
-**Key Rule**:
-
-> A micro-problem page must reduce real-world friction. If it doesn't, it doesn't deserve to exist.
-
-## Development
+## Quick Start
 
 ```bash
-# Install dependencies
 npm install
-
-# Run development server
-npm run dev
-
-# Run micro-problem audit
-npm run audit:micro-problems -- --search-console=scripts/audits/search-console-data/latest.csv
+cp .env.example .env    # Fill in required variables
+npm run dev             # Dev server at http://localhost:5173
+npm run build           # Production build
+npm test                # Unit tests
+npm run lint            # ESLint + typecheck
 ```
 
-## Documentation
+## Architecture
 
-- **Config Architecture**: `src/config/micro-problems/README.md`
-- **Design System**: `V2 Design System & Aesthetic Specification.md`
-- **Internal Linking**: `INTERNAL_LINKING_GUIDE.md`
+### Data-Driven Pages
+
+Service pages are defined as configuration objects in `src/config/services/`. Each service specifies its slug, SEO metadata, hero content, features, and FAQs. This allows adding new services without creating new page components.
+
+### Routing
+
+React Router v6 handles all client-side routing. Routes are defined in `src/App.tsx` with lazy-loaded page components for optimal bundle splitting.
+
+### Design System
+
+CSS custom properties defined in `src/index.css` power the entire visual system. See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for the full token reference.
+
+### Environment Variables
+
+See [docs/ENVIRONMENT.md](docs/ENVIRONMENT.md) for all required and optional environment variables.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines.
+
+## License
+
+Private — Mailbox Plus of Ohio, LLC
