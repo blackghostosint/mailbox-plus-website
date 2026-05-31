@@ -39,5 +39,17 @@
     --color-overlay: #0f172a;
     --color-overlay-blue: #0855b1;
     --color-shadow: #000000;
+
+    /* Shadow tokens */
+    --shadow-sm: 0 10px 30px rgba(var(--color-shadow), 0.04);
+    --shadow-md: 0 10px 30px rgba(var(--color-shadow), 0.08);
+    --shadow-lg: 0 18px 45px rgba(var(--color-overlay), 0.1);
+    --shadow-xl: 0 26px 65px rgba(var(--color-overlay), 0.25);
+
+    /* Surface tint tokens */
+    --surface-subtle: rgba(255, 255, 255, 0.5);
+    --surface-medium: rgba(255, 255, 255, 0.6);
+    --surface-strong: rgba(255, 255, 255, 0.7);
+    --surface-heavy: rgba(255, 255, 255, 0.8);
   }
 }

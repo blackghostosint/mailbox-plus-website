@@ -2,6 +2,20 @@
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
+    borderRadius: {
+      sm: '12px',
+      md: '20px',
+      lg: '26px',
+      xl: '30px',
+      '2xl': '40px',
+      full: '9999px',
+    },
+    boxShadow: {
+      sm: 'var(--shadow-sm)',
+      md: 'var(--shadow-md)',
+      lg: 'var(--shadow-lg)',
+      xl: 'var(--shadow-xl)',
+    },
     extend: {
       fontFamily: {
         sans: ['Open Sans', 'system-ui', '-apple-system', 'sans-serif'],
