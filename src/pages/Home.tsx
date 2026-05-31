@@ -131,7 +131,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               variant="secondary"
-              className="font-bold shadow-lg border-none hover:bg-white hover:text-[#0855B1] transition-colors"
+              className="font-bold shadow-lg border-none hover:bg-white hover:text-[var(--color-primary)] transition-colors"
               onClick={() => navigate('/services')}
             >
               View Services <ArrowRight className="w-5 h-5 ml-2" />
@@ -142,7 +142,7 @@ export const Home: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-[#0855B1] text-white hover:bg-[#064080] border border-blue-400/30 shadow-lg min-w-[48px] min-h-[48px]">
+              <Button className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -169,7 +169,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
-      <section className="py-20 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-heading">
             Visit Us in Concord Township Today
@@ -189,7 +189,7 @@ export const Home: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button className="bg-white !text-[#0855B1] hover:bg-gray-100 hover:!text-[#064080] min-w-[48px] min-h-[48px]">
+              <Button className="bg-white !text-[var(--color-primary)] hover:bg-gray-100 hover:!text-[var(--color-primary-deeper)] min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
