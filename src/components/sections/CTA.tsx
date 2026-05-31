@@ -38,8 +38,8 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
     variant === 'neutral'
       ? 'bg-white border border-gray-200'
       : variant === 'ghost'
-        ? 'bg-transparent border border-[#0855B1]/20'
-        : 'bg-[#0855B1] text-white'; // brand default
+        ? 'bg-transparent border border-[var(--color-primary)]/20'
+        : 'bg-[var(--color-primary)] text-white'; // brand default
 
   // Optional: Analytics event handler
   const handleClick = () => {
