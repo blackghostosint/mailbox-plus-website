@@ -77,7 +77,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
         {/* ====================== HERO ======================= */}
         <section className="relative overflow-hidden">
           {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#1A6DFF] to-[#021B4A]" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
           {/* Hero image softly blended in */}
           {heroImage && (
@@ -93,7 +93,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 alt={heroTitle}
                 className="w-full h-full object-cover object-center scale-110 blur-[1px] opacity-90 mix-blend-soft-light"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-[#02152F]/80" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-[var(--color-gradient-end)]/80" />
             </motion.div>
           )}
 
@@ -207,7 +207,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
 
                         <div className="relative p-6 flex flex-col gap-3">
                           {Icon && (
-                            <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-slate-900/5 via-blue-500/10 to-blue-400/10 text-[#0855B1] w-12 h-12 shadow-inner shadow-white/40">
+                            <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-slate-900/5 via-blue-500/10 to-blue-400/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
                               <Icon className="w-5 h-5" />
                             </div>
                           )}
@@ -272,7 +272,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                           value={`faq-${i}`}
                           className="rounded-2xl border border-slate-200/80 bg-slate-50/80 data-[state=open]:bg-white/90 shadow-sm"
                         >
-                          <AccordionTrigger className="px-4 py-3 text-left text-[#0855B1] font-semibold hover:no-underline">
+                          <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-primary)] font-semibold hover:no-underline">
                             {faq.question}
                           </AccordionTrigger>
                           <AccordionContent className="px-4 pb-4 text-sm md:text-base text-slate-700 leading-relaxed">
@@ -291,7 +291,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               <motion.section {...reveal} className="max-w-4xl mx-auto">
                 <div className="relative rounded-[30px] overflow-hidden shadow-[0_26px_65px_rgba(15,23,42,0.32)]">
                   {/* gradient shell */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0B4BB6] via-[#2F7CFB] to-[#021B4A]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
                   {/* glass overlay */}
                   <div className="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
                   <div className="relative px-8 py-9 md:px-10 md:py-11 text-white">
