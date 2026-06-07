@@ -14,10 +14,10 @@ export const AmazonReturnGuide: React.FC = () => {
           <div className="flex items-start gap-4">
             <AlertTriangle className="w-8 h-8 text-yellow-600 shrink-0 mt-1" />
             <div>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">
+              <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
                 ⚠️ Important Amazon QR-Code Notice
               </h3>
-              <p className="text-gray-700 mb-4">
+              <p className="text-[var(--color-text-primary)] mb-4">
                 Mailbox Plus <strong>cannot scan or accept Amazon QR codes</strong> for label-free
                 returns. Amazon requires QR-code returns to be processed ONLY at Amazon-authorized
                 partner locations (The UPS Store, Whole Foods, Kohl’s, Amazon Hub, etc.).
@@ -38,13 +38,13 @@ export const AmazonReturnGuide: React.FC = () => {
 
         {/* Intro Paragraphs */}
         <div className="space-y-6 text-center max-w-3xl mx-auto">
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
             Returning an item to Amazon doesn&apos;t have to be confusing. If you live in Concord
             Township, Painesville, Mentor, Eastlake, Willoughby, or anywhere in Lake County, Ohio,
             Mailbox Plus is here to make your Amazon returns simple. We help you pack, label, and
             ship your Amazon return—<strong>as long as Amazon provides a printable label</strong>.
           </p>
-          <p className="text-lg text-slate-600 leading-relaxed">
+          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
             Mailbox Plus is your local{' '}
             <InternalLink variant="geo" to="/amazon-returns-drop-off-concord-township">
               Amazon returns drop-off location

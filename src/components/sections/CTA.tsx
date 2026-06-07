@@ -36,7 +36,7 @@ export const CTASection: React.FC<Props> = ({ cta, className }) => {
   // Basic variants; can be expanded in your design system
   const shell =
     variant === 'neutral'
-      ? 'bg-white border border-gray-200'
+      ? 'bg-white border border-[var(--color-border)]'
       : variant === 'ghost'
         ? 'bg-transparent border border-[var(--color-primary)]/20'
         : 'bg-[var(--color-primary)] text-white'; // brand default

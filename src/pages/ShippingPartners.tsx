@@ -17,7 +17,7 @@ const reveal = {
 
 const ShippingPartners: React.FC = () => {
   return (
-    <div className="bg-slate-50">
+    <div className="bg-[var(--color-bg-primary)]">
       <Meta
         title="Shipping Partners - Mailbox Plus"
         description="Meet the businesses that trust Mailbox Plus for their shipping and logistics needs."
@@ -30,7 +30,7 @@ const ShippingPartners: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
 
         {/* Soft Fade Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
 
         <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
           <motion.h1
@@ -39,13 +39,13 @@ const ShippingPartners: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
           >
-            Our Shipping <span className="text-blue-200">Partners</span>
+            Our Shipping <span className="text-[var(--color-accent)]">Partners</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-xl text-blue-100 mb-8 leading-relaxed"
+            className="text-xl text-white/80 mb-8 leading-relaxed"
           >
             We&apos;re proud to work with a wide range of businesses who trust Mailbox Plus for
             their packing, shipping, and logistics needs.
@@ -60,7 +60,7 @@ const ShippingPartners: React.FC = () => {
             {/* Note: Using rigid PRD styles */}
             <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
             <div className="relative rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg px-6 py-6 md:px-10 md:py-8 text-center">
-              <p className="text-lg text-slate-700 leading-relaxed">
+              <p className="text-lg text-[var(--color-text-primary)] leading-relaxed">
                 We are your one-stop{' '}
                 <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">
                   UPS, FedEx, USPS, and DHL shipping center
@@ -111,10 +111,10 @@ const ShippingPartners: React.FC = () => {
                   />
                 </div>
 
-                <span className="text-lg font-bold text-slate-800 group-hover:text-[var(--color-primary)] transition-colors">
+                <span className="text-lg font-bold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                   {partner.name}
                 </span>
-                <span className="text-sm text-slate-500 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-sm text-[var(--color-bg-primary)] mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
                   Visit Website →
                 </span>
               </motion.a>
@@ -134,13 +134,13 @@ const ShippingPartners: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Need to Ship a Package?
               </h2>
-              <p className="text-lg text-blue-100 mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-[var(--color-bg-blue-tint)] mb-8 max-w-2xl mx-auto">
                 Visit Mailbox Plus today for expert packing and shipping services. We make it easy
                 to ship anything, anywhere.
               </p>
               <InternalLink
                 to="/contact-us"
-                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[var(--color-primary)] bg-white rounded-xl shadow-lg hover:bg-blue-50 transition-all hover:scale-105"
+                className="inline-flex items-center justify-center px-8 py-4 text-base font-bold text-[var(--color-primary)] bg-white rounded-xl shadow-lg hover:bg-[var(--color-bg-blue-tint)] transition-all hover:scale-105"
               >
                 Visit Us Today
               </InternalLink>

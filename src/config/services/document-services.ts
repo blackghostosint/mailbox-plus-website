@@ -59,22 +59,22 @@ export const documentServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Design & Printing:</strong> Professional postcards and brochures.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Design & Printing:</strong> Professional postcards and brochures.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
                         </li>
                     </ul>
                 `,
@@ -130,40 +130,40 @@ export const documentServices: Service[] = [
       {
         heading: 'Compliance & Security',
         body: `
-                    <p class="text-lg text-slate-700 leading-relaxed mb-6">
+                    <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
                         Did you know that federal laws often <strong>require</strong> the proper disposal of personal information? We make it easy for you and your business to comply with major privacy regulations:
                     </p>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed">
-                                <strong class="text-gray-900 block">The Fair and Accurate Credit Transactions Act (FACTA)</strong>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed">
+                                <strong class="text-[var(--color-text-primary)] block">The Fair and Accurate Credit Transactions Act (FACTA)</strong>
                                 Ensures businesses take appropriate measures to dispose of consumer report information to protect against unauthorized access.
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed">
-                                <strong class="text-gray-900 block">The Health Insurance Portability and Accountability Act (HIPAA)</strong>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed">
+                                <strong class="text-[var(--color-text-primary)] block">The Health Insurance Portability and Accountability Act (HIPAA)</strong>
                                 Requires healthcare providers and insurers to safeguard the disposal of protected health information (PHI).
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed">
-                                <strong class="text-gray-900 block">The Gramm-Leach-Bliley Act (GLBA)</strong>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed">
+                                <strong class="text-[var(--color-text-primary)] block">The Gramm-Leach-Bliley Act (GLBA)</strong>
                                 Mandates that financial institutions must securely protect the confidentiality and proper disposal of consumer records.
                             </div>
                         </li>
                     </ul>
-                    <p class="text-slate-700 leading-relaxed">
-                        <strong class="text-gray-900">State-Specific Regulations:</strong> In addition to federal laws, many states have their own regulations regarding document destruction. Our secure content destruction helps you meet requirements that act alongside federal standards, ensuring your sensitive records are handled with the highest level of security.
+                    <p class="text-[var(--color-text-primary)] leading-relaxed">
+                        <strong class="text-[var(--color-text-primary)]">State-Specific Regulations:</strong> In addition to federal laws, many states have their own regulations regarding document destruction. Our secure content destruction helps you meet requirements that act alongside federal standards, ensuring your sensitive records are handled with the highest level of security.
                     </p>
                 `,
         isFullWidth: true,
@@ -318,30 +318,30 @@ export const documentServices: Service[] = [
                     with ease and confidentiality.
                 </p>
                 <div class="grid md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
-                        <h4 class="text-xl font-bold text-blue-900 mb-4">Complete Document Solutions</h4>
+                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                        <h4 class="text-xl font-bold text-[var(--color-primary-dark)] mb-4">Complete Document Solutions</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Printing & Copying:</strong> High-quality color and B&W.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Printing & Copying:</strong> High-quality color and B&W.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Notary Services:</strong> Official notarization for legal forms.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Notary Services:</strong> Official notarization for legal forms.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Secure Shredding:</strong> Safe destruction of confidential files.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Secure Shredding:</strong> Safe destruction of confidential files.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Scanning & Faxing:</strong> Digitize or send files quickly.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Scanning & Faxing:</strong> Digitize or send files quickly.</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                        <h4 class="text-xl font-bold text-slate-900 mb-4">Why Local Choice Matters</h4>
-                        <p class="text-gray-600 leading-relaxed italic">
+                    <div class="bg-[var(--color-bg-secondary)] p-6 rounded-2xl border border-[var(--color-border)]">
+                        <h4 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Why Local Choice Matters</h4>
+                        <p class="text-[var(--color-text-secondary)] leading-relaxed italic">
                             "Skip the office supply store lines and enjoy personalized service right in your neighborhood. 
                             We handle your sensitive documents with the utmost care and confidentiality."
                         </p>
@@ -352,17 +352,17 @@ export const documentServices: Service[] = [
       {
         heading: 'Why Choose Mailbox Plus for Documents?',
         body: `<div class="grid md:grid-cols-3 gap-6">
-                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
-                        <h5 class="font-bold text-blue-900">Security</h5>
-                        <p class="text-sm text-gray-600">Utmost care and confidentiality for all sensitive files.</p>
+                    <div class="p-4 border-l-4 border-[var(--color-primary)] bg-white shadow-sm">
+                        <h5 class="font-bold text-[var(--color-primary-dark)]">Security</h5>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Utmost care and confidentiality for all sensitive files.</p>
                     </div>
-                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
-                        <h5 class="font-bold text-blue-900">Expertise</h5>
-                        <p class="text-sm text-gray-600">Staff trained for complex print jobs and notary requirements.</p>
+                    <div class="p-4 border-l-4 border-[var(--color-primary)] bg-white shadow-sm">
+                        <h5 class="font-bold text-[var(--color-primary-dark)]">Expertise</h5>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Staff trained for complex print jobs and notary requirements.</p>
                     </div>
-                    <div class="p-4 border-l-4 border-blue-500 bg-white shadow-sm">
-                        <h5 class="font-bold text-blue-900">Speed</h5>
-                        <p class="text-sm text-gray-600">Get your tasks done quickly and get back to your day.</p>
+                    <div class="p-4 border-l-4 border-[var(--color-primary)] bg-white shadow-sm">
+                        <h5 class="font-bold text-[var(--color-primary-dark)]">Speed</h5>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Get your tasks done quickly and get back to your day.</p>
                     </div>
                 </div>`,
       },

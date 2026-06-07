@@ -122,7 +122,7 @@ export const Tracking: React.FC = () => {
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-[var(--color-bg-primary)] min-h-screen">
       {/* ✅ Inject LocalBusiness + ParcelDelivery schema */}
       {jsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
@@ -149,7 +149,7 @@ export const Tracking: React.FC = () => {
         </motion.div>
 
         {/* Soft Fade Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
 
         <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
           <motion.h1
@@ -164,7 +164,7 @@ export const Tracking: React.FC = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-xl text-blue-100 mb-8 leading-relaxed"
+            className="text-xl text-white/80 mb-8 leading-relaxed"
           >
             Enter your tracking number and get real-time updates.
           </motion.p>
@@ -177,10 +177,12 @@ export const Tracking: React.FC = () => {
         <motion.div {...reveal} className="max-w-3xl mx-auto">
           <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg p-8 md:p-10">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
+              <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
                 <Search className="w-6 h-6" />
               </div>
-              <h2 className="text-2xl font-bold text-slate-900">Enter Tracking Number</h2>
+              <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
+                Enter Tracking Number
+              </h2>
             </div>
 
             <form
@@ -195,7 +197,7 @@ export const Tracking: React.FC = () => {
                 <div className="md:col-span-2 space-y-2">
                   <label
                     htmlFor="tracking"
-                    className="block text-sm font-semibold text-slate-700 ml-1"
+                    className="block text-sm font-semibold text-[var(--color-text-primary)] ml-1"
                   >
                     Tracking Number
                   </label>
@@ -210,7 +212,7 @@ export const Tracking: React.FC = () => {
                       if (detected) setSelectedCarrier(detected);
                     }}
                     aria-label="Tracking number"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg"
                     placeholder="e.g., 1Z999AA1234567890"
                   />
                 </div>
@@ -219,7 +221,7 @@ export const Tracking: React.FC = () => {
                 <div className="space-y-2">
                   <label
                     htmlFor="carrier"
-                    className="block text-sm font-semibold text-slate-700 ml-1"
+                    className="block text-sm font-semibold text-[var(--color-text-primary)] ml-1"
                   >
                     Carrier
                   </label>
@@ -228,7 +230,7 @@ export const Tracking: React.FC = () => {
                       id="carrier"
                       value={selectedCarrier}
                       onChange={(e) => setSelectedCarrier(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
                     >
                       {carriers.map((carrier) => (
                         <option key={carrier.name} value={carrier.name}>
@@ -237,7 +239,7 @@ export const Tracking: React.FC = () => {
                       ))}
                     </select>
                     {/* Custom Arrow */}
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-[var(--color-text-secondary)]">
                       <svg
                         className="h-4 w-4 fill-current"
                         xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +270,7 @@ export const Tracking: React.FC = () => {
         {/* Tracking Tips Grid */}
         <section>
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-slate-900">Tracking Tips</h2>
+            <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Tracking Tips</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trackingTips.map((tip, i) => (
@@ -281,11 +283,15 @@ export const Tracking: React.FC = () => {
                 whileHover={{ y: -5 }}
                 className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-md transition-all duration-300"
               >
-                <div className="w-12 h-12 bg-blue-50/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
+                <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)]/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
                   <tip.icon className="w-6 h-6" />
                 </div>
-                <h3 className="text-lg font-bold text-slate-800 mb-2">{tip.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{tip.description}</p>
+                <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">
+                  {tip.title}
+                </h3>
+                <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
+                  {tip.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -304,7 +310,7 @@ export const Tracking: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 Need Help Finding Your Package?
               </h2>
-              <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
                 Can&apos;t locate your tracking number or having trouble with tracking? Our team is
                 here to help you every step of the way.
               </p>
@@ -312,7 +318,7 @@ export const Tracking: React.FC = () => {
                 <InternalLink to="/contact-us">
                   <Button
                     size="lg"
-                    className="bg-white text-[var(--color-primary)] hover:bg-blue-50 border-none font-bold px-8 shadow-lg"
+                    className="bg-white text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)] border-none font-bold px-8 shadow-lg"
                   >
                     Contact Support
                   </Button>

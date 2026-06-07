@@ -32,9 +32,9 @@ export const Header: React.FC = () => {
   const logoUrl = getServiceImageUrl('mailbox_plus_logo.webp');
 
   return (
-    <header className="bg-white border-b border-gray-300 sticky top-0 z-50">
+    <header className="bg-white border-b border-[var(--color-border)] sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="bg-[var(--color-bg-primary)] border-b border-gray-300">
+      <div className="bg-[var(--color-bg-primary)] border-b border-[var(--color-border)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-sm">
             <div className="flex items-center space-x-6">
@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-yellow-800 hover:text-yellow-900 transition-colors"
+                  className="text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
                   style={{ fontWeight: 700 }}
                 >
                   {item.name}
@@ -137,7 +137,7 @@ export const Header: React.FC = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-gray-300"
+            className="md:hidden bg-white border-t border-[var(--color-border)]"
           >
             <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
               {navigation.map((item) =>
@@ -148,7 +148,7 @@ export const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-base font-bold text-yellow-800 hover:text-yellow-900 transition-colors"
+                    className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
                   >
                     {item.name}
                   </a>

@@ -9,7 +9,7 @@ export const ProfessionalPacking: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           From fragile heirlooms to heavy equipment, our experts use the best materials to protect
           your items. We also carry a full line of{' '}
           <InternalLink variant="geo" to="/pack-ship/packaging-supplies">

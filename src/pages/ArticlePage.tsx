@@ -53,8 +53,10 @@ const ArticlePage: React.FC = () => {
   if (error || !article) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">Article Not Found</h1>
-        <p className="text-lg text-slate-600 mb-8">
+        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
+          Article Not Found
+        </h1>
+        <p className="text-lg mb-8" style={{ color: 'var(--color-text-secondary)' }}>
           The article you are looking for does not exist or has been moved.
         </p>
         <Link to="/">
@@ -85,7 +87,10 @@ const ArticlePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
+      <div
+        className="relative py-24 lg:py-32 overflow-hidden"
+        style={{ backgroundColor: 'var(--color-text-primary)' }}
+      >
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 w-full h-full">
           <SmartImage
@@ -93,7 +98,13 @@ const ArticlePage: React.FC = () => {
             alt={imageAlt || title}
             className="w-full h-full object-cover opacity-20 blur-sm"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage:
+                'linear-gradient(to top, var(--color-text-primary), color-mix(in srgb, var(--color-text-primary) 80%, transparent), transparent)',
+            }}
+          ></div>
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -106,11 +117,14 @@ const ArticlePage: React.FC = () => {
             {title}
           </h1>
 
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl leading-relaxed mb-8" style={{ color: 'var(--color-text-muted)' }}>
             {description}
           </p>
 
-          <div className="flex items-center justify-center gap-6 text-slate-400 text-sm">
+          <div
+            className="flex items-center justify-center gap-6 text-sm"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>{formattedDate}</span>
@@ -134,21 +148,46 @@ const ArticlePage: React.FC = () => {
 
           {/* Related Services / CTA */}
           {relatedServices && relatedServices.length > 0 && (
-            <div className="mt-16 pt-10 border-t border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Related Services</h3>
+            <div className="mt-16 pt-10" style={{ borderTop: '1px solid var(--color-border)' }}>
+              <h3
+                className="text-2xl font-bold mb-6"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
+                Related Services
+              </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 {relatedServices.map((servicePath, idx) => (
                   <Link key={idx} to={servicePath}>
-                    <div className="group p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 cursor-pointer">
+                    <div
+                      className="group p-6 rounded-xl transition-all duration-300 cursor-pointer"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        border: '1px solid var(--color-border)',
+                      }}
+                      onMouseEnter={(ev) => {
+                        ev.currentTarget.style.borderColor = 'var(--color-border-blue)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-blue-tint)';
+                      }}
+                      onMouseLeave={(ev) => {
+                        ev.currentTarget.style.borderColor = 'var(--color-border)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-primary)';
+                      }}
+                    >
                       <div className="flex justify-between items-center">
-                        <span className="font-semibold text-slate-700 group-hover:text-blue-700">
+                        <span
+                          className="font-semibold group-hover:text-blue-700"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        >
                           {servicePath
                             .split('/')
                             .pop()
                             ?.replace(/-/g, ' ')
                             .replace(/\b\w/g, (c) => c.toUpperCase()) || 'View Service'}
                         </span>
-                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight
+                          className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                          style={{ color: 'var(--color-text-muted)' }}
+                        />
                       </div>
                     </div>
                   </Link>

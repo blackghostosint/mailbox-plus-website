@@ -9,7 +9,7 @@ export const PackagingSupplies: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Visit our{' '}
           <InternalLink variant="geo" to="/shipping-center-concord-township">
             local shipping center

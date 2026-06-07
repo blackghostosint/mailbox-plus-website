@@ -124,7 +124,7 @@ export const SearchBox: React.FC = () => {
           className={`flex items-center gap-2 px-4 py-2 rounded-xl border transition-all duration-200 ${
             isOpen
               ? 'border-[var(--color-primary)] bg-white shadow-lg w-80'
-              : 'border-gray-300 bg-white hover:border-[var(--color-primary)] hover:shadow-sm w-48'
+              : 'border-[var(--color-border)] bg-white hover:border-[var(--color-primary)] hover:shadow-sm w-48'
           }`}
         >
           <span className="sr-only">
@@ -165,7 +165,7 @@ export const SearchBox: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 mt-2 bg-white border border-gray-200 rounded-xl shadow-lg z-50 max-h-96 overflow-y-auto"
+            className="absolute top-full left-0 right-0 mt-2 bg-white border border-[var(--color-border)] rounded-xl shadow-lg z-50 max-h-96 overflow-y-auto"
             id="search-results"
           >
             {results.length > 0 ? (
@@ -175,7 +175,7 @@ export const SearchBox: React.FC = () => {
                     key={result.href}
                     to={result.href}
                     onClick={handleResultClick}
-                    className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-gray-100 last:border-b-0"
+                    className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-[var(--color-border)] last:border-b-0"
                   >
                     <div className="flex items-start justify-between">
                       <div className="flex-1">

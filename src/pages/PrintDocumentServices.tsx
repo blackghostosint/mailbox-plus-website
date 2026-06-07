@@ -9,7 +9,7 @@ export const PrintDocumentServices: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           From reports to presentations, our{' '}
           <InternalLink variant="geo" to="/document-services-concord-township">
             document services

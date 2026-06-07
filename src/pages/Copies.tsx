@@ -9,7 +9,7 @@ export const Copies: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           Need high-quality copies fast? Mailbox Plus is your{' '}
           <InternalLink variant="geo" to="/staples-printing-alternative-concord-township">
             Staples alternative for copies

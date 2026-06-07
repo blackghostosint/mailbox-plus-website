@@ -127,7 +127,7 @@ export const ContactUs: React.FC = () => {
     typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta
         title="Contact Us - Mailbox Plus"
         description="Get in touch with Mailbox Plus in Concord Township, Ohio. Call, email, or visit us for all your shipping and printing needs."
@@ -162,7 +162,7 @@ export const ContactUs: React.FC = () => {
         </div>
 
         {/* Soft Fade Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50 z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
 
         <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
           <motion.h1
@@ -177,7 +177,7 @@ export const ContactUs: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: 0.15 }}
-            className="text-xl text-blue-100 mb-8 leading-relaxed"
+            className="text-xl text-white/80 mb-8 leading-relaxed"
           >
             Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all
             your shipping, printing, and business service needs.
@@ -198,11 +198,15 @@ export const ContactUs: React.FC = () => {
               transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
               className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300"
             >
-              <div className="w-16 h-16 bg-blue-50/50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
+              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
                 <info.icon className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-2">{info.title}</h3>
-              <p className="text-slate-600 mb-6 leading-relaxed flex-grow">{info.details}</p>
+              <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
+                {info.title}
+              </h3>
+              <p className="text-[var(--color-text-secondary)] mb-6 leading-relaxed flex-grow">
+                {info.details}
+              </p>
               <a
                 href={info.action}
                 target={info.title === 'Address' ? '_blank' : undefined}
@@ -225,10 +229,10 @@ export const ContactUs: React.FC = () => {
           <motion.section {...reveal} className="relative">
             {/* Glass container */}
             <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-lg h-full">
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
+              <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
                 Send Us a Message
               </h2>
-              <p className="text-slate-600 mb-8 leading-relaxed">
+              <p className="text-[var(--color-text-secondary)] mb-8 leading-relaxed">
                 Have a question about our services or need a custom quote? Fill out the form below
                 and we&apos;ll get back to you promptly.
               </p>
@@ -236,7 +240,10 @@ export const ContactUs: React.FC = () => {
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="name" className="text-sm font-semibold text-slate-700">
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-semibold text-[var(--color-text-primary)]"
+                    >
                       Full Name *
                     </label>
                     <input
@@ -247,12 +254,15 @@ export const ContactUs: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       aria-label="Full name"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your name"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="email" className="text-sm font-semibold text-slate-700">
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-semibold text-[var(--color-text-primary)]"
+                    >
                       Email Address *
                     </label>
                     <input
@@ -263,7 +273,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       aria-label="Email address"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -271,7 +281,10 @@ export const ContactUs: React.FC = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label htmlFor="phone" className="text-sm font-semibold text-slate-700">
+                    <label
+                      htmlFor="phone"
+                      className="text-sm font-semibold text-[var(--color-text-primary)]"
+                    >
                       Phone Number
                     </label>
                     <input
@@ -281,12 +294,15 @@ export const ContactUs: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       aria-label="Phone number"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
                       placeholder="(440) 555-0123"
                     />
                   </div>
                   <div className="space-y-2">
-                    <label htmlFor="service" className="text-sm font-semibold text-slate-700">
+                    <label
+                      htmlFor="service"
+                      className="text-sm font-semibold text-[var(--color-text-primary)]"
+                    >
                       Service Interest
                     </label>
                     <select
@@ -295,7 +311,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.service}
                       onChange={handleChange}
                       aria-label="Service interest"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm appearance-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm appearance-none"
                     >
                       <option value="">Select a service</option>
                       <option value="shipping">Pack & Ship</option>
@@ -308,7 +324,10 @@ export const ContactUs: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="message" className="text-sm font-semibold text-slate-700">
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-semibold text-[var(--color-text-primary)]"
+                  >
                     Message *
                   </label>
                   <textarea
@@ -319,7 +338,7 @@ export const ContactUs: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     aria-label="Your message"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm resize-none"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -360,26 +379,30 @@ export const ContactUs: React.FC = () => {
             {/* Hours Card */}
             <div className="rounded-[28px] p-8 bg-white/60 backdrop-blur border border-white/60 shadow-lg">
               <div className="flex items-center mb-6">
-                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-4 text-[var(--color-primary)]">
+                <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center mr-4 text-[var(--color-primary)]">
                   <Clock className="w-5 h-5" />
                 </div>
-                <h3 className="text-xl font-bold text-slate-900">Store Hours</h3>
+                <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Store Hours</h3>
               </div>
               <div className="space-y-4">
                 {hours.map((schedule) => (
                   <div
                     key={schedule.day}
-                    className="flex justify-between items-center border-b border-slate-200/60 pb-2 last:border-0 last:pb-0"
+                    className="flex justify-between items-center border-b border-[var(--color-border)]/60 pb-2 last:border-0 last:pb-0"
                   >
-                    <span className="text-slate-600 font-medium">{schedule.day}</span>
-                    <span className="text-slate-900 font-bold">{schedule.time}</span>
+                    <span className="text-[var(--color-text-secondary)] font-medium">
+                      {schedule.day}
+                    </span>
+                    <span className="text-[var(--color-text-primary)] font-bold">
+                      {schedule.time}
+                    </span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Map Container */}
-            <div className="bg-slate-100 rounded-[28px] overflow-hidden h-96 w-full shadow-lg border border-white/50">
+            <div className="bg-[var(--color-bg-secondary)] rounded-[28px] overflow-hidden h-96 w-full shadow-lg border border-white/50">
               <iframe
                 src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY}&q=Mailbox+Plus+Concord+Township+OH`}
                 width="100%"
@@ -393,7 +416,7 @@ export const ContactUs: React.FC = () => {
             </div>
 
             {/* Directions Tip */}
-            <div className="bg-blue-50/80 border border-blue-100/50 rounded-2xl p-6 text-center">
+            <div className="bg-white/80 border border-white/50 rounded-2xl p-6 text-center">
               <p className="text-sm text-blue-900 font-medium">
                 📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to
                 I-90.

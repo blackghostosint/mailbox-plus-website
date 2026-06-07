@@ -9,7 +9,7 @@ export const FaxServices: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Need to send a fax? We provide reliable{' '}
           <InternalLink variant="geo" to="/business-services-concord-township">
             business services in Concord Township

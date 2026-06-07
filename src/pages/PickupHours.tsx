@@ -37,7 +37,7 @@ const pickupHours = [
     details: 'Accepts stamped mail, prepaid labels, Priority Mail, and returns.',
     accentColor: 'bg-[var(--color-gradient-start)]', // Brand Primary
     iconColor: 'text-[var(--color-gradient-start)]',
-    bgTint: 'bg-blue-50/40',
+    bgTint: 'rgba(234, 244, 251, 0.4)',
   },
   {
     carrier: 'UPS Pickup',
@@ -49,7 +49,7 @@ const pickupHours = [
     details: 'Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.',
     accentColor: 'bg-[var(--color-accent)]', // Brand Light
     iconColor: 'text-[var(--color-accent)]',
-    bgTint: 'bg-blue-50/30',
+    bgTint: 'rgba(234, 244, 251, 0.3)',
   },
   {
     carrier: 'FedEx Express',
@@ -61,7 +61,7 @@ const pickupHours = [
     details: 'For overnight, 2-day, and express saver shipments. Separate from Ground.',
     accentColor: 'bg-[var(--color-gradient-mid)]', // Brand Dark
     iconColor: 'text-[var(--color-gradient-mid)]',
-    bgTint: 'bg-slate-50/50',
+    bgTint: 'rgba(250, 248, 243, 0.5)',
   },
   {
     carrier: 'FedEx Ground',
@@ -73,7 +73,7 @@ const pickupHours = [
     details: 'Standard ground shipping and Home Delivery packages.',
     accentColor: 'bg-sky-500', // Sky Blue
     iconColor: 'text-sky-600',
-    bgTint: 'bg-sky-50/30',
+    bgTint: 'rgba(232, 246, 252, 0.3)',
   },
 ];
 
@@ -120,7 +120,7 @@ const PickupHours: React.FC = () => {
   const url = `${siteConfig.domain}/pickup-hours`;
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div style={{ backgroundColor: 'var(--color-bg-primary)' }} className="min-h-screen">
       <Meta
         title={pageTitle}
         description={metaDescription}
@@ -177,7 +177,12 @@ const PickupHours: React.FC = () => {
         </div>
 
         {/* Soft edge blend at bottom of hero */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-b from-transparent to-slate-50"></div>
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))',
+          }}
+        ></div>
       </section>
 
       <main className="relative z-20 -mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
@@ -188,7 +193,7 @@ const PickupHours: React.FC = () => {
         {/* Intro Text in Glass Card */}
         <div className="max-w-3xl mx-auto mb-16">
           <motion.div {...reveal} className={`${v2GlassCard} p-8 md:p-10 text-center`}>
-            <p className="text-lg text-slate-600 leading-relaxed">
+            <p className="text-lg leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
               Knowing the exact pickup times ensures your important shipments go out the same day.
               We are an authorized ship center for{' '}
               <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">
@@ -221,7 +226,8 @@ const PickupHours: React.FC = () => {
               transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
               viewport={{ once: true }}
               whileHover={{ y: -4, scale: 1.01 }}
-              className={`relative rounded-lg p-8 border border-white/60 shadow-sm ${item.bgTint} backdrop-blur-md overflow-hidden group`}
+              className="relative rounded-lg p-8 border border-white/60 shadow-sm backdrop-blur-md overflow-hidden group"
+              style={{ backgroundColor: item.bgTint }}
             >
               {/* Decorative accent bar */}
               <div
@@ -232,23 +238,42 @@ const PickupHours: React.FC = () => {
                 <div className={`p-3 rounded-xl bg-white/80 shadow-sm ${item.iconColor}`}>
                   <Truck className="w-8 h-8" />
                 </div>
-                <h2 className="text-2xl font-bold text-slate-800">{item.carrier}</h2>
+                <h2 className="text-2xl font-bold" style={{ color: 'var(--color-text-primary)' }}>
+                  {item.carrier}
+                </h2>
               </div>
 
               <ul className="space-y-4 mb-8 relative z-10">
                 {item.times.map((t) => (
                   <li
                     key={t.day}
-                    className="flex justify-between items-center text-slate-700 border-b border-slate-200/60 pb-2 last:border-0"
+                    className="flex justify-between items-center border-b pb-2 last:border-0"
+                    style={{
+                      color: 'var(--color-text-primary)',
+                      borderColor: 'var(--color-border)',
+                    }}
                   >
                     <span className="font-medium">{t.day}</span>
-                    <span className="font-bold text-slate-900 text-lg">{t.time}</span>
+                    <span
+                      className="font-bold text-lg"
+                      style={{ color: 'var(--color-text-primary)' }}
+                    >
+                      {t.time}
+                    </span>
                   </li>
                 ))}
               </ul>
 
-              <div className="text-sm text-slate-600 bg-white/60 p-5 rounded-2xl relative z-10 border border-white/50">
-                <p className="font-bold text-slate-800 mb-1">Accepted Packages:</p>
+              <div
+                className="text-sm p-5 rounded-2xl relative z-10 border border-white/50"
+                style={{
+                  color: 'var(--color-text-secondary)',
+                  backgroundColor: 'rgba(255,255,255,0.6)',
+                }}
+              >
+                <p className="font-bold mb-1" style={{ color: 'var(--color-text-primary)' }}>
+                  Accepted Packages:
+                </p>
                 {item.details}
               </div>
             </motion.div>
@@ -261,18 +286,32 @@ const PickupHours: React.FC = () => {
           className={`${v2GlassCard} p-8 md:p-12 mb-16 relative overflow-hidden`}
         >
           {/* Subtle gradient background for this section specifically */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-50/50 to-transparent opacity-50 z-0"></div>
+          <div
+            className="absolute inset-0 opacity-50 z-0"
+            style={{
+              backgroundImage: 'linear-gradient(to right, rgba(234, 244, 251, 0.5), transparent)',
+            }}
+          ></div>
 
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 bg-blue-100 rounded-xl">
+              <div
+                className="p-3 rounded-xl"
+                style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}
+              >
                 <MapPin className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
-              <h3 className="text-2xl font-bold text-slate-900 mt-1">
+              <h3
+                className="text-2xl font-bold mt-1"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Serving Lake County & Surrounding Areas
               </h3>
             </div>
-            <p className="text-slate-700 leading-relaxed mb-6 pl-[4.5rem]">
+            <p
+              className="leading-relaxed mb-6 pl-[4.5rem]"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               Whether you are coming from{' '}
               <InternalLink variant="geo" to="/pack-ship">
                 Mentor
@@ -288,7 +327,10 @@ const PickupHours: React.FC = () => {
               , Mailbox Plus is your most convenient drop-off point. Avoid the long lines at the
               post office or the remote drop boxes that may not be secure.
             </p>
-            <p className="text-slate-700 leading-relaxed pl-[4.5rem]">
+            <p
+              className="leading-relaxed pl-[4.5rem]"
+              style={{ color: 'var(--color-text-primary)' }}
+            >
               We handle <InternalLink to="/amazon-returns">Amazon returns</InternalLink>, prepaid
               labels, and can help you pack your items if they aren&apos;t ready to ship. Visit our{' '}
               <InternalLink to="/mailbox-rental">mailbox rental</InternalLink> page if you need a
@@ -299,7 +341,10 @@ const PickupHours: React.FC = () => {
 
         {/* FAQs */}
         <section className="max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl font-bold text-center text-slate-900 mb-10">
+          <h2
+            className="text-3xl font-bold text-center mb-10"
+            style={{ color: 'var(--color-text-primary)' }}
+          >
             Frequently Asked Questions
           </h2>
           <Accordion type="single" collapsible className="w-full space-y-4">
@@ -312,7 +357,10 @@ const PickupHours: React.FC = () => {
                 <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[var(--color-primary)] hover:no-underline hover:text-[var(--color-primary-dark)]">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-4 pb-4 text-slate-600 leading-relaxed">
+                <AccordionContent
+                  className="px-4 pb-4 leading-relaxed"
+                  style={{ color: 'var(--color-text-secondary)' }}
+                >
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>

@@ -70,7 +70,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
         ]}
       />
 
-      <div className="min-h-screen bg-slate-50">
+      <div className="min-h-screen bg-[var(--color-bg-primary)]">
         {/* Breadcrumbs */}
         <Breadcrumbs service={props} baseUrl={breadcrumbsBaseUrl} baseLabel={breadcrumbsLabel} />
 
@@ -113,12 +113,12 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                       className={`w-4 h-4 ${
                         i < Math.floor(aggregateRating.ratingValue)
                           ? 'fill-yellow-400 text-yellow-400'
-                          : 'text-blue-100/80'
+                          : 'text-white/80'
                       }`}
                     />
                   ))}
                 </div>
-                <span className="text-xs md:text-sm text-blue-50/90 font-medium">
+                <span className="text-xs md:text-sm text-white/90 font-medium">
                   {aggregateRating.ratingValue} rating · {aggregateRating.reviewCount}+ reviews
                 </span>
               </motion.div>
@@ -138,7 +138,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
               animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.14 }}
-              className="text-base md:text-lg lg:text-xl text-blue-100 max-w-2xl mb-8"
+              className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mb-8"
             >
               {heroSubtitle}
             </motion.p>
@@ -154,7 +154,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           </div>
 
           {/* Soft fade into page background */}
-          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-slate-50" />
+          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]" />
         </section>
 
         {/* ======================= MAIN ====================== */}
@@ -178,12 +178,12 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {features && features.length > 0 && (
               <motion.section {...reveal} className="max-w-6xl mx-auto">
                 <div className="flex flex-col gap-2 mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
-                    <span className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 bg-clip-text text-transparent">
+                  <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
+                    <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
                       Why customers choose this service
                     </span>
                   </h2>
-                  <p className="text-slate-600 text-sm md:text-base max-w-xl">
+                  <p className="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl">
                     Clear benefits, protections, and flexible options so you can ship, print, and
                     manage your mail with confidence.
                   </p>
@@ -203,16 +203,18 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                         className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm"
                       >
                         {/* subtle overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-blue-50/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-bg-blue-tint)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                         <div className="relative p-6 flex flex-col gap-3">
                           {Icon && (
-                            <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-slate-900/5 via-blue-500/10 to-blue-400/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
+                            <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-text-primary)]/5 via-[var(--color-primary)]/10 to-[var(--color-border-blue)]/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
                               <Icon className="w-5 h-5" />
                             </div>
                           )}
-                          <h3 className="text-lg font-semibold text-slate-900">{feature.title}</h3>
-                          <p className="text-sm text-slate-600 leading-relaxed">
+                          <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+                            {feature.title}
+                          </h3>
+                          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
                             {feature.description}
                           </p>
                         </div>
@@ -232,15 +234,15 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                       'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg',
                       'bg-white/75 backdrop-blur-xl border border-white/80',
                       idx % 2 === 1
-                        ? 'before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-blue-50/80 before:via-slate-50/50 before:to-blue-100/60 before:-z-10'
+                        ? 'before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-white/80 before:via-[var(--color-bg-secondary)]/50 before:to-[var(--color-border)]/60 before:-z-10'
                         : '',
                     ].join(' ')}
                   >
-                    <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 font-heading">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4 font-heading">
                       {block.heading}
                     </h2>
                     <div
-                      className="prose prose-lg max-w-none text-slate-700 leading-relaxed"
+                      className="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed"
                       dangerouslySetInnerHTML={{ __html: block.body }}
                     />
                   </div>
@@ -251,15 +253,15 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {faqs && faqs.length > 0 && (
               <motion.section
                 {...reveal}
-                className="py-12 rounded-2xl bg-gradient-to-b from-slate-100/80 via-slate-200/70 to-slate-100/80"
+                className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80"
               >
                 <div className="max-w-4xl mx-auto">
                   <div className="relative rounded-xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
                     <div className="text-center mb-6 md:mb-8">
-                      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-heading">
+                      <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
                         Frequently Asked Questions
                       </h2>
-                      <p className="mt-2 text-sm md:text-base text-slate-600 max-w-xl mx-auto">
+                      <p className="mt-2 text-sm md:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto">
                         Get quick answers to the most common questions about packaging, carriers,
                         pricing, and what to expect.
                       </p>
@@ -270,12 +272,12 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                         <AccordionItem
                           key={i}
                           value={`faq-${i}`}
-                          className="rounded-2xl border border-slate-200/80 bg-slate-50/80 data-[state=open]:bg-white/90 shadow-sm"
+                          className="rounded-2xl border border-[var(--color-border)]/80 bg-[var(--color-bg-primary)]/80 data-[state=open]:bg-white/90 shadow-sm"
                         >
                           <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-primary)] font-semibold hover:no-underline">
                             {faq.question}
                           </AccordionTrigger>
-                          <AccordionContent className="px-4 pb-4 text-sm md:text-base text-slate-700 leading-relaxed">
+                          <AccordionContent className="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
                             {faq.answer}
                           </AccordionContent>
                         </AccordionItem>

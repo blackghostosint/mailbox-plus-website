@@ -35,28 +35,28 @@ export const specialtyShippingServices: Service[] = [
       {
         heading: 'Gallery-Ready Protection',
         body: `<div class="grid md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
-                        <h4 class="text-xl font-bold text-blue-900 mb-4">White-Glove Art Handling</h4>
+                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                        <h4 class="text-xl font-bold text-[var(--color-primary)] mb-4">White-Glove Art Handling</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Archival Materials:</strong> We use acid-free packing supplies.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-bg-blue-tint)]0"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Archival Materials:</strong> We use acid-free packing supplies.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Custom Crating:</strong> Precision-fit crates for fragile items.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-bg-blue-tint)]0"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Custom Crating:</strong> Precision-fit crates for fragile items.</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <div class="w-2 h-2 rounded-full bg-blue-500"></div>
-                                <span class="text-gray-700"><strong>Expert Advice:</strong> Guidance on insurance and customs.</span>
+                                <div class="w-2 h-2 rounded-full bg-[var(--color-bg-blue-tint)]0"></div>
+                                <span class="text-[var(--color-text-primary)]"><strong>Expert Advice:</strong> Guidance on insurance and customs.</span>
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                        <h4 class="text-xl font-bold text-slate-900 mb-4">Gallery-Ready Service</h4>
-                        <p class="text-gray-600 leading-relaxed italic">
+                    <div class="bg-[var(--color-bg-secondary)] p-6 rounded-2xl border border-[var(--color-border)]">
+                        <h4 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Gallery-Ready Service</h4>
+                        <p class="text-[var(--color-text-secondary)] leading-relaxed italic">
                             "We bridge the gap between local creation and global delivery. Learn more about our 
-                            <a href="/pack-ship/professional-packing" class="text-blue-600 font-semibold hover:underline">professional packing</a> 
+                            <a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] font-semibold hover:underline">professional packing</a> 
                             for museum-grade protection."
                         </p>
                     </div>
@@ -112,33 +112,33 @@ export const specialtyShippingServices: Service[] = [
       },
       {
         heading: 'Professional Standards',
-        body: `<div class="grid md:grid-cols-2 gap-8 mt-8 bg-gray-50 p-8 rounded-3xl">
+        body: `<div class="grid md:grid-cols-2 gap-8 mt-8 bg-[var(--color-bg-secondary)] p-8 rounded-3xl">
                     <div class="space-y-4">
-                        <h4 class="text-xl font-bold text-gray-900 border-l-4 border-blue-500 pl-4">Carrier Flexibility</h4>
-                        <p class="text-gray-600">
+                        <h4 class="text-xl font-bold text-[var(--color-text-primary)] border-l-4 border-[var(--color-primary)] pl-4">Carrier Flexibility</h4>
+                        <p class="text-[var(--color-text-secondary)]">
                             We ship your bike via 
-                            <a href="/pack-ship/fedex-shipping" class="font-bold text-gray-900 hover:text-blue-600 underline decoration-blue-500/30">FedEx</a> or 
-                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="font-bold text-gray-900 hover:text-blue-600 underline decoration-blue-500/30">UPS</a>, 
+                            <a href="/pack-ship/fedex-shipping" class="font-bold text-[var(--color-text-primary)] hover:text-[var(--color-primary)] underline decoration-[var(--color-border-blue)]/30">FedEx</a> or 
+                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="font-bold text-[var(--color-text-primary)] hover:text-[var(--color-primary)] underline decoration-[var(--color-border-blue)]/30">UPS</a>, 
                             comparing rates to find the best value for your route.
                         </p>
                         <div class="pt-2">
-                             <a href="/pack-ship" class="bg-blue-600 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-blue-700 transition-colors inline-block">Professional Packing Help</a>
+                             <a href="/pack-ship" class="bg-[var(--color-primary)] text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-[var(--color-primary-dark)] transition-colors inline-block">Professional Packing Help</a>
                         </div>
                     </div>
                     <div>
-                        <h4 class="text-xl font-bold text-gray-900 mb-4">The Specialty Standard</h4>
+                        <h4 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">The Specialty Standard</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">
                                 <span class="text-green-600">✓</span>
-                                <span class="text-gray-700 font-medium">Reinforced, double-wall bike boxes</span>
+                                <span class="text-[var(--color-text-primary)] font-medium">Reinforced, double-wall bike boxes</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="text-green-600">✓</span>
-                                <span class="text-gray-700 font-medium">Foam-wrap and axle protection</span>
+                                <span class="text-[var(--color-text-primary)] font-medium">Foam-wrap and axle protection</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <span class="text-green-600">✓</span>
-                                <span class="text-gray-700 font-medium">Liability coverage for peace of mind</span>
+                                <span class="text-[var(--color-text-primary)] font-medium">Liability coverage for peace of mind</span>
                             </li>
                         </ul>
                     </div>
@@ -195,21 +195,21 @@ export const specialtyShippingServices: Service[] = [
       {
         heading: 'Shaft & Head Protection',
         body: `<div class="grid md:grid-cols-2 gap-8 mt-8">
-                    <div class="border border-gray-200 p-8 rounded-3xl shadow-sm bg-white">
-                        <h4 class="text-xl font-bold text-gray-900 mb-4">Travel Smarter</h4>
-                        <p class="text-gray-600 mb-6">
+                    <div class="border border-[var(--color-border)] p-8 rounded-3xl shadow-sm bg-white">
+                        <h4 class="text-xl font-bold text-[var(--color-text-primary)] mb-4">Travel Smarter</h4>
+                        <p class="text-[var(--color-text-secondary)] mb-6">
                             Skip the heavy lifting. We offer 
-                            <a href="/pack-ship/professional-packing" class="text-blue-600 font-semibold hover:underline">professional packing</a> 
+                            <a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] font-semibold hover:underline">professional packing</a> 
                             for golf sets and bags, using specialized materials to protect delicate shafts and heads.
                         </p>
                         <div class="flex gap-4">
-                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">UPS Authorized</span>
-                            <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">FedEx Expert</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-bold uppercase tracking-wider">UPS Authorized</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-bold uppercase tracking-wider">FedEx Expert</span>
                         </div>
                     </div>
-                    <div class="bg-blue-600 text-white p-8 rounded-3xl shadow-xl flex flex-col justify-center">
+                    <div class="bg-[var(--color-primary)] text-white p-8 rounded-3xl shadow-xl flex flex-col justify-center">
                         <h4 class="text-xl font-bold mb-2">Maximum Protection</h4>
-                        <p class="text-blue-100 italic leading-relaxed">
+                        <p class="text-white/80 italic leading-relaxed">
                             "Most golf club damage happens from pressure in cargo holds. Our packing methods use 
                             structural reinforcement to ensure your bag arrives exactly as you left it."
                         </p>

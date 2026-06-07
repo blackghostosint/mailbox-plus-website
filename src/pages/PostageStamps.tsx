@@ -9,7 +9,7 @@ export const PostageStamps: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Skip the long lines. Mailbox Plus is your{' '}
           <InternalLink variant="geo" to="/usps-drop-off-alternative-concord-township">
             USPS drop-off alternative

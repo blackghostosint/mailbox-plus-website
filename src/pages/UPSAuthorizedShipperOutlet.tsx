@@ -9,7 +9,7 @@ export const UPSAuthorizedShipperOutlet: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           Skip the line and save time. Mailbox Plus is your local{' '}
           <InternalLink variant="geo" to="/ups-store-alternative-concord-township">
             UPS Store alternative

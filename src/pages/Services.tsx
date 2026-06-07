@@ -74,7 +74,7 @@ export const Services: React.FC = () => {
   const { title, description, schema } = pageMeta['/services'];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta title={title} description={description} schema={schema} />
 
       {/* ====================== HERO SECTION (V2 Standard) ======================= */}
@@ -111,7 +111,7 @@ export const Services: React.FC = () => {
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
           >
-            Explore Our <span className="text-blue-200">Services</span>
+            Explore Our <span className="text-white/80">Services</span>
           </motion.h1>
 
           {/* Rotating tagline */}
@@ -128,7 +128,7 @@ export const Services: React.FC = () => {
                 animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
                 exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
                 transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium"
+                className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium"
               >
                 {serviceCategories[currentServiceIndex]}
               </motion.p>
@@ -178,26 +178,28 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
       </section>
 
       {/* ====================== CATEGORY NAVIGATION ======================= */}
-      <section id="categories" className="py-12 bg-slate-50 relative z-10 -mt-8">
+      <section id="categories" className="py-12 bg-[var(--color-bg-primary)] relative z-10 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/70 backdrop-blur-xl rounded-lg shadow-lg border border-white/50 p-8">
-            <h2 className="text-2xl font-bold mb-6 text-slate-800">Explore Our Services</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">
+              Explore Our Services
+            </h2>
             <div className="flex flex-wrap justify-center gap-3">
               {serviceCategories.map((category) => (
                 <a
                   key={category}
                   href={`#${makeId(category)}`}
-                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-slate-700 hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
+                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
                 >
                   {category}
                 </a>
               ))}
             </div>
-            <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
+            <div className="mt-8 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
               <p>
                 Looking for{' '}
                 <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">
@@ -235,7 +237,7 @@ export const Services: React.FC = () => {
             viewport={reveal.viewport}
             transition={reveal.transition}
           >
-            <h2 className="text-3xl font-bold mb-8 text-slate-900 flex items-center">
+            <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
               <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
               {category}
             </h2>
@@ -260,19 +262,19 @@ export const Services: React.FC = () => {
                         <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
                       </div>
                     ) : service.icon ? (
-                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-blue-50/50 rounded-2xl group relative overflow-hidden border border-blue-100/50">
+                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-blue-tint)] rounded-2xl group relative overflow-hidden border border-blue-100/50">
                         <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
                       </div>
                     ) : (
-                      <div className="w-full aspect-[3/2] mb-6 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
+                      <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
                         ?
                       </div>
                     )}
 
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[var(--color-primary)] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                       {service.serviceName}
                     </h3>
-                    <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
+                    <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
                       {service.metaDescription}
                     </p>
                     <InternalLink to={service.slug} className="mt-auto">
@@ -293,21 +295,21 @@ export const Services: React.FC = () => {
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Visit Us in Concord Township Today
           </h2>
-          <p className="text-xl text-blue-100 mb-3 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mb-3 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
-          <p className="text-lg text-blue-200 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
             Stop by for all your shipping, printing, and business service needs. Our friendly team
             is ready to help!
           </p>
 
-          <div className="mb-8 text-blue-100">
+          <div className="mb-8 text-white/80">
             <p>
               We specialize in{' '}
               <InternalLink
                 variant="geo"
                 to="/amazon-returns"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
               >
                 Amazon returns
               </InternalLink>
@@ -315,7 +317,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/notary"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
               >
                 notary services
               </InternalLink>
@@ -323,7 +325,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/pack-ship"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
               >
                 custom packing
               </InternalLink>
@@ -373,7 +375,7 @@ export const Services: React.FC = () => {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-blue-100">
+          <div className="flex items-center justify-center gap-2 text-white/80">
             <Clock className="w-5 h-5" />
             <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>

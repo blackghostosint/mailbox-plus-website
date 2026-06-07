@@ -4,41 +4,41 @@
 
 @layer base {
   :root {
-    /* Primary Brand */
-    --color-primary: #0855b1;
-    --color-primary-dark: #064a9b;
-    --color-primary-deeper: #064080;
-    --color-primary-deep: #06408a;
+    /* Primary Brand — softened navy-blue */
+    --color-primary: #285a8e;
+    --color-primary-dark: #1f3f63;
+    --color-primary-deeper: #1a3554;
+    --color-primary-deep: #162c45;
 
-    /* Secondary Accent */
-    --color-accent: #1a6dff;
-    --color-accent-light: #2f7cfb;
-    --color-alt-accent: #2da0ed;
+    /* Secondary Accent — warm golden honey */
+    --color-accent: #f4c542;
+    --color-accent-light: #f7d46a;
+    --color-alt-accent: #ebc044;
 
-    /* Backgrounds */
-    --color-bg-primary: #f9fafb;
-    --color-bg-secondary: #f8fafc;
-    --color-bg-blue-tint: #f0f7ff;
-    --color-bg-cyan-tint: #e0f2fe;
+    /* Backgrounds — warm off-white */
+    --color-bg-primary: #faf8f3;
+    --color-bg-secondary: #f5f2ec;
+    --color-bg-blue-tint: #eaf4fb;
+    --color-bg-cyan-tint: #e8f6fc;
 
-    /* Text */
-    --color-text-primary: #111827;
-    --color-text-secondary: #4b5563;
-    --color-text-muted: #64748b;
+    /* Text — charcoal navy + soft slate */
+    --color-text-primary: #1f2933;
+    --color-text-secondary: #4a5568;
+    --color-text-muted: #667085;
 
-    /* Surface/Borders */
-    --color-border: #e2e8f0;
-    --color-border-blue: #b2d3eb;
+    /* Surface/Borders — gentle warm gray */
+    --color-border: #e6e0d6;
+    --color-border-blue: #c8ddee;
 
-    /* Gradient Stops */
-    --color-gradient-start: #0b4bb6;
-    --color-gradient-mid: #021b4a;
-    --color-gradient-end: #02152f;
+    /* Gradient Stops — softened deep navy */
+    --color-gradient-start: #285a8e;
+    --color-gradient-mid: #1f3f63;
+    --color-gradient-end: #162c45;
 
     /* Overlay bases (used with opacity modifiers) */
-    --color-overlay: #0f172a;
-    --color-overlay-blue: #0855b1;
-    --color-shadow: #000000;
+    --color-overlay: #1f2933;
+    --color-overlay-blue: #285a8e;
+    --color-shadow: #1f2933;
 
     /* Shadow tokens */
     --shadow-sm: 0 10px 30px rgba(var(--color-shadow), 0.04);
