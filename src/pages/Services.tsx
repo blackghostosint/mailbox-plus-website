@@ -67,7 +67,7 @@ export const Services: React.FC = () => {
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
             Explore Our <span className="text-white">Services</span>

@@ -139,7 +139,7 @@ export const ContactUs: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
             Get in Touch
           </motion.h1>

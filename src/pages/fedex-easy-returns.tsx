@@ -112,8 +112,8 @@ export const FedExEasyReturns: React.FC = () => {
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
+            transition={{ duration: 0.8 }}
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8"
           >
             FedEx Easy Returns – <span className="text-white/80">Fast & Hassle-Free</span>
           </motion.h1>
