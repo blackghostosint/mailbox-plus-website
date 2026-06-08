@@ -85,10 +85,10 @@ export const Home: React.FC = () => {
             ]}
             src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center opacity-30"
+            className="w-full h-full object-cover object-center opacity-20"
           />
-          {/* Simplified gradient overlay for better image visibility */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)]/80 via-[var(--color-primary)]/70 to-[var(--color-primary-deep)]/85"></div>
+          {/* Stronger gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)]/90 to-[var(--color-primary-deep)]"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -96,9 +96,9 @@ export const Home: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm font-heading"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 drop-shadow-md font-heading"
           >
-            Pack & Ship in <span className="text-[var(--color-accent)]">Concord Twp, Ohio</span>
+            Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
           </motion.h1>
 
           {/* Rotating service tagline */}
