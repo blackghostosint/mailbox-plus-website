@@ -26,6 +26,31 @@ const categoryMap: Record<string, string> = {
   'Additional Services': 'additional-services',
 };
 
+// Services to hide from the cards grid (pages still exist for SEO / direct links)
+const hiddenFromGrid = new Set([
+  // "Alternative" landing pages — near-duplicate content
+  'ups-drop-off-alternative-concord-township',
+  'ups-store-alternative-concord-township',
+  'mail-boxes-etc-alternative-concord-township',
+  'fedex-office-alternative-concord-township',
+  'post-office-alternative-concord-township',
+  'staples-printing-alternative-concord-township',
+  'office-depot-alternative-concord-township',
+  // Summary / meta pages that just list other services
+  'shipping-center-concord-township',
+  'ups-fedex-usps-dhl-shipping-concord-township',
+  'usps-drop-off-alternative-concord-township',
+  'usps-package-help-concord-township',
+  'business-services-concord-township',
+  'document-services-concord-township',
+  // Mailbox sub-pages collapsed into main two cards
+  'private-mailbox-rental-concord-township',
+  'virtual-mailbox-concord-township',
+  'mail-forwarding-concord-township',
+  // Amazon returns — keep the guide, drop the duplicate landing page
+  'amazon-returns-drop-off-concord-township',
+]);
+
 // Animation constants (V2 Spec)
 const reveal = {
   initial: { opacity: 0, y: 32 },
@@ -136,69 +161,73 @@ export const Services: React.FC = () => {
       </section>
 
       {/* ====================== SERVICE SECTIONS (V2 Glass Cards) ======================= */}
-      {serviceCategories.map((category) => (
-        <section
-          key={category}
-          id={makeId(category)}
-          className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <motion.div
-            initial={reveal.initial}
-            whileInView={reveal.whileInView}
-            viewport={reveal.viewport}
-            transition={reveal.transition}
+      {serviceCategories
+        .filter((category) =>
+          services.some((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
+        )
+        .map((category) => (
+          <section
+            key={category}
+            id={makeId(category)}
+            className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
           >
-            <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
-              <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
-              {category}
-            </h2>
+            <motion.div
+              initial={reveal.initial}
+              whileInView={reveal.whileInView}
+              viewport={reveal.viewport}
+              transition={reveal.transition}
+            >
+              <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
+                <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
+                {category}
+              </h2>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {services
-                .filter((s) => s.category === categoryMap[category])
-                .map((service) => (
-                  <motion.div
-                    key={service.id}
-                    whileHover={{ y: -4, scale: 1.01 }}
-                    className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col group"
-                  >
-                    {/* Thumbnail with fade overlay + subtle zoom */}
-                    {service.heroImage ? (
-                      <div className="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all">
-                        <SmartImage
-                          src={service.heroImage}
-                          alt={service.serviceName}
-                          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
-                      </div>
-                    ) : service.icon ? (
-                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
-                        <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
-                      </div>
-                    ) : (
-                      <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
-                        ?
-                      </div>
-                    )}
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {services
+                  .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
+                  .map((service) => (
+                    <motion.div
+                      key={service.id}
+                      whileHover={{ y: -4, scale: 1.01 }}
+                      className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col group"
+                    >
+                      {/* Thumbnail with fade overlay + subtle zoom */}
+                      {service.heroImage ? (
+                        <div className="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all">
+                          <SmartImage
+                            src={service.heroImage}
+                            alt={service.serviceName}
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                          <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                        </div>
+                      ) : service.icon ? (
+                        <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
+                          <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
+                        </div>
+                      ) : (
+                        <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
+                          ?
+                        </div>
+                      )}
 
-                    <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
-                      {service.serviceName}
-                    </h3>
-                    <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
-                      {service.metaDescription}
-                    </p>
-                    <InternalLink to={service.slug} className="mt-auto">
-                      <Button variant="secondary" className="w-full shadow-sm">
-                        Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
-                    </InternalLink>
-                  </motion.div>
-                ))}
-            </div>
-          </motion.div>
-        </section>
-      ))}
+                      <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
+                        {service.serviceName}
+                      </h3>
+                      <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
+                        {service.metaDescription}
+                      </p>
+                      <InternalLink to={service.slug} className="mt-auto">
+                        <Button variant="secondary" className="w-full shadow-sm">
+                          Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </InternalLink>
+                    </motion.div>
+                  ))}
+              </div>
+            </motion.div>
+          </section>
+        ))}
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
       <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
