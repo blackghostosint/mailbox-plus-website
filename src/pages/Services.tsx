@@ -13,7 +13,6 @@ import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
 import { pageMeta } from '../config/pageMeta';
 import { SmartImage } from '../components/SmartImage';
-import { getServiceImageUrl } from '../lib/storage';
 
 // Utility to generate safe IDs
 const makeId = (str: string) => str.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
@@ -79,37 +78,15 @@ export const Services: React.FC = () => {
 
       {/* ====================== HERO SECTION (V2 Standard) ======================= */}
       <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            sources={[
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
-                media: '(max-width: 768px)',
-                type: 'image/webp',
-              },
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
-                media: '(min-width: 769px)',
-                type: 'image/webp',
-              },
-            ]}
-            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-        </div>
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 drop-shadow-md"
           >
             Explore Our <span className="text-white/80">Services</span>
           </motion.h1>
@@ -140,7 +117,7 @@ export const Services: React.FC = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
+                className="hover:bg-white/90 font-bold shadow-lg border-none min-h-11"
               >
                 View Categories <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
@@ -153,7 +130,7 @@ export const Services: React.FC = () => {
             >
               <Button
                 size="lg"
-                className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
+                className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-white/20 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
@@ -193,7 +170,7 @@ export const Services: React.FC = () => {
                 <a
                   key={category}
                   href={`#${makeId(category)}`}
-                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
+                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-white/30 hover:border-white/60 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
                 >
                   {category}
                 </a>
@@ -262,7 +239,7 @@ export const Services: React.FC = () => {
                         <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
                       </div>
                     ) : service.icon ? (
-                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-blue-tint)] rounded-2xl group relative overflow-hidden border border-blue-100/50">
+                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
                         <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
                       </div>
                     ) : (
@@ -290,7 +267,7 @@ export const Services: React.FC = () => {
       ))}
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Visit Us in Concord Township Today
@@ -309,7 +286,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/amazon-returns"
-                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 Amazon returns
               </InternalLink>
@@ -317,7 +294,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/notary"
-                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 notary services
               </InternalLink>
@@ -325,7 +302,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/pack-ship"
-                className="text-white hover:text-white/80 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 custom packing
               </InternalLink>
@@ -343,7 +320,7 @@ export const Services: React.FC = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
+                className="hover:bg-white/90 font-bold shadow-lg border-none min-h-11"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions

@@ -21,7 +21,6 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion';
-import { SmartImage } from '../components/SmartImage';
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -108,27 +107,16 @@ export const FedExEasyReturns: React.FC = () => {
       </div>
 
       {/* Hero Section */}
-      {/* Hero Section */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[70vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            src={service.heroImage}
-            alt="FedEx Easy Returns at Mailbox Plus"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-        </div>
+      <section className="relative py-32 lg:py-48 overflow-hidden min-h-[70vh]">
+        {/* Navy Gradient Background */}
+        <div className="absolute inset-0 w-full h-full z-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-8 drop-shadow-sm"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 drop-shadow-sm"
           >
             FedEx Easy Returns – <span className="text-white/80">Fast & Hassle-Free</span>
           </motion.h1>
@@ -300,7 +288,7 @@ export const FedExEasyReturns: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-gradient-start)] to-[var(--color-accent)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
                     {item.step}
                   </div>
 
@@ -441,7 +429,7 @@ export const FedExEasyReturns: React.FC = () => {
       <CompetitorAlternativeSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to return your package?

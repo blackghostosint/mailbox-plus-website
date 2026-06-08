@@ -10,8 +10,6 @@ import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
-import { SmartImage } from '../components/SmartImage';
-import { getServiceImageUrl } from '../lib/storage';
 
 // Animation Constant
 const reveal = {
@@ -136,30 +134,8 @@ export const ContactUs: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            sources={[
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
-                media: '(max-width: 768px)',
-                type: 'image/webp',
-              },
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
-                media: '(min-width: 769px)',
-                type: 'image/webp',
-              },
-            ]}
-            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-        </div>
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         {/* Soft Fade Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
@@ -169,9 +145,9 @@ export const ContactUs: React.FC = () => {
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Get in <span className="text-blue-200">Touch</span>
+            Get in <span className="text-white/80">Touch</span>
           </motion.h1>
           <motion.p
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
@@ -417,7 +393,7 @@ export const ContactUs: React.FC = () => {
 
             {/* Directions Tip */}
             <div className="bg-white/80 border border-white/50 rounded-2xl p-6 text-center">
-              <p className="text-sm text-blue-900 font-medium">
+              <p className="text-sm text-white/90 font-medium">
                 📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to
                 I-90.
               </p>

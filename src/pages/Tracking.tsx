@@ -9,9 +9,7 @@ import AlertCircle from '~icons/lucide/alert-circle';
 import Bell from '~icons/lucide/bell';
 import { Button } from '../components/ui';
 import { siteConfig } from '../config/siteConfig';
-import { getServiceImageUrl } from '../lib/storage';
 import { getTrackingSchema } from '../utils/schema';
-import { SmartImage } from '../components/SmartImage';
 
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
@@ -130,35 +128,17 @@ export const Tracking: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
-
-        {/* Hero Image with Soft Blend */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.15 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0 z-0"
-        >
-          <SmartImage
-            priority
-            src={getServiceImageUrl('/images/tracking.webp')}
-            alt="Background pattern"
-            className="w-full h-full object-cover mix-blend-overlay"
-          />
-        </motion.div>
-
-        {/* Soft Fade Bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
+        {/* Navy Gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
 
         <div className="relative z-10 container mx-auto px-4 pt-24 pb-44 lg:pt-32 lg:pb-52 text-center max-w-4xl">
           <motion.h1
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Track Your <span className="text-blue-200">Package</span>
+            Track Your <span className="text-white">Package</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 28 }}
@@ -300,8 +280,7 @@ export const Tracking: React.FC = () => {
         {/* Help Section - Glass Gradient Panel */}
         <motion.section {...reveal} className="max-w-5xl mx-auto">
           <div className="relative rounded-xl overflow-hidden shadow-xl">
-            {/* V2 Gradient Shell */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
 
             <div className="relative z-10 px-8 py-16 text-center">
               <div className="w-16 h-16 bg-white/10 backdrop-blur rounded-2xl flex items-center justify-center mx-auto mb-6 border border-white/20">

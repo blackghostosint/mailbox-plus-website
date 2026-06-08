@@ -48,22 +48,16 @@ const ArticlesIndex: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div
-        className="relative py-16 lg:py-24"
-        style={{
-          backgroundImage:
-            'linear-gradient(to bottom right, #1e3a8a, #1d4ed8, var(--color-text-primary))',
-        }}
-      >
+      <div className="relative py-16 lg:py-24 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm border border-blue-500/30">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/25">
             <BookOpen className="w-4 h-4" />
             Articles & Guides
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 font-heading">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 font-heading">
             Helpful Resources for Your Shipping & Business Needs
           </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg md:text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Expert tips, local guides, and answers to common questions about pack & ship services in
             Lake County, Ohio.
           </p>

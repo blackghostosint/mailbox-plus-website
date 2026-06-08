@@ -7,7 +7,6 @@ import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from '.';
 import { CarrierLogos } from './CarrierLogos';
 import { CompetitorAlternativeSection } from './sections/CompetitorAlternative';
 import { CTASection } from './sections/CTA';
-import { SmartImage } from './SmartImage';
 
 // UI
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
@@ -29,7 +28,6 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     metaDescription,
     heroTitle,
     heroSubtitle,
-    heroImage,
     children,
     features,
     content,
@@ -76,26 +74,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
 
         {/* ====================== HERO ======================= */}
         <section className="relative overflow-hidden">
-          {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
-
-          {/* Hero image softly blended in */}
-          {heroImage && (
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0 }}
-              animate={prefersReducedMotion ? {} : { opacity: 0.35 }}
-              transition={{ duration: 0.9 }}
-              className="absolute inset-0 pointer-events-none"
-            >
-              <SmartImage
-                priority
-                src={heroImage}
-                alt={heroTitle}
-                className="w-full h-full object-cover object-center scale-110 blur-[1px] opacity-90 mix-blend-soft-light"
-              />
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-[var(--color-gradient-end)]/80" />
-            </motion.div>
-          )}
+          {/* Gradient background */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
 
           <div className="relative z-10 container mx-auto px-4 pt-16 pb-40 lg:pt-20 lg:pb-44">
             {/* Rating pill */}
@@ -129,7 +109,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
               animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-white max-w-3xl mb-4 font-heading"
+              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-3xl mb-4 font-heading"
             >
               {heroTitle}
             </motion.h1>

@@ -20,8 +20,6 @@ import {
   AccordionContent,
 } from '../components/ui/accordion';
 import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
-import { getServiceImageUrl } from '../lib/storage';
-import { SmartImage } from '../components/SmartImage';
 
 // V2 Design System: Clear Glassmorphic Styling
 const v2GlassCard = 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg rounded-lg';
@@ -141,36 +139,22 @@ const PickupHours: React.FC = () => {
       />
       <JsonLd schema={getFAQSchema(siteConfig, faqs)} />
 
-      {/* Hero Section - V2 Gradient */}
-      <section className="relative bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] py-16 lg:py-24 text-center overflow-hidden">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 0.15 }}
-          transition={{ duration: 0.8 }}
-          className="absolute inset-0 z-0"
-        >
-          <SmartImage
-            priority
-            src={getServiceImageUrl('package-drop-offs.jpg')}
-            alt="Packages ready for pickup"
-            className="w-full h-full object-cover mix-blend-overlay"
-          />
-        </motion.div>
-
+      {/* Hero Section - Navy Gradient */}
+      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Carrier Pickup <span className="text-blue-200">Hours</span>
+            Carrier Pickup <span className="text-white">Hours</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg text-blue-50 leading-relaxed max-w-2xl mx-auto"
+            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
           >
             Daily collection times for UPS, FedEx, and USPS. Drop off your packages with confidence.
           </motion.p>

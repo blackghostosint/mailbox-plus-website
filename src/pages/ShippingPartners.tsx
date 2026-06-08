@@ -26,8 +26,8 @@ const ShippingPartners: React.FC = () => {
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden">
-        {/* V2 Gradient: var(--color-gradient-start) → var(--color-accent) → var(--color-gradient-mid) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]" />
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         {/* Soft Fade Bottom */}
         <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
@@ -37,9 +37,9 @@ const ShippingPartners: React.FC = () => {
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Our Shipping <span className="text-[var(--color-accent)]">Partners</span>
+            Our Shipping <span className="text-white/90">Partners</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 28 }}
@@ -126,7 +126,7 @@ const ShippingPartners: React.FC = () => {
         <motion.section {...reveal} className="max-w-4xl mx-auto">
           <div className="relative rounded-xl overflow-hidden shadow-xl">
             {/* V2 Gradient Shell */}
-            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
+            <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
             {/* Inner Glass */}
             <div className="absolute inset-[1px] rounded-[28px] bg-white/10 backdrop-blur-xl border border-white/30" />
 
@@ -134,7 +134,7 @@ const ShippingPartners: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
                 Need to Ship a Package?
               </h2>
-              <p className="text-lg text-[var(--color-bg-blue-tint)] mb-8 max-w-2xl mx-auto">
+              <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto">
                 Visit Mailbox Plus today for expert packing and shipping services. We make it easy
                 to ship anything, anywhere.
               </p>

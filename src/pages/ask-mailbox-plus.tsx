@@ -7,8 +7,6 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion';
-import { SmartImage } from '../components/SmartImage';
-import { getServiceImageUrl } from '../lib/storage';
 import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
 import MapPin from '~icons/lucide/map-pin';
@@ -63,36 +61,26 @@ const AskMailboxPlus: React.FC = () => (
       description="Find expert answers to common questions about shipping, printing, and business services at Mailbox Plus in Concord Township, Ohio."
     />
 
-    {/* ====================== HEADER IMAGE (V2 Standard) ======================= */}
-    <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[60vh]">
-      {/* Background Image with V2 Overlay */}
-      <div className="absolute inset-0 w-full h-full z-0">
-        <SmartImage
-          priority
-          src={getServiceImageUrl('/images/mailboxes.webp')}
-          alt="Mailbox Plus Storefront"
-          className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-        />
-        {/* V2 Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-      </div>
+    {/* ====================== HEADER (V2 Standard) ======================= */}
+    <section className="relative py-32 lg:py-48 overflow-hidden min-h-[60vh]">
+      {/* Navy Gradient Background */}
+      <div className="absolute inset-0 w-full h-full z-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
+          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 drop-shadow-sm"
         >
-          Ask <span className="text-[var(--color-accent)]">Mailbox Plus</span>
+          Ask <span className="text-white">Mailbox Plus</span>
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl md:text-2xl text-[var(--color-bg-blue-tint)] leading-relaxed font-medium max-w-3xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-white leading-relaxed font-medium max-w-3xl mx-auto mb-10"
         >
           Your local experts for shipping, printing, and business solutions in Concord Township. Got
           questions? We have answers.
@@ -176,10 +164,10 @@ const AskMailboxPlus: React.FC = () => (
     </section>
 
     {/* ====================== CTA SECTION (V2 Gradient) ======================= */}
-    <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
+    <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
       <div className="max-w-4xl mx-auto px-4">
         <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Still have questions?</h2>
-        <p className="text-xl text-[var(--color-bg-blue-tint)] mb-10 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-xl text-white mb-10 max-w-2xl mx-auto leading-relaxed">
           Giving us a call is often the fastest way to get help. We&apos;re open 6 days a week!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
