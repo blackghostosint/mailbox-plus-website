@@ -43,12 +43,27 @@ const hiddenFromGrid = new Set([
   'usps-package-help-concord-township',
   'business-services-concord-township',
   'document-services-concord-township',
+  'every-door-direct-mail',
+  // Specialty shipping services (keep accessible but hide from main grid for cleaner UI)
+  'artwork-shipping',
+  'bicycle-shipping',
+  'golf-club-shipping',
+  'packaging-supplies',
+  // Printing and design services (keep accessible but hide from main grid for cleaner UI)
+  'graphic-design',
+  'business-cards',
+  'flyers-brochures',
+  'posters-printing',
+  'postcard-printing',
+  'printing-services-concord-township',
   // Mailbox sub-pages collapsed into main two cards
   'private-mailbox-rental-concord-township',
   'virtual-mailbox-concord-township',
   'mail-forwarding-concord-township',
   // Amazon returns — keep the guide, drop the duplicate landing page
   'amazon-returns-drop-off-concord-township',
+  // Amazon return guide (keep accessible but hide from main grid for cleaner UI)
+  'amazon-returns',
 ]);
 
 // Animation constants (V2 Spec)
