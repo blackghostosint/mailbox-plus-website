@@ -26,7 +26,7 @@ export const ServiceAreaIndex: React.FC = () => {
         {serviceAreas.map((area) => (
           <div
             key={area.slug}
-            className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 text-center flex flex-col items-center justify-between"
+            className="bg-white p-6 rounded-xl shadow-sm border border-[var(--color-border)] text-center flex flex-col items-center justify-between"
           >
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">
               {area.city}

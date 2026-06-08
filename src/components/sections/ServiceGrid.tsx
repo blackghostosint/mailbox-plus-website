@@ -18,9 +18,9 @@ export const ServiceGrid: React.FC<ServiceGridProps> = ({ pillarId }) => {
         <InternalLink
           key={service.id}
           to={service.url}
-          className="group flex flex-col p-6 bg-white border border-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300"
+          className="group flex flex-col p-6 bg-white border border-[var(--color-border)] rounded-xl hover:shadow-lg transition-shadow duration-300"
         >
-          <h3 className="text-lg font-semibold text-gray-900 group-hover:text-[var(--color-primary)] transition-colors">
+          <h3 className="text-lg font-semibold text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
             {service.title}
           </h3>
           <div className="mt-4 flex items-center text-sm font-medium text-[var(--color-primary)]">

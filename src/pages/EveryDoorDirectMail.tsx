@@ -12,7 +12,7 @@ export const EveryDoorDirectMail: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Grow your local customer base with our{' '}
           <InternalLink variant="geo" to="/business-services-concord-township">
             direct mail services

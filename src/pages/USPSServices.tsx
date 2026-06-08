@@ -9,7 +9,7 @@ export const USPSServices: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Why wait in line at the post office? Mailbox Plus is your convenient{' '}
           <InternalLink variant="geo" to="/post-office-alternative-concord-township">
             post office alternative in Concord Township

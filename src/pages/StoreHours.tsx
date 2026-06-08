@@ -78,7 +78,7 @@ export const StoreHours: React.FC = () => {
                   className={`flex justify-between items-center p-4 rounded-xl ${
                     schedule.isToday
                       ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
-                      : 'bg-gray-50'
+                      : 'bg-[var(--color-bg-secondary)]'
                   }`}
                 >
                   <span
@@ -121,7 +121,7 @@ export const StoreHours: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
             >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8 text-[var(--color-primary)]" />
@@ -141,7 +141,7 @@ export const StoreHours: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
             >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MapPin className="w-8 h-8 text-[var(--color-primary)]" />
@@ -170,7 +170,7 @@ export const StoreHours: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 text-center"
+              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
             >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
@@ -214,7 +214,7 @@ export const StoreHours: React.FC = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex justify-between items-center p-4 bg-gray-50 rounded-xl"
+                  className="flex justify-between items-center p-4 bg-[var(--color-bg-secondary)] rounded-xl"
                 >
                   <div>
                     <span className="font-semibold text-[var(--color-text-primary)]">

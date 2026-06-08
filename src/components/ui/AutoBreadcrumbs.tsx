@@ -15,12 +15,12 @@ export const AutoBreadcrumbs: React.FC = () => {
   return (
     <>
       <nav aria-label="Breadcrumb" className="mb-6">
-        <ol className="flex items-center space-x-2 text-sm text-gray-600 overflow-x-auto">
+        <ol className="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
           {items.map((item, index) => (
             <li key={item.url} className="flex items-center whitespace-nowrap">
               {index > 0 && (
                 <ChevronRight
-                  className="w-4 h-4 mx-1 text-gray-400 flex-shrink-0"
+                  className="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0"
                   aria-hidden="true"
                 />
               )}

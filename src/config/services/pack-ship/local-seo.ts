@@ -34,22 +34,22 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Speed:</strong> In and out fast so you can get back to your day.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Speed:</strong> In and out fast so you can get back to your day.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.</div>
                         </li>
                     </ul>
                 `,
@@ -59,16 +59,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier:</strong> We accept drop-offs for UPS, FedEx and USPS packages.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier:</strong> We accept drop-offs for UPS, FedEx and USPS packages.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Packing Help:</strong> Professional supplies and expertise available on-site.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Packing Help:</strong> Professional supplies and expertise available on-site.</div>
                         </li>
                     </ul>
                 `,
@@ -134,22 +134,22 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We prioritize efficiency so you can get in and out quickly.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We prioritize efficiency so you can get in and out quickly.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Local Ownership:</strong> We are part of the Concord Township community.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Local Ownership:</strong> We are part of the Concord Township community.</div>
                         </li>
                     </ul>
                 `,
@@ -159,22 +159,22 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Shipping & Packing:</strong> Authorized for UPS, FedEx, USPS, and DHL with professional packing services.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Shipping & Packing:</strong> Authorized for UPS, FedEx, USPS, and DHL with professional packing services.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Printing & Copying:</strong> High-quality color and B&W copies with document finishing.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Printing & Copying:</strong> High-quality color and B&W copies with document finishing.</div>
                         </li>
                     </ul>
                 `,
@@ -243,22 +243,22 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We value your time and ensure a quick, efficient experience.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We value your time and ensure a quick, efficient experience.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> Access to UPS, FedEx, USPS, and DHL in one place.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> Access to UPS, FedEx, USPS, and DHL in one place.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Local Ownership:</strong> Proud members of the Concord Township community.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Local Ownership:</strong> Proud members of the Concord Township community.</div>
                         </li>
                     </ul>
                 `,
@@ -268,16 +268,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Mailbox Rentals:</strong> Secure private mailboxes with a real street address.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Mailbox Rentals:</strong> Secure private mailboxes with a real street address.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Printing & Notary:</strong> Full range of business support services on-site.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Printing & Notary:</strong> Full range of business support services on-site.</div>
                         </li>
                     </ul>
                 `,
@@ -330,16 +330,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> Skip the long lines typical of big box stores.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> Skip the long lines typical of big box stores.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Choice:</strong> Compare rates across FedEx, UPS, USPS, and DHL.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Choice:</strong> Compare rates across FedEx, UPS, USPS, and DHL.</div>
                         </li>
                     </ul>
                 `,
@@ -349,16 +349,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Print & Copy:</strong> Professional document finishing and business cards.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Print & Copy:</strong> Professional document finishing and business cards.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Office Services:</strong> Notary public, faxing, scanning, and secure shredding.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Office Services:</strong> Notary public, faxing, scanning, and secure shredding.</div>
                         </li>
                     </ul>
                 `,
@@ -409,16 +409,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> We pride ourselves on quick, efficient transactions.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We pride ourselves on quick, efficient transactions.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Choice:</strong> Access to UPS, FedEx, and DHL for when USPS isn't the best fit.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Choice:</strong> Access to UPS, FedEx, and DHL for when USPS isn't the best fit.</div>
                         </li>
                     </ul>
                 `,
@@ -428,16 +428,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">USPS Shipping:</strong> Priority Mail, Express, First Class, and International.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">USPS Shipping:</strong> Priority Mail, Express, First Class, and International.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Private Mailboxes:</strong> Secure mailboxes with real street addresses.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Private Mailboxes:</strong> Secure mailboxes with real street addresses.</div>
                         </li>
                     </ul>
                 `,
@@ -498,16 +498,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Choice:</strong> Only local center offering UPS, FedEx, USPS, and DHL under one roof.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Choice:</strong> Only local center offering UPS, FedEx, USPS, and DHL under one roof.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Expertise:</strong> Trained professionals for packing and global logistics.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Expertise:</strong> Trained professionals for packing and global logistics.</div>
                         </li>
                     </ul>
                 `,
@@ -517,16 +517,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Domestic & International:</strong> Ground, Express, and Overnight to anywhere in the world.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Domestic & International:</strong> Ground, Express, and Overnight to anywhere in the world.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Package Receiving:</strong> Secure site for all your incoming deliveries.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Package Receiving:</strong> Secure site for all your incoming deliveries.</div>
                         </li>
                     </ul>
                 `,
@@ -585,26 +585,26 @@ export const localSeoServices: Service[] = [
                         <table class="w-full text-left border-collapse">
                             <thead>
                                 <tr>
-                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Feature</th>
-                                    <th class="border-b-2 border-blue-200 p-4 bg-blue-50 text-blue-900">Mailbox Plus</th>
-                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">DIY Packing</th>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                    <th class="border-b-2 border-[var(--color-border-blue)] p-4 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)]">Mailbox Plus</th>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Safety</td>
-                                    <td class="border-b border-slate-100 p-4 text-blue-700">Professional Standards</td>
-                                    <td class="border-b border-slate-100 p-4 text-slate-600">Risk of Damage</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Safety</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Professional Standards</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Risk of Damage</td>
                                 </tr>
                                 <tr>
-                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Materials</td>
-                                    <td class="border-b border-slate-100 p-4 text-blue-700">Industrial Strength</td>
-                                    <td class="border-b border-slate-100 p-4 text-slate-600">Consumer Grade</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Materials</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Industrial Strength</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Consumer Grade</td>
                                 </tr>
                                 <tr>
-                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Insurance</td>
-                                    <td class="border-b border-slate-100 p-4 text-blue-700">Guarantee Eligible</td>
-                                    <td class="border-b border-slate-100 p-4 text-slate-600">Claims often denied</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Insurance</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Guarantee Eligible</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Claims often denied</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -615,8 +615,8 @@ export const localSeoServices: Service[] = [
       {
         heading: "Concord Township's Packing Experts",
         body: `
-                    <div class="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
-                        <p class="text-blue-900 leading-relaxed text-lg">
+                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-2xl border border-[var(--color-border-blue)]">
+                        <p class="text-[var(--color-primary)] leading-relaxed text-lg">
                             Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing needs. 
                             We also serve the surrounding communities of Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping 
                             your gifts, returns, and business packages.
@@ -675,21 +675,21 @@ export const localSeoServices: Service[] = [
                     and services to find the perfect fit for every package.
                 </p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100 flex flex-col items-center text-center">
-                        <h4 class="font-bold text-blue-900 mb-2">UPS</h4>
-                        <p class="text-sm text-gray-600">Reliable ground and air services for domestic and international.</p>
+                    <div class="bg-[var(--color-bg-blue-tint)] p-6 rounded-2xl border border-[var(--color-border-blue)] flex flex-col items-center text-center">
+                        <h4 class="font-bold text-[var(--color-primary)] mb-2">UPS</h4>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Reliable ground and air services for domestic and international.</p>
                     </div>
                     <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col items-center text-center">
                         <h4 class="font-bold text-purple-900 mb-2">FedEx</h4>
-                        <p class="text-sm text-gray-600">Fast express and economical ground options for time-sensitive items.</p>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Fast express and economical ground options for time-sensitive items.</p>
                     </div>
                     <div class="bg-red-50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center">
                         <h4 class="font-bold text-red-900 mb-2">USPS</h4>
-                        <p class="text-sm text-gray-600">Priority Mail and flat-rate boxes for cost-effective shipping.</p>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Priority Mail and flat-rate boxes for cost-effective shipping.</p>
                     </div>
                     <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 flex flex-col items-center text-center">
                         <h4 class="font-bold text-yellow-900 mb-2">DHL</h4>
-                        <p class="text-sm text-gray-600">The world leader in international shipping for documents and parcels.</p>
+                        <p class="text-sm text-[var(--color-text-secondary)]">The world leader in international shipping for documents and parcels.</p>
                     </div>
                 </div>`,
         isFullWidth: true,
@@ -702,34 +702,34 @@ export const localSeoServices: Service[] = [
                             <li class="flex items-start gap-4">
                                 <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
                                 <div>
-                                    <h5 class="font-bold text-gray-900">Compare & Save</h5>
-                                    <p class="text-gray-600">We show you rates from all 4 carriers side-by-side.</p>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">Compare & Save</h5>
+                                    <p class="text-[var(--color-text-secondary)]">We show you rates from all 4 carriers side-by-side.</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4">
                                 <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
                                 <div>
-                                    <h5 class="font-bold text-gray-900">One Stop Shop</h5>
-                                    <p class="text-gray-600">No need to drive to multiple stores for different carriers.</p>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">One Stop Shop</h5>
+                                    <p class="text-[var(--color-text-secondary)]">No need to drive to multiple stores for different carriers.</p>
                                 </div>
                             </li>
                             <li class="flex items-start gap-4">
                                 <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
                                 <div>
-                                    <h5 class="font-bold text-gray-900">Expert Advice</h5>
-                                    <p class="text-gray-600">Our staff understands the strengths of each carrier.</p>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">Expert Advice</h5>
+                                    <p class="text-[var(--color-text-secondary)]">Our staff understands the strengths of each carrier.</p>
                                 </div>
                             </li>
                         </ul>
                     </div>
-                    <div class="bg-gray-900 text-white p-8 rounded-3xl shadow-xl">
+                    <div class="bg-[var(--color-bg-secondary)] text-white p-8 rounded-3xl shadow-xl">
                         <h4 class="text-xl font-bold mb-4">Express Returns Too!</h4>
-                        <p class="text-gray-400 leading-relaxed mb-6">
+                        <p class="text-[var(--color-text-muted)] leading-relaxed mb-6">
                             We accept prepaid drop-off packages for all four carriers, making your online returns effortless.
                         </p>
                         <div class="border-t border-white/10 pt-6 flex items-center gap-4">
                             <div class="p-3 bg-white/10 rounded-xl">
-                                <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                <svg class="w-6 h-6 text-[var(--color-border-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
                             </div>
                             <span class="text-sm font-medium">Authorized Ship Center for all 4 carriers</span>
                         </div>
@@ -796,16 +796,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Efficiency:</strong> Single stop for UPS, FedEx, USPS, and DHL logistics.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Efficiency:</strong> Single stop for UPS, FedEx, USPS, and DHL logistics.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Professional Image:</strong> Prestigious street address for your home-based business.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Professional Image:</strong> Prestigious street address for your home-based business.</div>
                         </li>
                     </ul>
                 `,
@@ -815,16 +815,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">On-Demand Printing:</strong> Marketing materials and invoices printed when you need them.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">On-Demand Printing:</strong> Marketing materials and invoices printed when you need them.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Fulfillment Support:</strong> Expert packing and shipping assistance during peak seasons.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Fulfillment Support:</strong> Expert packing and shipping assistance during peak seasons.</div>
                         </li>
                     </ul>
                 `,
@@ -889,16 +889,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Faster Service:</strong> In and out in minutes—no waiting in endless lines.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> In and out in minutes—no waiting in endless lines.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.</div>
                         </li>
                     </ul>
                 `,
@@ -908,16 +908,16 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Postal Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Postal Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-blue-50 p-1.5 rounded-full text-blue-600 shrink-0 border border-blue-100">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-gray-700 leading-relaxed"><strong class="text-gray-900">Packing Services:</strong> Professional packing to ensure your items arrive safely.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Packing Services:</strong> Professional packing to ensure your items arrive safely.</div>
                         </li>
                     </ul>
                 `,
@@ -979,21 +979,21 @@ export const localSeoServices: Service[] = [
                         <table class="w-full text-left border-collapse">
                             <thead>
                                 <tr>
-                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Feature</th>
-                                    <th class="border-b-2 border-blue-200 p-4 bg-blue-50 text-blue-900">Mailbox Plus</th>
-                                    <th class="border-b-2 border-slate-200 p-4 bg-slate-50 text-slate-800">Doing It Yourself</th>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                    <th class="border-b-2 border-[var(--color-border-blue)] p-4 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)]">Mailbox Plus</th>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Doing It Yourself</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Convenience</td>
-                                    <td class="border-b border-slate-100 p-4 text-blue-700">We do the work for you</td>
-                                    <td class="border-b border-slate-100 p-4 text-slate-600">Time-consuming</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Convenience</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">We do the work for you</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Time-consuming</td>
                                 </tr>
                                 <tr>
-                                    <td class="border-b border-slate-100 p-4 text-slate-700 font-medium">Cost Savings</td>
-                                    <td class="border-b border-slate-100 p-4 text-blue-700">Compare carrier rates</td>
-                                    <td class="border-b border-slate-100 p-4 text-slate-600">Limited to one carrier</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Cost Savings</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Compare carrier rates</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Limited to one carrier</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -1004,8 +1004,8 @@ export const localSeoServices: Service[] = [
       {
         heading: 'Helping Concord Township Ship Smarter',
         body: `
-                    <div class="bg-blue-50/50 p-8 rounded-2xl border border-blue-100">
-                        <p class="text-blue-900 leading-relaxed text-lg">
+                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-2xl border border-[var(--color-border-blue)]">
+                        <p class="text-[var(--color-primary)] leading-relaxed text-lg">
                             Mailbox Plus is dedicated to making shipping easy for the residents of <strong>Concord Township, Ohio</strong>. 
                             Whether you're in Mentor, Painesville, or anywhere in Lake County, our expert team is ready to help you with 
                             all your package needs.

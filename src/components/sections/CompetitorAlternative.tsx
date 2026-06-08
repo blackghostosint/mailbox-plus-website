@@ -3,14 +3,17 @@ import { InternalLink } from '../ui/InternalLink';
 
 export const CompetitorAlternativeSection: React.FC = () => {
   return (
-    <section id="competitor-alternative" className="py-12 bg-white border-t border-gray-100">
+    <section
+      id="competitor-alternative"
+      className="py-12 bg-white border-t border-[var(--color-border)]"
+    >
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-xl font-bold mb-4 text-gray-900">
+        <h2 className="text-xl font-bold mb-4 text-[var(--color-text-primary)]">
           A Better Alternative to USPS, The UPS Store, FedEx Office, Mail Boxes Etc., Staples, and
           Office Depot in Concord Township
         </h2>
 
-        <p className="text-gray-700 leading-relaxed mb-6">
+        <p className="text-[var(--color-text-primary)] leading-relaxed mb-6">
           When you need reliable shipping, printing, or business services in Concord Township, skip
           the long lines and impersonal service at the big chain stores. Mailbox Plus offers a
           superior, locally owned alternative to the Post Office (USPS), The UPS Store, FedEx
@@ -19,7 +22,7 @@ export const CompetitorAlternativeSection: React.FC = () => {
           and DHL all in one place.
         </p>
 
-        <p className="text-gray-700 leading-relaxed mb-6">
+        <p className="text-[var(--color-text-primary)] leading-relaxed mb-6">
           Our friendly, knowledgeable staff takes the stress out of your errands with personalized
           assistance for professional packing, notary public services, mailbox rentals, and
           high-quality printing. We are also your local expert for Amazon Returns, FedEx Easy
@@ -27,7 +30,7 @@ export const CompetitorAlternativeSection: React.FC = () => {
           commitment to our local community that national chains simply can&apos;t match.
         </p>
 
-        <p className="text-gray-700 leading-relaxed mb-6">
+        <p className="text-[var(--color-text-primary)] leading-relaxed mb-6">
           Don&apos;t settle for limited options or long lines. See how Mailbox Plus compares to the
           competition.
         </p>

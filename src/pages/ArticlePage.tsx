@@ -4,13 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
-import { SmartImage } from '../components/SmartImage';
 import { Button } from '../components/ui/Button';
 import ArrowRight from '~icons/lucide/arrow-right';
 import Calendar from '~icons/lucide/calendar';
 import Tag from '~icons/lucide/tag';
 import User from '~icons/lucide/user';
-import { getServiceImageUrl } from '../lib/storage';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -53,8 +51,10 @@ const ArticlePage: React.FC = () => {
   if (error || !article) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
-        <h1 className="text-4xl font-bold text-slate-900 mb-4">Article Not Found</h1>
-        <p className="text-lg text-slate-600 mb-8">
+        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
+          Article Not Found
+        </h1>
+        <p className="text-lg mb-8" style={{ color: 'var(--color-text-secondary)' }}>
           The article you are looking for does not exist or has been moved.
         </p>
         <Link to="/">
@@ -64,7 +64,7 @@ const ArticlePage: React.FC = () => {
     );
   }
 
-  const { title, description, pubDate, author, category, image, imageAlt, relatedServices } =
+  const { title, description, pubDate, author, category, image, relatedServices } =
     article.frontmatter;
   const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -85,32 +85,25 @@ const ArticlePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="relative bg-slate-900 py-24 lg:py-32 overflow-hidden">
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 w-full h-full">
-          <SmartImage
-            src={getServiceImageUrl(image)}
-            alt={imageAlt || title}
-            className="w-full h-full object-cover opacity-20 blur-sm"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm border border-blue-500/30">
-            <Tag className="w-3 h-3" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/25">
+            <Tag className="w-4 h-4" />
             <span className="uppercase tracking-wider">{category.replace('-', ' ')}</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
             {title}
           </h1>
 
-          <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10">
             {description}
           </p>
 
-          <div className="flex items-center justify-center gap-6 text-slate-400 text-sm">
+          <div
+            className="flex items-center justify-center gap-6 text-sm"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
             <div className="flex items-center gap-2">
               <Calendar className="w-4 h-4" />
               <span>{formattedDate}</span>
@@ -123,7 +116,8 @@ const ArticlePage: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
+      </section>
 
       {/* Content Section */}
       <div className="bg-white py-16 lg:py-24">
@@ -134,21 +128,46 @@ const ArticlePage: React.FC = () => {
 
           {/* Related Services / CTA */}
           {relatedServices && relatedServices.length > 0 && (
-            <div className="mt-16 pt-10 border-t border-slate-200">
-              <h3 className="text-2xl font-bold text-slate-900 mb-6">Related Services</h3>
+            <div className="mt-16 pt-10" style={{ borderTop: '1px solid var(--color-border)' }}>
+              <h3
+                className="text-2xl font-bold mb-6"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
+                Related Services
+              </h3>
               <div className="grid gap-4 md:grid-cols-2">
                 {relatedServices.map((servicePath, idx) => (
                   <Link key={idx} to={servicePath}>
-                    <div className="group p-6 bg-slate-50 rounded-xl border border-slate-100 hover:border-blue-200 hover:bg-blue-50 transition-all duration-300 cursor-pointer">
+                    <div
+                      className="group p-6 rounded-xl transition-all duration-300 cursor-pointer"
+                      style={{
+                        backgroundColor: 'var(--color-bg-primary)',
+                        border: '1px solid var(--color-border)',
+                      }}
+                      onMouseEnter={(ev) => {
+                        ev.currentTarget.style.borderColor = 'var(--color-border-blue)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-blue-tint)';
+                      }}
+                      onMouseLeave={(ev) => {
+                        ev.currentTarget.style.borderColor = 'var(--color-border)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-primary)';
+                      }}
+                    >
                       <div className="flex justify-between items-center">
-                        <span className="font-semibold text-slate-700 group-hover:text-blue-700">
+                        <span
+                          className="font-semibold group-hover:text-blue-700"
+                          style={{ color: 'var(--color-text-primary)' }}
+                        >
                           {servicePath
                             .split('/')
                             .pop()
                             ?.replace(/-/g, ' ')
                             .replace(/\b\w/g, (c) => c.toUpperCase()) || 'View Service'}
                         </span>
-                        <ArrowRight className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-transform group-hover:translate-x-1" />
+                        <ArrowRight
+                          className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                          style={{ color: 'var(--color-text-muted)' }}
+                        />
                       </div>
                     </div>
                   </Link>

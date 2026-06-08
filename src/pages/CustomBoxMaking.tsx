@@ -9,7 +9,7 @@ export const CustomBoxMaking: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Oddly shaped item? No problem. We build{' '}
           <InternalLink variant="geo" to="/pack-ship/packaging-supplies">
             custom boxes

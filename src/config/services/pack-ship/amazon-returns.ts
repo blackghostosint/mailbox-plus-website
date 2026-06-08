@@ -25,19 +25,19 @@ export const amazonReturnsService: Service = {
     {
       heading: 'How Amazon Returns Work',
       body: `
-        <div class="bg-white rounded-2xl shadow-sm p-8 border border-slate-200">
+        <div class="bg-white rounded-2xl shadow-sm p-8 border border-[var(--color-border)]">
           <ul class="space-y-4">
             <li class="flex items-start gap-3">
-              <span class="text-blue-600 shrink-0 mt-1">✓</span>
-              <span class="text-slate-700 text-lg">Most Amazon items can be returned within about 30 days.</span>
+              <span class="text-[var(--color-primary)] shrink-0 mt-1">✓</span>
+              <span class="text-[var(--color-text-primary)] text-lg">Most Amazon items can be returned within about 30 days.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-blue-600 shrink-0 mt-1">✓</span>
-              <span class="text-slate-700 text-lg">Some items (electronics, perishables, personalized items) have special rules.</span>
+              <span class="text-[var(--color-primary)] shrink-0 mt-1">✓</span>
+              <span class="text-[var(--color-text-primary)] text-lg">Some items (electronics, perishables, personalized items) have special rules.</span>
             </li>
             <li class="flex items-start gap-3">
-              <span class="text-blue-600 shrink-0 mt-1">✓</span>
-              <span class="text-slate-700 text-lg">Always check your Amazon "Your Orders" page for exact eligibility and deadlines.</span>
+              <span class="text-[var(--color-primary)] shrink-0 mt-1">✓</span>
+              <span class="text-[var(--color-text-primary)] text-lg">Always check your Amazon "Your Orders" page for exact eligibility and deadlines.</span>
             </li>
           </ul>
         </div>
@@ -76,7 +76,7 @@ export const amazonReturnsService: Service = {
           ]
             .map(
               (step, idx) => `
-            <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+            <div class="flex flex-col md:flex-row items-start gap-6 bg-[var(--color-bg-secondary)]/50 p-6 rounded-2xl border border-[var(--color-border)]/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
@@ -86,7 +86,7 @@ export const amazonReturnsService: Service = {
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
-                <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
+                <p class="text-[var(--color-text-primary)] text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
           `
@@ -128,7 +128,7 @@ export const amazonReturnsService: Service = {
           ]
             .map(
               (step, idx) => `
-            <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+            <div class="flex flex-col md:flex-row items-start gap-6 bg-[var(--color-bg-secondary)]/50 p-6 rounded-2xl border border-[var(--color-border)]/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
@@ -138,7 +138,7 @@ export const amazonReturnsService: Service = {
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
-                <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
+                <p class="text-[var(--color-text-primary)] text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
           `
@@ -174,7 +174,7 @@ export const amazonReturnsService: Service = {
           ]
             .map(
               (step, idx) => `
-            <div class="flex flex-col md:flex-row items-start gap-6 bg-slate-50/50 p-6 rounded-2xl border border-slate-200/60 shadow-sm">
+            <div class="flex flex-col md:flex-row items-start gap-6 bg-[var(--color-bg-secondary)]/50 p-6 rounded-2xl border border-[var(--color-border)]/60 shadow-sm">
               <div class="w-full md:w-1/3">
                 <div class="flex items-center gap-3 mb-4">
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
@@ -184,18 +184,18 @@ export const amazonReturnsService: Service = {
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
-                <p class="text-slate-700 text-lg leading-relaxed">${step.description}</p>
+                <p class="text-[var(--color-text-primary)] text-lg leading-relaxed">${step.description}</p>
               </div>
             </div>
           `
             )
             .join('')}
         </div>
-        <div class="mt-8 bg-blue-50 border-l-4 border-[var(--color-primary)] p-6 rounded-r-2xl flex items-start gap-4">
+        <div class="mt-8 bg-[var(--color-bg-blue-tint)] border-l-4 border-[var(--color-primary)] p-6 rounded-r-2xl flex items-start gap-4">
           <div class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-1">💡</div>
           <div>
             <p class="font-bold text-[var(--color-primary)] text-lg">Tip:</p>
-            <p class="text-blue-900 text-lg">Start your return as early as possible to avoid missing the return window.</p>
+            <p class="text-[var(--color-primary)] text-lg">Start your return as early as possible to avoid missing the return window.</p>
           </div>
         </div>
       `,
@@ -205,22 +205,22 @@ export const amazonReturnsService: Service = {
       heading: 'How Mailbox Plus Helps With Amazon Returns',
       body: `
         <div class="grid md:grid-cols-2 gap-8 my-8">
-          <div class="bg-slate-900 text-white p-8 rounded-[28px] space-y-6 shadow-xl">
-            <h3 class="text-2xl font-bold text-blue-300">Services We Provide:</h3>
+          <div class="bg-[var(--color-bg-secondary)] text-white p-8 rounded-[28px] space-y-6 shadow-xl">
+            <h3 class="text-2xl font-bold text-[var(--color-accent)]">Services We Provide:</h3>
             <ul class="space-y-4">
-              <li class="flex items-center gap-3"><span class="text-blue-400">●</span> Print your Amazon label (if needed)</li>
-              <li class="flex items-center gap-3"><span class="text-blue-400">●</span> Supply proper packaging</li>
-              <li class="flex items-center gap-3"><span class="text-blue-400">●</span> Professionally pack fragile items</li>
-              <li class="flex items-center gap-3"><span class="text-blue-400">●</span> Prepare shipments for all carriers</li>
-              <li class="flex items-center gap-3"><span class="text-blue-400">●</span> Real person support for instructions</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Print your Amazon label (if needed)</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Supply proper packaging</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Professionally pack fragile items</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Prepare shipments for all carriers</li>
+              <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Real person support for instructions</li>
             </ul>
           </div>
-          <div class="bg-blue-50/50 p-8 rounded-[28px] border border-blue-100 flex flex-col justify-center">
-            <h3 class="text-2xl font-bold text-blue-900 mb-6">Why Choose Us?</h3>
-            <p class="text-slate-700 text-lg leading-relaxed mb-6 italic">
+          <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-[28px] border border-[var(--color-border-blue)] flex flex-col justify-center">
+            <h3 class="text-2xl font-bold text-[var(--color-primary)] mb-6">Why Choose Us?</h3>
+            <p class="text-[var(--color-text-primary)] text-lg leading-relaxed mb-6 italic">
               "At Mailbox Plus, we assist residents throughout Lake County. We’re a local, owner-operated pack-and-ship store—when Amazon’s instructions get confusing, you can talk to a real person."
             </p>
-            <div class="flex items-center gap-3 text-slate-600 font-medium">
+            <div class="flex items-center gap-3 text-[var(--color-text-secondary)] font-medium">
               <span>📍 7554 Fredle Drive, Concord Township, OH</span>
             </div>
           </div>
@@ -244,7 +244,7 @@ export const amazonReturnsService: Service = {
               (problem) => `
             <div class="bg-red-50/50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center gap-3">
               <span class="text-red-500 text-xl font-bold">!</span>
-              <span class="font-semibold text-slate-800">${problem}</span>
+              <span class="font-semibold text-[var(--color-text-primary)]">${problem}</span>
             </div>
           `
             )
@@ -259,17 +259,17 @@ export const amazonReturnsService: Service = {
     {
       heading: 'When You Should NOT Use Mailbox Plus',
       body: `
-        <div class="bg-white p-8 rounded-[28px] shadow-sm border border-slate-200">
+        <div class="bg-white p-8 rounded-[28px] shadow-sm border border-[var(--color-border)]">
           <ul class="space-y-4 mb-6">
-            <li class="flex items-start gap-3 text-slate-700 text-lg">
+            <li class="flex items-start gap-3 text-[var(--color-text-primary)] text-lg">
               <span class="text-red-500 font-bold">✕</span>
               <span>Amazon only gave you a QR code</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-700 text-lg">
+            <li class="flex items-start gap-3 text-[var(--color-text-primary)] text-lg">
               <span class="text-red-500 font-bold">✕</span>
               <span>Amazon forced the return to a specific partner location</span>
             </li>
-            <li class="flex items-start gap-3 text-slate-700 text-lg">
+            <li class="flex items-start gap-3 text-[var(--color-text-primary)] text-lg">
               <span class="text-red-500 font-bold">✕</span>
               <span>Amazon requires in-person verification</span>
             </li>
@@ -299,9 +299,9 @@ export const amazonReturnsService: Service = {
           ]
             .map(
               (reason) => `
-            <div class="flex items-center gap-3 bg-white p-5 rounded-2xl shadow-sm border border-blue-100/50 hover:bg-blue-50/30 transition-colors">
-              <span class="text-blue-600 font-bold">✓</span>
-              <span class="text-slate-800 font-semibold">${reason}</span>
+            <div class="flex items-center gap-3 bg-white p-5 rounded-2xl shadow-sm border border-[var(--color-border-blue)]/50 hover:bg-[var(--color-bg-blue-tint)]/30 transition-colors">
+              <span class="text-[var(--color-primary)] font-bold">✓</span>
+              <span class="text-[var(--color-text-primary)] font-semibold">${reason}</span>
             </div>
           `
             )

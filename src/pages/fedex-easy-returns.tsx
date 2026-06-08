@@ -21,7 +21,6 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion';
-import { SmartImage } from '../components/SmartImage';
 
 const reveal = {
   initial: { opacity: 0, y: 20 },
@@ -107,36 +106,22 @@ export const FedExEasyReturns: React.FC = () => {
         <Breadcrumbs service={service} />
       </div>
 
-      {/* Hero Section */}
-      {/* Hero Section */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[70vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            src={service.heroImage}
-            alt="FedEx Easy Returns at Mailbox Plus"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-        </div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      {/* Hero Section - Navy Gradient */}
+      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-8 drop-shadow-sm"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8"
           >
-            FedEx Easy Returns – <span className="text-blue-200">Fast & Hassle-Free</span>
+            FedEx Easy Returns – <span className="text-white/80">Fast & Hassle-Free</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium mb-10 max-w-3xl mx-auto"
+            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
           >
             Quick drop-offs, QR code scanning, label printing, and tracking receipts. Serving
             specific all Lake County communities.
@@ -146,7 +131,7 @@ export const FedExEasyReturns: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
           >
             <InternalLink to="/contact">
               <Button
@@ -160,8 +145,13 @@ export const FedExEasyReturns: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white"></div>
+        {/* Soft edge blend at bottom of hero */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))',
+          }}
+        ></div>
       </section>
 
       {/* Intro Section */}
@@ -170,7 +160,7 @@ export const FedExEasyReturns: React.FC = () => {
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-6">
             Returning Items Has Never Been Easier
           </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
+          <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
             Skip the long lines and complicated processes. The FedEx Easy Returns Program at Mailbox
             Plus makes returning your online purchases simple. Bring your phone with your QR code,
             we’ll handle the rest—scanning, printing, and getting your package on its way.
@@ -179,7 +169,7 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-slate-50 relative z-10 -mt-10">
+      <section className="py-20 bg-[var(--color-bg-primary)] relative z-10 -mt-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <motion.h2 {...reveal} className="text-3xl font-bold text-[var(--color-text-primary)]">
@@ -215,13 +205,13 @@ export const FedExEasyReturns: React.FC = () => {
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
               >
-                <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
+                <div className="w-14 h-14 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
                   <benefit.icon className="w-7 h-7" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-3">
                   {benefit.title}
                 </h3>
-                <p className="text-slate-600 leading-relaxed">{benefit.desc}</p>
+                <p className="text-[var(--color-text-secondary)] leading-relaxed">{benefit.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -235,11 +225,11 @@ export const FedExEasyReturns: React.FC = () => {
             {...reveal}
             className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden"
           >
-            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-bg-blue-tint)] rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
             <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">
               What is FedEx Easy Returns?
             </h2>
-            <p className="text-slate-700 leading-relaxed text-lg">
+            <p className="text-[var(--color-text-primary)] leading-relaxed text-lg">
               FedEx Easy Returns is a consumer-friendly service designed to streamline the process
               of sending items back to retailers. Instead of worrying about printing labels at home
               or finding packaging, you can simply bring your item and your return information
@@ -258,7 +248,7 @@ export const FedExEasyReturns: React.FC = () => {
           </h2>
           <div className="relative">
             {/* Connector Line (Desktop) */}
-            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-100 -z-10" />
+            <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--color-border)] -z-10" />
 
             <div className="space-y-12">
               {[
@@ -295,12 +285,12 @@ export const FedExEasyReturns: React.FC = () => {
                         <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-gray-600">{item.desc}</p>
+                        <p className="text-[var(--color-text-secondary)]">{item.desc}</p>
                       </>
                     )}
                   </div>
 
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-gradient-start)] to-[var(--color-accent)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
                     {item.step}
                   </div>
 
@@ -310,7 +300,7 @@ export const FedExEasyReturns: React.FC = () => {
                         <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
                           {item.title}
                         </h3>
-                        <p className="text-gray-600">{item.desc}</p>
+                        <p className="text-[var(--color-text-secondary)]">{item.desc}</p>
                       </>
                     )}
                   </div>
@@ -322,7 +312,7 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* Common Items Grid */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[var(--color-bg-secondary)]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-10">
             Items Commonly Returned
@@ -340,7 +330,7 @@ export const FedExEasyReturns: React.FC = () => {
             ].map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 font-medium text-gray-700"
+                className="bg-white p-4 rounded-lg shadow-sm border border-[var(--color-border)] font-medium text-[var(--color-text-primary)]"
               >
                 {item}
               </div>
@@ -359,10 +349,10 @@ export const FedExEasyReturns: React.FC = () => {
             <div className="flex gap-4 items-start">
               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
               <div>
-                <h3 className="font-bold text-lg text-gray-900">
+                <h3 className="font-bold text-lg text-[var(--color-text-primary)]">
                   You have a FedEx Easy Returns QR Code
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-[var(--color-text-secondary)]">
                   Retailers like Walmart, Target, and Samsung often send these.
                 </p>
               </div>
@@ -370,8 +360,12 @@ export const FedExEasyReturns: React.FC = () => {
             <div className="flex gap-4 items-start">
               <CheckCircle className="w-6 h-6 text-green-600 shrink-0 mt-1" />
               <div>
-                <h3 className="font-bold text-lg text-gray-900">You Want a Receipt</h3>
-                <p className="text-gray-600">Always get proof of your return for your records.</p>
+                <h3 className="font-bold text-lg text-[var(--color-text-primary)]">
+                  You Want a Receipt
+                </h3>
+                <p className="text-[var(--color-text-secondary)]">
+                  Always get proof of your return for your records.
+                </p>
               </div>
             </div>
           </div>
@@ -379,7 +373,7 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-16 lg:py-24 border-t border-gray-100">
+      <section className="bg-white py-16 lg:py-24 border-t border-[var(--color-border)]">
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
             Frequently Asked Questions
@@ -389,7 +383,7 @@ export const FedExEasyReturns: React.FC = () => {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-white border border-gray-200 rounded-xl shadow-sm px-2"
+                className="bg-white border border-[var(--color-border)] rounded-xl shadow-sm px-2"
               >
                 <AccordionTrigger className="px-4 py-3 text-left font-semibold text-[var(--color-primary)] hover:underline">
                   {faq.question}
@@ -404,12 +398,12 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* Local SEO Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-[var(--color-bg-secondary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6">
             Serving Your Local Community
           </h2>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+          <p className="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
             We are proud to provide FedEx Easy Returns services to residents and businesses in:
           </p>
           <div className="flex flex-wrap justify-center gap-3">
@@ -424,7 +418,7 @@ export const FedExEasyReturns: React.FC = () => {
             ].map((area) => (
               <span
                 key={area}
-                className="bg-white px-4 py-2 rounded-full shadow-sm text-sm font-medium text-gray-700 border border-gray-200"
+                className="bg-white px-4 py-2 rounded-full shadow-sm text-sm font-medium text-[var(--color-text-primary)] border border-[var(--color-border)]"
               >
                 {area}
               </span>
@@ -437,12 +431,12 @@ export const FedExEasyReturns: React.FC = () => {
       <CompetitorAlternativeSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to return your package?
           </h2>
-          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
             Visit Mailbox Plus today. Located in Gristmill Village next to Pub Frato.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

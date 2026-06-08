@@ -9,7 +9,7 @@ export const PackageDropOffs: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           We accept drop-offs for{' '}
           <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">
             UPS

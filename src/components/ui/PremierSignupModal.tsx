@@ -113,7 +113,7 @@ export const PremierSignupModal: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={closeModal}
-            className="absolute inset-0 bg-slate-900/40 backdrop-blur-sm"
+            className="absolute inset-0 bg-[var(--color-text-primary)]/40 backdrop-blur-sm"
           />
 
           {/* Modal Container */}
@@ -123,12 +123,12 @@ export const PremierSignupModal: React.FC = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-md overflow-hidden bg-white text-slate-900 shadow-2xl rounded-[26px]"
+            className="relative w-full max-w-md overflow-hidden bg-white text-[var(--color-text-primary)] shadow-2xl rounded-[26px]"
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-5 right-5 p-1 text-slate-400 hover:text-slate-600 transition-colors z-10"
+              className="absolute top-5 right-5 p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors z-10"
               aria-label="Close modal"
             >
               <X width={20} height={20} />
@@ -139,7 +139,7 @@ export const PremierSignupModal: React.FC = () => {
               <div className="mb-2">
                 <h2
                   id="modal-headline"
-                  className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight"
+                  className="text-2xl sm:text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight"
                 >
                   Join Mailbox Plus Premier
                 </h2>
@@ -150,10 +150,10 @@ export const PremierSignupModal: React.FC = () => {
 
               {/* Desktop / Desktop+ QR View */}
               <div className="hidden sm:flex flex-col items-center mt-6">
-                <p className="text-slate-500 text-sm mb-6 max-w-[280px]">
+                <p className="text-[var(--color-text-secondary)] text-sm mb-6 max-w-[280px]">
                   Scan with your phone to get your digital Premier card instantly.
                 </p>
-                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-100 mb-6 group">
+                <div className="p-4 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-bg-secondary)] mb-6 group">
                   <QRCodeSVG
                     value={SIGNUP_URL}
                     size={160}
@@ -164,7 +164,7 @@ export const PremierSignupModal: React.FC = () => {
                 </div>
                 <a
                   href={SIGNUP_URL}
-                  className="text-xs text-slate-400 hover:text-[var(--color-primary)] transition-colors underline underline-offset-4"
+                  className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors underline underline-offset-4"
                 >
                   Continue on this device
                 </a>
@@ -172,13 +172,13 @@ export const PremierSignupModal: React.FC = () => {
 
               {/* Mobile View */}
               <div className="flex sm:hidden flex-col items-center mt-4 w-full">
-                <p className="text-slate-500 text-sm mb-8">
+                <p className="text-[var(--color-text-secondary)] text-sm mb-8">
                   Get your digital Premier card instantly.
                 </p>
 
                 <a
                   href={SIGNUP_URL}
-                  className="w-full py-4 bg-[var(--color-primary)] text-white font-semibold rounded-2xl shadow-lg shadow-blue-500/20 active:scale-[0.98] transition-transform text-center inline-block"
+                  className="w-full py-4 bg-[var(--color-primary)] text-white font-semibold rounded-2xl shadow-lg shadow-[var(--color-primary)]/20 active:scale-[0.98] transition-transform text-center inline-block"
                 >
                   Add Premier Card to My Phone
                 </a>
@@ -186,14 +186,14 @@ export const PremierSignupModal: React.FC = () => {
 
               {/* Secondary Copy */}
               <div className="mt-8 flex flex-col gap-3">
-                <p className="text-[11px] text-slate-400 flex items-center justify-center gap-2">
+                <p className="text-[11px] text-[var(--color-text-secondary)] flex items-center justify-center gap-2">
                   <span>Takes under 30 seconds</span>
-                  <span className="w-1 h-1 bg-slate-300 rounded-full" />
+                  <span className="w-1 h-1 bg-[var(--color-border)] rounded-full" />
                   <span>No physical card required</span>
                 </p>
                 <button
                   onClick={dismissPermanently}
-                  className="text-[10px] text-slate-300 hover:text-slate-500 transition-colors uppercase tracking-widest font-medium"
+                  className="text-[10px] text-[var(--color-border)] hover:text-[var(--color-text-secondary)] transition-colors uppercase tracking-widest font-medium"
                 >
                   Don&apos;t show again
                 </button>

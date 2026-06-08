@@ -9,7 +9,7 @@ export const GraphicDesign: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           From concept to completion, our graphic design team supports our full range of{' '}
           <InternalLink variant="geo" to="/printing-services-concord-township">
             printing services in Concord Township

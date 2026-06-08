@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { InternalLink } from '../components/ui/InternalLink';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -13,7 +13,6 @@ import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
 import { pageMeta } from '../config/pageMeta';
 import { SmartImage } from '../components/SmartImage';
-import { getServiceImageUrl } from '../lib/storage';
 
 // Utility to generate safe IDs
 const makeId = (str: string) => str.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
@@ -36,8 +35,6 @@ const reveal = {
 };
 
 export const Services: React.FC = () => {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [showTopButton, setShowTopButton] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -54,150 +51,66 @@ export const Services: React.FC = () => {
     'Additional Services',
   ];
 
-  // Rotate the tagline in hero
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [serviceCategories.length]);
-
   // Toggle the Back to Top button
-  useEffect(() => {
-    const onScroll = () => setShowTopButton(window.scrollY > 400);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
   const { title, description, schema } = pageMeta['/services'];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta title={title} description={description} schema={schema} />
 
-      {/* ====================== HERO SECTION (V2 Standard) ======================= */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            sources={[
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
-                media: '(max-width: 768px)',
-                type: 'image/webp',
-              },
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
-                media: '(min-width: 769px)',
-                type: 'image/webp',
-              },
-            ]}
-            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
-          />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Section - Navy Gradient */}
+      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Explore Our <span className="text-blue-200">Services</span>
+            Explore Our <span className="text-white">Services</span>
           </motion.h1>
-
-          {/* Rotating tagline */}
-          <motion.div
+          <motion.p
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="h-16 mb-8"
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
+            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
           >
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentServiceIndex}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium"
-              >
-                {serviceCategories[currentServiceIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </motion.div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#categories">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
-              >
-                View Categories <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-            {/* Directions Button */}
-            <a
-              href={getGoogleMapsLink('directions', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-blue-400/30 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                Get Directions
-              </Button>
-            </a>
-            {/* View on Map Button */}
-            <a
-              href={getGoogleMapsLink('view', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                View on Map
-              </Button>
-            </a>
-          </div>
+            Shipping, printing, mailbox rentals, and business services — all in one convenient
+            location in Concord Township.
+          </motion.p>
         </div>
 
-        {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-slate-50"></div>
+        {/* Soft edge blend at bottom of hero */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))',
+          }}
+        ></div>
       </section>
 
       {/* ====================== CATEGORY NAVIGATION ======================= */}
-      <section id="categories" className="py-12 bg-slate-50 relative z-10 -mt-8">
+      <section id="categories" className="py-12 bg-[var(--color-bg-primary)] relative z-10 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white/70 backdrop-blur-xl rounded-lg shadow-lg border border-white/50 p-8">
-            <h2 className="text-2xl font-bold mb-6 text-slate-800">Explore Our Services</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">
+              Explore Our Services
+            </h2>
             <div className="flex flex-wrap justify-center gap-3">
               {serviceCategories.map((category) => (
                 <a
                   key={category}
                   href={`#${makeId(category)}`}
-                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-blue-100/50 hover:border-blue-300 text-slate-700 hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
+                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-white/30 hover:border-white/60 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
                 >
                   {category}
                 </a>
               ))}
             </div>
-            <div className="mt-8 text-gray-600 max-w-2xl mx-auto">
+            <div className="mt-8 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
               <p>
                 Looking for{' '}
                 <InternalLink variant="geo" to="/pack-and-ship-services-concord-township">
@@ -235,7 +148,7 @@ export const Services: React.FC = () => {
             viewport={reveal.viewport}
             transition={reveal.transition}
           >
-            <h2 className="text-3xl font-bold mb-8 text-slate-900 flex items-center">
+            <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
               <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
               {category}
             </h2>
@@ -260,19 +173,19 @@ export const Services: React.FC = () => {
                         <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
                       </div>
                     ) : service.icon ? (
-                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-blue-50/50 rounded-2xl group relative overflow-hidden border border-blue-100/50">
+                      <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
                         <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
                       </div>
                     ) : (
-                      <div className="w-full aspect-[3/2] mb-6 bg-gray-50 rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
+                      <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
                         ?
                       </div>
                     )}
 
-                    <h3 className="text-xl font-bold mb-3 text-slate-900 group-hover:text-[var(--color-primary)] transition-colors">
+                    <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
                       {service.serviceName}
                     </h3>
-                    <p className="text-slate-600 mb-6 flex-grow leading-relaxed">
+                    <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
                       {service.metaDescription}
                     </p>
                     <InternalLink to={service.slug} className="mt-auto">
@@ -288,26 +201,26 @@ export const Services: React.FC = () => {
       ))}
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
             Visit Us in Concord Township Today
           </h2>
-          <p className="text-xl text-blue-100 mb-3 max-w-3xl mx-auto">
+          <p className="text-xl text-white/80 mb-3 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
-          <p className="text-lg text-blue-200 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
             Stop by for all your shipping, printing, and business service needs. Our friendly team
             is ready to help!
           </p>
 
-          <div className="mb-8 text-blue-100">
+          <div className="mb-8 text-white/80">
             <p>
               We specialize in{' '}
               <InternalLink
                 variant="geo"
                 to="/amazon-returns"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 Amazon returns
               </InternalLink>
@@ -315,7 +228,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/notary"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 notary services
               </InternalLink>
@@ -323,7 +236,7 @@ export const Services: React.FC = () => {
               <InternalLink
                 variant="geo"
                 to="/pack-ship"
-                className="text-white hover:text-blue-200 underline decoration-blue-300/50 underline-offset-4"
+                className="text-white hover:text-white/80 underline decoration-white/50 underline-offset-4"
               >
                 custom packing
               </InternalLink>
@@ -341,7 +254,7 @@ export const Services: React.FC = () => {
               <Button
                 size="lg"
                 variant="secondary"
-                className="hover:bg-blue-50 font-bold shadow-lg border-none min-h-11"
+                className="hover:bg-white/90 font-bold shadow-lg border-none min-h-11"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
@@ -373,7 +286,7 @@ export const Services: React.FC = () => {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-blue-100">
+          <div className="flex items-center justify-center gap-2 text-white/80">
             <Clock className="w-5 h-5" />
             <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>
@@ -381,15 +294,13 @@ export const Services: React.FC = () => {
       </section>
 
       {/* BACK TO TOP BUTTON */}
-      {showTopButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
-          aria-label="Back to Top"
-        >
-          <ChevronUp className="w-6 h-6" />
-        </button>
-      )}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
+        aria-label="Back to Top"
+      >
+        <ChevronUp className="w-6 h-6" />
+      </button>
     </div>
   );
 };

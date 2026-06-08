@@ -8,7 +8,7 @@ export const NuulyReturns: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-[var(--color-text-primary)] leading-relaxed">
           Drop off your Nuuly clothing rental returns at Mailbox Plus, your local{' '}
           <InternalLink variant="geo" to="/pack-ship/ups-authorized-shipper-outlet">
             authorized UPS location

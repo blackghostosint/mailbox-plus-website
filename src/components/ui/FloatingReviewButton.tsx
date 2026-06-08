@@ -62,10 +62,10 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
       <div className="relative group">
         <button
           onClick={handleClose}
-          className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-gray-100"
+          className="absolute -top-2 -right-2 bg-white rounded-full p-1 shadow-md opacity-0 group-hover:opacity-100 transition-opacity z-10 hover:bg-[var(--color-bg-secondary)]"
           aria-label="Close review button"
         >
-          <X className="w-4 h-4 text-gray-600" />
+          <X className="w-4 h-4 text-[var(--color-text-secondary)]" />
         </button>
         <a
           href={link}

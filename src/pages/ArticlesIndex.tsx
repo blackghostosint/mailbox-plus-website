@@ -48,28 +48,31 @@ const ArticlesIndex: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div className="relative bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 py-16 lg:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/20 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm border border-blue-500/30">
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/25">
             <BookOpen className="w-4 h-4" />
             Articles & Guides
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 font-heading">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
             Helpful Resources for Your Shipping & Business Needs
           </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10">
             Expert tips, local guides, and answers to common questions about pack & ship services in
             Lake County, Ohio.
           </p>
         </div>
-      </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
+      </section>
 
       {/* Articles Grid */}
-      <div className="bg-slate-50 py-16">
+      <div className="py-16" style={{ backgroundColor: 'var(--color-bg-primary)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {articles.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-lg text-slate-600">No articles available yet. Check back soon!</p>
+              <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+                No articles available yet. Check back soon!
+              </p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,10 +89,14 @@ const ArticlesIndex: React.FC = () => {
                   <Link
                     key={slug}
                     to={`/articles/${slug}`}
-                    className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-slate-200 hover:border-blue-300"
+                    className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-blue-300"
+                    style={{ borderColor: 'var(--color-border)' }}
                   >
                     {/* Featured Image */}
-                    <div className="relative overflow-hidden aspect-video bg-slate-200">
+                    <div
+                      className="relative overflow-hidden aspect-video"
+                      style={{ backgroundColor: 'var(--color-border)' }}
+                    >
                       <SmartImage
                         src={getServiceImageUrl(image)}
                         alt={imageAlt || title}
@@ -104,18 +111,27 @@ const ArticlesIndex: React.FC = () => {
                     {/* Content */}
                     <div className="p-6">
                       {/* Date */}
-                      <div className="flex items-center gap-2 text-sm text-slate-500 mb-3">
+                      <div
+                        className="flex items-center gap-2 text-sm mb-3"
+                        style={{ color: 'var(--color-text-muted)' }}
+                      >
                         <Calendar className="w-4 h-4" />
                         <time dateTime={pubDate}>{formattedDate}</time>
                       </div>
 
                       {/* Title */}
-                      <h2 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors font-heading line-clamp-2">
+                      <h2
+                        className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors font-heading line-clamp-2"
+                        style={{ color: 'var(--color-text-primary)' }}
+                      >
                         {title}
                       </h2>
 
                       {/* Description */}
-                      <p className="text-slate-600 mb-4 line-clamp-3 leading-relaxed">
+                      <p
+                        className="mb-4 line-clamp-3 leading-relaxed"
+                        style={{ color: 'var(--color-text-secondary)' }}
+                      >
                         {description}
                       </p>
 

@@ -8,7 +8,7 @@ export const BusinessCardsPage: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           Make a lasting impression with our{' '}
           <InternalLink variant="geo" to="/printing-services-concord-township">
             local business card printing

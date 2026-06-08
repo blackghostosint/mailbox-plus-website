@@ -9,7 +9,7 @@ export const FlyersBrochures: React.FC = () => {
   return (
     <ServicePageV2 {...service}>
       <div className="my-8">
-        <p className="text-gray-700 leading-relaxed">
+        <p className="leading-relaxed" style={{ color: 'var(--color-text-primary)' }}>
           Promote your event or business with our{' '}
           <InternalLink variant="geo" to="/printing-services-concord-township">
             flyer printing services

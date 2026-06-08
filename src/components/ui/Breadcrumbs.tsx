@@ -19,7 +19,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '',
       {/* Visible + microdata breadcrumbs */}
       <nav aria-label="Breadcrumb" className="mb-6">
         <ol
-          className="flex items-center space-x-2 text-sm text-gray-600 overflow-x-auto"
+          className="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto"
           itemScope
           itemType="https://schema.org/BreadcrumbList"
         >
@@ -32,7 +32,10 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '',
               itemType="https://schema.org/ListItem"
             >
               {index > 0 && (
-                <ChevronRight className="w-4 h-4 mx-1 text-gray-400" aria-hidden="true" />
+                <ChevronRight
+                  className="w-4 h-4 mx-1 text-[var(--color-text-muted)]"
+                  aria-hidden="true"
+                />
               )}
 
               {index < items.length - 1 ? (
