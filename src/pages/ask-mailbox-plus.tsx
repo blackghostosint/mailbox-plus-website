@@ -62,25 +62,22 @@ const AskMailboxPlus: React.FC = () => (
     />
 
     {/* ====================== HEADER (V2 Standard) ======================= */}
-    <section className="relative py-32 lg:py-48 overflow-hidden min-h-[60vh]">
-      {/* Navy Gradient Background */}
-      <div className="absolute inset-0 w-full h-full z-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+      <div className="relative z-10 max-w-4xl mx-auto px-6">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 drop-shadow-sm"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
         >
-          Ask <span className="text-white">Mailbox Plus</span>
+          Ask Mailbox Plus
         </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl md:text-2xl text-white leading-relaxed font-medium max-w-3xl mx-auto mb-10"
+          className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
         >
           Your local experts for shipping, printing, and business solutions in Concord Township. Got
           questions? We have answers.
@@ -88,7 +85,7 @@ const AskMailboxPlus: React.FC = () => (
       </div>
 
       {/* Soft fade bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10"></div>
     </section>
 
     {/* ====================== INTRO & LOCAL SEO ======================= */}

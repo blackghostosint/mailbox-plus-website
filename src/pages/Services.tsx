@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { InternalLink } from '../components/ui/InternalLink';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -35,8 +35,6 @@ const reveal = {
 };
 
 export const Services: React.FC = () => {
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [showTopButton, setShowTopButton] = useState(false);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
   useEffect(() => {
@@ -53,20 +51,7 @@ export const Services: React.FC = () => {
     'Additional Services',
   ];
 
-  // Rotate the tagline in hero
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [serviceCategories.length]);
-
   // Toggle the Back to Top button
-  useEffect(() => {
-    const onScroll = () => setShowTopButton(window.scrollY > 400);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -76,86 +61,35 @@ export const Services: React.FC = () => {
     <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta title={title} description={description} schema={schema} />
 
-      {/* ====================== HERO SECTION (V2 Standard) ======================= */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[80vh]">
-        {/* Gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero Section - Navy Gradient */}
+      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 drop-shadow-md"
+            transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
-            Explore Our <span className="text-white/80">Services</span>
+            Explore Our <span className="text-white">Services</span>
           </motion.h1>
-
-          {/* Rotating tagline */}
-          <motion.div
+          <motion.p
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="h-16 mb-8"
+            transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
+            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
           >
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentServiceIndex}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium"
-              >
-                {serviceCategories[currentServiceIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </motion.div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#categories">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="hover:bg-white/90 font-bold shadow-lg border-none min-h-11"
-              >
-                View Categories <ArrowRight className="w-5 h-5 ml-2" />
-              </Button>
-            </a>
-            {/* Directions Button */}
-            <a
-              href={getGoogleMapsLink('directions', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-white/20 shadow-lg min-h-11 min-w-[48px] min-h-[48px]"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                Get Directions
-              </Button>
-            </a>
-            {/* View on Map Button */}
-            <a
-              href={getGoogleMapsLink('view', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                View on Map
-              </Button>
-            </a>
-          </div>
+            Shipping, printing, mailbox rentals, and business services — all in one convenient
+            location in Concord Township.
+          </motion.p>
         </div>
 
-        {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
+        {/* Soft edge blend at bottom of hero */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))',
+          }}
+        ></div>
       </section>
 
       {/* ====================== CATEGORY NAVIGATION ======================= */}
@@ -360,15 +294,13 @@ export const Services: React.FC = () => {
       </section>
 
       {/* BACK TO TOP BUTTON */}
-      {showTopButton && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
-          aria-label="Back to Top"
-        >
-          <ChevronUp className="w-6 h-6" />
-        </button>
-      )}
+      <button
+        onClick={scrollToTop}
+        className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
+        aria-label="Back to Top"
+      >
+        <ChevronUp className="w-6 h-6" />
+      </button>
     </div>
   );
 };

@@ -122,38 +122,30 @@ export const Terms: React.FC = () => {
   ];
 
   return (
-    <div className="bg-white">
+    <div className="bg-[var(--color-bg-primary)]">
       {/* Hero Section */}
-      <section className="relative bg-white py-20 lg:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6"
-            >
-              Terms of <span className="text-[var(--color-primary)]">Service</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed"
-            >
-              These terms and conditions govern your use of our services. Please read them carefully
-              before using our shipping, printing, and business services.
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm text-[var(--color-text-secondary)]"
-            >
-              Last updated: February 2026
-            </motion.p>
-          </div>
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
+          >
+            Terms of Service
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
+          >
+            These terms and conditions govern your use of our services. Please read them carefully
+            before using our shipping, printing, and business services.
+          </motion.p>
+          <p className="text-sm text-white/60">Last updated: February 2026</p>
         </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
 
       {/* Terms Sections */}

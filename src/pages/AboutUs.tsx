@@ -25,37 +25,14 @@ export function AboutUs() {
         description="Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio."
       />
 
-      {/* ====================== HERO SECTION (V2 Standard) ======================= */}
-      <section className="relative bg-center py-32 lg:py-48 overflow-hidden min-h-[60vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            sources={[
-              {
-                srcSet: getServiceImageUrl('aboutus_mailbox_plus.webp'),
-                media: '(max-width: 768px)',
-                type: 'image/webp',
-              },
-              {
-                srcSet: getServiceImageUrl('aboutus_mailbox_plus.webp'),
-                media: '(min-width: 769px)',
-                type: 'image/webp',
-              },
-            ]}
-            src={getServiceImageUrl('aboutus_mailbox_plus.webp')}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center opacity-20"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
-        </div>
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      {/* ====================== HERO SECTION (V2 STANDARD) ======================= */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
           >
             About <span className="text-white/90">Mailbox Plus</span>
           </motion.h1>
@@ -72,7 +49,7 @@ export function AboutUs() {
         </div>
 
         {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10"></div>
       </section>
 
       {/* -------------------------------- */}

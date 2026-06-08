@@ -4,13 +4,11 @@ import { Helmet } from 'react-helmet-async';
 import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
-import { SmartImage } from '../components/SmartImage';
 import { Button } from '../components/ui/Button';
 import ArrowRight from '~icons/lucide/arrow-right';
 import Calendar from '~icons/lucide/calendar';
 import Tag from '~icons/lucide/tag';
 import User from '~icons/lucide/user';
-import { getServiceImageUrl } from '../lib/storage';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -66,7 +64,7 @@ const ArticlePage: React.FC = () => {
     );
   }
 
-  const { title, description, pubDate, author, category, image, imageAlt, relatedServices } =
+  const { title, description, pubDate, author, category, image, relatedServices } =
     article.frontmatter;
   const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
     year: 'numeric',
@@ -87,37 +85,18 @@ const ArticlePage: React.FC = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <div
-        className="relative py-24 lg:py-32 overflow-hidden"
-        style={{ backgroundColor: 'var(--color-text-primary)' }}
-      >
-        {/* Background Image with Overlay */}
-        <div className="absolute inset-0 w-full h-full">
-          <SmartImage
-            src={getServiceImageUrl(image)}
-            alt={imageAlt || title}
-            className="w-full h-full object-cover opacity-20 blur-sm"
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage:
-                'linear-gradient(to top, var(--color-text-primary), color-mix(in srgb, var(--color-text-primary) 80%, transparent), transparent)',
-            }}
-          ></div>
-        </div>
-
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-200 text-sm font-medium mb-6 backdrop-blur-sm border border-blue-500/30">
-            <Tag className="w-3 h-3" />
+      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 text-white text-sm font-medium mb-6 backdrop-blur-sm border border-white/25">
+            <Tag className="w-4 h-4" />
             <span className="uppercase tracking-wider">{category.replace('-', ' ')}</span>
           </div>
 
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-white tracking-tight mb-6 leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
             {title}
           </h1>
 
-          <p className="text-xl leading-relaxed mb-8" style={{ color: 'var(--color-text-muted)' }}>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10">
             {description}
           </p>
 
@@ -137,7 +116,8 @@ const ArticlePage: React.FC = () => {
             )}
           </div>
         </div>
-      </div>
+        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
+      </section>
 
       {/* Content Section */}
       <div className="bg-white py-16 lg:py-24">

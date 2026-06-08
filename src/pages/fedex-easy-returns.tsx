@@ -106,17 +106,14 @@ export const FedExEasyReturns: React.FC = () => {
         <Breadcrumbs service={service} />
       </div>
 
-      {/* Hero Section */}
-      <section className="relative py-32 lg:py-48 overflow-hidden min-h-[70vh]">
-        {/* Navy Gradient Background */}
-        <div className="absolute inset-0 w-full h-full z-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      {/* Hero Section - Navy Gradient */}
+      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+        <div className="relative z-10 max-w-4xl mx-auto px-6">
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 drop-shadow-sm"
+            transition={{ duration: 0.6 }}
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
           >
             FedEx Easy Returns – <span className="text-white/80">Fast & Hassle-Free</span>
           </motion.h1>
@@ -124,7 +121,7 @@ export const FedExEasyReturns: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/90 leading-relaxed font-medium mb-10 max-w-3xl mx-auto"
+            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
           >
             Quick drop-offs, QR code scanning, label printing, and tracking receipts. Serving
             specific all Lake County communities.
@@ -134,7 +131,7 @@ export const FedExEasyReturns: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center"
+            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
           >
             <InternalLink to="/contact">
               <Button
@@ -148,8 +145,13 @@ export const FedExEasyReturns: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* Soft fade bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-white"></div>
+        {/* Soft edge blend at bottom of hero */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-16"
+          style={{
+            backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))',
+          }}
+        ></div>
       </section>
 
       {/* Intro Section */}

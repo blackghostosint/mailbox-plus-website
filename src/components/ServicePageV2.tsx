@@ -73,11 +73,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
         <Breadcrumbs service={props} baseUrl={breadcrumbsBaseUrl} baseLabel={breadcrumbsLabel} />
 
         {/* ====================== HERO ======================= */}
-        <section className="relative overflow-hidden">
-          {/* Gradient background */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
-
-          <div className="relative z-10 container mx-auto px-4 pt-16 pb-40 lg:pt-20 lg:pb-44">
+        <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+          <div className="relative z-10 max-w-4xl mx-auto px-6">
             {/* Rating pill */}
             {aggregateRating && (
               <motion.div
@@ -109,7 +106,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
               animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white max-w-3xl mb-4 font-heading"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
             >
               {heroTitle}
             </motion.h1>
@@ -118,7 +115,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
               animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.14 }}
-              className="text-base md:text-lg lg:text-xl text-white/80 max-w-2xl mb-8"
+              className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
             >
               {heroSubtitle}
             </motion.p>
@@ -134,7 +131,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           </div>
 
           {/* Soft fade into page background */}
-          <div className="absolute bottom-0 left-0 right-0 h-28 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]" />
+          <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
         </section>
 
         {/* ======================= MAIN ====================== */}
