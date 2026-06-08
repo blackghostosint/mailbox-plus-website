@@ -10,8 +10,6 @@ import { siteConfig } from '../config/siteConfig';
 import { CarrierLogos } from '../components/CarrierLogos';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
-import { SmartImage } from '../components/SmartImage';
-import { getServiceImageUrl } from '../lib/storage';
 import { pageMeta } from '../config/pageMeta';
 
 export const Home: React.FC = () => {
@@ -67,29 +65,8 @@ export const Home: React.FC = () => {
 
       {/* ====================== HERO SECTION (V2 Standard) ======================= */}
       <section className="relative bg-center py-20 md:py-32 lg:py-48 overflow-hidden min-h-[70vh] md:min-h-[80vh]">
-        {/* Background Image with V2 Overlay */}
-        <div className="absolute inset-0 w-full h-full z-0">
-          <SmartImage
-            priority
-            sources={[
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image_mobile.webp'),
-                media: '(max-width: 768px)',
-                type: 'image/webp',
-              },
-              {
-                srcSet: getServiceImageUrl('mailbox_plus_storefront_hero_image.webp'),
-                media: '(min-width: 769px)',
-                type: 'image/webp',
-              },
-            ]}
-            src={getServiceImageUrl('mailbox_plus_storefront_hero_image.webp')}
-            alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center opacity-20"
-          />
-          {/* Stronger gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)]/90 to-[var(--color-primary-deep)]"></div>
-        </div>
+        {/* Gradient background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1
