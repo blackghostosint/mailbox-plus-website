@@ -147,15 +147,15 @@ export const Home: React.FC = () => {
       </section>
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
+      <section className="py-20 bg-[var(--color-bg-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 font-heading">
+          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 font-heading">
             Visit Us in Concord Township Today
           </h2>
-          <p className="text-xl text-white/90 mb-3 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--color-text-secondary)] mb-3 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
-          <p className="text-lg text-white/80 mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--color-text-muted)] mb-10 max-w-2xl mx-auto">
             Stop by for all your shipping, printing, and business service needs. Our friendly team
             is ready to help!
           </p>
@@ -168,7 +168,7 @@ export const Home: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
-              <Button className="w-full sm:w-auto bg-white !text-[var(--color-primary)] hover:bg-gray-100 hover:!text-[var(--color-primary-deeper)] min-w-[48px] min-h-[48px]">
+              <Button className="w-full sm:w-auto bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
@@ -181,10 +181,7 @@ export const Home: React.FC = () => {
               rel="noopener noreferrer"
               className="w-full sm:w-auto"
             >
-              <Button
-                variant="ghost"
-                className="w-full sm:w-auto text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
-              >
+              <Button variant="secondary" className="w-full sm:w-auto min-w-[48px] min-h-[48px]">
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
@@ -192,7 +189,10 @@ export const Home: React.FC = () => {
 
             {/* Call Button */}
             <a href={`tel:${siteConfig.contact.phone}`} className="w-full sm:w-auto">
-              <Button className="w-full sm:w-auto bg-transparent border-2 border-white/40 text-white hover:bg-white/10">
+              <Button
+                variant="ghost"
+                className="w-full sm:w-auto text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)]"
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -200,7 +200,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Hours */}
-          <div className="flex items-center justify-center gap-2 text-white/80">
+          <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)]">
             <Clock className="w-5 h-5" />
             <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>
