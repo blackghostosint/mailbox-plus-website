@@ -50,6 +50,11 @@ const hiddenFromGrid = new Set([
   'usps-services',
   'pack-and-ship-services-concord-township',
   'custom-box-making',
+  // Specialty shipping services (keep accessible but hide from main grid for cleaner UI)
+  'artwork-shipping',
+  'bicycle-shipping',
+  'golf-club-shipping',
+  'packaging-supplies',
   // Printing and design services (keep accessible but hide from main grid for cleaner UI)
   'graphic-design',
   'business-cards',
