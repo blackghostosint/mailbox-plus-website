@@ -273,7 +273,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               <motion.section {...reveal} className="max-w-4xl mx-auto">
                 <div className="relative rounded-xl overflow-hidden shadow-xl">
                   {/* gradient shell */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent-light)] to-[var(--color-gradient-mid)]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
                   {/* glass overlay */}
                   <div className="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
                   <div className="relative px-8 py-9 md:px-10 md:py-11 text-white">
