@@ -45,11 +45,9 @@ export function AboutUs() {
             ]}
             src={getServiceImageUrl('aboutus_mailbox_plus.webp')}
             alt="Mailbox Plus storefront in Concord Township, Ohio"
-            className="w-full h-full object-cover object-center mix-blend-soft-light opacity-90 blur-[1px] scale-105"
+            className="w-full h-full object-cover object-center opacity-20"
           />
-          {/* V2 Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] opacity-90 mix-blend-multiply"></div>
-          <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-[var(--color-gradient-end)]/90"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -59,14 +57,14 @@ export function AboutUs() {
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
             className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 drop-shadow-sm"
           >
-            About <span className="text-blue-200">Mailbox Plus</span>
+            About <span className="text-white/90">Mailbox Plus</span>
           </motion.h1>
 
           <motion.p
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
-            className="text-xl md:text-2xl text-blue-50 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
+            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
           >
             Your trusted local partner for shipping, printing, mailbox rentals, and business
             services — proudly serving Concord Township and Lake County.
@@ -273,7 +271,7 @@ export function AboutUs() {
               <motion.div
                 key={service.title}
                 {...fadeUp(0.1 * i)}
-                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-blue-100 transition-all duration-300 hover:translate-y-[-4px]"
+                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-blue)] transition-all duration-300 hover:translate-y-[-4px]"
               >
                 <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
                   <service.icon className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300" />
@@ -297,7 +295,7 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* CTA */}
       {/* -------------------------------- */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)] text-center">
+      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Let Us Handle Your Package!
