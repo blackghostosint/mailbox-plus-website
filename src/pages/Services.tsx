@@ -43,6 +43,11 @@ const hiddenFromGrid = new Set([
   'usps-package-help-concord-township',
   'business-services-concord-township',
   'document-services-concord-township',
+  // Additional pack & ship services (keep accessible but hide from main grid for cleaner UI)
+  'postage-stamps',
+  'usps-services',
+  'pack-and-ship-services-concord-township',
+  'custom-box-making',
   // Mailbox sub-pages collapsed into main two cards
   'private-mailbox-rental-concord-township',
   'virtual-mailbox-concord-township',
