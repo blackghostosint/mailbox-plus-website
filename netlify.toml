@@ -2,6 +2,8 @@
   command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
+  # Allow deploy previews for feature branches + production on main
+  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*"]
 
 [functions]
   included_files = [
