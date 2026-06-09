@@ -1,41 +1,93 @@
-import matter from 'gray-matter';
 import { Article, ArticleFrontmatter } from '../types/article.types';
 
-// Since valid filesystem access isn't available in the browser during runtime,
-// we need to import all markdown files via Vite's glob import.
-// This creates a map of paths to module loaders.
-// Exclude README.md files from the glob pattern
+// Use dynamic imports to keep article content out of the main bundle
 const articleModules = import.meta.glob('../../content/articles/**/*.md', {
   as: 'raw',
-  eager: true,
+  eager: false,
 });
 
 // Filter out README.md files
-const filteredModules = Object.keys(articleModules).reduce(
-  (acc, key) => {
-    if (!key.includes('README.md')) {
-      acc[key] = articleModules[key];
+const articlePaths = Object.keys(articleModules).filter((key) => !key.includes('README.md'));
+
+/**
+ * Lightweight frontmatter parser to avoid loading gray-matter
+ *
+ * Supports:
+ * - Simple key: value pairs
+ * - String values with or without quotes
+ * - Inline arrays [val1, val2]
+ * - YAML block lists (- item)
+ */
+function parseFrontmatter(raw: string): { data: any; content: string } {
+  const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
+  if (!match) return { data: {}, content: raw };
+
+  const yaml = match[1];
+  const content = match[2];
+  const data: any = {};
+
+  const lines = yaml.split('\n');
+  let currentKey: string | null = null;
+
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (!trimmed) return;
+
+    // Check for block list item "- value"
+    if (trimmed.startsWith('-') && currentKey) {
+      const val = trimmed
+        .substring(1)
+        .trim()
+        .replace(/^['"](.*)['"]$/, '$1');
+      if (!Array.isArray(data[currentKey])) {
+        data[currentKey] = [];
+      }
+      data[currentKey].push(val);
+      return;
     }
-    return acc;
-  },
-  {} as Record<string, string>
-);
+
+    if (trimmed.includes(':')) {
+      const colonIndex = trimmed.indexOf(':');
+      const key = trimmed.substring(0, colonIndex).trim();
+      let value = trimmed.substring(colonIndex + 1).trim();
+
+      currentKey = key;
+
+      if (!value) {
+        // Potential start of a block list
+        return;
+      }
+
+      if (value.startsWith('[') && value.endsWith(']')) {
+        // Handle inline array [a, b, c]
+        const vals = value
+          .substring(1, value.length - 1)
+          .split(',')
+          .map((v) => v.trim().replace(/^['"](.*)['"]$/, '$1'));
+        data[key] = vals;
+      } else {
+        // Strip quotes if present
+        value = value.replace(/^['"](.*)['"]$/, '$1');
+        data[key] = value;
+      }
+    }
+  });
+
+  return { data, content };
+}
 
 export const articleLoader = {
   getAllArticles: async (): Promise<Article[]> => {
     const articles: Article[] = [];
 
-    for (const path in filteredModules) {
-      const rawContent = filteredModules[path] as string;
+    for (const path of articlePaths) {
       try {
-        const { data, content } = matter(rawContent);
-        // Ensure required fields are present or provide defaults to avoid crashes
-        // Type assertion is safe here if we trust the validation script
+        const rawContent = (await articleModules[path]()) as string;
+        const { data, content } = parseFrontmatter(rawContent);
         const frontmatter = data as ArticleFrontmatter;
-
         articles.push({ frontmatter, content });
       } catch (err) {
-        console.error(`Error parsing article at ${path}:`, err);
+        console.error(`Error loading article at ${path}:`, err);
       }
     }
 
@@ -47,20 +99,15 @@ export const articleLoader = {
   },
 
   getArticleBySlug: async (slug: string): Promise<Article | null> => {
-    // Find the file that matches the slug in its frontmatter or filename
-    // Since we can't efficiently query by frontmatter without loading, we load all.
-    // Optimization: In a real app with 5000+ files, this should be done at build time
-    // to generate a JSON index. For now, we scan.
-
-    for (const path in filteredModules) {
-      const rawContent = filteredModules[path] as string;
+    for (const path of articlePaths) {
       try {
-        const { data, content } = matter(rawContent);
+        const rawContent = (await articleModules[path]()) as string;
+        const { data, content } = parseFrontmatter(rawContent);
         if (data.slug === slug) {
           return { frontmatter: data as ArticleFrontmatter, content };
         }
       } catch (err) {
-        console.error(`Error parsing article at ${path}:`, err);
+        console.error(`Error loading article at ${path}:`, err);
       }
     }
 

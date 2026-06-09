@@ -4,7 +4,10 @@ import { HelmetProvider } from 'react-helmet-async';
 import TagManager from 'react-gtm-module';
 import App from './App.tsx';
 import './index.css';
-import './sentry.config'; // Initialize Sentry for error tracking
+import { initSentry } from './sentry.config'; // Initialize Sentry for error tracking
+
+// Async initialization of Sentry (doesn't block render)
+initSentry();
 
 const tagManagerArgs = {
   gtmId: 'GTM-M48D4D56', // replace with your container ID
