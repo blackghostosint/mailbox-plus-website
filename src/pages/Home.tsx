@@ -78,12 +78,12 @@ export const Home: React.FC = () => {
             Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
           </motion.h1>
 
-          {/* Rotating service tagline */}
           <motion.div
             initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
+            exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
             transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="h-16 mb-8"
+            className="h-16 mb-8 overflow-hidden"
           >
             <AnimatePresence mode="wait">
               <motion.p
