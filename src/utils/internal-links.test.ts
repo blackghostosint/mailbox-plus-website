@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
-import { getInternalLink, getAnchorText, getBreadcrumbs } from './internal-links';
+import { getInternalLink, getAnchorText } from './internal-links';
+import { getBreadcrumbs } from './navigation-helpers';
 
 describe('internal-links', () => {
   describe('getInternalLink', () => {
