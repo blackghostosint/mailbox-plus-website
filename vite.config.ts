@@ -57,10 +57,6 @@ export default defineConfig({
           if (id.includes('uuid')) {
             return 'utils';
           }
-          // Separate Sentry
-          if (id.includes('@sentry/')) {
-            return 'sentry';
-          }
           // Let splitVendorChunkPlugin handle node_modules
           if (id.includes('node_modules')) {
             // This will be handled by splitVendorChunkPlugin()
