@@ -3,12 +3,15 @@ import { Header } from './Header';
 import { Footer } from './Footer';
 import { JsonLd } from '../JsonLd';
 import FloatingReviewButton from '../ui/FloatingReviewButton';
-import { PremierSignupModal } from '../ui';
 import { getServiceImageUrl } from '../../lib/storage';
 import { getLocalBusinessSchema, getWebSiteSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
 
 import { useSignupSignals } from '../../hooks/useSignupSignals';
+
+const PremierSignupModal = React.lazy(() =>
+  import('../ui/PremierSignupModal').then((m) => ({ default: m.PremierSignupModal }))
+);
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -46,8 +49,12 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Footer />
         <FloatingReviewButton imageSrc={getServiceImageUrl('review-us-on-google.webp')} />
 
-        {/* Premier Signup Modal */}
-        {showPremierSignupModal ? <PremierSignupModal /> : null}
+        {/* Premier Signup Modal - Loaded lazily to defer heavy dependencies like QR code gen */}
+        {showPremierSignupModal ? (
+          <React.Suspense fallback={null}>
+            <PremierSignupModal />
+          </React.Suspense>
+        ) : null}
       </div>
     </>
   );

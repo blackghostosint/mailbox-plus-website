@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { InternalLink } from '../ui/InternalLink';
-import { motion, AnimatePresence } from 'framer-motion';
 import Menu from '~icons/lucide/menu';
 import X from '~icons/lucide/x';
 import Phone from '~icons/lucide/phone';
@@ -131,49 +130,44 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t border-[var(--color-border)]"
-          >
-            <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
-              {navigation.map((item) =>
-                item.external ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <InternalLink
-                    key={item.name}
-                    to={item.href}
-                    onClick={() => setIsMenuOpen(false)}
-                    className={`block text-base font-medium transition-colors ${
-                      isActive(item.href)
-                        ? 'text-[var(--color-primary)]'
-                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
-                    }`}
-                  >
-                    {item.name}
-                  </InternalLink>
-                )
-              )}
-            </nav>
-            <div className="px-4 pb-4 pt-2">
-              <SearchBox />
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <div
+        className={`md:hidden bg-white border-t border-[var(--color-border)] transition-all duration-300 ease-in-out overflow-hidden ${
+          isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
+          {navigation.map((item) =>
+            item.external ? (
+              <a
+                key={item.name}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
+                className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <InternalLink
+                key={item.name}
+                to={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block text-base font-medium transition-colors ${
+                  isActive(item.href)
+                    ? 'text-[var(--color-primary)]'
+                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
+                }`}
+              >
+                {item.name}
+              </InternalLink>
+            )
+          )}
+        </nav>
+        <div className="px-4 pb-4 pt-2">
+          <SearchBox />
+        </div>
+      </div>
 
       {/* Local Business Schema for SEO */}
       <script
