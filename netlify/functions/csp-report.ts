@@ -17,15 +17,18 @@ export default async (request: Request, context: Context) => {
     const report = body['csp-report'] || body;
 
     // Log the violation (in production, send to Sentry or a logging service)
-    console.warn('[CSP Violation]', JSON.stringify({
-      documentUri: report['document-uri'] || report.documentUri,
-      violatedDirective: report['violated-directive'] || report.violatedDirective,
-      blockedUri: report['blocked-uri'] || report.blockedUri,
-      sourceFile: report['source-file'] || report.sourceFile,
-      lineNumber: report['line-number'] || report.lineNumber,
-      timestamp: new Date().toISOString(),
-      userAgent: request.headers.get('user-agent') || 'unknown',
-    }));
+    console.warn(
+      '[CSP Violation]',
+      JSON.stringify({
+        documentUri: report['document-uri'] || report.documentUri,
+        violatedDirective: report['violated-directive'] || report.violatedDirective,
+        blockedUri: report['blocked-uri'] || report.blockedUri,
+        sourceFile: report['source-file'] || report.sourceFile,
+        lineNumber: report['line-number'] || report.lineNumber,
+        timestamp: new Date().toISOString(),
+        userAgent: request.headers.get('user-agent') || 'unknown',
+      })
+    );
 
     return new Response('OK', {
       status: 204,
