@@ -41,7 +41,7 @@ export const CarrierLogos: React.FC = () => {
             alt={carrier.name}
             width={200}
             height={64}
-            className="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
+            className="h-12 sm:h-16 w-auto object-contain drop-shadow-md aspect-[200/64]"
           />
         </a>
       ))}
