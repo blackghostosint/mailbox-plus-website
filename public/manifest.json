@@ -8,12 +8,12 @@
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "https://pub-4515923f088c4228b1756250c1b20c6f.r2.dev/favicon_io/android-chrome-192x192.png",
+      "src": "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/favicon_io/android-chrome-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "https://pub-4515923f088c4228b1756250c1b20c6f.r2.dev/favicon_io/android-chrome-512x512.png",
+      "src": "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/favicon_io/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
