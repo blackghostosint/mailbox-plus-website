@@ -6,7 +6,6 @@ import X from '~icons/lucide/x';
 import Phone from '~icons/lucide/phone';
 import MapPin from '~icons/lucide/map-pin';
 import { siteConfig } from '../../config/siteConfig';
-import { SearchBox } from '../ui';
 import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 
@@ -113,11 +112,6 @@ export const Header: React.FC = () => {
             )}
           </nav>
 
-          {/* Search Box */}
-          <div className="hidden md:block">
-            <SearchBox />
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -131,42 +125,43 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden bg-white border-t border-[var(--color-border)] transition-all duration-300 ease-in-out overflow-hidden ${
-          isMenuOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-        }`}
+        className="md:hidden bg-white border-t border-[var(--color-border)] overflow-hidden transition-all duration-300 ease-in-out"
+        style={{ maxHeight: isMenuOpen ? '500px' : '0', opacity: isMenuOpen ? 1 : 0 }}
       >
-        <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
-          {navigation.map((item) =>
-            item.external ? (
-              <a
-                key={item.name}
-                href={item.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setIsMenuOpen(false)}
-                className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
-              >
-                {item.name}
-              </a>
-            ) : (
-              <InternalLink
-                key={item.name}
-                to={item.href}
-                onClick={() => setIsMenuOpen(false)}
-                className={`block text-base font-medium transition-colors ${
-                  isActive(item.href)
-                    ? 'text-[var(--color-primary)]'
-                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
-                }`}
-              >
-                {item.name}
-              </InternalLink>
-            )
-          )}
-        </nav>
-        <div className="px-4 pb-4 pt-2">
-          <SearchBox />
-        </div>
+        {isMenuOpen && (
+          <>
+            <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
+              {navigation.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                ) : (
+                  <InternalLink
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`block text-base font-medium transition-colors ${
+                      isActive(item.href)
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
+                    }`}
+                  >
+                    {item.name}
+                  </InternalLink>
+                )
+              )}
+            </nav>
+            <div className="px-4 pb-4 pt-2"></div>
+          </>
+        )}
       </div>
 
       {/* Local Business Schema for SEO */}
