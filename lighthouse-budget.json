@@ -1,0 +1,31 @@
+{
+  "ci": {
+    "assert": {
+      "assertions": {
+        "categories:performance": ["error", { "minScore": 0.6 }],
+        "categories:accessibility": ["error", { "minScore": 0.9 }],
+        "categories:best-practices": ["error", { "minScore": 0.8 }],
+        "categories:seo": ["error", { "minScore": 0.9 }],
+        "first-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+        "largest-contentful-paint": ["error", { "maxNumericValue": 2500 }],
+        "total-blocking-time": ["error", { "maxNumericValue": 200 }],
+        "cumulative-layout-shift": ["error", { "maxNumericValue": 0.1 }],
+        "speed-index": ["error", { "maxNumericValue": 3000 }],
+        "interactive": ["error", { "maxNumericValue": 3500 }]
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    },
+    "collect": {
+      "numberOfRuns": 3,
+      "startServerCommand": "npx serve -s dist -l 5173",
+      "url": "http://localhost:5173",
+      "settings": {
+        "headless": true,
+        "preset": "desktop",
+        "staticDistDir": "./dist"
+      }
+    }
+  }
+}
