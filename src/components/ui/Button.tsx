@@ -1,7 +1,6 @@
 import React from 'react';
-import { motion, type MotionProps } from 'framer-motion';
 
-type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & MotionProps;
+type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export interface ButtonProps extends BaseButtonProps {
   variant?: 'primary' | 'secondary' | 'link' | 'ghost';
@@ -10,6 +9,11 @@ export interface ButtonProps extends BaseButtonProps {
   as?: 'button' | 'div' | 'span' | 'a';
 }
 
+/**
+ * Performance-optimized Button component.
+ * Uses high-performance CSS transitions instead of JS-based animations (like framer-motion)
+ * to keep the critical path lean and avoid pulling in large animation libraries on initial load.
+ */
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   size = 'md',
@@ -36,30 +40,19 @@ export const Button: React.FC<ButtonProps> = ({
     ghost:
       'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)] focus:ring-[var(--color-border-blue)] shadow-none',
   };
-  // Map of motion components to avoid deep type instantiation from dynamic lookups
-  const MotionComponent: React.ElementType =
-    as === 'button'
-      ? motion.button
-      : as === 'div'
-        ? motion.div
-        : as === 'span'
-          ? motion.span
-          : as === 'a'
-            ? motion.a
-            : motion.button;
+
+  // Hover and Tap scale effects via CSS
+  const interactionClasses =
+    variant === 'link' || variant === 'ghost' ? '' : 'hover:scale-[1.03] active:scale-[0.97]';
+
+  const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${interactionClasses} ${className}`;
+
+  // Cast to any to handle dynamic element type correctly with props
+  const Component = as as any;
 
   return (
-    <MotionComponent
-      whileHover={{
-        scale: variant === 'link' || variant === 'ghost' ? 1 : 1.03,
-        transition: { duration: 0.2 },
-      }}
-      whileTap={{ scale: variant === 'link' || variant === 'ghost' ? 1 : 0.97 }}
-      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-      // Framer Motion's props are complex and require proper type assertion
-      {...props}
-    >
+    <Component className={combinedClasses} {...props}>
       {children}
-    </MotionComponent>
+    </Component>
   );
 };

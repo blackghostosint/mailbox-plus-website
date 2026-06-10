@@ -1,67 +1,15 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { InternalLink } from './InternalLink';
-import { motion, AnimatePresence } from 'framer-motion';
 import Search from '~icons/lucide/search';
 import X from '~icons/lucide/x';
-import { services } from '../../config/services';
-import { serviceAreas } from '../../config/serviceAreas';
-
-interface SearchResult {
-  title: string;
-  description: string;
-  href: string;
-  category: string;
-}
-
-// Transform services into search data
-const serviceResults: SearchResult[] = services.map((service) => ({
-  title: service.serviceName,
-  description: service.heroSubtitle || service.metaDescription, // Use subtitle or meta description
-  href: service.slug || service.id || '#',
-  category: service.category.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase()), // Format category name
-}));
-
-// Transform local pages into search data
-const locationResults: SearchResult[] = serviceAreas.map((page) => ({
-  title: `Shipping & Printing in ${page.city}`,
-  description: `Local services for ${page.city}, Ohio`,
-  href: page.canonicalUrl || page.slug || '#',
-  category: 'Locations',
-}));
-
-const generalResults: SearchResult[] = [
-  {
-    title: 'Track a Package',
-    description: 'Track your FedEx, UPS, USPS, or DHL shipment',
-    href: '/tracking',
-    category: 'Tools',
-  },
-  {
-    title: 'About Us',
-    description: 'Learn more about Mailbox Plus and our team',
-    href: '/about-us',
-    category: 'Company',
-  },
-  {
-    title: 'Contact Us',
-    description: 'Get in touch with us or find our location',
-    href: '/contact-us',
-    category: 'Company',
-  },
-  {
-    title: 'Shipping Partners',
-    description: 'View our carrier partners and shipping options',
-    href: '/shipping-partners',
-    category: 'Company',
-  },
-];
-
-const searchData: SearchResult[] = [...serviceResults, ...locationResults, ...generalResults];
+import type { SearchResult } from '../../utils/search-loader';
 
 export const SearchBox: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
+  const [searchData, setSearchData] = useState<SearchResult[]>([]);
+  const [isLoadingData, setIsLoadingData] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -76,8 +24,24 @@ export const SearchBox: React.FC = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  // Load search data only when needed
   useEffect(() => {
-    if (query.trim() === '') {
+    if (isOpen && searchData.length === 0 && !isLoadingData) {
+      setIsLoadingData(true);
+      import('../../utils/search-loader')
+        .then((module) => {
+          setSearchData(module.getSearchData());
+          setIsLoadingData(false);
+        })
+        .catch((err) => {
+          console.error('Failed to load search data:', err);
+          setIsLoadingData(false);
+        });
+    }
+  }, [isOpen, searchData.length, isLoadingData]);
+
+  useEffect(() => {
+    if (query.trim() === '' || searchData.length === 0) {
       setResults([]);
       return;
     }
@@ -92,7 +56,7 @@ export const SearchBox: React.FC = () => {
       .slice(0, 8); // Limit to 8 results
 
     setResults(filteredResults);
-  }, [query]);
+  }, [query, searchData]);
 
   const handleSearchClick = () => {
     setIsOpen(true);
@@ -112,7 +76,7 @@ export const SearchBox: React.FC = () => {
   };
 
   return (
-    <motion.div ref={searchRef} className="relative">
+    <div ref={searchRef} className="relative">
       {/* Search Button/Input */}
       <div className="relative">
         <button
@@ -158,72 +122,71 @@ export const SearchBox: React.FC = () => {
       </div>
 
       {/* Search Results Dropdown */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
-            className="absolute top-full left-0 right-0 mt-2 bg-white border border-[var(--color-border)] rounded-xl shadow-lg z-50 max-h-96 overflow-y-auto"
-            id="search-results"
-          >
-            {results.length > 0 ? (
-              <div className="py-2">
-                {results.map((result) => (
-                  <InternalLink
-                    key={result.href}
-                    to={result.href}
-                    onClick={handleResultClick}
-                    className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-[var(--color-border)] last:border-b-0"
-                  >
-                    <div className="flex items-start justify-between">
-                      <div className="flex-1">
-                        <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1">
-                          {result.title}
-                        </h4>
-                        <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
-                          {result.description}
-                        </p>
-                      </div>
-                      <span className="text-xs text-[var(--color-primary)] font-medium ml-3 flex-shrink-0">
-                        {result.category}
-                      </span>
-                    </div>
-                  </InternalLink>
-                ))}
-              </div>
-            ) : query.trim() !== '' ? (
-              <div className="py-8 text-center">
-                <p className="text-sm text-[var(--color-text-secondary)]">
-                  No services found for &quot;{query}&quot;
-                </p>
-                <p className="text-xs text-[var(--color-text-secondary)] mt-1">
-                  Try searching for shipping, printing, or business services
-                </p>
-              </div>
-            ) : (
-              <div className="py-4 px-4">
-                <p className="text-sm font-medium text-[var(--color-text-primary)] mb-3">
-                  Popular Services
-                </p>
-                <div className="space-y-2">
-                  {searchData.slice(0, 6).map((item) => (
-                    <InternalLink
-                      key={item.href}
-                      to={item.href}
-                      onClick={handleResultClick}
-                      className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-                    >
-                      {item.title}
-                    </InternalLink>
-                  ))}
+      <div
+        className={`absolute top-full left-0 right-0 mt-2 bg-white border border-[var(--color-border)] rounded-xl shadow-lg z-50 max-h-96 overflow-y-auto transition-all duration-200 ease-in-out ${
+          isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'
+        }`}
+        id="search-results"
+      >
+        {isLoadingData ? (
+          <div className="py-8 text-center">
+            <div className="animate-spin inline-block w-4 h-4 border-2 border-[var(--color-primary)] border-t-transparent rounded-full mb-2"></div>
+            <p className="text-xs text-[var(--color-text-secondary)]">Initializing search...</p>
+          </div>
+        ) : results.length > 0 ? (
+          <div className="py-2">
+            {results.map((result) => (
+              <InternalLink
+                key={result.href}
+                to={result.href}
+                onClick={handleResultClick}
+                className="block px-4 py-3 hover:bg-[var(--color-bg-primary)] transition-colors border-b border-[var(--color-border)] last:border-b-0"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    <h4 className="text-sm font-semibold text-[var(--color-text-primary)] mb-1">
+                      {result.title}
+                    </h4>
+                    <p className="text-xs text-[var(--color-text-secondary)] leading-relaxed">
+                      {result.description}
+                    </p>
+                  </div>
+                  <span className="text-xs text-[var(--color-primary)] font-medium ml-3 flex-shrink-0">
+                    {result.category}
+                  </span>
                 </div>
-              </div>
-            )}
-          </motion.div>
+              </InternalLink>
+            ))}
+          </div>
+        ) : query.trim() !== '' ? (
+          <div className="py-8 text-center">
+            <p className="text-sm text-[var(--color-text-secondary)]">
+              No services found for &quot;{query}&quot;
+            </p>
+            <p className="text-xs text-[var(--color-text-secondary)] mt-1">
+              Try searching for shipping, printing, or business services
+            </p>
+          </div>
+        ) : (
+          <div className="py-4 px-4">
+            <p className="text-sm font-medium text-[var(--color-text-primary)] mb-3">
+              Popular Services
+            </p>
+            <div className="space-y-2">
+              {searchData.slice(0, 6).map((item) => (
+                <InternalLink
+                  key={item.href}
+                  to={item.href}
+                  onClick={handleResultClick}
+                  className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                >
+                  {item.title}
+                </InternalLink>
+              ))}
+            </div>
+          </div>
         )}
-      </AnimatePresence>
-    </motion.div>
+      </div>
+    </div>
   );
 };
