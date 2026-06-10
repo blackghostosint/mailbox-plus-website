@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { InternalLink } from './InternalLink';
 import ChevronRight from '~icons/lucide/chevron-right';
 import Home from '~icons/lucide/home';
-import { getBreadcrumbs } from '../../utils/internal-links';
+import { getBreadcrumbs } from '../../utils/navigation-helpers';
 import { JsonLd } from '../JsonLd';
 
 export const AutoBreadcrumbs: React.FC = () => {
