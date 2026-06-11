@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -15,9 +14,7 @@ import { pageMeta } from '../config/pageMeta';
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  // Detect reduced motion preference
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const [prevServiceIndex, setPrevServiceIndex] = useState<number | null>(null);
 
   const serviceCategories = [
     'Pack & Ship Services',
@@ -52,10 +49,11 @@ export const Home: React.FC = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      setPrevServiceIndex(currentServiceIndex);
       setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [serviceCategories.length]);
+  }, [currentServiceIndex, serviceCategories.length]);
 
   const { title, description, schema } = pageMeta['/'];
 
@@ -69,42 +67,27 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading animate-fade-in-up">
             Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="h-16 mb-8 overflow-hidden"
-          >
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentServiceIndex}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium"
-              >
-                {serviceCategories[currentServiceIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </motion.div>
+          <div className="h-16 mb-8 overflow-hidden relative">
+            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-in-up">
+              {serviceCategories[currentServiceIndex]}
+            </p>
+            {prevServiceIndex !== null && (
+              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-out-down">
+                {serviceCategories[prevServiceIndex]}
+              </p>
+            )}
+          </div>
 
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
             Your trusted local partner for shipping, printing, and business services. Serving Lake
             County communities with integrity and care.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
             <Button
               variant="secondary"
               className="w-full sm:w-auto font-bold shadow-lg border-none hover:bg-white hover:text-[var(--color-primary)] transition-colors"
