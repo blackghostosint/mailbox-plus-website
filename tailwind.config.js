@@ -18,8 +18,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Open Sans', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Open Sans', 'Open Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['Poppins', 'Poppins Fallback', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
         /* Primary Brand */

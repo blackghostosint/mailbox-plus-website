@@ -41,7 +41,7 @@ export const Footer: React.FC = () => {
                 alt={`${siteConfig.name} Logo`}
                 width={256}
                 height={80}
-                className="h-20 object-contain"
+                className="h-20 w-auto object-contain aspect-[256/80]"
               />
             </div>
             <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">

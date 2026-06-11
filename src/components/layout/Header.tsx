@@ -77,7 +77,7 @@ export const Header: React.FC = () => {
               alt="Mailbox Plus Concord Township Ohio Logo"
               width={256}
               height={80}
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain aspect-[256/80]"
             />
             <span className="sr-only">Mailbox Plus - Concord Township, OH</span>
           </InternalLink>
