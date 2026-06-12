@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import type { React } from 'react';
 
 interface UseInViewOptions {
   once?: boolean;
@@ -15,7 +14,7 @@ interface UseInViewOptions {
  */
 export function useInView<T extends HTMLElement = HTMLElement>(
   options: UseInViewOptions = {}
-): [React.RefObject<T | null>, boolean] {
+): [import('react').RefObject<T | null>, boolean] {
   const { once = true, threshold, root, rootMargin } = options;
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<T>(null);
