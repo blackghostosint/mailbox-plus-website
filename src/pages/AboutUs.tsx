@@ -1,4 +1,5 @@
-import { PageMeta } from '../components/SEO/PageMeta';
+import React from 'react';
+import { Meta } from '../components/Meta';
 import { SmartImage } from '../components/SmartImage';
 import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
@@ -11,13 +12,27 @@ import FileText from '~icons/lucide/file-text';
 import ScanLine from '~icons/lucide/scan-line';
 import Box from '~icons/lucide/box';
 import { getServiceImageUrl } from '../lib/storage';
+import { getWebPageSchema } from '../utils/schema';
+import { siteConfig } from '../config/siteConfig';
 
 export function AboutUs() {
+  const aboutSchema = getWebPageSchema(siteConfig, {
+    name: 'About Mailbox Plus',
+    description:
+      'Learn about Mailbox Plus, your family-owned local pack-and-ship store in Concord Township, Ohio. Faith-guided and dedicated to serving our Lake County neighbors with care.',
+    url: `${siteConfig.domain}/about-us`,
+    breadcrumbItems: [
+      { name: 'Home', url: siteConfig.domain },
+      { name: 'About Us', url: `${siteConfig.domain}/about-us` },
+    ],
+  });
+
   return (
     <>
-      <PageMeta
+      <Meta
         title="About Mailbox Plus | Locally Owned Shipping & Business Services in Concord Township"
         description="Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio."
+        schema={aboutSchema}
       />
 
       {/* ====================== HERO SECTION (V2 STANDARD) ======================= */}

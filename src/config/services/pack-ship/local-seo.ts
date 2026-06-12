@@ -105,6 +105,10 @@ export const localSeoServices: Service[] = [
         answer: 'No, for security reasons, packages must be dropped off during our business hours.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'ups-store-alternative-concord-township',
@@ -214,6 +218,10 @@ export const localSeoServices: Service[] = [
           'Yes, we are a locally owned and operated independent business in Concord Township, committed to excellent customer service.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'mail-boxes-etc-alternative-concord-township',
@@ -305,6 +313,10 @@ export const localSeoServices: Service[] = [
           'We support all major carriers: UPS, FedEx, USPS, and DHL, giving you the power of choice.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'fedex-office-alternative-concord-township',
@@ -384,6 +396,10 @@ export const localSeoServices: Service[] = [
         answer: 'Yes, we have a commissioned notary public available during all business hours.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'post-office-alternative-concord-township',
@@ -469,6 +485,10 @@ export const localSeoServices: Service[] = [
           'Yes, we can help you send letters via Certified Mail with Return Receipt, just like the Post Office.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'shipping-center-concord-township',
@@ -558,6 +578,10 @@ export const localSeoServices: Service[] = [
           'We can handle many large items. Please contact us with the dimensions and weight for a quote.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'pack-and-ship-services-concord-township',
@@ -651,6 +675,10 @@ export const localSeoServices: Service[] = [
         answer: 'Yes, we sell a variety of box sizes perfect for moving or storage.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'ups-fedex-usps-dhl-shipping-concord-township',
@@ -767,6 +795,10 @@ export const localSeoServices: Service[] = [
         answer: 'Yes! We accept prepaid drop-off packages for UPS, FedEx, USPS, and DHL.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'small-business-shipping-concord-township',
@@ -860,6 +892,10 @@ export const localSeoServices: Service[] = [
           'We are experts in international shipping and can help you navigate customs forms to get your products to global customers.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'usps-drop-off-alternative-concord-township',
@@ -952,6 +988,10 @@ export const localSeoServices: Service[] = [
           'Generally, yes! Our lines are typically much shorter, allowing you to get in and out quickly.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'usps-package-help-concord-township',
@@ -1036,5 +1076,9 @@ export const localSeoServices: Service[] = [
           'No problem! We can compare rates and delivery times for UPS, FedEx, USPS, and DHL to find the best option for you.',
       },
     ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
 ];

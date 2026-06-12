@@ -14,6 +14,7 @@ export const returnMicroProblems: Service[] = [
     heroTitle: 'Return a Package Without the Original Box',
     heroSubtitle: 'Lost the original packaging? We can help prepare your return properly.',
     heroImage: getServiceImageUrl('/images/micro/pack-ship.webp'),
+    robots: 'noindex, nofollow',
   },
   {
     id: 'print-return-label-without-printer',
@@ -78,6 +79,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'print-amazon-return-label',
@@ -140,6 +142,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'package-a-return-so-its-accepted-by-the-carrier',
@@ -205,6 +208,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'ups-drop-off-near-concord-township-not-sure-if-its-packed-right',
@@ -269,6 +273,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'fedex-drop-off-in-concord-township-have-label-need-packaging',
@@ -333,6 +338,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'usps-drop-off-in-concord-township-label-printing-and-packaging-help',
@@ -397,6 +403,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'drop-off-a-prepaid-label-from-your-phone',
@@ -460,6 +467,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'ship-a-return-with-strict-size-or-weight-limits',
@@ -526,6 +534,7 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
@@ -589,5 +598,6 @@ export const returnMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
 ];

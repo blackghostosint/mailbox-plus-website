@@ -72,6 +72,7 @@ export interface Service {
 
   // Optional CTA block for this service
   cta?: CTA;
+  robots?: string; // e.g., 'noindex, nofollow' for thin content pages
 }
 
 export interface Category {
