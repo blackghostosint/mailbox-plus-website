@@ -77,8 +77,8 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
             src={imageSrc}
             alt={alt}
             width={256}
-            height={80}
-            className="w-28 md:w-36 h-auto drop-shadow-lg aspect-[256/80]"
+            height={256}
+            className="w-28 md:w-36 h-auto drop-shadow-lg aspect-square"
           />
         </a>
       </div>
