@@ -87,6 +87,10 @@ export const coreServices: Service[] = [
       },
     ],
     faqs: packShipFaqs,
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
   {
     id: 'copy-print',
@@ -162,5 +166,9 @@ export const coreServices: Service[] = [
       },
     ],
     faqs: generalCopyPrintFaqs,
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
   },
 ];

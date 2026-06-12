@@ -41,4 +41,10 @@ export interface SiteConfig {
   };
   premierSignupUrl?: string; // ✅ added for Premier signup modal
   premierSignupModalEnabled?: boolean;
+  aggregateRating?: {
+    ratingValue: number;
+    reviewCount: number;
+    bestRating: number;
+    worstRating: number;
+  }; // ✅ added for LocalBusiness schema
 }

@@ -117,7 +117,7 @@ export const ContactUs: React.FC = () => {
       <Meta
         title="Contact Us - Mailbox Plus"
         description="Get in touch with Mailbox Plus in Concord Township, Ohio. Call, email, or visit us for all your shipping and printing needs."
-        canonical="https://www.mailboxplus.com/contact-us"
+        canonical="https://mailboxplusohio.com/contact-us"
       />
 
       {/* Hero Section */}

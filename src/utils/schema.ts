@@ -7,6 +7,7 @@ import type {
   SearchAction,
   FAQPage,
   Product,
+  Article,
   ParcelDelivery,
   Offer,
   ItemAvailability,
@@ -110,8 +111,27 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
       longitude: config.geo.lng,
     },
     ...(config.mapUrl && { hasMap: config.mapUrl }),
-    ...(config.areaServed && { areaServed: config.areaServed }),
+    ...(config.areaServed && {
+      areaServed: {
+        '@type': 'GeoCircle',
+        geoMidpoint: {
+          '@type': 'GeoCoordinates',
+          latitude: config.geo?.lat ?? 41.66497,
+          longitude: config.geo?.lng ?? -81.24164,
+        },
+        geoRadius: '32187', // 20 miles in meters
+      },
+    }),
     ...(config.knowsAbout && { knowsAbout: config.knowsAbout }),
+    ...(config.aggregateRating && {
+      aggregateRating: {
+        '@type': 'AggregateRating',
+        ratingValue: config.aggregateRating.ratingValue,
+        reviewCount: config.aggregateRating.reviewCount,
+        bestRating: config.aggregateRating.bestRating,
+        worstRating: config.aggregateRating.worstRating,
+      },
+    }),
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: config.contact?.phone,
@@ -347,6 +367,60 @@ export const getProductSchema = (
       worstRating: 1,
     } as AggregateRating,
   }),
+});
+
+/** ---------- Article ---------- */
+export const getArticleSchema = (
+  config: SiteConfig,
+  {
+    headline,
+    description,
+    image,
+    datePublished,
+    dateModified,
+    authorName,
+    articleSection,
+    keywords,
+    url,
+  }: {
+    headline: string;
+    description: string;
+    image?: string;
+    datePublished: string;
+    dateModified?: string;
+    authorName?: string;
+    articleSection?: string;
+    keywords?: string[];
+    url: string;
+  }
+): WithContext<Article> => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  '@id': `${url}#article`,
+  headline,
+  description,
+  ...(image && { image }),
+  datePublished,
+  ...(dateModified && { dateModified }),
+  author: {
+    '@type': 'Person',
+    name: authorName || config.name,
+  },
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${getOrigin(config)}#localbusiness`,
+    name: config.name,
+    logo: {
+      '@type': 'ImageObject',
+      url: config.logo,
+    },
+  },
+  ...(articleSection && { articleSection }),
+  ...(keywords?.length && { keywords: keywords.join(', ') }),
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': url,
+  },
 });
 
 /** ---------- ParcelDelivery ---------- */

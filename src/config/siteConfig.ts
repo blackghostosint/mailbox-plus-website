@@ -109,6 +109,14 @@ export const siteConfig: SiteConfig = {
   },
   premierSignupUrl: 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup',
   premierSignupModalEnabled: false,
+
+  // Google Business Profile review data for LocalBusiness schema
+  aggregateRating: {
+    ratingValue: 5.0,
+    reviewCount: 32,
+    bestRating: 5,
+    worstRating: 1,
+  },
 };
 
 export const defaultCTA: CTA = {
