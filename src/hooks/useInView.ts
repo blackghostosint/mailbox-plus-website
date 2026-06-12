@@ -1,14 +1,23 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type RefObject } from 'react';
+
+interface UseInViewOptions {
+  once?: boolean;
+  threshold?: number | number[];
+  root?: Element | null;
+  rootMargin?: string;
+}
 
 /**
  * Hook to track whether an element is in the viewport.
  *
  * Performance: Uses IntersectionObserver which is more efficient than scroll listeners.
  */
-export function useInView(options: any = {}) {
+export function useInView<T extends HTMLElement = HTMLElement>(
+  options: UseInViewOptions = {}
+): [RefObject<T | null>, boolean] {
   const { once = true, threshold, root, rootMargin } = options;
   const [isInView, setIsInView] = useState(false);
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<T>(null);
 
   useEffect(() => {
     const element = ref.current;
@@ -37,5 +46,5 @@ export function useInView(options: any = {}) {
     };
   }, [once, threshold, root, rootMargin]);
 
-  return [ref, isInView] as const;
+  return [ref, isInView];
 }

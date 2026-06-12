@@ -1,78 +1,80 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 import Shield from '~icons/lucide/shield';
 import Eye from '~icons/lucide/eye';
 import Lock from '~icons/lucide/lock';
 import FileText from '~icons/lucide/file-text';
 
+const sections = [
+  {
+    icon: Eye,
+    title: 'Information We Collect',
+    content: [
+      'Personal information you provide when using our services (name, address, phone, email)',
+      'Shipping and package information for delivery services',
+      'Payment information for transactions (processed securely through third-party providers)',
+      'Website usage data through cookies and analytics',
+    ],
+  },
+  {
+    icon: Shield,
+    title: 'How We Use Your Information',
+    content: [
+      'Provide shipping, printing, and business services',
+      'Process payments and complete transactions',
+      'Communicate about your orders and services',
+      'Improve our website and services',
+      'Send promotional materials (with your consent)',
+    ],
+  },
+  {
+    icon: Lock,
+    title: 'Information Security',
+    content: [
+      'We implement appropriate security measures to protect your personal information',
+      'Payment information is processed through secure, encrypted connections',
+      'Access to personal information is limited to authorized personnel only',
+      'We regularly review and update our security practices',
+    ],
+  },
+  {
+    icon: FileText,
+    title: 'Information Sharing',
+    content: [
+      'We do not sell, trade, or rent your personal information to third parties',
+      'We may share information with shipping carriers (FedEx, UPS, USPS) as necessary for delivery',
+      'We may disclose information when required by law or to protect our rights',
+      'Service providers who assist us may have access to information necessary to perform their functions',
+    ],
+  },
+];
+
 export const Privacy: React.FC = () => {
-  const sections = [
-    {
-      icon: Eye,
-      title: 'Information We Collect',
-      content: [
-        'Personal information you provide when using our services (name, address, phone, email)',
-        'Shipping and package information for delivery services',
-        'Payment information for transactions (processed securely through third-party providers)',
-        'Website usage data through cookies and analytics',
-      ],
-    },
-    {
-      icon: Shield,
-      title: 'How We Use Your Information',
-      content: [
-        'Provide shipping, printing, and business services',
-        'Process payments and complete transactions',
-        'Communicate about your orders and services',
-        'Improve our website and services',
-        'Send promotional materials (with your consent)',
-      ],
-    },
-    {
-      icon: Lock,
-      title: 'Information Security',
-      content: [
-        'We implement appropriate security measures to protect your personal information',
-        'Payment information is processed through secure, encrypted connections',
-        'Access to personal information is limited to authorized personnel only',
-        'We regularly review and update our security practices',
-      ],
-    },
-    {
-      icon: FileText,
-      title: 'Information Sharing',
-      content: [
-        'We do not sell, trade, or rent your personal information to third parties',
-        'We may share information with shipping carriers (FedEx, UPS, USPS) as necessary for delivery',
-        'We may disclose information when required by law or to protect our rights',
-        'Service providers who assist us may have access to information necessary to perform their functions',
-      ],
-    },
-  ];
+  const [heroRef, heroInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [analyticsRef, analyticsInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [rightsRef, rightsInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [retentionRef, retentionInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [changesRef, changesInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [contactRef, contactInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <div className="bg-[var(--color-bg-primary)]">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+      <section
+        ref={heroRef}
+        className={`relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0">
             Privacy Policy
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-          >
+          </h1>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:200ms] opacity-0">
             Your privacy is important to us. This policy explains how we collect, use, and protect
             your personal information when you use our services.
-          </motion.p>
-          <p className="text-sm text-white/60">Last updated: February 2026</p>
+          </p>
+          <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">
+            Last updated: February 2026
+          </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
@@ -82,12 +84,10 @@ export const Privacy: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {sections.map((section, index) => (
-              <motion.div
+              <div
                 key={section.title}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                className={`bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up ${index === 0 ? '' : 'opacity-0'}`}
+                style={{ animationDelay: `${index * 100 + 100}ms` }}
               >
                 <div className="flex items-center mb-6">
                   <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4">
@@ -107,7 +107,7 @@ export const Privacy: React.FC = () => {
                     </li>
                   ))}
                 </ul>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -117,13 +117,12 @@ export const Privacy: React.FC = () => {
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+            <div
+              ref={analyticsRef}
+              className={`animate-fade-in-up ${analyticsInView ? '' : 'opacity-0'}`}
             >
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
-                Analytics & Site Usage Data
+                Analytics &amp; Site Usage Data
               </h2>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
                 We use Google Analytics 4 (GA4) on this website to understand how visitors use our
@@ -134,9 +133,9 @@ export const Privacy: React.FC = () => {
                 any individual.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
-                We also use Google Tag Manager to deploy the GA4 “Configuration” tag across all
+                We also use Google Tag Manager to deploy the GA4 "Configuration" tag across all
                 pages and to fire custom event tags when users interact with specific features (for
-                example, our “Reserve My Box” CTA).
+                example, our &ldquo;Reserve My Box&rdquo; CTA).
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
                 Because we are a U.S.-based small business using anonymous analytics only, we do not
@@ -161,12 +160,12 @@ export const Privacy: React.FC = () => {
                 We do not sell your personal information to third parties for advertising or
                 marketing purposes.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <div
+              ref={rightsRef}
+              className={`animate-fade-in-up ${rightsInView ? '' : 'opacity-0'}`}
+              style={{ animationDelay: '100ms' }}
             >
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                 Your Rights
@@ -200,12 +199,12 @@ export const Privacy: React.FC = () => {
                   </span>
                 </li>
               </ul>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+            <div
+              ref={retentionRef}
+              className={`animate-fade-in-up ${retentionInView ? '' : 'opacity-0'}`}
+              style={{ animationDelay: '200ms' }}
             >
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                 Data Retention
@@ -216,12 +215,12 @@ export const Privacy: React.FC = () => {
                 business purposes as required by law. You may request deletion of your information
                 at any time, subject to legal requirements.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+            <div
+              ref={changesRef}
+              className={`animate-fade-in-up ${changesInView ? '' : 'opacity-0'}`}
+              style={{ animationDelay: '300ms' }}
             >
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                 Changes to This Policy
@@ -231,13 +230,12 @@ export const Privacy: React.FC = () => {
                 practices or legal requirements. We will notify you of any significant changes by
                 posting the updated policy on our website with a new effective date.
               </p>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="bg-[var(--color-bg-primary)] rounded-2xl p-8"
+            <div
+              ref={contactRef}
+              className={`animate-fade-in-up ${contactInView ? '' : 'opacity-0'}`}
+              style={{ animationDelay: '400ms' }}
             >
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
                 Contact Us
@@ -255,7 +253,7 @@ export const Privacy: React.FC = () => {
                 <p>Phone: (440) 709-1946</p>
                 <p>Email: help@mailboxplusohio.com</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
