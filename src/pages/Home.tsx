@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, AnimatePresence } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -15,9 +14,6 @@ import { pageMeta } from '../config/pageMeta';
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  // Detect reduced motion preference
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   const serviceCategories = [
     'Pack & Ship Services',
@@ -69,35 +65,18 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.h1
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading animate-fade-in-up">
             Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
-          </motion.h1>
+          </h1>
 
-          <motion.div
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="h-16 mb-8 overflow-hidden"
-          >
-            <AnimatePresence mode="wait">
-              <motion.p
-                key={currentServiceIndex}
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                exit={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-                transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-                className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium"
-              >
-                {serviceCategories[currentServiceIndex]}
-              </motion.p>
-            </AnimatePresence>
-          </motion.div>
+          <div className="h-16 mb-8 overflow-hidden">
+            <p
+              key={currentServiceIndex}
+              className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium animate-fade-in-up"
+            >
+              {serviceCategories[currentServiceIndex]}
+            </p>
+          </div>
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
             Your trusted local partner for shipping, printing, and business services. Serving Lake
