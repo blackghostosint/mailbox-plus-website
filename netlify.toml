@@ -32,14 +32,14 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains"
-    Content-Security-Policy = """ 
+    Content-Security-Policy = """
       default-src 'self';
-      script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://ssl.gstatic.com https://www.google-analytics.com https://www.googleapis.com https://www.gstatic.com;
+      script-src 'self' 'unsafe-inline' https://www.google.com https://ssl.gstatic.com https://www.googleapis.com https://www.gstatic.com;
       style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
       font-src 'self' https://fonts.gstatic.com;
       img-src 'self' https://*.r2.dev https://pub-4515923f088c4228b1756250c1b20c6f.r2.dev https://*.netlify.app data:;
-      connect-src 'self' https://www.google.com https://analytics.google.com https://stats.g.doubleclick.net https://mailboxplusohio.com https://*.netlify.app https://ingesteer.services-prod.nsvcs.net;
-      frame-src 'self' https://www.googletagmanager.com https://www.google.com https://www.recaptcha.net https://app.netlify.com;
+      connect-src 'self' https://www.google.com https://mailboxplusohio.com https://*.netlify.app https://ingesteer.services-prod.nsvcs.net;
+      frame-src 'self' https://www.google.com https://www.recaptcha.net https://app.netlify.com;
       report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
       report-to csp-endpoint;
     """
