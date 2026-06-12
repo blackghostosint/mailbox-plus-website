@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import Phone from '~icons/lucide/phone';
 import Mail from '~icons/lucide/mail';
 import MapPin from '~icons/lucide/map-pin';
@@ -10,14 +9,6 @@ import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
-
-// Animation Constant
-const reveal = {
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.55, ease: 'easeOut' as const },
-};
 
 export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -121,9 +112,6 @@ export const ContactUs: React.FC = () => {
     { day: 'Sunday', time: 'Closed' },
   ];
 
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   return (
     <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta
@@ -135,23 +123,13 @@ export const ContactUs: React.FC = () => {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
             Get in Touch
-          </motion.h1>
-          <motion.p
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.6, delay: 0.15 }}
-            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-          >
+          </h1>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:150ms] opacity-0">
             Visit our store in Concord Twp., or contact us today. We&apos;re here to help with all
             your shipping, printing, and business service needs.
-          </motion.p>
+          </p>
         </div>
 
         {/* Soft edge blend at bottom of hero */}
@@ -163,13 +141,10 @@ export const ContactUs: React.FC = () => {
         {/* Contact Info Cards (Glass) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contactInfo.map((info, index) => (
-            <motion.div
+            <div
               key={info.title}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.55, ease: 'easeOut', delay: index * 0.1 }}
-              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300"
+              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300 animate-fade-in-up opacity-0"
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
                 <info.icon className="w-8 h-8" />
@@ -192,14 +167,14 @@ export const ContactUs: React.FC = () => {
                   {info.actionText} →
                 </Button>
               </a>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Form and Map Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Contact Form GLASS PANEL */}
-          <motion.section {...reveal} className="relative">
+          <section className="relative animate-fade-in-up">
             {/* Glass container */}
             <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-lg h-full">
               <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
@@ -345,10 +320,10 @@ export const ContactUs: React.FC = () => {
                 </Button>
               </form>
             </div>
-          </motion.section>
+          </section>
 
           {/* Sidebar (Hours + Map) */}
-          <motion.div {...reveal} className="space-y-8">
+          <div className="space-y-8 animate-fade-in-up">
             {/* Hours Card */}
             <div className="rounded-[28px] p-8 bg-white/60 backdrop-blur border border-white/60 shadow-lg">
               <div className="flex items-center mb-6">
@@ -395,7 +370,7 @@ export const ContactUs: React.FC = () => {
                 I-90.
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </div>

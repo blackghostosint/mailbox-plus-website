@@ -1,7 +1,5 @@
 import { PageMeta } from '../components/SEO/PageMeta';
 import { SmartImage } from '../components/SmartImage';
-import { motion } from 'framer-motion';
-import { fadeUp } from '../utils/animations';
 import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
 import ArrowRight from '~icons/lucide/arrow-right';
@@ -15,9 +13,6 @@ import Box from '~icons/lucide/box';
 import { getServiceImageUrl } from '../lib/storage';
 
 export function AboutUs() {
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   return (
     <>
       <PageMeta
@@ -28,24 +23,14 @@ export function AboutUs() {
       {/* ====================== HERO SECTION (V2 STANDARD) ======================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
             About <span className="text-white/90">Mailbox Plus</span>
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
-            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-          >
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:100ms] opacity-0">
             Your trusted local partner for shipping, printing, mailbox rentals, and business
             services — proudly serving Concord Township and Lake County.
-          </motion.p>
+          </p>
         </div>
 
         {/* Soft fade bottom */}
@@ -56,18 +41,15 @@ export function AboutUs() {
       {/* OUR STORY */}
       {/* -------------------------------- */}
       <section className="mt-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-        <motion.div {...fadeUp(0.1)} className="relative">
+        <div className="relative animate-fade-in-up">
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
             className="rounded-lg shadow-lg w-full aspect-video object-cover border border-white/50"
           />
-        </motion.div>
+        </div>
 
-        <motion.div
-          {...fadeUp(0.2)}
-          className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-white/50 shadow-lg"
-        >
+        <div className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-white/50 shadow-lg animate-fade-in-up [animation-delay:200ms] opacity-0">
           <h2 className="text-3xl font-bold mb-6 text-[var(--color-text-primary)]">Our Story</h2>
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
             Mailbox Plus is a locally owned and operated business located in the heart of Concord
@@ -94,7 +76,7 @@ export function AboutUs() {
               Visit Us Today <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </InternalLink>
-        </motion.div>
+        </div>
       </section>
 
       {/* -------------------------------- */}
@@ -102,18 +84,15 @@ export function AboutUs() {
       {/* -------------------------------- */}
       <section className="mt-20 bg-[var(--color-bg-secondary)] py-16">
         <div className="max-w-5xl mx-auto px-4 text-center">
-          <motion.h2 {...fadeUp(0.1)} className="text-3xl font-semibold mb-6">
+          <h2 className="text-3xl font-semibold mb-6 animate-fade-in-up">
             Proudly Serving Concord Township & Lake County
-          </motion.h2>
-          <motion.p
-            {...fadeUp(0.2)}
-            className="text-[var(--color-text-primary)] max-w-3xl mx-auto leading-relaxed"
-          >
+          </h2>
+          <p className="text-[var(--color-text-primary)] max-w-3xl mx-auto leading-relaxed animate-fade-in-up [animation-delay:200ms] opacity-0">
             Our customers come from Concord Township, Mentor, Painesville, Willoughby, Eastlake,
             Madison, Chardon, Kirtland, Perry, and all across Lake County. We are deeply committed
             to supporting our local residents, nearby businesses, and community organizations with
             dependable service and genuine care.
-          </motion.p>
+          </p>
         </div>
       </section>
 
@@ -121,19 +100,13 @@ export function AboutUs() {
       {/* MEET OUR TEAM */}
       {/* -------------------------------- */}
       <section className="mt-20 max-w-7xl mx-auto px-4">
-        <motion.h2
-          {...fadeUp(0.1)}
-          className="text-3xl font-bold text-center mb-10 text-[var(--color-text-primary)]"
-        >
+        <h2 className="text-3xl font-bold text-center mb-10 text-[var(--color-text-primary)] animate-fade-in-up">
           Meet Our Team
-        </motion.h2>
+        </h2>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Frank */}
-          <motion.div
-            {...fadeUp(0.2)}
-            className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
-          >
+          <div className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300 animate-fade-in-up [animation-delay:200ms] opacity-0">
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
                 src={getServiceImageUrl('/images/frank.webp')}
@@ -157,13 +130,10 @@ export function AboutUs() {
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
-          </motion.div>
+          </div>
 
           {/* Diana */}
-          <motion.div
-            {...fadeUp(0.3)}
-            className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300"
-          >
+          <div className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300 animate-fade-in-up [animation-delay:300ms] opacity-0">
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
                 src={getServiceImageUrl('/images/diana.webp')}
@@ -190,7 +160,7 @@ export function AboutUs() {
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -199,12 +169,9 @@ export function AboutUs() {
       {/* -------------------------------- */}
       <section className="py-20 bg-[var(--color-bg-primary)] relative z-10">
         <div className="max-w-7xl mx-auto px-4">
-          <motion.h2
-            {...fadeUp(0.1)}
-            className="text-3xl font-bold text-center mb-12 text-[var(--color-text-primary)]"
-          >
+          <h2 className="text-3xl font-bold text-center mb-12 text-[var(--color-text-primary)] animate-fade-in-up">
             What We Offer
-          </motion.h2>
+          </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
@@ -245,10 +212,10 @@ export function AboutUs() {
                 desc: 'Never Miss a Delivery',
               },
             ].map((service, i) => (
-              <motion.div
+              <div
                 key={service.title}
-                {...fadeUp(0.1 * i)}
-                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-blue)] transition-all duration-300 hover:translate-y-[-4px]"
+                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-blue)] transition-all duration-300 hover:translate-y-[-4px] animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
                 <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
                   <service.icon className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300" />
@@ -263,7 +230,7 @@ export function AboutUs() {
                 >
                   Learn More <ArrowRight className="w-4 h-4 ml-1" />
                 </InternalLink>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

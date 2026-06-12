@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useInView } from '../hooks/useInView';
 import { InternalLink } from '../components/ui/InternalLink';
-import { motion } from 'framer-motion';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -71,22 +71,74 @@ const hiddenFromGrid = new Set([
   // Amazon return guide (keep accessible but hide from main grid for cleaner UI)
   'amazon-returns',
 ]);
-const reveal = {
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.55, ease: 'easeOut' as const },
+
+interface CategorySectionProps {
+  category: string;
+}
+
+const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
+  const [ref, isInView] = useInView({ threshold: 0.1 });
+  return (
+    <section
+      key={category}
+      id={makeId(category)}
+      className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      ref={ref as any}
+    >
+      <div className={isInView ? 'animate-fade-in-up' : 'opacity-0'}>
+        <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
+          <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
+          {category}
+        </h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services
+            .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
+            .map((service) => (
+              <div
+                key={service.id}
+                className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.01] transition-all flex flex-col group"
+              >
+                {/* Thumbnail with fade overlay + subtle zoom */}
+                {service.heroImage ? (
+                  <div className="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all">
+                    <SmartImage
+                      src={service.heroImage}
+                      alt={service.serviceName}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                  </div>
+                ) : service.icon ? (
+                  <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
+                    <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
+                  </div>
+                ) : (
+                  <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
+                    ?
+                  </div>
+                )}
+
+                <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
+                  {service.serviceName}
+                </h3>
+                <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
+                  {service.metaDescription}
+                </p>
+                <InternalLink to={service.slug} className="mt-auto">
+                  <Button variant="secondary" className="w-full shadow-sm">
+                    Learn More <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </InternalLink>
+              </div>
+            ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export const Services: React.FC = () => {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    }
-  }, []);
-
   const serviceCategories = [
     'Pack & Ship Services',
     'Professional Printing',
@@ -108,23 +160,13 @@ export const Services: React.FC = () => {
       {/* Hero Section - Navy Gradient */}
       <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
             Explore Our <span className="text-white">Services</span>
-          </motion.h1>
-          <motion.p
-            initial={prefersReducedMotion ? {} : { opacity: 0, y: 30 }}
-            animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-            transition={{ duration: prefersReducedMotion ? 0 : 0.8, delay: 0.1 }}
-            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
-          >
+          </h1>
+          <p className="text-lg text-white leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:100ms] opacity-0">
             Shipping, printing, mailbox rentals, and business services — all in one convenient
             location in Concord Township.
-          </motion.p>
+          </p>
         </div>
 
         {/* Soft edge blend at bottom of hero */}
@@ -185,67 +227,7 @@ export const Services: React.FC = () => {
           services.some((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
         )
         .map((category) => (
-          <section
-            key={category}
-            id={makeId(category)}
-            className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-          >
-            <motion.div
-              initial={reveal.initial}
-              whileInView={reveal.whileInView}
-              viewport={reveal.viewport}
-              transition={reveal.transition}
-            >
-              <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
-                <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
-                {category}
-              </h2>
-
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {services
-                  .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
-                  .map((service) => (
-                    <motion.div
-                      key={service.id}
-                      whileHover={{ y: -4, scale: 1.01 }}
-                      className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md transition-all flex flex-col group"
-                    >
-                      {/* Thumbnail with fade overlay + subtle zoom */}
-                      {service.heroImage ? (
-                        <div className="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all">
-                          <SmartImage
-                            src={service.heroImage}
-                            alt={service.serviceName}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                          />
-                          <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
-                        </div>
-                      ) : service.icon ? (
-                        <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
-                          <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
-                        </div>
-                      ) : (
-                        <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
-                          ?
-                        </div>
-                      )}
-
-                      <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
-                        {service.serviceName}
-                      </h3>
-                      <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
-                        {service.metaDescription}
-                      </p>
-                      <InternalLink to={service.slug} className="mt-auto">
-                        <Button variant="secondary" className="w-full shadow-sm">
-                          Learn More <ArrowRight className="w-4 h-4 ml-2" />
-                        </Button>
-                      </InternalLink>
-                    </motion.div>
-                  ))}
-              </div>
-            </motion.div>
-          </section>
+          <CategorySection key={category} category={category} />
         ))}
 
       {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
