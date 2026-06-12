@@ -109,7 +109,9 @@ export const PremierSignupModal: React.FC = () => {
       {/* Backdrop */}
       <div
         onClick={closeModal}
-        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') closeModal(); }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') closeModal();
+        }}
         role="button"
         tabIndex={0}
         aria-label="Close modal"

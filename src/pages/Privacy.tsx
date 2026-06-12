@@ -72,7 +72,9 @@ export const Privacy: React.FC = () => {
             Your privacy is important to us. This policy explains how we collect, use, and protect
             your personal information when you use our services.
           </p>
-          <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">Last updated: February 2026</p>
+          <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">
+            Last updated: February 2026
+          </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>

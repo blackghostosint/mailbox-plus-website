@@ -170,7 +170,9 @@ export const PickupHours: React.FC = () => {
           ref={introRef}
           className={`max-w-3xl mx-auto mb-16 ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <div className={`${v2GlassCard} p-8 md:p-10 text-center animate-fade-in-up [animation-delay:100ms] opacity-0`}>
+          <div
+            className={`${v2GlassCard} p-8 md:p-10 text-center animate-fade-in-up [animation-delay:100ms] opacity-0`}
+          >
             <p className="text-lg leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
               Knowing the exact pickup times ensures your important shipments go out the same day.
               We are an authorized ship center for{' '}
@@ -206,7 +208,9 @@ export const PickupHours: React.FC = () => {
               style={{ backgroundColor: item.bgTint, animationDelay: `${idx * 100 + 100}ms` }}
             >
               {/* Decorative accent bar */}
-              <div className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}></div>
+              <div
+                className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}
+              ></div>
 
               <div className="flex items-center gap-4 mb-6 relative z-10">
                 <div className={`p-3 rounded-xl bg-white/80 shadow-sm ${item.iconColor}`}>
@@ -269,10 +273,16 @@ export const PickupHours: React.FC = () => {
 
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
-              <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}>
+              <div
+                className="p-3 rounded-xl"
+                style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}
+              >
                 <MapPin className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
-              <h3 className="text-2xl font-bold mt-1" style={{ color: 'var(--color-text-primary)' }}>
+              <h3
+                className="text-2xl font-bold mt-1"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Serving Lake County &amp; Surrounding Areas
               </h3>
             </div>

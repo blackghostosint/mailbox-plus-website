@@ -68,23 +68,29 @@ export const StoreHours: React.FC = () => {
               {hours.map((schedule, index) => (
                 <div
                   key={schedule.day}
-                  className={`flex justify-between items-center p-4 rounded-xl ${schedule.isToday
-                    ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
-                    : 'bg-[var(--color-bg-secondary)]'} animate-fade-in-up opacity-0`}
+                  className={`flex justify-between items-center p-4 rounded-xl ${
+                    schedule.isToday
+                      ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
+                      : 'bg-[var(--color-bg-secondary)]'
+                  } animate-fade-in-up opacity-0`}
                   style={{ animationDelay: `${index * 100 + 100}ms` }}
                 >
                   <span
-                    className={`font-semibold ${schedule.isToday
-                      ? 'text-[var(--color-primary)]'
-                      : 'text-[var(--color-text-primary)]'}`}
+                    className={`font-semibold ${
+                      schedule.isToday
+                        ? 'text-[var(--color-primary)]'
+                        : 'text-[var(--color-text-primary)]'
+                    }`}
                   >
                     {schedule.day}
                     {schedule.isToday && <span className="ml-2 text-sm">(Today)</span>}
                   </span>
                   <span
-                    className={`font-bold ${schedule.time === 'Closed'
-                      ? 'text-red-600'
-                      : 'text-[var(--color-text-primary)]'}`}
+                    className={`font-bold ${
+                      schedule.time === 'Closed'
+                        ? 'text-red-600'
+                        : 'text-[var(--color-text-primary)]'
+                    }`}
                   >
                     {schedule.time}
                   </span>
@@ -108,7 +114,10 @@ export const StoreHours: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '100ms' }}>
+            <div
+              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              style={{ animationDelay: '100ms' }}
+            >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
@@ -123,7 +132,10 @@ export const StoreHours: React.FC = () => {
               </a>
             </div>
 
-            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '200ms' }}>
+            <div
+              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              style={{ animationDelay: '200ms' }}
+            >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MapPin className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
@@ -147,7 +159,10 @@ export const StoreHours: React.FC = () => {
               </a>
             </div>
 
-            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '300ms' }}>
+            <div
+              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              style={{ animationDelay: '300ms' }}
+            >
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
               </div>

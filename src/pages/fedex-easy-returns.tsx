@@ -95,7 +95,11 @@ export const FedExEasyReturns: React.FC = () => {
   ];
 
   const steps = [
-    { step: 1, title: 'Bring Your Item', desc: 'Bring your item and your return QR code or label.' },
+    {
+      step: 1,
+      title: 'Bring Your Item',
+      desc: 'Bring your item and your return QR code or label.',
+    },
     {
       step: 2,
       title: 'Optional Packing',
@@ -256,10 +260,7 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* What is FedEx Easy Returns */}
-      <section
-        ref={whatRef}
-        className={`py-16 ${whatInView ? 'animate-fade-in-up' : 'opacity-0'}`}
-      >
+      <section ref={whatRef} className={`py-16 ${whatInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
         <div className="max-w-4xl mx-auto px-6">
           <div className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden animate-fade-in-up [animation-delay:100ms] opacity-0">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-bg-blue-tint)] rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>

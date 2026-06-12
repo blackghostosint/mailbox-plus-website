@@ -139,7 +139,9 @@ export const Terms: React.FC = () => {
             These terms and conditions govern your use of our services. Please read them carefully
             before using our shipping, printing, and business services.
           </p>
-          <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">Last updated: February 2026</p>
+          <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">
+            Last updated: February 2026
+          </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
