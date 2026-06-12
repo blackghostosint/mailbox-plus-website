@@ -152,7 +152,13 @@ const App: React.FC = () => {
       <ScrollToTop />
       <Layout>
         <DebugRoutes />
-        <React.Suspense fallback={<div style={{ padding: 32, textAlign: 'center' }}>Loading…</div>}>
+        <React.Suspense
+          fallback={
+            <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg-primary)]">
+              Loading…
+            </div>
+          }
+        >
           <Routes>
             {/* Homepage */}
             <Route path="/" element={<Home />} />

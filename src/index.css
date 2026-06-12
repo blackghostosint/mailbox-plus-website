@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ============================================================
+   FONT METRIC OVERRIDES FOR CLS PREVENTION
+   ============================================================
+   Google Fonts use `display=swap` which causes layout shift when
+   the web font loads and replaces the fallback font. These
+   @font-face descriptors make the fallback font (system UI)
+   match the web font metrics (Poppins/Open Sans), preventing
+   text reflow during font swap.
+   ------------------------------------------------------------ */
+
+@font-face {
+  font-family: 'Poppins Fallback';
+  src: local('system-ui');
+  size-adjust: 92.5%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: 'Open Sans Fallback';
+  src: local('system-ui');
+  size-adjust: 100%;
+  ascent-override: 88%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
 @layer base {
   :root {
     /* Primary Brand — softened navy-blue */

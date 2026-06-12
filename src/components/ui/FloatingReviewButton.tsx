@@ -73,7 +73,13 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
           rel="noopener noreferrer"
           className="block hover:scale-105 active:scale-95 transition-transform"
         >
-          <SmartImage src={imageSrc} alt={alt} className="w-28 md:w-36 h-auto drop-shadow-lg" />
+          <SmartImage
+            src={imageSrc}
+            alt={alt}
+            width={256}
+            height={80}
+            className="w-28 md:w-36 h-auto drop-shadow-lg aspect-[256/80]"
+          />
         </a>
       </div>
     </div>
