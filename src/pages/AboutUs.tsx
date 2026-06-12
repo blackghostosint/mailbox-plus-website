@@ -1,4 +1,3 @@
-import React from 'react';
 import { Meta } from '../components/Meta';
 import { SmartImage } from '../components/SmartImage';
 import { InternalLink } from '../components/ui/InternalLink';
