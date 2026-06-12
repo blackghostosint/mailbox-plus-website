@@ -1,6 +1,6 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Star from '~icons/lucide/star';
+import { useInView } from '../hooks/useInView';
 
 // Barrel exports
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from '.';
@@ -42,15 +42,9 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
   const faqSchema = faqs ? getFAQSchema(siteConfig, faqs) : undefined;
 
-  const prefersReducedMotion =
-    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const reveal = {
-    initial: prefersReducedMotion ? {} : { opacity: 0, y: 32 },
-    whileInView: prefersReducedMotion ? {} : { opacity: 1, y: 0 },
-    viewport: { once: true, amount: 0.05 },
-    transition: { duration: 0.55, ease: 'easeOut' as const },
-  };
+  const [introRef, introInView] = useInView({ threshold: 0.1 });
+  const [featuresRef, featuresInView] = useInView({ threshold: 0.1 });
+  const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
 
   return (
     <>
@@ -77,12 +71,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           <div className="relative z-10 max-w-4xl mx-auto px-6">
             {/* Rating pill */}
             {aggregateRating && (
-              <motion.div
-                initial={prefersReducedMotion ? {} : { opacity: 0, y: -10 }}
-                animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-                transition={{ duration: 0.4 }}
-                className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 px-4 py-1.5 mb-4 shadow-sm"
-              >
+              <div className="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 px-4 py-1.5 mb-4 shadow-sm animate-fade-in-up">
                 <div className="flex gap-0.5">
                   {[...Array(5)].map((_, i) => (
                     <Star
@@ -98,36 +87,22 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 <span className="text-xs md:text-sm text-white/90 font-medium">
                   {aggregateRating.ratingValue} rating · {aggregateRating.reviewCount}+ reviews
                 </span>
-              </motion.div>
+              </div>
             )}
 
             {/* Title + subtitle */}
-            <motion.h1
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
-              animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.05 }}
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6"
-            >
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6 animate-fade-in-up [animation-delay:50ms] opacity-0">
               {heroTitle}
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 28 }}
-              animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.14 }}
-              className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-            >
+            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:140ms] opacity-0">
               {heroSubtitle}
-            </motion.p>
+            </p>
 
             {/* Primary CTA */}
-            <motion.div
-              initial={prefersReducedMotion ? {} : { opacity: 0, y: 24 }}
-              animate={prefersReducedMotion ? {} : { opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: 0.22 }}
-            >
+            <div className="animate-fade-in-up [animation-delay:220ms] opacity-0">
               <VisitUsButton variant="secondary" size="lg" />
-            </motion.div>
+            </div>
           </div>
 
           {/* Soft fade into page background */}
@@ -140,7 +115,10 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           <div className="container mx-auto px-4 space-y-20">
             {/* -------- GLASS INTRO CARD -------- */}
             {children && (
-              <motion.section {...reveal} className="max-w-3xl mx-auto">
+              <section
+                ref={introRef as any}
+                className={`max-w-3xl mx-auto ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+              >
                 <div className="relative">
                   {/* subtle gradient border */}
                   <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
@@ -148,12 +126,15 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                     {children}
                   </div>
                 </div>
-              </motion.section>
+              </section>
             )}
 
             {/* -------- FEATURES STRIP -------- */}
             {features && features.length > 0 && (
-              <motion.section {...reveal} className="max-w-6xl mx-auto">
+              <section
+                ref={featuresRef as any}
+                className={`max-w-6xl mx-auto ${featuresInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+              >
                 <div className="flex flex-col gap-2 mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
                     <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
@@ -170,14 +151,9 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                   {features.map((feature, idx) => {
                     const Icon = feature.icon;
                     return (
-                      <motion.div
+                      <div
                         key={idx}
-                        whileHover={
-                          prefersReducedMotion
-                            ? {}
-                            : { y: -6, scale: 1.01, transition: { duration: 0.2 } }
-                        }
-                        className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm"
+                        className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200"
                       >
                         {/* subtle overlay on hover */}
                         <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-bg-blue-tint)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -195,17 +171,17 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                             {feature.description}
                           </p>
                         </div>
-                      </motion.div>
+                      </div>
                     );
                   })}
                 </div>
-              </motion.section>
+              </section>
             )}
 
             {/* -------- CONTENT SECTIONS (GLASS PANELS) -------- */}
             {content &&
               content.map((block, idx) => (
-                <motion.section key={idx} {...reveal} className="max-w-5xl mx-auto">
+                <section key={idx} className="max-w-5xl mx-auto animate-fade-in-up">
                   <div
                     className={[
                       'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg',
@@ -223,15 +199,12 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                       dangerouslySetInnerHTML={{ __html: block.body }}
                     />
                   </div>
-                </motion.section>
+                </section>
               ))}
 
             {/* -------- FAQ (GLASS BAND) -------- */}
             {faqs && faqs.length > 0 && (
-              <motion.section
-                {...reveal}
-                className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80"
-              >
+              <section className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80 animate-fade-in-up">
                 <div className="max-w-4xl mx-auto">
                   <div className="relative rounded-xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
                     <div className="text-center mb-6 md:mb-8">
@@ -262,12 +235,15 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                     </Accordion>
                   </div>
                 </div>
-              </motion.section>
+              </section>
             )}
 
             {/* -------- CTA (GLASS + GRADIENT) -------- */}
             {cta && (
-              <motion.section {...reveal} className="max-w-4xl mx-auto">
+              <section
+                ref={ctaRef as any}
+                className={`max-w-4xl mx-auto ${ctaInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+              >
                 <div className="relative rounded-xl overflow-hidden shadow-xl">
                   {/* gradient shell */}
                   <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
@@ -277,7 +253,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                     <CTASection cta={cta} />
                   </div>
                 </div>
-              </motion.section>
+              </section>
             )}
           </div>
         </main>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Meta } from '../components/Meta';
-import { motion } from 'framer-motion';
 import {
   Accordion,
   AccordionItem,
@@ -11,7 +10,6 @@ import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
-import { fadeUp } from '../utils/animations';
 import { siteConfig } from '../config/siteConfig';
 
 // Import all named FAQ arrays from each category index
@@ -64,24 +62,14 @@ const AskMailboxPlus: React.FC = () => (
     {/* ====================== HEADER (V2 Standard) ======================= */}
     <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
       <div className="relative z-10 max-w-4xl mx-auto px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-        >
+        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
           Ask Mailbox Plus
-        </motion.h1>
+        </h1>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-        >
+        <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:100ms] opacity-0">
           Your local experts for shipping, printing, and business solutions in Concord Township. Got
           questions? We have answers.
-        </motion.p>
+        </p>
       </div>
 
       {/* Soft fade bottom */}
@@ -90,10 +78,7 @@ const AskMailboxPlus: React.FC = () => (
 
     {/* ====================== INTRO & LOCAL SEO ======================= */}
     <section className="relative z-10 -mt-20 max-w-5xl mx-auto px-4 pb-16">
-      <motion.div
-        {...fadeUp(0.2)}
-        className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center"
-      >
+      <div className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center animate-fade-in-up [animation-delay:200ms] opacity-0">
         <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-4">
           Serving Lake County, Ohio
         </h2>
@@ -117,19 +102,16 @@ const AskMailboxPlus: React.FC = () => (
           </InternalLink>
           .
         </p>
-      </motion.div>
+      </div>
     </section>
 
     {/* ====================== FAQ CATEGORIES ======================= */}
     <section className="max-w-6xl mx-auto px-4 py-8">
       {categories.map((cat, idx) => (
-        <motion.div
+        <div
           key={cat.title}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: idx * 0.1 }}
-          viewport={{ once: true }}
-          className="mb-12 bg-white rounded-lg shadow-sm border border-[var(--color-border)] overflow-hidden"
+          className="mb-12 bg-white rounded-lg shadow-sm border border-[var(--color-border)] overflow-hidden animate-fade-in-up opacity-0"
+          style={{ animationDelay: `${idx * 100}ms` }}
         >
           <div className="bg-[var(--color-bg-blue-tint)]/50 p-6 border-b border-[var(--color-accent)]/50">
             <h2 className="text-2xl font-bold text-[var(--color-primary)] flex items-center">
@@ -156,7 +138,7 @@ const AskMailboxPlus: React.FC = () => (
               ))}
             </Accordion>
           </div>
-        </motion.div>
+        </div>
       ))}
     </section>
 
