@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 import Printer from '~icons/lucide/printer';
 import Scan from '~icons/lucide/scan';
 import Package from '~icons/lucide/package';
@@ -21,13 +21,6 @@ import {
   AccordionTrigger,
   AccordionContent,
 } from '../components/ui/accordion';
-
-const reveal = {
-  initial: { opacity: 0, y: 20 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.5 },
-};
 
 export const FedExEasyReturns: React.FC = () => {
   const service = services.find((s) => s.id === 'fedex-easy-returns')!;
@@ -80,6 +73,81 @@ export const FedExEasyReturns: React.FC = () => {
     },
   ];
 
+  const benefits = [
+    { icon: Clock, title: 'Super Fast Drop-Offs', desc: 'In and out in minutes.' },
+    { icon: Printer, title: 'No Printer Needed', desc: 'We print labels from QR codes.' },
+    { icon: Scan, title: 'QR Code Support', desc: 'Just show your code on your phone.' },
+    {
+      icon: Package,
+      title: 'Professional Packing',
+      desc: 'We can pack your item safely.',
+    },
+    {
+      icon: MapPin,
+      title: 'Convenient Location',
+      desc: 'Next to Pub Frato in Concord Twp.',
+    },
+    {
+      icon: ShieldCheck,
+      title: 'Friendly Guidance',
+      desc: 'Helpful staff to assist you.',
+    },
+  ];
+
+  const steps = [
+    { step: 1, title: 'Bring Your Item', desc: 'Bring your item and your return QR code or label.' },
+    {
+      step: 2,
+      title: 'Optional Packing',
+      desc: 'Need a box? We can pack it for you (fees may apply).',
+    },
+    {
+      step: 3,
+      title: 'We Print the Label',
+      desc: 'We scan your code and print the shipping label.',
+    },
+    {
+      step: 4,
+      title: 'Process &amp; Track',
+      desc: 'We scan the package into the FedEx system and give you a receipt.',
+    },
+    {
+      step: 5,
+      title: "You're Done!",
+      desc: 'Leave with peace of mind while the retailer processes your refund.',
+    },
+  ];
+
+  const commonItems = [
+    'Clothing &amp; Shoes',
+    'Electronics',
+    'Home Goods',
+    'Toys &amp; Games',
+    'Books',
+    'Small Appliances',
+    'Accessories',
+    'Gifts',
+  ];
+
+  const areas = [
+    'Concord Township',
+    'Mentor',
+    'Painesville',
+    'Eastlake',
+    'Willoughby',
+    'Kirtland',
+    'Greater Lake County',
+  ];
+
+  const [heroRef, heroInView] = useInView({ threshold: 0.1 });
+  const [benefitsRef, benefitsInView] = useInView({ threshold: 0.1 });
+  const [stepsRef, stepsInView] = useInView({ threshold: 0.1 });
+  const [whatRef, whatInView] = useInView({ threshold: 0.1 });
+  const [whenRef, whenInView] = useInView({ threshold: 0.1 });
+  const [faqRef, faqInView] = useInView({ threshold: 0.1 });
+  const [localRef, localInView] = useInView({ threshold: 0.1 });
+  const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
+
   return (
     <div className="bg-white">
       {/* SEO Metadata */}
@@ -107,32 +175,20 @@ export const FedExEasyReturns: React.FC = () => {
       </div>
 
       {/* Hero Section - Navy Gradient */}
-      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+      <section
+        ref={heroRef}
+        className={`relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8"
-          >
-            FedEx Easy Returns – <span className="text-white/80">Fast & Hassle-Free</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0">
+            FedEx Easy Returns – <span className="text-white/80">Fast &amp; Hassle-Free</span>
+          </h1>
+          <p className="text-lg text-white leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0">
             Quick drop-offs, QR code scanning, label printing, and tracking receipts. Serving
             specific all Lake County communities.
-          </motion.p>
+          </p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in-up [animation-delay:300ms] opacity-0">
             <InternalLink to="/contact">
               <Button
                 size="lg"
@@ -142,7 +198,7 @@ export const FedExEasyReturns: React.FC = () => {
                 Get Directions <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </InternalLink>
-          </motion.div>
+          </div>
         </div>
 
         {/* Soft edge blend at bottom of hero */}
@@ -163,47 +219,28 @@ export const FedExEasyReturns: React.FC = () => {
           <p className="text-lg text-[var(--color-text-secondary)] leading-relaxed">
             Skip the long lines and complicated processes. The FedEx Easy Returns Program at Mailbox
             Plus makes returning your online purchases simple. Bring your phone with your QR code,
-            we’ll handle the rest—scanning, printing, and getting your package on its way.
+            we'll handle the rest—scanning, printing, and getting your package on its way.
           </p>
         </div>
       </section>
 
       {/* Benefits Section */}
-      <section className="py-20 bg-[var(--color-bg-primary)] relative z-10 -mt-10">
+      <section
+        ref={benefitsRef}
+        className={`py-20 bg-[var(--color-bg-primary)] relative z-10 -mt-10 ${benefitsInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <motion.h2 {...reveal} className="text-3xl font-bold text-[var(--color-text-primary)]">
+            <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">
               Why Return with Us?
-            </motion.h2>
+            </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              { icon: Clock, title: 'Super Fast Drop-Offs', desc: 'In and out in minutes.' },
-              { icon: Printer, title: 'No Printer Needed', desc: 'We print labels from QR codes.' },
-              { icon: Scan, title: 'QR Code Support', desc: 'Just show your code on your phone.' },
-              {
-                icon: Package,
-                title: 'Professional Packing',
-                desc: 'We can pack your item safely.',
-              },
-              {
-                icon: MapPin,
-                title: 'Convenient Location',
-                desc: 'Next to Pub Frato in Concord Twp.',
-              },
-              {
-                icon: ShieldCheck,
-                title: 'Friendly Guidance',
-                desc: 'Helpful staff to assist you.',
-              },
-            ].map((benefit, idx) => (
-              <motion.div
+            {benefits.map((benefit, idx) => (
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px]"
+                className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-sm hover:shadow-lg border border-white/50 flex flex-col items-center text-center transition-all hover:translate-y-[-4px] animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${idx * 100 + 100}ms` }}
               >
                 <div className="w-14 h-14 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)]">
                   <benefit.icon className="w-7 h-7" />
@@ -212,19 +249,19 @@ export const FedExEasyReturns: React.FC = () => {
                   {benefit.title}
                 </h3>
                 <p className="text-[var(--color-text-secondary)] leading-relaxed">{benefit.desc}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* What is FedEx Easy Returns */}
-      <section className="py-16">
+      <section
+        ref={whatRef}
+        className={`py-16 ${whatInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-4xl mx-auto px-6">
-          <motion.div
-            {...reveal}
-            className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden"
-          >
+          <div className="bg-white/80 backdrop-blur-xl rounded-[32px] p-10 border border-white/60 shadow-xl relative overflow-hidden animate-fade-in-up [animation-delay:100ms] opacity-0">
             <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--color-bg-blue-tint)] rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
             <h2 className="text-3xl font-bold text-[var(--color-primary)] mb-6">
               What is FedEx Easy Returns?
@@ -236,12 +273,15 @@ export const FedExEasyReturns: React.FC = () => {
               (often just a QR code) to Mailbox Plus. We verify the return, generate the label if
               needed, and accept the package for shipment—triggering your refund process faster.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Steps Section */}
-      <section className="py-16 bg-white">
+      <section
+        ref={stepsRef}
+        className={`py-16 bg-white ${stepsInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-5xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] text-center mb-12">
             How It Works
@@ -251,33 +291,7 @@ export const FedExEasyReturns: React.FC = () => {
             <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[var(--color-border)] -z-10" />
 
             <div className="space-y-12">
-              {[
-                {
-                  step: 1,
-                  title: 'Bring Your Item',
-                  desc: 'Bring your item and your return QR code or label.',
-                },
-                {
-                  step: 2,
-                  title: 'Optional Packing',
-                  desc: 'Need a box? We can pack it for you (fees may apply).',
-                },
-                {
-                  step: 3,
-                  title: 'We Print the Label',
-                  desc: 'We scan your code and print the shipping label.',
-                },
-                {
-                  step: 4,
-                  title: 'Process & Track',
-                  desc: 'We scan the package into the FedEx system and give you a receipt.',
-                },
-                {
-                  step: 5,
-                  title: "You're Done!",
-                  desc: 'Leave with peace of mind while the retailer processes your refund.',
-                },
-              ].map((item, index) => (
+              {steps.map((item, index) => (
                 <div key={index} className="flex flex-col md:flex-row items-center gap-8">
                   <div className="flex-1 text-center md:text-right">
                     {index % 2 === 0 && (
@@ -290,7 +304,7 @@ export const FedExEasyReturns: React.FC = () => {
                     )}
                   </div>
 
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary)] text-white flex items-center justify-center font-bold text-xl shrink-0 ring-4 ring-white shadow-lg z-10 animate-fade-in-up [animation-delay:100ms] opacity-0">
                     {item.step}
                   </div>
 
@@ -318,19 +332,11 @@ export const FedExEasyReturns: React.FC = () => {
             Items Commonly Returned
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              'Clothing & Shoes',
-              'Electronics',
-              'Home Goods',
-              'Toys & Games',
-              'Books',
-              'Small Appliances',
-              'Accessories',
-              'Gifts',
-            ].map((item, i) => (
+            {commonItems.map((item, i) => (
               <div
                 key={i}
-                className="bg-white p-4 rounded-lg shadow-sm border border-[var(--color-border)] font-medium text-[var(--color-text-primary)]"
+                className="bg-white p-4 rounded-lg shadow-sm border border-[var(--color-border)] font-medium text-[var(--color-text-primary)] animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${i * 50 + 100}ms` }}
               >
                 {item}
               </div>
@@ -340,7 +346,10 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* When to Visit */}
-      <section className="py-16 bg-white">
+      <section
+        ref={whenRef}
+        className={`py-16 bg-white ${whenInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-4xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
             When to Visit Mailbox Plus
@@ -373,7 +382,10 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-white py-16 lg:py-24 border-t border-[var(--color-border)]">
+      <section
+        ref={faqRef}
+        className={`bg-white py-16 lg:py-24 border-t border-[var(--color-border)] ${faqInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-3xl mx-auto px-6">
           <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
             Frequently Asked Questions
@@ -398,7 +410,10 @@ export const FedExEasyReturns: React.FC = () => {
       </section>
 
       {/* Local SEO Section */}
-      <section className="py-16 bg-[var(--color-bg-secondary)]">
+      <section
+        ref={localRef}
+        className={`py-16 bg-[var(--color-bg-secondary)] ${localInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6">
             Serving Your Local Community
@@ -407,15 +422,7 @@ export const FedExEasyReturns: React.FC = () => {
             We are proud to provide FedEx Easy Returns services to residents and businesses in:
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            {[
-              'Concord Township',
-              'Mentor',
-              'Painesville',
-              'Eastlake',
-              'Willoughby',
-              'Kirtland',
-              'Greater Lake County',
-            ].map((area) => (
+            {areas.map((area) => (
               <span
                 key={area}
                 className="bg-white px-4 py-2 rounded-full shadow-sm text-sm font-medium text-[var(--color-text-primary)] border border-[var(--color-border)]"
@@ -431,7 +438,10 @@ export const FedExEasyReturns: React.FC = () => {
       <CompetitorAlternativeSection />
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
+      <section
+        ref={ctaRef}
+        className={`py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center ${ctaInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
             Ready to return your package?

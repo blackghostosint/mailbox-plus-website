@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
+import { useInView } from '../hooks/useInView';
 import { InternalLink } from '../components/ui/InternalLink';
-import { motion } from 'framer-motion';
 import Search from '~icons/lucide/search';
 import Truck from '~icons/lucide/truck';
 import ExternalLink from '~icons/lucide/external-link';
@@ -14,17 +14,14 @@ import { getTrackingSchema } from '../utils/schema';
 // Utility to safely stringify JSON for <script>
 const toJsonLd = (obj: unknown) => JSON.stringify(obj, null, 2);
 
-// V2 Animation Constants
-const reveal = {
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.55, ease: 'easeOut' as const },
-};
-
 export const Tracking: React.FC = () => {
   const [trackingNumber, setTrackingNumber] = useState('');
   const [selectedCarrier, setSelectedCarrier] = useState('FedEx');
+
+  const [heroRef, heroInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [formRef, formInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [tipsRef, tipsInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [helpRef, helpInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   // ✅ Carrier templates
   const carriers = useMemo(
@@ -127,24 +124,17 @@ export const Tracking: React.FC = () => {
       )}
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+      <section
+        ref={heroRef}
+        className={`relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0">
             Track Your Package
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10"
-          >
+          </h1>
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:200ms] opacity-0">
             Enter your tracking number and get real-time updates.
-          </motion.p>
+          </p>
         </div>
 
         {/* Soft edge blend at bottom of hero */}
@@ -154,7 +144,10 @@ export const Tracking: React.FC = () => {
       {/* ====================== MAIN CONTENT ======================= */}
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
         {/* Tracking Form Glass Panel */}
-        <motion.div {...reveal} className="max-w-3xl mx-auto">
+        <div
+          ref={formRef}
+          className={`max-w-3xl mx-auto ${formInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
           <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg p-8 md:p-10">
             <div className="flex items-center mb-8">
               <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
@@ -245,23 +238,22 @@ export const Tracking: React.FC = () => {
               </div>
             </form>
           </div>
-        </motion.div>
+        </div>
 
         {/* Tracking Tips Grid */}
-        <section>
+        <section
+          ref={tipsRef}
+          className={`max-w-6xl mx-auto ${tipsInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Tracking Tips</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {trackingTips.map((tip, i) => (
-              <motion.div
+              <div
                 key={tip.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-md transition-all duration-300"
+                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 group animate-fade-in-up opacity-0"
+                style={{ animationDelay: `${i * 100 + 100}ms` }}
               >
                 <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)]/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
                   <tip.icon className="w-6 h-6" />
@@ -272,13 +264,16 @@ export const Tracking: React.FC = () => {
                 <p className="text-[var(--color-text-secondary)] text-sm leading-relaxed">
                   {tip.description}
                 </p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </section>
 
         {/* Help Section - Glass Gradient Panel */}
-        <motion.section {...reveal} className="max-w-5xl mx-auto">
+        <section
+          ref={helpRef}
+          className={`max-w-5xl mx-auto ${helpInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
           <div className="relative rounded-xl overflow-hidden shadow-xl">
             <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
 
@@ -314,7 +309,7 @@ export const Tracking: React.FC = () => {
               </div>
             </div>
           </div>
-        </motion.section>
+        </section>
       </main>
     </div>
   );

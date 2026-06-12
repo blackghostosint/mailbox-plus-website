@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 import MapPin from '~icons/lucide/map-pin';
 import Truck from '~icons/lucide/truck';
 import { Meta } from '../components/Meta';
@@ -103,19 +103,17 @@ const faqs = [
   },
 ];
 
-// Animation Consts
-const reveal = {
-  initial: { opacity: 0, y: 32 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.55, ease: 'easeOut' as const },
-};
-
-const PickupHours: React.FC = () => {
+export const PickupHours: React.FC = () => {
   const pageTitle = 'Carrier Pickup Hours | UPS, FedEx, USPS | Mailbox Plus';
   const metaDescription =
     "Check daily pickup times for UPS, FedEx, and USPS at Mailbox Plus in Concord Township. Miss the truck? We'll secure your package for the next day.";
   const url = `${siteConfig.domain}/pickup-hours`;
+
+  const [heroRef, heroInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [introRef, introInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [gridRef, gridInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [localRef, localInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
+  const [faqRef, faqInView] = useInView<HTMLDivElement>({ threshold: 0.1 });
 
   return (
     <div style={{ backgroundColor: 'var(--color-bg-primary)' }} className="min-h-screen">
@@ -140,24 +138,17 @@ const PickupHours: React.FC = () => {
       <JsonLd schema={getFAQSchema(siteConfig, faqs)} />
 
       {/* Hero Section - Navy Gradient */}
-      <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+      <section
+        ref={heroRef}
+        className={`relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="relative z-10 max-w-4xl mx-auto px-6">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6"
-          >
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0">
             Carrier Pickup <span className="text-white">Hours</span>
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-lg text-white leading-relaxed max-w-2xl mx-auto"
-          >
+          </h1>
+          <p className="text-lg text-white leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0">
             Daily collection times for UPS, FedEx, and USPS. Drop off your packages with confidence.
-          </motion.p>
+          </p>
         </div>
 
         {/* Soft edge blend at bottom of hero */}
@@ -175,8 +166,11 @@ const PickupHours: React.FC = () => {
         </div>
 
         {/* Intro Text in Glass Card */}
-        <div className="max-w-3xl mx-auto mb-16">
-          <motion.div {...reveal} className={`${v2GlassCard} p-8 md:p-10 text-center`}>
+        <div
+          ref={introRef}
+          className={`max-w-3xl mx-auto mb-16 ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
+          <div className={`${v2GlassCard} p-8 md:p-10 text-center animate-fade-in-up [animation-delay:100ms] opacity-0`}>
             <p className="text-lg leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
               Knowing the exact pickup times ensures your important shipments go out the same day.
               We are an authorized ship center for{' '}
@@ -197,26 +191,22 @@ const PickupHours: React.FC = () => {
               </InternalLink>
               , Mentor, and Painesville rely on us for timely processing.
             </p>
-          </motion.div>
+          </div>
         </div>
 
         {/* Pickup Hours Glass Grids */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20">
+        <div
+          ref={gridRef}
+          className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20 ${gridInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
           {pickupHours.map((item, idx) => (
-            <motion.div
+            <div
               key={item.carrier}
-              initial={{ opacity: 0, y: 32 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.55, delay: idx * 0.1, ease: 'easeOut' }}
-              viewport={{ once: true }}
-              whileHover={{ y: -4, scale: 1.01 }}
-              className="relative rounded-lg p-8 border border-white/60 shadow-sm backdrop-blur-md overflow-hidden group"
-              style={{ backgroundColor: item.bgTint }}
+              className="relative rounded-lg p-8 border border-white/60 shadow-sm backdrop-blur-md overflow-hidden group animate-fade-in-up opacity-0"
+              style={{ backgroundColor: item.bgTint, animationDelay: `${idx * 100 + 100}ms` }}
             >
               {/* Decorative accent bar */}
-              <div
-                className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}
-              ></div>
+              <div className={`absolute top-0 left-0 w-full h-1.5 ${item.accentColor} opacity-80`}></div>
 
               <div className="flex items-center gap-4 mb-6 relative z-10">
                 <div className={`p-3 rounded-xl bg-white/80 shadow-sm ${item.iconColor}`}>
@@ -260,14 +250,14 @@ const PickupHours: React.FC = () => {
                 </p>
                 {item.details}
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
         {/* Local SEO Section - Glass Panel */}
-        <motion.section
-          {...reveal}
-          className={`${v2GlassCard} p-8 md:p-12 mb-16 relative overflow-hidden`}
+        <section
+          ref={localRef}
+          className={`${v2GlassCard} p-8 md:p-12 mb-16 relative overflow-hidden ${localInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
           {/* Subtle gradient background for this section specifically */}
           <div
@@ -279,17 +269,11 @@ const PickupHours: React.FC = () => {
 
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
-              <div
-                className="p-3 rounded-xl"
-                style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}
-              >
+              <div className="p-3 rounded-xl" style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}>
                 <MapPin className="w-6 h-6 text-[var(--color-primary)]" />
               </div>
-              <h3
-                className="text-2xl font-bold mt-1"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
-                Serving Lake County & Surrounding Areas
+              <h3 className="text-2xl font-bold mt-1" style={{ color: 'var(--color-text-primary)' }}>
+                Serving Lake County &amp; Surrounding Areas
               </h3>
             </div>
             <p
@@ -321,10 +305,13 @@ const PickupHours: React.FC = () => {
               secure place to receive packages instead of sending them!
             </p>
           </div>
-        </motion.section>
+        </section>
 
         {/* FAQs */}
-        <section className="max-w-3xl mx-auto mb-20">
+        <section
+          ref={faqRef}
+          className={`max-w-3xl mx-auto mb-20 ${faqInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        >
           <h2
             className="text-3xl font-bold text-center mb-10"
             style={{ color: 'var(--color-text-primary)' }}

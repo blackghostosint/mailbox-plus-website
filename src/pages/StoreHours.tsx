@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { useInView } from '../hooks/useInView';
 import Clock from '~icons/lucide/clock';
 import MapPin from '~icons/lucide/map-pin';
 import Phone from '~icons/lucide/phone';
@@ -8,61 +8,57 @@ import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 
-export const StoreHours: React.FC = () => {
-  const hours = [
-    { day: 'Monday', time: '9:00 AM - 6:00 PM', isToday: false },
-    { day: 'Tuesday', time: '9:00 AM - 6:00 PM', isToday: false },
-    { day: 'Wednesday', time: '9:00 AM - 6:00 PM', isToday: false },
-    { day: 'Thursday', time: '9:00 AM - 6:00 PM', isToday: false },
-    { day: 'Friday', time: '9:00 AM - 6:00 PM', isToday: false },
-    { day: 'Saturday', time: '9:00 AM - 2:00 PM', isToday: false },
-    { day: 'Sunday', time: 'Closed', isToday: false },
-  ];
+const hours = [
+  { day: 'Monday', time: '9:00 AM - 6:00 PM', isToday: false },
+  { day: 'Tuesday', time: '9:00 AM - 6:00 PM', isToday: false },
+  { day: 'Wednesday', time: '9:00 AM - 6:00 PM', isToday: false },
+  { day: 'Thursday', time: '9:00 AM - 6:00 PM', isToday: false },
+  { day: 'Friday', time: '9:00 AM - 6:00 PM', isToday: false },
+  { day: 'Saturday', time: '9:00 AM - 2:00 PM', isToday: false },
+  { day: 'Sunday', time: 'Closed', isToday: false },
+];
 
-  const holidays = [
-    { name: 'New Year&apos;s Day', date: 'January 1', status: 'Closed' },
-    { name: 'Memorial Day', date: 'Last Monday in May', status: 'Closed' },
-    { name: 'Independence Day', date: 'July 4', status: 'Closed' },
-    { name: 'Labor Day', date: 'First Monday in September', status: 'Closed' },
-    { name: 'Thanksgiving', date: 'Fourth Thursday in November', status: 'Closed' },
-    { name: 'Christmas Day', date: 'December 25', status: 'Closed' },
-  ];
+const holidays = [
+  { name: 'New Year&apos;s Day', date: 'January 1', status: 'Closed' },
+  { name: 'Memorial Day', date: 'Last Monday in May', status: 'Closed' },
+  { name: 'Independence Day', date: 'July 4', status: 'Closed' },
+  { name: 'Labor Day', date: 'First Monday in September', status: 'Closed' },
+  { name: 'Thanksgiving', date: 'Fourth Thursday in November', status: 'Closed' },
+  { name: 'Christmas Day', date: 'December 25', status: 'Closed' },
+];
+
+export const StoreHours: React.FC = () => {
+  const [heroRef, heroInView] = useInView({ threshold: 0.1 });
+  const [hoursRef, hoursInView] = useInView({ threshold: 0.1 });
+  const [contactRef, contactInView] = useInView({ threshold: 0.1 });
+  const [holidaysRef, holidaysInView] = useInView({ threshold: 0.1 });
 
   return (
     <div className="bg-white">
-      <section className="relative bg-white py-20 lg:py-32">
+      <section
+        ref={heroRef}
+        className={`relative bg-white py-20 lg:py-32 ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6"
-            >
+            <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0">
               Store <span className="text-[var(--color-primary)]">Hours</span>
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed"
-            >
+            </h1>
+            <p className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed animate-fade-in-up [animation-delay:200ms] opacity-0">
               Visit us during our convenient business hours. We&apos;re here to help with all your
               shipping, printing, and business service needs.
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
 
       {/* Store Hours */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      <section
+        ref={hoursRef}
+        className={`py-20 bg-[var(--color-bg-primary)] ${hoursInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-8 shadow-sm"
-          >
+          <div className="bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
             <div className="flex items-center mb-8">
               <Clock className="w-8 h-8 text-[var(--color-primary)] mr-4" />
               <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Regular Hours</h2>
@@ -70,37 +66,29 @@ export const StoreHours: React.FC = () => {
 
             <div className="space-y-4">
               {hours.map((schedule, index) => (
-                <motion.div
+                <div
                   key={schedule.day}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className={`flex justify-between items-center p-4 rounded-xl ${
-                    schedule.isToday
-                      ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
-                      : 'bg-[var(--color-bg-secondary)]'
-                  }`}
+                  className={`flex justify-between items-center p-4 rounded-xl ${schedule.isToday
+                    ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
+                    : 'bg-[var(--color-bg-secondary)]'} animate-fade-in-up opacity-0`}
+                  style={{ animationDelay: `${index * 100 + 100}ms` }}
                 >
                   <span
-                    className={`font-semibold ${
-                      schedule.isToday
-                        ? 'text-[var(--color-primary)]'
-                        : 'text-[var(--color-text-primary)]'
-                    }`}
+                    className={`font-semibold ${schedule.isToday
+                      ? 'text-[var(--color-primary)]'
+                      : 'text-[var(--color-text-primary)]'}`}
                   >
                     {schedule.day}
                     {schedule.isToday && <span className="ml-2 text-sm">(Today)</span>}
                   </span>
                   <span
-                    className={`font-bold ${
-                      schedule.time === 'Closed'
-                        ? 'text-red-600'
-                        : 'text-[var(--color-text-primary)]'
-                    }`}
+                    className={`font-bold ${schedule.time === 'Closed'
+                      ? 'text-red-600'
+                      : 'text-[var(--color-text-primary)]'}`}
                   >
                     {schedule.time}
                   </span>
-                </motion.div>
+                </div>
               ))}
             </div>
 
@@ -109,20 +97,18 @@ export const StoreHours: React.FC = () => {
                 📞 Call ahead during holiday seasons as hours may vary
               </p>
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Contact Info */}
-      <section className="py-20 bg-white">
+      <section
+        ref={contactRef}
+        className={`py-20 bg-white ${contactInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
-            >
+            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '100ms' }}>
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Phone className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
@@ -135,14 +121,9 @@ export const StoreHours: React.FC = () => {
                   Call Now →
                 </Button>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
-            >
+            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '200ms' }}>
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <MapPin className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
@@ -164,14 +145,9 @@ export const StoreHours: React.FC = () => {
                   Get Directions →
                 </Button>
               </a>
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center"
-            >
+            <div className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`} style={{ animationDelay: '300ms' }}>
               <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
                 <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
               </div>
@@ -186,20 +162,18 @@ export const StoreHours: React.FC = () => {
               <Button variant="link" className="text-sm">
                 Contact Us →
               </Button>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Holiday Hours */}
-      <section className="py-20 bg-[var(--color-bg-primary)]">
+      <section
+        ref={holidaysRef}
+        className={`py-20 bg-[var(--color-bg-primary)] ${holidaysInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl p-8 shadow-sm"
-          >
+          <div className="bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
             <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">
               Holiday Hours
             </h2>
@@ -209,12 +183,10 @@ export const StoreHours: React.FC = () => {
 
             <div className="space-y-3">
               {holidays.map((holiday, index) => (
-                <motion.div
+                <div
                   key={holiday.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="flex justify-between items-center p-4 bg-[var(--color-bg-secondary)] rounded-xl"
+                  className="flex justify-between items-center p-4 bg-[var(--color-bg-secondary)] rounded-xl animate-fade-in-up opacity-0"
+                  style={{ animationDelay: `${index * 100 + 100}ms` }}
                 >
                   <div>
                     <span className="font-semibold text-[var(--color-text-primary)]">
@@ -225,10 +197,10 @@ export const StoreHours: React.FC = () => {
                     </span>
                   </div>
                   <span className="font-bold text-red-600">{holiday.status}</span>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
         </div>
       </section>
     </div>
