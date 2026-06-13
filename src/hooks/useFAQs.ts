@@ -5,10 +5,8 @@ interface UseFAQsOptions {
   /** Whether to load immediately on mount */
   immediate?: boolean;
   /** Callback when data is loaded */
-  // eslint-disable-next-line no-unused-vars
   onLoad?: (faqs: FAQ[]) => void;
   /** Callback on error */
-  // eslint-disable-next-line no-unused-vars
   onError?: (error: Error) => void;
 }
 
@@ -198,10 +196,9 @@ export function useAllCategoryFAQs(
 /**
  * Preload FAQ data for faster subsequent access
  */
-export function preloadFAQs(category: string, fileNames: string[]): Promise<void> {
+export function preloadFAQs(category: string, fileNames: string[]): Promise<void[]> {
   // Don't await - just trigger the fetches in background
-  fileNames.forEach((fileName) => {
-    fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => {});
-  });
-  return Promise.resolve();
+  return Promise.all(
+    fileNames.map((fileName) => fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => {}))
+  );
 }
