@@ -91,8 +91,7 @@ export const Header: React.FC = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
-                  style={{ fontWeight: 700 }}
+                  className="text-sm font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
                 >
                   {item.name}
                 </a>
@@ -139,7 +138,7 @@ export const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-base font-bold text-[var(--color-accent)] hover:text-[var(--color-alt-accent)] transition-colors"
+                    className="block text-base font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
                   >
                     {item.name}
                   </a>

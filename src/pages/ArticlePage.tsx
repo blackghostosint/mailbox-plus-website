@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
+import { Meta, JsonLd } from '../components';
 import { ArticleMarkdown } from '../components/ArticleMarkdown';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
@@ -9,6 +9,8 @@ import ArrowRight from '~icons/lucide/arrow-right';
 import Calendar from '~icons/lucide/calendar';
 import Tag from '~icons/lucide/tag';
 import User from '~icons/lucide/user';
+import { getArticleSchema, getWebPageSchema } from '../utils/schema';
+import { siteConfig } from '../config/siteConfig';
 
 const ArticlePage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -64,25 +66,50 @@ const ArticlePage: React.FC = () => {
     );
   }
 
-  const { title, description, pubDate, author, category, image, relatedServices } =
-    article.frontmatter;
+  const {
+    title,
+    description,
+    pubDate,
+    author,
+    category,
+    image,
+    relatedServices,
+    lastModified,
+    keywords,
+  } = article.frontmatter;
   const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric',
   });
+  const articleUrl = `https://mailboxplusohio.com/articles/${slug}`;
+  const articleSchema = getArticleSchema(siteConfig, {
+    headline: title,
+    description,
+    image,
+    datePublished: pubDate,
+    dateModified: lastModified ?? pubDate,
+    authorName: author,
+    articleSection: category,
+    keywords: keywords ?? [],
+    url: articleUrl,
+  });
+  const webPageSchema = getWebPageSchema(siteConfig, {
+    name: title,
+    description,
+    url: articleUrl,
+    breadcrumbItems: [
+      { name: 'Home', url: siteConfig.domain },
+      { name: 'Articles', url: `${siteConfig.domain}/articles` },
+      { name: title, url: articleUrl },
+    ],
+  });
 
   return (
     <>
-      <Helmet>
-        <title>{title} | Mailbox Plus</title>
-        <meta name="description" content={description} />
-        <meta property="og:title" content={title} />
-        <meta property="og:description" content={description} />
-        {image && <meta property="og:image" content={image} />}
-        <meta property="og:type" content="article" />
-        <link rel="canonical" href={`https://mailboxplusohio.com/articles/${slug}`} />
-      </Helmet>
+      <Meta title={title} description={description} canonical={articleUrl} ogImage={image} />
+      <JsonLd schema={articleSchema} />
+      <JsonLd schema={webPageSchema} />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">

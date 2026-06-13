@@ -76,8 +76,8 @@ const FloatingReviewButton: React.FC<FloatingReviewButtonProps> = ({
           <SmartImage
             src={imageSrc}
             alt={alt}
-            width={256}
-            height={256}
+            width={144}
+            height={144}
             className="w-28 md:w-36 h-auto drop-shadow-lg aspect-square"
           />
         </a>

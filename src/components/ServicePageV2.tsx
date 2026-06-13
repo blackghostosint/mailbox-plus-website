@@ -37,6 +37,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     slug,
     breadcrumbsBaseUrl,
     breadcrumbsLabel,
+    robots,
   } = props;
 
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
@@ -49,7 +50,12 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   return (
     <>
       {/* SEO */}
-      <Meta title={pageTitle} description={metaDescription} canonical={canonicalUrl} />
+      <Meta
+        title={pageTitle}
+        description={metaDescription}
+        canonical={canonicalUrl}
+        robots={robots}
+      />
       <JsonLd
         schema={[
           getWebPageSchema(siteConfig, {

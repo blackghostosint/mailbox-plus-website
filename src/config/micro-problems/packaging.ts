@@ -66,6 +66,7 @@ export const packagingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'package-multiple-items-into-one-shipment-in-concord-township',
@@ -130,6 +131,7 @@ export const packagingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'ship-something-with-no-original-packaging-in-concord-township',
@@ -193,6 +195,7 @@ export const packagingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'print-and-attach-a-shipping-label-correctly-in-concord-township',
@@ -259,6 +262,7 @@ export const packagingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
   {
     id: 'get-help-choosing-the-right-box-for-shipping-in-concord-township',
@@ -322,5 +326,6 @@ export const packagingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
+    robots: 'noindex, nofollow',
   },
 ];

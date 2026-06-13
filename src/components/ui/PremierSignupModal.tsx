@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { QRCodeSVG } from 'qrcode.react';
 import X from '~icons/lucide/x';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import { usePremierGating } from '../../hooks/usePremierGating';
 
@@ -98,110 +97,107 @@ export const PremierSignupModal: React.FC = () => {
     }
   }, [isOpen]);
 
+  if (!isOpen) return null;
+
   return (
-    <AnimatePresence>
-      {isOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="modal-headline"
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-headline"
+    >
+      {/* Backdrop */}
+      <div
+        onClick={closeModal}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') closeModal();
+        }}
+        role="button"
+        tabIndex={0}
+        aria-label="Close modal"
+        className="absolute inset-0 bg-[var(--color-text-primary)]/40 backdrop-blur-sm animate-fade-in"
+      />
+
+      {/* Modal Container */}
+      <div
+        ref={modalRef}
+        className="relative w-full max-w-md overflow-hidden bg-white text-[var(--color-text-primary)] shadow-2xl rounded-[26px] animate-fade-in-up"
+      >
+        {/* Close Button */}
+        <button
+          onClick={closeModal}
+          className="absolute top-5 right-5 p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors z-10"
+          aria-label="Close modal"
         >
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={closeModal}
-            className="absolute inset-0 bg-[var(--color-text-primary)]/40 backdrop-blur-sm"
-          />
+          <X width={20} height={20} />
+        </button>
 
-          {/* Modal Container */}
-          <motion.div
-            ref={modalRef}
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-md overflow-hidden bg-white text-[var(--color-text-primary)] shadow-2xl rounded-[26px]"
-          >
-            {/* Close Button */}
-            <button
-              onClick={closeModal}
-              className="absolute top-5 right-5 p-1 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors z-10"
-              aria-label="Close modal"
+        <div className="p-8 sm:p-10 flex flex-col items-center text-center">
+          {/* Content */}
+          <div className="mb-2">
+            <h2
+              id="modal-headline"
+              className="text-2xl sm:text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight"
             >
-              <X width={20} height={20} />
-            </button>
+              Join Mailbox Plus Premier
+            </h2>
+            <p className="mt-2 text-[var(--color-primary)] font-medium text-sm sm:text-base">
+              Your services, made more rewarding — automatically.
+            </p>
+          </div>
 
-            <div className="p-8 sm:p-10 flex flex-col items-center text-center">
-              {/* Content */}
-              <div className="mb-2">
-                <h2
-                  id="modal-headline"
-                  className="text-2xl sm:text-3xl font-semibold text-[var(--color-text-primary)] tracking-tight"
-                >
-                  Join Mailbox Plus Premier
-                </h2>
-                <p className="mt-2 text-[var(--color-primary)] font-medium text-sm sm:text-base">
-                  Your services, made more rewarding — automatically.
-                </p>
-              </div>
-
-              {/* Desktop / Desktop+ QR View */}
-              <div className="hidden sm:flex flex-col items-center mt-6">
-                <p className="text-[var(--color-text-secondary)] text-sm mb-6 max-w-[280px]">
-                  Scan with your phone to get your digital Premier card instantly.
-                </p>
-                <div className="p-4 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-bg-secondary)] mb-6 group">
-                  <QRCodeSVG
-                    value={SIGNUP_URL}
-                    size={160}
-                    level="H"
-                    includeMargin={false}
-                    className="mx-auto"
-                  />
-                </div>
-                <a
-                  href={SIGNUP_URL}
-                  className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors underline underline-offset-4"
-                >
-                  Continue on this device
-                </a>
-              </div>
-
-              {/* Mobile View */}
-              <div className="flex sm:hidden flex-col items-center mt-4 w-full">
-                <p className="text-[var(--color-text-secondary)] text-sm mb-8">
-                  Get your digital Premier card instantly.
-                </p>
-
-                <a
-                  href={SIGNUP_URL}
-                  className="w-full py-4 bg-[var(--color-primary)] text-white font-semibold rounded-2xl shadow-lg shadow-[var(--color-primary)]/20 active:scale-[0.98] transition-transform text-center inline-block"
-                >
-                  Add Premier Card to My Phone
-                </a>
-              </div>
-
-              {/* Secondary Copy */}
-              <div className="mt-8 flex flex-col gap-3">
-                <p className="text-[11px] text-[var(--color-text-secondary)] flex items-center justify-center gap-2">
-                  <span>Takes under 30 seconds</span>
-                  <span className="w-1 h-1 bg-[var(--color-border)] rounded-full" />
-                  <span>No physical card required</span>
-                </p>
-                <button
-                  onClick={dismissPermanently}
-                  className="text-[10px] text-[var(--color-border)] hover:text-[var(--color-text-secondary)] transition-colors uppercase tracking-widest font-medium"
-                >
-                  Don&apos;t show again
-                </button>
-              </div>
+          {/* Desktop / Desktop+ QR View */}
+          <div className="hidden sm:flex flex-col items-center mt-6">
+            <p className="text-[var(--color-text-secondary)] text-sm mb-6 max-w-[280px]">
+              Scan with your phone to get your digital Premier card instantly.
+            </p>
+            <div className="p-4 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-bg-secondary)] mb-6 group">
+              <QRCodeSVG
+                value={SIGNUP_URL}
+                size={160}
+                level="H"
+                includeMargin={false}
+                className="mx-auto"
+              />
             </div>
-          </motion.div>
+            <a
+              href={SIGNUP_URL}
+              className="text-xs text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors underline underline-offset-4"
+            >
+              Continue on this device
+            </a>
+          </div>
+
+          {/* Mobile View */}
+          <div className="flex sm:hidden flex-col items-center mt-4 w-full">
+            <p className="text-[var(--color-text-secondary)] text-sm mb-8">
+              Get your digital Premier card instantly.
+            </p>
+
+            <a
+              href={SIGNUP_URL}
+              className="w-full py-4 bg-[var(--color-primary)] text-white font-semibold rounded-2xl shadow-lg shadow-[var(--color-primary)]/20 active:scale-[0.98] transition-transform text-center inline-block"
+            >
+              Add Premier Card to My Phone
+            </a>
+          </div>
+
+          {/* Secondary Copy */}
+          <div className="mt-8 flex flex-col gap-3">
+            <p className="text-[11px] text-[var(--color-text-secondary)] flex items-center justify-center gap-2">
+              <span>Takes under 30 seconds</span>
+              <span className="w-1 h-1 bg-[var(--color-border)] rounded-full" />
+              <span>No physical card required</span>
+            </p>
+            <button
+              onClick={dismissPermanently}
+              className="text-[10px] text-[var(--color-border)] hover:text-[var(--color-text-secondary)] transition-colors uppercase tracking-widest font-medium"
+            >
+              Don&apos;t show again
+            </button>
+          </div>
         </div>
-      )}
-    </AnimatePresence>
+      </div>
+    </div>
   );
 };
