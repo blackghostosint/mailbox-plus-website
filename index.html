@@ -5,26 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="manifest" href="/manifest.json" />
     <title>Mailbox Plus Concord Township Ohio Pack and Ship</title>
-    <!-- Font preconnect and preload for faster FCP -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Self-hosted font preloads (critical for LCP) -->
     <link
       rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="/fonts/poppins-regular.woff2"
     />
     <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      media="print"
-      onload="this.media = 'all'"
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      crossorigin
+      href="/fonts/opensans-regular.woff2"
     />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap"
-      />
-    </noscript>
     <!-- Critical CSS (inlined for above-fold content) -->
     <style>
       /* Critical CSS - Inlined for above-fold content */
@@ -60,6 +55,63 @@
         --surface-medium: rgba(255, 255, 255, 0.6);
         --surface-strong: rgba(255, 255, 255, 0.7);
         --surface-heavy: rgba(255, 255, 255, 0.8);
+      }
+      /* Self-hosted Fonts */
+      @font-face {
+        font-family: 'Poppins';
+        src: url('/fonts/poppins-regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        src: url('/fonts/poppins-medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        src: url('/fonts/poppins-semibold.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Poppins';
+        src: url('/fonts/poppins-bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        src: url('/fonts/opensans-regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        src: url('/fonts/opensans-medium.woff2') format('woff2');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        src: url('/fonts/opensans-semibold.woff2') format('woff2');
+        font-weight: 600;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Open Sans';
+        src: url('/fonts/opensans-bold.woff2') format('woff2');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
       }
       /* Font Fallback Metrics for CLS Prevention */
       @font-face {
