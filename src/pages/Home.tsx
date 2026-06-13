@@ -146,7 +146,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             {/* Directions Button */}
             <a
-              href={getGoogleMapsLink('directions', siteConfig.address)}
+              href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full sm:w-auto h-[48px] flex items-center"
