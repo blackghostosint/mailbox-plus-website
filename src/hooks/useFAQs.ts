@@ -203,4 +203,5 @@ export function preloadFAQs(category: string, fileNames: string[]): Promise<void
   fileNames.forEach((fileName) => {
     fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => {});
   });
+  return Promise.resolve();
 }
