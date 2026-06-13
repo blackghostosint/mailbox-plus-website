@@ -5,9 +5,11 @@ interface UseFAQsOptions {
   /** Whether to load immediately on mount */
   immediate?: boolean;
   /** Callback when data is loaded */
-  onLoad?: () => void;
+  // eslint-disable-next-line no-unused-vars
+  onLoad?: (_faqs: FAQ[]) => void;
   /** Callback on error */
-  onError?: () => void;
+  // eslint-disable-next-line no-unused-vars
+  onError?: (_error: Error) => void;
 }
 
 interface UseFAQsReturn {
