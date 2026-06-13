@@ -25,7 +25,6 @@ export function AboutUs() {
       { name: 'About Us', url: `${siteConfig.domain}/about-us` },
     ],
   });
-
   return (
     <>
       <Meta
