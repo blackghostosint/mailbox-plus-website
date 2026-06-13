@@ -11,26 +11,61 @@ import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
 import { pageMeta } from '../config/pageMeta';
 
-export const Home: React.FC = () => {
-  const navigate = useNavigate();
+const serviceCategories = [
+  'Pack & Ship Services',
+  'Professional Printing',
+  'Mailbox Rentals',
+  'Document Services',
+  'Notary Services',
+  'Digital Fingerprinting',
+  'Fax & Scan Services',
+  'Packaging Supplies',
+  'Business Services',
+  'Shredding Services',
+  'Package Receiving',
+  'Copy Services',
+  'Drop-off Services',
+];
+
+/**
+ * ServiceRotator Component
+ *
+ * Performance Optimization: Extracted from Home to isolate re-renders.
+ * The 3-second interval only triggers updates within this small component,
+ * preventing the entire Home page (and its children) from re-rendering.
+ *
+ * Expected Impact: Reduces main-thread work on the landing page.
+ */
+const ServiceRotator: React.FC = () => {
   const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
   const [prevServiceIndex, setPrevServiceIndex] = useState<number | null>(null);
 
-  const serviceCategories = [
-    'Pack & Ship Services',
-    'Professional Printing',
-    'Mailbox Rentals',
-    'Document Services',
-    'Notary Services',
-    'Digital Fingerprinting',
-    'Fax & Scan Services',
-    'Packaging Supplies',
-    'Business Services',
-    'Shredding Services',
-    'Package Receiving',
-    'Copy Services',
-    'Drop-off Services',
-  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentServiceIndex((prev) => {
+        setPrevServiceIndex(prev);
+        return (prev + 1) % serviceCategories.length;
+      });
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="h-16 mb-8 overflow-hidden relative">
+      <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-in-up">
+        {serviceCategories[currentServiceIndex]}
+      </p>
+      {prevServiceIndex !== null && (
+        <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-out-down">
+          {serviceCategories[prevServiceIndex]}
+        </p>
+      )}
+    </div>
+  );
+};
+
+export const Home: React.FC = () => {
+  const navigate = useNavigate();
 
   const localAreas = [
     'Concord Township',
@@ -46,14 +81,6 @@ export const Home: React.FC = () => {
     'Fairport Harbor',
     'Geneva',
   ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPrevServiceIndex(currentServiceIndex);
-      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [currentServiceIndex, serviceCategories.length]);
 
   const { title, description, schema } = pageMeta['/'];
 
@@ -71,16 +98,7 @@ export const Home: React.FC = () => {
             Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
           </h1>
 
-          <div className="h-16 mb-8 overflow-hidden relative">
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-in-up">
-              {serviceCategories[currentServiceIndex]}
-            </p>
-            {prevServiceIndex !== null && (
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-out-down">
-                {serviceCategories[prevServiceIndex]}
-              </p>
-            )}
-          </div>
+          <ServiceRotator />
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
             Your trusted local partner for shipping, printing, and business services. Serving Lake

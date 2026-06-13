@@ -12,3 +12,7 @@
 
 **Learning:** Using `framer-motion` for simple entry or rotation animations on a landing page (Home) adds ~129KB of JavaScript to the critical rendering path, even if the library is lazy-loaded elsewhere. Replacing these with pure CSS `@keyframes` and standard React state management achieves the same visual result with zero additional JS overhead for the animation itself.
 **Action:** Prioritize CSS animations for critical "above the fold" interactions. Only use animation libraries like `framer-motion` for complex, interactive, or multi-stage animations that are non-critical to the initial page load.
+
+## 2026-06-13 - High-Frequency State Isolation
+**Learning:** Frequent state updates (e.g., a `setInterval` for rotating text) in a large parent component cause expensive re-renders of the entire component tree, including static sections. Isolating this high-frequency state into a dedicated leaf component prevents these unnecessary re-renders.
+**Action:** Always extract high-frequency or timer-based state logic into the smallest possible sub-component to minimize the scope of re-renders.
