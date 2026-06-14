@@ -2,7 +2,7 @@ import React from 'react';
 import { getServiceImageUrl } from '../lib/storage';
 import { SmartImage } from './SmartImage';
 
-export const CarrierLogos: React.FC = () => {
+export const CarrierLogos: React.FC = React.memo(() => {
   const carriers = [
     {
       name: 'FedEx',
@@ -47,4 +47,4 @@ export const CarrierLogos: React.FC = () => {
       ))}
     </div>
   );
-};
+});

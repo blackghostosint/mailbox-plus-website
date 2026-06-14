@@ -78,18 +78,20 @@ function parseFrontmatter(raw: string): { data: any; content: string } {
 
 export const articleLoader = {
   getAllArticles: async (): Promise<Article[]> => {
-    const articles: Article[] = [];
-
-    for (const path of articlePaths) {
+    const articlePromises = articlePaths.map(async (path) => {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
         const frontmatter = data as ArticleFrontmatter;
-        articles.push({ frontmatter, content });
+        return { frontmatter, content };
       } catch (err) {
         console.error(`Error loading article at ${path}:`, err);
+        return null;
       }
-    }
+    });
+
+    const results = await Promise.all(articlePromises);
+    const articles = results.filter((a): a is Article => a !== null);
 
     // Sort by publication date (newest first)
     return articles.sort(
@@ -99,19 +101,22 @@ export const articleLoader = {
   },
 
   getArticleBySlug: async (slug: string): Promise<Article | null> => {
-    for (const path of articlePaths) {
+    const articlePromises = articlePaths.map(async (path) => {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
         if (data.slug === slug) {
           return { frontmatter: data as ArticleFrontmatter, content };
         }
+        return null;
       } catch (err) {
         console.error(`Error loading article at ${path}:`, err);
+        return null;
       }
-    }
+    });
 
-    return null;
+    const results = await Promise.all(articlePromises);
+    return results.find((a) => a !== null) || null;
   },
 
   getRelatedArticles: async (

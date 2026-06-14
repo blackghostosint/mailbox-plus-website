@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
@@ -11,49 +11,25 @@ import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
 import { pageMeta } from '../config/pageMeta';
 
+const localAreas = [
+  'Concord Township',
+  'Mentor',
+  'Painesville',
+  'Eastlake',
+  'Willoughby',
+  'Wickliffe',
+  'Madison',
+  'Perry',
+  'Kirtland',
+  'Chardon',
+  'Fairport Harbor',
+  'Geneva',
+];
+
+import { RotatingServices } from '../components/sections/RotatingServices';
+
 export const Home: React.FC = () => {
   const navigate = useNavigate();
-  const [currentServiceIndex, setCurrentServiceIndex] = useState(0);
-  const [prevServiceIndex, setPrevServiceIndex] = useState<number | null>(null);
-
-  const serviceCategories = [
-    'Pack & Ship Services',
-    'Professional Printing',
-    'Mailbox Rentals',
-    'Document Services',
-    'Notary Services',
-    'Digital Fingerprinting',
-    'Fax & Scan Services',
-    'Packaging Supplies',
-    'Business Services',
-    'Shredding Services',
-    'Package Receiving',
-    'Copy Services',
-    'Drop-off Services',
-  ];
-
-  const localAreas = [
-    'Concord Township',
-    'Mentor',
-    'Painesville',
-    'Eastlake',
-    'Willoughby',
-    'Wickliffe',
-    'Madison',
-    'Perry',
-    'Kirtland',
-    'Chardon',
-    'Fairport Harbor',
-    'Geneva',
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPrevServiceIndex(currentServiceIndex);
-      setCurrentServiceIndex((prev) => (prev + 1) % serviceCategories.length);
-    }, 3000);
-    return () => clearInterval(interval);
-  }, [currentServiceIndex, serviceCategories.length]);
 
   const { title, description, schema } = pageMeta['/'];
 
@@ -71,17 +47,8 @@ export const Home: React.FC = () => {
             Pack & Ship in <span className="text-white/90">Concord Twp, Ohio</span>
           </h1>
 
-          {/* Rotating Services (Dynamic - React) */}
-          <div className="h-16 mb-8 overflow-hidden relative">
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-in-up">
-              {serviceCategories[currentServiceIndex]}
-            </p>
-            {prevServiceIndex !== null && (
-              <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium absolute inset-0 animate-fade-out-down">
-                {serviceCategories[prevServiceIndex]}
-              </p>
-            )}
-          </div>
+          {/* Rotating Services (Dynamic - React) - Isolated to prevent page-wide re-renders */}
+          <RotatingServices />
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
             Your trusted local partner for shipping, printing, and business services. Serving Lake

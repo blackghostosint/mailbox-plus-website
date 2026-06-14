@@ -12,3 +12,7 @@
 
 **Learning:** Using `framer-motion` for simple entry or rotation animations on a landing page (Home) adds ~129KB of JavaScript to the critical rendering path, even if the library is lazy-loaded elsewhere. Replacing these with pure CSS `@keyframes` and standard React state management achieves the same visual result with zero additional JS overhead for the animation itself.
 **Action:** Prioritize CSS animations for critical "above the fold" interactions. Only use animation libraries like `framer-motion` for complex, interactive, or multi-stage animations that are non-critical to the initial page load.
+
+## 2025-05-30 - Hero Timer Re-render Isolation
+**Learning:** Placing a `setInterval` for a small UI element (like a rotating text) in a top-level page component causes the entire page (including static sections and complex sub-components) to re-render on every tick.
+**Action:** Always encapsulate timer-based state in the smallest possible leaf component to contain re-renders. Use `React.memo` for neighboring sibling components if they are expensive to re-render.
