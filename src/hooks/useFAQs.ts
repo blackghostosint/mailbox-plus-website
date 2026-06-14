@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { FAQ } from '../types/faq';
 
 interface UseFAQsOptions {
@@ -40,9 +40,29 @@ export function useFAQs(
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const load = useCallback(async () => {
-    if (isLoading) return;
+  // Use refs to prevent callback recreation
+  const isFetchingRef = useRef(false);
+  const isMountedRef = useRef(true);
 
+  // Store callbacks in refs to keep callback stable
+  const onLoadRef = useRef(onLoad);
+  const onErrorRef = useRef(onError);
+  useEffect(() => {
+    onLoadRef.current = onLoad;
+    onErrorRef.current = onError;
+  }, [onLoad, onError]);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  const load = useCallback(async () => {
+    if (isFetchingRef.current) return;
+
+    isFetchingRef.current = true;
     setIsLoading(true);
     setError(null);
 
@@ -58,17 +78,24 @@ export function useFAQs(
       }
 
       const data = await response.json();
-      setFaqs(data);
-      setIsLoaded(true);
-      onLoad?.(data);
+      if (isMountedRef.current) {
+        setFaqs(data);
+        setIsLoaded(true);
+        onLoadRef.current?.(data);
+      }
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err));
-      setError(error);
-      onError?.(error);
+      if (isMountedRef.current) {
+        setError(error);
+        onErrorRef.current?.(error);
+      }
     } finally {
-      setIsLoading(false);
+      isFetchingRef.current = false;
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
     }
-  }, [category, fileName, isLoading, onLoad, onError]);
+  }, [category, fileName]);
 
   // Initial load
   useEffect(() => {
@@ -95,15 +122,39 @@ export function useCategoryFAQs(
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const load = useCallback(async () => {
-    if (isLoading) return;
+  // Use refs to prevent callback recreation
+  const isFetchingRef = useRef(false);
+  const isMountedRef = useRef(true);
 
+  // Store callbacks in refs to keep callback stable
+  const onLoadRef = useRef(onLoad);
+  const onErrorRef = useRef(onError);
+  useEffect(() => {
+    onLoadRef.current = onLoad;
+    onErrorRef.current = onError;
+  }, [onLoad, onError]);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  // Stabilize fileNames reference to prevent hook execution on reference changes
+  const fileNamesStr = JSON.stringify(fileNames);
+
+  const load = useCallback(async () => {
+    if (isFetchingRef.current) return;
+
+    isFetchingRef.current = true;
     setIsLoading(true);
     setError(null);
     const allFAQs: FAQ[] = [];
 
     try {
-      for (const fileName of fileNames) {
+      const parsedFileNames: string[] = JSON.parse(fileNamesStr);
+      for (const fileName of parsedFileNames) {
         // Handle both cases: fileName may or may not include .json extension
         const normalizedFileName = fileName.endsWith('.json') ? fileName : `${fileName}.json`;
         const url = `/data/faqs/${category}/${normalizedFileName}`;
@@ -117,17 +168,24 @@ export function useCategoryFAQs(
         allFAQs.push(...data);
       }
 
-      setFaqs(allFAQs);
-      setIsLoaded(true);
-      onLoad?.(allFAQs);
+      if (isMountedRef.current) {
+        setFaqs(allFAQs);
+        setIsLoaded(true);
+        onLoadRef.current?.(allFAQs);
+      }
     } catch (err) {
       const errObj = err instanceof Error ? err : new Error(String(err));
-      setError(errObj);
-      onError?.(errObj);
+      if (isMountedRef.current) {
+        setError(errObj);
+        onErrorRef.current?.(errObj);
+      }
     } finally {
-      setIsLoading(false);
+      isFetchingRef.current = false;
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
     }
-  }, [category, fileNames, isLoading, onLoad, onError]);
+  }, [category, fileNamesStr]);
 
   useEffect(() => {
     if (immediate) {
@@ -152,9 +210,29 @@ export function useAllCategoryFAQs(
   const [error, setError] = useState<Error | null>(null);
   const [manifest, setManifest] = useState<string[] | null>(null);
 
-  const load = useCallback(async () => {
-    if (isLoading) return;
+  // Use refs to prevent callback recreation
+  const isFetchingRef = useRef(false);
+  const isMountedRef = useRef(true);
 
+  // Store callbacks in refs to keep callback stable
+  const onLoadRef = useRef(onLoad);
+  const onErrorRef = useRef(onError);
+  useEffect(() => {
+    onLoadRef.current = onLoad;
+    onErrorRef.current = onError;
+  }, [onLoad, onError]);
+
+  useEffect(() => {
+    isMountedRef.current = true;
+    return () => {
+      isMountedRef.current = false;
+    };
+  }, []);
+
+  const load = useCallback(async () => {
+    if (isFetchingRef.current) return;
+
+    isFetchingRef.current = true;
     setIsLoading(true);
     setError(null);
 
@@ -166,7 +244,9 @@ export function useAllCategoryFAQs(
       const manifestData = await manifestResp.json();
 
       const files = manifestData[category] || [];
-      setManifest(files);
+      if (isMountedRef.current) {
+        setManifest(files);
+      }
 
       // Load all FAQ files
       const allFAQs: FAQ[] = [];
@@ -178,17 +258,24 @@ export function useAllCategoryFAQs(
         allFAQs.push(...data);
       }
 
-      setFaqs(allFAQs);
-      setIsLoaded(true);
-      onLoad?.(allFAQs);
+      if (isMountedRef.current) {
+        setFaqs(allFAQs);
+        setIsLoaded(true);
+        onLoadRef.current?.(allFAQs);
+      }
     } catch (err) {
       const errObj = err instanceof Error ? err : new Error(String(err));
-      setError(errObj);
-      onError?.(errObj);
+      if (isMountedRef.current) {
+        setError(errObj);
+        onErrorRef.current?.(errObj);
+      }
     } finally {
-      setIsLoading(false);
+      isFetchingRef.current = false;
+      if (isMountedRef.current) {
+        setIsLoading(false);
+      }
     }
-  }, [category, isLoading, onLoad, onError]);
+  }, [category]);
 
   useEffect(() => {
     if (immediate) {
