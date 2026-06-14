@@ -48,7 +48,9 @@ export function useFAQs(
 
     try {
       // Construct URL: /data/faqs/{category}/{fileName}.json
-      const url = `/data/faqs/${category}/${fileName}.json`;
+      // Handle both cases: fileName may or may not include .json extension
+      const normalizedFileName = fileName.endsWith('.json') ? fileName : `${fileName}.json`;
+      const url = `/data/faqs/${category}/${normalizedFileName}`;
       const response = await fetch(url);
 
       if (!response.ok) {
@@ -102,7 +104,9 @@ export function useCategoryFAQs(
 
     try {
       for (const fileName of fileNames) {
-        const url = `/data/faqs/${category}/${fileName}.json`;
+        // Handle both cases: fileName may or may not include .json extension
+        const normalizedFileName = fileName.endsWith('.json') ? fileName : `${fileName}.json`;
+        const url = `/data/faqs/${category}/${normalizedFileName}`;
         const response = await fetch(url);
 
         if (!response.ok) {

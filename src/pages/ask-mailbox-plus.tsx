@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Meta } from '../components/Meta';
 import {
   Accordion,
@@ -33,54 +33,74 @@ const FAQ_SKELETON = () => (
 );
 
 const AskMailboxPlus: React.FC = () => {
+  // Memoize file name arrays to prevent infinite re-fetching
+  const packShipFiles = useMemo(
+    () => [
+      'packShipFaqs.json',
+      'artworkShippingFaqs.json',
+      'bicycleShippingFaqs.json',
+      'customBoxMakingFaqs.json',
+      'dhlExpressFaqs.json',
+      'fedexShippingFaqs.json',
+      'golfClubShippingFaqs.json',
+      'internationalShippingFaqs.json',
+      'packageDropOffsFaqs.json',
+      'packageReceivingFaqs.json',
+      'packagingSuppliesFaqs.json',
+      'postageStampsFaqs.json',
+      'professionalPackingFaqs.json',
+      'upsShippingFaqs.json',
+      'uspsServicesFaqs.json',
+    ],
+    []
+  );
+
+  const copyPrintFiles = useMemo(
+    () => [
+      'businessCardsFaqs.json',
+      'copiesFaqs.json',
+      'documentFinishingFaqs.json',
+      'documentPrintingFaqs.json',
+      'flyersBrochuresFaqs.json',
+      'graphicDesignFaqs.json',
+      'postcardPrintingFaqs.json',
+      'posterBannerPrintingFaqs.json',
+      'postersPrintingFaqs.json',
+      'printDocumentServicesFaqs.json',
+    ],
+    []
+  );
+
+  const homeBusinessFiles = useMemo(
+    () => [
+      'digitalMailboxRentalFaqs.json',
+      'documentScanningFaqs.json',
+      'everyDoorDirectMailFaqs.json',
+      'faxServicesFaqs.json',
+      'mailboxRentalFaqs.json',
+      'shreddingFaqs.json',
+    ],
+    []
+  );
+
+  const specialtyFiles = useMemo(
+    () => ['digitalFingerprintingFaqs.json', 'insuranceFaqs.json'],
+    []
+  );
+
+  const notaryFiles = useMemo(() => ['notaryServicesFaqs.json'], []);
+
   // Load all FAQ categories dynamically
-  const { faqs: allFaqs } = useCategoryFAQs('pack-ship', [
-    'packShipFaqs.json',
-    'artworkShippingFaqs.json',
-    'bicycleShippingFaqs.json',
-    'customBoxMakingFaqs.json',
-    'dhlExpressFaqs.json',
-    'fedexShippingFaqs.json',
-    'golfClubShippingFaqs.json',
-    'internationalShippingFaqs.json',
-    'packageDropOffsFaqs.json',
-    'packageReceivingFaqs.json',
-    'packagingSuppliesFaqs.json',
-    'postageStampsFaqs.json',
-    'professionalPackingFaqs.json',
-    'upsShippingFaqs.json',
-    'uspsServicesFaqs.json',
-  ]);
+  const { faqs: allFaqs } = useCategoryFAQs('pack-ship', packShipFiles);
 
   // Load other categories
-  const { faqs: copyPrintFaqs } = useCategoryFAQs('copy-print', [
-    'businessCardsFaqs.json',
-    'copiesFaqs.json',
-    'documentFinishingFaqs.json',
-    'documentPrintingFaqs.json',
-    'flyersBrochuresFaqs.json',
-    'graphicDesignFaqs.json',
-    'postcardPrintingFaqs.json',
-    'posterBannerPrintingFaqs.json',
-    'postersPrintingFaqs.json',
-    'printDocumentServicesFaqs.json',
-  ]);
+  const { faqs: copyPrintFaqs } = useCategoryFAQs('copy-print', copyPrintFiles);
 
-  const { faqs: homeBusinessFaqs } = useCategoryFAQs('home-business', [
-    'digitalMailboxRentalFaqs.json',
-    'documentScanningFaqs.json',
-    'everyDoorDirectMailFaqs.json',
-    'faxServicesFaqs.json',
-    'mailboxRentalFaqs.json',
-    'shreddingFaqs.json',
-  ]);
+  const { faqs: homeBusinessFaqs } = useCategoryFAQs('home-business', homeBusinessFiles);
 
-  const { faqs: specialtyFaqs } = useCategoryFAQs('specialty', [
-    'digitalFingerprintingFaqs.json',
-    'insuranceFaqs.json',
-  ]);
+  const { faqs: specialtyFaqs } = useCategoryFAQs('specialty', specialtyFiles);
 
-  const { faqs: notaryFaqs } = useCategoryFAQs('notary', ['notaryServicesFaqs.json']);
+  const { faqs: notaryFaqs } = useCategoryFAQs('notary', notaryFiles);
 
   const categories = [
     { title: 'Pack & Ship', data: allFaqs },
