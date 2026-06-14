@@ -30,6 +30,13 @@ export interface CTA {
   variant?: 'brand' | 'neutral' | 'ghost'; // style variants
 }
 
+export interface Offer {
+  name: string;
+  price: string;
+  currency?: string;
+  availability?: string;
+}
+
 export interface Service {
   id: string;
   category: ServiceCategory;
@@ -73,6 +80,9 @@ export interface Service {
   // Optional CTA block for this service
   cta?: CTA;
   robots?: string; // e.g., 'noindex, nofollow' for thin content pages
+
+  // Optional Schema.org Offers
+  offers?: Offer[];
 }
 
 export interface Category {

@@ -198,9 +198,10 @@ export function useAllCategoryFAQs(
 /**
  * Preload FAQ data for faster subsequent access
  */
-export function preloadFAQs(category: string, fileNames: string[]): Promise<void[]> {
+export function preloadFAQs(category: string, fileNames: string[]): Promise<void> {
   // Don't await - just trigger the fetches in background
-  return Promise.all(
-    fileNames.map((fileName) => fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => undefined))
-  );
+  fileNames.forEach((fileName) => {
+    fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => {});
+  });
+  return Promise.resolve();
 }

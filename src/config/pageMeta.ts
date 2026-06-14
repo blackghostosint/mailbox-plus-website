@@ -9,8 +9,8 @@ const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 const geoMeta = {
   geoRegion: 'US-OH',
   geoPlacename: 'Concord Township',
-  geoPosition: `${siteConfig.geo.lat};${siteConfig.lng}`,
-  icbm: `${siteConfig.geo.lat}, ${siteConfig.lng}`,
+  geoPosition: `${siteConfig.geo.lat};${siteConfig.geo.lng}`,
+  icbm: `${siteConfig.geo.lat}, ${siteConfig.geo.lng}`,
 };
 
 const serviceSchemaMap: Record<string, WithContext<Service>> = services.reduce(
