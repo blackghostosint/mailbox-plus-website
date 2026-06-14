@@ -86,6 +86,18 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
     ];
   });
 
+  // Service types from Source of Truth
+  const serviceTypes = [
+    'Mailbox rental',
+    'Shipping service',
+    'Printing service',
+    'Notary public',
+    'Document shredding',
+    'Fax service',
+    'Document scanning',
+    'Business services',
+  ];
+
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -94,7 +106,7 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
     image: config.logo,
     url: getOrigin(config),
     telephone: config.contact?.phone,
-    priceRange: '$$',
+    priceRange: '$35 - $600',
     currenciesAccepted: 'USD',
     paymentAccepted: 'Cash, Credit Card, Debit Card',
     address: {
@@ -123,6 +135,7 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
       },
     }),
     ...(config.knowsAbout && { knowsAbout: config.knowsAbout }),
+    serviceType: serviceTypes,
     ...(config.aggregateRating && {
       aggregateRating: {
         '@type': 'AggregateRating',
@@ -141,6 +154,18 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
     } as ContactPoint,
     ...(openingHoursSpecification.length ? { openingHoursSpecification } : {}),
     ...(socialLinks.length ? { sameAs: socialLinks } : {}),
+    foundingDate: '2024',
+    foundingLocation: {
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        streetAddress: config.contact?.address?.street,
+        addressLocality: config.contact?.address?.city,
+        addressRegion: config.contact?.address?.state,
+        postalCode: config.contact?.address?.zip,
+        addressCountry: config.contact?.address?.country,
+      },
+    },
   } as WithContext<LocalBusiness>;
 };
 

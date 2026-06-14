@@ -2,7 +2,7 @@ import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
 export const siteConfig: SiteConfig = {
-  name: 'Mailbox Plus Ohio',
+  name: 'Mailbox Plus',
   tagline: 'Let Us Handle Your Package!',
   description:
     'Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.',
@@ -109,6 +109,10 @@ export const siteConfig: SiteConfig = {
   },
   premierSignupUrl: 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup',
   premierSignupModalEnabled: false,
+
+  // Source of Truth fields
+  foundingYear: 2024,
+  openingDate: '2025-05-05',
 
   // Google Business Profile review data for LocalBusiness schema
   aggregateRating: {

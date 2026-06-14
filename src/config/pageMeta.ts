@@ -5,6 +5,14 @@ import type { WithContext, LocalBusiness, WebPage, Service } from 'schema-dts';
 
 const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 
+// Geo meta tags for local SEO (from siteConfig)
+const geoMeta = {
+  geoRegion: 'US-OH',
+  geoPlacename: 'Concord Township',
+  geoPosition: `${siteConfig.geo.lat};${siteConfig.lng}`,
+  icbm: `${siteConfig.geo.lat}, ${siteConfig.lng}`,
+};
+
 const serviceSchemaMap: Record<string, WithContext<Service>> = services.reduce(
   (acc, service) => {
     acc[service.slug] = getServiceSchema(siteConfig, {
@@ -24,6 +32,10 @@ export const pageMeta: Record<
     title: string;
     description: string;
     schema?: (WithContext<LocalBusiness> | WithContext<WebPage> | WithContext<Service>)[];
+    geoRegion?: string;
+    geoPlacename?: string;
+    geoPosition?: string;
+    icbm?: string;
   }
 > = {
   // Home page with local business schema
@@ -32,12 +44,14 @@ export const pageMeta: Record<
     description:
       'Mailbox Plus in Concord Township, Ohio is your local partner for shipping (FedEx, UPS, USPS, DHL), mailbox rentals, printing, and business services. Serving Lake County.',
     schema: [localBusinessSchema],
+    ...geoMeta,
   },
   // Services page
   '/services': {
     title: 'Our Services | Mailbox Plus',
     description:
       'Explore our comprehensive business services: shipping, printing, mailbox rentals, notary, shredding, and more. Your local solution in Concord Township, Ohio.',
+    ...geoMeta,
   },
   // About Us page with web page schema
   '/about-us': {
@@ -56,6 +70,7 @@ export const pageMeta: Record<
         ],
       }),
     ],
+    ...geoMeta,
   },
   // Generate from services.ts with service schemas
   ...services.reduce(
@@ -64,6 +79,7 @@ export const pageMeta: Record<
         title: service.pageTitle,
         description: service.metaDescription,
         schema: [serviceSchemaMap[service.slug]],
+        ...geoMeta,
       };
       return acc;
     },
@@ -73,6 +89,10 @@ export const pageMeta: Record<
         title: string;
         description: string;
         schema?: (WithContext<LocalBusiness> | WithContext<WebPage> | WithContext<Service>)[];
+        geoRegion?: string;
+        geoPlacename?: string;
+        geoPosition?: string;
+        icbm?: string;
       }
     >
   ),
