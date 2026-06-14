@@ -381,10 +381,10 @@
                     ></path>
                   </svg>
                   <a
-                    href="tel:440-350-1300"
+                    href="tel:440-709-1946"
                     class="hover:text-[var(--color-primary)] transition-colors"
                   >
-                    440-350-1300
+                    (440) 709-1946
                   </a>
                 </div>
                 <!-- Address -->
@@ -500,43 +500,11 @@
             </button>
           </div>
         </div>
+        <div id="static-hero-wrapper"></div>
       </header>
-
-      <!-- Static Hero (Above Fold) - Served immediately for LCP - HOMEPAGE ONLY -->
-      <div id="static-hero-wrapper">
-        <section
-          class="relative bg-center py-20 md:py-32 lg:py-48 overflow-hidden min-h-[70vh] md:min-h-[80vh]"
-        >
-          <div
-            class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"
-          ></div>
-          <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1
-              class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading"
-            >
-              Pack &amp; Ship in <span class="text-white/90">Concord Twp, Ohio</span>
-            </h1>
-            <!-- Rotating Services Placeholder -->
-            <div class="h-16 mb-8 overflow-hidden relative">
-              <p class="text-xl md:text-2xl text-white/80 leading-relaxed font-medium">
-                Pack &amp; Ship Services
-              </p>
-            </div>
-            <p
-              class="text-lg md:text-xl text-white/95 leading-relaxed mb-10 max-w-2xl mx-auto font-medium"
-            >
-              Your trusted local partner for shipping, printing, and business services. Serving Lake
-              County communities with integrity and care.
-            </p>
-          </div>
-          <div
-            class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"
-          ></div>
-        </section>
-      </div>
-      <!-- Remove static hero on non-homepage routes so the React Header sits at the top -->
       <script>
-        (function () {
+        // Hide static hero on non-homepage routes
+        (function() {
           var path = window.location.pathname;
           // Only show static hero on the homepage
           if (path !== '/' && path !== '/index.html') {
@@ -545,7 +513,6 @@
           }
         })();
       </script>
-    </div>
-    <script type="module" src="/src/main.tsx"></script>
+    </div>    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

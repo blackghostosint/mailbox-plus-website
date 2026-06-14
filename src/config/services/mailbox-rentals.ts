@@ -26,6 +26,44 @@ export const mailboxRentalServices: Service[] = [
     heroTitle: 'Secure Mailbox Rentals',
     heroSubtitle: 'Get a private, secure mailbox with a real street address.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
+    offers: [
+      {
+        name: 'Small Mailbox - Monthly',
+        price: '35.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        name: 'Large Mailbox - Monthly',
+        price: '50.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        name: 'Small Mailbox - Annual Prepay',
+        price: '420.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        name: 'Large Mailbox - Annual Prepay',
+        price: '600.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        name: 'Key Deposit (Refundable)',
+        price: '5.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+      {
+        name: 'Additional Package (Overage)',
+        price: '5.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+    ],
     content: [
       {
         heading: 'Your Professional Street Address',
@@ -45,23 +83,28 @@ export const mailboxRentalServices: Service[] = [
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
                                 <td class="p-4 text-[var(--color-text-primary)]">Small Box</td>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$25.00</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$35.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
                             <tr>
                                 <td class="p-4 text-[var(--color-text-primary)]">Large Box</td>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$35.00</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$50.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
                             <tr class="bg-[var(--color-bg-blue-tint)]/30">
-                                <td class="p-4 text-[var(--color-text-primary)] font-semibold">12-Month Prepay</td>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$300.00</td>
+                                <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Small)</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$420.00</td>
+                                <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
+                            </tr>
+                            <tr class="bg-[var(--color-bg-blue-tint)]/30">
+                                <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Large)</td>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$600.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Note: Additional packages beyond the monthly inclusion are $5.00 each. Rentals available in 3, 6, and 12-month terms.</p>`,
+                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Note: Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available in 3, 6, and 12-month terms.</p>`,
       },
       {
         heading: 'Quick & Easy Setup (USPS Form 1583)',

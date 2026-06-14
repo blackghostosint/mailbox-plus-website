@@ -65,10 +65,11 @@ export function AboutUs() {
         <div className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-white/50 shadow-lg animate-fade-in-up [animation-delay:200ms] opacity-0">
           <h2 className="text-3xl font-bold mb-6 text-[var(--color-text-primary)]">Our Story</h2>
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
-            Mailbox Plus is a locally owned and operated business located in the heart of Concord
-            Township, Ohio. We opened our doors to provide a friendly, reliable, and convenient
-            alternative to driving to Mentor, Willoughby, or Painesville for shipping and business
-            needs.
+            Founded in <strong className="text-[var(--color-primary)]">2024</strong> and officially
+            opening on <strong className="text-[var(--color-primary)]">May 5, 2025</strong>, Mailbox
+            Plus is a locally owned and operated business located in the heart of Concord Township,
+            Ohio. We opened our doors to provide a friendly, reliable, and convenient alternative to
+            driving to Mentor, Willoughby, or Painesville for shipping and business needs.
           </p>
 
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">

@@ -47,4 +47,6 @@ export interface SiteConfig {
     bestRating: number;
     worstRating: number;
   }; // ✅ added for LocalBusiness schema
+  foundingYear?: number; // ✅ Source of Truth founding year
+  openingDate?: string; // ✅ Source of Truth official opening date (ISO format)
 }

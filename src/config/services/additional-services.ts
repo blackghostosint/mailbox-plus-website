@@ -29,6 +29,14 @@ export const additionalServices: Service[] = [
     heroTitle: 'Notary Public Services',
     heroSubtitle: 'Certified notary available for all your important documents.',
     heroImage: getServiceImageUrl('/images/notary-services.webp'),
+    offers: [
+      {
+        name: 'Notary Service - Per Signature',
+        price: '5.00',
+        currency: 'USD',
+        availability: 'https://schema.org/InStock',
+      },
+    ],
     content: [
       {
         heading: 'Notarize with Confidence',
