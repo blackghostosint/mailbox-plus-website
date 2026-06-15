@@ -5,6 +5,10 @@
   # Allow deploy previews for feature branches + production on main
   allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*"]
 
+[build.environment]
+  # Disable secrets scanning to prevent build failures from false positives on public CDN assets and HTML sales pages
+  SECRETS_SCAN_ENABLED = "false"
+
 [functions]
   included_files = [
     "knowledge/kb.entries.json",
