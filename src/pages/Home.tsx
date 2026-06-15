@@ -188,9 +188,29 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Hours */}
-          <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)]">
+          <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)] mb-6">
             <Clock className="w-5 h-5" />
             <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
+          </div>
+
+          {/* Google Reviews Trust Badge */}
+          <div className="mb-10 flex flex-col items-center justify-center">
+            <a
+              href="https://g.page/r/CYyNUX4atT3PEBM/review"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group inline-flex flex-col items-center p-4 bg-white/70 backdrop-blur border border-[var(--color-border)] rounded-2xl shadow-sm hover:shadow-md hover:scale-102 transition-all duration-300"
+            >
+              <div className="flex items-center gap-2">
+                <span className="text-[var(--color-accent)] text-xl font-bold flex">★ ★ ★ ★ ★</span>
+                <span className="text-sm font-bold text-[var(--color-text-primary)]">
+                  {siteConfig.aggregateRating?.ratingValue || 5.0} / 5.0
+                </span>
+              </div>
+              <p className="text-xs font-bold text-[var(--color-text-primary)] mt-1 group-hover:text-[var(--color-primary)] transition-colors">
+                Based on {siteConfig.aggregateRating?.reviewCount || 32} Verified Google Reviews
+              </p>
+            </a>
           </div>
 
           {/* Carrier Logos */}
