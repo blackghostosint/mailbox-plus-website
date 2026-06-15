@@ -34,8 +34,14 @@ export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact
   }
 
   const variants = anchors[variant] || anchors['exact'];
-  // Return random variant to avoid over-optimization
-  return variants[Math.floor(Math.random() * variants.length)];
+
+  /**
+   * Performance & Hydration Fix:
+   * We use a deterministic selection based on the serviceId instead of Math.random().
+   * This prevents hydration mismatches between SSR/Build-time and Client-side renders.
+   */
+  const seed = serviceId.split('').reduce((acc, char) => acc + char.charCodeAt(0), 0);
+  return variants[seed % variants.length];
 };
 
 export const getRelatedServices = (serviceId: ServiceId) => {
