@@ -363,9 +363,35 @@ export const ContactUs: React.FC = () => {
               />
             </div>
 
+            {/* Google Reviews Badge */}
+            <div className="bg-white/90 border border-white/50 rounded-2xl p-6 shadow-md flex flex-col items-center text-center space-y-4">
+              <div className="flex items-center gap-2">
+                <div className="text-[var(--color-accent)] text-2xl font-bold flex">★ ★ ★ ★ ★</div>
+                <span className="text-lg font-bold text-[var(--color-text-primary)]">
+                  {siteConfig.aggregateRating?.ratingValue || 5.0} / 5
+                </span>
+              </div>
+              <div>
+                <p className="text-base font-bold text-[var(--color-text-primary)]">
+                  Based on {siteConfig.aggregateRating?.reviewCount || 32} Google Reviews
+                </p>
+                <p className="text-sm text-[var(--color-text-secondary)] mt-1">
+                  100% of our customers rate us 5 stars for retail packing & shipping!
+                </p>
+              </div>
+              <a
+                href="https://g.page/r/CYyNUX4atT3PEBM/review"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full inline-block bg-[var(--color-primary)] text-white text-sm font-bold py-3 px-6 rounded-xl hover:bg-[var(--color-primary-dark)] active:scale-95 transition-all shadow-sm"
+              >
+                Write a Google Review
+              </a>
+            </div>
+
             {/* Directions Tip */}
             <div className="bg-white/80 border border-white/50 rounded-2xl p-6 text-center">
-              <p className="text-sm text-white/90 font-medium">
+              <p className="text-sm text-[var(--color-text-secondary)] font-medium">
                 📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to
                 I-90.
               </p>
