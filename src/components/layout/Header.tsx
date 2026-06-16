@@ -9,20 +9,20 @@ import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 
-export const Header: React.FC = () => {
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about-us' },
+  { name: 'Services', href: '/services' },
+  { name: 'Tracking', href: '/tracking' },
+  { name: 'Pickup Hours', href: '/pickup-hours' },
+  { name: 'Contact', href: '/contact-us' },
+  // External link to standalone sales page
+  { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
+];
+
+export const Header: React.FC = React.memo(() => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
-
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About Us', href: '/about-us' },
-    { name: 'Services', href: '/services' },
-    { name: 'Tracking', href: '/tracking' },
-    { name: 'Pickup Hours', href: '/pickup-hours' },
-    { name: 'Contact', href: '/contact-us' },
-    // External link to standalone sales page
-    { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
-  ];
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -195,4 +195,6 @@ export const Header: React.FC = () => {
       />
     </header>
   );
-};
+});
+
+Header.displayName = 'Header';

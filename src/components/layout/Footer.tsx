@@ -8,14 +8,14 @@ import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 import { getGoogleMapsLink } from '../../utils/location';
 
-export const Footer: React.FC = () => {
-  const quickLinks = [
-    { name: 'Pack & Ship', href: '/pack-ship' },
-    { name: 'Copy & Print', href: '/copy-print' },
-    { name: 'Shipping Partners', href: '/shipping-partners' },
-    { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
-  ];
+const quickLinks = [
+  { name: 'Pack & Ship', href: '/pack-ship' },
+  { name: 'Copy & Print', href: '/copy-print' },
+  { name: 'Shipping Partners', href: '/shipping-partners' },
+  { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
+];
 
+export const Footer: React.FC = React.memo(() => {
   // ✅ Supabase logo URL
   const logoUrl = getServiceImageUrl('/images/mailbox_plus_logo.webp');
 
@@ -165,4 +165,6 @@ export const Footer: React.FC = () => {
       </div>
     </footer>
   );
-};
+});
+
+Footer.displayName = 'Footer';
