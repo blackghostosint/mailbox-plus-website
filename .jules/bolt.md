@@ -12,3 +12,7 @@
 
 **Learning:** Using `framer-motion` for simple entry or rotation animations on a landing page (Home) adds ~129KB of JavaScript to the critical rendering path, even if the library is lazy-loaded elsewhere. Replacing these with pure CSS `@keyframes` and standard React state management achieves the same visual result with zero additional JS overhead for the animation itself.
 **Action:** Prioritize CSS animations for critical "above the fold" interactions. Only use animation libraries like `framer-motion` for complex, interactive, or multi-stage animations that are non-critical to the initial page load.
+
+## 2025-05-31 - Deterministic Anchor Text for Hydration Stability
+**Learning:** Using `Math.random()` for dynamic content (like anchor text variants) in a React app causes hydration mismatches when the server-rendered HTML doesn't match the client's initial render. This forces React to bail out of hydration and re-render the entire tree, hurting TTI.
+**Action:** Replace all non-deterministic logic in render paths with stable hash functions based on component props or unique IDs.
