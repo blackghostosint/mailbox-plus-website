@@ -254,7 +254,7 @@ export const getServiceSchema = (
     url,
     offers,
     reviews,
-    aggregateRating,
+    // aggregateRating removed — see type comment below
     areaServed,
     category,
     serviceOutput,
@@ -268,7 +268,9 @@ export const getServiceSchema = (
       reviewBody: string;
       ratingValue: number;
     }[];
-    aggregateRating?: { ratingValue: number; reviewCount: number };
+    // ⚠️ aggregateRating intentionally removed from Service schema (Nov 2025 Google change).
+    // Service is no longer a supported parent type for nested AggregateRating review snippets.
+    // Keep it on LocalBusiness (rendered via Layout.tsx) instead.
     areaServed?: string[];
     category?: string;
     serviceOutput?: string;
@@ -311,16 +313,10 @@ export const getServiceSchema = (
         worstRating: 1,
       },
     }));
-  }
 
-  if (aggregateRating) {
-    schema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: aggregateRating.ratingValue,
-      reviewCount: aggregateRating.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    } as AggregateRating;
+    // ⚠️ aggregateRating intentionally removed for Service — Google deprecated Service
+    // as a parent type for nested AggregateRating review snippets (Nov 2025).
+    // Keep it on LocalBusiness (via Layout.tsx) instead.
   }
 
   return schema;
