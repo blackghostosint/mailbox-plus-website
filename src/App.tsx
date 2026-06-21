@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Layout } from './components/layout/Layout';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -284,6 +284,10 @@ const App: React.FC = () => {
             <Route path="/tracking" element={<Tracking />} />
             <Route path="/service-area" element={<ServiceAreaIndex />} />
             <Route path="/service-area/:slug" element={<ServiceAreaPage />} />
+            <Route
+              path="/shipping-near-me"
+              element={<Navigate to="/service-area/concord-township" replace />}
+            />
             <Route path="/shipping-partners" element={<ShippingPartners />} />
             <Route path="/pickup-hours" element={<PickupHours />} />
             <Route path="/ask-mailbox-plus" element={<AskMailboxPlus />} />
