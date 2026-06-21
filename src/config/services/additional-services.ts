@@ -112,9 +112,9 @@ export const additionalServices: Service[] = [
     content: [
       {
         heading: 'Essential Business Services in Concord Township: Mailbox Plus',
-        body: `<p>Mailbox Plus is the one-stop shop for all your <strong>business services in Concord Township, Ohio</strong>.</p>
+        body: `<p>Mailbox Plus is the one-stop shop for all your <strong><a href="/home-business">business services</a> in Concord Township, Ohio</strong>.</p>
                 <p>We provide the essential tools you need to run your business efficiently, without the overhead of a large office.</p>
-                <p>From <strong>UPS, FedEx, USPS, and DHL</strong> shipping to private mailbox rentals, notary public, and document shredding, we have you covered. Our team acts as your personal support staff, helping you tackle your to-do list so you can focus on what matters most.</p>`,
+                <p>From <strong>UPS, FedEx, USPS, and DHL</strong> shipping to private mailbox rentals, <a href="/home-business/notary-services">notary services</a>, and document shredding, we have you covered. Our team acts as your personal support staff, helping you tackle your to-do list so you can focus on what matters most.</p>`,
       },
       {
         heading: 'Your Local Business Support Center',
@@ -178,8 +178,8 @@ export const additionalServices: Service[] = [
     content: [
       {
         heading: 'Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus',
-        body: `<p>Need to return an Amazon package? Mailbox Plus is your convenient <strong>Amazon returns drop-off location in Concord Township, Ohio</strong>.</p>
-                <p>We accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, hassle-free drop-off experience. While you're here, check out our other services including <strong>FedEx, USPS, and DHL shipping</strong>, packing supplies, and more.</p>`,
+        body: `<p>Need to return an Amazon package? Mailbox Plus is your convenient <strong><a href="/amazon-returns">Amazon returns drop-off</a> location in Concord Township, Ohio</strong>.</p>
+                <p>We accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, hassle-free <a href="/pack-ship/package-drop-offs">package drop-off</a> experience. While you're here, check out our other services including <strong>FedEx, USPS, and DHL shipping</strong>, packing supplies, and more.</p>`,
       },
       {
         heading: 'Why Drop Off Amazon Returns at Mailbox Plus?',

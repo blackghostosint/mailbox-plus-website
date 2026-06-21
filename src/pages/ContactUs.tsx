@@ -398,6 +398,56 @@ export const ContactUs: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Our Services */}
+        <section className="animate-fade-in-up">
+          <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80 text-center">
+            <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
+              Our Services
+            </h2>
+            <p className="text-[var(--color-text-secondary)] mb-8 max-w-2xl mx-auto">
+              While you&apos;re here, explore what we can do for you:
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="/pack-ship"
+                className="px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-dark)] transition-all"
+              >
+                📦 Pack &amp; Ship
+              </a>
+              <a
+                href="/copy-print"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+              >
+                🖨️ Copy &amp; Print
+              </a>
+              <a
+                href="/home-business/mailbox-rental"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+              >
+                ✉️ Mailbox Rental
+              </a>
+              <a
+                href="/home-business/notary-services"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+              >
+                📋 Notary Services
+              </a>
+              <a
+                href="/pack-ship/package-drop-offs"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+              >
+                📬 Drop Off a Package
+              </a>
+              <a
+                href="/tracking"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+              >
+                🔍 Track a Shipment
+              </a>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

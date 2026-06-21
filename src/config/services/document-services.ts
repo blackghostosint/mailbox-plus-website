@@ -312,7 +312,7 @@ export const documentServices: Service[] = [
       {
         heading: 'Professional Document Services in Concord Township',
         body: `<p class="text-lg leading-relaxed mb-6">
-                    Mailbox Plus is your trusted provider of <strong>document services in Concord Township, Ohio</strong>. 
+                    Mailbox Plus is your trusted provider of <strong><a href="/home-business">document services</a> in Concord Township, Ohio</strong>. 
                     Whether you need to print a report, notarize a legal form, or securely shred sensitive files, our experienced team 
                     is here to assist. We offer a full suite of services to help you manage your personal and business paperwork 
                     with ease and confidentiality.
@@ -331,7 +331,7 @@ export const documentServices: Service[] = [
                             </li>
                             <li class="flex items-center gap-3">
                                 <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
-                                <span class="text-[var(--color-text-primary)]"><strong>Secure Shredding:</strong> Safe destruction of confidential files.</span>
+                                <span class="text-[var(--color-text-primary)]"><strong><a href="/home-business/shredding">Secure Shredding</a>:</strong> Safe destruction of confidential files.</span>
                             </li>
                             <li class="flex items-center gap-3">
                                 <div class="w-2 h-2 rounded-full bg-[var(--color-primary)]"></div>
