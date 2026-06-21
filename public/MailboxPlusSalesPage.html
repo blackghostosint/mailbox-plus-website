@@ -138,6 +138,19 @@
       .agreement-list svg { width: 20px; height: 20px; color: #22c55e; flex-shrink: 0; margin-top: 2px; }
       .pricing-wrapper { text-align: center; }
       .pricing-wrapper .section-subtitle { color: var(--text-secondary); font-size: 1.15rem; margin-bottom: 2rem; }
+      .plan-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; max-width: 720px; margin: 0 auto; }
+      .plan-card { background: #fff; border-radius: var(--radius-xl); padding: 2.5rem 2rem; box-shadow: var(--shadow-sm); border: 2px solid var(--border); text-align: center; }
+      .plan-card--featured { border-color: var(--primary); box-shadow: var(--shadow-md); position: relative; }
+      .plan-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--primary-deep); font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 0.85rem; padding: 0.3em 1.2em; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em; }
+      .plan-card h3 { color: var(--primary-dark); margin-bottom: 0.5rem; }
+      .plan-price { margin: 1rem 0 1.5rem; }
+      .plan-price .price { font-family: 'Poppins', sans-serif; font-size: 3rem; font-weight: 800; color: var(--primary); }
+      .plan-price .price-period { font-size: 1.1rem; color: var(--text-muted); }
+      .plan-features { list-style: none; padding: 0; margin: 1.5rem 0 2rem; }
+      .plan-features li { padding: 0.6rem 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; color: var(--text-primary); display: flex; align-items: center; gap: 0.5rem; justify-content: center; }
+      .plan-features li:last-child { border-bottom: none; }
+      .plan-features li::before { content: '✓'; color: #22c55e; font-weight: 700; }
+      .plan-cta { font-size: 1rem; padding: 0.9em 2em; min-width: 200px; }
       .pricing-note { margin-top: 1.5rem; font-size: 1.05rem; color: var(--text-muted); }
       .stakes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin: 2.5rem 0; }
       @media (max-width: 768px) { .stakes-grid { grid-template-columns: 1fr; } }
@@ -207,12 +220,39 @@
     </section>
 
     <!-- SECTION 5: PRICING -->
-    <section class="section section--gray" id="pricing"><div class="pricing-wrapper">
+    <section class="section section--gray" id="pricing">
       <h2>Mailbox Rental Plans</h2>
       <p class="section-subtitle">Simple, flexible options. No setup fee. Cancel anytime.</p>
-      <stripe-pricing-table pricing-table-id="prctbl_1SxdJZGfcIcZOCWheFiYECbL" publishable-key="pk_live_51RJ0FlGfcIcZOCWhekuaZ04Fkerve2Q0ZSOVFEoAoMgnr51yDgAGYCkcVnBZPgekGircqgr6LTdDbsLmOwwoND5D000RkuLoWh"></stripe-pricing-table>
+      <div class="plan-cards">
+        <div class="plan-card">
+          <h3>Small Mailbox</h3>
+          <p class="plan-price"><span class="price">$35</span><span class="price-period">/month</span></p>
+          <ul class="plan-features">
+            <li>Real street address (not a PO Box)</li>
+            <li>Package acceptance from all 4 carriers</li>
+            <li>Free electronic notifications</li>
+            <li>4-hour scan SLA</li>
+            <li>30-day risk-free</li>
+          </ul>
+          <a href="https://buy.stripe.com/4gM3cvfxu07N4Vt9bt7N608" class="cta-direct plan-cta" target="_blank" rel="noopener" onclick="dataLayer.push({event:'plan_select',plan:'small'})">→ Get the Small Box</a>
+        </div>
+        <div class="plan-card plan-card--featured">
+          <div class="plan-badge">Most Popular</div>
+          <h3>Large Mailbox</h3>
+          <p class="plan-price"><span class="price">$50</span><span class="price-period">/month</span></p>
+          <ul class="plan-features">
+            <li>Real street address (not a PO Box)</li>
+            <li>Package acceptance from all 4 carriers</li>
+            <li>Free electronic notifications</li>
+            <li>4-hour scan SLA</li>
+            <li>30-day risk-free</li>
+            <li>Extra capacity for high-volume mail</li>
+          </ul>
+          <a href="https://buy.stripe.com/5kQ9AT8529InafN3R97N609" class="cta-direct plan-cta" target="_blank" rel="noopener" onclick="dataLayer.push({event:'plan_select',plan:'large'})">→ Get the Large Box</a>
+        </div>
+      </div>
       <p class="pricing-note">Every plan includes free electronic notifications, no setup fee, and a $5 key deposit. 30-day risk-free — full refund if it doesn't work.</p>
-    </div></section>
+    </section>
 
     <!-- SECTION 6: STAKES -->
     <section class="section--navy" id="stakes"><div class="section-inner">
