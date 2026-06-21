@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useInView } from '../hooks/useInView';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import { InternalLink } from '../components/ui/InternalLink';
 import Search from '~icons/lucide/search';
 import Truck from '~icons/lucide/truck';
@@ -140,6 +141,8 @@ export const Tracking: React.FC = () => {
         {/* Soft edge blend at bottom of hero */}
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
+
+      <AutoBreadcrumbs />
 
       {/* ====================== MAIN CONTENT ======================= */}
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">

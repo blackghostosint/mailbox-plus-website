@@ -209,7 +209,7 @@ export const mailboxRentalServices: Service[] = [
     content: [
       {
         heading: 'The Security of a Physical Presence',
-        body: "A private mailbox at Mailbox Plus is more than just a place to store mail—it's a <strong>complete mail management solution</strong>. Whether you're a home-based business looking for a professional image or a resident concerned about porch theft, our secure facility and professional staff ensure your items are handled with care and discretion.",
+        body: 'A <a href="/home-business/mailbox-rental">private mailbox rental</a> at Mailbox Plus is more than just a place to store mail—it\'s a <strong>complete mail management solution</strong>. Whether you\'re a home-based business looking for a professional image or a resident concerned about porch theft, our secure facility and professional staff ensure your <a href="/pack-ship/package-receiving">package receiving</a> needs are handled with care and discretion.',
       },
       {
         heading: 'Why Upgrade to Private Mailbox Rental?',
@@ -290,7 +290,7 @@ export const mailboxRentalServices: Service[] = [
     content: [
       {
         heading: 'The Modern Way to Manage Physical Mail',
-        body: 'Perfect for digital nomads, frequent travelers, and small business owners, our <strong>Virtual Mailbox service</strong> bridges the gap between physical mail and your digital life. Your mail arrives at our Concord Township facility, and we instantly provide a digital preview, allowing you to manage your post from anywhere in the world.',
+        body: 'Perfect for digital nomads, frequent travelers, and small business owners, our <strong><a href="/home-business/digital-mailbox-rental">Virtual Mailbox</a> service</strong> bridges the gap between physical mail and your digital life. Your mail arrives at our Concord Township facility, and we instantly provide a digital preview, allowing you to manage your post from anywhere in the world. You can also set up <a href="/mail-forwarding-concord-township">mail forwarding</a> to any location.',
       },
       {
         heading: 'How Your Virtual Mailbox Works',
@@ -361,7 +361,7 @@ export const mailboxRentalServices: Service[] = [
     content: [
       {
         heading: 'Reliable Mail Forwarding Across the Globe',
-        body: 'Moving temporarily? Traveling for the season? Or just need your business mail at your current location? Mailbox Plus provides <strong>seamless mail forwarding</strong> from Concord Township to anywhere in the world. We bundle your mail into consolidated shipments to save you money and ensure you never miss a critical document.',
+        body: 'Moving temporarily? Traveling for the season? Or just need your business mail at your current location? Mailbox Plus provides <strong>seamless <a href="/home-business/mailbox-rental">mail forwarding</a></strong> from Concord Township to anywhere in the world. We bundle your mail into consolidated shipments to save you money, and our <a href="/pack-ship/package-receiving">package receiving</a> service ensures you never miss a critical document.',
       },
       {
         heading: 'Flexible Forwarding & Management',

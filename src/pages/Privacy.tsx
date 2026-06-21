@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import Shield from '~icons/lucide/shield';
 import Eye from '~icons/lucide/eye';
 import Lock from '~icons/lucide/lock';
@@ -78,6 +79,8 @@ export const Privacy: React.FC = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
+
+      <AutoBreadcrumbs />
 
       {/* Privacy Sections */}
       <section className="py-20 bg-[var(--color-bg-primary)]">

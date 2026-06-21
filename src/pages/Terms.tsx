@@ -1,5 +1,6 @@
 import React from 'react';
 import { useInView } from '../hooks/useInView';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import FileText from '~icons/lucide/file-text';
 import Shield from '~icons/lucide/shield';
 import AlertTriangle from '~icons/lucide/alert-triangle';
@@ -145,6 +146,8 @@ export const Terms: React.FC = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
       </section>
+
+      <AutoBreadcrumbs />
 
       {/* Terms Sections */}
       <section

@@ -387,9 +387,9 @@ export const copyPrintServices: Service[] = [
       {
         heading: 'The Best Staples Printing Alternative',
         body: `<p class="text-lg leading-relaxed mb-6">
-                    Need a <strong>Staples alternative for printing and shipping in Concord Township, Ohio</strong>? 
+                    Need a <strong>Staples alternative for <a href="/copy-print">printing services</a> in Concord Township, Ohio</strong>? 
                     Mailbox Plus offers high-quality document services without the big-box store hassle. 
-                    Whether you need business cards, flyers, or secure shredding, our local team provides the personalized attention your projects deserve.
+                    Whether you need <a href="/copy-print/business-cards">business cards</a>, flyers, or secure shredding, our local team provides the personalized attention your projects deserve.
                 </p>
                 <div class="grid md:grid-cols-2 gap-6 mt-8">
                     <div class="p-6 rounded-2xl bg-white shadow-sm border border-[var(--color-border)] flex gap-4 items-start">
@@ -486,8 +486,8 @@ export const copyPrintServices: Service[] = [
       {
         heading: 'The Best Office Depot Alternative',
         body: `<p class="text-lg leading-relaxed mb-6">
-                    Looking for a more personal experience than the big chain stores? 
-                    Mailbox Plus provides the essential business services you rely on, right in your neighborhood.
+                    Looking for a more personal <a href="/copy-print">printing and shipping</a> experience? 
+                    Mailbox Plus provides the essential <a href="/pack-ship">shipping services</a> you rely on, right in your neighborhood.
                 </p>
                 <div class="grid md:grid-cols-2 gap-8 items-center bg-[var(--color-bg-secondary)] rounded-3xl p-8">
                     <div class="space-y-4">

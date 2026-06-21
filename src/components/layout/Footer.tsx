@@ -11,9 +11,13 @@ import { getGoogleMapsLink } from '../../utils/location';
 export const Footer: React.FC = () => {
   const quickLinks = [
     { name: 'Pack & Ship', href: '/pack-ship' },
+    { name: 'FedEx Shipping', href: '/pack-ship/fedex-shipping' },
+    { name: 'UPS Shipping', href: '/pack-ship/ups-authorized-shipper-outlet' },
     { name: 'Copy & Print', href: '/copy-print' },
-    { name: 'Shipping Partners', href: '/shipping-partners' },
+    { name: 'Mailbox Rental', href: '/home-business/mailbox-rental' },
+    { name: 'Notary Services', href: '/home-business/notary-services' },
     { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
+    { name: 'Shipping Partners', href: '/shipping-partners' },
   ];
 
   // ✅ Supabase logo URL

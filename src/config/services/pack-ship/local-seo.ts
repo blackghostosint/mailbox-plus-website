@@ -27,7 +27,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Convenient UPS Drop Off in Concord Township: Mailbox Plus',
-        body: 'Looking for a quick and easy <strong>UPS drop-off location in Concord Township, Ohio</strong>? \nMailbox Plus is your local solution. As an authorized shipping outlet, we accept all pre-labeled UPS packages. \nSkip the long lines at The UPS Store and drop off your packages with us in seconds. We also offer \n<strong> FedEx, USPS, and DHL</strong> services, making us the ultimate hub for all your shipping needs.',
+        body: 'Looking for a quick and easy <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline"><strong>UPS drop-off location in Concord Township, Ohio</strong></a>? \nMailbox Plus is your local solution. As an authorized shipping outlet, we accept all pre-labeled UPS packages. \nSkip the long lines at The UPS Store and drop off your packages with us in seconds. We also offer \n<a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline"><strong> FedEx, USPS, and DHL</strong> services</a>, making us the ultimate hub for all your shipping needs.',
       },
       {
         heading: 'Why Mailbox Plus is Better for Drop Offs',
@@ -127,7 +127,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Best Local Solution',
-        body: 'Looking for a reliable <strong>UPS Store alternative in Concord Township, Ohio</strong>? Mailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs.',
+        body: 'Looking for a reliable <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline"><strong>UPS Store alternative in Concord Township, Ohio</strong></a>? Mailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs.',
       },
       {
         heading: 'The Multi-Carrier Advantage',
@@ -240,11 +240,11 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Premier Choice',
-        body: "If you're searching for a <strong>Mail Boxes Etc. alternative in Concord Township, Ohio</strong>, look no further than Mailbox Plus. While the Mail Boxes Etc. brand has transitioned, the need for comprehensive shipping remains. Mailbox Plus fills that gap as your premier local solution.",
+        body: 'If you\'re searching for a <strong>Mail Boxes Etc. alternative in Concord Township, Ohio</strong>, look no further than Mailbox Plus. While the Mail Boxes Etc. brand has transitioned, the need for comprehensive <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping</a> remains. Mailbox Plus fills that gap as your premier local solution.',
       },
       {
         heading: 'Multi-Carrier Flexibility',
-        body: 'We offer <strong>UPS, FedEx, USPS, and DHL</strong> shipping, private mailbox rentals, and professional printing. We provide the personalized care and carrier flexibility that modern businesses and residents demand. Skip the confusion and choose the clear local leader: Mailbox Plus.',
+        body: 'We offer <strong>UPS, FedEx, USPS, and DHL</strong> shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">private mailbox rentals</a>, and professional printing. We provide the personalized care and carrier flexibility that modern businesses and residents demand. Skip the confusion and choose the clear local leader: Mailbox Plus.',
       },
       {
         heading: 'Why Choose Mailbox Plus?',
@@ -335,7 +335,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Best FedEx Office Alternative in Concord Township: Mailbox Plus',
-        body: 'Searching for a <strong>FedEx Office alternative in Concord Township, Ohio</strong>? \nMailbox Plus provides the same high-quality packing, shipping, and printing services you expect, \nbut with the added benefit of being a multi-carrier center. Unlike FedEx Office, which only ships FedEx, \nMailbox Plus allows you to compare options from <strong>FedEx, UPS, USPS, and DHL</strong> to find the best rate \nand delivery speed for your needs. Enjoy personalized service, shorter lines, and a locally owned atmosphere \nthat puts you first.',
+        body: 'Searching for a <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline"><strong>FedEx Office alternative in Concord Township, Ohio</strong></a>? \nMailbox Plus provides the same high-quality packing, shipping, and <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">professional printing</a> services you expect, \nbut with the added benefit of being a multi-carrier center. Unlike FedEx Office, which only ships FedEx, \nMailbox Plus allows you to compare options from <strong>FedEx, UPS, USPS, and DHL</strong> to find the best rate \nand delivery speed for your needs. Enjoy personalized service, shorter lines, and a locally owned atmosphere \nthat puts you first.',
       },
       {
         heading: 'Why Mailbox Plus Beats the Competition',
@@ -418,7 +418,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Best Post Office Alternative in Concord Township: Mailbox Plus',
-        body: 'Tired of the long lines and limited hours at the local Post Office? \nMailbox Plus is the premier <strong>Post Office alternative in Concord Township, Ohio</strong>. \nWe offer all the essential shipping services you need—including <strong>USPS, UPS, FedEx, and DHL</strong>—in a friendly, \ncustomer-focused environment. From certified mail to package drop-offs and stamp sales, we handle it all with speed \nand efficiency. Experience the difference of a shipping center that puts you first.',
+        body: 'Tired of the long lines and limited hours at the local Post Office? \nMailbox Plus is the premier <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>Post Office alternative in Concord Township, Ohio</strong></a>. \nWe offer all the essential shipping services you need—including <strong>USPS, UPS, FedEx, and DHL</strong>—in a friendly, \ncustomer-focused environment. From certified mail to package drop-offs and <a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">stamp sales</a>, we handle it all with speed \nand efficiency. Experience the difference of a shipping center that puts you first.',
       },
       {
         heading: 'Why Choose Mailbox Plus Over the Post Office?',
@@ -507,7 +507,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Your Local Shipping Leader',
-        body: 'Welcome to Mailbox Plus, the leading <strong>shipping center in Concord Township, Ohio</strong>. We provide a complete range of shipping and business services to meet the needs of residents and small businesses alike.',
+        body: 'Welcome to Mailbox Plus, the leading <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>shipping center in Concord Township, Ohio</strong></a>. We provide a complete range of shipping and business services to meet the needs of residents and small businesses alike.',
       },
       {
         heading: 'The Multi-Carrier Edge',
@@ -527,7 +527,7 @@ export const localSeoServices: Service[] = [
                             <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
-                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Expertise:</strong> Trained professionals for packing and global logistics.</div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Expertise:</strong> Trained professionals for <a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] hover:underline">packing</a> and global logistics.</div>
                         </li>
                     </ul>
                 `,
@@ -600,7 +600,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Professional Pack and Ship Services in Concord Township: Mailbox Plus',
-        body: 'When you need expert <strong>pack and ship services in Concord Township, Ohio</strong>, trust the pros at Mailbox Plus. \nPacking can be stressful and time-consuming, but our team makes it easy. We use high-quality materials and professional \ntechniques to ensure your items—whether fragile, valuable, or awkward—arrive safely. As an authorized \nshipper for <strong>UPS, FedEx, USPS, and DHL</strong>, we can pack your item and ship it using the carrier that best fits \nyour budget and timeline.',
+        body: 'When you need expert <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>pack and ship services in Concord Township, Ohio</strong></a>, trust the pros at Mailbox Plus. \nPacking can be stressful and time-consuming, but our team makes it easy. We use high-quality materials and professional \ntechniques to ensure your items—whether fragile, valuable, or awkward—arrive safely. As an authorized \n<a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">shipper for <strong>UPS, FedEx, USPS, and DHL</strong></a>, we can pack your item and ship it using the carrier that best fits \nyour budget and timeline.',
       },
       {
         heading: 'Mailbox Plus vs. DIY Packing',
@@ -704,11 +704,11 @@ export const localSeoServices: Service[] = [
                 </p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
                     <div class="bg-[var(--color-bg-blue-tint)] p-6 rounded-2xl border border-[var(--color-border-blue)] flex flex-col items-center text-center">
-                        <h4 class="font-bold text-[var(--color-primary)] mb-2">UPS</h4>
+                        <h4 class="font-bold text-[var(--color-primary)] mb-2"><a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline">UPS</a></h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Reliable ground and air services for domestic and international.</p>
                     </div>
                     <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col items-center text-center">
-                        <h4 class="font-bold text-purple-900 mb-2">FedEx</h4>
+                        <h4 class="font-bold text-purple-900 mb-2"><a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">FedEx</a></h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Fast express and economical ground options for time-sensitive items.</p>
                     </div>
                     <div class="bg-red-50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center">
@@ -817,11 +817,11 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Your Off-Site Logistics Team',
-        body: "Running a business is hard work, but shipping doesn't have to be. Mailbox Plus specializes in <strong>small business shipping in Concord Township, Ohio</strong>. We act as your off-site logistics department, providing access to UPS, FedEx, USPS, and DHL all in one place.",
+        body: 'Running a business is hard work, but shipping doesn\'t have to be. Mailbox Plus specializes in <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>small business shipping in Concord Township, Ohio</strong></a>. We act as your off-site logistics department, providing access to UPS, FedEx, USPS, and DHL all in one place.',
       },
       {
         heading: 'Efficiency for Growth',
-        body: 'From sending out orders to managing returns, we help you streamline your shipping process so you can focus on growing your business. Enjoy personalized support, volume discounts, and a partner who truly cares about your success.',
+        body: 'From sending out orders to managing returns, we help you streamline your shipping process so you can focus on <a href="/home-business" class="text-[var(--color-primary)] hover:underline">growing your business</a>. Enjoy personalized support, volume discounts, and a partner who truly cares about your success.',
       },
       {
         heading: 'Your Business Logistics Partner',
@@ -914,7 +914,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Skip the Post Office Lines',
-        body: 'Looking for a better <strong>USPS drop-off location in Concord Township, Ohio</strong>? Skip the long lines at the Post Office and head to Mailbox Plus. We are an authorized shipping center that makes dropping off your USPS packages quick and easy.',
+        body: 'Looking for a better <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>USPS drop-off location in Concord Township, Ohio</strong></a>? Skip the long lines at the Post Office and head to Mailbox Plus. We are an authorized shipping center that makes <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">dropping off your USPS packages</a> quick and easy.',
       },
       {
         heading: 'The Multi-Carrier Advantage',
@@ -1010,7 +1010,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'Expert USPS Package Help in Concord Township: Mailbox Plus',
-        body: "Need <strong>USPS package help in Concord Township, Ohio</strong>? \nWhether you're unsure about postage, need help packing a fragile item, or want to track a shipment, \nMailbox Plus is here to assist. As an authorized shipping center, we provide expert guidance on all \n<strong> USPS, UPS, FedEx, and DHL</strong> services. Don't struggle with complicated shipping rules or \nwait on hold—come to Mailbox Plus for personal, face-to-face assistance from our knowledgeable staff.",
+        body: 'Need <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>USPS package help in Concord Township, Ohio</strong></a>? \nWhether you\'re unsure about <a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">postage</a>, need help packing a fragile item, or want to track a shipment, \nMailbox Plus is here to assist. As an authorized shipping center, we provide expert guidance on all \n<strong> USPS, UPS, FedEx, and DHL</strong> services. Don\'t struggle with complicated shipping rules or \nwait on hold—come to Mailbox Plus for personal, face-to-face assistance from our knowledgeable staff.',
       },
       {
         heading: 'Mailbox Plus vs. DIY Shipping',
