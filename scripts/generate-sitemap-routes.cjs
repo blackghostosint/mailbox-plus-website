@@ -213,7 +213,12 @@ function getAppRoutes() {
       const routePath = match[1];
 
       // Filter out dynamic routes (containing :) and wildcards (*)
-      if (!routePath.includes(':') && !routePath.includes('*')) {
+      // Also filter out redirect routes like /shipping-near-me
+      if (
+        !routePath.includes(':') &&
+        !routePath.includes('*') &&
+        routePath !== '/shipping-near-me'
+      ) {
         routes.add(routePath);
         sourceMap[routePath] = appPath;
       }

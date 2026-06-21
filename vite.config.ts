@@ -26,7 +26,8 @@ export default defineConfig({
     }),
     sitemap({
       hostname: 'https://mailboxplusohio.com',
-      dynamicRoutes: sitemapConfig.routes,
+      dynamicRoutes: sitemapConfig.routes.filter((route) => route !== '/'),
+      exclude: ['/404'],
       lastmod: lastmodMap,
       generateRobotsTxt: false,
     }),
