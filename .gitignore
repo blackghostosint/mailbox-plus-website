@@ -53,3 +53,4 @@ convert-images.cjs
 e2e/report/
 test-results/
 playwright-report/
+.hermes/

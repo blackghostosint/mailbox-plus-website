@@ -47,7 +47,7 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Clean & Professional Layouts',
-        body: 'We specialize in <strong>business cards, flyers, brochures, and more</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is print-ready.',
+        body: 'We specialize in <strong><a href="/copy-print/business-cards" class="text-[var(--color-primary)] hover:underline">business cards</a>, flyers, brochures, and more</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is print-ready.',
       },
       {
         heading: 'Industry-Standard Precision',
@@ -93,7 +93,7 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Premium Brand Impressions',
-        body: 'Make a lasting first impression with <strong>custom business cards</strong> professionally printed at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style.',
+        body: 'Make a lasting first impression with <strong>custom business cards</strong> <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">professionally printed</a> at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style.',
       },
       {
         heading: 'Quality Finishes',
@@ -147,7 +147,7 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'High-Impact Marketing',
-        body: 'Promote your business or event with <strong>professional flyer and brochure printing</strong> from Mailbox Plus. We help organizations across Lake County design and print eye-catching materials that deliver your message effectively.',
+        body: 'Promote your business or event with <strong><a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">professional flyer and brochure printing</a></strong> from Mailbox Plus. We help organizations across Lake County design and print eye-catching materials that deliver your message effectively.',
       },
       {
         heading: 'Custom Stocks & Sizes',
@@ -201,11 +201,11 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Fast & Reliable Results',
-        body: 'Mailbox Plus provides <strong>high-quality document printing</strong> for residents, students, and businesses in Concord Township. Whether you need resumes, presentations, or reports, we make it simple to get crisp results right when you need them.',
+        body: 'Mailbox Plus provides <strong><a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">high-quality document printing</a></strong> for residents, students, and businesses in Concord Township. Whether you need resumes, presentations, or reports, we make it simple to get crisp results right when you need them.',
       },
       {
         heading: 'Custom Finishing Options',
-        body: 'Our on-site printers produce <strong>black-and-white and full-color</strong> documents with finishing options like stapling and binding. We can print directly from email, USB, or cloud storage with total confidentiality.',
+        body: 'Our on-site printers produce <strong>black-and-white and full-color</strong> documents with <a href="/copy-print/business-cards" class="text-[var(--color-primary)] hover:underline">finishing options like stapling and binding</a>. We can print directly from email, USB, or cloud storage with total confidentiality.',
       },
       {
         heading: 'One-Stop Solutions',
@@ -255,7 +255,7 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Bold Visual Impact',
-        body: 'Make a statement with <strong>custom poster printing</strong> from Mailbox Plus. We specialize in high-resolution posters for businesses and schools throughout Lake County—perfect for promotions and special occasions.',
+        body: 'Make a statement with <strong><a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">custom poster printing</a></strong> from Mailbox Plus. We specialize in high-resolution posters for businesses and schools throughout Lake County—perfect for promotions and special occasions.',
       },
       {
         heading: 'Premium Quality Prints',
@@ -309,7 +309,7 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Professional Mailing Support',
-        body: 'We offer a range of sizes and finishes, from glossy to heavyweight stocks. We also provide <strong>address printing and EDDM preparation</strong> to make your postcard marketing effortless and effective.',
+        body: 'We offer a range of sizes and finishes, from glossy to heavyweight stocks. We also provide <strong>address printing and <a href="/home-business/every-door-direct-mail" class="text-[var(--color-primary)] hover:underline">EDDM preparation</a></strong> to make your postcard marketing effortless and effective.',
       },
     ],
     features: [
@@ -351,11 +351,11 @@ export const copyPrintServices: Service[] = [
       },
       {
         heading: 'Fast Reproduction Services',
-        body: 'Mailbox Plus provides <strong>high-quality copy services</strong> for businesses and individuals in Concord Township. Whether you need a few pages or hundreds of copies, our professional printers ensure accurate reproductions every time.',
+        body: 'Mailbox Plus provides <strong><a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">high-quality copy services</a></strong> for businesses and individuals in Concord Township. Whether you need a few pages or hundreds of copies, our professional printers ensure accurate reproductions every time.',
       },
       {
         heading: 'Full-Service Document Handling',
-        body: 'We offer <strong>black-and-white and full-color</strong> copying with stapling and collating options. Our team can also help with document scanning and faxing, making us your local one-stop document hub.',
+        body: 'We offer <strong>black-and-white and full-color</strong> copying with stapling and collating options. Our team can also help with <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">document scanning</a> and faxing, making us your local one-stop document hub.',
       },
     ],
     features: [

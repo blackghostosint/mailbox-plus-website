@@ -48,7 +48,7 @@ export const carrierServices: Service[] = [
       },
       {
         heading: 'Professional Shipping Standards',
-        body: 'Every package is packed with care using high-quality materials that protect against vibration and compression. We provide <strong>real-time tracking, shipment insurance, and on-site packing assistance</strong> for your peace of mind.',
+        body: 'Every package is packed with care using <a href="/pack-ship/packaging-supplies" class="text-[var(--color-primary)] hover:underline">high-quality materials</a> that protect against vibration and compression. We provide <strong>real-time tracking, <a href="/specialty/insurance" class="text-[var(--color-primary)] hover:underline">shipment insurance</a>, and on-site packing assistance</strong> for your peace of mind.',
       },
     ],
     features: [
@@ -102,7 +102,7 @@ export const carrierServices: Service[] = [
       },
       {
         heading: 'Convenient One-Stop Shop',
-        body: 'As a local business in Gristmill Village, we provide fast UPS drop-off and shipping assistance. Enjoy <strong>on-site packing, printed labels, tracking, and insurance coverage</strong> all in one stop.',
+        body: 'As a local business in Gristmill Village, we provide fast UPS drop-off and shipping assistance. Enjoy <strong>on-site packing, <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">printed labels</a>, tracking, and insurance coverage</strong> all in one stop.',
       },
     ],
     features: [
@@ -149,7 +149,7 @@ export const carrierServices: Service[] = [
       },
       {
         heading: 'Convenient USPS Hub',
-        body: 'Mailbox Plus is your hub for <strong>USPS postal and shipping services</strong> in Concord Township. As an authorized provider, we handle <strong>First-Class Mail</strong>, <strong>Priority Mail</strong>, and <em>Certified Mail</em> in one friendly location.',
+        body: 'Mailbox Plus is your hub for <strong>USPS postal and shipping services</strong> in Concord Township. As an authorized provider, we handle <strong><a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">First-Class Mail</a></strong>, <strong>Priority Mail</strong>, and <em>Certified Mail</em> in one friendly location.',
       },
       {
         heading: 'Efficient Mailing Support',
@@ -211,7 +211,7 @@ export const carrierServices: Service[] = [
       },
       {
         heading: 'Peace of Mind Worldwide',
-        body: 'Every DHL shipment comes with detailed tracking and delivery confirmation. We can also combine DHL with other carriers like FedEx or UPS to provide the most cost-effective solution for your budget.',
+        body: 'Every DHL shipment comes with detailed tracking and delivery confirmation. We can also combine DHL with <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">other carriers like FedEx</a> or <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline">UPS</a> to provide the most cost-effective solution for your budget.',
       },
     ],
     features: [

@@ -4,6 +4,7 @@ import { useInView } from '../hooks/useInView';
 
 // Barrel exports
 import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from '.';
+import { InternalLink } from './ui/InternalLink';
 import { CarrierLogos } from './CarrierLogos';
 import { CompetitorAlternativeSection } from './sections/CompetitorAlternative';
 import { CTASection } from './sections/CTA';
@@ -14,6 +15,7 @@ import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './
 // Types & utils
 import { Service } from '../types/services';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+import { getRelatedServices } from '../utils/internal-links';
 import { siteConfig } from '../config/siteConfig';
 
 interface ServicePageProps extends Service {
@@ -243,6 +245,36 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 </div>
               </section>
             )}
+
+            {/* -------- RELATED SERVICES -------- */}
+            {(() => {
+              const serviceId = props.id;
+              const allRelated = (getRelatedServices(serviceId as any) || []).filter(
+                Boolean
+              ) as Array<{ id: string; title: string; url: string }>;
+              if (allRelated.length === 0) return null;
+              return (
+                <section className="max-w-5xl mx-auto animate-fade-in-up">
+                  <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
+                      Related Services You Might Need
+                    </h2>
+                    <div className="grid md:grid-cols-3 gap-4">
+                      {allRelated.map((rel, idx) => (
+                        <InternalLink
+                          key={idx}
+                          to={rel.url}
+                          variant="geo"
+                          className="block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-border-blue)] hover:bg-[var(--color-bg-blue-tint)] transition-all text-[var(--color-text-primary)] font-semibold text-sm"
+                        >
+                          {rel.title} →
+                        </InternalLink>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              );
+            })()}
 
             {/* -------- CTA (GLASS + GRADIENT) -------- */}
             {cta && (

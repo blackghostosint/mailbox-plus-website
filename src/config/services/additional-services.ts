@@ -48,11 +48,11 @@ export const additionalServices: Service[] = [
       },
       {
         heading: 'Professional Notary Services',
-        body: '<strong>Get your important documents notarized quickly and professionally</strong> at Mailbox Plus. Our <strong>on-site notary public</strong> is available to verify signatures and ensure your paperwork meets all official requirements.',
+        body: '<strong>Get your <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">important documents</a> notarized quickly and professionally</strong> at Mailbox Plus. Our <strong>on-site notary public</strong> is available to verify signatures and ensure your paperwork meets all official requirements.',
       },
       {
         heading: 'Witness & Authentication Experts',
-        body: 'We handle a wide range of documents, including <strong>affidavits, contracts, real estate forms, titles, and powers of attorney</strong>. Our team provides <strong>accurate and efficient notary services</strong>.',
+        body: 'We handle a wide range of documents, including <strong>affidavits, contracts, real estate forms, titles, and <a href="/home-business/fax-services" class="text-[var(--color-primary)] hover:underline">powers of attorney</a></strong>. Our team provides <strong>accurate and efficient notary services</strong>.',
       },
       {
         heading: 'What to Bring',

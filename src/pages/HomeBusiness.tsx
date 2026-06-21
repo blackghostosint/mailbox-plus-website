@@ -14,15 +14,15 @@ export const HomeBusiness: React.FC = () => {
       <div className="my-8">
         <p className="text-[var(--color-text-primary)] leading-relaxed">
           Running a home business? We can help with{' '}
-          <InternalLink variant="geo" to="/mailbox-rental">
+          <InternalLink variant="geo" to="/home-business/mailbox-rental">
             mailbox rentals
           </InternalLink>
           ,{' '}
-          <InternalLink variant="geo" to="/printing">
+          <InternalLink variant="geo" to="/copy-print">
             printing marketing materials
           </InternalLink>
           , and{' '}
-          <InternalLink variant="geo" to="/shipping">
+          <InternalLink variant="geo" to="/pack-ship">
             shipping your products
           </InternalLink>
           .
