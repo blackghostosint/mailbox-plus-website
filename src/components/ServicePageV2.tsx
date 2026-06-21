@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Star from '~icons/lucide/star';
+import ChevronDown from '~icons/lucide/chevron-down';
+import ChevronUp from '~icons/lucide/chevron-up';
 import { useInView } from '../hooks/useInView';
 
 // Barrel exports
@@ -11,6 +13,7 @@ import { CTASection } from './sections/CTA';
 
 // UI
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from './ui/accordion';
+import { Button } from './ui/Button';
 
 // Types & utils
 import { Service } from '../types/services';
@@ -48,6 +51,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   const [introRef, introInView] = useInView({ threshold: 0.1 });
   const [featuresRef, featuresInView] = useInView({ threshold: 0.1 });
   const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
+  const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <>
@@ -211,40 +215,70 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               ))}
 
             {/* -------- FAQ (GLASS BAND) -------- */}
-            {faqs && faqs.length > 0 && (
-              <section className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80 animate-fade-in-up">
-                <div className="max-w-4xl mx-auto">
-                  <div className="relative rounded-xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
-                    <div className="text-center mb-6 md:mb-8">
-                      <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
-                        Frequently Asked Questions
-                      </h2>
-                      <p className="mt-2 text-sm md:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto">
-                        Get quick answers to the most common questions about packaging, carriers,
-                        pricing, and what to expect.
-                      </p>
-                    </div>
+            {faqs &&
+              faqs.length > 0 &&
+              (() => {
+                const DEFAULT_FAQ_LIMIT = 5;
+                const hasMoreFaqs = faqs.length > DEFAULT_FAQ_LIMIT;
+                const displayFaqs = isExpanded ? faqs : faqs.slice(0, DEFAULT_FAQ_LIMIT);
 
-                    <Accordion type="single" collapsible className="space-y-3">
-                      {faqs.map((faq, i) => (
-                        <AccordionItem
-                          key={i}
-                          value={`faq-${i}`}
-                          className="rounded-2xl border border-[var(--color-border)]/80 bg-[var(--color-bg-primary)]/80 data-[state=open]:bg-white/90 shadow-sm"
-                        >
-                          <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-primary)] font-semibold hover:no-underline">
-                            {faq.question}
-                          </AccordionTrigger>
-                          <AccordionContent className="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
-                            {faq.answer}
-                          </AccordionContent>
-                        </AccordionItem>
-                      ))}
-                    </Accordion>
-                  </div>
-                </div>
-              </section>
-            )}
+                return (
+                  <section className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80 animate-fade-in-up">
+                    <div className="max-w-4xl mx-auto">
+                      <div className="relative rounded-xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
+                        <div className="text-center mb-6 md:mb-8">
+                          <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
+                            Frequently Asked Questions
+                          </h2>
+                          <p className="mt-2 text-sm md:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto">
+                            Get quick answers to the most common questions about packaging,
+                            carriers, pricing, and what to expect.
+                          </p>
+                        </div>
+
+                        <Accordion type="single" collapsible className="space-y-3">
+                          {displayFaqs.map((faq, i) => (
+                            <AccordionItem
+                              key={i}
+                              value={`faq-${i}`}
+                              className="rounded-2xl border border-[var(--color-border)]/80 bg-[var(--color-bg-primary)]/80 data-[state=open]:bg-white/90 shadow-sm"
+                            >
+                              <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-primary)] font-semibold hover:no-underline">
+                                {faq.question}
+                              </AccordionTrigger>
+                              <AccordionContent className="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
+                                {faq.answer}
+                              </AccordionContent>
+                            </AccordionItem>
+                          ))}
+                        </Accordion>
+
+                        {hasMoreFaqs && (
+                          <div className="mt-6 text-center">
+                            <Button
+                              variant="secondary"
+                              size="md"
+                              onClick={() => setIsExpanded(!isExpanded)}
+                            >
+                              {isExpanded ? (
+                                <>
+                                  <span>Show Less Questions</span>
+                                  <ChevronUp className="w-4 h-4" />
+                                </>
+                              ) : (
+                                <>
+                                  <span>Show All {faqs.length} Questions</span>
+                                  <ChevronDown className="w-4 h-4" />
+                                </>
+                              )}
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </section>
+                );
+              })()}
 
             {/* -------- RELATED SERVICES -------- */}
             {(() => {
