@@ -119,7 +119,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
 
         {/* ======================= MAIN ====================== */}
         {/* Slight overlap so intro card floats into hero */}
-        <main className="relative -mt-20 pb-20 lg:pb-28">
+        <main className="relative z-20 -mt-20 pb-20 lg:pb-28">
           <div className="container mx-auto px-4 space-y-20">
             {/* -------- GLASS INTRO CARD -------- */}
             {children && (
