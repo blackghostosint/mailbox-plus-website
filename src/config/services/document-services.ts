@@ -121,11 +121,11 @@ export const documentServices: Service[] = [
       },
       {
         heading: 'Protect Your Privacy',
-        body: '<strong>Protect your privacy and prevent identity theft</strong> with professional document shredding from Mailbox Plus. We offer <strong>secure shredding for personal, business, and legal documents</strong>, ensuring sensitive information is permanently destroyed.',
+        body: '<strong><a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">Protect your privacy and prevent identity theft</a></strong> with professional document shredding from Mailbox Plus. We offer <strong>secure shredding for personal, business, and legal documents</strong>, ensuring sensitive information is permanently destroyed.',
       },
       {
         heading: 'Safe & Confidential Destruction',
-        body: 'Our shredding process is <strong>safe, fast, and confidential</strong>—ideal for old files, receipts, or financial records. Drop off your paperwork and we’ll handle it securely from start to finish. All shredded materials are <em>recycled responsibly</em>.',
+        body: 'Our shredding process is <strong>safe, fast, and confidential</strong>—ideal for old files, receipts, or financial records. <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">Drop off your paperwork</a> and we\u2019ll handle it securely from start to finish. All shredded materials are <em>recycled responsibly</em>.',
       },
       {
         heading: 'Compliance & Security',
@@ -212,7 +212,7 @@ export const documentServices: Service[] = [
       },
       {
         heading: 'Go Paperless',
-        body: '<strong>Preserve and organize your important paperwork</strong> with professional document scanning. We provide <strong>secure, high-resolution scanning</strong> for personal, legal, and business documents—helping you convert cluttered paper files into digital copies.',
+        body: '<strong>Preserve and organize your important paperwork</strong> with <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">professional document scanning</a>. We provide <strong>secure, high-resolution scanning</strong> for personal, legal, and business documents—helping you convert cluttered paper files into digital copies.',
       },
       {
         heading: 'Digital Archiving Experts',
@@ -267,7 +267,7 @@ export const documentServices: Service[] = [
       },
       {
         heading: 'Secure Fax Transmission',
-        body: '<strong>Send and receive faxes quickly and securely</strong> at Mailbox Plus. Whether you need to transmit <strong>legal documents, forms, or business papers</strong>, we make faxing fast and reliable—no fax machine required.',
+        body: '<strong><a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">Send and receive faxes quickly and securely</a></strong> at Mailbox Plus. Whether you need to transmit <strong>legal documents, forms, or business papers</strong>, we make faxing fast and reliable—no fax machine required.',
       },
       {
         heading: 'Global & Domestic Faxing',
@@ -275,7 +275,7 @@ export const documentServices: Service[] = [
       },
       {
         heading: 'Reliable Fax Receiving',
-        body: 'We also provide <strong>fax receiving services</strong>—simply have your sender fax their documents to our store, and we’ll securely hold them for pickup. Perfect for individuals and small businesses.',
+        body: 'We also provide <strong>fax receiving services</strong>—simply have your sender fax their documents to our store, and we will securely hold them for pickup. Perfect for individuals and small businesses.',
         isFullWidth: true,
       },
     ],

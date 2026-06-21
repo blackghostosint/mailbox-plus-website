@@ -68,5 +68,172 @@
     "parent": "pack-ship",
     "related": ["fedex-shipping", "package-drop-offs"],
     "priority": false
+  },
+  "pack-ship": {
+    "parent": null,
+    "related": [
+      "fedex-shipping",
+      "ups-shipping",
+      "usps-services",
+      "dhl-express",
+      "professional-packing",
+      "packaging-supplies",
+      "package-drop-offs"
+    ],
+    "priority": true
+  },
+  "copy-print": {
+    "parent": null,
+    "related": [
+      "document-printing",
+      "business-cards",
+      "flyers-brochures",
+      "posters-printing",
+      "postcard-printing",
+      "graphic-design",
+      "copies"
+    ],
+    "priority": true
+  },
+  "home-business": {
+    "parent": null,
+    "related": [
+      "mailbox-rental",
+      "digital-mailbox-rental",
+      "notary-services",
+      "shredding",
+      "document-scanning",
+      "fax-services",
+      "every-door-direct-mail"
+    ],
+    "priority": true
+  },
+  "specialty": {
+    "parent": null,
+    "related": ["digital-fingerprinting", "insurance"],
+    "priority": true
+  },
+  "ups-authorized-shipper-outlet": {
+    "parent": "pack-ship",
+    "related": ["packaging-supplies", "insurance", "package-drop-offs"],
+    "priority": true
+  },
+  "package-drop-offs": {
+    "parent": "pack-ship",
+    "related": ["fedex-shipping", "ups-shipping", "usps-services", "dhl-express"],
+    "priority": false
+  },
+  "professional-packing": {
+    "parent": "pack-ship",
+    "related": [
+      "custom-box-making",
+      "packaging-supplies",
+      "artwork-shipping",
+      "bicycle-shipping",
+      "golf-club-shipping"
+    ],
+    "priority": true
+  },
+  "custom-box-making": {
+    "parent": "pack-ship",
+    "related": ["packaging-supplies", "professional-packing", "artwork-shipping"],
+    "priority": false
+  },
+  "packaging-supplies": {
+    "parent": "pack-ship",
+    "related": ["professional-packing", "custom-box-making", "fedex-shipping"],
+    "priority": false
+  },
+  "artwork-shipping": {
+    "parent": "pack-ship",
+    "related": [
+      "professional-packing",
+      "custom-box-making",
+      "packaging-supplies",
+      "bicycle-shipping",
+      "golf-club-shipping"
+    ],
+    "priority": false
+  },
+  "bicycle-shipping": {
+    "parent": "pack-ship",
+    "related": [
+      "professional-packing",
+      "custom-box-making",
+      "packaging-supplies",
+      "golf-club-shipping"
+    ],
+    "priority": false
+  },
+  "golf-club-shipping": {
+    "parent": "pack-ship",
+    "related": [
+      "professional-packing",
+      "custom-box-making",
+      "packaging-supplies",
+      "bicycle-shipping"
+    ],
+    "priority": false
+  },
+  "postage-stamps": {
+    "parent": "pack-ship",
+    "related": ["usps-services", "packaging-supplies"],
+    "priority": false
+  },
+  "document-printing": {
+    "parent": "copy-print",
+    "related": [
+      "business-cards",
+      "flyers-brochures",
+      "posters-printing",
+      "graphic-design",
+      "copies"
+    ],
+    "priority": true
+  },
+  "posters-printing": {
+    "parent": "copy-print",
+    "related": ["graphic-design", "flyers-brochures", "postcard-printing"],
+    "priority": false
+  },
+  "postcard-printing": {
+    "parent": "copy-print",
+    "related": ["flyers-brochures", "posters-printing", "graphic-design", "every-door-direct-mail"],
+    "priority": false
+  },
+  "graphic-design": {
+    "parent": "copy-print",
+    "related": ["business-cards", "flyers-brochures", "posters-printing", "postcard-printing"],
+    "priority": false
+  },
+  "copies": {
+    "parent": "copy-print",
+    "related": ["document-printing", "business-cards"],
+    "priority": false
+  },
+  "notary-services": {
+    "parent": "home-business",
+    "related": ["digital-fingerprinting", "document-scanning", "shredding"],
+    "priority": true
+  },
+  "shredding": {
+    "parent": "home-business",
+    "related": ["document-scanning", "notary-services", "fax-services"],
+    "priority": false
+  },
+  "document-scanning": {
+    "parent": "home-business",
+    "related": ["shredding", "notary-services", "fax-services", "digital-mailbox-rental"],
+    "priority": false
+  },
+  "fax-services": {
+    "parent": "home-business",
+    "related": ["document-scanning", "shredding", "notary-services"],
+    "priority": false
+  },
+  "nuuly-returns": {
+    "parent": "pack-ship",
+    "related": ["amazon-returns", "fedex-easy-returns", "package-drop-offs"],
+    "priority": false
   }
 }

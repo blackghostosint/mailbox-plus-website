@@ -36,7 +36,7 @@ export const packingServices: Service[] = [
       },
       {
         heading: 'Made-to-Measure Design',
-        body: "At Mailbox Plus, we specialize in <strong>custom box design and fabrication</strong>—perfect for safely shipping items that don't fit standard packaging sizes. From artwork and antiques to oversized products and fragile collectibles, our experts create boxes that ensure your shipment is <strong>secure, professional, and carrier-compliant</strong>.",
+        body: "At Mailbox Plus, we specialize in <strong>custom box design and fabrication</strong>—perfect for safely shipping items that don't fit standard packaging sizes. From <a href='/pack-ship/artwork-shipping' class='text-[var(--color-primary)] hover:underline'>artwork</a> and antiques to oversized products and fragile collectibles, our experts create boxes that ensure your shipment is <strong>secure, professional, and carrier-compliant</strong>.",
       },
       {
         heading: 'Precision Protection',
@@ -86,11 +86,11 @@ export const packingServices: Service[] = [
       },
       {
         heading: 'Trusted Packing Experts',
-        body: "At Mailbox Plus, we take the stress out of shipping with our <strong>professional packing services</strong>—trusted by residents and businesses throughout Concord Township. Whether you're shipping fragile glassware, valuable artwork, or electronics, our trained staff uses proven methods and high-quality materials to ensure every package is <strong>secure, protected, and carrier-approved</strong>.",
+        body: "At Mailbox Plus, we take the stress out of shipping with our <strong>professional packing services</strong>—trusted by residents and businesses throughout Concord Township. Whether you're shipping fragile glassware, valuable artwork, or electronics, our trained staff uses proven methods and <a href='/pack-ship/packaging-supplies' class='text-[var(--color-primary)] hover:underline'>high-quality materials</a> to ensure every package is <strong>secure, protected, and carrier-approved</strong>.",
       },
       {
         heading: 'Custom Protective Solutions',
-        body: "We provide <strong>custom packing solutions</strong> that match your item's size, weight, and fragility. From double-boxing and foam cushioning to bubble wrap and reinforced corners, every detail is handled with care. Our experts also specialize in <em>insurance-eligible packaging</em> to safeguard valuable shipments.",
+        body: "We provide <strong>custom packing solutions</strong> that match your item's size, weight, and fragility. From <a href='/pack-ship/custom-box-making' class='text-[var(--color-primary)] hover:underline'>double-boxing</a> and foam cushioning to bubble wrap and reinforced corners, every detail is handled with care. Our experts also specialize in <em>insurance-eligible packaging</em> to safeguard valuable shipments.",
       },
       {
         heading: 'Specialized On-Site Consultations',
@@ -136,7 +136,7 @@ export const packingServices: Service[] = [
       },
       {
         heading: 'Full Range of Professional Supplies',
-        body: 'At Mailbox Plus, we stock a full range of <strong>professional packaging supplies</strong> to help you prepare shipments of any size or fragility. Serving Concord Township and surrounding communities, our shop carries everything you need to <strong>pack, protect, and ship your items securely</strong>.',
+        body: 'At Mailbox Plus, we stock a full range of <strong>professional packaging supplies</strong> to help you prepare shipments of any size or fragility. Serving Concord Township and surrounding communities, our shop carries everything you need to <strong><a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] hover:underline">pack, protect, and ship your items</a> securely</strong>.',
       },
       {
         heading: 'Carrier-Grade Materials',
@@ -144,7 +144,7 @@ export const packingServices: Service[] = [
       },
       {
         heading: 'Expert Supply Guidance',
-        body: 'Need guidance? Our experts can help you choose the right materials for your shipment to ensure maximum protection and carrier compliance. We also offer <strong>custom box making</strong> for irregular items that require extra care.',
+        body: 'Need guidance? Our experts can help you choose the right materials for your shipment to ensure maximum protection and carrier compliance. We also offer <strong><a href="/pack-ship/custom-box-making" class="text-[var(--color-primary)] hover:underline">custom box making</a></strong> for irregular items that require extra care.',
       },
     ],
     features: [

@@ -67,7 +67,7 @@ export const mailboxRentalServices: Service[] = [
     content: [
       {
         heading: 'Your Professional Street Address',
-        body: 'Stop relying on a PO Box or putting your home address at risk. A private mailbox at Mailbox Plus provides a <strong>real street address</strong> in Concord Township, Ohio. This allows you to receive packages from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>—and build a professional image for your home-based business.',
+        body: 'Stop relying on a PO Box or putting your home address at risk. A private mailbox at Mailbox Plus provides a <strong>real street address</strong> in Concord Township, Ohio. This allows you to <a href="/home-business/digital-mailbox-rental" class="text-[var(--color-primary)] hover:underline">receive packages</a> from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>—and build a professional image for your home-based business.',
       },
       {
         heading: 'Transparent Pricing & Standardized Sizes',

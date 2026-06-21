@@ -33,7 +33,7 @@ export const receivingDropOffServices: Service[] = [
       },
       {
         heading: 'Authorized Local Drop-Off',
-        body: 'Mailbox Plus makes it simple to drop off your pre-labeled packages for <strong>FedEx, UPS, DHL, and USPS</strong>. As an authorized local hub serving Concord Township, we provide a secure and convenient way to handle your outgoing shipments for business or personal returns.',
+        body: 'Mailbox Plus makes it simple to <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">drop off your pre-labeled packages</a> for <strong>FedEx, UPS, DHL, and USPS</strong>. As an authorized local hub serving Concord Township, we provide a secure and convenient way to handle your outgoing shipments for business or personal returns.',
       },
       {
         heading: 'Labels & QR Codes',
@@ -41,7 +41,7 @@ export const receivingDropOffServices: Service[] = [
       },
       {
         heading: 'Secure Processing',
-        body: "Once dropped off, we scan your package and ensure it's placed in the correct pickup area for daily carrier collection. We accept <strong>Amazon, eBay, and all major prepaid returns</strong> with standard labels.",
+        body: "Once dropped off, we scan your package and ensure it's placed in the correct pickup area for daily carrier collection. We accept <strong><a href='/amazon-returns' class='text-[var(--color-primary)] hover:underline'>Amazon</a>, eBay, and all major prepaid returns</strong> with standard labels.",
       },
     ],
     features: [
@@ -88,7 +88,7 @@ export const receivingDropOffServices: Service[] = [
       },
       {
         heading: 'Affordable Protection',
-        body: "Protect your shipments from 'porch pirates' with our secure storage. Choose between our <strong>$10.00 per package</strong> one-time setup or our <strong>UNLIMITED Package Receiving Plan for just $30.00 per month</strong>—perfect for regular shipments.",
+        body: "<a href='/home-business/mailbox-rental' class='text-[var(--color-primary)] hover:underline'>Protect your shipments</a> from 'porch pirates' with our secure storage. Choose between our <strong>$10.00 per package</strong> one-time setup or our <strong>UNLIMITED Package Receiving Plan for just $30.00 per month</strong>—perfect for regular shipments.",
       },
       {
         heading: 'Real-Time Notifications',
