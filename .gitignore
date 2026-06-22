@@ -54,3 +54,10 @@ e2e/report/
 test-results/
 playwright-report/
 .hermes/
+
+# Impeccable design tool harness installs (tool-specific, not project code)
+.claude/skills/impeccable/
+.gemini/skills/impeccable/
+.agents/skills/impeccable/
+.github/skills/impeccable/
+.impeccable/
