@@ -1593,49 +1593,11 @@
       <p class="section-subtitle" style="text-align: center">
         Simple pricing. Same great features. 30-day risk-free.
       </p>
-      <div
-        style="
-          display: flex;
-          gap: 2rem;
-          justify-content: center;
-          flex-wrap: wrap;
-          margin-top: 2.5rem;
-          max-width: 500px;
-          margin-left: auto;
-          margin-right: auto;
-        "
-      >
-        <div
-          style="
-            flex: 1;
-            min-width: 200px;
-            background: #fff;
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-sm);
-            border: 2px solid var(--border);
-          "
-        >
-          <h3
-            style="
-              font-family: 'Poppins', sans-serif;
-              color: var(--primary-dark);
-              margin-bottom: 0.5rem;
-            "
-          >
-            Small Box
-          </h3>
-          <p style="margin: 0.5rem 0 1.5rem">
-            <span
-              style="
-                font-family: 'Poppins', sans-serif;
-                font-size: 2.5rem;
-                font-weight: 800;
-                color: var(--primary);
-              "
-              >$35</span
-            ><span style="color: var(--text-muted)">/month</span>
+      <div class="plan-cards" style="margin-top: 2.5rem; max-width: 720px">
+        <div class="plan-card">
+          <h3>Small Box</h3>
+          <p class="plan-price">
+            <span class="price">$35</span><span class="price-period">/month</span>
           </p>
           <a
             href="https://buy.stripe.com/4gM3cvfxu07N4Vt9bt7N608"
@@ -1645,54 +1607,11 @@
             ><span class="btn-arrow">&rarr;</span> Get Small</a
           >
         </div>
-        <div
-          style="
-            flex: 1;
-            min-width: 200px;
-            background: #fff;
-            border-radius: var(--radius-xl);
-            padding: 2rem;
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            border: 2px solid var(--primary);
-          "
-        >
-          <div
-            style="
-              background: var(--accent);
-              color: var(--primary-deep);
-              font-family: 'Poppins', sans-serif;
-              font-weight: 700;
-              font-size: 0.85rem;
-              padding: 0.3em 1.2em;
-              border-radius: 999px;
-              text-transform: uppercase;
-              letter-spacing: 0.04em;
-              display: inline-block;
-              margin-bottom: 0.5rem;
-            "
-          >
-            Most Popular
-          </div>
-          <h3
-            style="
-              font-family: 'Poppins', sans-serif;
-              color: var(--primary-dark);
-              margin-bottom: 0.5rem;
-            "
-          >
-            Large Box
-          </h3>
-          <p style="margin: 0.5rem 0 1.5rem">
-            <span
-              style="
-                font-family: 'Poppins', sans-serif;
-                font-size: 2.5rem;
-                font-weight: 800;
-                color: var(--primary);
-              "
-              >$50</span
-            ><span style="color: var(--text-muted)">/month</span>
+        <div class="plan-card plan-card--featured">
+          <div class="plan-badge">Most Popular</div>
+          <h3>Large Box</h3>
+          <p class="plan-price">
+            <span class="price">$50</span><span class="price-period">/month</span>
           </p>
           <a
             href="https://buy.stripe.com/5kQ9AT8529InafN3R97N609"
@@ -1704,7 +1623,7 @@
         </div>
       </div>
       <p
-        style="text-align: center; margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted)"
+        style="text-align: center; margin-top: 2.5rem; font-size: 0.95rem; color: var(--text-muted)"
       >
         30-day risk-free &middot; No annual contract &middot; Cancel anytime
       </p>
