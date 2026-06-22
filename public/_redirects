@@ -76,4 +76,5 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 
 
 # TRUE 404 RULE
+/mailboxplussalespage /MailboxPlusSalesPage.html 200
 /404 /404.html 404
