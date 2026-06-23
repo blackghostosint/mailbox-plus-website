@@ -548,6 +548,47 @@
       }
 
       /* ═══════════════════════════════════════════
+         CTA BUTTON — matches MailboxPlusSalesPage
+         ═══════════════════════════════════════════ */
+      .cta-direct {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--primary-deep);
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        padding: 1em 2em;
+        border-radius: var(--radius-2xl);
+        border: none;
+        cursor: pointer;
+        transition:
+          transform 0.3s var(--ease-out-quint),
+          box-shadow 0.3s var(--ease-out-quint),
+          background-color 0.3s var(--ease-out-quint);
+        text-align: center;
+        box-shadow: 0 4px 14px rgba(247, 200, 42, 0.2);
+        text-decoration: none;
+      }
+      .cta-direct:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 22px rgba(247, 200, 42, 0.35);
+        background-color: var(--accent-light);
+        color: var(--primary-deep);
+      }
+      .btn-arrow {
+        display: inline-block;
+        transition: transform 0.25s var(--ease-out-quint);
+      }
+      .cta-direct:hover .btn-arrow {
+        transform: translateX(6px);
+      }
+
+      .cta-wrap {
+        text-align: center;
+        margin: var(--space-8) 0 var(--space-6);
+      }
+
+      /* ═══════════════════════════════════════════
          CALLOUTS
          ═══════════════════════════════════════════ */
       .callout {
@@ -1360,6 +1401,17 @@
             move on.
           </p>
           <p>The label on your package becomes what it should be. A label. Nothing more.</p>
+
+          <div class="cta-wrap">
+            <a
+              href="https://mailboxplusohio.com/mailboxplussalespage"
+              class="cta-direct"
+              target="_blank"
+              rel="noopener"
+            >
+              <span class="btn-arrow">&rarr;</span> Get Your Private Mailbox — 30-Day Risk-Free
+            </a>
+          </div>
 
           <div class="callout callout-warning">
             <strong>Purpose</strong>
