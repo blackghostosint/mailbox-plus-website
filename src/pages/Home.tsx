@@ -57,7 +57,9 @@ export const Home: React.FC = () => {
           </h1>
 
           <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
-            Shipping, returns, private mailboxes, notary — four carriers, one counter, no runaround.
+            Shipping, returns, private mailboxes, notary
+            <br />
+            Four carriers, one counter, no runaround.
           </p>
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
