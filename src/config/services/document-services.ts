@@ -100,32 +100,32 @@ export const documentServices: Service[] = [
     slug: '/home-business/shredding',
     pageTitle: 'Shredding Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Secure micro-cut document shredding (P-4 security) in Concord Township. Protect your identity with safe, instant cross-cut destruction.',
+      'Secure micro-cut document shredding (P-4 security) in Concord Township. Protect your identity with safe, certified destruction.',
     keywords:
       'shredding, micro-cut, P-4 security, document destruction, concord township, lake county',
-    heroTitle: 'Secure Shredding',
-    heroSubtitle: 'Protect your personal information with our high-security micro-cut shredding.',
+    heroTitle: 'Your Private Documents. Permanently Gone.',
+    heroSubtitle:
+      'Clear the clutter and protect your identity with certified micro-cut shredding in Concord Township.',
     heroImage: getServiceImageUrl('/images/shredding.webp'),
+    featuresTitle: 'Complete Chain of Custody',
+    featuresSubtitle:
+      'No sitting in locked consoles for weeks. No third-party drivers. Just immediate, certified on-site destruction.',
     content: [
       {
-        heading: 'Why Shred Documents?',
-        body: 'Prevent identity theft and protect sensitive information by securely shredding your documents with our advanced equipment.',
+        heading: 'The Risk Sitting in Your Trash Can',
+        body: 'Old tax returns, bank statements, medical records. Throwing them in the household recycling bin doesn’t protect you—it just makes your family a target. Identity thieves don’t have to hack a database when they can simply exploit a vulnerable paper trail left at the curb.',
       },
       {
-        heading: 'High-Security Micro-Cut Technology',
-        body: 'We use a <strong>micro-cut shredder</strong> that turns paper into tiny confetti-like pieces measuring <strong>5/32 by 15/32 inches (4 by 12 mm)</strong>. This meets <strong>high security level P-4 standards</strong> and shreds material <strong>6x smaller</strong> than standard cross-cut shredders (2,235 pieces vs. 360 pieces per sheet). Your data is virtually unrecoverable.',
+        heading: 'Immediate On-Site Destruction',
+        body: 'We understand the weight of keeping your private records safe. You shouldn’t have to worry about who is handling your financial, medical, or personal history. Unlike competitor shipping stores that throw your documents into a locked bin where they sit for weeks waiting for an outside truck, <strong>Mailbox Plus shreds everything on-site immediately</strong>. Your documents never leave our sight, are never stored for later, and are never handed over to outside middlemen. We destroy them on our advanced micro-cut machines the moment you hand them to us.',
       },
       {
-        heading: 'We Are Better Than Off-Site Shredding',
-        body: 'Many competitors mistakenly just toss your documents into a locked bin that sits around for weeks waiting for a truck to come pick it up for off-site destruction. At <strong>Mailbox Plus</strong>, we shred your documents <strong>on-site</strong> so you can have peace of mind knowing they are destroyed immediately and not sitting in a bin accessible to others.',
+        heading: 'No Home Shredder Jams, No Paper Dust',
+        body: 'Why spend your Saturday fighting with a cheap home shredder that overheats and jams after three pages? Our process is designed to get you in, out, and secure in under two minutes: <strong>1) Drop off your paperwork</strong> (staples and paperclips are fine). <strong>2) We shred it immediately on-site</strong> while you watch if you’d like. <strong>3) Walk out clutter-free</strong> with total peace of mind that your data is gone forever.',
       },
       {
-        heading: 'Protect Your Privacy',
-        body: '<strong><a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">Protect your privacy and prevent identity theft</a></strong> with professional document shredding from Mailbox Plus. We offer <strong>secure shredding for personal, business, and legal documents</strong>, ensuring sensitive information is permanently destroyed.',
-      },
-      {
-        heading: 'Safe & Confidential Destruction',
-        body: 'Our shredding process is <strong>safe, fast, and confidential</strong>—ideal for old files, receipts, or financial records. <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">Drop off your paperwork</a> and we\u2019ll handle it securely from start to finish. All shredded materials are <em>recycled responsibly</em>.',
+        heading: 'Stop the Leak Before It Hits Your Porch',
+        body: 'Protecting your sensitive files starts before they ever need to be shredded. If you are regularly shredding bank statements, tax records, or business correspondence, <strong><a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">a Mailbox Plus private mailbox</a></strong> plugs the leak at the source. We accept all mail and packages in a secure, staffed commercial facility, keeping your home address private and your mail off your porch.',
       },
       {
         heading: 'Compliance & Security',
@@ -172,18 +172,18 @@ export const documentServices: Service[] = [
     features: [
       {
         icon: Scissors,
-        title: 'Micro-Cut Security',
-        description: 'P-4 Level security (4x12mm pieces).',
+        title: 'Confetti-Grade Security',
+        description: 'Micro-cut technology shreds 6x smaller than standard cross-cut.',
       },
       {
         icon: Shield,
-        title: 'Privacy Protection',
-        description: 'Protects against identity theft and fraud.',
+        title: '100% On-Site Destruction',
+        description: 'Shredded immediately in-store. No sitting in bins, no third parties.',
       },
       {
         icon: Archive,
-        title: 'Bulk Shredding',
-        description: 'We can handle small or large quantities.',
+        title: 'Bulk & Small Job Ready',
+        description: 'We handle single envelopes up to boxes of tax records.',
       },
     ],
     faqs: [...generalHomeBusinessFaqs, ...shreddingFaqs],
@@ -381,7 +381,7 @@ export const documentServices: Service[] = [
       {
         question: 'Is your shredding service secure?',
         answer:
-          'Yes, we place your documents in a locked bin until they are securely shredded by a certified service.',
+          'Yes, all shredding is done on-site. We never lock your documents in a bin to sit around for weeks or hand them over to outside partners—we shred them immediately for complete chain of custody.',
       },
       {
         question: 'Can you scan multiple pages to one PDF?',
