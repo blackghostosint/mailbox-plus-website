@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Meta } from '../components/Meta';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import {
   Accordion,
   AccordionItem,
@@ -131,6 +132,8 @@ const AskMailboxPlus: React.FC = () => {
         title="Ask Mailbox Plus | Shipping, Printing, and Business FAQs"
         description="Find expert answers to common questions about shipping, printing, and business services at Mailbox Plus in Concord Township, Ohio."
       />
+
+      <AutoBreadcrumbs />
 
       {/* ====================== HERO (V2 Standard) ======================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">

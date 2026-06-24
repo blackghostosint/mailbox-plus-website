@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import { articleLoader } from '../utils/articleLoader';
 import { Article } from '../types/article.types';
 import { SmartImage } from '../components/SmartImage';
@@ -46,6 +47,8 @@ const ArticlesIndex: React.FC = () => {
         />
         <link rel="canonical" href="https://mailboxplusohio.com/articles" />
       </Helmet>
+
+      <AutoBreadcrumbs />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">

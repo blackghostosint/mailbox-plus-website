@@ -349,6 +349,32 @@ export const PickupHours: React.FC = () => {
           </Accordion>
         </section>
 
+        {/* Explore Our Services */}
+        <section className="max-w-4xl mx-auto px-4">
+          <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
+            <h2 className="text-xl font-bold mb-4">Explore Our Services</h2>
+            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto">
+              While you&apos;re here, check out our{' '}
+              <InternalLink variant="geo" to="/pack-ship">
+                pack and ship services
+              </InternalLink>
+              ,{' '}
+              <InternalLink variant="geo" to="/copy-print">
+                professional printing
+              </InternalLink>
+              ,{' '}
+              <InternalLink variant="geo" to="/home-business/mailbox-rental">
+                mailbox rentals
+              </InternalLink>
+              , and{' '}
+              <InternalLink variant="geo" to="/home-business/notary-services">
+                notary services
+              </InternalLink>
+              .
+            </p>
+          </div>
+        </section>
+
         <CTASection cta={defaultCTA} />
       </main>
     </div>

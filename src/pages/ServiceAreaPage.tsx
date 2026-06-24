@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { serviceAreas } from '../config/serviceAreas';
 import { ServicePageV2 } from '../components/ServicePageV2';
+import { InternalLink } from '../components/ui/InternalLink';
 import localPages from '../data/localPages.json';
 import { getServiceImageUrl } from '../lib/storage';
 import { Service } from '../types/services';
@@ -42,10 +43,42 @@ export const ServiceAreaPage: React.FC = () => {
   };
 
   return (
-    <ServicePageV2
-      {...areaWithContent}
-      breadcrumbsBaseUrl="/service-area"
-      breadcrumbsLabel="Service Areas"
-    />
+    <>
+      {/* Services Available in {city} - geo-qualified links */}
+      <section className="max-w-5xl mx-auto px-4 mt-8">
+        <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm">
+          <h2 className="text-xl font-bold mb-4">Services Available in {area.city}</h2>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+            Mailbox Plus offers{' '}
+            <InternalLink variant="geo" to="/pack-ship">
+              pack and ship services
+            </InternalLink>
+            ,{' '}
+            <InternalLink variant="geo" to="/pack-ship/fedex-shipping">
+              FedEx shipping
+            </InternalLink>
+            ,{' '}
+            <InternalLink variant="geo" to="/copy-print">
+              professional printing
+            </InternalLink>
+            ,{' '}
+            <InternalLink variant="geo" to="/home-business/mailbox-rental">
+              mailbox rentals
+            </InternalLink>
+            , and{' '}
+            <InternalLink variant="geo" to="/home-business/notary-services">
+              notary services
+            </InternalLink>{' '}
+            near {area.city}. Stop by our Concord Township location or contact us to learn more.
+          </p>
+        </div>
+      </section>
+
+      <ServicePageV2
+        {...areaWithContent}
+        breadcrumbsBaseUrl="/service-area"
+        breadcrumbsLabel="Service Areas"
+      />
+    </>
   );
 };
