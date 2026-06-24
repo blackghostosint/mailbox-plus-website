@@ -10,7 +10,6 @@ import Mail from '~icons/lucide/mail';
 import FileText from '~icons/lucide/file-text';
 import { Button } from '../components/ui';
 import { siteConfig } from '../config/siteConfig';
-import { CarrierLogos } from '../components/CarrierLogos';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
 import { pageMeta } from '../config/pageMeta';
@@ -236,19 +235,8 @@ export const Home: React.FC = () => {
               </p>
             </a>
           </div>
-
-          <CarrierLogos />
         </div>
       </section>
-
-      {/* Section divider */}
-      <div className="bg-[var(--color-bg-primary)] py-8 flex items-center justify-center">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-px bg-[var(--color-border)]"></div>
-          <div className="w-2 h-2 rotate-45 bg-[var(--color-accent)]"></div>
-          <div className="w-12 h-px bg-[var(--color-border)]"></div>
-        </div>
-      </div>
 
       {/* ====================== SERVICE AREA SECTION ======================= */}
       <section className="py-16 bg-[var(--color-bg-primary)]">
