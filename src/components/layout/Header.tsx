@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
-    { name: 'Tracking', href: '/tracking' },
+    { name: 'Track Your Package', href: '/tracking' },
     { name: 'Pickup Hours', href: '/pickup-hours' },
     { name: 'Contact', href: '/contact-us' },
     // External link to standalone sales page
