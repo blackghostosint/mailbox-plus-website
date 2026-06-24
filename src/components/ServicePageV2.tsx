@@ -125,7 +125,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
 
         {/* ======================= MAIN ====================== */}
         {/* Slight overlap so intro card floats into hero */}
-        <main className="relative z-20 -mt-20 pb-20 lg:pb-28">
+        <main className={`relative z-20 ${children ? '-mt-20' : 'pt-12 md:pt-20'} pb-20 lg:pb-28`}>
           <div className="container mx-auto px-4 space-y-20">
             {/* -------- GLASS INTRO CARD -------- */}
             {children && (
@@ -147,47 +147,49 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {features && features.length > 0 && (
               <section
                 ref={featuresRef as any}
-                className={`max-w-6xl mx-auto ${featuresInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+                className={`max-w-5xl mx-auto ${featuresInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
-                <div className="flex flex-col gap-2 mb-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
-                    <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
-                      {featuresTitle || 'Why customers choose this service'}
-                    </span>
-                  </h2>
-                  <p className="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl">
-                    {featuresSubtitle ||
-                      'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
-                  </p>
-                </div>
+                <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80">
+                  <div className="flex flex-col gap-2 mb-8">
+                    <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
+                      <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
+                        {featuresTitle || 'Why customers choose this service'}
+                      </span>
+                    </h2>
+                    <p className="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl leading-relaxed">
+                      {featuresSubtitle ||
+                        'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
+                    </p>
+                  </div>
 
-                <div className="grid gap-6 md:grid-cols-3">
-                  {features.map((feature, idx) => {
-                    const Icon = feature.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="group relative overflow-hidden rounded-2xl border border-white/70 bg-white/70 backdrop-blur-xl shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200"
-                      >
-                        {/* subtle overlay on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-bg-blue-tint)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="grid gap-6 md:grid-cols-3">
+                    {features.map((feature, idx) => {
+                      const Icon = feature.icon;
+                      return (
+                        <div
+                          key={idx}
+                          className="group relative overflow-hidden rounded-2xl border border-white/40 bg-[var(--color-bg-primary)]/40 hover:bg-[var(--color-bg-primary)]/60 shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200"
+                        >
+                          {/* subtle overlay on hover */}
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-bg-blue-tint)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-                        <div className="relative p-6 flex flex-col gap-3">
-                          {Icon && (
-                            <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-text-primary)]/5 via-[var(--color-primary)]/10 to-[var(--color-border-blue)]/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
-                              <Icon className="w-5 h-5" />
-                            </div>
-                          )}
-                          <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
-                            {feature.title}
-                          </h3>
-                          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                            {feature.description}
-                          </p>
+                          <div className="relative p-6 flex flex-col gap-3">
+                            {Icon && (
+                              <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-text-primary)]/5 via-[var(--color-primary)]/10 to-[var(--color-border-blue)]/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
+                                <Icon className="w-5 h-5" />
+                              </div>
+                            )}
+                            <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">
+                              {feature.title}
+                            </h3>
+                            <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                              {feature.description}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
               </section>
             )}
