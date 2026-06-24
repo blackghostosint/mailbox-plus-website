@@ -36,7 +36,7 @@
   },
   "business-cards": {
     "parent": "copy-print",
-    "related": ["graphic-design", "document-printing"],
+    "related": ["graphic-design", "document-printing", "pack-ship"],
     "priority": true
   },
   "flyers-brochures": {
@@ -213,7 +213,7 @@
   },
   "notary-services": {
     "parent": "home-business",
-    "related": ["digital-fingerprinting", "document-scanning", "shredding"],
+    "related": ["digital-fingerprinting", "document-scanning", "shredding", "copies"],
     "priority": true
   },
   "shredding": {

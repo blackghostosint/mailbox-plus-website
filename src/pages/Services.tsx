@@ -11,6 +11,7 @@ import { siteConfig } from '../config/siteConfig';
 import { services } from '../config/services';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import { pageMeta } from '../config/pageMeta';
 import { SmartImage } from '../components/SmartImage';
 
@@ -91,6 +92,75 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
           {category}
         </h2>
 
+        {/* See also - cross-category links */}
+        <p className="text-sm text-[var(--color-text-secondary)] mb-6">
+          {category === 'Pack & Ship Services' && (
+            <>
+              Also explore our{' '}
+              <InternalLink variant="geo" to="/copy-print">
+                professional printing
+              </InternalLink>{' '}
+              and{' '}
+              <InternalLink variant="geo" to="/home-business">
+                business services
+              </InternalLink>
+              .
+            </>
+          )}
+          {category === 'Professional Printing' && (
+            <>
+              Need shipping too? See our{' '}
+              <InternalLink variant="geo" to="/pack-ship">
+                pack and ship services
+              </InternalLink>{' '}
+              or{' '}
+              <InternalLink variant="geo" to="/home-business">
+                business support
+              </InternalLink>
+              .
+            </>
+          )}
+          {category === 'Mailbox Rentals' && (
+            <>
+              Combine your mailbox with{' '}
+              <InternalLink variant="geo" to="/pack-ship/package-receiving">
+                package receiving
+              </InternalLink>{' '}
+              or{' '}
+              <InternalLink variant="geo" to="/home-business/notary-services">
+                notary services
+              </InternalLink>
+              .
+            </>
+          )}
+          {category === 'Document Services' && (
+            <>
+              Pair with{' '}
+              <InternalLink variant="geo" to="/copy-print">
+                copy and print
+              </InternalLink>{' '}
+              or{' '}
+              <InternalLink variant="geo" to="/home-business/shredding">
+                secure shredding
+              </InternalLink>
+              .
+            </>
+          )}
+          {category === 'Additional Services' && (
+            <>
+              Also see our{' '}
+              <InternalLink variant="geo" to="/home-business/notary-services">
+                notary services
+              </InternalLink>{' '}
+              and{' '}
+              <InternalLink variant="geo" to="/pack-ship">
+                pack and ship
+              </InternalLink>{' '}
+              options.
+            </>
+          )}
+        </p>
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services
             .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
@@ -156,6 +226,8 @@ export const Services: React.FC = () => {
   return (
     <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta title={title} description={description} schema={schema} />
+
+      <AutoBreadcrumbs />
 
       {/* Hero Section - Navy Gradient */}
       <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
