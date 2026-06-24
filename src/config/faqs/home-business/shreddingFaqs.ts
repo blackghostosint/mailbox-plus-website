@@ -2,6 +2,16 @@ import { FAQ } from '../../../types/faq';
 
 export const shreddingFaqs: FAQ[] = [
   {
+    question: 'How much do you charge for shredding?',
+    answer:
+      'Our pricing is simple and completely transparent: just $1.00 per pound, with absolutely no minimums. We weigh your documents right at our counter so you know the exact cost before any shredding begins.',
+  },
+  {
+    question: 'Do you provide a Certificate of Destruction?',
+    answer:
+      'Yes! We provide an official, hand-signed Mailbox Plus Certificate of Destruction for every job. It is issued instantly at our counter once your papers are destroyed, serving as your physical, auditable proof of secure, on-site document destruction.',
+  },
+  {
     question: 'Do you shred on-site?',
     answer:
       'Yes, 100% of our shredding is handled directly on-site at our store. Unlike competitor stores that leave your sensitive documents sitting in a locked console for weeks waiting for an outside truck, we destroy your paperwork immediately in-store. They never leave our sight and are never stored.',

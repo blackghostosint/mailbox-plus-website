@@ -105,23 +105,33 @@ export const documentServices: Service[] = [
       'shredding, micro-cut, P-4 security, document destruction, concord township, lake county',
     heroTitle: 'Your Private Documents. Permanently Gone.',
     heroSubtitle:
-      'Clear the clutter and protect your identity with certified micro-cut shredding in Concord Township.',
+      'Immediate, on-site P-4 micro-cut shredding in Concord Township. Simple flat-rate pricing of $1.00 per pound with no minimums. Watch us shred.',
     heroImage: getServiceImageUrl('/images/shredding.webp'),
     featuresTitle: 'Complete Chain of Custody',
     featuresSubtitle:
-      'No sitting in locked consoles for weeks. No third-party drivers. Just immediate, certified on-site destruction.',
+      'No sitting in locked consoles for weeks. No third-party drivers. Just immediate, on-site P-4 micro-cut destruction.',
+    hideCarrierLogos: true,
+    collapseCompetitorAlternative: true,
     content: [
       {
         heading: 'The Risk Sitting in Your Trash Can',
         body: 'Old tax returns, bank statements, medical records. Throwing them in the household recycling bin doesn’t protect you—it just makes your family a target. Identity thieves don’t have to hack a database when they can simply exploit a vulnerable paper trail left at the curb.',
       },
       {
-        heading: 'Immediate On-Site Destruction',
-        body: 'We understand the weight of keeping your private records safe. You shouldn’t have to worry about who is handling your financial, medical, or personal history. Unlike competitor shipping stores that throw your documents into a locked bin where they sit for weeks waiting for an outside truck, <strong>Mailbox Plus shreds everything on-site immediately</strong>. Your documents never leave our sight, are never stored for later, and are never handed over to outside middlemen. We destroy them on our advanced micro-cut machines the moment you hand them to us.',
+        heading: 'Simple, Flat-Rate Pricing: Just $1.00 per Pound',
+        body: 'No minimums. No hidden setup fees. No guesswork. We weigh your documents right at our counter so you know the exact cost before we shred. Whether you have a single envelope of private medical receipts or an entire attic filled with ten years of business tax files, you get the same simple flat-rate: <strong>only $1.00 per pound</strong>. You get total transparency and no franchise markups.',
+      },
+      {
+        heading: 'Our Official Certificate of Destruction',
+        body: 'We don’t just promise complete security—we prove it. Every shredding job at Mailbox Plus is accompanied by an official, physical <strong>Mailbox Plus Certificate of Destruction</strong>. Hand-signed and stamped by our in-store security specialist the moment your files are shredded, this document serves as your physical, auditable proof that your private papers have been permanently destroyed under our strict P-4 security chain of custody.',
+      },
+      {
+        heading: 'Immediate On-Site P-4 Destruction',
+        body: 'We understand the high stakes of keeping your personal, financial, and medical history safe. Unlike competitor shipping stores that throw your documents into a locked console where they sit for weeks waiting for an outside contract truck, <strong>Mailbox Plus shreds everything on-site immediately</strong>. Your documents never leave our sight, are never stored for later, and are never handed over to outside middlemen. We destroy them on our advanced P-4 micro-cut machines the moment you hand them to us.',
       },
       {
         heading: 'No Home Shredder Jams, No Paper Dust',
-        body: 'Why spend your Saturday fighting with a cheap home shredder that overheats and jams after three pages? Our process is designed to get you in, out, and secure in under two minutes: <strong>1) Drop off your paperwork</strong> (staples and paperclips are fine). <strong>2) We shred it immediately on-site</strong> while you watch if you’d like. <strong>3) Walk out clutter-free</strong> with total peace of mind that your data is gone forever.',
+        body: 'Why spend your Saturday fighting with a cheap home shredder that overheats and jams after three pages? Our commercial drop-off process is designed to get you secure and back on your way in under two minutes: <br/><br/><strong>1) Drop off your paperwork</strong> (staples, paper clips, and folders are perfectly fine—no need to remove them). <br/><strong>2) We weigh and shred immediately on-site</strong> while you watch if you’d like. <br/><strong>3) Walk out clutter-free</strong> with your hand-signed Certificate of Destruction and complete peace of mind.',
       },
       {
         heading: 'Stop the Leak Before It Hits Your Porch',
