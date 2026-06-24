@@ -45,6 +45,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     robots,
     featuresTitle,
     featuresSubtitle,
+    hideCarrierLogos,
+    collapseCompetitorAlternative,
   } = props;
 
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
@@ -54,6 +56,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   const [featuresRef, featuresInView] = useInView({ threshold: 0.1 });
   const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isCompetitorOpen, setIsCompetitorOpen] = useState(false);
 
   return (
     <>
@@ -334,9 +337,32 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           </div>
         </main>
 
-        {/* End-of-page sections (unchanged) */}
-        <CarrierLogos />
-        <CompetitorAlternativeSection />
+        {/* End-of-page sections */}
+        {!hideCarrierLogos && <CarrierLogos />}
+        {collapseCompetitorAlternative ? (
+          <section className="py-6 border-t border-[var(--color-border)] text-center bg-[var(--color-bg-secondary)]/30">
+            <button
+              onClick={() => setIsCompetitorOpen(!isCompetitorOpen)}
+              className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors duration-200 focus:outline-none"
+            >
+              {isCompetitorOpen
+                ? 'Hide local area service details'
+                : 'Show local area service details'}
+              {isCompetitorOpen ? (
+                <ChevronUp className="w-3.5 h-3.5" />
+              ) : (
+                <ChevronDown className="w-3.5 h-3.5" />
+              )}
+            </button>
+            {isCompetitorOpen && (
+              <div className="mt-6 text-left animate-fade-in">
+                <CompetitorAlternativeSection />
+              </div>
+            )}
+          </section>
+        ) : (
+          <CompetitorAlternativeSection />
+        )}
       </div>
     </>
   );

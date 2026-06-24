@@ -83,6 +83,10 @@ export interface Service {
   featuresTitle?: string; // custom title for the features section
   featuresSubtitle?: string; // custom subtitle for the features section
 
+  // Optional layout behavior flags
+  hideCarrierLogos?: boolean;
+  collapseCompetitorAlternative?: boolean;
+
   // Optional Schema.org Offers
   offers?: Offer[];
 }
