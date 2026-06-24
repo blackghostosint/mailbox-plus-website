@@ -43,6 +43,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     breadcrumbsBaseUrl,
     breadcrumbsLabel,
     robots,
+    featuresTitle,
     featuresSubtitle,
   } = props;
 
@@ -151,7 +152,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 <div className="flex flex-col gap-2 mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
                     <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
-                      Why customers choose this service
+                      {featuresTitle || 'Why customers choose this service'}
                     </span>
                   </h2>
                   <p className="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl">
