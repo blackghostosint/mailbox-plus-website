@@ -39,24 +39,48 @@ export const Home: React.FC = () => {
       <Meta title={title} description={description} schema={schema} />
 
       {/* ====================== HERO SECTION ======================= */}
-      <section className="relative bg-center py-20 md:py-32 lg:py-48 overflow-hidden min-h-[70vh] md:min-h-[80vh]">
+      <section className="relative bg-center py-24 md:py-32 lg:py-40 overflow-hidden">
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-12 font-heading animate-fade-in-up">
-            Your Local Pack & Ship in <span className="text-white/90">Concord Township</span>
-          </h1>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-[860px] text-center md:text-left mx-auto md:mx-0">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 font-heading animate-fade-in-up">
+              Your Local Pack & Ship in <span className="text-white/90">Concord Township</span>
+            </h1>
 
-          <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
-            Shipping, returns, private mailboxes, notary
-            <br />
-            Four carriers, one counter, no runaround.
-          </p>
+            <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto md:mx-0 mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
+              Shipping, returns, private mailboxes, notary
+              <br />
+              Four carriers, one counter, no runaround.
+            </p>
 
-          <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-            Whatever needs to get where it's going — drop it off with us.
-          </p>
+            <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto md:mx-0 animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
+              Whatever needs to get where it's going — drop it off with us.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards] max-w-md md:max-w-none mx-auto md:mx-0">
+              <Button
+                className="bg-[var(--color-accent)] text-[var(--color-primary-deep)] hover:bg-[var(--color-accent-light)] font-bold min-h-[48px] px-8 rounded-xl w-full sm:w-auto"
+                onClick={() => navigate('/services')}
+              >
+                Explore Services
+              </Button>
+              <a
+                href={getGoogleMapsLink('directions', siteConfig.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto"
+              >
+                <Button
+                  variant="secondary"
+                  className="w-full sm:w-auto border-2 border-white text-white bg-transparent hover:bg-white/10 min-h-[48px] px-8 rounded-xl"
+                >
+                  Get Directions
+                </Button>
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Soft fade bottom */}
