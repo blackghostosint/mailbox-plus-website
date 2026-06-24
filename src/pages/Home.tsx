@@ -150,27 +150,16 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Section divider */}
-      <div className="bg-[var(--color-bg-primary)] py-8 flex items-center justify-center">
-        <div className="flex items-center gap-3">
-          <div className="w-12 h-px bg-[var(--color-border)]"></div>
-          <div className="w-2 h-2 rotate-45 bg-[var(--color-accent)]"></div>
-          <div className="w-12 h-px bg-[var(--color-border)]"></div>
-        </div>
-      </div>
-
       {/* ====================== VISIT US SECTION ======================= */}
       <section id="visit-us" className="py-24 md:py-32 lg:py-36 bg-[var(--color-bg-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
-            Visit Us in Concord Township Today
-          </h2>
-          <p className="text-xl text-[var(--color-text-secondary)] mb-4 max-w-3xl mx-auto">
+          {/* removed "Visit Us in Concord Township Today" heading */}
+          <p className="text-2xl md:text-4xl font-bold text-[var(--color-text-secondary)] mb-4 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
           <p className="text-lg text-[var(--color-text-muted)] mb-14 max-w-2xl mx-auto">
-            Stop by for all your shipping, printing, and business service needs. Our friendly team
-            is ready to help!
+            Stop by for all your shipping, printing, and business service needs. We are ready to
+            help you.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
