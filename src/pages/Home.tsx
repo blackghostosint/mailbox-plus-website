@@ -159,20 +159,20 @@ export const Home: React.FC = () => {
       </div>
 
       {/* ====================== VISIT US SECTION ======================= */}
-      <section id="visit-us" className="py-20 bg-[var(--color-bg-primary)]">
+      <section id="visit-us" className="py-24 md:py-32 lg:py-36 bg-[var(--color-bg-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-4 font-heading">
+          <h2 className="text-3xl md:text-5xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
             Visit Us in Concord Township Today
           </h2>
-          <p className="text-xl text-[var(--color-text-secondary)] mb-3 max-w-3xl mx-auto">
+          <p className="text-xl text-[var(--color-text-secondary)] mb-4 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
-          <p className="text-lg text-[var(--color-text-muted)] mb-10 max-w-2xl mx-auto">
+          <p className="text-lg text-[var(--color-text-muted)] mb-14 max-w-2xl mx-auto">
             Stop by for all your shipping, printing, and business service needs. Our friendly team
             is ready to help!
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
             <a
               href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
@@ -212,25 +212,27 @@ export const Home: React.FC = () => {
             </a>
           </div>
 
-          <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)] mb-6">
+          <div className="flex items-center justify-center gap-2 text-[var(--color-text-muted)] mb-10">
             <Clock className="w-5 h-5" />
             <span className="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
           </div>
 
-          <div className="mb-10 flex flex-col items-center justify-center">
+          <div className="mb-14 flex flex-col items-center justify-center">
             <a
               href="https://g.page/r/CYyNUX4atT3PEBM/review"
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex flex-col items-center p-4 bg-white/70 backdrop-blur border border-[var(--color-border)] rounded-2xl shadow-sm hover:shadow-md hover:scale-102 transition-all duration-300"
+              className="group inline-flex flex-col items-center p-6 md:p-8 bg-white/70 backdrop-blur border border-[var(--color-border)] rounded-[28px] shadow-sm hover:shadow-md hover:scale-102 transition-all duration-300"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-[var(--color-accent)] text-xl font-bold flex">★ ★ ★ ★ ★</span>
-                <span className="text-sm font-bold text-[var(--color-text-primary)]">
+              <div className="flex items-center gap-3">
+                <span className="text-[var(--color-accent)] text-2xl md:text-3xl font-bold flex">
+                  ★ ★ ★ ★ ★
+                </span>
+                <span className="text-lg md:text-xl font-bold text-[var(--color-text-primary)]">
                   {siteConfig.aggregateRating?.ratingValue || 5.0} / 5.0
                 </span>
               </div>
-              <p className="text-xs font-bold text-[var(--color-text-primary)] mt-1 group-hover:text-[var(--color-primary)] transition-colors">
+              <p className="text-sm md:text-base font-bold text-[var(--color-text-primary)] mt-2 group-hover:text-[var(--color-primary)] transition-colors">
                 Based on {siteConfig.aggregateRating?.reviewCount || 32} Verified Google Reviews
               </p>
             </a>
