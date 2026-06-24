@@ -45,21 +45,17 @@ export const Home: React.FC = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-[860px] text-center md:text-left mx-auto md:mx-0">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-8 font-heading animate-fade-in-up">
-              Your Local Pack & Ship in <span className="text-white/90">Concord Township</span>
-            </h1>
-
-            <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto md:mx-0 mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-8 font-heading animate-fade-in-up">
               Shipping, returns, private mailboxes, notary
               <br />
               Four carriers, one counter, no runaround.
+            </h1>
+
+            <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto md:mx-0 mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
+              Whatever needs to get where it's going — Let Us Handle Your Package!
             </p>
 
-            <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto md:mx-0 animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-              Whatever needs to get where it's going — drop it off with us.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards] max-w-md md:max-w-none mx-auto md:mx-0">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards] max-w-md md:max-w-none mx-auto md:mx-0">
               <Button
                 className="bg-[var(--color-accent)] text-[var(--color-primary-deep)] hover:bg-[var(--color-accent-light)] font-bold min-h-[48px] px-8 rounded-xl w-full sm:w-auto"
                 onClick={() => navigate('/services')}
@@ -80,6 +76,10 @@ export const Home: React.FC = () => {
                 </Button>
               </a>
             </div>
+
+            <p className="text-xl md:text-2xl font-bold text-white/95 mt-12 animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards]">
+              Your Local Pack & Ship in Concord Township
+            </p>
           </div>
         </div>
 
