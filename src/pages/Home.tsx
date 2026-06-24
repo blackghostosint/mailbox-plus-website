@@ -35,13 +35,6 @@ export const Home: React.FC = () => {
 
   const { title, description, schema } = pageMeta['/'];
 
-  const scrollToVisit = () => {
-    const el = document.getElementById('visit-us');
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <div className="bg-[var(--color-bg-primary)] min-h-screen">
       <Meta title={title} description={description} schema={schema} />
@@ -52,53 +45,19 @@ export const Home: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading animate-fade-in-up">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-12 font-heading animate-fade-in-up">
             Your Local Pack & Ship in <span className="text-white/90">Concord Township</span>
           </h1>
 
-          <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
-            Shipping, returns, private mailboxes, notary — four carriers, one counter, no runaround.
+          <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
+            Shipping, returns, private mailboxes, notary
+            <br />
+            Four carriers, one counter, no runaround.
           </p>
 
-          <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-            Locally owned and serving all of Lake County. Whatever needs to get where it's going —
-            drop it off with us.
+          <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed max-w-3xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
+            Whatever needs to get where it's going — drop it off with us.
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
-            <Button
-              variant="secondary"
-              className="w-full sm:w-auto font-bold shadow-lg border-none hover:bg-white hover:text-[var(--color-primary)] transition-colors"
-              onClick={scrollToVisit}
-            >
-              Stop By <ArrowRight className="w-5 h-5 ml-2" />
-            </Button>
-            <a
-              href={getGoogleMapsLink('directions', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button className="w-full sm:w-auto bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deeper)] border border-white/20 shadow-lg min-w-[48px] min-h-[48px]">
-                <MapPin className="w-5 h-5 mr-2" />
-                Get Directions
-              </Button>
-            </a>
-            <a
-              href={getGoogleMapsLink('view', siteConfig.name)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto"
-            >
-              <Button
-                variant="ghost"
-                className="w-full sm:w-auto text-white border border-white/40 hover:bg-white/10 min-w-[48px] min-h-[48px]"
-              >
-                <MapPin className="w-5 h-5 mr-2" />
-                View on Map
-              </Button>
-            </a>
-          </div>
         </div>
 
         {/* Soft fade bottom */}
