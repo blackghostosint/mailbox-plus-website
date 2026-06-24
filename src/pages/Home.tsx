@@ -63,8 +63,7 @@ export const Home: React.FC = () => {
           </p>
 
           <p className="text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-            Locally owned and serving all of Lake County. Whatever needs to get where it's going —
-            drop it off with us.
+            Whatever needs to get where it's going — drop it off with us.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
