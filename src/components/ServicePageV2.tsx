@@ -43,6 +43,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     breadcrumbsBaseUrl,
     breadcrumbsLabel,
     robots,
+    featuresSubtitle,
   } = props;
 
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
@@ -154,8 +155,8 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                     </span>
                   </h2>
                   <p className="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl">
-                    Clear benefits, protections, and flexible options so you can ship, print, and
-                    manage your mail with confidence.
+                    {featuresSubtitle ||
+                      'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
                   </p>
                 </div>
 

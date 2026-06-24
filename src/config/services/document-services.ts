@@ -107,6 +107,8 @@ export const documentServices: Service[] = [
     heroSubtitle:
       'Clear the clutter and protect your identity with certified micro-cut shredding in Concord Township.',
     heroImage: getServiceImageUrl('/images/shredding.webp'),
+    featuresSubtitle:
+      'Clear benefits and immediate in-store destruction so you can secure your privacy with confidence.',
     content: [
       {
         heading: 'The Risk Sitting in Your Trash Can',

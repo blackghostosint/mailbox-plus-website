@@ -80,6 +80,7 @@ export interface Service {
   // Optional CTA block for this service
   cta?: CTA;
   robots?: string; // e.g., 'noindex, nofollow' for thin content pages
+  featuresSubtitle?: string; // custom subtitle for the features section
 
   // Optional Schema.org Offers
   offers?: Offer[];
