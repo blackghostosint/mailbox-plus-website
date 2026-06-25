@@ -1,4 +1,5 @@
 import { Meta } from '../components/Meta';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import { SmartImage } from '../components/SmartImage';
 import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
@@ -32,6 +33,8 @@ export function AboutUs() {
         description="Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio."
         schema={aboutSchema}
       />
+
+      <AutoBreadcrumbs />
 
       {/* ====================== HERO SECTION (V2 STANDARD) ======================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">

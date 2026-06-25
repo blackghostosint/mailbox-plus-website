@@ -24,6 +24,36 @@ export const ServiceAreaIndex: React.FC = () => {
         , and business support in your community.
       </p>
 
+      {/* Popular Services Section */}
+      <section className="mb-12">
+        <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
+          <h2 className="text-xl font-bold mb-4">Popular Services Near You</h2>
+          <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mx-auto">
+            From{' '}
+            <InternalLink variant="geo" to="/pack-ship">
+              pack and ship
+            </InternalLink>{' '}
+            and{' '}
+            <InternalLink variant="geo" to="/pack-ship/fedex-shipping">
+              FedEx shipping
+            </InternalLink>{' '}
+            to{' '}
+            <InternalLink variant="geo" to="/copy-print">
+              professional printing
+            </InternalLink>
+            ,{' '}
+            <InternalLink variant="geo" to="/home-business/mailbox-rental">
+              mailbox rentals
+            </InternalLink>
+            , and{' '}
+            <InternalLink variant="geo" to="/home-business/notary-services">
+              notary services
+            </InternalLink>{' '}
+            — Mailbox Plus has your Concord Township errands covered.
+          </p>
+        </div>
+      </section>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {serviceAreas.map((area) => (
           <div

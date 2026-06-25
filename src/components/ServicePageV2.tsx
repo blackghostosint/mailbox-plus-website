@@ -22,6 +22,26 @@ import { getRelatedServices } from '../utils/internal-links';
 import { siteConfig } from '../config/siteConfig';
 import siteStructure from '../data/siteStructure.json';
 
+// Core service → competitor alternative page mapping
+const competitorAlternatives: Record<string, { title: string; url: string }> = {
+  'fedex-shipping': {
+    title: 'FedEx Office Alternative',
+    url: '/fedex-office-alternative-concord-township',
+  },
+  'ups-authorized-shipper-outlet': {
+    title: 'UPS Store Alternative',
+    url: '/ups-store-alternative-concord-township',
+  },
+  'usps-services': {
+    title: 'Post Office Alternative',
+    url: '/post-office-alternative-concord-township',
+  },
+  'printing-services-concord-township': {
+    title: 'Staples Printing Alternative',
+    url: '/staples-printing-alternative-concord-township',
+  },
+};
+
 interface ServicePageProps extends Service {
   children?: React.ReactNode;
   breadcrumbsBaseUrl?: string;
@@ -367,6 +387,29 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             )}
           </div>
         </main>
+
+        {/* -------- COMPARE ALTERNATIVES -------- */}
+        {(() => {
+          const alt = props.id ? competitorAlternatives[props.id] : null;
+          if (!alt) return null;
+          return (
+            <section className="max-w-4xl mx-auto px-4 mt-8 mb-8">
+              <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
+                <h2 className="text-lg font-bold mb-2">Not What You&apos;re Looking For?</h2>
+                <p className="text-sm text-[var(--color-text-secondary)]">
+                  See how we compare to{' '}
+                  <InternalLink
+                    to={alt.url}
+                    className="text-[var(--color-primary)] hover:underline font-semibold"
+                  >
+                    {alt.title}
+                  </InternalLink>
+                  .
+                </p>
+              </div>
+            </section>
+          );
+        })()}
 
         {/* End-of-page sections */}
         {!hideCarrierLogos && <CarrierLogos />}

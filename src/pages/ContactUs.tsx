@@ -9,6 +9,7 @@ import { siteConfig } from '../config/siteConfig';
 import { Button } from '../components/ui';
 import { getGoogleMapsLink } from '../utils/location';
 import { Meta } from '../components/Meta';
+import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 
 export const ContactUs: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -119,6 +120,8 @@ export const ContactUs: React.FC = () => {
         description="Get in touch with Mailbox Plus in Concord Township, Ohio. Call, email, or visit us for all your shipping and printing needs."
         canonical="https://mailboxplusohio.com/contact-us"
       />
+
+      <AutoBreadcrumbs />
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
