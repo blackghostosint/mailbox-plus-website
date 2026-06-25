@@ -88,7 +88,7 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
     >
       <div className={isInView ? 'animate-fade-in-up' : 'opacity-0'}>
         <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
-          <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent)] rounded-full mr-4"></span>
+          <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent-gold)] rounded-full mr-4"></span>
           {category}
         </h2>
 
@@ -164,10 +164,11 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services
             .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
-            .map((service) => (
+            .map((service, i) => (
               <div
                 key={service.id}
-                className="p-6 bg-white/70 backdrop-blur-md border border-white/60 rounded-lg shadow-sm hover:shadow-md hover:-translate-y-1 hover:scale-[1.01] transition-all flex flex-col group"
+                className="p-6 bg-[var(--color-bg-secondary)]/80 backdrop-blur-md border border-[var(--color-border)] rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-250 flex flex-col group"
+                style={{ animationDelay: `${i * 80}ms` }}
               >
                 {/* Thumbnail with fade overlay + subtle zoom */}
                 {service.heroImage ? (
@@ -177,19 +178,19 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
                       alt={service.serviceName}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-[var(--color-primary)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                    <div className="absolute inset-0 bg-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
                   </div>
                 ) : service.icon ? (
-                  <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-secondary)] rounded-2xl group relative overflow-hidden border border-white/40">
-                    <service.icon className="w-12 h-12 text-[var(--color-primary)] transition-transform duration-500 group-hover:scale-110" />
+                  <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-warm-tint)] rounded-2xl group relative overflow-hidden border border-[var(--color-border)]">
+                    <service.icon className="w-12 h-12 text-[var(--color-accent-warm)] transition-transform duration-500 group-hover:scale-110" />
                   </div>
                 ) : (
-                  <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-secondary)] rounded-2xl flex items-center justify-center text-gray-400 text-lg font-bold">
+                  <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-warm-tint)] rounded-2xl flex items-center justify-center text-[var(--color-text-muted)] text-lg font-bold">
                     ?
                   </div>
                 )}
 
-                <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-primary)] transition-colors">
+                <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-warm)] transition-colors">
                   {service.serviceName}
                 </h3>
                 <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
@@ -253,7 +254,7 @@ export const Services: React.FC = () => {
       {/* ====================== CATEGORY NAVIGATION ======================= */}
       <section id="categories" className="py-12 bg-[var(--color-bg-primary)] relative z-10 -mt-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white/70 backdrop-blur-xl rounded-lg shadow-lg border border-white/50 p-8">
+          <div className="bg-[var(--color-bg-secondary)]/70 backdrop-blur-xl rounded-lg shadow-md border border-[var(--color-border)] p-8">
             <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">
               Explore Our Services
             </h2>
@@ -262,7 +263,7 @@ export const Services: React.FC = () => {
                 <a
                   key={category}
                   href={`#${makeId(category)}`}
-                  className="px-6 py-3 bg-white/50 hover:bg-white rounded-full border border-white/30 hover:border-white/60 text-[var(--color-text-primary)] hover:text-[var(--color-primary)] transition-all shadow-sm flex items-center justify-center font-medium"
+                  className="px-6 py-3 bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-warm-tint)] rounded-full border border-[var(--color-border)] hover:border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:text-[var(--color-accent-warm)] transition-all shadow-sm flex items-center justify-center font-medium"
                 >
                   {category}
                 </a>
@@ -293,7 +294,7 @@ export const Services: React.FC = () => {
         </div>
       </section>
 
-      {/* ====================== SERVICE SECTIONS (V2 Glass Cards) ======================= */}
+      {/* ====================== SERVICE SECTIONS (Warm Cards) ======================= */}
       {serviceCategories
         .filter((category) =>
           services.some((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
@@ -302,7 +303,7 @@ export const Services: React.FC = () => {
           <CategorySection key={category} category={category} />
         ))}
 
-      {/* ====================== VISIT US SECTION (V2 Gradient) ======================= */}
+      {/* ====================== VISIT US SECTION (Navy Gradient) ======================= */}
       <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
@@ -347,41 +348,34 @@ export const Services: React.FC = () => {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            {/* Directions Button */}
+            {/* Directions Button - Gold on Navy */}
             <a
               href={getGoogleMapsLink('directions', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                size="lg"
-                variant="secondary"
-                className="hover:bg-white/90 font-bold shadow-lg border-none min-h-11"
-              >
+              <Button variant="gold" size="lg" className="font-bold shadow-lg min-h-11">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
             </a>
-            {/* View on Map Button */}
+            {/* View on Map Button - Gold Outline on Navy */}
             <a
               href={getGoogleMapsLink('view', siteConfig.name)}
               target="_blank"
               rel="noopener noreferrer"
             >
               <Button
+                variant="gold-outline"
                 size="lg"
-                variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10 min-h-11 min-w-[48px] min-h-[48px]"
+                className="min-h-11 min-w-[48px] min-h-[48px]"
               >
                 <MapPin className="w-5 h-5 mr-2" />
                 View on Map
               </Button>
             </a>
             <a href={`tel:${siteConfig.contact.phone}`}>
-              <Button
-                size="lg"
-                className="bg-transparent border-2 border-white/40 text-white hover:bg-white/10 min-h-11"
-              >
+              <Button variant="gold-outline" size="lg" className="min-h-11">
                 <Phone className="w-5 h-5 mr-2" />
                 Call {siteConfig.contact.phone}
               </Button>
@@ -398,7 +392,7 @@ export const Services: React.FC = () => {
       {/* BACK TO TOP BUTTON */}
       <button
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 bg-[var(--color-primary)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-primary-deeper)] transition hover:scale-110 z-50"
+        className="fixed bottom-6 right-6 bg-[var(--color-accent-warm)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-accent-warm-light)] transition hover:scale-110 z-50"
         aria-label="Back to Top"
       >
         <ChevronUp className="w-6 h-6" />
