@@ -36,7 +36,7 @@ That's where the "Drop-Box" convenience ends and the "Full-Service" frustration 
 
 The difference is simple: **We do the work for you.**
 
-Local pharmacies and dollar stores are great for dropping off a return, but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
+Local pharmacies and dollar stores are great for [dropping off a return](/pack-ship/amazon-returns), but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
 
 At Mailbox Plus, we are professional packers. We don't just take your box; we ensure your items are cushioned, secured, and ready for a bumpy ride.
 
@@ -55,7 +55,7 @@ We stock:
 - Standard and heavy-duty moving boxes.
 - Professional-grade packing tape and dispensers.
 - Bubble wrap, packing peanuts, and cushioning.
-- Custom-sized boxes for those "impossible" items.
+- [Custom-sized boxes](/pack-ship/custom-box-making) for those "impossible" items.
 
 ## International Shipping from Painesville (DHL Experts)
 
@@ -63,7 +63,7 @@ Shipping overseas is complicated—customs forms, duties, and taxes can be a min
 
 ## Skip the Lines and the Stress
 
-You shouldn't have to settle for a "drop-off only" experience. Your packages deserve better, and your schedule definitely does too.
+You shouldn't have to settle for a "[drop-off only](/pack-ship/package-drop-offs)" experience. Your packages deserve better, and your schedule definitely does too.
 
 Skip the Post Office lines and the pharmacy drop-off headaches. Come see the professionals at **Mailbox Plus**. We'll get you packed, shipped, and back to your day in record time.
 

@@ -70,6 +70,8 @@ Our services extend beyond the box. We support the fast-paced lives of [Kirtland
 - **[Notary Public Services](/home-business/notary-services):** Fast, professional signings for legal and estate documents.
 - **[Amazon Returns](/amazon-returns) & Package Receiving:** Simplify your personal logistics by letting us handle the labels and the traffic.
 - **[Printing & Copying](/copy-print):** High-quality document services for personal and business needs.
+- **[Document Scanning](/home-business/document-scanning):** Digitize your records for secure, organized digital storage.
+- **[Shredding](/home-business/shredding):** Securely dispose of sensitive documents containing personal or financial information.
 
 ## Conclusion
 

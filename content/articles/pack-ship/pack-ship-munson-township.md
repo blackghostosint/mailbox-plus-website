@@ -45,9 +45,9 @@ Because Munson Township itself is primarily residential and natural parkland, re
 
 ## Why Munson Residents Prefer Professional Packing
 
-For many in the Munson community—including local artists, small business owners, and those shipping family heirlooms—standard "do-it-yourself" packing isn't enough. Fragile items require specific materials and cushioning techniques to survive the rigors of transit.
+For many in the Munson community—including local artists, small business owners, and those shipping family heirlooms—standard "do-it-yourself" packing isn't enough. Fragile items require specific materials, [custom box making](/pack-ship/custom-box-making), and cushioning techniques to survive the rigors of transit.
 
-Using carrier-approved boxes and padding isn't just about safety; it's also about insurance. If an item is damaged in transit and was not packed to professional standards, getting a claim approved can be difficult. That's why many residents choose to visit a [professional packing](/pack-ship/professional-packing) center where experts can handle the cushioning and taping for them.
+Using carrier-approved boxes and padding isn't just about safety; it's also about [insurance](/pack-ship/insurance). If an item is damaged in transit and was not packed to professional standards, getting a claim approved can be difficult. That's why many residents choose to visit a [professional packing](/pack-ship/professional-packing) center where experts can handle the cushioning and taping for them.
 
 ## Mailbox Plus: The Concord Connection for Munson
 
@@ -63,7 +63,7 @@ Located at [7554 Fredle Drive](/contact-us) in [Concord Township](/service-area/
 
 If you run a home-based business in Munson, handling outbound shipments efficiently is key to your success. Managing a high volume of packages can quickly clutter a home office.
 
-By using professional service centers like Mailbox Plus, you can drop off your daily shipments in one go and even rent a [private mailbox](/home-business/mailbox-rental) with a real street address. This allows you to keep your home address private and ensures your business packages are received securely, even when you aren't home to sign for them. We also offer [Notary](/home-business/notary-services) services and handle [Amazon returns](/amazon-returns) with ease.
+By using professional service centers like Mailbox Plus, you can [drop off your daily shipments](/pack-ship/package-drop-offs) in one go and even rent a [private mailbox](/home-business/mailbox-rental) with a real street address. This allows you to keep your home address private and ensures your business packages are received securely, even when you aren't home to sign for them. We also offer [Notary](/home-business/notary-services) services and handle [Amazon returns](/amazon-returns) with ease.
 
 ## Conclusion
 

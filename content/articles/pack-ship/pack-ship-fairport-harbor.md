@@ -28,7 +28,7 @@ author: 'Mailbox Plus Team'
 
 When you live in a beautiful, historic village like [Fairport Harbor](/service-area/fairport-harbor), you value community, convenience, and getting things done right. But when it comes to shipping a fragile gift across the country or managing returns for your local business, you might feel a bit limited by the options directly in town.
 
-While we all love our local post office for everyday mail and stamps, sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Fairport Harbor.
+While we all love our local post office for everyday mail and [postage stamps](/pack-ship/postage-stamps), sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Fairport Harbor.
 
 ![Professional pack and ship services for Fairport Harbor residents at Mailbox Plus](articles/pack-ship/pack-ship-fairport-harbor-featured.webp)
 
@@ -36,7 +36,7 @@ While we all love our local post office for everyday mail and stamps, sometimes 
 
 If you’ve ever walked into a shipping center only to realize they only offer one carrier’s rates, you know the frustration. In Fairport Harbor, the local post office is a great resource, but it’s limited to USPS services.
 
-At Mailbox Plus, we believe in giving you the power of choice. Because we are a multi-carrier shipping center, you can walk in with a package and compare real-time rates and delivery windows for:
+At Mailbox Plus, we believe in giving you the power of choice. Because we are a multi-carrier shipping center with easy [package drop-offs](/pack-ship/package-drop-offs), you can walk in with a package and compare real-time rates and delivery windows for:
 
 - **[UPS](/pack-ship/ups-authorized-shipper-outlet)** (Perfect for reliable ground shipping and heavy parcels)
 - **[FedEx](/pack-ship/fedex-shipping)** (Ideal for express needs and easy returns)
@@ -60,6 +60,7 @@ Mailbox Plus serves as a local business hub for the area, offering:
 - **[Notary Public](/home-business/notary-services):** Get your important legal documents, contracts, and affidavits notarized quickly and professionally.
 - **[Private Mailbox Rentals](/home-business/mailbox-rental):** Unlike a standard PO Box, our mailboxes provide a real physical street address. This is a game-changer for home-based businesses in Fairport Harbor that want to maintain privacy while looking professional.
 - **[High-Quality Printing & Copying](/copy-print):** Whether you need flyers for a community event or large-scale document copies for a project, we have the tech to make it look sharp.
+- **[Document Scanning](/home-business/document-scanning):** Digitize your important contracts, receipts, and records for secure, organized digital storage.
 
 ## The Convenience Factor: Just Minutes from Fairport Harbor
 
