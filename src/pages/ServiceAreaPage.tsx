@@ -46,7 +46,7 @@ export const ServiceAreaPage: React.FC = () => {
     <>
       {/* Services Available in {city} - geo-qualified links */}
       <section className="max-w-5xl mx-auto px-4 mt-8">
-        <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm">
+        <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm">
           <h2 className="text-xl font-bold mb-4">Services Available in {area.city}</h2>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed">
             Mailbox Plus offers{' '}

@@ -6,9 +6,9 @@ import { Button } from '../components/ui';
 
 export const NotFound: React.FC = () => {
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center">
+    <div className="bg-[var(--color-bg-primary)] min-h-screen flex items-center justify-center">
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
-        <div className="text-9xl font-bold text-[var(--color-primary)] mb-4">404</div>
+        <div className="text-9xl font-bold text-[var(--color-accent-warm)] mb-4">404</div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6">
           Page Not Found
         </h1>
@@ -19,7 +19,7 @@ export const NotFound: React.FC = () => {
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <InternalLink to="/">
-            <Button size="lg" className="group">
+            <Button variant="primary" size="lg" className="group">
               <Home className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Go Home
             </Button>
@@ -35,7 +35,7 @@ export const NotFound: React.FC = () => {
           </Button>
         </div>
 
-        <div className="mt-12 p-6 bg-[var(--color-bg-primary)] rounded-2xl">
+        <div className="mt-12 p-6 bg-[var(--color-bg-secondary)] rounded-2xl">
           <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
             Need Help Finding Something?
           </h3>
@@ -43,19 +43,34 @@ export const NotFound: React.FC = () => {
             Visit our main pages or contact us directly:
           </p>
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <InternalLink to="/services" className="text-[var(--color-primary)] hover:underline">
+            <InternalLink
+              to="/services"
+              className="text-[var(--color-accent-warm)] hover:underline"
+            >
               Services
             </InternalLink>
-            <InternalLink to="/pack-ship" className="text-[var(--color-primary)] hover:underline">
+            <InternalLink
+              to="/pack-ship"
+              className="text-[var(--color-accent-warm)] hover:underline"
+            >
               Pack &amp; Ship
             </InternalLink>
-            <InternalLink to="/copy-print" className="text-[var(--color-primary)] hover:underline">
+            <InternalLink
+              to="/copy-print"
+              className="text-[var(--color-accent-warm)] hover:underline"
+            >
               Copy &amp; Print
             </InternalLink>
-            <InternalLink to="/tracking" className="text-[var(--color-primary)] hover:underline">
+            <InternalLink
+              to="/tracking"
+              className="text-[var(--color-accent-warm)] hover:underline"
+            >
               Tracking
             </InternalLink>
-            <InternalLink to="/contact-us" className="text-[var(--color-primary)] hover:underline">
+            <InternalLink
+              to="/contact-us"
+              className="text-[var(--color-accent-warm)] hover:underline"
+            >
               Contact Us
             </InternalLink>
           </div>

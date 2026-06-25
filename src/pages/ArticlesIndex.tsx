@@ -32,7 +32,7 @@ const ArticlesIndex: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent-warm)]"></div>
       </div>
     );
   }
@@ -92,8 +92,8 @@ const ArticlesIndex: React.FC = () => {
                   <Link
                     key={slug}
                     to={`/articles/${slug}`}
-                    className="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-blue-300"
-                    style={{ borderColor: 'var(--color-border)' }}
+                    className="group bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 hover:border-[var(--color-accent-warm)]"
+                    style={{ border: '1px solid var(--color-border)' }}
                   >
                     {/* Featured Image */}
                     <div
@@ -106,7 +106,7 @@ const ArticlesIndex: React.FC = () => {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                       />
                       {/* Category Badge */}
-                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-blue-600 text-white text-xs font-semibold uppercase tracking-wide">
+                      <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-accent-warm)] text-white text-xs font-semibold uppercase tracking-wide">
                         {category.replace('-', ' ')}
                       </div>
                     </div>
@@ -124,7 +124,7 @@ const ArticlesIndex: React.FC = () => {
 
                       {/* Title */}
                       <h2
-                        className="text-xl font-bold mb-3 group-hover:text-blue-600 transition-colors font-heading line-clamp-2"
+                        className="text-xl font-bold mb-3 group-hover:text-[var(--color-accent-warm)] transition-colors font-heading line-clamp-2"
                         style={{ color: 'var(--color-text-primary)' }}
                       >
                         {title}
@@ -139,7 +139,7 @@ const ArticlesIndex: React.FC = () => {
                       </p>
 
                       {/* Read More */}
-                      <div className="flex items-center gap-2 text-blue-600 font-semibold text-sm group-hover:gap-3 transition-all">
+                      <div className="flex items-center gap-2 text-[var(--color-accent-warm)] font-semibold text-sm group-hover:gap-3 transition-all">
                         Read Article
                         <ArrowRight className="w-4 h-4" />
                       </div>

@@ -6,7 +6,7 @@ import { Button } from '../components/ui';
 
 export const ServiceAreaIndex: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <div className="bg-[var(--color-bg-primary)] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
       <AutoBreadcrumbs />
       <h1 className="text-4xl font-bold text-[var(--color-text-primary)] mb-8 text-center">
         Our Service Areas
@@ -24,9 +24,9 @@ export const ServiceAreaIndex: React.FC = () => {
         , and business support in your community.
       </p>
 
-      {/* Popular Services Section */}
+      {/* Popular Services Section - Warm Card */}
       <section className="mb-12">
-        <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
+        <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm text-center">
           <h2 className="text-xl font-bold mb-4">Popular Services Near You</h2>
           <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mx-auto">
             From{' '}
@@ -58,7 +58,7 @@ export const ServiceAreaIndex: React.FC = () => {
         {serviceAreas.map((area) => (
           <div
             key={area.slug}
-            className="bg-white p-6 rounded-xl shadow-sm border border-[var(--color-border)] text-center flex flex-col items-center justify-between"
+            className="bg-[var(--color-bg-secondary)] p-6 rounded-xl shadow-sm border border-[var(--color-border)] text-center flex flex-col items-center justify-between"
           >
             <h2 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">
               {area.city}
