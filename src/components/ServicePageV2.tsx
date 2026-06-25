@@ -5,7 +5,7 @@ import ChevronUp from '~icons/lucide/chevron-up';
 import { useInView } from '../hooks/useInView';
 
 // Barrel exports
-import { Meta, Breadcrumbs, JsonLd, VisitUsButton } from '.';
+import { Meta, Breadcrumbs, JsonLd } from '.';
 import { InternalLink } from './ui/InternalLink';
 import { CarrierLogos } from './CarrierLogos';
 import { CompetitorAlternativeSection } from './sections/CompetitorAlternative';
@@ -20,7 +20,6 @@ import { Service } from '../types/services';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
 import { getRelatedServices } from '../utils/internal-links';
 import { siteConfig } from '../config/siteConfig';
-import siteStructure from '../data/siteStructure.json';
 
 // Core service → competitor alternative page mapping
 const competitorAlternatives: Record<string, { title: string; url: string }> = {
@@ -133,77 +132,38 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               {heroTitle}
             </h1>
 
-            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10 animate-fade-in-up [animation-delay:140ms] opacity-0">
+            <p className="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-0 animate-fade-in-up [animation-delay:140ms] opacity-0">
               {heroSubtitle}
             </p>
-
-            {/* Primary CTA */}
-            <div className="animate-fade-in-up [animation-delay:220ms] opacity-0">
-              <VisitUsButton variant="secondary" size="lg" />
-            </div>
           </div>
 
           {/* Soft fade into page background */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
         </section>
 
-        {/* ====================== SIBLING CATEGORY NAV ======================= */}
-        {(() => {
-          const pillar = siteStructure.pillars.find((p) =>
-            p.children.some((c) => c.id === props.id)
-          );
-          if (!pillar || !props.id) return null;
-          return (
-            <div className="max-w-5xl mx-auto px-4 mt-6 mb-2">
-              <div className="flex flex-wrap gap-2 justify-center">
-                <span className="text-xs font-semibold text-[var(--color-text-muted)] self-center mr-1 uppercase tracking-wider">
-                  {pillar.title}:
-                </span>
-                {pillar.children.map((child) => (
-                  <InternalLink
-                    key={child.id}
-                    to={child.url}
-                    className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-all ${
-                      child.id === props.id
-                        ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
-                        : 'bg-white text-[var(--color-text-secondary)] border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
-                    }`}
-                  >
-                    {child.title}
-                  </InternalLink>
-                ))}
-              </div>
-            </div>
-          );
-        })()}
-
         {/* ======================= MAIN ====================== */}
         {/* Slight overlap so intro card floats into hero */}
         <main className={`relative z-20 ${children ? '-mt-20' : 'pt-12 md:pt-20'} pb-20 lg:pb-28`}>
           <div className="container mx-auto px-4 space-y-20">
-            {/* -------- GLASS INTRO CARD -------- */}
+            {/* -------- WARM INTRO CARD -------- */}
             {children && (
               <section
                 ref={introRef as any}
                 className={`max-w-3xl mx-auto ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
-                <div className="relative">
-                  {/* subtle gradient border */}
-                  <div className="pointer-events-none absolute inset-0 rounded-xl bg-gradient-to-r from-white/60 via-white/20 to-white/60 opacity-80" />
-                  <div className="relative rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg px-6 py-6 md:px-10 md:py-8">
-                    {children}
-                  </div>
+                <div className="relative rounded-[28px] bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md px-6 py-6 md:px-10 md:py-8">
+                  {children}
                 </div>
               </section>
             )}
 
-            {/* -------- FEATURES STRIP -------- */}
+            {/* -------- FEATURES STRIP (Warm Glass) -------- */}
             {features && features.length > 0 && (
               <section
                 ref={featuresRef as any}
                 className={`max-w-5xl mx-auto ${featuresInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
-                <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80">
+                <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
                   <div className="flex flex-col gap-2 mb-8">
                     <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
                       <span className="bg-gradient-to-r from-[var(--color-text-primary)] via-[var(--color-text-primary)] to-[var(--color-text-primary)] bg-clip-text text-transparent">
@@ -222,14 +182,14 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                       return (
                         <div
                           key={idx}
-                          className="group relative overflow-hidden rounded-2xl border border-white/40 bg-[var(--color-bg-primary)]/40 hover:bg-[var(--color-bg-primary)]/60 shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200"
+                          className="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-primary)] shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200"
                         >
                           {/* subtle overlay on hover */}
-                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-bg-blue-tint)]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                          <div className="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
                           <div className="relative p-6 flex flex-col gap-3">
                             {Icon && (
-                              <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-text-primary)]/5 via-[var(--color-primary)]/10 to-[var(--color-border-blue)]/10 text-[var(--color-primary)] w-12 h-12 shadow-inner shadow-white/40">
+                              <div className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-br from-[var(--color-accent-warm)]/5 via-[var(--color-accent-warm)]/10 to-[var(--color-accent-warm)]/10 text-[var(--color-accent-warm)] w-12 h-12 shadow-inner shadow-white/40">
                                 <Icon className="w-5 h-5" />
                               </div>
                             )}
@@ -248,16 +208,16 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               </section>
             )}
 
-            {/* -------- CONTENT SECTIONS (GLASS PANELS) -------- */}
+            {/* -------- CONTENT SECTIONS (Warm Panels) -------- */}
             {content &&
               content.map((block, idx) => (
                 <section key={idx} className="max-w-5xl mx-auto animate-fade-in-up">
                   <div
                     className={[
-                      'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg',
-                      'bg-white/75 backdrop-blur-xl border border-white/80',
+                      'relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md',
+                      'bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]',
                       idx % 2 === 1
-                        ? 'before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-white/80 before:via-[var(--color-bg-secondary)]/50 before:to-[var(--color-border)]/60 before:-z-10'
+                        ? 'before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10'
                         : '',
                     ].join(' ')}
                   >
@@ -272,7 +232,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 </section>
               ))}
 
-            {/* -------- FAQ (GLASS BAND) -------- */}
+            {/* -------- FAQ (Warm Band) -------- */}
             {faqs &&
               faqs.length > 0 &&
               (() => {
@@ -283,7 +243,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 return (
                   <section className="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80 animate-fade-in-up">
                     <div className="max-w-4xl mx-auto">
-                      <div className="relative rounded-xl bg-white/80 backdrop-blur-xl border border-white/80 shadow-xl px-4 md:px-8 py-8 md:py-10">
+                      <div className="relative rounded-xl bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md px-4 md:px-8 py-8 md:py-10">
                         <div className="text-center mb-6 md:mb-8">
                           <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] font-heading">
                             Frequently Asked Questions
@@ -299,9 +259,9 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                             <AccordionItem
                               key={i}
                               value={`faq-${i}`}
-                              className="rounded-2xl border border-[var(--color-border)]/80 bg-[var(--color-bg-primary)]/80 data-[state=open]:bg-white/90 shadow-sm"
+                              className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 data-[state=open]:bg-[var(--color-bg-secondary)] shadow-sm"
                             >
-                              <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-primary)] font-semibold hover:no-underline">
+                              <AccordionTrigger className="px-4 py-3 text-left text-[var(--color-accent-warm)] font-semibold hover:no-underline">
                                 {faq.question}
                               </AccordionTrigger>
                               <AccordionContent className="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
@@ -338,7 +298,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 );
               })()}
 
-            {/* -------- RELATED SERVICES -------- */}
+            {/* -------- RELATED SERVICES (Warm) -------- */}
             {(() => {
               const serviceId = props.id;
               const allRelated = (getRelatedServices(serviceId as any) || []).filter(
@@ -347,7 +307,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               if (allRelated.length === 0) return null;
               return (
                 <section className="max-w-5xl mx-auto animate-fade-in-up">
-                  <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80">
+                  <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
                     <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
                       Related Services You Might Need
                     </h2>
@@ -357,7 +317,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                           key={idx}
                           to={rel.url}
                           variant="geo"
-                          className="block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-border-blue)] hover:bg-[var(--color-bg-blue-tint)] transition-all text-[var(--color-text-primary)] font-semibold text-sm"
+                          className="block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/10 transition-all text-[var(--color-text-primary)] font-semibold text-sm"
                         >
                           {rel.title} →
                         </InternalLink>
@@ -388,19 +348,21 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           </div>
         </main>
 
-        {/* -------- COMPARE ALTERNATIVES -------- */}
+        {/* -------- COMPARE ALTERNATIVES (Warm) -------- */}
         {(() => {
           const alt = props.id ? competitorAlternatives[props.id] : null;
           if (!alt) return null;
           return (
             <section className="max-w-4xl mx-auto px-4 mt-8 mb-8">
-              <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
-                <h2 className="text-lg font-bold mb-2">Not What You&apos;re Looking For?</h2>
+              <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm text-center">
+                <h2 className="text-lg font-bold mb-2 text-[var(--color-text-primary)]">
+                  Not What You&apos;re Looking For?
+                </h2>
                 <p className="text-sm text-[var(--color-text-secondary)]">
                   See how we compare to{' '}
                   <InternalLink
                     to={alt.url}
-                    className="text-[var(--color-primary)] hover:underline font-semibold"
+                    className="text-[var(--color-accent-warm)] hover:underline font-semibold"
                   >
                     {alt.title}
                   </InternalLink>
@@ -417,7 +379,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           <section className="py-6 border-t border-[var(--color-border)] text-center bg-[var(--color-bg-secondary)]/30">
             <button
               onClick={() => setIsCompetitorOpen(!isCompetitorOpen)}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors duration-200 focus:outline-none"
+              className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-accent-warm)] transition-colors duration-200 focus:outline-none"
             >
               {isCompetitorOpen
                 ? 'Hide local area service details'
