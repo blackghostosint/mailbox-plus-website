@@ -56,7 +56,7 @@ export const Home: React.FC = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading animate-fade-in-up">
-            Shipping, returns, private mailboxes, notary
+            Shipping, Returns, and Private Mailboxes
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white/80 mb-12 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
             Four carriers, one counter, no runaround.
