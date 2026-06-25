@@ -49,7 +49,7 @@ By having all these options under one roof, we help you find the best value for 
 
 Leroy is home to many talented artisans, home-based entrepreneurs, and small-scale manufacturers who ship their products across the country. When your livelihood depends on your items arriving safely, "DIY" packing with recycled boxes isn't always enough.
 
-At Mailbox Plus, we provide [professional packing services](/pack-ship/professional-packing) using industry-leading materials. We use custom-sized boxes, heavy-duty bubble wrap, and specialized void-fill to ensure your fragile or high-value items are protected for the entire journey. Let our experts handle the "pack" while you focus on growing your business.
+At Mailbox Plus, we provide [professional packing services](/pack-ship/professional-packing) using industry-leading materials. We use [custom-sized boxes](/pack-ship/custom-box-making), heavy-duty bubble wrap, and specialized void-fill to ensure your fragile or high-value items are protected for the entire journey. Let our experts handle the "pack" while you focus on growing your business.
 
 ## Beyond Shipping: Essential Services for Leroy Neighbors
 
@@ -57,7 +57,7 @@ We know that Leroy residents value their time. That’s why we’ve built Mailbo
 
 - **[Notary Public](/home-business/notary-services):** Get your important legal documents, contracts, and property deeds notarized quickly and professionally.
 - **[Private Mailbox Rentals](/home-business/mailbox-rental):** Unlike a standard PO Box, our mailboxes provide a real street address. This is a game-changer for Leroy's home-based businesses that need a professional presence and secure [package receiving](/pack-ship/package-receiving).
-- **[Printing & Copying](/copy-print):** High-quality color and black-and-white services for community flyers, project plans, and important documents.
+- **[Printing & Copying](/copy-print):** High-quality color and black-and-white services for [community flyers](/copy-print/flyers-brochures), project plans, and [important documents](/copy-print/document-printing).
 
 ## Conclusion: Shipping Made Simple for the Leroy Community
 

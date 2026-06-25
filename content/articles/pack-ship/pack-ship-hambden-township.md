@@ -32,7 +32,7 @@ However, just because Chardon is the default doesn't always mean it's the most c
 
 For most Hambden residents, "going to town" means heading west into [Chardon](/service-area/chardon). Once there, you have a standard array of shipping providers:
 
-- **[USPS](/pack-ship/usps-services) Chardon Post Office:** A reliable stop for standard mail and flat-rate boxes, located right in the center of activity on Center Street.
+- **[USPS](/pack-ship/usps-services) Chardon Post Office:** A reliable stop for standard mail, flat-rate boxes, and [postage stamps](/pack-ship/postage-stamps), located right in the center of activity on Center Street.
 - **Authorized Shipping Outlets:** Locations like Shetler Office Solutions offer [UPS](/pack-ship/ups-authorized-shipper-outlet) services, providing a good alternative to the standalone UPS centers found in larger cities.
 - **[FedEx](/pack-ship/fedex-shipping) Drop-Offs:** Several locations, including Dollar General stores, accept pre-labeled [FedEx](/pack-ship/fedex-shipping) packages, which is convenient for quick e-commerce returns.
 
@@ -56,7 +56,7 @@ Located just a short drive away on Fredle Drive in [Concord Township](/service-a
 
 Living on a larger property in Hambden often means having a long driveway. While beautiful, this can make package delivery tricky. Couriers might leave packages near the road where they are vulnerable to weather or "porch pirates."
 
-Renting a [private mailbox](/home-business/mailbox-rental) at Mailbox Plus gives you a secure, real street address to receive all your packages. Use it for your home business or personal shopping, and never worry about a soggy box sitting at the end of your driveway again. We'll sign for your packages and keep them safe until you're ready to pick them up. Plus, we offer convenient [Notary](/home-business/notary-services) services and easy [Amazon returns](/amazon-returns) processing.
+Renting a [private mailbox](/home-business/mailbox-rental) at Mailbox Plus gives you a secure, real street address to [receive all your packages](/pack-ship/package-receiving). Use it for your home business or personal shopping, and never worry about a soggy box sitting at the end of your driveway again. We'll sign for your packages and keep them safe until you're ready to pick them up. Plus, we offer convenient [Notary](/home-business/notary-services) services, [document scanning](/home-business/document-scanning), and easy [Amazon returns](/amazon-returns) processing.
 
 ## Conclusion
 

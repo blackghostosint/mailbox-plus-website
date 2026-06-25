@@ -52,7 +52,7 @@ You should consider a full-service shipping center if:
 
 - **You need [professional packing](/pack-ship/professional-packing):** Ensuring your items arrive safely requires the right materials and expertise.
 - **You want to compare carriers:** Don't get stuck with just one option. Comparing rates between [FedEx](/pack-ship/fedex-shipping), [UPS](/pack-ship/ups-authorized-shipper-outlet), [USPS](/pack-ship/usps-services), and [DHL](/pack-ship/dhl-express) can save you money.
-- **You have specialty items:** Fragile electronics, family heirlooms, or large items require specialized handling that retail drop-off points can't provide.
+- **You have specialty items:** Fragile electronics, family heirlooms, or large items require specialized handling and proper [insurance coverage](/pack-ship/insurance) that retail drop-off points can't provide.
 
 ## Mailbox Plus: Your Local Full-Service Solution
 
@@ -66,7 +66,7 @@ At Mailbox Plus, you can benefit from:
 
 ## Specialty Services for Aquilla Residents
 
-Beyond standard shipping, Mailbox Plus serves as a vital hub for local residents. If you're managing an online business or just need a secure place for your deliveries, our private mailbox rentals offer a real street address—not just a P.O. Box.
+Beyond standard shipping, Mailbox Plus serves as a vital hub for local residents. If you're managing an online business or just need a secure place for your deliveries or a [package receiving](/pack-ship/package-receiving) service, our [private mailbox rentals](/home-business/mailbox-rental) (and [digital mailbox](/home-business/digital-mailbox-rental) options) offer a real street address—not just a P.O. Box.
 
 We also specialize in handling [Amazon returns](/amazon-returns). Instead of wrestling with labels and packaging at home, you can bring your returns to us and let our staff handle the rest, ensuring your refund is processed as quickly as possible.
 

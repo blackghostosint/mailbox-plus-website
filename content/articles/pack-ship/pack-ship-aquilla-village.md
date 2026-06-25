@@ -67,7 +67,7 @@ When you visit Mailbox Plus, you get:
 
 Mailbox Plus is more than just a place to send boxes. We serve as a vital commercial hub for Aquilla Village residents who need professional services close to home.
 
-Need a document notarized? Looking for high-quality [Printing & Copying](/copy-print) or document scanning? Our team is ready to help with a level of personal service that corporate retail points simply can't match. We also offer [Private Mailbox Rentals](/home-business/mailbox-rental) with a real street address, providing a secure way to receive all your deliveries—even those that require a signature. Plus, we make [Amazon returns](/amazon-returns) hassle-free.
+Need a document notarized, [faxed](/home-business/fax-services), or scanned? Looking for high-quality [Printing & Copying](/copy-print) or [document scanning](/home-business/document-scanning)? Our team is ready to help with a level of personal service that corporate retail points simply can't match. We also offer [Private Mailbox Rentals](/home-business/mailbox-rental) with a real street address, providing a secure way to receive all your deliveries—even those that require a signature. Plus, we make [Amazon returns](/pack-ship/amazon-returns) hassle-free.
 
 ## Conclusion
 

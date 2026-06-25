@@ -30,7 +30,7 @@ author: 'Mailbox Plus Team'
 
 Life in Grand River moves at its own pace—between the scenic river views, the bustling marinas, and the close-knit local community, your time is valuable. But when you need to ship a delicate package or handle business returns, the last thing you want to do is drive all over Lake County searching for the best rates.
 
-While we all love our local post office for everyday mail and stamps, sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Grand River.
+While we all love our local post office for everyday mail and [postage stamps](/pack-ship/postage-stamps), sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Grand River.
 
 ![Professional pack and ship services for Grand River residents at Mailbox Plus](articles/pack-ship/pack-ship-grand-river-featured.webp)
 
@@ -55,11 +55,12 @@ Professional packing is more than just tape and a box. At Mailbox Plus, we use h
 
 ## Business-Grade Services for Waterfront Entrepreneurs
 
-Grand River is a hub for local artisans and marine businesses. We support our local entrepreneurial community with more than just shipping:
+Grand River is a hub for local artisans and marine businesses. We support our local entrepreneurial community with more than just shipping — including [package receiving](/pack-ship/package-receiving) for your business deliveries when you can't be at the dock:
 
 - **[Notary Public](/home-business/notary-services):** Fast, professional notarization for contracts, legal forms, and affidavits.
 - **[Private Mailbox Rentals](/home-business/mailbox-rental):** Get a real street address for your business, improving your professional image and keeping your home address private.
 - **[Printing & Copying](/copy-print):** High-quality color and black-and-white services for flyers, project plans, and business documents.
+- **[Document Scanning](/home-business/document-scanning):** Convert paper records into organized digital files — perfect for boat registrations, insurance documents, and business paperwork.
 
 ## Your 10-Minute Solution to Shipping Stress
 

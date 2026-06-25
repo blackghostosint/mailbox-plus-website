@@ -57,11 +57,13 @@ While you're here, you can also stock up on [packaging supplies](/pack-ship/pack
 - **Bubble wrap** and packing peanuts
 - **Heavy-duty shipping tape**
 
+Need [postage stamps](/pack-ship/postage-stamps) for your letters and bills? We carry them too — no trip to the post office required.
+
 ## Support Local while Shipping Global
 
 When you ship with Mailbox Plus, you're not just supporting a business; you're supporting your community. We are locally owned and operated right here in Concord Township.
 
-Unlike the big franchises in [Mentor](/service-area/mentor), we pride ourselves on providing personalized attention. We know our regulars by name, and we take the time to answer your questions and offer expert advice. We are your neighbors, and we're committed to providing the kind of service that makes you glad you stayed local.
+Unlike the big franchises in [Mentor](/service-area/mentor), we pride ourselves on providing personalized attention. We know our regulars by name, and we take the time to answer your questions and offer expert advice. We are your neighbors, and we're committed to providing the kind of service that makes you glad you stayed local. We also offer convenient [package drop-offs](/pack-ship/package-drop-offs) for return labels from any carrier, so you can skip the corporate store lines entirely.
 
 ## Conveniently Located in Concord Township
 
@@ -74,4 +76,4 @@ We are open:
 
 Stop by today and let us handle your package. Whether you're a home-based business owner managing daily shipments or a resident sending a gift to family across the country, we're here to help.
 
-**Need more than just shipping?** Ask us about our [Notary Public services](/home-business/notary-services) or our secure [Private Mailbox Rentals](/home-business/mailbox-rental)!
+**Need more than just shipping?** Ask us about our [Notary Public services](/home-business/notary-services), [document printing](/copy-print/document-printing), or our secure [Private Mailbox Rentals](/home-business/mailbox-rental)!

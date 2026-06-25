@@ -41,7 +41,7 @@ For most residents, the first few names that come to mind are the big three: [UP
 
 - **[UPS](/pack-ship/ups-authorized-shipper-outlet) Authorized Shipping Outlets:** Locations like Shetler Office Solutions on Center Street offer a full range of UPS services. These are great for standard ground or air shipments where you want the reliability of the UPS network.
 - **[FedEx](/pack-ship/fedex-shipping) Office:** The FedEx Office in Chardon provides dedicated packing services and a variety of shipping speeds. It's a solid choice for business-critical documents and larger parcels.
-- **[USPS](/pack-ship/usps-services) Chardon Post Office:** Located right in the heart of town, the Post Office is the go-to for standard mail, large envelopes, and cost-effective lightweight packages.
+- **[USPS](/pack-ship/usps-services) Chardon Post Office:** Located right in the heart of town, the Post Office is the go-to for standard mail, large envelopes, [postage stamps](/pack-ship/postage-stamps), and cost-effective lightweight packages.
 
 ## Professional Packing Services for Chardon Township Residents
 
@@ -66,9 +66,9 @@ At Mailbox Plus, you can find:
 To get the most out of your shipping experience, keep these simple tips in mind:
 
 1.  **Compare Before You Send:** While one carrier might be cheapest for a small box to Cleveland, another might have a better rate for a heavy parcel heading to the West Coast.
-2.  **Declare Your Value:** Especially for important items, make sure to declare the correct value for insurance purposes.
+2.  **Declare Your Value:** Especially for important items, make sure to declare the correct value for [insurance](/pack-ship/insurance) purposes.
 3.  **Check the Hours:** Small business outlets often have different hours than the main Post Office. For instance, [Mailbox Plus](/contact-us) is open until 6:00 PM on weekdays and until 2:00 PM on Saturdays, providing a convenient window for after-work errands.
-4.  **Consider Additional Services:** Need a [Notary Public](/home-business/notary-services) or help with [Amazon returns](/amazon-returns)? Full-service centers like Mailbox Plus handle it all.
+4.  **Consider Additional Services:** Need a [Notary Public](/home-business/notary-services), [document printing](/copy-print/document-printing), or help with [Amazon returns](/amazon-returns)? Full-service centers like Mailbox Plus handle it all.
 
 ## Conclusion
 
