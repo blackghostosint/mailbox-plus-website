@@ -36,7 +36,7 @@ export function AboutUs() {
 
       <AutoBreadcrumbs />
 
-      {/* ====================== HERO SECTION (V2 STANDARD) ======================= */}
+      {/* ====================== HERO SECTION (Navy Gradient) ======================= */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
@@ -61,26 +61,30 @@ export function AboutUs() {
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
             alt="Private mailbox wall at Mailbox Plus"
-            className="rounded-lg shadow-lg w-full aspect-video object-cover border border-white/50"
+            className="rounded-lg shadow-lg w-full aspect-video object-cover border border-[var(--color-border)]"
           />
         </div>
 
-        <div className="bg-white/70 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-white/50 shadow-lg animate-fade-in-up [animation-delay:200ms] opacity-0">
+        <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-[var(--color-border)] shadow-md animate-fade-in-up [animation-delay:200ms] opacity-0">
           <h2 className="text-3xl font-bold mb-6 text-[var(--color-text-primary)]">Our Story</h2>
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
-            Founded in <strong className="text-[var(--color-primary)]">2024</strong> and officially
-            opening on <strong className="text-[var(--color-primary)]">May 5, 2025</strong>, Mailbox
-            Plus is a locally owned and operated business located in the heart of Concord Township,
-            Ohio. We opened our doors to provide a friendly, reliable, and convenient alternative to
+            Founded in <strong className="text-[var(--color-accent-warm)]">2024</strong> and
+            officially opening on{' '}
+            <strong className="text-[var(--color-accent-warm)]">May 5, 2025</strong>, Mailbox Plus
+            is a locally owned and operated business located in the heart of Concord Township, Ohio.
+            We opened our doors to provide a friendly, reliable, and convenient alternative to
             driving to Mentor, Willoughby, or Painesville for shipping and business needs.
           </p>
 
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
-            Our mission is simple: offer honest, personal, neighborly service that you won’t find at
-            big-box stores or national shipping chains. We combine small-town hospitality with
-            big-city capabilities — giving you access to
-            <strong className="text-[var(--color-primary)]"> FedEx, UPS, USPS, and DHL</strong> all
-            in one location.
+            Our mission is simple: offer honest, personal, neighborly service that you won&apos;t
+            find at big-box stores or national shipping chains. We combine small-town hospitality
+            with big-city capabilities — giving you access to
+            <strong className="text-[var(--color-accent-warm)]">
+              {' '}
+              FedEx, UPS, USPS, and DHL
+            </strong>{' '}
+            all in one location.
           </p>
 
           <p className="text-[var(--color-text-secondary)] leading-relaxed mb-8 text-lg">
@@ -89,7 +93,7 @@ export function AboutUs() {
           </p>
 
           <InternalLink to="/contact-us">
-            <Button size="lg" className="shadow-lg">
+            <Button variant="primary" size="lg" className="shadow-lg">
               Visit Us Today <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </InternalLink>
@@ -123,7 +127,7 @@ export function AboutUs() {
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* Frank */}
-          <div className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300 animate-fade-in-up [animation-delay:200ms] opacity-0">
+          <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 rounded-lg shadow-md border border-[var(--color-border)] text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-fade-in-up [animation-delay:200ms] opacity-0">
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
                 src={getServiceImageUrl('/images/frank.webp')}
@@ -132,7 +136,9 @@ export function AboutUs() {
               />
             </div>
             <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">Frank Schwarz</h3>
-            <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">Store Manager</p>
+            <p className="text-[var(--color-accent-warm)] font-semibold text-lg mb-4">
+              Store Manager
+            </p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
               Frank brings years of experience in customer service, operations, and business
               management, operations, logistics, and shipping. Known for his friendly approach and
@@ -143,14 +149,17 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="link" className="text-[var(--color-primary)]">
+              <Button
+                variant="link"
+                className="text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)]"
+              >
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
           </div>
 
           {/* Diana */}
-          <div className="bg-white/70 backdrop-blur-xl p-8 rounded-lg shadow-lg border border-white/50 text-center hover:translate-y-[-4px] transition-all duration-300 animate-fade-in-up [animation-delay:300ms] opacity-0">
+          <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 rounded-lg shadow-md border border-[var(--color-border)] text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 animate-fade-in-up [animation-delay:300ms] opacity-0">
             <div className="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
               <SmartImage
                 src={getServiceImageUrl('/images/diana.webp')}
@@ -161,7 +170,7 @@ export function AboutUs() {
             <h3 className="text-2xl font-bold text-[var(--color-text-primary)]">
               Diana Goebelt Schwarz
             </h3>
-            <p className="text-[var(--color-primary)] font-semibold text-lg mb-4">Owner</p>
+            <p className="text-[var(--color-accent-warm)] font-semibold text-lg mb-4">Owner</p>
             <p className="text-[var(--color-text-secondary)] leading-relaxed mb-6">
               With a strong background in operations, logistics, and customer care, Diana leads
               Mailbox Plus with a commitment to excellence and community-minded service. Her
@@ -173,7 +182,10 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button variant="link" className="text-[var(--color-primary)]">
+              <Button
+                variant="link"
+                className="text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)]"
+              >
                 View LinkedIn <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </a>
@@ -231,11 +243,11 @@ export function AboutUs() {
             ].map((service, i) => (
               <div
                 key={service.title}
-                className="group p-6 bg-white rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-blue)] transition-all duration-300 hover:translate-y-[-4px] animate-fade-in-up opacity-0"
+                className="group p-6 bg-[var(--color-bg-secondary)] rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-strong)] transition-all duration-300 hover:-translate-y-1 animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${i * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-primary)] transition-colors duration-300">
-                  <service.icon className="w-6 h-6 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300" />
+                <div className="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-accent-warm)] transition-colors duration-300">
+                  <service.icon className="w-6 h-6 text-[var(--color-accent-warm)] group-hover:text-white transition-colors duration-300" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-[var(--color-text-primary)]">
                   {service.title}
@@ -243,7 +255,7 @@ export function AboutUs() {
                 <p className="text-[var(--color-text-secondary)] mb-4">{service.desc}</p>
                 <InternalLink
                   to={service.link}
-                  className="inline-flex items-center text-[var(--color-primary)] font-semibold hover:text-[var(--color-primary-dark)]"
+                  className="inline-flex items-center text-[var(--color-accent-warm)] font-semibold hover:text-[var(--color-accent-warm-light)]"
                 >
                   Learn More <ArrowRight className="w-4 h-4 ml-1" />
                 </InternalLink>
@@ -254,7 +266,7 @@ export function AboutUs() {
       </section>
 
       {/* -------------------------------- */}
-      {/* CTA */}
+      {/* CTA (Navy Gradient) */}
       {/* -------------------------------- */}
       <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
         <div className="max-w-4xl mx-auto px-4">
@@ -267,11 +279,7 @@ export function AboutUs() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <InternalLink to="/contact-us">
-              <Button
-                size="lg"
-                variant="secondary"
-                className="font-bold shadow-lg border-none min-h-12 px-8"
-              >
+              <Button variant="gold" size="lg" className="font-bold shadow-lg min-h-12 px-8">
                 Get in Touch
               </Button>
             </InternalLink>
@@ -280,11 +288,7 @@ export function AboutUs() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Button
-                size="lg"
-                variant="ghost"
-                className="text-white border border-white/40 hover:bg-white/10"
-              >
+              <Button variant="gold-outline" size="lg" className="min-h-12">
                 <MapPin className="w-5 h-5 mr-2" />
                 Get Directions
               </Button>
