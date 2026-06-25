@@ -124,7 +124,7 @@ export const Tracking: React.FC = () => {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: toJsonLd(jsonLd) }} />
       )}
 
-      {/* Hero Section */}
+      {/* Hero Section - Navy Gradient */}
       <section
         ref={heroRef}
         className={`relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -146,14 +146,14 @@ export const Tracking: React.FC = () => {
 
       {/* ====================== MAIN CONTENT ======================= */}
       <main className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
-        {/* Tracking Form Glass Panel */}
+        {/* Tracking Form - Warm Panel */}
         <div
           ref={formRef}
           className={`max-w-3xl mx-auto ${formInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          <div className="relative rounded-[28px] bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg p-8 md:p-10">
+          <div className="relative rounded-[28px] bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md p-8 md:p-10">
             <div className="flex items-center mb-8">
-              <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-primary)]">
+              <div className="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-xl flex items-center justify-center mr-4 shadow-sm text-[var(--color-accent-warm)]">
                 <Search className="w-6 h-6" />
               </div>
               <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
@@ -188,7 +188,7 @@ export const Tracking: React.FC = () => {
                       if (detected) setSelectedCarrier(detected);
                     }}
                     aria-label="Tracking number"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm text-lg"
                     placeholder="e.g., 1Z999AA1234567890"
                   />
                 </div>
@@ -206,7 +206,7 @@ export const Tracking: React.FC = () => {
                       id="carrier"
                       value={selectedCarrier}
                       onChange={(e) => setSelectedCarrier(e.target.value)}
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm text-lg appearance-none cursor-pointer"
                     >
                       {carriers.map((carrier) => (
                         <option key={carrier.name} value={carrier.name}>
@@ -228,12 +228,13 @@ export const Tracking: React.FC = () => {
                 </div>
               </div>
 
-              {/* Submit Button */}
+              {/* Submit Button - Terracotta */}
               <div className="pt-2">
                 <Button
                   type="submit"
+                  variant="primary"
                   size="lg"
-                  className="w-full md:w-auto px-8 py-4 bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-deep)] shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all rounded-xl font-bold flex items-center justify-center"
+                  className="w-full md:w-auto px-8 shadow-lg hover:shadow-xl transition-all rounded-xl font-bold flex items-center justify-center"
                 >
                   Track Package
                   <ExternalLink className="w-5 h-5 ml-2" />
@@ -243,7 +244,7 @@ export const Tracking: React.FC = () => {
           </div>
         </div>
 
-        {/* Tracking Tips Grid */}
+        {/* Tracking Tips Grid - Warm Cards */}
         <section
           ref={tipsRef}
           className={`max-w-6xl mx-auto ${tipsInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -255,10 +256,10 @@ export const Tracking: React.FC = () => {
             {trackingTips.map((tip, i) => (
               <div
                 key={tip.title}
-                className="bg-white/60 backdrop-blur-md rounded-[24px] p-6 border border-white/50 shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 group animate-fade-in-up opacity-0"
+                className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-md rounded-[24px] p-6 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1 group animate-fade-in-up opacity-0"
                 style={{ animationDelay: `${i * 100 + 100}ms` }}
               >
-                <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)]/80 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-primary)] shadow-inner">
+                <div className="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-2xl flex items-center justify-center mb-4 text-[var(--color-accent-warm)] shadow-inner">
                   <tip.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-bold text-[var(--color-text-primary)] mb-2">
@@ -272,7 +273,7 @@ export const Tracking: React.FC = () => {
           </div>
         </section>
 
-        {/* Help Section - Glass Gradient Panel */}
+        {/* Help Section - Navy Gradient with Gold CTA */}
         <section
           ref={helpRef}
           className={`max-w-5xl mx-auto ${helpInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -293,19 +294,12 @@ export const Tracking: React.FC = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <InternalLink to="/contact-us">
-                  <Button
-                    size="lg"
-                    className="bg-white text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)] border-none font-bold px-8 shadow-lg"
-                  >
+                  <Button variant="gold" size="lg" className="font-bold px-8 shadow-lg">
                     Contact Support
                   </Button>
                 </InternalLink>
                 <a href={`tel:${siteConfig.contact.phone}`}>
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="text-white hover:text-white hover:bg-white/10 border border-white/30"
-                  >
+                  <Button size="lg" variant="gold-outline" className="min-h-12">
                     Call {siteConfig.contact.phone}
                   </Button>
                 </a>
