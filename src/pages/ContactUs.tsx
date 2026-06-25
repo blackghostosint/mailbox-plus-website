@@ -123,7 +123,7 @@ export const ContactUs: React.FC = () => {
 
       <AutoBreadcrumbs />
 
-      {/* Hero Section */}
+      {/* Hero Section - Navy Gradient */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6">
           <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
@@ -141,15 +141,15 @@ export const ContactUs: React.FC = () => {
 
       {/* ====================== MAIN CONTENT ======================= */}
       <div className="relative z-20 -mt-20 container mx-auto px-4 pb-20 space-y-20">
-        {/* Contact Info Cards (Glass) */}
+        {/* Contact Info Cards (Warm) */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {contactInfo.map((info, index) => (
             <div
               key={info.title}
-              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg hover:bg-white/90 transition-all duration-300 animate-fade-in-up opacity-0"
+              className="group relative flex flex-col items-center p-8 text-center rounded-lg bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md hover:shadow-lg transition-all duration-300 animate-fade-in-up opacity-0"
               style={{ animationDelay: `${index * 100}ms` }}
             >
-              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mb-6 text-[var(--color-primary)] shadow-inner">
+              <div className="w-16 h-16 bg-[var(--color-accent-warm)]/10 rounded-2xl flex items-center justify-center mb-6 text-[var(--color-accent-warm)] shadow-inner">
                 <info.icon className="w-8 h-8" />
               </div>
               <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-2">
@@ -165,7 +165,7 @@ export const ContactUs: React.FC = () => {
               >
                 <Button
                   variant="link"
-                  className="text-[var(--color-primary)] font-bold text-base hover:text-[var(--color-primary-dark)] p-0"
+                  className="text-[var(--color-accent-warm)] font-bold text-base hover:text-[var(--color-accent-warm-light)] p-0"
                 >
                   {info.actionText} →
                 </Button>
@@ -176,10 +176,9 @@ export const ContactUs: React.FC = () => {
 
         {/* Form and Map Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          {/* Contact Form GLASS PANEL */}
+          {/* Contact Form - Warm Panel */}
           <section className="relative animate-fade-in-up">
-            {/* Glass container */}
-            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-white/75 backdrop-blur-xl border border-white/80 shadow-lg h-full">
+            <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md h-full">
               <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
                 Send Us a Message
               </h2>
@@ -205,7 +204,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       aria-label="Full name"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your name"
                     />
                   </div>
@@ -224,7 +223,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.email}
                       onChange={handleChange}
                       aria-label="Email address"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm"
                       placeholder="Enter your email"
                     />
                   </div>
@@ -245,7 +244,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       aria-label="Phone number"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm"
                       placeholder="(440) 555-0123"
                     />
                   </div>
@@ -262,7 +261,7 @@ export const ContactUs: React.FC = () => {
                       value={formData.service}
                       onChange={handleChange}
                       aria-label="Service interest"
-                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm appearance-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm appearance-none"
                     >
                       <option value="">Select a service</option>
                       <option value="shipping">Pack & Ship</option>
@@ -289,7 +288,7 @@ export const ContactUs: React.FC = () => {
                     value={formData.message}
                     onChange={handleChange}
                     aria-label="Your message"
-                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-primary)] focus:ring-2 focus:ring-[var(--color-border-blue)] focus:outline-none transition-all shadow-sm resize-none"
+                    className="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm resize-none"
                     placeholder="How can we help you?"
                   />
                 </div>
@@ -315,8 +314,9 @@ export const ContactUs: React.FC = () => {
 
                 <Button
                   type="submit"
+                  variant="primary"
                   size="lg"
-                  className="w-full group shadow-md hover:shadow-lg bg-[var(--color-primary)] border-none text-white"
+                  className="w-full group shadow-md hover:shadow-lg"
                 >
                   <Send className="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" />
                   Send Message
@@ -327,10 +327,10 @@ export const ContactUs: React.FC = () => {
 
           {/* Sidebar (Hours + Map) */}
           <div className="space-y-8 animate-fade-in-up">
-            {/* Hours Card */}
-            <div className="rounded-[28px] p-8 bg-white/60 backdrop-blur border border-white/60 shadow-lg">
+            {/* Hours Card - Warm */}
+            <div className="rounded-[28px] p-8 bg-[var(--color-bg-secondary)]/80 backdrop-blur border border-[var(--color-border)] shadow-md">
               <div className="flex items-center mb-6">
-                <div className="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center mr-4 text-[var(--color-primary)]">
+                <div className="w-10 h-10 rounded-full bg-[var(--color-accent-warm)]/10 flex items-center justify-center mr-4 text-[var(--color-accent-warm)]">
                   <Clock className="w-5 h-5" />
                 </div>
                 <h3 className="text-xl font-bold text-[var(--color-text-primary)]">Store Hours</h3>
@@ -339,7 +339,7 @@ export const ContactUs: React.FC = () => {
                 {hours.map((schedule) => (
                   <div
                     key={schedule.day}
-                    className="flex justify-between items-center border-b border-[var(--color-border)]/60 pb-2 last:border-0 last:pb-0"
+                    className="flex justify-between items-center border-b border-[var(--color-border)] pb-2 last:border-0 last:pb-0"
                   >
                     <span className="text-[var(--color-text-secondary)] font-medium">
                       {schedule.day}
@@ -353,7 +353,7 @@ export const ContactUs: React.FC = () => {
             </div>
 
             {/* Map Container */}
-            <div className="bg-[var(--color-bg-secondary)] rounded-[28px] overflow-hidden h-96 w-full shadow-lg border border-white/50">
+            <div className="bg-[var(--color-bg-secondary)] rounded-[28px] overflow-hidden h-96 w-full shadow-md border border-[var(--color-border)]">
               <iframe
                 src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_KEY}&q=Mailbox+Plus+Concord+Township+OH`}
                 width="100%"
@@ -366,10 +366,12 @@ export const ContactUs: React.FC = () => {
               />
             </div>
 
-            {/* Google Reviews Badge */}
-            <div className="bg-white/90 border border-white/50 rounded-2xl p-6 shadow-md flex flex-col items-center text-center space-y-4">
+            {/* Google Reviews Badge - Warm */}
+            <div className="bg-[var(--color-bg-secondary)]/70 border border-[var(--color-border)] rounded-2xl p-6 shadow-md flex flex-col items-center text-center space-y-4">
               <div className="flex items-center gap-2">
-                <div className="text-[var(--color-accent)] text-2xl font-bold flex">★ ★ ★ ★ ★</div>
+                <div className="text-[var(--color-accent-gold)] text-2xl font-bold flex">
+                  ★ ★ ★ ★ ★
+                </div>
                 <span className="text-lg font-bold text-[var(--color-text-primary)]">
                   {siteConfig.aggregateRating?.ratingValue || 5.0} / 5
                 </span>
@@ -386,14 +388,14 @@ export const ContactUs: React.FC = () => {
                 href="https://g.page/r/CYyNUX4atT3PEBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-block bg-[var(--color-primary)] text-white text-sm font-bold py-3 px-6 rounded-xl hover:bg-[var(--color-primary-dark)] active:scale-95 transition-all shadow-sm"
+                className="w-full inline-block bg-[var(--color-accent-warm)] text-white text-sm font-bold py-3 px-6 rounded-xl hover:bg-[var(--color-accent-warm-light)] active:scale-95 transition-all shadow-sm"
               >
                 Write a Google Review
               </a>
             </div>
 
-            {/* Directions Tip */}
-            <div className="bg-white/80 border border-white/50 rounded-2xl p-6 text-center">
+            {/* Directions Tip - Warm */}
+            <div className="bg-[var(--color-bg-secondary)]/70 border border-[var(--color-border)] rounded-2xl p-6 text-center">
               <p className="text-sm text-[var(--color-text-secondary)] font-medium">
                 📍 We are located in the Gristmill Village plaza, next to Pub Frato and close to
                 I-90.
@@ -402,9 +404,9 @@ export const ContactUs: React.FC = () => {
           </div>
         </div>
 
-        {/* Our Services */}
+        {/* Our Services - Warm */}
         <section className="animate-fade-in-up">
-          <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-lg bg-white/75 backdrop-blur-xl border border-white/80 text-center">
+          <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] text-center">
             <h2 className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6 font-heading">
               Our Services
             </h2>
@@ -414,37 +416,37 @@ export const ContactUs: React.FC = () => {
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="/pack-ship"
-                className="px-6 py-3 rounded-xl bg-[var(--color-primary)] text-white font-semibold hover:bg-[var(--color-primary-dark)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-accent-warm)] text-white font-semibold hover:bg-[var(--color-accent-warm-light)] transition-all"
               >
                 📦 Pack &amp; Ship
               </a>
               <a
                 href="/copy-print"
-                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-accent-warm)]/10 transition-all"
               >
                 🖨️ Copy &amp; Print
               </a>
               <a
                 href="/home-business/mailbox-rental"
-                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-accent-warm)]/10 transition-all"
               >
                 ✉️ Mailbox Rental
               </a>
               <a
                 href="/home-business/notary-services"
-                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-accent-warm)]/10 transition-all"
               >
                 📋 Notary Services
               </a>
               <a
                 href="/pack-ship/package-drop-offs"
-                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-accent-warm)]/10 transition-all"
               >
                 📬 Drop Off a Package
               </a>
               <a
                 href="/tracking"
-                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-bg-blue-tint)] transition-all"
+                className="px-6 py-3 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] text-[var(--color-text-primary)] font-semibold hover:bg-[var(--color-accent-warm)]/10 transition-all"
               >
                 🔍 Track a Shipment
               </a>
