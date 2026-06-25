@@ -88,7 +88,7 @@ export const Header: React.FC = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors"
+                  className="text-[15px] font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors"
                 >
                   {item.name}
                 </a>
@@ -96,7 +96,7 @@ export const Header: React.FC = () => {
                 <InternalLink
                   key={item.name}
                   to={item.href}
-                  className={`text-sm font-medium transition-colors ${
+                  className={`text-[15px] font-medium transition-colors ${
                     isActive(item.href)
                       ? 'text-[var(--color-accent-gold)] underline underline-offset-4 decoration-[var(--color-accent-gold)]'
                       : 'text-white/80 hover:text-[var(--color-accent-gold)]'

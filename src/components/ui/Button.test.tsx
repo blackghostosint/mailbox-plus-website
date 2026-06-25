@@ -12,6 +12,7 @@ describe('Button', () => {
     const { container } = render(<Button variant="primary">Test</Button>);
     const button = container.firstChild as HTMLElement;
     expect(button.className).toContain('bg-[var(--color-accent-warm)]');
+    expect(button.className).toContain('text-[15px]');
   });
 
   it('applies size classes', () => {
