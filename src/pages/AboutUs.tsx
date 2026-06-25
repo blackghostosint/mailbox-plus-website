@@ -3,6 +3,7 @@ import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 import { SmartImage } from '../components/SmartImage';
 import { InternalLink } from '../components/ui/InternalLink';
 import { Button } from '../components/ui';
+import { useInView } from '../hooks/useInView';
 import ArrowRight from '~icons/lucide/arrow-right';
 import MapPin from '~icons/lucide/map-pin';
 import Package from '~icons/lucide/package';
@@ -26,6 +27,11 @@ export function AboutUs() {
       { name: 'About Us', url: `${siteConfig.domain}/about-us` },
     ],
   });
+
+  const [offerRef, offerInView] = useInView({ threshold: 0.1 });
+  const [teamRef, teamInView] = useInView({ threshold: 0.1 });
+  const [communityRef, communityInView] = useInView({ threshold: 0.1 });
+  const [storyRef, storyInView] = useInView({ threshold: 0.1 });
   return (
     <>
       <Meta
@@ -56,7 +62,12 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* OUR STORY */}
       {/* -------------------------------- */}
-      <section className="mt-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+      <section
+        ref={storyRef}
+        className={`mt-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center ${
+          storyInView ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="relative animate-fade-in-up">
           <SmartImage
             src={getServiceImageUrl('/images/mailboxes.webp')}
@@ -103,7 +114,12 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* COMMUNITY FOCUS */}
       {/* -------------------------------- */}
-      <section className="mt-20 bg-[var(--color-bg-secondary)] py-16">
+      <section
+        ref={communityRef}
+        className={`mt-20 bg-[var(--color-bg-secondary)] py-16 ${
+          communityInView ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="max-w-5xl mx-auto px-4 text-center">
           <h2 className="text-3xl font-semibold mb-6 animate-fade-in-up">
             Proudly Serving Concord Township & Lake County
@@ -120,7 +136,12 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* MEET OUR TEAM */}
       {/* -------------------------------- */}
-      <section className="mt-20 max-w-7xl mx-auto px-4">
+      <section
+        ref={teamRef}
+        className={`mt-20 max-w-7xl mx-auto px-4 ${
+          teamInView ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <h2 className="text-3xl font-bold text-center mb-10 text-[var(--color-text-primary)] animate-fade-in-up">
           Meet Our Team
         </h2>
@@ -196,13 +217,20 @@ export function AboutUs() {
       {/* -------------------------------- */}
       {/* SERVICES WE OFFER */}
       {/* -------------------------------- */}
-      <section className="py-20 bg-[var(--color-bg-primary)] relative z-10">
+      <section
+        ref={offerRef}
+        className={`py-20 bg-[var(--color-bg-primary)] relative z-10 ${
+          offerInView ? 'animate-fade-in-up' : 'opacity-0'
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-center mb-12 text-[var(--color-text-primary)] animate-fade-in-up">
             What We Offer
           </h2>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className={`grid sm:grid-cols-2 lg:grid-cols-3 gap-6 stagger-group ${offerInView ? 'in-view' : ''}`}
+          >
             {[
               {
                 title: 'Pack & Ship',

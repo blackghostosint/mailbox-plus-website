@@ -161,7 +161,9 @@ const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
           )}
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div
+          className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-group ${isInView ? 'in-view' : ''}`}
+        >
           {services
             .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
             .map((service, i) => (
