@@ -8,57 +8,53 @@
    Google Fonts use `display=swap` which causes layout shift when
    the web font loads and replaces the fallback font. These
    @font-face descriptors make the fallback font (system UI)
-   match the web font metrics (Poppins/Open Sans), preventing
-   text reflow during font swap.
+   match the web font metrics (DM Sans), preventing text reflow
+   during font swap.
    ------------------------------------------------------------ */
 
 @font-face {
-  font-family: 'Poppins Fallback';
+  font-family: 'DM Sans Fallback';
   src: local('system-ui');
-  size-adjust: 92.5%;
+  size-adjust: 96%;
   ascent-override: 90%;
   descent-override: 25%;
   line-gap-override: 0%;
 }
 
-@font-face {
-  font-family: 'Open Sans Fallback';
-  src: local('system-ui');
-  size-adjust: 100%;
-  ascent-override: 88%;
-  descent-override: 22%;
-  line-gap-override: 0%;
-}
-
 @layer base {
   :root {
-    /* Primary Brand — softened navy-blue */
+    /* Primary Brand — deep navy */
     --color-primary: #285a8e;
     --color-primary-dark: #1f3f63;
     --color-primary-deeper: #1a3554;
     --color-primary-deep: #162c45;
 
-    /* Secondary Accent — warm golden honey */
-    --color-accent: #f4c542;
-    --color-accent-light: #f7d46a;
-    --color-alt-accent: #ebc044;
+    /* Two-Tone Accent System */
+    /* Gold — for CTAs on navy/dark backgrounds */
+    --color-accent-gold: #f7c82a;
+    --color-accent-gold-light: #f7d46a;
+    /* Keep legacy --color-accent as alias for gold */
+    --color-accent: var(--color-accent-gold);
+    --color-accent-light: var(--color-accent-gold-light);
+    /* Warm terracotta — for CTAs on cream/light backgrounds */
+    --color-accent-warm: #a45c40;
+    --color-accent-warm-light: #b8734d;
 
-    /* Backgrounds — warm off-white */
-    --color-bg-primary: #faf8f3;
-    --color-bg-secondary: #f5f2ec;
-    --color-bg-blue-tint: #eaf4fb;
-    --color-bg-cyan-tint: #e8f6fc;
+    /* Backgrounds — warm paper */
+    --color-bg-primary: #f2ede4;
+    --color-bg-secondary: #ebe4d8;
+    --color-bg-warm-tint: #e6e0d6;
 
-    /* Text — charcoal navy + soft slate */
+    /* Text — charcoal navy + warm slate */
     --color-text-primary: #1f2933;
     --color-text-secondary: #4a5568;
     --color-text-muted: #667085;
 
-    /* Surface/Borders — gentle warm gray */
+    /* Borders — gentle warm gray */
     --color-border: #e6e0d6;
-    --color-border-blue: #c8ddee;
+    --color-border-strong: #d4c9b8;
 
-    /* Gradient Stops — softened deep navy */
+    /* Gradient Stops — deep navy */
     --color-gradient-start: #285a8e;
     --color-gradient-mid: #1f3f63;
     --color-gradient-end: #162c45;
@@ -69,16 +65,24 @@
     --color-shadow: #1f2933;
 
     /* Shadow tokens */
-    --shadow-sm: 0 10px 30px rgba(var(--color-shadow), 0.04);
-    --shadow-md: 0 10px 30px rgba(var(--color-shadow), 0.08);
-    --shadow-lg: 0 18px 45px rgba(var(--color-overlay), 0.1);
-    --shadow-xl: 0 26px 65px rgba(var(--color-overlay), 0.25);
+    --shadow-sm: 0 10px 30px rgba(31, 41, 51, 0.04);
+    --shadow-md: 0 10px 30px rgba(31, 41, 51, 0.08);
+    --shadow-lg: 0 18px 45px rgba(31, 41, 51, 0.1);
+    --shadow-xl: 0 26px 65px rgba(31, 41, 51, 0.25);
 
     /* Surface tint tokens */
     --surface-subtle: rgba(255, 255, 255, 0.5);
     --surface-medium: rgba(255, 255, 255, 0.6);
     --surface-strong: rgba(255, 255, 255, 0.7);
     --surface-heavy: rgba(255, 255, 255, 0.8);
+
+    /* Graceful aliases for old tokens — removed tokens map to warm equivalents */
+    /* These exist so existing components don't break during phased migration.
+       Each phase replaces these with proper warm tokens as pages are updated. */
+    --color-bg-blue-tint: var(--color-bg-warm-tint);
+    --color-bg-cyan-tint: var(--color-bg-warm-tint);
+    --color-border-blue: var(--color-border-strong);
+    --color-alt-accent: var(--color-accent-warm);
   }
 }
 
@@ -114,6 +118,27 @@
     }
   }
 
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(247, 200, 42, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(247, 200, 42, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(247, 200, 42, 0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
   }
@@ -126,10 +151,21 @@
     animation: fade-out-down 0.8s ease-out forwards;
   }
 
+  .animate-cta-pulse {
+    animation: cta-pulse 1.5s ease-out;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, #ebe4d8 25%, #e6e0d6 50%, #ebe4d8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .animate-fade-in,
     .animate-fade-in-up,
-    .animate-fade-out-down {
+    .animate-fade-out-down,
+    .animate-cta-pulse {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;

@@ -18,40 +18,42 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Open Sans', 'Open Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
-        heading: ['Poppins', 'Poppins Fallback', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
+        heading: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
       },
       colors: {
-        /* Primary Brand */
+        /* Primary Brand — deep navy */
         primary: {
           DEFAULT: 'var(--color-primary)',
           dark: 'var(--color-primary-dark)',
           deeper: 'var(--color-primary-deeper)',
           deep: 'var(--color-primary-deep)',
         },
-        /* Secondary Accent */
+        /* Two-Tone Accent System */
         accent: {
-          DEFAULT: 'var(--color-accent)',
-          light: 'var(--color-accent-light)',
-          alt: 'var(--color-alt-accent)',
+          DEFAULT: 'var(--color-accent-gold)',
+          light: 'var(--color-accent-gold-light)',
+          gold: 'var(--color-accent-gold)',
+          goldLight: 'var(--color-accent-gold-light)',
+          warm: 'var(--color-accent-warm)',
+          warmLight: 'var(--color-accent-warm-light)',
         },
-        /* Backgrounds */
+        /* Backgrounds — warm paper */
         bg: {
           primary: 'var(--color-bg-primary)',
           secondary: 'var(--color-bg-secondary)',
-          'blue-tint': 'var(--color-bg-blue-tint)',
-          'cyan-tint': 'var(--color-bg-cyan-tint)',
+          'warm-tint': 'var(--color-bg-warm-tint)',
         },
-        /* Text */
+        /* Text — charcoal navy + warm slate */
         text: {
           primary: 'var(--color-text-primary)',
           secondary: 'var(--color-text-secondary)',
           muted: 'var(--color-text-muted)',
         },
-        /* Surface/Borders */
+        /* Surface/Borders — gentle warm gray */
         border: {
           DEFAULT: 'var(--color-border)',
-          blue: 'var(--color-border-blue)',
+          strong: 'var(--color-border-strong)',
         },
       },
     },

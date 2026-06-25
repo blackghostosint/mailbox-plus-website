@@ -3,16 +3,23 @@ import React from 'react';
 type BaseButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export interface ButtonProps extends BaseButtonProps {
-  variant?: 'primary' | 'secondary' | 'link' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'gold' | 'gold-outline' | 'ghost' | 'link';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
   as?: 'button' | 'div' | 'span' | 'a';
 }
 
 /**
- * Performance-optimized Button component.
- * Uses high-performance CSS transitions instead of JS-based animations (like framer-motion)
- * to keep the critical path lean and avoid pulling in large animation libraries on initial load.
+ * Two-tone CTA button system.
+ *
+ * - variant="primary"  → terracotta filled (for warm paper / light backgrounds)
+ * - variant="secondary" → terracotta outlined
+ * - variant="gold"     → gold filled (for navy / dark backgrounds)
+ * - variant="gold-outline" → gold outlined (for navy / dark backgrounds)
+ * - variant="ghost"    → transparent, terracotta hover
+ * - variant="link"     → inline text link, terracotta color
+ *
+ * Uses CSS transitions — no animation libraries needed.
  */
 export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
@@ -27,21 +34,31 @@ export const Button: React.FC<ButtonProps> = ({
 
   const sizeClasses = {
     sm: 'px-4 py-2 text-sm rounded-lg',
-    md: 'px-6 py-3 text-sm rounded-xl',
+    md: 'px-6 py-3 text-[15px] rounded-xl',
     lg: 'px-8 py-4 text-base rounded-xl',
   };
 
   const variantClasses = {
+    /* Terracotta — for CTAs on warm paper / light backgrounds */
     primary:
-      'bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] hover:shadow-lg focus:ring-[var(--color-border-blue)] shadow-md',
+      'bg-[var(--color-accent-warm)] text-white hover:bg-[var(--color-accent-warm-light)] shadow-md hover:shadow-lg focus:ring-[var(--color-border-strong)]',
     secondary:
-      'border-2 border-[var(--color-primary)] text-[var(--color-primary)] bg-white hover:bg-[var(--color-bg-blue-tint)] hover:border-[var(--color-primary-dark)] hover:shadow-md focus:ring-[var(--color-border-blue)]',
-    link: 'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] focus:ring-[var(--color-border-blue)] p-0 bg-transparent shadow-none',
+      'border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] bg-transparent hover:bg-[var(--color-accent-warm)]/10 hover:shadow-md focus:ring-[var(--color-border-strong)]',
+
+    /* Gold — for CTAs on navy / dark backgrounds */
+    gold: 'bg-[var(--color-accent-gold)] text-[var(--color-primary-deep)] hover:shadow-[0_0_24px_rgba(247,200,42,0.35)] focus:ring-[var(--color-accent-gold)]/30 shadow-md',
+    'gold-outline':
+      'border-2 border-[var(--color-accent-gold)] text-[var(--color-accent-gold)] bg-transparent hover:bg-[var(--color-accent-gold)]/10 focus:ring-[var(--color-accent-gold)]/30',
+
+    /* Ghost — transparent with warm hover tint */
     ghost:
-      'bg-transparent text-[var(--color-primary)] hover:bg-[var(--color-bg-blue-tint)] focus:ring-[var(--color-border-blue)] shadow-none',
+      'bg-transparent text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/10 focus:ring-[var(--color-border-strong)] shadow-none',
+
+    /* Link — inline text style */
+    link: 'text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] focus:ring-[var(--color-border-strong)] p-0 bg-transparent shadow-none underline underline-offset-4',
   };
 
-  // Hover and Tap scale effects via CSS
+  // Hover and tap scale effects via CSS (skip for link and ghost)
   const interactionClasses =
     variant === 'link' || variant === 'ghost' ? '' : 'hover:scale-[1.03] active:scale-[0.97]';
 
