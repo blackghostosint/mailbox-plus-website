@@ -299,7 +299,7 @@ export function AboutUs() {
       <section className="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
         <div className="max-w-4xl mx-auto px-4">
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-            Let Us Handle Your Package!
+            Shipping shouldn't cost you an hour.
           </h2>
           <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
             Stop in today — we&apos;re conveniently located at{' '}

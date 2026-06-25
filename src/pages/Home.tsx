@@ -63,7 +63,7 @@ export const Home: React.FC = () => {
           </p>
 
           <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-8 animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-            Whatever needs to get where it's going — Let Us Handle Your Package!
+            Shipping shouldn't cost you an hour.
           </p>
 
           <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards]">
