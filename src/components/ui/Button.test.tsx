@@ -11,7 +11,7 @@ describe('Button', () => {
   it('applies variant classes', () => {
     const { container } = render(<Button variant="primary">Test</Button>);
     const button = container.firstChild as HTMLElement;
-    expect(button.className).toContain('bg-[var(--color-primary)]');
+    expect(button.className).toContain('bg-[var(--color-accent-warm)]');
   });
 
   it('applies size classes', () => {

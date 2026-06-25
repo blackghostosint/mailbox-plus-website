@@ -29,38 +29,36 @@ export const Header: React.FC = () => {
   const logoUrl = getServiceImageUrl('mailbox_plus_logo.webp');
 
   return (
-    <header className="bg-white border-b border-[var(--color-border)] sticky top-0 z-50">
+    <header className="bg-[var(--color-primary)] sticky top-0 z-50">
       {/* Top Bar */}
-      <div className="bg-[var(--color-bg-primary)] border-b border-[var(--color-border)]">
+      <div className="bg-[var(--color-primary-deeper)]/40 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-sm">
             <div className="flex items-center space-x-6">
               {/* Phone */}
-              <div className="flex items-center space-x-2 text-[var(--color-text-secondary)]">
+              <div className="flex items-center space-x-2 text-white/70">
                 <Phone className="w-4 h-4" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="hover:text-[var(--color-primary)] transition-colors"
+                  className="hover:text-[var(--color-accent-gold)] transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </div>
               {/* Address linked to Google Maps */}
-              <div className="hidden sm:flex items-center space-x-2 text-[var(--color-text-secondary)]">
+              <div className="hidden sm:flex items-center space-x-2 text-white/70">
                 <MapPin className="w-4 h-4" />
                 <a
                   href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-[var(--color-primary)]"
+                  className="hover:text-[var(--color-accent-gold)]"
                 >
                   Concord Township, OH
                 </a>
               </div>
             </div>
-            <div className="text-[var(--color-text-secondary)]">
-              Mon-Fri: 9AM-6PM | Sat: 9AM-2PM
-            </div>
+            <div className="text-white/60">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
           </div>
         </div>
       </div>
@@ -76,7 +74,7 @@ export const Header: React.FC = () => {
               alt="Mailbox Plus Concord Township Ohio Logo"
               width={256}
               height={80}
-              className="h-12 w-auto object-contain aspect-[256/80]"
+              className="h-12 w-auto object-contain aspect-[256/80] brightness-0 invert"
             />
             <span className="sr-only">Mailbox Plus - Concord Township, OH</span>
           </InternalLink>
@@ -90,7 +88,7 @@ export const Header: React.FC = () => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
+                  className="text-sm font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors"
                 >
                   {item.name}
                 </a>
@@ -100,8 +98,8 @@ export const Header: React.FC = () => {
                   to={item.href}
                   className={`text-sm font-medium transition-colors ${
                     isActive(item.href)
-                      ? 'text-[var(--color-primary)]'
-                      : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
+                      ? 'text-[var(--color-accent-gold)] underline underline-offset-4 decoration-[var(--color-accent-gold)]'
+                      : 'text-white/80 hover:text-[var(--color-accent-gold)]'
                   }`}
                 >
                   {item.name}
@@ -113,7 +111,7 @@ export const Header: React.FC = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-lg text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] hover:bg-[var(--color-bg-primary)]"
+            className="md:hidden p-2 rounded-lg text-white/80 hover:text-[var(--color-accent-gold)] hover:bg-white/10"
             aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -123,7 +121,7 @@ export const Header: React.FC = () => {
 
       {/* Mobile Menu */}
       <div
-        className="md:hidden bg-white border-t border-[var(--color-border)] overflow-hidden transition-all duration-300 ease-in-out"
+        className="md:hidden bg-[var(--color-primary-deeper)] border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out"
         style={{ maxHeight: isMenuOpen ? '500px' : '0', opacity: isMenuOpen ? 1 : 0 }}
       >
         {isMenuOpen && (
@@ -137,7 +135,7 @@ export const Header: React.FC = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => setIsMenuOpen(false)}
-                    className="block text-base font-bold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] transition-colors"
+                    className="block text-base font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors"
                   >
                     {item.name}
                   </a>
@@ -148,8 +146,8 @@ export const Header: React.FC = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className={`block text-base font-medium transition-colors ${
                       isActive(item.href)
-                        ? 'text-[var(--color-primary)]'
-                        : 'text-[var(--color-text-secondary)] hover:text-[var(--color-primary)]'
+                        ? 'text-[var(--color-accent-gold)]'
+                        : 'text-white/80 hover:text-[var(--color-accent-gold)]'
                     }`}
                   >
                     {item.name}
@@ -157,7 +155,6 @@ export const Header: React.FC = () => {
                 )
               )}
             </nav>
-            <div className="px-4 pb-4 pt-2"></div>
           </>
         )}
       </div>
@@ -170,7 +167,7 @@ export const Header: React.FC = () => {
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
             name: 'Mailbox Plus',
-            image: logoUrl, // ✅ Use Supabase logo URL
+            image: logoUrl,
             '@id': 'https://mailboxplusohio.com',
             url: 'https://mailboxplusohio.com',
             telephone: siteConfig.contact.phone,

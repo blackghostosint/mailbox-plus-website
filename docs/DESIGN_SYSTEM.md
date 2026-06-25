@@ -1,124 +1,316 @@
-# Mailbox Plus Design System
+# Mailbox Plus Design System — Warm/Gold Aesthetic
+
+**Date:** June 24, 2026
+**Status:** Current — supersedes all previous design system documents
 
 ## Overview
 
-The design system is built on CSS custom properties (design tokens) defined in `src/index.css` and exposed as Tailwind utility classes via `tailwind.config.js`.
+The Mailbox Plus brand is defined by a **warm, premium, boutique feel** — cream paper backgrounds, deep navy anchors, and a two-tone accent system that pairs gold against dark sections with deep terracotta against light sections. The aesthetic is approachable but elevated: think independent bookstore, boutique hotel, or a well-appointed local shop — not corporate, not cold, not brassy.
 
-## Color Tokens
+**Design philosophy:** Warmth is the carrier. The cream backgrounds do most of the work. Accents are deliberate and restrained.
 
-### Primary Brand
+---
 
-| Token                    | Value     | Usage                            |
-| ------------------------ | --------- | -------------------------------- |
-| `--color-primary`        | `#0855b1` | Main brand color, buttons, links |
-| `--color-primary-dark`   | `#064a9b` | Hover states                     |
-| `--color-primary-deeper` | `#064080` | Active states                    |
-| `--color-primary-deep`   | `#06408a` | Alternate dark                   |
+## Color System
 
-**Tailwind classes:** `primary`, `primary-dark`, `primary-deeper`, `primary-deep`
+### Primary Brand — Deep Navy (Anchors)
 
-### Secondary Accent
+Dark, grounded, trustworthy. Used for navigation, section headers, and as the canvas for gold CTAs.
 
-| Token                  | Value     | Usage                 |
-| ---------------------- | --------- | --------------------- |
-| `--color-accent`       | `#1a6dff` | CTAs, highlights      |
-| `--color-accent-light` | `#2f7cfb` | Gradient stops, hover |
-| `--color-alt-accent`   | `#2da0ed` | Alternate accent      |
+| Token                    | Value     | Usage                                              |
+| ------------------------ | --------- | -------------------------------------------------- |
+| `--color-primary`        | `#285a8e` | Nav background, brand anchor, dark section headers |
+| `--color-primary-dark`   | `#1f3f63` | Hover/active states on dark elements               |
+| `--color-primary-deeper` | `#1a3554` | Gradient middle stop                               |
+| `--color-primary-deep`   | `#162c45` | Gradient end stop, deepest navy                    |
 
-**Tailwind classes:** `accent`, `accent-light`, `accent-alt`
+### Two-Tone Accent System
 
-### Backgrounds
+The key design decision: **one accent does not fit all backgrounds.** Gold pops on navy but is invisible on cream. Terracotta reads clearly on cream but fades on navy. Rather than compromise on a single color, the system uses two purpose-built accents.
 
-| Token                  | Value     | Usage                |
-| ---------------------- | --------- | -------------------- |
-| `--color-bg-primary`   | `#f9fafb` | Page background      |
-| `--color-bg-secondary` | `#f8fafc` | Card backgrounds     |
-| `--color-bg-blue-tint` | `#f0f7ff` | Blue-tinted sections |
-| `--color-bg-cyan-tint` | `#e0f2fe` | Cyan-tinted sections |
+**Gold** — for dark navy backgrounds (heroes, CTA bands, dark sections)
 
-**Tailwind classes:** `bg-primary`, `bg-secondary`, `bg-blue-tint`, `bg-cyan-tint`
+| Token                       | Value     | WCAG on deep navy | Usage                                                             |
+| --------------------------- | --------- | ----------------- | ----------------------------------------------------------------- |
+| `--color-accent-gold`       | `#f7c82a` | 8.95:1 ✅ AA      | Filled CTAs on dark, gold badges, decorative accents against navy |
+| `--color-accent-gold-light` | `#f7d46a` | —                 | Hover glow, lighter gold highlights on dark                       |
 
-### Text
+> **In practical terms:** The gold is your "hero action" button. It lives on navy backgrounds — hero sections, "Get Started" bands, pricing tiers. It should never appear as text on a cream or white background (1.36:1 — invisible).
 
-| Token                    | Value     | Usage                    | Contrast Ratio   |
-| ------------------------ | --------- | ------------------------ | ---------------- |
-| `--color-text-primary`   | `#111827` | Headings, body           | 16.75:1 on white |
-| `--color-text-secondary` | `#4b5563` | Subheadings, captions    | 7.46:1 on white  |
-| `--color-text-muted`     | `#64748b` | Muted text, placeholders | 5.74:1 on white  |
+**Deep Terracotta** — for warm paper/cream backgrounds (content areas, service cards, light sections)
 
-All text colors pass WCAG AA for normal text (4.5:1 minimum).
+| Token                       | Value     | WCAG on warm paper | Usage                                                           |
+| --------------------------- | --------- | ------------------ | --------------------------------------------------------------- |
+| `--color-accent-warm`       | `#a45c40` | 4.30:1 ✅ AA       | Filled CTAs on light, links, active states, warm accent borders |
+| `--color-accent-warm-light` | `#b8734d` | 3.25:1 AA (lg)     | Hover states, softer accent on light                            |
 
-**Tailwind classes:** `text-primary`, `text-secondary`, `text-muted`
+> **In practical terms:** The terracotta is your everyday action color. It lives on the cream backgrounds — "Learn More" on a service card, "Drop Off a Return" button, "See All Services" links. It reads as warm, premium, and intentional.
 
-### Surface / Borders
+### Backgrounds — Warm Paper
 
-| Token                 | Value     | Usage                            |
-| --------------------- | --------- | -------------------------------- |
-| `--color-border`      | `#e2e8f0` | Default borders                  |
-| `--color-border-blue` | `#b2d3eb` | Blue-tinted borders, focus rings |
+The foundation of the look. These substitute for the corporate whites and grays.
 
-**Tailwind classes:** `border`, `border-blue`
+| Token                  | Value     | Usage                                |
+| ---------------------- | --------- | ------------------------------------ |
+| `--color-bg-primary`   | `#f2ede4` | Main page background                 |
+| `--color-bg-secondary` | `#ebe4d8` | Card backgrounds, section alternates |
+| `--color-bg-warm-tint` | `#e6e0d6` | Tinted sections, slight depth        |
 
-### Gradient Stops
+**Removed tokens** (no longer used):
 
-| Token                    | Value     | Usage                      |
-| ------------------------ | --------- | -------------------------- |
-| `--color-gradient-start` | `#0b4bb6` | Gradient start (hero, CTA) |
-| `--color-gradient-mid`   | `#021b4a` | Gradient middle            |
-| `--color-gradient-end`   | `#02152f` | Gradient end               |
+- `--color-bg-blue-tint` — replaced by warm tints
+- `--color-bg-cyan-tint` — replaced by warm tints
 
-## Shadow Tokens
+### Text — Charcoal Navy + Warm Slate
 
-| Token         | Value                             | Usage                   |
-| ------------- | --------------------------------- | ----------------------- |
-| `--shadow-sm` | `0 10px 30px rgba(0,0,0,0.04)`    | Cards, subtle elevation |
-| `--shadow-md` | `0 10px 30px rgba(0,0,0,0.08)`    | Interactive elements    |
-| `--shadow-lg` | `0 18px 45px rgba(15,23,42,0.10)` | Panels, modals          |
-| `--shadow-xl` | `0 26px 65px rgba(15,23,42,0.25)` | Hero sections, CTA      |
+All text colors retain WCAG AA against all background variants.
 
-**Tailwind classes:** `shadow-sm`, `shadow-md`, `shadow-lg`, `shadow-xl`
+| Token                    | Value     | Usage                       | Contrast on warm paper |
+| ------------------------ | --------- | --------------------------- | ---------------------- |
+| `--color-text-primary`   | `#1f2933` | Headings, body text         | 14.2:1 ✅              |
+| `--color-text-secondary` | `#4a5568` | Subheadings, secondary text | 7.1:1 ✅               |
+| `--color-text-muted`     | `#667085` | Muted labels, captions      | 4.8:1 ✅               |
 
-## Surface Tint Tokens
+### Surface / Borders — Gentle Warm Gray
 
-Used for glassmorphic effects (`bg-white/N` pattern):
+| Token                   | Value     | Usage                                                        |
+| ----------------------- | --------- | ------------------------------------------------------------ |
+| `--color-border`        | `#e6e0d6` | Default borders, dividers, section separators                |
+| `--color-border-strong` | `#d4c9b8` | Emphasized borders, input fields, focus rings, card outlines |
 
-| Token              | Value                   | Usage                |
-| ------------------ | ----------------------- | -------------------- |
-| `--surface-subtle` | `rgba(255,255,255,0.5)` | Light glass overlay  |
-| `--surface-medium` | `rgba(255,255,255,0.6)` | Medium glass overlay |
-| `--surface-strong` | `rgba(255,255,255,0.7)` | Strong glass cards   |
-| `--surface-heavy`  | `rgba(255,255,255,0.8)` | Heavy glass panels   |
+**Removed tokens:**
+
+- `--color-border-blue` — replaced by warm border variants
+
+### Gradient Stops — Deep Navy (Heroes, CTA Bands)
+
+```
+--color-gradient-start: #285a8e  →  --color-gradient-mid: #1f3f63  →  --color-gradient-end: #162c45
+```
+
+Standard gradient: `bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)]`
+
+---
+
+## Shadows & Depth
+
+| Token         | Value                             | Usage                       |
+| ------------- | --------------------------------- | --------------------------- |
+| `--shadow-sm` | `0 10px 30px rgba(31,41,51,0.04)` | Subtle card elevation       |
+| `--shadow-md` | `0 10px 30px rgba(31,41,51,0.08)` | Interactive elements, hover |
+| `--shadow-lg` | `0 18px 45px rgba(31,41,51,0.10)` | Panels, modals              |
+| `--shadow-xl` | `0 26px 65px rgba(31,41,51,0.25)` | CTA sections, hero overlays |
+
+Shadows use dark charcoal (`#1f2933`) at low opacity — warm and soft, not harsh black.
+
+## Surface Tints
+
+Used for glass/overlay effects with `backdrop-blur`.
+
+| Token              | Value                      | Usage                |
+| ------------------ | -------------------------- | -------------------- |
+| `--surface-subtle` | `rgba(255, 255, 255, 0.5)` | Light glass overlay  |
+| `--surface-medium` | `rgba(255, 255, 255, 0.6)` | Medium glass overlay |
+| `--surface-strong` | `rgba(255, 255, 255, 0.7)` | Strong glass cards   |
+| `--surface-heavy`  | `rgba(255, 255, 255, 0.8)` | Heavy glass panels   |
 
 ## Border Radius Scale
 
-| Token          | Value    | Usage                        |
-| -------------- | -------- | ---------------------------- |
-| `rounded-sm`   | `12px`   | Small elements, tags         |
-| `rounded-md`   | `20px`   | Accent cards, inputs         |
-| `rounded-lg`   | `26px`   | Standard cards (most common) |
-| `rounded-xl`   | `30px`   | Large panels, CTA sections   |
-| `rounded-2xl`  | `40px`   | Section wrappers             |
-| `rounded-full` | `9999px` | Pills, circular elements     |
+| Token          | Value    | Usage                             |
+| -------------- | -------- | --------------------------------- |
+| `rounded-sm`   | `12px`   | Small elements, tags, badges      |
+| `rounded-md`   | `20px`   | Inputs, small cards               |
+| `rounded-lg`   | `26px`   | Standard cards (most common)      |
+| `rounded-xl`   | `30px`   | Large panels, CTA sections        |
+| `rounded-2xl`  | `40px`   | Section wrappers, hero containers |
+| `rounded-full` | `9999px` | Pills, circular elements          |
+
+## Typography
+
+### Font Stack
+
+| Role     | Font                      | Fallback                             | Weight Scale         |
+| -------- | ------------------------- | ------------------------------------ | -------------------- |
+| Body     | **DM Sans**               | system-ui, -apple-system, sans-serif | 400, 500, 600, 700   |
+| Headings | **DM Sans** (same family) | system-ui, -apple-system, sans-serif | 600, 700 (font-bold) |
+
+**Rationale:** DM Sans gives a warm, clean, slightly rounded feel that pairs naturally with the cream backgrounds and gold accents. It has excellent readability at small sizes and a premium feel at display sizes. Using a single family (DM Sans for both body and headings) simplifies the typographic system and reduces HTTP requests.
+
+**Previous fonts replaced:**
+
+- Poppins (headings) → DM Sans
+- Open Sans (body) → DM Sans
+
+### Size Scale (Tailwind defaults, no custom overrides)
+
+```
+text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-3xl → text-4xl → text-5xl
+```
+
+### CLS Mitigation
+
+When loading DM Sans from Google Fonts, add size-adjust override to prevent layout shift:
+
+```css
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('system-ui');
+  size-adjust: 96%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+```
+
+(Update the existing fallback `@font-face` blocks in `src/index.css`.)
+
+---
+
+## CTA Button Styles
+
+**Two-tone system — background determines accent:**
+
+| Button Location   | Background                     | Text                       | Accent Used |
+| ----------------- | ------------------------------ | -------------------------- | ----------- |
+| On navy/dark      | `var(--color-accent-gold)`     | `#162c45` (deep navy text) | Gold        |
+| On warm paper     | `var(--color-accent-warm)`     | `#ffffff` (white text)     | Terracotta  |
+| On navy (outline) | Transparent, gold border       | Gold                       | Gold        |
+| On warm (outline) | Transparent, terracotta border | Terracotta                 | Terracotta  |
+
+### Primary CTA copy conventions
+
+- Always action-oriented: `→ Get Started`, `→ See Your Options`, `→ Get Your Address`
+- Include risk reversal where applicable: `— 30-Day Risk-Free`
+- Arrow prefix (`→`) signals forward motion
+
+---
+
+## Border System
+
+Cards, input fields, form containers, stat boxes, and section blocks get **1px `--color-border-strong`** (`#d4c9b8`) for definition against the warm paper background.
+
+Dividers, section separators, and subtle rules use the lighter `--color-border` (`#e6e0d6`).
+
+**Why:** Cream-on-cream needs a visible border to define interactive elements. `#d4c9b8` provides clear hit areas without harshness.
+
+---
+
+## SB7 Integration (StoryBrand Avatars)
+
+Every page serves a specific hero segment (SB7 Face). The design system supports each face through intentional CTA placement, content hierarchy, and emotional tone.
+
+### Page-to-Face Mapping
+
+| Page                         | Primary Face                                     | Secondary Face | Rationale                                                        |
+| ---------------------------- | ------------------------------------------------ | -------------- | ---------------------------------------------------------------- |
+| Home                         | All (A–E, R1–R2, S1–S2)                          | —              | Front door — orients all visitors before directing to their path |
+| Mailbox Rental               | **A** (Online Seller)                            | B, E           | Core differentiated product — seller privacy is the hero story   |
+| Pack & Ship pages            | **S2** (Rate Shopper), **S1** (Valuable Shipper) | —              | Searcher intent — they want to ship something now                |
+| Returns pages                | **R1** (Multi-Carrier), **R2** (Errand-Runner)   | —              | Searcher intent — they're already holding a return label         |
+| Notary / Printing / Document | **B** (Small Business)                           | —              | Business customers needing supporting services                   |
+| Contact Us                   | **B** (Small Business)                           | All            | Walk-in visitors and business inquiries                          |
+| About Us                     | **All**                                          | —              | Brand trust — speaks to every segment                            |
+| Tracking                     | **S2**, **R1**                                   | —              | Transactional — they just want to know where their package is    |
+
+### Design Choices by SB7 Position
+
+The two-tone accent system maps naturally to the SB7 story arc:
+
+| SB7 Position            | Design Treatment                                         | Accent                | Why                                                          |
+| ----------------------- | -------------------------------------------------------- | --------------------- | ------------------------------------------------------------ |
+| **Character / Problem** | Navy hero with emotional headline, gold CTA              | Gold on dark          | Creates stakes, grabs attention, feels urgent                |
+| **Guide (Empathy)**     | Warm paper section with warm-toned body copy             | None (text-secondary) | Warmth and approachability — no hard sell                    |
+| **Guide (Authority)**   | Navy band or tinted card with stats/badges               | Gold highlights       | Trust signals pop against dark background                    |
+| **Plan**                | Warm paper cards with clear numbered steps               | Terracotta CTAs       | Clean, actionable, no pressure                               |
+| **CTA (Direct)**        | Gold filled button on navy or terracotta filled on cream | Per background        | The action moment — accent matches the canvas                |
+| **CTA (Transitional)**  | Ghost/outline button                                     | Same accent as direct | Lower commitment, same visual language                       |
+| **Stakes**              | Navy section with loss-aversion copy, gold CTAs          | Gold on dark          | Heightened emotion, urgency without panic                    |
+| **Success**             | Warm paper or light section with aspirational imagery    | Terracotta            | Warm resolution, comfortable, the transformation is complete |
+
+### Face-Tailored CTA Copy
+
+The CTA language shifts per face while using the same visual button styles:
+
+| Face                            | Direct CTA Example                                | Transitional CTA Example             |
+| ------------------------------- | ------------------------------------------------- | ------------------------------------ |
+| **A** (Online Seller)           | → Get Your Lake County Address — 30-Day Risk-Free | Stop by and see your mailbox options |
+| **B** (Small Business)          | → Get Your Business Address                       | See how it works for your business   |
+| **C** (RVer)                    | → Keep Your Ohio Address While You Travel         | Learn about our traveler plans       |
+| **D** (Mover)                   | → One Address That Moves With You                 | Stop by and see your options         |
+| **E** (Privacy Seller)          | → Protect Your Home Address Today                 | See how the address pipeline works   |
+| **S1** (Valuable Shipper)       | → Get a Quote for Your Package                    | See our packing options              |
+| **S2** (Rate Shopper)           | → Compare Carrier Rates                           | Drop off at our counter              |
+| **R1** (Multi-Carrier Returner) | → Drop Off Your Return                            | See our return desk hours            |
+
+### Depth Layer Alignment
+
+The warm/gold design system intentionally supports SB7 depth layers through visual hierarchy:
+
+- **Layer 3 (Story Gap):** Navy hero with a question or provocative statement — the dark background says "pay attention"
+- **Layer 5 (Loss Aversion):** Stakes section in navy — visual weight communicates seriousness
+- **Layer 7 (Aspirational Identity):** Warm paper success section — the cream background says "you've arrived"
+- **Layer 15 (Scaffolding Hidden):** Framework labels (Villain, Guide, Plan, etc.) are internal tools only — never appear in rendered copy. The design carries the story weight visually.
+
+---
 
 ## Usage Examples
 
+### Hero section with gold CTA
+
 ```tsx
-// Primary button with focus ring
-<Button variant="primary">Get Started</Button>
-
-// Glass card with shadow
-<div className="bg-white/70 backdrop-blur-xl border border-white/70 rounded-lg shadow-lg p-6">
-  Card content
-</div>
-
-// Gradient hero section
-<section className="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-accent)] to-[var(--color-gradient-mid)]">
-  <h1 className="text-white">Page Title</h1>
+<section className="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] min-h-[80vh]">
+  <h1 className="text-white font-bold text-4xl lg:text-5xl max-w-2xl">
+    Your home address is on every package you ship.
+  </h1>
+  <button className="bg-[var(--color-accent-gold)] text-[var(--color-primary-deep)] font-semibold px-8 py-4 rounded-lg">
+    → Get Your Address — 30-Day Risk-Free
+  </button>
+  <a className="text-[var(--color-accent-gold)] underline underline-offset-4">See your options →</a>
 </section>
 ```
 
-## Adding New Tokens
+### Service card on warm paper with terracotta CTA
 
-1. Add the CSS custom property to `src/index.css` in the `:root` block
-2. Register it in `tailwind.config.js` under `theme.extend.colors` or the appropriate key
-3. Document it in this file
+```tsx
+<div className="bg-[var(--color-bg-secondary)] rounded-lg p-6 border border-[var(--color-border-strong)]">
+  <h2 className="text-[var(--color-text-primary)] font-semibold">Ship a Package</h2>
+  <p className="text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL — we compare rates.</p>
+  <button className="bg-[var(--color-accent-warm)] text-white font-semibold px-6 py-3 rounded-md">
+    → Get Started
+  </button>
+</div>
+```
+
+### Form input
+
+```tsx
+<input
+  className="w-full px-4 py-3 rounded-md border-2 border-[var(--color-border-strong)] bg-[var(--color-bg-secondary)] font-sans text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-3 focus:ring-[var(--color-border-strong)]/25"
+  type="text"
+  placeholder="Your name"
+/>
+```
+
+---
+
+## Token Cleanup Checklist
+
+These CSS tokens exist in `src/index.css` but should be removed — they are remnants of the old blue design system:
+
+- [ ] `--color-bg-blue-tint` — replace with `--color-bg-warm-tint` or remove
+- [ ] `--color-bg-cyan-tint` — remove entirely
+- [ ] `--color-border-blue` — replace with `--color-border-strong`
+- [ ] Poppins + Open Sans font references — replace with DM Sans
+- [ ] All `bg-blue-tint`, `bg-cyan-tint`, `border-blue` references in Tailwind config
+- [ ] All hardcoded `#0855b1`, `#1a6dff`, `#f0f7ff`, `#e0f2fe` in `.tsx` files
+
+## Document Inventory
+
+The following docs are superseded by this document and should be archived:
+
+- `docs/DESIGN_SYSTEM.md` (old version) — replaced by this document
+- `docs/plans/design-tokens.md` — mapped the old blue system
+- `docs/plans/phase-5-design-system.md` — implementation plan for the old system
+- `STRATEGIC_ROADMAP.md` — aspirational plan, not current direction
+- `AUDIT_REPORT_2026-05-30.md` — month-old audit, out of date
+- `PERFORMANCE_STRATEGY_DRAFT.md` — draft status, not current

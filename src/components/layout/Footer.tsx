@@ -27,13 +27,11 @@ export const Footer: React.FC = () => {
   const logoUrl = getServiceImageUrl('/images/mailbox_plus_logo.webp');
 
   return (
-    <footer className="bg-white border-t border-[var(--color-border)]">
+    <footer className="bg-[var(--color-bg-secondary)] border-t border-[var(--color-border)]">
       {/* Global Tagline */}
-      <div className="bg-[var(--color-bg-primary)] border-b border-[var(--color-border)]">
+      <div className="bg-[var(--color-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
-          <h2 className="text-2xl font-semibold text-[var(--color-primary)]">
-            {siteConfig.tagline}
-          </h2>
+          <h2 className="text-2xl font-semibold text-white">{siteConfig.tagline}</h2>
         </div>
       </div>
 
@@ -64,13 +62,13 @@ export const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Contact</h3>
             <div className="space-y-3">
               <div className="flex items-center space-x-3 lg:justify-center">
-                <MapPin className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
+                <MapPin className="w-4 h-4 text-[var(--color-accent-warm)] flex-shrink-0" />
                 <div className="text-sm text-[var(--color-text-secondary)]">
                   <a
                     href={getGoogleMapsLink('directions', siteConfig.name)}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[var(--color-primary)]"
+                    className="hover:text-[var(--color-accent-warm)]"
                   >
                     {siteConfig.contact.address.street}, {siteConfig.contact.address.city},{' '}
                     {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
@@ -78,19 +76,19 @@ export const Footer: React.FC = () => {
                 </div>
               </div>
               <div className="flex items-center space-x-3 lg:justify-center">
-                <Phone className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
+                <Phone className="w-4 h-4 text-[var(--color-accent-warm)] flex-shrink-0" />
                 <a
                   href={`tel:${siteConfig.contact.phone}`}
-                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
                 >
                   {siteConfig.contact.phone}
                 </a>
               </div>
               <div className="flex items-center space-x-3 lg:justify-center">
-                <Mail className="w-4 h-4 text-[var(--color-primary)] flex-shrink-0" />
+                <Mail className="w-4 h-4 text-[var(--color-accent-warm)] flex-shrink-0" />
                 <a
                   href={`mailto:${siteConfig.contact.email}`}
-                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                  className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
                 >
                   {siteConfig.contact.email}
                 </a>
@@ -119,7 +117,7 @@ export const Footer: React.FC = () => {
                 <InternalLink
                   key={link.name}
                   to={link.href}
-                  className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                  className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
                 >
                   {link.name}
                 </InternalLink>
@@ -133,13 +131,13 @@ export const Footer: React.FC = () => {
             <nav className="space-y-2" aria-label="Footer Resources">
               <InternalLink
                 to="/articles"
-                className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
               >
                 Articles & Guides
               </InternalLink>
               <InternalLink
                 to="/ask-mailbox-plus"
-                className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                className="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
               >
                 FAQ
               </InternalLink>
@@ -156,13 +154,13 @@ export const Footer: React.FC = () => {
             <div className="flex items-center space-x-6">
               <InternalLink
                 to="/privacy"
-                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
               >
                 Privacy Policy
               </InternalLink>
               <InternalLink
                 to="/terms"
-                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
+                className="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors"
               >
                 Terms of Service
               </InternalLink>
