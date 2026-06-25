@@ -13,7 +13,7 @@ import Phone from '~icons/lucide/phone';
 
 const BulletPoint: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <li className="flex items-start">
-    <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+    <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
     <span className="text-[var(--color-text-secondary)] leading-relaxed">{children}</span>
   </li>
 );
@@ -127,7 +127,7 @@ export const Terms: React.FC = () => {
 
   return (
     <div className="bg-[var(--color-bg-primary)]">
-      {/* Hero Section */}
+      {/* Hero Section - Navy Gradient */}
       <section
         ref={heroRef}
         className={`relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -149,7 +149,7 @@ export const Terms: React.FC = () => {
 
       <AutoBreadcrumbs />
 
-      {/* Terms Sections */}
+      {/* Terms Sections - Warm Cards */}
       <section
         ref={gridRef}
         className={`py-20 bg-[var(--color-bg-primary)] ${gridInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -159,17 +159,17 @@ export const Terms: React.FC = () => {
             {sections.map((section, index) => (
               <div
                 key={section.title}
-                className={`${section.highlight ? 'lg:col-span-2' : ''} bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up opacity-0`}
+                className={`${section.highlight ? 'lg:col-span-2' : ''} bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm animate-fade-in-up opacity-0`}
                 style={{ animationDelay: `${index * 100 + 100}ms` }}
               >
                 <div
-                  className={`${section.highlight ? 'bg-[var(--color-bg-primary)] rounded-2xl p-8' : 'bg-white rounded-2xl p-8 shadow-sm'}`}
+                  className={`${section.highlight ? 'bg-[var(--color-bg-primary)] rounded-2xl p-8' : ''}`}
                 >
                   <div className="flex items-center mb-6">
                     {section.icon && (
-                      <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4">
+                      <div className="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-xl flex items-center justify-center mr-4">
                         <section.icon
-                          className="w-6 h-6 text-[var(--color-primary)]"
+                          className="w-6 h-6 text-[var(--color-accent-warm)]"
                           aria-hidden="true"
                         />
                       </div>

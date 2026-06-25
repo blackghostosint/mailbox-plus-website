@@ -60,7 +60,7 @@ export const Privacy: React.FC = () => {
 
   return (
     <div className="bg-[var(--color-bg-primary)]">
-      {/* Hero Section */}
+      {/* Hero Section - Navy Gradient */}
       <section
         ref={heroRef}
         className={`relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -82,19 +82,19 @@ export const Privacy: React.FC = () => {
 
       <AutoBreadcrumbs />
 
-      {/* Privacy Sections */}
+      {/* Privacy Sections - Warm Cards */}
       <section className="py-20 bg-[var(--color-bg-primary)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {sections.map((section, index) => (
               <div
                 key={section.title}
-                className={`bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up ${index === 0 ? '' : 'opacity-0'}`}
+                className={`bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm animate-fade-in-up ${index === 0 ? '' : 'opacity-0'}`}
                 style={{ animationDelay: `${index * 100 + 100}ms` }}
               >
                 <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 bg-[var(--color-bg-blue-tint)] rounded-xl flex items-center justify-center mr-4">
-                    <section.icon className="w-6 h-6 text-[var(--color-primary)]" />
+                  <div className="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-xl flex items-center justify-center mr-4">
+                    <section.icon className="w-6 h-6 text-[var(--color-accent-warm)]" />
                   </div>
                   <h2 className="text-2xl font-bold text-[var(--color-text-primary)]">
                     {section.title}
@@ -103,7 +103,7 @@ export const Privacy: React.FC = () => {
                 <ul className="space-y-3">
                   {section.content.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex items-start">
-                      <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                      <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
                       <span className="text-[var(--color-text-secondary)] leading-relaxed">
                         {item}
                       </span>
@@ -116,8 +116,8 @@ export const Privacy: React.FC = () => {
         </div>
       </section>
 
-      {/* Additional Information */}
-      <section className="py-20 bg-white">
+      {/* Additional Information - Warm Sections */}
+      <section className="py-20 bg-[var(--color-bg-secondary)]/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
             <div
@@ -136,9 +136,9 @@ export const Privacy: React.FC = () => {
                 any individual.
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
-                We also use Google Tag Manager to deploy the GA4 "Configuration" tag across all
-                pages and to fire custom event tags when users interact with specific features (for
-                example, our &ldquo;Reserve My Box&rdquo; CTA).
+                We also use Google Tag Manager to deploy the GA4 &ldquo;Configuration&rdquo; tag
+                across all pages and to fire custom event tags when users interact with specific
+                features (for example, our &ldquo;Reserve My Box&rdquo; CTA).
               </p>
               <p className="text-[var(--color-text-secondary)] leading-relaxed mb-4">
                 Because we are a U.S.-based small business using anonymous analytics only, we do not
@@ -153,7 +153,7 @@ export const Privacy: React.FC = () => {
                   href="https://policies.google.com/technologies/partner-sites"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[var(--color-primary)] hover:underline"
+                  className="text-[var(--color-accent-warm)] hover:underline"
                 >
                   https://policies.google.com/technologies/partner-sites
                 </a>
@@ -178,25 +178,25 @@ export const Privacy: React.FC = () => {
               </p>
               <ul className="space-y-2 mb-4">
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-[var(--color-text-secondary)]">
                     Access and review your personal information
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-[var(--color-text-secondary)]">
                     Request corrections to inaccurate information
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-[var(--color-text-secondary)]">
                     Request deletion of your personal information
                   </span>
                 </li>
                 <li className="flex items-start">
-                  <div className="w-2 h-2 bg-[var(--color-primary)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
+                  <div className="w-2 h-2 bg-[var(--color-accent-warm)] rounded-full mt-2 mr-3 flex-shrink-0"></div>
                   <span className="text-[var(--color-text-secondary)]">
                     Opt-out of marketing communications
                   </span>
