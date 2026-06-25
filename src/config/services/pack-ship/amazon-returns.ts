@@ -308,7 +308,7 @@ export const amazonReturnsService: Service = {
             .join('')}
         </div>
         <p class="text-center text-3xl font-black text-[var(--color-primary)] italic mt-8">
-          “Let Us Handle Your Package!”
+          “Shipping shouldn't cost you an hour.”
         </p>
       `,
       isFullWidth: true,

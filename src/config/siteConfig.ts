@@ -3,7 +3,7 @@ import type { SiteConfig } from '../types/siteConfig';
 
 export const siteConfig: SiteConfig = {
   name: 'Mailbox Plus',
-  tagline: 'Let Us Handle Your Package!',
+  tagline: "Shipping shouldn't cost you an hour.",
   description:
     'Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.',
   domain: 'https://mailboxplusohio.com',
