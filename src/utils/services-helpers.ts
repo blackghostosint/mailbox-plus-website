@@ -1,6 +1,7 @@
 import { services } from '../config/services';
 import { Service, ServiceCategory } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
+import siteStructure from '../data/siteStructure.json';
 
 /**
  * Get all services that belong to a specific category
@@ -92,6 +93,7 @@ export const validateService = (service: Service): boolean => {
 
 /**
  * Returns breadcrumb items for a given service with absolute URLs.
+ * Auto-includes parent pillar landing page based on siteStructure.json.
  */
 export const getServiceBreadcrumbs = (
   service: Service,
@@ -105,7 +107,17 @@ export const getServiceBreadcrumbs = (
 
   const breadcrumbs = [{ name: 'Home', url: normalize('/') }];
 
-  if (baseUrl) {
+  // Auto-detect parent pillar from siteStructure.json
+  const parentPillar = siteStructure.pillars.find((p) =>
+    p.children.some((c) => c.id === service.id)
+  );
+
+  if (parentPillar) {
+    breadcrumbs.push({
+      name: parentPillar.title,
+      url: normalize(parentPillar.url),
+    });
+  } else if (baseUrl) {
     breadcrumbs.push({
       name: baseLabel,
       url: normalize(baseUrl),

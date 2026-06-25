@@ -18,6 +18,9 @@ export const Footer: React.FC = () => {
     { name: 'Notary Services', href: '/home-business/notary-services' },
     { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
     { name: 'Shipping Partners', href: '/shipping-partners' },
+    { name: 'DHL Express', href: '/pack-ship/dhl-express' },
+    { name: 'Specialty Services', href: '/specialty/digital-fingerprinting' },
+    { name: 'Every Door Direct Mail', href: '/home-business/every-door-direct-mail' },
   ];
 
   // ✅ Supabase logo URL

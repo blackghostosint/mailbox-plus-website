@@ -20,6 +20,7 @@ import { Service } from '../types/services';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
 import { getRelatedServices } from '../utils/internal-links';
 import { siteConfig } from '../config/siteConfig';
+import siteStructure from '../data/siteStructure.json';
 
 // Core service → competitor alternative page mapping
 const competitorAlternatives: Record<string, { title: string; url: string }> = {
@@ -145,6 +146,36 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
           {/* Soft fade into page background */}
           <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
         </section>
+
+        {/* ====================== SIBLING CATEGORY NAV ======================= */}
+        {(() => {
+          const pillar = siteStructure.pillars.find((p) =>
+            p.children.some((c) => c.id === props.id)
+          );
+          if (!pillar || !props.id) return null;
+          return (
+            <div className="max-w-5xl mx-auto px-4 mt-6 mb-2">
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="text-xs font-semibold text-[var(--color-text-muted)] self-center mr-1 uppercase tracking-wider">
+                  {pillar.title}:
+                </span>
+                {pillar.children.map((child) => (
+                  <InternalLink
+                    key={child.id}
+                    to={child.url}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-all ${
+                      child.id === props.id
+                        ? 'bg-[var(--color-primary)] text-white border-[var(--color-primary)]'
+                        : 'bg-white text-[var(--color-text-secondary)] border-[var(--color-border)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)]'
+                    }`}
+                  >
+                    {child.title}
+                  </InternalLink>
+                ))}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* ======================= MAIN ====================== */}
         {/* Slight overlap so intro card floats into hero */}
