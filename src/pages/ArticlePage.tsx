@@ -45,7 +45,7 @@ const ArticlePage: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[var(--color-accent-warm)]"></div>
       </div>
     );
   }
@@ -60,7 +60,7 @@ const ArticlePage: React.FC = () => {
           The article you are looking for does not exist or has been moved.
         </p>
         <Link to="/">
-          <Button>Return Home</Button>
+          <Button variant="primary">Return Home</Button>
         </Link>
       </div>
     );
@@ -147,9 +147,9 @@ const ArticlePage: React.FC = () => {
       </section>
 
       {/* Content Section */}
-      <div className="bg-white py-16 lg:py-24">
+      <div className="bg-[var(--color-bg-primary)] py-16 lg:py-24">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-800 prose-img:rounded-xl prose-img:shadow-lg max-w-none">
+          <div className="prose prose-lg prose-slate prose-headings:font-bold prose-headings:tracking-tight prose-a:text-[var(--color-accent-warm)] hover:prose-a:text-[var(--color-accent-warm-light)] prose-img:rounded-xl prose-img:shadow-lg max-w-none">
             <ArticleMarkdown content={article.content} />
           </div>
 
@@ -168,21 +168,21 @@ const ArticlePage: React.FC = () => {
                     <div
                       className="group p-6 rounded-xl transition-all duration-300 cursor-pointer"
                       style={{
-                        backgroundColor: 'var(--color-bg-primary)',
+                        backgroundColor: 'var(--color-bg-secondary)',
                         border: '1px solid var(--color-border)',
                       }}
                       onMouseEnter={(ev) => {
-                        ev.currentTarget.style.borderColor = 'var(--color-border-blue)';
-                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-blue-tint)';
+                        ev.currentTarget.style.borderColor = 'var(--color-border-strong)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-accent-warm)/0.08';
                       }}
                       onMouseLeave={(ev) => {
                         ev.currentTarget.style.borderColor = 'var(--color-border)';
-                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-primary)';
+                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-secondary)';
                       }}
                     >
                       <div className="flex justify-between items-center">
                         <span
-                          className="font-semibold group-hover:text-blue-700"
+                          className="font-semibold group-hover:text-[var(--color-accent-warm)]"
                           style={{ color: 'var(--color-text-primary)' }}
                         >
                           {servicePath
@@ -203,21 +203,21 @@ const ArticlePage: React.FC = () => {
             </div>
           )}
 
-          {/* Bottom CTA */}
-          <div className="mt-20 p-8 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl shadow-xl text-center text-white">
+          {/* Bottom CTA - Navy Gradient */}
+          <div className="mt-20 p-8 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] rounded-2xl shadow-xl text-center text-white">
             <h3 className="text-2xl font-bold mb-4">Have Questions?</h3>
-            <p className="text-blue-100 mb-8 max-w-xl mx-auto">
+            <p className="text-white/80 mb-8 max-w-xl mx-auto">
               Stop by our location in Concord Township or give us a call. We&apos;re here to help
               with all your shipping and printing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to="/contact-us">
-                <Button className="bg-white text-blue-700 hover:bg-blue-50 w-full sm:w-auto font-semibold border-none">
+                <Button variant="gold" size="lg" className="font-semibold border-none">
                   Contact Us
                 </Button>
               </Link>
               <Link to="/services">
-                <Button className="bg-transparent border border-blue-400/50 text-white hover:bg-blue-600/50 w-full sm:w-auto">
+                <Button variant="gold-outline" size="lg">
                   View All Services
                 </Button>
               </Link>
