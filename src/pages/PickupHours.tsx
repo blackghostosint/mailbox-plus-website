@@ -21,8 +21,9 @@ import {
 } from '../components/ui/accordion';
 import { AutoBreadcrumbs } from '../components/ui/AutoBreadcrumbs';
 
-// V2 Design System: Clear Glassmorphic Styling
-const v2GlassCard = 'bg-white/70 backdrop-blur-xl border border-white/50 shadow-lg rounded-lg';
+// Warm Glass Card Style
+const warmGlassCard =
+  'bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg';
 
 const pickupHours = [
   {
@@ -33,9 +34,9 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'Accepts stamped mail, prepaid labels, Priority Mail, and returns.',
-    accentColor: 'bg-[var(--color-gradient-start)]', // Brand Primary
-    iconColor: 'text-[var(--color-gradient-start)]',
-    bgTint: 'rgba(234, 244, 251, 0.4)',
+    accentColor: 'bg-[var(--color-accent-warm)]',
+    iconColor: 'text-[var(--color-accent-warm)]',
+    bgTint: 'rgba(242, 237, 228, 0.5)',
   },
   {
     carrier: 'UPS Pickup',
@@ -45,9 +46,9 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.',
-    accentColor: 'bg-[var(--color-accent)]', // Brand Light
-    iconColor: 'text-[var(--color-accent)]',
-    bgTint: 'rgba(234, 244, 251, 0.3)',
+    accentColor: 'bg-[var(--color-accent-gold)]',
+    iconColor: 'text-[var(--color-accent-gold)]',
+    bgTint: 'rgba(247, 200, 42, 0.08)',
   },
   {
     carrier: 'FedEx Express',
@@ -57,9 +58,9 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'For overnight, 2-day, and express saver shipments. Separate from Ground.',
-    accentColor: 'bg-[var(--color-gradient-mid)]', // Brand Dark
-    iconColor: 'text-[var(--color-gradient-mid)]',
-    bgTint: 'rgba(250, 248, 243, 0.5)',
+    accentColor: 'bg-[var(--color-primary)]',
+    iconColor: 'text-[var(--color-primary)]',
+    bgTint: 'rgba(242, 237, 228, 0.3)',
   },
   {
     carrier: 'FedEx Ground',
@@ -69,9 +70,9 @@ const pickupHours = [
       { day: 'Sunday', time: 'No pickup' },
     ],
     details: 'Standard ground shipping and Home Delivery packages.',
-    accentColor: 'bg-sky-500', // Sky Blue
-    iconColor: 'text-sky-600',
-    bgTint: 'rgba(232, 246, 252, 0.3)',
+    accentColor: 'bg-[var(--color-accent-warm)]',
+    iconColor: 'text-[var(--color-accent-warm)]',
+    bgTint: 'rgba(235, 228, 216, 0.5)',
   },
 ];
 
@@ -165,13 +166,13 @@ export const PickupHours: React.FC = () => {
           <AutoBreadcrumbs />
         </div>
 
-        {/* Intro Text in Glass Card */}
+        {/* Intro Text in Warm Card */}
         <div
           ref={introRef}
           className={`max-w-3xl mx-auto mb-16 ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
           <div
-            className={`${v2GlassCard} p-8 md:p-10 text-center animate-fade-in-up [animation-delay:100ms] opacity-0`}
+            className={`${warmGlassCard} p-8 md:p-10 text-center animate-fade-in-up [animation-delay:100ms] opacity-0`}
           >
             <p className="text-lg leading-relaxed" style={{ color: 'var(--color-text-secondary)' }}>
               Knowing the exact pickup times ensures your important shipments go out the same day.
@@ -196,7 +197,7 @@ export const PickupHours: React.FC = () => {
           </div>
         </div>
 
-        {/* Pickup Hours Glass Grids */}
+        {/* Pickup Hours Warm Grids */}
         <div
           ref={gridRef}
           className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto mb-20 ${gridInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -204,7 +205,7 @@ export const PickupHours: React.FC = () => {
           {pickupHours.map((item, idx) => (
             <div
               key={item.carrier}
-              className="relative rounded-lg p-8 border border-white/60 shadow-sm backdrop-blur-md overflow-hidden group animate-fade-in-up opacity-0"
+              className="relative rounded-lg p-8 border border-[var(--color-border)] shadow-sm shadow-md overflow-hidden group animate-fade-in-up opacity-0"
               style={{ backgroundColor: item.bgTint, animationDelay: `${idx * 100 + 100}ms` }}
             >
               {/* Decorative accent bar */}
@@ -243,7 +244,7 @@ export const PickupHours: React.FC = () => {
               </ul>
 
               <div
-                className="text-sm p-5 rounded-2xl relative z-10 border border-white/50"
+                className="text-sm p-5 rounded-2xl relative z-10 border border-[var(--color-border)]"
                 style={{
                   color: 'var(--color-text-secondary)',
                   backgroundColor: 'rgba(255,255,255,0.6)',
@@ -258,26 +259,18 @@ export const PickupHours: React.FC = () => {
           ))}
         </div>
 
-        {/* Local SEO Section - Glass Panel */}
+        {/* Local SEO Section - Warm Glass Panel */}
         <section
           ref={localRef}
-          className={`${v2GlassCard} p-8 md:p-12 mb-16 relative overflow-hidden ${localInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+          className={`${warmGlassCard} p-8 md:p-12 mb-16 relative overflow-hidden ${localInView ? 'animate-fade-in-up' : 'opacity-0'}`}
         >
-          {/* Subtle gradient background for this section specifically */}
-          <div
-            className="absolute inset-0 opacity-50 z-0"
-            style={{
-              backgroundImage: 'linear-gradient(to right, rgba(234, 244, 251, 0.5), transparent)',
-            }}
-          ></div>
-
           <div className="max-w-4xl mx-auto relative z-10">
             <div className="flex items-start gap-4 mb-6">
               <div
                 className="p-3 rounded-xl"
-                style={{ backgroundColor: 'var(--color-bg-blue-tint)' }}
+                style={{ backgroundColor: 'var(--color-accent-warm)/0.1' }}
               >
-                <MapPin className="w-6 h-6 text-[var(--color-primary)]" />
+                <MapPin className="w-6 h-6 text-[var(--color-accent-warm)]" />
               </div>
               <h3
                 className="text-2xl font-bold mt-1"
@@ -333,9 +326,9 @@ export const PickupHours: React.FC = () => {
               <AccordionItem
                 key={i}
                 value={`faq-${i}`}
-                className="bg-white/60 backdrop-blur-md border border-white/60 rounded-[20px] shadow-sm hover:shadow-md transition-all px-2 overflow-hidden"
+                className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-md border border-[var(--color-border)] rounded-[20px] shadow-sm hover:shadow-md transition-all px-2 overflow-hidden"
               >
-                <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[var(--color-primary)] hover:no-underline hover:text-[var(--color-primary-dark)]">
+                <AccordionTrigger className="px-4 py-4 text-left font-semibold text-[var(--color-accent-warm)] hover:no-underline hover:text-[var(--color-accent-warm-light)]">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent
@@ -349,9 +342,9 @@ export const PickupHours: React.FC = () => {
           </Accordion>
         </section>
 
-        {/* Explore Our Services */}
+        {/* Explore Our Services - Warm Card */}
         <section className="max-w-4xl mx-auto px-4">
-          <div className="bg-white/70 backdrop-blur-xl rounded-lg border border-white/80 p-6 shadow-sm text-center">
+          <div className="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm text-center">
             <h2 className="text-xl font-bold mb-4">Explore Our Services</h2>
             <p className="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xl mx-auto">
               While you&apos;re here, check out our{' '}

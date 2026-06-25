@@ -34,15 +34,15 @@ export const StoreHours: React.FC = () => {
   const [holidaysRef, holidaysInView] = useInView({ threshold: 0.1 });
 
   return (
-    <div className="bg-white">
+    <div className="bg-[var(--color-bg-primary)]">
       <section
         ref={heroRef}
-        className={`relative bg-white py-20 lg:py-32 ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        className={`relative bg-[var(--color-bg-primary)] py-20 lg:py-32 ${heroInView ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-4xl mx-auto">
             <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6 animate-fade-in-up [animation-delay:100ms] opacity-0">
-              Store <span className="text-[var(--color-primary)]">Hours</span>
+              Store <span className="text-[var(--color-accent-warm)]">Hours</span>
             </h1>
             <p className="text-xl text-[var(--color-text-secondary)] mb-8 leading-relaxed animate-fade-in-up [animation-delay:200ms] opacity-0">
               Visit us during our convenient business hours. We&apos;re here to help with all your
@@ -58,9 +58,9 @@ export const StoreHours: React.FC = () => {
         className={`py-20 bg-[var(--color-bg-primary)] ${hoursInView ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
+          <div className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
             <div className="flex items-center mb-8">
-              <Clock className="w-8 h-8 text-[var(--color-primary)] mr-4" />
+              <Clock className="w-8 h-8 text-[var(--color-accent-warm)] mr-4" />
               <h2 className="text-3xl font-bold text-[var(--color-text-primary)]">Regular Hours</h2>
             </div>
 
@@ -70,15 +70,15 @@ export const StoreHours: React.FC = () => {
                   key={schedule.day}
                   className={`flex justify-between items-center p-4 rounded-xl ${
                     schedule.isToday
-                      ? 'bg-[var(--color-bg-blue-tint)] border-2 border-[var(--color-primary)]'
-                      : 'bg-[var(--color-bg-secondary)]'
+                      ? 'bg-[var(--color-accent-warm)]/10 border-2 border-[var(--color-accent-warm)]'
+                      : 'bg-[var(--color-bg-primary)]'
                   } animate-fade-in-up opacity-0`}
                   style={{ animationDelay: `${index * 100 + 100}ms` }}
                 >
                   <span
                     className={`font-semibold ${
                       schedule.isToday
-                        ? 'text-[var(--color-primary)]'
+                        ? 'text-[var(--color-accent-warm)]'
                         : 'text-[var(--color-text-primary)]'
                     }`}
                   >
@@ -98,8 +98,8 @@ export const StoreHours: React.FC = () => {
               ))}
             </div>
 
-            <div className="mt-8 p-6 bg-[var(--color-bg-cyan-tint)] rounded-xl">
-              <p className="text-[var(--color-primary)] font-medium text-center">
+            <div className="mt-8 p-6 bg-[var(--color-accent-warm)]/10 rounded-xl">
+              <p className="text-[var(--color-accent-warm)] font-medium text-center">
                 📞 Call ahead during holiday seasons as hours may vary
               </p>
             </div>
@@ -107,37 +107,37 @@ export const StoreHours: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact Info */}
+      {/* Contact Info - Warm Cards */}
       <section
         ref={contactRef}
-        className={`py-20 bg-white ${contactInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+        className={`py-20 bg-[var(--color-bg-secondary)]/50 ${contactInView ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div
-              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              className={`bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
               style={{ animationDelay: '100ms' }}
             >
-              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Phone className="w-8 h-8 text-[var(--color-primary)]" />
+              <div className="w-16 h-16 bg-[var(--color-accent-warm)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Phone className="w-8 h-8 text-[var(--color-accent-warm)]" />
               </div>
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
                 Call Us
               </h3>
               <p className="text-[var(--color-text-secondary)] mb-4">{siteConfig.contact.phone}</p>
               <a href={`tel:${siteConfig.contact.phone}`}>
-                <Button variant="link" className="text-sm">
+                <Button variant="link" className="text-sm text-[var(--color-accent-warm)]">
                   Call Now →
                 </Button>
               </a>
             </div>
 
             <div
-              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              className={`bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
               style={{ animationDelay: '200ms' }}
             >
-              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <MapPin className="w-8 h-8 text-[var(--color-primary)]" />
+              <div className="w-16 h-16 bg-[var(--color-accent-warm)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <MapPin className="w-8 h-8 text-[var(--color-accent-warm)]" />
               </div>
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
                 Visit Us
@@ -153,18 +153,21 @@ export const StoreHours: React.FC = () => {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Button variant="link" className="text-sm min-w-[48px] min-h-[48px]">
+                <Button
+                  variant="link"
+                  className="text-sm text-[var(--color-accent-warm)] min-w-[48px] min-h-[48px]"
+                >
                   Get Directions →
                 </Button>
               </a>
             </div>
 
             <div
-              className={`bg-white rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
+              className={`bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm border border-[var(--color-border)] text-center animate-fade-in-up opacity-0`}
               style={{ animationDelay: '300ms' }}
             >
-              <div className="w-16 h-16 bg-[var(--color-bg-blue-tint)] rounded-2xl flex items-center justify-center mx-auto mb-6">
-                <Calendar className="w-8 h-8 text-[var(--color-primary)]" />
+              <div className="w-16 h-16 bg-[var(--color-accent-warm)]/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <Calendar className="w-8 h-8 text-[var(--color-accent-warm)]" />
               </div>
               <h3 className="text-lg font-semibold text-[var(--color-text-primary)] mb-3">
                 Plan Your Visit
@@ -174,7 +177,7 @@ export const StoreHours: React.FC = () => {
                 <br />
                 Saturday morning availability
               </p>
-              <Button variant="link" className="text-sm">
+              <Button variant="link" className="text-sm text-[var(--color-accent-warm)]">
                 Contact Us →
               </Button>
             </div>
@@ -188,7 +191,7 @@ export const StoreHours: React.FC = () => {
         className={`py-20 bg-[var(--color-bg-primary)] ${holidaysInView ? 'animate-fade-in-up' : 'opacity-0'}`}
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
+          <div className="bg-[var(--color-bg-secondary)] rounded-2xl p-8 shadow-sm animate-fade-in-up [animation-delay:100ms] opacity-0">
             <h2 className="text-2xl font-bold text-[var(--color-text-primary)] mb-6 text-center">
               Holiday Hours
             </h2>
@@ -200,7 +203,7 @@ export const StoreHours: React.FC = () => {
               {holidays.map((holiday, index) => (
                 <div
                   key={holiday.name}
-                  className="flex justify-between items-center p-4 bg-[var(--color-bg-secondary)] rounded-xl animate-fade-in-up opacity-0"
+                  className="flex justify-between items-center p-4 bg-[var(--color-bg-primary)] rounded-xl animate-fade-in-up opacity-0"
                   style={{ animationDelay: `${index * 100 + 100}ms` }}
                 >
                   <div>
