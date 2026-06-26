@@ -77,48 +77,154 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/business-cards',
     pageTitle: 'Business Cards in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'High-quality business card printing in Concord Township, Ohio. Choose from premium cardstocks and finishes. Fast, professional local printing service.',
-    keywords: 'business cards, printing, Concord Township, Lake County',
-    heroTitle: 'Professional Business Cards',
-    heroSubtitle: 'Make a lasting first impression with custom-designed business cards.',
+      'Custom business card printing in Concord Township. Premium cardstocks, matte or glossy finishes, and design help included. Order 100 or 10,000 — fast local turnaround.',
+    keywords: 'business cards, printing, Concord Township, Lake County, premium business cards',
+    heroTitle: 'Business Cards That Start Conversations',
+    heroSubtitle:
+      'Forget the flimsy, generic cards that end up in the trash. Custom-designed, premium-stock business cards that people actually keep.',
     heroImage: getServiceImageUrl('/images/business-cards.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Why Business Cards Still Matter',
-        body: 'In the digital age, a well-designed business card remains one of the most effective tools for building professional connections.',
+        heading: 'The Flimsy Card Trap — Why Most Business Cards End Up in the Trash',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You get a new business card. It's thin. It's flimsy. The ink is already smudging before you hand it over. The person on the receiving end takes it politely, glances at it for half a second, and slides it into a drawer you know they'll never open again.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Flimsy Card Trap.</strong> Cheap online printers, generic templates, and paper-thin cardstock that screams "I went with the cheapest option." Your business card is often the first physical impression someone has of you — and if it feels cheap, so does your brand.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              The worst part? You paid for a rush shipment and still waited a week. They arrived bent in the mailbox.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Design Options & Quality Printing',
-        body: 'We work with top print suppliers to deliver business cards that reflect your brand. Choose from matte, glossy, and premium finishes.',
+        heading: 'Cards That Feel as Good as They Look',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, we believe your business card should feel substantial in hand. That's why we offer <strong>premium cardstocks, multiple finishes, and custom design services</strong> — all handled locally, not shipped from a warehouse.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Walk in with your logo and a rough idea, or let our <strong><a href="/copy-print/graphic-design" class="text-[var(--color-primary)] hover:underline">graphic design team</a></strong> create something from scratch. We'll help you choose the right stock, finish, and layout for your industry.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              No waiting for shipping. No surprise quality issues. Just cards you're proud to hand out — ready when you need them.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Premium Brand Impressions',
-        body: 'Make a lasting first impression with <strong>custom business cards</strong> <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">professionally printed</a> at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style.',
+        heading: 'Custom Business Cards in Three Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Vision</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Upload your design, bring a concept, or let us design it from scratch. We'll help you pick the right layout.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Finish</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Matte, glossy, or premium cardstock. Full-color or spot finish. Rounded corners or standard. We walk you through the options.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — No Shipping</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days, not weeks. Pick up in store — no bent corners, no missed deliveries.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Options Grid ──
       {
-        heading: 'Quality Finishes',
-        body: 'Our team offers <strong>matte, glossy, and premium cardstock finishes</strong>. Whether you need 100 cards or 10,000, we ensure crisp detail and vibrant color. We can help you create a design from scratch or polish your existing layout for print.',
+        heading: 'Choose Your Card \u2014 We\u2019ll Help You Decide',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">✨</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Matte Finish</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Elegant, non-glare surface. Perfect for professional services, law, finance, and real estate.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🌟</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Glossy Finish</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Vibrant, high-shine colors. Great for creative fields, photography, retail, and design.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">💎</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Premium Cardstock</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Thick, substantial feel with a velvet-touch or linen texture. Cards people comment on.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🎨</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Custom Design</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Don't have a design? Our graphic design team creates professional layouts from scratch.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🔲</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Rounded Corners</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">A subtle premium touch that makes your card stand out from the standard square edge.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📦</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Bulk Orders</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">100 to 10,000+ cards. Volume pricing available for businesses with multiple team members.</p>
+              </div>
+            </div>
+            <p class="text-center text-[var(--color-text-secondary)] text-sm mt-4">
+              Not sure which finish is right for you? <strong>Bring us your logo and we'll walk you through the options.</strong> No pressure, no upselling — just honest advice.
+            </p>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Durable & Professional',
-        body: 'Every card is printed using <strong>professional-grade printers</strong> to make sure your brand stands out with confidence. If you need <em>business card printing near Concord Township</em>, visit Mailbox Plus for cards that start conversations.',
+        heading: 'A First Impression Is a One-Time Opportunity',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Flimsy Cards Say "Cheap"</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Paper-thin cards from online printers tell potential clients you cut corners. Premium cardstock tells them you care about quality.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Generic Designs Get Forgotten</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">A template everyone uses won't make you memorable. Custom design ensures your card stands out — and gets saved.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shipping Delays Miss Deadlines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">That networking event is next week. Online printers take 7-10 days. We work locally — most orders ready in days.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than Just Cards</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Need matching <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">brochures</a> or <a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">postcards</a>? We can design and print your full brand kit — all in one place.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'Cards You\u2019ll Actually Want to Hand Out',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Imagine handing someone your business card and watching them pause — because it feels substantial, looks polished, and makes them actually want to keep it.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's what happens when you invest in quality. Your card becomes a conversation starter instead of a receipt they throw away.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Come see us at Mailbox Plus.</strong> Bring your logo or just an idea. We'll show you samples, help you choose, and have your cards ready before your next networking event.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Users,
         title: 'Custom Design',
-        description: 'Work with our staff or upload your own design.',
+        description: 'Upload your design or let our team create something custom.',
       },
       {
         icon: Palette,
-        title: 'Premium Materials',
-        description: 'Choose from multiple card stocks and finishes.',
+        title: 'Premium Finishes',
+        description: 'Matte, glossy, premium cardstock, and specialty textures.',
       },
       {
         icon: Star,
-        title: 'Fast Turnaround',
-        description: 'Get your cards quickly, ready for your next meeting.',
+        title: 'Local Turnaround',
+        description: 'No shipping delays. Most orders ready in days, not weeks.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...businessCardsFaqs],
@@ -185,48 +291,159 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/document-printing',
     pageTitle: 'Document Printing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Reliable document printing in Concord Township. Color and B&W printing for reports, presentations, and manuals. Quick service for students and businesses.',
-    keywords: 'document printing, business printing, Concord Township, Lake County',
-    heroTitle: 'Document Printing',
-    heroSubtitle: 'High-quality document printing for all your needs.',
+      'Document printing in Concord Township — without the kiosk nightmare. Color and B&W printing for reports, presentations, and manuals. We print, you pick up. Same-day service.',
+    keywords:
+      'document printing, business printing, Concord Township, Lake County, Staples alternative',
+    heroTitle: 'Document Printing Without the Kiosk Nightmare',
+    heroSubtitle:
+      'Your document is ready. The printer should be the easy part. Drop off your file, we handle the rest — color or B&W, stapled, bound, ready to go.',
     heroImage: getServiceImageUrl('/images/document-printing.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Professional Document Printing',
-        body: 'From single-page documents to large reports, we provide high-quality printing services for businesses and individuals.',
+        heading: 'The 4:45 PM Printing Panic — When the Machine Beats You',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              It's 4:45 PM. Your report is due tomorrow morning. You walk into the big box store, USB drive in hand. The self-serve kiosk is flashing "Paper Jam — Call for Assistance." The next machine says "Toner Low." The third one has a 30-minute queue.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Printing Panic.</strong> You're not just printing pages — you're racing against closing time, broken machines, and the sinking feeling that nobody in the store actually cares whether your document comes out right.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just need crisp, professional prints. But the machine is making you its problem instead of the solution.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Fast Turnaround',
-        body: 'Most printing jobs are completed the same day, so you can get your documents when you need them.',
+        heading: "We Print. You Don't Have To.",
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we do the document printing for you</strong>. Hand us your file — on a USB drive, by email, or from the cloud. Tell us color or B&W, one-sided or double-sided, stapled or bound.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Our team checks your file for alignment, margins, and page count before we print. If something looks off, we'll flag it. If you're not sure which paper to use, we'll recommend it. <strong>We print so you can get back to what matters.</strong>
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Think of us as your <strong><a href="/staples-printing-alternative-concord-township" class="text-[var(--color-primary)] hover:underline">personal print department</a></strong> — without the overhead of hiring one.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Fast & Reliable Results',
-        body: 'Mailbox Plus provides <strong><a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">high-quality document printing</a></strong> for residents, students, and businesses in Concord Township. Whether you need resumes, presentations, or reports, we make it simple to get crisp results right when you need them.',
+        heading: 'Three Steps to Printed Perfection',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Send or Bring Your File</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Email it, bring a USB drive, or access cloud storage. We accept PDF, Word, Excel, and more.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Review & Print</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Our team checks your file, confirms color/B&W, single/double-sided, and finishes the job on professional-grade printers.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up, Stapled & Ready</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Add stapling, binding, hole-punch, or folding — all in-house.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── What We Print Grid ──
       {
-        heading: 'Custom Finishing Options',
-        body: 'Our on-site printers produce <strong>black-and-white and full-color</strong> documents with <a href="/copy-print/business-cards" class="text-[var(--color-primary)] hover:underline">finishing options like stapling and binding</a>. We can print directly from email, USB, or cloud storage with total confidentiality.',
+        heading: 'What We Print — and What We Check',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📊</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Presentations</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Deck slides, handouts, speaker notes — color or B&W, bound or stapled.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📑</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Reports & Proposals</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Business reports, grant proposals, financial docs — professional binding available.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📚</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Manuals & Handbooks</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Employee handbooks, training manuals, product guides — double-sided, tabbed, bound.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📄</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Resumes & Applications</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Crisp, professional résumés on premium paper — make the right impression.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📋</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Forms & Contracts</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Legal forms, contracts, applications — exact reproductions, no margin shifts.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📝</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Flyers & Newsletters</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Full-color newsletters, program guides, community announcements.</p>
+              </div>
+            </div>
+            <p class="text-center text-[var(--color-text-secondary)] text-sm mt-4">
+              Every file is <strong>reviewed before printing</strong> — we catch margin issues, low-resolution images, and formatting problems before they hit paper. 
+              If you need <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">bulk copies</a> or <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">marketing materials</a>, we do those too.
+            </p>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'One-Stop Solutions',
-        body: 'We also offer <strong>bulk printing, scanning, and faxing</strong> for small offices and local professionals. Most jobs are completed same-day or while you wait, helping you get it right the first time.',
+        heading: 'What One Bad Print Job Costs You',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              A misaligned margin on a contract. A smudged résumé. A presentation where page 7 is missing because the stapler ran out. These aren't printing problems — they're credibility problems.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Deadlines Don't Wait</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">The self-serve machine that jams at 4:58 PM doesn't care about your 9 AM meeting. We print during all business hours — most jobs done same-day.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Nobody Checks Your Work at the Kiosk</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">The big box machine prints whatever you send. If page 3 has a formatting error, you discover it when you're already in the parking lot. We review before we print.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Hidden Costs Add Up</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Printing at the kiosk seems cheap until you factor in the reprints, the rushed binding that falls apart, and the time you spent standing at a machine.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than Just Printing</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">While you're here: <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notarize</a> that contract, <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">scan</a> the backup docs, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> the old drafts — one stop.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'From Deadline Panic to Done — in One Trip',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Walk in with your digital file. Walk out with finished, professional documents — stapled, bound, hole-punched, and ready to present.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's what document printing should feel like. No machine errors. No figuring out paper trays. No reprinting because the alignment was off.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>You focus on the content. We make it look good on paper.</strong> Whether it's one page or 500, we'll have you in and out and on to the next thing.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Printer,
-        title: 'Color & B/W',
-        description: 'Full-color or black and white printing options.',
+        title: 'We Print for You',
+        description: "Drop off, email, or cloud — we handle the machine so you don't have to.",
       },
       {
         icon: FileText,
-        title: 'Multiple Formats',
-        description: 'Print documents, reports, presentations, and more.',
+        title: 'File Review Included',
+        description: 'Our team checks alignment, margins, and resolution before printing.',
       },
       {
         icon: Star,
-        title: 'Professional Quality',
-        description: 'Sharp, crisp printing on premium paper.',
+        title: 'Finishing Services',
+        description: 'Stapling, binding, hole-punch, folding — all done in-house.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...documentPrintingFaqs],
