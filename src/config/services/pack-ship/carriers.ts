@@ -266,49 +266,114 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/usps-services',
     pageTitle: 'USPS Postal Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Official USPS postal services in Concord Township. Buy stamps, send Priority Mail, and ship packages without the long post office lines.',
-    keywords: 'usps, postal services, concord township, lake county',
-    heroTitle: 'USPS Postal Services',
+      'USPS postal services in Concord Township — Priority Mail, First-Class, Certified Mail, and stamps. No post office lines. We handle UPS, FedEx, and DHL too.',
+    keywords: 'usps, postal services, concord township, lake county, post office alternative',
+    heroTitle: 'USPS Services Without the Post Office Wait',
     heroSubtitle:
-      'Access all the services of the United States Postal Service right here in Concord Township.',
+      'Priority Mail, First-Class, Certified Mail, and stamps — all at our counter. Skip the post office line and compare rates with other carriers while you\u2019re here.',
     heroImage: getServiceImageUrl('/images/usps-services.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Skip the Post Office Line',
-        body: 'We offer the same USPS shipping services without the hassle of the post office.',
+        heading: 'The Post Office Line \u2014 Why It Takes 30 Minutes to Mail a Package',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to mail a package USPS. You drive to the post office. The line wraps around. When you finally get to the counter, you realize you could have saved money by shipping UPS or FedEx \u2014 but you can't compare rates here.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Post Office Tax.</strong> Limited hours. Long waits. And the post office can only sell you USPS \u2014 they can\u2019t show you what another carrier would cost.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Meanwhile, you're burning your lunch break waiting in line for a service that shouldn't take more than 5 minutes.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Mail & Package Services',
-        body: 'From stamps to international shipments, we cover all your USPS needs.',
+        heading: 'USPS Services \u2014 Plus Three More Carriers at the Same Counter',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is your local <strong>USPS provider</strong> \u2014 Priority Mail, First-Class, Certified Mail, and stamps, all without the post office hassle.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Bring your package in. We'll help you choose the right USPS service, weigh it, apply postage, and get it on its way. And if USPS isn't the cheapest option today, <strong>we can show you rates for UPS, FedEx, and DHL</strong> too \u2014 all from the same counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Need stamps? We carry Forever Stamps, books, and international postage \u2014 grab them while you\u2019re here.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Convenient USPS Hub',
-        body: 'Mailbox Plus is your hub for <strong>USPS postal and shipping services</strong> in Concord Township. As an authorized provider, we handle <strong><a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">First-Class Mail</a></strong>, <strong>Priority Mail</strong>, and <em>Certified Mail</em> in one friendly location.',
+        heading: 'USPS Made Simple',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Letter, package, or certified mail \u2014 we handle it all. No post office forms to fill out.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Service</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">First-Class, Priority, Certified, or International \u2014 plus a quick rate check against other carriers.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Handle It</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Weighing, postage, tracking \u2014 done at our counter. You\u2019re in and out in minutes.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Efficient Mailing Support',
-        body: 'Avoid the long lines at the post office. Our team provides fast, accurate service with expert packing, custom labeling, and on-the-spot postage for envelopes and parcels of all sizes.',
+        heading: 'What You Miss at the Post Office',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Long Lines, Short Hours</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Post offices close early and get crowded. We\u2019re open longer and move you through quickly.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Can\u2019t Compare Rates</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">The post office only offers USPS. We show you all 4 carriers \u2014 you might save 20-40%.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Stamps While You Ship</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Forget a separate trip for stamps. We carry Forever Stamps, international, and books at our counter.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop Multi-Carrier</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">USPS, UPS, FedEx, DHL \u2014 we offer all four. Why limit yourself to one?</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 7: The Success ──
       {
-        heading: 'Small Business & Personal Solutions',
-        body: 'Whether you need to send a single letter or manage regular mailings, we offer <strong>secure USPS drop-off, tracking assistance, and bulk mailing support</strong> right here in your community.',
+        heading: 'USPS With Options \u2014 No Post Office Required',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              All the USPS services you need, without the post office experience. That\u2019s Mailbox Plus.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Priority Mail, Certified Mail, stamps, and more \u2014 plus the ability to compare rates with UPS, FedEx, and DHL at the same counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next USPS shipment.</strong> We\u2019ll handle the rest.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Mail,
-        title: 'First-Class Mail',
-        description: 'Affordable shipping for letters and small packages.',
+        title: 'Priority & First-Class',
+        description: 'Full USPS service \u2014 from letters to Priority Mail to Certified.',
       },
       {
         icon: Truck,
-        title: 'Priority Mail',
-        description: 'Fast and reliable USPS Priority Mail shipping.',
+        title: 'Multi-Carrier Comparison',
+        description: 'USPS, UPS, FedEx, DHL \u2014 compare rates at one counter before you choose.',
       },
       {
         icon: Globe,
-        title: 'International Service',
-        description: 'Ship globally with USPS international options.',
+        title: 'Stamps & International',
+        description: 'Forever Stamps, books, and international postage available at our counter.',
       },
     ],
     faqs: [...generalShippingFaqs, ...uspsServicesFaqs],
