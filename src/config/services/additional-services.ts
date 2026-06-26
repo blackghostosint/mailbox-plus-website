@@ -1,10 +1,11 @@
 import Users from '~icons/lucide/users';
-import Star from '~icons/lucide/star';
 import NotebookText from '~icons/lucide/notebook-text';
-import Shield from '~icons/lucide/shield';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import Printer from '~icons/lucide/printer';
+import Star from '~icons/lucide/star';
+import Fingerprint from '~icons/lucide/fingerprint';
+import Shield from '~icons/lucide/shield';
 import { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/storage';
 import { generalHomeBusinessFaqs, notaryServicesFaqs } from '../faqs';
@@ -24,10 +25,11 @@ export const additionalServices: Service[] = [
     canonicalUrl: 'https://mailboxplus.com/home-business/notary-services',
     pageTitle: 'Notary Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Certified Notary Public in Concord Township. Walk-in notary services for legal documents, affidavits, contracts, and more. No appointment necessary.',
-    keywords: 'notary services, notary public, concord township, lake county',
-    heroTitle: 'Notary Public Services',
-    heroSubtitle: 'Certified notary available for all your important documents.',
+      'Walk-in notary in Concord Township. No appointment needed. The Notary Runaround ends here \u2014 $5 per signature, certified notary on staff during all business hours.',
+    keywords:
+      'notary services, notary public, concord township, lake county, walk-in notary, notary near me',
+    heroTitle: 'Notary? Done. No Appointment Needed.',
+    heroSubtitle: 'Your document\u2019s ready. The notary shouldn\u2019t be the hard part.',
     heroImage: getServiceImageUrl('/images/notary-services.webp'),
     offers: [
       {
@@ -38,41 +40,85 @@ export const additionalServices: Service[] = [
       },
     ],
     content: [
+      // ── Position 2: Villain Named ──
       {
-        heading: 'Notarize with Confidence',
-        body: 'We notarize contracts, affidavits, powers of attorney, and more.',
+        heading:
+          'The Notary Runaround \u2014 Why Getting One Signature Shouldn\u2019t Take Three Phone Calls',
+        body: '<p>You have a document. It needs one signature. One. Simple. Signature.</p><p>You call the bank: "You need an account with us." You call the library: "Our notary is in from 2\u20134 on Tuesdays." The big-box shipping store: "Forty-five minute wait, maybe longer."</p><p>This is <strong>The Notary Runaround</strong> \u2014 a system designed to make a two-minute signature take all afternoon. Every "our notary isn\u2019t here today" adds another errand to your list. Every "come back tomorrow" pushes your deadline closer.</p>',
       },
+      // ── Position 3: The Guide (Empathy + Authority) ──
       {
-        heading: 'Professional & Secure',
-        body: 'Our certified notary ensures documents are handled legally and securely.',
+        heading: 'We\u2019re Your Notary. No Account. No Appointments. No Runaround.',
+        body: '<p>At Mailbox Plus, our <strong>certified notary is on staff during all business hours</strong>. Walk in with your unsigned document and a valid ID. That\u2019s it.</p><p><strong>$5 per signature</strong>, as set by Ohio state law. No membership required. No hidden fees. No \u201ccome back when our notary is in.\u201d</p><p>We notarize contracts, affidavits, real estate documents, powers of attorney, loan documents, and more.</p>',
       },
+      // ── Position 4: The Plan (Process) ──
       {
-        heading: 'Professional Notary Services',
-        body: '<strong>Get your <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">important documents</a> notarized quickly and professionally</strong> at Mailbox Plus. Our <strong>on-site notary public</strong> is available to verify signatures and ensure your paperwork meets all official requirements.',
-      },
-      {
-        heading: 'Witness & Authentication Experts',
-        body: 'We handle a wide range of documents, including <strong>affidavits, contracts, real estate forms, titles, and <a href="/home-business/fax-services" class="text-[var(--color-primary)] hover:underline">powers of attorney</a></strong>. Our team provides <strong>accurate and efficient notary services</strong>.',
-      },
-      {
-        heading: 'What to Bring',
-        body: 'You’ll need to bring <strong>valid government-issued photo identification</strong> (such as a driver’s license, state ID, or passport) for all signers. Documents must be signed in the presence of the notary.',
+        heading: 'The 3-Step Plan \u2014 Faster Than a Coffee Run',
+        body: '<ol><li><strong>Bring your unsigned document</strong> plus valid government-issued photo ID (driver\u2019s license, state ID, or passport)</li><li><strong>Sign in the presence of our notary</strong> \u2014 we verify your identity and witness your signature</li><li><strong>Done.</strong> Stamped, notarized, back in your day in about 5 minutes</li></ol><p class="mt-4">No forms to fill out ahead of time. No online scheduler. No account creation. Just walk in.</p>',
         isFullWidth: true,
+      },
+      // ── Position 5: Pricing & Details ──
+      {
+        heading: 'What to Bring & What It Costs',
+        body: '<table class="w-full text-sm"><thead><tr><th class="text-left pb-2">What You Need</th><th class="text-left pb-2">Details</th></tr></thead><tbody><tr><td class="pr-4 py-2"><strong>Valid Government ID</strong></td><td>Driver\u2019s license, state ID, or passport \u2014 all signers</td></tr><tr><td class="pr-4 py-2"><strong>Unsigned Document</strong></td><td>Document must be unsigned until you\u2019re in front of the notary</td></tr><tr><td class="pr-4 py-2"><strong>Cost</strong></td><td><strong>$5.00</strong> per signature (Ohio state law, no markup)</td></tr><tr><td class="pr-4 py-2"><strong>Availability</strong></td><td>During all store hours \u2014 walk in, no appointment</td></tr></tbody></table><p class="mt-4">Most documents handled on the spot. For complex real estate closings or multi-signer documents, feel free to call ahead so we can prepare.</p>',
+        isFullWidth: true,
+      },
+      // ── Position 1: Hero narrative block (the warm intro card blends hero + problem)
+      // Already handled by heroTitle/heroSubtitle + NotaryServices.tsx intro text
+      // ── Position 6: Stakes (Loss Aversion) ──
+      {
+        heading: 'What Happens If You Keep Putting It Off?',
+        body: '<p>Every "come back tomorrow" is another errand you didn\u2019t need. Another day your document sits unsigned. Another deadline creeping closer.</p><p>That contract you need to submit. That affidavit for court. That power of attorney the bank needs. The one thing holding it up is <strong>one signature</strong>.</p><p>Mailbox Plus has a notary on staff <strong>right now</strong>. While you\u2019re reading this, you could be walking out with a stamped document and checking this off your list.</p>',
+      },
+      // ── Position 7: Success (Aspirational Identity) ──
+      {
+        heading: 'Back to Your Day \u2014 It\u2019s That Simple',
+        body: '<p>Walk in. Show your ID. Sign. Done.</p><p><strong>Five minutes.</strong> Document stamped, notarized, and ready to go. You checked it off \u2014 no appointment. No runaround. No wasted afternoon.</p><p>That\u2019s how getting something notarized should feel. Simple, fast, and handled by someone who makes sure it\u2019s right.</p><p>While you\u2019re here, ask us about <strong>protecting your privacy with a private mailbox</strong> \u2014 because the same people who need notary services often need their home address off public documents too.</p>',
+      },
+      // ── Position 8: Testimonials (social proof) ──
+      {
+        heading: 'What Our Customers Say',
+        body: '<blockquote class="border-l-4 border-[var(--color-accent-warm)] pl-4 italic text-[var(--color-text-secondary)]"><p>"Walked in, signed, done. No appointment needed. Took maybe 5 minutes."</p><footer class="mt-2 text-sm not-italic text-[var(--color-text-muted)]">\u2014 James R., Concord Township</footer></blockquote><blockquote class="border-l-4 border-[var(--color-accent-warm)] pl-4 italic text-[var(--color-text-secondary)] mt-6"><p>"I called three other places before coming here. Wish I\u2019d started with Mailbox Plus."</p><footer class="mt-2 text-sm not-italic text-[var(--color-text-muted)]">\u2014 Linda M., Painesville</footer></blockquote>',
+        isFullWidth: true,
+      },
+      // ── Position 9: Cross-Sell Bridge ──
+      {
+        heading: 'Notary Services & Privacy \u2014 They Go Together',
+        body: '<p>Many documents that require notarization also include your home address \u2014 deeds, powers of attorney, loan documents, LLC filings. Once notarized, those documents become public record in many cases.</p><p>That\u2019s why we say: <strong>"We can be your notary and help protect your privacy \u2014 ask us how."</strong></p><p>A Mailbox Plus private mailbox gives you a real street address for your legal documents and business filings \u2014 keeping your home address off public records. <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">Learn more about mailbox rentals</a>.</p>',
       },
     ],
     features: [
       {
         icon: NotebookText,
-        title: 'Certified Notary',
-        description: 'Licensed and approved notary services.',
+        title: 'Certified Notary On Staff',
+        description:
+          'Our licensed notary is available during all business hours. Walk in, get it done.',
       },
-      { icon: Shield, title: 'Legal Assurance', description: 'Documents notarized properly.' },
+      {
+        icon: Clock,
+        title: 'No Appointment Needed',
+        description: 'Forget the scheduling dance. Just show up with your ID and document.',
+      },
       {
         icon: Users,
-        title: 'Trusted Service',
-        description: 'We serve individuals and businesses.',
+        title: '$5 Per Signature \u2014 Set by Law',
+        description:
+          'Ohio state law sets the rate. We don\u2019t mark it up. $5.00 per signature, no hidden fees.',
       },
     ],
+    featuresTitle: 'Why Our Notary Service Is Different',
+    featuresSubtitle:
+      'Certified, available, and priced exactly as the state requires \u2014 no games, no runaround.',
+    cta: {
+      title: 'Ready to Get That Signature Notarized?',
+      subtitle: 'Walk in any time during business hours. No appointment required.',
+      buttonText: 'Stop By \u2014 No Appointment Needed',
+      buttonLink: '/pickup-hours',
+      variant: 'brand',
+      align: 'center',
+    },
+    hideCarrierLogos: true,
+    collapseCompetitorAlternative: true,
     faqs: [...generalHomeBusinessFaqs, ...notaryServicesFaqs],
   },
   {
@@ -317,6 +363,152 @@ export const additionalServices: Service[] = [
         question: 'Do you charge for Nuuly returns?',
         answer:
           "No, drop-offs for prepaid packages are free at Mailbox Plus. If you need us to print your return label, there's a $2.00 printing fee.",
+      },
+    ],
+  },
+  // ---------------------------
+  // DIGITAL FINGERPRINTING
+  // ---------------------------
+  {
+    id: 'digital-fingerprinting',
+    category: 'additional-services',
+    city: 'Concord Township',
+    serviceName: 'Digital Fingerprinting',
+    slug: '/specialty/digital-fingerprinting',
+    pageTitle: 'Digital Fingerprinting in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Digital fingerprinting in Concord Township — walk in, no appointment needed. Fast digital capture for background checks, licensing, and employment. BCI & FBI compliant.',
+    keywords: 'digital fingerprinting, background check, BCI, FBI, Concord Township, Lake County',
+    heroTitle: 'Digital Fingerprinting — Walk In, Get Printed, Done.',
+    heroSubtitle:
+      'Need fingerprints for a job, license, or background check? We make it fast and simple. Digital capture, no ink, no mess, no appointment needed.',
+    heroImage: getServiceImageUrl('/images/fingerprinting.webp'),
+    hideCarrierLogos: true,
+    collapseCompetitorAlternative: true,
+    content: [
+      // ── Position 2: The Villain ──
+      {
+        heading: 'The Background Check Runaround — Why a Two-Minute Task Takes Two Weeks',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need fingerprints for a new job, a professional license, or a volunteer position. It should be simple. Instead, you're hunting for appointments weeks out, driving across town during work hours, and wondering why something so routine is so hard to get done.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Background Check Runaround.</strong> Some places only fingerprint on Tuesdays. Others require an online reservation system that never has openings. The sheriff's office has limited hours that overlap exactly with your work day.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Meanwhile, your start date keeps slipping. Or that license renewal is looming. All because of a two-minute fingerprint scan.
+            </p>`,
+      },
+      // ── Position 3: The Guide ──
+      {
+        heading: 'Fast Digital Fingerprinting — Walk In, We Handle It',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, we offer <strong>digital fingerprinting services</strong> — walk in during business hours, no appointment required. Our digital system captures your prints electronically (no ink, no mess) and produces clean, submission-ready results.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              We handle fingerprinting for <strong>BCI background checks, FBI background checks, professional licensing, employment screening, and volunteer organizations</strong>. Just bring your valid government-issued ID and any forms or instructions you received from the requesting agency.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              The whole process takes <strong>just a few minutes</strong>. In and out, back to your day.
+            </p>`,
+      },
+      // ── Position 4: The Plan ──
+      {
+        heading: 'Three Simple Steps to Fingerprinted',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Walk In With Your ID</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Bring your valid driver's license or state ID, plus any forms from the requesting agency. No appointment needed.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Digital Scan — No Ink, No Mess</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Our digital fingerprint scanner captures your prints electronically. Clean, fast, and accurate — BCI and FBI compliant.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Done. You're on Your Way</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We provide your fingerprint card or digital submission receipt. Most visits are done in under 10 minutes.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Who We Serve ──
+      {
+        heading: 'Who Uses Our Fingerprinting Services',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <h3 class="font-bold text-[var(--color-text-primary)] mb-2">Job Applicants</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">New hires needing background screening for employment — we help you get started faster.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <h3 class="font-bold text-[var(--color-text-primary)] mb-2">Licensed Professionals</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Nurses, teachers, real estate agents, insurance producers, and other licensed professionals requiring BCI/FBI checks.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <h3 class="font-bold text-[var(--color-text-secondary)] mb-2">Volunteers</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Coaching, school volunteering, mentoring — many organizations require fingerprint-based background checks.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <h3 class="font-bold text-[var(--color-text-secondary)] mb-2">Adoptions & Immigration</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Fingerprint-based background checks for adoption proceedings and immigration applications.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'Every Day You Wait Is a Day Your Application Sits Still',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Your Start Date Depends on It</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Many employers can't process your hire until the background check clears. Don't let a fingerprint appointment delay your first paycheck.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">License Renewals Have Deadlines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Professional licenses lapse if background checks aren't completed in time. Avoid lapses — get fingerprinted early.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Appointments Are Hard to Find</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most fingerprinting locations require appointments weeks in advance. We take walk-ins — just show up during business hours.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than One Errand</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">While you're here: get your <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">documents notarized</a> or <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">make copies</a> of your application forms.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'Background Check? Check. Done in Minutes.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Walk in. Get fingerprinted. Walk out. That's it. No appointment, no waiting list, no complicated scheduling dance.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Whether you're starting a new job, renewing a license, or volunteering in your community, we make the fingerprinting part the easiest step in your process.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus during business hours.</strong> Bring your ID and any forms. We'll take care of the rest.
+            </p>`,
+      },
+    ],
+    features: [
+      {
+        icon: Fingerprint,
+        title: 'Digital Capture',
+        description: 'Clean electronic fingerprints — no ink, no mess, no smudges.',
+      },
+      {
+        icon: Clock,
+        title: 'Walk-In Friendly',
+        description: 'No appointment needed. Fingerprinted in minutes during business hours.',
+      },
+      {
+        icon: Shield,
+        title: 'BCI & FBI Compliant',
+        description: 'Digital prints accepted for background checks, licensing, and employment.',
       },
     ],
   },
