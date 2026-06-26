@@ -24,48 +24,114 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/fedex-shipping',
     pageTitle: 'FedEx Shipping in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Authorized FedEx ShipCenter in Concord Township. Express, Ground, and International shipping services. Packing, labeling, and drop-offs available.',
-    keywords: 'fedex shipping, concord township, lake county',
-    heroTitle: 'FedEx Shipping Services',
-    heroSubtitle: 'Ship your packages with the speed and reliability of FedEx.',
+      'Authorized FedEx ShipCenter in Concord Township. Express, Ground, and International shipping. Packing, labeling, and same-day drop-offs at our counter.',
+    keywords: 'fedex shipping, concord township, lake county, fedex drop off, fedex ship center',
+    heroTitle: 'FedEx Shipping \u2014 Authorized, Packed, Shipped',
+    heroSubtitle:
+      'Ship FedEx Express, Ground, or International from our neighborhood counter. We pack, label, and process \u2014 you just drop off and go.',
     heroImage: getServiceImageUrl('/images/fedex-shipping.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Convenient FedEx Drop-Off',
-        body: 'We are your neighborhood FedEx Authorized ShipCenter. Bring your labeled packages or let us prepare them for you.',
+        heading: 'The FedEx Office Run \u2014 Why a Drop-Off Shouldn\u2019t Take 30 Minutes',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship FedEx. You drive to the FedEx Office location. The parking lot is full. Inside, there's a line, the self-serve kiosk is flashing an error, and nobody's available to help pack your fragile item.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the FedEx Office Runaround.</strong> You just want to drop off a package and go. But the corporate store makes it a whole production \u2014 and you can't compare rates with other carriers while you're there.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Meanwhile, your package isn't packed right, and you're not sure if you chose the cheapest shipping option.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Flexible Shipping Options',
-        body: 'Choose from FedEx Express, Ground, and International services depending on your delivery timeline and budget.',
+        heading: 'Your Neighborhood FedEx ShipCenter \u2014 We Do the Heavy Lifting',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is an <strong>Authorized FedEx ShipCenter</strong> \u2014 the same FedEx services you'd get at a corporate location, but with local service that actually helps.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Bring your item in. We'll help you choose between <strong>FedEx Express, Ground, or International</strong> based on your budget and timeline. We pack it properly with carrier-compliant materials, print the label, and process the shipment \u2014 all from our counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Plus, if FedEx isn't the cheapest option today, we can show you rates for <strong>UPS, USPS, and DHL</strong> too \u2014 all at the same counter. No extra stops.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Trusted FedEx Partner',
-        body: 'At Mailbox Plus, we’re proud to be your local <strong>Authorized FedEx Shipping Center</strong>—serving Concord Township and Lake County. Our team ensures your shipment is packed, labeled, and processed according to FedEx’s professional standards.',
+        heading: 'Shipping FedEx in Three Easy Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packaged or unpackaged \u2014 we can help either way. If it's pre-labeled, just drop it off.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Service</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Express, Ground, or International. We explain the options and help you pick the best fit.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Handle the Rest</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packing, labeling, tracking, insurance \u2014 all taken care of. You get a receipt and you're on your way.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Global & Domestic Reach',
-        body: 'We offer the full range of <strong>FedEx Express, Ground, and International</strong> services. From overnight document delivery to secure international shipping, we help you choose the best option for your destination and budget.',
+        heading: 'What You Miss at the Corporate Store',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">No Rate Comparison</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">FedEx Office only offers FedEx. We can show you UPS, USPS, and DHL rates too \u2014 you might save 20-40% by switching carriers.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Packing Help Included</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Self-serve kiosks don't pack your items. Our trained staff uses carrier-compliant materials to protect your shipment.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Skip the Corporate Lines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">FedEx Office can get crowded. We move you through quickly \u2014 most drop-offs under 5 minutes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bundle Your Errands</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Ship FedEx, grab <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">copies</a>, notarize a document \u2014 all in one trip. FedEx Office can't do that.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 7: The Success ──
       {
-        heading: 'Professional Shipping Standards',
-        body: 'Every package is packed with care using <a href="/pack-ship/packaging-supplies" class="text-[var(--color-primary)] hover:underline">high-quality materials</a> that protect against vibration and compression. We provide <strong>real-time tracking, <a href="/specialty/insurance" class="text-[var(--color-primary)] hover:underline">shipment insurance</a>, and on-site packing assistance</strong> for your peace of mind.',
+        heading: 'Ship FedEx With Local Help \u2014 Every Time',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Imagine walking into a FedEx location where someone actually helps you pack, compares your options, and gets you on your way in minutes. That's Mailbox Plus.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              We're an authorized FedEx ShipCenter \u2014 same FedEx services, better experience.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next FedEx shipment.</strong> We'll pack it, label it, and ship it \u2014 so you can get back to your day.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Truck,
-        title: 'Fast Delivery',
-        description: 'Overnight and 2-day shipping available.',
+        title: 'FedEx Express & Ground',
+        description: 'Full range of FedEx services \u2014 from overnight to economy shipping.',
       },
       {
         icon: Shield,
-        title: 'Reliable Handling',
-        description: 'Your shipments are handled with care.',
+        title: 'Authorized ShipCenter',
+        description: 'Official FedEx location with trained staff and carrier-compliant packing.',
       },
       {
         icon: Globe,
-        title: 'International Reach',
-        description: 'Ship worldwide with customs support.',
+        title: 'International Shipping',
+        description: 'FedEx International services with customs documentation assistance.',
       },
     ],
     faqs: [...generalShippingFaqs, ...fedexShippingFaqs],
@@ -309,29 +375,115 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/postage-stamps',
     pageTitle: 'Postage Stamps in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Buy postage stamps in Concord Township. Forever stamps, international stamps, and metered mail services available. Skip the post office wait.',
-    keywords: 'postage stamps, USPS stamps, Concord Township, Lake County',
-    heroTitle: 'Postage Stamps',
-    heroSubtitle: 'Convenient access to USPS stamps without the post office trip.',
+      'Postage stamps in Concord Township — Forever stamps, international stamps, and metered mail. No post office line required. Grab stamps while you ship.',
+    keywords: 'postage stamps, USPS stamps, Concord Township, Lake County, post office alternative',
+    heroTitle: 'Stamps Without the Post Office Line',
+    heroSubtitle:
+      'Forever stamps, international postage, and metered mail — available at our counter. No separate trip required.',
     heroImage: getServiceImageUrl('/images/postage-stamps.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Quick & Easy',
-        body: 'Pick up individual stamps or full books for personal or business use.',
+        heading: 'The Post Office Trip \u2014 20 Minutes in Line for a Book of Stamps',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need a book of Forever Stamps. It should take 30 seconds. Instead, you drive to the post office, wait in line behind three people shipping packages, and realize you could have done this a lot faster.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Post Office Tax.</strong> Limited hours. Long lines. And when you finally get to the counter, it's a $20 minimum on the credit card machine.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just want stamps. But the post office makes it a whole errand.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Local Postage & Mailing',
-        body: 'Mailbox Plus is your local source for <strong>postage stamps and mailing supplies</strong> in Concord Township. Get the exact postage you need for personal or business mail—without waiting in long post office lines.',
+        heading: 'Grab Stamps While You\u2019re Here',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we carry USPS postage stamps at our counter</strong>. Forever Stamps, additional ounce stamps, international postage, and stamp books \u2014 all available while you're handling your other business.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Already coming in to ship a package, make copies, or notarize a document? <strong>Just add stamps to your visit.</strong> No separate trip. No post office line. No parking hassle.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Our staff can also help you <strong>weigh your mail, calculate postage, and prepare items for mailing</strong> \u2014 including <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">certified mail</a> and priority packages.
+            </p>`,
       },
+      // ── The Plan ──
       {
-        heading: 'Stamps & Custom Metering',
-        body: 'We carry <strong>Forever Stamps and standard USPS postage options</strong> for domestic and international mail. Our staff can help you calculate exact rates, weigh envelopes, and prepare your items for shipment.',
+        heading: 'Getting Stamps Is as Easy as Walking In',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Walk In</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">No appointment needed. Stamps are at our counter during all business hours.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Your Stamps</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Forever Stamps, books, international, or metered mail. Single stamps or full sheets.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Done</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pay and go. Or stay and take care of shipping, copies, notary \u2014 all in one trip.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'Why Make a Separate Trip?',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Post Office Lines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Average post office visit: 15\u201330 minutes. Grabbing stamps at Mailbox Plus: under 2 minutes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Limited Hours</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Post offices close early. We're open during extended business hours \u2014 stamps available every day we're here.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bundle Your Errands</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Shipping, copies, stamps, notary, shredding \u2014 all at one counter. One trip beats four.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Certified Mail Help</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Sending something important? We handle <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">certified mail, return receipts, and priority packages</a> \u2014 plus the stamps to go with them.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'Stamps While You Ship \u2014 One Trip, Done',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's the Mailbox Plus advantage. You were already coming in to ship a package. Why make a separate trip to the post office for stamps?
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Add a book of Forever Stamps to your visit. Pay once. Leave with everything done.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Next time you're here, just ask us for stamps.</strong> We'll add them to your tab \u2014 one stop, no line, no extra trip.
+            </p>`,
       },
     ],
     features: [
-      { icon: Mail, title: 'USPS Stamps', description: 'Official USPS postage stamps.' },
-      { icon: Star, title: 'Convenient', description: 'Buy while shipping your packages.' },
-      { icon: Package, title: 'Books & Sheets', description: 'Available in multiple quantities.' },
+      {
+        icon: Mail,
+        title: 'USPS Stamps',
+        description: 'Forever Stamps, international postage, and stamp books at our counter.',
+      },
+      {
+        icon: Star,
+        title: 'No Post Office Trip',
+        description: 'Grab stamps while you ship — no separate errand required.',
+      },
+      {
+        icon: Package,
+        title: 'Mailing Help Included',
+        description: 'We weigh, calculate postage, and prepare certified mail and packages.',
+      },
     ],
     faqs: [...generalShippingFaqs, ...postageStampsFaqs],
   },
