@@ -24,48 +24,114 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/fedex-shipping',
     pageTitle: 'FedEx Shipping in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Authorized FedEx ShipCenter in Concord Township. Express, Ground, and International shipping services. Packing, labeling, and drop-offs available.',
-    keywords: 'fedex shipping, concord township, lake county',
-    heroTitle: 'FedEx Shipping Services',
-    heroSubtitle: 'Ship your packages with the speed and reliability of FedEx.',
+      'Authorized FedEx ShipCenter in Concord Township. Express, Ground, and International shipping. Packing, labeling, and same-day drop-offs at our counter.',
+    keywords: 'fedex shipping, concord township, lake county, fedex drop off, fedex ship center',
+    heroTitle: 'FedEx Shipping \u2014 Authorized, Packed, Shipped',
+    heroSubtitle:
+      'Ship FedEx Express, Ground, or International from our neighborhood counter. We pack, label, and process \u2014 you just drop off and go.',
     heroImage: getServiceImageUrl('/images/fedex-shipping.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Convenient FedEx Drop-Off',
-        body: 'We are your neighborhood FedEx Authorized ShipCenter. Bring your labeled packages or let us prepare them for you.',
+        heading: 'The FedEx Office Run \u2014 Why a Drop-Off Shouldn\u2019t Take 30 Minutes',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship FedEx. You drive to the FedEx Office location. The parking lot is full. Inside, there's a line, the self-serve kiosk is flashing an error, and nobody's available to help pack your fragile item.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the FedEx Office Runaround.</strong> You just want to drop off a package and go. But the corporate store makes it a whole production \u2014 and you can't compare rates with other carriers while you're there.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Meanwhile, your package isn't packed right, and you're not sure if you chose the cheapest shipping option.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Flexible Shipping Options',
-        body: 'Choose from FedEx Express, Ground, and International services depending on your delivery timeline and budget.',
+        heading: 'Your Neighborhood FedEx ShipCenter \u2014 We Do the Heavy Lifting',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is an <strong>Authorized FedEx ShipCenter</strong> \u2014 the same FedEx services you'd get at a corporate location, but with local service that actually helps.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Bring your item in. We'll help you choose between <strong>FedEx Express, Ground, or International</strong> based on your budget and timeline. We pack it properly with carrier-compliant materials, print the label, and process the shipment \u2014 all from our counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Plus, if FedEx isn't the cheapest option today, we can show you rates for <strong>UPS, USPS, and DHL</strong> too \u2014 all at the same counter. No extra stops.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Trusted FedEx Partner',
-        body: 'At Mailbox Plus, we’re proud to be your local <strong>Authorized FedEx Shipping Center</strong>—serving Concord Township and Lake County. Our team ensures your shipment is packed, labeled, and processed according to FedEx’s professional standards.',
+        heading: 'Shipping FedEx in Three Easy Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packaged or unpackaged \u2014 we can help either way. If it's pre-labeled, just drop it off.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Service</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Express, Ground, or International. We explain the options and help you pick the best fit.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Handle the Rest</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packing, labeling, tracking, insurance \u2014 all taken care of. You get a receipt and you're on your way.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Global & Domestic Reach',
-        body: 'We offer the full range of <strong>FedEx Express, Ground, and International</strong> services. From overnight document delivery to secure international shipping, we help you choose the best option for your destination and budget.',
+        heading: 'What You Miss at the Corporate Store',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">No Rate Comparison</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">FedEx Office only offers FedEx. We can show you UPS, USPS, and DHL rates too \u2014 you might save 20-40% by switching carriers.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Packing Help Included</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Self-serve kiosks don't pack your items. Our trained staff uses carrier-compliant materials to protect your shipment.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Skip the Corporate Lines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">FedEx Office can get crowded. We move you through quickly \u2014 most drop-offs under 5 minutes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bundle Your Errands</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Ship FedEx, grab <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">copies</a>, notarize a document \u2014 all in one trip. FedEx Office can't do that.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 7: The Success ──
       {
-        heading: 'Professional Shipping Standards',
-        body: 'Every package is packed with care using <a href="/pack-ship/packaging-supplies" class="text-[var(--color-primary)] hover:underline">high-quality materials</a> that protect against vibration and compression. We provide <strong>real-time tracking, <a href="/specialty/insurance" class="text-[var(--color-primary)] hover:underline">shipment insurance</a>, and on-site packing assistance</strong> for your peace of mind.',
+        heading: 'Ship FedEx With Local Help \u2014 Every Time',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Imagine walking into a FedEx location where someone actually helps you pack, compares your options, and gets you on your way in minutes. That's Mailbox Plus.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              We're an authorized FedEx ShipCenter \u2014 same FedEx services, better experience.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next FedEx shipment.</strong> We'll pack it, label it, and ship it \u2014 so you can get back to your day.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Truck,
-        title: 'Fast Delivery',
-        description: 'Overnight and 2-day shipping available.',
+        title: 'FedEx Express & Ground',
+        description: 'Full range of FedEx services \u2014 from overnight to economy shipping.',
       },
       {
         icon: Shield,
-        title: 'Reliable Handling',
-        description: 'Your shipments are handled with care.',
+        title: 'Authorized ShipCenter',
+        description: 'Official FedEx location with trained staff and carrier-compliant packing.',
       },
       {
         icon: Globe,
-        title: 'International Reach',
-        description: 'Ship worldwide with customs support.',
+        title: 'International Shipping',
+        description: 'FedEx International services with customs documentation assistance.',
       },
     ],
     faqs: [...generalShippingFaqs, ...fedexShippingFaqs],
