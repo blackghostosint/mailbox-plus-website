@@ -113,26 +113,32 @@ export const documentServices: Service[] = [
     hideCarrierLogos: true,
     collapseCompetitorAlternative: true,
     content: [
+      // ── SB7 POSITION 1-2: PROBLEM (Villain: The Curb-Side Data Leak) ──
       {
         heading: 'The Risk Sitting in Your Trash Can',
-        body: 'Old tax returns, bank statements, medical records. Throwing them in the household recycling bin doesn’t protect you—it just makes your family a target. Identity thieves don’t have to hack a database when they can simply exploit a vulnerable paper trail left at the curb.',
+        body: 'Old tax returns, bank statements, medical records — every piece of paper in your recycling bin is a data point. Identity thieves call it <strong>The Curb-Side Data Leak</strong>: a five-minute opportunity to grab your entire financial history from a cardboard box sitting on the street. The mechanism is simple — personal documents thrown away intact are accessible to anyone with five minutes and no shame. And they don\u2019t need all of it. One paper with your SSN, DOB, or bank account number is all it takes.',
       },
-      {
-        heading: 'Simple, Flat-Rate Pricing: Just $1.00 per Pound',
-        body: 'No minimums. No hidden setup fees. No guesswork. We weigh your documents right at our counter so you know the exact cost before we shred. Whether you have a single envelope of private medical receipts or an entire attic filled with ten years of business tax files, you get the same simple flat-rate: <strong>only $1.00 per pound</strong>. You get total transparency and no franchise markups.',
-      },
-      {
-        heading: 'Our Official Certificate of Destruction',
-        body: 'We don’t just promise complete security—we prove it. Every shredding job at Mailbox Plus is accompanied by an official, physical <strong>Mailbox Plus Certificate of Destruction</strong>. Hand-signed and stamped by our in-store security specialist the moment your files are shredded, this document serves as your physical, auditable proof that your private papers have been permanently destroyed under our strict P-4 security chain of custody.',
-      },
+      // ── SB7 POSITION 3: GUIDE (Empathy + Authority) ──
       {
         heading: 'Immediate On-Site P-4 Destruction',
         body: 'We understand the high stakes of keeping your personal, financial, and medical history safe. Unlike competitor shipping stores that throw your documents into a locked console where they sit for weeks waiting for an outside contract truck, <strong>Mailbox Plus shreds everything on-site immediately</strong>. Your documents never leave our sight, are never stored for later, and are never handed over to outside middlemen. We destroy them on our advanced P-4 micro-cut machines the moment you hand them to us.',
       },
+      // ── SB7 POSITION 4a: PLAN (Pricing — Agreement Plan) ──
+      {
+        heading: 'Simple, Flat-Rate Pricing: Just $1.00 per Pound',
+        body: 'No minimums. No hidden setup fees. No guesswork. We weigh your documents right at our counter so you know the exact cost before we shred. Whether you have a single envelope of private medical receipts or an entire attic filled with ten years of business tax files, you get the same simple flat-rate: <strong>only $1.00 per pound</strong>. You get total transparency and no franchise markups.',
+      },
+      // ── SB7 POSITION 4b: PLAN (Process Plan — 3 Steps) ──
       {
         heading: 'No Home Shredder Jams, No Paper Dust',
-        body: 'Why spend your Saturday fighting with a cheap home shredder that overheats and jams after three pages? Our commercial drop-off process is designed to get you secure and back on your way in under two minutes: <br/><br/><strong>1) Drop off your paperwork</strong> (staples, paper clips, and folders are perfectly fine—no need to remove them). <br/><strong>2) We weigh and shred immediately on-site</strong> while you watch if you’d like. <br/><strong>3) Walk out clutter-free</strong> with your hand-signed Certificate of Destruction and complete peace of mind.',
+        body: 'Why spend your Saturday fighting with a cheap home shredder that overheats and jams after three pages? Our commercial drop-off process is designed to get you secure and back on your way in under two minutes: <br/><br/><strong>1) Drop off your paperwork</strong> (staples, paper clips, and folders are perfectly fine\u2014no need to remove them). <br/><strong>2) We weigh and shred immediately on-site</strong> while you watch if you\u2019d like. <br/><strong>3) Walk out clutter-free</strong> with your hand-signed Certificate of Destruction and complete peace of mind.',
       },
+      // ── SB7 POSITION 7: SUCCESS (Aspirational Identity) ──
+      {
+        heading: 'Our Official Certificate of Destruction',
+        body: 'We don\u2019t just promise complete security\u2014we prove it. Every shredding job at Mailbox Plus is accompanied by an official, physical <strong>Mailbox Plus Certificate of Destruction</strong>. Hand-signed and stamped by our in-store security specialist the moment your files are shredded, this document serves as your physical, auditable proof that your private papers have been permanently destroyed under our strict P-4 security chain of custody.',
+      },
+      // ── SB7 POSITION 5 (transitional): CROSS-SELL ──
       {
         heading: 'Stop the Leak Before It Hits Your Porch',
         body: 'Protecting your sensitive files starts before they ever need to be shredded. If you are regularly shredding bank statements, tax records, or business correspondence, <strong><a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">a Mailbox Plus private mailbox</a></strong> plugs the leak at the source. We accept all mail and packages in a secure, staffed commercial facility, keeping your home address private and your mail off your porch.',
@@ -196,6 +202,15 @@ export const documentServices: Service[] = [
         description: 'We handle single envelopes up to boxes of tax records.',
       },
     ],
+    // ── SB7 POSITION 5: CTA (Direct + Transitional) ──
+    cta: {
+      title: 'Ready to Destroy Your Paper Trail?',
+      subtitle: '$1.00 per pound. No minimum. No appointment. Walk in, drop off, done.',
+      buttonText: 'Bring Your Documents In →',
+      buttonLink: '/home-business/shredding',
+      variant: 'brand',
+      align: 'center',
+    },
     faqs: [...generalHomeBusinessFaqs, ...shreddingFaqs],
   },
   {
