@@ -386,48 +386,116 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/dhl-express',
     pageTitle: 'DHL Express in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'DHL Express Service Point in Concord Township. Fast and reliable international shipping. We help with customs forms and packaging.',
-    keywords: 'dhl shipping, concord township, lake county',
-    heroTitle: 'DHL Express Shipping',
-    heroSubtitle: 'Fast international shipping with DHL Express.',
+      'DHL Express Service Point in Concord Township. International shipping to 220+ countries. Customs forms, packing, and tracking assistance included.',
+    keywords: 'dhl shipping, concord township, lake county, dhl express, international shipping',
+    heroTitle: 'DHL Express \u2014 International Shipping, Local Help',
+    heroSubtitle:
+      'Ship to over 220 countries with DHL Express. We help with customs forms, packing, and finding the best rate.',
     heroImage: getServiceImageUrl('/images/dhl-express.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Ship Worldwide with DHL',
-        body: 'DHL Express specializes in international delivery, making it the go-to choice for global shipments.',
+        heading: 'International Shipping Feels Overwhelming \u2014 Customs, Forms, and Uncertainty',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship something overseas. Customs forms, international restrictions, packaging requirements \u2014 it\u2019s a lot. And finding a DHL drop-off location that actually helps with the paperwork isn\u2019t easy.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the International Shipping Maze.</strong> One wrong customs code and your package gets delayed. One packaging mistake and it gets returned. And most drop-off locations just hand you a label and leave you to figure it out.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You want to ship internationally with confidence. But without help, it\u2019s easy to get it wrong.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Trusted Worldwide Carrier',
-        body: 'DHL is known for its reliability and global network.',
+        heading: 'Your Local DHL Service Point \u2014 We Handle the Paperwork Too',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is a <strong>DHL Express Service Point</strong> \u2014 your local access to DHL\u2019s global 220-country network. We don\u2019t just take your package and ship it. We help with everything.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Customs forms? We guide you through them. International restrictions? We know what can and can\u2019t ship. Packaging requirements? We pack it to DHL standards. And if DHL isn\u2019t the best option for your destination, <strong>we can compare rates with FedEx, UPS, and USPS</strong> too.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Whether you\u2019re shipping documents, packages, or freight \u2014 we make international shipping manageable.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Global Express Service Point',
-        body: 'At Mailbox Plus, we serve as your local access point for <strong>DHL Express international shipping</strong>—helping you send packages quickly and securely around the world via the same 220-country network as any DHL location.',
+        heading: 'Shipping DHL Express in Three Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Documents, packages, or freight \u2014 we help you determine the best way to ship internationally.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Customs &amp; Paperwork</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We guide you through customs forms, restricted item checks, and required documentation.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Pack &amp; Ship</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packed to DHL standards, labeled with tracking, and on its way \u2014 with customs-ready paperwork.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Expert International Readiness',
-        body: 'Our team ensures every shipment is <strong>professionally packed and customs-ready</strong>. We provide expert guidance on <em>customs forms, international restrictions, and packaging requirements</em> for DHL Express Worldwide.',
+        heading: 'What Can Go Wrong Without Help',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Customs Delays</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Incorrect forms = stuck packages. We help you get customs paperwork right the first time.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Rate Comparison</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">DHL is great for international, but FedEx or USPS might be cheaper for your destination. We show you all options.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Packaging That Travels</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">International transit is rough on packages. We use carrier-compliant materials that survive the journey.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop International</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">DHL, FedEx, UPS, USPS \u2014 we offer all four. For international, we help you pick the right one.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 7: The Success ──
       {
-        heading: 'Peace of Mind Worldwide',
-        body: 'Every DHL shipment comes with detailed tracking and delivery confirmation. We can also combine DHL with <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">other carriers like FedEx</a> or <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline">UPS</a> to provide the most cost-effective solution for your budget.',
+        heading: 'International Shipping, Simplified',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Your package needs to get across the world. We make sure it arrives \u2014 with the right carrier, the right packing, and the right paperwork.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              DHL Express to 220+ countries, right from our Concord Township counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next international shipment.</strong> We\u2019ll handle the details.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Globe,
-        title: 'Global Network',
-        description: 'Ship to over 220 countries worldwide.',
+        title: '220+ Countries',
+        description: 'DHL Express Worldwide network \u2014 fast, reliable international shipping.',
       },
       {
         icon: Shield,
-        title: 'Secure Delivery',
-        description: 'DHL ensures safe and fast delivery.',
+        title: 'Customs Support',
+        description:
+          'We help with forms, restrictions, and documentation for smooth customs clearance.',
       },
       {
         icon: Package,
-        title: 'Express Options',
-        description: 'Choose express services for urgent packages.',
+        title: 'Multi-Carrier Options',
+        description:
+          'Compare DHL with FedEx, UPS, and USPS \u2014 pick the best international rate.',
       },
     ],
     faqs: [...generalShippingFaqs, ...dhlExpressFaqs],
