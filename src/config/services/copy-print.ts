@@ -79,29 +79,39 @@ export const copyPrintServices: Service[] = [
     metaDescription:
       'High-quality business card printing in Concord Township, Ohio. Choose from premium cardstocks and finishes. Fast, professional local printing service.',
     keywords: 'business cards, printing, Concord Township, Lake County',
-    heroTitle: 'Professional Business Cards',
-    heroSubtitle: 'Make a lasting first impression with custom-designed business cards.',
+    heroTitle: "First Impressions Shouldn't Have to Wait for Shipping",
+    heroSubtitle:
+      'Premium business cards professionally printed in Concord Township. Designed locally, ready in days — not weeks. Matte, gloss, or premium finishes.',
     heroImage: getServiceImageUrl('/images/business-cards.webp'),
     content: [
       {
-        heading: 'Why Business Cards Still Matter',
-        body: 'In the digital age, a well-designed business card remains one of the most effective tools for building professional connections.',
+        heading: 'The Shipping Delay',
+        body: 'Your business cards are almost gone. The online printing sites say 7-10 business days plus shipping — which means two weeks minimum. Your networking event is next week. Your logo or contact info changed. Do the math.',
       },
       {
-        heading: 'Design Options & Quality Printing',
-        body: 'We work with top print suppliers to deliver business cards that reflect your brand. Choose from matte, glossy, and premium finishes.',
+        heading: 'Missed Connections',
+        body: 'Every handshake without a card is a missed connection. Every "just email me" is a weaker follow-through. You show up unprepared, scrambling to explain who you are instead of handing them a card that says it all. The online order won\'t arrive in time — and if there\'s a typo, the whole cycle restarts.',
       },
       {
         heading: 'Premium Brand Impressions',
-        body: 'Make a lasting first impression with <strong>custom business cards</strong> <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">professionally printed</a> at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style.',
+        body: 'Make a lasting first impression with <strong>custom business cards</strong> <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">professionally printed</a> at Mailbox Plus. We help professionals throughout Lake County create high-quality, full-color business cards that reflect their brand and style — locally, not shipped from a warehouse.',
       },
       {
-        heading: 'Quality Finishes',
-        body: 'Our team offers <strong>matte, glossy, and premium cardstock finishes</strong>. Whether you need 100 cards or 10,000, we ensure crisp detail and vibrant color. We can help you create a design from scratch or polish your existing layout for print.',
+        heading: 'Quality Finishes, Fast Turnaround',
+        body: 'Our team offers <strong>matte, glossy, and premium cardstock finishes</strong>. Whether you need 100 cards or 10,000, we ensure crisp detail and vibrant color. Unlike ordering online, you see the quality before you leave — no cross-your-fingers-and-wait.',
       },
       {
-        heading: 'Durable & Professional',
-        body: 'Every card is printed using <strong>professional-grade printers</strong> to make sure your brand stands out with confidence. If you need <em>business card printing near Concord Township</em>, visit Mailbox Plus for cards that start conversations.',
+        heading: 'Not a Designer? No Problem',
+        body: 'Don\'t have a design file ready? Send us your logo and we\'ll create 3 concepts for you. Review, approve, and we print. <strong>Design services included</strong> — no extra software or freelance hunt required.',
+      },
+      {
+        heading: 'Premium Cards in Hand. Business Ready.',
+        body: 'Walk into your next meeting or event with professional cards in hand. No shipping anxiety. No wondering if the colors will match. Your card makes the first impression — make it a memorable one.',
+        isFullWidth: true,
+      },
+      {
+        heading: 'Your Business Card Has an Address. Make It a Professional One.',
+        body: 'Your business card lists where you do business. If that address is your home, you\'re sharing your personal location with every person you hand a card to. <strong><a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">A Mailbox Plus mailbox</a></strong> gives you a real Lake County street address — professional, bank-acceptable, and keeps your home private.',
       },
     ],
     features: [
