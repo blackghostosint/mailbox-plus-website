@@ -665,37 +665,115 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/copies',
     pageTitle: 'Copies in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Fast and affordable copy services in Concord Township. Black & white and color copies, volume discounts, and finishing services available.',
-    keywords: 'copy services, document copies, concord township, lake county',
-    heroTitle: 'Copy Services',
-    heroSubtitle: 'Quick, affordable copies for personal or business use.',
+      'Copy services in Concord Township — quick, affordable B&W and color copies. No self-serve machine required. We copy, you pick up. Volume discounts available.',
+    keywords: 'copy services, document copies, concord township, lake county, staples alternative',
+    heroTitle: 'Copies Without the Machine Headache',
+    heroSubtitle:
+      'Need copies? We make them for you. B&W or color, one page or 500. No self-serve, no jams, no waiting.',
     heroImage: getServiceImageUrl('/images/copies.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Affordable Copying',
-        body: 'Make black-and-white or color copies in any quantity you need.',
+        heading: 'The Copy Machine Curse \u2014 When \u201cMake a Copy\u201d Takes 20 Minutes',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need copies. Simple, right? Then the self-serve machine flashes "Paper Jam \u2014 Call for Assistance." You call. Nobody comes. You try another machine. "Toner Low." The third one has a 15-minute queue of people who all look as frustrated as you feel.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Copy Machine Curse.</strong> What should be a 2-minute task turns into a 20-minute ordeal. And when you finally get your copies, the alignment is off, the pages are out of order, and you have to start over.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just want fast, accurate copies. But the machine is making you do its job for it.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Bulk Discounts',
-        body: 'Save more when you print larger volumes.',
+        heading: 'We Copy So You Don\u2019t Have To',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we make the copies for you</strong>. Hand us your originals, tell us B&W or color, and how many. We handle the machine. You pick up crisp, collated copies \u2014 stapled, sorted, and ready to go.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              One copy or 500. Single-sided or double-sided. Black-and-white or full color. <strong>Most jobs are done while you wait</strong>, and we review every page for quality before you leave.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              For larger runs, we offer <strong>volume discounts</strong>. And if you need <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">document printing</a> or <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">scanning</a>, we do that too.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Fast Reproduction Services',
-        body: 'Mailbox Plus provides <strong><a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">high-quality copy services</a></strong> for businesses and individuals in Concord Township. Whether you need a few pages or hundreds of copies, our professional printers ensure accurate reproductions every time.',
+        heading: 'Three Steps to Perfect Copies',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Hand Us Your Originals</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Single page or a stack. Loose sheets, stapled documents, or bound materials \u2014 we handle it all.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Settings</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">B&W or color, single or double-sided, stapled or loose. We confirm everything before we start.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up \u2014 Done Right</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Collated, stapled, and quality-checked before you walk out.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Full-Service Document Handling',
-        body: 'We offer <strong>black-and-white and full-color</strong> copying with stapling and collating options. Our team can also help with <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">document scanning</a> and faxing, making us your local one-stop document hub.',
+        heading: 'What Self-Serve Really Costs You',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Time You Can't Get Back</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">15 minutes at a self-serve kiosk is 15 minutes you could have spent running your business. We make your copies while you wait or run other errands.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Nobody Checks Your Copies</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">At the kiosk, you discover the smudge or missing page after you've paid. We check every copy before handing it over.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bulk Orders Get Pricey Fast</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Self-serve per-page prices add up. We offer volume discounts for larger jobs and bulk projects.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop Document Hub</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">While you're here: <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">print</a> that report, <a href="/home-business/document-scanning" class="text-[var(--color-primary)] hover:underline">scan</a> the originals, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> what you don't need.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'From \u201cI Need Copies\u201d to Done \u2014 in One Trip',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Walk in with your originals. Walk out with perfect copies. No machine, no stress, no wasted time.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's what copy services should feel like. Hand it to someone who knows what they're doing, confirm your settings, and get back to what matters.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next copy job.</strong> Whether it's one page or 500, we'll have you in and out and on to the next thing.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Printer,
-        title: 'Color & B/W Copies',
-        description: 'Flexible copy options for any need.',
+        title: 'We Make the Copies',
+        description: 'Hand us your originals, we handle the machine. B&W or color, any quantity.',
       },
-      { icon: Layers, title: 'High Volume', description: 'We handle bulk orders quickly.' },
-      { icon: Star, title: 'Quality Guaranteed', description: 'Clear, sharp copies every time.' },
+      {
+        icon: FileText,
+        title: 'Collated & Stapled',
+        description: 'Every copy job is finished, sorted, and quality-checked before you leave.',
+      },
+      {
+        icon: Star,
+        title: 'Volume Discounts',
+        description: 'Bulk copy jobs at competitive prices. Ask us about large-run pricing.',
+      },
     ],
     faqs: [...generalCopyPrintFaqs, ...copiesFaqs],
   },

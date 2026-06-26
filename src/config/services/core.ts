@@ -21,69 +21,165 @@ export const coreServices: Service[] = [
     slug: '/pack-ship',
     pageTitle: 'Pack & Ship in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Expert Pack & Ship services in Concord Township, Ohio. We ship via FedEx, UPS, USPS, and DHL. Custom packing, estate shipping, and freight services available.',
-    keywords: 'shipping, packing, FedEx, UPS, USPS, DHL, Concord Township, Lake County',
-    heroTitle: 'Pack & Ship Services',
-    heroSubtitle: 'Professional shipping solutions with FedEx, UPS, USPS, DHL and more.',
+      'Compare UPS, FedEx, USPS, and DHL side-by-side in Concord Township. Custom packing for fragile items. Free package drop-offs. All 4 carriers, one counter.',
+    keywords:
+      'shipping comparison, multi-carrier, FedEx, UPS, USPS, DHL, custom packing, package drop-off, Concord Township, Lake County',
+    heroTitle: 'The Counter That Compares',
+    heroSubtitle:
+      'Compare UPS, FedEx, USPS, and DHL side-by-side. Custom packing for fragile items. Returns and receiving \u2014 all at one counter in Concord Township.',
     heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    featuresTitle: 'Why One Counter Beats Three Stores',
+    featuresSubtitle:
+      'Franchises sell one carrier. We sell all four. You compare, you pick, you save.',
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Our Pack & Ship Services',
-        body: `
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
-                            <div class="text-3xl mb-4">🏛️</div>
-                            <h3 class="text-xl font-bold mb-2">Carrier Services</h3>
-                            <p class="text-[var(--color-text-secondary)] mb-4">UPS, FedEx, USPS, and DHL shipping all in one place.</p>
-                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] font-semibold hover:underline">Compare Carriers →</a>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
-                            <div class="text-3xl mb-4">🎨</div>
-                            <h3 class="text-xl font-bold mb-2">Specialty Shipping</h3>
-                            <p class="text-[var(--color-text-secondary)] mb-4">Custom shipping for artwork, bicycles, and golf clubs.</p>
-                            <a href="/pack-ship/artwork-shipping" class="text-[var(--color-primary)] font-semibold hover:underline">See Specialty →</a>
-                        </div>
-                        <div class="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-border)]">
-                            <div class="text-3xl mb-4">📦</div>
-                            <h3 class="text-xl font-bold mb-2">Packing Services</h3>
-                            <p class="text-[var(--color-text-secondary)] mb-4">Professional packing for fragile or heavy items.</p>
-                            <a href="/pack-ship/packing-services" class="text-[var(--color-primary)] font-semibold hover:underline">Meet the Pros →</a>
-                        </div>
-                    </div>
-                `,
+        heading: 'The Three-Store Errand \u2014 Why Shipping Shouldn\u2019t Take All Afternoon',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship a package. You want to compare rates between carriers because that's what any smart business owner would do. But UPS only sells UPS. FedEx only sells FedEx. The post office has a 20-minute wait, and none of them are in the same strip mall.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Three-Store Errand.</strong> To compare rates, you drive to The UPS Store, then to FedEx Office, then to the post office \u2014 burning your lunch break and still guessing whether you got the best deal.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Meanwhile, your package isn't packed right for the trip. And if something breaks, you're the one eating the cost.
+            </p>`,
+      },
+      // ── Position 3: The Guide ──
+      {
+        heading: 'All 4 Carriers at One Counter \u2014 Compare Before You Ship',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we put UPS, FedEx, USPS, and DHL at the same counter</strong>. Bring your package in. We weigh it, show you rates for every carrier side-by-side, and let <em>you</em> pick the cheapest or fastest.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              We're your neighborhood <strong>authorized FedEx ShipCenter, UPS Authorized Shipper, USPS provider, and DHL Service Point</strong> \u2014 all at the same address. No franchise pushing one carrier. No upselling. Just honest rate comparisons and professional packing from trained staff.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>We help you compare. We don't upsell you to one carrier. We just help you pick the right one.</strong>
+            </p>`,
+      },
+      // ── Plan / Services Grid ──
+      {
+        heading: 'Every Shipping Service You Need \u2014 Under One Roof',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+              <a href="/pack-ship/ups-authorized-shipper-outlet" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">🚚</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Compare Carrier Rates</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL at one counter. Pick the cheapest or fastest \u2014 you decide.</p>
+              </a>
+              <a href="/pack-ship/artwork-shipping" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">🎨</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Fragile &amp; Specialty Shipping</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Artwork, bikes, golf clubs \u2014 custom crates that survive the sorting machines.</p>
+              </a>
+              <a href="/pack-ship/packing-services" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">📦</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Professional Packing</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">We pack it so carrier sorting machines can't break it. Ship with confidence.</p>
+              </a>
+              <a href="/pack-ship/package-drop-offs" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">📬</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Package Drop-Offs</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Free drop-offs for all 4 carriers. Bring any pre-labeled package \u2014 one stop.</p>
+              </a>
+              <a href="/pack-ship/package-receiving" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">🛡️</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Package Receiving</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">We sign. We store. You pick up. No porch needed. From $10/package.</p>
+              </a>
+              <a href="/amazon-returns" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">↩️</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Amazon Returns</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">From your cart to our counter. Label printing, packing, and drop-off.</p>
+              </a>
+              <a href="/pack-ship/packaging-supplies" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+                <div class="text-3xl mb-4">📎</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Packaging Supplies</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Boxes, tape, bubble wrap \u2014 grab what you need right where you ship.</p>
+              </a>
+            </div>`,
         isFullWidth: true,
       },
+      // ── Competitive Comparison ──
       {
-        heading: 'Your Local Concord Township Shipping Center',
-        body: `
-                    <div class="text-center py-8">
-                        <p class="text-[var(--color-text-primary)] leading-relaxed max-w-3xl mx-auto">
-                            As your complete <a href="/ups-fedex-usps-dhl-shipping-concord-township" class="text-[var(--color-primary)] hover:underline">shipping center in Concord Township</a>, 
-                            we offer <a href="/shipping-center-concord-township" class="text-[var(--color-primary)] hover:underline">multi-carrier shipping services</a> including 
-                            <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline">UPS</a>, 
-                            <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">FedEx</a>, and 
-                            <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">USPS</a> to help you find the best rate and delivery time.
-                        </p>
-                    </div>
-                `,
+        heading: 'Why One Counter Beats Three Stores',
+        body: `<div class="max-w-4xl mx-auto space-y-10 py-4">
+              <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                  <div class="text-4xl mb-4">🏪</div>
+                  <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Franchises Sell One</h3>
+                  <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">UPS Store sells UPS. FedEx Office sells FedEx. You drive to multiple stores to compare. We put all 4 at one counter so you pick the best \u2014 not the only.</p>
+                </div>
+                <div class="text-center p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                  <div class="text-4xl mb-4">⏰</div>
+                  <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Post Offices Have Lines</h3>
+                  <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">Your lunch break isn't for waiting in line. We handle the same USPS services \u2014 plus UPS, FedEx, and DHL \u2014 without the wait.</p>
+                </div>
+                <div class="text-center p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                  <div class="text-4xl mb-4">🎲</div>
+                  <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">DIY Packing Is a Gamble</h3>
+                  <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">One sorting-belt drop and your item is gone. Our professional packers use carrier-compliant materials that absorb the abuse \u2014 so your stuff arrives.</p>
+                </div>
+              </div>
+            </div>`,
         isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'What It Costs You to Drive Store-to-Store',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Time</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Driving between three stores to compare rates takes 45+ minutes. We do side-by-side comparisons at one counter in under 5.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-secondary)] mb-2">Overpaying by Default</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Franchises can't show you competitor rates. We do. You might find FedEx is cheaper than UPS today \u2014 but you'd never know at The UPS Store.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Damage From Bad Packing</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">DIY packing fails in transit. Our trained packers use carrier-compliant materials \u2014 your item arrives in one piece.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Porch Pirate Risk</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/mailbox-rentals" class="text-[var(--color-primary)] hover:underline">From $35/month</a>.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'One Stop. Compare. Pick the Best. Ship.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's the Mailbox Plus difference. Walk in with your package. We weigh it, show you rates from all 4 carriers, pack it if needed, and send it on its way \u2014 all from one counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              No more driving store-to-store. No more guessing whether you got the best rate. No more worrying about whether your package will survive the trip.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next shipment.</strong> Bring your package. We'll compare carriers, pack it right, and get it out the door \u2014 so you can get back to your day.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Package,
-        title: 'All Major Carriers',
-        description: 'Ship with FedEx, UPS, USPS, or DHL from one convenient location.',
+        title: '4 Carriers, 1 Counter',
+        description:
+          'Compare UPS, FedEx, USPS, and DHL side-by-side \u2014 pick the cheapest or the fastest.',
       },
       {
         icon: Shield,
-        title: 'Expert Packing',
-        description: 'Our trained staff use professional materials to ensure safe delivery.',
+        title: 'Professional Packing',
+        description:
+          'Custom crating for fragile items that survives sorting-machine abuse. We pack so carriers can\u2019t break it.',
       },
       {
         icon: Truck,
-        title: 'Fast & Reliable',
-        description: 'Multiple speed options from overnight to economy ground service.',
+        title: 'Package Receiving',
+        description:
+          'We sign for and store packages from all carriers \u2014 from $10/package or $35/month unlimited.',
       },
     ],
     faqs: packShipFaqs,
