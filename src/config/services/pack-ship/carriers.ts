@@ -144,48 +144,116 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/ups-authorized-shipper-outlet',
     pageTitle: 'UPS Authorized Shipper Outlet in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'UPS Authorized Shipping Outlet in Concord Township. Ship UPS Ground, Next Day Air, and International. Drop off pre-labeled packages for free.',
-    keywords: 'ups shipping, concord township, lake county',
-    heroTitle: 'UPS Shipping Services',
-    heroSubtitle: 'Full-service UPS Authorized Shipping Outlet for your convenience.',
+      'UPS Authorized Shipping Outlet in Concord Township. Ground, Next Day Air, and International. Free pre-labeled drop-offs. Compare UPS, FedEx, USPS, and DHL rates at one counter.',
+    keywords: 'ups shipping, concord township, lake county, ups drop off, ups store alternative',
+    heroTitle: 'UPS Shipping Without the Ups Store Line',
+    heroSubtitle:
+      'Authorized UPS shipping outlet — Ground, Next Day Air, and International. We pack, label, and ship. No franchise markup, no long wait.',
     heroImage: getServiceImageUrl('/images/ups-shipping.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Ship with UPS Confidence',
-        body: 'As a UPS Authorized Shipper, we offer all the services of a UPS Store without the long drive.',
+        heading: 'The Ups Store Line \u2014 Why the Franchise Isn\u2019t Your Only Option',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship UPS. You drive to The UPS Store. There\u2019s a line. The staff is overwhelmed. You wait. When you get to the counter, you pay their rate without knowing if FedEx or USPS would have been cheaper.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the UPS Store Tax.</strong> Franchise locations have higher overhead, longer lines, and they can only sell you UPS \u2014 they can't show you what FedEx or USPS would cost for the same package.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You're paying a premium for convenience, but you're not actually getting the best deal.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Flexible Options for Businesses',
-        body: 'Ground, Next Day Air, and International services available to meet your business shipping needs.',
+        heading: 'Same UPS. Better Counter.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is an <strong>Authorized UPS Shipping Outlet</strong> \u2014 the same UPS Ground, Next Day Air, and International services you\u2019d get at The UPS Store, without the franchise experience.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Bring your item in. We\u2019ll help you choose the right UPS service. We pack it, label it, and process the shipment. And if UPS isn\u2019t the cheapest option today, <strong>we can show you rates for FedEx, USPS, and DHL</strong> too \u2014 all from the same counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Already have a label? <strong>Free UPS drop-offs</strong> \u2014 bring your pre-labeled package and we\u2019ll get it scanned and on its way.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Local UPS Shipping Hub',
-        body: 'Mailbox Plus is your <strong>Authorized UPS Shipping Center</strong>—serving Concord Township with reliable packing and shipping solutions. Our staff ensures your shipment meets <strong>UPS packaging and handling standards</strong> for safety and speed.',
+        heading: 'Shipping UPS in Three Easy Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Package</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or not \u2014 we accept drop-offs and help with packing if needed. Amazon returns welcome.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Ground or Air</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Ground, 2nd Day Air, Next Day Air, or International \u2014 we explain options and help you pick.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Handle the Rest</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packing, label printing, tracking, insurance \u2014 all done at our counter. You get a receipt and go.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 6: The Stakes ──
       {
-        heading: 'Comprehensive UPS Services',
-        body: 'We offer a full suite of services including <em>UPS Ground, 2nd Day Air, Next Day Air, and International</em> options. Our experts help you choose the best method for your budget while guaranteeing secure packaging.',
+        heading: 'What You Miss at the Franchise',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">No Rate Comparison</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">The UPS Store only sells UPS. We show you all 4 carriers \u2014 you might save 20-40% by switching.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Free Drop-Offs</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled UPS packages? Drop them off for free at our counter. Quick scan, receipt, and go.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shorter Wait Times</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">The UPS Store can get backed up. We move you through quickly \u2014 most shipments under 5 minutes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than Just Shipping</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Ship UPS, <a href="/copy-print/copies" class="text-[var(--color-primary)] hover:underline">make copies</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notarize</a>, or <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shred</a> \u2014 all in one trip.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── Position 7: The Success ──
       {
-        heading: 'Convenient One-Stop Shop',
-        body: 'As a local business in Gristmill Village, we provide fast UPS drop-off and shipping assistance. Enjoy <strong>on-site packing, <a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">printed labels</a>, tracking, and insurance coverage</strong> all in one stop.',
+        heading: 'UPS Shipping With Options \u2014 Every Time',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              An authorized UPS outlet where someone helps you pack, compares your options, and gets you on your way in minutes \u2014 that\u2019s Mailbox Plus.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              And if UPS isn't your cheapest option today? We'll show you the alternatives. No extra stops required.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus for your next UPS shipment.</strong> Authorized, packed, shipped \u2014 done.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Truck,
-        title: 'Ground & Air',
-        description: 'Reliable UPS Ground and Next Day Air shipping.',
+        title: 'Ground, Air & International',
+        description:
+          'Full UPS service lineup \u2014 from ground to overnight to worldwide shipping.',
       },
       {
         icon: Shield,
-        title: 'Authorized Outlet',
-        description: 'Same UPS services with local convenience.',
+        title: 'Authorized Shipper',
+        description: 'Official UPS outlet with trained staff and carrier-compliant packing.',
       },
       {
         icon: Package,
-        title: 'Drop-Offs Welcome',
-        description: 'Bring your pre-labeled UPS packages for free drop-off.',
+        title: 'Free Drop-Offs',
+        description:
+          'Bring pre-labeled UPS packages for free drop-off \u2014 quick scan and receipt.',
       },
     ],
     faqs: [...generalShippingFaqs, ...upsShippingFaqs],
