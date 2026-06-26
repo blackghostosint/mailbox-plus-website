@@ -307,29 +307,115 @@ export const carrierServices: Service[] = [
     slug: '/pack-ship/postage-stamps',
     pageTitle: 'Postage Stamps in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Buy postage stamps in Concord Township. Forever stamps, international stamps, and metered mail services available. Skip the post office wait.',
-    keywords: 'postage stamps, USPS stamps, Concord Township, Lake County',
-    heroTitle: 'Postage Stamps',
-    heroSubtitle: 'Convenient access to USPS stamps without the post office trip.',
+      'Postage stamps in Concord Township — Forever stamps, international stamps, and metered mail. No post office line required. Grab stamps while you ship.',
+    keywords: 'postage stamps, USPS stamps, Concord Township, Lake County, post office alternative',
+    heroTitle: 'Stamps Without the Post Office Line',
+    heroSubtitle:
+      'Forever stamps, international postage, and metered mail — available at our counter. No separate trip required.',
     heroImage: getServiceImageUrl('/images/postage-stamps.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Quick & Easy',
-        body: 'Pick up individual stamps or full books for personal or business use.',
+        heading: 'The Post Office Trip \u2014 20 Minutes in Line for a Book of Stamps',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need a book of Forever Stamps. It should take 30 seconds. Instead, you drive to the post office, wait in line behind three people shipping packages, and realize you could have done this a lot faster.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Post Office Tax.</strong> Limited hours. Long lines. And when you finally get to the counter, it's a $20 minimum on the credit card machine.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just want stamps. But the post office makes it a whole errand.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Local Postage & Mailing',
-        body: 'Mailbox Plus is your local source for <strong>postage stamps and mailing supplies</strong> in Concord Township. Get the exact postage you need for personal or business mail—without waiting in long post office lines.',
+        heading: 'Grab Stamps While You\u2019re Here',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we carry USPS postage stamps at our counter</strong>. Forever Stamps, additional ounce stamps, international postage, and stamp books \u2014 all available while you're handling your other business.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Already coming in to ship a package, make copies, or notarize a document? <strong>Just add stamps to your visit.</strong> No separate trip. No post office line. No parking hassle.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Our staff can also help you <strong>weigh your mail, calculate postage, and prepare items for mailing</strong> \u2014 including <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">certified mail</a> and priority packages.
+            </p>`,
       },
+      // ── The Plan ──
       {
-        heading: 'Stamps & Custom Metering',
-        body: 'We carry <strong>Forever Stamps and standard USPS postage options</strong> for domestic and international mail. Our staff can help you calculate exact rates, weigh envelopes, and prepare your items for shipment.',
+        heading: 'Getting Stamps Is as Easy as Walking In',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Walk In</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">No appointment needed. Stamps are at our counter during all business hours.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Your Stamps</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Forever Stamps, books, international, or metered mail. Single stamps or full sheets.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Done</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pay and go. Or stay and take care of shipping, copies, notary \u2014 all in one trip.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'Why Make a Separate Trip?',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Post Office Lines</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Average post office visit: 15\u201330 minutes. Grabbing stamps at Mailbox Plus: under 2 minutes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Limited Hours</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Post offices close early. We're open during extended business hours \u2014 stamps available every day we're here.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bundle Your Errands</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Shipping, copies, stamps, notary, shredding \u2014 all at one counter. One trip beats four.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Certified Mail Help</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Sending something important? We handle <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">certified mail, return receipts, and priority packages</a> \u2014 plus the stamps to go with them.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'Stamps While You Ship \u2014 One Trip, Done',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That's the Mailbox Plus advantage. You were already coming in to ship a package. Why make a separate trip to the post office for stamps?
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Add a book of Forever Stamps to your visit. Pay once. Leave with everything done.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Next time you're here, just ask us for stamps.</strong> We'll add them to your tab \u2014 one stop, no line, no extra trip.
+            </p>`,
       },
     ],
     features: [
-      { icon: Mail, title: 'USPS Stamps', description: 'Official USPS postage stamps.' },
-      { icon: Star, title: 'Convenient', description: 'Buy while shipping your packages.' },
-      { icon: Package, title: 'Books & Sheets', description: 'Available in multiple quantities.' },
+      {
+        icon: Mail,
+        title: 'USPS Stamps',
+        description: 'Forever Stamps, international postage, and stamp books at our counter.',
+      },
+      {
+        icon: Star,
+        title: 'No Post Office Trip',
+        description: 'Grab stamps while you ship — no separate errand required.',
+      },
+      {
+        icon: Package,
+        title: 'Mailing Help Included',
+        description: 'We weigh, calculate postage, and prepare certified mail and packages.',
+      },
     ],
     faqs: [...generalShippingFaqs, ...postageStampsFaqs],
   },
