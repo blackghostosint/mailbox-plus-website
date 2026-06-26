@@ -27,7 +27,8 @@ export const additionalServices: Service[] = [
     pageTitle: 'Notary Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Walk-in notary in Concord Township. No appointment needed. The Notary Runaround ends here \u2014 $5 per signature, certified notary on staff during all business hours.',
-    keywords: 'notary services, notary public, concord township, lake county, walk-in notary, notary near me',
+    keywords:
+      'notary services, notary public, concord township, lake county, walk-in notary, notary near me',
     heroTitle: 'Notary? Done. No Appointment Needed.',
     heroSubtitle: 'Your document\u2019s ready. The notary shouldn\u2019t be the hard part.',
     heroImage: getServiceImageUrl('/images/notary-services.webp'),
@@ -41,7 +42,8 @@ export const additionalServices: Service[] = [
     ],
     content: [
       {
-        heading: 'The Notary Runaround \u2014 Why Getting One Signature Shouldn\u2019t Take Three Phone Calls',
+        heading:
+          'The Notary Runaround \u2014 Why Getting One Signature Shouldn\u2019t Take Three Phone Calls',
         body: '<p>You have a document. It needs one signature. One. Simple. Signature.</p><p>You call the bank: "You need an account with us." You call the library: "Our notary is in from 2\u20134 on Tuesdays." The big-box shipping store: "Forty-five minute wait, maybe longer."</p><p>This is <strong>The Notary Runaround</strong> \u2014 a system designed to make a two-minute signature take all afternoon. Every "our notary isn\u2019t here today" adds another errand to your list. Every "come back tomorrow" pushes your deadline closer.</p>',
       },
       {
@@ -63,7 +65,7 @@ export const additionalServices: Service[] = [
         body: '<p>Every "come back tomorrow" is another errand you didn\u2019t need. Another day your document sits unsigned. Another deadline creeping closer.</p><p>That contract you need to submit. That affidavit for court. That power of attorney the bank needs. The one thing holding it up is <strong>one signature</strong>.</p><p>Mailbox Plus has a notary on staff <strong>right now</strong>. While you\u2019re reading this, you could be walking out with a stamped document and checking this off your list.</p>',
       },
       {
-        heading: "Back to Your Day \u2014 It\u2019s That Simple",
+        heading: 'Back to Your Day \u2014 It\u2019s That Simple',
         body: '<p>Walk in. Show your ID. Sign. Done.</p><p><strong>Five minutes.</strong> Document stamped, notarized, and ready to go. You checked it off \u2014 no appointment. No runaround. No wasted afternoon.</p><p>That\u2019s how getting something notarized should feel. Simple, fast, and handled by someone who makes sure it\u2019s right.</p><p>While you\u2019re here, ask us about <strong>protecting your privacy with a private mailbox</strong> \u2014 because the same people who need notary services often need their home address off public documents too.</p>',
       },
       {
@@ -80,7 +82,8 @@ export const additionalServices: Service[] = [
       {
         icon: NotebookText,
         title: 'Certified Notary On Staff',
-        description: 'Our licensed notary is available during all business hours. Walk in, get it done.',
+        description:
+          'Our licensed notary is available during all business hours. Walk in, get it done.',
       },
       {
         icon: Clock,
@@ -90,11 +93,13 @@ export const additionalServices: Service[] = [
       {
         icon: Users,
         title: '$5 Per Signature \u2014 Set by Law',
-        description: 'Ohio state law sets the rate. We don\u2019t mark it up. $5.00 per signature, no hidden fees.',
+        description:
+          'Ohio state law sets the rate. We don\u2019t mark it up. $5.00 per signature, no hidden fees.',
       },
     ],
     featuresTitle: 'Why Our Notary Service Is Different',
-    featuresSubtitle: 'Certified, available, and priced exactly as the state requires \u2014 no games, no runaround.',
+    featuresSubtitle:
+      'Certified, available, and priced exactly as the state requires \u2014 no games, no runaround.',
     cta: {
       title: 'Ready to Get That Signature Notarized?',
       subtitle: 'Walk in any time during business hours. No appointment required.',
@@ -504,7 +509,8 @@ export const additionalServices: Service[] = [
     pageTitle: 'Shipping Insurance in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Shipping insurance in Concord Township \u2014 protect your valuable shipments. Declared value coverage for UPS, FedEx, USPS, and DHL shipments. Peace of mind included.',
-    keywords: 'shipping insurance, declared value, package protection, Concord Township, Lake County',
+    keywords:
+      'shipping insurance, declared value, package protection, Concord Township, Lake County',
     heroTitle: 'Ship With Confidence \u2014 We\u2019ll Make Sure You\u2019re Covered',
     heroSubtitle:
       'Default carrier liability covers almost nothing. Protect your valuable shipments with declared value coverage that actually pays out.',
@@ -625,7 +631,8 @@ export const additionalServices: Service[] = [
       {
         icon: Shield,
         title: 'Carrier Coverage Options',
-        description: 'Declared value for UPS, FedEx, and USPS \u2014 we explain the limits and costs.',
+        description:
+          'Declared value for UPS, FedEx, and USPS \u2014 we explain the limits and costs.',
       },
       {
         icon: Package,
