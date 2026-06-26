@@ -31,40 +31,153 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/graphic-design',
     pageTitle: 'Graphic Design in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Custom graphic design services in Concord Township. Let us design your business cards, flyers, and marketing materials. Professional branding for local businesses.',
-    keywords: 'graphic design, marketing design, Concord Township, Lake County',
-    heroTitle: 'Graphic Design Services',
-    heroSubtitle: 'Custom designs that make your business stand out.',
+      'Professional graphic design in Concord Township — business cards, flyers, brochures, logos, and branding. Custom designs that make your business look established. Print-ready files included.',
+    keywords:
+      'graphic design, marketing design, Concord Township, Lake County, branding, logo design',
+    heroTitle: 'Professional Design That Makes You Look Established',
+    heroSubtitle:
+      "Don't let amateur design make your business look small. Custom graphics from real designers — logos, cards, flyers, and full brand kits.",
     heroImage: getServiceImageUrl('/images/graphic-design.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Design That Works',
-        body: 'Our designers create professional layouts for business cards, flyers, brochures, and more.',
+        heading: 'The DIY Design Disaster — Why Templates Make You Look Like Everyone Else',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need a logo, a flyer, or some marketing materials. You fire up an online design tool with a free account. Two hours later, you've wrestled with margins, picked a template that sort of works, and exported something that looks... fine. Not great. Just fine.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the DIY Design Disaster.</strong> Templates are generic. Font choices are limited. Your business ends up looking like every other business that used the same template. And when you try to print it? The resolution is wrong, the colors don't match, and the text is cut off at the edge.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You spent hours creating something that makes your business look amateur — and now you have to pay to reprint it.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Custom Visual Branding',
-        body: '<strong>Bring your ideas to life with professional graphic design services</strong> from Mailbox Plus in Concord Township, Ohio. Whether you need a custom logo or marketing materials, our design experts can create eye-catching visuals that make your business stand out.',
+        heading: 'Real Designers. Real Results. Print-Ready from Day One.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>our graphic design team creates professional layouts</strong> for business cards, flyers, brochures, logos, banners, and more. We use industry-standard design tools — not templates — to create custom visuals that reflect your brand.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Bring us your ideas, your logo, or just a concept. We'll work with you to create something that looks professional and prints perfectly. Our designers understand <strong>print specifications, color profiles, and file formats</strong> — so your final design is production-ready from the start.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              And when the design is done? <strong>We can print it too.</strong> Right here, on our professional-grade equipment. One stop from concept to finished product.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Clean & Professional Layouts',
-        body: 'We specialize in <strong><a href="/copy-print/business-cards" class="text-[var(--color-primary)] hover:underline">business cards</a>, flyers, brochures, and more</strong>—all designed to reflect your unique brand identity. Our team can work from your existing concept or build something completely new from scratch, ensuring your final design is print-ready.',
+        heading: 'From Concept to Print — A Simple Process',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Share Your Vision</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Tell us about your business, your brand, and what you need. Bring samples, logos, or just describe your style — we take it from there.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Design & You Approve</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Our designers create concepts, you review proofs, and we refine until it's exactly right — all before anything goes to print.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Print or Digital — Your Choice</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Get print-ready files for your own use, or let us handle the printing — business cards, flyers, banners, and more.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── What We Design Grid ──
       {
-        heading: 'Industry-Standard Precision',
-        body: 'At Mailbox Plus, we use <strong>industry-standard design tools</strong> to guarantee accuracy across all printed formats. You’ll have the opportunity to review and approve proofs before production to ensure every detail is exactly as you envisioned.',
+        heading: 'What We Design for Local Businesses',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🪪</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Business Cards</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Custom-designed cards on premium stock — make a lasting first impression.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📣</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Flyers & Brochures</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Marketing materials that deliver your message with clarity and impact.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🎯</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Logos & Branding</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Custom logos and brand identity packages that set you apart.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🖼️</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Posters & Banners</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Large-format designs for events, promotions, and storefront displays.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📧</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Postcards & Mailers</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Direct mail designs that get noticed — EDDM-ready and print-ready.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🎨</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Full Brand Kits</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Consistent branding across all your materials — cards, flyers, social graphics, and more.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'What DIY Design Costs You',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Amateur Design Hurts Credibility</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Customers judge your business by your materials. A poorly designed flyer or cheap-looking business card signals that you don't pay attention to details.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Time, Wasted Money</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Hours spent wrestling with templates — then the print comes back wrong. Professional design gets it right the first time.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Templates Make You Invisible</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Generic templates mean you look like every other business. Custom design helps you stand out and get remembered.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Design + Print = One Stop</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We design and print in-house. No back-and-forth with online printers. No \u201cyour file isn't print-ready\u201d emails.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'Look Professional. Get Noticed. Grow Your Business.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You have a vision for your business. Let us help you communicate it visually. From a single business card design to a full brand identity, our team delivers professional results that make you look established — even if you're just starting out.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Our customers tell us: "I wish I'd done this sooner." Once you experience working with a real designer who understands print and branding, you'll never go back to templates.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Stop by Mailbox Plus and bring your ideas.</strong> Let's create something that makes your business look as good as it is.
+            </p>`,
       },
     ],
     features: [
-      { icon: Palette, title: 'Custom Designs', description: 'Designs tailored to your business.' },
+      {
+        icon: Palette,
+        title: 'Custom Designs',
+        description:
+          'Every project is unique — no templates, no shortcuts, just professional work.',
+      },
       {
         icon: Users,
         title: 'Collaborative Process',
-        description: 'Work with us to create your ideal look.',
+        description: 'You review proofs, we refine. Your vision, our expertise.',
       },
       {
         icon: Star,
-        title: 'Polished Results',
-        description: 'Professional graphics that get noticed.',
+        title: 'Print-Ready Results',
+        description: 'Designed for print from day one. We can print it too — one stop.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...graphicDesignFaqs],
