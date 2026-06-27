@@ -1,4 +1,3 @@
-import Mail from '~icons/lucide/mail';
 import Users from '~icons/lucide/users';
 import Star from '~icons/lucide/star';
 import Scissors from '~icons/lucide/scissors';
@@ -32,64 +31,175 @@ export const documentServices: Service[] = [
     slug: '/home-business/every-door-direct-mail',
     pageTitle: 'Every Door Direct Mail (EDDM) in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Grow your business with EDDM services in Concord Township. We help with design, printing, and USPS paperwork to reach every home in your target area.',
-    keywords: 'EDDM, direct mail, Concord Township, Lake County',
+      'EDDM services in Concord Township: design, print, and USPS prep for postcards and flyers. Reach every home in your target neighborhood without a mailing list.',
+    keywords:
+      'EDDM, direct mail, Concord Township, Lake County, postcard marketing, local marketing, every door direct mail',
     heroTitle: 'Every Door Direct Mail',
-    heroSubtitle: 'Reach your local community with cost-effective mail campaigns.',
+    heroSubtitle:
+      'Your neighbors are waiting to hear from you. We handle the design, printing, and USPS prep \u2014 you just tell us which streets.',
     heroImage: getServiceImageUrl('/images/every-door-direct-mail.webp'),
+    featuresTitle: 'Reach Your Neighborhood Without the USPS Maze',
+    featuresSubtitle:
+      'No mailing lists. No regulations to learn. Just effective local marketing that lands in every mailbox on your chosen routes.',
+    hideCarrierLogos: true,
     content: [
+      // ── Position 2: The Villain ──
       {
-        heading: 'Grow Your Business',
-        body: 'EDDM helps you target local neighborhoods with affordable bulk mailings.',
+        heading: 'The Marketing Maze \u2014 USPS Doesn\u2019t Make It Easy',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              USPS Every Door Direct Mail is one of the most affordable ways to reach your local community. But the reality? Route maps, design specs, bundle counts, drop-off requirements \u2014 it\u2019s a maze.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You just want your postcard in every mailbox on your street. USPS wants you to sort, bundle, tag, and route everything perfectly before they\u2019ll touch it.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              That\u2019s where most small business owners stop. The complexity kills the campaign before it starts.
+            </p>`,
       },
+      // ── Position 3: The Guide ──
       {
-        heading: 'Convenience & Flexibility',
-        body: 'EDDM is easy to use and cost-effective.',
+        heading: 'We Handle the USPS Maze. You Choose the Streets.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              We get it. You\u2019re running a business \u2014 you don\u2019t have time to learn USPS EDDM regulations.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              That\u2019s what we\u2019re for. Mailbox Plus handles the entire EDDM workflow:
+            </p>
+            <ul class="space-y-4 mb-6">
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Design:</strong> Professional postcards and flyers that get noticed.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Printing:</strong> High-quality color or B&W on the right stock.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Sorting &amp; Bundling:</strong> USPS-compliant preparation for every route.</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Drop-off:</strong> We take everything to USPS \u2014 you don\u2019t lift a finger.</div>
+              </li>
+            </ul>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just tell us which streets. We make it happen.
+            </p>`,
       },
+      // ── Position 4: The Plan ──
       {
-        heading: 'Reach Every Neighborhood',
-        body: '<strong>Every Door Direct Mail (EDDM)</strong> from Mailbox Plus makes it easy and affordable to reach potential customers in your local area—without needing a mailing list.',
-      },
-      {
-        heading: 'Targeted Local Marketing',
-        body: 'With EDDM, you can <strong>choose specific postal routes</strong> and deliver postcards or brochures directly to every home in that area. It’s a powerful way to promote local sales, events, and grand openings.',
-      },
-      {
-        heading: 'Full-Service EDDM Support',
-        body: `
-                    <ul class="space-y-4 my-6">
-                        <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Design & Printing:</strong> Professional postcards and brochures.</div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
-                        </li>
-                        <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                            </div>
-                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
-                        </li>
-                    </ul>
-                `,
+        heading: 'How EDDM Works \u2014 Three Simple Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Tell Us Your Area</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Specific ZIP codes, carrier routes, or neighborhoods in Lake County.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Design &amp; Print</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Postcards, flyers, or brochures \u2014 professionally designed and printed.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">USPS Drops Everything</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We sort, bundle, and deliver to USPS. Every door in your target area gets your mailer.</p>
+              </div>
+            </div>`,
         isFullWidth: true,
+      },
+      // ── Position 6: The Stakes ──
+      {
+        heading: 'Your Competitors Are Already Mailing',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Every month you wait is a month your competitors\u2019 postcards are sitting in your neighbors\u2019 mailboxes. They\u2019re getting the grand opening traffic. They\u2019re getting the seasonal calls. They\u2019re getting the \u201cwe saw your flyer\u201d walk-ins.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              EDDM is affordable \u2014 as low as 20\u201325\u00a2 per piece for postcards. The real cost is the business you lose by not showing up.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Your neighbors want to know who\u2019s in their community. Don\u2019t let your competitors be the only name they recognize.
+            </p>`,
+      },
+      // ── Position 7: The Success ──
+      {
+        heading: 'From Overwhelmed to Recognized',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              One EDDM campaign and everything changes. Your name is in every home. Your phone starts ringing. People walk in and say \u201cwe saw your postcard.\u201d
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You go from <em>small business owner who keeps meaning to do marketing</em> to <strong>the local name everyone recognizes.</strong>
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              That\u2019s what happens when you stop worrying about USPS rules and start reaching your community.
+            </p>`,
+      },
+      // ── Cross-Sell: Mailbox ──
+      {
+        heading: 'Already Marketing Locally? Protect Your Business Address.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              If you\u2019re putting your business on postcards and flyers, you want a professional address \u2014 not a PO Box. A <strong><a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">Mailbox Plus private mailbox</a></strong> gives you:
+            </p>
+            <ul class="space-y-4 mb-6">
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed">A real street address for your EDDM materials \u2014 valid for all carriers</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed">A place for customers to mail responses to</div>
+              </li>
+              <li class="flex items-start gap-3">
+                <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <div class="text-[var(--color-text-primary)] leading-relaxed">Package receiving from all 4 carriers \u2014 one secure drop point</div>
+              </li>
+            </ul>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong class="text-[var(--color-primary-dark)]">$35/month \u2022 30-day risk-free \u2022 Real street address \u2014 not a PO Box</strong>
+            </p>`,
       },
     ],
     features: [
-      { icon: Mail, title: 'Bulk Mailing', description: 'Send to entire ZIP codes or routes.' },
-      { icon: Users, title: 'Targeted Reach', description: 'Focus on specific neighborhoods.' },
+      {
+        icon: MapPin,
+        title: 'Targeted Reach',
+        description: 'Choose specific routes or ZIP codes \u2014 no mailing list needed.',
+      },
+      {
+        icon: Printer,
+        title: 'Design & Print',
+        description: 'Professional postcards and flyers, USPS-compliant sizing.',
+      },
       {
         icon: Star,
-        title: 'Affordable',
-        description: 'Save money compared to traditional mailing lists.',
+        title: 'USPS Prepared',
+        description: 'We sort, bundle, and drop off \u2014 you just approve the design.',
       },
     ],
+    cta: {
+      title: 'Ready to reach every door in your neighborhood?',
+      subtitle:
+        'Stop wrestling with USPS rules. Tell us which streets and we handle the rest \u2014 design, print, sorting, and drop-off.',
+      buttonText: 'Start Your EDDM Campaign',
+      buttonLink: '/home-business/every-door-direct-mail',
+      align: 'center',
+      variant: 'brand',
+    },
     faqs: [...generalHomeBusinessFaqs, ...everyDoorDirectMailFaqs],
   },
   {
