@@ -111,7 +111,6 @@ export const documentServices: Service[] = [
     featuresSubtitle:
       'No sitting in locked consoles for weeks. No third-party drivers. Just immediate, on-site P-4 micro-cut destruction.',
     hideCarrierLogos: true,
-    collapseCompetitorAlternative: true,
     content: [
       // ---- SB7 POSITION 1-2: PROBLEM (Villain: The Curb-Side Data Leak) ----
       {

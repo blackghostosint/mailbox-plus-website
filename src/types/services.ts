@@ -85,7 +85,6 @@ export interface Service {
 
   // Optional layout behavior flags
   hideCarrierLogos?: boolean;
-  collapseCompetitorAlternative?: boolean;
 
   // Optional Schema.org Offers
   offers?: Offer[];
