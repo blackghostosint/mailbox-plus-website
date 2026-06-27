@@ -350,51 +350,97 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/flyers-brochures',
     pageTitle: 'Flyers & Brochures in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Print eye-catching flyers and brochures in Concord Township. Full-color marketing materials to promote your business or event. Fast local production.',
-    keywords: 'flyers, brochures, printing, concord township',
-    heroTitle: 'Flyer & Brochure Printing',
-    heroSubtitle: 'High-quality printed materials for marketing, events, and promotions.',
+      'Professional flyer and brochure printing in Concord Township. Full-color, custom sizes, premium stocks. Design help available. Local, not shipped from a warehouse.',
+    keywords:
+      'flyers, brochures, printing, marketing materials, Concord Township, Lake County, small business',
+    heroTitle: 'Your Flyer Should Get Noticed — Not Ignored',
+    heroSubtitle:
+      'Full-color flyers and brochures printed locally in Concord Township. Premium paper. Custom sizes. Design help included. Fast turnaround.',
     heroImage: getServiceImageUrl('/images/flyers_brochures.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN ──
       {
-        heading: 'Promote Your Business',
-        body: 'Flyers and brochures remain one of the most cost-effective ways to share your message with the community.',
+        heading: 'The Vanilla Flyer — Blending In Is the Worst Thing a Marketing Piece Can Do',
+        body: 'You spend time and money on a promotion. You design a flyer. You print 500 copies. And they land in mailboxes or on bulletin boards — exactly where they get ignored. Because they look like every other flyer out there. The same template. The same paper. The same "Grand Opening!" clip art. Your message is good. But the delivery says "I put this together in 10 minutes."',
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
       {
-        heading: 'Professional Quality',
-        body: 'Our print partners provide full-color, double-sided printing on premium paper stocks.',
+        heading: 'The Cost of Looking Generic',
+        body: 'A flyer that blends in doesn\'t just fail to get attention — it actively hurts your brand. It says "small operation." It says "I\'m not serious about this." You put work into your business. Your marketing materials should reflect that. Not a template someone else already used.',
       },
+      // ── SB7 POSITION 3: GUIDE ──
       {
-        heading: 'High-Impact Marketing',
-        body: 'Promote your business or event with <strong><a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">professional flyer and brochure printing</a></strong> from Mailbox Plus. We help organizations across Lake County design and print eye-catching materials that deliver your message effectively.',
+        heading: 'We Make You Look Good on Paper',
+        body: "We've been printing flyers and brochures for Lake County businesses long enough to know what works. Premium cardstock. Full-color, double-sided. Custom sizes that stand out in a stack. We don't just press print — we help you choose the right paper, finish, and format so your flyer feels professional in someone's hand. And if you don't have a design ready, we can help with that too.",
       },
+      // ── SB7 POSITION 4: PLAN ──
       {
-        heading: 'Custom Stocks & Sizes',
-        body: 'We offer a variety of <strong>sizes, paper weights, and finishes</strong>—including tri-fold and glossy layouts. From small business promotions to community events, we ensure every print looks sharp and ready to impress.',
+        heading: 'From File to Flyer — 3 Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Send Us Your File</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Email it, bring it on USB, or share a cloud link. PDF, JPG, or Canva link — we accept most formats.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Your Specs</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Choose size, paper weight, finish (glossy, matte, or premium), and quantity. We'll confirm everything before printing.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — Usually Same Day</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day or next-day. We quality-check every piece before you walk out the door.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
+      // ── SB7 POSITION 5: AGREEMENT PLAN ──
       {
-        heading: 'Polished Professionalism',
-        body: 'Our team can assist with <strong>layout creation and brand consistency</strong> to ensure your materials look professional. We print in all quantities with fast turnaround times and affordable pricing to get your message noticed.',
+        heading: 'No Minimums. No Surprises.',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No minimum quantity.</strong> Need 25 flyers? We print 25.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom sizes.</strong> Standard letter, half-sheet, square, or whatever your design calls for.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Design help available.</strong> Not a designer? We\'ll help you create something that works.</span></li></ul>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 6: STAKES ──
+      {
+        heading: 'What Bad Print Costs Your Business',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Money</h4><p class="text-sm text-[var(--color-text-secondary)]">500 generic flyers that get ignored are 500 pieces of trash. Professional printing costs the same — but gets opened.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Opportunities</h4><p class="text-sm text-[var(--color-text-secondary)]">A well-designed brochure in the right hands generates leads. A cheap one goes in the recycling bin unread.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Shipping Delays</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an online printer and you wait a week. Miss your event. Pay for rush shipping. We print local — you pick up today.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Brand Dilution</h4><p class="text-sm text-[var(--color-text-secondary)]">Every piece of printed material is a brand touchpoint. Thin paper, blurry images, and mismatched colors say "amateur" louder than anything on the page.</p></div></div>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 7: SUCCESS ──
+      {
+        heading: 'A Flyer That Works. Printed Today.',
+        body: "Imagine handing someone your flyer and watching them read it — not glance at it and toss it. That's what professional print quality does. Thick paper. Vibrant color. A design that says \"this business knows what it's doing.\" That's what you get from Mailbox Plus. And you get it today, not next week.",
       },
     ],
     features: [
       {
         icon: Printer,
-        title: 'High-Resolution Printing',
-        description: 'Sharp, full-color graphics every time.',
+        title: 'Premium Paper Stocks',
+        description: 'Glossy, matte, or premium cardstock — choose what fits your brand.',
       },
       {
         icon: Palette,
-        title: 'Custom Designs',
-        description: 'Flexible templates or upload your own design.',
+        title: 'Design Help Available',
+        description: "Not a designer? We'll help you create a flyer that actually gets noticed.",
       },
       {
         icon: Layers,
-        title: 'Variety of Finishes',
-        description: 'Glossy, matte, and specialty options.',
+        title: 'Custom Sizes & Finishes',
+        description: 'Tri-fold, half-sheet, square, or full-bleed — we handle custom dimensions.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...flyersBrochuresFaqs],
+    cta: {
+      title: 'Print Flyers That Get Opened',
+      subtitle:
+        'Premium paper. Full color. Design help included. Local turnaround — not shipped from a warehouse.',
+      buttonText: 'Start Your Flyer Project \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'document-printing',
@@ -569,47 +615,97 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/posters-printing',
     pageTitle: 'Posters Printing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Large format poster printing in Concord Township. Vibrant, high-quality posters for events, signs, and displays. Custom sizes available.',
-    keywords: 'poster printing, large format printing, Concord Township, Lake County',
-    heroTitle: 'Poster Printing',
-    heroSubtitle: 'Eye-catching posters for events, promotions, and presentations.',
+      'Large format poster printing in Concord Township. Custom sizes, vibrant color, premium paper. Design help available. Local pickup, not online shipping delays.',
+    keywords:
+      'poster printing, large format printing, custom posters, Concord Township, Lake County',
+    heroTitle: 'Big Message. Big Impact. No Blurry Pixels.',
+    heroSubtitle:
+      'Custom poster printing in Concord Township. Large format, vibrant color, premium paper. Design help included.',
     heroImage: getServiceImageUrl('/images/posters-printing.webp'),
+    hideCarrierLogos: true,
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN ──
       {
-        heading: 'Stand Out with Custom Posters',
-        body: 'Our large-format poster printing services deliver vibrant, professional results for any occasion.',
+        heading: 'The Pixelated Poster — When Small Files Become Big Embarrassments',
+        body: 'You found the perfect image. You uploaded it. You ordered a 24x36 poster. It arrived — and the image looks like a mosaic. Every pixel stretched to its breaking point. The text is blurry. The colors are off. And this poster is going up at your event where everyone will see it. That little "preview" on your screen didn\'t tell you what 24 inches wide would look like.',
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
       {
-        heading: 'Multiple Sizes Available',
-        body: 'Choose from standard sizes or request custom dimensions to fit your specific needs.',
+        heading: 'The Anxiety of Unboxing',
+        body: "You've been there — holding a rolled-up tube, hoping the print inside looks as good as it did on your screen. Will the colors match? Will the text be sharp? Will it arrive in time? Online poster printers make you wait days and cross your fingers. One bad print and you're back to square one, out the shipping cost, and out of time.",
       },
+      // ── SB7 POSITION 3: GUIDE ──
       {
-        heading: 'Bold Visual Impact',
-        body: 'Make a statement with <strong><a href="/copy-print/document-printing" class="text-[var(--color-primary)] hover:underline">custom poster printing</a></strong> from Mailbox Plus. We specialize in high-resolution posters for businesses and schools throughout Lake County—perfect for promotions and special occasions.',
+        heading: 'We Print Posters That Look as Good as Your Screen',
+        body: "We use professional-grade large-format printers and photo-quality paper. Your file gets printed at full resolution — no pixel stretching, no color surprises. If your file isn't print-ready, we'll tell you before we print. And if you don't have a file at all, we can help design something that works at any size.",
       },
+      // ── SB7 POSITION 4: PLAN ──
       {
-        heading: 'Premium Quality Prints',
-        body: 'Our team uses <strong>professional-grade printers</strong> and photo-quality paper to ensure your posters look sharp and durable. Choose from glossy, matte, or laminated finishes in a variety of custom sizes.',
+        heading: 'From File to Wall — 3 Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Send Your File</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Email it or bring it in. PDF, JPG, or PNG. We'll check the resolution and let you know if it needs adjustments.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Size & Finish</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">From 11x17 up to 36 inches wide. Glossy, matte, or laminated. We'll recommend the best option for your use case.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — Fast</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most poster jobs done same-day or next-day. You see the print before you leave — no surprises.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 5: AGREEMENT PLAN ──
+      {
+        heading: 'Custom Sizes. Premium Quality. No Wait.',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom dimensions.</strong> Standard sizes or whatever your space requires.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Photo-quality paper.</strong> Glossy, matte, or laminated finish for durability.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No shipping gamble.</strong> Printed locally. Pick up same-day. See it before you take it.</span></li></ul>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 6: STAKES ──
+      {
+        heading: 'What One Bad Print Costs You',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Event Impact</h4><p class="text-sm text-[var(--color-text-secondary)]">A blurry poster at a trade show or presentation doesn\'t just fail to impress — it actively undermines your message.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Time</h4><p class="text-sm text-[var(--color-text-secondary)]">Order online, wait for shipping, unbox a bad print, re-order, wait again. You\'ve lost a week. We print same-day.</p></div></div>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 7: SUCCESS ──
+      {
+        heading: 'A Poster That Commands Attention. Printed Local.',
+        body: "You unroll it. It's sharp. The colors pop. The text is crisp at 3 feet away. You hang it with confidence because it looks exactly like you envisioned. That's what professional large-format printing should feel like. No waiting. No crossing your fingers. No pixelated embarrassment.",
       },
     ],
     features: [
       {
         icon: Printer,
         title: 'Large Format',
-        description: 'Print posters in various sizes up to 36 inches wide.',
+        description: 'Print up to 36 inches wide. Custom sizes available for any space.',
       },
       {
         icon: Palette,
-        title: 'Vibrant Colors',
-        description: 'Full-color printing with rich, eye-catching graphics.',
+        title: 'Vibrant Color',
+        description: 'Full-color, high-resolution printing on photo-quality paper.',
       },
       {
         icon: Star,
-        title: 'Quality Materials',
-        description: 'Choose from glossy, matte, or premium paper stocks.',
+        title: 'See It Before You Take It',
+        description: "We review every print. If it's not right, we reprint before you leave.",
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...postersPrintingFaqs],
+    cta: {
+      title: 'Print a Poster That Actually Looks Good',
+      subtitle:
+        'Large format, premium paper, same-day turnaround. See the print before you take it.',
+      buttonText: 'Start Your Poster Project \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'postcard-printing',
@@ -619,43 +715,96 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/postcard-printing',
     pageTitle: 'Postcard Printing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Custom postcard printing and mailing services in Concord Township. Perfect for direct mail marketing, EDDM, and invitations. High-quality local printing.',
-    keywords: 'postcard printing, marketing postcards, Concord Township, Lake County',
-    heroTitle: 'Postcard Printing',
-    heroSubtitle: 'Affordable, high-quality postcard printing for any occasion.',
+      'Custom postcard printing in Concord Township. Full-color, premium cardstock. Mailing support and EDDM prep available. Local, fast, no shipping wait.',
+    keywords:
+      'postcard printing, direct mail, marketing postcards, Concord Township, Lake County, EDDM',
+    heroTitle: 'A Postcard Should Get Opened — Not Tossed',
+    heroSubtitle:
+      'Custom postcard printing in Concord Township. Full-color, premium cardstock. Mailing services and EDDM prep available.',
     heroImage: getServiceImageUrl('/images/postcard-printing.webp'),
     content: [
+      // ---- SB7 POSITION 1-2: VILLAIN ----
       {
-        heading: 'Send Your Message',
-        body: 'Postcards are a cost-effective way to reach customers and promote your brand.',
+        heading: 'The Vanishing Postcard — Why Most Direct Mail Goes Straight to Recycling',
+        body: "You spend money on design. You pay for printing. You buy a mailing list. And your postcard lands in a mailbox, gets a 2-second glance, and hits the recycling bin. Why? Because it looks like every other postcard. Thin paper. Generic template. No reason to read it. The worst part? You'll never know — because nobody tells you your marketing got ignored.",
       },
+      // ---- SB7 POSITION 2: INTERNAL PROBLEM ----
       {
-        heading: 'Design Options & Quality Printing',
-        body: 'We work with top print suppliers to deliver postcards that reflect your brand. Choose from matte, glossy, and premium finishes.',
+        heading: 'The Marketing Investment That Feels Like a Gamble',
+        body: "You want to reach customers. You know direct mail works. But after you've paid for design, printing, lists, and postage, you're holding a stack of postcards hoping they don't end up in the trash. The anxiety isn't just about the cost — it's about not knowing if any of them will actually work.",
       },
+      // ---- SB7 POSITION 3: GUIDE ----
       {
-        heading: 'Custom Marketing Cards',
-        body: 'Reach your audience with <strong>custom postcard printing</strong> from Mailbox Plus. We create high-quality, full-color postcards perfect for direct mail campaigns, event promotions, and special announcements.',
+        heading: 'Postcards That People Actually Read',
+        body: 'We\'ve been printing postcards for Lake County businesses long enough to know what makes people stop and look. Premium cardstock that feels substantial in hand. Full-color, double-sided printing. A finish that says "this is worth reading." And if you\'re sending a campaign, we can help with address printing, sorting, and EDDM preparation — everything you need to get your mail delivered, not ignored.',
       },
+      // ---- SB7 POSITION 4: PLAN ----
       {
-        heading: 'Professional Mailing Support',
-        body: 'We offer a range of sizes and finishes, from glossy to heavyweight stocks. We also provide <strong>address printing and <a href="/home-business/every-door-direct-mail" class="text-[var(--color-primary)] hover:underline">EDDM preparation</a></strong> to make your postcard marketing effortless and effective.',
+        heading: 'From Design to Mailbox — 3 Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Design or Upload</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Bring your design or we'll help create one. We print on premium cardstock — matte, glossy, or heavyweight.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Mailing Option</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pick up and mail yourself, or let us handle address printing and EDDM preparation. We support direct mail campaigns of any size.</p>
+              </div>
+              <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Printed & Ready — Fast</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs completed same-day or next-day. No waiting for shipping. Your campaign launches on your schedule.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      // ---- SB7 POSITION 5: AGREEMENT PLAN ----
+      {
+        heading: 'Full Service, No Runaround',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Design help available.</strong> Don\'t have a file? We\'ll design it.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>Multiple sizes.</strong> Standard postcard, jumbo, or custom dimensions.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">\u2713</span><span><strong>EDDM & mailing prep.</strong> We handle the USPS paperwork and route sorting.</span></li></ul>',
+        isFullWidth: true,
+      },
+      // ---- SB7 POSITION 6: STAKES ----
+      {
+        heading: 'What a Bad Postcard Costs Your Campaign',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Postage</h4><p class="text-sm text-[var(--color-text-secondary)]">Postage is the most expensive part of a mail campaign. If the card itself doesn\'t earn attention, every stamp is money thrown away.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Timing</h4><p class="text-sm text-[var(--color-text-secondary)]">Online printers take a week. Your event or promotion won\'t wait. We print local — your timeline, not theirs.</p></div></div>',
+        isFullWidth: true,
+      },
+      // ---- SB7 POSITION 7: SUCCESS ----
+      {
+        heading: 'A Postcard Campaign That Works — From Start to Mailbox',
+        body: 'Design. Print. Address. Mail. One stop at Mailbox Plus handles the whole chain. Premium cardstock that feels substantial. A design that gets read. Mailing support that makes sure it arrives. Your campaign launches this week, not next month.',
       },
     ],
     features: [
       {
         icon: Printer,
         title: 'Full-Color Printing',
-        description: 'Bright, eye-catching postcards.',
+        description: 'Premium cardstock with vibrant, high-resolution printing on both sides.',
       },
       {
         icon: Layers,
-        title: 'Quality Paper',
-        description: 'Choose from matte or glossy finishes.',
+        title: 'Mailing Support',
+        description: 'Address printing, sorting, and EDDM preparation — we handle USPS compliance.',
       },
-      { icon: Star, title: 'Fast Turnaround', description: 'Get your postcards quickly.' },
+      {
+        icon: Star,
+        title: 'Local Turnaround',
+        description: 'No shipping wait. Most jobs done same-day or next-day.',
+      },
     ],
     faqs: [...generalCopyPrintFaqs, ...postcardPrintingFaqs],
+    cta: {
+      title: 'Launch Your Mail Campaign — This Week',
+      subtitle:
+        'Premium postcards. Mailing support. EDDM prep. Local turnaround — not a warehouse wait.',
+      buttonText: 'Start Your Postcard Project \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'copies',
@@ -776,6 +925,15 @@ export const copyPrintServices: Service[] = [
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...copiesFaqs],
+    cta: {
+      title: 'No Machine. No Jams. Just Copies.',
+      subtitle:
+        'Hand us your originals. We make the copies. B&W or color. Any quantity. Same-day available.',
+      buttonText: 'Bring Your Copies In \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'staples-printing-alternative-concord-township',
