@@ -127,6 +127,15 @@ export const packingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...professionalPackingFaqs],
+    cta: {
+      title: 'Got Something Fragile?',
+      subtitle:
+        "We pack it so sorting machines can't break it. Carrier-compliant materials. From $35/month for a private mailbox.",
+      buttonText: 'Bring It In \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'custom-box-making',
@@ -243,6 +252,15 @@ export const packingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...customBoxMakingFaqs],
+    cta: {
+      title: "Item Doesn't Fit a Standard Box?",
+      subtitle:
+        'We build custom boxes for odd-shaped, oversized, and fragile items. From $35/month for a private mailbox.',
+      buttonText: 'Get a Custom Box \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'packaging-supplies',
@@ -351,5 +369,14 @@ export const packingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...packagingSuppliesFaqs],
+    cta: {
+      title: 'Need Boxes or Tape?',
+      subtitle:
+        'Boxes, bubble wrap, tape, peanuts \u2014 everything you need, right where you ship. From $35/month for a private mailbox.',
+      buttonText: 'Shop Supplies \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];
