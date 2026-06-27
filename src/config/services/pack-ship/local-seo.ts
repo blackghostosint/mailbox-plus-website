@@ -5,7 +5,6 @@ import Truck from '~icons/lucide/truck';
 import MapPin from '~icons/lucide/map-pin';
 import Star from '~icons/lucide/star';
 import Shield from '~icons/lucide/shield';
-import Box from '~icons/lucide/box';
 import { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/storage';
 
@@ -591,73 +590,109 @@ export const localSeoServices: Service[] = [
     slug: '/pack-and-ship-services-concord-township',
     pageTitle: 'Pack and Ship Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Professional Pack and Ship Services in Concord Township. We pack it right so it arrives safe. Authorized shipper for all major carriers.',
-    keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping',
-    heroTitle: 'Professional Pack and Ship Services in Concord Township: Mailbox Plus',
+      'Professional pack and ship services in Concord Township. We pack items right so they arrive safe. Authorized shipper for UPS, FedEx, USPS, and DHL.',
+    keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping, packing',
+    heroTitle: 'Pack and Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
     heroSubtitle:
-      'When you need expert pack and ship services in Concord Township, Ohio, trust the pros at Mailbox Plus.',
+      'Fragile, valuable, or oddly shaped items? We pack, label, and ship with all 4 major carriers. One stop, done right.',
     heroImage: getServiceImageUrl('/images/professional-packing.webp'),
     content: [
       {
-        heading: 'Professional Pack and Ship Services in Concord Township: Mailbox Plus',
-        body: 'When you need expert <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>pack and ship services in Concord Township, Ohio</strong></a>, trust the pros at Mailbox Plus. \nPacking can be stressful and time-consuming, but our team makes it easy. We use high-quality materials and professional \ntechniques to ensure your items—whether fragile, valuable, or awkward—arrive safely. As an authorized \n<a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">shipper for <strong>UPS, FedEx, USPS, and DHL</strong></a>, we can pack your item and ship it using the carrier that best fits \nyour budget and timeline.',
+        heading: 'Why Leave Packing to Chance?',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship something. You grab a box from the closet, dig out the tape, and hope your packing skills hold up through the sorting machine.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>Professional packing is about knowing how sorting machines treat packages and which materials meet carrier standards.</strong> That's what we do at Mailbox Plus. We pack with carrier-compliant materials so your shipment is insurance-ready and arrives intact.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Bring your item in. We assess it, pack it right, and ship it with the carrier that fits your budget.
+            </p>`,
+      },
+      {
+        heading: 'Pack and Ship in Three Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Fragile, valuable, oddly shaped — we assess the best packing approach and carrier for your shipment.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Pack It Right</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Professional materials, carrier-compliant techniques, and insurance-ready packing — done on-site.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick the Best Carrier</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We compare UPS, FedEx, USPS, and DHL rates and recommend the best option for speed and cost.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
       {
         heading: 'Mailbox Plus vs. DIY Packing',
-        body: `
-                    <div class="overflow-x-auto my-6">
-                        <table class="w-full text-left border-collapse">
-                            <thead>
-                                <tr>
-                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
-                                    <th class="border-b-2 border-[var(--color-border-blue)] p-4 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)]">Mailbox Plus</th>
-                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Safety</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Professional Standards</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Risk of Damage</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Materials</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Industrial Strength</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Consumer Grade</td>
-                                </tr>
-                                <tr>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Insurance</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Guarantee Eligible</td>
-                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Claims often denied</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                `,
+        body: `<div class="overflow-x-auto my-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                <th class="border-b-2 border-[var(--color-primary)] p-4 bg-[var(--color-primary)]/10 text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Safety</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Professional Standards</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Risk of Damage</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Materials</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Industrial Strength</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Consumer Grade</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Insurance</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Guarantee Eligible</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Claims often denied</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Carrier Choice</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">UPS, FedEx, USPS, DHL</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">One carrier, no choice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
         isFullWidth: true,
       },
       {
         heading: "Concord Township's Packing Experts",
-        body: `
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-2xl border border-[var(--color-border-blue)]">
-                        <p class="text-[var(--color-primary)] leading-relaxed text-lg">
-                            Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing needs. 
-                            We also serve the surrounding communities of Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping 
-                            your gifts, returns, and business packages.
-                        </p>
-                    </div>
-                `,
+        body: `<div class="p-8 rounded-2xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)]">
+                    <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+                        Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing and shipping needs. We also serve Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping your gifts, returns, and business packages.
+                    </p>
+                </div>`,
         isFullWidth: true,
       },
     ],
     features: [
       {
         title: 'Expert Packing',
-        description: 'We know exactly how to protect your items.',
+        description: 'We know exactly how to protect your items with carrier-compliant materials.',
         icon: Shield,
       },
-      { title: 'Convenience', description: 'We handle the box, bubble wrap, and tape.', icon: Box },
-      { title: 'Multi-Carrier', description: 'Ship via UPS, FedEx, USPS, or DHL.', icon: Truck },
+      {
+        title: 'Multi-Carrier',
+        description: 'Ship via UPS, FedEx, USPS, or DHL — we compare rates for you.',
+        icon: Truck,
+      },
+      {
+        title: 'One-Stop Service',
+        description: 'Drop off, pack, and ship all at the same counter. No extra trips.',
+        icon: MapPin,
+      },
     ],
     faqs: [
       {
@@ -666,13 +701,14 @@ export const localSeoServices: Service[] = [
           'The cost depends on the size, weight, and fragility of the item. Bring it in for a free quote!',
       },
       {
-        question: 'Can you pack fragile items like glass?',
+        question: 'Do I need to bring my own box?',
         answer:
-          'Absolutely. We use specialized materials like bubble wrap, foam, and peanuts to protect fragile items.',
+          'No! We carry professional-grade boxes in a variety of sizes, plus custom box making for odd-shaped items.',
       },
       {
-        question: 'Do you have boxes for moving?',
-        answer: 'Yes, we sell a variety of box sizes perfect for moving or storage.',
+        question: 'What carriers do you use?',
+        answer:
+          'We ship with all 4 major carriers: UPS, FedEx, USPS, and DHL. We compare rates and recommend the best option for your shipment.',
       },
     ],
     aggregateRating: {
