@@ -54,33 +54,23 @@ export const Home: React.FC = () => {
         {/* Gradient background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 font-heading animate-fade-in-up">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.15] mb-8 font-heading animate-fade-in-up">
             Shipping, Returns, and Private Mailboxes
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white/80 mb-12 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
+
+          <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[var(--color-accent-warm)] leading-relaxed mb-8 animate-fade-in-up [animation-delay:100ms] opacity-0 [animation-fill-mode:forwards]">
             Four carriers, one counter, no runaround.
           </p>
 
-          <p className="text-2xl md:text-3xl text-white/80 leading-relaxed max-w-3xl mx-auto mb-8 animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
-            Shipping shouldn't cost you an hour.
+          <p className="text-lg sm:text-xl md:text-2xl text-white/80 leading-loose max-w-3xl mx-auto mb-6 animate-fade-in-up [animation-delay:200ms] opacity-0 [animation-fill-mode:forwards]">
+            Shipping shouldn’t cost you an hour. Stop running around Lake County for returns or
+            carrier drop-offs.
           </p>
 
-          <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed max-w-3xl mx-auto animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards]">
-            Your Local Pack & Ship in Concord Township
+          <p className="text-base sm:text-lg font-semibold text-white/90 tracking-widest uppercase mb-4 animate-fade-in-up [animation-delay:300ms] opacity-0 [animation-fill-mode:forwards]">
+            Your Local Pack &amp; Ship in Concord Township
           </p>
-
-          {/* Gold CTA in hero */}
-          <div className="animate-fade-in-up [animation-delay:400ms] opacity-0 [animation-fill-mode:forwards]">
-            <Button
-              variant="gold"
-              size="lg"
-              className="animate-cta-pulse text-base sm:text-lg px-10 py-5"
-              onClick={() => navigate('/pack-ship')}
-            >
-              Get Started Shipping <ArrowRight className="w-5 h-5" />
-            </Button>
-          </div>
         </div>
 
         {/* Soft fade bottom */}
@@ -199,6 +189,18 @@ export const Home: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          {/* Gold CTA moved from hero */}
+          <div className="mb-14">
+            <Button
+              variant="gold"
+              size="lg"
+              className="animate-cta-pulse text-base sm:text-lg px-10 py-5"
+              onClick={() => navigate('/pack-ship')}
+            >
+              Get Started Shipping <ArrowRight className="w-5 h-5" />
+            </Button>
+          </div>
+
           <p className="text-2xl md:text-4xl font-bold text-[var(--color-text-secondary)] mb-4 max-w-3xl mx-auto">
             Next to Pub Frato in Gristmill Village — serving all of Lake County
           </p>
