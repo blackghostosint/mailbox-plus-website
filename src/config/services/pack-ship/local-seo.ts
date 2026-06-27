@@ -5,7 +5,6 @@ import Truck from '~icons/lucide/truck';
 import MapPin from '~icons/lucide/map-pin';
 import Star from '~icons/lucide/star';
 import Shield from '~icons/lucide/shield';
-import Box from '~icons/lucide/box';
 import { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/storage';
 
@@ -118,77 +117,70 @@ export const localSeoServices: Service[] = [
     slug: '/ups-store-alternative-concord-township',
     pageTitle: 'UPS Store Alternative in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Looking for a UPS Store Alternative in Concord Township? We offer UPS, FedEx, USPS, and DHL shipping at one counter \u2014 mailbox rentals, printing, notary. Locally owned, faster service.',
+      'Looking for a UPS Store Alternative in Concord Township? We offer UPS shipping, mailbox rentals, and printing services with multi-carrier options and personal service.',
     keywords: 'UPS Store alternative, Concord Township, Mailbox Plus, shipping',
-    heroTitle: 'Similar to the UPS Store, But With All 4 Carriers \u2014 and Shorter Lines',
+    heroTitle: 'The Best UPS Store Alternative in Concord Township: Mailbox Plus',
     heroSubtitle:
-      'UPS, FedEx, USPS, and DHL at one counter. Mailbox rentals, printing, notary, and packing services. Locally owned, faster service, same convenience.',
+      'Mailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs.',
     heroImage: getServiceImageUrl('/images/ups-shipping.webp'),
     content: [
       {
-        heading:
-          'Looking for a UPS Store in Concord Township? We Do Everything They Do \u2014 Plus More',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              If you're searching for a <strong>UPS Store in Concord Township</strong>, you've probably been there before \u2014 the line, the franchise pricing, and the fact that they can only ship UPS. What if you could walk into a place that offers everything The UPS Store does, but also gives you access to FedEx, USPS, and DHL?
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              That's Mailbox Plus. We are your locally owned <strong>UPS Store alternative in Concord Township, Ohio</strong>. We offer the same UPS authorized shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>, <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing</a>, and <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notary services</a> \u2014 plus we can ship FedEx, USPS, and DHL too. One counter, four carriers, faster service.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              And since we're locally owned, you get personalized service with shorter wait times. No franchise overhead, no pressure to use one carrier.
-            </p>`,
+        heading: 'The Best Local Solution',
+        body: 'Looking for a reliable <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline"><strong>UPS Store alternative in Concord Township, Ohio</strong></a>? Mailbox Plus is your locally owned and operated solution for all your shipping, packing, and business service needs.',
       },
       {
-        heading: "The Multi-Carrier Advantage: What the Franchise Can't Offer",
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              The UPS Store can only sell you UPS. If FedEx or USPS would be cheaper or faster for your shipment, they can't tell you that. At Mailbox Plus, <strong>we compare rates across all 4 major carriers</strong> and recommend the best option for your budget and timeline.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need to drop off a pre-labeled FedEx package alongside a UPS return? No problem. We accept drop-offs for all carriers at the same counter.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              The UPS Store is great for UPS. Mailbox Plus is great for everything.
-            </p>`,
+        heading: 'The Multi-Carrier Advantage',
+        body: 'While franchise stores focus primarily on one carrier, Mailbox Plus offers a multi-carrier advantage with <strong>UPS, FedEx, USPS, and DHL</strong> all under one roof. Whether you need a notary or a private mailbox, our team provides personalized service that big-box stores often lack.',
       },
       {
         heading: 'Why Mailbox Plus is the Better Choice',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We prioritize efficiency so you can get in and out quickly. No franchise wait times.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Options</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL \u2014 all at one counter. Compare rates before you ship.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Locally Owned</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Part of the Concord Township community. Friendly faces, no corporate bureaucracy.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Service Center</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Mailboxes, notary, printing, packing, shredding \u2014 all in one trip.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We prioritize efficiency so you can get in and out quickly.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> We ship with UPS, FedEx, USPS, and DHL.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Local Ownership:</strong> We are part of the Concord Township community.</div>
+                        </li>
+                    </ul>
+                `,
       },
       {
         heading: 'Services We Offer',
-        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
-              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shipping &amp; Packing</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Authorized for UPS, FedEx, USPS, and DHL with professional packing services. We help you choose the best carrier for every package.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Business Services</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Private mailbox rental, notary public, faxing, scanning, and secure shredding \u2014 everything a small business needs.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Printing &amp; Copying</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, document finishing \u2014 same services as the big print shops.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Shipping & Packing:</strong> Authorized for UPS, FedEx, USPS, and DHL with professional packing services.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Business Services:</strong> Private mailbox rental, notary public, faxing, scanning, and shredding.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Printing & Copying:</strong> High-quality color and B&W copies with document finishing.</div>
+                        </li>
+                    </ul>
+                `,
       },
     ],
     features: [
@@ -247,7 +239,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Premier Choice',
-        body: 'If you\u2019re searching for a <strong>Mail Boxes Etc. alternative in Concord Township, Ohio</strong>, look no further than Mailbox Plus. While the Mail Boxes Etc. brand has transitioned, the need for comprehensive <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping</a> remains. Mailbox Plus fills that gap as your premier local solution.',
+        body: 'If you\'re searching for a <strong>Mail Boxes Etc. alternative in Concord Township, Ohio</strong>, look no further than Mailbox Plus. While the Mail Boxes Etc. brand has transitioned, the need for comprehensive <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping</a> remains. Mailbox Plus fills that gap as your premier local solution.',
       },
       {
         heading: 'Multi-Carrier Flexibility',
@@ -333,60 +325,54 @@ export const localSeoServices: Service[] = [
     slug: '/fedex-office-alternative-concord-township',
     pageTitle: 'FedEx Office Alternative in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Your local FedEx Office Alternative in Concord Township. Authorized FedEx shipping, printing, and business services. Compare rates with UPS and USPS at one counter.',
+      'Your local FedEx Office Alternative in Concord Township. Authorized FedEx shipping, printing, and business services. Compare rates with UPS and USPS.',
     keywords: 'FedEx Office alternative, Concord Township, Mailbox Plus, shipping',
-    heroTitle: 'Similar to FedEx Office, But You Can Also Compare UPS, USPS, and DHL Rates',
+    heroTitle: 'The Best FedEx Office Alternative in Concord Township: Mailbox Plus',
     heroSubtitle:
-      'Authorized FedEx shipping, professional printing, and business services \u2014 plus carrier rate comparison at the same counter.',
+      'Mailbox Plus provides the same high-quality packing, shipping, and printing services you expect, but with multi-carrier options.',
     heroImage: getServiceImageUrl('/images/fedex-shipping.webp'),
     content: [
       {
-        heading: 'Searching for FedEx Office in Concord Township?',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              If you're looking for a FedEx Office in Concord Township, you know what to expect \u2014 FedEx shipping only, corporate pricing, and long lines during peak hours. But what if you could get everything FedEx Office offers, plus the ability to compare rates across all major carriers?
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Mailbox Plus is your <strong>FedEx Office alternative in Concord Township, Ohio</strong>. We are an authorized FedEx shipping center with <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">professional printing</a>, packing services, and business support \u2014 but unlike FedEx Office, we also ship <strong>UPS, USPS, and DHL</strong>. Compare options to find the best rate and delivery speed for every package.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              Same FedEx shipping. Same printing services. But with four carrier choices, shorter lines, and a locally owned atmosphere.
-            </p>`,
+        heading: 'The Best FedEx Office Alternative in Concord Township: Mailbox Plus',
+        body: 'Searching for a <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline"><strong>FedEx Office alternative in Concord Township, Ohio</strong></a>? \nMailbox Plus provides the same high-quality packing, shipping, and <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">professional printing</a> services you expect, \nbut with the added benefit of being a multi-carrier center. Unlike FedEx Office, which only ships FedEx, \nMailbox Plus allows you to compare options from <strong>FedEx, UPS, USPS, and DHL</strong> to find the best rate \nand delivery speed for your needs. Enjoy personalized service, shorter lines, and a locally owned atmosphere \nthat puts you first.',
       },
       {
-        heading: 'Why Mailbox Plus Beats the Big Box',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Skip the long lines typical of big box stores. We move you through quickly.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Choice</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Compare rates across FedEx, UPS, USPS, and DHL. FedEx Office can't do that.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Print &amp; Copy</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Professional document finishing, business cards, and full-color printing on-site.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Office Services</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Notary public, faxing, scanning, secure shredding \u2014 everything a small business needs.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
+        heading: 'Why Mailbox Plus Beats the Competition',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> Skip the long lines typical of big box stores.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Choice:</strong> Compare rates across FedEx, UPS, USPS, and DHL.</div>
+                        </li>
+                    </ul>
+                `,
       },
       {
         heading: 'Your One-Stop Business Center',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Printing &amp; Copying</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, and document finishing \u2014 same quality as the big print shops.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shipping &amp; Packing</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">FedEx, UPS, USPS, DHL \u2014 we compare rates so you get the best option. Professional packing available.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Print & Copy:</strong> Professional document finishing and business cards.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Office Services:</strong> Notary public, faxing, scanning, and secure shredding.</div>
+                        </li>
+                    </ul>
+                `,
       },
     ],
     features: [
@@ -431,7 +417,7 @@ export const localSeoServices: Service[] = [
     content: [
       {
         heading: 'The Best Post Office Alternative in Concord Township: Mailbox Plus',
-        body: 'Tired of the long lines and limited hours at the local Post Office? \nMailbox Plus is the premier <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>Post Office alternative in Concord Township, Ohio</strong></a>. \nWe offer all the essential shipping services you need\u2014including <strong>USPS, UPS, FedEx, and DHL</strong>\u2014in a friendly, \ncustomer-focused environment. From certified mail to package drop-offs and <a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">stamp sales</a>, we handle it all with speed \nand efficiency. Experience the difference of a shipping center that puts you first.',
+        body: 'Tired of the long lines and limited hours at the local Post Office? \nMailbox Plus is the premier <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>Post Office alternative in Concord Township, Ohio</strong></a>. \nWe offer all the essential shipping services you need—including <strong>USPS, UPS, FedEx, and DHL</strong>—in a friendly, \ncustomer-focused environment. From certified mail to package drop-offs and <a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">stamp sales</a>, we handle it all with speed \nand efficiency. Experience the difference of a shipping center that puts you first.',
       },
       {
         heading: 'Why Choose Mailbox Plus Over the Post Office?',
@@ -511,185 +497,435 @@ export const localSeoServices: Service[] = [
     slug: '/shipping-center-concord-township',
     pageTitle: 'Shipping Center in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Full-service shipping center in Concord Township. UPS, FedEx, USPS, and DHL services under one roof. Packing, printing, and mailbox rentals.',
-    keywords: 'shipping center, Concord Township, Lake County',
-    heroTitle: 'Local Shipping Center in Concord Township',
-    heroSubtitle: 'Complete shipping, packing, and business services. Four carriers, one location.',
+      'Premier Shipping Center in Concord Township. Authorized for UPS, FedEx, USPS, and DHL. Compare rates and save on your shipping needs.',
+    keywords: 'shipping center, Concord Township, Mailbox Plus, shipping',
+    heroTitle: 'Your Premier Shipping Center in Concord Township: Mailbox Plus',
+    heroSubtitle:
+      'We provide a complete range of shipping and business services to meet the needs of residents and small businesses alike.',
     heroImage: getServiceImageUrl('/images/pack-ship.webp'),
     content: [
       {
-        heading: 'Your Complete Shipping Center',
-        body: 'Conveniently located in Concord Township, Mailbox Plus is a full-service shipping center offering a complete range of services for individuals and small businesses. From packing and shipping to printing and mailbox rentals, we handle it all under one roof.',
+        heading: 'Your Local Shipping Leader',
+        body: 'Welcome to Mailbox Plus, the leading <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>shipping center in Concord Township, Ohio</strong></a>. We provide a complete range of shipping and business services to meet the needs of residents and small businesses alike.',
       },
       {
-        heading: 'Everything From One Counter',
-        body: 'We offer shipping services for <strong>UPS, FedEx, USPS, and DHL</strong> at one counter. Our trained staff can help you choose the right service and packing materials for your needs.',
+        heading: 'The Multi-Carrier Edge',
+        body: 'As an authorized shipping outlet for <strong>UPS, FedEx, USPS, and DHL</strong>, we offer you the unique ability to compare rates and delivery times across all major carriers to ensure your items arrive safely and on time.',
       },
       {
-        heading: 'Learn More',
-        body: 'Visit our <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">Pack & Ship services page</a> to learn more about all the shipping services we offer in Concord Township.',
-      },
-    ],
-    features: [
-      { title: 'All Carriers', description: 'UPS, FedEx, USPS, DHL', icon: Truck },
-      { title: 'Local Service', description: 'Concord Township', icon: MapPin },
-      { title: 'One-Stop', description: 'Packing, Printing, Mailboxes', icon: Box },
-    ],
-    faqs: [
-      {
-        question: 'What services does your shipping center offer?',
-        answer:
-          'We offer full-service shipping for UPS, FedEx, USPS, and DHL, as well as professional packing services.',
-      },
-      {
-        question: 'Do you provide packing services?',
-        answer:
-          'Yes, our team provides professional packing using high-quality materials to ensure your items arrive safely.',
+        heading: "Why Mailbox Plus is Concord Township's Top Shipping Choice",
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Choice:</strong> Only local center offering UPS, FedEx, USPS, and DHL under one roof.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Expertise:</strong> Trained professionals for <a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] hover:underline">packing</a> and global logistics.</div>
+                        </li>
+                    </ul>
+                `,
       },
       {
-        question: 'Can I rent a mailbox?',
-        answer: 'Yes, we offer private mailbox rentals with a real street address.',
-      },
-    ],
-    aggregateRating: {
-      ratingValue: 5.0,
-      reviewCount: 32,
-    },
-  },
-  {
-    id: 'staples-printing-alternative-concord-township',
-    category: 'copy-print',
-    city: 'Concord Township',
-    serviceName: 'Staples Printing Alternative',
-    slug: '/staples-printing-alternative-concord-township',
-    pageTitle: 'Staples Printing Alternative in Concord Township, Ohio | Mailbox Plus',
-    metaDescription:
-      'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and document finishing. Quick turnaround, friendly service.',
-    keywords: 'Staples printing alternative, Concord Township, Mailbox Plus, printing services',
-    heroTitle: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
-    heroSubtitle:
-      'Full-service printing and copying \u2014 color and B&W \u2014 without the big-box experience.',
-    heroImage: getServiceImageUrl('/images/copy-print.webp'),
-    content: [
-      {
-        heading: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need printing or copying and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and document finishing \u2014 without the big-box store experience.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Walk in, hand us your documents, and we handle the rest. Quick turnaround, competitive pricing, and friendly service from your local business center.
-            </p>`,
-      },
-      {
-        heading: 'Why Choose Mailbox Plus Over Staples?',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">No wandering aisles looking for the copy center. Walk in, hand us your documents, we handle the rest.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Print Services</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, posters, and document finishing \u2014 same services as the big print shops.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Erand Ready</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred \u2014 all in one trip. Staples can't match that convenience.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Local &amp; Personalized</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers by name. No corporate runaround, just friendly local service.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
+        heading: 'Full-Service Shipping Solutions',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Domestic & International:</strong> Ground, Express, and Overnight to anywhere in the world.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Package Receiving:</strong> Secure site for all your incoming deliveries.</div>
+                        </li>
+                    </ul>
+                `,
       },
     ],
     features: [
-      { title: 'Quick Turnaround', description: 'Same-day printing and copying', icon: Clock },
-      { title: 'Full Service', description: 'Color, B&W, finishing', icon: Star },
-      { title: 'Local Convenience', description: 'Concord Township', icon: MapPin },
-    ],
-    faqs: [
+      { title: 'Convenience', description: 'One stop for all your shipping needs.', icon: MapPin },
+      { title: 'Choice', description: 'UPS, FedEx, USPS, and DHL under one roof.', icon: Truck },
       {
-        question: 'Can you print from a USB drive?',
-        answer:
-          'Yes, simply bring your files on a USB drive or email them to us for quick printing.',
-      },
-      {
-        question: 'Do you offer color printing?',
-        answer: 'Yes, we offer both color and black-and-white printing and copying services.',
-      },
-    ],
-    aggregateRating: {
-      ratingValue: 5.0,
-      reviewCount: 32,
-    },
-  },
-  {
-    id: 'office-depot-alternative-concord-township',
-    category: 'copy-print',
-    city: 'Concord Township',
-    serviceName: 'Office Depot Alternative',
-    slug: '/office-depot-alternative-concord-township',
-    pageTitle: 'Office Depot Alternative in Concord Township, Ohio | Mailbox Plus',
-    metaDescription:
-      'Your local Office Depot Alternative in Concord Township. Printing, copying, shipping, and office services \u2014 all under one roof with personalized service.',
-    keywords: 'Office Depot alternative, Concord Township, Mailbox Plus, printing services',
-    heroTitle: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
-    heroSubtitle:
-      'Printing, copying, shipping, notary, and mailbox services \u2014 without the big-box trip.',
-    heroImage: getServiceImageUrl('/images/copy-print.webp'),
-    content: [
-      {
-        heading: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Sure, Office Depot has printing. But you also have to navigate a giant store, wait in line, and only get printing and shipping. What if you could do all of that \u2014 plus notarize, shred, and rent a mailbox \u2014 in one efficient trip?
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Mailbox Plus is your <strong>Office Depot alternative in Concord Township, Ohio</strong>. We offer professional <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing and copying</a>, <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping with all 4 major carriers</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notary services</a>, <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shredding</a>, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a> \u2014 all under one roof. One stop for everything Office Depot offers, plus services they don't.
-            </p>`,
-      },
-      {
-        heading: 'Why Choose Mailbox Plus Over Office Depot?',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop Convenience</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred, and mailbox services \u2014 all at one counter. No walking across a giant store.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Personalized Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers. No corporate runaround, just friendly local help.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Shipping</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL \u2014 compare rates at our counter. Office Depot only ships FedEx.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster In &amp; Out</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">In and out in minutes. No navigating aisles or waiting in long checkout lines.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
-      },
-    ],
-    features: [
-      {
-        title: 'One-Stop',
-        description: 'Printing, shipping, notary, shredding, mailboxes',
+        title: 'Expertise',
+        description: 'Trained packing and shipping professionals.',
         icon: Star,
       },
-      { title: 'Carrier Choice', description: 'UPS, FedEx, USPS, DHL', icon: Truck },
-      { title: 'Local Service', description: 'Concord Township', icon: MapPin },
     ],
     faqs: [
       {
-        question: 'Do you offer printing like Office Depot?',
+        question: 'What is the latest time I can drop off a package?',
         answer:
-          'Yes! We offer color and B&W printing, copying, business cards, flyers, and document finishing.',
+          'Our carrier pickup times vary, but we accept drop-offs during all business hours. Call us for specific cutoff times.',
       },
       {
-        question: 'Can I ship packages here?',
+        question: 'Can you pack my item for me?',
         answer:
-          'Absolutely. We ship with all major carriers \u2014 UPS, FedEx, USPS, and DHL \u2014 and help you compare rates.',
+          'Yes, we offer full-service professional packing to ensure your items are safe during transit.',
+      },
+      {
+        question: 'Do you ship furniture?',
+        answer:
+          'We can handle many large items. Please contact us with the dimensions and weight for a quote.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
+    id: 'pack-and-ship-services-concord-township',
+    category: 'pack-ship',
+    city: 'Concord Township',
+    serviceName: 'Pack and Ship Services',
+    slug: '/pack-and-ship-services-concord-township',
+    pageTitle: 'Pack and Ship Services in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Professional pack and ship services in Concord Township. We pack items right so they arrive safe. Authorized shipper for UPS, FedEx, USPS, and DHL.',
+    keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping, packing',
+    heroTitle: 'Pack and Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
+    heroSubtitle:
+      'Fragile, valuable, or oddly shaped items? We pack, label, and ship with all 4 major carriers. One stop, done right.',
+    heroImage: getServiceImageUrl('/images/professional-packing.webp'),
+    content: [
+      {
+        heading: 'Why Leave Packing to Chance?',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship something. You grab a box from the closet, dig out the tape, and hope your packing skills hold up through the sorting machine.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>Professional packing is about knowing how sorting machines treat packages and which materials meet carrier standards.</strong> That's what we do at Mailbox Plus. We pack with carrier-compliant materials so your shipment is insurance-ready and arrives intact.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Bring your item in. We assess it, pack it right, and ship it with the carrier that fits your budget.
+            </p>`,
+      },
+      {
+        heading: 'Pack and Ship in Three Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Fragile, valuable, oddly shaped — we assess the best packing approach and carrier for your shipment.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Pack It Right</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Professional materials, carrier-compliant techniques, and insurance-ready packing — done on-site.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick the Best Carrier</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We compare UPS, FedEx, USPS, and DHL rates and recommend the best option for speed and cost.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: 'Mailbox Plus vs. DIY Packing',
+        body: `<div class="overflow-x-auto my-6">
+                    <table class="w-full text-left border-collapse">
+                        <thead>
+                            <tr>
+                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                <th class="border-b-2 border-[var(--color-primary)] p-4 bg-[var(--color-primary)]/10 text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Safety</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Professional Standards</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Risk of Damage</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Materials</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Industrial Strength</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Consumer Grade</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Insurance</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Guarantee Eligible</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Claims often denied</td>
+                            </tr>
+                            <tr>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Carrier Choice</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">UPS, FedEx, USPS, DHL</td>
+                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">One carrier, no choice</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: "Concord Township's Packing Experts",
+        body: `<div class="p-8 rounded-2xl bg-[var(--color-bg-secondary)] border border-[var(--color-border)]">
+                    <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+                        Residents of <strong>Concord Township, Ohio</strong> rely on Mailbox Plus for all their packing and shipping needs. We also serve Mentor, Painesville, and Willoughby. Let us take the hassle out of shipping your gifts, returns, and business packages.
+                    </p>
+                </div>`,
+        isFullWidth: true,
+      },
+    ],
+    features: [
+      {
+        title: 'Expert Packing',
+        description: 'We know exactly how to protect your items with carrier-compliant materials.',
+        icon: Shield,
+      },
+      {
+        title: 'Multi-Carrier',
+        description: 'Ship via UPS, FedEx, USPS, or DHL — we compare rates for you.',
+        icon: Truck,
+      },
+      {
+        title: 'One-Stop Service',
+        description: 'Drop off, pack, and ship all at the same counter. No extra trips.',
+        icon: MapPin,
+      },
+    ],
+    faqs: [
+      {
+        question: 'How much does packing cost?',
+        answer:
+          'The cost depends on the size, weight, and fragility of the item. Bring it in for a free quote!',
+      },
+      {
+        question: 'Do I need to bring my own box?',
+        answer:
+          'No! We carry professional-grade boxes in a variety of sizes, plus custom box making for odd-shaped items.',
+      },
+      {
+        question: 'What carriers do you use?',
+        answer:
+          'We ship with all 4 major carriers: UPS, FedEx, USPS, and DHL. We compare rates and recommend the best option for your shipment.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
+    id: 'ups-fedex-usps-dhl-shipping-concord-township',
+    category: 'pack-ship',
+    city: 'Concord Township',
+    serviceName: 'UPS, FedEx, USPS, DHL Shipping',
+    slug: '/ups-fedex-usps-dhl-shipping-concord-township',
+    pageTitle: 'UPS, FedEx, USPS, DHL Shipping in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Ship with UPS, FedEx, USPS, and DHL all in one place in Concord Township. Compare shipping rates and delivery times to find the best option.',
+    keywords: 'UPS FedEx USPS DHL shipping, Concord Township, Mailbox Plus',
+    heroTitle: 'Ship with UPS, FedEx, USPS, and DHL in Concord Township: Mailbox Plus',
+    heroSubtitle: 'Mailbox Plus is your all-in-one shipping destination in Concord Township, Ohio.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'The Power of Choice at Mailbox Plus',
+        body: `<p class="text-lg leading-relaxed mb-6">
+                    Why limit yourself to just one carrier when you can have them all? 
+                    Mailbox Plus is your <strong>all-in-one shipping destination in Concord Township, Ohio</strong>. 
+                    We are authorized shipping partners for all major carriers, giving you the power to compare rates, delivery speeds, 
+                    and services to find the perfect fit for every package.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
+                    <div class="bg-[var(--color-bg-blue-tint)] p-6 rounded-2xl border border-[var(--color-border-blue)] flex flex-col items-center text-center">
+                        <h4 class="font-bold text-[var(--color-primary)] mb-2"><a href="/pack-ship/ups-authorized-shipper-outlet" class="text-[var(--color-primary)] hover:underline">UPS</a></h4>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Reliable ground and air services for domestic and international.</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-2xl border border-purple-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-purple-900 mb-2"><a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">FedEx</a></h4>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Fast express and economical ground options for time-sensitive items.</p>
+                    </div>
+                    <div class="bg-red-50 p-6 rounded-2xl border border-red-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-red-900 mb-2">USPS</h4>
+                        <p class="text-sm text-[var(--color-text-secondary)]">Priority Mail and flat-rate boxes for cost-effective shipping.</p>
+                    </div>
+                    <div class="bg-yellow-50 p-6 rounded-2xl border border-yellow-100 flex flex-col items-center text-center">
+                        <h4 class="font-bold text-yellow-900 mb-2">DHL</h4>
+                        <p class="text-sm text-[var(--color-text-secondary)]">The world leader in international shipping for documents and parcels.</p>
+                    </div>
+                </div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: 'Why Direct Choice Matters',
+        body: `<div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">Compare & Save</h5>
+                                    <p class="text-[var(--color-text-secondary)]">We show you rates from all 4 carriers side-by-side.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">One Stop Shop</h5>
+                                    <p class="text-[var(--color-text-secondary)]">No need to drive to multiple stores for different carriers.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-4">
+                                <div class="w-6 h-6 rounded-full bg-green-500 text-white flex items-center justify-center text-xs shrink-0 mt-1">✓</div>
+                                <div>
+                                    <h5 class="font-bold text-[var(--color-text-primary)]">Expert Advice</h5>
+                                    <p class="text-[var(--color-text-secondary)]">Our staff understands the strengths of each carrier.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-[var(--color-bg-secondary)] text-white p-8 rounded-3xl shadow-xl">
+                        <h4 class="text-xl font-bold mb-4">Express Returns Too!</h4>
+                        <p class="text-[var(--color-text-muted)] leading-relaxed mb-6">
+                            We accept prepaid drop-off packages for all four carriers, making your online returns effortless.
+                        </p>
+                        <div class="border-t border-white/10 pt-6 flex items-center gap-4">
+                            <div class="p-3 bg-white/10 rounded-xl">
+                                <svg class="w-6 h-6 text-[var(--color-border-blue)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <span class="text-sm font-medium">Authorized Ship Center for all 4 carriers</span>
+                        </div>
+                    </div>
+                </div>`,
+        isFullWidth: true,
+      },
+    ],
+    features: [
+      {
+        title: 'Compare & Save',
+        description: 'Show rates from all 4 carriers side-by-side.',
+        icon: Shield,
+      },
+      { title: 'One Stop Shop', description: 'No need to drive to multiple stores.', icon: MapPin },
+      {
+        title: 'Expert Advice',
+        description: 'Our staff can guide you on the best carrier.',
+        icon: Users,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Which carrier is the cheapest?',
+        answer:
+          'It depends on the package size, weight, and destination. We can compare them all instantly to find the lowest price.',
+      },
+      {
+        question: 'Which carrier is the fastest?',
+        answer:
+          'FedEx and UPS often offer the fastest express options, but DHL is excellent for international speed.',
+      },
+      {
+        question: 'Do you take drop-offs for all carriers?',
+        answer: 'Yes! We accept prepaid drop-off packages for UPS, FedEx, USPS, and DHL.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
+    id: 'small-business-shipping-concord-township',
+    category: 'pack-ship',
+    city: 'Concord Township',
+    serviceName: 'Small Business Shipping',
+    slug: '/small-business-shipping-concord-township',
+    pageTitle: 'Small Business Shipping in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Small Business Shipping solutions in Concord Township. We act as your shipping department, offering multi-carrier options and business services.',
+    keywords: 'small business shipping, Concord Township, Mailbox Plus',
+    heroTitle: 'Small Business Shipping Solutions in Concord Township: Mailbox Plus',
+    heroSubtitle:
+      'Mailbox Plus acts as your off-site logistics department, providing access to UPS, FedEx, USPS, and DHL all in one place.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'Your Off-Site Logistics Team',
+        body: 'Running a business is hard work, but shipping doesn\'t have to be. Mailbox Plus specializes in <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline"><strong>small business shipping in Concord Township, Ohio</strong></a>. We act as your off-site logistics department, providing access to UPS, FedEx, USPS, and DHL all in one place.',
+      },
+      {
+        heading: 'Efficiency for Growth',
+        body: 'From sending out orders to managing returns, we help you streamline your shipping process so you can focus on <a href="/home-business" class="text-[var(--color-primary)] hover:underline">growing your business</a>. Enjoy personalized support, volume discounts, and a partner who truly cares about your success.',
+      },
+      {
+        heading: 'Your Business Logistics Partner',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Efficiency:</strong> Single stop for UPS, FedEx, USPS, and DHL logistics.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Professional Image:</strong> Prestigious street address for your home-based business.</div>
+                        </li>
+                    </ul>
+                `,
+      },
+      {
+        heading: 'Services That Scale With You',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">On-Demand Printing:</strong> Marketing materials and invoices printed when you need them.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Fulfillment Support:</strong> Expert packing and shipping assistance during peak seasons.</div>
+                        </li>
+                    </ul>
+                `,
+      },
+    ],
+    features: [
+      { title: 'Time Efficiency', description: 'Drop off all packages in one stop.', icon: Clock },
+      {
+        title: 'Cost Savings',
+        description: 'Find the most economical shipping method.',
+        icon: Shield,
+      },
+      {
+        title: 'Professional Image',
+        description: 'Rent a mailbox for a professional street address.',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do you offer business accounts?',
+        answer:
+          'We offer personalized services for frequent shippers. Stop in to discuss how we can support your business needs.',
+      },
+      {
+        question: 'Can I receive shipments from suppliers here?',
+        answer:
+          'Yes! With a private mailbox rental, you can receive packages from any carrier, ensuring your inventory arrives safely.',
+      },
+      {
+        question: 'What about international shipping?',
+        answer:
+          'We are experts in international shipping and can help you navigate customs forms to get your products to global customers.',
       },
     ],
     aggregateRating: {
@@ -705,58 +941,175 @@ export const localSeoServices: Service[] = [
     slug: '/usps-drop-off-alternative-concord-township',
     pageTitle: 'USPS Drop Off Alternative in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Looking for a USPS Drop Off Alternative in Concord Township? Avoid the post office line and drop off your USPS packages at Mailbox Plus.',
-    keywords: 'USPS drop off, Concord Township, Mailbox Plus',
-    heroTitle: 'The Best USPS Drop Off Alternative in Concord Township: Mailbox Plus',
+      'Quick and easy USPS Drop Off Alternative in Concord Township. Authorized acceptance for pre-labeled USPS packages. No long lines.',
+    keywords: 'USPS drop off alternative, Concord Township, Mailbox Plus',
+    heroTitle: 'Convenient USPS Drop Off & Shipping in Concord Township: Mailbox Plus',
     heroSubtitle:
-      'Skip the post office line. Drop off pre-labeled USPS packages at our counter \u2014 fast, free, and friendly.',
+      'Skip the long lines at the Post Office and head to Mailbox Plus for quick and easy USPS drop-offs.',
     heroImage: getServiceImageUrl('/images/usps-services.webp'),
     content: [
       {
-        heading: 'The Best USPS Drop Off Alternative in Concord Township: Mailbox Plus',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need to drop off a USPS package but don't want to wait in the post office line? Mailbox Plus is your <strong>USPS drop-off alternative in Concord Township, Ohio</strong>. Bring your pre-labeled USPS package to our counter and we'll scan it in and hand you a receipt \u2014 in minutes, not minutes-plus-wait-in-line.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need stamps? We carry them. Need to ship with another carrier? We offer FedEx, UPS, and DHL too. One stop for all your shipping needs.
-            </p>`,
+        heading: 'Skip the Post Office Lines',
+        body: 'Looking for a better <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>USPS drop-off location in Concord Township, Ohio</strong></a>? Skip the long lines at the Post Office and head to Mailbox Plus. We are an authorized shipping center that makes <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">dropping off your USPS packages</a> quick and easy.',
       },
       {
-        heading: 'Why Choose Mailbox Plus Over the Post Office?',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">No Post Office Line</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Walk in, scan, receipt, done. Avoid the post office crowds entirely.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Convenience</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Bring your USPS, UPS, FedEx, and DHL packages together. One stop for all drop-offs.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Stamps &amp; Supplies</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Buy stamps, grab packing supplies, or get help with certified mail \u2014 all at our counter.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Drop-Off Receipt</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We scan every package and provide a receipt. No wondering if your return was accepted.</p>
-              </div>
-            </div>`,
+        heading: 'The Multi-Carrier Advantage',
+        body: "We don't just stop at USPS; we also offer <strong>UPS, FedEx, and DHL</strong> shipping services, giving you the flexibility to choose the best carrier for every package. Enjoy a friendly, stress-free experience with shorter wait times.",
+      },
+      {
+        heading: 'Why Drop Off at Mailbox Plus?',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> In and out in minutes—no waiting in endless lines.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> We accept drop-offs for UPS and FedEx too.</div>
+                        </li>
+                    </ul>
+                `,
+      },
+      {
+        heading: 'Your Local Shipping Hub',
+        body: `
+                    <ul class="space-y-4 my-6">
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Postal Services:</strong> Priority Mail, First Class, Certified Mail, and stamp sales.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                            </div>
+                            <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Packing Services:</strong> Professional packing to ensure your items arrive safely.</div>
+                        </li>
+                    </ul>
+                `,
+      },
+    ],
+    features: [
+      { title: 'Faster Service', description: 'In and out in minutes.', icon: Clock },
+      {
+        title: 'No Long Lines',
+        description: 'Convenient alternative to the Post Office.',
+        icon: Users,
+      },
+      {
+        title: 'Multi-Carrier Options',
+        description: 'We accept drop-offs for UPS and FedEx too.',
+        icon: Truck,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I drop off any USPS package here?',
+        answer:
+          'Yes, as long as it has a prepaid label, you can drop it off. We also sell postage for packages that need it.',
+      },
+      {
+        question: 'Do you sell stamps?',
+        answer: 'Yes, we sell standard USPS postage stamps.',
+      },
+      {
+        question: 'Is it faster than the Post Office?',
+        answer:
+          'Generally, yes! Our lines are typically much shorter, allowing you to get in and out quickly.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
+    id: 'usps-package-help-concord-township',
+    category: 'pack-ship',
+    city: 'Concord Township',
+    serviceName: 'USPS Package Help',
+    slug: '/usps-package-help-concord-township',
+    pageTitle: 'USPS Package Help in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Expert USPS Package Help in Concord Township. Get assistance with postage, packing, and shipping questions from our knowledgeable staff.',
+    keywords: 'USPS package help, Concord Township, Mailbox Plus',
+    heroTitle: 'Expert USPS Package Help in Concord Township: Mailbox Plus',
+    heroSubtitle:
+      'Need USPS package help in Concord Township, Ohio? Mailbox Plus is here to assist.',
+    heroImage: getServiceImageUrl('/images/usps-services.webp'),
+    content: [
+      {
+        heading: 'Expert USPS Package Help in Concord Township: Mailbox Plus',
+        body: 'Need <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline"><strong>USPS package help in Concord Township, Ohio</strong></a>? \nWhether you\'re unsure about <a href="/pack-ship/postage-stamps" class="text-[var(--color-primary)] hover:underline">postage</a>, need help packing a fragile item, or want to track a shipment, \nMailbox Plus is here to assist. As an authorized shipping center, we provide expert guidance on all \n<strong> USPS, UPS, FedEx, and DHL</strong> services. Don\'t struggle with complicated shipping rules or \nwait on hold—come to Mailbox Plus for personal, face-to-face assistance from our knowledgeable staff.',
+      },
+      {
+        heading: 'Mailbox Plus vs. DIY Shipping',
+        body: `
+                    <div class="overflow-x-auto my-6">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                    <th class="border-b-2 border-[var(--color-border-blue)] p-4 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)]">Mailbox Plus</th>
+                                    <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Doing It Yourself</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Convenience</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">We do the work for you</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Time-consuming</td>
+                                </tr>
+                                <tr>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Cost Savings</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Compare carrier rates</td>
+                                    <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Limited to one carrier</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `,
+        isFullWidth: true,
+      },
+      {
+        heading: 'Helping Concord Township Ship Smarter',
+        body: `
+                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-2xl border border-[var(--color-border-blue)]">
+                        <p class="text-[var(--color-primary)] leading-relaxed text-lg">
+                            Mailbox Plus is dedicated to making shipping easy for the residents of <strong>Concord Township, Ohio</strong>. 
+                            Whether you're in Mentor, Painesville, or anywhere in Lake County, our expert team is ready to help you with 
+                            all your package needs.
+                        </p>
+                    </div>
+                `,
         isFullWidth: true,
       },
     ],
     features: [
-      { title: 'No Waiting', description: 'Skip the post office line', icon: Clock },
-      { title: 'Multi-Carrier', description: 'USPS, UPS, FedEx, DHL', icon: Truck },
-      { title: 'Stamps & More', description: 'Postage and packing supplies', icon: Star },
+      { title: 'Expert Advice', description: 'We know the ins and outs of shipping.', icon: Star },
+      { title: 'No Long Lines', description: 'Get your questions answered quickly.', icon: Clock },
+      { title: 'Multi-Carrier', description: 'We can suggest UPS, FedEx, or DHL.', icon: Truck },
     ],
     faqs: [
       {
-        question: 'Is there a fee to drop off USPS packages?',
-        answer: 'No, there is no fee for dropping off pre-labeled packages at our counter.',
+        question: 'Can you help me pack fragile items?',
+        answer:
+          'Yes! We specialize in professional packing for fragile, valuable, and odd-shaped items.',
       },
       {
-        question: 'Can I buy stamps here?',
-        answer: 'Yes! We carry Forever Stamps and international postage at our counter.',
+        question: 'Do you sell boxes and tape?',
+        answer: 'Yes, we have a full selection of packaging supplies available for purchase.',
+      },
+      {
+        question: "What if I don't know which carrier to use?",
+        answer:
+          'No problem! We can compare rates and delivery times for UPS, FedEx, USPS, and DHL to find the best option for you.',
       },
     ],
     aggregateRating: {
