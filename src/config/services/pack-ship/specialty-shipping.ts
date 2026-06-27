@@ -129,6 +129,15 @@ export const specialtyShippingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...artworkShippingFaqs],
+    cta: {
+      title: 'Shipping Artwork? We Handle It Like Galleries Do.',
+      subtitle:
+        'Custom crating, acid-free materials, insured shipping. From $35/month for a private mailbox.',
+      buttonText: 'Get a Quote \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'bicycle-shipping',
@@ -247,6 +256,15 @@ export const specialtyShippingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...bicycleShippingFaqs],
+    cta: {
+      title: 'Shipping a Bike?',
+      subtitle:
+        'Reinforced boxes, axle protection, insured. We pack so you can ride. From $35/month for a private mailbox.',
+      buttonText: 'Get a Quote \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'golf-club-shipping',
@@ -364,5 +382,14 @@ export const specialtyShippingServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...golfClubShippingFaqs],
+    cta: {
+      title: 'Ship Your Clubs — Arrive Ready to Play',
+      subtitle:
+        'Reinforced golf club boxes, shaft protection, insured. From $35/month for a private mailbox.',
+      buttonText: 'Get a Quote \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];

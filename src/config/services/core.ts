@@ -187,6 +187,15 @@ export const coreServices: Service[] = [
       ratingValue: 5.0,
       reviewCount: 32,
     },
+    cta: {
+      title: 'One Counter. All 4 Carriers.',
+      subtitle:
+        'Compare UPS, FedEx, USPS, DHL side-by-side. Custom packing and free drop-offs. From $35/month for a private mailbox.',
+      buttonText: 'Get Started Shipping \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'copy-print',
@@ -363,6 +372,15 @@ export const coreServices: Service[] = [
     aggregateRating: {
       ratingValue: 5.0,
       reviewCount: 32,
+    },
+    cta: {
+      title: 'Need Something Printed?',
+      subtitle:
+        "Business cards, flyers, posters, copies \u2014 we print so you don't have to. From $35/month for a private mailbox.",
+      buttonText: 'Start Your Print Job \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
     },
   },
 ];
