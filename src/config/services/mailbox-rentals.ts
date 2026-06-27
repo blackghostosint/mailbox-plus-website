@@ -21,10 +21,11 @@ export const mailboxRentalServices: Service[] = [
     slug: '/home-business/mailbox-rental',
     pageTitle: 'Mailbox Rental in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Secure private mailbox rentals in Concord Township with a real street address. Package receiving from all carriers (UPS, FedEx, USPS, DHL).',
-    keywords: 'mailbox rental, secure address, Concord Township, Lake County',
-    heroTitle: 'Secure Mailbox Rentals',
-    heroSubtitle: 'Get a private, secure mailbox with a real street address.',
+      'Stop putting your home address on every package and filing. Get a real street address in Concord Township. All 4 carriers. From $35/month. 30-day risk-free. Porch theft protection included.',
+    keywords:
+      'mailbox rental, private mailbox, street address, Concord Township, Lake County, business address, privacy',
+    heroTitle: 'Your Home Address Is On Every Package You Ship',
+    heroSubtitle: 'A real street address. All 4 carriers. From $35/month. Your home stays private.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     offers: [
       {
@@ -65,12 +66,35 @@ export const mailboxRentalServices: Service[] = [
       },
     ],
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN + PROBLEM ──
       {
-        heading: 'Your Professional Street Address',
-        body: 'Stop relying on a PO Box or putting your home address at risk. A private mailbox at Mailbox Plus provides a <strong>real street address</strong> in Concord Township, Ohio. This allows you to <a href="/home-business/digital-mailbox-rental" class="text-[var(--color-primary)] hover:underline">receive packages</a> from <strong>all major carriers—UPS, FedEx, USPS, and DHL</strong>—and build a professional image for your home-based business.',
+        heading: 'The Address Pipeline — Who Has Your Home Address Right Now?',
+        body: "Every shipping label you print, every LLC filing, every Amazon return, every online checkout — they all pump your home address into a system you can't control. Data brokers resell it. Porch pirates track deliveries by watching for boxes. Clients see your living room on your business filings. The mechanism is simple: every time you give your home address, it circulates further. You don't know who has it. And once it's out there, you can't pull it back.",
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
       {
-        heading: 'Transparent Pricing & Standardized Sizes',
+        heading: 'Why That Keeps You Up at Night',
+        body: "You check the front porch before you pull into the driveway. You hesitate before putting your address on a business card. You wonder if that \"free shipping\" label is worth your privacy. It's not paranoia — it's the feeling of exposure that comes from knowing your home address is floating around in a pipeline you can't see and can't stop. Every package left on your doorstep is an invitation. Every filing made public is a data point.",
+      },
+      // ── SB7 POSITION 2: PHILOSOPHICAL PROBLEM ──
+      {
+        heading: 'Your Home Should Be for Living — Not for Business',
+        body: "You work hard for your home. It's where you relax, where your family is, where you should feel safe. But somewhere along the way, your home address became a public utility — used for shipping labels, business registrations, and databases you never signed up for. That's not how it should work. Your sanctuary shouldn't be a public drop zone.",
+      },
+      // ── SB7 POSITION 3: GUIDE (Empathy + Authority) ──
+      {
+        heading: 'We Plug the Leak. Your Home Stays Private.',
+        body: 'We know the feeling — that knot in your stomach when a delivery says "left at front door" and you\'re 20 minutes away. That hesitation when a client asks for your business address. That\'s why Mailbox Plus exists. A real street address in Concord Township, Ohio that your mail goes to — not your home. We sign for your packages from UPS, FedEx, USPS, and DHL. We notify you within 4 hours. And your address stays professional, private, and off the pipeline.',
+      },
+      // ── SB7 POSITION 4: AGREEMENT PLAN ──
+      {
+        heading: 'The No-Strings Pitch',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No annual contract.</strong> Month-to-month. Cancel anytime.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Real street address.</strong> Not a P.O. Box. Valid for all 4 carriers — UPS, FedEx, USPS, DHL.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>4-hour notification.</strong> We scan and notify you the moment mail arrives.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>30-day risk-free.</strong> Not sure? Try it. If it\'s not for you, walk away.</span></li></ul>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 4: PRICING ──
+      {
+        heading: 'Transparent Pricing — What You See Is What You Pay',
         body: `<div class="overflow-x-auto my-6">
                     <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm">
                         <thead class="bg-[var(--color-bg-secondary)]/80">
@@ -104,45 +128,68 @@ export const mailboxRentalServices: Service[] = [
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Note: Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available in 3, 6, and 12-month terms.</p>`,
+                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available in 3, 6, and 12-month terms.</p>`,
       },
+      // ── SB7 POSITION 4b: PROCESS PLAN ──
       {
         heading: 'Quick & Easy Setup (USPS Form 1583)',
-        body: `<p class="mb-4">Setting up your secure mailbox is a straightforward legal process. As a CMRA, we require two forms of ID and a completed USPS Form 1583 to begin accepting your mail.</p>
+        body: `<p class="mb-4">Setting up your address takes about 10 minutes. We handle the paperwork. Here's what you need:</p>
                 <div class="grid gap-6 md:grid-cols-3">
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">1. Complete Form</div>
-                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Fill in your personal/business details on USPS Form 1583. Each authorized recipient needs their own ID check.</p>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">1. Fill Out Form</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Complete USPS Form 1583 with your details. Each authorized recipient needs their own ID check.</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">2. Provide ID</div>
-                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Bring one primary photo ID (Passport, DL) and one secondary ID showing your address (Lease, Utility Bill).</p>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">2. Bring ID</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">One primary photo ID (Passport, DL) and one secondary ID showing your current address (Lease, Utility Bill).</p>
                     </div>
                     <div class="p-5 rounded-2xl bg-white/50 border border-white/80">
-                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">3. Submit & Start</div>
-                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Bring these to Mailbox Plus. Once verified, we can legally accept and protect your mail and packages instantly.</p>
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">3. Start Using It</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Once verified, your new address is active. Start using it for packages, business filings, and everything else — immediately.</p>
                     </div>
                 </div>`,
+      },
+      // ── SB7 POSITION 6: STAKES (Loss Aversion) ──
+      {
+        heading: 'What You Lose by Keeping Your Home Address Public',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">🏠</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Porch Theft</h4><p class="text-sm text-[var(--color-text-secondary)]">Packages left on your doorstep are visible to everyone who drives by. One delivery notification is all a thief needs. A mailbox at Mailbox Plus means every package is signed for and stored behind a locked counter.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">🔓</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Privacy Breach</h4><p class="text-sm text-[var(--color-text-secondary)]">Every shipping label in your trash has your home address. Every business filing is public record. Data brokers scrape and resell this information. A real business address keeps your home off the grid.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">📭</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Deliveries</h4><p class="text-sm text-[var(--color-text-secondary)]">Not home when a package arrives? FedEx, UPS, and DHL can\'t deliver to P.O. Boxes. With a Mailbox Plus street address, all 4 carriers deliver every time — and we sign for you.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><div class="text-2xl mb-2">💼</div><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Unprofessional Image</h4><p class="text-sm text-[var(--color-text-secondary)]">A home address on your business card, website, or LLC filing says "side hustle." A real Concord Township street address says "legitimate business." Perception matters — and it costs the same as a PO Box.</p></div></div>',
+        isFullWidth: true,
+      },
+      // ── SB7 POSITION 7: SUCCESS (Aspirational Identity) ──
+      {
+        heading: 'Your Home Back. Your Privacy Intact. You Look Professional.',
+        body: "Imagine ordering anything online without checking the porch. Handing out your business card without hesitating. Filing your LLC without listing your living room. That's what a Mailbox Plus address does. One stable address. Your home stays private. You look like you've been in business for years — even if you're just getting started. And the best part? You stop thinking about it. Your mail just shows up. Your packages are safe. You move on with your day.",
       },
     ],
     features: [
       {
         icon: MapPin,
         title: 'Real Street Address',
-        description: 'Standard physical address, perfect for business identity.',
+        description:
+          'Not a P.O. Box. Your address is a legitimate street address that all 4 carriers deliver to.',
       },
       {
         icon: Package,
         title: 'All-Carrier Acceptance',
-        description: 'We accept and sign for UPS, FedEx, USPS, and DHL.',
+        description:
+          'UPS, FedEx, USPS, and DHL — we sign for everything so you never miss a delivery.',
       },
       {
         icon: Lock,
         title: 'Secure & Private',
-        description: 'Your mail is held safely behind our counter icons.',
+        description:
+          'Your mail is held behind a locked counter. Your home address never goes on a label.',
       },
     ],
     faqs: [...generalHomeBusinessFaqs, ...mailboxRentalFaqs],
+    cta: {
+      title: 'Take Your Address Off The Pipeline',
+      subtitle: 'Real street address. All 4 carriers. From $35/month. 30-day risk-free.',
+      buttonText: 'Get Your Lake County Address \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'digital-mailbox-rental',
@@ -152,16 +199,30 @@ export const mailboxRentalServices: Service[] = [
     slug: '/home-business/digital-mailbox-rental',
     pageTitle: 'Digital Mailbox Rental in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Digital mailbox services in Concord Township. View and manage your postal mail online from anywhere. Scanning, forwarding, and shredding options available.',
-    keywords: 'digital mailbox rental, virtual mailbox, Concord Township, Lake County',
-    heroTitle: 'Digital Mailbox Rental',
-    heroSubtitle: 'Access your mail and packages from anywhere online.',
+      'Access your postal mail from anywhere with a digital mailbox in Concord Township. We scan, you decide. Forward, shred, or view online. Real street address included.',
+    keywords:
+      'digital mailbox, virtual mailbox, remote mail, Concord Township, Lake County, traveler, snowbird',
+    heroTitle: 'Your Mail. Anywhere. No Matter Where You Are.',
+    heroSubtitle:
+      'A real Concord Township street address. We scan the envelopes. You decide what happens next. From $35/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN (The Tether + The Address Pipeline) ──
       {
-        heading: 'Digital Freedom: Your Mail, Anywhere',
-        body: "Stop letting physical mail tie you down. With a digital mailbox from Mailbox Plus, you can manage your postal mail from any device. We receive your mail at our secure Concord Township facility, scan the envelopes, and you decide the rest. Whether you're traveling, running a remote business, or just want a paperless lifestyle, our virtual solutions give you 24/7 control.",
+        heading: "Leaving Ohio? Your Mail Doesn't Have To Stay Behind.",
+        body: "You're on the road. Or snowbirding in Florida. Or testing out van life. But every piece of mail, every package, every bank statement still goes to a physical address — and if that's your home, it sits there. Piles up. Gets stolen. Or your tenant forwards it to the wrong address. The Tether is the assumption that you need a building to have a mailbox. You don't.",
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
+      {
+        heading: "The Anxiety of What's Piling Up at Home",
+        body: "You shouldn't have to worry about what's in that pile while you're trying to enjoy your trip. Did that check arrive? Is that package sitting on the porch? Did the landlord forward the important stuff or throw it in a drawer? The uncertainty gnaws at you — and it turns every travel day into a mental math problem of \"when do I need to be back for the mail.\"",
+      },
+      // ── SB7 POSITION 3: GUIDE ──
+      {
+        heading: 'We Hold the Mail. You Hold the Keys. Online.',
+        body: "Your mail arrives at our secure Concord Township facility. We scan every envelope and upload it to your digital portal within 4 hours. You log in from anywhere — your phone, your laptop, a hotel business center. See what arrived. Tell us to scan the contents, shred it, or forward it. You're in control. We're the hands.",
+      },
+      // ── SB7 POSITION 4: FEATURES ──
       {
         heading: 'Premium Digital Mail Features',
         body: `<div class="grid gap-6 md:grid-cols-3 my-8">
@@ -180,17 +241,48 @@ export const mailboxRentalServices: Service[] = [
                 </div>
                 <p>We partner with leading providers like <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">PostScan Mail</a> to give you the most flexible virtual mailbox experience in Lake County.</p>`,
       },
+      // ── SB7 POSITION 4: NOT A P.O. BOX ──
       {
-        heading: 'Not a P.O. Box',
-        body: 'Every digital mailbox plan provides a unique <strong>Concord Township street address</strong>. This means you can receive packages from all major carriers, including UPS, FedEx, and DHL, which standard P.O. Boxes often reject.',
+        heading: "Not a P.O. Box — It's a Real Street Address",
+        body: 'Every digital mailbox plan provides a unique <strong>Concord Township street address</strong>. This means you can receive packages from all major carriers, including UPS, FedEx, and DHL, which standard P.O. Boxes often reject. Your mail goes to a real location. You see it from anywhere.',
+      },
+      // ── SB7 POSITION 6: STAKES ──
+      {
+        heading: 'The Cost of Staying Tied to a Physical Address',
+        body: 'Every day your mail sits at home unattended is a risk — theft, missed deadlines, lost checks. Every trip is complicated by "what do I do about my mail?" A digital mailbox takes the question off the table. You leave. We hold. You log in. That\'s it.',
+      },
+      // ── SB7 POSITION 7: SUCCESS ──
+      {
+        heading: 'Untethered. You Travel. Your Mail Follows.',
+        body: "You check in from the road. A scan of today's mail. One click to forward that check. One click to shred the junk. You don't think about your mailbox — it just works. Your address stays Lake County. Your life goes wherever you want it.",
       },
     ],
     features: [
-      { icon: Mail, title: 'Mail Scanning', description: 'View your mail online securely.' },
-      { icon: Globe, title: 'Remote Access', description: 'Manage your mail from anywhere.' },
-      { icon: Lock, title: 'Secure Service', description: 'Your mail and data stay protected.' },
+      {
+        icon: Mail,
+        title: 'Mail Scanning',
+        description: 'We scan envelopes within 4 hours. You see everything from your phone.',
+      },
+      {
+        icon: Globe,
+        title: 'Remote Access',
+        description: 'Manage, forward, or shred from anywhere in the world.',
+      },
+      {
+        icon: Lock,
+        title: 'Real Street Address',
+        description: 'Not a P.O. Box. UPS, FedEx, DHL, USPS — all deliver to your mailbox.',
+      },
     ],
     faqs: [...generalHomeBusinessFaqs, ...digitalMailboxRentalFaqs],
+    cta: {
+      title: 'Leave Ohio. Keep Your Address.',
+      subtitle: 'Your Lake County address works from anywhere. From $35/month. 30-day risk-free.',
+      buttonText: 'Set Up Your Digital Mailbox \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'private-mailbox-rental-concord-township',
@@ -202,9 +294,9 @@ export const mailboxRentalServices: Service[] = [
     metaDescription:
       'Rent a private mailbox in Concord Township for security and privacy. Real street address for your business or personal mail. Package acceptance included.',
     keywords: 'private mailbox rental, Concord Township, Mailbox Plus',
-    heroTitle: 'Secure Private Mailbox Rental in Concord Township: Mailbox Plus',
+    heroTitle: 'Your Private Mailbox — Keeps Your Home Off the Label',
     heroSubtitle:
-      'Mailbox Plus offers more than just a key and a box; we provide a complete mail management solution.',
+      'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $35/month.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     content: [
       {
@@ -272,6 +364,14 @@ export const mailboxRentalServices: Service[] = [
         answer: 'Yes, you can authorize other individuals to pick up mail from your box.',
       },
     ],
+    cta: {
+      title: 'Stop Sharing Your Home Address',
+      subtitle: 'Real street address in Concord Township. All 4 carriers. From $35/month.',
+      buttonText: 'Get Your Private Mailbox \u2192',
+      buttonLink: '/home-business/mailbox-rental',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'virtual-mailbox-concord-township',
@@ -283,9 +383,9 @@ export const mailboxRentalServices: Service[] = [
     metaDescription:
       'Virtual mailbox solutions in Concord Township. manage your physical mail digitally. Perfect for travelers, businesses, and remote workers.',
     keywords: 'virtual mailbox, Concord Township, Mailbox Plus',
-    heroTitle: 'Digital & Virtual Mailbox Services in Concord Township: Mailbox Plus',
+    heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
     heroSubtitle:
-      "Welcome to the future of mail management with Mailbox Plus's virtual mailbox services.",
+      'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
       {
@@ -341,9 +441,17 @@ export const mailboxRentalServices: Service[] = [
       {
         question: 'How much does it cost?',
         answer:
-          'We have various plans to fit different needs and budgets. Contact us for current pricing.',
+          'Mailbox plans start at $35/month for a small box. Contact us for virtual mailbox pricing.',
       },
     ],
+    cta: {
+      title: 'Your Mail. Your Way. From Anywhere.',
+      subtitle: 'We scan. You decide. From $35/month. 30-day risk-free.',
+      buttonText: 'Set Up Your Virtual Mailbox \u2192',
+      buttonLink: '/home-business/digital-mailbox-rental',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'mail-forwarding-concord-township',
@@ -355,8 +463,9 @@ export const mailboxRentalServices: Service[] = [
     metaDescription:
       'Reliable mail forwarding from Concord Township, Ohio. We can forward your mail and packages anywhere in the world via UPS, FedEx, DHL, or USPS.',
     keywords: 'mail forwarding, Concord Township, Mailbox Plus',
-    heroTitle: 'Reliable Mail Forwarding in Concord Township: Mailbox Plus',
-    heroSubtitle: 'Mailbox Plus offers reliable mail forwarding in Concord Township, Ohio.',
+    heroTitle: 'Mail Forwarding — Your Mail Goes Where You Go',
+    heroSubtitle:
+      'Temporarily away from Lake County? We bundle and forward your mail anywhere in the world. UPS, FedEx, DHL, USPS.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     content: [
       {
@@ -448,5 +557,13 @@ export const mailboxRentalServices: Service[] = [
         answer: 'Yes, mail forwarding is a feature available to our private mailbox holders.',
       },
     ],
+    cta: {
+      title: "Go Ahead — Go Wherever. We'll Forward Your Mail.",
+      subtitle: 'Bundle and ship anywhere. UPS, FedEx, DHL, USPS. You pick the timing.',
+      buttonText: 'Set Up Mail Forwarding \u2192',
+      buttonLink: '/home-business/mailbox-rental',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];
