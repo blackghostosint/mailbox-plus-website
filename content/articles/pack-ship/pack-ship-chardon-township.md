@@ -66,7 +66,7 @@ At Mailbox Plus, you can find:
 To get the most out of your shipping experience, keep these simple tips in mind:
 
 1.  **Compare Before You Send:** While one carrier might be cheapest for a small box to Cleveland, another might have a better rate for a heavy parcel heading to the West Coast.
-2.  **Declare Your Value:** Especially for important items, make sure to declare the correct value for [insurance](/pack-ship/insurance) purposes.
+2.  **Declare Your Value:** Especially for important items, make sure to declare the correct value for [insurance](/specialty/insurance) purposes.
 3.  **Check the Hours:** Small business outlets often have different hours than the main Post Office. For instance, [Mailbox Plus](/contact-us) is open until 6:00 PM on weekdays and until 2:00 PM on Saturdays, providing a convenient window for after-work errands.
 4.  **Consider Additional Services:** Need a [Notary Public](/home-business/notary-services), [document printing](/copy-print/document-printing), or help with [Amazon returns](/amazon-returns)? Full-service centers like Mailbox Plus handle it all.
 

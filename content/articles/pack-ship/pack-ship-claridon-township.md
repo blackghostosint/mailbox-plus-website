@@ -44,7 +44,7 @@ For many in Claridon, the local East Claridon Post Office is a familiar stop, bu
 
 Life in a rural township like Claridon often means shipping things that aren't standard consumer goods. From tractor parts and tools to large family heirlooms or agricultural supplies, these items demand more than a standard cardboard box.
 
-Attempting to pack heavy or uniquely shaped items yourself can be risky. Without proper double-boxing, heavy-duty strapping, or adequate cushioning, your shipment might not survive the journey—or qualify for [insurance](/pack-ship/insurance) claims. [Professional packing](/pack-ship/professional-packing) centers have the industrial-grade materials to ensure your heavy shipments arrive intact.
+Attempting to pack heavy or uniquely shaped items yourself can be risky. Without proper double-boxing, heavy-duty strapping, or adequate cushioning, your shipment might not survive the journey—or qualify for [insurance](/specialty/insurance) claims. [Professional packing](/pack-ship/professional-packing) centers have the industrial-grade materials to ensure your heavy shipments arrive intact.
 
 ## The Mailbox Plus Advantage for Claridon
 

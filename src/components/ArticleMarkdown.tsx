@@ -18,7 +18,7 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
           // Override headings to match design system
           h1: ({ children, ...props }) => (
             <h1
-              className="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mt-12 mb-6 tracking-tight font-heading"
+              className="text-3xl md:text-4xl font-bold text-[var(--color-primary-dark)] mt-12 mb-6 tracking-tight font-heading"
               {...props}
             >
               {children}
@@ -26,7 +26,7 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
           ),
           h2: ({ children, ...props }) => (
             <h2
-              className="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mt-10 mb-5 tracking-tight font-heading"
+              className="text-2xl md:text-3xl font-bold text-[var(--color-primary-dark)] mt-10 mb-5 tracking-tight font-heading"
               {...props}
             >
               {children}
@@ -34,7 +34,7 @@ export const ArticleMarkdown: React.FC<ArticleMarkdownProps> = ({ content }) => 
           ),
           h3: ({ children, ...props }) => (
             <h3
-              className="text-xl md:text-2xl font-bold text-[var(--color-text-primary)] mt-8 mb-4 font-heading"
+              className="text-xl md:text-2xl font-bold text-[var(--color-primary-dark)] mt-8 mb-4 font-heading"
               {...props}
             >
               {children}

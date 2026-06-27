@@ -79,12 +79,23 @@ function parseFrontmatter(raw: string): { data: any; content: string } {
 export const articleLoader = {
   getAllArticles: async (): Promise<Article[]> => {
     const articles: Article[] = [];
+    const isDev = import.meta.env.DEV;
+    const isDeployPreview =
+      import.meta.env.VITE_NETLIFY_CONTEXT === 'deploy-preview' ||
+      import.meta.env.VITE_NETLIFY_CONTEXT === 'branch-deploy';
+    const showDrafts = isDev || isDeployPreview;
 
     for (const path of articlePaths) {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
         const frontmatter = data as ArticleFrontmatter;
+
+        // Skip drafts in production
+        if (frontmatter.status === 'draft' && !showDrafts) {
+          continue;
+        }
+
         articles.push({ frontmatter, content });
       } catch (err) {
         console.error(`Error loading article at ${path}:`, err);
@@ -99,11 +110,21 @@ export const articleLoader = {
   },
 
   getArticleBySlug: async (slug: string): Promise<Article | null> => {
+    const isDev = import.meta.env.DEV;
+    const isDeployPreview =
+      import.meta.env.VITE_NETLIFY_CONTEXT === 'deploy-preview' ||
+      import.meta.env.VITE_NETLIFY_CONTEXT === 'branch-deploy';
+    const showDrafts = isDev || isDeployPreview;
+
     for (const path of articlePaths) {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
         if (data.slug === slug) {
+          // Skip drafts in production
+          if (data.status === 'draft' && !showDrafts) {
+            return null;
+          }
           return { frontmatter: data as ArticleFrontmatter, content };
         }
       } catch (err) {

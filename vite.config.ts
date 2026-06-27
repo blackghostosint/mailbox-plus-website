@@ -7,6 +7,9 @@ import Icons from 'unplugin-icons/vite';
 import { nodePolyfills } from 'vite-plugin-node-polyfills';
 import sitemapConfig from './src/data/sitemap-config.json';
 
+// Expose Netlify build context (production, deploy-preview, branch-deploy) to client bundle
+process.env.VITE_NETLIFY_CONTEXT = process.env.CONTEXT || '';
+
 // Convert string dates to Date objects for the plugin
 const lastmodMap = Object.entries(sitemapConfig.lastmod).reduce(
   (acc, [route, dateStr]) => {

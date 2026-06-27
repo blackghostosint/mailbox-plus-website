@@ -47,7 +47,7 @@ Because Munson Township itself is primarily residential and natural parkland, re
 
 For many in the Munson community—including local artists, small business owners, and those shipping family heirlooms—standard "do-it-yourself" packing isn't enough. Fragile items require specific materials, [custom box making](/pack-ship/custom-box-making), and cushioning techniques to survive the rigors of transit.
 
-Using carrier-approved boxes and padding isn't just about safety; it's also about [insurance](/pack-ship/insurance). If an item is damaged in transit and was not packed to professional standards, getting a claim approved can be difficult. That's why many residents choose to visit a [professional packing](/pack-ship/professional-packing) center where experts can handle the cushioning and taping for them.
+Using carrier-approved boxes and padding isn't just about safety; it's also about [insurance](/specialty/insurance). If an item is damaged in transit and was not packed to professional standards, getting a claim approved can be difficult. That's why many residents choose to visit a [professional packing](/pack-ship/professional-packing) center where experts can handle the cushioning and taping for them.
 
 ## Mailbox Plus: The Concord Connection for Munson
 
