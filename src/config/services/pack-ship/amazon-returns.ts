@@ -313,6 +313,11 @@ export const amazonReturnsService: Service = {
       `,
       isFullWidth: true,
     },
+    // ── CROSS-SELL: MAILBOX ──
+    {
+      heading: 'Shipping a Lot of Amazon Returns? Your Address Is on Every One.',
+      body: '<p>Every Amazon return label you print has your home address on it. Every package sitting on your porch is visible to every driver, neighbor, and passerby.</p><p>If you\'re shipping returns regularly, a <strong><a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">Mailbox Plus private mailbox</a></strong> gives you a real street address in Concord Township — all your returns go to our counter, not your porch. We sign for packages from UPS, FedEx, USPS, and DHL. From $35/month.</p>',
+    },
   ],
   features: [
     {
