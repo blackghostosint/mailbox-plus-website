@@ -232,7 +232,25 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 </section>
               ))}
 
-            {/* -------- FAQ (Warm Band) -------- */}
+            {/* -------- CTA (GLASS + GRADIENT) — ASK FIRST -------- */}
+            {cta && (
+              <section
+                ref={ctaRef as any}
+                className={`max-w-4xl mx-auto ${ctaInView ? 'animate-fade-in-up' : 'opacity-0'}`}
+              >
+                <div className="relative rounded-xl overflow-hidden shadow-xl">
+                  {/* gradient shell */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
+                  {/* glass overlay */}
+                  <div className="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
+                  <div className="relative px-8 py-9 md:px-10 md:py-11 text-white">
+                    <CTASection cta={cta} />
+                  </div>
+                </div>
+              </section>
+            )}
+
+            {/* -------- FAQ (Warm Band) — OBJECTIONS AFTER -------- */}
             {faqs &&
               faqs.length > 0 &&
               (() => {
@@ -328,7 +346,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               );
             })()}
 
-            {/* -------- CTA (GLASS + GRADIENT) -------- */}
+            {/* -------- CTA (GLASS + GRADIENT) — ASK FIRST -------- */}
             {cta && (
               <section
                 ref={ctaRef as any}
