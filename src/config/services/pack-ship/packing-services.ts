@@ -13,56 +13,6 @@ import {
 
 export const packingServices: Service[] = [
   {
-    id: 'custom-box-making',
-    category: 'pack-ship',
-    city: 'Concord Township',
-    serviceName: 'Custom Box Making',
-    slug: '/pack-ship/custom-box-making',
-    pageTitle: 'Custom Box Making in Concord Township, Ohio | Mailbox Plus',
-    metaDescription:
-      'Custom box making service in Concord Township. We build heavy-duty, made-to-measure boxes for any item. Protect your shipment with custom packaging.',
-    keywords: 'custom boxes, packaging, concord township, lake county',
-    heroTitle: 'Custom Box Making',
-    heroSubtitle: "We create custom-sized boxes for items that don't fit standard packaging.",
-    heroImage: getServiceImageUrl('/images/custom-box-making.webp'),
-    content: [
-      {
-        heading: 'Made-to-Fit Packaging',
-        body: "Some items just don't fit in standard boxes. We build custom solutions to fit your shipment perfectly.",
-      },
-      {
-        heading: 'Protect Your Items',
-        body: 'Custom packaging ensures your items are secure during shipping.',
-      },
-      {
-        heading: 'Made-to-Measure Design',
-        body: "At Mailbox Plus, we specialize in <strong>custom box design and fabrication</strong>—perfect for safely shipping items that don't fit standard packaging sizes. From <a href='/pack-ship/artwork-shipping' class='text-[var(--color-primary)] hover:underline'>artwork</a> and antiques to oversized products and fragile collectibles, our experts create boxes that ensure your shipment is <strong>secure, professional, and carrier-compliant</strong>.",
-      },
-      {
-        heading: 'Precision Protection',
-        body: "Each box is designed for your item's exact dimensions and shipping method, using high-quality corrugated materials for maximum protection. We also offer <strong>foam inserts, double-wall boxes, and reinforced corners</strong> to keep even the most delicate pieces safe during transit.",
-      },
-      {
-        heading: 'Online Custom Box Calculator',
-        body: `For customers who prefer a hands-on approach, we've developed an <strong>online custom box calculator</strong> available at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" style="color: var(--color-alt-accent); font-weight: bold;">https://boxsize.cc/</a>. This free tool allows you to <em>design, measure, and visualize your own box layout at home</em> before bringing it in for professional assembly or packing assistance.`,
-      },
-      {
-        heading: 'Local Expertise',
-        body: "Whether you're a small business shipping products or an individual preparing a one-of-a-kind item, Mailbox Plus offers <strong>custom box solutions built for precision and protection.</strong> If you're searching for <em>custom box making near Concord Township</em> visit us today.",
-      },
-    ],
-    features: [
-      { icon: Box, title: 'Custom Sizes', description: 'Boxes built to fit your unique item.' },
-      {
-        icon: Shield,
-        title: 'Secure Protection',
-        description: 'Keeps fragile or irregular items safe.',
-      },
-      { icon: Package, title: 'On-Demand Service', description: 'We create boxes while you wait.' },
-    ],
-    faqs: [...generalShippingFaqs, ...customBoxMakingFaqs],
-  },
-  {
     id: 'professional-packing',
     category: 'pack-ship',
     city: 'Concord Township',
@@ -70,47 +20,229 @@ export const packingServices: Service[] = [
     slug: '/pack-ship/professional-packing',
     pageTitle: 'Professional Packing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Professional packing services in Concord Township. Expert packers for fragile, valuable, and odd-shaped items. We guarantee our packing for safe arrival.',
-    keywords: 'professional packing, secure shipping, concord township, lake county',
-    heroTitle: 'Professional Packing',
-    heroSubtitle: 'Let our experts pack your items for maximum protection.',
+      'Professional packing services in Concord Township. We pack fragile, valuable, and odd-shaped items with carrier-compliant materials. Damage-free delivery guaranteed.',
+    keywords:
+      'professional packing, secure shipping, concord township, lake county, fragile packing',
+    heroTitle: 'We Pack It So Carriers Can\u2019t Break It',
+    heroSubtitle:
+      'Fragile, valuable, or oddly shaped? Our trained packers use carrier-compliant materials to protect your shipment from sorting machine abuse.',
     heroImage: getServiceImageUrl('/images/professional-packing.webp'),
+    hideCarrierLogos: true,
     content: [
       {
-        heading: 'Safe Packing, Every Time',
-        body: 'Our trained team knows how to pack fragile, heavy, and oversized items for safe shipping.',
+        heading: 'The DIY Packing Gamble \u2014 Why Sorting Machines Destroy Poorly Packed Items',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You packed it yourself. You used a box from the grocery store, some packing tape, and whatever cushioning you had around the house. You dropped it off and hoped for the best.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the DIY Packing Gamble.</strong> Carrier sorting machines subject packages to drops, vibrations, and compression. A poorly packed item has a high chance of arriving damaged \u2014 and if the carrier determines it was underpacked, your insurance claim gets denied.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You're not just gambling on the item. You're gambling on replacement costs, customer satisfaction, and your time dealing with claims.
+            </p>`,
       },
       {
-        heading: 'Save Time & Stress',
-        body: 'Bring your items in and let us handle the packing so you can relax.',
+        heading: 'Trained Packers. Carrier-Compliant Materials. Guaranteed.',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>our trained packers use professional-grade materials and proven methods</strong> to ensure your items arrive safely. We know what carrier sorting machines do to packages \u2014 and we pack accordingly.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Double-boxing for fragile items. Foam cushioning for electronics. Reinforced corners for heavy shipments. Custom crating for irregular shapes. <strong>Every packing job is insurance-eligible and carrier-approved.</strong>
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Bring your item in. We\u2019ll assess it, pack it with the right materials, and ship it with the right carrier \u2014 all from one counter.
+            </p>`,
       },
       {
-        heading: 'Trusted Packing Experts',
-        body: "At Mailbox Plus, we take the stress out of shipping with our <strong>professional packing services</strong>—trusted by residents and businesses throughout Concord Township. Whether you're shipping fragile glassware, valuable artwork, or electronics, our trained staff uses proven methods and <a href='/pack-ship/packaging-supplies' class='text-[var(--color-primary)] hover:underline'>high-quality materials</a> to ensure every package is <strong>secure, protected, and carrier-approved</strong>.",
+        heading: 'Packing in Three Steps',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring It In</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Fragile heirloom, valuable artwork, or oddly shaped item \u2014 we assess it and recommend the best approach.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Pack It Right</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Carrier-compliant materials, professional techniques, and insurance-ready packing \u2014 done on-site.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Ship With Confidence</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packed, labeled, insured, and shipped. You get tracking and peace of mind.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
       {
-        heading: 'Custom Protective Solutions',
-        body: "We provide <strong>custom packing solutions</strong> that match your item's size, weight, and fragility. From <a href='/pack-ship/custom-box-making' class='text-[var(--color-primary)] hover:underline'>double-boxing</a> and foam cushioning to bubble wrap and reinforced corners, every detail is handled with care. Our experts also specialize in <em>insurance-eligible packaging</em> to safeguard valuable shipments.",
+        heading: 'What Bad Packing Costs You',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Damaged Items</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Sorting machines subject packages to drops up to 3 feet. Professional packing absorbs abuse that DIY packing can't.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Denied Claims</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Carriers inspect packaging on damage claims. Improper packing = denied claim. We pack to carrier standards.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Time &amp; Stress</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Packing takes time and materials. Let our experts do it in minutes while you handle more important things.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Custom Help Available</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Need a custom-sized box? We build them in-house. Need <a href="/pack-ship/packaging-supplies" class="text-[var(--color-primary)] hover:underline">packaging supplies</a>? We stock them at our counter.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
       {
-        heading: 'Specialized On-Site Consultations',
-        body: "For those who need specialized assistance, we offer <strong>on-site packing consultations</strong> and guidance on the best shipping materials for your needs. Whether you're preparing one item or managing a large shipment, we'll design the right packing plan for your timeline and budget.",
+        heading: 'From Fragile to Shipped \u2014 Safely',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Imagine handing over a fragile item and knowing it will arrive intact. That\u2019s what professional packing gives you.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Our packers have seen every type of item \u2014 from antique vases to flat-screen TVs to golf clubs. We know exactly how to protect each one.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Bring your item to Mailbox Plus.</strong> We\u2019ll pack it right, ship it safe, and you\u2019ll have peace of mind.
+            </p>`,
       },
     ],
     features: [
-      { icon: Shield, title: 'Expert Team', description: 'Professionally trained packers.' },
+      {
+        icon: Shield,
+        title: 'Trained Packers',
+        description: 'Professional techniques for fragile, valuable, and odd-shaped items.',
+      },
       {
         icon: Package,
-        title: 'Quality Materials',
-        description: 'We use bubble wrap, foam, and sturdy boxes.',
+        title: 'Carrier-Compliant',
+        description: 'Insurance-ready packing that meets all carrier standards.',
       },
       {
         icon: Star,
-        title: 'Proven Methods',
-        description: 'Techniques designed to minimize risk of damage.',
+        title: 'Peace of Mind',
+        description: 'Your item arrives safely or we help make it right.',
       },
     ],
     faqs: [...generalShippingFaqs, ...professionalPackingFaqs],
+  },
+  {
+    id: 'custom-box-making',
+    category: 'pack-ship',
+    city: 'Concord Township',
+    serviceName: 'Custom Box Making',
+    slug: '/pack-ship/custom-box-making',
+    pageTitle: 'Custom Box Making in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Custom box making service in Concord Township. We build heavy-duty, made-to-measure boxes for items that don\u2019t fit standard packaging. Protect odd-shaped shipments.',
+    keywords: 'custom boxes, packaging, concord township, lake county, custom crating',
+    heroTitle: 'Custom Boxes for Items That Don\u2019t Fit Standard Sizes',
+    heroSubtitle:
+      'Odd-shaped, oversized, or uniquely valuable? We build custom boxes and crates that fit your item perfectly.',
+    heroImage: getServiceImageUrl('/images/custom-box-making.webp'),
+    hideCarrierLogos: true,
+    content: [
+      {
+        heading: 'The Standard Box Problem \u2014 When Your Item Doesn\u2019t Fit',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You have an item to ship. It\u2019s too big, too oddly shaped, or too fragile for any standard box on the shelf. You try to make it work with extra padding, but it shifts around inside \u2014 and you know that means damage in transit.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Standard Box Problem.</strong> Mass-produced boxes are made for average-sized items. If yours doesn\u2019t fit, your shipping options are limited and risky.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              A box that\u2019s too big means your item slides around. A box that\u2019s too small means crushing. Neither ends well.
+            </p>`,
+      },
+      {
+        heading: 'Built to Fit \u2014 Custom Boxes, Made While You Wait',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, we <strong>build custom boxes to your item\u2019s exact dimensions</strong>. Heavy-duty corrugated board, reinforced corners, and precision cuts \u2014 your item fits snugly with no shifting room.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Artwork, antiques, machinery parts, musical instruments, prototypes \u2014 if it doesn\u2019t fit a standard box, we\u2019ll build one that does. We can also add <strong>foam inserts, double-wall construction, and custom crating</strong> for maximum protection.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Most boxes built while you wait or within 24 hours. No ordering from a catalog. No guessing on dimensions.
+            </p>`,
+      },
+      {
+        heading: 'From Measurement to Shipment \u2014 Fast',
+        body: `<div class="grid md:grid-cols-3 gap-6">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Bring Your Item</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We measure your item and determine the ideal box dimensions, material thickness, and cushioning needs.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">We Build Your Box</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Custom-cut, reinforced, and assembled in-house \u2014 with foam, double-walls, or crating as needed.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pack &amp; Ship</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Your item goes in, gets packed with protective materials, and ships out \u2014 all from our counter.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: 'Fits Where Standard Boxes Fail',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Odd Shapes Welcome</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Sculptures, musical instruments, machinery, prototypes \u2014 we build boxes for items that don\u2019t fit any standard size.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Heavy-Duty Protection</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Double-wall corrugated, reinforced corners, and custom cushioning for fragile or heavy items.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Insurance Ready</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Custom boxes built to carrier standards means your shipment qualifies for declared value coverage.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Design Tool</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Design your own box layout at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">boxsize.cc</a> and bring it in for professional assembly.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: 'Perfect Fit, Perfect Shipment',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              A custom box means your item doesn\u2019t move during transit. No shifting, no rattling, no crushing. Just a perfect fit.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Whether it\u2019s a one-of-a-kind item or a regular shipment that needs special handling, we build the box that fits.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Bring your item to Mailbox Plus.</strong> We\u2019ll measure, build, pack, and ship \u2014 all from one counter.
+            </p>`,
+      },
+    ],
+    features: [
+      {
+        icon: Box,
+        title: 'Made to Measure',
+        description:
+          'Custom boxes built to your item\u2019s exact dimensions. No gaps, no shifting.',
+      },
+      {
+        icon: Shield,
+        title: 'Heavy-Duty Materials',
+        description: 'Double-wall corrugated, reinforced corners, and foam cushioning options.',
+      },
+      {
+        icon: Package,
+        title: 'Fast Turnaround',
+        description: 'Most boxes built while you wait or within 24 hours.',
+      },
+    ],
+    faqs: [...generalShippingFaqs, ...customBoxMakingFaqs],
   },
   {
     id: 'packaging-supplies',
@@ -120,48 +252,102 @@ export const packingServices: Service[] = [
     slug: '/pack-ship/packaging-supplies',
     pageTitle: 'Packaging Supplies in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Packaging supplies store in Concord Township. Boxes, bubble wrap, tape, and packing peanuts available. Everything you need to pack and ship securely.',
+      'Packaging supplies in Concord Township. Boxes, bubble wrap, tape, and packing peanuts available at our counter. Grab what you need right where you ship.',
     keywords: 'shipping supplies, boxes, tape, bubble wrap, concord township',
-    heroTitle: 'Packaging Supplies',
-    heroSubtitle: 'Everything you need to pack and ship your items.',
+    heroTitle: 'Boxes, Tape, Bubble Wrap \u2014 Grab What You Need, Right Where You Ship',
+    heroSubtitle:
+      'Professional packaging supplies at our counter. Standard and heavy-duty boxes, cushioning materials, and tape \u2014 no second stop required.',
     heroImage: getServiceImageUrl('/images/packaging-supplies.webp'),
+    hideCarrierLogos: true,
     content: [
       {
-        heading: 'One Stop for Supplies',
-        body: 'We carry boxes, tape, bubble wrap, and more—all the supplies you need to pack at home.',
+        heading: 'The Supply Store Detour \u2014 Why Buying Boxes Means a Separate Trip',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You need to ship a package. You realize you don\u2019t have a box, tape, or bubble wrap. So you drive to the big-box store, wander the aisles, and pick up supplies. Then you go home, pack it, and drive back to the shipping counter.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              <strong>This is the Supply Store Detour.</strong> One errand turns into three stops. And you paid retail prices for supplies you could have grabbed in 30 seconds.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              You just want to ship something. But the system makes you run around to get the supplies first.
+            </p>`,
       },
       {
-        heading: 'Convenient & Affordable',
-        body: 'Avoid the big-box stores and pick up your supplies right where you ship.',
+        heading: 'All the Supplies You Need \u2014 Right at Our Counter',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              At Mailbox Plus, <strong>we stock professional packaging supplies at our counter</strong>. Boxes in multiple sizes, bubble wrap, packing tape, mailing tubes, and packing peanuts \u2014 grab them while you\u2019re here to ship.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Need something specific? We carry <strong>heavy-duty double-wall boxes, foam cushioning, and specialty inserts</strong> for fragile or odd-shaped items. And if a standard box won\u2019t work, we offer <a href="/pack-ship/custom-box-making" class="text-[var(--color-primary)] hover:underline">custom box making</a> for items that don\u2019t fit standard sizes.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Pick up what you need, pack your item, and ship it \u2014 all at the same counter. One stop, done.
+            </p>`,
       },
       {
-        heading: 'Full Range of Professional Supplies',
-        body: 'At Mailbox Plus, we stock a full range of <strong>professional packaging supplies</strong> to help you prepare shipments of any size or fragility. Serving Concord Township and surrounding communities, our shop carries everything you need to <strong><a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] hover:underline">pack, protect, and ship your items</a> securely</strong>.',
+        heading: 'What We Stock',
+        body: `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📦</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Shipping Boxes</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Multiple sizes from small to large \u2014 plus heavy-duty double-wall options.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🛡️</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Bubble Wrap &amp; Foam</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Protective cushioning for fragile items and electronics.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📎</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Packing Tape</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Clear and reinforced tape for secure box sealing.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🥜</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Packing Peanuts</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Loose fill for void-filling in large boxes.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">📭</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Mailing Tubes</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">For posters, blueprints, rolled documents, and artwork.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-3xl mb-3">🔨</div>
+                <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Custom Crating</h3>
+                <p class="text-sm text-[var(--color-text-secondary)]">Custom boxes and crates built to your item\u2019s exact dimensions.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
       },
       {
-        heading: 'Carrier-Grade Materials',
-        body: 'Our inventory includes <strong>boxes, bubble wrap, tape, mailing tubes, and packing peanuts</strong>—plus specialty options like <em>double-wall cartons and custom-fit inserts</em>. We provide durable materials that meet <strong>carrier-grade standards</strong> for UPS, FedEx, DHL, and USPS.',
-      },
-      {
-        heading: 'Expert Supply Guidance',
-        body: 'Need guidance? Our experts can help you choose the right materials for your shipment to ensure maximum protection and carrier compliance. We also offer <strong><a href="/pack-ship/custom-box-making" class="text-[var(--color-primary)] hover:underline">custom box making</a></strong> for irregular items that require extra care.',
+        heading: 'Ship Without the Extra Stop',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Grab your supplies, pack your item, and ship it \u2014 all in one trip. No second store. No backtracking.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Our staff can help you choose the right box and cushioning for your item, and if you need <a href="/pack-ship/professional-packing" class="text-[var(--color-primary)] hover:underline">professional packing</a>, we can handle that too.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              <strong>Next time you need to ship, grab your supplies here.</strong> We\u2019ve got what you need \u2014 right where you need it.
+            </p>`,
       },
     ],
     features: [
       {
         icon: Package,
-        title: 'Variety of Boxes',
-        description: 'Multiple sizes and styles available.',
+        title: 'Full Supply Selection',
+        description: 'Boxes, bubble wrap, tape, tubes, and peanuts \u2014 all at our counter.',
       },
       {
         icon: Shield,
-        title: 'Protective Materials',
-        description: 'Bubble wrap, foam, and peanuts for safe shipping.',
+        title: 'Carrier-Grade Quality',
+        description: 'Professional materials that meet UPS, FedEx, USPS, and DHL standards.',
       },
       {
         icon: Star,
-        title: 'Everything Else',
-        description: 'Tape, labels, and more for your convenience.',
+        title: 'One-Stop Convenience',
+        description: 'Grab supplies and ship in the same trip. No extra stops.',
       },
     ],
     faqs: [...generalShippingFaqs, ...packagingSuppliesFaqs],
