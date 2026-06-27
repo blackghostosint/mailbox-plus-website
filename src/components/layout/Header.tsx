@@ -11,17 +11,7 @@ import { SmartImage } from '../SmartImage';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Check initial state
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   // Close mobile menu on route change
   useEffect(() => {
@@ -44,19 +34,9 @@ export const Header: React.FC = () => {
   const logoUrl = getServiceImageUrl('mailbox_plus_logo.webp');
 
   return (
-    <header
-      className={`sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-[var(--color-primary)] shadow-lg'
-          : 'bg-[var(--color-primary)]/90 backdrop-blur-md'
-      }`}
-    >
+    <header className="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">
       {/* Top Bar */}
-      <div
-        className={`border-b border-white/10 transition-opacity duration-300 ${
-          isScrolled ? 'opacity-0 h-0 overflow-hidden' : 'opacity-100'
-        }`}
-      >
+      <div className="border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-sm">
             <div className="flex items-center space-x-6">
