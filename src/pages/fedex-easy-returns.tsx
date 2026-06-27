@@ -11,7 +11,6 @@ import ArrowRight from '~icons/lucide/arrow-right';
 import { Meta, Breadcrumbs, JsonLd } from '../components';
 import { Button } from '../components/ui';
 import { InternalLink } from '../components/ui/InternalLink';
-import { CompetitorAlternativeSection } from '../components/sections/CompetitorAlternative';
 import { services } from '../config/services';
 import { siteConfig } from '../config/siteConfig';
 import { getServiceSchema, getWebPageSchema } from '../utils/schema';
@@ -434,9 +433,6 @@ export const FedExEasyReturns: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Competitor Alternative Section */}
-      <CompetitorAlternativeSection />
 
       {/* CTA Section */}
       <section
