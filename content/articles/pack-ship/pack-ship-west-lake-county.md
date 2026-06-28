@@ -49,7 +49,7 @@ If you're looking to ship smarter, an independent full-service center offers adv
 Why skip the corporate line?
 
 - **Carrier Comparisons:** Instead of being locked into one brand, you can compare rates and delivery times for [FedEx](/pack-ship/fedex-shipping), [UPS](/pack-ship/ups-authorized-shipper-outlet), [USPS](/pack-ship/usps-services), and [DHL](/pack-ship/dhl-express) in a single visit.
-- **[Expert Packing](/pack-ship/professional-packing):** Our team takes the time to ensure your [high-value items](/pack-ship/insurance), fragile electronics, or delicate heirlooms are packed to survive the journey with quality [packing supplies](/pack-ship/packaging-supplies).
+- **[Expert Packing](/pack-ship/professional-packing):** Our team takes the time to ensure your [high-value items](/specialty/insurance), fragile electronics, or delicate heirlooms are packed to survive the journey with quality [packing supplies](/pack-ship/packaging-supplies).
 - **Easier Access:** Located just minutes from the western corridor in [Concord Township](/service-area/concord-township), we offer a welcoming environment with personalized attention and easy parking.
 
 ## Serving Wickliffe and Willowick: Your Local Hub

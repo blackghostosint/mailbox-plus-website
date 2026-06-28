@@ -55,7 +55,7 @@ If you have an [Amazon return](/amazon-returns) with a pre-printed label or a st
 
 If your shipment falls into any of these categories, a dedicated shipping center is the safer, more cost-effective choice:
 
-- **Fragile or High-Value Items:** Painesville Township is a manufacturing hub for giants like Lubrizol and Ranpak. Industrial-grade needs require professional-grade packing. Don't trust a pharmacy counter with a [delicate heirloom](/pack-ship/insurance) or a precision-engineered part.
+- **Fragile or High-Value Items:** Painesville Township is a manufacturing hub for giants like Lubrizol and Ranpak. Industrial-grade needs require professional-grade packing. Don't trust a pharmacy counter with a [delicate heirloom](/specialty/insurance) or a precision-engineered part.
 - **Irregular Sizes:** When you need a [custom box](/pack-ship/custom-box-making) that isn't "standard," a professional center has the inventory to fit your item perfectly, reducing "dimensional weight" costs.
 - **Rate Comparison:** This is the big one. If you want to know if [FedEx](/pack-ship/fedex-shipping), [UPS](/pack-ship/ups-authorized-shipper-outlet), or [USPS](/pack-ship/usps-services) is cheapest for your specific destination, a single-carrier store can't tell you. A multi-carrier center gives you all the prices on one screen.
 
