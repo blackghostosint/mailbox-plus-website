@@ -8,7 +8,6 @@ import { useInView } from '../hooks/useInView';
 import { Meta, Breadcrumbs, JsonLd } from '.';
 import { InternalLink } from './ui/InternalLink';
 import { CarrierLogos } from './CarrierLogos';
-import { CompetitorAlternativeSection } from './sections/CompetitorAlternative';
 import { CTASection } from './sections/CTA';
 
 // UI
@@ -66,7 +65,6 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
     featuresTitle,
     featuresSubtitle,
     hideCarrierLogos,
-    collapseCompetitorAlternative,
   } = props;
 
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
@@ -76,7 +74,6 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   const [featuresRef, featuresInView] = useInView({ threshold: 0.1 });
   const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
   const [isExpanded, setIsExpanded] = useState(false);
-  const [isCompetitorOpen, setIsCompetitorOpen] = useState(false);
 
   return (
     <>
@@ -232,7 +229,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 </section>
               ))}
 
-            {/* -------- FAQ (Warm Band) -------- */}
+            {/* -------- FAQ (Warm Band) — OBJECTIONS AFTER -------- */}
             {faqs &&
               faqs.length > 0 &&
               (() => {
@@ -328,7 +325,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
               );
             })()}
 
-            {/* -------- CTA (GLASS + GRADIENT) -------- */}
+            {/* -------- CTA (GLASS + GRADIENT) — ASK FIRST -------- */}
             {cta && (
               <section
                 ref={ctaRef as any}
@@ -375,30 +372,6 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
 
         {/* End-of-page sections */}
         {!hideCarrierLogos && <CarrierLogos />}
-        {collapseCompetitorAlternative ? (
-          <section className="py-6 border-t border-[var(--color-border)] text-center bg-[var(--color-bg-secondary)]/30">
-            <button
-              onClick={() => setIsCompetitorOpen(!isCompetitorOpen)}
-              className="inline-flex items-center gap-2 text-xs font-semibold text-[var(--color-text-muted)] hover:text-[var(--color-accent-warm)] transition-colors duration-200 focus:outline-none"
-            >
-              {isCompetitorOpen
-                ? 'Hide local area service details'
-                : 'Show local area service details'}
-              {isCompetitorOpen ? (
-                <ChevronUp className="w-3.5 h-3.5" />
-              ) : (
-                <ChevronDown className="w-3.5 h-3.5" />
-              )}
-            </button>
-            {isCompetitorOpen && (
-              <div className="mt-6 text-left animate-fade-in">
-                <CompetitorAlternativeSection />
-              </div>
-            )}
-          </section>
-        ) : (
-          <CompetitorAlternativeSection />
-        )}
       </div>
     </>
   );

@@ -135,6 +135,15 @@ export const carrierServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...fedexShippingFaqs],
+    cta: {
+      title: 'Need to Ship FedEx?',
+      subtitle:
+        'Authorized ShipCenter. We pack, label, and ship. Same FedEx services, local help. From $35/month for a private mailbox \u2014 every package goes to our counter, not your porch.',
+      buttonText: 'Bring Your Package In \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'ups-authorized-shipper-outlet',
@@ -257,6 +266,15 @@ export const carrierServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...upsShippingFaqs],
+    cta: {
+      title: 'Need to Ship UPS?',
+      subtitle:
+        'Authorized Shipping Outlet. Ground, Air, International. Same UPS services, local convenience. From $35/month for a private mailbox.',
+      buttonText: 'Bring Your Package In \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'usps-services',
@@ -377,6 +395,15 @@ export const carrierServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...uspsServicesFaqs],
+    cta: {
+      title: 'Skip the Post Office Line',
+      subtitle:
+        'Priority Mail, First Class, International. Same USPS services, no wait. From $35/month for a private mailbox.',
+      buttonText: 'Bring Your Mail In \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'dhl-express',
@@ -499,6 +526,15 @@ export const carrierServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...dhlExpressFaqs],
+    cta: {
+      title: 'Shipping Internationally?',
+      subtitle:
+        'DHL Express from our counter. Customs-ready packing and forms included. From $35/month for a private mailbox.',
+      buttonText: 'Ship International \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'postage-stamps',
@@ -619,5 +655,14 @@ export const carrierServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...postageStampsFaqs],
+    cta: {
+      title: 'Need Stamps?',
+      subtitle:
+        'Forever stamps, books, and metered mail. Grab them while you ship. From $35/month for a private mailbox.',
+      buttonText: 'Pick Up Stamps \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];

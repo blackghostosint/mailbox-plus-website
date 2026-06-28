@@ -123,6 +123,15 @@ export const receivingDropOffServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...packageDropOffsFaqs],
+    cta: {
+      title: 'Got a Pre-Labeled Package?',
+      subtitle:
+        'Free drop-offs for UPS, FedEx, USPS, DHL. One stop, all 4 carriers. From $35/month for a private mailbox.',
+      buttonText: 'Drop It Off \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
   {
     id: 'package-receiving',
@@ -242,5 +251,14 @@ export const receivingDropOffServices: Service[] = [
       },
     ],
     faqs: [...generalShippingFaqs, ...packageReceivingFaqs],
+    cta: {
+      title: 'Tired of Porch Pirates?',
+      subtitle:
+        'We sign. We store. You pick up. From $10/package or $30/month unlimited. From $35/month for a private mailbox.',
+      buttonText: 'Set Up Package Receiving \u2192',
+      buttonLink: '/contact-us',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];

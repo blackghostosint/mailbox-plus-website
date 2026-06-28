@@ -109,7 +109,6 @@ export const additionalServices: Service[] = [
       align: 'center',
     },
     hideCarrierLogos: true,
-    collapseCompetitorAlternative: true,
     faqs: [...generalHomeBusinessFaqs, ...notaryServicesFaqs],
   },
   {
@@ -375,7 +374,6 @@ export const additionalServices: Service[] = [
       'Need fingerprints for a job, license, or background check? We make it fast and simple. Digital capture, no ink, no mess, no appointment needed.',
     heroImage: getServiceImageUrl('/images/fingerprinting.webp'),
     hideCarrierLogos: true,
-    collapseCompetitorAlternative: true,
     content: [
       {
         heading: 'The Background Check Runaround \u2014 Why a Two-Minute Task Takes Two Weeks',
@@ -516,7 +514,6 @@ export const additionalServices: Service[] = [
       'Default carrier liability covers almost nothing. Protect your valuable shipments with declared value coverage that actually pays out.',
     heroImage: getServiceImageUrl('/images/pack-ship.webp'),
     hideCarrierLogos: true,
-    collapseCompetitorAlternative: true,
     content: [
       {
         heading: 'The $100 Gamble \u2014 Why Default Coverage Is a Trap',
