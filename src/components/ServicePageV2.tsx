@@ -229,7 +229,6 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
                 </section>
               ))}
 
-
             {/* -------- FAQ (Warm Band) — OBJECTIONS AFTER -------- */}
             {faqs &&
               faqs.length > 0 &&
