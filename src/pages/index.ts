@@ -26,4 +26,5 @@ export * from './DigitalFingerprinting';
 export * from './PickupHours';
 export * from './PlusPoints';
 export * from './PlusPointsProfile';
+export * from './AcceptInvite';
 export * from './AfterSignup';

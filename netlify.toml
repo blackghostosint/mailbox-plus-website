@@ -49,3 +49,9 @@
     """
   [headers.values.report-to]
     csp-endpoint = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
+
+# Noindex + security for staff invitation page
+[[headers]]
+  for = "/accept-invite*"
+  [headers.values]
+    X-Robots-Tag = "none"
