@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Trophy from '~icons/lucide/trophy';
 import Award from '~icons/lucide/award';
 import LogOut from '~icons/lucide/log-out';
@@ -49,9 +49,38 @@ const mockCustomer = {
 
 export const PlusPointsProfile: React.FC = () => {
   const [customer, setCustomer] = useState(mockCustomer);
+  const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editForm, setEditForm] = useState({ ...customer });
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
+
+  // Pull real data if ID or referral code is in URL parameters
+  useEffect(() => {
+    const fetchRealData = async () => {
+      const params = new URLSearchParams(window.location.search);
+      const id = params.get('id');
+      const code = params.get('code');
+
+      if (!id && !code) return; // Keep mock preview if no specific account requested
+
+      setLoading(true);
+      try {
+        const query = id ? `id=${id}` : `code=${code}`;
+        const res = await fetch(`/api/me?${query}`);
+        if (res.ok) {
+          const realData = await res.json();
+          setCustomer(realData);
+          setEditForm(realData);
+        }
+      } catch (err) {
+        console.error('Error fetching real rewards profile:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchRealData();
+  }, []);
 
   const referralLinkText = `https://mailboxplusohio.com/rewards/join?r=${customer.referralCode}`;
   const [isCopied, setIsCopied] = useState(false);
@@ -62,10 +91,27 @@ export const PlusPointsProfile: React.FC = () => {
     setTimeout(() => setIsCopied(false), 2000);
   };
 
-  const handleSaveInfo = (e: React.FormEvent) => {
+  const handleSaveInfo = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Save locally
     setCustomer(editForm);
     setIsEditing(false);
+
+    // Save back to backend API if it's not the mock customer
+    if (customer.id !== 'cust_123') {
+      try {
+        await fetch(`/api/customer/${customer.id}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(editForm),
+        });
+      } catch (err) {
+        console.error('Error updating customer profile on backend:', err);
+      }
+    }
   };
 
   // Progress Bar Calcs
@@ -108,291 +154,311 @@ export const PlusPointsProfile: React.FC = () => {
       />
       <div className="bg-bg-primary min-h-screen py-8 md:py-12">
         <div className="container mx-auto px-4 max-w-5xl">
-          {/* Header Row */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-            <div>
-              <h1 className="text-3xl font-bold text-text-primary">Rewards Dashboard</h1>
-              <p className="text-text-secondary">Welcome back, {customer.firstName}!</p>
+          {loading ? (
+            <div className="min-h-[50vh] flex flex-col items-center justify-center space-y-4">
+              <div className="w-10 h-10 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+              <p className="text-text-secondary font-semibold">Loading your rewards profile...</p>
             </div>
-            <button className="flex items-center gap-2 px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:text-accent-warm hover:border-accent-warm transition-colors bg-white font-bold text-[15px]">
-              <LogOut className="w-4 h-4" />
-              <span>Log Out</span>
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Left Column: Stats & Progress */}
-            <div className="lg:col-span-2 space-y-8">
-              {/* Profile Card & Stats */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border-strong shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-accent-gold/10 rounded-full blur-2xl -mr-10 -mt-10" />
-                <div className="flex justify-between items-start mb-6">
-                  <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-xl shadow-md">
-                      {customer.firstName[0]}
-                    </div>
-                    <div>
-                      <h2 className="text-xl font-bold text-text-primary">
-                        {customer.firstName} {customer.lastName}
-                      </h2>
-                      <p className="text-sm text-text-secondary">ID: {customer.id}</p>
-                    </div>
-                  </div>
-                  <span
-                    className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm ${
-                      isPro ? 'bg-primary text-white' : 'bg-accent-gold text-primary'
-                    }`}
-                  >
-                    <Trophy className="w-4 h-4" />
-                    {customer.tier} Tier
-                  </span>
+          ) : (
+            <>
+              {/* Header Row */}
+              <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+                <div>
+                  <h1 className="text-3xl font-bold text-text-primary">Rewards Dashboard</h1>
+                  <p className="text-text-secondary">Welcome back, {customer.firstName}!</p>
                 </div>
-
-                <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
-                  <div className="text-center">
-                    <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
-                      Spendable Points
-                    </p>
-                    <p className="text-3xl font-bold text-primary">{customer.points}</p>
-                  </div>
-                  <div className="text-center border-x border-border">
-                    <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
-                      YTD Earnings
-                    </p>
-                    <p className="text-3xl font-bold text-text-primary">{customer.ytdPoints}</p>
-                  </div>
-                  <div className="text-center">
-                    <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
-                      Earning Rate
-                    </p>
-                    <p className="text-3xl font-bold text-accent-warm">{customer.multiplier}x</p>
-                  </div>
-                </div>
+                <button className="flex items-center gap-2 px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:text-accent-warm hover:border-accent-warm transition-colors bg-white font-bold text-[15px]">
+                  <LogOut className="w-4 h-4" />
+                  <span>Log Out</span>
+                </button>
               </div>
 
-              {/* Progress Bars */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Reward Progress */}
-                <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="font-bold text-text-primary flex items-center gap-2">
-                        <Sparkles className="w-5 h-5 text-accent-gold" />
-                        <span>Next Reward Goal</span>
-                      </h3>
-                      <span className="text-sm font-bold text-primary">
-                        {customer.points} / {currentReward.target} pts
-                      </span>
-                    </div>
-                    <p className="text-sm text-text-secondary mb-4">
-                      You're on track for a{' '}
-                      <strong className="text-text-primary">{currentReward.name}</strong>!
-                    </p>
-                  </div>
-                  <div>
-                    <div className="w-full bg-bg-secondary rounded-full h-3 mb-2 overflow-hidden border border-border">
-                      <div
-                        className="bg-accent-gold h-full rounded-full transition-all duration-500"
-                        style={{ width: `${rewardProgressPercent}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-text-secondary text-right">
-                      {currentReward.target - customer.points} points remaining
-                    </p>
-                  </div>
-                </div>
-
-                {/* Tier Progress */}
-                <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm flex flex-col justify-between">
-                  <div>
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="font-bold text-text-primary flex items-center gap-2">
-                        <TrendingUp className="w-5 h-5 text-accent-warm" />
-                        <span>Next Tier Milestone</span>
-                      </h3>
-                      <span className="text-sm font-bold text-text-primary">
-                        {customer.ytdPoints} / {nextTierThreshold} YTD
-                      </span>
-                    </div>
-                    {isPro ? (
-                      <p className="text-sm text-text-secondary mb-4">
-                        You have achieved our highest tier level. Excellent!
-                      </p>
-                    ) : (
-                      <p className="text-sm text-text-secondary mb-4">
-                        Earn {ptsToNextTier} more points to reach{' '}
-                        <strong className="text-text-primary">{nextTierName}</strong> tier.
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <div className="w-full bg-bg-secondary rounded-full h-3 mb-2 overflow-hidden border border-border">
-                      <div
-                        className="bg-accent-warm h-full rounded-full transition-all duration-500"
-                        style={{ width: `${tierProgressPercent}%` }}
-                      />
-                    </div>
-                    <p className="text-xs text-text-secondary text-right">
-                      {isPro ? 'Max tier unlocked' : `${ptsToNextTier} YTD points to next tier`}
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Activity Log */}
-              <div className="bg-white rounded-2xl p-6 md:p-8 border border-border-strong shadow-sm">
-                <h3 className="text-lg font-bold text-text-primary mb-6 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-text-secondary" />
-                  <span>Recent Activity Log</span>
-                </h3>
-                <div className="divide-y divide-border">
-                  {customer.activities.map((act, i) => (
-                    <div
-                      key={i}
-                      className="py-4 flex justify-between items-center first:pt-0 last:pb-0"
-                    >
-                      <div>
-                        <p className="font-bold text-text-primary text-sm md:text-base">
-                          {act.desc}
-                        </p>
-                        <p className="text-xs text-text-secondary mt-1">{act.date}</p>
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                {/* Left Column: Stats & Progress */}
+                <div className="lg:col-span-2 space-y-8">
+                  {/* Profile Card & Stats */}
+                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-border-strong shadow-sm relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-accent-gold/10 rounded-full blur-2xl -mr-10 -mt-10" />
+                    <div className="flex justify-between items-start mb-6">
+                      <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-xl shadow-md">
+                          {customer.firstName[0]}
+                        </div>
+                        <div>
+                          <h2 className="text-xl font-bold text-text-primary">
+                            {customer.firstName} {customer.lastName}
+                          </h2>
+                          <p className="text-sm text-text-secondary">ID: {customer.id}</p>
+                        </div>
                       </div>
                       <span
-                        className={`font-bold text-sm md:text-base px-3 py-1 rounded-full ${
-                          act.amount > 0 ? 'bg-green-50 text-green-700' : 'bg-red-50 text-red-700'
+                        className={`inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full text-sm font-bold shadow-sm ${
+                          isPro ? 'bg-primary text-white' : 'bg-accent-gold text-primary'
                         }`}
                       >
-                        {act.amount > 0 ? `+${act.amount}` : act.amount} pts
+                        <Trophy className="w-4 h-4" />
+                        {customer.tier} Tier
                       </span>
                     </div>
-                  ))}
-                </div>
-              </div>
-            </div>
 
-            {/* Right Column: Referrals & Upgrades */}
-            <div className="space-y-8">
-              {/* Viral Referral Link */}
-              <div className="bg-primary text-white rounded-2xl p-6 border border-primary-dark shadow-md relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-deeper to-primary opacity-80 z-0" />
-                <div className="relative z-10">
-                  <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-accent-gold mb-4 border border-white/20">
-                    <Share2 className="w-5 h-5" />
+                    <div className="grid grid-cols-3 gap-4 border-t border-border pt-6">
+                      <div className="text-center">
+                        <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
+                          Spendable Points
+                        </p>
+                        <p className="text-3xl font-bold text-primary">{customer.points}</p>
+                      </div>
+                      <div className="text-center border-x border-border">
+                        <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
+                          YTD Earnings
+                        </p>
+                        <p className="text-3xl font-bold text-text-primary">{customer.ytdPoints}</p>
+                      </div>
+                      <div className="text-center">
+                        <p className="text-text-secondary text-xs uppercase tracking-wider font-bold mb-1">
+                          Earning Rate
+                        </p>
+                        <p className="text-3xl font-bold text-accent-warm">
+                          {customer.multiplier}x
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">
-                    Invite Friends & Earn Points
-                  </h3>
-                  <p className="text-sm text-blue-100 mb-6 leading-relaxed">
-                    Share your unique link. When a friend signs up and ships at Mailbox Plus, you
-                    both get <strong className="text-accent-gold font-bold">500 points!</strong>
-                  </p>
 
-                  <div className="space-y-3 mb-6">
-                    <label
-                      htmlFor="refLink"
-                      className="block text-xs font-bold uppercase tracking-wider text-blue-200"
-                    >
-                      Your Unique Link
-                    </label>
-                    <div className="flex gap-2 bg-white/10 p-1.5 rounded-lg border border-white/20">
-                      <input
-                        id="refLink"
-                        readOnly
-                        type="text"
-                        value={referralLinkText}
-                        className="bg-transparent flex-1 outline-none text-sm text-white px-2 border-none"
-                      />
+                  {/* Progress Bars */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Reward Progress */}
+                    <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="font-bold text-text-primary flex items-center gap-2">
+                            <Sparkles className="w-5 h-5 text-accent-gold" />
+                            <span>Next Reward Goal</span>
+                          </h3>
+                          <span className="text-sm font-bold text-primary">
+                            {customer.points} / {currentReward.target} pts
+                          </span>
+                        </div>
+                        <p className="text-sm text-text-secondary mb-4">
+                          You're on track for a{' '}
+                          <strong className="text-text-primary">{currentReward.name}</strong>!
+                        </p>
+                      </div>
+                      <div>
+                        <div className="w-full bg-bg-secondary rounded-full h-3 mb-2 overflow-hidden border border-border">
+                          <div
+                            className="bg-accent-gold h-full rounded-full transition-all duration-500"
+                            style={{ width: `${rewardProgressPercent}%` }}
+                          />
+                        </div>
+                        <p className="text-xs text-text-secondary text-right">
+                          {currentReward.target - customer.points} points remaining
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Tier Progress */}
+                    <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm flex flex-col justify-between">
+                      <div>
+                        <div className="flex justify-between items-start mb-4">
+                          <h3 className="font-bold text-text-primary flex items-center gap-2">
+                            <TrendingUp className="w-5 h-5 text-accent-warm" />
+                            <span>Next Tier Milestone</span>
+                          </h3>
+                          <span className="text-sm font-bold text-text-primary">
+                            {customer.ytdPoints} / {nextTierThreshold} YTD
+                          </span>
+                        </div>
+                        {isPro ? (
+                          <p className="text-sm text-text-secondary mb-4">
+                            You have achieved our highest tier level. Excellent!
+                          </p>
+                        ) : (
+                          <p className="text-sm text-text-secondary mb-4">
+                            Earn {ptsToNextTier} more points to reach{' '}
+                            <strong className="text-text-primary">{nextTierName}</strong> tier.
+                          </p>
+                        )}
+                      </div>
+                      <div>
+                        <div className="w-full bg-bg-secondary rounded-full h-3 mb-2 overflow-hidden border border-border">
+                          <div
+                            className="bg-accent-warm h-full rounded-full transition-all duration-500"
+                            style={{ width: `${tierProgressPercent}%` }}
+                          />
+                        </div>
+                        <p className="text-xs text-text-secondary text-right">
+                          {isPro ? 'Max tier unlocked' : `${ptsToNextTier} YTD points to next tier`}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Activity Log */}
+                  <div className="bg-white rounded-2xl p-6 md:p-8 border border-border-strong shadow-sm">
+                    <h3 className="text-lg font-bold text-text-primary mb-6 flex items-center gap-2">
+                      <Clock className="w-5 h-5 text-text-secondary" />
+                      <span>Recent Activity Log</span>
+                    </h3>
+                    <div className="divide-y divide-border">
+                      {customer.activities.map((act, i) => (
+                        <div
+                          key={i}
+                          className="py-4 flex justify-between items-center first:pt-0 last:pb-0"
+                        >
+                          <div>
+                            <p className="font-bold text-text-primary text-sm md:text-base">
+                              {act.desc}
+                            </p>
+                            <p className="text-xs text-text-secondary mt-1">{act.date}</p>
+                          </div>
+                          <span
+                            className={`font-bold text-sm md:text-base px-3 py-1 rounded-full ${
+                              act.amount > 0
+                                ? 'bg-green-50 text-green-700'
+                                : 'bg-red-50 text-red-700'
+                            }`}
+                          >
+                            {act.amount > 0 ? `+${act.amount}` : act.amount} pts
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Column: Referrals & Upgrades */}
+                <div className="space-y-8">
+                  {/* Viral Referral Link */}
+                  <div className="bg-primary text-white rounded-2xl p-6 border border-primary-dark shadow-md relative overflow-hidden">
+                    <div className="absolute inset-0 bg-gradient-to-br from-primary-deeper to-primary opacity-80 z-0" />
+                    <div className="relative z-10">
+                      <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-accent-gold mb-4 border border-white/20">
+                        <Share2 className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2">
+                        Invite Friends & Earn Points
+                      </h3>
+                      <p className="text-sm text-blue-100 mb-6 leading-relaxed">
+                        Share your unique link. When a friend signs up and ships at Mailbox Plus,
+                        you both get{' '}
+                        <strong className="text-accent-gold font-bold">500 points!</strong>
+                      </p>
+
+                      <div className="space-y-3 mb-6">
+                        <label
+                          htmlFor="refLink"
+                          className="block text-xs font-bold uppercase tracking-wider text-blue-200"
+                        >
+                          Your Unique Link
+                        </label>
+                        <div className="flex gap-2 bg-white/10 p-1.5 rounded-lg border border-white/20">
+                          <input
+                            id="refLink"
+                            readOnly
+                            type="text"
+                            value={referralLinkText}
+                            className="bg-transparent flex-1 outline-none text-sm text-white px-2 border-none"
+                          />
+                          <button
+                            onClick={handleCopy}
+                            className="p-2 rounded-md bg-accent-gold hover:bg-accent-goldLight text-primary font-bold shadow-sm transition-colors"
+                            title="Copy to clipboard"
+                          >
+                            {isCopied ? (
+                              <Check className="w-4 h-4" />
+                            ) : (
+                              <Copy className="w-4 h-4" />
+                            )}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="border-t border-white/10 pt-4 flex justify-between items-center">
+                        <span className="text-xs text-blue-200 font-bold">Referred Friends</span>
+                        <span className="text-sm font-bold text-accent-gold">
+                          {customer.referrals.length} active
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Tier Upgrade Pricing */}
+                  {!isPro && (
+                    <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm">
+                      <h3 className="font-bold text-text-primary mb-3 flex items-center gap-2">
+                        <Award className="w-5 h-5 text-accent-warm" />
+                        <span>Skip The Earn-In?</span>
+                      </h3>
+                      <p className="text-sm text-text-secondary mb-6 leading-relaxed">
+                        Skip earning points and upgrade instantly to unlock better bonuses and
+                        exclusive perks.
+                      </p>
+
+                      <div className="space-y-3 border-t border-border pt-4 mb-6">
+                        {isSender && (
+                          <div className="flex justify-between items-center text-sm py-2">
+                            <span className="text-text-primary font-semibold">
+                              Upgrade to Shipper
+                            </span>
+                            <strong className="text-accent-warm font-bold">$15</strong>
+                          </div>
+                        )}
+                        <div className="flex justify-between items-center text-sm py-2">
+                          <span className="text-text-primary font-semibold">Upgrade to Pro</span>
+                          <strong className="text-accent-warm font-bold">
+                            {isSender ? '$35' : '$25'}
+                          </strong>
+                        </div>
+                      </div>
+
                       <button
-                        onClick={handleCopy}
-                        className="p-2 rounded-md bg-accent-gold hover:bg-accent-goldLight text-primary font-bold shadow-sm transition-colors"
-                        title="Copy to clipboard"
+                        onClick={() => setShowUpgradeModal(true)}
+                        className="w-full py-3 bg-accent-gold text-primary hover:bg-accent-goldLight font-bold rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2"
                       >
-                        {isCopied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                        <span>How to Upgrade</span>
+                        <ChevronRight className="w-4 h-4" />
                       </button>
                     </div>
-                  </div>
+                  )}
 
-                  <div className="border-t border-white/10 pt-4 flex justify-between items-center">
-                    <span className="text-xs text-blue-200 font-bold">Referred Friends</span>
-                    <span className="text-sm font-bold text-accent-gold">
-                      {customer.referrals.length} active
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Tier Upgrade Pricing */}
-              {!isPro && (
-                <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm">
-                  <h3 className="font-bold text-text-primary mb-3 flex items-center gap-2">
-                    <Award className="w-5 h-5 text-accent-warm" />
-                    <span>Skip The Earn-In?</span>
-                  </h3>
-                  <p className="text-sm text-text-secondary mb-6 leading-relaxed">
-                    Skip earning points and upgrade instantly to unlock better bonuses and exclusive
-                    perks.
-                  </p>
-
-                  <div className="space-y-3 border-t border-border pt-4 mb-6">
-                    {isSender && (
-                      <div className="flex justify-between items-center text-sm py-2">
-                        <span className="text-text-primary font-semibold">Upgrade to Shipper</span>
-                        <strong className="text-accent-warm font-bold">$15</strong>
+                  {/* Account Profile Card */}
+                  <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm space-y-4">
+                    <div className="flex justify-between items-center border-b border-border pb-3">
+                      <h3 className="font-bold text-text-primary">Contact Profile</h3>
+                      <button
+                        onClick={() => setIsEditing(true)}
+                        className="text-primary hover:underline font-bold text-sm flex items-center gap-1"
+                      >
+                        <Edit className="w-4 h-4" />
+                        <span>Edit</span>
+                      </button>
+                    </div>
+                    <div className="space-y-3 text-sm text-text-secondary">
+                      <div className="flex items-center gap-2">
+                        <Mail className="w-4 h-4" />
+                        <span>{customer.email}</span>
                       </div>
-                    )}
-                    <div className="flex justify-between items-center text-sm py-2">
-                      <span className="text-text-primary font-semibold">Upgrade to Pro</span>
-                      <strong className="text-accent-warm font-bold">
-                        {isSender ? '$35' : '$25'}
-                      </strong>
+                      <div className="flex items-center gap-2">
+                        <Phone className="w-4 h-4" />
+                        <span>{customer.phone}</span>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <MapPin className="w-4 h-4 mt-0.5" />
+                        <span>
+                          {customer.street}, {customer.city}, {customer.state} {customer.zip}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>Birthday: {customer.birthday || 'Not set'}</span>
+                      </div>
                     </div>
                   </div>
-
-                  <button
-                    onClick={() => setShowUpgradeModal(true)}
-                    className="w-full py-3 bg-accent-gold text-primary hover:bg-accent-goldLight font-bold rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2"
-                  >
-                    <span>How to Upgrade</span>
-                    <ChevronRight className="w-4 h-4" />
-                  </button>
-                </div>
-              )}
-
-              {/* Account Profile Card */}
-              <div className="bg-white rounded-2xl p-6 border border-border-strong shadow-sm space-y-4">
-                <div className="flex justify-between items-center border-b border-border pb-3">
-                  <h3 className="font-bold text-text-primary">Contact Profile</h3>
-                  <button
-                    onClick={() => setIsEditing(true)}
-                    className="text-primary hover:underline font-bold text-sm flex items-center gap-1"
-                  >
-                    <Edit className="w-4 h-4" />
-                    <span>Edit</span>
-                  </button>
-                </div>
-                <div className="space-y-3 text-sm text-text-secondary">
-                  <div className="flex items-center gap-2">
-                    <Mail className="w-4 h-4" />
-                    <span>{customer.email}</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    <span>{customer.phone}</span>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <MapPin className="w-4 h-4 mt-0.5" />
-                    <span>
-                      {customer.street}, {customer.city}, {customer.state} {customer.zip}
-                    </span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Birthday: {customer.birthday || 'Not set'}</span>
-                  </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </>
+          )}
         </div>
       </div>
 
