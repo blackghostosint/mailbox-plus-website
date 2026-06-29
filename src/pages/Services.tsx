@@ -78,13 +78,13 @@ interface CategorySectionProps {
 }
 
 const CategorySection: React.FC<CategorySectionProps> = ({ category }) => {
-  const [ref, isInView] = useInView({ threshold: 0.1 });
+  const [ref, isInView] = useInView<HTMLElement>({ threshold: 0.1 });
   return (
     <section
       key={category}
       id={makeId(category)}
       className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-      ref={ref as any}
+      ref={ref}
     >
       <div className={isInView ? 'animate-fade-in-up' : 'opacity-0'}>
         <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">

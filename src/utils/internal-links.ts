@@ -3,7 +3,7 @@ import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
-type ServiceId = keyof typeof internalLinks;
+export type ServiceId = keyof typeof internalLinks;
 
 /**
  * Lightweight link helpers for the critical path.
