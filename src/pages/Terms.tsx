@@ -10,6 +10,7 @@ import Fingerprint from '~icons/lucide/fingerprint';
 import Gavel from '~icons/lucide/gavel';
 import RefreshCw from '~icons/lucide/refresh-cw';
 import Phone from '~icons/lucide/phone';
+import Star from '~icons/lucide/star';
 
 const BulletPoint: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <li className="flex items-start">
@@ -107,6 +108,22 @@ const sections = [
     body: 'We reserve the right to modify these terms at any time. Changes will be posted on our website and take effect immediately. Continued use of our services constitutes acceptance of any modified terms.',
   },
   {
+    icon: Star,
+    title: 'Plus Points Rewards Program',
+    body: 'Plus Points is a free loyalty program offered by Mailbox Plus. By enrolling, you agree to the following terms.',
+    content: [
+      'Enrollment is free and open to all customers. You must provide accurate contact information to participate.',
+      'Points are earned at 1 point per $1 spent on qualifying services (shipping, packing, printing, notary, mailbox rentals, document services). Notary earns 5 points per signature. Mailbox rental fees earn points automatically each month.',
+      'Points are calculated before tax and rounded down to the nearest whole number. Tier multipliers (Shipper: 1.2x, Pro: 1.5x) apply automatically based on year-to-date points. Double Point Wednesdays earn 2x the standard rate.',
+      'Points have no cash value and may not be purchased, sold, or transferred.',
+      'Reward menu items and point values are subject to change at any time. Rewards must be redeemed at the time of service and have no cash value. Redeemed points are non-refundable. Mailbox month rewards are available to active mailbox rental customers only.',
+      "Tier status (Sender, Shipper, Pro) is determined by year-to-date points earned. Mailbox holders are automatically enrolled at Shipper tier. Tier status resets annually on the member's enrollment anniversary. Points balance does not reset.",
+      'Members receive 250 points for each referred friend who signs up and makes a qualifying purchase. Referral credits are capped at 10 successful referrals per member per year. Self-referral or abuse of the referral system will result in forfeiture of points and possible program removal.',
+      'Points expire 12 months after the last qualifying transaction. Making any qualifying purchase resets the expiration clock. Accounts inactive for 12 consecutive months may be closed and points forfeited.',
+      'Mailbox Plus reserves the right to modify, suspend, or terminate the Plus Points program at any time. Accounts in violation of these terms may be terminated and points forfeited.',
+    ],
+  },
+  {
     icon: Phone,
     title: 'Contact Information',
     body: 'If you have questions about these terms of service, please contact us:',
@@ -141,7 +158,7 @@ export const Terms: React.FC = () => {
             before using our shipping, printing, and business services.
           </p>
           <p className="text-sm text-white/60 animate-fade-in-up [animation-delay:300ms] opacity-0">
-            Last updated: February 2026
+            Last updated: June 2026
           </p>
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
