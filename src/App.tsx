@@ -14,6 +14,7 @@ const lazyLoad = (importFunc: () => Promise<ModuleWithExports>, componentName: s
 const Home = lazyLoad(() => import('./pages/Home'), 'Home');
 const PackShip = lazyLoad(() => import('./pages/PackShip'), 'PackShip');
 const PlusPoints = lazyLoad(() => import('./pages/PlusPoints'), 'PlusPoints');
+const PlusPointsProfile = lazyLoad(() => import('./pages/PlusPointsProfile'), 'PlusPointsProfile');
 
 // Pack & Ship
 const ArtworkShipping = lazyLoad(() => import('./pages/ArtworkShipping'), 'ArtworkShipping');
@@ -166,6 +167,7 @@ const App: React.FC = () => {
 
             {/* Rewards */}
             <Route path="/rewards/join" element={<PlusPoints />} />
+            <Route path="/rewards/me" element={<PlusPointsProfile />} />
 
             {/* Service Landing Pages */}
             <Route path="/copy-print" element={<CopyPrint />} />

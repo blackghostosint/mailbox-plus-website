@@ -25,3 +25,4 @@ export * from './DigitalFingerprinting';
 
 export * from './PickupHours';
 export * from './PlusPoints';
+export * from './PlusPointsProfile';
