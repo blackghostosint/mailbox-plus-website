@@ -24,3 +24,8 @@ export * from './NotaryServices';
 export * from './DigitalFingerprinting';
 
 export * from './PickupHours';
+export * from './PlusPoints';
+export * from './PlusPointsProfile';
+export * from './PlusPointsAdmin';
+export * from './AcceptInvite';
+export * from './AfterSignup';

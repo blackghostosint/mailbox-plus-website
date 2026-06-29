@@ -13,6 +13,10 @@ const PremierSignupModal = React.lazy(() =>
   import('../ui/PremierSignupModal').then((m) => ({ default: m.PremierSignupModal }))
 );
 
+const PlusPointsSignupModal = React.lazy(() =>
+  import('../ui/PlusPointsSignupModal').then((m) => ({ default: m.PlusPointsSignupModal }))
+);
+
 interface LayoutProps {
   children: React.ReactNode;
 }
@@ -26,6 +30,7 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
   const localBusinessSchema = getLocalBusinessSchema(siteConfig);
   const webSiteSchema = getWebSiteSchema(siteConfig, `${origin}/search?q={search_term_string}`);
   const showPremierSignupModal = siteConfig.premierSignupModalEnabled === true;
+  const showPlusPointsSignupModal = siteConfig.plusPointsSignupModalEnabled === true;
 
   return (
     <>
@@ -53,6 +58,13 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         {showPremierSignupModal ? (
           <React.Suspense fallback={null}>
             <PremierSignupModal />
+          </React.Suspense>
+        ) : null}
+
+        {/* Plus Points Signup Modal — short 3D popup, button to /rewards/join */}
+        {showPlusPointsSignupModal ? (
+          <React.Suspense fallback={null}>
+            <PlusPointsSignupModal />
           </React.Suspense>
         ) : null}
       </div>

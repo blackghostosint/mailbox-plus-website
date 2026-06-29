@@ -64,8 +64,8 @@ export const Button: React.FC<ButtonProps> = ({
 
   const combinedClasses = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${interactionClasses} ${className}`;
 
-  // Cast to any to handle dynamic element type correctly with props
-  const Component = as as any;
+  // Cast to ElementType to handle dynamic element type correctly with props
+  const Component = as as React.ElementType;
 
   return (
     <Component className={combinedClasses} {...props}>

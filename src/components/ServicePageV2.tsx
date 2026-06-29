@@ -17,7 +17,7 @@ import { Button } from './ui/Button';
 // Types & utils
 import { Service } from '../types/services';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
-import { getRelatedServices } from '../utils/internal-links';
+import { getRelatedServices, ServiceId } from '../utils/internal-links';
 import { siteConfig } from '../config/siteConfig';
 
 // Core service → competitor alternative page mapping
@@ -70,9 +70,9 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
   const canonicalUrl = props.canonicalUrl || `${siteConfig.domain}${slug}`;
   const faqSchema = faqs ? getFAQSchema(siteConfig, faqs) : undefined;
 
-  const [introRef, introInView] = useInView({ threshold: 0.1 });
-  const [featuresRef, featuresInView] = useInView({ threshold: 0.1 });
-  const [ctaRef, ctaInView] = useInView({ threshold: 0.1 });
+  const [introRef, introInView] = useInView<HTMLElement>({ threshold: 0.1 });
+  const [featuresRef, featuresInView] = useInView<HTMLElement>({ threshold: 0.1 });
+  const [ctaRef, ctaInView] = useInView<HTMLElement>({ threshold: 0.1 });
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -145,7 +145,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {/* -------- WARM INTRO CARD -------- */}
             {children && (
               <section
-                ref={introRef as any}
+                ref={introRef}
                 className={`max-w-3xl mx-auto ${introInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
                 <div className="relative rounded-[28px] bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md px-6 py-6 md:px-10 md:py-8">
@@ -157,7 +157,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {/* -------- FEATURES STRIP (Warm Glass) -------- */}
             {features && features.length > 0 && (
               <section
-                ref={featuresRef as any}
+                ref={featuresRef}
                 className={`max-w-5xl mx-auto ${featuresInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
                 <div className="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
@@ -298,7 +298,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {/* -------- RELATED SERVICES (Warm) -------- */}
             {(() => {
               const serviceId = props.id;
-              const allRelated = (getRelatedServices(serviceId as any) || []).filter(
+              const allRelated = (getRelatedServices(serviceId as ServiceId) || []).filter(
                 Boolean
               ) as Array<{ id: string; title: string; url: string }>;
               if (allRelated.length === 0) return null;
@@ -328,7 +328,7 @@ export const ServicePageV2: React.FC<ServicePageProps> = (props) => {
             {/* -------- CTA (GLASS + GRADIENT) — ASK FIRST -------- */}
             {cta && (
               <section
-                ref={ctaRef as any}
+                ref={ctaRef}
                 className={`max-w-4xl mx-auto ${ctaInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               >
                 <div className="relative rounded-xl overflow-hidden shadow-xl">
