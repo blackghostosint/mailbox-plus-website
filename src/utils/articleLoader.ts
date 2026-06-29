@@ -18,13 +18,16 @@ const articlePaths = Object.keys(articleModules).filter((key) => !key.includes('
  * - Inline arrays [val1, val2]
  * - YAML block lists (- item)
  */
-function parseFrontmatter(raw: string): { data: any; content: string } {
+function parseFrontmatter(raw: string): {
+  data: Record<string, string | string[]>;
+  content: string;
+} {
   const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/);
   if (!match) return { data: {}, content: raw };
 
   const yaml = match[1];
   const content = match[2];
-  const data: any = {};
+  const data: Record<string, string | string[]> = {};
 
   const lines = yaml.split('\n');
   let currentKey: string | null = null;
@@ -39,10 +42,12 @@ function parseFrontmatter(raw: string): { data: any; content: string } {
         .substring(1)
         .trim()
         .replace(/^['"](.*)['"]$/, '$1');
-      if (!Array.isArray(data[currentKey])) {
-        data[currentKey] = [];
+      let list = data[currentKey];
+      if (!Array.isArray(list)) {
+        list = [];
+        data[currentKey] = list;
       }
-      data[currentKey].push(val);
+      list.push(val);
       return;
     }
 
@@ -89,13 +94,12 @@ export const articleLoader = {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
-        const frontmatter = data as ArticleFrontmatter;
+        const frontmatter = data as unknown as ArticleFrontmatter;
 
         // Skip drafts in production
         if (frontmatter.status === 'draft' && !showDrafts) {
           continue;
         }
-
         articles.push({ frontmatter, content });
       } catch (err) {
         console.error(`Error loading article at ${path}:`, err);
@@ -120,12 +124,13 @@ export const articleLoader = {
       try {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
-        if (data.slug === slug) {
+        const frontmatter = data as unknown as ArticleFrontmatter;
+        if (frontmatter.slug === slug) {
           // Skip drafts in production
-          if (data.status === 'draft' && !showDrafts) {
+          if (frontmatter.status === 'draft' && !showDrafts) {
             return null;
           }
-          return { frontmatter: data as ArticleFrontmatter, content };
+          return { frontmatter, content };
         }
       } catch (err) {
         console.error(`Error loading article at ${path}:`, err);
