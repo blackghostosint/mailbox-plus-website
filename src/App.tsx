@@ -15,6 +15,8 @@ const Home = lazyLoad(() => import('./pages/Home'), 'Home');
 const PackShip = lazyLoad(() => import('./pages/PackShip'), 'PackShip');
 const PlusPoints = lazyLoad(() => import('./pages/PlusPoints'), 'PlusPoints');
 const PlusPointsProfile = lazyLoad(() => import('./pages/PlusPointsProfile'), 'PlusPointsProfile');
+const AcceptInvite = lazyLoad(() => import('./pages/AcceptInvite'), 'AcceptInvite');
+const AfterSignup = lazyLoad(() => import('./pages/AfterSignup'), 'AfterSignup');
 
 // Pack & Ship
 const ArtworkShipping = lazyLoad(() => import('./pages/ArtworkShipping'), 'ArtworkShipping');
@@ -168,6 +170,12 @@ const App: React.FC = () => {
             {/* Rewards */}
             <Route path="/rewards/join" element={<PlusPoints />} />
             <Route path="/rewards/me" element={<PlusPointsProfile />} />
+
+            {/* Post-Signup Explainer */}
+            <Route path="/after-signup" element={<AfterSignup />} />
+
+            {/* Staff Invitation */}
+            <Route path="/accept-invite" element={<AcceptInvite />} />
 
             {/* Service Landing Pages */}
             <Route path="/copy-print" element={<CopyPrint />} />
