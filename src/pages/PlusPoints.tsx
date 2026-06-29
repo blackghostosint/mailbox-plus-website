@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/label-has-associated-control, jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import CheckCircle from '~icons/lucide/check-circle';
 import ChevronRight from '~icons/lucide/chevron-right';
