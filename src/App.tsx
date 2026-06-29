@@ -15,6 +15,7 @@ const Home = lazyLoad(() => import('./pages/Home'), 'Home');
 const PackShip = lazyLoad(() => import('./pages/PackShip'), 'PackShip');
 const PlusPoints = lazyLoad(() => import('./pages/PlusPoints'), 'PlusPoints');
 const PlusPointsProfile = lazyLoad(() => import('./pages/PlusPointsProfile'), 'PlusPointsProfile');
+const PlusPointsAdmin = lazyLoad(() => import('./pages/PlusPointsAdmin'), 'PlusPointsAdmin');
 const AcceptInvite = lazyLoad(() => import('./pages/AcceptInvite'), 'AcceptInvite');
 const AfterSignup = lazyLoad(() => import('./pages/AfterSignup'), 'AfterSignup');
 
@@ -170,6 +171,7 @@ const App: React.FC = () => {
             {/* Rewards */}
             <Route path="/rewards/join" element={<PlusPoints />} />
             <Route path="/rewards/me" element={<PlusPointsProfile />} />
+            <Route path="/rewards" element={<PlusPointsAdmin />} />
 
             {/* Post-Signup Explainer */}
             <Route path="/after-signup" element={<AfterSignup />} />

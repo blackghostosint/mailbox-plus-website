@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState } from 'react';
 import CheckCircle from '~icons/lucide/check-circle';
+import Check from '~icons/lucide/check';
 import ChevronRight from '~icons/lucide/chevron-right';
 import Gift from '~icons/lucide/gift';
 import Package from '~icons/lucide/package';
@@ -23,11 +24,42 @@ export const PlusPoints: React.FC = () => {
     birthday: '',
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [submitting, setSubmitting] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Action to handle signup here
-    console.log('Form submitted:', formData);
-    alert('Thank you for joining Plus Points! (Demo)');
+    setSubmitting(true);
+    setErrorMsg('');
+
+    try {
+      const queryParams = new URLSearchParams(window.location.search);
+      const referredBy = queryParams.get('r') || '';
+
+      const res = await fetch('/api/customer', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          referredBy,
+        }),
+      });
+
+      if (res.ok) {
+        setSuccess(true);
+      } else {
+        const err = await res.json();
+        setErrorMsg(err.error || 'Failed to register account');
+      }
+    } catch (err) {
+      console.error('Error registering customer:', err);
+      setErrorMsg('Network error. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -184,220 +216,255 @@ export const PlusPoints: React.FC = () => {
         <section id="join" className="py-16 lg:py-24 bg-bg-primary">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl mx-auto bg-white rounded-2xl shadow-md border border-border-strong overflow-hidden">
-              <div className="bg-bg-secondary border-b border-border p-6 md:p-8 text-center">
-                <h2 className="text-2xl font-bold text-text-primary">
-                  Join Free — It Takes 30 Seconds
-                </h2>
-                <p className="text-text-secondary mt-2">
-                  No password to remember. We'll send you a magic link when you need to log in.
-                </p>
-              </div>
-              <div className="p-6 md:p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="firstName"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        First Name
-                      </label>
-                      <input
-                        id="firstName"
-                        required
-                        type="text"
-                        name="firstName"
-                        value={formData.firstName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="First Name"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="lastName"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        Last Name
-                      </label>
-                      <input
-                        id="lastName"
-                        required
-                        type="text"
-                        name="lastName"
-                        value={formData.lastName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="Last Name"
-                      />
-                    </div>
+              {success ? (
+                <div className="p-8 md:p-12 text-center space-y-6 animate-fade-in-up">
+                  <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4 border border-green-100 shadow-sm">
+                    <Check className="w-10 h-10 text-green-600" />
                   </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label
-                        htmlFor="phone"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        Phone Number
-                      </label>
-                      <input
-                        id="phone"
-                        required
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="(555) 555-5555"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="email"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        Email Address
-                      </label>
-                      <input
-                        id="email"
-                        required
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="you@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="street"
-                      className="block text-sm font-bold text-text-primary mb-2"
-                    >
-                      Street Address
-                    </label>
-                    <input
-                      id="street"
-                      required
-                      type="text"
-                      name="street"
-                      value={formData.street}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                      placeholder="123 Main St"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div className="md:col-span-1">
-                      <label
-                        htmlFor="city"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        City
-                      </label>
-                      <input
-                        id="city"
-                        required
-                        type="text"
-                        name="city"
-                        value={formData.city}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="City"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="state"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        State
-                      </label>
-                      <input
-                        id="state"
-                        required
-                        type="text"
-                        name="state"
-                        value={formData.state}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="State"
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="zip"
-                        className="block text-sm font-bold text-text-primary mb-2"
-                      >
-                        ZIP
-                      </label>
-                      <input
-                        id="zip"
-                        required
-                        type="text"
-                        name="zip"
-                        value={formData.zip}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                        placeholder="ZIP"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="birthday"
-                      className="block text-sm font-bold text-text-primary mb-2"
-                    >
-                      Birthday{' '}
-                      <span className="text-text-muted font-normal">
-                        (Optional — for birthday treat)
-                      </span>
-                    </label>
-                    <input
-                      id="birthday"
-                      type="text"
-                      name="birthday"
-                      value={formData.birthday}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors"
-                      placeholder="MM/DD"
-                    />
-                  </div>
-
-                  <div className="flex items-start gap-3 mt-4">
-                    <input
-                      required
-                      type="checkbox"
-                      id="terms"
-                      className="mt-1 w-5 h-5 rounded border-border text-primary focus:ring-primary"
-                    />
-                    <label htmlFor="terms" className="text-sm text-text-secondary">
-                      I agree to earn points when I ship at Mailbox Plus and accept the Rewards
-                      Terms of Service.
-                    </label>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-4 bg-accent-warm hover:bg-opacity-90 text-white font-bold rounded-lg text-lg transition-colors flex justify-center items-center gap-2"
-                  >
-                    Start Earning <ChevronRight className="w-5 h-5" />
-                  </button>
-
-                  <p className="text-center text-sm text-text-secondary mt-4">
-                    Already a member?{' '}
-                    <a href="/rewards/me" className="text-primary font-bold hover:underline">
-                      Log in here
-                    </a>{' '}
-                    or ask staff to look you up.
+                  <h2 className="text-3xl font-bold text-text-primary">Welcome to Plus Points!</h2>
+                  <p className="text-text-secondary text-lg leading-relaxed">
+                    Your loyalty account has been created successfully. We've sent a magic login
+                    link to <strong className="text-text-primary">{formData.email}</strong>.
                   </p>
-                </form>
-              </div>
+                  <p className="text-text-secondary text-sm">
+                    Open your email and click the link to access your portal, view points, and start
+                    sharing your referral code to earn bonus points!
+                  </p>
+                  <div className="pt-4">
+                    <a
+                      href="/"
+                      className="inline-block px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary-dark transition-colors shadow-sm"
+                    >
+                      Return to Homepage
+                    </a>
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="bg-bg-secondary border-b border-border p-6 md:p-8 text-center">
+                    <h2 className="text-2xl font-bold text-text-primary">
+                      Join Free — It Takes 30 Seconds
+                    </h2>
+                    <p className="text-text-secondary mt-2">
+                      No password to remember. We'll send you a magic link when you need to log in.
+                    </p>
+                  </div>
+                  <div className="p-6 md:p-8">
+                    {errorMsg && (
+                      <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg flex items-start gap-2.5 text-sm">
+                        <span className="font-bold">⚠️</span>
+                        <span>{errorMsg}</span>
+                      </div>
+                    )}
+                    <form onSubmit={handleSubmit} className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label
+                            htmlFor="firstName"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            First Name
+                          </label>
+                          <input
+                            id="firstName"
+                            required
+                            type="text"
+                            name="firstName"
+                            value={formData.firstName}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="First Name"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="lastName"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            Last Name
+                          </label>
+                          <input
+                            id="lastName"
+                            required
+                            type="text"
+                            name="lastName"
+                            value={formData.lastName}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="Last Name"
+                          />
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label
+                            htmlFor="phone"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            Phone Number
+                          </label>
+                          <input
+                            id="phone"
+                            required
+                            type="tel"
+                            name="phone"
+                            value={formData.phone}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="(555) 555-5555"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="email"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            Email Address
+                          </label>
+                          <input
+                            id="email"
+                            required
+                            type="email"
+                            name="email"
+                            value={formData.email}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="you@email.com"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="street"
+                          className="block text-sm font-bold text-text-primary mb-2"
+                        >
+                          Street Address
+                        </label>
+                        <input
+                          id="street"
+                          required
+                          type="text"
+                          name="street"
+                          value={formData.street}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                          placeholder="123 Main St"
+                        />
+                      </div>
+
+                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div className="md:col-span-1">
+                          <label
+                            htmlFor="city"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            City
+                          </label>
+                          <input
+                            id="city"
+                            required
+                            type="text"
+                            name="city"
+                            value={formData.city}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="City"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="state"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            State
+                          </label>
+                          <input
+                            id="state"
+                            required
+                            type="text"
+                            name="state"
+                            value={formData.state}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="State"
+                          />
+                        </div>
+                        <div>
+                          <label
+                            htmlFor="zip"
+                            className="block text-sm font-bold text-text-primary mb-2"
+                          >
+                            ZIP
+                          </label>
+                          <input
+                            id="zip"
+                            required
+                            type="text"
+                            name="zip"
+                            value={formData.zip}
+                            onChange={handleChange}
+                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            placeholder="ZIP"
+                          />
+                        </div>
+                      </div>
+
+                      <div>
+                        <label
+                          htmlFor="birthday"
+                          className="block text-sm font-bold text-text-primary mb-2"
+                        >
+                          Birthday{' '}
+                          <span className="text-text-muted font-normal">
+                            (Optional — for birthday treat)
+                          </span>
+                        </label>
+                        <input
+                          id="birthday"
+                          type="text"
+                          name="birthday"
+                          value={formData.birthday}
+                          onChange={handleChange}
+                          className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                          placeholder="MM/DD"
+                        />
+                      </div>
+
+                      <div className="flex items-start gap-3 mt-4">
+                        <input
+                          required
+                          type="checkbox"
+                          id="terms"
+                          className="mt-1 w-5 h-5 rounded border-border text-primary focus:ring-primary"
+                        />
+                        <label htmlFor="terms" className="text-sm text-text-secondary">
+                          I agree to earn points when I ship at Mailbox Plus and accept the Rewards
+                          Terms of Service.
+                        </label>
+                      </div>
+
+                      <button
+                        type="submit"
+                        disabled={submitting}
+                        className="w-full py-4 bg-accent-warm hover:bg-opacity-90 disabled:opacity-50 text-white font-bold rounded-lg text-lg transition-colors flex justify-center items-center gap-2"
+                      >
+                        {submitting ? 'Creating Account...' : 'Start Earning'}{' '}
+                        <ChevronRight className="w-5 h-5" />
+                      </button>
+
+                      <p className="text-center text-sm text-text-secondary mt-4">
+                        Already a member?{' '}
+                        <a href="/rewards/me" className="text-primary font-bold hover:underline">
+                          Log in here
+                        </a>{' '}
+                        or ask staff to look you up.
+                      </p>
+                    </form>
+                  </div>
+                </>
+              )}
             </div>
           </div>
         </section>
