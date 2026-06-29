@@ -36,17 +36,15 @@ walkDir(contentDir, (filePath) => {
     let pubDate = '';
 
     frontmatterRaw.split('\n').forEach((line) => {
-      const parts = line.split(':');
-      if (parts.length >= 2) {
-        const key = parts[0].trim();
-        const value = parts
-          .slice(1)
-          .join(':')
-          .trim()
-          .replace(/^["']|["']$/g, '');
-        if (key === 'slug') slug = value;
-        if (key === 'pubDate') pubDate = value;
-      }
+      const colonIndex = line.indexOf(':');
+      if (colonIndex < 0) return;
+      const key = line.substring(0, colonIndex).trim();
+      const value = line
+        .substring(colonIndex + 1)
+        .trim()
+        .replace(/^["']|["']$/g, '');
+      if (key === 'slug') slug = value;
+      if (key === 'pubDate') pubDate = value;
     });
 
     if (slug) {
