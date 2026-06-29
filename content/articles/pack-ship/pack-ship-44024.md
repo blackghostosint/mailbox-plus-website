@@ -51,7 +51,7 @@ By having all these options in one place, we help you find the best value for yo
 
 If you’ve ever tried to pack a delicate heirloom or a fragile business prototype yourself using recycled boxes and newsprint, you know the stress involved. A simple drop-off point can’t help you with that.
 
-[Professional packing](/pack-ship/professional-packing) is an art and a science. At Mailbox Plus, we use industry-leading materials—custom-sized boxes, heavy-duty bubble wrap, and specialized void-fill—to ensure your items are protected for the entire journey. We treat every package as if it were our own, giving you the peace of mind that comes with [insurance protection](/pack-ship/insurance) and knowing the "pack" is just as secure as the "ship."
+[Professional packing](/pack-ship/professional-packing) is an art and a science. At Mailbox Plus, we use industry-leading materials—custom-sized boxes, heavy-duty bubble wrap, and specialized void-fill—to ensure your items are protected for the entire journey. We treat every package as if it were our own, giving you the peace of mind that comes with [insurance protection](/specialty/insurance) and knowing the "pack" is just as secure as the "ship."
 
 ## Supporting the Chardon Business Community
 

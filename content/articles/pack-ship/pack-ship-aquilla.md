@@ -52,7 +52,7 @@ You should consider a full-service shipping center if:
 
 - **You need [professional packing](/pack-ship/professional-packing):** Ensuring your items arrive safely requires the right materials and expertise.
 - **You want to compare carriers:** Don't get stuck with just one option. Comparing rates between [FedEx](/pack-ship/fedex-shipping), [UPS](/pack-ship/ups-authorized-shipper-outlet), [USPS](/pack-ship/usps-services), and [DHL](/pack-ship/dhl-express) can save you money.
-- **You have specialty items:** Fragile electronics, family heirlooms, or large items require specialized handling and proper [insurance coverage](/pack-ship/insurance) that retail drop-off points can't provide.
+- **You have specialty items:** Fragile electronics, family heirlooms, or large items require specialized handling and proper [insurance coverage](/specialty/insurance) that retail drop-off points can't provide.
 
 ## Mailbox Plus: Your Local Full-Service Solution
 

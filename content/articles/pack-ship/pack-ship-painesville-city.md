@@ -36,7 +36,7 @@ That's where the "Drop-Box" convenience ends and the "Full-Service" frustration 
 
 The difference is simple: **We do the work for you.**
 
-Local pharmacies and dollar stores are great for [dropping off a return](/pack-ship/amazon-returns), but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
+Local pharmacies and dollar stores are great for [dropping off a return](/amazon-returns), but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
 
 At Mailbox Plus, we are professional packers. We don't just take your box; we ensure your items are cushioned, secured, and ready for a bumpy ride.
 
