@@ -773,7 +773,7 @@ export const additionalServices: Service[] = [
         body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
               <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">The UPS Store Line</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Twenty-minute wait on a good day. Their Happy Returns process gets tacked onto their regular shipping line. You stand there watching packaged boxes get handed over while your bagged return sits in your hand.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Twenty-minute wait on a good day. You stand there watching packaged boxes get handed over while your bagged return sits in your hand.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Untrained Staff</h4>
