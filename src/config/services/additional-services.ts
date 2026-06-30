@@ -658,17 +658,16 @@ export const additionalServices: Service[] = [
     canonicalUrl: 'https://mailboxplus.com/happy-returns',
     pageTitle: 'Happy Returns Return Bar in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Mailbox Plus is a Happy Returns Return Bar in Concord Township. Bring your QR code \\u2014 no box, no label, no printer needed. We scan, bag, and receipt you in under 60 seconds. Free, fast, and friendly.',
+      'Mailbox Plus is a Happy Returns Return Bar in Concord Township. Bring your QR code — no box, no label, no printer needed. We scan, bag, and receipt you in under 60 seconds. Free, fast, and friendly.',
     keywords:
       'happy returns, return bar, happy returns location, happy returns near me, concord township, lake county, ohio, no box returns, QR code returns, ups returns',
-    heroTitle: "Happy Returns Return Bar \\u2014 We Scan. You're Done.",
+    heroTitle: "Happy Returns Return Bar — We Scan. You're Done.",
     heroSubtitle:
-      'Your online return doesn\\u2019t need a box, a label, or a printer. Just bring your QR code and your item. We handle everything else.',
+      'Your online return doesn’t need a box, a label, or a printer. Just bring your QR code and your item. We handle everything else.',
     hideCarrierLogos: true,
     content: [
       {
-        heading:
-          'The Returns Runaround \\u2014 Why One Click to Buy Takes an Afternoon to Send Back',
+        heading: 'The Returns Runaround — Why One Click to Buy Takes an Afternoon to Send Back',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               You bought something online. It doesn't fit. It's not what you expected. You need to send it back. Simple, right?
             </p>
@@ -729,7 +728,7 @@ export const additionalServices: Service[] = [
             </div>`,
       },
       {
-        heading: 'How It Works \\u2014 Three Steps, Faster Than a Coffee Run',
+        heading: 'How It Works — Three Steps, Faster Than a Coffee Run',
         body: `<div class="grid md:grid-cols-3 gap-6 mb-8">
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
@@ -739,7 +738,7 @@ export const additionalServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bring Your Item to Us</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Just the item \\u2014 no box, no label, no packaging. We're at 7554 Fredle Dr in Concord Township, next to Pub Frato.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Just the item — no box, no label, no packaging. We're at 7554 Fredle Dr in Concord Township, next to Pub Frato.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
@@ -760,17 +759,17 @@ export const additionalServices: Service[] = [
             <div class="p-6 bg-gradient-to-br from-[var(--color-primary-dark)]/5 via-[var(--color-primary)]/5 to-[var(--color-primary-deep)]/5 rounded-2xl border border-[var(--color-primary)]/20 shadow-sm">
               <h4 class="font-bold text-[var(--color-text-primary)] mb-4 text-lg">What You Get</h4>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Free \\u2014 no charge to you</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Free — no charge to you</span></div>
                 <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">No box, label, tape, or printer needed</span></div>
                 <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Refund initiated immediately at drop-off</span></div>
-                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Receipt provided \\u2014 proof of return</span></div>
-                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Friendly staff \\u2014 not a crowded big-box counter</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Receipt provided — proof of return</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Friendly staff — not a crowded big-box counter</span></div>
                 <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Closest Return Bar to most of Concord Township</span></div>
               </div>
             </div>`,
       },
       {
-        heading: 'What You\\u2019re Avoiding by Coming Here',
+        heading: 'What You’re Avoiding by Coming Here',
         body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
               <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">The UPS Store Line</h4>
@@ -816,7 +815,7 @@ export const additionalServices: Service[] = [
                 <h4 class="font-bold text-green-700 mb-3 text-lg">After</h4>
                 <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
                   <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Walk in with your item and your QR code</li>
-                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60 seconds at the counter \\u2014 in and out</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60 seconds at the counter — in and out</li>
                   <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Receipt in hand, refund initiated, done</li>
                   <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Friendly staff who know exactly how it works</li>
                 </ul>
@@ -838,7 +837,7 @@ export const additionalServices: Service[] = [
               </div>
               <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-2xl mb-1">✅</div>
-                <p class="text-sm font-semibold text-[var(--color-text-primary)]">Returns don\\u2019t have to be hard</p>
+                <p class="text-sm font-semibold text-[var(--color-text-primary)]">Returns don’t have to be hard</p>
                 <p class="text-xs text-green-600 font-medium mt-1">Rights the wrong</p>
               </div>
             </div>`,
@@ -878,12 +877,12 @@ export const additionalServices: Service[] = [
       {
         question: 'How long until I get my refund?',
         answer:
-          'Your refund is initiated immediately when we scan your return at drop-off. Depending on your payment method and retailer, it typically posts to your account within 3\u20135 business days.',
+          'Your refund is initiated immediately when we scan your return at drop-off. Depending on your payment method and retailer, it typically posts to your account within 3–5 business days.',
       },
       {
         question: 'Do you accept all Happy Returns items?',
         answer:
-          'Yes. We accept most items eligible for Happy Returns \u2014 clothing, electronics, home goods, accessories, and more. If you have a valid Happy Returns QR code from the retailer, we can process it.',
+          'Yes. We accept most items eligible for Happy Returns — clothing, electronics, home goods, accessories, and more. If you have a valid Happy Returns QR code from the retailer, we can process it.',
       },
       {
         question: 'Do I need to print anything?',
@@ -900,7 +899,7 @@ export const additionalServices: Service[] = [
       title: "Ready for the Easiest Return You'll Make This Year?",
       subtitle:
         'Bring your QR code and your item. No box, no label, no line. We scan, bag, and receipt you in under 60 seconds.',
-      buttonText: "Stop By \u2014 We're a Return Bar",
+      buttonText: "Stop By — We're a Return Bar",
       buttonLink: '/pickup-hours',
       variant: 'brand',
       align: 'center',
