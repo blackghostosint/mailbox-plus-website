@@ -233,7 +233,12 @@
   },
   "nuuly-returns": {
     "parent": "pack-ship",
-    "related": ["amazon-returns", "fedex-easy-returns", "package-drop-offs"],
+    "related": ["happy-returns", "amazon-returns", "fedex-easy-returns", "package-drop-offs"],
+    "priority": false
+  },
+  "happy-returns": {
+    "parent": "pack-ship",
+    "related": ["nuuly-returns", "amazon-returns", "fedex-easy-returns", "package-drop-offs"],
     "priority": false
   }
 }

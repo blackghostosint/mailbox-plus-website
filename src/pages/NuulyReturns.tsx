@@ -15,10 +15,14 @@ export const NuulyReturns: React.FC = () => {
           </InternalLink>{' '}
           in Concord Township. We provide same-day scanning and receipts for all Nuuly returns. Need
           help with other returns? We also accept{' '}
+          <InternalLink variant="geo" to="/happy-returns">
+            Happy Returns
+          </InternalLink>
+          ,{' '}
           <InternalLink variant="geo" to="/amazon-returns">
             Amazon returns
-          </InternalLink>{' '}
-          and offer{' '}
+          </InternalLink>
+          , and offer{' '}
           <InternalLink variant="geo" to="/pack-ship/package-drop-offs">
             multi-carrier drop-off services
           </InternalLink>{' '}

@@ -458,5 +458,19 @@
       "Nuuly drop-off near Mentor",
       "Nuuly return center in Lake County"
     ]
+  },
+  "happy-returns": {
+    "exact": ["Happy Returns", "Happy Returns Return Bar", "Happy Returns Drop-Off"],
+    "lsi": [
+      "Happy Returns location",
+      "Happy Returns near me",
+      "QR code return drop-off",
+      "return bar in Lake County"
+    ],
+    "geo": [
+      "Happy Returns in Concord Township",
+      "Happy Returns near Mentor",
+      "Happy Returns return bar in Lake County"
+    ]
   }
 }
