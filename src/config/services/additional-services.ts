@@ -748,7 +748,7 @@ export const additionalServices: Service[] = [
             </div>
             <div class="relative overflow-hidden rounded-2xl mb-8">
               <img
-                src="https://v3b.fal.media/files/b/0aa06913/PY5-1aifNs83rdHqOswTt_PKvtx1jy.png"
+                src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/happy-returns.webp"
                 alt="Customer at Mailbox Plus return counter showing a Happy Returns QR code on their phone — no box, no label needed"
                 loading="lazy"
                 width="1024"
