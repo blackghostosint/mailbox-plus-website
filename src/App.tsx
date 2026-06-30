@@ -26,6 +26,7 @@ const GolfClubShipping = lazyLoad(() => import('./pages/GolfClubShipping'), 'Gol
 const FedExShipping = lazyLoad(() => import('./pages/FedExShipping'), 'FedExShipping');
 const FedExEasyReturns = lazyLoad(() => import('./pages/fedex-easy-returns'), 'FedExEasyReturns');
 const NuulyReturns = lazyLoad(() => import('./pages/NuulyReturns'), 'NuulyReturns');
+const HappyReturnsPage = lazyLoad(() => import('./pages/HappyReturnsPage'), 'HappyReturnsPage');
 const AmazonReturnGuide = lazyLoad(() => import('./pages/AmazonReturnGuide'), 'AmazonReturnGuide');
 const UPSAuthorizedShipperOutlet = lazyLoad(
   () => import('./pages/UPSAuthorizedShipperOutlet'),
@@ -254,6 +255,7 @@ const App: React.FC = () => {
             <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
             <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
             <Route path="/nuuly-returns" element={<NuulyReturns />} />
+            <Route path="/happy-returns" element={<HappyReturnsPage />} />
             <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
             <Route
               path="/pack-ship/ups-authorized-shipper-outlet"

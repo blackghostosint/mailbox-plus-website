@@ -7,6 +7,7 @@ import Truck from '~icons/lucide/truck';
 import Package from '~icons/lucide/package';
 import Printer from '~icons/lucide/printer';
 import Fingerprint from '~icons/lucide/fingerprint';
+import Scan from '~icons/lucide/scan';
 import { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/storage';
 import { generalHomeBusinessFaqs, notaryServicesFaqs } from '../faqs';
@@ -644,5 +645,265 @@ export const additionalServices: Service[] = [
           'Adding coverage takes one minute at the counter. Peace of mind included at no extra hassle.',
       },
     ],
+  },
+  // ---------------------------
+  // HAPPY RETURNS RETURN BAR
+  // ---------------------------
+  {
+    id: 'happy-returns',
+    category: 'additional-services',
+    city: 'Concord Township',
+    serviceName: 'Happy Returns Return Bar',
+    slug: '/happy-returns',
+    canonicalUrl: 'https://mailboxplus.com/happy-returns',
+    pageTitle: 'Happy Returns Return Bar in Concord Township, Ohio | Mailbox Plus',
+    metaDescription:
+      'Mailbox Plus is a Happy Returns Return Bar in Concord Township. Bring your QR code \\u2014 no box, no label, no printer needed. We scan, bag, and receipt you in under 60 seconds. Free, fast, and friendly.',
+    keywords:
+      'happy returns, return bar, happy returns location, happy returns near me, concord township, lake county, ohio, no box returns, QR code returns, ups returns',
+    heroTitle: "Happy Returns Return Bar \\u2014 We Scan. You're Done.",
+    heroSubtitle:
+      'Your online return doesn\\u2019t need a box, a label, or a printer. Just bring your QR code and your item. We handle everything else.',
+    hideCarrierLogos: true,
+    content: [
+      {
+        heading:
+          'The Returns Runaround \\u2014 Why One Click to Buy Takes an Afternoon to Send Back',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              You bought something online. It doesn't fit. It's not what you expected. You need to send it back. Simple, right?
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
+              Except finding a box. And printing a label. And tape. And driving somewhere. And waiting in line. And hoping the person at the counter knows how Happy Returns works.
+            </p>
+            <div class="grid md:grid-cols-3 gap-6 mt-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4 text-red-500 text-lg font-bold">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE PROCESS YOU CAN SEE</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Find a box that fits. Print a return label. Tape it up, drive to a drop-off, wait in line, hope it gets scanned. Every step adds friction.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mb-4 text-orange-500 text-lg font-bold">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE FEELING YOU KNOW</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Returns feel like a chore you keep putting off. That box in the corner stares at you. "I'll deal with it tomorrow." Tomorrow becomes next week.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mb-4 text-amber-600 text-lg font-bold">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE THING THAT'S WRONG</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Returns shouldn't be harder than buying. You clicked once to order. Why does sending it back take an afternoon and three errands?</p>
+              </div>
+            </div>
+            <p class="text-[var(--color-text-secondary)] text-sm mt-6 text-center">
+              Every day that box sits unreturned is a day your refund doesn't process. Happy Returns fixes that. And Mailbox Plus is where you bring it.
+            </p>`,
+      },
+      {
+        heading: 'Why Mailbox Plus Is Your Happy Returns Return Bar',
+        body: `<div class="grid md:grid-cols-2 gap-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-3 text-lg">We Know the Feeling</h4>
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                  You open the box, try it on, and know immediately it's going back. But then the chore begins: hunt for a box, find tape, print a label, stand in a line.
+                </p>
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed mt-4">
+                  Happy Returns eliminates all of that. No box. No label. No tape. Just your QR code and your item. And Mailbox Plus is one of the closest Return Bars in Lake County.
+                </p>
+              </div>
+              <div class="space-y-3">
+                <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center shrink-0 text-blue-600"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 7v10"/><path d="M17 7v10"/><path d="M7 12h10"/></svg></div>
+                  <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Authorized Return Bar</p><p class="text-xs text-[var(--color-text-secondary)]">Official Happy Returns location — #1 in Lake County for 44077</p></div>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
+                  <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">No Box. No Label.</p><p class="text-xs text-[var(--color-text-secondary)]">We provide the bag. Just show your QR code on your phone.</p></div>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-purple-50 flex items-center justify-center shrink-0 text-purple-600"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+                  <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Under 60 Seconds</p><p class="text-xs text-[var(--color-text-secondary)]">We scan, bag, and receipt you. In and out before you know it.</p></div>
+                </div>
+                <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                  <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-600"><svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Friendly Local Staff</p><p class="text-xs text-[var(--color-text-secondary)]">Not a chaotic big-box counter. We know you by name.</p></div>
+                </div>
+              </div>
+            </div>`,
+      },
+      {
+        heading: 'How It Works \\u2014 Three Steps, Faster Than a Coffee Run',
+        body: `<div class="grid md:grid-cols-3 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Get Your QR Code</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Start your return on the retailer's website. When they offer Happy Returns, they'll give you a QR code. Save it to your phone.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Bring Your Item to Us</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Just the item \\u2014 no box, no label, no packaging. We're at 7554 Fredle Dr in Concord Township, next to Pub Frato.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm text-center">
+                <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">We Handle the Rest</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We scan your QR code, bag the item, print the label, and hand you a receipt. Your refund is initiated immediately. Done.</p>
+              </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl mb-8">
+              <img
+                src="https://v3b.fal.media/files/b/0aa06913/PY5-1aifNs83rdHqOswTt_PKvtx1jy.png"
+                alt="Customer at Mailbox Plus return counter showing a Happy Returns QR code on their phone — no box, no label needed"
+                loading="lazy"
+                width="1024"
+                height="576"
+                class="w-full h-auto object-cover rounded-2xl shadow-sm"
+              />
+            </div>
+            <div class="p-6 bg-gradient-to-br from-[var(--color-primary-dark)]/5 via-[var(--color-primary)]/5 to-[var(--color-primary-deep)]/5 rounded-2xl border border-[var(--color-primary)]/20 shadow-sm">
+              <h4 class="font-bold text-[var(--color-text-primary)] mb-4 text-lg">What You Get</h4>
+              <div class="grid md:grid-cols-2 gap-3">
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Free \\u2014 no charge to you</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">No box, label, tape, or printer needed</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Refund initiated immediately at drop-off</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Receipt provided \\u2014 proof of return</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Friendly staff \\u2014 not a crowded big-box counter</span></div>
+                <div class="flex items-start gap-2"><svg class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Closest Return Bar to most of Concord Township</span></div>
+              </div>
+            </div>`,
+      },
+      {
+        heading: 'What You\\u2019re Avoiding by Coming Here',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">The UPS Store Line</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Twenty-minute wait on a good day. Their Happy Returns process gets tacked onto their regular shipping line. You stand there watching packaged boxes get handed over while your bagged return sits in your hand.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Untrained Staff</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Some locations have staff who don't know the Happy Returns process. You explain it. They call a manager. Your "60-second return" takes 20 minutes of explaining.</p>
+              </div>
+            </div>
+            <div class="space-y-4 mt-8">
+              <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
+                <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 text-red-500 font-bold text-sm">1</div>
+                <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">The Problem</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Every return has friction. Box. Label. Tape. Line. By the time you're done, you've spent an afternoon on something that should take five minutes.</p></div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
+                <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center shrink-0 text-orange-500 font-bold text-sm">2</div>
+                <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">The Fix</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Happy Returns removes the box, label, and tape entirely. One QR code on your phone. That's all you need. The rest is on us.</p></div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
+                <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-600 font-bold text-sm">3</div>
+                <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Mailbox Plus Specifically</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">We're an authorized Return Bar. We know the process inside out. Show your QR code, we scan, bag, and receipt you. Under 60 seconds.</p></div>
+              </div>
+              <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
+                <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600 font-bold text-sm">4</div>
+                <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Take Action</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Bring your QR code to Mailbox Plus. Free. Fast. Friendly. We're the closest Return Bar to most of Concord Township.</p></div>
+              </div>
+            </div>`,
+      },
+      {
+        heading: 'From \\"Ugh, I Need to Return This\\" to \\"Done.\\"',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-red-600 mb-3 text-lg">Before</h4>
+                <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Finding a box, printing a label, hunting for tape</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Standing in line at a crowded big-box counter</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Hoping the return actually went through</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Explaining the process to untrained staff</li>
+                </ul>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-green-200 shadow-sm">
+                <h4 class="font-bold text-green-700 mb-3 text-lg">After</h4>
+                <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Walk in with your item and your QR code</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60 seconds at the counter \\u2014 in and out</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Receipt in hand, refund initiated, done</li>
+                  <li class="flex items-start gap-2"><svg class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Friendly staff who know exactly how it works</li>
+                </ul>
+              </div>
+            </div>
+            <blockquote class="border-l-4 border-[var(--color-accent-warm)] pl-4 italic text-[var(--color-text-secondary)] my-8">
+              <p>"You made the right call. Bringing your Happy Returns to Mailbox Plus is the easiest return you'll make all year. Walk in, hand it over, and walk out with your receipt. Your refund is on its way before you leave the parking lot."</p>
+            </blockquote>
+            <div class="grid md:grid-cols-3 gap-4 mt-8 text-center">
+              <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-2xl mb-1">✅</div>
+                <p class="text-sm font-semibold text-[var(--color-text-primary)]">Your return is processed</p>
+                <p class="text-xs text-green-600 font-medium mt-1">External problem resolved</p>
+              </div>
+              <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-2xl mb-1">✅</div>
+                <p class="text-sm font-semibold text-[var(--color-text-primary)]">No more dreaded chore</p>
+                <p class="text-xs text-green-600 font-medium mt-1">Internal problem resolved</p>
+              </div>
+              <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
+                <div class="text-2xl mb-1">✅</div>
+                <p class="text-sm font-semibold text-[var(--color-text-primary)]">Returns don\\u2019t have to be hard</p>
+                <p class="text-xs text-green-600 font-medium mt-1">Rights the wrong</p>
+              </div>
+            </div>`,
+      },
+    ],
+    features: [
+      {
+        icon: Scan,
+        title: 'QR Code Returns',
+        description:
+          'Show your QR code on your phone. We scan, bag, and receipt you in under 60 seconds.',
+      },
+      {
+        icon: Package,
+        title: 'No Box, No Label',
+        description: 'Just bring the item. No packaging, no printing, no tape, no hassle.',
+      },
+      {
+        icon: Clock,
+        title: '60-Second Drop-Off',
+        description: 'In and out with a receipt. Your refund is initiated immediately at drop-off.',
+      },
+    ],
+    featuresTitle: 'Why Return With Us?',
+    featuresSubtitle: 'No box, no label, no line. Just show your QR code and we handle the rest.',
+    faqs: [
+      {
+        question: 'What do I need to bring for a Happy Returns drop-off?',
+        answer:
+          "Just the item you're returning and the QR code from the retailer on your phone. No box, no label, no printed receipt needed. We provide the bag and handle everything else.",
+      },
+      {
+        question: 'Does Happy Returns cost anything?',
+        answer:
+          "No. Happy Returns is free for shoppers. There's no charge to drop off your return at Mailbox Plus.",
+      },
+      {
+        question: 'How long until I get my refund?',
+        answer:
+          'Your refund is initiated immediately when we scan your return at drop-off. Depending on your payment method and retailer, it typically posts to your account within 3\u20135 business days.',
+      },
+      {
+        question: 'Do you accept all Happy Returns items?',
+        answer:
+          'Yes. We accept most items eligible for Happy Returns \u2014 clothing, electronics, home goods, accessories, and more. If you have a valid Happy Returns QR code from the retailer, we can process it.',
+      },
+      {
+        question: 'Do I need to print anything?',
+        answer:
+          'Nope. Just show the QR code on your phone. We scan it, print the label, and bag your item. No printer needed on your end.',
+      },
+      {
+        question: 'Why should I come to Mailbox Plus instead of The UPS Store or Ulta?',
+        answer:
+          "We're closer to most of Concord Township (just 4 miles), we know the Happy Returns process inside and out, and you won't wait in a long line. Friendly staff, free parking, and we bag your item in seconds.",
+      },
+    ],
+    cta: {
+      title: "Ready for the Easiest Return You'll Make This Year?",
+      subtitle:
+        'Bring your QR code and your item. No box, no label, no line. We scan, bag, and receipt you in under 60 seconds.',
+      buttonText: "Stop By \u2014 We're a Return Bar",
+      buttonLink: '/pickup-hours',
+      variant: 'brand',
+      align: 'center',
+    },
   },
 ];
