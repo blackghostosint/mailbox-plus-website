@@ -373,7 +373,7 @@ export const additionalServices: Service[] = [
     heroTitle: 'Digital Fingerprinting \u2014 Walk In, Get Printed, Done.',
     heroSubtitle:
       'Need fingerprints for a job, license, or background check? We make it fast and simple. Digital capture, no ink, no mess, no appointment needed.',
-    heroImage: getServiceImageUrl('/images/fingerprinting.webp'),
+    heroImage: getServiceImageUrl('/images/digital-fingerprinting.webp'),
     hideCarrierLogos: true,
     content: [
       {
@@ -663,7 +663,8 @@ export const additionalServices: Service[] = [
       'happy returns, return bar, happy returns location, happy returns near me, concord township, lake county, ohio, no box returns, QR code returns, ups returns',
     heroTitle: "Happy Returns Return Bar — We Scan. You're Done.",
     heroSubtitle:
-      'Your online return doesn’t need a box, a label, or a printer. Just bring your QR code and your item. We handle everything else.',
+      'Your online return doesn\u2019t need a box, a label, or a printer. Just bring your QR code and your item. We handle everything else.',
+    heroImage: getServiceImageUrl('/images/happy-returns.webp'),
     hideCarrierLogos: true,
     content: [
       {
