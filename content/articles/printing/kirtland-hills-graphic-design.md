@@ -5,7 +5,7 @@ slug: 'kirtland-hills-graphic-design'
 category: 'printing'
 intentKey: 'kirtland-hills-graphic-design'
 pubDate: '2026-06-30T22:00:00-05:00'
-status: 'draft'
+status: 'published'
 image: 'articles/printing/kirtland-hills-graphic-design-featured.webp'
 imageAlt: "A clean wooden desk with professional business cards and a tablet showing a logo design, a designer's workspace"
 location: 'kirtland-hills'
