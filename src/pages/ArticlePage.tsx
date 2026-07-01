@@ -83,6 +83,7 @@ const ArticlePage: React.FC = () => {
     day: 'numeric',
   });
   const articleUrl = `https://mailboxplusohio.com/articles/${slug}`;
+  const keywordsString = keywords?.length ? keywords.join(', ') : undefined;
   const articleSchema = getArticleSchema(siteConfig, {
     headline: title,
     description,
@@ -107,7 +108,13 @@ const ArticlePage: React.FC = () => {
 
   return (
     <>
-      <Meta title={title} description={description} canonical={articleUrl} ogImage={image} />
+      <Meta
+        title={title}
+        description={description}
+        canonical={articleUrl}
+        ogImage={image}
+        keywords={keywordsString}
+      />
       <JsonLd schema={articleSchema} />
       <JsonLd schema={webPageSchema} />
 
