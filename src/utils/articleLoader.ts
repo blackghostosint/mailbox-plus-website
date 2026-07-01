@@ -83,26 +83,33 @@ function parseFrontmatter(raw: string): {
 
 export const articleLoader = {
   getAllArticles: async (): Promise<Article[]> => {
-    const articles: Article[] = [];
     const isDev = import.meta.env.DEV;
     const isDeployPreview =
       import.meta.env.VITE_NETLIFY_CONTEXT === 'deploy-preview' ||
       import.meta.env.VITE_NETLIFY_CONTEXT === 'branch-deploy';
     const showDrafts = isDev || isDeployPreview;
 
-    for (const path of articlePaths) {
-      try {
+    // Load all articles in parallel
+    const results = await Promise.allSettled(
+      articlePaths.map(async (path) => {
         const rawContent = (await articleModules[path]()) as string;
         const { data, content } = parseFrontmatter(rawContent);
         const frontmatter = data as unknown as ArticleFrontmatter;
+        return { frontmatter, content };
+      })
+    );
 
+    const articles: Article[] = [];
+    for (const result of results) {
+      if (result.status === 'fulfilled') {
+        const article = result.value;
         // Skip drafts in production
-        if (frontmatter.status === 'draft' && !showDrafts) {
+        if (article.frontmatter.status === 'draft' && !showDrafts) {
           continue;
         }
-        articles.push({ frontmatter, content });
-      } catch (err) {
-        console.error(`Error loading article at ${path}:`, err);
+        articles.push(article);
+      } else {
+        console.error('Error loading article:', result.reason);
       }
     }
 

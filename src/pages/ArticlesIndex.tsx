@@ -13,6 +13,8 @@ import BookOpen from '~icons/lucide/book-open';
 const ArticlesIndex: React.FC = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const articlesPerPage = 15;
 
   useEffect(() => {
     const loadArticles = async () => {
@@ -28,6 +30,17 @@ const ArticlesIndex: React.FC = () => {
 
     loadArticles();
   }, []);
+
+  // Pagination logic
+  const totalPages = Math.ceil(articles.length / articlesPerPage);
+  const startIndex = (currentPage - 1) * articlesPerPage;
+  const endIndex = startIndex + articlesPerPage;
+  const currentArticles = articles.slice(startIndex, endIndex);
+
+  const goToPage = (page: number) => {
+    setCurrentPage(page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   if (loading) {
     return (
@@ -79,7 +92,7 @@ const ArticlesIndex: React.FC = () => {
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {articles.map((article) => {
+              {currentArticles.map((article) => {
                 const { title, description, slug, pubDate, image, imageAlt, category } =
                   article.frontmatter;
                 const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
@@ -148,6 +161,98 @@ const ArticlesIndex: React.FC = () => {
                 );
               })}
             </div>
+          )}
+
+          {/* Pagination Controls */}
+          {totalPages > 1 && (
+            <nav
+              className="mt-12 flex items-center justify-center gap-2"
+              aria-label="Article pagination"
+            >
+              <button
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                style={{
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  color: 'var(--color-text-primary)',
+                  border: '1px solid var(--color-border)',
+                }}
+                onMouseEnter={(e) => {
+                  if (currentPage > 1)
+                    e.currentTarget.style.borderColor = 'var(--color-accent-warm)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--color-border)';
+                }}
+              >
+                ← Previous
+              </button>
+
+              {/* Page Numbers */}
+              <div className="flex items-center gap-1">
+                {Array.from({ length: totalPages }, (_, i) => i + 1)
+                  .filter((page) => {
+                    // Show first, last, and pages around current
+                    if (page === 1 || page === totalPages) return true;
+                    if (Math.abs(page - currentPage) <= 1) return true;
+                    return false;
+                  })
+                  .map((page, idx, arr) => (
+                    <React.Fragment key={page}>
+                      {idx > 0 && arr[idx - 1] !== page - 1 && (
+                        <span className="px-2" style={{ color: 'var(--color-text-muted)' }}>
+                          ...
+                        </span>
+                      )}
+                      <button
+                        onClick={() => goToPage(page)}
+                        className="w-10 h-10 rounded-lg text-sm font-medium transition-all"
+                        style={{
+                          backgroundColor:
+                            currentPage === page
+                              ? 'var(--color-accent-warm)'
+                              : 'var(--color-bg-secondary)',
+                          color: currentPage === page ? 'white' : 'var(--color-text-primary)',
+                          border:
+                            currentPage === page
+                              ? '2px solid var(--color-accent-warm)'
+                              : '1px solid var(--color-border)',
+                        }}
+                      >
+                        {page}
+                      </button>
+                    </React.Fragment>
+                  ))}
+              </div>
+
+              <button
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                style={{
+                  backgroundColor: 'var(--color-bg-secondary)',
+                  color: 'var(--color-text-primary)',
+                  border: '1px solid var(--color-border)',
+                }}
+                onMouseEnter={(e) => {
+                  if (currentPage < totalPages)
+                    e.currentTarget.style.borderColor = 'var(--color-accent-warm)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'var(--color-border)';
+                }}
+              >
+                Next →
+              </button>
+            </nav>
+          )}
+
+          {/* Page info */}
+          {totalPages > 1 && (
+            <p className="mt-4 text-center text-sm" style={{ color: 'var(--color-text-muted)' }}>
+              Page {currentPage} of {totalPages} ({articles.length} articles total)
+            </p>
           )}
         </div>
       </div>
