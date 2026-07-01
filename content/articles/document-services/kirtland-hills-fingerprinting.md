@@ -1,5 +1,5 @@
 ---
-title: "Need Fingerprints Near Kirtland Hills? The Sheriff's Office Has a Wait. We Don't. | Mailbox Plus"
+title: "Need Fingerprints Near Kirtland Hills? The Sheriff's Office Has a Wait. We Don't."
 description: 'Job application or license needing fingerprints near Kirtland Hills? Mailbox Plus does digital Live Scan fingerprinting. Walk in, no appointment.'
 slug: 'kirtland-hills-fingerprinting'
 category: 'document-services'

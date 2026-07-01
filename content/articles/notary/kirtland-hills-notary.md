@@ -1,5 +1,5 @@
 ---
-title: "Your Kirtland Hills Car Title Needs a Notary. The Courthouse Notary Is 'At Lunch.' | Mailbox Plus"
+title: "Your Kirtland Hills Car Title Needs a Notary. The Courthouse Notary Is 'At Lunch.'"
 description: 'Drove to the Lake County Courthouse to find the notary is out? Mailbox Plus has a notary on duty during all business hours. Walk in, sign, done.'
 slug: 'kirtland-hills-notary'
 category: 'notary'

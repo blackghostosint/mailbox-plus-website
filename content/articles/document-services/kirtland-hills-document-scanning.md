@@ -1,5 +1,5 @@
 ---
-title: 'Your Kirtland Hills Filing Cabinet Has Tax Returns From 2008. Digitize Them. | Mailbox Plus'
+title: 'Your Kirtland Hills Filing Cabinet Has Tax Returns From 2008. Digitize Them.'
 description: 'Old tax returns and medical bills sitting in a Kirtland Hills filing cabinet. Mailbox Plus scans everything to digital files while you wait.'
 slug: 'kirtland-hills-document-scanning'
 category: 'document-services'

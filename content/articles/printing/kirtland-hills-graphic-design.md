@@ -1,5 +1,5 @@
 ---
-title: "Your Kirtland Hills Business Card Looks DIY. It's Time for a Rebrand. | Mailbox Plus"
+title: "Your Kirtland Hills Business Card Looks DIY. It's Time for a Rebrand."
 description: 'A DIY business card hurts your credibility in Kirtland Hills. Mailbox Plus designs and prints professional marketing materials — logos, cards, flyers.'
 slug: 'kirtland-hills-graphic-design'
 category: 'printing'

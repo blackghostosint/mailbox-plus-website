@@ -1,5 +1,5 @@
 ---
-title: 'Your Kirtland Hills Tax Returns Are Sitting in a Box in the Garage. | Mailbox Plus'
+title: 'Your Kirtland Hills Tax Returns Are Sitting in a Box in the Garage.'
 description: 'Old tax returns and bank statements in a Kirtland Hills garage — one break-in and your identity is gone. Mailbox Plus shreds on-site, immediate destruction.'
 slug: 'kirtland-hills-shredding'
 category: 'document-services'

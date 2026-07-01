@@ -1,5 +1,5 @@
 ---
-title: 'That Family Heirloom From Kirtland Hills Needs to Cross the Country Safely. | Mailbox Plus'
+title: 'That Family Heirloom From Kirtland Hills Needs to Cross the Country Safely.'
 description: "Don't trust your grandmother's china to a conveyor belt. Mailbox Plus packs and ships fragile items the right way — 5 minutes from Kirtland Hills."
 slug: 'kirtland-hills-fragile-shipping'
 category: 'pack-ship'

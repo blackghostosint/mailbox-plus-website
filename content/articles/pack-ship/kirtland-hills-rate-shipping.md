@@ -1,5 +1,5 @@
 ---
-title: "Kirtland Hills to Anywhere. We'll Show You All 4 Carrier Rates Side by Side. | Mailbox Plus"
+title: "Kirtland Hills to Anywhere. We'll Show You All 4 Carrier Rates Side by Side."
 description: 'Why pay the franchise markup? Mailbox Plus shows UPS, FedEx, USPS, and DHL rates side by side — just 5 minutes from Kirtland Hills.'
 slug: 'kirtland-hills-rate-shipping'
 category: 'pack-ship'

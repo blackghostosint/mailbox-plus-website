@@ -1,5 +1,5 @@
 ---
-title: "Snowbird Leaving Kirtland Hills for Florida? We Hold Your Mail Till You're Back. | Mailbox Plus"
+title: "Snowbird Leaving Kirtland Hills for Florida? We Hold Your Mail Till You're Back."
 description: 'Headed south from Kirtland Hills for the winter? Mailbox Plus holds your mail, scans it within 4 hours, and forwards when you want.'
 slug: 'kirtland-hills-rver-mailbox'
 category: 'mailbox-rentals'

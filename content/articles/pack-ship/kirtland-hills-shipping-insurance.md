@@ -1,5 +1,5 @@
 ---
-title: 'Shipping a Valuable Package From Kirtland Hills. The Carrier Covers $100. | Mailbox Plus'
+title: 'Shipping a Valuable Package From Kirtland Hills. The Carrier Covers $100.'
 description: "Standard carrier liability won't cover your valuable Kirtland Hills shipment. Mailbox Plus offers third-party declared-value insurance through Marsh."
 slug: 'kirtland-hills-shipping-insurance'
 category: 'pack-ship'

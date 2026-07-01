@@ -1,5 +1,5 @@
 ---
-title: 'Your Kirtland Hills LLC Filing Has Your Home Address Public for Anyone to Find. | Mailbox Plus'
+title: 'Your Kirtland Hills LLC Filing Has Your Home Address Public for Anyone to Find.'
 description: 'Every business filing from Kirtland Hills publishes your home address. Mailbox Plus gives you a real street address that separates home from business.'
 slug: 'kirtland-hills-small-business-mailbox'
 category: 'mailbox-rentals'

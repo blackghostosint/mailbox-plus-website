@@ -1,5 +1,5 @@
 ---
-title: "It's 2026. You Still Need to Fax From Kirtland Hills. We Have the Machine. | Mailbox Plus"
+title: "It's 2026. You Still Need to Fax From Kirtland Hills. We Have the Machine."
 description: 'Real estate closings near Kirtland Hills, insurance claims — some things still need a fax. Mailbox Plus sends and receives faxes. No machine needed.'
 slug: 'kirtland-hills-fax'
 category: 'document-services'

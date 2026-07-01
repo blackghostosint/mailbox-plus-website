@@ -1,5 +1,5 @@
 ---
-title: "Every Home in Kirtland Hills Should Know You Exist. We'll Put You in Their Mailbox. | Mailbox Plus"
+title: "Every Home in Kirtland Hills Should Know You Exist. We'll Put You in Their Mailbox."
 description: 'Reach every mailbox in Kirtland Hills with EDDM. We design, print, and prepare your campaign — no mailing list needed.'
 slug: 'kirtland-hills-eddm'
 category: 'printing'

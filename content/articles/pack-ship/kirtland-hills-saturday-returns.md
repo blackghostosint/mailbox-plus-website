@@ -1,5 +1,5 @@
 ---
-title: 'Your Saturday in Kirtland Hills Is Too Short for a Post Office Line. | Mailbox Plus'
+title: 'Your Saturday in Kirtland Hills Is Too Short for a Post Office Line.'
 description: 'The post office line eats your weekend. Mailbox Plus in Concord Township takes UPS, FedEx, USPS returns — in and out in 3 minutes, just off Route 306.'
 slug: 'kirtland-hills-saturday-returns'
 category: 'pack-ship'

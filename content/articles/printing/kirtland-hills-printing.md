@@ -1,5 +1,5 @@
 ---
-title: 'Your Kirtland Hills Printer Ran Out of Ink. Your Meeting Is in 30 Minutes. | Mailbox Plus'
+title: 'Your Kirtland Hills Printer Ran Out of Ink. Your Meeting Is in 30 Minutes.'
 description: 'Printer died before a deadline in Kirtland Hills? Mailbox Plus prints your documents, flyers, and forms while you wait. No $60 ink cartridge required.'
 slug: 'kirtland-hills-printing'
 category: 'printing'

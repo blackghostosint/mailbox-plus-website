@@ -1,5 +1,5 @@
 ---
-title: 'Moving to Kirtland Hills? Your Address Should Follow You, Not Change Every Time. | Mailbox Plus'
+title: 'Moving to Kirtland Hills? Your Address Should Follow You, Not Change Every Time.'
 description: 'New apartment near Kirtland Hills? Keep one address that follows you through every move. Mailbox Plus — real street address, all carriers, never change it again.'
 slug: 'kirtland-hills-mover-mailbox'
 category: 'mailbox-rentals'

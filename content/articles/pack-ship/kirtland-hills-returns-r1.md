@@ -1,5 +1,5 @@
 ---
-title: 'Three Returns. Three Carriers. One 5-Minute Drive From Kirtland Hills. | Mailbox Plus'
+title: 'Three Returns. Three Carriers. One 5-Minute Drive From Kirtland Hills.'
 description: 'Amazon goes UPS. Zappos goes FedEx. That Etsy order goes USPS. Drop all three at Mailbox Plus — one counter, all carriers, 5 minutes from Kirtland Hills.'
 slug: 'kirtland-hills-returns-r1'
 category: 'pack-ship'

@@ -1,5 +1,5 @@
 ---
-title: '20 Data Broker Sites Have Your Kirtland Hills Address Right Now. | Mailbox Plus'
+title: '20 Data Broker Sites Have Your Kirtland Hills Address Right Now.'
 description: 'Your Kirtland Hills home address is for sale on data broker sites. Mailbox Plus gives you a real street address that keeps your home private.'
 slug: 'kirtland-hills-privacy-mailbox'
 category: 'mailbox-rentals'

@@ -1,5 +1,5 @@
 ---
-title: 'You Sell on Etsy From Kirtland Hills. Every Label Has Your Home Address on It. | Mailbox Plus'
+title: 'You Sell on Etsy From Kirtland Hills. Every Label Has Your Home Address on It.'
 description: 'Every package you ship from Kirtland Hills carries your home address. Mailbox Plus gives you a real street address — 5 minutes down Route 306.'
 slug: 'kirtland-hills-online-seller-mailbox'
 category: 'mailbox-rentals'
