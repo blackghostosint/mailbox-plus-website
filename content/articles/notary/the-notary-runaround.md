@@ -5,7 +5,7 @@ slug: 'the-notary-runaround'
 category: 'notary'
 intentKey: 'notary-services-concord-township'
 pubDate: '2026-06-27T10:00:00-05:00'
-status: 'draft' # Safe staging status for Netlify preview testing
+status: 'published' # Safe staging status for Netlify preview testing
 image: 'articles/notary/the-notary-runaround-featured.webp'
 imageAlt: 'A clean clipboard with a contract ready for a fast, walk-in notary public seal at Mailbox Plus'
 location: 'concord-township'
