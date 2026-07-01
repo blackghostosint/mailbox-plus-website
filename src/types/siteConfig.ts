@@ -41,6 +41,8 @@ export interface SiteConfig {
   };
   premierSignupUrl?: string; // ✅ added for Premier signup modal
   premierSignupModalEnabled?: boolean;
+  plusPointsSignupUrl?: string; // ✅ Plus Points signup modal
+  plusPointsSignupModalEnabled?: boolean;
   aggregateRating?: {
     ratingValue: number;
     reviewCount: number;

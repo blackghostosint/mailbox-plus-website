@@ -4,6 +4,8 @@
   "type": "commonjs",
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
-    "dotenv": "^17.2.3"
+    "@netlify/blobs": "^10.7.9",
+    "dotenv": "^17.2.3",
+    "resend": "^6.16.0"
   }
 }

@@ -13,6 +13,11 @@ const lazyLoad = (importFunc: () => Promise<ModuleWithExports>, componentName: s
 // Core
 const Home = lazyLoad(() => import('./pages/Home'), 'Home');
 const PackShip = lazyLoad(() => import('./pages/PackShip'), 'PackShip');
+const PlusPoints = lazyLoad(() => import('./pages/PlusPoints'), 'PlusPoints');
+const PlusPointsProfile = lazyLoad(() => import('./pages/PlusPointsProfile'), 'PlusPointsProfile');
+const PlusPointsAdmin = lazyLoad(() => import('./pages/PlusPointsAdmin'), 'PlusPointsAdmin');
+const AcceptInvite = lazyLoad(() => import('./pages/AcceptInvite'), 'AcceptInvite');
+const AfterSignup = lazyLoad(() => import('./pages/AfterSignup'), 'AfterSignup');
 
 // Pack & Ship
 const ArtworkShipping = lazyLoad(() => import('./pages/ArtworkShipping'), 'ArtworkShipping');
@@ -21,6 +26,7 @@ const GolfClubShipping = lazyLoad(() => import('./pages/GolfClubShipping'), 'Gol
 const FedExShipping = lazyLoad(() => import('./pages/FedExShipping'), 'FedExShipping');
 const FedExEasyReturns = lazyLoad(() => import('./pages/fedex-easy-returns'), 'FedExEasyReturns');
 const NuulyReturns = lazyLoad(() => import('./pages/NuulyReturns'), 'NuulyReturns');
+const HappyReturnsPage = lazyLoad(() => import('./pages/HappyReturnsPage'), 'HappyReturnsPage');
 const AmazonReturnGuide = lazyLoad(() => import('./pages/AmazonReturnGuide'), 'AmazonReturnGuide');
 const UPSAuthorizedShipperOutlet = lazyLoad(
   () => import('./pages/UPSAuthorizedShipperOutlet'),
@@ -163,6 +169,17 @@ const App: React.FC = () => {
             {/* Homepage */}
             <Route path="/" element={<Home />} />
 
+            {/* Rewards */}
+            <Route path="/rewards/join" element={<PlusPoints />} />
+            <Route path="/rewards/me" element={<PlusPointsProfile />} />
+            <Route path="/rewards" element={<PlusPointsAdmin />} />
+
+            {/* Post-Signup Explainer */}
+            <Route path="/after-signup" element={<AfterSignup />} />
+
+            {/* Staff Invitation */}
+            <Route path="/accept-invite" element={<AcceptInvite />} />
+
             {/* Service Landing Pages */}
             <Route path="/copy-print" element={<CopyPrint />} />
             <Route path="/home-business" element={<HomeBusiness />} />
@@ -238,6 +255,7 @@ const App: React.FC = () => {
             <Route path="/pack-ship/fedex-shipping" element={<FedExShipping />} />
             <Route path="/fedex-easy-returns" element={<FedExEasyReturns />} />
             <Route path="/nuuly-returns" element={<NuulyReturns />} />
+            <Route path="/happy-returns" element={<HappyReturnsPage />} />
             <Route path="/amazon-returns" element={<AmazonReturnGuide />} />
             <Route
               path="/pack-ship/ups-authorized-shipper-outlet"

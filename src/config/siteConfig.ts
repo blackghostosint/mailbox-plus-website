@@ -109,6 +109,8 @@ export const siteConfig: SiteConfig = {
   },
   premierSignupUrl: 'https://mailbox-plus-loyalty-card.web.app/#/register?campaign=website-signup',
   premierSignupModalEnabled: false,
+  plusPointsSignupUrl: '/rewards/join',
+  plusPointsSignupModalEnabled: false,
 
   // Source of Truth fields
   foundingYear: 2024,
