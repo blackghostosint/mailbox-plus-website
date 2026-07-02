@@ -420,7 +420,9 @@ export const getArticleSchema = (
   '@id': `${url}#article`,
   headline,
   description,
-  ...(image && { image }),
+  ...(image && {
+    image: image.startsWith('http') ? image : `${getOrigin(config)}/${image.replace(/^\//, '')}`,
+  }),
   datePublished,
   ...(dateModified && { dateModified }),
   author: {

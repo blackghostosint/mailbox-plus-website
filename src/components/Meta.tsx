@@ -52,6 +52,15 @@ export const Meta: React.FC<MetaProps> = ({
     }
   }
 
+  // Ensure ogImage is an absolute URL
+  const absoluteOgImage = ogImage
+    ? ogImage.startsWith('http')
+      ? ogImage
+      : ogImage.startsWith('/')
+        ? `${siteConfig.domain}${ogImage}`
+        : `${siteConfig.domain}/${ogImage}`
+    : undefined;
+
   return (
     <Helmet>
       <title>{title}</title>
@@ -66,13 +75,13 @@ export const Meta: React.FC<MetaProps> = ({
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={siteConfig.name} />
       <meta property="og:url" content={finalCanonical} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      {absoluteOgImage && <meta property="og:image" content={absoluteOgImage} />}
 
       {/* Twitter Cards */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      {ogImage && <meta name="twitter:image" content={ogImage} />}
+      {absoluteOgImage && <meta name="twitter:image" content={absoluteOgImage} />}
 
       {/* Geo & Locale meta for local SEO */}
       {geoRegion && <meta name="geo.region" content={geoRegion} />}
