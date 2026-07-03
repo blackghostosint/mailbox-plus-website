@@ -67,7 +67,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
@@ -134,7 +134,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
@@ -200,7 +200,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers',
@@ -268,7 +268,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-artwork-framed-items-or-collectibles-safely-in-concord-township',
@@ -331,7 +331,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers',
@@ -396,7 +396,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
@@ -461,7 +461,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'unsure-of-carrier-rules',
@@ -527,7 +527,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
@@ -594,7 +594,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-a-package-when-youre-short-on-time-in-concord-township',
@@ -660,7 +660,7 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
   {
     id: 'ship-with-guaranteed-proof-and-tracking-concord-township',
@@ -734,6 +734,6 @@ export const shippingMicroProblems: Service[] = [
       buttonText: 'Visit Our Store',
       buttonLink: '/contact-us',
     },
-    robots: 'noindex, nofollow',
+    robots: 'index, follow',
   },
 ];
