@@ -25,26 +25,20 @@ interface UseFAQsReturn {
   reload: () => Promise<void>;
 }
 
-/**
- * Hook to dynamically load FAQ data from JSON files.
- * FAQ data is stored in /public/data/faqs/{category}/{file}.json
- */
-export function useFAQs(
-  category: string,
-  fileName: string,
-  options: UseFAQsOptions = {}
-): UseFAQsReturn {
+// ── Internal: shared state machinery ────────────────────────────────
+
+function useFAQState(loader: () => Promise<FAQ[]>, options: UseFAQsOptions = {}): UseFAQsReturn {
   const { immediate = true, onLoad, onError } = options;
   const [faqs, setFaqs] = useState<FAQ[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const [error, setError] = useState<Error | null>(null);
 
-  // Use refs to prevent callback recreation
+  // Guard against concurrent fetches
   const isFetchingRef = useRef(false);
   const isMountedRef = useRef(true);
 
-  // Store callbacks in refs to keep callback stable
+  // Keep callbacks stable via refs
   const onLoadRef = useRef(onLoad);
   const onErrorRef = useRef(onError);
   useEffect(() => {
@@ -67,17 +61,7 @@ export function useFAQs(
     setError(null);
 
     try {
-      // Construct URL: /data/faqs/{category}/{fileName}.json
-      // Handle both cases: fileName may or may not include .json extension
-      const normalizedFileName = fileName.endsWith('.json') ? fileName : `${fileName}.json`;
-      const url = `/data/faqs/${category}/${normalizedFileName}`;
-      const response = await fetch(url);
-
-      if (!response.ok) {
-        throw new Error(`Failed to load FAQs: ${response.status} ${response.statusText}`);
-      }
-
-      const data = await response.json();
+      const data = await loader();
       if (isMountedRef.current) {
         setFaqs(data);
         setIsLoaded(true);
@@ -91,208 +75,120 @@ export function useFAQs(
       }
     } finally {
       isFetchingRef.current = false;
-      if (isMountedRef.current) {
-        setIsLoading(false);
-      }
+      if (isMountedRef.current) setIsLoading(false);
     }
-  }, [category, fileName]);
+  }, [loader]);
 
-  // Initial load
   useEffect(() => {
-    if (immediate) {
-      load();
-    }
+    if (immediate) load();
   }, [immediate, load]);
 
   return { faqs, isLoading, isLoaded, error, reload: load };
 }
 
+// ── Public API ──────────────────────────────────────────────────────
+
+/** Normalize a file name to include .json extension if missing */
+const normalizeFileName = (name: string) => (name.endsWith('.json') ? name : `${name}.json`);
+
+/**
+ * Hook to dynamically load a single FAQ JSON file.
+ * FAQ data is stored in /public/data/faqs/{category}/{fileName}.json
+ */
+export function useFAQs(
+  category: string,
+  fileName: string,
+  options: UseFAQsOptions = {}
+): UseFAQsReturn {
+  const loader = useCallback(async () => {
+    const url = `/data/faqs/${category}/${normalizeFileName(fileName)}`;
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`Failed to load FAQs: ${response.status} ${response.statusText}`);
+    }
+    return response.json() as Promise<FAQ[]>;
+  }, [category, fileName]);
+
+  return useFAQState(loader, options);
+}
+
 /**
  * Hook to load multiple FAQ files from a category and flatten them.
- * Useful for the "Ask Mailbox Plus" page that combines multiple FAQ arrays.
+ * Useful for pages that combine multiple FAQ arrays.
  */
 export function useCategoryFAQs(
   category: string,
   fileNames: string[],
   options: UseFAQsOptions = {}
 ): UseFAQsReturn {
-  const { immediate = true, onLoad, onError } = options;
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
-
-  // Use refs to prevent callback recreation
-  const isFetchingRef = useRef(false);
-  const isMountedRef = useRef(true);
-
-  // Store callbacks in refs to keep callback stable
-  const onLoadRef = useRef(onLoad);
-  const onErrorRef = useRef(onError);
-  useEffect(() => {
-    onLoadRef.current = onLoad;
-    onErrorRef.current = onError;
-  }, [onLoad, onError]);
-
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
-
-  // Stabilize fileNames reference to prevent hook execution on reference changes
+  // Stabilize reference to prevent unnecessary re-renders
   const fileNamesStr = JSON.stringify(fileNames);
 
-  const load = useCallback(async () => {
-    if (isFetchingRef.current) return;
-
-    isFetchingRef.current = true;
-    setIsLoading(true);
-    setError(null);
+  const loader = useCallback(async () => {
+    const parsedNames: string[] = JSON.parse(fileNamesStr);
     const allFAQs: FAQ[] = [];
 
-    try {
-      const parsedFileNames: string[] = JSON.parse(fileNamesStr);
-      for (const fileName of parsedFileNames) {
-        // Handle both cases: fileName may or may not include .json extension
-        const normalizedFileName = fileName.endsWith('.json') ? fileName : `${fileName}.json`;
-        const url = `/data/faqs/${category}/${normalizedFileName}`;
-        const response = await fetch(url);
-
-        if (!response.ok) {
-          throw new Error(`Failed to load ${fileName}: ${response.status}`);
-        }
-
-        const data = await response.json();
-        allFAQs.push(...data);
-      }
-
-      if (isMountedRef.current) {
-        setFaqs(allFAQs);
-        setIsLoaded(true);
-        onLoadRef.current?.(allFAQs);
-      }
-    } catch (err) {
-      const errObj = err instanceof Error ? err : new Error(String(err));
-      if (isMountedRef.current) {
-        setError(errObj);
-        onErrorRef.current?.(errObj);
-      }
-    } finally {
-      isFetchingRef.current = false;
-      if (isMountedRef.current) {
-        setIsLoading(false);
-      }
+    for (const file of parsedNames) {
+      const url = `/data/faqs/${category}/${normalizeFileName(file)}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load ${file}: ${response.status}`);
+      const data = await response.json();
+      allFAQs.push(...data);
     }
+
+    return allFAQs;
   }, [category, fileNamesStr]);
 
-  useEffect(() => {
-    if (immediate) {
-      load();
-    }
-  }, [immediate, load]);
-
-  return { faqs, isLoading, isLoaded, error, reload: load };
+  return useFAQState(loader, options);
 }
 
 /**
- * Hook to load all FAQs from a category (uses manifest.json to discover files)
+ * Hook to load all FAQs from a category (uses manifest.json to discover files).
  */
 export function useAllCategoryFAQs(
   category: string,
   options: UseFAQsOptions = {}
 ): UseFAQsReturn & { manifest: string[] | null } {
-  const { immediate = true, onLoad, onError } = options;
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [error, setError] = useState<Error | null>(null);
   const [manifest, setManifest] = useState<string[] | null>(null);
 
-  // Use refs to prevent callback recreation
-  const isFetchingRef = useRef(false);
-  const isMountedRef = useRef(true);
-
-  // Store callbacks in refs to keep callback stable
-  const onLoadRef = useRef(onLoad);
-  const onErrorRef = useRef(onError);
+  // Load manifest on mount
   useEffect(() => {
-    onLoadRef.current = onLoad;
-    onErrorRef.current = onError;
-  }, [onLoad, onError]);
-
-  useEffect(() => {
-    isMountedRef.current = true;
-    return () => {
-      isMountedRef.current = false;
-    };
-  }, []);
-
-  const load = useCallback(async () => {
-    if (isFetchingRef.current) return;
-
-    isFetchingRef.current = true;
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      // First load the manifest
-      const manifestUrl = `/data/faqs/manifest.json`;
-      const manifestResp = await fetch(manifestUrl);
-      if (!manifestResp.ok) throw new Error('Failed to load manifest');
-      const manifestData = await manifestResp.json();
-
-      const files = manifestData[category] || [];
-      if (isMountedRef.current) {
-        setManifest(files);
-      }
-
-      // Load all FAQ files
-      const allFAQs: FAQ[] = [];
-      for (const fileName of files) {
-        const url = `/data/faqs/${category}/${fileName}`;
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Failed to load ${fileName}`);
-        const data = await response.json();
-        allFAQs.push(...data);
-      }
-
-      if (isMountedRef.current) {
-        setFaqs(allFAQs);
-        setIsLoaded(true);
-        onLoadRef.current?.(allFAQs);
-      }
-    } catch (err) {
-      const errObj = err instanceof Error ? err : new Error(String(err));
-      if (isMountedRef.current) {
-        setError(errObj);
-        onErrorRef.current?.(errObj);
-      }
-    } finally {
-      isFetchingRef.current = false;
-      if (isMountedRef.current) {
-        setIsLoading(false);
-      }
-    }
+    fetch('/data/faqs/manifest.json')
+      .then((r) => r.json())
+      .then((data) => setManifest(data[category] || []))
+      .catch(() => setManifest([]));
   }, [category]);
 
-  useEffect(() => {
-    if (immediate) {
-      load();
-    }
-  }, [immediate, load]);
+  const loader = useCallback(async () => {
+    const manifestResp = await fetch('/data/faqs/manifest.json');
+    if (!manifestResp.ok) throw new Error('Failed to load manifest');
+    const manifestData = await manifestResp.json();
+    const files: string[] = manifestData[category] || [];
 
-  return { faqs, isLoading, isLoaded, error, reload: load, manifest };
+    const allFAQs: FAQ[] = [];
+    for (const fileName of files) {
+      const url = `/data/faqs/${category}/${fileName}`;
+      const response = await fetch(url);
+      if (!response.ok) throw new Error(`Failed to load ${fileName}`);
+      const data = await response.json();
+      allFAQs.push(...data);
+    }
+
+    return allFAQs;
+  }, [category]);
+
+  const result = useFAQState(loader, options);
+
+  return { ...result, manifest };
 }
 
 /**
- * Preload FAQ data for faster subsequent access
+ * Preload FAQ data for faster subsequent access.
+ * Triggers background fetches without awaiting them.
  */
 export function preloadFAQs(category: string, fileNames: string[]): Promise<void> {
-  // Don't await - just trigger the fetches in background
   fileNames.forEach((fileName) => {
-    fetch(`/data/faqs/${category}/${fileName}.json`).catch(() => {});
+    fetch(`/data/faqs/${category}/${normalizeFileName(fileName)}`).catch(() => {});
   });
   return Promise.resolve();
 }
