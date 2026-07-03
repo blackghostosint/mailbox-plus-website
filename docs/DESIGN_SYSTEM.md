@@ -149,7 +149,7 @@ text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-
 
 ### CLS Mitigation
 
-When loading DM Sans from Google Fonts, add size-adjust override to prevent layout shift:
+DM Sans is self-hosted as a variable font in `/public/fonts/dmsans-regular.woff2`. A fallback `@font-face` in `src/index.css` prevents layout shift:
 
 ```css
 @font-face {
@@ -161,8 +161,6 @@ When loading DM Sans from Google Fonts, add size-adjust override to prevent layo
   line-gap-override: 0%;
 }
 ```
-
-(Update the existing fallback `@font-face` blocks in `src/index.css`.)
 
 ---
 
@@ -295,22 +293,22 @@ The warm/gold design system intentionally supports SB7 depth layers through visu
 
 ## Token Cleanup Checklist
 
-These CSS tokens exist in `src/index.css` but should be removed — they are remnants of the old blue design system:
+These CSS tokens exist in `src/index.css` but are remnants of the old blue design system. They are currently aliased to warm equivalents for backward compatibility:
 
-- [ ] `--color-bg-blue-tint` — replace with `--color-bg-warm-tint` or remove
-- [ ] `--color-bg-cyan-tint` — remove entirely
-- [ ] `--color-border-blue` — replace with `--color-border-strong`
-- [ ] Poppins + Open Sans font references — replace with DM Sans
-- [ ] All `bg-blue-tint`, `bg-cyan-tint`, `border-blue` references in Tailwind config
-- [ ] All hardcoded `#0855b1`, `#1a6dff`, `#f0f7ff`, `#e0f2fe` in `.tsx` files
+| Token                          | Current state                       | Status                             |
+| ------------------------------ | ----------------------------------- | ---------------------------------- |
+| `--color-bg-blue-tint`         | Aliased to `--color-bg-warm-tint`   | Migrate callers, then remove alias |
+| `--color-bg-cyan-tint`         | Aliased to `--color-bg-warm-tint`   | Migrate callers, then remove alias |
+| `--color-border-blue`          | Aliased to `--color-border-strong`  | Migrate callers, then remove alias |
+| Poppins + Open Sans font files | Replaced with DM Sans variable font | ✅ Done (PR #177)                  |
 
 ## Document Inventory
 
-The following docs are superseded by this document and should be archived:
+The following docs are superseded by this document and have been archived out of the repo (preserved in git history):
 
-- `docs/DESIGN_SYSTEM.md` (old version) — replaced by this document
 - `docs/plans/design-tokens.md` — mapped the old blue system
 - `docs/plans/phase-5-design-system.md` — implementation plan for the old system
+- `archive/` (directory) — pre-redesign planning documents
 - `STRATEGIC_ROADMAP.md` — aspirational plan, not current direction
 - `AUDIT_REPORT_2026-05-30.md` — month-old audit, out of date
 - `PERFORMANCE_STRATEGY_DRAFT.md` — draft status, not current
