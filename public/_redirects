@@ -75,6 +75,16 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /* /index.html 200
 
 
-# TRUE 404 RULE
+# -----------------------------------
+# STATIC HTML PAGE FALLBACKS
+# -----------------------------------
+
+# Serve MailboxPlusSalesPage.html at both case variants
+/MailboxPlusSalesPage /MailboxPlusSalesPage.html 200
 /mailboxplussalespage /MailboxPlusSalesPage.html 200
+
+# Serve research/shipping-label-osint.html at the no-extension variant
+/research/shipping-label-osint /research/shipping-label-osint.html 200
+
+# TRUE 404 RULE
 /404 /404.html 404

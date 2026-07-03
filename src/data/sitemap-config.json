@@ -18,6 +18,7 @@
     "/articles/chardon-printing",
     "/articles/chardon-privacy-mailbox",
     "/articles/chardon-rate-shipping",
+    "/articles/chardon-returns-direct-response",
     "/articles/chardon-returns-r1",
     "/articles/chardon-rver-mailbox",
     "/articles/chardon-saturday-returns",
@@ -142,7 +143,6 @@
     "/privacy",
     "/private-mailbox-rental-concord-township",
     "/repackage-a-damaged-or-torn-shipping-box-in-concord-township",
-    "/research/shipping-label-osint.html",
     "/return-without-original-box",
     "/service-area",
     "/service-area/auburn-township",
@@ -387,6 +387,7 @@
     "/articles/kirtland-hills-copies": "2026-07-01T03:00:00.000Z",
     "/articles/kirtland-hills-eddm": "2026-07-01T03:00:00.000Z",
     "/articles/kirtland-hills-graphic-design": "2026-07-01T03:00:00.000Z",
-    "/articles/kirtland-hills-printing": "2026-07-01T03:00:00.000Z"
+    "/articles/kirtland-hills-printing": "2026-07-01T03:00:00.000Z",
+    "/articles/chardon-returns-direct-response": "2026-07-01T15:00:00.000Z"
   }
 }

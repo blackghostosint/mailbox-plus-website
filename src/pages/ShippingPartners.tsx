@@ -19,7 +19,7 @@ export const ShippingPartners: React.FC = () => {
       <Meta
         title="Shipping Partners - Mailbox Plus"
         description="Meet the businesses that trust Mailbox Plus for their shipping and logistics needs."
-        canonical="https://www.mailboxplus.com/shipping-partners"
+        canonical="https://mailboxplusohio.com/shipping-partners"
       />
 
       <AutoBreadcrumbs />

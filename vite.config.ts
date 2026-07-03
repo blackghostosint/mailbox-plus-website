@@ -30,7 +30,7 @@ export default defineConfig({
     sitemap({
       hostname: 'https://mailboxplusohio.com',
       dynamicRoutes: sitemapConfig.routes.filter((route) => route !== '/'),
-      exclude: ['/404'],
+      exclude: ['/404', '/MailboxPlusSalesPage', '/research/shipping-label-osint'],
       lastmod: lastmodMap,
       generateRobotsTxt: false,
     }),
