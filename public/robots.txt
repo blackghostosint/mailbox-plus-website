@@ -1,8 +1,11 @@
 # robots.txt for Mailbox Plus Ohio
-# Purpose: Allow all primary pages for indexing, block internal search result pages, and declare sitemap for Googlebot.
+# Purpose: Allow all primary pages for indexing, block internal search result pages and legacy URL debris, and declare sitemap for Googlebot.
 
 User-agent: *
 Disallow: /search
+Disallow: /Login
+Disallow: /Website-Admin
+Disallow: /seo/
 Allow: /
 
 Sitemap: https://mailboxplusohio.com/sitemap.xml

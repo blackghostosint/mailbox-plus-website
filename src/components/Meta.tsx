@@ -41,7 +41,7 @@ export const Meta: React.FC<MetaProps> = ({
   if (!finalCanonical) {
     // Auto-generate from current location
     const pathname = location.pathname;
-    // Remove trailing slash if not root
+    // Force non-www non-trailing-slash version
     const cleanPath = pathname !== '/' && pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
 
     finalCanonical = `${siteConfig.domain}${cleanPath}`;
