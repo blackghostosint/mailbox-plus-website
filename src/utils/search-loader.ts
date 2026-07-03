@@ -8,12 +8,17 @@ export interface SearchResult {
   category: string;
 }
 
-export const getSearchData = (): SearchResult[] => {
+const toTitleCase = (s: string) => s.replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase());
+
+/**
+ * Pre-computed search data. Built once at module init from static config.
+ */
+export const searchData: SearchResult[] = (() => {
   const serviceResults: SearchResult[] = services.map((service) => ({
     title: service.serviceName,
     description: service.heroSubtitle || service.metaDescription,
     href: service.slug || service.id || '#',
-    category: service.category.replace('-', ' ').replace(/\b\w/g, (l) => l.toUpperCase()),
+    category: toTitleCase(service.category),
   }));
 
   const locationResults: SearchResult[] = serviceAreas.map((page) => ({
@@ -51,4 +56,7 @@ export const getSearchData = (): SearchResult[] => {
   ];
 
   return [...serviceResults, ...locationResults, ...generalResults];
-};
+})();
+
+/** @deprecated Use `searchData` instead. */
+export const getSearchData = (): SearchResult[] => searchData;
