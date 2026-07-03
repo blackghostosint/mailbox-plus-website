@@ -172,19 +172,7 @@ const ArticlesIndex: React.FC = () => {
               <button
                 onClick={() => goToPage(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{
-                  backgroundColor: 'var(--color-bg-secondary)',
-                  color: 'var(--color-text-primary)',
-                  border: '1px solid var(--color-border)',
-                }}
-                onMouseEnter={(e) => {
-                  if (currentPage > 1)
-                    e.currentTarget.style.borderColor = 'var(--color-accent-warm)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-border)';
-                }}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] enabled:hover:border-[var(--color-accent-warm)]"
               >
                 ← Previous
               </button>
@@ -229,19 +217,7 @@ const ArticlesIndex: React.FC = () => {
               <button
                 onClick={() => goToPage(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
-                style={{
-                  backgroundColor: 'var(--color-bg-secondary)',
-                  color: 'var(--color-text-primary)',
-                  border: '1px solid var(--color-border)',
-                }}
-                onMouseEnter={(e) => {
-                  if (currentPage < totalPages)
-                    e.currentTarget.style.borderColor = 'var(--color-accent-warm)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor = 'var(--color-border)';
-                }}
+                className="px-4 py-2 rounded-lg text-sm font-medium transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] border border-[var(--color-border)] enabled:hover:border-[var(--color-accent-warm)]"
               >
                 Next →
               </button>

@@ -172,21 +172,7 @@ const ArticlePage: React.FC = () => {
               <div className="grid gap-4 md:grid-cols-2">
                 {relatedServices.map((servicePath, idx) => (
                   <Link key={idx} to={servicePath}>
-                    <div
-                      className="group p-6 rounded-xl transition-all duration-300 cursor-pointer"
-                      style={{
-                        backgroundColor: 'var(--color-bg-secondary)',
-                        border: '1px solid var(--color-border)',
-                      }}
-                      onMouseEnter={(ev) => {
-                        ev.currentTarget.style.borderColor = 'var(--color-border-strong)';
-                        ev.currentTarget.style.backgroundColor = 'var(--color-accent-warm)/0.08';
-                      }}
-                      onMouseLeave={(ev) => {
-                        ev.currentTarget.style.borderColor = 'var(--color-border)';
-                        ev.currentTarget.style.backgroundColor = 'var(--color-bg-secondary)';
-                      }}
-                    >
+                    <div className="group p-6 rounded-xl transition-all duration-300 cursor-pointer bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-accent-warm)]/10">
                       <div className="flex justify-between items-center">
                         <span
                           className="font-semibold group-hover:text-[var(--color-accent-warm)]"
