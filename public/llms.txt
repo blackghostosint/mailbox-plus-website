@@ -253,9 +253,9 @@ Each location has articles covering: fragile shipping, shipping insurance, retur
 - https://mailboxplusohio.com/articles/hambden-notary : Notary services in Hambden
 - https://mailboxplusohio.com/articles/kirtland-hills-notary : Notary services in Kirtland Hills
 
-## Micro-Problem Pages (Noindex — long-tail search intent)
+## Micro-Problem Pages
 
-These pages address specific customer problems and are tagged with `noindex, nofollow`. They exist to capture long-tail search queries and convert visitors.
+These pages address specific customer problems with detailed, actionable advice. Each targets a unique search intent.
 
 ### Returns
 - /return-without-original-box : Return a package without the original box
