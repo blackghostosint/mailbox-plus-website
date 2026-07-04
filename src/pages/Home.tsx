@@ -173,7 +173,7 @@ export const Home: React.FC = () => {
                 href="/home-business/notary-services"
                 className="mt-auto inline-flex items-center text-sm font-semibold text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] transition-colors"
               >
-                Learn More <ArrowRight className="w-3.5 h-3.5 ml-1" />
+                Notary &amp; Business Services <ArrowRight className="w-3.5 h-3.5 ml-1" />
               </a>
             </div>
           </div>

@@ -1,9 +1,7 @@
 import { services } from './services';
 import { siteConfig } from './siteConfig';
-import { getLocalBusinessSchema, getWebPageSchema, getServiceSchema } from '../utils/schema';
+import { getWebPageSchema, getServiceSchema } from '../utils/schema';
 import type { WithContext, LocalBusiness, WebPage, Service } from 'schema-dts';
-
-const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 
 // Geo meta tags for local SEO (from siteConfig)
 const geoMeta = {
@@ -43,7 +41,6 @@ export const pageMeta: Record<
     title: 'Mailbox Plus - Your Shipping and Business Services Partner',
     description:
       'Mailbox Plus in Concord Township, Ohio is your local partner for shipping (FedEx, UPS, USPS, DHL), mailbox rentals, printing, and business services. Serving Lake County.',
-    schema: [localBusinessSchema],
     ...geoMeta,
   },
   // Services page
