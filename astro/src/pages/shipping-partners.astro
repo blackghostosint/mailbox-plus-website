@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Shipping Partners | Mailbox Plus — FedEx, UPS, USPS & DHL"
+  description="Mailbox Plus is your local shipping hub for FedEx, UPS, USPS, and DHL in Concord Township, Ohio. Drop off, pack, and ship with all major carriers."
+>
+  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Shipping Partners</h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+        We work with all major carriers so you don't have to visit multiple locations.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
+    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
+      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">FedEx</h2>
+      <p class="text-sm text-[var(--color-text-secondary)] mb-3">Authorized FedEx drop-off location. Ship FedEx Express, Ground, and Home Delivery. We also offer FedEx printing services and packing supplies.</p>
+      <a href="/pack-ship/fedex-shipping" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">FedEx Services →</a>
+    </div>
+    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
+      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">UPS</h2>
+      <p class="text-sm text-[var(--color-text-secondary)] mb-3">Authorized UPS shipper outlet. Drop off pre-labeled packages, create new shipments, and access UPS Ground and Air services.</p>
+      <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">UPS Services →</a>
+    </div>
+    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
+      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">USPS</h2>
+      <p class="text-sm text-[var(--color-text-secondary)] mb-3">USPS package drop-off, stamps, certified mail, and Priority Mail services. No post office line required.</p>
+      <a href="/pack-ship/usps-services" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">USPS Services →</a>
+    </div>
+    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
+      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">DHL</h2>
+      <p class="text-sm text-[var(--color-text-secondary)] mb-3">DHL Express drop-off and shipping services for international shipments.</p>
+      <a href="/pack-ship/dhl-express" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">DHL Services →</a>
+    </div>
+  </section>
+</BaseLayout>

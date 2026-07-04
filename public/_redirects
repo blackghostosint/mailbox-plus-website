@@ -71,11 +71,6 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 
 
 # -----------------------------------
-# SPA FALLBACK (React Router)
-/* /index.html 200
-
-
-# -----------------------------------
 # STATIC HTML PAGE FALLBACKS
 # -----------------------------------
 
@@ -86,5 +81,8 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Serve research/shipping-label-osint.html at the no-extension variant
 /research/shipping-label-osint /research/shipping-label-osint.html 200
 
+# Redirects
+/shipping-near-me /service-area/concord-township 301
+
 # TRUE 404 RULE
-/404 /404.html 404
+/* /404.html 404

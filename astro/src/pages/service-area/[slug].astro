@@ -1,0 +1,16 @@
+---
+import ServiceLayout from '../../layouts/ServiceLayout.astro';
+import { serviceAreas } from '../../config/serviceAreas';
+
+export async function getStaticPaths() {
+  const areas = serviceAreas.filter(a => !a.id.startsWith('faq-'));
+  return areas.map((area) => ({
+    params: { slug: area.slug },
+    props: { area },
+  }));
+}
+
+const { area } = Astro.props;
+---
+
+<ServiceLayout service={area} breadcrumbsBaseUrl="/service-area" breadcrumbsLabel="Service Area" />

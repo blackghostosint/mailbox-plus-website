@@ -1,0 +1,8 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers')!;
+---
+
+<ServiceLayout service={service} />

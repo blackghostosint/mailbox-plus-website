@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+const { contact } = siteConfig;
+const phoneDigits = contact.phone.replace(/[^0-9]/g, '');
+---
+
+<BaseLayout
+  title="Contact Us | Mailbox Plus — Concord Township, OH"
+  description="Visit or contact Mailbox Plus in Concord Township, Ohio for shipping, printing, mailbox rentals, notary, and more. Call, email, or stop by our Fredle Drive location."
+>
+  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Contact Us</h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+        We're here to help. Stop by, call, or send us a message.
+      </p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid md:grid-cols-2 gap-12">
+      <!-- Contact Info -->
+      <div>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Get in Touch</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-primary)]">Address</h3>
+            <p class="text-[var(--color-text-secondary)]">{contact.address.street}<br />{contact.address.city}, {contact.address.state} {contact.address.zip}</p>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-primary)]">Phone</h3>
+            <a href={`tel:${phoneDigits}`} class="text-[var(--color-primary)] hover:underline font-semibold text-lg">{contact.phone}</a>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-primary)]">Email</h3>
+            <a href={`mailto:${contact.email}`} class="text-[var(--color-primary)] hover:underline">{contact.email}</a>
+          </div>
+          <div>
+            <h3 class="font-semibold text-[var(--color-text-primary)]">Hours</h3>
+            <table class="text-sm text-[var(--color-text-secondary)]">
+              <tbody>
+                {Object.entries(siteConfig.hours).map(([day, hours]) => (
+                  <tr key={day} class="border-b border-[var(--color-border)] last:border-0">
+                    <td class="py-1 pr-8 font-medium capitalize">{day}</td>
+                    <td class="py-1">{hours as string}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="mt-8 rounded-2xl overflow-hidden border border-[var(--color-border)] shadow-md">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2987.5!2d-81.24164!3d41.66497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDM5JzUzLjkiTiA4McKwMTQnMzAuMCJX!5e0!3m2!1sen!2sus"
+            width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade" title="Mailbox Plus location map">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">Send a Message</h2>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+          <div>
+            <label for="name" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Name</label>
+            <input type="text" name="name" id="name" required
+              class="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Email</label>
+            <input type="email" name="email" id="email" required
+              class="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]" />
+          </div>
+          <div>
+            <label for="phone" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Phone (optional)</label>
+            <input type="tel" name="phone" id="phone"
+              class="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]" />
+          </div>
+          <div>
+            <label for="message" class="block text-sm font-medium text-[var(--color-text-primary)] mb-1">Message</label>
+            <textarea name="message" id="message" rows="5" required
+              class="w-full rounded-md border border-[var(--color-border)] bg-white px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"></textarea>
+          </div>
+          <button type="submit"
+            class="bg-[var(--color-primary)] text-white font-semibold px-8 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
