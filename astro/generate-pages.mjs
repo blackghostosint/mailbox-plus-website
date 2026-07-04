@@ -4,7 +4,7 @@
  * Reads the service config and creates minimal .astro pages.
  */
 import { services } from './src/config/services.ts';
-import { mkdirSync, writeFileSync, existsSync } from 'fs';
+import { mkdirSync, writeFileSync } from 'fs';
 import { dirname } from 'path';
 
 for (const service of services) {
