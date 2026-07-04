@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font metric overrides for CLS prevention */
+@font-face {
+  font-family: 'DM Sans Fallback';
+  src: local('system-ui');
+  size-adjust: 96%;
+  ascent-override: 90%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+}
+
+@layer base {
+  :root {
+    /* Primary Brand — deep navy */
+    --color-primary: #285a8e;
+    --color-primary-dark: #1f3f63;
+    --color-primary-deeper: #1a3554;
+    --color-primary-deep: #162c45;
+
+    /* Two-Tone Accent System */
+    --color-accent-gold: #f7c82a;
+    --color-accent-gold-light: #f7d46a;
+    --color-accent: var(--color-accent-gold);
+    --color-accent-light: var(--color-accent-gold-light);
+    --color-accent-warm: #a45c40;
+    --color-accent-warm-light: #b8734d;
+
+    /* Backgrounds — warm paper */
+    --color-bg-primary: #f2ede4;
+    --color-bg-secondary: #ebe4d8;
+    --color-bg-warm-tint: #e6e0d6;
+
+    /* Text — charcoal navy + warm slate */
+    --color-text-primary: #1f2933;
+    --color-text-secondary: #4a5568;
+    --color-text-muted: #667085;
+
+    /* Borders — gentle warm gray */
+    --color-border: #e6e0d6;
+    --color-border-strong: #d4c9b8;
+
+    /* Gradient Stops — deep navy */
+    --color-gradient-start: #285a8e;
+    --color-gradient-mid: #1f3f63;
+    --color-gradient-end: #162c45;
+
+    /* Overlay bases */
+    --color-overlay: #1f2933;
+    --color-overlay-blue: #285a8e;
+    --color-shadow: #1f2933;
+
+    /* Shadow tokens */
+    --shadow-sm: 0 10px 30px rgba(31, 41, 51, 0.04);
+    --shadow-md: 0 10px 30px rgba(31, 41, 51, 0.08);
+    --shadow-lg: 0 18px 45px rgba(31, 41, 51, 0.1);
+    --shadow-xl: 0 26px 65px rgba(31, 41, 51, 0.25);
+
+    /* Surface tint tokens */
+    --surface-subtle: rgba(255, 255, 255, 0.5);
+    --surface-medium: rgba(255, 255, 255, 0.6);
+    --surface-strong: rgba(255, 255, 255, 0.7);
+    --surface-heavy: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@layer utilities {
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-out-down {
+    from {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    to {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+
+  @keyframes cta-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(247, 200, 42, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(247, 200, 42, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(247, 200, 42, 0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.8s ease-out forwards;
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+  }
+  .animate-fade-out-down {
+    animation: fade-out-down 0.8s ease-out forwards;
+  }
+  .animate-cta-pulse {
+    animation: cta-pulse 1.5s ease-out;
+  }
+
+  .animate-shimmer {
+    background: linear-gradient(90deg, #ebe4d8 25%, #e6e0d6 50%, #ebe4d8 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s ease-in-out infinite;
+  }
+
+  .stagger-group > * {
+    opacity: 0;
+    animation: fade-in-up 0.5s ease-out forwards;
+  }
+  .stagger-group.in-view > *:nth-child(1) {
+    animation-delay: 0ms;
+  }
+  .stagger-group.in-view > *:nth-child(2) {
+    animation-delay: 100ms;
+  }
+  .stagger-group.in-view > *:nth-child(3) {
+    animation-delay: 200ms;
+  }
+  .stagger-group.in-view > *:nth-child(4) {
+    animation-delay: 300ms;
+  }
+  .stagger-group.in-view > *:nth-child(5) {
+    animation-delay: 400ms;
+  }
+  .stagger-group.in-view > *:nth-child(6) {
+    animation-delay: 500ms;
+  }
+  .stagger-group.in-view > *:nth-child(n + 7) {
+    animation-delay: 600ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-fade-in-up,
+    .animate-fade-out-down,
+    .animate-cta-pulse {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+}

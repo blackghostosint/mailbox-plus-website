@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PlusPointsAdmin } from '../../islands/PlusPointsAdmin.tsx';
+---
+
+<BaseLayout
+  title="PlusPoints Admin | Mailbox Plus"
+  description="Manage PlusPoints rewards members, points, and redemptions."
+  noindex
+>
+  <PlusPointsAdmin client:load />
+</BaseLayout>

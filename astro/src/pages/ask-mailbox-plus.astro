@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import * as faqs from '../../src/config/faqs/index.ts';
+
+// Flatten the FAQ object to get all FAQ arrays
+const flattenFaqs = (obj) => {
+  let arr = [];
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      arr = arr.concat(obj[key]);
+    } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+      arr = arr.concat(flattenFaqs(obj[key]));
+    }
+  }
+  return arr;
+};
+
+const allFaqs = flattenFaqs(faqs);
+---
+<BaseLayout 
+  title="Ask Mailbox Plus | FAQ" 
+  description="Frequently asked questions about our shipping, printing, mailbox, and other services in Concord Township."
+>
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="mb-6 text-3xl font-bold text-[var(--color-primary)] text-center">Ask Mailbox Plus</h1>
+    <p class="mb-8 text-[var(--color-text-secondary)] text-center max-w-2xl mx-auto">
+      Find answers to common questions about our shipping, printing, mailbox, and other services. If you don't see your question here, please contact us.
+    </p>
+
+    <div class="space-y-4">
+      {allFaqs.map((faq, index) => (
+        <div key={faq.id} class="border border-[var(--color-border)] rounded-lg">
+          <details class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-4">
+            <summary class="flex items-center justify-between font-semibold text-[var(--color-text-primary)] cursor-pointer">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="transition-transform duration-200">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-2 text-[var(--color-text-secondary)] space-y-2">
+              <p>{faq.answer}</p>
+              {faq.category && <p class="text-xs text-[var(--color-text-secondary)]/70 italic">Category: {faq.category}</p>}
+            </div>
+          </details>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

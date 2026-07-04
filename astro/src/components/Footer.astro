@@ -1,0 +1,106 @@
+---
+// Footer.astro — matches the production React Footer.tsx
+import { siteConfig } from '../config/siteConfig';
+const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+const quickLinks = [
+  { name: 'Pack & Ship', href: '/pack-ship' },
+  { name: 'FedEx Shipping', href: '/pack-ship/fedex-shipping' },
+  { name: 'UPS Shipping', href: '/pack-ship/ups-authorized-shipper-outlet' },
+  { name: 'Copy & Print', href: '/copy-print' },
+  { name: 'Mailbox Rental', href: '/home-business/mailbox-rental' },
+  { name: 'Notary Services', href: '/home-business/notary-services' },
+  { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
+  { name: 'Shipping Partners', href: '/shipping-partners' },
+  { name: 'DHL Express', href: '/pack-ship/dhl-express' },
+  { name: 'Specialty Services', href: '/specialty/digital-fingerprinting' },
+  { name: 'Every Door Direct Mail', href: '/home-business/every-door-direct-mail' },
+];
+---
+
+<footer class="bg-[var(--color-bg-secondary)] border-t border-[var(--color-border)]">
+  <!-- Tagline Bar -->
+  <div class="bg-[var(--color-primary)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-center">
+      <h2 class="text-2xl font-semibold text-white">{siteConfig.tagline}</h2>
+    </div>
+  </div>
+
+  <!-- Footer Content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] gap-8">
+      <!-- Company Info -->
+      <div class="space-y-4">
+        <div class="flex items-center">
+          <img src="/logo.webp" alt="Mailbox Plus Logo" width="256" height="80" class="h-20 w-auto object-contain" />
+        </div>
+        <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+          {siteConfig.name} is your trusted <strong>pack & ship, printing, and business services store</strong> serving Concord Township, Painesville, Mentor, and all of Lake County, Ohio. Locally owned, faith-guided, and committed to our community.
+        </p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="space-y-4 lg:text-center">
+        <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Contact</h3>
+        <div class="space-y-3">
+          <div class="flex items-center space-x-3 lg:justify-center">
+            <svg class="w-4 h-4 text-[var(--color-accent-warm)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <a href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" target="_blank" rel="noopener noreferrer" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">
+              {siteConfig.contact.address.street}, {siteConfig.contact.address.city}, {siteConfig.contact.address.state} {siteConfig.contact.address.zip}
+            </a>
+          </div>
+          <div class="flex items-center space-x-3 lg:justify-center">
+            <svg class="w-4 h-4 text-[var(--color-accent-warm)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href={`tel:${phoneDigits}`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">{siteConfig.contact.phone}</a>
+          </div>
+          <div class="flex items-center space-x-3 lg:justify-center">
+            <svg class="w-4 h-4 text-[var(--color-accent-warm)] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            <a href={`mailto:${siteConfig.contact.email}`} class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">{siteConfig.contact.email}</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Store Hours -->
+      <div class="space-y-4 lg:text-center">
+        <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Store Hours</h3>
+        <div class="space-y-2 text-sm text-[var(--color-text-secondary)]">
+          {Object.entries(siteConfig.hours).map(([day, hours]) => (
+            <div key={day} class="flex justify-between">
+              <span class="capitalize">{day.charAt(0).toUpperCase() + day.slice(1)}:</span>
+              <span class="text-[var(--color-text-primary)] font-medium">{hours as string}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="space-y-4 lg:text-center">
+        <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Services</h3>
+        <nav class="space-y-2" aria-label="Footer Services">
+          {quickLinks.map((link) => (
+            <a key={link.name} href={link.href} class="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">{link.name}</a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Resources -->
+      <div class="space-y-4 lg:text-center">
+        <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">Resources</h3>
+        <nav class="space-y-2" aria-label="Footer Resources">
+          <a href="/articles" class="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">Articles & Guides</a>
+          <a href="/ask-mailbox-plus" class="block text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">FAQ</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="mt-12 pt-8 border-t border-[var(--color-border)]">
+      <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+        <p class="text-sm text-[var(--color-text-secondary)]">© 2025 Mailbox Plus of Ohio, LLC. All rights reserved.</p>
+        <div class="flex items-center space-x-6">
+          <a href="/privacy" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">Privacy Policy</a>
+          <a href="/terms" class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-accent-warm)] transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
