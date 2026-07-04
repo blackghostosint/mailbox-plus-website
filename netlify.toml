@@ -1,5 +1,5 @@
 [build]
-  command = "cd astro && npm ci && npm run build"
+  command = "npm run build"
   publish = "dist"
   functions = "netlify/functions"
   # Allow deploy previews for feature branches + production on main
