@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
-import path from 'path';
+import Icons from 'unplugin-icons/vite';
 
 export default defineConfig({
   site: 'https://mailboxplusohio.com',
@@ -11,11 +11,9 @@ export default defineConfig({
   outDir: '../dist',
   publicDir: '../public',
   vite: {
-    resolve: {
-      alias: [
-        { find: /^~icons\/lucide\/.+$/, replacement: path.resolve('./src/lib/icon-stub.ts') },
-      ],
-    },
+    plugins: [
+      Icons({ compiler: 'jsx', jsx: 'react' }),
+    ],
   },
   integrations: [
     tailwind({

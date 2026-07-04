@@ -1,60 +1,49 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import * as faqs from '../../src/config/faqs/index.ts';
+
+// Flatten the FAQ object to get all FAQ arrays
+const flattenFaqs = (obj) => {
+  let arr = [];
+  for (const key in obj) {
+    if (Array.isArray(obj[key])) {
+      arr = arr.concat(obj[key]);
+    } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+      arr = arr.concat(flattenFaqs(obj[key]));
+    }
+  }
+  return arr;
+};
+
+const allFaqs = flattenFaqs(faqs);
 ---
+<BaseLayout 
+  title="Ask Mailbox Plus | FAQ" 
+  description="Frequently asked questions about our shipping, printing, mailbox, and other services in Concord Township."
+>
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="mb-6 text-3xl font-bold text-[var(--color-primary)] text-center">Ask Mailbox Plus</h1>
+    <p class="mb-8 text-[var(--color-text-secondary)] text-center max-w-2xl mx-auto">
+      Find answers to common questions about our shipping, printing, mailbox, and other services. If you don't see your question here, please contact us.
+    </p>
 
-<BaseLayout title="Ask Mailbox Plus | Your Questions Answered" description="Have a question about shipping, printing, or mailbox rentals? Ask Mailbox Plus — we have answers." noindex>
-  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Ask Mailbox Plus</h1>
-      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-        Common questions, straight answers.
-      </p>
+    <div class="space-y-4">
+      {allFaqs.map((faq, index) => (
+        <div key={faq.id} class="border border-[var(--color-border)] rounded-lg">
+          <details class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-4">
+            <summary class="flex items-center justify-between font-semibold text-[var(--color-text-primary)] cursor-pointer">
+              <span>{faq.question}</span>
+              <svg class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="transition-transform duration-200">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="mt-2 text-[var(--color-text-secondary)] space-y-2">
+              <p>{faq.answer}</p>
+              {faq.category && <p class="text-xs text-[var(--color-text-secondary)]/70 italic">Category: {faq.category}</p>}
+            </div>
+          </details>
+        </div>
+      ))}
     </div>
-  </section>
-
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-    <div class="space-y-6">
-      <p class="text-[var(--color-text-secondary)] mb-8">Have a question not listed here? <a href="/contact-us" class="text-[var(--color-primary)] hover:underline font-semibold">Contact us</a> and we'll get back to you.</p>
-
-      <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-        <summary class="px-6 py-4 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-          <span>What carriers do you ship with?</span>
-          <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </summary>
-        <div class="px-6 pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">We ship via FedEx, UPS, USPS, and DHL. You can drop off pre-labeled packages or we can help you create a shipment with any of these carriers.</div>
-      </details>
-
-      <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-        <summary class="px-6 py-4 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-          <span>Do you offer packing services?</span>
-          <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </summary>
-        <div class="px-6 pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">Yes! We professionally pack items of all shapes and sizes — from fragile electronics to odd-shaped gifts. We also sell boxes, bubble wrap, packing tape, and other supplies.</div>
-      </details>
-
-      <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-        <summary class="px-6 py-4 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-          <span>How do mailbox rentals work?</span>
-          <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </summary>
-        <div class="px-6 pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">Rent a private mailbox and get a real street address, secure package acceptance, mail forwarding, and 24/7 access. USPS-compliant with valid ID verification. Month-to-month terms available.</div>
-      </details>
-
-      <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-        <summary class="px-6 py-4 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-          <span>Can I print documents or make copies?</span>
-          <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </summary>
-        <div class="px-6 pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">Yes — we offer black & white and color printing, copying, scanning, faxing, and graphic design services. Business cards, flyers, posters, and more.</div>
-      </details>
-
-      <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-        <summary class="px-6 py-4 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-          <span>Do you offer notary services?</span>
-          <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
-        </summary>
-        <div class="px-6 pb-4 text-sm text-[var(--color-text-secondary)] leading-relaxed">Yes, we have a notary public on staff. Bring valid photo ID and unsigned documents. Walk-ins welcome.</div>
-      </details>
-    </div>
-  </section>
+  </div>
 </BaseLayout>

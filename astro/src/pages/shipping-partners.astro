@@ -1,40 +1,128 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
-
-<BaseLayout
-  title="Shipping Partners | Mailbox Plus — FedEx, UPS, USPS & DHL"
-  description="Mailbox Plus is your local shipping hub for FedEx, UPS, USPS, and DHL in Concord Township, Ohio. Drop off, pack, and ship with all major carriers."
+<BaseLayout 
+  title="Shipping Partners | Mailbox Plus" 
+  description="Authorized shipping services for FedEx, UPS, USPS, and DHL in Concord Township. Compare rates and services at one convenient location."
 >
-  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Shipping Partners</h1>
-      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-        We work with all major carriers so you don't have to visit multiple locations.
-      </p>
-    </div>
-  </section>
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="mb-8 text-3xl font-bold text-[var(--color-primary)] text-center">Shipping Partners</h1>
+    <p class="mb-10 text-[var(--color-text-secondary)] text-center max-w-3xl mx-auto">
+      As an authorized shipping center, we offer services provider for all major carriers, you get the same trusted services with local convenience. Compare rates and services for FedEx, UPS, USPS, and DHL all at one counter.
+    </p>
 
-  <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-8">
-    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
-      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">FedEx</h2>
-      <p class="text-sm text-[var(--color-text-secondary)] mb-3">Authorized FedEx drop-off location. Ship FedEx Express, Ground, and Home Delivery. We also offer FedEx printing services and packing supplies.</p>
-      <a href="/pack-ship/fedex-shipping" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">FedEx Services →</a>
+    <div class="space-y-12">
+      {/* FedEx */}
+      <section class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-[var(--color-primary)] flex items-center">
+          <svg class="w-6 h-6 mr-3 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"></path></svg>
+          FedEx Shipping
+        </h2>
+        <p class="mb-4 text-[var(--color-text-secondary)]">
+          As an Authorized FedEx ShipCenter, we offer the same FedEx services you'd get at a corporate location but with personal, local service.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">FedEx Express, Ground, and International</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Packing, labeling, and tracking assistance</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Customs documentation for international shipments</span>
+          </div>
+        </div>
+        <a href="/pack-ship/fedex-shipping" class="mt-6 inline-block text-[var(--color-primary)] font-medium hover:text-[var(--color-accent-gold)] transition-colors">
+          Learn More About FedEx Shipping →
+        </a>
+      </section>
+
+      {/* UPS */}
+      <section class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-[var(--color-accent-gold)] flex items-center">
+          <svg class="w-6 h-6 mr-3 text-[var(--color-accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path></svg>
+          UPS Shipping
+        </h2>
+        <p class="mb-4 text-[var(--color-text-secondary)]">
+          As an Authorized UPS Shipping Outlet, we provide the same UPS Ground, Next Day Air, and International services without the franchise experience.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-gold)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Ground, Air & International Services</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-gold)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Free drop-offs for pre-labeled UPS packages</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-gold)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Rate comparison with FedEx, USPS, and DHL</span>
+          </div>
+        </div>
+        <a href="/pack-ship/ups-authorized-shipper-outlet" class="mt-6 inline-block text-[var(--color-accent-gold)] font-medium hover:text-[var(--color-primary)] transition-colors">
+          Learn More About UPS Shipping →
+        </a>
+      </section>
+
+      {/* USPS */}
+      <section class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-[var(--color-accent-warm)] flex items-center">
+          <svg class="w-6 h-6 mr-3 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path></svg>
+          USPS Postal Services
+        </h2>
+        <p class="mb-4 text-[var(--color-text-secondary)]">
+          We provide USPS Priority Mail, First-Class, Certified Mail, and stamps without the post office wait. Compare USPS rates with other carriers at our counter.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-warm)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Priority Mail, First-Class, Certified Mail</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-warm)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Forever Stamps, books, and international postage</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-accent-warm)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Multi-carrier rate comparison (USPS, UPS, FedEx, DHL)</span>
+          </div>
+        </div>
+        <a href="/pack-ship/usps-services" class="mt-6 inline-block text-[var(--color-accent-warm)] font-medium hover:text-[var(--color-primary)] transition-colors">
+          Learn More About USPS Services →
+        </a>
+      </section>
+
+      {/* DHL */}
+      <section class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-8">
+        <h2 class="mb-6 text-2xl font-semibold text-[var(--color-primary)] flex items-center">
+          <svg class="w-6 h-6 mr-3 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5z"></path></svg>
+          DHL Express
+        </h2>
+        <p class="mb-4 text-[var(--color-text-secondary)]">
+          As a DHL Express Service Point, we offer international shipping to 220+ countries with customs forms, packing, and tracking assistance.
+        </p>
+        <div class="space-y-3">
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">International Shipping to 220+ Countries</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Customs documentation assistance</span>
+          </div>
+          <div class="flex items-start space-x-3">
+            <div class="flex-shrink-0 h-3 w-3 bg-[var(--color-primary)] rounded-full mt-0.5"></div>
+            <span class="text-[var(--color-text-secondary)]">Rate comparison with FedEx, UPS, and USPS</span>
+          </div>
+        </div>
+        <a href="/pack-ship/dhl-express" class="mt-6 inline-block text-[var(--color-primary)] font-medium hover:text-[var(--color-accent-gold)] transition-colors">
+          Learn More About DHL Express →
+        </a>
+      </section>
     </div>
-    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
-      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">UPS</h2>
-      <p class="text-sm text-[var(--color-text-secondary)] mb-3">Authorized UPS shipper outlet. Drop off pre-labeled packages, create new shipments, and access UPS Ground and Air services.</p>
-      <a href="/pack-ship/ups-authorized-shipper-outlet" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">UPS Services →</a>
-    </div>
-    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
-      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">USPS</h2>
-      <p class="text-sm text-[var(--color-text-secondary)] mb-3">USPS package drop-off, stamps, certified mail, and Priority Mail services. No post office line required.</p>
-      <a href="/pack-ship/usps-services" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">USPS Services →</a>
-    </div>
-    <div class="p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm">
-      <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">DHL</h2>
-      <p class="text-sm text-[var(--color-text-secondary)] mb-3">DHL Express drop-off and shipping services for international shipments.</p>
-      <a href="/pack-ship/dhl-express" class="text-sm text-[var(--color-accent-warm)] hover:underline font-semibold">DHL Services →</a>
-    </div>
-  </section>
+  </div>
 </BaseLayout>

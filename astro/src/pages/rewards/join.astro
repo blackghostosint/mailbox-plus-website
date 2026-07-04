@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PlusPoints } from '../../islands/PlusPointsForm.tsx';
+---
+
+<BaseLayout
+  title="Join Plus Points Rewards | Mailbox Plus"
+  description="Every package you ship pays you back. Join the Mailbox Plus Rewards program and earn points on shipping, printing, and mailbox rentals."
+>
+  <PlusPoints client:load />
+</BaseLayout>

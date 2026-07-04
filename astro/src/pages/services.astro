@@ -1,51 +1,268 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { services } from '../config/services';
+import { services } from '../../src/config/services';
+import { getWebPageSchema } from '../../src/utils/schema';
+import { siteConfig } from '../../src/config/siteConfig';
+import { pageMeta } from '../../src/config/pageMeta';
 
-// Group by category
-const groups: Record<string, { id: string; name: string; services: typeof services }> = {};
-for (const s of services) {
-  if (s.category === 'micro-problem') continue;
-  if (!groups[s.category]) groups[s.category] = { id: s.category, name: s.category, services: [] };
-  groups[s.category].services.push(s);
-}
-const categoryNames: Record<string, string> = {
-  'core': 'Core Services', 'pack-ship': 'Pack & Ship', 'copy-print': 'Copy & Print',
-  'mailbox-rentals': 'Mailbox Rentals', 'document-services': 'Document Services',
-  'additional-services': 'Additional Services', 'notary-services': 'Notary Services',
-  'specialty': 'Specialty Services',
+// Utility to generate safe IDs
+const makeId = (str: string) => str.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+
+// Map display category → actual service.category value (from services.ts)
+const categoryMap: Record<string, string> = {
+  'Pack & Ship Services': 'pack-ship',
+  'Professional Printing': 'copy-print',
+  'Mailbox Rentals': 'mailbox-rentals',
+  'Document Services': 'document-services',
+  'Additional Services': 'additional-services',
 };
----
 
+// Services to hide from the cards grid (pages still exist for SEO / direct links)
+const hiddenFromGrid = new Set([
+  // "Alternative" landing pages — near-duplicate content
+  'ups-drop-off-alternative-concord-township',
+  'ups-store-alternative-concord-township',
+  'mail-boxes-etc-alternative-concord-township',
+  'fedex-office-alternative-concord-township',
+  'post-office-alternative-concord-township',
+  'staples-printing-alternative-concord-township',
+  'office-depot-alternative-concord-township',
+  // Summary / meta pages that just list other services
+  'shipping-center-concord-township',
+  'ups-fedex-usps-dhl-shipping-concord-township',
+  'usps-drop-off-alternative-concord-township',
+  'usps-package-help-concord-township',
+  'business-services-concord-township',
+  'document-services-concord-township',
+  // Every Door Direct Mail (keep accessible but hide from main grid for cleaner UI)
+  'every-door-direct-mail',
+  // Additional pack & ship services (keep accessible but hide from main grid for cleaner UI)
+  'postage-stamps',
+  'usps-services',
+  'pack-and-ship-services-concord-township',
+  'custom-box-making',
+  // Specialty shipping services (keep accessible but hide from main grid for cleaner UI)
+  'artwork-shipping',
+  'bicycle-shipping',
+  'golf-club-shipping',
+  'packaging-supplies',
+  // Printing and design services (keep accessible but hide from main grid for cleaner UI)
+  'graphic-design',
+  'business-cards',
+  'flyers-brochures',
+  'posters-printing',
+  'postcard-printing',
+  'printing-services-concord-township',
+  // Mailbox sub-pages collapsed into main two cards
+  'private-mailbox-rental-concord-township',
+  'virtual-mailbox-concord-township',
+  'mail-forwarding-concord-township',
+  // Amazon returns — keep the guide, drop the duplicate landing page
+  'amazon-returns-drop-off-concord-township',
+  // Amazon return guide (keep accessible but hide from main grid for cleaner UI)
+  'amazon-returns',
+]);
+---
 <BaseLayout
-  title="Our Services | Mailbox Plus — Concord Township, OH"
-  description="Explore our comprehensive business services: shipping, printing, mailbox rentals, notary, shredding, and more. Your local solution in Concord Township, Ohio."
+  title={pageMeta['/services'].title}
+  description={pageMeta['/services'].description}
+  canonical="/services"
 >
-  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Services</h1>
-      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
-        Everything you need, all in one place.
+  {/* Hero Section */}
+  <section className="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+    <div className="relative z-10 max-w-4xl mx-auto px-6">
+      <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 animate-fade-in-up">
+        Explore Our <span className="text-white">Services</span>
+      </h1>
+      <p className="text-lg text-white leading-relaxed max-w-2xl mx-auto animate-fade-in-up [animation-delay:100ms] opacity-0">
+        Shipping, printing, mailbox rentals, and business services — all in one convenient location in Concord Township.
       </p>
     </div>
+    <div className="absolute bottom-0 left-0 right-0 h-16" style={{ backgroundImage: 'linear-gradient(to bottom, transparent, var(--color-bg-primary))' }}></div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
-    {Object.entries(groups).map(([cat, group]) => (
-      <div key={cat}>
-        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">{categoryNames[cat] || cat}</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {group.services.map((s) => (
-            <a
-              href={s.slug}
-              class="block p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-accent-warm)] shadow-sm transition-all"
+  {/* Category Navigation */}
+  <section id="categories" className="py-12 bg-[var(--color-bg-primary)] relative z-10 -mt-8">
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="bg-[var(--color-bg-secondary)]/70 backdrop-blur-xl rounded-lg shadow-md border border-[var(--color-border)] p-8">
+        <h2 className="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">Explore Our Services</h2>
+        <div className="flex flex-wrap justify-center gap-3">
+          {[ 
+            'Pack & Ship Services', 
+            'Professional Printing', 
+            'Mailbox Rentals', 
+            'Document Services', 
+            'Additional Services' 
+          ].map((category) => (
+            <a 
+              key={category} 
+              href={`#${makeId(category)}`} 
+              className="px-6 py-3 bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-warm-tint)] rounded-full border border-[var(--color-border)] hover:border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:text-[var(--color-accent-warm)] transition-all shadow-sm flex items-center justify-center font-medium"
             >
-              <h3 class="font-semibold text-[var(--color-text-primary)]">{s.serviceName}</h3>
-              <p class="text-sm text-[var(--color-text-secondary)] mt-1">{s.metaDescription?.slice(0, 120)}</p>
+              {category}
             </a>
           ))}
         </div>
+        <div className="mt-8 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+          <p>
+            Looking for{' '}
+            <a href="/pack-and-ship-services-concord-township" className="text-[var(--color-accent-warm)] hover:underline">
+              pack and ship services in Concord Township
+            </a>
+            ? Whether you need{' '}
+            <a href="/shipping" className="text-[var(--color-accent-warm)] hover:underline">
+              UPS, FedEx, DHL, or USPS shipping
+            </a>
+            ,{' '}
+            <a href="/printing" className="text-[var(--color-accent-warm)] hover:underline">
+              professional printing
+            </a>
+            , or a{' '}
+            <a href="/mailbox-rental" className="text-[var(--color-accent-warm)] hover:underline">
+              secure private mailbox
+            </a>
+            , browse our full list of offerings below.
+          </p>
+        </div>
       </div>
-    ))}
+    </div>
   </section>
+
+  {/* Service Sections */}
+  {[
+    'Pack & Ship Services',
+    'Professional Printing',
+    'Mailbox Rentals',
+    'Document Services',
+    'Additional Services',
+  ]
+    .filter((category) => 
+      services.some((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
+    )
+    .map((category) => (
+      <section 
+        key={category} 
+        id={makeId(category)} 
+        className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
+      >
+        <div className="animate-fade-in-up">
+          <h2 className="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
+            <span className="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent-gold)] rounded-full mr-4"></span>
+            {category}
+          </h2>
+
+          {/* See also - cross-category links */}
+          <p className="text-sm text-[var(--color-text-secondary)] mb-6">
+            {category === 'Pack & Ship Services' && (
+              <>
+                Also explore our{' '}
+                <a href="/copy-print" className="text-[var(--color-accent-warm)] hover:underline">
+                  professional printing
+                </a>{' '}
+                and{' '}
+                <a href="/home-business" className="text-[var(--color-accent-warm)] hover:underline">
+                  business services
+                </a>.
+              </>
+            )}
+            {category === 'Professional Printing' && (
+              <>
+                Need shipping too? See our{' '}
+                <a href="/pack-ship" className="text-[var(--color-accent-warm)] hover:underline">
+                  pack and ship services
+                </a>{' '}
+                or{' '}
+                <a href="/home-business" className="text-[var(--color-accent-warm)] hover:underline">
+                  business support
+                </a>.
+              </>
+            )}
+            {category === 'Mailbox Rentals' && (
+              <>
+                Combine your mailbox with{' '}
+                <a href="/pack-ship/package-receiving" className="text-[var(--color-accent-warm)] hover:underline">
+                  package receiving
+                </a>{' '}
+                or{' '}
+                <a href="/home-business/notary-services" className="text-[var(--color-accent-warm)] hover:underline">
+                  notary services
+                </a>.
+              </>
+            )}
+            {category === 'Document Services' && (
+              <>
+                Pair with{' '}
+                <a href="/copy-print" className="text-[var(--color-accent-warm)] hover:underline">
+                  copy and print
+                </a>{' '}
+                or{' '}
+                <a href="/home-business/shredding" className="text-[var(--color-accent-warm)] hover:underline">
+                  secure shredding
+                </a>.
+              </>
+            )}
+            {category === 'Additional Services' && (
+              <>
+                Also see our{' '}
+                <a href="/home-business/notary-services" className="text-[var(--color-accent-warm)] hover:underline">
+                  notary services
+                </a>{' '}
+                and{' '}
+                <a href="/pack-ship" className="text-[var(--color-accent-warm)] hover:underline">
+                  pack and ship
+                </a>
+                options.
+              </>
+            )}
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services
+              .filter((s) => s.category === categoryMap[category] && !hiddenFromGrid.has(s.id))
+              .map((service, i) => (
+                <div 
+                  key={service.id} 
+                  className="p-6 bg-[var(--color-bg-secondary)]/80 backdrop-blur-md border border-[var(--color-border)] rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-250 flex flex-col group"
+                  style={{ animationDelay: `${i * 80}ms` }}
+                >
+                  {/* Thumbnail with fade overlay + subtle zoom */}
+                  {service.heroImage ? (
+                    <div className="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all">
+                      <img 
+                        src={service.heroImage} 
+                        alt={service.serviceName} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+                    </div>
+                  ) : service.icon ? (
+                    <div className="w-full aspect-[3/2] flex items-center justify-center mb-6 bg-[var(--color-bg-warm-tint)] rounded-2xl group relative overflow-hidden border border-[var(--color-border)]">
+                      {/* We'll use a placeholder icon for now; in a real app we'd use the actual icon component */}
+                      <svg xmlns="http://www.w3.org/2000/svg" className="w-12 h-12 text-[var(--color-accent-warm)] transform transition-transform duration-500 group-hover:scale-110" fill="none" stroke="currentColor" strokeWidth="2">
+                        {/* This is a generic placeholder - in reality we'd map service.icon to actual icon components */}
+                        <circle cx="12" cy="12" r="10" strokeWidth="2"/>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="w-full aspect-[3/2] mb-6 bg-[var(--color-bg-warm-tint)] rounded-2xl flex items-center justify-center text-[var(--color-text-muted)] text-lg font-bold">
+                      ?
+                    </div>
+                  )}
+
+                  <h3 className="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-warm)] transition-colors">
+                    {service.serviceName}
+                  </h3>
+                  <p className="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">
+                    {service.metaDescription}
+                  </p>
+                  <a href={service.slug} className="mt-auto inline-flex items-center text-[var(--color-accent-warm)] font-semibold hover:text-[var(--color-accent-warm-light)]">
+                    Learn More →
+                  </a>
+                </div>
+              ))}
+          </div>
+        </div>
+      </section>
+    ))}
 </BaseLayout>
