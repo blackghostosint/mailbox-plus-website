@@ -50,12 +50,16 @@ const schemas = [
   },
 ];
 
-// Carriers
+// Carriers — using R2 image URLs
+const getImageUrl = (path: string) => {
+  const base = import.meta.env.VITE_R2_PUBLIC_BASE_URL || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+  return `${base}/${path.replace(/^\/?(images\/)?/, '')}`;
+};
 const carriers = [
-  { name: 'FedEx', logo: '/logo.webp', url: 'https://www.fedex.com/' },
-  { name: 'UPS', logo: '/logo.webp', url: 'https://www.ups.com/' },
-  { name: 'USPS', logo: '/logo.webp', url: 'https://www.usps.com/' },
-  { name: 'DHL', logo: '/logo.webp', url: 'https://www.dhl.com/' },
+  { name: 'FedEx', src: getImageUrl('fedex-logo.webp'), url: 'https://www.fedex.com/' },
+  { name: 'UPS', src: getImageUrl('ups-logo.webp'), url: 'https://www.ups.com/' },
+  { name: 'USPS', src: getImageUrl('usps-logo.webp'), url: 'https://www.usps.com/' },
+  { name: 'DHL', src: getImageUrl('dhl-logo.webp'), url: 'https://www.dhl.com/' },
 ];
 ---
 
@@ -256,7 +260,7 @@ const carriers = [
     <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4">
       {carriers.map((carrier) => (
         <a key={carrier.name} href={carrier.url} target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-105">
-          <span class="text-lg font-semibold text-[var(--color-text-muted)]">{carrier.name}</span>
+          <img src={carrier.src} alt={carrier.name} class="h-12 sm:h-16 w-auto object-contain drop-shadow-md" width="200" height="64" loading="lazy" />
         </a>
       ))}
     </div>
