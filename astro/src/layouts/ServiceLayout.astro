@@ -1,0 +1,264 @@
+---
+// ServiceLayout.astro — renders a full service page from a Service config object
+// This replaces the React ServicePageV2.tsx, rendering everything at build time.
+// The only JS needed on the page is zero — FAQ uses native <details>/<summary>.
+
+import BaseLayout from './BaseLayout.astro';
+import type { Service, CTA } from '../types/services';
+import { siteConfig } from '../config/siteConfig';
+import { getServiceBreadcrumbs } from '../utils/services-helpers';
+import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+
+export interface Props {
+  service: Service;
+  breadcrumbsBaseUrl?: string;
+  breadcrumbsLabel?: string;
+}
+
+// Core service → competitor alternative page mapping
+const competitorAlternatives: Record<string, { title: string; url: string }> = {
+  'fedex-shipping': { title: 'FedEx Office Alternative', url: '/fedex-office-alternative-concord-township' },
+  'ups-authorized-shipper-outlet': { title: 'UPS Store Alternative', url: '/ups-store-alternative-concord-township' },
+  'usps-services': { title: 'Post Office Alternative', url: '/post-office-alternative-concord-township' },
+  'printing-services-concord-township': { title: 'Staples Printing Alternative', url: '/staples-printing-alternative-concord-township' },
+};
+
+const { service, breadcrumbsBaseUrl, breadcrumbsLabel } = Astro.props;
+const canonicalUrl = service.canonicalUrl || `${siteConfig.domain}${service.slug}`;
+const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
+const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
+
+// Get related services
+const { getRelatedServices } = await import('../utils/internal-links');
+const relatedServices = (getRelatedServices(service.id as any) || []).filter(Boolean) as Array<{ id: string; title: string; url: string }>;
+
+const alt = service.id ? competitorAlternatives[service.id] : null;
+
+// Schema
+const schemas = [
+  getWebPageSchema(siteConfig, { name: service.pageTitle, description: service.metaDescription, url: canonicalUrl }),
+  getServiceSchema(siteConfig, { ...service, url: canonicalUrl }),
+  ...(faqSchema ? [faqSchema] : []),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: breadcrumbs.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: { '@type': 'Thing', '@id': item.url, name: item.name },
+    })),
+  },
+];
+
+// Carriers
+const carriers = [
+  { name: 'FedEx', logo: '/logo.webp', url: 'https://www.fedex.com/' },
+  { name: 'UPS', logo: '/logo.webp', url: 'https://www.ups.com/' },
+  { name: 'USPS', logo: '/logo.webp', url: 'https://www.usps.com/' },
+  { name: 'DHL', logo: '/logo.webp', url: 'https://www.dhl.com/' },
+];
+---
+
+<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.slug} noindex={service.robots === 'noindex, nofollow'}>
+  <!-- JSON-LD Schemas -->
+  {schemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+
+  <!-- Breadcrumbs -->
+  <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto" itemScope itemType="https://schema.org/BreadcrumbList">
+      {breadcrumbs.map((item, index) => (
+        <li class="flex items-center" itemProp="itemListElement" itemScope itemType="https://schema.org/ListItem">
+          {index > 0 && (
+            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          )}
+          {index < breadcrumbs.length - 1 ? (
+            <a href={item.url} itemProp="item" class="hover:text-[var(--color-primary)] transition-colors">
+              <span itemProp="name">{item.name}</span>
+            </a>
+          ) : (
+            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page" itemProp="item">
+              <span itemProp="name">{item.name}</span>
+            </span>
+          )}
+          <meta itemProp="position" content={String(index + 1)} />
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      {service.aggregateRating && (
+        <div class="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 px-4 py-1.5 mb-4 shadow-sm">
+          <div class="flex gap-0.5">
+            {[...Array(5)].map((_, i) => (
+              <svg key={i} class={`w-4 h-4 ${i < Math.floor(service.aggregateRating!.ratingValue) ? 'fill-yellow-400 text-yellow-400' : 'text-white/80'}`} viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+            ))}
+          </div>
+          <span class="text-xs md:text-sm text-white/90 font-medium">
+            {service.aggregateRating.ratingValue} rating · {service.aggregateRating.reviewCount}+ reviews
+          </span>
+        </div>
+      )}
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-6">
+        {service.heroTitle}
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto">
+        {service.heroSubtitle}
+      </p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" />
+  </section>
+
+  <!-- Main Content -->
+  <main class="relative z-20 -mt-20 pb-20 lg:pb-28">
+    <div class="container mx-auto px-4 space-y-20">
+      <!-- Children / Custom Content -->
+      <slot name="intro" />
+
+      <!-- Features -->
+      {service.features && service.features.length > 0 && (
+        <section class="max-w-5xl mx-auto">
+          <div class="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
+            <div class="flex flex-col gap-2 mb-8">
+              <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)]">
+                {service.featuresTitle || 'Why customers choose this service'}
+              </h2>
+              <p class="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl leading-relaxed">
+                {service.featuresSubtitle || 'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
+              </p>
+            </div>
+            <div class="grid gap-6 md:grid-cols-3">
+              {service.features.map((feature, idx) => (
+                <div key={idx} class="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-primary)] shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200">
+                  <div class="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div class="relative p-6 flex flex-col gap-3">
+                    <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{feature.title}</h3>
+                    <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Content Sections -->
+      {service.content && service.content.map((block, idx) => (
+        <section key={idx} class="max-w-5xl mx-auto">
+          <div class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}>
+            <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">{block.heading}</h2>
+            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={block.body} />
+          </div>
+        </section>
+      ))}
+
+      <!-- FAQ — native <details>/<summary> for zero JS -->
+      {service.faqs && service.faqs.length > 0 && (
+        <section class="py-12 rounded-2xl bg-gradient-to-b from-[var(--color-bg-secondary)]/80 via-[var(--color-border)]/70 to-[var(--color-bg-secondary)]/80">
+          <div class="max-w-4xl mx-auto">
+            <div class="relative rounded-xl bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md px-4 md:px-8 py-8 md:py-10">
+              <div class="text-center mb-6 md:mb-8">
+                <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)]">
+                  Frequently Asked Questions
+                </h2>
+                <p class="mt-2 text-sm md:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto">
+                  Get quick answers to the most common questions about packaging, carriers, pricing, and what to expect.
+                </p>
+              </div>
+              <div class="space-y-3">
+                {service.faqs.map((faq, i) => (
+                  <details key={i} class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
+                    <summary class="px-4 py-3 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
+                      <span>{faq.question}</span>
+                      <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </summary>
+                    <div class="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
+                      {faq.answer}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- Related Services -->
+      {relatedServices.length > 0 && (
+        <section class="max-w-5xl mx-auto">
+          <div class="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
+            <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">Related Services You Might Need</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+              {relatedServices.map((rel, idx) => (
+                <a
+                  key={idx}
+                  href={rel.url}
+                  class="block p-4 rounded-xl bg-[var(--color-bg-primary)] border border-[var(--color-border)] hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/10 transition-all text-[var(--color-text-primary)] font-semibold text-sm"
+                >
+                  {rel.title} →
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- CTA -->
+      {service.cta && (
+        <section class="max-w-4xl mx-auto">
+          <div class="relative rounded-xl overflow-hidden shadow-xl">
+            <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]" />
+            <div class="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
+            <div class="relative px-8 py-9 md:px-10 md:py-11 text-white text-center">
+              <h2 class="text-2xl md:text-3xl font-bold mb-2">{service.cta.title}</h2>
+              {service.cta.subtitle && <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">{service.cta.subtitle}</p>}
+              {service.cta.buttonLink.startsWith('http') ? (
+                <a href={service.cta.buttonLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                  {service.cta.buttonText} →
+                </a>
+              ) : (
+                <a href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                  {service.cta.buttonText} →
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+
+  <!-- Competitor Alternatives -->
+  {alt && (
+    <section class="max-w-4xl mx-auto px-4 mt-8 mb-8">
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm text-center">
+        <h2 class="text-lg font-bold mb-2 text-[var(--color-text-primary)]">Not What You're Looking For?</h2>
+        <p class="text-sm text-[var(--color-text-secondary)]">
+          See how we compare to{' '}
+          <a href={alt.url} class="text-[var(--color-accent-warm)] hover:underline font-semibold">{alt.title}</a>.
+        </p>
+      </div>
+    </section>
+  )}
+
+  <!-- Carrier Logos -->
+  {!service.hideCarrierLogos && (
+    <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4">
+      {carriers.map((carrier) => (
+        <a key={carrier.name} href={carrier.url} target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-105">
+          <span class="text-lg font-semibold text-[var(--color-text-muted)]">{carrier.name}</span>
+        </a>
+      ))}
+    </div>
+  )}
+</BaseLayout>
