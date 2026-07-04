@@ -1,0 +1,74 @@
+---
+// Footer.astro
+const currentYear = new Date().getFullYear();
+const footerSections = [
+  {
+    title: 'Services',
+    links: [
+      { href: '/pack-ship', label: 'Pack & Ship' },
+      { href: '/copy-print', label: 'Copy & Print' },
+      { href: '/home-business/mailbox-rental', label: 'Mailbox Rentals' },
+      { href: '/home-business/notary-services', label: 'Notary Services' },
+      { href: '/specialty/digital-fingerprinting', label: 'Digital Fingerprinting' },
+    ],
+  },
+  {
+    title: 'Company',
+    links: [
+      { href: '/about-us', label: 'About Us' },
+      { href: '/contact-us', label: 'Contact Us' },
+      { href: '/services', label: 'All Services' },
+      { href: '/service-area', label: 'Service Area' },
+      { href: '/articles', label: 'Articles' },
+    ],
+  },
+  {
+    title: 'Support',
+    links: [
+      { href: '/tracking', label: 'Track a Package' },
+      { href: '/pickup-hours', label: 'Pickup Hours' },
+      { href: '/shipping-partners', label: 'Shipping Partners' },
+      { href: '/privacy', label: 'Privacy Policy' },
+      { href: '/terms', label: 'Terms of Service' },
+    ],
+  },
+];
+---
+
+<footer class="bg-[var(--color-primary-deep)] text-white" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div>
+        <img src="/logo.webp" alt="Mailbox Plus" class="h-10 w-auto brightness-0 invert mb-4" width="160" height="40" />
+        <p class="text-sm text-gray-300 leading-relaxed">
+          Concord Township's trusted source for shipping, printing, mailbox rentals, and business services since 1994.
+        </p>
+      </div>
+
+      <!-- Link Sections -->
+      {footerSections.map((section) => (
+        <div>
+          <h3 class="font-semibold text-sm uppercase tracking-wider mb-4">{section.title}</h3>
+          <ul class="space-y-2">
+            {section.links.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-gray-300 hover:text-white transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-sm text-gray-400">
+      <p>&copy; {currentYear} Mailbox Plus. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
