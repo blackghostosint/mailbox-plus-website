@@ -1,45 +1,107 @@
 ---
-// Header.astro — navigation bar
-const navLinks = [
-  { href: '/pack-ship', label: 'Pack & Ship' },
-  { href: '/copy-print', label: 'Copy & Print' },
-  { href: '/home-business/mailbox-rental', label: 'Mailbox Rentals' },
-  { href: '/services', label: 'All Services' },
-  { href: '/about-us', label: 'About' },
-  { href: '/contact-us', label: 'Contact' },
+// Header.astro — matches the production React Header.tsx
+import { siteConfig } from '../config/siteConfig';
+const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+const navigation = [
+  { name: 'Home', href: '/' },
+  { name: 'Services', href: '/services' },
+  { name: 'Track Your Package', href: '/tracking' },
+  { name: 'Pickup Hours', href: '/pickup-hours' },
+  { name: 'Contact', href: '/contact-us' },
+  { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
 ];
-const phoneNumber = '(440) 352-3302';
 ---
 
-<header class="bg-[var(--color-bg-primary)] border-b border-[var(--color-border)] sticky top-0 z-40">
-  <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
-    <div class="flex items-center justify-between h-16 lg:h-20">
-      <!-- Logo -->
-      <a href="/" class="flex items-center gap-2 shrink-0" aria-label="Mailbox Plus — Home">
-        <img src="/logo.webp" alt="Mailbox Plus" class="h-10 w-auto" width="160" height="40" />
-      </a>
-
-      <!-- Desktop Nav -->
-      <div class="hidden lg:flex items-center gap-6">
-        {navLinks.map((link) => (
-          <a
-            href={link.href}
-            class="text-sm font-medium text-[var(--color-text-secondary)] hover:text-[var(--color-primary)] transition-colors"
-          >
-            {link.label}
-          </a>
-        ))}
-      </div>
-
-      <!-- Phone + Mobile Toggle -->
-      <div class="flex items-center gap-4">
-        <a
-          href={`tel:${phoneNumber.replace(/[^0-9]/g, '')}`}
-          class="text-sm font-semibold text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] whitespace-nowrap"
-        >
-          {phoneNumber}
-        </a>
+<header class="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">
+  <!-- Top Bar -->
+  <div class="border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-10 text-sm">
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2 text-white/70">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href={`tel:${phoneDigits}`} class="hover:text-[var(--color-accent-gold)] transition-colors">{siteConfig.contact.phone}</a>
+          </div>
+          <div class="hidden sm:flex items-center space-x-2 text-white/70">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <a href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-accent-gold)] transition-colors">Concord Township, OH</a>
+          </div>
+        </div>
+        <div class="text-white/60">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
       </div>
     </div>
-  </nav>
+  </div>
+
+  <!-- Main Header -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-20">
+      <!-- Logo -->
+      <a href="/" class="flex items-center space-x-2">
+        <img src="/logo.webp" alt="Mailbox Plus Concord Township Ohio Logo" width="256" height="80" class="h-12 w-auto object-contain brightness-0 invert" />
+        <span class="sr-only">Mailbox Plus - Concord Township, OH</span>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 flex-1 justify-center">
+        {navigation.map((item) =>
+          item.external ? (
+            <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-[15px] font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
+          ) : (
+            <a href={item.href} class="text-[15px] font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
+          )
+        )}
+      </nav>
+
+      <!-- Mobile Menu Toggle (client:load island) -->
+      <div class="md:hidden">
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-white/80 hover:text-[var(--color-accent-gold)] hover:bg-white/10" aria-label="Open menu" aria-expanded="false">
+          <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden bg-[var(--color-primary-deeper)] border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0; opacity: 0;">
+    <nav class="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
+      {navigation.map((item) =>
+        item.external ? (
+          <a href={item.href} target="_blank" rel="noopener noreferrer" class="block text-base font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
+        ) : (
+          <a href={item.href} class="block text-base font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors" data-mobile-link>{item.name}</a>
+        )
+      )}
+    </nav>
+  </div>
 </header>
+
+<script>
+  // Mobile menu toggle — inline vanilla JS, no React needed
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('menu-icon-open');
+  const iconClose = document.getElementById('menu-icon-close');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      const isOpen = menu.style.maxHeight !== '0px' && menu.style.maxHeight !== '';
+      menu.style.maxHeight = isOpen ? '0' : '500px';
+      menu.style.opacity = isOpen ? '0' : '1';
+      btn.setAttribute('aria-expanded', !isOpen);
+      btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+      iconOpen?.classList.toggle('hidden');
+      iconClose?.classList.toggle('hidden');
+    });
+    // Close on link click
+    document.querySelectorAll('[data-mobile-link]').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.style.maxHeight = '0';
+        menu.style.opacity = '0';
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Open menu');
+        iconOpen?.classList.remove('hidden');
+        iconClose?.classList.add('hidden');
+      });
+    });
+  }
+</script>
