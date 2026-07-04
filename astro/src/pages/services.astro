@@ -1,45 +1,155 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
 import { services } from '../config/services';
 
-const groups: Record<string, { id: string; name: string; services: typeof services }> = {};
-for (const s of services) {
-  if (s.category === 'micro-problem') continue;
-  if (!groups[s.category]) groups[s.category] = { id: s.category, name: s.category, services: [] };
-  groups[s.category].services.push(s);
-}
-const categoryNames: Record<string, string> = {
-  'core': 'Core Services', 'pack-ship': 'Pack & Ship', 'copy-print': 'Copy & Print',
-  'mailbox-rentals': 'Mailbox Rentals', 'document-services': 'Document Services',
-  'additional-services': 'Additional Services', 'notary-services': 'Notary Services',
-  'specialty': 'Specialty Services',
+const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+
+const makeId = (s: string) => s.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+
+const categoryMap: Record<string, string> = {
+  'Pack & Ship Services': 'pack-ship',
+  'Professional Printing': 'copy-print',
+  'Mailbox Rentals': 'mailbox-rentals',
+  'Document Services': 'document-services',
+  'Additional Services': 'additional-services',
 };
+
+const hiddenFromGrid = new Set([
+  'ups-drop-off-alternative-concord-township','ups-store-alternative-concord-township',
+  'mail-boxes-etc-alternative-concord-township','fedex-office-alternative-concord-township',
+  'post-office-alternative-concord-township','staples-printing-alternative-concord-township',
+  'office-depot-alternative-concord-township','shipping-center-concord-township',
+  'ups-fedex-usps-dhl-shipping-concord-township','usps-drop-off-alternative-concord-township',
+  'usps-package-help-concord-township','business-services-concord-township',
+  'document-services-concord-township','every-door-direct-mail',
+  'postage-stamps','usps-services','pack-and-ship-services-concord-township',
+  'custom-box-making','artwork-shipping','bicycle-shipping','golf-club-shipping',
+  'packaging-supplies','graphic-design','business-cards','flyers-brochures',
+  'posters-printing','postcard-printing','printing-services-concord-township',
+  'private-mailbox-rental-concord-township','virtual-mailbox-concord-township',
+  'mail-forwarding-concord-township','amazon-returns-drop-off-concord-township','amazon-returns',
+]);
+
+const serviceCategories = ['Pack & Ship Services','Professional Printing','Mailbox Rentals','Document Services','Additional Services'];
+
+const hasServices = (cat: string) => services.some(s => s.category === categoryMap[cat] && !hiddenFromGrid.has(s.id));
 ---
 
 <BaseLayout
   title="Our Services | Mailbox Plus — Concord Township, OH"
   description="Explore our comprehensive business services: shipping, printing, mailbox rentals, notary, shredding, and more. Your local solution in Concord Township, Ohio."
 >
-  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
-    <div class="max-w-4xl mx-auto px-6">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Our Services</h1>
-      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">Everything you need, all in one place.</p>
+  <script>
+    // Back to top button
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('back-to-top');
+      if (btn) {
+        window.addEventListener('scroll', () => {
+          btn.classList.toggle('hidden', window.scrollY < 300);
+        });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+    });
+  </script>
+
+  <!-- HERO -->
+  <section class="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">Explore Our <span class="text-white">Services</span></h1>
+      <p class="text-lg text-white leading-relaxed max-w-2xl mx-auto">Shipping, printing, mailbox rentals, and business services — all in one convenient location in Concord Township.</p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-16" style="background:linear-gradient(to bottom,transparent,var(--color-bg-primary))"></div>
+  </section>
+
+  <!-- CATEGORY NAV -->
+  <section id="categories" class="py-12 bg-[var(--color-bg-primary)] relative z-10 -mt-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="bg-[var(--color-bg-secondary)]/70 backdrop-blur-xl rounded-lg shadow-md border border-[var(--color-border)] p-8">
+        <h2 class="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">Explore Our Services</h2>
+        <div class="flex flex-wrap justify-center gap-3">
+          {serviceCategories.filter(hasServices).map((cat) => (
+            <a href={`#${makeId(cat)}`} class="px-6 py-3 bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-warm-tint)] rounded-full border border-[var(--color-border)] hover:border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:text-[var(--color-accent-warm)] transition-all shadow-sm font-medium">{cat}</a>
+          ))}
+        </div>
+        <div class="mt-8 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
+          <p>Looking for <a href="/pack-and-ship-services-concord-township" class="text-[var(--color-accent-warm)] hover:underline">pack and ship services in Concord Township</a>? Whether you need <a href="/shipping" class="text-[var(--color-accent-warm)] hover:underline">UPS, FedEx, DHL, or USPS shipping</a>, <a href="/printing" class="text-[var(--color-accent-warm)] hover:underline">professional printing</a>, or a <a href="/mailbox-rental" class="text-[var(--color-accent-warm)] hover:underline">secure private mailbox</a>, browse our full list of offerings below.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-16">
-    {Object.entries(groups).map(([cat, group]) => (
-      <div key={cat}>
-        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">{categoryNames[cat] || cat}</h2>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {group.services.map((s) => (
-            <a href={s.slug} class="block p-4 rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] hover:border-[var(--color-accent-warm)] shadow-sm transition-all">
-              <h3 class="font-semibold text-[var(--color-text-primary)]">{s.serviceName}</h3>
-              <p class="text-sm text-[var(--color-text-secondary)] mt-1">{s.metaDescription?.slice(0, 120)}</p>
-            </a>
+  <!-- SERVICE CATEGORIES -->
+  {serviceCategories.filter(hasServices).map((category) => {
+    const catKey = categoryMap[category];
+    const catServices = services.filter(s => s.category === catKey && !hiddenFromGrid.has(s.id));
+    return (
+      <section id={makeId(category)} class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
+          <span class="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent-gold)] rounded-full mr-4"></span>
+          {category}
+        </h2>
+
+        <!-- Cross-category links -->
+        <p class="text-sm text-[var(--color-text-secondary)] mb-6">
+          {category === 'Pack & Ship Services' && <>Also explore our <a href="/copy-print" class="text-[var(--color-accent-warm)] hover:underline">professional printing</a> and <a href="/home-business" class="text-[var(--color-accent-warm)] hover:underline">business services</a>.</>}
+          {category === 'Professional Printing' && <>Need shipping too? See our <a href="/pack-ship" class="text-[var(--color-accent-warm)] hover:underline">pack and ship services</a> or <a href="/home-business" class="text-[var(--color-accent-warm)] hover:underline">business support</a>.</>}
+          {category === 'Mailbox Rentals' && <>Combine your mailbox with <a href="/pack-ship/package-receiving" class="text-[var(--color-accent-warm)] hover:underline">package receiving</a> or <a href="/home-business/notary-services" class="text-[var(--color-accent-warm)] hover:underline">notary services</a>.</>}
+          {category === 'Document Services' && <>Pair with <a href="/copy-print" class="text-[var(--color-accent-warm)] hover:underline">copy and print</a> or <a href="/home-business/shredding" class="text-[var(--color-accent-warm)] hover:underline">secure shredding</a>.</>}
+          {category === 'Additional Services' && <>Also see our <a href="/home-business/notary-services" class="text-[var(--color-accent-warm)] hover:underline">notary services</a> and <a href="/pack-ship" class="text-[var(--color-accent-warm)] hover:underline">pack and ship</a> options.</>}
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {catServices.map((service) => (
+            <div class="p-6 bg-[var(--color-bg-secondary)]/80 backdrop-blur-md border border-[var(--color-border)] rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-250 flex flex-col group">
+              <div class="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all bg-[var(--color-bg-warm-tint)]">
+                <div class="w-full h-full flex items-center justify-center text-[var(--color-text-muted)] text-lg font-bold">?</div>
+                <div class="absolute inset-0 bg-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
+              </div>
+              <h3 class="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-warm)] transition-colors">{service.serviceName}</h3>
+              <p class="text-[var(--color-text-secondary)] mb-6 flex-grow leading-relaxed">{service.metaDescription}</p>
+              <a href={service.slug} class="inline-flex items-center justify-center gap-2 w-full border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-6 py-2.5 rounded-md hover:bg-[var(--color-primary)]/5 transition-all shadow-sm text-sm mt-auto">
+                Learn More <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           ))}
         </div>
+      </section>
+    );
+  })}
+
+  <!-- VISIT US -->
+  <section class="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-4">Visit Us in Concord Township Today</h2>
+      <p class="text-xl text-white/80 mb-3 max-w-3xl mx-auto">Next to Pub Frato in Gristmill Village — serving all of Lake County</p>
+      <p class="text-lg text-white/80 mb-10 max-w-2xl mx-auto">Stop by for all your shipping, printing, and business service needs. Our friendly team is ready to help!</p>
+      <div class="mb-8 text-white/80">
+        <p>We specialize in <a href="/amazon-returns" class="text-white underline decoration-white/50 underline-offset-4 hover:text-white/80">Amazon returns</a>, <a href="/notary" class="text-white underline decoration-white/50 underline-offset-4 hover:text-white/80">notary services</a>, and <a href="/pack-ship" class="text-white underline decoration-white/50 underline-offset-4 hover:text-white/80">custom packing</a>.</p>
       </div>
-    ))}
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-bold px-8 py-3.5 rounded-md shadow-lg hover:brightness-110 transition-all min-h-11">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Get Directions
+        </a>
+        <a href="https://www.google.com/maps/@41.66497,-81.24164,17z" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 border-2 border-[var(--color-accent-gold)] text-[var(--color-accent-gold)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-gold)]/10 transition-all min-h-11">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          View on Map
+        </a>
+        <a href={`tel:${phoneDigits}`} class="inline-flex items-center gap-2 border-2 border-[var(--color-accent-gold)] text-[var(--color-accent-gold)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-gold)]/10 transition-all min-h-11">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          Call {siteConfig.contact.phone}
+        </a>
+      </div>
+      <div class="flex items-center justify-center gap-2 text-white/80">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        <span class="text-sm">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM | Sun: Closed</span>
+      </div>
+    </div>
   </section>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 bg-[var(--color-accent-warm)] text-white p-3 rounded-full shadow-lg hover:bg-[var(--color-accent-warm-light)] transition hover:scale-110 z-50 hidden" aria-label="Back to Top">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+  </button>
 </BaseLayout>
