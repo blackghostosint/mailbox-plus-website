@@ -10,6 +10,9 @@ export default defineConfig({
   srcDir: './src',
   outDir: '../dist',
   publicDir: '../public',
+  image: {
+    service: { entrypoint: 'astro/assets/services/noop' },
+  },
   vite: {
     plugins: [
       Icons({ compiler: 'jsx', jsx: 'react' }),
