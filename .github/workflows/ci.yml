@@ -32,6 +32,9 @@ jobs:
       - name: Lint check (zero warnings policy)
         run: npm run lint
 
+      - name: Install Astro dependencies
+        run: cd astro && npm ci
+
       - name: Build project
         run: npm run build
         env:
