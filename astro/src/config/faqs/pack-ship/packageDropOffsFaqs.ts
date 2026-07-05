@@ -1,4 +1,4 @@
-import { FAQ } from '../../../types/faq';
+import type { FAQ } from '../../../types/faq';
 
 export const packageDropOffsFaqs: FAQ[] = [
   { question: 'Do you charge for drop-offs?', answer: 'No, drop-offs are free for all carriers.' },

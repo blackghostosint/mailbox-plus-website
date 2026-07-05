@@ -1,4 +1,4 @@
-import { FAQ } from '../../../types/faq';
+import type { FAQ } from '../../../types/faq';
 
 export const digitalMailboxRentalFaqs: FAQ[] = [
   { question: 'Can I forward mail?', answer: 'Yes, you can request forwarding to any address.' },

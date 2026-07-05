@@ -1,4 +1,4 @@
-import { Service } from '../types/services';
+import type { Service } from '../types/services';
 import { getServiceImageUrl } from '../lib/storage';
 
 export const serviceAreas: Service[] = [

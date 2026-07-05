@@ -2,7 +2,7 @@ import Package from '~icons/lucide/package';
 import Shield from '~icons/lucide/shield';
 import Globe from '~icons/lucide/globe';
 import Truck from '~icons/lucide/truck';
-import { Service } from '../../../types/services';
+import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/storage';
 import {
   generalShippingFaqs,

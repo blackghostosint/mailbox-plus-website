@@ -1,4 +1,4 @@
-import { Article, ArticleFrontmatter } from '../types/article.types';
+import type { Article, ArticleFrontmatter } from '../types/article.types';
 import matter from 'gray-matter';
 
 // Use dynamic imports to keep article content out of the main bundle

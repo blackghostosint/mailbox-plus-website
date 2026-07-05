@@ -1,4 +1,4 @@
-import { FAQ } from '../../../types/faq';
+import type { FAQ } from '../../../types/faq';
 
 export const posterBannerPrintingFaqs: FAQ[] = [
   { question: 'Can you print vinyl banners?', answer: 'Yes, we offer durable vinyl options.' },

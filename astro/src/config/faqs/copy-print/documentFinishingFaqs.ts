@@ -1,4 +1,4 @@
-import { FAQ } from '../../../types/faq';
+import type { FAQ } from '../../../types/faq';
 
 export const documentFinishingFaqs: FAQ[] = [
   { question: 'Do you laminate IDs?', answer: 'Yes, we can laminate small or large documents.' },
