@@ -4,6 +4,7 @@ import { siteConfig } from '../config/siteConfig';
 import { services } from '../config/services';
 
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
 const makeId = (s: string) => s.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 
@@ -103,7 +104,16 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
           {catServices.map((service) => (
             <div class="p-6 bg-[var(--color-bg-secondary)]/80 backdrop-blur-md border border-[var(--color-border)] rounded-lg shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-250 flex flex-col group">
               <div class="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all bg-[var(--color-bg-warm-tint)]">
-                <div class="w-full h-full flex items-center justify-center text-[var(--color-text-muted)] text-lg font-bold">?</div>
+                {service.heroImage ? (
+                  <img
+                    src={service.heroImage.startsWith('http') ? service.heroImage : `${R2_BASE}/${service.heroImage.replace(/^\/?images\//, '')}`}
+                    alt={service.serviceName}
+                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full flex items-center justify-center text-[var(--color-text-muted)] text-lg font-bold">?</div>
+                )}
                 <div class="absolute inset-0 bg-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />
               </div>
               <h3 class="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-warm)] transition-colors">{service.serviceName}</h3>
