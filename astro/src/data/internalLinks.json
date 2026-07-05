@@ -733,5 +733,45 @@
     "parent": "pack-ship",
     "related": ["ups-authorized-shipper-outlet", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
+  },
+  "dhl-drop-off-willoughby": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-mentor": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-painesville": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-eastlake": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-kirtland": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-chardon": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-madison": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
+  },
+  "dhl-drop-off-fairport-harbor": {
+    "parent": "pack-ship",
+    "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
+    "priority": false
   }
 }
