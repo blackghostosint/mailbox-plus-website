@@ -5,6 +5,7 @@ import { packingServices } from './pack-ship/packing-services';
 import { receivingDropOffServices } from './pack-ship/receiving-drop-off';
 import { localSeoServices } from './pack-ship/local-seo';
 import { amazonReturnsService } from './pack-ship/amazon-returns';
+import { gscLandingPages } from './pack-ship/gsc-landing-pages';
 
 export const packShipServices: Service[] = [
   ...specialtyShippingServices,
@@ -13,4 +14,5 @@ export const packShipServices: Service[] = [
   ...packingServices,
   ...localSeoServices,
   amazonReturnsService,
+  ...gscLandingPages,
 ];
