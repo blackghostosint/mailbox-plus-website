@@ -84,5 +84,8 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Redirects
 /shipping-near-me /service-area/concord-township 301
 
+# Sitemap redirect (Astro generates sitemap-index.xml instead of sitemap.xml)
+/sitemap.xml /sitemap-index.xml 301
+
 # TRUE 404 RULE
 /* /404.html 404
