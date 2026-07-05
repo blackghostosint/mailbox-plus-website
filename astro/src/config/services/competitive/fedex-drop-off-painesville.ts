@@ -1,5 +1,4 @@
 import type { Service } from '../../../types/services';
-import { getServiceImageUrl } from '../../../lib/storage';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -13,10 +12,12 @@ export const competePages: Service[] = [
     slug: '/fedex-drop-off-painesville',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-painesville',
     pageTitle: 'FedEx Drop-Off in Painesville — Quick, Local, Reliable | Mailbox Plus',
-    metaDescription: "Need a FedEx drop-off near Painesville, OH? Mailbox Plus is just minutes away with authorized FedEx shipping and drop-off service.",
+    metaDescription:
+      'Need a FedEx drop-off near Painesville, OH? Mailbox Plus is just minutes away with authorized FedEx shipping and drop-off service.',
     keywords: 'FedEx drop-off Painesville, Painesville FedEx shipping, Mailbox Plus Concord',
     heroTitle: 'FedEx Drop-Off in Painesville — Quick, Local, Reliable',
-    heroSubtitle: "Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Painesville. In and out fast.",
+    heroSubtitle:
+      'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Painesville. In and out fast.',
     features: [
       {
         title: 'In & Out Fast',
@@ -45,26 +46,30 @@ export const competePages: Service[] = [
         isFullWidth: true,
       },
       {
-        heading: 'Don\'t Settle — Painesville Deserves Better Service',
+        heading: "Don't Settle — Painesville Deserves Better Service",
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Painesville residents deserve a shipping experience that respects their time. Whether you\'re dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 8 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
     ],
     faqs: [
       {
         question: 'How far is Mailbox Plus from Painesville?',
-        answer: 'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 8 miles from Painesville. The drive is quick and easy.',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 8 miles from Painesville. The drive is quick and easy.',
       },
       {
         question: 'Can I drop off pre-labeled packages?',
-        answer: 'Yes! We accept pre-labeled drop-offs for FedEx, UPS, USPS, and DHL. We scan and provide a receipt every time.',
+        answer:
+          'Yes! We accept pre-labeled drop-offs for FedEx, UPS, USPS, and DHL. We scan and provide a receipt every time.',
       },
       {
-        question: 'Can I drop off FedEx packages that weren\'t printed here?',
-        answer: 'Absolutely. Bring any pre-labeled FedEx package and we\'ll scan it, provide a receipt, and get it into the FedEx system.',
+        question: "Can I drop off FedEx packages that weren't printed here?",
+        answer:
+          "Absolutely. Bring any pre-labeled FedEx package and we'll scan it, provide a receipt, and get it into the FedEx system.",
       },
       {
         question: 'Do you offer FedEx packing services?',
-        answer: 'Yes. We offer professional packing for FedEx shipments, with proper cushioning, boxes, and tape to ensure your package arrives safely.',
+        answer:
+          'Yes. We offer professional packing for FedEx shipments, with proper cushioning, boxes, and tape to ensure your package arrives safely.',
       },
     ],
     aggregateRating: {

@@ -1,5 +1,4 @@
 import type { Service } from '../../../types/services';
-import { getServiceImageUrl } from '../../../lib/storage';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -13,10 +12,12 @@ export const competePages: Service[] = [
     slug: '/fedex-drop-off-eastlake',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-eastlake',
     pageTitle: 'FedEx Drop-Off Near Eastlake — Quick & Easy | Mailbox Plus',
-    metaDescription: "Need a FedEx drop-off near Eastlake, OH? Mailbox Plus in Concord Township is your authorized FedEx ShipCenter — fast, local, reliable.",
+    metaDescription:
+      'Need a FedEx drop-off near Eastlake, OH? Mailbox Plus in Concord Township is your authorized FedEx ShipCenter — fast, local, reliable.',
     keywords: 'FedEx drop-off Eastlake, Eastlake FedEx shipping, Mailbox Plus Concord',
     heroTitle: 'FedEx Drop-Off Near Eastlake — Quick & Easy',
-    heroSubtitle: "Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Eastlake. In and out fast.",
+    heroSubtitle:
+      'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Eastlake. In and out fast.',
     features: [
       {
         title: 'In & Out Fast',
@@ -45,26 +46,30 @@ export const competePages: Service[] = [
         isFullWidth: true,
       },
       {
-        heading: 'Don\'t Settle — Eastlake Deserves Better Service',
+        heading: "Don't Settle — Eastlake Deserves Better Service",
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Eastlake residents deserve a shipping experience that respects their time. Whether you\'re dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 9 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
     ],
     faqs: [
       {
         question: 'How far is Mailbox Plus from Eastlake?',
-        answer: 'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 9 miles from Eastlake. The drive is quick and easy.',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 9 miles from Eastlake. The drive is quick and easy.',
       },
       {
         question: 'Can I drop off pre-labeled packages?',
-        answer: 'Yes! We accept pre-labeled drop-offs for FedEx, UPS, USPS, and DHL. We scan and provide a receipt every time.',
+        answer:
+          'Yes! We accept pre-labeled drop-offs for FedEx, UPS, USPS, and DHL. We scan and provide a receipt every time.',
       },
       {
-        question: 'Can I drop off FedEx packages that weren\'t printed here?',
-        answer: 'Absolutely. Bring any pre-labeled FedEx package and we\'ll scan it, provide a receipt, and get it into the FedEx system.',
+        question: "Can I drop off FedEx packages that weren't printed here?",
+        answer:
+          "Absolutely. Bring any pre-labeled FedEx package and we'll scan it, provide a receipt, and get it into the FedEx system.",
       },
       {
         question: 'Do you offer FedEx packing services?',
-        answer: 'Yes. We offer professional packing for FedEx shipments, with proper cushioning, boxes, and tape to ensure your package arrives safely.',
+        answer:
+          'Yes. We offer professional packing for FedEx shipments, with proper cushioning, boxes, and tape to ensure your package arrives safely.',
       },
     ],
     aggregateRating: {
