@@ -773,5 +773,45 @@
     "parent": "pack-ship",
     "related": ["dhl-express", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
+  },
+  "fedex-office-alternative-willoughby": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-mentor": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-painesville": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-eastlake": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-kirtland": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-chardon": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-madison": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
+  },
+  "fedex-office-alternative-fairport-harbor": {
+    "parent": "pack-ship",
+    "related": ["fedex-office-alternative-concord-township", "fedex-shipping", "package-drop-offs", "copy-print"],
+    "priority": false
   }
 }

@@ -1,0 +1,88 @@
+import type { Service } from '../../../types/services';
+import Star from '~icons/lucide/star';
+import Truck from '~icons/lucide/truck';
+import Users from '~icons/lucide/users';
+
+export const competePages: Service[] = [
+  {
+    id: 'fedex-office-alternative-fairport-harbor',
+    category: 'pack-ship',
+    city: 'Fairport Harbor',
+    serviceName: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
+    slug: '/fedex-office-alternative-fairport-harbor',
+    canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-fairport-harbor',
+    pageTitle: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
+    metaDescription:
+      'Looking for a FedEx Office alternative near Fairport Harbor, OH? Mailbox Plus does FedEx, UPS, USPS, and DHL — one counter, locally owned.',
+    keywords:
+      'FedEx Office alternative Fairport Harbor, Fairport Harbor shipping services, Mailbox Plus Concord',
+    heroTitle: 'FedEx Office Alternative Near Fairport Harbor — Better Service',
+    heroSubtitle:
+      'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Fairport Harbor. In and out fast.',
+    features: [
+      {
+        title: 'Carrier Choice',
+        description: "FedEx, UPS, USPS, DHL — the chains can't match this.",
+        icon: Truck,
+      },
+      {
+        title: 'Locally Owned',
+        description: 'Part of the community, not a corporate franchise.',
+        icon: Users,
+      },
+      {
+        title: 'Full Service',
+        description: 'Shipping, mailboxes, notary, printing — all in one trip.',
+        icon: Star,
+      },
+    ],
+    content: [
+      {
+        heading: 'A Better Option Than the Big Box Store Near Fairport Harbor',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">If you're searching for a FedEx Office, UPS Store, or similar chain near Fairport Harbor, you already know what to expect — single-carrier service, franchise pricing, and unpredictable wait times.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mailbox Plus is different. We're an authorized FedEx ShipCenter with professional printing, packing, notary, and mailbox rentals — but unlike the chains, we also ship <strong>UPS, USPS, and DHL</strong>. Compare rates. Pick the best carrier. All at one counter.</p>`,
+      },
+      {
+        heading: 'Why Fairport Harbor Customers Choose Mailbox Plus',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Choice</h4><p class="text-sm text-[var(--color-text-secondary)]">FedEx, UPS, USPS, DHL — compare rates at one counter. No chain store can match that.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shorter Wait Times</h4><p class="text-sm text-[var(--color-text-secondary)]">Locally owned means we move faster. No corporate bureaucracy.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Service Center</h4><p class="text-sm text-[var(--color-text-secondary)]">Mailboxes, notary, printing, packing — everything in one trip.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Locally Owned</h4><p class="text-sm text-[var(--color-text-secondary)]">Part of the Concord Township community since day one.</p></div></div>`,
+        isFullWidth: true,
+      },
+      {
+        heading: "Don't Settle — Fairport Harbor Deserves Better Service",
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Fairport Harbor residents deserve a shipping experience that respects their time. Just off SR 2, SR 535, and SR 283, Mailbox Plus is only 11 miles from Fairport Harbor. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 11 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'How far is Mailbox Plus from Fairport Harbor?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 11 miles from Fairport Harbor. The drive is quick and easy.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer:
+          'Yes! We accept pre-labeled drop-offs for FedEx, UPS, USPS, and DHL. We scan and provide a receipt every time.',
+      },
+      {
+        question: 'Do you offer printing and notary services?',
+        answer:
+          'Yes — full-service printing, copying, and a commissioned notary public on-site during all business hours. No appointment needed for notary.',
+      },
+      {
+        question: 'Are your prices competitive with the chain stores?',
+        answer:
+          "Yes. We match retail carrier rates and often beat franchise pricing because we're locally owned with lower overhead. Plus, we can compare rates across all four carriers so you always get the best option.",
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Ready to Save Time?',
+      subtitle: 'Bring your package to 7554 Fredle Drive in Concord Township.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    hideCarrierLogos: true,
+  },
+];
