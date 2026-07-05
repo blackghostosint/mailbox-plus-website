@@ -1,8 +1,9 @@
 import { Article, ArticleFrontmatter } from '../types/article.types';
 
 // Use dynamic imports to keep article content out of the main bundle
-const articleModules = import.meta.glob('../content/articles/**/*.md', {
-  as: 'raw',
+const articleModules = import.meta.glob('../../../content/articles/**/*.md', {
+  query: '?raw',
+  import: 'default',
   eager: false,
 });
 

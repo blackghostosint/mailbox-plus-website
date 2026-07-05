@@ -1,37 +1,39 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import { articleLoader } from '../../utils/articleLoader';
+import { marked } from 'marked';
 
 export async function getStaticPaths() {
-  const articles = await getCollection('articles', ({ data }) => data.status !== 'draft');
-  return articles.map(article => ({
-    params: { slug: article.data.slug },
-    props: { article },
-  }));
+  const allArticles = await articleLoader.getAllArticles();
+  return allArticles
+    .filter((a) => a.frontmatter.status !== 'draft')
+    .map((article) => ({
+      params: { slug: article.frontmatter.slug },
+      props: { article },
+    }));
 }
 
 const { article } = Astro.props;
-const { Content } = await article.render();
+const { frontmatter, content } = article;
+const renderedContent = marked.parse(content);
 ---
 
 <BaseLayout
-  title={article.data.title}
-  description={article.data.description}
-  canonical={`/articles/${article.data.slug}`}
+  title={frontmatter.title}
+  description={frontmatter.description}
+  canonical={`/articles/${frontmatter.slug}`}
 >
   <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <header class="mb-8">
       <p class="text-sm text-[var(--color-text-muted)] mb-2">
-        {new Date(article.data.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-        {article.data.author && <> · {article.data.author}</>}
-        {article.data.category && <> · <span class="capitalize">{article.data.category.replace(/-/g, ' ')}</span></>}
+        {new Date(frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        {frontmatter.author && <> · {frontmatter.author}</>}
+        {frontmatter.category && <> · <span class="capitalize">{frontmatter.category.replace(/-/g, ' ')}</span></>}
       </p>
-      <h1 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)]">{article.data.title}</h1>
-      {article.data.description && <p class="text-lg text-[var(--color-text-secondary)] mt-4">{article.data.description}</p>}
+      <h1 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)]">{frontmatter.title}</h1>
+      {frontmatter.description && <p class="text-lg text-[var(--color-text-secondary)] mt-4">{frontmatter.description}</p>}
     </header>
-    <div class="prose prose-lg max-w-none text-[var(--color-text-primary)]">
-      <Content />
-    </div>
+    <div set:html={renderedContent} class="prose prose-lg max-w-none text-[var(--color-text-primary)]" />
     <div class="mt-12 pt-8 border-t border-[var(--color-border)]">
       <a href="/articles" class="text-[var(--color-accent-warm)] hover:underline font-semibold">&larr; Back to Articles</a>
     </div>
