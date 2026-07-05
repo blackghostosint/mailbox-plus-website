@@ -38,7 +38,7 @@ export const competePages: Service[] = [
     content: [
       {
         heading: 'FedEx Drop-Off & Shipping in Mentor',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a FedEx package or ship something from Mentor? Mailbox Plus on Fredle Drive in Concord Township is your authorized FedEx ShipCenter — just 6 miles from Mentor.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Skip the corporate FedEx Office lines. Same FedEx service, same tracking, same reliability — with a shorter wait and local service.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a FedEx package or ship something from Mentor? Mailbox Plus on Fredle Drive in Concord Township is your authorized FedEx ShipCenter — just 6 miles from Mentor near I-90, SR 2, and SR 615.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Skip the corporate FedEx Office lines. Same FedEx service, same tracking, same reliability — with a shorter wait and local service.</p>`,
       },
       {
         heading: 'How It Works — Drop Off or Ship From Mentor',
@@ -47,7 +47,7 @@ export const competePages: Service[] = [
       },
       {
         heading: "Don't Settle — Mentor Deserves Better Service",
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mentor residents deserve a shipping experience that respects their time. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 6 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mentor residents deserve a shipping experience that respects their time. Just off I-90, SR 2, and SR 615, Mailbox Plus is only 6 miles from Mentor. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 6 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
     ],
     faqs: [
