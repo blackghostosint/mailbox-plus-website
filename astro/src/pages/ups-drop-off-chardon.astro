@@ -1,0 +1,12 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('ups-drop-off-chardon')!;
+---
+
+<slot name="head">
+  <script type="application/ld+json" set:html={ JSON.stringify({"@context": "https://schema.org", "@type": "ImageObject", "contentUrl": "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-chardon-featured.webp", "description": "Mailbox Plus shipping service for Chardon customers", "name": "UPS Drop-Off Near Chardon \u2014 Local & Fast | Mailbox Plus", "author": {"@type": "Organization", "name": "Mailbox Plus"}, "copyrightHolder": {"@type": "Organization", "name": "Mailbox Plus"}}) } />
+</slot>
+
+<ServiceLayout service={service} />

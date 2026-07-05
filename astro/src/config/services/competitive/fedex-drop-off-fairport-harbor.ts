@@ -39,7 +39,7 @@ export const competePages: Service[] = [
     content: [
       {
         heading: 'FedEx Drop-Off & Shipping in Fairport Harbor',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a FedEx package or ship something from Fairport Harbor? Mailbox Plus on Fredle Drive in Concord Township is your authorized FedEx ShipCenter — just 11 miles from Fairport Harbor.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Skip the corporate FedEx Office lines. Same FedEx service, same tracking, same reliability — with a shorter wait and local service.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a FedEx package or ship something from Fairport Harbor? Mailbox Plus on Fredle Drive in Concord Township is your authorized FedEx ShipCenter — just 11 miles from Fairport Harbor near SR 2, SR 535, and SR 283.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Skip the corporate FedEx Office lines. Same FedEx service, same tracking, same reliability — with a shorter wait and local service.</p>`,
       },
       {
         heading: 'How It Works — Drop Off or Ship From Fairport Harbor',
@@ -48,7 +48,7 @@ export const competePages: Service[] = [
       },
       {
         heading: "Don't Settle — Fairport Harbor Deserves Better Service",
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Fairport Harbor residents deserve a shipping experience that respects their time. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 11 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Fairport Harbor residents deserve a shipping experience that respects their time. Just off SR 2, SR 535, and SR 283, Mailbox Plus is only 11 miles from Fairport Harbor. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 11 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
     ],
     faqs: [
