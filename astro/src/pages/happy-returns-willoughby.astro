@@ -1,0 +1,12 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('happy-returns-willoughby')!;
+---
+
+<slot name="head">
+  <script type="application/ld+json" set:html={ JSON.stringify({"@context": "https://schema.org", "@type": "ImageObject", "contentUrl": "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/happy-returns-willoughby-featured.webp", "description": "Mailbox Plus shipping service for Willoughby customers", "name": "Happy Returns Drop-Off in Willoughby \u2014 Fast & Easy | Mailbox Plus", "author": {"@type": "Organization", "name": "Mailbox Plus"}, "copyrightHolder": {"@type": "Organization", "name": "Mailbox Plus"}}) } />
+</slot>
+
+<ServiceLayout service={service} />
