@@ -29,7 +29,7 @@ export default defineConfig({
       lastmod: new Date(),
     }),
   ],
-  trailingSlash: 'never',
+  trailingSlash: 'ignore',
   build: {
     format: 'directory',
   },
