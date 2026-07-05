@@ -5,19 +5,19 @@ import Truck from '~icons/lucide/truck';
 
 export const competePages: Service[] = [
   {
-    id: 'ups-drop-off-kirtland',
+    id: 'pack-and-ship-madison',
     category: 'pack-ship',
-    city: 'Kirtland',
-    serviceName: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
-    slug: '/ups-drop-off-kirtland',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-kirtland',
-    pageTitle: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
+    city: 'Madison',
+    serviceName: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',
+    slug: '/pack-and-ship-madison',
+    canonicalUrl: 'https://mailboxplusohio.com/pack-and-ship-madison',
+    pageTitle: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',
     metaDescription:
-      'Need a UPS drop-off near Kirtland, OH? Mailbox Plus is just 4 miles away on Fredle Drive — drop UPS, FedEx, USPS, and DHL.',
-    keywords: 'UPS drop-off Kirtland, Kirtland UPS shipping, Mailbox Plus Concord',
-    heroTitle: 'UPS Drop-Off Near Kirtland — Minutes Away',
+      'Need pack and ship services near Madison, OH 44057? Mailbox Plus is your authorized FedEx, UPS, USPS, and DHL drop-off and shipping center.',
+    keywords: 'pack and ship Madison OH, Madison OH shipping, Mailbox Plus Concord',
+    heroTitle: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH',
     heroSubtitle:
-      'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Kirtland. In and out fast.',
+      'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Madison. In and out fast.',
     features: [
       {
         title: 'In & Out Fast',
@@ -37,17 +37,17 @@ export const competePages: Service[] = [
     ],
     content: [
       {
-        heading: 'Package Drop-Off in Kirtland — In & Out Fast',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a pre-labeled package near Kirtland? Mailbox Plus on Fredle Drive in Concord Township accepts drop-offs for <strong>FedEx, UPS, USPS, and DHL</strong> — all at one counter.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">No waiting in franchise lines. No running between different stores for different carriers. Drop your package, get your receipt, done.</p>`,
+        heading: 'Package Drop-Off in Madison — In & Out Fast',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need to drop off a pre-labeled package near Madison? Mailbox Plus on Fredle Drive in Concord Township accepts drop-offs for <strong>FedEx, UPS, USPS, and DHL</strong> — all at one counter.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">No waiting in franchise lines. No running between different stores for different carriers. Drop your package, get your receipt, done.</p>`,
       },
       {
-        heading: 'How It Works — Drop Off or Ship From Kirtland',
-        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-kirtland-featured.webp" alt="Mailbox Plus shipping service for Kirtland customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
+        heading: 'How It Works — Drop Off or Ship From Madison',
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/pack-and-ship-madison-featured.webp" alt="Mailbox Plus shipping service for Madison customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
         isFullWidth: true,
       },
       {
-        heading: "Don't Settle — Kirtland Deserves Better Service",
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Kirtland residents deserve a shipping experience that respects their time. Just off SR 306 and SR 6, Mailbox Plus is only 4 miles from Kirtland. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 4 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
+        heading: "Don't Settle — Madison Deserves Better Service",
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Madison residents deserve a shipping experience that respects their time. Just off I-90, SR 20, and SR 528, Mailbox Plus is only 18 miles from Madison. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 18 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
       {
         heading: 'What to Expect When You Visit',
@@ -56,9 +56,9 @@ export const competePages: Service[] = [
     ],
     faqs: [
       {
-        question: 'How far is Mailbox Plus from Kirtland?',
+        question: 'How far is Mailbox Plus from Madison?',
         answer:
-          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 4 miles from Kirtland. The drive is quick and easy.',
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just 18 miles from Madison. The drive is quick and easy.',
       },
       {
         question: 'Can I drop off pre-labeled packages?',

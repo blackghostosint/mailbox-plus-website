@@ -49,6 +49,10 @@ export const competePages: Service[] = [
         heading: "Don't Settle — Mentor Deserves Better Service",
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mentor residents deserve a shipping experience that respects their time. Just off I-90, SR 2, and SR 615, Mailbox Plus is only 6 miles from Mentor. Whether you're dropping off a return, shipping a birthday gift, or picking up a held package, Mailbox Plus is just 6 miles away on 7554 Fredle Drive in Concord Township. Come see the difference local service makes.</p>`,
       },
+      {
+        heading: 'What to Expect When You Visit',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">We accept packages from all major carriers — FedEx, UPS, USPS, and DHL — at one counter. No running between different stores. We scan every drop-off and provide a tracking receipt on the spot.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">If your package isn't ready to ship, we sell boxes, tape, bubble wrap, and packing peanuts. We can also professionally pack fragile or awkward items. For pre-labeled packages, just bring them in — we handle the rest.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">We're open Monday through Saturday with walk-in friendly service. Most drop-offs take under 2 minutes. While you're here, ask about our mailbox rentals, notary services, and printing — one trip can check off half your to-do list.</p>`,
+      },
     ],
     faqs: [
       {
@@ -70,6 +74,16 @@ export const competePages: Service[] = [
         question: 'Do you offer FedEx packing services?',
         answer:
           'Yes. We offer professional packing for FedEx shipments, with proper cushioning, boxes, and tape to ensure your package arrives safely.',
+      },
+      {
+        question: 'What should I bring when I visit?',
+        answer:
+          "For drop-offs: your package with a shipping label attached. If you don't have a label, we can help you create one. For packing: bring your item and we'll box it up with the right materials. For mailbox rental: bring two forms of valid ID (driver's license, passport, or state ID).",
+      },
+      {
+        question: "What's the best time to come?",
+        answer:
+          "Mid-mornings and early afternoons (9:30 AM to 2:30 PM) on weekdays tend to be the quietest. Saturdays can get busier. If you're in a hurry, call ahead and we'll let you know our current wait — but most visits are in and out in under 5 minutes.",
       },
     ],
     aggregateRating: {

@@ -5,17 +5,17 @@ import Truck from '~icons/lucide/truck';
 
 export const competePages: Service[] = [
   {
-    id: 'ups-drop-off-kirtland',
+    id: 'pack-and-ship-kirtland',
     category: 'pack-ship',
     city: 'Kirtland',
-    serviceName: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
-    slug: '/ups-drop-off-kirtland',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-kirtland',
-    pageTitle: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
+    serviceName: 'Pack & Ship in Kirtland — Drop Off or Ship From Kirtland, OH | Mailbox Plus',
+    slug: '/pack-and-ship-kirtland',
+    canonicalUrl: 'https://mailboxplusohio.com/pack-and-ship-kirtland',
+    pageTitle: 'Pack & Ship in Kirtland — Drop Off or Ship From Kirtland, OH | Mailbox Plus',
     metaDescription:
-      'Need a UPS drop-off near Kirtland, OH? Mailbox Plus is just 4 miles away on Fredle Drive — drop UPS, FedEx, USPS, and DHL.',
-    keywords: 'UPS drop-off Kirtland, Kirtland UPS shipping, Mailbox Plus Concord',
-    heroTitle: 'UPS Drop-Off Near Kirtland — Minutes Away',
+      'Need pack and ship services near Kirtland, OH? Mailbox Plus is your authorized FedEx, UPS, USPS, and DHL drop-off and shipping center.',
+    keywords: 'pack and ship Kirtland OH, Kirtland OH shipping, Mailbox Plus Concord',
+    heroTitle: 'Pack & Ship in Kirtland — Drop Off or Ship From Kirtland, OH',
     heroSubtitle:
       'Authorized FedEx, UPS, USPS, and DHL drop-off and shipping near Kirtland. In and out fast.',
     features: [
@@ -42,7 +42,7 @@ export const competePages: Service[] = [
       },
       {
         heading: 'How It Works — Drop Off or Ship From Kirtland',
-        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-kirtland-featured.webp" alt="Mailbox Plus shipping service for Kirtland customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/pack-and-ship-kirtland-featured.webp" alt="Mailbox Plus shipping service for Kirtland customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
         isFullWidth: true,
       },
       {
