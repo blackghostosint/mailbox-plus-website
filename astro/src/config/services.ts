@@ -1,4 +1,4 @@
-import { Service } from '../types/services';
+import type { Service } from '../types/services';
 import { coreServices } from './services/core';
 import { packShipServices } from './services/pack-ship';
 import { copyPrintServices } from './services/copy-print';

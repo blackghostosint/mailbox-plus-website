@@ -87,7 +87,7 @@ const navigation = [
       const isOpen = menu.style.maxHeight !== '0px' && menu.style.maxHeight !== '';
       menu.style.maxHeight = isOpen ? '0' : '500px';
       menu.style.opacity = isOpen ? '0' : '1';
-      btn.setAttribute('aria-expanded', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
       btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
       iconOpen?.classList.toggle('hidden');
       iconClose?.classList.toggle('hidden');

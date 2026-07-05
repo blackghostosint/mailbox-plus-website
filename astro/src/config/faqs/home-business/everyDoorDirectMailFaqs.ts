@@ -1,4 +1,4 @@
-import { FAQ } from '../../../types/faq';
+import type { FAQ } from '../../../types/faq';
 
 export const everyDoorDirectMailFaqs: FAQ[] = [
   {

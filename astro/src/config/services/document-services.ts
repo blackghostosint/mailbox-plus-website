@@ -10,7 +10,7 @@ import Printer from '~icons/lucide/printer';
 import MapPin from '~icons/lucide/map-pin';
 import Lock from '~icons/lucide/lock';
 import Clock from '~icons/lucide/clock';
-import { Service } from '../../types/services';
+import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/storage';
 import {
   generalHomeBusinessFaqs,

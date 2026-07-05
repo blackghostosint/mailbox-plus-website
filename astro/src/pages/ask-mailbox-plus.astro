@@ -1,21 +1,22 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import * as faqs from '../../src/config/faqs/index.ts';
+import type { FAQ } from '../types/faq';
 
 // Flatten the FAQ object to get all FAQ arrays
-const flattenFaqs = (obj) => {
-  let arr = [];
+const flattenFaqs = (obj: Record<string, unknown>): FAQ[] => {
+  let arr: FAQ[] = [];
   for (const key in obj) {
     if (Array.isArray(obj[key])) {
-      arr = arr.concat(obj[key]);
+      arr = arr.concat(obj[key] as FAQ[]);
     } else if (typeof obj[key] === 'object' && obj[key] !== null) {
-      arr = arr.concat(flattenFaqs(obj[key]));
+      arr = arr.concat(flattenFaqs(obj[key] as Record<string, unknown>));
     }
   }
   return arr;
 };
 
-const allFaqs = flattenFaqs(faqs);
+const allFaqs: FAQ[] = flattenFaqs(faqs);
 ---
 <BaseLayout 
   title="Ask Mailbox Plus | FAQ" 
@@ -28,22 +29,27 @@ const allFaqs = flattenFaqs(faqs);
     </p>
 
     <div class="space-y-4">
-      {allFaqs.map((faq, index) => (
-        <div key={faq.id} class="border border-[var(--color-border)] rounded-lg">
+      {allFaqs.map((faq: FAQ, index: number) => (
+        <div class="border border-[var(--color-border)] rounded-lg">
           <details class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-4">
             <summary class="flex items-center justify-between font-semibold text-[var(--color-text-primary)] cursor-pointer">
               <span>{faq.question}</span>
-              <svg class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="transition-transform duration-200">
+              <svg class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>
             <div class="mt-2 text-[var(--color-text-secondary)] space-y-2">
               <p>{faq.answer}</p>
-              {faq.category && <p class="text-xs text-[var(--color-text-secondary)]/70 italic">Category: {faq.category}</p>}
             </div>
           </details>
         </div>
       ))}
+    </div>
+
+    <div class="text-center mt-10">
+      <p class="text-[var(--color-text-secondary)]">
+        Still have questions? <a href="/contact-us" class="text-[var(--color-accent-warm)] hover:underline font-semibold">Contact us</a> and we'll help you out.
+      </p>
     </div>
   </div>
 </BaseLayout>

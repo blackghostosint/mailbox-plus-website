@@ -6,7 +6,7 @@ import MapPin from '~icons/lucide/map-pin';
 import Star from '~icons/lucide/star';
 import Shield from '~icons/lucide/shield';
 import Box from '~icons/lucide/box';
-import { Service } from '../../../types/services';
+import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/storage';
 
 export const localSeoServices: Service[] = [
