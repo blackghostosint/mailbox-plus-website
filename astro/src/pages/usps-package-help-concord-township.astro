@@ -1,0 +1,7 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('usps-package-help-concord-township');
+---
+{service ? <ServiceLayout service={service} /> : <meta http-equiv="refresh" content="0;url=/services" />}

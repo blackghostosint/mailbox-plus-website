@@ -1,0 +1,10 @@
+import { FAQ } from '../../../types/faq';
+
+export const documentScanningFaqs: FAQ[] = [
+  { question: 'What file formats do you provide?', answer: 'We can scan to PDF, JPEG, or TIFF.' },
+  { question: 'Do you offer bulk scanning?', answer: 'Yes, bulk scanning is available.' },
+  {
+    question: 'Can you scan photos?',
+    answer: 'Yes, we can scan photos and convert them to digital formats.',
+  },
+];

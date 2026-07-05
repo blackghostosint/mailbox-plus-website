@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+function imageUrl(path: string): string {
+  if (path.startsWith('http://') || path.startsWith('https://')) return path;
+  return `${R2_BASE}/${path.replace(/^\/?images\//, '')}`;
+}
+
+const services = [
+  { title: 'Pack & Ship', link: '/pack-ship', desc: 'UPS, FedEx, DHL, USPS', icon: 'package' },
+  { title: 'Print Services', link: '/copy-print', desc: 'Copies, Photos', icon: 'printer' },
+  { title: 'Mailbox Rentals', link: '/home-business/mailbox-rental', desc: 'Secure, Private, Business Hours', icon: 'mail' },
+  { title: 'Notary Public', link: '/home-business/notary-services', desc: 'Official Notarizations', icon: 'file' },
+  { title: 'Scanning', link: '/home-business/document-scanning', desc: 'Digitize Your Documents', icon: 'scan' },
+  { title: 'Package Receiving', link: '/pack-ship/package-receiving', desc: 'Never Miss a Delivery', icon: 'box' },
+];
+
+const iconPaths: Record<string, string> = {
+  package: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+  printer: 'M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H7a2 2 0 00-2 2v4a2 2 0 002 2zm0 0V9a2 2 0 012-2h6a2 2 0 012 2v8',
+  mail: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
+  file: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+  scan: 'M4 4h4M4 4v4M20 4h-4M20 4v4M4 20h4M4 20v-4M20 20h-4M20 20v-4M8 12h8',
+  box: 'M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4',
+};
+---
+
+<BaseLayout
+  title="About Mailbox Plus | Locally Owned Shipping & Business Services in Concord Township"
+  description="Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio."
+>
+  {/* HERO SECTION (Navy Gradient) */}
+  <section class="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center">
+    <div class="relative z-10 max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6">
+        About <span class="text-white/90">Mailbox Plus</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-10">
+        Your trusted local partner for shipping, printing, mailbox rentals, and business services — proudly serving Concord Township and Lake County.
+      </p>
+    </div>
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10"></div>
+  </section>
+
+  {/* OUR STORY */}
+  <section class="mt-16 max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <img
+        src={imageUrl('/images/mailboxes.webp')}
+        alt="Private mailbox wall at Mailbox Plus"
+        class="rounded-lg shadow-lg w-full aspect-video object-cover border border-[var(--color-border)]"
+        loading="lazy"
+      />
+    </div>
+    <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 md:p-10 rounded-lg border border-[var(--color-border)] shadow-md">
+      <h2 class="text-3xl font-bold mb-6 text-[var(--color-text-primary)]">Our Story</h2>
+      <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
+        Founded in <strong class="text-[var(--color-accent-warm)]">2024</strong> and officially opening on <strong class="text-[var(--color-accent-warm)]">May 5, 2025</strong>, Mailbox Plus is a locally owned and operated business located in the heart of Concord Township, Ohio. We opened our doors to provide a friendly, reliable, and convenient alternative to driving to Mentor, Willoughby, or Painesville for shipping and business needs.
+      </p>
+      <p class="text-[var(--color-text-secondary)] leading-relaxed mb-4 text-lg">
+        Our mission is simple: offer honest, personal, neighborly service that you won't find at big-box stores or national shipping chains. We combine small-town hospitality with big-city capabilities — giving you access to <strong class="text-[var(--color-accent-warm)]">FedEx, UPS, USPS, and DHL</strong> all in one location.
+      </p>
+      <p class="text-[var(--color-text-secondary)] leading-relaxed mb-8 text-lg">
+        Whether you're shipping a package, printing documents, renting a private mailbox, or handling business tasks, our team is here to help every step of the way.
+      </p>
+      <a href="/contact-us" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-lg">
+        Visit Us Today
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  {/* COMMUNITY FOCUS */}
+  <section class="mt-20 bg-[var(--color-bg-secondary)] py-16">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-semibold mb-6 text-[var(--color-text-primary)]">
+        Proudly Serving Concord Township & Lake County
+      </h2>
+      <p class="text-[var(--color-text-primary)] max-w-3xl mx-auto leading-relaxed">
+        Our customers come from Concord Township, Mentor, Painesville, Willoughby, Eastlake, Madison, Chardon, Kirtland, Perry, and all across Lake County. We are deeply committed to supporting our local residents, nearby businesses, and community organizations with dependable service and genuine care.
+      </p>
+    </div>
+  </section>
+
+  {/* MEET OUR TEAM */}
+  <section class="mt-20 max-w-7xl mx-auto px-4">
+    <h2 class="text-3xl font-bold text-center mb-10 text-[var(--color-text-primary)]">
+      Meet Our Team
+    </h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      {/* Frank */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 rounded-lg shadow-md border border-[var(--color-border)] text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
+          <img src={imageUrl('/images/frank.webp')} alt="Frank Schwarz" class="w-full h-full rounded-full object-cover" loading="lazy" />
+        </div>
+        <h3 class="text-2xl font-bold text-[var(--color-text-primary)]">Frank Schwarz</h3>
+        <p class="text-[var(--color-accent-warm)] font-semibold text-lg mb-4">Store Manager</p>
+        <p class="text-[var(--color-text-secondary)] leading-relaxed mb-6">
+          Frank brings years of experience in customer service, operations, and business management, operations, logistics, and shipping. Known for his friendly approach and attention to detail, he ensures every customer leaves with a great experience.
+        </p>
+        <a href="https://www.linkedin.com/in/frank-schwarz/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
+          View LinkedIn
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+
+      {/* Diana */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-8 rounded-lg shadow-md border border-[var(--color-border)] text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+        <div class="w-32 h-32 mx-auto mb-6 p-1 bg-white rounded-full shadow-md">
+          <img src={imageUrl('/images/diana.webp')} alt="Diana Goebelt Schwarz" class="w-full h-full rounded-full object-cover" loading="lazy" />
+        </div>
+        <h3 class="text-2xl font-bold text-[var(--color-text-primary)]">Diana Goebelt Schwarz</h3>
+        <p class="text-[var(--color-accent-warm)] font-semibold text-lg mb-4">Owner</p>
+        <p class="text-[var(--color-text-secondary)] leading-relaxed mb-6">
+          With a strong background in operations, logistics, and customer care, Diana leads Mailbox Plus with a commitment to excellence and community-minded service. Her leadership ensures we continue to grow while maintaining a welcoming, family-run atmosphere.
+        </p>
+        <a href="https://www.linkedin.com/in/diana-goebelt-schwarz-94090737/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
+          View LinkedIn
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  {/* SERVICES WE OFFER */}
+  <section class="py-20 bg-[var(--color-bg-primary)] relative z-10">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-[var(--color-text-primary)]">
+        What We Offer
+      </h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <div class="group p-6 bg-[var(--color-bg-secondary)] rounded-lg shadow-sm hover:shadow-lg border border-[var(--color-border)] hover:border-[var(--color-border-strong)] transition-all duration-300 hover:-translate-y-1">
+            <div class="w-12 h-12 bg-[var(--color-accent-warm)]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[var(--color-accent-warm)] transition-colors duration-300">
+              <svg class="w-6 h-6 text-[var(--color-accent-warm)] group-hover:text-white transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d={iconPaths[service.icon]} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-[var(--color-text-primary)]">{service.title}</h3>
+            <p class="text-[var(--color-text-secondary)] mb-4">{service.desc}</p>
+            <a href={service.link} class="inline-flex items-center text-[var(--color-accent-warm)] font-semibold hover:text-[var(--color-accent-warm-light)]">
+              Learn More
+              <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {/* CTA (Navy Gradient) */}
+  <section class="py-20 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] text-center">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+        Shipping shouldn't cost you an hour.
+      </h2>
+      <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Stop in today — we're conveniently located at <span class="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contact-us" class="inline-flex items-center justify-center bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-bold px-8 py-3.5 rounded-md shadow-lg hover:brightness-110 transition-all min-h-12">
+          Get in Touch
+        </a>
+        <a href="https://www.google.com/maps/dir//Mailbox+Plus+Concord+Township" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all min-h-12">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          Get Directions
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

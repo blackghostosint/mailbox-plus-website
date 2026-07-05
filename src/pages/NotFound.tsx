@@ -1,4 +1,5 @@
 import React from 'react';
+import { Meta } from '../components/Meta';
 import { InternalLink } from '../components/ui/InternalLink';
 import Home from '~icons/lucide/home';
 import ArrowLeft from '~icons/lucide/arrow-left';
@@ -7,6 +8,11 @@ import { Button } from '../components/ui';
 export const NotFound: React.FC = () => {
   return (
     <div className="bg-[var(--color-bg-primary)] min-h-screen flex items-center justify-center">
+      <Meta
+        title="Page Not Found | Mailbox Plus"
+        description="The page you're looking for doesn't exist or has been moved."
+        robots="noindex, follow"
+      />
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center animate-fade-in-up">
         <div className="text-9xl font-bold text-[var(--color-accent-warm)] mb-4">404</div>
         <h1 className="text-4xl md:text-5xl font-extrabold text-[var(--color-text-primary)] tracking-tight mb-6">

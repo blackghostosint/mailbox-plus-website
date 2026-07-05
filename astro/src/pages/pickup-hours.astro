@@ -1,0 +1,140 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout 
+  title="Carrier Pickup Hours | Mailbox Plus" 
+  description="Check daily pickup times for UPS, FedEx, and USPS at Mailbox Plus in Concord Township. Miss the truck? We'll secure your package for the next day."
+>
+  <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <h1 class="mb-6 text-3xl font-bold text-[var(--color-primary)] text-center">Carrier Pickup Hours</h1>
+    <p class="mb-8 text-[var(--color-text-secondary)] text-center max-w-2xl mx-auto">
+      Knowing the exact pickup times ensures your important shipments go out the same day. We are an authorized ship center for UPS, FedEx, and USPS. Residents of Concord Township, Mentor, and Painesville rely on us for timely processing.
+    </p>
+
+    <div class="grid gap-6 md:grid-cols-2">
+      {/* USPS Pickup */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
+        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-warm)] flex items-center">
+          <svg class="w-5 h-5 mr-2 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM12 4a8 8 0 110 16 8 8 0 010-16z"></path></svg>
+          USPS Pickup
+        </h2>
+        <table class="w-full text-left text-[var(--color-text-secondary)]">
+          <tbody>
+            <tr>
+              <td class="py-2 font-medium width-[120px]">Monday – Friday:</td>
+              <td class="py-2">2:30 PM</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Saturday:</td>
+              <td class="py-2">12:00 PM (Noon)</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Sunday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+          Accepts stamped mail, prepaid labels, Priority Mail, and returns.
+        </p>
+      </div>
+
+      {/* UPS Pickup */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
+        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-gold)] flex items-center">
+          <svg class="w-5 h-5 mr-2 text-[var(--color-accent-gold)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path></svg>
+          UPS Pickup
+        </h2>
+        <table class="w-full text-left text-[var(--color-text-secondary)]">
+          <tbody>
+            <tr>
+              <td class="py-2 font-medium width-[120px]">Monday – Friday:</td>
+              <td class="py-2">4:00 PM</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Saturday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Sunday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+          Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.
+        </p>
+      </div>
+
+      {/* FedEx Express */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
+        <h2 class="mb-4 text-xl font-semibold text-[var(--color-primary)] flex items-center">
+          <svg class="w-5 h-5 mr-2 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"></path></svg>
+          FedEx Express
+        </h2>
+        <table class="w-full text-left text-[var(--color-text-secondary)]">
+          <tbody>
+            <tr>
+              <td class="py-2 font-medium width-[120px]">Monday – Friday:</td>
+              <td class="py-2">5:00 PM</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Saturday:</td>
+              <td class="py-2">12:00 PM (Noon)</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Sunday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+          For overnight, 2-day, and express saver shipments. Separate from Ground.
+        </p>
+      </div>
+
+      {/* FedEx Ground */}
+      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
+        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-warm)] flex items-center">
+          <svg class="w-5 h-5 mr-2 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"></path></svg>
+          FedEx Ground
+        </h2>
+        <table class="w-full text-left text-[var(--color-text-secondary)]">
+          <tbody>
+            <tr>
+              <td class="py-2 font-medium width-[120px]">Monday – Friday:</td>
+              <td class="py-2">4:00 PM</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Saturday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+            <tr>
+              <td class="py-2 font-medium">Sunday:</td>
+              <td class="py-2">No pickup</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+          Standard ground shipping and Home Delivery packages.
+        </p>
+      </div>
+    </div>
+
+    {/* Holiday Schedule */}
+    <div class="mt-12">
+      <h2 class="mb-4 text-2xl font-semibold text-[var(--color-primary)]">Holiday Schedule</h2>
+      <p class="mb-4 text-[var(--color-text-secondary)]">
+        We observe the following holidays and may have adjusted pickup times. Please call ahead for holiday schedules:
+      </p>
+      <ul class="list-disc list-inside space-y-2 text-[var(--color-text-secondary)]">
+        <li>New Year's Day</li>
+        <li>Memorial Day</li>
+        <li>Independence Day</li>
+        <li>Labor Day</li>
+        <li>Thanksgiving Day</li>
+        <li>Christmas Day</li>
+      </ul>
+    </div>
+  </div>
+</BaseLayout>

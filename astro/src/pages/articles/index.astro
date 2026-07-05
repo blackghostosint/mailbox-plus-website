@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { articleLoader } from '../../utils/articleLoader';
+
+const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+
+const allArticles = await articleLoader.getAllArticles();
+const published = allArticles.filter(a => a.frontmatter.status !== 'draft');
+const categories = [...new Set(published.map(a => a.frontmatter.category))];
+
+function formatDate(dateStr: string): string {
+  return new Date(dateStr).toLocaleDateString('en-US', {
+    year: 'numeric', month: 'long', day: 'numeric',
+  });
+}
+
+function imageUrl(imagePath: string): string {
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
+  const cleaned = imagePath.replace(/^\/?images\//, '');
+  return `${R2_BASE}/${cleaned}`;
+}
+---
+
+<BaseLayout
+  title="Articles & Guides | Mailbox Plus"
+  description="Read articles and guides about shipping, printing, mailbox rentals, and business services from Mailbox Plus in Concord Township, Ohio."
+>
+  <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
+    <div class="max-w-4xl mx-auto px-6">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Articles & Guides</h1>
+      <p class="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">Tips, guides, and insights for shipping, printing, and business services.</p>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    {categories.map(cat => (
+      <div key={cat} class="mb-16">
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 capitalize">{cat.replace(/-/g, ' ')}</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {published.filter(a => a.frontmatter.category === cat).map(article => {
+            const { slug, title, description, pubDate, image, imageAlt, category } = article.frontmatter;
+            return (
+              <a
+                href={`/articles/${slug}`}
+                class="group bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[var(--color-border)] hover:border-[var(--color-accent-warm)]"
+              >
+                {/* Featured Image */}
+                <div class="relative overflow-hidden aspect-video bg-[var(--color-border)]">
+                  <img
+                    src={imageUrl(image)}
+                    alt={imageAlt || title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
+                  />
+                  {/* Category Badge */}
+                  <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-accent-warm)] text-white text-xs font-semibold uppercase tracking-wide">
+                    {category.replace(/-/g, ' ')}
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div class="p-6">
+                  {/* Date */}
+                  <div class="flex items-center gap-2 text-sm mb-3" style="color: var(--color-text-muted)">
+                    <time datetime={pubDate}>{formatDate(pubDate)}</time>
+                  </div>
+
+                  {/* Title */}
+                  <h3 class="text-xl font-bold mb-3 group-hover:text-[var(--color-accent-warm)] transition-colors line-clamp-2" style="color: var(--color-text-primary)">
+                    {title}
+                  </h3>
+
+                  {/* Description */}
+                  <p class="mb-4 line-clamp-3 leading-relaxed" style="color: var(--color-text-secondary)">
+                    {description}
+                  </p>
+
+                  {/* Read More */}
+                  <div class="flex items-center gap-2 text-[var(--color-accent-warm)] font-semibold text-sm group-hover:gap-3 transition-all">
+                    Read Article
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
+                  </div>
+                </div>
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    ))}
+  </section>
+</BaseLayout>

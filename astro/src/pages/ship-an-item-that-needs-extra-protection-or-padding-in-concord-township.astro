@@ -1,0 +1,8 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('ship-an-item-that-needs-extra-protection-or-padding-in-concord-township')!;
+---
+
+<ServiceLayout service={service} />

@@ -1,0 +1,29 @@
+{
+  "name": "mailbox-plus-astro",
+  "type": "module",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.2.5",
+    "@astrojs/sitemap": "^3.3.1",
+    "@astrojs/tailwind": "^6.0.2",
+    "@iconify-json/lucide": "^1.2.116",
+    "@tailwindcss/typography": "^0.5.16",
+    "astro": "^5.7.12",
+    "gray-matter": "^4.0.3",
+    "marked": "^18.0.5",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^3.4.17",
+    "unplugin-icons": "^23.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

@@ -30,9 +30,6 @@ export const Header: React.FC = () => {
 
   const isActive = (path: string) => location.pathname === path;
 
-  // ✅ Logo URL via Supabase
-  const logoUrl = getServiceImageUrl('mailbox_plus_logo.webp');
-
   return (
     <header className="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">
       {/* Top Bar */}
@@ -163,37 +160,6 @@ export const Header: React.FC = () => {
           </>
         )}
       </div>
-
-      {/* Local Business Schema for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'Mailbox Plus',
-            image: logoUrl,
-            '@id': 'https://mailboxplusohio.com',
-            url: 'https://mailboxplusohio.com',
-            telephone: siteConfig.contact.phone,
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: siteConfig.contact.address.street,
-              addressLocality: siteConfig.contact.address.city,
-              addressRegion: siteConfig.contact.address.state,
-              postalCode: siteConfig.contact.address.zip,
-              addressCountry: 'US',
-            },
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: 41.664959,
-              longitude: -81.246493,
-            },
-            openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-14:00'],
-            priceRange: '$$',
-          }),
-        }}
-      />
     </header>
   );
 };
