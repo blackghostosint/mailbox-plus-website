@@ -35,6 +35,7 @@ const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl || siteUrl} />
+    <slot name="head" />
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <a
