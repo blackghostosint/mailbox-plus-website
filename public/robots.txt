@@ -8,4 +8,4 @@ Disallow: /Website-Admin
 Disallow: /seo/
 Allow: /
 
-Sitemap: https://mailboxplusohio.com/sitemap.xml
+Sitemap: https://mailboxplusohio.com/sitemap-index.xml
