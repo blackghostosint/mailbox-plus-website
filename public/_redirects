@@ -84,5 +84,5 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Redirects
 /shipping-near-me /service-area/concord-township 301
 
-# TRUE 404 RULE
-/* /404.html 404
+# SPA FALLBACK — serve index.html for all client-side routes (React Router handles 404s)
+/* /index.html 200
