@@ -509,9 +509,9 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Shipping Center',
     slug: '/shipping-center-concord-township',
-    pageTitle: 'Shipping Center in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Shipping Store Near Me in Concord Township, OH | Mailbox Plus',
     metaDescription:
-      'Full-service shipping center in Concord Township. UPS, FedEx, USPS, and DHL services under one roof. Packing, printing, and mailbox rentals.',
+      'Full-service shipping store in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, packing, printing, mailbox rentals. 5.0★ from 32 reviews. Open Mon-Sat. Call (440) 709-1946.',
     keywords: 'shipping center, Concord Township, Lake County',
     heroTitle: 'Local Shipping Center in Concord Township',
     heroSubtitle: 'Complete shipping, packing, and business services. Four carriers, one location.',
@@ -768,11 +768,11 @@ export const localSeoServices: Service[] = [
     id: 'pack-and-ship-services-concord-township',
     category: 'pack-ship',
     city: 'Concord Township',
-    serviceName: 'Pack and Ship Services',
+    serviceName: 'Shipping, Mailing & Pack and Ship Services',
     slug: '/pack-and-ship-services-concord-township',
-    pageTitle: 'Pack and Ship Services in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Shipping & Mailing Services in Concord Township, OH | Mailbox Plus',
     metaDescription:
-      'Professional pack and ship services in Concord Township. We pack items right so they arrive safe. Authorized shipper for UPS, FedEx, USPS, and DHL.',
+      'Shipping, mailing, and pack & ship services in Concord Township (44077). UPS, FedEx, USPS, DHL, mailbox rentals, notary, printing. 5.0★ from 32 reviews. Call (440) 709-1946.',
     keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping, packing',
     heroTitle: 'Pack and Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
     heroSubtitle:
