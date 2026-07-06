@@ -1,3 +1,6 @@
+> The comprehensive guide to Mailbox Plus — all services, pages, and capabilities.
+> This file is authoritative for AI and search crawlers.
+
 # Mailbox Plus
 > Pack & ship, printing, mailbox rentals, and business services in Concord Township, Ohio.
 > UPS, FedEx, USPS, and DHL at one counter. Compare rates before you ship.
@@ -140,6 +143,8 @@ Mailbox Plus is a direct alternative to these national chains, offering the same
 - **Office Depot Alternative** — Printing, shipping, business services at one counter.
 - **Mail Boxes Etc Alternative** — Packing, shipping, mailbox rentals.
 
+For each competitor type, Mailbox Plus has town-specific landing pages targeting Willoughby, Mentor, Painesville, Eastlake, Kirtland, Chardon, Madison, and Fairport Harbor (40 pages total). These pages target hyperlocal search queries like "FedEx drop-off Willoughby" and "DHL drop-off Mentor" to capture local search traffic.
+
 ## Service Areas
 
 Serving 18 communities in Northeast Ohio (Lake County and surrounding areas):
@@ -161,8 +166,41 @@ Concord Township, Mentor, Painesville, Eastlake, Willoughby, Wickliffe, Madison,
 - https://mailboxplusohio.com/privacy : Privacy policy
 - https://mailboxplusohio.com/terms : Terms of service
 - https://mailboxplusohio.com/shipping-partners : Business partners who trust Mailbox Plus
-- https://mailboxplusohio.com/after-signup : Post-mailbox-signup guide and explainer video
 - https://mailboxplusohio.com/rewards/join : Plus Points loyalty program signup
+
+### Pack & Ship Sub-Pages
+- https://mailboxplusohio.com/pack-ship/fedex-shipping : FedEx shipping
+- https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet : UPS shipping
+- https://mailboxplusohio.com/pack-ship/usps-services : USPS services
+- https://mailboxplusohio.com/pack-ship/dhl-express : DHL Express
+- https://mailboxplusohio.com/pack-ship/professional-packing : Professional packing
+- https://mailboxplusohio.com/pack-ship/custom-box-making : Custom box building
+- https://mailboxplusohio.com/pack-ship/packaging-supplies : Boxes, tape, bubble wrap
+- https://mailboxplusohio.com/pack-ship/artwork-shipping : Artwork & collectibles
+- https://mailboxplusohio.com/pack-ship/bicycle-shipping : Bike shipping
+- https://mailboxplusohio.com/pack-ship/golf-club-shipping : Golf club shipping
+- https://mailboxplusohio.com/pack-ship/package-drop-offs : Free drop-offs
+- https://mailboxplusohio.com/pack-ship/package-receiving : Package receiving
+- https://mailboxplusohio.com/pack-ship/postage-stamps : USPS stamps
+
+### Copy & Print Sub-Pages
+- https://mailboxplusohio.com/copy-print/business-cards
+- https://mailboxplusohio.com/copy-print/copies
+- https://mailboxplusohio.com/copy-print/document-printing
+- https://mailboxplusohio.com/copy-print/flyers-brochures
+- https://mailboxplusohio.com/copy-print/graphic-design
+- https://mailboxplusohio.com/copy-print/postcard-printing
+- https://mailboxplusohio.com/copy-print/posters-printing
+
+### Home Business Sub-Pages
+- https://mailboxplusohio.com/home-business : Home business services
+- https://mailboxplusohio.com/home-business/mailbox-rental : Private mailbox rentals
+- https://mailboxplusohio.com/home-business/digital-mailbox-rental : Virtual mailbox
+- https://mailboxplusohio.com/home-business/notary-services : Notary ($5/sig)
+- https://mailboxplusohio.com/home-business/document-scanning : Scan to PDF
+- https://mailboxplusohio.com/home-business/fax-services : Send/receive faxes
+- https://mailboxplusohio.com/home-business/shredding : Secure document shredding
+- https://mailboxplusohio.com/home-business/every-door-direct-mail : EDDM marketing
 
 ### Service Area Pages
 - https://mailboxplusohio.com/service-area : Service area index
@@ -171,27 +209,28 @@ Concord Township, Mentor, Painesville, Eastlake, Willoughby, Wickliffe, Madison,
 - https://mailboxplusohio.com/service-area/painesville
 - https://mailboxplusohio.com/service-area/eastlake
 - https://mailboxplusohio.com/service-area/willoughby
+- https://mailboxplusohio.com/service-area/willoughby-hills
 - https://mailboxplusohio.com/service-area/wickliffe
 - https://mailboxplusohio.com/service-area/madison
 - https://mailboxplusohio.com/service-area/perry
 - https://mailboxplusohio.com/service-area/kirtland
 - https://mailboxplusohio.com/service-area/chardon
+- https://mailboxplusohio.com/service-area/chardon-township
 - https://mailboxplusohio.com/service-area/fairport-harbor
 - https://mailboxplusohio.com/service-area/geneva
 - https://mailboxplusohio.com/service-area/leroy-township
 - https://mailboxplusohio.com/service-area/mayfield
 - https://mailboxplusohio.com/service-area/auburn-township
-- https://mailboxplusohio.com/service-area/chardon-township
 - https://mailboxplusohio.com/service-area/munson-township
-- https://mailboxplusohio.com/service-area/willoughby-hills
 
-### Micro-Problem Pages (Intent-Specific Help)
-Each addresses a specific customer problem with actionable advice:
-- /print-return-label-without-printer, /return-without-original-box, /print-amazon-return-label, /package-a-return-so-its-accepted-by-the-carrier, /fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township, /ship-return-strict-size-weight-limits, /drop-off-a-prepaid-label-from-your-phone
-- /repackage-a-damaged-or-torn-shipping-box-in-concord-township, /get-help-choosing-the-right-box-for-shipping-in-concord-township, /package-multiple-items-into-one-shipment-in-concord-township, /print-and-attach-a-shipping-label-correctly-in-concord-township, /ship-something-with-no-original-packaging-in-concord-township
-- /ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics, /ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment, /ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected, /ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers, /ship-artwork-framed-items-or-collectibles-safely-in-concord-township, /ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers, /ship-a-gift-without-the-receipt-or-invoice-in-concord-township, /unsure-of-carrier-rules, /ship-an-item-that-needs-extra-protection-or-padding-in-concord-township, /ship-a-package-when-youre-short-on-time-in-concord-township, /ship-with-guaranteed-proof-and-tracking-concord-township, /ups-drop-off-near-concord-township-not-sure-if-its-packed-right, /fedex-drop-off-in-concord-township-have-label-need-packaging, /usps-drop-off-in-concord-township-label-printing-and-packaging-help
+### Hyperlocal Keyword Landing Pages (Added July 2026)
+- https://mailboxplusohio.com/pack-and-ship-madison : Pack & ship in Madison OH
+- https://mailboxplusohio.com/pack-and-ship-kirtland : Pack & ship in Kirtland OH
+- https://mailboxplusohio.com/pack-and-ship-willoughby : Pack & ship in Willoughby OH
+- https://mailboxplusohio.com/mailbox-rental-eastlake : Mailbox rental near Eastlake OH
+- https://mailboxplusohio.com/package-receiving-lake-county : Package receiving service Lake County
 
-### Competitor Alternative Pages
+### Competitor Alternative Pages (Concord Township)
 - https://mailboxplusohio.com/ups-store-alternative-concord-township
 - https://mailboxplusohio.com/fedex-office-alternative-concord-township
 - https://mailboxplusohio.com/post-office-alternative-concord-township
@@ -208,6 +247,53 @@ Each addresses a specific customer problem with actionable advice:
 - https://mailboxplusohio.com/ups-fedex-usps-dhl-shipping-concord-township
 - https://mailboxplusohio.com/usps-package-help-concord-township
 - https://mailboxplusohio.com/amazon-returns-drop-off-concord-township
+
+### Town-Specific Carrier & Service Pages (40 pages)
+These target hyperlocal searches for each major town in our service area. Each exists for Willoughby, Mentor, Painesville, Eastlake, Kirtland, Chardon, Madison, and Fairport Harbor:
+- FedEx drop-off pages (8 towns)
+- UPS drop-off pages (8 towns)
+- DHL drop-off pages (8 towns)
+- Happy Returns drop-off pages (8 towns)
+- FedEx Office alternative pages (8 towns)
+
+### Return & Drop-Off Service Pages
+- https://mailboxplusohio.com/fedex-easy-returns
+- https://mailboxplusohio.com/happy-returns
+- https://mailboxplusohio.com/amazon-returns
+- https://mailboxplusohio.com/amazon-returns-drop-off-concord-township
+- https://mailboxplusohio.com/nuuly-returns
+- https://mailboxplusohio.com/print-amazon-return-label
+- https://mailboxplusohio.com/print-return-label-without-printer
+- https://mailboxplusohio.com/return-without-original-box
+
+### Specialty Service Pages
+- https://mailboxplusohio.com/specialty/digital-fingerprinting : BCI/FBI digital fingerprinting
+- https://mailboxplusohio.com/specialty/insurance : Declared-value shipping insurance
+
+### Rewards Program
+- https://mailboxplusohio.com/rewards : Plus Points loyalty program info
+- https://mailboxplusohio.com/rewards/join : Sign up for Plus Points
+- https://mailboxplusohio.com/rewards/me : Member portal
+
+### Micro-Problem Pages (Intent-Specific Help)
+Each addresses a specific customer problem with actionable advice:
+- /print-return-label-without-printer, /return-without-original-box, /print-amazon-return-label, /package-a-return-so-its-accepted-by-the-carrier, /fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township, /ship-return-strict-size-weight-limits, /drop-off-a-prepaid-label-from-your-phone
+- /repackage-a-damaged-or-torn-shipping-box-in-concord-township, /get-help-choosing-the-right-box-for-shipping-in-concord-township, /package-multiple-items-into-one-shipment-in-concord-township, /print-and-attach-a-shipping-label-correctly-in-concord-township, /ship-something-with-no-original-packaging-in-concord-township
+- /ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics, /ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment, /ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected, /ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers, /ship-artwork-framed-items-or-collectibles-safely-in-concord-township, /ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers, /ship-a-gift-without-the-receipt-or-invoice-in-concord-township, /unsure-of-carrier-rules, /ship-an-item-that-needs-extra-protection-or-padding-in-concord-township, /ship-a-package-when-youre-short-on-time-in-concord-township, /ship-with-guaranteed-proof-and-tracking-concord-township, /ups-drop-off-near-concord-township-not-sure-if-its-packed-right, /fedex-drop-off-in-concord-township-have-label-need-packaging, /usps-drop-off-in-concord-township-label-printing-and-packaging-help
+
+### Additional Service Pages
+- https://mailboxplusohio.com/pack-and-ship-concord-ohio
+- https://mailboxplusohio.com/mailbox-rental-concord-ohio
+- https://mailboxplusohio.com/mailing-services-concord-ohio
+- https://mailboxplusohio.com/mail-forwarding-concord-township
+- https://mailboxplusohio.com/virtual-mailbox-concord-township
+- https://mailboxplusohio.com/private-mailbox-rental-concord-township
+- https://mailboxplusohio.com/domestic-package-shipping-company-concord-ohio
+- https://mailboxplusohio.com/document-services-concord-township
+- https://mailboxplusohio.com/shipping-center-concord-township
+
+### Article Pages (60+)
+Articles cover pack & ship, notary, mailbox, and business service topics for communities including Concord Township, Chardon, Hambden, Kirtland Hills, Painesville, Madison, Geneva, Perry, and more. Full list at https://mailboxplusohio.com/articles.
 
 ## Sitemap
 https://mailboxplusohio.com/sitemap.xml
