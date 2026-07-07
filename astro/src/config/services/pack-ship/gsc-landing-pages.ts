@@ -163,7 +163,7 @@ export const gscLandingPages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Mailing Services',
     slug: '/mailing-services-concord-ohio',
-    pageTitle: 'Mailing Services in Concord Township, OH | Mailbox Plus | 5.0★',
+    pageTitle: 'Mailing Services Near Me in Concord Township, OH 44077 | Mailbox Plus | 5.0★',
     metaDescription:
       'Full mailing services in Concord Township (44077): USPS stamps, package shipping, mailbox rentals, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call (440) 709-1946.',
     keywords: 'mailing services, Concord Township, stamps, mail forwarding, digital mail',

@@ -19,7 +19,7 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Mailbox Rental',
     slug: '/home-business/mailbox-rental',
-    pageTitle: 'Mailbox Rental in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Mailbox Rental Near Me in Concord Township, OH 44077 | Mailbox Plus',
     metaDescription:
       'Stop putting your home address on every package and filing. Get a real street address in Concord Township. All 4 carriers. From $35/month. 30-day risk-free. Porch theft protection included.',
     keywords:
