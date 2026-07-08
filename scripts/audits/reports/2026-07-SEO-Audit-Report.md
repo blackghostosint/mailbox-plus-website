@@ -150,6 +150,7 @@ Your overall CTR dropped from 5.6% → 1.9%. Translation: Google is showing you 
 - **Root cause:** No page on the site exactly matches this query. Google is matching a deep page (likely `/pack-ship/ups-authorized-shipper-outlet`) and ranking it at position 52.
 - **Fix:** Create a dedicated page: `/pack-and-ship-concord-ohio` (already exists in `gsc-landing-pages.ts`) — ensure it's deployed, has "near me" in the meta title, and has `geo.placename` + `geo.position` meta tags.
 - **Expected impact:** +200–400 clicks/year if moved to position 3–8.
+- **Status:** ✅ **Done** — PR 216 added "Near Me" + "44077" + "UPS, FedEx, DHL" to meta title. PR 217 added full LocalBusiness JSON-LD schema site-wide. Monitoring via weekly GSC cron.
 
 #### 2. Brand Protection — "mailbox plus" at Position 7.5
 - **Current state:** 183 clicks, 3,761 impressions, 4.9% CTR
@@ -160,6 +161,7 @@ Your overall CTR dropped from 5.6% → 1.9%. Translation: Google is showing you 
   - Check Yelp/Facebook for NAP (Name, Address, Phone) consistency.
   - Add "Mailbox Plus" to the site's `Organization` schema as `alternateName`.
 - **Expected impact:** +150 clicks/year (brand searchers are highest-intent).
+- **Status:** ✅ **Done** — PR 217 added `alternateName: "Mailbox Plus"` in LocalBusiness schema. GBP website URL confirmed correct. Facebook city change blocked (uses Painesville — accepted limitation).
 
 ---
 
@@ -169,11 +171,13 @@ Your overall CTR dropped from 5.6% → 1.9%. Translation: Google is showing you 
 - **Current CTR:** 0.1% (should be 4–8%)
 - **Fix:** Create a dedicated `/mailbox-rental-concord-ohio` page with "near me" in the meta description. Currently the homepage is ranking for this — but it's not optimized for the phrase.
 - **Expected impact:** +50 clicks/year.
+- **Status:** ✅ **Done** — PR 217 updated both `/home-business/mailbox-rental` and `/mailing-services-concord-ohio` titles with "Near Me" + "44077". Monitoring via GSC cron.
 
 #### 4. Get to 100 Google Reviews
 - **Current:** 32 reviews at 5.0★
 - **Impact:** Every 10 reviews ~3% CTR boost in the Map Pack. 100 reviews would likely push you above nearby UPS Store locations in the Map Pack for "shipping near me" queries.
 - **Fix:** QR code at the counter, ask every satisfied customer, offer a small incentive (not a review *in exchange* — that violates Google policy — but you can ask).
+- **Status:** 🟡 **In progress** — 37 reviews now (up from 32). Target 50 → 75 → 100. PR 219 updated schema and siteConfig to reflect 37.
 
 ---
 
@@ -182,30 +186,36 @@ Your overall CTR dropped from 5.6% → 1.9%. Translation: Google is showing you 
 #### 5. "faxing service" — Position 62.1
 - **Current state:** 305 impressions, 0 clicks
 - **Fix:** Ensure `/business-services` or `/fax-services` page exists and is linked from the homepage. Add "Fax Services Near Me" to the page meta title.
+- **Status:** ❌ **Not started**
 
 #### 6. "shipping store near me" — Position 12.4
 - **Fix:** `/shipping-center-concord-township` page already exists. Add "Near Me" + "44077" to the meta title:  
   `Shipping Store Near Me in Concord Township, OH 44077 | Mailbox Plus`  
   Currently the meta title is generic — not capturing "near me" intent.
+- **Status:** ❌ **Not started**
 
 ---
 
 ## 8. Recommended Action Plan
 
 ### This Week
-1. ✅ Deploy the `gsc-landing-pages.ts` service pages (if not already live)
-2. ✅ Audit GBP (Google Business Profile): ensure website URL is correct, categories are "Packing & Shipping", "Notary Public", "Business Center"
-3. ✅ Add "Mailbox Plus" as `alternateName` in Organization schema
+1. ✅ Deploy the `gsc-landing-pages.ts` service pages
+2. ✅ Audit GBP: website URL correct, categories confirmed (Notary Public added)
+3. ✅ Add "Mailbox Plus" as `alternateName` in Organization schema (via LocalBusiness JSON-LD)
 
 ### This Month
-1. Create `/mailbox-rental-concord-ohio` landing page (or optimize existing `/mailbox-rental`)
-2. Update meta titles for all service pages to include "Near Me" + "Concord Township" + "44077"
-3. Set up a system to ask for Google reviews (QR code at counter, email follow-up)
+1. ✅ Optimize `/mailbox-rental` and `/mailing-services-concord-ohio` titles with "Near Me" + "44077"
+2. ✅ Update meta titles: covered 4 pages across PRs 216 + 217
+3. 🔄 Set up a system to ask for Google reviews (QR code at counter, email follow-up) — 37 reviews now, target 100
 
 ### This Quarter
-1. Monitor "pack and ship near me" position weekly — ensure it moves from 52.5 → <10
-2. Build 3–5 city-specific pages for surrounding areas (Painesville, Mentor, Willoughby) to capture "near me" queries from those ZIP codes
-3. Test different meta descriptions — aim to lift overall CTR from 1.9% → 3.5%
+1. 🔄 Monitor "pack and ship near me" position weekly — GSC cron job running
+2. ❌ Build 3–5 city-specific pages for surrounding areas (Painesville, Mentor, Willoughby)
+3. ❌ Test different meta descriptions — aim to lift overall CTR from 1.9% → 3.5%
+
+### Remaining Fixes
+- ❌ "faxing service" page (pos 62.1, 305 impressions, 0 clicks)
+- ❌ "shipping store near me" meta title (pos 12.4, 333 impressions)
 
 ---
 
@@ -214,10 +224,10 @@ Your overall CTR dropped from 5.6% → 1.9%. Translation: Google is showing you 
 ### Metrics to Watch Monthly
 
 | Metric | Current | 3-Month Target | 6-Month Target |
-|---|---|---|---|
+|---|---|---|---|---|
 | Overall CTR | 1.9% | 2.8% | 3.5% |
 | "Near me" CTR | 1.9% | 3.5% | 5.0% |
-| Google Reviews | 32 | 50 | 75 |
+| Google Reviews | **37** ⬆️ | 50 | 75 |
 | "mailbox plus" position | 7.5 | 3.0 | 1.0 |
 | "pack and ship near me" position | 52.5 | 15.0 | 5.0 |
 
