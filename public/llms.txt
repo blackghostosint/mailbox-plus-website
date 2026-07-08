@@ -2,6 +2,15 @@
 > This file is authoritative for AI and search crawlers.
 
 # Mailbox Plus
+
+## Key Pages
+- [Homepage](https://mailboxplusohio.com/)
+- [Pack & Ship Services](https://mailboxplusohio.com/pack-ship)
+- [Mailbox Rentals](https://mailboxplusohio.com/home-business/mailbox-rental)
+- [Notary Services](https://mailboxplusohio.com/home-business/notary-services)
+- [Contact & Location](https://mailboxplusohio.com/contact-us)
+- [All Articles](https://mailboxplusohio.com/articles)
+
 > Pack & ship, printing, mailbox rentals, and business services in Concord Township, Ohio.
 > UPS, FedEx, USPS, and DHL at one counter. Compare rates before you ship.
 

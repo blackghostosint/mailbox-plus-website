@@ -84,7 +84,6 @@ export const siteConfig: SiteConfig = {
 
     'Staples printing services',
     'Staples document services',
-    'Staples passport photos',
     'Staples shipping services',
     'Staples alternative',
 
@@ -119,7 +118,7 @@ export const siteConfig: SiteConfig = {
   // Google Business Profile review data for LocalBusiness schema
   aggregateRating: {
     ratingValue: 5.0,
-    reviewCount: 32,
+    reviewCount: 37,
     bestRating: 5,
     worstRating: 1,
   },
