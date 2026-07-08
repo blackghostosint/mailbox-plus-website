@@ -88,6 +88,13 @@ export interface Service {
 
   // Optional Schema.org Offers
   offers?: Offer[];
+
+  // Optional legal disclaimer and competitor reference link for regulated pages
+  disclaimer?: string;
+  refLink?: {
+    url: string;
+    label: string;
+  };
 }
 
 export interface Category {

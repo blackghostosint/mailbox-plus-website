@@ -119,6 +119,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.fedex.com/en-us/shipping/alcohol.html',
+      label: 'FedEx official alcohol shipping policy',
+    },
   },
   {
     id: 'shipping-batteries-guide-concord-township',
@@ -237,6 +243,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.fedex.com/en-us/shipping/how-to-ship-batteries.html',
+      label: 'FedEx official battery shipping policy',
+    },
   },
   {
     id: 'shipping-firearms-guide-concord-township',
@@ -325,6 +337,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.fedex.com/en-us/shipping/how-to-ship-firearms.html',
+      label: 'FedEx official firearms shipping policy',
+    },
   },
   {
     id: 'shipping-ammunition-guide-concord-township',
@@ -405,6 +423,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-ammunition',
+      label: 'UPS official ammunition shipping policy',
+    },
   },
   {
     id: 'shipping-dry-ice-guide-concord-township',
@@ -491,6 +515,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-dry-ice',
+      label: 'UPS official dry ice shipping policy',
+    },
   },
   {
     id: 'prohibited-restricted-items-guide-concord-township',
@@ -577,6 +607,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items',
+      label: 'UPS official prohibited items list',
+    },
   },
   {
     id: 'common-hazardous-items-guide-concord-township',
@@ -653,6 +689,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/common-hazardous-items',
+      label: 'UPS common hazardous items list',
+    },
   },
   {
     id: 'shipping-wine-guide-concord-township',
@@ -728,6 +770,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/wine',
+      label: 'UPS official wine shipping policy',
+    },
   },
   {
     id: 'shipping-beer-guide-concord-township',
@@ -802,6 +850,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/beer',
+      label: 'UPS official beer shipping policy',
+    },
   },
   {
     id: 'shipping-spirits-guide-concord-township',
@@ -871,6 +925,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/spirits',
+      label: 'UPS official spirits shipping policy',
+    },
   },
   {
     id: 'shipping-hemp-cbd-guide-concord-township',
@@ -935,6 +995,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/hemp-cbd-marijuana',
+      label: 'UPS official hemp/CBD shipping policy',
+    },
   },
   {
     id: 'shipping-plants-animals-guide-concord-township',
@@ -1007,6 +1073,12 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/plants-and-animals',
+      label: 'UPS official plants/animals shipping policy',
+    },
   },
   {
     id: 'shipping-tobacco-guide-concord-township',
@@ -1077,5 +1149,11 @@ export const regulatedMicroProblems: Service[] = [
       buttonLink: '/contact-us',
     },
     robots: 'index, follow',
+    disclaimer:
+      'We are not attorneys and cannot provide legal advice. This information is for educational purposes and reflects carrier policies as we understand them. Laws vary by state and change frequently. Always consult the carrier directly and review applicable federal and state regulations before shipping regulated items.',
+    refLink: {
+      url: 'https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/prohibited-items/tobacco',
+      label: 'UPS official tobacco shipping policy',
+    },
   },
 ];
