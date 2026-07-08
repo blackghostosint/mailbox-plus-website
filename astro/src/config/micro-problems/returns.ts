@@ -635,9 +635,10 @@ export const returnMicroProblems: Service[] = [
 <li><strong>Official Vinted Go location</strong> — listed on Vinted's carrier locator</li>
 <li><strong>No printer needed</strong> — bring the QR code on your phone and we print the label for you</li>
 <li><strong>Immediate scanning</strong> — your package is scanned and receipted right away, so Vinted knows it is on its way</li>
+<li><strong>Free <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">package drop-off</a></strong> — no charge for dropping off your prepaid Vinted packages</li>
 <li><strong>No waiting in line</strong> — we are faster and friendlier than the big chain stores</li>
 <li><strong>Local convenience</strong> — serving Concord Township, Painesville, Mentor, Willoughby, and all of Lake County</li>
-<li><strong>Multi-carrier</strong> — we handle Vinted packages shipped via any of our carrier partners (UPS, FedEx, USPS, DHL)</li>
+<li><strong>Multi-carrier</strong> — we handle Vinted packages shipped via any of our <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">carrier partners</a> (UPS, FedEx, USPS, DHL)</li>
 </ul>`,
       },
       {
