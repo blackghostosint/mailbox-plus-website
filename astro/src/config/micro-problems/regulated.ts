@@ -492,4 +492,166 @@ export const regulatedMicroProblems: Service[] = [
     },
     robots: 'index, follow',
   },
+  {
+    id: 'prohibited-restricted-items-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'Prohibited & Restricted Items Overview',
+    slug: '/guide/prohibited-restricted-items',
+    pageTitle: 'Prohibited & Restricted Items for Shipping — FedEx, UPS, USPS Guide',
+    metaDescription:
+      'Wondering if you can ship it? Alcohol, firearms, batteries, hazmat, perishables, and more — each carrier has different rules. Quick reference guide for what FedEx, UPS, and USPS accept.',
+    heroTitle: 'Prohibited & Restricted Items for Shipping',
+    heroSubtitle:
+      'Quick reference: what FedEx, UPS, and USPS accept and what they do not. Always verify with the carrier before shipping anything unusual.',
+    content: [
+      {
+        heading: 'How the Carriers Think About This',
+        body: `<p>Every carrier splits items into three buckets:</p>
+<ul>
+<li><strong>Prohibited</strong> — cannot be shipped under any circumstances (marijuana, hazardous waste, human remains)</li>
+<li><strong>Restricted / Contractual</strong> — may be shipped only with a signed agreement and proper licensing (alcohol, firearms, hazardous materials)</li>
+<li><strong>Acceptable</strong> — standard items with normal packaging (clothes, electronics, books, household goods)</li>
+</ul>
+<p>What counts as "restricted" varies by carrier. An item that one carrier ships freely may be prohibited by another. The shipper is always responsible for knowing the rules.</p>`,
+      },
+      {
+        heading: 'Quick Reference by Item',
+        body: `<table class="min-w-full border-collapse text-sm">
+<thead><tr class="bg-[var(--color-bg-tertiary)]">
+<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Item</th>
+<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">FedEx</th>
+<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">UPS</th>
+<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">USPS</th>
+</tr></thead>
+<tbody>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Alcohol (wine/beer)</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Alcohol (spirits)</td><td class="p-3 text-center border-b border-[var(--color-border)]">Lic → Lic only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Firearms</td><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Ammunition</td><td class="p-3 text-center border-b border-[var(--color-border)]">DG account</td><td class="p-3 text-center border-b border-[var(--color-border)]">Ground LQ</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium batteries</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed only</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Marijuana / CBD</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (hemp)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Tobacco / vape</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (no vape)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Dry ice</td><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Limited medical</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Perishable food</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some services</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Live animals</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some allowed</td></tr>
+<tr><td class="p-3 border-b border-[var(--color-border)]">Hazardous waste</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+</tbody>
+</table>
+<p class="text-xs text-[var(--color-text-muted)] mt-2">Contract = Requires signed carrier agreement + licensing. LQ = Limited Quantity. FFL = Federal Firearms License. DG = Dangerous Goods.</p>`,
+        isFullWidth: true,
+      },
+      {
+        heading: 'What We Can Help With',
+        body: `<p>We handle <strong>most everyday shipping</strong> at our counter — FedEx, UPS, USPS, and DHL drop-offs and labels. We can also help with:</p>
+<ul>
+<li>Professional packing for fragile, odd-shaped, and valuable items</li>
+<li>Packaging supplies (boxes, tape, bubble wrap, foam)</li>
+<li>Package receiving — we sign for all 4 carriers</li>
+<li>Advice on how to handle regulated items the right way</li>
+</ul>
+<p>Stop by <strong>7554 Fredle Drive, Concord Township</strong> — no appointment needed.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship perfume or cologne?',
+        answer:
+          'Perfume and cologne containing alcohol are regulated as hazardous materials. Small quantities (under 1 liter) may be shipped via ground with proper labeling. Check carrier rules before shipping.',
+      },
+      {
+        question: 'Can I ship nail polish or nail polish remover?',
+        answer:
+          'Nail polish is flammable (hazmat). Small quantities may ship ground as Limited Quantity. Nail polish remover (acetone) is also regulated. Check with the carrier.',
+      },
+      {
+        question: 'Can I ship aerosol cans?',
+        answer:
+          'Aerosol cans are hazardous materials (flammable gas). Some carriers accept them ground only with proper packaging and labeling. No air shipment.',
+      },
+    ],
+    cta: {
+      title:
+        'Not sure if your item is shippable? Bring it in or call us — we will give you a straight answer.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'common-hazardous-items-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'Common Hazardous Items List',
+    slug: '/guide/common-hazardous-items',
+    pageTitle: 'Common Household Items That Are Hazardous Materials for Shipping',
+    metaDescription:
+      'Many everyday items are regulated hazardous materials for shipping — perfume, nail polish, aerosols, batteries, cleaners. Learn what counts as hazmat and how to ship it correctly.',
+    heroTitle: 'Common Items That Are Hazardous Materials',
+    heroSubtitle:
+      'You might be surprised what counts as a hazardous material. Perfume, nail polish, aerosol cans, batteries, cleaning products, and more — all have specific rules for shipping.',
+    content: [
+      {
+        heading: 'Surprise — These Are Hazmat',
+        body: `<p>Many everyday items are regulated as hazardous materials (dangerous goods) when shipped. Carriers classify them based on their chemical properties — flammability, corrosiveness, toxicity, or reactivity. Here are common items that frequently surprise people:</p>
+<ul>
+<li><strong>Perfume & cologne</strong> — contain alcohol (flammable liquid)</li>
+<li><strong>Nail polish & nail polish remover</strong> — flammable liquids</li>
+<li><strong>Aerosol cans</strong> — hairspray, deodorant, spray paint, cooking spray, whipped cream (flammable gas)</li>
+<li><strong>Cleaning products</strong> — bleach, ammonia, drain cleaners, oven cleaners (corrosive/toxic)</li>
+<li><strong>Batteries</strong> — lithium, lithium-ion, wet/car batteries (various hazmat classes)</li>
+<li><strong>Matches & lighters</strong> — flammable solids</li>
+<li><strong>Camping fuel / lighter fluid</strong> — flammable liquids</li>
+<li><strong>Paint, varnish, stain</strong> — flammable liquids</li>
+<li><strong>Pool chemicals</strong> — chlorine tablets, shock treatments (oxidizers)</li>
+<li><strong>Propane tanks</strong> — flammable gas (generally not accepted at retail)</li>
+<li><strong>Mercury thermometers</strong> — toxic substance</li>
+<li><strong>Fire extinguishers</strong> — compressed gas</li>
+<li><strong>Hand sanitizer</strong> — alcohol-based (flammable liquid, limited quantities OK)</li>
+</ul>`,
+      },
+      {
+        heading: 'How Hazmat Shipping Works',
+        body: `<p>When you ship a hazardous material, the rules depend on <strong>quantity</strong> and <strong>service level</strong>:</p>
+<ul>
+<li><strong>Limited Quantity (LQ)</strong> — Small amounts of certain hazmat can ship under simplified rules with hazmat labeling but no shipping papers. Usually ground-only, sometimes air.</li>
+<li><strong>Fully Regulated</strong> — Larger quantities require a hazardous materials contract, certified training, shipping papers (DOT or IATA declaration), and specific packaging.</li>
+</ul>
+<p><strong>Important:</strong> Most retail shipping stores (including us and the big chains) cannot accept fully regulated hazmat for drop-off. Limited Quantity hazmat may be accepted by some carriers, but rules vary.</p>`,
+      },
+      {
+        heading: 'What We Can Do',
+        body: `<p>We cannot accept hazmat packages at our counter, but we can help in other ways:</p>
+<ul>
+<li>Provide <strong>packaging supplies</strong> for non-hazmat items</li>
+<li>Advise on <strong>which carrier to contact</strong> for your specific hazmat needs</li>
+<li>Ship <strong>non-regulated items</strong> — 99% of everyday packages go through without issue</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a bottle of perfume?',
+        answer:
+          'Maybe — small quantities of perfume (under 1 liter) can ship via ground as Limited Quantity with proper hazmat labeling. Check with the carrier before dropping it off.',
+      },
+      {
+        question: 'Can I ship a can of spray paint?',
+        answer:
+          'Aerosol cans are generally prohibited in USPS. UPS and FedEx may accept them ground-only as Limited Quantity with proper packaging. No air shipment.',
+      },
+      {
+        question: 'What happens if I ship hazmat without declaring it?',
+        answer:
+          'Carriers use X-ray and screening technology. Undeclared hazmat can cause delays, fines, and legal liability — especially if it causes a safety incident. Always declare properly.',
+      },
+    ],
+    cta: {
+      title:
+        'Not sure if your item counts as hazmat? Call us — we can help you figure it out before you bring it in.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
