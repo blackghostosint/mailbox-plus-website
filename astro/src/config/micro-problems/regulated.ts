@@ -654,4 +654,428 @@ export const regulatedMicroProblems: Service[] = [
     },
     robots: 'index, follow',
   },
+  {
+    id: 'shipping-wine-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Wine via FedEx & UPS',
+    slug: '/guide/shipping-wine',
+    pageTitle: 'How to Ship Wine via FedEx and UPS — Rules, Licensing & State Laws',
+    metaDescription:
+      'Shipping wine? FedEx ships wine licensee-to-consumer; UPS has winery direct, on-site purchase, and retailer rules. Both require a license and contract. Learn the details here.',
+    heroTitle: 'How to Ship Wine via FedEx and UPS',
+    heroSubtitle:
+      'Wine is the most commonly shipped alcoholic beverage. Both FedEx and UPS accept wine shipments — but only from licensed shippers with a signed contract.',
+    content: [
+      {
+        heading: 'FedEx Rules for Wine',
+        body: `<ul>
+<li>FedEx only permits <strong>wine</strong> for licensee-to-consumer shipments. Beer and spirits are licensee-to-licensee only.</li>
+<li>Shipper must be a FedEx-approved alcohol shipper with a signed <strong>FedEx Alcohol Shipping Agreement</strong></li>
+<li>Must use <strong>Adult Signature Required</strong> (ASR) for delivery</li>
+<li>Special <strong>SEL-170 alcohol shipping label</strong> required</li>
+<li>Proper packaging: molded EPS foam, corrugated tray, or fiber tray inside sturdy outer box</li>
+<li>Refer to FedEx <strong>Direct-to-Consumer Wine Shipping State Reference Guide</strong> for which states allow direct shipments</li>
+<li>FedEx does not accept wine shipments from <strong>retailers</strong> to consumers — only wineries</li>
+</ul>`,
+      },
+      {
+        heading: 'UPS Rules for Wine',
+        body: `<p>UPS has a more complex set of wine shipping rules based on state laws and shipper type:</p>
+<ul>
+<li><strong>All wine shippers must have a signed UPS Agreement for Approved Wine Shippers</strong></li>
+<li><strong>Licensee-to-Licensee:</strong> Wine can ship between licensed businesses (winery → distributor → retailer)</li>
+<li><strong>Winery On-Site Purchase:</strong> Some states allow shipments only if the consumer bought the wine in person at the winery</li>
+<li><strong>Winery Direct Shipment:</strong> Some states allow out-of-state wineries to ship directly to consumers (purchase can be online or by phone)</li>
+<li><strong>Retailer Direct:</strong> Some states allow licensed out-of-state retailers to ship wine to consumers</li>
+<li><strong>Adult Signature Required</strong> on all wine deliveries</li>
+<li>Approved packaging: EPS foam, corrugated tray, molded fiber tray, or thermoformed plastic trays</li>
+<li>Alcohol shipping label required (item #01990336, 150 per pack)</li>
+</ul>`,
+      },
+      {
+        heading: 'Who Cannot Ship Wine',
+        body: `<p><strong>Individuals cannot ship wine through either carrier.</strong> If you are not a licensed winery, brewery, distillery, or retailer with a signed carrier contract, you cannot tender a wine shipment. No exceptions.</p>
+<p>Your options:</p>
+<ul>
+<li>Order wine directly from a winery that has its own shipping account</li>
+<li>Use a licensed third-party delivery service if available in your area</li>
+<li>Bring the wine with you (check TSA rules for air travel)</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a bottle of wine as a gift to a friend?',
+        answer:
+          'No — not through FedEx, UPS, or USPS as an individual. The winery must ship it on your behalf if they have the proper license and carrier contract.',
+      },
+      {
+        question: 'What states allow direct wine shipping?',
+        answer:
+          'It varies. FedEx publishes a Direct-to-Consumer Wine Shipping State Reference Guide. UPS uses Addendum A to their Wine Agreement. Both change frequently. Always check current laws.',
+      },
+      {
+        question: 'Can a wine retailer ship to me?',
+        answer:
+          'UPS allows retailer-to-consumer wine shipments in certain states (Retailer Direct Shipment States). FedEx only allows winery-to-consumer, not retailer-to-consumer.',
+      },
+    ],
+    cta: {
+      title:
+        'Need to ship something that is not alcohol? We do that. Stop by Mailbox Plus at 7554 Fredle Drive.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-beer-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Beer via FedEx & UPS',
+    slug: '/guide/shipping-beer',
+    pageTitle: 'How to Ship Beer via FedEx and UPS — Brewery & Retailer Rules',
+    metaDescription:
+      'Shipping beer? FedEx requires licensee-to-licensee only. UPS allows licensed breweries to ship direct to consumers in select states. Both require a contract and adult signature.',
+    heroTitle: 'How to Ship Beer via FedEx and UPS',
+    heroSubtitle:
+      'Beer has different rules than wine. FedEx only allows beer shipments between licensed businesses. UPS allows breweries to ship to consumers in approved states.',
+    content: [
+      {
+        heading: 'FedEx Rules for Beer',
+        body: `<p>FedEx only permits beer shipments <strong>licensee-to-licensee</strong> — from one licensed business to another licensed business. Beer <strong>cannot</strong> be shipped directly to consumers through FedEx.</p>
+<ul>
+<li>Shipper must be a FedEx-approved alcohol shipper with a signed agreement</li>
+<li>Recipient must be a licensed business entity</li>
+<li>Adult Signature Required on delivery</li>
+<li>Special alcohol shipping label required</li>
+<li>Proper packaging: EPS foam, corrugated dividers, sturdy outer box</li>
+</ul>
+<p><strong>Note:</strong> FedEx has not traditionally offered a specific beer shipping program in the same way they do for wine. Check with your FedEx account executive.</p>`,
+      },
+      {
+        heading: 'UPS Rules for Beer',
+        body: `<p>UPS accepts beer shipments under a <strong>UPS Agreement for Approved Beer Shippers</strong>. The rules vary by shipment type:</p>
+<ul>
+<li><strong>Licensee-to-Licensee:</strong> Beer can ship between licensed businesses (brewery → distributor → retailer) in compliance with all laws</li>
+<li><strong>Direct to Consumer:</strong> Breweries and licensed retailers may ship beer to consumers in states that allow it, subject to approval</li>
+<li><strong>Interstate Brewery Shipments:</strong> Certain states allow out-of-state breweries to ship to consumers (listed in Beer Addendum A)</li>
+<li><strong>Intrastate Brewery Shipments:</strong> Some states allow in-state brewery shipments to consumers</li>
+<li><strong>Adult Signature Required</strong> on all deliveries</li>
+<li>Approved packaging with EPS foam or corrugated dividers</li>
+<li>Alcohol shipping label required</li>
+</ul>`,
+      },
+      {
+        heading: 'Who Cannot Ship Beer',
+        body: `<p><strong>Individuals cannot ship beer through either carrier.</strong> Homebrewers, beer enthusiasts, and gift-givers cannot tender beer shipments through FedEx or UPS.</p>
+<p>Your options:</p>
+<ul>
+<li>Check if your local brewery has a direct shipping program</li>
+<li>Use a licensed retailer that ships beer</li>
+<li>Bring it with you when traveling</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship homebrew through FedEx or UPS?',
+        answer:
+          'No — homebrew is still alcohol and requires a license and carrier contract to ship legally.',
+      },
+      {
+        question: 'Can a brewery ship beer directly to me?',
+        answer:
+          'In some states, yes. UPS allows Direct to Consumer beer shipments from licensed breweries in approved states. Check with the brewery — they will know if they can ship to your state.',
+      },
+      {
+        question: 'Is shipping beer different from shipping wine?',
+        answer:
+          'Yes. FedEx treats beer differently — it is licensee-to-licensee only, not to consumers. UPS has separate agreements and Addendum A for beer vs. wine. Always check carrier policies.',
+      },
+    ],
+    cta: {
+      title:
+        'We cannot ship beer, but we can handle everything else. Come see us in Concord Township.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-spirits-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Spirits via FedEx & UPS',
+    slug: '/guide/shipping-spirits',
+    pageTitle: 'How to Ship Spirits via FedEx and UPS — The Most Restricted Alcohol Category',
+    metaDescription:
+      'Shipping spirits (whiskey, vodka, gin)? Both FedEx and UPS treat spirits as the most restricted alcohol category — licensee-to-licensee or distillery direct only. No consumer-to-consumer.',
+    heroTitle: 'How to Ship Spirits via FedEx and UPS',
+    heroSubtitle:
+      'Spirits (whiskey, vodka, gin, rum, etc.) are the most restricted alcohol category. Both carriers limit spirits shipments significantly more than wine or beer.',
+    content: [
+      {
+        heading: 'FedEx Rules for Spirits',
+        body: `<p>FedEx only permits spirits shipments <strong>licensee-to-licensee</strong>. Spirits cannot be shipped directly to consumers through FedEx under any circumstances.</p>
+<ul>
+<li>Shipper must be a FedEx-approved alcohol shipper with a signed agreement</li>
+<li>Recipient must be a licensed business entity</li>
+<li>Adult Signature Required on delivery</li>
+<li>Special alcohol shipping label (SEL-170) required</li>
+<li>Proper packaging: EPS foam, fiber tray, sturdy outer box</li>
+</ul>`,
+      },
+      {
+        heading: 'UPS Rules for Spirits',
+        body: `<p>UPS accepts spirits under a <strong>UPS Agreement for Approved Spirits Shippers</strong>. The rules are more restrictive than wine or beer:</p>
+<ul>
+<li><strong>Licensee-to-Licensee:</strong> Spirits can ship between licensed businesses only where permitted by law</li>
+<li><strong>Direct to Consumer:</strong> Distilleries may ship to consumers in approved states with a contract</li>
+<li><strong>Interstate Distillery Shipments:</strong> Certain states allow out-of-state distilleries to ship to consumers (listed in Spirits Addendum A)</li>
+<li><strong>Intrastate Distillery Shipments:</strong> Some states allow in-state distillery shipments — some require "On Site Only" purchase</li>
+<li><strong>Adult Signature Required</strong> on all deliveries</li>
+<li>Approved packaging with EPS foam, corrugated trays, or fiber dividers</li>
+<li>Alcohol shipping label required</li>
+</ul>
+<p><strong>Key difference:</strong> UPS allows spirits direct-to-consumer from distilleries (in approved states). FedEx does not.</p>`,
+      },
+      {
+        heading: 'The Bottom Line',
+        body: `<p>Spirits are the most heavily regulated alcohol category for shipping. If you are not a licensed distillery or spirits retailer with a carrier contract, you cannot ship spirits through FedEx or UPS.</p>
+<p>Your best bet: buy spirits from a local store or distillery in person. For shipping, check if the distillery has a direct-to-consumer program that ships to your state.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a bottle of whiskey as a gift?',
+        answer:
+          'No — spirits require a licensed shipper with a carrier contract. No individual can ship spirits through FedEx or UPS.',
+      },
+      {
+        question: 'Can a distillery ship spirits to me?',
+        answer:
+          'Through UPS, yes — in approved states. Through FedEx, no — FedEx does not offer direct-to-consumer spirits shipping. Check with the distillery.',
+      },
+      {
+        question: 'Are spirits harder to ship than wine?',
+        answer:
+          'Yes. FedEx does not allow spirits to consumers at all. UPS allows it but only from distilleries in approved states. Wine is the easiest alcohol to ship.',
+      },
+    ],
+    cta: {
+      title:
+        'We ship everything that is legal to ship. Spirits are not one of them — but we can help with anything else.',
+      buttonText: 'Stop By',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-hemp-cbd-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Hemp, CBD & Marijuana Products',
+    slug: '/guide/shipping-hemp-cbd',
+    pageTitle: 'Can You Ship Hemp, CBD, or Marijuana? Rules for FedEx, UPS & USPS',
+    metaDescription:
+      'Shipping hemp or CBD products? UPS accepts hemp with a contract and Certificate of Analysis. Marijuana is prohibited by all carriers. FedEx and USPS do not accept hemp or CBD.',
+    heroTitle: 'Can You Ship Hemp, CBD, or Marijuana?',
+    heroSubtitle:
+      'The rules are strict and vary dramatically by product type. Hemp-derived CBD with under 0.3% THC may ship through UPS with a contract. Marijuana is prohibited by all carriers.',
+    content: [
+      {
+        heading: 'The Three Categories',
+        body: `<p>There are three distinct categories, and each has completely different rules:</p>
+<ul>
+<li><strong>Marijuana (THC > 0.3%):</strong> Prohibited by ALL carriers — FedEx, UPS, and USPS — even for medicinal use</li>
+<li><strong>Hemp-derived CBD (THC < 0.3%):</strong> UPS accepts with a contract and Certificate of Analysis. FedEx and USPS do not accept.</li>
+<li><strong>Synthetic cannabinoids:</strong> Prohibited by all carriers</li>
+</ul>`,
+      },
+      {
+        heading: 'UPS Rules for Hemp & CBD',
+        body: `<ul>
+<li>Requires a signed <strong>UPS agreement</strong> for hemp/hemp-derivative shipments</li>
+<li>Must provide <strong>Certificate of Analysis</strong> showing less than 0.3% delta-9 THC on a dry weight basis</li>
+<li><strong>Adult Signature Required</strong> on all deliveries</li>
+<li>Packaging must not identify contents as containing hemp (non-descriptive labeling)</li>
+<li>UPS <strong>prohibits</strong> hemp derivatives intended for consumption through an aerosolized solution (vapes)</li>
+<li>UPS <strong>will not accept</strong> shipments from any location that sells marijuana or marijuana products</li>
+<li>Synthetic/lab-made cannabinoids are strictly prohibited</li>
+</ul>`,
+      },
+      {
+        heading: 'FedEx & USPS Rules',
+        body: `<p><strong>FedEx:</strong> FedEx prohibits the shipment of marijuana, hemp, CBD, and all related products. Even with a license, FedEx will not accept these shipments.</p>
+<p><strong>USPS:</strong> USPS prohibits marijuana and CBD under federal law. Hemp (with under 0.3% THC) may be mailable under specific conditions per the USPS hemp shipping rules, but the rules are complex and require strict compliance.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship CBD oil through UPS?',
+        answer:
+          'Only if you have a signed UPS agreement and a Certificate of Analysis showing under 0.3% THC. Individuals cannot ship CBD through UPS.',
+      },
+      {
+        question: 'Is CBD legal to ship if it is derived from hemp?',
+        answer:
+          'The 2018 Farm Bill made hemp-derived CBD with under 0.3% THC federally legal, but carriers have their own policies. UPS is currently the only major carrier that accepts hemp/CBD on a contractual basis.',
+      },
+      {
+        question: 'What happens if I ship marijuana through a carrier?',
+        answer:
+          'Marijuana is prohibited by all carriers. Shipments found in transit may be seized, disposed of, and the shipper may face legal consequences. UPS reserves the right to dispose of any marijuana shipment.',
+      },
+    ],
+    cta: {
+      title: 'Questions about shipping? We give straight answers. Stop by or call.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-plants-animals-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Plants & Live Animals',
+    slug: '/guide/shipping-plants-animals',
+    pageTitle: 'How to Ship Plants and Live Animals via UPS — Rules & Requirements',
+    metaDescription:
+      'Shipping live animals or plants? UPS accepts certain species (fish, amphibians, beneficial insects, reptiles) on a limited contractual basis. Next-day delivery required.',
+    heroTitle: 'How to Ship Plants and Live Animals via UPS',
+    heroSubtitle:
+      'Live animals and plants are among the most restricted items to ship. UPS accepts certain species on a limited, contractual basis — but the rules are strict.',
+    content: [
+      {
+        heading: 'UPS Rules for Live Animals',
+        body: `<p>UPS accepts live animals on a <strong>limited, contractual basis</strong>. The rules are specific:</p>
+<ul>
+<li><strong>Next-day delivery required</strong> — cannot ship on Fridays or before holidays</li>
+<li>Must use a <strong>new corrugated box</strong> (minimum 275 lb burst strength)</li>
+<li>Package must be marked "LIVE ANIMALS" in 1-inch bold lettering on opposing sides</li>
+<li>Shipped at <strong>shipper's own risk</strong> for perishable nature</li>
+<li>International shipments require an <strong>International Special Commodities (ISC) contract</strong></li>
+</ul>`,
+      },
+      {
+        heading: 'Accepted Animals',
+        body: `<p>UPS accepts the following live animals (unless poisonous, venomous, or endangered):</p>
+<ul>
+<li><strong>Amphibians:</strong> frogs, salamanders, toads</li>
+<li><strong>Cephalopods:</strong> squid, octopus, nautilus</li>
+<li><strong>Crustaceans:</strong> crabs, crawfish, lobsters, shrimp</li>
+<li><strong>Fish:</strong> all species</li>
+<li><strong>Insects:</strong> beneficial insects only (bees, butterflies, crickets, lady bugs)</li>
+<li><strong>Mollusks:</strong> clams, mussels, snails</li>
+<li><strong>Reptiles:</strong> lizards, non-venomous snakes (contract), freshwater turtles, land tortoises, sea turtles</li>
+<li><strong>Non-venomous spiders</strong> (contract only)</li>
+<li><strong>Worms:</strong> all species</li>
+</ul>
+<p><strong>Prohibited:</strong> birds, mammals, venomous creatures, endangered species, crocodiles/alligators, obnoxious insects (flies, roaches, termites)</p>`,
+      },
+      {
+        heading: 'What About Other Carriers?',
+        body: `<p><strong>FedEx:</strong> Does not accept live animals for shipment through standard services. Contact FedEx Custom Critical for specialized animal transport.</p>
+<p><strong>USPS:</strong> USPS accepts some live animals (day-old poultry, honeybees, certain insects) under specific conditions. Most mammals, reptiles, and fish are prohibited.</p>
+<p><strong>Plants:</strong> UPS accepts plants with a shipping account. The rules depend on the plant type, origin, and destination. Some states have agricultural restrictions.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a pet through UPS?',
+        answer:
+          'No — UPS prohibits mammals of any kind. Pets must travel through specialized pet transport services or airlines that offer pet cargo.',
+      },
+      {
+        question: 'Can I ship live fish?',
+        answer:
+          'Yes — fish are accepted by UPS. They must be double-bagged in 4-mil plastic bags (1/3 water, 2/3 oxygen) inside a sturdy box. Next-day delivery only.',
+      },
+      {
+        question: 'Can I ship live bees?',
+        answer:
+          'Yes — bees are accepted by UPS as beneficial insects. Shipments must use a corrugated sleeve around the traditional wooden crate. Liquid food supplies are prohibited (use hard candy only).',
+      },
+    ],
+    cta: {
+      title:
+        'Shipping plants or animals? These are highly specialized — we can point you in the right direction.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-tobacco-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Tobacco & Vape Products',
+    slug: '/guide/shipping-tobacco',
+    pageTitle: 'Can You Ship Tobacco or Vape Products? FedEx, UPS, and USPS Rules',
+    metaDescription:
+      'Shipping tobacco? FedEx prohibits all tobacco. UPS accepts tobacco with a contract — but prohibits all vape products. USPS prohibits cigarettes. Learn the rules here.',
+    heroTitle: 'Can You Ship Tobacco or Vape Products?',
+    heroSubtitle:
+      'Tobacco rules are strict and vary dramatically by carrier. FedEx prohibits all tobacco. UPS accepts it with a contract but bans vapes entirely. USPS prohibits cigarettes.',
+    content: [
+      {
+        heading: 'FedEx — Tobacco Completely Prohibited',
+        body: `<p><strong>FedEx prohibits the shipping of tobacco and tobacco products entirely.</strong> This includes:</p>
+<ul>
+<li>Cigarettes and cigars</li>
+<li>Loose tobacco (pipe, chewing, rolling)</li>
+<li>Smokeless tobacco</li>
+<li>Hookah or shisha</li>
+<li>Vaporizers and e-cigarettes</li>
+</ul>
+<p>Even if you have proper licenses, FedEx will not accept tobacco shipments at any FedEx or FedEx Office location.</p>`,
+      },
+      {
+        heading: 'UPS — Contract Only (No Vapes)',
+        body: `<ul>
+<li>UPS accepts tobacco products <strong>only under a signed UPS agreement</strong></li>
+<li><strong>Cigarettes and little cigars cannot be shipped to consumers</strong> — licensee-to-licensee only</li>
+<li><strong>All vaping products are prohibited</strong> — e-cigarettes, vape pens, e-liquids, regardless of nicotine content</li>
+<li>Must use <strong>Adult Signature Required</strong> on all tobacco shipments</li>
+<li>Federal labeling, record-keeping, and tax-collecting obligations apply (18 U.S.C. § 376a)</li>
+<li>Quantity limits apply per federal law</li>
+<li>Most states require tax stamps on tobacco products</li>
+<li>Shippers must make an annual certification of compliance to UPS (Addendum A)</li>
+<li>UPS does not serve any entity on the ATF PACT Act Non-Compliant List</li>
+</ul>`,
+      },
+      {
+        heading: 'USPS Rules',
+        body: `<p><strong>USPS:</strong> Federal law (the PACT Act) prohibits USPS from delivering cigarettes and smokeless tobacco. Some cigar shipments may be allowed under specific conditions. Check current USPS regulations.</p>
+<p><strong>The bottom line:</strong> If you are an individual trying to ship tobacco products, your options are extremely limited. Licensed businesses with carrier contracts may ship through UPS, but the compliance requirements are substantial.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship cigars through USPS?',
+        answer:
+          'The PACT Act restricts tobacco shipments through USPS. Cigar shipments may be allowed in limited circumstances — check current USPS regulations and federal law.',
+      },
+      {
+        question: 'Can I ship vape juice or e-liquids?',
+        answer:
+          'No — UPS prohibits all vaping products. FedEx also prohibits them. USPS restrictions apply. Vape products are effectively unshippable through major carriers.',
+      },
+      {
+        question: 'Can a licensed tobacco shop ship to customers?',
+        answer:
+          'Through UPS, yes — with a signed UPS agreement and compliance with all federal and state laws. Cigarettes and little cigars cannot go to consumers. Cigars may have different rules.',
+      },
+    ],
+    cta: {
+      title:
+        'Tobacco shipping is complex. For everything else, we make it simple — stop by Mailbox Plus.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
