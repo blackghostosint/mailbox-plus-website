@@ -84,7 +84,6 @@ export const siteConfig: SiteConfig = {
 
     'Staples printing services',
     'Staples document services',
-    'Staples passport photos',
     'Staples shipping services',
     'Staples alternative',
 
