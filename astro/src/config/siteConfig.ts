@@ -118,7 +118,7 @@ export const siteConfig: SiteConfig = {
   // Google Business Profile review data for LocalBusiness schema
   aggregateRating: {
     ratingValue: 5.0,
-    reviewCount: 32,
+    reviewCount: 37,
     bestRating: 5,
     worstRating: 1,
   },
