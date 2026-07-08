@@ -2,12 +2,14 @@ import { returnMicroProblems } from './returns';
 import { shippingMicroProblems } from './shipping';
 import { packagingMicroProblems } from './packaging';
 import { miscMicroProblems } from './misc';
+import { regulatedMicroProblems } from './regulated';
 
 export const microProblems = [
   ...returnMicroProblems,
   ...shippingMicroProblems,
   ...packagingMicroProblems,
   ...miscMicroProblems,
+  ...regulatedMicroProblems,
 ];
 
 if (import.meta.env.DEV) {
