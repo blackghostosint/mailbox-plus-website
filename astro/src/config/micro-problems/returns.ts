@@ -600,4 +600,88 @@ export const returnMicroProblems: Service[] = [
     },
     robots: 'index, follow',
   },
+  {
+    id: 'vinted-drop-off-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'Vinted Drop-Off Location',
+    slug: '/vinted-drop-off',
+    pageTitle: 'Vinted Drop-Off Location in Concord Township, OH | Mailbox Plus',
+    metaDescription:
+      'Selling on Vinted? Drop off your prepaid packages at Mailbox Plus in Concord Township. We are an official Vinted Go drop-off location — fast, friendly, and local.',
+    heroTitle: 'Vinted Drop-Off Location in Concord Township',
+    heroSubtitle:
+      'Selling clothes, shoes, or accessories on Vinted? We are an official Vinted Go drop-off location. Bring your prepaid package — we scan, receipt, and send it on its way.',
+    content: [
+      {
+        heading: 'We Are a Vinted Go Drop-Off Location',
+        body: `<p>Mailbox Plus is listed as an official <strong>Vinted Go drop-off point</strong>. If you sell on Vinted and need to ship an item, you can drop your prepaid package at our counter.</p>
+<p>When you select a drop-off location on Vinted, choose <strong>Mailbox Plus</strong> at <strong>7554 Fredle Drive, Concord Township</strong> — and we will handle the rest.</p>
+<p><a href="https://vintedgo.com/en/carrier-locations?country=us&region=usa&bounds=%7B%22south%22%3A41.62709183690886%2C%22west%22%3A-81.3299555189492%2C%22north%22%3A41.81765298829317%2C%22east%22%3A-81.07463982316776%7D&selected_point=147495" rel="nofollow" target="_blank">View Mailbox Plus on the Vinted Go locations map →</a></p>`,
+      },
+      {
+        heading: 'How Vinted Shipping Works',
+        body: `<ol>
+<li><strong>You make a sale</strong> on Vinted — the buyer purchases your item.</li>
+<li><strong>Vinted generates a prepaid shipping label</strong> with a QR code or barcode.</li>
+<li><strong>Pack your item</strong> — box it up securely and attach the label if printed, or bring the QR code on your phone.</li>
+<li><strong>Drop it off at Mailbox Plus</strong> — we scan the label or QR code, print it on adhesive paper if needed, and provide a receipt.</li>
+<li><strong>We hand it to the carrier</strong> — your package is on its way to the buyer.</li>
+</ol>`,
+      },
+      {
+        heading: 'Why Drop Off at Mailbox Plus?',
+        body: `<ul>
+<li><strong>Official Vinted Go location</strong> — listed on Vinted's carrier locator</li>
+<li><strong>No printer needed</strong> — bring the QR code on your phone and we print the label for you</li>
+<li><strong>Immediate scanning</strong> — your package is scanned and receipted right away, so Vinted knows it is on its way</li>
+<li><strong>No waiting in line</strong> — we are faster and friendlier than the big chain stores</li>
+<li><strong>Local convenience</strong> — serving Concord Township, Painesville, Mentor, Willoughby, and all of Lake County</li>
+<li><strong>Multi-carrier</strong> — we handle Vinted packages shipped via any of our carrier partners (UPS, FedEx, USPS, DHL)</li>
+</ul>`,
+      },
+      {
+        heading: 'What to Bring',
+        body: `<ul>
+<li>Your packaged item (securely boxed or bagged)</li>
+<li>The prepaid shipping label (printed) <strong>or</strong> the QR code/barcode from Vinted on your phone</li>
+<li>That is it — no need to print anything at home if you have the QR code</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Does Mailbox Plus really accept Vinted drop-offs?',
+        answer:
+          'Yes — we are listed on Vinted Go as an official drop-off location. Just select us when you choose your drop-off point on Vinted.',
+      },
+      {
+        question: 'Do I need to print a label before coming in?',
+        answer:
+          'No. Bring the QR code or barcode from the Vinted app on your phone. We will print the label on adhesive paper for a small fee.',
+      },
+      {
+        question: 'What are your hours for Vinted drop-offs?',
+        answer:
+          'Same as our regular hours: Monday–Friday 9:00 AM – 6:00 PM, Saturday 9:00 AM – 2:00 PM. No appointment needed.',
+      },
+      {
+        question: 'How long does it take?',
+        answer:
+          'Under a minute if you have the QR code ready. We scan, label, receipt, and you are on your way.',
+      },
+      {
+        question: 'Which carriers does Vinted use?',
+        answer:
+          'Vinted uses various carriers depending on the buyer and seller locations. We accept prepaid packages from all major carriers — UPS, FedEx, USPS, and DHL.',
+      },
+    ],
+    cta: {
+      title:
+        'Selling on Vinted? Make Mailbox Plus your drop-off spot. Fast, local, and no printer needed.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
