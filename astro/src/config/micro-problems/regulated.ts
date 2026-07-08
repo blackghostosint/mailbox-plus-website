@@ -238,4 +238,258 @@ export const regulatedMicroProblems: Service[] = [
     },
     robots: 'index, follow',
   },
+  {
+    id: 'shipping-firearms-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Firearms Safely',
+    slug: '/guide/shipping-firearms',
+    pageTitle: 'How to Ship Firearms via FedEx and UPS — License Requirements & Rules',
+    metaDescription:
+      'Shipping a firearm? Both FedEx and UPS require a Federal Firearms License (FFL) and a signed carrier contract. Individuals without an FFL cannot ship firearms. Here is what you need to know.',
+    heroTitle: 'How to Ship Firearms via FedEx and UPS',
+    heroSubtitle:
+      'Both FedEx and UPS require a Federal Firearms License (FFL) and a signed contract. If you do not have a license, you cannot ship a firearm through either carrier.',
+    content: [
+      {
+        heading: 'The Short Answer',
+        body: `<p><strong>You need a Federal Firearms License (FFL) and a signed carrier agreement.</strong></p>
+<p>Neither FedEx nor UPS accepts firearm shipments from unlicensed individuals. This is not a store policy — it is federal law. If you do not hold an FFL and have not signed a Firearms Shipping Compliance Agreement with the carrier, they will not accept your package.</p>`,
+      },
+      {
+        heading: 'FedEx Rules',
+        body: `<ul>
+<li>Only <strong>FFL holders</strong> who have executed a FedEx Firearms Shipping Compliance Agreement may ship firearms</li>
+<li>All ammunition must be removed from the firearm before packing</li>
+<li>Firearm must be secured in a hard case inside a sturdy outer box with no identifying markings</li>
+<li><strong>Adult Signature Required (ASR)</strong> or <strong>Direct Signature Required (DSR)</strong> must be selected</li>
+<li>Pre-packaged and pre-labeled firearms may be dropped at FedEx Office locations — staff cannot pack them or create labels for them</li>
+<li>Ammunition may never be shipped from a FedEx Office or retail location</li>
+</ul>`,
+      },
+      {
+        heading: 'UPS Rules',
+        body: `<ul>
+<li>Contract service only — requires an approved <strong>UPS Firearm Products agreement</strong></li>
+<li>Shipper must be a licensed importer, manufacturer, dealer, or collector (as defined in Title 18 U.S.C.)</li>
+<li>Handguns require <strong>UPS Next Day Air</strong> services (Early, Air, or Air Saver)</li>
+<li><strong>No automatic weapons</strong> (including machine guns)</li>
+<li><strong>No international shipments</strong> of firearms or firearm parts</li>
+<li>Firearms must bear a serial number complying with federal law</li>
+<li>No identifying markings on outer box — labeling must be non-descriptive</li>
+<li>Packaging must be new, single-wall corrugated meeting UPS strength guidelines</li>
+<li>Ammunition must be shipped in a <strong>separate package</strong> from firearms</li>
+</ul>`,
+      },
+      {
+        heading: 'What About Ammunition?',
+        body: `<p>Ammunition (cartridges, small arms) is regulated as a hazardous material. UPS accepts it as a "Limited Quantity" exception via <strong>UPS Ground only</strong> (within the 48 contiguous states). It <strong>cannot</strong> be dropped at The UPS Store, UPS Access Points, or drop boxes — only at UPS Customer Centers or through scheduled pickup. Ammunition is <strong>not accepted for international shipment.</strong></p>`,
+      },
+      {
+        heading: 'Your Options as an Individual',
+        body: `<p>If you do not have an FFL, here is what you can do:</p>
+<ul>
+<li><strong>Use a licensed firearms dealer.</strong> Many FFL holders can ship firearms on your behalf (transfer fees apply). Your local gun shop can help.</li>
+<li><strong>Check state laws.</strong> Some states allow private firearm transfers through licensed dealers only — know your local laws.</li>
+<li><strong>Travel with it.</strong> If you are transporting a firearm personally, check TSA rules for air travel or state reciprocity for vehicle transport.</li>
+<li><strong>What we can do:</strong> We can help pack and ship <strong>non-firearm items</strong> — boxes, fragile goods, documents, electronics, gifts. Stop by and we will take care of you.</li>
+</ul>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a firearm as a gift to a family member?',
+        answer:
+          'No — not through FedEx or UPS as an individual. The shipment must go from one FFL holder to another, or from an FFL holder to a licensed recipient. Some states allow person-to-person transfers through a dealer, but the carrier still requires a contract.',
+      },
+      {
+        question: 'Can I ship a firearm for repair or gunsmith work?',
+        answer:
+          'Yes — but only if you use an FFL holder on both ends. Many gunsmiths and manufacturers hold FFLs and can provide you with a shipping label. The firearm must go through their account, not yours.',
+      },
+      {
+        question: 'What about antique firearms?',
+        answer:
+          'Antique firearms (pre-1898 or replicas not designed for modern ammunition) may have different rules. Check with the carrier directly. However, most carriers still require an FFL shipper.',
+      },
+      {
+        question: 'Can I ship firearm parts (barrels, scopes, grips)?',
+        answer:
+          'UPS distinguishes between "Firearms" and "Firearm Parts." Parts that do not meet the definition of a firearm (like scopes, stocks, grips) may ship under different rules. Receivers and frames are treated as firearms. Check carrier policies before shipping.',
+      },
+    ],
+    cta: {
+      title:
+        'We cannot ship firearms for you, but we can handle everything else — and we will point you to someone who can help with the rest.',
+      buttonText: 'Contact Us',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-ammunition-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Ammunition',
+    slug: '/guide/shipping-ammunition',
+    pageTitle: 'How to Ship Ammunition via UPS — Rules, Packaging & Labeling',
+    metaDescription:
+      'Shipping ammunition? UPS accepts small arms ammunition as a Limited Quantity hazardous material via Ground only. Must be shipped from a UPS Customer Center — not from a UPS Store or drop box.',
+    heroTitle: 'How to Ship Ammunition via UPS',
+    heroSubtitle:
+      'Ammunition is regulated as a hazardous material. UPS accepts small arms ammunition under a Limited Quantity exception — ground only, from a UPS Customer Center, with proper packaging and labeling.',
+    content: [
+      {
+        heading: 'The Rules',
+        body: `<p>UPS accepts "cartridges, small arms" ammunition (as defined in 49 C.F.R. § 173.59) under a <strong>Limited Quantity</strong> exception. This means:</p>
+<ul>
+<li><strong>UPS Ground only</strong> — within the 48 contiguous states, Intra-Oahu, and Intra-Alaska</li>
+<li><strong>No international shipments</strong></li>
+<li><strong>Not accepted at UPS Stores, UPS Access Points, or Drop Boxes</strong> — must go through a UPS Customer Center or scheduled pickup</li>
+<li>Cannot be packaged with firearms</li>
+<li>Cannot be shipped to anyone under 18</li>
+<li>Maximum package weight: <strong>66 lbs (30 kg)</strong></li>
+<li>Maximum caliber: <strong>12.7 mm (50 caliber / 0.5 inch)</strong> for rifle/pistol, <strong>8 gauge</strong> for shotgun shells</li>
+</ul>`,
+      },
+      {
+        heading: 'Packaging Requirements',
+        body: `<ul>
+<li>Must use <strong>new corrugated packaging</strong> meeting UPS Single Wall Box Strength Guidelines</li>
+<li>Ammunition must be packed with <strong>internal boxes, partitions, or metal clips</strong> that fit snugly</li>
+<li>Outer packaging must be securely closed and cannot open during transport</li>
+<li>Must be marked with the <strong>Limited Quantity</strong> hazmat label — a black-and-white diamond, approximately 4 inches square</li>
+</ul>`,
+      },
+      {
+        heading: 'What About Other Carriers?',
+        body: `<p><strong>FedEx:</strong> Ammunition is a dangerous good and may never be shipped from a FedEx Office or FedEx retail location. It requires a FedEx dangerous goods account.</p>
+<p><strong>USPS:</strong> Ammunition is <strong>prohibited</strong> in USPS mail under any circumstances.</p>
+<p><strong>DHL:</strong> Ammunition is generally not accepted for shipment.</p>`,
+      },
+      {
+        heading: 'What This Means for You',
+        body: `<p>If you are an individual with a box of ammunition to ship, your options are limited:</p>
+<ul>
+<li><strong>UPS Ground</strong> from a UPS Customer Center — you pack it per hazmat rules, label it, and drop it at a UPS hub (not a retail store)</li>
+<li><strong>No retail store (including us) can accept ammunition</strong> for drop-off or shipping</li>
+<li>If you need help with <strong>non-hazmat items</strong> — boxes, fragile goods, documents — we are here for that. Stop by Mailbox Plus at 7554 Fredle Drive, Concord Township.</li>
+</ul>
+<div class="text-xs text-[var(--color-text-muted)] mt-4">
+  Reference: <a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-ammunition" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">
+    View UPS official ammunition shipping policy →
+  </a>
+</div>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship ammunition through USPS?',
+        answer: 'No. USPS prohibits ammunition in any class of mail.',
+      },
+      {
+        question: 'Can I drop ammunition off at The UPS Store?',
+        answer:
+          'No. Ammunition may only be tendered at a UPS Customer Center (operational facility) or through a scheduled pickup. UPS Stores, Access Points, and drop boxes cannot accept it.',
+      },
+      {
+        question: 'Do I need a hazmat certification?',
+        answer:
+          'For Limited Quantity small arms ammunition (under 66 lbs, under 50 caliber), no special certification is needed — but you must follow the packaging and labeling rules exactly. Larger quantities require a hazmat agreement.',
+      },
+    ],
+    cta: {
+      title:
+        'We cannot accept ammunition at our counter, but we can help with everything else — gifts, fragile items, documents, electronics, and more.',
+      buttonText: 'Stop By',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
+  {
+    id: 'shipping-dry-ice-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship with Dry Ice',
+    slug: '/guide/shipping-dry-ice',
+    pageTitle: 'How to Ship with Dry Ice via UPS — Packaging, Labeling & Safety',
+    metaDescription:
+      'Shipping with dry ice? UPS accepts dry ice as a hazardous material (Class 9) with proper packaging, labeling, and documentation. Learn the rules for shipping frozen goods, medical samples, and more.',
+    heroTitle: 'How to Ship with Dry Ice via UPS',
+    heroSubtitle:
+      'Dry ice (solid carbon dioxide) is a hazardous material for shipping. UPS accepts it with proper packaging, labeling, and documentation. Here is what you need to know.',
+    content: [
+      {
+        heading: 'What Is Dry Ice and Why Is It Regulated?',
+        body: `<p>Dry ice is solid carbon dioxide at -109.3°F (-78.5°C). It sublimates (turns directly from solid to gas), which creates pressure inside containers. This makes it a <strong>Class 9 hazardous material</strong> for shipping purposes. If packaged incorrectly, the pressure can cause containers to rupture or explode.</p>`,
+      },
+      {
+        heading: 'UPS Rules for Dry Ice',
+        body: `<ul>
+<li>Accepted via <strong>UPS Ground and UPS Air</strong> services with proper documentation</li>
+<li>Must be packed in an <strong>EPS (expanded polystyrene) foam container</strong> inside a sturdy corrugated cardboard box</li>
+<li><strong>Do not seal airtight</strong> — the box must allow gas to vent (go light on the tape)</li>
+<li>Must be labeled with the appropriate <strong>Class 9 hazardous material label</strong></li>
+<li>For air shipments: must comply with <strong>IATA Packing Instructions 954</strong></li>
+<li>International dry ice shipments require a signed <strong>International Special Commodities (ISC) contract</strong> with UPS</li>
+<li>Estimated sublimation: <strong>5–10 lbs per 24 hours</strong> (depends on foam density and temperature)</li>
+</ul>`,
+      },
+      {
+        heading: 'Packaging Best Practices',
+        body: `<ol>
+<li>Keep contents separate from the dry ice — use dividers or wrapping</li>
+<li>Use an EPS foam container for insulation</li>
+<li>Place the foam container inside a corrugated cardboard box</li>
+<li>Add enough dry ice for transit time <strong>plus 24 hours</strong> as a safety margin</li>
+<li>Do not use glass containers (can crack from cold)</li>
+<li>Mark and label per hazmat regulations</li>
+</ol>`,
+      },
+      {
+        heading: 'Handling Safety',
+        body: `<p>Dry ice can cause <strong>severe frostbite</strong> on contact with skin. Handlers should:</p>
+<ul>
+<li>Wear <strong>insulated gloves</strong> (never bare hands)</li>
+<li>Wear <strong>safety goggles</strong> to protect eyes</li>
+<li>Work in a <strong>well-ventilated area</strong> — CO2 gas can displace oxygen in enclosed spaces</li>
+<li>Never store dry ice in an airtight container</li>
+</ul>`,
+      },
+      {
+        heading: 'What About FedEx and USPS?',
+        body: `<p><strong>FedEx:</strong> Accepts dry ice with proper hazmat documentation. Requires a FedEx dangerous goods account for regular shipments. Limited quantities may be accepted from individuals with proper packaging and labeling.</p>
+<p><strong>USPS:</strong> Dry ice is <strong>prohibited</strong> in USPS mail except under specific conditions for diagnostic medical specimens with prior approval.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship frozen food with dry ice through UPS?',
+        answer:
+          'Yes — UPS accepts dry ice for frozen food shipments when properly packed. Use an EPS foam container, enough dry ice to last the transit time plus extra, and proper labeling. Go light on tape to allow gas to vent.',
+      },
+      {
+        question: 'How much dry ice do I need?',
+        answer:
+          'Plan for 5–10 lbs of dry ice to sublimate every 24 hours. Add extra for safety. The exact amount depends on the foam density, outside temperature, and transit time.',
+      },
+      {
+        question: 'Can I ship dry ice internationally?',
+        answer:
+          'UPS accepts international dry ice shipments with an International Special Commodities (ISC) contract. IATA regulations apply for air shipments.',
+      },
+      {
+        question: 'Do I need a hazmat certification to ship dry ice?',
+        answer:
+          'For small quantities (under 5.5 lbs / 2.5 kg per package for air, or under 440 lbs for ground), no formal certification is needed — but you must follow packaging, labeling, and documentation rules. Larger quantities require training.',
+      },
+    ],
+    cta: {
+      title:
+        'Shipping with dry ice? We can help with packaging supplies and advice — stop in and ask.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
