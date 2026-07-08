@@ -511,7 +511,7 @@ export const localSeoServices: Service[] = [
     slug: '/shipping-center-concord-township',
     pageTitle: 'Shipping Store Near Me in Concord Township, OH | Mailbox Plus',
     metaDescription:
-      'Full-service shipping store in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, packing, printing, mailbox rentals. 5.0★ from 32 reviews. Open Mon-Sat. Call (440) 709-1946.',
+      'Full-service shipping store in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, packing, printing, mailbox rentals. 5.0★ from 37 reviews. Open Mon-Sat. Call (440) 709-1946.',
     keywords: 'shipping center, Concord Township, Lake County',
     heroTitle: 'Local Shipping Center in Concord Township',
     heroSubtitle: 'Complete shipping, packing, and business services. Four carriers, one location.',
@@ -897,6 +897,670 @@ export const localSeoServices: Service[] = [
     aggregateRating: {
       ratingValue: 5.0,
       reviewCount: 32,
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-painesville',
+    category: 'pack-ship',
+    city: 'Painesville',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-painesville',
+    pageTitle: 'Mail Boxes Etc. Alternative in Painesville, OH | Mailbox Plus',
+    metaDescription:
+      'Painesville has no UPS Store and no FedEx Office. Mailbox Plus is the only full-service pack, ship, print, and mailbox option within 7 minutes. Multi-carrier shipping, notary, and mailbox rentals.',
+    keywords:
+      'mail boxes etc alternative Painesville OH, shipping store Painesville OH, pack and ship Painesville OH, mailbox rental Painesville OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Painesville: Mailbox Plus',
+    heroSubtitle:
+      'Painesville has 20,000 people, Lake Erie College, and the county government center — but no place to ship a package. Mailbox Plus is 7 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'Painesville Has No UPS Store. It Has Us.',
+        body: `<p>Painesville has twenty thousand people. It has Lake Erie College. It has the Lake County government center. It has no UPS Store. It has no FedEx Office. It has no place to buy packing supplies or print a document or notarize a signature.</p><p>What it has is a post office, a UPS drop box at CVS, and a FedEx drop box at Dollar General. That is all.</p><p>If you live in Painesville and need to ship a package, you drive to Mentor or Willoughby. You wait in line. You drive back. The round trip takes thirty minutes for something that should take five.</p><p>Mailbox Plus is seven minutes from downtown Painesville. We are at 7554 Fredle Drive in Concord Township. We are the only full-service pack, ship, print, and mailbox center within the Painesville city area.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Mail Boxes Etc. started in 1980. It was the place you went for everything: shipping, packing, printing, mailbox rental, notary. Most locations became The UPS Store between 2001 and 2004. The name stuck in people\u2019s memory. The need did not go away.</p><p>Mailbox Plus is what Mail Boxes Etc. used to be. We are independent. We are local. We offer the same full range of services without the franchise markup.</p>`,
+      },
+      {
+        heading: 'Four Carriers at One Counter',
+        body: `<p>We ship with UPS, FedEx, USPS, and DHL. You bring your package to one counter. We compare rates and delivery times across all four carriers. We tell you which one works best for your budget and your deadline.</p><p>The UPS Store ships only UPS. FedEx Office ships only FedEx. We ship all four. That is the difference.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We pack and ship fragile items. We print documents in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>For students at Lake Erie College, we ship move-in and move-out packages. For county government workers, we handle certified mail and document services. For the Hispanic business community, we serve customers in Spanish.</p><p>We sell boxes, bubble wrap, tape, and packing peanuts. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p>`,
+      },
+      {
+        heading: 'Why Painesville Needs This',
+        body: `<p>Painesville has the highest poverty rate in Lake County. It also has the youngest population. It has a growing Hispanic community and a significant foreign-born population who send packages internationally.</p><p>When every dollar counts, you need choice. You need to compare rates. You need to know you are not paying more than you have to because there is only one option in town.</p><p>Mailbox Plus gives Painesville that choice.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Painesville?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Painesville. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Painesville Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-chardon',
+    category: 'pack-ship',
+    city: 'Chardon',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-chardon',
+    pageTitle: 'Mail Boxes Etc. Alternative in Chardon, OH | Mailbox Plus',
+    metaDescription:
+      'Chardon is the Geauga County seat with no UPS Store. Mailbox Plus is 20 minutes from Chardon Square. Multi-carrier shipping, notary, printing, and mailbox rentals for county government workers, lawyers, and small businesses.',
+    keywords:
+      'mail boxes etc alternative Chardon OH, shipping store Chardon OH, mailbox rental Chardon OH, notary Chardon OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Chardon: Mailbox Plus',
+    heroSubtitle:
+      'Chardon is the county seat — lawyers, judges, and county employees work here. None of them can ship a package in Chardon. Mailbox Plus is 20 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'Twenty Minutes vs. Twenty-Five',
+        body: `<p>Chardon is the county seat. Lawyers work here. County employees work here. Real estate agents work here. Judges work here.</p><p>None of them can ship a package in Chardon.</p><p>There is no UPS Store in Chardon. There is no FedEx Office. There is no place to print a document, notarize a signature, or rent a mailbox. There is a post office on Center Street. There is a UPS drop box at the CVS. That is the full list.</p><p>To get full shipping service, Chardon residents drive twenty-five minutes to Willoughby. They drive past Mailbox Plus on the way.</p><p>Mailbox Plus is at 7554 Fredle Drive in Concord Township. It is twenty minutes from Chardon Square. The nearest UPS Store in Willoughby is twenty-five minutes. Mailbox Plus is closer. And Mailbox Plus offers more.</p><p>We ship with UPS, FedEx, USPS, and DHL. The UPS Store ships only UPS. We compare rates across all four carriers at one counter. You pick the best price and fastest delivery. They cannot do that.</p>`,
+      },
+      {
+        heading: 'What the County Seat Needs',
+        body: `<p>Courthouse professionals need certified mail with return receipt. They need documents printed and bound on short notice. They need notary services without an appointment. They need a mailbox that is not a PO Box.</p><p>Mailbox Plus offers all of it. Walk-in notary. Full-color and black-and-white printing. Document finishing. Private mailbox rentals with a real street address. Packing supplies. Professional packing for fragile items.</p><p>We also pack and ship for Chardon\u2019s small businesses on the Square. Boutique owners who sell at the Maple Festival. Vendors who ship inventory. Home-based businesses that need a professional mailing address.</p>`,
+      },
+      {
+        heading: 'The Snow Problem',
+        body: `<p>Chardon gets more than one hundred inches of snow per year. That is more than most of Ohio. When the snow comes, the last thing you want is a twenty-five-minute drive to Willoughby.</p><p>Mailbox Plus is twenty minutes from Chardon Square. It is indoor. It is warm. You walk in, hand us your package, and walk out. No shoveling. No scraping. No interstate driving in a squall.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>People in Geauga County remember Mail Boxes Etc. It was the place that did everything. Shipping. Packing. Printing. Mailboxes. Notary. When the brand became The UPS Store, the full-service model narrowed.</p><p>Mailbox Plus is what Mail Boxes Etc. used to be. Independent. Local. Full service. We have not narrowed anything.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Chardon?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Chardon. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Chardon Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-kirtland',
+    category: 'pack-ship',
+    city: 'Kirtland',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-kirtland',
+    pageTitle: 'Mail Boxes Etc. Alternative in Kirtland, OH | Mailbox Plus',
+    metaDescription:
+      'Kirtland has the highest median income in Lake County and zero shipping infrastructure. Mailbox Plus is 12 minutes away. Multi-carrier shipping, professional packing, mailbox rentals, printing, and notary for a community that values time.',
+    keywords:
+      'mail boxes etc alternative Kirtland OH, shipping store Kirtland OH, private mailbox rental Kirtland OH, printing services Kirtland OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Kirtland: Mailbox Plus',
+    heroSubtitle:
+      'Kirtland is the wealthiest community in Lake County with zero shipping infrastructure. Mailbox Plus is 12 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'Time Is the Currency',
+        body: `<p>Kirtland is the wealthiest community in Lake County. Median household income is one hundred and ten thousand dollars. Median home value is nearly four hundred thousand. Nine out of ten families own their homes.</p><p>Kirtland has no shipping infrastructure.</p><p>There is no UPS Store. There is no FedEx Office. There is a small post office on Chillicothe Road with limited hours. There is a UPS drop box on Euclid Chardon Road. That is it. No packing supplies. No printing. No notary. No mailbox rental. Nothing.</p><p>Kirtland residents value time. They do not want to drive fifteen minutes to a corporate UPS Store in Willoughby. They do not want to wait in line.</p><p>Mailbox Plus is twelve minutes from Kirtland. We move quickly. We know our customers.</p>`,
+      },
+      {
+        heading: 'Four Carriers. One Counter.',
+        body: `<p>We ship with UPS, FedEx, USPS, and DHL. You bring your package to one counter. We compare rates. We tell you which carrier is fastest and which is cheapest. You choose. That is it.</p><p>The UPS Store ships only UPS. FedEx Office ships only FedEx. We ship all four. If you need FedEx overnight and UPS ground, we do both. You do not make two trips.</p>`,
+      },
+      {
+        heading: 'What Kirtland Needs',
+        body: `<p>Kirtland has high homeownership. That means real estate closings. It means moving supplies. It means mail forwarding. It means document notarization.</p><p>Kirtland has Lakeland Community College. That means student shipping. International packages. Supply orders. Transcripts.</p><p>Kirtland has professional and technical services workers. That means presentation printing. Document finishing. Business cards. A professional mailing address.</p><p>Mailbox Plus covers all of it.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Older residents remember Mail Boxes Etc. It opened in 1980. It was the place that did everything under one roof. Ship. Pack. Print. Copy. Notarize. Rent a mailbox. Then the brand sold to UPS and most locations became The UPS Store.</p><p>The UPS Store does not do everything. They ship only UPS. They cannot compare rates. They are a franchise with franchise rules.</p><p>Mailbox Plus is independent. We are local. We offer the full range of services that Mail Boxes Etc. used to offer. And we do it twelve minutes from Kirtland.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Kirtland?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Kirtland. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Kirtland Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-mentor',
+    category: 'pack-ship',
+    city: 'Mentor',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-mentor',
+    pageTitle: 'Mail Boxes Etc. Alternative in Mentor, OH | Mailbox Plus',
+    metaDescription:
+      'Mentor has 47,000 people and two UPS Stores but no FedEx Office. Mailbox Plus is 8 minutes away with all four carriers: UPS, FedEx, USPS, and DHL. Multi-carrier shipping, packing, printing, notary, and mailbox rentals.',
+    keywords:
+      'mail boxes etc alternative Mentor OH, shipping store Mentor OH, printing services Mentor OH, mailbox rental Mentor OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Mentor: Mailbox Plus',
+    heroSubtitle:
+      'Mentor has 47,000 people, two UPS Stores, but no FedEx Office. Mailbox Plus is 8 minutes away with all four carriers.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'The Multi-Carrier Gap',
+        body: `<p>Mentor is the biggest town in the eight. Forty-seven thousand people. Seventeen hundred businesses. Fifty-nine thousand employees. Two UPS Stores on Mentor Avenue.</p><p>No FedEx Office.</p><p>If you need FedEx shipping in Mentor, you drive to Willoughby. That is five miles. That is ten minutes. That is an extra stop on top of everything else.</p><p>The two UPS Stores are good at what they do. They ship UPS. They pack. They print. But they are franchises. They have franchise rules. They cannot compare rates across carriers. They cannot help you if FedEx is the better price.</p><p>Mailbox Plus is eight minutes from central Mentor. We ship with UPS, FedEx, USPS, and DHL. The UPS Store ships only UPS. That is the difference.</p><p>When you ship from Mailbox Plus, you can compare overnight rates. You can compare ground rates. You can compare international rates. You see all four options and you pick the one that works.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Mentor residents remember Mail Boxes Etc. It was the independent store that did everything. Ship. Pack. Print. Mailbox. Notary. Then the brand became The UPS Store.</p><p>Mailbox Plus is independent. We are local. We offer everything Mail Boxes Etc. used to offer. All four carriers. Professional packing. Printing and copying. Walk-in notary. Private mailbox rentals. We have not narrowed the model.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We pack fragile items. We print documents and business cards. We make copies in color and black and white. We notarize signatures with no appointment. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p><p>For Mentor\u2019s small businesses, we offer a professional address. Mail goes to 7554 Fredle Drive. You pick it up or we forward it. Your home address stays private.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Mentor?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Mentor. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Mentor Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-eastlake',
+    category: 'pack-ship',
+    city: 'Eastlake',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-eastlake',
+    pageTitle: 'Mail Boxes Etc. Alternative in Eastlake, OH | Mailbox Plus',
+    metaDescription:
+      'Eastlake is a manufacturing hub with no shipping store. No UPS Store, no FedEx Office, no packing supplies. Mailbox Plus is 10 minutes away. Multi-carrier shipping for Parker Hannifin, PCC Airfoils, and Conn-Selmer workers.',
+    keywords:
+      'mail boxes etc alternative Eastlake OH, shipping store Eastlake OH, pack and ship Eastlake OH, printing services Eastlake OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Eastlake: Mailbox Plus',
+    heroSubtitle:
+      'Eastlake makes things — Parker Hannifin, PCC Airfoils, Conn-Selmer. But there is no place to ship them. Mailbox Plus is 10 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'The Industrial Shipping Problem',
+        body: `<p>Eastlake makes things. Parker Hannifin makes fluid power components. PCC Airfoils makes jet engine parts. Conn-Selmer makes musical instruments. Voestalpine makes specialty steel.</p><p>Seventeen thousand people live here. Most of them work in manufacturing. When they need to ship something, they have one option: a UPS drop box on Curtis Boulevard.</p><p>There is no UPS Store in Eastlake. There is no FedEx Office. There is no place to buy a box or a roll of tape.</p><p>Manufacturing creates shipping needs. Prototypes go FedEx overnight. Production parts go UPS ground. Samples go international with DHL. Returns go USPS.</p><p>Without a full-service shipping center, every shipment means a drive. To Willoughby. To Mentor. To Concord. The trip takes time. For industrial workers, time is money.</p><p>Mailbox Plus is ten minutes from Eastlake. We ship with UPS, FedEx, USPS, and DHL. We pack heavy and oversized items. We do it fast.</p>`,
+      },
+      {
+        heading: 'Four Carriers. One Counter.',
+        body: `<p>The UPS Store ships only UPS. FedEx Office ships only FedEx. We ship all four. You bring your shipment to one counter. We tell you which carrier gives the best rate and fastest delivery. You choose.</p><p>Manufacturing shipments are not always standard. They can be heavy. They can be oddly shaped. They need professional packing. We handle that. We use industrial-grade materials. We pack it right the first time.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Eastlake workers of a certain age remember Mail Boxes Etc. It was the place that handled everything. Commercial shipping. Packing supplies. Business printing. Notary services. Mailbox rental. One stop.</p><p>Then the brand changed. Most locations became The UPS Store. The full-service model narrowed.</p><p>Mailbox Plus is what Mail Boxes Etc. used to be. We are independent. We are local. We have not narrowed anything.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We ship packages with all four major carriers. We pack fragile and industrial items. We print documents and business cards. We notarize signatures. We rent mailboxes with a real street address.</p><p>We sell boxes in all sizes. We sell bubble wrap, packing peanuts, and heavy-duty tape. We sell postage stamps. We accept Amazon returns and pre-labeled drop-offs from any carrier.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Eastlake?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Eastlake. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Eastlake Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-madison',
+    category: 'pack-ship',
+    city: 'Madison',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-madison',
+    pageTitle: 'Mail Boxes Etc. Alternative in Madison, OH | Mailbox Plus',
+    metaDescription:
+      'Madison has the highest homeownership rate in Lake County and zero shipping services. No UPS Store, no FedEx, no packing supplies. Mailbox Plus is 15 minutes away. Moving supplies, mailbox rental, printing, notary, and multi-carrier shipping.',
+    keywords:
+      'mail boxes etc alternative Madison OH, shipping store Madison OH, mailbox rental Madison OH, pack and ship near Madison OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Madison: Mailbox Plus',
+    heroSubtitle:
+      'Madison is Lake County’s easternmost town — rural, quiet, 91% homeownership. And zero shipping services. Mailbox Plus is 15 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'What Homeownership Means',
+        body: `<p>Madison is Lake County\u2019s easternmost town. It is rural. It is quiet. Nine out of ten families own their homes.</p><p>There is no UPS Store in Madison. There is no FedEx Office. There is no FedEx drop-off at all. There is a single UPS drop box on Hubbard Road. There is the post office on North Lake Street.</p><p>If you need to ship a package, buy packing supplies, print a document, or notarize a signature, you drive fifteen minutes. Minimum.</p><p>Ninety-one percent homeownership is the highest in the region. It means people move. It means people renovate. It means people buy and sell houses.</p><p>Every real estate closing needs a notary. Every move needs boxes and tape. Every address change needs mail forwarding. Every new homeowner needs a place to get documents printed and copied.</p><p>None of those services exist in Madison.</p><p>Mailbox Plus is fifteen minutes from Madison. We have boxes. We have tape. We have notary. We have printing.</p>`,
+      },
+      {
+        heading: 'The Agriculture Factor',
+        body: `<p>Madison has farms. Farmers ship equipment parts. They ship soil samples. They ship produce. They ship to suppliers and customers around the country.</p><p>Without a full-service shipping center, every farm shipment means a drive. Mailbox Plus handles agricultural shipping with all four carriers. We find the best rate. We pack it securely. We get it moving.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>People in eastern Lake County remember Mail Boxes Etc. It was the independent store for everything: shipping, packing, printing, mailbox rental, notary. When the brand changed to The UPS Store, the full-service model narrowed.</p><p>Mailbox Plus is what Mail Boxes Etc. used to be. We are independent. We are local. We offer the full range of services.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We ship with UPS, FedEx, USPS, and DHL. We pack fragile and oversized items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures with no appointment.</p><p>We rent private mailboxes with a real street address. We forward your mail. We accept packages from any carrier on your behalf.</p><p>We sell corrugated boxes in every size. We sell bubble wrap, packing peanuts, and heavy-duty tape. We sell postage stamps. We accept Amazon returns.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Madison?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Madison. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Madison Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-fairport-harbor',
+    category: 'pack-ship',
+    city: 'Fairport Harbor',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-fairport-harbor',
+    pageTitle: 'Mail Boxes Etc. Alternative in Fairport Harbor, OH | Mailbox Plus',
+    metaDescription:
+      'Fairport Harbor is a Lake Erie village with seasonal tourism and no shipping store. No UPS Store, no FedEx. Only USPS. Mailbox Plus is 12 minutes away. Flexible multi-carrier shipping for vacation rental hosts, marina businesses, and local shops.',
+    keywords:
+      'mail boxes etc alternative Fairport Harbor OH, shipping store Fairport Harbor OH, mailbox rental Fairport Harbor OH, pack and ship near Fairport Harbor OH',
+    heroTitle: 'Mail Boxes Etc. Alternative in Fairport Harbor: Mailbox Plus',
+    heroSubtitle:
+      'Fairport Harbor sits on Lake Erie — 3,000 year-round residents, double in summer. The village has a post office. That is it. Mailbox Plus is 12 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'The Seasonal Problem',
+        body: `<p>Fairport Harbor sits on Lake Erie. It is the smallest of the eight towns. Three thousand people live here year-round. In summer the number doubles.</p><p>Tourists come for the beach. They come for the marina. They come for the lighthouse. They rent houses. They eat at the local restaurants.</p><p>The village has a post office on High Street. It has no UPS Store. It has no FedEx Office. It has no place to buy packing supplies or print a document.</p><p>Summer changes everything in Fairport Harbor. Vacation rental hosts need to stock their houses. They order linens. They order kitchen supplies. They order welcome packets. All of it ships.</p><p>Local shop owners need to restock inventory. They need to print menus and signage. They need notary services for permits and licenses.</p><p>The post office handles letters and small packages. It does not handle the seasonal surge.</p><p>Mailbox Plus is twelve minutes from Fairport Harbor. We ship with UPS, FedEx, USPS, and DHL. We handle seasonal volume.</p>`,
+      },
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Seasonal residents remember Mail Boxes Etc. It was the store that did everything. Ship a kayak paddle. Print a rental agreement. Notarize a dock permit. Rent a mailbox for the season. One stop.</p><p>Mailbox Plus is that store. Independent. Local. Full service. We do what Mail Boxes Etc. did.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We ship packages with all four major carriers. We compare rates so you pay the best price. We pack fragile and bulky items. We print documents and business cards. We notarize signatures.</p><p>We rent private mailboxes with a real street address. For seasonal residents, we hold your mail while you are away. We forward it when you need it. We accept packages from any carrier.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns.</p>`,
+      },
+      {
+        heading: 'The Community Difference',
+        body: `<p>Corporate chains do not understand seasonal villages. They staff for average demand. When summer hits, they cannot keep up.</p><p>We are local. We live here. We know the rhythm. When the season picks up, we are ready.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Fairport Harbor?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Fairport Harbor. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Fairport Harbor Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+  },
+  {
+    id: 'mail-boxes-etc-alternative-willoughby',
+    category: 'pack-ship',
+    city: 'Willoughby',
+    serviceName: 'Mail Boxes Etc. Alternative',
+    slug: '/mail-boxes-etc-alternative-willoughby',
+    pageTitle: 'Mail Boxes Etc. Alternative in Willoughby, OH | Mailbox Plus',
+    metaDescription:
+      'Willoughby has a UPS Store and FedEx Office but notary by appointment only and wait times that add up. Mailbox Plus is 6 minutes from Willoughby. Walk-in notary, multi-carrier shipping, printing, and mailbox rentals with no corporate lines.',
+    keywords:
+      'mail boxes etc alternative Willoughby OH, mailbox rental Willoughby OH, pack and ship Willoughby OH, notary Willoughby OH same day',
+    heroTitle: 'Mail Boxes Etc. Alternative in Willoughby: Mailbox Plus',
+    heroSubtitle:
+      'Willoughby has a UPS Store and FedEx Office. But they are corporate — notary by appointment, single carrier, long lines. Mailbox Plus is 6 minutes away.',
+    heroImage: getServiceImageUrl('/images/pack-ship.webp'),
+    content: [
+      {
+        heading: 'What Mail Boxes Etc. Used to Be',
+        body: `<p>Willoughby has options. A UPS Store on Som Center Road. A FedEx Office on Euclid Avenue. A post office on Erie Street. Most shipping needs can be met without leaving town.</p><p>But options are not the same as good options.</p><p>The UPS Store notary requires an appointment. The FedEx Office prints well but ships only FedEx. The post office closes at five and has lines that stretch to the door.</p><p>Willoughby residents know the limitations. They remember when there was another choice.</p><p>Mail Boxes Etc. was the independent alternative. It offered every service under one roof. Ship. Pack. Print. Notarize. Rent a mailbox. Then the brand became The UPS Store and the model changed.</p><p>Mailbox Plus is six minutes from downtown Willoughby. We are what Mail Boxes Etc. used to be.</p>`,
+      },
+      {
+        heading: 'Four Carriers. Walk-In Notary.',
+        body: `<p>The UPS Store ships only UPS. FedEx Office ships only FedEx. We ship UPS, FedEx, USPS, and DHL from one counter. Compare rates. Pick the best one. Done.</p><p>The UPS Store notary is by appointment. Ours is walk-in. Any hour we are open. No appointment needed.</p>`,
+      },
+      {
+        heading: 'What We Offer',
+        body: `<p>We pack fragile items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p><p>For Willoughby small business owners, we are the place that handles everything. Ship the product. Print the marketing materials. Notarize the contract. Rent the mailbox. One trip.</p>`,
+      },
+      {
+        heading: 'Why Drive Six Minutes?',
+        body: `<p>The UPS Store and FedEx Office are in Willoughby. They are close. But they are corporate. They have wait times. They have limited services. They have notary by appointment only.</p><p>Mailbox Plus is six minutes away. The drive is short. The service is personal. The notary is always available. The carriers are all four. The wait is never long.</p><p>Sometimes six minutes saves an hour.</p>`,
+      },
+    ],
+    features: [
+      {
+        title: 'Multi-Carrier Shipping',
+        description: 'UPS, FedEx, USPS, and DHL at one counter',
+        icon: Truck,
+      },
+      {
+        title: 'Professional Packing',
+        description: 'Expert packing for fragile and oversize items',
+        icon: Box,
+      },
+      {
+        title: 'Business Services',
+        description: 'Mailboxes, notary, printing, and document services',
+        icon: FileText,
+      },
+    ],
+    faqs: [
+      {
+        question: 'What services do you offer?',
+        answer:
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+      },
+      {
+        question: 'How far is Mailbox Plus from Willoughby?',
+        answer:
+          'Mailbox Plus is located at 7554 Fredle Drive in Concord Township, just minutes from Willoughby. We serve the entire Lake County area.',
+      },
+      {
+        question: 'Can I drop off pre-labeled packages?',
+        answer: 'Yes! We accept pre-labeled drop-offs from UPS, FedEx, USPS, and DHL at no charge.',
+      },
+      {
+        question: 'Do I need an appointment for notary services?',
+        answer:
+          'No appointment is needed. Our commissioned notary public is available during all business hours \u2014 walk-ins welcome.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+    cta: {
+      title: 'Visit Us \u2014 Willoughby Is Just Minutes Away',
+      subtitle:
+        'One counter, four carriers, and all the services you need. No appointment necessary.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
     },
   },
 ];

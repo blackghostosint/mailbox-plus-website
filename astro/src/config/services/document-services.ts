@@ -302,7 +302,7 @@ export const documentServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Fax Services',
     slug: '/home-business/fax-services',
-    pageTitle: 'Fax Services in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Fax Services Near Me in Concord Township, OH 44077 | Mailbox Plus',
     metaDescription:
       'Fax services in Concord Township. Send and receive faxes \u2014 no fax machine needed. Local, domestic, international. Confirmation sheet included.',
     keywords:
