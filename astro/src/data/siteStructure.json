@@ -130,7 +130,7 @@
     {
       "id": "specialty",
       "title": "Specialty Services",
-      "url": "/specialty",
+      "url": "/specialty/digital-fingerprinting",
       "description": "Specialized services including fingerprinting and insurance.",
       "children": [
         {
