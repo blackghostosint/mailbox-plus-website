@@ -24,7 +24,10 @@ const competitorAlternatives: Record<string, { title: string; url: string }> = {
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel } = Astro.props;
-const canonicalUrl = service.canonicalUrl || `${siteConfig.domain}${service.slug}`;
+const _rawCanonical = service.canonicalUrl || service.slug;
+const canonicalUrl = _rawCanonical.startsWith('http')
+  ? _rawCanonical
+  : `${siteConfig.domain}${_rawCanonical.startsWith('/') ? _rawCanonical : `/${_rawCanonical}`}`;
 const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
 

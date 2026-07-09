@@ -435,7 +435,9 @@ export const getArticleSchema = (
     name: config.name,
     logo: {
       '@type': 'ImageObject',
-      url: config.logo,
+      url: config.logo?.startsWith('http')
+        ? config.logo
+        : `${getOrigin(config)}${config.logo?.startsWith('/') ? '' : '/'}${config.logo || ''}`,
     },
   },
   ...(articleSection && { articleSection }),
