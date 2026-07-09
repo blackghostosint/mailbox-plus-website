@@ -623,9 +623,9 @@ export const returnMicroProblems: Service[] = [
         heading: 'How Vinted Shipping Works',
         body: `<ol>
 <li><strong>You make a sale</strong> on Vinted — the buyer purchases your item.</li>
-<li><strong>Vinted generates a prepaid shipping label</strong> with a QR code or barcode.</li>
-<li><strong>Pack your item</strong> — box it up securely and attach the label if printed, or bring the QR code on your phone.</li>
-<li><strong>Drop it off at Mailbox Plus</strong> — we scan the label or QR code, print it on adhesive paper if needed, and provide a receipt.</li>
+<li><strong>Vinted generates a prepaid shipping label</strong> and sends it to your email and Vinted inbox.</li>
+<li><strong>Pack your item</strong> — box it up securely and attach the label.</li>
+<li><strong>Drop it off at Mailbox Plus</strong> — we scan the label and you receive a confirmation email from Vinted.</li>
 <li><strong>We hand it to the carrier</strong> — your package is on its way to the buyer.</li>
 </ol>`,
       },
@@ -633,20 +633,18 @@ export const returnMicroProblems: Service[] = [
         heading: 'Why Drop Off at Mailbox Plus?',
         body: `<ul>
 <li><strong>Official Vinted Go location</strong> — listed on Vinted's carrier locator</li>
-<li><strong>No printer needed</strong> — bring the QR code on your phone and we print the label for you</li>
 <li><strong>Immediate scanning</strong> — your package is scanned and receipted right away, so Vinted knows it is on its way</li>
 <li><strong>Free <a href="/pack-ship/package-drop-offs" class="text-[var(--color-primary)] hover:underline">package drop-off</a></strong> — no charge for dropping off your prepaid Vinted packages</li>
-<li><strong>No waiting in line</strong> — we are faster and friendlier than the big chain stores</li>
+<li><strong>No extended waiting in line</strong> — we are faster and friendlier than the big chain stores</li>
 <li><strong>Local convenience</strong> — serving Concord Township, Painesville, Mentor, Willoughby, and all of Lake County</li>
-<li><strong>Multi-carrier</strong> — we handle Vinted packages shipped via any of our <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">carrier partners</a> (UPS, FedEx, USPS, DHL)</li>
+<li><strong>Multi-carrier</strong> — we handle Vinted packages shipped via any of our <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">carrier partners</a> (UPS, FedEx, USPS, DHL, SpeedX)</li>
 </ul>`,
       },
       {
         heading: 'What to Bring',
         body: `<ul>
-<li>Your packaged item (securely boxed or bagged)</li>
-<li>The prepaid shipping label (printed) <strong>or</strong> the QR code/barcode from Vinted on your phone</li>
-<li>That is it — no need to print anything at home if you have the QR code</li>
+<li>Your packaged item (securely boxed or bagged) with the prepaid shipping label from Vinted.</li>
+<li>That is it — no need to run all over town looking for a drop-off location.</li>
 </ul>`,
       },
     ],
@@ -655,11 +653,6 @@ export const returnMicroProblems: Service[] = [
         question: 'Does Mailbox Plus really accept Vinted drop-offs?',
         answer:
           'Yes — we are listed on Vinted Go as an official drop-off location. Just select us when you choose your drop-off point on Vinted.',
-      },
-      {
-        question: 'Do I need to print a label before coming in?',
-        answer:
-          'No. Bring the QR code or barcode from the Vinted app on your phone. We will print the label on adhesive paper for a small fee.',
       },
       {
         question: 'What are your hours for Vinted drop-offs?',
@@ -674,7 +667,7 @@ export const returnMicroProblems: Service[] = [
       {
         question: 'Which carriers does Vinted use?',
         answer:
-          'Vinted uses various carriers depending on the buyer and seller locations. We accept prepaid packages from all major carriers — UPS, FedEx, USPS, and DHL.',
+          'Vinted uses various carriers depending on the buyer and seller locations. We accept prepaid packages from all major carriers — UPS, FedEx, USPS, DHL, and SpeedX.',
       },
     ],
     cta: {
