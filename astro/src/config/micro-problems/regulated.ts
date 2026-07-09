@@ -16,7 +16,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'The Honest Truth',
-        body: `<p>If you walked into any shipping store hoping to mail a bottle of wine or a six-pack of beer to a friend, here is what will happen: <strong>they will not take it.</strong></p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus professional packing and shipping for regulated items" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>If you walked into any shipping store hoping to mail a bottle of wine or a six-pack of beer to a friend, here is what will happen: <strong>they will not take it.</strong></p>
 <p>Neither FedEx nor UPS accepts alcohol shipments from individual consumers. Period. It does not matter if it is a gift, a homebrew competition entry, or a bottle of rare whiskey you want to share. If you do not hold a valid alcohol license and a signed contract with the carrier, the answer is no.</p>
 <p>That is not the shipping store being difficult — <strong>it is federal and state law.</strong></p>`,
       },
@@ -141,7 +142,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'Why Batteries Are Regulated',
-        body: `<p>Batteries contain chemicals and energy storage that can overheat, short-circuit, or catch fire during shipping. The Department of Transportation (DOT) and international air authorities (IATA) classify many batteries as <strong>dangerous goods (hazmat)</strong>, which means special handling, packaging, and labeling rules apply.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus professional battery shipping and safety compliance" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Batteries contain chemicals and energy storage that can overheat, short-circuit, or catch fire during shipping. The Department of Transportation (DOT) and international air authorities (IATA) classify many batteries as <strong>dangerous goods (hazmat)</strong>, which means special handling, packaging, and labeling rules apply.</p>
 <p>Ship them wrong, and the carrier can refuse the package, the shipment can be grounded, or — in rare cases — a fire can start in transit.</p>`,
       },
       {
@@ -265,7 +267,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'The Short Answer',
-        body: `<p><strong>You need a Federal Firearms License (FFL) and a signed carrier agreement.</strong></p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus professional firearms shipping and regulatory compliance" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p><strong>You need a Federal Firearms License (FFL) and a signed carrier agreement.</strong></p>
 <p>Neither FedEx nor UPS accepts firearm shipments from unlicensed individuals. This is not a store policy — it is federal law. If you do not hold an FFL and have not signed a Firearms Shipping Compliance Agreement with the carrier, they will not accept your package.</p>`,
       },
       {
@@ -359,7 +362,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'The Rules',
-        body: `<p>UPS accepts "cartridges, small arms" ammunition (as defined in 49 C.F.R. § 173.59) under a <strong>Limited Quantity</strong> exception. This means:</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus professional ammunition shipping and security guidelines" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>UPS accepts "cartridges, small arms" ammunition (as defined in 49 C.F.R. § 173.59) under a <strong>Limited Quantity</strong> exception. This means:</p>
 <ul>
 <li><strong>UPS Ground only</strong> — within the 48 contiguous states, Intra-Oahu, and Intra-Alaska</li>
 <li><strong>No international shipments</strong></li>
@@ -445,7 +449,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'What Is Dry Ice and Why Is It Regulated?',
-        body: `<p>Dry ice is solid carbon dioxide at -109.3°F (-78.5°C). It sublimates (turns directly from solid to gas), which creates pressure inside containers. This makes it a <strong>Class 9 hazardous material</strong> for shipping purposes. If packaged incorrectly, the pressure can cause containers to rupture or explode.</p>`,
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus dry ice packaging and shipping compliance" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Dry ice is solid carbon dioxide at -109.3°F (-78.5°C). It sublimates (turns directly from solid to gas), which creates pressure inside containers. This makes it a <strong>Class 9 hazardous material</strong> for shipping purposes. If packaged incorrectly, the pressure can cause containers to rupture or explode.</p>`,
       },
       {
         heading: 'UPS Rules for Dry Ice',
@@ -537,7 +542,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'How the Carriers Think About This',
-        body: `<p>Every carrier splits items into three buckets:</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus package shipping and counter drop-off services" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Every carrier splits items into three buckets:</p>
 <ul>
 <li><strong>Prohibited</strong> — cannot be shipped under any circumstances (marijuana, hazardous waste, human remains)</li>
 <li><strong>Restricted / Contractual</strong> — may be shipped only with a signed agreement and proper licensing (alcohol, firearms, hazardous materials)</li>
@@ -629,7 +635,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'Surprise — These Are Hazmat',
-        body: `<p>Many everyday items are regulated as hazardous materials (dangerous goods) when shipped. Carriers classify them based on their chemical properties — flammability, corrosiveness, toxicity, or reactivity. Here are common items that frequently surprise people:</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus hazardous materials packaging and carrier guidelines" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Many everyday items are regulated as hazardous materials (dangerous goods) when shipped. Carriers classify them based on their chemical properties — flammability, corrosiveness, toxicity, or reactivity. Here are common items that frequently surprise people:</p>
 <ul>
 <li><strong>Perfume & cologne</strong> — contain alcohol (flammable liquid)</li>
 <li><strong>Nail polish & nail polish remover</strong> — flammable liquids</li>
@@ -711,7 +718,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'FedEx Rules for Wine',
-        body: `<ul>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus secure wine bottle packaging and shipping" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<ul>
 <li>FedEx only permits <strong>wine</strong> for licensee-to-consumer shipments. Beer and spirits are licensee-to-licensee only.</li>
 <li>Shipper must be a FedEx-approved alcohol shipper with a signed <strong>FedEx Alcohol Shipping Agreement</strong></li>
 <li>Must use <strong>Adult Signature Required</strong> (ASR) for delivery</li>
@@ -792,7 +800,8 @@ export const regulatedMicroProblems: Service[] = [
     content: [
       {
         heading: 'FedEx Rules for Beer',
-        body: `<p>FedEx only permits beer shipments <strong>licensee-to-licensee</strong> — from one licensed business to another licensed business. Beer <strong>cannot</strong> be shipped directly to consumers through FedEx.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus secure beer container packaging and shipping" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>FedEx only permits beer shipments <strong>licensee-to-licensee</strong> — from one licensed business to another licensed business. Beer <strong>cannot</strong> be shipped directly to consumers through FedEx.</p>
 <ul>
 <li>Shipper must be a FedEx-approved alcohol shipper with a signed agreement</li>
 <li>Recipient must be a licensed business entity</li>
@@ -817,7 +826,8 @@ export const regulatedMicroProblems: Service[] = [
       },
       {
         heading: 'Who Cannot Ship Beer',
-        body: `<p><strong>Individuals cannot ship beer through either carrier.</strong> Homebrewers, beer enthusiasts, and gift-givers cannot tender beer shipments through FedEx or UPS.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus secure spirits packaging and shipping" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p><strong>Individuals cannot ship beer through either carrier.</strong> Homebrewers, beer enthusiasts, and gift-givers cannot tender beer shipments through FedEx or UPS.</p>
 <p>Your options:</p>
 <ul>
 <li>Check if your local brewery has a direct shipping program</li>
@@ -897,7 +907,8 @@ export const regulatedMicroProblems: Service[] = [
       },
       {
         heading: 'The Bottom Line',
-        body: `<p>Spirits are the most heavily regulated alcohol category for shipping. If you are not a licensed distillery or spirits retailer with a carrier contract, you cannot ship spirits through FedEx or UPS.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus shipping services for compliant packages" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Spirits are the most heavily regulated alcohol category for shipping. If you are not a licensed distillery or spirits retailer with a carrier contract, you cannot ship spirits through FedEx or UPS.</p>
 <p>Your best bet: buy spirits from a local store or distillery in person. For shipping, check if the distillery has a direct-to-consumer program that ships to your state.</p>`,
       },
     ],
@@ -968,7 +979,8 @@ export const regulatedMicroProblems: Service[] = [
       },
       {
         heading: 'FedEx & USPS Rules',
-        body: `<p><strong>FedEx:</strong> FedEx prohibits the shipment of marijuana, hemp, CBD, and all related products. Even with a license, FedEx will not accept these shipments.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus package shipping and secure handling" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p><strong>FedEx:</strong> FedEx prohibits the shipment of marijuana, hemp, CBD, and all related products. Even with a license, FedEx will not accept these shipments.</p>
 <p><strong>USPS:</strong> USPS prohibits marijuana and CBD under federal law. Hemp (with under 0.3% THC) may be mailable under specific conditions per the USPS hemp shipping rules, but the rules are complex and require strict compliance.</p>`,
       },
     ],
@@ -1044,7 +1056,8 @@ export const regulatedMicroProblems: Service[] = [
       },
       {
         heading: 'What About Other Carriers?',
-        body: `<p><strong>FedEx:</strong> Does not accept live animals for shipment through standard services. Contact FedEx Custom Critical for specialized animal transport.</p>
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus parcel shipping and verification counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p><strong>FedEx:</strong> Does not accept live animals for shipment through standard services. Contact FedEx Custom Critical for specialized animal transport.</p>
 <p><strong>USPS:</strong> USPS accepts some live animals (day-old poultry, honeybees, certain insects) under specific conditions. Most mammals, reptiles, and fish are prohibited.</p>
 <p><strong>Plants:</strong> UPS accepts plants with a shipping account. The rules depend on the plant type, origin, and destination. Some states have agricultural restrictions.</p>`,
       },
