@@ -616,7 +616,6 @@ export const returnMicroProblems: Service[] = [
       {
         heading: 'We Are a Vinted Go Drop-Off Location',
         body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/vinted-drop-off-featured.webp" alt="Clothing item in a poly mailer with prepaid shipping label ready for drop-off at a service counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
-<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/pack-ship.webp" alt="Mailbox Plus drop-off counter for Vinted packages" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
 <p>Mailbox Plus is listed as an official <strong>Vinted Go drop-off point</strong>. If you sell on Vinted and need to ship an item, you can drop your prepaid package at our counter.</p>
 <p>When you select a drop-off location on Vinted, choose <strong>Mailbox Plus</strong> at <strong>7554 Fredle Drive, Concord Township</strong> — and we will handle the rest.</p>
 <p><a href="https://vintedgo.com/en/carrier-locations?country=us&region=usa&bounds=%7B%22south%22%3A41.62709183690886%2C%22west%22%3A-81.3299555189492%2C%22north%22%3A41.81765298829317%2C%22east%22%3A-81.07463982316776%7D&selected_point=147495" rel="nofollow" target="_blank">View Mailbox Plus on the Vinted Go locations map →</a></p>`,
