@@ -126,7 +126,7 @@ export const getServiceBreadcrumbs = (
 
   breadcrumbs.push({
     name: service.serviceName,
-    url: normalize(service.slug),
+    url: normalize(service.canonicalUrl || service.slug),
   });
 
   return breadcrumbs;
