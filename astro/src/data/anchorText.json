@@ -532,5 +532,19 @@
       "packing services near Mentor",
       "shipping store in Lake County"
     ]
+  },
+  "chewy-prescription-mail-in-concord-township": {
+    "exact": ["Chewy Prescription Mail-In", "Chewy Pharmacy Prescription Drop-Off"],
+    "lsi": [
+      "mail pet prescription",
+      "Chewy Rx drop-off",
+      "ship prescription to Chewy",
+      "pet medication mail-in"
+    ],
+    "geo": [
+      "Chewy prescription drop-off in Concord Township",
+      "mail pet prescription near Mentor",
+      "Chewy Pharmacy mail-in in Lake County"
+    ]
   }
 }

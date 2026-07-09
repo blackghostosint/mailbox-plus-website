@@ -137,6 +137,11 @@
           "id": "vinted-drop-off-concord-township",
           "url": "/vinted-drop-off",
           "title": "Vinted Drop-Off Location"
+        },
+        {
+          "id": "chewy-prescription-mail-in-concord-township",
+          "url": "/chewy-prescription-mail-in",
+          "title": "Chewy Prescription Mail-In"
         }
       ]
     },
