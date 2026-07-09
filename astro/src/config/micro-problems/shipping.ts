@@ -736,4 +736,121 @@ export const shippingMicroProblems: Service[] = [
     },
     robots: 'index, follow',
   },
+  {
+    id: 'chewy-prescription-mail-in-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'Chewy Prescription Mail-In',
+    slug: '/chewy-prescription-mail-in',
+    pageTitle: 'Chewy Prescription Mail-In in Concord Township, OH | Mailbox Plus',
+    metaDescription:
+      "Need to mail your pet's prescription to Chewy Pharmacy? We're a FedEx Authorized ShipCenter — bring your original Rx and QR code, we'll seal it up and ship it out same day if dropped off before 3 PM.",
+    heroTitle: 'Chewy Prescription Mail-In in Concord Township',
+    heroSubtitle:
+      "Mail your pet's original prescription to Chewy Pharmacy — we're a FedEx ShipCenter. Bring your paper Rx and QR code. We seal, ship, and receipt you in minutes.",
+    content: [
+      {
+        heading: 'How Chewy Prescription Mail-In Works',
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/chewy-prescription-mail-in-featured.webp" alt="Pet prescription being sealed in a FedEx envelope at a shipping counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1024" height="576" />
+<p>When you order prescription medication for your pet on <strong>Chewy Pharmacy</strong>, you may need to mail in the original paper prescription before your order can ship. This is required by pharmacy regulations — Chewy cannot accept copies, scans, or photos.</p>
+<p>If you select <strong>"Mail in prescription"</strong> at checkout, Chewy generates a FedEx QR code or printable label for you. That's where we come in.</p>
+<p><a href="https://www.chewy.com/customer-care/prescriptions-and-veterinary-diets/filling-prescriptions-or-veterinary-diets/mailing-in-a-prescription" rel="nofollow" target="_blank">View Chewy's official mail-in prescription instructions →</a></p>`,
+      },
+      {
+        heading: 'What We Do',
+        body: `<ol>
+<li><strong>You bring</strong> your original paper prescription from your vet and your FedEx QR code (or printed label) from Chewy's order details.</li>
+<li><strong>We seal it up</strong> — we put your prescription in a FedEx envelope and seal it securely.</li>
+<li><strong>We give you a drop-off receipt</strong> — proof that you handed it over, including the tracking number.</li>
+<li><strong>Same-day pickup</strong> — if you drop off before 3 PM, your prescription goes out that day via FedEx.</li>
+<li><strong>Chewy receives it</strong> — once Chewy Pharmacy gets your original prescription, your order typically ships within 1–2 days.</li>
+</ol>`,
+      },
+      {
+        heading: 'Why Drop Off at Mailbox Plus?',
+        body: `<ul>
+<li><strong>FedEx Authorized ShipCenter</strong> — we are an official FedEx location, so the QR code option from Chewy works here.</li>
+<li><strong>Packaging included</strong> — we provide the FedEx envelope and seal it up for you. No need to find the right envelope.</li>
+<li><strong>Drop-off receipt</strong> — proof with tracking, so you know your prescription made it to Chewy.</li>
+<li><strong>Same-day pickup before 3 PM</strong> — your prescription starts moving the same day.</li>
+<li><strong>Local convenience</strong> — serving Concord Township, Painesville, Mentor, Willoughby, and all of Lake County.</li>
+<li><strong>Multi-carrier</strong> — we handle FedEx, UPS, USPS, and DHL. If you choose a different carrier option on Chewy, we still have you covered.</li>
+</ul>`,
+      },
+      {
+        heading: 'Local Veterinarians in the Area',
+        body: `<p>Looking for a veterinarian in Lake County to get a prescription for your pet? Here are some local veterinary clinics near Concord Township. <strong>We do not endorse or vouch for any of these providers</strong> — this information is shared as a community tip. Always do your own research and choose a vet that's right for your pet.</p>
+<ul>
+<li><a href="https://bigcreekvet.com/" rel="nofollow" target="_blank">Big Creek Veterinary Hospital</a> — Concord Township, full-service small animal clinic</li>
+<li><a href="https://www.brightwoodanimalhospital.com/" rel="nofollow" target="_blank">Brightwood Animal Hospital</a> — Mentor, serving Concord Township and surrounding communities for 30+ years</li>
+<li><a href="https://crossroadsvet-painesville.com/" rel="nofollow" target="_blank">Crossroads Veterinary Hospital</a> — Painesville, full-service veterinary care</li>
+<li><a href="https://lakeanimal.com/" rel="nofollow" target="_blank">Lake Animal Hospital</a> — Painesville, 1777 Mentor Ave, (440) 352-0606</li>
+<li><a href="https://tyleranimalclinic.com/" rel="nofollow" target="_blank">Tyler Animal Clinic</a> — Mentor, (440) 953-1730</li>
+</ul>
+<p><em>Disclaimer: This list is provided as a community resource and is not an endorsement. We recommend contacting clinics directly to confirm services, hours, and availability. Mailbox Plus is a shipping and business service center — we are not a veterinary practice and do not provide medical advice.</em></p>`,
+      },
+      {
+        heading: 'Common Pet Medications Shipped via Chewy Pharmacy',
+        body: `<p>Chewy Pharmacy carries a wide range of FDA-approved prescription medications for dogs, cats, horses, and small pets. Common medications include:</p>
+<ul>
+<li><strong>Flea, tick & heartworm prevention:</strong> Simparica Trio, NexGard, Bravecto, Heartgard, Credelio, Revolution</li>
+<li><strong>Allergy & skin conditions:</strong> Apoquel, Cytopoint</li>
+<li><strong>Pain & inflammation:</strong> Carprofen, Rimadyl, Galliprant</li>
+<li><strong>Behavioral & anxiety:</strong> Trazodone, Fluoxetine (Prozac for pets)</li>
+<li><strong>Thyroid & hormonal:</strong> Thyro-Tabs (levothyroxine), Methimazole</li>
+<li><strong>Antibiotics & other:</strong> Clavamox, Doxycycline, Prednisone</li>
+</ul>
+<p><em>Note: Gabapentin cannot be shipped to Ohio from Chewy Pharmacy. Please consult your vet for alternative options if your pet requires gabapentin.</em></p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Do I need to order on Chewy first before coming in?',
+        answer:
+          'Yes. You must place your Chewy Pharmacy order and select "Mail in prescription" at checkout first. Chewy will then generate a QR code or printable shipping label in your order details. Bring that QR code or label along with your original paper prescription.',
+      },
+      {
+        question: 'What if I already printed the FedEx label at home?',
+        answer:
+          'Perfect — bring the label and your original prescription. Place the prescription in your own envelope (9.5" x 12.5") if you have one, or we can provide one. Attach the label and drop it off. We seal it and hand it to FedEx for you.',
+      },
+      {
+        question: 'What happens if I drop off after 3 PM?',
+        answer:
+          "Your prescription will still be sealed and prepped, but it will go out with the next day's FedEx pickup instead of same-day.",
+      },
+      {
+        question: 'Can you print my FedEx label for me?',
+        answer:
+          "If you have the QR code from Chewy, yes — we can scan it and the FedEx label prints right here. You don't need a printer at home.",
+      },
+      {
+        question: 'Do you charge for shipping the prescription to Chewy?',
+        answer:
+          'No — FedEx drop-off is provided at no additional cost by Chewy. The QR code or label they provide covers the shipping. We just handle the packaging and drop-off at no charge to you.',
+      },
+      {
+        question: "What if my vet gave me a paper prescription but I haven't ordered on Chewy yet?",
+        answer:
+          "You can place your Chewy order here in our store using your phone, or do it at home. Once you have the order number and QR code, bring everything back and we'll handle the rest.",
+      },
+      {
+        question: 'Can Chewy ship gabapentin to Ohio?',
+        answer:
+          'Unfortunately, no. Chewy Pharmacy cannot ship gabapentin to Ohio (among 24+ restricted states). Other common medications like Simparica Trio, NexGard, Apoquel, and Heartgard are fully available and can be shipped to our address without issue.',
+      },
+      {
+        question: 'What medications can Chewy Pharmacy fill?',
+        answer:
+          'Chewy Pharmacy carries FDA-approved medications for dogs, cats, horses, birds, reptiles, and small pets — including flea/tick prevention, allergy meds, pain relief, thyroid medication, antibiotics, and more. Browse their full catalog at chewy.com/b/pharmacy-2515.',
+      },
+    ],
+    cta: {
+      title:
+        "Your pet's prescription needs to get to Chewy? Bring it to us — we seal, ship, and receipt you in minutes.",
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
