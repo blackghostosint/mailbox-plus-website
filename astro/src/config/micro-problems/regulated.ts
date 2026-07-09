@@ -1169,4 +1169,78 @@ export const regulatedMicroProblems: Service[] = [
       label: 'UPS official tobacco shipping policy',
     },
   },
+  {
+    id: 'shipping-jewelry-guide-concord-township',
+    category: 'micro-problem',
+    city: 'Concord Township',
+    serviceName: 'How to Ship Jewelry via FedEx',
+    slug: '/guide/shipping-jewelry',
+    pageTitle: 'How to Ship Jewelry via FedEx — Valuables Coverage & Packing Tips',
+    metaDescription:
+      'Shipping jewelry through FedEx? Learn the coverage limits, packaging requirements, and when you need the FedEx Declared Value Advantage program for high-value items.',
+    heroTitle: 'How to Ship Jewelry via FedEx',
+    heroSubtitle:
+      'From a simple necklace to a high-value engagement ring — FedEx has different rules depending on the value. Here is what you need to know and how Mailbox Plus can help.',
+    content: [
+      {
+        heading: 'The Two Scenarios',
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/professional-packing.webp" alt="Mailbox Plus professional packing service for jewelry and valuables" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" />
+<p>Shipping jewelry through FedEx is not one-size-fits-all. There are two very different situations depending on the value of what you are sending:</p>
+<p><strong>Scenario 1: Under $1,000.</strong> Most personal jewelry shipments fall here. A birthday necklace, a pair of earrings, a watch under $1,000. FedEx will accept these with standard declared value up to $1,000. You pack it carefully, declare the value, and ship it.</p>
+<p><strong>Scenario 2: Over $1,000.</strong> Engagement rings, luxury watches, heirloom pieces. To declare a value over $1,000 on a jewelry shipment through FedEx, you need to be enrolled in the <strong>FedEx Declared Value Advantage program</strong>. This program is for recurring business shippers only — you must have a FedEx business account and ship jewelry 2–3 times per week. Personal accounts and one-time shippers do not qualify.</p>
+<p>If you are a one-time shipper with a high-value piece, FedEx's standard maximum liability is $1,000. You would need to arrange separate insurance through a third party for anything above that.</p>`,
+      },
+      {
+        heading: 'Why This Matters at the Counter',
+        body: `<p>When you bring a jewelry item to Mailbox Plus for FedEx shipping, here is what we can do:</p>
+<ul>
+<li><strong>Under $1,000:</strong> We can pack it securely, help you choose a carrier, and ship it with FedEx. We have experience packing small valuables — jewelry boxes, padded mailers, proper cushioning.</li>
+<li><strong>Over $1,000 (one-time):</strong> We can still help pack and ship it, but the default FedEx declared value limit of $1,000 applies. We can advise on third-party insurance options.</li>
+<li><strong>Over $1,000 (recurring business):</strong> If you have a FedEx Declared Value Advantage account, we can accept and process your shipments. We are an authorized FedEx drop-off location.</li>
+</ul>`,
+      },
+      {
+        heading: 'FedEx Jewelry Packaging Options',
+        body: `<p>FedEx offers special packaging for enrolled Declared Value Advantage customers:</p>
+<ul>
+<li><strong>Security Box Kit:</strong> A corrugated retention insert that suspends the item inside a FedEx Medium Box (9" x 5" x 12") or Large Box (9" x 8" x 12"). Available at no extra charge to program participants.</li>
+<li><strong>Box with Safe Insert:</strong> A reinforced aluminum box with a combination or key lock that fits inside a standard FedEx box. Only the shipper and recipient have access. Available from MPI Magnet at an additional charge.</li>
+</ul>
+<p>For standard jewelry shipments under $1,000, proper packing with cushioning, a sturdy box, and secure sealing is usually sufficient.</p>`,
+      },
+      {
+        heading: 'What Coins and Bullion',
+        body: `<p>Note that the FedEx Declared Value Advantage program explicitly <strong>excludes coins and gold bars</strong>. Even if you are a recurring business shipper, those items are not covered under the jewelry program and have different shipping restrictions.</p>`,
+      },
+    ],
+    faqs: [
+      {
+        question: 'Can I ship a $5,000 engagement ring through FedEx?',
+        answer:
+          "Not through FedEx's standard service with declared value coverage. The standard maximum declared value for jewelry is $1,000. You would either need to be enrolled in the FedEx Declared Value Advantage program (business account, recurring shipments) or arrange third-party insurance for the difference.",
+      },
+      {
+        question: 'Does Mailbox Plus offer insurance for jewelry shipments?',
+        answer:
+          "We can advise on your insurance options and help you select the right carrier and service level for your item's value. We do not sell insurance directly but can connect you with options and help with proper packing to reduce risk.",
+      },
+      {
+        question: 'What is the best way to pack jewelry for shipping?',
+        answer:
+          'For most items, a padded jewelry box inside a sturdy corrugated box with cushioning material works well. For higher-value items, a rigid container with foam inserts that prevent movement is recommended. We can help with professional packing at our counter.',
+      },
+      {
+        question: 'Can you ship jewelry through UPS instead?',
+        answer:
+          'Yes. We ship through FedEx, UPS, USPS, and DHL. UPS has a lower standard declared value limit for jewelry ($500 per package) compared to FedEx ($1,000). Depending on the value and destination, we can compare rates and help you choose the best option.',
+      },
+    ],
+    cta: {
+      title:
+        'Shipping jewelry or valuables? Stop by and we will help you pack it right and choose the best carrier.',
+      buttonText: 'Get Directions',
+      buttonLink: '/contact-us',
+    },
+    robots: 'index, follow',
+  },
 ];
