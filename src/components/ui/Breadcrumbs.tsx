@@ -16,24 +16,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '',
 
   return (
     <>
-      {/* Visible + microdata breadcrumbs */}
-      <nav aria-label="Breadcrumb" className="mb-6">
-        <ol
-          className="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto"
-          itemScope
-          itemType="https://schema.org/BreadcrumbList"
-        >
+      {/* Visible breadcrumbs (semantic & accessible) */}
+      <nav aria-label="Breadcrumb" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 mb-6">
+        <ol className="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
           {items.map((item, index) => (
-            <li
-              key={item.url}
-              className="flex items-center"
-              itemProp="itemListElement"
-              itemScope
-              itemType="https://schema.org/ListItem"
-            >
+            <li key={item.url} className="flex items-center">
               {index > 0 && (
                 <ChevronRight
-                  className="w-4 h-4 mx-1 text-[var(--color-text-muted)]"
+                  className="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0"
                   aria-hidden="true"
                 />
               )}
@@ -41,28 +31,18 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = ({ service, baseUrl = '',
               {index < items.length - 1 ? (
                 <InternalLink
                   to={item.url}
-                  itemProp="item"
-                  itemScope
-                  itemType="https://schema.org/Thing"
-                  itemID={item.url}
                   className="hover:text-[var(--color-primary)] transition-colors"
                 >
-                  <span itemProp="name">{item.name}</span>
+                  <span>{item.name}</span>
                 </InternalLink>
               ) : (
                 <span
                   className="font-semibold text-[var(--color-text-primary)]"
                   aria-current="page"
-                  itemProp="item"
-                  itemScope
-                  itemType="https://schema.org/Thing"
-                  itemID={item.url}
                 >
-                  <span itemProp="name">{item.name}</span>
+                  <span>{item.name}</span>
                 </span>
               )}
-
-              <meta itemProp="position" content={(index + 1).toString()} />
             </li>
           ))}
         </ol>

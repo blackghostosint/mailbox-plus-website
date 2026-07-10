@@ -31,7 +31,8 @@ export const handler: Handler = async (event: any) => {
     }
 
     // Log the anonymous visit click
-    const clientIp = event.headers['client-ip'] || event.headers['x-nf-client-connection-ip'] || 'unknown';
+    const clientIp =
+      event.headers['client-ip'] || event.headers['x-nf-client-connection-ip'] || 'unknown';
     await db.logReferralVisit(code, clientIp);
 
     return {
@@ -42,7 +43,6 @@ export const handler: Handler = async (event: any) => {
         referrerName: customer.firstName,
       }),
     };
-
   } catch (error) {
     console.error('Referral API error:', error);
     return {

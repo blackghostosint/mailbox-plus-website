@@ -5,6 +5,7 @@ import ChevronRight from '~icons/lucide/chevron-right';
 import Home from '~icons/lucide/home';
 import { getBreadcrumbs } from '../../utils/navigation-helpers';
 import { JsonLd } from '../JsonLd';
+import { siteConfig } from '../../config/siteConfig';
 
 export const AutoBreadcrumbs: React.FC = () => {
   const location = useLocation();
@@ -57,15 +58,23 @@ export const AutoBreadcrumbs: React.FC = () => {
         schema={{
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          itemListElement: items.map((item, index) => ({
-            '@type': 'ListItem',
-            position: index + 1,
-            item: {
-              '@type': 'Thing',
-              '@id': `https://mailboxplusohio.com${item.url}`,
-              name: item.label,
-            },
-          })),
+          itemListElement: items.map((item, index) => {
+            const domain = siteConfig.domain.replace(/\/$/, '');
+            const cleanUrl = item.url
+              ? item.url.startsWith('/')
+                ? item.url
+                : `/${item.url}`
+              : '/';
+            return {
+              '@type': 'ListItem',
+              position: index + 1,
+              item: {
+                '@type': 'Thing',
+                '@id': `${domain}${cleanUrl}`,
+                name: item.label,
+              },
+            };
+          }),
         }}
       />
     </>

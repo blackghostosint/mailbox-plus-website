@@ -72,26 +72,25 @@ const carriers = [
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   ))}
 
-  <!-- Breadcrumbs -->
+  <!-- Breadcrumbs (semantic & accessible) -->
   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-    <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto" {...{itemScope: true, itemType: "https://schema.org/BreadcrumbList"}}>
+    <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
       {breadcrumbs.map((item, index) => (
-        <li class="flex items-center" {...{itemProp: "itemListElement", itemScope: true, itemType: "https://schema.org/ListItem"}}>
+        <li class="flex items-center">
           {index > 0 && (
-            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)]" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           )}
           {index < breadcrumbs.length - 1 ? (
-            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors" {...{itemProp: "item"}}>
-              <span {...{itemProp: "name"}}>{item.name}</span>
+            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">
+              <span>{item.name}</span>
             </a>
           ) : (
-            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page" {...{itemProp: "item"}}>
-              <span {...{itemProp: "name"}}>{item.name}</span>
+            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">
+              <span>{item.name}</span>
             </span>
           )}
-          <meta {...{itemProp: "position"}} content={String(index + 1)} />
         </li>
       ))}
     </ol>
