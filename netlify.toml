@@ -3,7 +3,7 @@
   publish = "dist"
   functions = "netlify/functions"
   # Allow deploy previews for feature branches + production on main
-  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*"]
+  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "pr-*"]
 
 [build.environment]
   # Disable secrets scanning to prevent build failures from false positives on public CDN assets and HTML sales pages

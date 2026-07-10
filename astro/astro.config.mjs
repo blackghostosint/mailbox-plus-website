@@ -31,4 +31,6 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  // Copy fonts before build
+  scopedStyleStrategy: 'attribute',
 });
