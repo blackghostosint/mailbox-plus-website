@@ -48,7 +48,6 @@ export const handler: Handler = async (event: any) => {
         activities,
       }),
     };
-
   } catch (error) {
     console.error('Me API error:', error);
     return {

@@ -2,6 +2,8 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { siteConfig } from '../config/siteConfig';
+import { getLocalBusinessSchema } from '../utils/schema';
 
 export interface Props {
   title: string;
@@ -14,6 +16,8 @@ export interface Props {
 const { title, description, canonical, noindex, ogImage } = Astro.props;
 const siteUrl = 'https://mailboxplusohio.com';
 const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
+
+const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 
 // Derive OG image URL from canonical path, fall back to home
 // If an explicit ogImage is provided (e.g. from article frontmatter), use it directly
@@ -51,81 +55,7 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <slot name="head" />
-    <script type="application/ld+json" id="local-business-schema" data-name="mailbox-plus">
-{
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "@id": "https://mailboxplusohio.com/#business",
-  "name": "Mailbox Plus",
-  "alternateName": "Mailbox Plus",
-  "description": "Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS, DHL shipping, mailbox rentals, printing, notary, and fingerprinting services.",
-  "url": "https://mailboxplusohio.com",
-  "telephone": "+14407091946",
-  "email": "help@mailboxplusohio.com",
-  "image": "https://mailboxplusohio.com/mailbox_plus_logo.webp",
-  "logo": "https://mailboxplusohio.com/mailbox_plus_logo.webp",
-  "priceRange": "$$",
-  "foundingDate": "2025-05-05",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "7554 Fredle Drive",
-    "addressLocality": "Concord Township",
-    "addressRegion": "OH",
-    "postalCode": "44077",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 41.66497,
-    "longitude": -81.24164
-  },
-  "openingHoursSpecification": [
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Monday", "opens": "09:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Tuesday", "opens": "09:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Wednesday", "opens": "09:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Thursday", "opens": "09:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Friday", "opens": "09:00", "closes": "18:00" },
-    { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
-  ],
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "37",
-    "bestRating": "5",
-    "worstRating": "1"
-  },
-  "sameAs": [
-    "https://www.facebook.com/mailboxplusohio",
-    "https://www.instagram.com/mailboxplusohio",
-    "https://nextdoor.com/pages/mailbox-plus-concord-township-oh"
-  ],
-  "areaServed": [
-    { "@type": "City", "name": "Concord Township" },
-    { "@type": "City", "name": "Mentor" },
-    { "@type": "City", "name": "Painesville" },
-    { "@type": "City", "name": "Eastlake" },
-    { "@type": "City", "name": "Lake County" }
-  ],
-  "knowsAbout": [
-    "UPS shipping", "FedEx shipping", "USPS shipping", "DHL shipping",
-    "private mailbox rental", "virtual mailbox", "mail forwarding",
-    "notary public", "fingerprinting", "copy and print",
-    "packing services", "package receiving", "shipping supplies"
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Mailbox Plus Services",
-    "itemListElement": [
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pack & Ship" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mailbox Rental" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Notary Public" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Fingerprinting" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Copy & Print" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Mail Forwarding" } }
-    ]
-  }
-}
-</script>
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <a

@@ -6,9 +6,10 @@ export const handler: Handler = async (event: any, context: any) => {
   const method = event.httpMethod;
   const path = event.path;
   const segments = path.split('/').filter(Boolean);
-  
+
   // Extract custom ID from path if present (e.g. /api/customer/cust_123)
-  const idFromPath = segments[segments.length - 1] !== 'customer' ? segments[segments.length - 1] : null;
+  const idFromPath =
+    segments[segments.length - 1] !== 'customer' ? segments[segments.length - 1] : null;
 
   // 1. Staff Authentication Helper
   const isStaff = () => {
@@ -19,12 +20,15 @@ export const handler: Handler = async (event: any, context: any) => {
     // --- POST /api/customer (Public Sign-up / Counter Create) ---
     if (method === 'POST') {
       const data = JSON.parse(event.body || '{}');
-      const { firstName, lastName, phone, email, street, city, state, zip, birthday, referredBy } = data;
+      const { firstName, lastName, phone, email, street, city, state, zip, birthday, referredBy } =
+        data;
 
       if (!firstName || !lastName || !phone || !email) {
         return {
           statusCode: 400,
-          body: JSON.stringify({ error: 'Missing required fields: firstName, lastName, phone, email' }),
+          body: JSON.stringify({
+            error: 'Missing required fields: firstName, lastName, phone, email',
+          }),
         };
       }
 
@@ -104,7 +108,7 @@ export const handler: Handler = async (event: any, context: any) => {
       // Search parameters (query params)
       const params = event.queryStringParameters || {};
       const search = params.q || '';
-      
+
       if (search) {
         // Quick phone search
         const byPhone = await db.getCustomerByPhone(search);
@@ -136,7 +140,7 @@ export const handler: Handler = async (event: any, context: any) => {
       }
 
       // Filter in-memory if query parameter exists (Fuzzy Name search)
-      const filtered = customers.filter(c => {
+      const filtered = customers.filter((c) => {
         const fullName = `${c.firstName} ${c.lastName}`.toLowerCase();
         return fullName.includes(search.toLowerCase()) || c.phone.includes(search);
       });
@@ -188,7 +192,6 @@ export const handler: Handler = async (event: any, context: any) => {
       statusCode: 405,
       body: JSON.stringify({ error: 'Method Not Allowed' }),
     };
-
   } catch (error) {
     console.error('Customer API error:', error);
     return {

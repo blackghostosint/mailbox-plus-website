@@ -42,14 +42,14 @@ const getDBStore = (name: string) => {
     name,
     // Site ID and Token can fall back to environment variables for local testing
     siteID: process.env.NETLIFY_SITE_ID || '7a885e38-5ed0-4988-bc5c-a6007fce97a4',
-    token: process.env.NETLIFY_AUTH_TOKEN
+    token: process.env.NETLIFY_AUTH_TOKEN,
   });
 };
 
 export const db = {
   // Customer Store
   customers: getDBStore('customers'),
-  
+
   // Lookup index store (mapping referral codes or phone numbers to customer IDs)
   indexes: getDBStore('indexes'),
 
@@ -105,7 +105,7 @@ export const db = {
       if (transaction.amount > 0 && transaction.type === 'Earned') {
         customer.ytdPoints += transaction.amount;
       }
-      
+
       // Update Tiers: YTD >= 2500 -> Pro, YTD >= 500 -> Shipper
       if (customer.ytdPoints >= 2500) {
         customer.tier = 'Pro';
@@ -124,15 +124,19 @@ export const db = {
 
   async logReferralVisit(code: string, ip?: string) {
     const raw = await this.referrals.get(code.toUpperCase());
-    const refLog: ReferralLog = raw ? JSON.parse(raw) : { code: code.toUpperCase(), visits: [], claims: [] };
+    const refLog: ReferralLog = raw
+      ? JSON.parse(raw)
+      : { code: code.toUpperCase(), visits: [], claims: [] };
     refLog.visits.push({ date: new Date().toISOString(), ip });
     await this.referrals.set(code.toUpperCase(), JSON.stringify(refLog));
   },
 
   async logReferralClaim(code: string, customerId: string) {
     const raw = await this.referrals.get(code.toUpperCase());
-    const refLog: ReferralLog = raw ? JSON.parse(raw) : { code: code.toUpperCase(), visits: [], claims: [] };
+    const refLog: ReferralLog = raw
+      ? JSON.parse(raw)
+      : { code: code.toUpperCase(), visits: [], claims: [] };
     refLog.claims.push({ date: new Date().toISOString(), customerId });
     await this.referrals.set(code.toUpperCase(), JSON.stringify(refLog));
-  }
+  },
 };

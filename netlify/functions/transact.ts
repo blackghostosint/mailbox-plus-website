@@ -44,7 +44,9 @@ export const handler: Handler = async (event: any, context: any) => {
     if (type === 'Redeemed' && customer.points < Math.abs(amount)) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ error: `Insufficient points balance. Customer has ${customer.points} points.` }),
+        body: JSON.stringify({
+          error: `Insufficient points balance. Customer has ${customer.points} points.`,
+        }),
       };
     }
 
@@ -62,7 +64,7 @@ export const handler: Handler = async (event: any, context: any) => {
     // If it's a first time transaction and they were referred, we reward the referrer!
     if (customer.referredBy && type === 'Earned') {
       const txs = await db.getTransactions(customerId);
-      const earnedTxs = txs.filter(t => t.type === 'Earned');
+      const earnedTxs = txs.filter((t) => t.type === 'Earned');
       // If this is their first earned transaction, reward the referrer!
       if (earnedTxs.length === 1) {
         const referrer = await db.getCustomerByReferralCode(customer.referredBy);
@@ -85,7 +87,6 @@ export const handler: Handler = async (event: any, context: any) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(transaction),
     };
-
   } catch (error) {
     console.error('Transact API error:', error);
     return {

@@ -14,9 +14,7 @@ export default defineConfig({
     service: { entrypoint: 'astro/assets/services/noop' },
   },
   vite: {
-    plugins: [
-      Icons({ compiler: 'jsx', jsx: 'react' }),
-    ],
+    plugins: [Icons({ compiler: 'jsx', jsx: 'react' })],
   },
   integrations: [
     tailwind({
