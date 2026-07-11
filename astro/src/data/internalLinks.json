@@ -638,19 +638,6 @@
     "related": ["amazon-returns", "package-drop-offs", "fedex-shipping", "packaging-supplies"],
     "priority": false
   },
-  "ups-authorized-shipper-outlet": {
-    "parent": "pack-ship",
-    "related": [
-      "packaging-supplies",
-      "insurance",
-      "package-drop-offs",
-      "fedex-shipping",
-      "ups-shipping",
-      "usps-services",
-      "ups-drop-off-alternative-concord-township"
-    ],
-    "priority": true
-  },
   "ups-drop-off-alternative-concord-township": {
     "parent": "pack-ship",
     "related": [
@@ -798,82 +785,42 @@
   },
   "ups-drop-off-willoughby": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-mentor": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-painesville": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-eastlake": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-kirtland": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-chardon": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-madison": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "ups-drop-off-fairport-harbor": {
     "parent": "pack-ship",
-    "related": [
-      "ups-authorized-shipper-outlet",
-      "package-drop-offs",
-      "shipping-partners",
-      "fedex-shipping"
-    ],
+    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
   "dhl-drop-off-willoughby": {
@@ -1006,7 +953,24 @@
     ],
     "priority": false
   },
-  "": {
+  "vinted-drop-off-concord-township": {
+    "parent": "micro-problems",
+    "related": ["package-drop-offs", "amazon-returns", "happy-returns", "fedex-easy-returns"],
+    "priority": false
+  },
+  "geo-dropoffs": {
+    "parent": null,
+    "related": [
+      "fedex-shipping",
+      "ups-shipping",
+      "usps-services",
+      "dhl-express",
+      "happy-returns",
+      "package-drop-offs"
+    ],
+    "priority": true
+  },
+  "homepage": {
     "parent": null,
     "related": [
       "pack-ship",
@@ -1019,31 +983,14 @@
     ],
     "priority": true
   },
-  "vinted-drop-off": {
-    "parent": "micro-problems",
-    "related": ["package-drop-offs", "amazon-returns", "happy-returns", "fedex-easy-returns"],
-    "priority": false
-  },
-  "chewy-prescription-mail-in": {
-    "parent": "micro-problems",
-    "related": [
-      "package-drop-offs",
-      "packaging-supplies",
-      "fedex-shipping",
-      "print-return-label-without-printer"
-    ],
-    "priority": false
-  },
-  "drop-off-locations": {
+  "shipping-partners": {
     "parent": null,
-    "related": [
-      "fedex-shipping",
-      "ups-shipping",
-      "usps-services",
-      "dhl-express",
-      "happy-returns",
-      "package-drop-offs"
-    ],
+    "related": ["pack-ship", "copy-print", "home-business", "package-drop-offs"],
+    "priority": true
+  },
+  "micro-problems": {
+    "parent": null,
+    "related": ["pack-ship", "copy-print", "home-business", "package-drop-offs"],
     "priority": true
   }
 }

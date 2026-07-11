@@ -538,6 +538,11 @@
       "id": "pickup-hours",
       "url": "/pickup-hours",
       "title": "Carrier Pickup Hours"
+    },
+    {
+      "id": "shipping-partners",
+      "url": "/shipping-partners",
+      "title": "Shipping Partners"
     }
   ],
   "seo-landing": [

@@ -472,5 +472,79 @@
       "Happy Returns near Mentor",
       "Happy Returns return bar in Lake County"
     ]
+  },
+  "domestic-package-shipping-company-concord-ohio": {
+    "exact": [
+      "Domestic Package Shipping",
+      "Package Shipping Company",
+      "Domestic Shipping Services"
+    ],
+    "lsi": [
+      "package shipping company",
+      "domestic parcel delivery",
+      "shipping services in Ohio",
+      "package shipping in Concord"
+    ],
+    "geo": [
+      "domestic package shipping in Concord Ohio",
+      "package shipping company near Mentor",
+      "domestic shipping in Lake County"
+    ]
+  },
+  "mailbox-rental-concord-ohio": {
+    "exact": ["Mailbox Rental in Concord Ohio", "Rent a Mailbox in Concord"],
+    "lsi": [
+      "Concord mailbox rental",
+      "private mailbox Concord Ohio",
+      "business address Concord",
+      "mailbox services Concord"
+    ],
+    "geo": [
+      "mailbox rental in Concord Ohio",
+      "private mailbox near Mentor",
+      "business mailbox in Lake County"
+    ]
+  },
+  "mailing-services-concord-ohio": {
+    "exact": ["Mailing Services in Concord Ohio", "Mail Services Concord"],
+    "lsi": [
+      "Concord mailing services",
+      "mail and parcel services",
+      "shipping and mailing",
+      "mailing solutions Concord"
+    ],
+    "geo": [
+      "mailing services in Concord Ohio",
+      "mail services near Mentor",
+      "mailing solutions in Lake County"
+    ]
+  },
+  "pack-and-ship-concord-ohio": {
+    "exact": ["Pack and Ship in Concord Ohio", "Packing and Shipping Concord"],
+    "lsi": [
+      "pack and ship Concord",
+      "packing services Concord Ohio",
+      "ship a package Concord",
+      "Concord shipping store"
+    ],
+    "geo": [
+      "pack and ship in Concord Ohio",
+      "packing services near Mentor",
+      "shipping store in Lake County"
+    ]
+  },
+  "chewy-prescription-mail-in-concord-township": {
+    "exact": ["Chewy Prescription Mail-In", "Chewy Pharmacy Prescription Drop-Off"],
+    "lsi": [
+      "mail pet prescription",
+      "Chewy Rx drop-off",
+      "ship prescription to Chewy",
+      "pet medication mail-in"
+    ],
+    "geo": [
+      "Chewy prescription drop-off in Concord Township",
+      "mail pet prescription near Mentor",
+      "Chewy Pharmacy mail-in in Lake County"
+    ]
   }
 }
