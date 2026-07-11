@@ -34,8 +34,20 @@ export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact
   }
 
   const variants = anchors[variant] || anchors['exact'];
-  // Return random variant to avoid over-optimization
-  return variants[Math.floor(Math.random() * variants.length)];
+
+  /**
+   * Performance Optimization: Use deterministic selection instead of Math.random()
+   * to prevent React hydration mismatches and ensure UI consistency.
+   * This ensures the same anchor text is rendered on both server and client.
+   */
+  const seed = serviceId + variant;
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    hash = (hash << 5) - hash + seed.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+  const index = Math.abs(hash) % variants.length;
+  return variants[index];
 };
 
 export const getRelatedServices = (serviceId: ServiceId) => {
