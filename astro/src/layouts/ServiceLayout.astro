@@ -8,6 +8,7 @@ import type { Service, CTA } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+import { toCanonicalUrl } from '../utils/canonical-url';
 
 export interface Props {
   service: Service;
@@ -24,10 +25,7 @@ const competitorAlternatives: Record<string, { title: string; url: string }> = {
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel } = Astro.props;
-const _rawCanonical = service.canonicalUrl || service.slug;
-const canonicalUrl = _rawCanonical.startsWith('http')
-  ? _rawCanonical
-  : `${siteConfig.domain}${_rawCanonical.startsWith('/') ? _rawCanonical : `/${_rawCanonical}`}`;
+const canonicalUrl = toCanonicalUrl(service.canonicalUrl || service.slug);
 const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
 
@@ -66,7 +64,7 @@ const carriers = [
 ];
 ---
 
-<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.slug} noindex={service.robots === 'noindex, nofollow'}>
+<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.canonicalUrl || service.slug} noindex={service.robots === 'noindex, nofollow'}>
   <!-- JSON-LD Schemas -->
   {schemas.map((schema) => (
     <script type="application/ld+json" set:html={JSON.stringify(schema)} />

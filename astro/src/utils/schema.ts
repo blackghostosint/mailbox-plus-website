@@ -17,6 +17,7 @@ import type {
 } from 'schema-dts';
 
 import type { SiteConfig } from '../types/siteConfig';
+import { toCanonicalUrl } from './canonical-url';
 
 /** ---------- Small helpers ---------- */
 const getOrigin = (config: SiteConfig) => (config.domain || '').replace(/\/+$/, '');
@@ -101,10 +102,10 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': `${getOrigin(config)}#localbusiness`,
+    '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`),
     name: config.name,
     image: config.logo,
-    url: getOrigin(config),
+    url: toCanonicalUrl('/'),
     telephone: config.contact?.phone,
     priceRange: '$35 - $600',
     currenciesAccepted: 'USD',
@@ -177,10 +178,10 @@ export const getWebSiteSchema = (
   const schema: WithContext<WebSite> = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    '@id': `${getOrigin(config)}#website`,
-    url: getOrigin(config),
+    '@id': toCanonicalUrl(`${getOrigin(config)}#website`),
+    url: toCanonicalUrl('/'),
     name: config.name,
-    publisher: { '@id': `${getOrigin(config)}#localbusiness` },
+    publisher: { '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`) },
     inLanguage: 'en-US',
   };
 
@@ -216,7 +217,7 @@ export const getWebPageSchema = (
     aboutLocalBusiness?: boolean;
   }
 ): WithContext<WebPage> => {
-  const pageUrl = url.replace(/\/+$/, '');
+  const pageUrl = toCanonicalUrl(url);
   const schema: WithContext<WebPage> = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
@@ -225,10 +226,12 @@ export const getWebPageSchema = (
     description,
     url: pageUrl,
     inLanguage: 'en-US',
-    publisher: { '@id': `${getOrigin(config)}#localbusiness` },
+    publisher: { '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`) },
     ...(datePublished && { datePublished }),
     ...(dateModified && { dateModified }),
-    ...(aboutLocalBusiness && { about: { '@id': `${getOrigin(config)}#localbusiness` } }),
+    ...(aboutLocalBusiness && {
+      about: { '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`) },
+    }),
   };
 
   if (breadcrumbItems?.length) {
@@ -238,7 +241,7 @@ export const getWebPageSchema = (
         '@type': 'ListItem',
         position: i + 1,
         name: item.name,
-        item: item.url,
+        item: toCanonicalUrl(item.url),
       })),
     };
   }
@@ -276,14 +279,14 @@ export const getServiceSchema = (
     serviceOutput?: string;
   }
 ): WithContext<Service> => {
-  const id = `${getOrigin(config)}#service-${slugify(serviceName)}`;
+  const id = toCanonicalUrl(`${getOrigin(config)}#service-${slugify(serviceName)}`);
   const schema: WithContext<Service> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': id,
     serviceType: serviceName,
-    provider: { '@id': `${getOrigin(config)}#localbusiness` },
-    ...(url && { url }),
+    provider: { '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`) },
+    ...(url && { url: toCanonicalUrl(url) }),
     ...(areaServed?.length ? { areaServed } : {}),
     ...(category && { category }),
     ...(serviceOutput && { serviceOutput }),
@@ -296,7 +299,7 @@ export const getServiceSchema = (
       price: o.price,
       priceCurrency: o.currency || 'USD',
       availability: (o.availability as ItemAvailability) || 'https://schema.org/InStock',
-      url: url || getOrigin(config),
+      url: url ? toCanonicalUrl(url) : toCanonicalUrl('/'),
     }));
   }
 
@@ -329,10 +332,10 @@ export const getFAQSchema = (
 ): WithContext<FAQPage> => ({
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  '@id': `${getOrigin(config)}#faq`,
+  '@id': toCanonicalUrl(`${getOrigin(config)}#faq`),
   mainEntity: faqs.map((faq, i) => ({
     '@type': 'Question',
-    '@id': `${getOrigin(config)}#faq-q${i + 1}`,
+    '@id': toCanonicalUrl(`${getOrigin(config)}#faq-q${i + 1}`),
     name: faq.question,
     acceptedAnswer: {
       '@type': 'Answer',
@@ -364,7 +367,7 @@ export const getProductSchema = (
 ): WithContext<Product> => ({
   '@context': 'https://schema.org',
   '@type': 'Product',
-  '@id': `${getOrigin(config)}#product-${slugify(name)}`,
+  '@id': toCanonicalUrl(`${getOrigin(config)}#product-${slugify(name)}`),
   name,
   description,
   ...(sku && { sku }),
@@ -376,7 +379,7 @@ export const getProductSchema = (
       price: o.price,
       priceCurrency: o.currency || 'USD',
       availability: (o.availability as ItemAvailability) || 'https://schema.org/InStock',
-      url: getOrigin(config),
+      url: toCanonicalUrl('/'),
     })),
   }),
   ...(aggregateRating && {
@@ -414,39 +417,42 @@ export const getArticleSchema = (
     keywords?: string[];
     url: string;
   }
-): WithContext<Article> => ({
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  '@id': `${url}#article`,
-  headline,
-  description,
-  ...(image && {
-    image: image.startsWith('http') ? image : `${getOrigin(config)}/${image.replace(/^\//, '')}`,
-  }),
-  datePublished,
-  ...(dateModified && { dateModified }),
-  author: {
-    '@type': 'Person',
-    name: authorName || config.name,
-  },
-  publisher: {
-    '@type': 'Organization',
-    '@id': `${getOrigin(config)}#localbusiness`,
-    name: config.name,
-    logo: {
-      '@type': 'ImageObject',
-      url: config.logo?.startsWith('http')
-        ? config.logo
-        : `${getOrigin(config)}${config.logo?.startsWith('/') ? '' : '/'}${config.logo || ''}`,
+): WithContext<Article> => {
+  const canonicalUrl = toCanonicalUrl(url);
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    '@id': `${canonicalUrl}#article`,
+    headline,
+    description,
+    ...(image && {
+      image: image.startsWith('http') ? image : `${getOrigin(config)}/${image.replace(/^\//, '')}`,
+    }),
+    datePublished,
+    ...(dateModified && { dateModified }),
+    author: {
+      '@type': 'Person',
+      name: authorName || config.name,
     },
-  },
-  ...(articleSection && { articleSection }),
-  ...(keywords?.length && { keywords: keywords.join(', ') }),
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': url,
-  },
-});
+    publisher: {
+      '@type': 'Organization',
+      '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`),
+      name: config.name,
+      logo: {
+        '@type': 'ImageObject',
+        url: config.logo?.startsWith('http')
+          ? config.logo
+          : `${getOrigin(config)}${config.logo?.startsWith('/') ? '' : '/'}${config.logo || ''}`,
+      },
+    },
+    ...(articleSection && { articleSection }),
+    ...(keywords?.length && { keywords: keywords.join(', ') }),
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': canonicalUrl,
+    },
+  };
+};
 
 /** ---------- ParcelDelivery ---------- */
 export const getTrackingSchema = (

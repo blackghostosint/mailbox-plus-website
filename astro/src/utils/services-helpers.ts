@@ -1,7 +1,7 @@
 import { services } from '../config/services';
 import type { Service, ServiceCategory } from '../types/services';
-import { siteConfig } from '../config/siteConfig';
 import siteStructure from '../data/siteStructure.json';
+import { toCanonicalUrl } from './canonical-url';
 
 /**
  * Get all services that belong to a specific category
@@ -100,12 +100,7 @@ export const getServiceBreadcrumbs = (
   baseUrl: string = '',
   baseLabel: string = 'Services'
 ): { name: string; url: string }[] => {
-  const origin = siteConfig.domain.replace(/\/$/, ''); // normalize domain
-
-  const normalize = (path: string): string =>
-    path.startsWith('http') ? path : `${origin}${path.startsWith('/') ? path : `/${path}`}`;
-
-  const breadcrumbs = [{ name: 'Home', url: normalize('/') }];
+  const breadcrumbs = [{ name: 'Home', url: toCanonicalUrl('/') }];
 
   // Auto-detect parent pillar from siteStructure.json
   const parentPillar = siteStructure.pillars.find((p) =>
@@ -115,18 +110,18 @@ export const getServiceBreadcrumbs = (
   if (parentPillar) {
     breadcrumbs.push({
       name: parentPillar.title,
-      url: normalize(parentPillar.url),
+      url: toCanonicalUrl(parentPillar.url),
     });
   } else if (baseUrl) {
     breadcrumbs.push({
       name: baseLabel,
-      url: normalize(baseUrl),
+      url: toCanonicalUrl(baseUrl),
     });
   }
 
   breadcrumbs.push({
     name: service.serviceName,
-    url: normalize(service.canonicalUrl || service.slug),
+    url: toCanonicalUrl(service.canonicalUrl || service.slug),
   });
 
   return breadcrumbs;
