@@ -23,6 +23,7 @@
     "audit:articles": "node scripts/validate-articles.cjs",
     "generate:article-sitemap": "node scripts/generate-article-sitemap.cjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
+    "seo:check-jsonld": "node scripts/seo/check-jsonld-absolute-urls.mjs",
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
