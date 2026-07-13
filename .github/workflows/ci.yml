@@ -61,6 +61,9 @@ jobs:
       - name: Run SEO route registry check
         run: npm run seo:check-routes
 
+      - name: Run SEO JSON-LD absolute URLs check
+        run: npm run seo:check-jsonld
+
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
