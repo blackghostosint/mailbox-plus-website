@@ -37,7 +37,15 @@ const navigation = [
     <div class="flex items-center justify-between h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center space-x-2">
-        <img src="/logo.webp" alt="Mailbox Plus Concord Township Ohio Logo" width="256" height="80" class="h-12 w-auto object-contain brightness-0 invert" />
+        <img
+          src="/logo.webp"
+          alt="Mailbox Plus Concord Township Ohio Logo"
+          width="256"
+          height="80"
+          class="h-12 w-auto object-contain brightness-0 invert"
+          fetchpriority="high"
+          loading="eager"
+        />
         <span class="sr-only">Mailbox Plus - Concord Township, OH</span>
       </a>
 
