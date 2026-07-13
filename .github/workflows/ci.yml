@@ -64,6 +64,9 @@ jobs:
       - name: Run SEO JSON-LD absolute URLs check
         run: npm run seo:check-jsonld
 
+      - name: Run SEO canonical trailing-slash check
+        run: npm run seo:check-canonical
+
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

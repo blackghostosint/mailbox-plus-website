@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { siteConfig } from '../config/siteConfig';
 import { getLocalBusinessSchema } from '../utils/schema';
+import { toCanonicalUrl } from '../utils/canonical-url';
 
 export interface Props {
   title: string;
@@ -15,7 +16,8 @@ export interface Props {
 
 const { title, description, canonical, noindex, ogImage } = Astro.props;
 const siteUrl = 'https://mailboxplusohio.com';
-const canonicalUrl = canonical ? `${siteUrl}${canonical}` : undefined;
+const canonicalUrl = canonical ? toCanonicalUrl(canonical) : undefined;
+const fallbackUrl = toCanonicalUrl('/');
 
 const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 
@@ -49,7 +51,7 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalUrl || siteUrl} />
+    <meta property="og:url" content={canonicalUrl || fallbackUrl} />
     <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
