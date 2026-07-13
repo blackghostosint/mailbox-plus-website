@@ -9,16 +9,6 @@ import { siteConfig } from '../../config/siteConfig';
 import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Track Your Package', href: '/tracking' },
-  { name: 'Pickup Hours', href: '/pickup-hours' },
-  { name: 'Contact', href: '/contact-us' },
-  // External link to standalone sales page
-  { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
-];
-
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
@@ -27,6 +17,16 @@ export const Header: React.FC = () => {
   useEffect(() => {
     setIsMenuOpen(false);
   }, [location.pathname]);
+
+  const navigation = [
+    { name: 'Home', href: '/' },
+    { name: 'Services', href: '/services' },
+    { name: 'Track Your Package', href: '/tracking' },
+    { name: 'Pickup Hours', href: '/pickup-hours' },
+    { name: 'Contact', href: '/contact-us' },
+    // External link to standalone sales page
+    { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
+  ];
 
   const isActive = (path: string) => location.pathname === path;
 

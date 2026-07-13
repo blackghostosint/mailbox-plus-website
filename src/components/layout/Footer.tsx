@@ -8,21 +8,21 @@ import { getServiceImageUrl } from '../../lib/storage';
 import { SmartImage } from '../SmartImage';
 import { getGoogleMapsLink } from '../../utils/location';
 
-const quickLinks = [
-  { name: 'Pack & Ship', href: '/pack-ship' },
-  { name: 'FedEx Shipping', href: '/pack-ship/fedex-shipping' },
-  { name: 'UPS Shipping', href: '/pack-ship/ups-authorized-shipper-outlet' },
-  { name: 'Copy & Print', href: '/copy-print' },
-  { name: 'Mailbox Rental', href: '/home-business/mailbox-rental' },
-  { name: 'Notary Services', href: '/home-business/notary-services' },
-  { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
-  { name: 'Shipping Partners', href: '/shipping-partners' },
-  { name: 'DHL Express', href: '/pack-ship/dhl-express' },
-  { name: 'Specialty Services', href: '/specialty/digital-fingerprinting' },
-  { name: 'Every Door Direct Mail', href: '/home-business/every-door-direct-mail' },
-];
-
 export const Footer: React.FC = () => {
+  const quickLinks = [
+    { name: 'Pack & Ship', href: '/pack-ship' },
+    { name: 'FedEx Shipping', href: '/pack-ship/fedex-shipping' },
+    { name: 'UPS Shipping', href: '/pack-ship/ups-authorized-shipper-outlet' },
+    { name: 'Copy & Print', href: '/copy-print' },
+    { name: 'Mailbox Rental', href: '/home-business/mailbox-rental' },
+    { name: 'Notary Services', href: '/home-business/notary-services' },
+    { name: 'Ask Mailbox Plus', href: '/ask-mailbox-plus' },
+    { name: 'Shipping Partners', href: '/shipping-partners' },
+    { name: 'DHL Express', href: '/pack-ship/dhl-express' },
+    { name: 'Specialty Services', href: '/specialty/digital-fingerprinting' },
+    { name: 'Every Door Direct Mail', href: '/home-business/every-door-direct-mail' },
+  ];
+
   // ✅ Supabase logo URL
   const logoUrl = getServiceImageUrl('/images/mailbox_plus_logo.webp');
 
