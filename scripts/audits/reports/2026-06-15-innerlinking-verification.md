@@ -17,7 +17,6 @@ This audit synchronized our Dual-Stack configurations (React and Astro folders),
 ## 1. Dual-Stack Parity & Single Source of Truth
 
 We established **`astro/src/data/siteStructure.json`** as the canonical registry of all valid website URLs and IDs. To prevent route drifts and compilation differences, the following files were perfectly synchronized:
-
 - `src/data/siteStructure.json` ⟷ `astro/src/data/siteStructure.json`
 - `src/data/internalLinks.json` ⟷ `astro/src/data/internalLinks.json`
 - `src/data/anchorText.json` ⟷ `astro/src/data/anchorText.json`
@@ -47,7 +46,7 @@ Using automated JS mapping scripts, we audited `siteStructure.json` against `int
 4. **UPS Keys Merge:**
    - Removed `ups-authorized-shipper-outlet` from `internalLinks.json` and updated all 8 matching references inside dropoff locations (Willoughby, Mentor, Painesville, etc.) to use the canonical `ups-shipping` ID.
 
-_All cross-references and parent-child relations are now 100% verified, circular-dependency free, and contain zero orphaned pages._
+*All cross-references and parent-child relations are now 100% verified, circular-dependency free, and contain zero orphaned pages.*
 
 ---
 
@@ -56,13 +55,11 @@ _All cross-references and parent-child relations are now 100% verified, circular
 The site was audited to find and remove generic, non-descriptive link phrases (such as "click here", "read more", "go here") that hurt search rankings and fail accessibility compliance.
 
 ### Specific Content Refactor:
-
 - **File:** `content/articles/pack-ship/chardon-saturday-returns.md`
 - **Before:** `...explore our main pack-ship services page: [/pack-ship]. And for specific details on our easy package drop-off services, click here: [/pack-ship/package-drop-offs].`
 - **After:** `...explore our [main pack-ship services page](/pack-ship). And for specific details, view our [easy package drop-off services](/pack-ship/package-drop-offs).`
 
 ### Proactive Suggestions to Prevent "Links do not have descriptive text" Warnings:
-
 1. **Never use generic placeholders:** Ensure all markdown copy and template links use active, noun-rich descriptions (e.g., `[learn more about shredding services](/home-business/shredding)` instead of `[click here to learn more](/home-business/shredding)`).
 2. **Robust Fallback in `InternalLink`:** In `src/components/ui/InternalLink.tsx`, ensure that if `getAnchorText()` fails or cannot find a match, it defaults to the page's formatted `title` or a friendly label derived from `siteStructure.json`, rather than rendering a raw slug or ID.
 3. **Keep `anchorText.json` updated:** When adding any new page or micro-problem to the website, always declare its `exact`, `lsi`, and `geo` anchor variations in `anchorText.json`.
@@ -72,7 +69,6 @@ The site was audited to find and remove generic, non-descriptive link phrases (s
 ## 4. Test Suite and Verification Checklist
 
 The updated configurations have successfully passed the entire engineering test suite:
-
 - [x] **Lint check** (`npm run lint`): Passed with 0 errors.
 - [x] **Formatting check** (`npm run format`): All files beautifully formatted.
 - [x] **Typecheck** (`npm run typecheck`): Fully typed and compiled with 0 issues.

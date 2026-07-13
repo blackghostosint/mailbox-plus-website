@@ -24,7 +24,11 @@ export const getInternalLink = (serviceId: string) => {
   return null;
 };
 
-export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact'): string => {
+export const getAnchorText = (
+  serviceId: string,
+  variant: AnchorVariant = 'exact',
+  context: string = ''
+): string => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const anchors = (anchorText as any)[serviceId];
   if (!anchors) {
@@ -33,14 +37,18 @@ export const getAnchorText = (serviceId: string, variant: AnchorVariant = 'exact
     return link ? link.title : serviceId;
   }
 
-  const variants = anchors[variant] || anchors['exact'];
+  const variants = (anchors[variant] || anchors['exact']) as string[];
+  if (!variants || variants.length === 0) {
+    const link = getInternalLink(serviceId);
+    return link ? link.title : serviceId;
+  }
 
   /**
    * Performance Optimization: Use deterministic selection instead of Math.random()
    * to prevent React hydration mismatches and ensure UI consistency.
-   * This ensures the same anchor text is rendered on both server and client.
+   * Context (like current path) is included to allow rotation across different pages.
    */
-  const seed = serviceId + variant;
+  const seed = serviceId + variant + context;
   let hash = 0;
   for (let i = 0; i < seed.length; i++) {
     hash = (hash << 5) - hash + seed.charCodeAt(i);
