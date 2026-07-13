@@ -58,6 +58,9 @@ jobs:
             echo "Consider code splitting or lazy loading."
           fi
 
+      - name: Run SEO route registry check
+        run: npm run seo:check-routes
+
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

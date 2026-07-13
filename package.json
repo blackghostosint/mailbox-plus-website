@@ -22,6 +22,7 @@
     "build:embeddings": "tsx scripts/build-embeddings.ts",
     "audit:articles": "node scripts/validate-articles.cjs",
     "generate:article-sitemap": "node scripts/generate-article-sitemap.cjs",
+    "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
     "prepare": "husky",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
