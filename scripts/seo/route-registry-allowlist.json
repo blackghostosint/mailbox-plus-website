@@ -1,0 +1,11 @@
+{
+  "TODO": "These are real SEO city or dynamic landing pages that currently sit outside siteStructure.json. In a future PR, these can be formally integrated into siteStructure.",
+  "allowed_exact": [
+    "/mailbox-rental-eastlake",
+    "/pack-and-ship-kirtland",
+    "/pack-and-ship-madison",
+    "/pack-and-ship-willoughby",
+    "/package-receiving-lake-county",
+    "/research/shipping-label-osint"
+  ]
+}
