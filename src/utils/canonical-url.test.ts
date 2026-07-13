@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizePathname, toCanonicalUrl } from '../../astro/src/utils/canonical-url';
+import { normalizePathname, toCanonicalUrl } from './canonical-url';
 
 describe('normalizePathname', () => {
   it('should normalize relative paths', () => {
