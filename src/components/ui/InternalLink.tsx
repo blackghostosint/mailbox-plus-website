@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { Link, LinkProps, useLocation } from 'react-router-dom';
 import { getInternalLink, getAnchorText } from '../../utils/internal-links';
 
 interface InternalLinkProps extends Omit<LinkProps, 'to'> {
@@ -16,11 +16,13 @@ export const InternalLink: React.FC<InternalLinkProps> = ({
   showIcon = false,
   ...props
 }) => {
+  const location = useLocation();
   // Extract ID from path if possible, or just use the path
   // This is a simplification; ideally we match exact service IDs
   const linkData = getInternalLink(to.split('/').pop() || '');
 
-  const anchor = children || (linkData ? getAnchorText(linkData.id, variant) : null);
+  const anchor =
+    children || (linkData ? getAnchorText(linkData.id, variant, location.pathname) : null);
 
   if (!anchor) {
     // Fallback for unknown links
