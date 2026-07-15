@@ -368,11 +368,11 @@ export const additionalServices: Service[] = [
     slug: '/specialty/digital-fingerprinting',
     pageTitle: 'Digital Fingerprinting in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Digital fingerprinting in Concord Township \u2014 walk in, no appointment needed. Fast digital capture for background checks, licensing, and employment. BCI & FBI compliant.',
+      'Digital fingerprinting in Concord Township \u2014 appointments required. Fast digital capture for background checks, licensing, and employment. BCI & FBI compliant. Book at FastFingerprints.com.',
     keywords: 'digital fingerprinting, background check, BCI, FBI, Concord Township, Lake County',
-    heroTitle: 'Digital Fingerprinting \u2014 Walk In, Get Printed, Done.',
+    heroTitle: 'Digital Fingerprinting \u2014 Schedule Online, Get Printed, Done.',
     heroSubtitle:
-      'Need fingerprints for a job, license, or background check? We make it fast and simple. Digital capture, no ink, no mess, no appointment needed.',
+      'Need fingerprints for a job, license, or background check? We make it fast and simple. Digital capture, no ink, no mess. Schedule your appointment online.',
     heroImage: getServiceImageUrl('/images/digital-fingerprinting.webp'),
     hideCarrierLogos: true,
     content: [
@@ -389,9 +389,9 @@ export const additionalServices: Service[] = [
             </p>`,
       },
       {
-        heading: 'Fast Digital Fingerprinting \u2014 Walk In, We Handle It',
+        heading: 'Fast Digital Fingerprinting \u2014 Schedule Online, We Handle It',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              At Mailbox Plus, we offer <strong>digital fingerprinting services</strong> \u2014 walk in during business hours, no appointment required. Our digital system captures your prints electronically (no ink, no mess) and produces clean, submission-ready results.
+              At Mailbox Plus, we offer <strong>digital fingerprinting services</strong> \u2014 schedule your appointment online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Our digital system captures your prints electronically (no ink, no mess) and produces clean, submission-ready results.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               We handle fingerprinting for <strong>BCI background checks, FBI background checks, professional licensing, employment screening, and volunteer organizations</strong>. Just bring your valid government-issued ID and any forms or instructions you received from the requesting agency.
@@ -405,8 +405,8 @@ export const additionalServices: Service[] = [
         body: `<div class="grid md:grid-cols-3 gap-6">
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Walk In With Your ID</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Bring your valid driver's license or state ID, plus any forms from the requesting agency. No appointment needed.</p>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Schedule Your Appointment</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Book online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Bring your valid driver's license or state ID, plus any forms from the requesting agency.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
@@ -455,8 +455,8 @@ export const additionalServices: Service[] = [
                 <p class="text-sm text-[var(--color-text-secondary)]">Professional licenses lapse if background checks aren't completed in time. Avoid lapses \u2014 get fingerprinted early.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Appointments Are Hard to Find</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most fingerprinting locations require appointments weeks in advance. We take walk-ins \u2014 just show up during business hours.</p>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Appointments Are Required</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">All fingerprinting services require an appointment scheduled at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Book your time slot online.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than One Errand</h4>
@@ -468,13 +468,13 @@ export const additionalServices: Service[] = [
       {
         heading: 'Background Check? Check. Done in Minutes.',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Walk in. Get fingerprinted. Walk out. That's it. No appointment, no waiting list, no complicated scheduling dance.
+              Schedule your appointment, get fingerprinted, and you're done. That's it. No waiting list, no complicated scheduling dance.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Whether you're starting a new job, renewing a license, or volunteering in your community, we make the fingerprinting part the easiest step in your process.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              <strong>Stop by Mailbox Plus during business hours.</strong> Bring your ID and any forms. We'll take care of the rest.
+              <strong>Book your appointment at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>.</strong> Bring your ID and any forms. We'll take care of the rest.
             </p>`,
       },
     ],
@@ -486,8 +486,9 @@ export const additionalServices: Service[] = [
       },
       {
         icon: Clock,
-        title: 'Walk-In Friendly',
-        description: 'No appointment needed. Fingerprinted in minutes during business hours.',
+        title: 'Fast Appointment Scheduling',
+        description:
+          'Book online in minutes. Digital fingerprints processed quickly during your appointment.',
       },
       {
         icon: Shield,
