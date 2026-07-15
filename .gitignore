@@ -31,6 +31,8 @@ article-inbox/*.md
 
 # Temporary/diagnostic files (prevent clutter)
 *.txt
+!public/llms.txt
+!public/llms-full.txt
 *report.json
 *report.md
 diagnostic_report.json
