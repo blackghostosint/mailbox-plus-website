@@ -14,7 +14,7 @@ export const receivingDropOffServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Package Drop-Offs',
     slug: '/pack-ship/package-drop-offs',
-    canonicalUrl: 'https://mailboxplus.com/pack-ship/package-drop-offs',
+    canonicalUrl: 'https://mailboxplusohio.com/pack-ship/package-drop-offs',
     pageTitle: 'Package Drop Off Near Me in Concord Township, OH | Free | Mailbox Plus',
     metaDescription:
       'Free package drop-off in Concord Township (44077). Drop UPS, FedEx, USPS & DHL returns at one counter. Quick scan, receipt given. Open Mon-Sat. No charge.',
@@ -139,7 +139,7 @@ export const receivingDropOffServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Package Receiving',
     slug: '/pack-ship/package-receiving',
-    canonicalUrl: 'https://mailboxplus.com/pack-ship/package-receiving',
+    canonicalUrl: 'https://mailboxplusohio.com/pack-ship/package-receiving',
     pageTitle: 'Package Receiving in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Secure package receiving in Concord Township. We sign for and store packages from all carriers. No more porch pirates or missed deliveries.',
