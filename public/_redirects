@@ -63,6 +63,7 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 
 /Pack-Ship/* /pack-ship/:splat 301!
 /Copy-Print/* /copy-print/:splat 301!
+/Home-Business/* /home-business/:splat 301!
 /Store-Services /services 301!
 
 # Optional but recommended for hierarchy cleanup
