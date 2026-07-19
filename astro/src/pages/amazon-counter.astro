@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+import { getWebPageSchema, getServiceSchema } from '../utils/schema';
 const pageUrl = 'https://mailboxplusohio.com/amazon-counter/';
 const encodedPageUrl = encodeURIComponent(pageUrl);
 const xText = encodeURIComponent(
@@ -13,6 +15,22 @@ const shareUrls = {
 };
 const captionText =
   'Concord Twp — tired of driving 20 minutes to return an Amazon box? I\'m supporting Mailbox Plus (7554 Fredle Drive) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home. #AmazonCounterMailboxPlus';
+
+const webPageSchema = getWebPageSchema(siteConfig, {
+  name: 'Amazon Returns Counter for Concord Twp (44077) — Help Us Bring It Home',
+  description: "Concord Twp, OH — we're pushing to become your official Amazon returns counter. No box, no label, just a QR scan. Here's how you help make it happen.",
+  url: '/amazon-counter/',
+  datePublished: '2026-07-19',
+  dateModified: '2026-07-19',
+});
+
+const serviceSchema = getServiceSchema(siteConfig, {
+  serviceName: 'Amazon Hub Counter Returns Drop-Off',
+  url: '/amazon-counter/',
+  areaServed: ['Concord Township', 'Mentor', 'Painesville', 'Willoughby', '44077'],
+  category: 'Package Returns Drop-Off',
+  serviceOutput: 'Amazon QR code returns acceptance at Mailbox Plus',
+});
 ---
 
 <BaseLayout
@@ -21,6 +39,8 @@ const captionText =
   canonical="/amazon-counter/"
   ogImage="/og/amazon-counter.png"
 >
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <!-- HERO -->
   <section class="relative bg-center py-16 lg:py-24 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
