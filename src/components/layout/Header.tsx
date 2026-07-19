@@ -26,6 +26,7 @@ export const Header: React.FC = () => {
     { name: 'Contact', href: '/contact-us' },
     // External link to standalone sales page
     { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
+    { name: 'Amazon Returns', href: '/amazon-counter/', gold: true },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -84,7 +85,15 @@ export const Header: React.FC = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {navigation.map((item) =>
-              item.external ? (
+              item.gold ? (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors"
+                >
+                  {item.name}
+                </a>
+              ) : item.external ? (
                 <a
                   key={item.name}
                   href={item.href}
@@ -130,7 +139,16 @@ export const Header: React.FC = () => {
           <>
             <nav className="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
               {navigation.map((item) =>
-                item.external ? (
+                item.gold ? (
+                  <a
+                    key={item.name}
+                    href={item.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className="block text-base font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors"
+                  >
+                    {item.name}
+                  </a>
+                ) : item.external ? (
                   <a
                     key={item.name}
                     href={item.href}

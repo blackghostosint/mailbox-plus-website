@@ -9,6 +9,7 @@ const navigation = [
   { name: 'Pickup Hours', href: '/pickup-hours' },
   { name: 'Contact', href: '/contact-us' },
   { name: 'Mailbox Rental Offer', href: '/MailboxPlusSalesPage.html', external: true },
+  { name: 'Amazon Returns', href: '/amazon-counter/', gold: true },
 ];
 ---
 
@@ -44,7 +45,9 @@ const navigation = [
       <!-- Desktop Navigation -->
       <nav class="hidden md:flex items-center space-x-8 flex-1 justify-center">
         {navigation.map((item) =>
-          item.external ? (
+          item.gold ? (
+            <a href={item.href} class="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors">{item.name}</a>
+          ) : item.external ? (
             <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-[15px] font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
           ) : (
             <a href={item.href} class="text-[15px] font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
@@ -66,7 +69,9 @@ const navigation = [
   <div id="mobile-menu" class="md:hidden bg-[var(--color-primary-deeper)] border-t border-white/10 overflow-hidden transition-all duration-300 ease-in-out" style="max-height: 0; opacity: 0;">
     <nav class="px-4 py-4 space-y-4" aria-label="Mobile Navigation">
       {navigation.map((item) =>
-        item.external ? (
+        item.gold ? (
+          <a href={item.href} class="block text-base font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors" data-mobile-link>{item.name}</a>
+        ) : item.external ? (
           <a href={item.href} target="_blank" rel="noopener noreferrer" class="block text-base font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
         ) : (
           <a href={item.href} class="block text-base font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors" data-mobile-link>{item.name}</a>
