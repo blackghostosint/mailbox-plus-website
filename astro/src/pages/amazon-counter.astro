@@ -21,7 +21,7 @@ const captionText =
   ogImage="/og/amazon-counter.png"
 >
   <!-- HERO -->
-  <section class="relative bg-center py-20 md:py-28 overflow-hidden">
+  <section class="relative bg-center py-16 lg:py-24 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>
     <div class="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 text-center">
       <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.2] mb-6">
@@ -31,7 +31,68 @@ const captionText =
         It shouldn't. And we need YOUR help to become your official Amazon returns counter right here in Concord Twp — box-free, label-free, five minutes from home.
       </p>
     </div>
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)]"></div>
+  </section>
+
+  <!-- SHARE THIS — HERO CTA BAND -->
+  <section class="bg-[var(--color-bg-primary)] pb-6 pt-8 md:pt-12">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-[var(--color-border)] text-center">
+        <p class="text-lg font-bold text-[var(--color-text-primary)] mb-1">This needs to be seen by Amazon</p>
+        <p class="text-sm text-[var(--color-text-muted)] mb-5">Every share from 44077 moves us up their list. Pick a platform:</p>
+        <div class="flex flex-wrap justify-center gap-2.5 mb-4">
+          <!-- X -->
+          <a href={shareUrls.x} target="_blank" rel="noopener noreferrer"
+            class="share-btn group flex items-center gap-2.5 px-4 py-2.5 bg-black text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            <span>X / Twitter</span>
+          </a>
+          <!-- Facebook -->
+          <a href={shareUrls.facebook} target="_blank" rel="noopener noreferrer"
+            class="share-btn group flex items-center gap-2.5 px-4 py-2.5 bg-[#1877F2] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <span>Facebook</span>
+          </a>
+          <!-- Instagram -->
+          <button data-copy={captionText}
+            class="share-copy-btn share-btn group flex items-center gap-2.5 px-4 py-2.5 text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            style="background: linear-gradient(135deg, #833AB4, #FD1D1D 50%, #FCAF45)">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            <span>Instagram</span>
+          </button>
+          <!-- TikTok -->
+          <button data-copy={captionText}
+            class="share-copy-btn share-btn group flex items-center gap-2.5 px-4 py-2.5 bg-black text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+            <span>TikTok</span>
+          </button>
+          <!-- LinkedIn -->
+          <a href={shareUrls.linkedin} target="_blank" rel="noopener noreferrer"
+            class="share-btn group flex items-center gap-2.5 px-4 py-2.5 bg-[#0A66C2] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <!-- Nextdoor -->
+          <button data-copy={captionText}
+            class="share-copy-btn share-btn group flex items-center gap-2.5 px-4 py-2.5 bg-[#19975D] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M4.6 10.6L12 2.7l7.4 7.9-1.8 1.9L12 6.6 6.4 12.5 4.6 10.6zM5.5 12.7v8.6H18v-8.6l-6-6.4-6.5 6.4z"/></svg>
+            <span>Nextdoor</span>
+          </button>
+        </div>
+        <div class="flex flex-wrap justify-center gap-3">
+          <button id="copy-link-btn"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white rounded-xl font-medium text-sm shadow-sm hover:bg-[var(--color-primary-dark)] hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+            <span>Copy link</span>
+          </button>
+          <button id="copy-caption-btn"
+            class="inline-flex items-center gap-2 px-5 py-2.5 border-2 border-[var(--color-primary)] text-[var(--color-primary)] rounded-xl font-medium text-sm hover:bg-[var(--color-primary)] hover:text-white hover:shadow-md hover:-translate-y-0.5 transition-all duration-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+            <span>Copy caption</span>
+          </button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- THE PROBLEM -->
@@ -49,98 +110,65 @@ const captionText =
       <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed mb-5">
         So the "energy-saving" rule, applied honestly, should make a specialized local shipping counter like ours the obvious choice. Right now it does the opposite.
       </p>
-      <div class="bg-[var(--color-accent-warm)]/10 border-l-4 border-[var(--color-accent-warm)] p-5 my-6 rounded-r-lg">
-        <p class="font-bold text-lg text-[var(--color-text-primary)] mb-3">The result:</p>
-        <ul class="space-y-2 text-[var(--color-text-secondary)]">
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-warm)] mt-1 shrink-0">•</span>
+      <div class="bg-[var(--color-accent-warm)]/10 border-l-4 border-[var(--color-accent-warm)] p-6 my-8 rounded-r-lg">
+        <p class="font-bold text-xl text-[var(--color-text-primary)] mb-4">The result:</p>
+        <ul class="space-y-3 text-lg text-[var(--color-text-secondary)]">
+          <li class="flex items-start gap-3">
+            <span class="text-[var(--color-accent-warm)] mt-0.5 shrink-0 font-bold text-xl">•</span>
             <span>You drive farther than you should</span>
           </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-warm)] mt-1 shrink-0">•</span>
+          <li class="flex items-start gap-3">
+            <span class="text-[var(--color-accent-warm)] mt-0.5 shrink-0 font-bold text-xl">•</span>
             <span>You wait in lines you shouldn't have to</span>
           </li>
-          <li class="flex items-start gap-2">
-            <span class="text-[var(--color-accent-warm)] mt-1 shrink-0">•</span>
+          <li class="flex items-start gap-3">
+            <span class="text-[var(--color-accent-warm)] mt-0.5 shrink-0 font-bold text-xl">•</span>
             <span>You might pay a fee to return something you already paid for</span>
           </li>
         </ul>
       </div>
-      <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed font-semibold">
+      <p class="text-lg sm:text-xl text-[var(--color-text-primary)] leading-relaxed font-semibold">
         And it feels unfair. Because it is. Returning a $20 item shouldn't cost you more time, energy, and gas than ordering it did — especially when a better, greener option is sitting right in your own town.
       </p>
     </div>
   </section>
 
+  <!-- DIVIDER -->
+  <div class="bg-[var(--color-bg-primary)]"><div class="max-w-[720px] mx-auto px-4 sm:px-6"><div class="h-px bg-[var(--color-border)]"></div></div></div>
+
   <!-- FUEL-MATH CALLOUT -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-secondary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6">
-      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-[var(--color-border)]">
-        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-6 text-center">
+      <div class="bg-white rounded-2xl p-6 sm:p-8 shadow-md border border-[var(--color-border)] hover:shadow-lg transition-shadow duration-300">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent-gold)]/10 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 border border-[var(--color-accent-gold)]/20">
+          The fuel-math
+        </div>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-6">
           Amazon says it's about saving energy. Let's do the math.
         </h2>
         <img
           src="/images/amazon-counter/fuel-math-whiteboard.png"
           alt="Whiteboard graphic comparing Amazon's current returns system to Mailbox Plus — one truck already servicing the route vs 100 customers driving individually"
-          class="w-full rounded-xl mb-6"
+          class="w-full rounded-xl shadow-sm"
           loading="lazy"
         />
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6">
-          <div class="bg-[var(--color-bg-primary)] rounded-xl p-4 sm:p-5">
-            <p class="font-bold text-[var(--color-primary)] mb-3 text-sm uppercase tracking-wider">Amazon's current way</p>
-            <ul class="space-y-3 text-sm sm:text-base text-[var(--color-text-secondary)]">
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">🚚</span>
-                <span>One delivery truck drives a short route</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">🚗</span>
-                <span>100 customers each drive ~40 minutes round-trip across town</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">⛽</span>
-                <span>Result: hundreds of extra miles burned by customers</span>
-              </li>
-            </ul>
-          </div>
-          <div class="bg-[var(--color-accent-warm)]/5 rounded-xl p-4 sm:p-5 border border-[var(--color-accent-warm)]/20">
-            <p class="font-bold text-[var(--color-accent-warm)] mb-3 text-sm uppercase tracking-wider">With a counter at Mailbox Plus</p>
-            <ul class="space-y-3 text-sm sm:text-base text-[var(--color-text-secondary)]">
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">🚚</span>
-                <span>Same truck — already stops here every single day</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">🚗</span>
-                <span>100 customers each drive ~5 minutes to a local counter</span>
-              </li>
-              <li class="flex items-start gap-3">
-                <span class="text-2xl shrink-0">⛽</span>
-                <span>Result: a fraction of the fuel, time, and emissions</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <p class="text-center text-lg sm:text-xl font-bold text-[var(--color-primary)] leading-relaxed mb-4">
-          One truck's route beats 100 neighbors driving 40. The carriers already come to us every day — the return just rides along. Less fuel. Less time. Less traffic. By Amazon's own logic, we're the greener choice.
-        </p>
-        <p class="text-center text-base font-semibold text-[var(--color-accent-warm)]">
-          Help us prove it — share this.
-        </p>
       </div>
     </div>
   </section>
 
+  <!-- DIVIDER -->
+  <div class="bg-[var(--color-bg-secondary)]"><div class="max-w-[720px] mx-auto px-4 sm:px-6"><div class="h-px bg-[var(--color-border)]"></div></div></div>
+
   <!-- THE GUIDE — MAILBOX PLUS -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-primary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6">
-      <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed mb-5 font-semibold text-xl sm:text-2xl">
+      <p class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] mb-5 leading-relaxed">
         We live here too. We know the drive.
       </p>
       <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed mb-5">
-        We already ship all four carriers — UPS, FedEx, USPS, DHL — and handle returns, like FedEx Easy Returns and Happy Returns every day at 7554 Fredle Drive, Concord Township. We're ready to be an official Amazon Hub Counter. Box-free. Label-free. QR-scan returns. Walk in, show the code, hand over the item, walk out.
+        We already ship all four carriers — UPS, FedEx, USPS, DHL — and handle returns, like <a href="https://local.fedex.com/en-us/oh/painesville/lnnao" target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--color-accent-warm)] transition-colors">FedEx Easy Returns</a> and <a href="https://www.shopper.happyreturns.com/" target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--color-accent-warm)] transition-colors">Happy Returns</a> every day at 7554 Fredle Drive, Concord Township. We're ready to be an official Amazon Hub Counter. Box-free. Label-free. QR-scan returns. Walk in, show the code, hand over the item, walk out.
       </p>
-      <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed">
+      <p class="text-base sm:text-lg text-[var(--color-text-primary)] leading-relaxed font-semibold">
         Amazon picks counters based on local demand. That's where you come in.
       </p>
     </div>
@@ -149,30 +177,39 @@ const captionText =
   <!-- WHY WE NEED YOUR HELP -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-secondary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6">
-      <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-8 text-center">
+      <h2 class="text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-8 text-center">
         Why We Need Your Help
       </h2>
 
-      <div class="space-y-6">
-        <div class="bg-[var(--color-bg-primary)] rounded-xl p-5 sm:p-6 border border-[var(--color-border)]">
-          <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">We want to be your one-stop returns shop.</p>
-          <p class="text-[var(--color-text-secondary)] leading-relaxed">
-            Our goal is to serve Concord Twp better by handling every return in one place — not just UPS, FedEx, and USPS, but Amazon too, the biggest online retailer of them all. One counter. Every carrier. Every return.
-          </p>
+      <div class="space-y-5">
+        <div class="bg-white rounded-xl p-5 sm:p-6 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow duration-200">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-primary)]/10 flex items-center justify-center text-[var(--color-primary)] font-bold text-lg shrink-0">1</div>
+            <div>
+              <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">We want to be your one-stop returns shop.</p>
+              <p class="text-[var(--color-text-secondary)] leading-relaxed">Our goal is to serve Concord Twp better by handling every return in one place — not just UPS, FedEx, and USPS, but Amazon too, the biggest online retailer of them all. One counter. Every carrier. Every return.</p>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-[var(--color-bg-primary)] rounded-xl p-5 sm:p-6 border border-[var(--color-border)]">
-          <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">We hate sending you away.</p>
-          <p class="text-[var(--color-text-secondary)] leading-relaxed">
-            Right now, when you walk in with an Amazon QR return, we have to turn you away — not because we don't know how to do it, but because Amazon hasn't given us permission to use their return technology yet. That's the part we can't stand. We want to say "yes," not "sorry, try the grocery store."
-          </p>
+        <div class="bg-white rounded-xl p-5 sm:p-6 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow duration-200">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-warm)]/10 flex items-center justify-center text-[var(--color-accent-warm)] font-bold text-lg shrink-0">2</div>
+            <div>
+              <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">We hate sending you away.</p>
+              <p class="text-[var(--color-text-secondary)] leading-relaxed">Right now, when you walk in with an Amazon QR return, we have to turn you away — not because we don't know how to do it, but because Amazon hasn't given us permission to use their return technology yet. That's the part we can't stand. We want to say "yes," not "sorry, try the grocery store."</p>
+            </div>
+          </div>
         </div>
 
-        <div class="bg-[var(--color-bg-primary)] rounded-xl p-5 sm:p-6 border border-[var(--color-border)]">
-          <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">Shipping is our whole job.</p>
-          <p class="text-[var(--color-text-secondary)] leading-relaxed">
-            We don't sell groceries. We don't rent TVs. We don't fill prescriptions. Shipping and returns are all we do — and we love it. The stores Amazon already picked treat returns as a side task. For us, it's the main event. You deserve a returns counter run by people who actually care about shipping — and you.
-          </p>
+        <div class="bg-white rounded-xl p-5 sm:p-6 border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow duration-200">
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 rounded-lg bg-[var(--color-accent-gold)]/20 flex items-center justify-center text-[var(--color-accent-warm)] font-bold text-lg shrink-0">3</div>
+            <div>
+              <p class="font-bold text-lg text-[var(--color-text-primary)] mb-2">Shipping is our whole job.</p>
+              <p class="text-[var(--color-text-secondary)] leading-relaxed">We don't sell groceries. We don't rent TVs. We don't fill prescriptions. Shipping and returns are all we do — and we love it. The stores Amazon already picked treat returns as a side task. For us, it's the main event. You deserve a returns counter run by people who actually care about shipping — and you.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -181,7 +218,10 @@ const captionText =
   <!-- THE PLAN — HOW YOU HELP -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-primary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
-      <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-primary)] mb-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[var(--color-accent-gold)]/20 text-[var(--color-primary)] text-xs font-semibold uppercase tracking-wider mb-4 border border-[var(--color-accent-gold)]/30">
+        Your move
+      </div>
+      <h2 class="text-4xl sm:text-5xl font-bold text-[var(--color-primary)] mb-3">
         Help us win the battle with Amazon to accept QR return codes in Concord Township!
       </h2>
       <p class="text-[var(--color-text-secondary)] leading-relaxed mb-8 max-w-lg mx-auto">
@@ -191,83 +231,50 @@ const captionText =
       <p class="font-bold text-lg text-[var(--color-text-primary)] mb-6">Your move — pick one:</p>
 
       <!-- Share Buttons -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-6">
-        <!-- X/Twitter -->
-        <a
-          href={shareUrls.x}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 px-4 py-3 bg-black text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-          <span class="text-sm font-medium">X / Twitter</span>
+      <div class="flex flex-wrap justify-center gap-3 mb-6">
+        <a href={shareUrls.x} target="_blank" rel="noopener noreferrer"
+          class="share-btn group flex items-center gap-2.5 px-5 py-3 bg-black text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span>X</span>
         </a>
-
-        <!-- Facebook -->
-        <a
-          href={shareUrls.facebook}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 px-4 py-3 bg-[#1877F2] text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-          <span class="text-sm font-medium">Facebook</span>
+        <a href={shareUrls.facebook} target="_blank" rel="noopener noreferrer"
+          class="share-btn group flex items-center gap-2.5 px-5 py-3 bg-[#1877F2] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
         </a>
-
-        <!-- Instagram (copy caption) -->
-        <button
-          data-copy={captionText}
-          class="share-copy-btn flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-tr from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
-          <span class="text-sm font-medium">Instagram</span>
+        <button data-copy={captionText}
+          class="share-copy-btn share-btn group flex items-center gap-2.5 px-5 py-3 text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200"
+          style="background: linear-gradient(135deg, #833AB4, #FD1D1D 50%, #FCAF45)">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          <span>Instagram</span>
         </button>
-
-        <!-- TikTok (copy caption) -->
-        <button
-          data-copy={captionText}
-          class="share-copy-btn flex items-center justify-center gap-2 px-4 py-3 bg-black text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          <span class="text-sm font-medium">TikTok</span>
+        <button data-copy={captionText}
+          class="share-copy-btn share-btn group flex items-center gap-2.5 px-5 py-3 bg-black text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
         </button>
-
-        <!-- LinkedIn -->
-        <a
-          href={shareUrls.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="flex items-center justify-center gap-2 px-4 py-3 bg-[#0A66C2] text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          <span class="text-sm font-medium">LinkedIn</span>
+        <a href={shareUrls.linkedin} target="_blank" rel="noopener noreferrer"
+          class="share-btn group flex items-center gap-2.5 px-5 py-3 bg-[#0A66C2] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
         </a>
-
-        <!-- Nextdoor (copy caption) -->
-        <button
-          data-copy={captionText}
-          class="share-copy-btn flex items-center justify-center gap-2 px-4 py-3 bg-[#19975D] text-white font-medium rounded-lg hover:opacity-90 transition-opacity"
-        >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M4.6 10.6L12 2.7l7.4 7.9-1.8 1.9L12 6.6 6.4 12.5 4.6 10.6zM5.5 12.7v8.6H18v-8.6l-6-6.4-6.5 6.4z"/></svg>
-          <span class="text-sm font-medium">Nextdoor</span>
+        <button data-copy={captionText}
+          class="share-copy-btn share-btn group flex items-center gap-2.5 px-5 py-3 bg-[#19975D] text-white rounded-xl font-medium text-sm shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24" fill="currentColor"><path d="M4.6 10.6L12 2.7l7.4 7.9-1.8 1.9L12 6.6 6.4 12.5 4.6 10.6zM5.5 12.7v8.6H18v-8.6l-6-6.4-6.5 6.4z"/></svg>
+          <span>Nextdoor</span>
         </button>
       </div>
 
-      <!-- Copy link + Copy caption -->
-      <div class="flex flex-col sm:flex-row gap-3 justify-center mb-8">
-        <button
-          id="copy-link-btn"
-          class="flex items-center justify-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white font-medium rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
-          <span class="text-sm font-medium">Copy link</span>
+      <div class="flex flex-wrap justify-center gap-3">
+        <button id="copy-link-btn-2"
+          class="inline-flex items-center gap-2 px-6 py-3 bg-[var(--color-primary)] text-white font-medium rounded-xl shadow-sm hover:bg-[var(--color-primary-dark)] hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/></svg>
+          <span>Copy link</span>
         </button>
-        <button
-          id="copy-caption-btn"
-          class="flex items-center justify-center gap-2 px-6 py-3 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium rounded-lg hover:bg-[var(--color-primary)] hover:text-white transition-colors"
-        >
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
-          <span class="text-sm font-medium">Copy caption</span>
+        <button id="copy-caption-btn-2"
+          class="inline-flex items-center gap-2 px-6 py-3 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-medium rounded-xl hover:bg-[var(--color-primary)] hover:text-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+          <span>Copy caption</span>
         </button>
       </div>
     </div>
@@ -276,30 +283,36 @@ const captionText =
   <!-- THE STAKES -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-secondary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
-      <p class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] leading-relaxed mb-3">
-        Do nothing, and nothing changes.
-      </p>
-      <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-        Same drive. Same line. Same hours lost.
-      </p>
-      <p class="text-lg font-semibold text-[var(--color-primary)] leading-relaxed mt-3">
-        The counter comes to towns that ask for it. Let's make it impossible to ignore.
-      </p>
+      <div class="max-w-lg mx-auto bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-[var(--color-border)]">
+        <div class="text-4xl mb-4">⚠️</div>
+        <p class="text-xl sm:text-2xl font-bold text-[var(--color-text-primary)] leading-relaxed mb-2">
+          Do nothing, and nothing changes.
+        </p>
+        <p class="text-[var(--color-text-secondary)] leading-relaxed mb-2">
+          Same drive. Same line. Same hours lost.
+        </p>
+        <p class="text-lg font-bold text-[var(--color-primary)] leading-relaxed">
+          The counter comes to towns that ask for it. Let's make it impossible to ignore.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- THE SUCCESS -->
   <section class="py-12 md:py-16 bg-[var(--color-bg-primary)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
-      <p class="text-xl sm:text-2xl font-bold text-[var(--color-primary)] leading-relaxed mb-4">
-        Picture it — you pull up on Fredle Drive, walk in, show a code on your phone, hand over the item, and you're back in your car in five minutes.
-      </p>
-      <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
-        No box. No tape. No label.
-      </p>
-      <p class="text-lg font-bold text-[var(--color-accent-warm)] leading-relaxed mt-3">
-        That's the errand we're fighting for. Help us build it.
-      </p>
+      <div class="max-w-lg mx-auto">
+        <div class="text-4xl mb-4">✅</div>
+        <p class="text-xl sm:text-2xl font-bold text-[var(--color-primary)] leading-relaxed mb-4">
+          Picture it — you pull up on Fredle Drive, walk in, show a code on your phone, hand over the item, and you're back in your car in five minutes.
+        </p>
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed">
+          No box. No tape. No label.
+        </p>
+        <p class="text-lg font-bold text-[var(--color-accent-warm)] leading-relaxed mt-3">
+          That's the errand we're fighting for. Help us build it.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -336,44 +349,33 @@ const captionText =
   function showToast(message) {
     const existing = document.querySelector('.copy-toast');
     if (existing) existing.remove();
-
     const toast = document.createElement('div');
     toast.className = 'copy-toast';
     toast.textContent = message;
     document.body.appendChild(toast);
-
-    setTimeout(() => {
-      toast.remove();
-    }, 2000);
+    setTimeout(() => toast.remove(), 2000);
   }
 
   document.addEventListener('DOMContentLoaded', () => {
-    // Copy link button
-    const copyLinkBtn = document.getElementById('copy-link-btn');
-    if (copyLinkBtn) {
-      copyLinkBtn.addEventListener('click', () => {
-        copyToClipboard(window.location.href);
-      });
-    }
+    // Copy link buttons (hero + plan)
+    document.querySelectorAll('[id^="copy-link-btn"]').forEach((btn) => {
+      btn.addEventListener('click', () => copyToClipboard(window.location.href));
+    });
 
-    // Copy caption button
-    const copyCaptionBtn = document.getElementById('copy-caption-btn');
-    if (copyCaptionBtn) {
-      copyCaptionBtn.addEventListener('click', () => {
-        // Read caption text from the first share-copy-btn's data-copy attribute
+    // Copy caption buttons (hero + plan)
+    document.querySelectorAll('[id^="copy-caption-btn"]').forEach((btn) => {
+      btn.addEventListener('click', () => {
         const firstCopyBtn = document.querySelector('.share-copy-btn');
         const caption = firstCopyBtn?.getAttribute('data-copy') || '';
         copyToClipboard(caption);
       });
-    }
+    });
 
     // Share copy buttons (Instagram, TikTok, Nextdoor)
     document.querySelectorAll('.share-copy-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         const text = btn.getAttribute('data-copy');
-        if (text) {
-          copyToClipboard(text);
-        }
+        if (text) copyToClipboard(text);
       });
     });
   });
