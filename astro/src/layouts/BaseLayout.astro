@@ -71,6 +71,15 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
       fbq('track', 'PageView');
     </script>
     <!-- End Meta Pixel Code -->
+    <!-- Google tag (gtag.js) - GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2J1KV96YJ"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-W2J1KV96YJ');
+    </script>
+    <!-- End Google tag -->
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <!-- Meta Pixel Code (noscript) -->
