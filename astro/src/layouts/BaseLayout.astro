@@ -77,7 +77,10 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-W2J1KV96YJ');
+    // Only fire page_view for North American timezones to filter out bot/datacenter traffic
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    const isNA = tz && (tz.startsWith('America/') || tz === 'Pacific/Honolulu');
+    gtag('config', 'G-W2J1KV96YJ', { send_page_view: isNA });
     </script>
     <!-- End Google tag -->
   </head>
