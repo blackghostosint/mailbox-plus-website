@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
 import { services } from '../config/services';
 import { competitivePages } from '../config/services/competitive';
+import { localSeoServices } from '../config/services/pack-ship/local-seo';
 
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
@@ -35,6 +36,10 @@ const hiddenFromGrid = new Set([
   // services grid (kept for SEO/indexing, not the core Concord Township catalog).
   // Derived from competitivePages so newly generated pages auto-hide.
   ...competitivePages.map((p) => p.id),
+  // "Mail Boxes Etc. Alternative" pages are location-specific SEO landings (one per
+  // Lake County city). Exclude all of them from the grid; the Concord Township one was
+  // previously hand-listed -- now derived so any new city auto-hides.
+  ...localSeoServices.filter((s) => s.id.startsWith('mail-boxes-etc-alternative-')).map((s) => s.id),
 ]);
 
 const serviceCategories = ['Pack & Ship Services','Professional Printing','Mailbox Rentals','Document Services','Additional Services'];
