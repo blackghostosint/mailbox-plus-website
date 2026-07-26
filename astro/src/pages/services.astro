@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
 import { services } from '../config/services';
+import { competitivePages } from '../config/services/competitive';
 
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
@@ -30,6 +31,10 @@ const hiddenFromGrid = new Set([
   'posters-printing','postcard-printing','printing-services-concord-township',
   'private-mailbox-rental-concord-township','virtual-mailbox-concord-township',
   'mail-forwarding-concord-township','amazon-returns-drop-off-concord-township','amazon-returns',
+  // City/county-specific competitive landing pages are intentionally excluded from the
+  // services grid (kept for SEO/indexing, not the core Concord Township catalog).
+  // Derived from competitivePages so newly generated pages auto-hide.
+  ...competitivePages.map((p) => p.id),
 ]);
 
 const serviceCategories = ['Pack & Ship Services','Professional Printing','Mailbox Rentals','Document Services','Additional Services'];
