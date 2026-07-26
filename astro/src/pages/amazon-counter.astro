@@ -388,7 +388,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
 </BaseLayout>
 
 <script>
-  function copyToClipboard(text) {
+  function copyToClipboard(text: string) {
     if (navigator.clipboard?.writeText) {
       navigator.clipboard.writeText(text).then(() => showToast('Copied!'));
     } else {
@@ -404,7 +404,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
     }
   }
 
-  function showToast(message) {
+  function showToast(message: string) {
     const existing = document.querySelector('.copy-toast');
     if (existing) existing.remove();
     const toast = document.createElement('div');

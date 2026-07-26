@@ -8,7 +8,7 @@ import Package from '~icons/lucide/package';
 import Printer from '~icons/lucide/printer';
 import Fingerprint from '~icons/lucide/fingerprint';
 import Scan from '~icons/lucide/scan';
-import { Service } from '../../types/services';
+import type { Service } from '../../types/services';
 import { getServiceImageUrl } from '../../lib/storage';
 import { generalHomeBusinessFaqs, notaryServicesFaqs } from '../faqs';
 

@@ -6,7 +6,7 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-eastlake',
-    category: 'mailbox-services',
+    category: 'mailbox-rentals',
     city: 'Eastlake',
     serviceName: 'Mailbox Rental in Eastlake — Private Mailbox Near Eastlake, OH | Mailbox Plus',
     slug: '/mailbox-rental-eastlake',
