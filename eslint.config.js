@@ -20,6 +20,7 @@ export default [
       'scripts/',
       'knowledge/',
       'archive/',
+      'astro/.astro/',
       'convert-images.cjs',
       'replace-framer.py',
       'replace-framer-v2.py',
