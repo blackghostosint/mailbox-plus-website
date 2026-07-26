@@ -46,7 +46,8 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" /></noscript>
     <meta name="format-detection" content="telephone=no" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
@@ -57,32 +58,77 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
     <meta property="og:image:height" content="630" />
     <slot name="head" />
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
-    <!-- Meta Pixel Code -->
+    <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel) -->
     <script is:inline>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-      n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}(window, document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', '1684128789653811');
-      fbq('track', 'PageView');
+      (function() {
+        // Initialize GA4 dataLayer & gtag
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function() {
+          window.dataLayer.push(arguments);
+        };
+        window.gtag('js', new Date());
+
+        // Timezone-gated GA4 page_view filter
+        var tz = typeof Intl !== 'undefined' && Intl.DateTimeFormat ? Intl.DateTimeFormat().resolvedOptions().timeZone : null;
+        var isNA = tz && (tz.startsWith('America/') || tz === 'Pacific/Honolulu');
+        window.gtag('config', 'G-W2J1KV96YJ', { send_page_view: isNA });
+
+        // Initialize Meta Pixel queue
+        if (!window.fbq) {
+          var n = window.fbq = function() {
+            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+          };
+          if (!window._fbq) window._fbq = n;
+          n.push = n;
+          n.loaded = true;
+          n.version = '2.0';
+          n.queue = [];
+        }
+        window.fbq('init', '1684128789653811');
+        window.fbq('track', 'PageView');
+
+        // Lazy-load function
+        var trackingSDKsLoaded = false;
+        function loadTrackingSDKs() {
+          if (trackingSDKsLoaded) return;
+          trackingSDKsLoaded = true;
+
+          // Remove interaction listeners
+          var events = ['click', 'scroll', 'touchstart', 'mousemove', 'keydown'];
+          events.forEach(function(e) {
+            window.removeEventListener(e, loadTrackingSDKs, { passive: true });
+          });
+
+          // Load GA4 SDK
+          var gaScript = document.createElement('script');
+          gaScript.async = true;
+          gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-W2J1KV96YJ';
+          document.head.appendChild(gaScript);
+
+          // Load Meta Pixel SDK
+          var fbScript = document.createElement('script');
+          fbScript.async = true;
+          fbScript.src = 'https://connect.facebook.net/en_US/fbevents.js';
+          document.head.appendChild(fbScript);
+        }
+
+        // Attach interaction listeners
+        var events = ['click', 'scroll', 'touchstart', 'mousemove', 'keydown'];
+        events.forEach(function(e) {
+          window.addEventListener(e, loadTrackingSDKs, { passive: true, once: true });
+        });
+
+        // Setup idle trigger
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(function() {
+            loadTrackingSDKs();
+          }, { timeout: 2000 });
+        } else {
+          window.setTimeout(loadTrackingSDKs, 2000);
+        }
+      })();
     </script>
-    <!-- End Meta Pixel Code -->
-    <!-- Google tag (gtag.js) - GA4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W2J1KV96YJ"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    // Only fire page_view for North American timezones to filter out bot/datacenter traffic
-    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    const isNA = tz && (tz.startsWith('America/') || tz === 'Pacific/Honolulu');
-    gtag('config', 'G-W2J1KV96YJ', { send_page_view: isNA });
-    </script>
-    <!-- End Google tag -->
+    <!-- End Deferred Third-Party Analytics -->
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <!-- Meta Pixel Code (noscript) -->

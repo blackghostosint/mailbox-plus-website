@@ -63,3 +63,6 @@ playwright-report/
 .agents/skills/impeccable/
 .github/skills/impeccable/
 .impeccable/
+
+# Astro generated directory
+astro/.astro/
