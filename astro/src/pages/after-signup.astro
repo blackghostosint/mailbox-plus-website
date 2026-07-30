@@ -1,13 +1,297 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+import { toCanonicalUrl } from '../utils/canonical-url';
+import { getFAQSchema, getWebPageSchema } from '../utils/schema';
+
+const canonical = '/after-signup';
+const pageUrl = toCanonicalUrl(canonical);
+const domain = siteConfig.domain;
+
+// SEO Meta
+const metaTitle = "After Signing Up for Mailbox Service | Mailbox Plus Next Steps";
+const metaDescription = "See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.";
+
+// Breadcrumbs
+const breadcrumbs = [
+  { name: 'Home', url: toCanonicalUrl('/') },
+  { name: 'After Signing Up', url: pageUrl },
+];
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: breadcrumbs.map((item, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: item.name,
+    item: item.url,
+  })),
+};
+
+// VideoObject Schema for the explainer video
+const videoSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'VideoObject',
+  '@id': `${pageUrl}#video`,
+  name: 'Mailbox Plus — What Happens After You Sign Up for a Mailbox',
+  description:
+    'A 70-second walkthrough showing exactly how Mailbox Plus in Concord Township receives, secures, and manages your mail and packages after you sign up for a mailbox.',
+  thumbnailUrl: `${domain}/videos/mailbox-plus-explainer-thumbnail.jpg`,
+  contentUrl: `${domain}/videos/mailbox-plus-explainer.mp4`,
+  embedUrl: `${domain}/after-signup`,
+  uploadDate: '2026-06-29',
+  duration: 'PT1M10S',
+  publisher: {
+    '@type': 'Organization',
+    '@id': `${domain}#localbusiness`,
+    name: 'Mailbox Plus',
+  },
+  potentialAction: {
+    '@type': 'WatchAction',
+    target: `${domain}/after-signup`,
+  },
+};
+
+// FAQ Schema
+const faqs = [
+  {
+    question: 'When can I start sending mail to my new address?',
+    answer:
+      'You can begin giving out your address as soon as you receive your confirmation welcome email containing your assigned PMB number!',
+  },
+  {
+    question: 'What forms of ID do I need to bring?',
+    answer:
+      'By federal regulations, you must present two forms of identification. One must contain a photograph (e.g., driver\'s license, passport) and the other must verify your address (e.g., utility bill, voter registration, vehicle registration). Social security cards and credit cards are not acceptable.',
+  },
+  {
+    question: 'Do you accept package deliveries from all carriers?',
+    answer:
+      'Yes! Unlike standard post office boxes, we accept and sign for deliveries from FedEx, UPS, USPS, DHL, and local couriers.',
+  },
+];
+const faqSchema = getFAQSchema(siteConfig, faqs);
+
+// WebPage Schema
+const webpageSchema = getWebPageSchema(siteConfig, {
+  name: metaTitle,
+  description: metaDescription,
+  url: canonical,
+  breadcrumbItems: breadcrumbs,
+});
+
+const schemas = [webpageSchema, videoSchema, faqSchema, breadcrumbSchema];
+
+// Steps data
+const steps = [
+  {
+    stepNum: '1',
+    title: 'Application Review',
+    desc: 'Our staff reviews your application details. Personal accounts activate right away, while business accounts are verified by the next business day.',
+  },
+  {
+    stepNum: '2',
+    title: 'Activation Email',
+    desc: 'You will receive an activation email. Simply click the link inside to verify your identity and officially open your mailbox.',
+  },
+  {
+    stepNum: '3',
+    title: 'Address Assigned',
+    desc: 'Your official mailing address becomes: 7554 Fredle Drive, PMB [Your Number], Concord Township, OH 44077.',
+  },
+  {
+    stepNum: '4',
+    title: 'Welcome Kit',
+    desc: 'A welcome email follows with your mailbox details, our operating hours, and a list of two forms of ID required for mail pickup.',
+  },
+  {
+    stepNum: '5',
+    title: 'Secure Logging',
+    desc: 'We sign for all packages from FedEx, UPS, USPS, and DHL. Our on-site team logs every single item in our secure, locked vault.',
+  },
+  {
+    stepNum: '6',
+    title: 'Easy Collection',
+    desc: 'Stop by during office hours, show your ID, and collect your mail and packages. Fast, friendly, and hassle-free!',
+  },
+];
+
+const stepIcons = [
+  'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',     // user-check
+  'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', // mail
+  'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', // map-pin
+  'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4', // inbox
+  'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', // shield-check
+  'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',         // clock
+];
 ---
 
-<BaseLayout title="Welcome! | Mailbox Plus" description="Thank you for signing up with Mailbox Plus." noindex>
-  <section class="min-h-[50vh] flex items-center justify-center px-4">
-    <div class="text-center max-w-lg">
-      <h1 class="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Welcome to Mailbox Plus!</h1>
-      <p class="text-[var(--color-text-secondary)] mb-6">Thanks for signing up. We're excited to have you as a customer.</p>
-      <a href="/" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-2 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">Back to Home</a>
+<BaseLayout
+  title={metaTitle}
+  description={metaDescription}
+  canonical={canonical}
+>
+  <!-- JSON-LD Structured Data -->
+  {schemas.map((schema) => (
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  ))}
+
+  <!-- Breadcrumbs -->
+  <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+    <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
+      {breadcrumbs.map((item, i) => (
+        <li class="flex items-center">
+          {i > 0 && (
+            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          )}
+          {i < breadcrumbs.length - 1 ? (
+            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">Home</a>
+          ) : (
+            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">After Signing Up</span>
+          )}
+        </li>
+      ))}
+    </ol>
+  </nav>
+
+  <!-- ====================== HERO SECTION (Navy Gradient) ======================= -->
+  <section class="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-20 md:py-32 text-center animate-fade-in-up">
+    <div class="relative z-10 max-w-5xl mx-auto px-6">
+      <!-- Welcome Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[#F1C40F] font-bold mb-6">
+        <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+        <span>Welcome to Mailbox Plus</span>
+      </div>
+
+      <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 leading-none">
+        Your Mailbox Journey <br />
+        <span class="text-[#F1C40F]">Starts Here</span>
+      </h1>
+
+      <p class="text-lg md:text-xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-12">
+        Watch this 70-second video to see exactly how we receive, secure, and manage your mail
+        and packages after you sign up for mailbox service.
+      </p>
+
+      <!-- Video Container -->
+      <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--color-border-strong)] bg-[var(--color-primary-deep)] relative aspect-video">
+        <video
+          class="w-full h-full object-cover"
+          controls
+          preload="metadata"
+          poster="/videos/mailbox-plus-explainer-thumbnail.jpg"
+          playsInline
+          aria-label="Mailbox Plus explainer video — what happens after signing up for mailbox service"
+        >
+          <source src="/videos/mailbox-plus-explainer.mp4" type="video/mp4" />
+          <track
+            src="/videos/mailbox-plus-explainer-captions.vtt"
+            kind="subtitles"
+            srcLang="en"
+            label="English"
+            default
+          />
+          Your browser does not support the video tag. Watch our walkthrough of what happens after signing up for a mailbox at Mailbox Plus in Concord Township, Ohio.
+        </video>
+      </div>
+    </div>
+
+    <!-- Soft fade bottom -->
+    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" aria-hidden="true"></div>
+  </section>
+
+  <!-- ====================== EXPECTATIONS SECTION (Steps) ======================= -->
+  <section class="py-20 bg-[var(--color-bg-primary)] border-b border-[var(--color-border)]">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
+          What Happens Next?
+        </h2>
+        <p class="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+          Setting up your mailbox is quick and painless. Here is the step-by-step timeline of
+          what to expect after signing up for mailbox service at Mailbox Plus.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto stagger-group">
+        {steps.map((step, index) => (
+          <div class="bg-[var(--color-bg-secondary)] p-8 rounded-lg border border-[var(--color-border-strong)] hover:border-[var(--color-accent-warm)] transition-all duration-300 flex flex-col relative group hover:shadow-md">
+            <div class="absolute top-4 right-6 text-5xl font-black text-[var(--color-border-strong)]/40 group-hover:text-[var(--color-accent-warm)]/10 transition-colors pointer-events-none select-none" aria-hidden="true">
+              {step.stepNum}
+            </div>
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[var(--color-accent-warm)] mb-6 shadow-sm border border-[var(--color-border)]">
+              <svg class="w-6 h-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={stepIcons[index]} />
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
+            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">{step.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== QUICK FAQ SECTION ======================= -->
+  <section class="py-20 bg-[var(--color-bg-warm-tint)] border-b border-[var(--color-border)]">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-4">
+          Common Questions About Your Mailbox Setup
+        </h2>
+        <p class="text-[var(--color-text-secondary)]">
+          Everything you need to know about your mailbox plus next steps after signing up.
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        {faqs.map((faq) => (
+          <div class="bg-[var(--color-bg-primary)] p-6 md:p-8 rounded-xl border border-[var(--color-border-strong)]">
+            <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-3 flex gap-3">
+              <span class="text-[var(--color-accent-warm)] font-black" aria-hidden="true">Q:</span>
+              {faq.question}
+            </h3>
+            <p class="text-[var(--color-text-secondary)] pl-7 leading-relaxed text-sm">
+              {faq.answer}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================== CTA SECTION ======================= -->
+  <section class="py-20 bg-[var(--color-bg-primary)] text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-6">
+        Ready to Secure Your Mail?
+      </h2>
+      <p class="text-[var(--color-text-secondary)] text-lg mb-10 max-w-xl mx-auto">
+        If you have any questions, our local Concord Township team is standing by to help you
+        get completely set up after signing up for mailbox service.
+      </p>
+
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+        <a
+          href="/"
+          class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-8 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-md hover:shadow-lg text-lg"
+        >
+          Start Using Your Mailbox
+          <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+        <a
+          href="/contact-us"
+          class="inline-flex items-center gap-2 border-2 border-[var(--color-primary)] text-[var(--color-primary)] font-semibold px-8 py-3 rounded-md hover:bg-[var(--color-primary)]/5 transition-all text-lg"
+        >
+          Contact Our Office
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
