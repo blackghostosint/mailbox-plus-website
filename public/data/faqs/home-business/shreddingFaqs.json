@@ -1,14 +1,30 @@
 [
   {
     "question": "Do you shred on-site?",
-    "answer": "We use secure, off-site shredding partners."
+    "answer": "Yes — 100% on-site. We shred your documents immediately on our P-4 micro-cut machines the moment you hand them to us. Your documents never leave our sight, are never stored in a locked bin for later pickup, and are never handed off to third-party contractors."
   },
   {
     "question": "Can I watch my documents being shredded?",
-    "answer": "Yes, ask about our in-store shredding schedule."
+    "answer": "Absolutely — we encourage it. Just let our team know when you drop off, and we'll shred your documents right in front of you. You can watch the entire process and walk out with your signed Certificate of Destruction in hand."
   },
   {
     "question": "Is there a minimum or maximum amount?",
-    "answer": "We can handle small or large quantities—contact us for bulk shredding options."
+    "answer": "No minimum. No maximum. Whether you have a single envelope of private receipts or boxes of old tax returns, we'll shred it all at our simple flat rate of $1.00 per pound. No hidden fees, no appointment needed — just drop off, we weigh, we shred."
+  },
+  {
+    "question": "Do I need to remove staples or paper clips?",
+    "answer": "Not at all. Staples, paper clips, and folders are perfectly fine — our commercial shredders handle them. Just bring your documents in as-is and we take care of the rest."
+  },
+  {
+    "question": "What kind of shredding technology do you use?",
+    "answer": "We use P-4 micro-cut shredders, which cut documents into pieces 6x smaller than standard cross-cut shredders. This is confetti-grade security — far beyond what a typical home shredder can achieve."
+  },
+  {
+    "question": "Do you provide proof of destruction?",
+    "answer": "Yes. Every shredding job at Mailbox Plus comes with an official, hand-signed Certificate of Destruction. This physical document serves as auditable proof that your records were destroyed under our strict P-4 security chain of custody — essential for business compliance."
+  },
+  {
+    "question": "Is your shredding service HIPAA compliant?",
+    "answer": "Yes. Our on-site shredding process meets FACTA, HIPAA, and GLBA requirements for proper disposal of personal information. We maintain a strict chain of custody — your documents are shredded immediately on-site with no third-party handling. We recommend consulting your compliance officer for specific regulatory needs."
   }
 ]
