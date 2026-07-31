@@ -147,7 +147,7 @@ const stepIcons = [
             </svg>
           )}
           {i < breadcrumbs.length - 1 ? (
-            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">Home</a>
+            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">{item.name}</a>
           ) : (
             <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">After Signing Up</span>
           )}
@@ -229,7 +229,7 @@ const stepIcons = [
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
-            <p class="text-[var(--color-text-secondary)] text-sm leading-relaxed">{step.desc}</p>
+            <p class="text-[var(--color-text-secondary)] text-base leading-relaxed">{step.desc}</p>
           </div>
         ))}
       </div>
@@ -255,7 +255,7 @@ const stepIcons = [
               <span class="text-[var(--color-accent-warm)] font-black" aria-hidden="true">Q:</span>
               {faq.question}
             </h3>
-            <p class="text-[var(--color-text-secondary)] pl-7 leading-relaxed text-sm">
+            <p class="text-[var(--color-text-secondary)] pl-7 leading-relaxed text-base">
               {faq.answer}
             </p>
           </div>
