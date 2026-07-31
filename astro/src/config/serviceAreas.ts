@@ -16,7 +16,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Concord Township shipping, Concord Township printing, mailbox rentals Concord Township, UPS Concord Township, FedEx Concord Township, DHL Concord Township, Lake County business services, Gristmill Village shipping, Concord printing',
     heroTitle: 'Serving Concord Township',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      'Your neighborhood shipping & printing experts — no franchise fees, just friendly service.',
     heroImage: getServiceImageUrl('/images/concord-township.webp'),
     content: [
       {
@@ -40,6 +41,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we’re proud to support Concord Township with professional shipping, printing, and business solutions. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or renting a secure mailbox, our Gristmill Village location—next to Pub Frato—makes it simple to get expert service close to home.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Come see us at our Concord Township store — just a quick stop for all your shipping, printing & mailbox needs.',
+      buttonText: '→ Get Directions',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Convenient Location', description: 'Next to Pub Frato in Gristmill Village' },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL — all under one roof' },
@@ -78,7 +86,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Mentor shipping, Mentor printing, business services, UPS shipping Mentor, FedEx Mentor, DHL Mentor, mailbox rentals Mentor, Headlands Beach shipping, Great Lakes Mall business printing',
     heroTitle: 'Serving Mentor',
-    heroSubtitle: 'Your trusted partner for shipping & business services.',
+    heroSubtitle:
+      'Professional shipping & printing for Mentor businesses and families — right around the corner in Concord Township.',
     heroImage: getServiceImageUrl('/images/mentor.webp'),
     content: [
       {
@@ -102,6 +111,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we help Mentor businesses and families ship, print, and connect with confidence. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, designing marketing materials, or managing professional documents, our team delivers hometown service with national reach. From neighborhoods near Hopkins Road to lakeside homes by Headlands, we make it easy to pack, print, and post — all in one stop.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Mentor gets four carriers, custom packing, and professional printing — all at one counter in Concord Township.',
+      buttonText: '→ Visit Us Today',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Local Expertise', description: 'Deep roots in Lake County since 2024' },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL — all in one place' },
@@ -140,7 +156,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Painesville shipping, Painesville printing, mailbox rentals Painesville, UPS Painesville, FedEx Painesville, DHL Painesville, Lake County business services, downtown Painesville shipping, Lake Erie printing',
     heroTitle: 'Serving Painesville',
-    heroSubtitle: 'Reliable shipping and printing solutions for the Painesville community.',
+    heroSubtitle:
+      'Reliable shipping, printing & mailbox services for Painesville — all four carriers at one counter.',
     heroImage: getServiceImageUrl('/images/painesville.webp'),
     content: [
       {
@@ -164,6 +181,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we help Painesville residents and businesses ship, print, and connect with confidence. Whether you’re sending parcels through UPS, FedEx, USPS, or DHL, producing marketing materials, or managing sensitive legal documents, our team offers personal service with professional precision — all from our nearby Concord Township location.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Painesville families and businesses — get all four carriers at one counter, with no waiting in line.',
+      buttonText: '→ Come See Us',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Community Focused', description: 'Serving Lake County since 2024' },
       { title: 'All Major Carriers', description: 'UPS, FedEx, USPS & DHL access in one stop' },
@@ -202,7 +226,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Eastlake shipping, Eastlake printing, mailbox rentals Eastlake, UPS Eastlake, FedEx Eastlake, DHL Eastlake, Lake County business services, Chagrin River shipping, Lake Erie printing',
     heroTitle: 'Serving Eastlake',
-    heroSubtitle: 'Your local experts in shipping and business services.',
+    heroSubtitle:
+      "Eastlake's local alternative to the big shipping chains — personalized service you can count on.",
     heroImage: getServiceImageUrl('/images/eastlake.webp'),
     content: [
       {
@@ -226,6 +251,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we help Eastlake residents and business owners ship, print, and connect with confidence. From packing artwork or golf clubs to designing flyers, postcards, and banners, our team combines local service with national carrier access — including UPS, FedEx, USPS, and DHL. Just a short drive from Eastlake, we’re proud to serve our Lake County neighbors with the care they deserve.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Eastlake deserves better than the big chains. Visit us in Concord Township for personalized shipping & printing.',
+      buttonText: '→ Get Directions',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Convenient Access',
@@ -270,7 +302,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Willoughby shipping, Willoughby printing, mailbox rentals Willoughby, UPS Willoughby, FedEx Willoughby, DHL Willoughby, Lake County business services, downtown Willoughby shipping, Erie Street printing',
     heroTitle: 'Serving Willoughby',
-    heroSubtitle: 'Professional services tailored to Willoughby residents.',
+    heroSubtitle:
+      "Willoughby's local shipping & printing partner — no wait, no hassle, just friendly service.",
     heroImage: getServiceImageUrl('/images/willoughby.webp'),
     content: [
       {
@@ -294,6 +327,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we’re proud to serve Willoughby residents and businesses with full-service shipping, printing, and mailbox solutions. Whether you need UPS, FedEx, USPS, or DHL shipping, marketing materials for your Erie Street storefront, or professional document services, our team delivers the convenience and care you expect from a trusted local partner.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Willoughby locals trust us for shipping, printing & mailbox services — all at one counter, no wait.',
+      buttonText: '→ Stop By Today',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Local Knowledge', description: "Understanding Willoughby's unique needs" },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL in one place' },
@@ -329,7 +369,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Wickliffe shipping, Wickliffe printing, mailbox rentals Wickliffe, UPS Wickliffe, FedEx Wickliffe, DHL Wickliffe, Lake County business services, Worden Road shipping, Lakeland Boulevard printing',
     heroTitle: 'Serving Wickliffe',
-    heroSubtitle: 'Your neighborhood shipping and printing experts.',
+    heroSubtitle:
+      "Shipping, printing & mailbox services for Wickliffe — with the personal touch a big-box store can't match.",
     heroImage: getServiceImageUrl('/images/wickliffe.webp'),
     content: [
       {
@@ -353,6 +394,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we’re proud to serve Wickliffe’s residents, students, and small-business owners with complete shipping and printing solutions. Whether you need UPS, FedEx, USPS, or DHL shipping, custom packaging, marketing materials, or professional document printing, our nearby Concord Township location makes it easy to get expert service close to home.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Wickliffe — skip the big-box lines. Get personalized shipping, printing & mailbox service at one friendly counter.',
+      buttonText: '→ Visit Our Store',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Personalized Service', description: 'Tailored solutions for Wickliffe customers' },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL all in one stop' },
@@ -388,7 +436,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Madison shipping, Madison printing, mailbox rentals Madison, UPS Madison, FedEx Madison, DHL Madison, Lake County business services, Grand River shipping, Route 20 printing',
     heroTitle: 'Serving Madison',
-    heroSubtitle: 'Comprehensive shipping and business services for Madison.',
+    heroSubtitle:
+      "Madison's trusted shipping & printing experts — we'll take care of the details so you don't have to.",
     heroImage: getServiceImageUrl('/images/madison.webp'),
     content: [
       {
@@ -412,6 +461,13 @@ export const serviceAreas: Service[] = [
         body: "At Mailbox Plus, we proudly serve the Madison community with fast, dependable services — from UPS, FedEx, USPS, and DHL shipping to professional printing, packaging, and mailbox rentals. Whether you're shipping wine bottles from a local vineyard, mailing marketing materials for your business, or sending care packages to family, we make it simple, secure, and stress-free.",
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Madison neighbors — we handle your shipping, printing & mailbox needs so you can focus on what matters.',
+      buttonText: '→ Stop By',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Quality Assurance', description: 'Insured and secure handling for all shipments' },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL — all under one roof' },
@@ -450,7 +506,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Perry shipping, Perry printing, mailbox rentals Perry, UPS Perry, FedEx Perry, DHL Perry, Lake County business services, Perry Township shipping, North Perry printing, Lake Erie packaging',
     heroTitle: 'Serving Perry',
-    heroSubtitle: 'Your local partner for shipping and printing needs.',
+    heroSubtitle:
+      "Perry's hometown shipping & printing service — with friendly, helpful service every time.",
     heroImage: getServiceImageUrl('/images/perry.webp'),
     content: [
       {
@@ -474,6 +531,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we proudly support Perry residents and business owners with dependable shipping, professional printing, and mailbox rental services. Whether you’re sending packages through UPS, FedEx, USPS, or DHL, mailing farm documents, or designing marketing materials for your business, our nearby Concord Township location makes it easy to get the job done right — with friendly, reliable service every time.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Perry — we make shipping, printing & mailbox services easy. Just a quick drive to our Concord Township store.',
+      buttonText: '→ Come On In',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Community Commitment',
@@ -518,7 +582,7 @@ export const serviceAreas: Service[] = [
     keywords:
       'Kirtland shipping, Kirtland printing, mailbox rentals Kirtland, UPS Kirtland, FedEx Kirtland, DHL Kirtland, Lake County business services, Holden Arboretum, Chapin Forest, Historic Kirtland, LDS Temple',
     heroTitle: 'Serving Kirtland',
-    heroSubtitle: 'Your local partner for shipping and printing needs.',
+    heroSubtitle: "Kirtland's shipping & printing experts — just a short drive from the Village.",
     heroImage: getServiceImageUrl('/images/kirtland.webp'),
     content: [
       {
@@ -542,6 +606,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we proudly support Kirtland residents and business owners with fast, professional shipping, printing, and mailbox services. Whether you’re sending parcels through UPS, FedEx, USPS, or DHL, producing marketing materials for a local event, or managing business mail, our nearby Concord Township location makes it easy to get reliable, friendly service whenever you need it.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Kirtland — your full-service shipping & printing partner is just minutes away in Concord Township.',
+      buttonText: '→ Visit Us',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Community Commitment',
@@ -586,7 +657,7 @@ export const serviceAreas: Service[] = [
     keywords:
       'Chardon shipping, Chardon printing, mailbox rentals Chardon, UPS Chardon, FedEx Chardon, DHL Chardon, Geauga County business services, Chardon Square, snowbelt shipping, Chardon packaging',
     heroTitle: 'Serving Chardon',
-    heroSubtitle: 'Comprehensive shipping and business services for Chardon.',
+    heroSubtitle: "Chardon's shipping & printing partner — in the heart of Geauga County.",
     heroImage: getServiceImageUrl('/images/chardon.webp'),
     content: [
       {
@@ -610,6 +681,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we proudly support Chardon residents, professionals, and small businesses with secure shipping, expert packaging, and professional printing services. Whether you’re mailing documents, shipping snow gear, or sending custom marketing materials, our nearby Concord Township location makes it easy to get dependable, friendly service every time.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Chardon — skip the trip to the big box stores. We have all four carriers and professional printing in Concord Township.',
+      buttonText: '→ Get Directions',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Quality Assurance', description: 'Insured and secure handling for all shipments' },
       {
@@ -651,7 +729,7 @@ export const serviceAreas: Service[] = [
     keywords:
       'Fairport Harbor shipping, Fairport Harbor printing, mailbox rentals Fairport Harbor, UPS Fairport Harbor, FedEx Fairport Harbor, DHL Fairport Harbor, Lake County business services, Lake Erie shipping, Fairport Lighthouse, Grand River packaging',
     heroTitle: 'Serving Fairport Harbor',
-    heroSubtitle: 'Your neighborhood shipping and printing experts.',
+    heroSubtitle: "Fairport Harbor's local shipping experts — serving our lakefront community.",
     heroImage: getServiceImageUrl('/images/Fairport_Harbor.webp'),
     content: [
       {
@@ -675,6 +753,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we’re proud to serve Fairport Harbor’s residents, artists, and small-business owners with dependable shipping, printing, and mailbox services. Whether you’re mailing lakefront art, shipping local goods, or managing business correspondence, our nearby Concord Township location provides fast, friendly service with trusted carrier options including UPS, FedEx, USPS, and DHL.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Fairport Harbor — shipping, printing & mailbox services just a short drive from the lake.',
+      buttonText: '→ Stop By Today',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Personalized Service',
@@ -719,7 +804,7 @@ export const serviceAreas: Service[] = [
     keywords:
       'Geneva shipping, Geneva printing, mailbox rentals Geneva, UPS Geneva, FedEx Geneva, DHL Geneva, Ashtabula County business services, Geneva-on-the-Lake, wine country shipping, Lake Erie printing',
     heroTitle: 'Serving Geneva',
-    heroSubtitle: 'Professional services tailored to Geneva residents.',
+    heroSubtitle: "Geneva's shipping & printing partner — supporting wine country and beyond.",
     heroImage: getServiceImageUrl('/images/Geneva_Ohio.webp'),
     content: [
       {
@@ -743,6 +828,13 @@ export const serviceAreas: Service[] = [
         body: 'At Mailbox Plus, we proudly support Geneva residents, wineries, and small businesses with dependable shipping, professional printing, and mailbox services. Whether you’re shipping wine accessories, mailing marketing materials, or managing small-business logistics, our nearby Concord Township location offers full-service carrier access — UPS, FedEx, USPS, and DHL — with friendly, expert care.',
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Geneva — supporting wine country with shipping, printing & mailbox services you can count on.',
+      buttonText: '→ Visit Our Store',
+      buttonLink: '/contact-us',
+    },
     features: [
       { title: 'Local Knowledge', description: "Understanding Geneva's unique needs" },
       { title: 'Full Carrier Access', description: 'UPS, FedEx, USPS & DHL — all under one roof' },
@@ -780,9 +872,17 @@ export const serviceAreas: Service[] = [
       'Mailbox Plus proudly serves Leroy Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.',
     keywords: 'Leroy Township shipping, Leroy Township printing, mailbox rentals Leroy Township',
     heroTitle: 'Serving Leroy Township',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      "Leroy Township's local shipping & printing experts — just a short drive from home.",
     heroImage: getServiceImageUrl('/images/leroy-township.webp'),
     content: [],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        "Leroy Township — we're just a short drive away for all your shipping & printing needs.",
+      buttonText: '→ Visit Us',
+      buttonLink: '/contact-us',
+    },
     features: [],
     faqs: [],
   },
@@ -799,9 +899,17 @@ export const serviceAreas: Service[] = [
       'Mailbox Plus proudly serves Mayfield, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.',
     keywords: 'Mayfield shipping, Mayfield printing, mailbox rentals Mayfield',
     heroTitle: 'Serving Mayfield',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      "Mayfield's neighborhood shipping & printing service — right around the corner in Concord Township.",
     heroImage: getServiceImageUrl('/images/mayfield.webp'),
     content: [],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Mayfield — your neighborhood shipping & printing experts are right around the corner in Concord Township.',
+      buttonText: '→ Stop By',
+      buttonLink: '/contact-us',
+    },
     features: [],
     faqs: [],
   },
@@ -818,9 +926,17 @@ export const serviceAreas: Service[] = [
       'Mailbox Plus proudly serves Auburn Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.',
     keywords: 'Auburn Township shipping, Auburn Township printing, mailbox rentals Auburn Township',
     heroTitle: 'Serving Auburn Township',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      "Auburn Township's local shipping & printing experts — close to home, ready to help.",
     heroImage: getServiceImageUrl('/images/auburn-township.webp'),
     content: [],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        "Auburn Township — we're nearby and ready to help with all your shipping & printing needs.",
+      buttonText: '→ Get Directions',
+      buttonLink: '/contact-us',
+    },
     features: [],
     faqs: [],
   },
@@ -838,7 +954,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Chardon Township shipping, Chardon Township printing, mailbox rentals Chardon Township, UPS Chardon Township, FedEx Chardon Township, DHL Chardon Township, Geauga County business services, Maple Festival shipping, Chardon Square printing',
     heroTitle: 'Serving Chardon Township',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      "Chardon Township's shipping & printing partner — serving the snowbelt all year round.",
     heroImage: getServiceImageUrl('/images/chardon-township.webp'),
     content: [
       {
@@ -862,6 +979,13 @@ export const serviceAreas: Service[] = [
         body: "At Mailbox Plus, we help Chardon Township residents and businesses ship, print, and connect with confidence. Whether you're sending artisanal products from your farm, producing marketing materials for the Maple Festival, managing legal documents, or renting a private mailbox for your home-based LLC, our team delivers hometown service with national reach — all from our convenient Concord Township location.",
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Chardon Township — we keep your packages moving through every season. All four carriers at one counter.',
+      buttonText: '→ Visit Our Store',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Geauga County Roots',
@@ -903,7 +1027,7 @@ export const serviceAreas: Service[] = [
     keywords:
       'Munson Township shipping, Munson Township printing, mailbox rentals Munson Township, UPS Munson Township, FedEx Munson Township, DHL Munson Township, Geauga County business services, Bass Lake shipping, private mailbox Geauga',
     heroTitle: 'Serving Munson Township',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle: "Munson Township's shipping & printing partner — including Bass Lake and beyond.",
     heroImage: getServiceImageUrl('/images/munson-township.webp'),
     content: [
       {
@@ -927,6 +1051,13 @@ export const serviceAreas: Service[] = [
         body: "At Mailbox Plus, we help Munson Township residents ship, print, and protect their privacy with confidence. Whether you're shipping handcrafted goods from your workshop, printing professional materials for your home office, or securing a private mailbox for your family, our team delivers personalized service with national carrier reach — all from our convenient location just off I-90.",
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        "Munson Township — including Bass Lake! We're your full-service shipping & printing partner in Concord Township.",
+      buttonText: '→ Stop By Today',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Bass Lake Convenience',
@@ -968,7 +1099,8 @@ export const serviceAreas: Service[] = [
     keywords:
       'Willoughby Hills shipping, Willoughby Hills printing, mailbox rentals Willoughby Hills, UPS Willoughby Hills, FedEx Willoughby Hills, DHL Willoughby Hills, Lake County business services, Squire Castle shipping, Chagrin River Valley business',
     heroTitle: 'Serving Willoughby Hills',
-    heroSubtitle: 'Your local shipping, printing & business service experts.',
+    heroSubtitle:
+      "Willoughby Hills' shipping & printing experts — minutes from the Chagrin River Valley.",
     heroImage: getServiceImageUrl('/images/willoughby-hills.webp'),
     content: [
       {
@@ -992,6 +1124,13 @@ export const serviceAreas: Service[] = [
         body: "At Mailbox Plus, we help Willoughby Hills residents ship, print, and manage their busy lives with confidence. Whether you're sending medical samples, shipping e-commerce orders from your home office, notarizing estate documents, or securing a private mailbox for your investment properties, our Concord Township location delivers white-glove service with national reach — right in your backyard.",
       },
     ],
+    cta: {
+      title: "Shipping shouldn't cost you an hour.",
+      subtitle:
+        'Willoughby Hills — professional shipping, printing & mailbox services just minutes from the Valley.',
+      buttonText: '→ Get Directions',
+      buttonLink: '/contact-us',
+    },
     features: [
       {
         title: 'Chagrin Valley Access',
