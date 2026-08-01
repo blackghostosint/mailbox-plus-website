@@ -611,11 +611,6 @@
     "related": ["document-scanning", "notary-services", "fax-services"],
     "priority": false
   },
-  "small-business-shipping-concord-township": {
-    "parent": "pack-ship",
-    "related": ["fedex-shipping", "ups-shipping", "usps-services", "professional-packing"],
-    "priority": true
-  },
   "specialty": {
     "parent": null,
     "related": [
@@ -653,11 +648,6 @@
     "related": ["ups-shipping", "professional-packing", "packaging-supplies", "package-drop-offs"],
     "priority": false
   },
-  "ups-fedex-usps-dhl-shipping-concord-township": {
-    "parent": "pack-ship",
-    "related": ["fedex-shipping", "ups-shipping", "usps-services", "dhl-express"],
-    "priority": false
-  },
   "ups-shipping": {
     "parent": "pack-ship",
     "related": ["packaging-supplies", "insurance", "package-drop-offs"],
@@ -684,11 +674,6 @@
     "priority": false
   },
   "usps-drop-off-in-concord-township-label-printing-and-packaging-help": {
-    "parent": "pack-ship",
-    "related": ["usps-services", "postage-stamps", "packaging-supplies", "package-drop-offs"],
-    "priority": false
-  },
-  "usps-package-help-concord-township": {
     "parent": "pack-ship",
     "related": ["usps-services", "postage-stamps", "packaging-supplies", "package-drop-offs"],
     "priority": false
