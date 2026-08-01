@@ -73,7 +73,7 @@ export const coreServices: Service[] = [
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Fragile &amp; Specialty Shipping</h3>
                 <p class="text-sm text-[var(--color-text-secondary)]">Artwork, bikes, golf clubs \u2014 custom crates that survive the sorting machines.</p>
               </a>
-              <a href="/pack-ship/packing-services" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
+              <a href="/pack-ship/professional-packing" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="text-3xl mb-4">📦</div>
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Professional Packing</h3>
                 <p class="text-sm text-[var(--color-text-secondary)]">We pack it so carrier sorting machines can't break it. Ship with confidence.</p>
@@ -143,7 +143,7 @@ export const coreServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Porch Pirate Risk</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/mailbox-rentals" class="text-[var(--color-primary)] hover:underline">From $35/month</a>.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Having packages delivered to your home? We receive, sign for, and store packages from all carriers. No porch required. <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">From $35/month</a>.</p>
               </div>
             </div>`,
         isFullWidth: true,
