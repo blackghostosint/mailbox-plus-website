@@ -39,9 +39,7 @@ const hiddenFromGrid = new Set([
   'office-depot-alternative-concord-township',
   // Summary / meta pages that just list other services
   'shipping-center-concord-township',
-  'ups-fedex-usps-dhl-shipping-concord-township',
   'usps-drop-off-alternative-concord-township',
-  'usps-package-help-concord-township',
   'business-services-concord-township',
   'document-services-concord-township',
   // Every Door Direct Mail (keep accessible but hide from main grid for cleaner UI)

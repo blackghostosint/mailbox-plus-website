@@ -102,16 +102,9 @@ const USPSDropOffAlternativePage = React.lazy(
 const PostOfficeAlternativePage = React.lazy(
   () => import('./pages/post-office-alternative-concord-township')
 );
-const USPSPackageHelpPage = React.lazy(() => import('./pages/usps-package-help-concord-township'));
 const ShippingCenterPage = React.lazy(() => import('./pages/shipping-center-concord-township'));
 const PackAndShipServicesPage = React.lazy(
   () => import('./pages/pack-and-ship-services-concord-township')
-);
-const MultiCarrierShippingPage = React.lazy(
-  () => import('./pages/ups-fedex-usps-dhl-shipping-concord-township')
-);
-const SmallBusinessShippingPage = React.lazy(
-  () => import('./pages/small-business-shipping-concord-township')
 );
 const AmazonReturnsPage = React.lazy(
   () => import('./pages/amazon-returns-drop-off-concord-township')
@@ -213,19 +206,10 @@ const App: React.FC = () => {
               path="/post-office-alternative-concord-township"
               element={<PostOfficeAlternativePage />}
             />
-            <Route path="/usps-package-help-concord-township" element={<USPSPackageHelpPage />} />
             <Route path="/shipping-center-concord-township" element={<ShippingCenterPage />} />
             <Route
               path="/pack-and-ship-services-concord-township"
               element={<PackAndShipServicesPage />}
-            />
-            <Route
-              path="/ups-fedex-usps-dhl-shipping-concord-township"
-              element={<MultiCarrierShippingPage />}
-            />
-            <Route
-              path="/small-business-shipping-concord-township"
-              element={<SmallBusinessShippingPage />}
             />
             <Route
               path="/amazon-returns-drop-off-concord-township"

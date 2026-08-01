@@ -46,7 +46,6 @@ export const getBreadcrumbs = (pathname: string) => {
 
   // Check Landing Pages
   const landingPages: Record<string, string> = {
-    '/ups-fedex-usps-dhl-shipping-concord-township': 'Shipping in Concord Township',
     '/staples-printing-alternative-concord-township': 'Staples Alternative',
     '/printing-services-concord-township': 'Printing Services',
     '/office-depot-alternative-concord-township': 'Office Depot Alternative',

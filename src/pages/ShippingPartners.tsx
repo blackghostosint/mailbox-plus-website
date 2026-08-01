@@ -55,7 +55,7 @@ export const ShippingPartners: React.FC = () => {
             <div className="relative rounded-lg bg-white/70 backdrop-blur-xl border border-white/70 shadow-lg px-6 py-6 md:px-10 md:py-8 text-center">
               <p className="text-lg text-[var(--color-text-primary)] leading-relaxed">
                 We are your one-stop{' '}
-                <InternalLink variant="geo" to="/ups-fedex-usps-dhl-shipping-concord-township">
+                <InternalLink variant="geo" to="/pack-ship">
                   UPS, FedEx, USPS, and DHL shipping center
                 </InternalLink>
                 . Compare rates and services for{' '}
