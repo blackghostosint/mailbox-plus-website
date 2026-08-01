@@ -1,0 +1,12 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { getServiceById } from '../utils/services-helpers';
+
+const service = getServiceById('ups-store-alternative-willoughby')!;
+---
+
+<slot name="head">
+  <script type="application/ld+json" set:html={ JSON.stringify({"@context": "https://schema.org", "@type": "ImageObject", "contentUrl": "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-willoughby-featured.webp", "description": "Mailbox Plus UPS Store Alternative serving Willoughby customers", "name": "UPS Store Alternative in Willoughby, Ohio | Mailbox Plus", "author": {"@type": "Organization", "name": "Mailbox Plus"}, "copyrightHolder": {"@type": "Organization", "name": "Mailbox Plus"}}) } />
+</slot>
+
+<ServiceLayout service={service} />
