@@ -1,5 +1,6 @@
 export interface SiteConfig {
   name: string;
+  legalName?: string; // legal entity name for schema.org (e.g. "Mailbox Plus of Ohio, LLC")
   tagline: string;
   description: string;
   domain: string;
