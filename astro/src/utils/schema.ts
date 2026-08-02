@@ -104,6 +104,7 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
     '@type': 'LocalBusiness',
     '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`),
     name: config.name,
+    ...(config.legalName && { legalName: config.legalName }),
     image: config.logo,
     url: toCanonicalUrl('/'),
     telephone: config.contact?.phone,
@@ -124,7 +125,7 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
       longitude: config.geo.lng,
     },
     ...(config.mapUrl && { hasMap: config.mapUrl }),
-    ...(config.areaServed && {
+    ...(config.areaServed?.length && {
       areaServed: {
         '@type': 'GeoCircle',
         geoMidpoint: {
@@ -134,9 +135,33 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
         },
         geoRadius: '32187', // 20 miles in meters
       },
+      servesArea: config.areaServed.map((area) => `${area}, OH`),
     }),
     ...(config.knowsAbout && { knowsAbout: config.knowsAbout }),
     serviceType: serviceTypes,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services',
+      itemListElement: [
+        { '@type': 'Offer', name: 'Pack & Ship Services', url: toCanonicalUrl('/pack-ship') },
+        {
+          '@type': 'Offer',
+          name: 'Private Mailbox Rental',
+          url: toCanonicalUrl('/home-business/mailbox-rental'),
+        },
+        {
+          '@type': 'Offer',
+          name: 'Notary Services',
+          url: toCanonicalUrl('/home-business/notary-services'),
+        },
+        { '@type': 'Offer', name: 'Printing & Copying', url: toCanonicalUrl('/copy-print') },
+        {
+          '@type': 'Offer',
+          name: 'Fingerprinting',
+          url: toCanonicalUrl('/specialty/digital-fingerprinting'),
+        },
+      ],
+    },
     ...(config.aggregateRating && {
       aggregateRating: {
         '@type': 'AggregateRating',

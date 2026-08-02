@@ -3,6 +3,7 @@ import type { SiteConfig } from '../types/siteConfig';
 
 export const siteConfig: SiteConfig = {
   name: 'Mailbox Plus',
+  legalName: 'Mailbox Plus of Ohio, LLC',
   tagline: "Shipping shouldn't cost you an hour.",
   description:
     'Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.',
@@ -48,7 +49,22 @@ export const siteConfig: SiteConfig = {
 
   // ✅ new fields
   mapUrl: 'https://maps.app.goo.gl/Rs1NQkR6gRrtxAq37',
-  areaServed: ['Concord Township', 'Mentor', 'Painesville', 'Eastlake', 'Lake County'],
+  areaServed: [
+    'Concord Township',
+    'Mentor',
+    'Painesville',
+    'Eastlake',
+    'Lake County',
+    'Chardon',
+    'Willoughby',
+    'Madison',
+    'Perry',
+    'Kirtland',
+    'Fairport Harbor',
+    'Geneva',
+    'Wickliffe',
+    'Willoughby Hills',
+  ],
   knowsAbout: [
     'USPS services',
     'USPS shipping',
