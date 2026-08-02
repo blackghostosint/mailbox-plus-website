@@ -574,7 +574,7 @@ export const localSeoServices: Service[] = [
       {
         heading: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need printing or copying and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and document finishing \u2014 without the big-box store experience.
+              Need <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing or copying</a> and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and document finishing \u2014 without the big-box store experience.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Walk in, hand us your documents, and we handle the rest. Quick turnaround, competitive pricing, and friendly service from your local business center.
@@ -715,7 +715,7 @@ export const localSeoServices: Service[] = [
       {
         heading: 'The Best USPS Drop Off Alternative in Concord Township: Mailbox Plus',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need to drop off a USPS package but don't want to wait in the post office line? Mailbox Plus is your <strong>USPS drop-off alternative in Concord Township, Ohio</strong>. Bring your pre-labeled USPS package to our counter and we'll scan it in and hand you a receipt \u2014 in minutes, not minutes-plus-wait-in-line.
+              Need to <a href="/pack-ship/usps-services" class="text-[var(--color-primary)] hover:underline">drop off a USPS package</a> but don't want to wait in the post office line? Mailbox Plus is your <strong>USPS drop-off alternative in Concord Township, Ohio</strong>. Bring your pre-labeled USPS package to our counter and we'll scan it in and hand you a receipt \u2014 in minutes, not minutes-plus-wait-in-line.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Need stamps? We carry them. Need to ship with another carrier? We offer FedEx, UPS, and DHL too. One stop for all your shipping needs.
@@ -783,7 +783,7 @@ export const localSeoServices: Service[] = [
       {
         heading: 'Why Leave Packing to Chance?',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              You need to ship something. You grab a box from the closet, dig out the tape, and hope your packing skills hold up through the sorting machine.
+              <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">ship something</a>. You grab a box from the closet, dig out the tape, and hope your packing skills hold up through the sorting machine.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               <strong>Professional packing is about knowing how sorting machines treat packages and which materials meet carrier standards.</strong> That's what we do at Mailbox Plus. We pack with carrier-compliant materials so your shipment is insurance-ready and arrives intact.
@@ -907,7 +907,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-painesville',
     pageTitle: 'Mail Boxes Etc. Alternative in Painesville, OH | Mailbox Plus',
     metaDescription:
-      'Painesville has no UPS Store and no FedEx Office. Mailbox Plus is the only full-service pack, ship, print, and mailbox option within 7 minutes. Multi-carrier shipping, notary, and mailbox rentals.',
+      'Painesville has no UPS Store and no FedEx Office. Mailbox Plus is the only full-service pack, ship, print, and mailbox option within 7 minutes. Multi-carrier shipping, notary, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s.',
     keywords:
       'mail boxes etc alternative Painesville OH, shipping store Painesville OH, pack and ship Painesville OH, mailbox rental Painesville OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Painesville: Mailbox Plus',
@@ -994,7 +994,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-chardon',
     pageTitle: 'Mail Boxes Etc. Alternative in Chardon, OH | Mailbox Plus',
     metaDescription:
-      'Chardon is the Geauga County seat with no UPS Store. Mailbox Plus is 20 minutes from Chardon Square. Multi-carrier shipping, notary, printing, and mailbox rentals for county government workers, lawyers, and small businesses.',
+      'Chardon is the Geauga County seat with no UPS Store. Mailbox Plus is 20 minutes from Chardon Square. Multi-carrier shipping, notary, printing, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s for county government workers, lawyers, and small businesses.',
     keywords:
       'mail boxes etc alternative Chardon OH, shipping store Chardon OH, mailbox rental Chardon OH, notary Chardon OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Chardon: Mailbox Plus',
@@ -1077,7 +1077,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-kirtland',
     pageTitle: 'Mail Boxes Etc. Alternative in Kirtland, OH | Mailbox Plus',
     metaDescription:
-      'Kirtland has the highest median income in Lake County and zero shipping infrastructure. Mailbox Plus is 12 minutes away. Multi-carrier shipping, professional packing, mailbox rentals, printing, and notary for a community that values time.',
+      'Kirtland has the highest median income in Lake County and zero shipping infrastructure. Mailbox Plus is 12 minutes away. Multi-carrier shipping, professional packing, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s, printing, and notary for a community that values time.',
     keywords:
       'mail boxes etc alternative Kirtland OH, shipping store Kirtland OH, private mailbox rental Kirtland OH, printing services Kirtland OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Kirtland: Mailbox Plus',
@@ -1160,7 +1160,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-mentor',
     pageTitle: 'Mail Boxes Etc. Alternative in Mentor, OH | Mailbox Plus',
     metaDescription:
-      'Mentor has 47,000 people and two UPS Stores but no FedEx Office. Mailbox Plus is 8 minutes away with all four carriers: UPS, FedEx, USPS, and DHL. Multi-carrier shipping, packing, printing, notary, and mailbox rentals.',
+      'Mentor has 47,000 people and two UPS Stores but no FedEx Office. Mailbox Plus is 8 minutes away with all four carriers: UPS, FedEx, USPS, and DHL. Multi-carrier shipping, packing, printing, notary, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s.',
     keywords:
       'mail boxes etc alternative Mentor OH, shipping store Mentor OH, printing services Mentor OH, mailbox rental Mentor OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Mentor: Mailbox Plus',
@@ -1285,7 +1285,7 @@ export const localSeoServices: Service[] = [
       {
         question: 'What services do you offer?',
         answer:
-          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private mailbox rentals, notary services, printing and copying, professional packing, and packaging supplies.',
+          'We offer comprehensive pack-and-ship services with UPS, FedEx, USPS, and DHL. We also provide private <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s, notary services, printing and copying, professional packing, and packaging supplies.',
       },
       {
         question: 'How far is Mailbox Plus from Eastlake?',
@@ -1322,7 +1322,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-madison',
     pageTitle: 'Mail Boxes Etc. Alternative in Madison, OH | Mailbox Plus',
     metaDescription:
-      'Madison has the highest homeownership rate in Lake County and zero shipping services. No UPS Store, no FedEx, no packing supplies. Mailbox Plus is 15 minutes away. Moving supplies, mailbox rental, printing, notary, and multi-carrier shipping.',
+      'Madison has the highest homeownership rate in Lake County and zero shipping services. No UPS Store, no FedEx, no packing supplies. Mailbox Plus is 15 minutes away. Moving supplies, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>, printing, notary, and multi-carrier shipping.',
     keywords:
       'mail boxes etc alternative Madison OH, shipping store Madison OH, mailbox rental Madison OH, pack and ship near Madison OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Madison: Mailbox Plus',
@@ -1407,7 +1407,7 @@ export const localSeoServices: Service[] = [
     metaDescription:
       'Fairport Harbor is a Lake Erie village with seasonal tourism and no shipping store. No UPS Store, no FedEx. Only USPS. Mailbox Plus is 12 minutes away. Flexible multi-carrier shipping for vacation rental hosts, marina businesses, and local shops.',
     keywords:
-      'mail boxes etc alternative Fairport Harbor OH, shipping store Fairport Harbor OH, mailbox rental Fairport Harbor OH, pack and ship near Fairport Harbor OH',
+      'mail boxes etc alternative Fairport Harbor OH, shipping store Fairport Harbor OH, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a> Fairport Harbor OH, pack and ship near Fairport Harbor OH',
     heroTitle: 'Mail Boxes Etc. Alternative in Fairport Harbor: Mailbox Plus',
     heroSubtitle:
       'Fairport Harbor sits on Lake Erie — 3,000 year-round residents, double in summer. The village has a post office. That is it. Mailbox Plus is 12 minutes away.',
@@ -1488,7 +1488,7 @@ export const localSeoServices: Service[] = [
     slug: '/mail-boxes-etc-alternative-willoughby',
     pageTitle: 'Mail Boxes Etc. Alternative in Willoughby, OH | Mailbox Plus',
     metaDescription:
-      'Willoughby has a UPS Store and FedEx Office but notary by appointment only and wait times that add up. Mailbox Plus is 6 minutes from Willoughby. Walk-in notary, multi-carrier shipping, printing, and mailbox rentals with no corporate lines.',
+      'Willoughby has a UPS Store and FedEx Office but notary by appointment only and wait times that add up. Mailbox Plus is 6 minutes from Willoughby. Walk-in notary, multi-carrier shipping, printing, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rental</a>s with no corporate lines.',
     keywords:
       'mail boxes etc alternative Willoughby OH, mailbox rental Willoughby OH, pack and ship Willoughby OH, notary Willoughby OH same day',
     heroTitle: 'Mail Boxes Etc. Alternative in Willoughby: Mailbox Plus',

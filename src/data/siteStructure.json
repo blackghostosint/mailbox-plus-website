@@ -200,19 +200,9 @@
           "title": "Package A Return So Its Accepted By The Carrier"
         },
         {
-          "id": "package-drop-offs",
-          "url": "/package-drop-offs",
-          "title": "Package Drop Offs"
-        },
-        {
           "id": "package-multiple-items-into-one-shipment-in-concord-township",
           "url": "/package-multiple-items-into-one-shipment-in-concord-township",
           "title": "Package Multiple Items Into One Shipment In Concord Township"
-        },
-        {
-          "id": "package-receiving",
-          "url": "/package-receiving",
-          "title": "Package Receiving"
         },
         {
           "id": "print-amazon-return-label",

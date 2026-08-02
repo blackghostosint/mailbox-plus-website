@@ -23,7 +23,7 @@ export const gscLandingPages: Service[] = [
       {
         heading: 'Our Shipping Services',
         body: `<div class="grid md:grid-cols-2 gap-6">
-          <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Domestic Shipping</h4><p class="text-sm">UPS Ground, FedEx Ground, USPS Priority Mail, and more. We compare rates to get you the best price.</p></div>
+          <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Domestic Shipping</h4><p class="text-sm">UPS Ground, FedEx Ground, USPS Priority Mail, and more. <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">we compare rates across all carriers</a>.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">International Shipping</h4><p class="text-sm">Ship to over 220 countries with DHL Express, FedEx International, and USPS Global Express.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Freight & LTL</h4><p class="text-sm">Palletized shipments, liftgate service, and residential delivery options available.</p></div>
           <div class="p-4 border rounded-lg"><h4 class="font-bold mb-2">Specialty Items</h4><p class="text-sm">Artwork, antiques, musical instruments, electronics, and trade show materials expertly packed and shipped.</p></div>
@@ -90,7 +90,7 @@ export const gscLandingPages: Service[] = [
     keywords: 'domestic package shipping, Concord Township, business shipping',
     heroTitle: 'Domestic Package Shipping for Your Business',
     heroSubtitle:
-      'Compare UPS Ground vs FedEx Ground vs USPS Priority Mail. Volume discounts available. One counter for all carriers.',
+      '<a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">compare rates across all carriers</a>. Volume discounts available. One counter for all carriers.',
     hideCarrierLogos: true,
     content: [
       {
@@ -165,7 +165,7 @@ export const gscLandingPages: Service[] = [
     slug: '/mailing-services-concord-ohio',
     pageTitle: 'Mailing Services Near Me in Concord Township, OH 44077 | Mailbox Plus | 5.0★',
     metaDescription:
-      'Full mailing services in Concord Township (44077): USPS stamps, package shipping, mailbox rentals, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call (440) 709-1946.',
+      'Full mailing services in Concord Township (44077): USPS stamps, package shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call (440) 709-1946.',
     keywords: 'mailing services, Concord Township, stamps, mail forwarding, digital mail',
     heroTitle: 'Complete Mailing Services in Concord Township',
     heroSubtitle:
