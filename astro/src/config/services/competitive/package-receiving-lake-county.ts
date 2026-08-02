@@ -39,7 +39,7 @@ export const competePages: Service[] = [
     content: [
       {
         heading: 'Package Receiving & Drop-Off Serving All of Lake County',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need a secure place to receive packages or drop off shipments anywhere in Lake County? Mailbox Plus on Fredle Drive in Concord Township accepts packages and drop-offs for <strong>FedEx, UPS, USPS, and DHL</strong> — all at one counter, serving residents from Willoughby to Madison.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">No waiting in franchise lines. No running between different stores for different carriers. Drop your package, get your receipt, done.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Need a secure place to <a href="/pack-ship/package-receiving" class="text-[var(--color-primary)] hover:underline">receive packages</a> or drop off shipments anywhere in Lake County? Mailbox Plus on Fredle Drive in Concord Township accepts packages and drop-offs for <strong>FedEx, UPS, USPS, and DHL</strong> — all at one counter, serving residents from Willoughby to Madison.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">No waiting in franchise lines. No running between different stores for different carriers. Drop your package, get your receipt, done.</p>`,
       },
       {
         heading: 'How It Works — Package Receiving in Lake County',

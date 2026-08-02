@@ -20,6 +20,9 @@ export const getInternalLink = (serviceId: string) => {
   // Check sub-supporting
   const sub = siteStructure.subSupporting.find((s) => s.id === serviceId);
   if (sub) return sub;
+  // Check SEO landing pages (town variants, competitor alternatives)
+  const seo = siteStructure['seo-landing']?.find((s) => s.id === serviceId);
+  if (seo) return seo;
 
   return null;
 };

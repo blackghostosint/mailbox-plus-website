@@ -38,7 +38,7 @@ export const competePages: Service[] = [
     content: [
       {
         heading: 'Virtual Mailbox Service Serving Eastlake',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Looking for a virtual mailbox or mail forwarding service near Eastlake? Mailbox Plus in Concord Township provides real street address mailboxes, package acceptance from all carriers, and digital mail management — all without paying a national middleman like iPostal1 or Anytime Mailbox.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">When you use a national service, they subcontract to local stores like ours. Skip the markup. Work directly with the people handling your mail.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">Looking for a virtual mailbox or <a href="/home-business/digital-mailbox-rental" class="text-[var(--color-primary)] hover:underline">mail forwarding</a> service near Eastlake? Mailbox Plus in Concord Township provides <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">real street address mailboxes</a>, package acceptance from all carriers, and digital mail management — all without paying a national middleman like iPostal1 or Anytime Mailbox.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">When you use a national service, they subcontract to local stores like ours. Skip the markup. Work directly with the people handling your mail.</p>`,
       },
       {
         heading: 'How It Works — Drop Off or Ship From Eastlake',

@@ -38,7 +38,7 @@ export const competePages: Service[] = [
     content: [
       {
         heading: 'A Better Option Than the Big Box Store Near Eastlake',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">If you're searching for a FedEx Office, UPS Store, or similar chain near Eastlake, you already know what to expect — single-carrier service, franchise pricing, and unpredictable wait times.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mailbox Plus is different. We're an authorized FedEx ShipCenter with professional printing, packing, notary, and mailbox rentals — but unlike the chains, we also ship <strong>UPS, USPS, and DHL</strong>. Compare rates. Pick the best carrier. All at one counter.</p>`,
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">If you're searching for a FedEx Office, UPS Store, or similar chain near Eastlake, you already know what to expect — single-carrier service, franchise pricing, and unpredictable wait times.</p><p class="text-lg text-[var(--color-text-primary)] leading-relaxed">Mailbox Plus is different. We're an <a href="/pack-ship/fedex-shipping" class="text-[var(--color-primary)] hover:underline">authorized FedEx ShipCenter</a> with <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">professional printing</a>, packing, notary, and mailbox rentals — but unlike the chains, we also ship <strong>UPS, USPS, and DHL</strong>. Compare rates. Pick the best carrier. All at one counter.</p>`,
       },
       {
         heading: 'Why Eastlake Customers Choose Mailbox Plus',
