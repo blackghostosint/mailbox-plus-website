@@ -16,7 +16,8 @@ keywords:
     'eBay shipping costs going up',
     'online seller shipping help Lake County',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/usps-services', '/pack-ship/ups-authorized-shipper-outlet']
+relatedServices:
+  ['/pack-ship', '/pack-ship/usps-services', '/pack-ship/ups-authorized-shipper-outlet']
 author: 'Mailbox Plus Team'
 ---
 
