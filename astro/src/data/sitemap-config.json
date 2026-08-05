@@ -71,6 +71,7 @@
     "/articles/kirtland-hills-shredding",
     "/articles/kirtland-hills-small-business-mailbox",
     "/articles/kirtland-hills-stamps",
+    "/articles/mailbox-not-a-po-box",
     "/articles/ohio-digital-fingerprinting-background-checks",
     "/articles/ohio-notary-services-guide",
     "/articles/online-sellers-keep-home-address-private",
@@ -99,6 +100,7 @@
     "/articles/recyclable-shipping-packaging",
     "/articles/ship-fragile-items-safely-artwork-electronics-glass",
     "/articles/the-notary-runaround",
+    "/articles/traveling-nurse-mailing-address",
     "/articles/ups-digital-tools-for-small-business",
     "/articles/ups-store-vs-mailbox-plus-comparison",
     "/articles/usps-rate-increase-online-sellers",
@@ -395,6 +397,7 @@
     "/articles/hambden-small-business-mailbox": "2026-06-28T03:00:00.000Z",
     "/articles/hambden-notary": "2026-06-28T03:18:00.000Z",
     "/articles/the-notary-runaround": "2026-06-27T15:00:00.000Z",
+    "/articles/traveling-nurse-mailing-address": "2026-08-26T17:00:00.000Z",
     "/articles/ups-digital-tools-for-small-business": "2026-07-31T02:00:00.000Z",
     "/articles/fuel-surcharge-shipping-costs": "2026-07-31T17:00:00.000Z",
     "/articles/recyclable-shipping-packaging": "2026-08-02T17:00:00.000Z",
@@ -508,6 +511,7 @@
     "/articles/compare-shipping-rates-ups-fedex-usps-dhl": "2026-07-07T17:00:00.000Z",
     "/articles/porch-theft-lake-county-protect-packages": "2026-07-07T17:00:00.000Z",
     "/articles/ship-fragile-items-safely-artwork-electronics-glass": "2026-07-07T17:00:00.000Z",
-    "/articles/ups-store-vs-mailbox-plus-comparison": "2026-07-07T17:00:00.000Z"
+    "/articles/ups-store-vs-mailbox-plus-comparison": "2026-07-07T17:00:00.000Z",
+    "/articles/mailbox-not-a-po-box": "2026-08-26T17:00:00.000Z"
   }
 }
