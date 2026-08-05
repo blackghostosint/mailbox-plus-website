@@ -66,7 +66,6 @@ const DEFAULT_ALLOWED_EXACT = [
   '/after-signup',
   '/pickup-hours',
   '/shipping-partners',
-  '/MailboxPlusSalesPage',
 ];
 
 // List of registry URLs that are expected to be missing from the build (e.g. redirected or aliases)
