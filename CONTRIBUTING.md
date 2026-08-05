@@ -3,32 +3,33 @@
 ## Getting Started
 
 1. Clone the repository
-2. Run `npm install`
+2. Run `npm install` and `cd astro && npm ci`
 3. Copy `.env.example` to `.env` and fill in required variables
-4. Run `npm run dev` to start the development server
+4. Run `npm run dev` to start the Astro development server
 
 ## Project Structure
 
 ```
-src/
-├── components/          # Reusable UI components
-│   ├── layout/          # Header, Footer, Layout
-│   ├── sections/        # CTA, ServiceGrid
-│   ├── ui/              # Button, Accordion, Breadcrumbs, Modals, InternalLink
-│   └── SEO/             # PageMeta, JsonLd, Meta
-├── config/              # Site configuration
-│   ├── services/        # Service definitions (data-driven pages)
-│   ├── faqs/            # FAQ data per category
-│   ├── micro-problems/  # Micro-problem page configs
-│   └── pageMeta.ts      # Page-level SEO metadata
-├── pages/               # Route-level page components
-│   └── micro/           # Micro-problem page component
-├── utils/               # Utility functions (schema, article loader, helpers)
-├── lib/                 # Storage helpers (R2 image URLs)
-├── hooks/               # Custom React hooks
-├── types/               # TypeScript type definitions
-├── data/                # Static JSON data (site structure, links, sitemap)
-└── index.css            # Global styles + design tokens
+astro/
+├── src/
+│   ├── components/          # .astro + React islands (Header, Footer, CTAs, SmartImage)
+│   ├── config/              # Site configuration
+│   │   ├── services/        # Service definitions (data-driven pages)
+│   │   ├── faqs/            # FAQ data per category
+│   │   ├── micro-problems/  # Micro-problem page configs
+│   │   └── pageMeta.ts      # Page-level SEO metadata
+│   ├── pages/               # File-based routes (.astro → URL)
+│   ├── layouts/             # BaseLayout, ServiceLayout
+│   ├── utils/               # Utility functions (schema, article loader, helpers) + vitest tests
+│   ├── data/                # Static JSON data (site structure, links, sitemap)
+│   └── styles/              # Global styles + design tokens
+├── astro.config.mjs         # Astro config (publicDir: ../public, outDir: ../dist)
+├── tailwind.config.mjs      # Tailwind config
+└── tsconfig.json            # TypeScript config
+content/articles/            # Article markdown (YAML frontmatter)
+public/                      # Static assets (served at /)
+scripts/                     # Article/sitemap/SEO audit tooling
+netlify/functions/           # Serverless functions
 ```
 
 ## Design System
@@ -48,22 +49,21 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 
 - TypeScript strict mode is enabled
 - ESLint + Prettier enforce code style (run `npm run lint`)
-- Components should be functional with hooks
-- Use `React.lazy()` for route-level code splitting
+- Astro components are server-rendered by default; use islands only for interactive behavior
 - Always prefer Tailwind `hover:`/`focus:`/`enabled:` variants over inline `onMouseEnter`/`onMouseLeave`
 
 ## Images
 
 - Store images in the R2 bucket (`mailbox-plus-images`)
-- Use `getServiceImageUrl()` from `src/lib/storage.ts` for image paths
+- Use `getServiceImageUrl()` from `astro/src/utils/getServiceImageUrl.ts` for image paths
 - Article featured images should be ~400×225 WebP at 16:9 aspect ratio
 - Use `<SmartImage>` component with `priority` on LCP/hero images, lazy otherwise
 
 ## Adding a New Service Page
 
-1. Create a service config in `src/config/services/`
-2. Add the route in `src/App.tsx`
-3. Add page metadata in `src/config/pageMeta.ts`
+1. Create a service config in `astro/src/config/services/`
+2. Add the route/slug in the config (file-based pages are generated from config)
+3. Add page metadata in `astro/src/config/pageMeta.ts`
 4. Run `npm run build` to verify
 
 ## Adding a New Article
@@ -72,6 +72,7 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 2. Frontmatter must include: `title`, `description`, `slug`, `pubDate`, `category`, `status`
 3. Set `status: draft` for preview, `status: published` for live
 4. Articles are auto-discovered by `articleLoader.ts`
+5. Run `npm run audit:articles` to validate links/frontmatter against the sitemap
 
 ## Commit Convention
 
@@ -88,7 +89,7 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 ## Branch Protection
 
 - All changes must go through pull requests
-- CI must pass (build, lint, typecheck)
+- CI must pass (build, check, lint, test)
 - Branch protection requires 1 approval
 - Squash merge only (no merge commits)
 - No direct commits to `main` — always use feature branches

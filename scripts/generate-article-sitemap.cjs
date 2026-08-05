@@ -10,7 +10,7 @@ function walkDir(dir, callback) {
 }
 
 const contentDir = path.resolve(__dirname, '../content/articles');
-const sitemapConfigPath = path.resolve(__dirname, '../src/data/sitemap-config.json');
+const sitemapConfigPath = path.resolve(__dirname, '../astro/src/data/sitemap-config.json');
 
 if (!fs.existsSync(contentDir) || !fs.existsSync(sitemapConfigPath)) {
   console.error('❌ Content directory or sitemap config not found');

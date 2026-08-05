@@ -46,11 +46,35 @@ export const searchServices = (query: string): Service[] => {
 };
 
 /**
- * Get random services (useful for "related services")
+ * Get deterministic "random" services (useful for "related services")
+ *
+ * Performance Optimization: Use deterministic selection instead of Math.random()
+ * to prevent React hydration mismatches and ensure UI consistency.
+ * The optional `seed` (e.g. current path) allows rotation across pages while
+ * staying stable for a given page. Mirrors internal-links.ts selection logic.
  */
-export const getRandomServices = (count: number, excludeId?: string): Service[] => {
+export const getRandomServices = (
+  count: number,
+  excludeId?: string,
+  seed: string = ''
+): Service[] => {
   const pool = excludeId ? services.filter((s) => s.id !== excludeId) : services;
-  return [...pool].sort(() => 0.5 - Math.random()).slice(0, count);
+  if (pool.length === 0) return [];
+
+  const hashSeed = (excludeId || '') + seed;
+  let hash = 0;
+  for (let i = 0; i < hashSeed.length; i++) {
+    hash = (hash << 5) - hash + hashSeed.charCodeAt(i);
+    hash |= 0; // Convert to 32bit integer
+  }
+  const start = Math.abs(hash) % pool.length;
+
+  // Take `count` services starting from the hashed index, wrapping around
+  const result: Service[] = [];
+  for (let i = 0; i < count && i < pool.length; i++) {
+    result.push(pool[(start + i) % pool.length]);
+  }
+  return result;
 };
 
 /**

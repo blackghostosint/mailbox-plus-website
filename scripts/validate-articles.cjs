@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-const sitemapConfig = require('../src/data/sitemap-config.json');
+const sitemapConfig = require('../astro/src/data/sitemap-config.json');
 const validRoutes = new Set(sitemapConfig.routes);
 
 // Simple recursive directory walker
