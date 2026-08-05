@@ -29,6 +29,9 @@ dist-ssr
 article-inbox/*.md
 !article-inbox/README.md
 
+# jMunch local index config (regenerated on every index run)
+.jcodemunch.jsonc
+
 # Temporary/diagnostic files (prevent clutter)
 *.txt
 !public/llms.txt
