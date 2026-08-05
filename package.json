@@ -28,8 +28,10 @@
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "@netlify/blobs": "^10.7.9",
     "dotenv": "^17.2.3",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "resend": "^6.16.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.0",
