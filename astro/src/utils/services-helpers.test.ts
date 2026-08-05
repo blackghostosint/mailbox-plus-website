@@ -1,10 +1,12 @@
 import { describe, it, expect } from 'vitest';
+import { services } from '../config/services';
 import {
   getServicesByCategory,
   getPopularServices,
   getServiceById,
   getServiceByHref,
   searchServices,
+  getRandomServices,
   sortServicesByName,
   validateService,
 } from './services-helpers';
@@ -105,6 +107,37 @@ describe('services-helpers', () => {
     it('returns false when id is missing', () => {
       const service = getServiceById('amazon-returns');
       expect(validateService({ ...service!, id: '' } as Partial<Service> as Service)).toBe(false);
+    });
+  });
+
+  describe('getRandomServices (deterministic selection)', () => {
+    it('returns the requested count of services', () => {
+      const result = getRandomServices(3);
+      expect(result).toHaveLength(3);
+    });
+
+    it('is deterministic for the same seed', () => {
+      const a = getRandomServices(3, 'amazon-returns', '/pack-ship');
+      const b = getRandomServices(3, 'amazon-returns', '/pack-ship');
+      expect(a.map((s) => s.id)).toEqual(b.map((s) => s.id));
+    });
+
+    it('rotates selection across different seeds', () => {
+      const a = getRandomServices(3, 'amazon-returns', '/pack-ship');
+      const b = getRandomServices(3, 'amazon-returns', '/copy-print');
+      expect(a.map((s) => s.id)).not.toEqual(b.map((s) => s.id));
+    });
+
+    it('excludes the requested service id', () => {
+      const result = getRandomServices(5, 'amazon-returns');
+      expect(result.some((s) => s.id === 'amazon-returns')).toBe(false);
+    });
+
+    it('clamps count to the pool size', () => {
+      // Requesting more than available returns all services
+      const result = getRandomServices(9999);
+      expect(result.length).toBeLessThanOrEqual(services.length);
+      expect(result.length).toBe(services.length);
     });
   });
 });
