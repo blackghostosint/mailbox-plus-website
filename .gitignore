@@ -51,10 +51,6 @@ test-v1-template.ts
 deno.lock
 convert-images.cjs
 
-# Playwright
-e2e/report/
-test-results/
-playwright-report/
 .hermes/
 
 # Impeccable design tool harness installs (tool-specific, not project code)

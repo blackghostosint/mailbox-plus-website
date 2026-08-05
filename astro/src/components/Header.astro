@@ -47,8 +47,6 @@ const navigation = [
         {navigation.map((item) =>
           item.gold ? (
             <a href={item.href} class="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors">{item.name}</a>
-          ) : item.external ? (
-            <a href={item.href} target="_blank" rel="noopener noreferrer" class="text-[15px] font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
           ) : (
             <a href={item.href} class="text-[15px] font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
           )
@@ -71,8 +69,6 @@ const navigation = [
       {navigation.map((item) =>
         item.gold ? (
           <a href={item.href} class="block text-base font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors" data-mobile-link>{item.name}</a>
-        ) : item.external ? (
-          <a href={item.href} target="_blank" rel="noopener noreferrer" class="block text-base font-bold text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
         ) : (
           <a href={item.href} class="block text-base font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors" data-mobile-link>{item.name}</a>
         )

@@ -6,40 +6,58 @@ The official website for Mailbox Plus — a community-focused pack & ship retail
 
 ## Tech Stack
 
-| Layer         | Technology                                             |
-| ------------- | ------------------------------------------------------ |
-| Frontend      | React 19, TypeScript (strict), Vite 7                  |
-| Desktop shell | Tauri v2                                               |
-| Styling       | Tailwind CSS 3 + CSS custom properties (design tokens) |
-| Testing       | Vitest (unit), Playwright (E2E)                        |
-| CI/CD         | GitHub Actions → Netlify                               |
-| Monitoring    | Sentry                                                 |
-| Analytics     | Google Analytics 4, Google Tag Manager                 |
+| Layer     | Technology                                             |
+| --------- | ------------------------------------------------------ |
+| Framework | Astro 5 (SSG) + React islands                          |
+| Language  | TypeScript (strict)                                    |
+| Styling   | Tailwind CSS 3 + CSS custom properties (design tokens) |
+| Testing   | Vitest (unit, in `astro/`)                             |
+| CI/CD     | GitHub Actions → Netlify                               |
+| Analytics | Google Analytics 4, Meta Pixel                         |
+
+## Project Layout
+
+The **Astro app is the entire site** — there is no legacy frontend.
+
+```
+astro/                     # The Astro application (build: cd astro && npm run build)
+  src/pages/               # .astro pages (routes)
+  src/components/          # .astro + React islands
+  src/config/              # Service configs, micro-problems, FAQs
+  src/data/                # sitemap-config.json, internalLinks.json, siteStructure.json
+  src/utils/               # Shared utilities (+ vitest unit tests)
+content/articles/          # Article markdown (YAML frontmatter)
+public/                    # Static assets (Astro publicDir)
+scripts/                   # Article/sitemap/SEO audit tooling
+netlify/functions/         # Serverless functions
+```
 
 ## Quick Start
 
 ```bash
 npm install
+cd astro && npm ci
 cp .env.example .env    # Fill in required variables
-npm run dev             # Dev server at http://localhost:5173
-npm run build           # Production build
-npm test                # Unit tests
-npm run lint            # ESLint + typecheck
+npm run dev             # Astro dev server
+npm run build           # Production build (cd astro && npm run build)
+npm test                # Astro unit tests (vitest)
+npm run check           # Astro type check (astro check)
+npm run lint            # ESLint
 ```
 
 ## Architecture
 
 ### Data-Driven Pages
 
-Service pages are defined as configuration objects in `src/config/services/`. Each service specifies its slug, SEO metadata, hero content, features, and FAQs. This allows adding new services without creating new page components.
+Service pages are defined as configuration objects in `astro/src/config/services/`. Each service specifies its slug, SEO metadata, hero content, features, and FAQs. This allows adding new services without creating new page components.
 
 ### Routing
 
-React Router v6 handles all client-side routing. Routes are defined in `src/App.tsx` with lazy-loaded page components for optimal bundle splitting.
+Astro file-based routing — every `.astro` file in `astro/src/pages/` is a route. Dynamic routes use `[slug].astro`.
 
 ### Design System
 
-CSS custom properties defined in `src/index.css` power the entire visual system. See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for the full token reference.
+CSS custom properties defined in `astro/src/styles/` power the entire visual system. See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for the full token reference.
 
 ### Environment Variables
 

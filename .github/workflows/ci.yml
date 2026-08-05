@@ -26,17 +26,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: TypeScript type check
-        run: npm run typecheck
-
       - name: Lint check (zero warnings policy)
         run: npm run lint
 
-      - name: Run unit tests
-        run: npm test
-
       - name: Install Astro dependencies
         run: cd astro && npm ci
+
+      - name: TypeScript type check (Astro)
+        run: cd astro && npm run check
+
+      - name: Run Astro unit tests
+        run: cd astro && npm test
 
       - name: Build project
         run: npm run build
@@ -45,18 +45,11 @@ jobs:
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
-      - name: Check bundle size
+      - name: Check build output
         run: |
-          echo "Checking bundle sizes..."
           npm run build 2>&1 | tee build-output.txt
-          # Extract main chunk size from build output
-          MAIN_CHUNK=$(grep -oP 'index-[A-Za-z0-9]+\.js\s+\K[0-9.]+' build-output.txt || echo "0")
-          echo "Main chunk size: ${MAIN_CHUNK} kB"
-          # Warn if over 500KB (continue build, just warn)
-          if (( $(echo "$MAIN_CHUNK > 500" | bc -l) )); then
-            echo "WARNING: Main chunk exceeds 500KB (currently ${MAIN_CHUNK} kB)"
-            echo "Consider code splitting or lazy loading."
-          fi
+          echo "Build completed. Output size:"
+          du -sh dist | cut -f1
 
       - name: Run SEO route registry check
         run: npm run seo:check-routes

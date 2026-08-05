@@ -29,7 +29,7 @@ const AUDIT_DIR = path.join(SCRIPT_DIR, 'audits');
 const SEARCH_CONSOLE_DIR = path.join(AUDIT_DIR, 'search-console-data');
 const REPORTS_DIR = path.join(AUDIT_DIR, 'reports');
 const STAFF_FEEDBACK_DIR = path.join(AUDIT_DIR, 'staff-feedback');
-const CONFIG_DIR = path.join(__dirname, '../src/config/micro-problems');
+const CONFIG_DIR = path.join(__dirname, '../astro/src/config/micro-problems');
 
 // Ensure directories exist
 [AUDIT_DIR, SEARCH_CONSOLE_DIR, REPORTS_DIR, STAFF_FEEDBACK_DIR].forEach((dir) => {

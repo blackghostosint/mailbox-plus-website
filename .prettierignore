@@ -6,4 +6,3 @@ node_modules
 
 # Ignore specific files:
 package-lock.json
-vite.config.ts.timestamp-*
