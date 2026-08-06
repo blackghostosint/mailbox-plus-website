@@ -258,8 +258,8 @@ export const coreServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up or Add Finishing</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Grab your finished prints, or add stapling, binding, folding, and trimming — all in-house.</p>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up or Add Laminating</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Grab your finished prints, or add laminating up to 8.5x11 — all in-house.</p>
               </div>
             </div>`,
         isFullWidth: true,

@@ -1,13 +1,12 @@
 import type { FAQ } from '../../../types/faq';
 
 export const documentFinishingFaqs: FAQ[] = [
-  { question: 'Do you laminate IDs?', answer: 'Yes, we can laminate small or large documents.' },
   {
-    question: 'What types of binding do you offer?',
-    answer: 'We provide comb, spiral, and staple binding.',
+    question: 'Do you laminate IDs?',
+    answer: 'Yes, we can laminate documents up to 8.5x11 inches.',
   },
   {
-    question: 'Can you finish same-day?',
-    answer: 'Yes, most finishing services can be completed the same day.',
+    question: 'Can you laminate same-day?',
+    answer: 'Yes, laminating can usually be completed the same day.',
   },
 ];

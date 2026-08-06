@@ -7,7 +7,7 @@ export const documentPrintingFaqs: FAQ[] = [
   },
   {
     question: 'Can you print double-sided?',
-    answer: 'Yes, we offer single and double-sided printing.',
+    answer: 'Yes, we offer single and double-sided printing in 8.5x11, legal, and 11x17 sizes.',
   },
   {
     question: 'Do you offer same-day printing?',

@@ -10,7 +10,7 @@ export const printDocumentServicesFaqs: FAQ[] = [
     answer: 'Yes, we provide scanning and emailing services.',
   },
   {
-    question: 'What finishing options are available?',
-    answer: 'We offer binding, laminating, stapling, and more.',
+    question: 'Do you offer laminating?',
+    answer: 'Yes, we laminate IDs and documents up to 8.5x11 inches on-site.',
   },
 ];

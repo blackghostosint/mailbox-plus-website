@@ -143,7 +143,7 @@ export const copyPrintServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Design + Print = One Stop</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We design and print in-house. No back-and-forth with online printers. No \u201cyour file isn't print-ready\u201d emails.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">We design in-house and handle the print ordering for you. No back-and-forth with online printers. No \u201cyour file isn't print-ready\u201d emails.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -215,7 +215,7 @@ export const copyPrintServices: Service[] = [
       {
         heading: 'Cards That Feel as Good as They Look',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              At Mailbox Plus, we believe your business card should feel substantial in hand. That's why we offer <strong>premium cardstocks, multiple finishes, and custom design services</strong> — all handled locally, not shipped from a warehouse.
+              At Mailbox Plus, we believe your business card should feel substantial in hand. That's why we offer <strong>premium cardstocks, multiple finishes, and custom design services</strong> — we handle the ordering for you, from a trusted print partner.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Walk in with your logo and a rough idea, or let our <strong><a href="/copy-print/graphic-design" class="text-[var(--color-primary)] hover:underline">graphic design team</a></strong> create something from scratch. We'll help you choose the right stock, finish, and layout for your industry.
@@ -300,11 +300,11 @@ export const copyPrintServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shipping Delays Miss Deadlines</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">That networking event is next week. Online printers take 7-10 days. We work locally — most orders ready in days.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">That networking event is next week. Online printers take 7-10 days and you gamble on quality. We handle the ordering — most orders ready in days.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than Just Cards</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Need matching <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">brochures</a> or <a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">postcards</a>? We can design and print your full brand kit — all in one place.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Need matching <a href="/copy-print/flyers-brochures" class="text-[var(--color-primary)] hover:underline">brochures</a> or <a href="/copy-print/postcard-printing" class="text-[var(--color-primary)] hover:underline">postcards</a>? We can design and order your full brand kit — all in one place.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -350,12 +350,12 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/flyers-brochures',
     pageTitle: 'Flyers & Brochures in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Professional flyer and brochure printing in Concord Township. Full-color, custom sizes, premium stocks. Design help available. Local, not shipped from a warehouse.',
+      'Professional flyer and brochure printing in Concord Township. Full-color, custom sizes, premium stocks. Design help available. We handle the ordering — you pick up local.',
     keywords:
       'flyers, brochures, printing, marketing materials, Concord Township, Lake County, small business',
     heroTitle: 'Your Flyer Should Get Noticed — Not Ignored',
     heroSubtitle:
-      'Full-color flyers and brochures printed locally in Concord Township. Premium paper. Custom sizes. Design help included. Fast turnaround.',
+      'Full-color flyers and brochures in Concord Township. Premium paper. Custom sizes. Design help included. We handle the ordering — fast turnaround.',
     heroImage: getServiceImageUrl('/images/flyers_brochures.webp'),
     hideCarrierLogos: true,
     content: [
@@ -390,8 +390,8 @@ export const copyPrintServices: Service[] = [
               </div>
               <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — Usually Same Day</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day or next-day. We quality-check every piece before you walk out the door.</p>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — Fast</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days. We quality-check every piece before you walk out the door.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -399,13 +399,13 @@ export const copyPrintServices: Service[] = [
       // ── SB7 POSITION 5: AGREEMENT PLAN ──
       {
         heading: 'No Minimums. No Surprises.',
-        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No minimum quantity.</strong> Need 25 flyers? We print 25.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom sizes.</strong> Standard letter, half-sheet, square, or whatever your design calls for.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Design help available.</strong> Not a designer? We\'ll help you create something that works.</span></li></ul>',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No minimum quantity.</strong> Need 25 flyers? We get 25 made.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom sizes.</strong> Standard letter, half-sheet, square, or whatever your design calls for.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Design help available.</strong> Not a designer? We\'ll help you create something that works.</span></li></ul>',
         isFullWidth: true,
       },
       // ── SB7 POSITION 6: STAKES ──
       {
         heading: 'What Bad Print Costs Your Business',
-        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Money</h4><p class="text-sm text-[var(--color-text-secondary)]">500 generic flyers that get ignored are 500 pieces of trash. Professional printing costs the same — but gets opened.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Opportunities</h4><p class="text-sm text-[var(--color-text-secondary)]">A well-designed brochure in the right hands generates leads. A cheap one goes in the recycling bin unread.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Shipping Delays</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an online printer and you wait a week. Miss your event. Pay for rush shipping. We print local — you pick up today.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Brand Dilution</h4><p class="text-sm text-[var(--color-text-secondary)]">Every piece of printed material is a brand touchpoint. Thin paper, blurry images, and mismatched colors say "amateur" louder than anything on the page.</p></div></div>',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Money</h4><p class="text-sm text-[var(--color-text-secondary)]">500 generic flyers that get ignored are 500 pieces of trash. Professional printing costs the same — but gets opened.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Opportunities</h4><p class="text-sm text-[var(--color-text-secondary)]">A well-designed brochure in the right hands generates leads. A cheap one goes in the recycling bin unread.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Shipping Delays</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an online printer and you wait a week. Miss your event. Pay for rush shipping. We handle the ordering — you pick up local.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Brand Dilution</h4><p class="text-sm text-[var(--color-text-secondary)]">Every piece of printed material is a brand touchpoint. Thin paper, blurry images, and mismatched colors say "amateur" louder than anything on the page.</p></div></div>',
         isFullWidth: true,
       },
       // ── SB7 POSITION 7: SUCCESS ──
@@ -435,7 +435,7 @@ export const copyPrintServices: Service[] = [
     cta: {
       title: 'Print Flyers That Get Opened',
       subtitle:
-        'Premium paper. Full color. Design help included. Local turnaround — not shipped from a warehouse.',
+        'Premium paper. Full color. Design help included. We handle the ordering — you pick up local.',
       buttonText: 'Start Your Flyer Project \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -455,7 +455,7 @@ export const copyPrintServices: Service[] = [
       'document printing, business printing, Concord Township, Lake County, Staples alternative',
     heroTitle: 'Document Printing Without the Kiosk Nightmare',
     heroSubtitle:
-      'Your document is ready. The printer should be the easy part. Drop off your file, we handle the rest — color or B&W, stapled, bound, ready to go.',
+      'Your document is ready. The printer should be the easy part. Drop off your file, we handle the rest — color or B&W, printed and ready to go.',
     heroImage: getServiceImageUrl('/images/document-printing.webp'),
     hideCarrierLogos: true,
     content: [
@@ -476,7 +476,7 @@ export const copyPrintServices: Service[] = [
       {
         heading: "We Print. You Don't Have To.",
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              At Mailbox Plus, <strong>we do the document printing for you</strong>. Hand us your file — on a USB drive, by email, or from the cloud. Tell us color or B&W, one-sided or double-sided, stapled or bound.
+              At Mailbox Plus, <strong>we do the document printing for you</strong>. Hand us your file — on a USB drive, by email, or from the cloud. Tell us color or B&W, one-sided or double-sided, and we'll print it.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Our team checks your file for alignment, margins, and page count before we print. If something looks off, we'll flag it. If you're not sure which paper to use, we'll recommend it. <strong>We print so you can get back to what matters.</strong>
@@ -501,8 +501,8 @@ export const copyPrintServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up, Stapled & Ready</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Add stapling, binding, hole-punch, or folding — all in-house.</p>
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up, Printed & Ready</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Print, check, and pick up — all in one visit.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -514,12 +514,12 @@ export const copyPrintServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-3xl mb-3">📊</div>
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Presentations</h3>
-                <p class="text-sm text-[var(--color-text-secondary)]">Deck slides, handouts, speaker notes — color or B&W, bound or stapled.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Deck slides, handouts, speaker notes — color or B&W, printed and ready.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-3xl mb-3">📑</div>
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Reports & Proposals</h3>
-                <p class="text-sm text-[var(--color-text-secondary)]">Business reports, grant proposals, financial docs — professional binding available.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Business reports, grant proposals, financial docs — professional printing, ready on premium paper.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-3xl mb-3">📚</div>
@@ -578,7 +578,7 @@ export const copyPrintServices: Service[] = [
       {
         heading: 'From Deadline Panic to Done — in One Trip',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Walk in with your digital file. Walk out with finished, professional documents — stapled, bound, hole-punched, and ready to present.
+              Walk in with your digital file. Walk out with finished, professional documents — printed, checked, and ready to present.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               That's what document printing should feel like. No machine errors. No figuring out paper trays. No reprinting because the alignment was off.
@@ -601,8 +601,8 @@ export const copyPrintServices: Service[] = [
       },
       {
         icon: Star,
-        title: 'Finishing Services',
-        description: 'Stapling, binding, hole-punch, folding — all done in-house.',
+        title: 'Laminating',
+        description: 'IDs and documents laminated on-site — same-day available.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...documentPrintingFaqs],
@@ -615,12 +615,12 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/posters-printing',
     pageTitle: 'Posters Printing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Large format poster printing in Concord Township. Custom sizes, vibrant color, premium paper. Design help available. Local pickup, not online shipping delays.',
+      'Custom poster ordering in Concord Township. Large format, vibrant color, premium paper. Design help available. Local pickup — no online shipping gamble.',
     keywords:
       'poster printing, large format printing, custom posters, Concord Township, Lake County',
     heroTitle: 'Big Message. Big Impact. No Blurry Pixels.',
     heroSubtitle:
-      'Custom poster printing in Concord Township. Large format, vibrant color, premium paper. Design help included.',
+      'Custom poster ordering in Concord Township. Large format, vibrant color, premium paper. Design help included.',
     heroImage: getServiceImageUrl('/images/posters-printing.webp'),
     hideCarrierLogos: true,
     content: [
@@ -636,8 +636,8 @@ export const copyPrintServices: Service[] = [
       },
       // ── SB7 POSITION 3: GUIDE ──
       {
-        heading: 'We Print Posters That Look as Good as Your Screen',
-        body: "We use professional-grade large-format printers and photo-quality paper. Your file gets printed at full resolution — no pixel stretching, no color surprises. If your file isn't print-ready, we'll tell you before we print. And if you don't have a file at all, we can help design something that works at any size.",
+        heading: 'We Handle Poster Ordering — Done Right',
+        body: "We order from professional large-format printers and photo-quality paper. Your file gets checked for resolution before it goes to print — no pixel stretching, no color surprises. If your file isn't print-ready, we'll tell you before we order. And if you don't have a file at all, we can help design something that works at any size.",
       },
       // ── SB7 POSITION 4: PLAN ──
       {
@@ -656,34 +656,34 @@ export const copyPrintServices: Service[] = [
               <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up — Fast</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most poster jobs done same-day or next-day. You see the print before you leave — no surprises.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most poster orders are ready in a few days. You see the print before you take it — no surprises.</p>
               </div>
             </div>`,
         isFullWidth: true,
       },
       // ── SB7 POSITION 5: AGREEMENT PLAN ──
       {
-        heading: 'Custom Sizes. Premium Quality. No Wait.',
-        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom dimensions.</strong> Standard sizes or whatever your space requires.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Photo-quality paper.</strong> Glossy, matte, or laminated finish for durability.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No shipping gamble.</strong> Printed locally. Pick up same-day. See it before you take it.</span></li></ul>',
+        heading: 'Custom Sizes. Premium Quality. No Shipping Gamble.',
+        body: '<ul class="space-y-3 my-4"><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Custom dimensions.</strong> Standard sizes or whatever your space requires.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>Photo-quality paper.</strong> Glossy, matte, or laminated finish for durability.</span></li><li class="flex items-start gap-3"><span class="text-[var(--color-primary)] font-bold shrink-0">✓</span><span><strong>No shipping gamble.</strong> We order it, you pick it up local. See it before you take it.</span></li></ul>',
         isFullWidth: true,
       },
       // ── SB7 POSITION 6: STAKES ──
       {
         heading: 'What One Bad Print Costs You',
-        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Event Impact</h4><p class="text-sm text-[var(--color-text-secondary)]">A blurry poster at a trade show or presentation doesn\'t just fail to impress — it actively undermines your message.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Time</h4><p class="text-sm text-[var(--color-text-secondary)]">Order online, wait for shipping, unbox a bad print, re-order, wait again. You\'ve lost a week. We print same-day.</p></div></div>',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Event Impact</h4><p class="text-sm text-[var(--color-text-secondary)]">A blurry poster at a trade show or presentation doesn\'t just fail to impress — it actively undermines your message.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Time</h4><p class="text-sm text-[var(--color-text-secondary)]">Order from an unknown online printer, wait for shipping, unbox a bad print, re-order, wait again. You\'ve lost a week. We handle the ordering so you don\'t have to gamble.</p></div></div>',
         isFullWidth: true,
       },
       // ── SB7 POSITION 7: SUCCESS ──
       {
-        heading: 'A Poster That Commands Attention. Printed Local.',
-        body: "You unroll it. It's sharp. The colors pop. The text is crisp at 3 feet away. You hang it with confidence because it looks exactly like you envisioned. That's what professional large-format printing should feel like. No waiting. No crossing your fingers. No pixelated embarrassment.",
+        heading: 'A Poster That Commands Attention. Picked Up Local.',
+        body: "You unroll it. It's sharp. The colors pop. The text is crisp at 3 feet away. You hang it with confidence because it looks exactly like you envisioned. That's what professional large-format printing should feel like. We handle the ordering — you pick it up local, no crossing your fingers, no pixelated embarrassment.",
       },
     ],
     features: [
       {
         icon: Printer,
         title: 'Large Format',
-        description: 'Print up to 36 inches wide. Custom sizes available for any space.',
+        description: 'Order up to 36 inches wide. Custom sizes available for any space.',
       },
       {
         icon: Palette,
@@ -693,14 +693,14 @@ export const copyPrintServices: Service[] = [
       {
         icon: Star,
         title: 'See It Before You Take It',
-        description: "We review every print. If it's not right, we reprint before you leave.",
+        description: "We review every print. If it's not right, we reorder before you leave.",
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...postersPrintingFaqs],
     cta: {
-      title: 'Print a Poster That Actually Looks Good',
+      title: 'Get a Poster That Actually Looks Good',
       subtitle:
-        'Large format, premium paper, same-day turnaround. See the print before you take it.',
+        'Large format, premium paper, no shipping gamble. We handle the ordering — you pick up local.',
       buttonText: 'Start Your Poster Project \u2192',
       buttonLink: '/contact-us',
       variant: 'brand',
@@ -715,7 +715,7 @@ export const copyPrintServices: Service[] = [
     slug: '/copy-print/postcard-printing',
     pageTitle: 'Postcard Printing in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Custom postcard printing in Concord Township. Full-color, premium cardstock. Mailing support and EDDM prep available. Local, fast, no shipping wait.',
+      'Custom postcard printing in Concord Township. Full-color, premium cardstock. Mailing support and EDDM prep available. We handle the ordering — no shipping gamble.',
     keywords:
       'postcard printing, direct mail, marketing postcards, Concord Township, Lake County, EDDM',
     heroTitle: 'A Postcard Should Get Opened — Not Tossed',
@@ -745,7 +745,7 @@ export const copyPrintServices: Service[] = [
               <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Design or Upload</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Bring your design or we'll help create one. We print on premium cardstock — matte, glossy, or heavyweight.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Bring your design or we'll help create one. Premium cardstock — matte, glossy, or heavyweight.</p>
               </div>
               <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
@@ -755,7 +755,7 @@ export const copyPrintServices: Service[] = [
               <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Printed & Ready — Fast</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs completed same-day or next-day. No waiting for shipping. Your campaign launches on your schedule.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most orders ready in days. No gambling on an unknown online printer. Your campaign launches on your schedule.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -769,7 +769,7 @@ export const copyPrintServices: Service[] = [
       // ---- SB7 POSITION 6: STAKES ----
       {
         heading: 'What a Bad Postcard Costs Your Campaign',
-        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Postage</h4><p class="text-sm text-[var(--color-text-secondary)]">Postage is the most expensive part of a mail campaign. If the card itself doesn\'t earn attention, every stamp is money thrown away.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Timing</h4><p class="text-sm text-[var(--color-text-secondary)]">Online printers take a week. Your event or promotion won\'t wait. We print local — your timeline, not theirs.</p></div></div>',
+        body: '<div class="grid md:grid-cols-2 gap-6 my-6"><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Wasted Postage</h4><p class="text-sm text-[var(--color-text-secondary)]">Postage is the most expensive part of a mail campaign. If the card itself doesn\'t earn attention, every stamp is money thrown away.</p></div><div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">Missed Timing</h4><p class="text-sm text-[var(--color-text-secondary)]">Online printers take a week. Your event or promotion won\'t wait. We handle the ordering — your timeline, not theirs.</p></div></div>',
         isFullWidth: true,
       },
       // ---- SB7 POSITION 7: SUCCESS ----
@@ -792,7 +792,7 @@ export const copyPrintServices: Service[] = [
       {
         icon: Star,
         title: 'Local Turnaround',
-        description: 'No shipping wait. Most jobs done same-day or next-day.',
+        description: 'No shipping gamble. We handle the ordering — most orders ready in days.',
       },
     ],
     faqs: [...generalCopyPrintFaqs, ...postcardPrintingFaqs],
@@ -839,7 +839,7 @@ export const copyPrintServices: Service[] = [
       {
         heading: 'We Copy So You Don\u2019t Have To',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              At Mailbox Plus, <strong>we make the copies for you</strong>. Hand us your originals, tell us B&W or color, and how many. We handle the machine. You pick up crisp, collated copies \u2014 stapled, sorted, and ready to go.
+              At Mailbox Plus, <strong>we make the copies for you</strong>. Hand us your originals, tell us B&W or color, and how many. We handle the machine. You pick up crisp, collated copies \u2014 sorted, and ready to go.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               One copy or 500. Single-sided or double-sided. Black-and-white or full color. <strong>Most jobs are done while you wait</strong>, and we review every page for quality before you leave.
@@ -855,17 +855,17 @@ export const copyPrintServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Hand Us Your Originals</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Single page or a stack. Loose sheets, stapled documents, or bound materials \u2014 we handle it all.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Single page or a stack. Loose sheets or assembled documents \u2014 we handle it all.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Choose Your Settings</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">B&W or color, single or double-sided, stapled or loose. We confirm everything before we start.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">B&W or color, single or double-sided. We confirm everything before we start.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Pick Up \u2014 Done Right</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Collated, stapled, and quality-checked before you walk out.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Most jobs done same-day. Collated, sorted, and quality-checked before you walk out.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -915,8 +915,8 @@ export const copyPrintServices: Service[] = [
       },
       {
         icon: FileText,
-        title: 'Collated & Stapled',
-        description: 'Every copy job is finished, sorted, and quality-checked before you leave.',
+        title: 'Collated & Sorted',
+        description: 'Every copy job is sorted and quality-checked before you leave.',
       },
       {
         icon: Star,

@@ -185,7 +185,7 @@ export const localSeoServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Printing &amp; Copying</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, document finishing \u2014 same services as the big print shops.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, laminating \u2014 same services as the big print shops.</p>
               </div>
             </div>`,
         isFullWidth: true,
@@ -365,7 +365,7 @@ export const localSeoServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Print &amp; Copy</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Professional document finishing, business cards, and full-color printing on-site.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Professional laminating, business cards, and full-color printing on-site.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Office Services</h4>
@@ -379,7 +379,7 @@ export const localSeoServices: Service[] = [
         body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Printing &amp; Copying</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, and document finishing \u2014 same quality as the big print shops.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, and laminating \u2014 same quality as the big print shops.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Shipping &amp; Packing</h4>
@@ -402,7 +402,7 @@ export const localSeoServices: Service[] = [
       {
         question: 'Do you offer printing services like FedEx Office?',
         answer:
-          'Yes, we offer a full range of copying and printing services, including business cards, flyers, and document finishing.',
+          'Yes, we offer a full range of copying and printing services, including business cards, flyers, and laminating.',
       },
       {
         question: 'Is there a notary on site?',
@@ -564,7 +564,7 @@ export const localSeoServices: Service[] = [
     slug: '/staples-printing-alternative-concord-township',
     pageTitle: 'Staples Printing Alternative in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
-      'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and document finishing. Quick turnaround, friendly service.',
+      'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and laminating. Quick turnaround, friendly service.',
     keywords: 'Staples printing alternative, Concord Township, Mailbox Plus, printing services',
     heroTitle: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
     heroSubtitle:
@@ -574,7 +574,7 @@ export const localSeoServices: Service[] = [
       {
         heading: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing or copying</a> and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and document finishing \u2014 without the big-box store experience.
+              Need <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing or copying</a> and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and laminating \u2014 without the big-box store experience.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               Walk in, hand us your documents, and we handle the rest. Quick turnaround, competitive pricing, and friendly service from your local business center.
@@ -589,7 +589,7 @@ export const localSeoServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Print Services</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, posters, and document finishing \u2014 same services as the big print shops.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, posters, and laminating \u2014 same services as the big print shops.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Erand Ready</h4>
@@ -605,7 +605,7 @@ export const localSeoServices: Service[] = [
     ],
     features: [
       { title: 'Quick Turnaround', description: 'Same-day printing and copying', icon: Clock },
-      { title: 'Full Service', description: 'Color, B&W, finishing', icon: Star },
+      { title: 'Full Service', description: 'Color, B&W, laminating', icon: Star },
       { title: 'Local Convenience', description: 'Concord Township', icon: MapPin },
     ],
     faqs: [
@@ -684,7 +684,7 @@ export const localSeoServices: Service[] = [
       {
         question: 'Do you offer printing like Office Depot?',
         answer:
-          'Yes! We offer color and B&W printing, copying, business cards, flyers, and document finishing.',
+          'Yes! We offer color and B&W printing, copying, business cards, flyers, and laminating.',
       },
       {
         question: 'Can I ship packages here?',
@@ -1008,7 +1008,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What the County Seat Needs',
-        body: `<p>Courthouse professionals need certified mail with return receipt. They need documents printed and bound on short notice. They need notary services without an appointment. They need a mailbox that is not a PO Box.</p><p>Mailbox Plus offers all of it. Walk-in notary. Full-color and black-and-white printing. Document finishing. Private mailbox rentals with a real street address. Packing supplies. Professional packing for fragile items.</p><p>We also pack and ship for Chardon\u2019s small businesses on the Square. Boutique owners who sell at the Maple Festival. Vendors who ship inventory. Home-based businesses that need a professional mailing address.</p>`,
+        body: `<p>Courthouse professionals need certified mail with return receipt. They need documents printed on short notice. They need notary services without an appointment. They need a mailbox that is not a PO Box.</p><p>Mailbox Plus offers all of it. Walk-in notary. Full-color and black-and-white printing. Laminating. Private mailbox rentals with a real street address. Packing supplies. Professional packing for fragile items.</p><p>We also pack and ship for Chardon\\u2019s small businesses on the Square. Boutique owners who sell at the Maple Festival. Vendors who ship inventory. Home-based businesses that need a professional mailing address.</p>`,
       },
       {
         heading: 'The Snow Problem',
@@ -1095,7 +1095,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What Kirtland Needs',
-        body: `<p>Kirtland has high homeownership. That means real estate closings. It means moving supplies. It means mail forwarding. It means document notarization.</p><p>Kirtland has Lakeland Community College. That means student shipping. International packages. Supply orders. Transcripts.</p><p>Kirtland has professional and technical services workers. That means presentation printing. Document finishing. Business cards. A professional mailing address.</p><p>Mailbox Plus covers all of it.</p>`,
+        body: `<p>Kirtland has high homeownership. That means real estate closings. It means moving supplies. It means mail forwarding. It means document notarization.</p><p>Kirtland has Lakeland Community College. That means student shipping. International packages. Supply orders. Transcripts.</p><p>Kirtland has professional and technical services workers. That means presentation printing. Laminating. Business cards. A professional mailing address.</p><p>Mailbox Plus covers all of it.</p>`,
       },
       {
         heading: 'What Mail Boxes Etc. Used to Be',
