@@ -97,7 +97,7 @@ export const competePages: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Printing &amp; Copying</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, document finishing — same services as the big print shops, but we do it for you.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, laminating — same services as the big print shops, but we do it for you.</p>
               </div>
             </div>`,
         isFullWidth: true,
