@@ -16,7 +16,16 @@ export interface Props {
 
 const { title, description, canonical, noindex, ogImage } = Astro.props;
 const siteUrl = 'https://mailboxplusohio.com';
-const canonicalUrl = canonical ? toCanonicalUrl(canonical) : undefined;
+// Emit a self-referencing canonical for every indexable page. Pages that
+// explicitly pass `canonical` use it; otherwise default to the current page
+// URL so no indexable page ships without a canonical (GSC flags such pages
+// as "Duplicate without user-selected canonical" when alternate URL forms
+// exist). noindex pages (404, accept-invite) get no canonical.
+const canonicalUrl = canonical
+  ? toCanonicalUrl(canonical)
+  : noindex
+    ? undefined
+    : toCanonicalUrl(Astro.url.pathname);
 const fallbackUrl = toCanonicalUrl('/');
 
 const localBusinessSchema = getLocalBusinessSchema(siteConfig);
