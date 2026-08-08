@@ -80,7 +80,7 @@ At Mailbox Plus, switching from a PO Box — or from a home address you are tire
 
 **Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. From that day forward, every carrier delivers to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township.
 
-We are open Monday through Saturday, and you can [check our pickup hours](/pickup-hours) before you head over.
+We are open Monday through Saturday, and you can [check our pickup hours](/pickup-hours/) before you head over.
 
 ## What You Should Not Pay Extra For
 
@@ -98,7 +98,7 @@ The 30-second answer to "where do I get a mailbox that isn't a PO Box?" is: **a 
 
 It is a real street address. It takes every carrier. Packages are signed for and held securely. Local staff run the place. That is the whole pitch, and it is the truth.
 
-If you want the full comparison first, our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box) walks through the differences side by side, and the [Concord Township private mailbox page](/private-mailbox-rental-concord-township) has the sizes, terms, and signup details. If your mail is mostly digital these days, our [virtual mailbox service](/virtual-mailbox-concord-township) adds remote scanning and forwarding on top of the same street address.
+If you want the full comparison first, our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) walks through the differences side by side, and the [Concord Township private mailbox page](/private-mailbox-rental-concord-township/) has the sizes, terms, and signup details. If your mail is mostly digital these days, our [virtual mailbox service](/virtual-mailbox-concord-township/) adds remote scanning and forwarding on top of the same street address.
 
 Or skip the reading: stop by **7554 Fredle Drive in Concord Township** with your ID, and walk out with an address that works for every carrier. Ten minutes, and you are done.
 

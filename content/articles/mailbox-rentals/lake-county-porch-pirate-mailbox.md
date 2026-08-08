@@ -61,7 +61,7 @@ Here is what most people in Lake County do not know: there is a way to make the 
 
 At Mailbox Plus in Concord Township, we run the anti-porch-pirate system every single day, for every mailbox holder. It is not complicated, and it is not expensive — it is just a different place for your packages to land.
 
-When you rent a [private mailbox](/private-mailbox-rental-concord-township) at Mailbox Plus, your delivery address becomes 7554 Fredle Drive — a real street address in a commercial building, not a box number at the post office. When a package is addressed to your mailbox, here is what happens:
+When you rent a [private mailbox](/private-mailbox-rental-concord-township/) at Mailbox Plus, your delivery address becomes 7554 Fredle Drive — a real street address in a commercial building, not a box number at the post office. When a package is addressed to your mailbox, here is what happens:
 
 1. **The driver walks inside the building.** Whether it is UPS, FedEx, USPS, or DHL, the package is brought to the counter — not left outside, not shoved behind a pillar, not photographed on a doorstep.
 2. **A staff member signs for it.** Every package gets a real signature from a real person behind the counter. The carrier's "delivered" means "handed to a human," not "abandoned on concrete."
@@ -105,7 +105,7 @@ That is the mailbox that fights back. It is not a gadget or a subscription to a 
 
 If you have been hit by a porch pirate — or you are tired of flinching at every delivery notification — the fix is simple: stop using the porch.
 
-Start with our [private mailbox rental page](/private-mailbox-rental-concord-township) for the details, pricing from around $35 a month, and how to set up your address in about ten minutes. If you are comparing options first, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box) lays out the differences in plain terms, and our [porch theft protection guide for Lake County](/articles/porch-theft-lake-county-protect-packages) covers the full list of package-security options beyond the mailbox itself.
+Start with our [private mailbox rental page](/private-mailbox-rental-concord-township/) for the details, pricing from around $35 a month, and how to set up your address in about ten minutes. If you are comparing options first, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) lays out the differences in plain terms, and our [porch theft protection guide for Lake County](/articles/porch-theft-lake-county-protect-packages/) covers the full list of package-security options beyond the mailbox itself.
 
 Porch pirates pick the easiest target on the block. Do not be it. Give your packages an address where a human signs for them, holds them securely, and never leaves them on a doorstep.
 

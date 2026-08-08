@@ -117,4 +117,4 @@ If you have had a package stolen — or if you are tired of the anxiety that com
 
 Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township. Rent a mailbox or set up package receiving. We sign for everything. We hold everything. No package gets left unattended.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

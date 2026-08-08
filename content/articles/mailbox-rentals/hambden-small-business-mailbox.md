@@ -46,9 +46,9 @@ A real street address at a commercial location does.
 
 At **Mailbox Plus** in Concord Township, you get a real street address — 7554 Fredle Drive, Concord Township, Ohio. You use this as your business address on your LLC filing. You use it on your invoices. You use it on your website.
 
-The [mailbox rental](/home-business/mailbox-rental) gives you a professional business address that keeps your home off the public record. Your mail arrives there. Your packages arrive there. The process server shows up there, not at your house.
+The [mailbox rental](/home-business/mailbox-rental/) gives you a professional business address that keeps your home off the public record. Your mail arrives there. Your packages arrive there. The process server shows up there, not at your house.
 
-You also get [notary services](/home-business/notary-services) at the same counter. File your annual reports. Notarize your operating agreement. One stop.
+You also get [notary services](/home-business/notary-services/) at the same counter. File your annual reports. Notarize your operating agreement. One stop.
 
 ## The Math
 
@@ -56,4 +56,4 @@ A mailbox rental is less than the cost of a single data broker opt-out service. 
 
 Your Hambden LLC deserves a business address.
 
-[Switch your business address today](/home-business/mailbox-rental). Keep your home private.
+[Switch your business address today](/home-business/mailbox-rental/). Keep your home private.

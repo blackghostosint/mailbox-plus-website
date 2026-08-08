@@ -52,6 +52,6 @@ The fax itself takes 30 seconds. The drive takes 40 minutes round trip. That is 
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden. The fax machine works. The line is clean. The confirmation prints.
 
-If you also need the document [notarized before you fax it](/home-business/notary-services), we do that at the same counter.
+If you also need the document [notarized before you fax it](/home-business/notary-services/), we do that at the same counter.
 
-[Bring your document in](/home-business/fax-services). We send it. You get the confirmation. You leave.
+[Bring your document in](/home-business/fax-services/). We send it. You get the confirmation. You leave.

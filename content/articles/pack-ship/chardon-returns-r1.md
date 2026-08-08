@@ -92,7 +92,7 @@ Approach our friendly counter. Our staff will greet you with a smile. Simply pla
 **Step 3: Walk Out. Done.**
 That’s it. You receive your receipts, turn around, and walk out the door. The entire transaction, from the moment you step inside to the moment you leave, is typically completed in under 3 minutes. Often, much faster. No lines for individual carriers. No multiple trips across town. No waiting for separate staff members. Just one quick, efficient, and complete drop-off.
 
-Imagine the feeling of leaving our store, knowing that what once took an hour or two of driving, parking, and waiting, is now accomplished in less time than it takes to brew a fresh pot of coffee. Your entire afternoon, once threatened by the logistical nightmare of the Return Runaround, is now completely free. This isn’t a dream; it’s the everyday reality for our customers from Chardon and beyond. We simplify your life by taking the complexity out of package returns and drop-offs. Come see for yourself how easy it truly is. We're here to serve your needs for all your [pack-ship](/pack-ship) requirements, including hassle-free [package drop-offs](/pack-ship/package-drop-offs).
+Imagine the feeling of leaving our store, knowing that what once took an hour or two of driving, parking, and waiting, is now accomplished in less time than it takes to brew a fresh pot of coffee. Your entire afternoon, once threatened by the logistical nightmare of the Return Runaround, is now completely free. This isn’t a dream; it’s the everyday reality for our customers from Chardon and beyond. We simplify your life by taking the complexity out of package returns and drop-offs. Come see for yourself how easy it truly is. We're here to serve your needs for all your [pack-ship](/pack-ship/) requirements, including hassle-free [package drop-offs](/pack-ship/package-drop-offs/).
 
 ## What You Lose by Not Acting
 
@@ -141,7 +141,7 @@ Are you still enduring the "Return Runaround?" Are you tired of sacrificing your
 
 No appointments needed. No complicated forms. No separate trips. Just gather your pre-labeled packages, no matter the carrier – UPS, FedEx, USPS, DHL – and drive the easy, 15-minute route from Chardon Square down Route 44 S (Auburn Road) to Route 306 S and onto Fredle Drive.
 
-We are ready to handle all your [pack-ship](/pack-ship) needs, especially your diverse [package drop-offs](/pack-ship/package-drop-offs).
+We are ready to handle all your [pack-ship](/pack-ship/) needs, especially your diverse [package drop-offs](/pack-ship/package-drop-offs/).
 
 Stop losing your precious time. Stop the frustration. Stop the runaround.
 

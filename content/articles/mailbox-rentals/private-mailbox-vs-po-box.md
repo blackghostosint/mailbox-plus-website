@@ -168,4 +168,4 @@ Or you can walk into Mailbox Plus at 7554 Fredle Drive in Concord Township, fill
 
 No appointment needed. No waiting period. Walk in with your ID. Walk out with an address that actually works.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

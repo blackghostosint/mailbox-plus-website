@@ -16,7 +16,8 @@ keywords:
     'UPS FedEx fuel surcharge 2026',
     'shipping cost increase Concord Township Ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/pack-ship/fedex-shipping']
+relatedServices:
+  ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/pack-ship/fedex-shipping']
 author: 'Mailbox Plus Team'
 ---
 
@@ -68,9 +69,9 @@ You should not need a degree in logistics to understand why your shipping bill w
 
 ## What We See Every Day
 
-We see this every day at [Mailbox Plus](/pack-ship), at 7554 Fredle Drive in Concord Township. We stand behind the counter while customers drop off boxes that cost visibly more than they did a year ago, and we watch them wince at the receipt.
+We see this every day at [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township. We stand behind the counter while customers drop off boxes that cost visibly more than they did a year ago, and we watch them wince at the receipt.
 
-Here is what we see that the big carriers do not want you to see: the surcharge is not the same everywhere. [UPS](/pack-ship/ups-authorized-shipper-outlet) and [FedEx](/pack-ship/fedex-shipping) publish different percentages every week, on different schedules, based on slightly different fuel numbers. DHL runs its own table. And in April 2026, USPS joined the club — it imposed its first-ever fuel-driven surcharge, an 8 percent add-on to Priority Mail and Ground Advantage that runs through January 2027. That means the same package, the same weight, the same destination, can cost meaningfully different amounts depending on which carrier moves it this week.
+Here is what we see that the big carriers do not want you to see: the surcharge is not the same everywhere. [UPS](/pack-ship/ups-authorized-shipper-outlet/) and [FedEx](/pack-ship/fedex-shipping/) publish different percentages every week, on different schedules, based on slightly different fuel numbers. DHL runs its own table. And in April 2026, USPS joined the club — it imposed its first-ever fuel-driven surcharge, an 8 percent add-on to Priority Mail and Ground Advantage that runs through January 2027. That means the same package, the same weight, the same destination, can cost meaningfully different amounts depending on which carrier moves it this week.
 
 A single-carrier store cannot tell you that. It makes no money sending you to a competitor. But we are not owned by any carrier. We are an independent, multi-carrier store — UPS, FedEx, USPS, and DHL all come to our counter. So when the fuel surcharges move, we can actually do something about it: we check the current tables across all four carriers, on the spot, before you pay. When FedEx is cheaper this week, we say FedEx. When USPS gets it there for less, we say USPS. Your package goes out on the carrier that costs you the least, and you see the comparison before you hand over a card.
 

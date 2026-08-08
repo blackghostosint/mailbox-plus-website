@@ -50,6 +50,6 @@ The math is simple. $35 is less than half a day of lost wages. It is less than t
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden.
 
-We also [notarize documents](/home-business/notary-services) and [scan paperwork](/home-business/document-scanning) while you are here. If your background check packet needs a notary stamp, we do that at the same counter.
+We also [notarize documents](/home-business/notary-services/) and [scan paperwork](/home-business/document-scanning/) while you are here. If your background check packet needs a notary stamp, we do that at the same counter.
 
-[Walk in for fingerprinting](/home-business/notary-services). No appointment. No waiting list. No missed deadline.
+[Walk in for fingerprinting](/home-business/notary-services/). No appointment. No waiting list. No missed deadline.

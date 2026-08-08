@@ -158,8 +158,8 @@ Same you. Same paperwork. Zero rejection loops.
 
 ## Bring It In
 
-If you're tired of typing "can you use a PO box for X" at 11 PM, come in and we'll show you the X that works: a real street address at Mailbox Plus. Two forms of ID, ten minutes, and you're set up the same day. See our [private mailbox rental page](/private-mailbox-rental-lake-county) for details, or stop by **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306.
+If you're tired of typing "can you use a PO box for X" at 11 PM, come in and we'll show you the X that works: a real street address at Mailbox Plus. Two forms of ID, ten minutes, and you're set up the same day. See our [private mailbox rental page](/private-mailbox-rental-lake-county/) for details, or stop by **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306.
 
-For the full comparison of a private mailbox versus a post office box, read [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box). And if you're weighing the franchise option, our honest take is in [UPS Store vs Mailbox Plus](/articles/ups-store-vs-mailbox-plus-comparison).
+For the full comparison of a private mailbox versus a post office box, read [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/). And if you're weighing the franchise option, our honest take is in [UPS Store vs Mailbox Plus](/articles/ups-store-vs-mailbox-plus-comparison/).
 
 Your mail is going to land somewhere. The question is whether the address it lands at works on the forms that matter.

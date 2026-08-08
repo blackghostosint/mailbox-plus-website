@@ -124,4 +124,4 @@ We’re here, ready to provide you with a real street address, a secure location
 
 Walk in with what you have, walk out with absolute peace of mind. Your permanent address is waiting.
 
-Learn more about our flexible [mailbox rental options](/home-business/mailbox-rental) or explore our full range of [pack and ship services](/pack-ship) designed to make your life easier.
+Learn more about our flexible [mailbox rental options](/home-business/mailbox-rental/) or explore our full range of [pack and ship services](/pack-ship/) designed to make your life easier.

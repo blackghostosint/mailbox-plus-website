@@ -114,3 +114,30 @@ export function toCanonicalUrl(pathOrUrl: string, origin?: string): string {
   const normalizedPath = normalizePathname(pathOrUrl);
   return `${baseOrigin}${normalizedPath}`;
 }
+
+/**
+ * Normalizes internal href="/..." attributes inside HTML content strings to
+ * their trailing-slash form. Leaves external URLs, anchors, query strings,
+ * protocol-relative URLs, and root links untouched. Used at the render
+ * boundary so content defined in service configs (which stores no-slash
+ * paths) emits canonical-form links without editing every config file.
+ */
+export function normalizeContentHrefs(html: string): string {
+  return html.replace(
+    /href="(\/)((?:[a-z0-9][a-z0-9\-/]*?))"/gi,
+    (match, slash: string, path: string) => {
+      if (
+        path &&
+        path !== '/' &&
+        !path.endsWith('/') &&
+        !path.includes('.') &&
+        !path.includes('?') &&
+        !path.includes('#') &&
+        !path.includes(':')
+      ) {
+        return `href="${slash}${path}/"`;
+      }
+      return match;
+    }
+  );
+}

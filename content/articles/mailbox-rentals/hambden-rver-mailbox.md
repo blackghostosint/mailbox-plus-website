@@ -34,7 +34,7 @@ Mailbox Plus does that.
 
 ## How It Works
 
-You rent a [mailbox](/home-business/mailbox-rental) at 7554 Fredle Drive in Concord Township. Before you leave Hambden, you switch your address to the Mailbox Plus address. Your bank. Your insurance. Your credit cards. Your Medicare. Your property tax office. All of them.
+You rent a [mailbox](/home-business/mailbox-rental/) at 7554 Fredle Drive in Concord Township. Before you leave Hambden, you switch your address to the Mailbox Plus address. Your bank. Your insurance. Your credit cards. Your Medicare. Your property tax office. All of them.
 
 When you are in Florida, your mail arrives at Mailbox Plus. We scan the outside of every envelope. The image appears in your digital mailbox within four hours. You see what came. You decide what happens next.
 
@@ -44,7 +44,7 @@ You control it from your phone. From the RV. From a coffee shop in Naples.
 
 ## The Forwarding
 
-When something needs to travel south, we [forward](/home-business/digital-mailbox-rental) it. Same day. Flat rate. Your mail arrives in Florida three days later.
+When something needs to travel south, we [forward](/home-business/digital-mailbox-rental/) it. Same day. Flat rate. Your mail arrives in Florida three days later.
 
 You do not miss bills. You do not miss statements. You do not lose a passport renewal because the post office returned it before you knew it arrived.
 
@@ -54,4 +54,4 @@ When you drive the RV back up Route 90 in April, your Hambden address is still a
 
 $19 a month. That is what it costs to not rebuild your address every year.
 
-[Set up your snowbird mailbox now](/home-business/mailbox-rental). Your mail should follow you, not pile up at the end of a frozen driveway.
+[Set up your snowbird mailbox now](/home-business/mailbox-rental/). Your mail should follow you, not pile up at the end of a frozen driveway.

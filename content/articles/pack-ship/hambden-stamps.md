@@ -42,7 +42,7 @@ You hand us a five. We hand you stamps. You walk out. It takes forty-five second
 
 ## What Else the Counter Does
 
-The [pack-and-ship counter](/pack-ship) also takes packages. If the envelope you are stamping is headed somewhere via [FedEx or UPS](/pack-ship/postage-stamps), we print the label right there. No extra stop. No second line.
+The [pack-and-ship counter](/pack-ship/) also takes packages. If the envelope you are stamping is headed somewhere via [FedEx or UPS](/pack-ship/postage-stamps/), we print the label right there. No extra stop. No second line.
 
 You can mail a letter and ship a box in the same visit. The counter handles both.
 

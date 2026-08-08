@@ -50,6 +50,6 @@ They are at the desk. They have the stamp. They are ready.
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden. No appointment. No guesswork.
 
-We also [scan your notarized documents](/home-business/document-scanning) before you leave if you want a digital backup. You walk out with the original, a digital copy in your email, and the stamp on the page.
+We also [scan your notarized documents](/home-business/document-scanning/) before you leave if you want a digital backup. You walk out with the original, a digital copy in your email, and the stamp on the page.
 
-[Come in with your document and your ID](/home-business/notary-services). Sign. Stamp. Done.
+[Come in with your document and your ID](/home-business/notary-services/). Sign. Stamp. Done.

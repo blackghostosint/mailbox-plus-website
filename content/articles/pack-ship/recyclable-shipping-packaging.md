@@ -61,7 +61,7 @@ That's not a fair trade. A two-minute job — seal, label, ship — shouldn't re
 
 ## What We See Every Day
 
-We're [Mailbox Plus](/pack-ship), at 7554 Fredle Drive in Concord Township — a real counter, a real crew, and a [shipping room](/pack-ship/packaging-supplies) full of things you don't have at your kitchen table. And here's what we see every single day: people who care. Sellers, small business owners, people shipping gifts to family, people who genuinely want to do this right and don't have the tools or the knowledge to do it.
+We're [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township — a real counter, a real crew, and a [shipping room](/pack-ship/packaging-supplies/) full of things you don't have at your kitchen table. And here's what we see every single day: people who care. Sellers, small business owners, people shipping gifts to family, people who genuinely want to do this right and don't have the tools or the knowledge to do it.
 
 We see the seller who's been shipping in whatever boxes she can find, paying a fortune in dimensional weight because the box is too big. We see the guy who bought a roll of packing tape at the grocery store and has no idea whether it's recyclable. We see the Etsy shop owner who wants to call herself eco-friendly and can't figure out why her packaging doesn't match her values.
 
@@ -87,7 +87,7 @@ Let's be honest about the cost of the old way, because it's bigger than you thin
 
 **Money.** Oversized boxes cost real money. Carriers charge by size, not just weight, and a box with six inches of void fill is a box you're paying to ship air. Add the bubble wrap you bought, the tape, the label sheets, the boxes themselves — and the quiet tax of dimensional weight on every single package. At a few dollars per shipment, over a year of shipping, that's not pocket change. That's a real line item.
 
-**Privacy.** When you ship from your home address, that address travels with the package. It's on the label. It's in the carrier's system. It's on the recipient's doorstep. For sellers, that means your home is effectively public — your shipping address is out there on every box you send. A [mailbox at Mailbox Plus](/home-business/mailbox-rental) gives you a professional address for your business, and keeps your home where it belongs.
+**Privacy.** When you ship from your home address, that address travels with the package. It's on the label. It's in the carrier's system. It's on the recipient's doorstep. For sellers, that means your home is effectively public — your shipping address is out there on every box you send. A [mailbox at Mailbox Plus](/home-business/mailbox-rental/) gives you a professional address for your business, and keeps your home where it belongs.
 
 **And the quiet one: the planet.** Every box you ship that can't be recycled because of how it was sealed and labeled is a box that takes decades to break down in a landfill. The box you were so proud of — the one you put out with such care — may be sitting in a pile right now, rejected for the glue that's holding it together. The industry is moving to fix this. You don't have to wait for the industry. You can ship better today.
 

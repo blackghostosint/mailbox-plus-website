@@ -65,11 +65,11 @@ Here is the principle: people who are asked to pay more deserve to know before t
 
 ## What We See Every Day
 
-We see the aftermath of rate changes like this every week at [Mailbox Plus](/pack-ship), at 7554 Fredle Drive in Concord Township.
+We see the aftermath of rate changes like this every week at [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township.
 
 An online seller walks in with a box and says, "Just ship it however is cheapest." They have been burned by a surprise increase before, and they have stopped pretending they can track it all themselves. They want someone who watches the rates so they do not have to.
 
-Here is what we can do that a seller dashboard cannot: we quote all four carriers — [USPS](/pack-ship/usps-services), [UPS](/pack-ship/ups-authorized-shipper-outlet), [FedEx](/pack-ship/fedex-shipping), and DHL — on the same counter. When USPS raises Ground Advantage, we do not just pass the increase along. We check whether UPS Ground or FedEx Ground now wins the package. We check zone rates, weight breaks, and dimensional pricing, and we tell you the truth: sometimes USPS is still the right call, and sometimes it is not.
+Here is what we can do that a seller dashboard cannot: we quote all four carriers — [USPS](/pack-ship/usps-services/), [UPS](/pack-ship/ups-authorized-shipper-outlet/), [FedEx](/pack-ship/fedex-shipping/), and DHL — on the same counter. When USPS raises Ground Advantage, we do not just pass the increase along. We check whether UPS Ground or FedEx Ground now wins the package. We check zone rates, weight breaks, and dimensional pricing, and we tell you the truth: sometimes USPS is still the right call, and sometimes it is not.
 
 We are not owned by any carrier. There is no franchise agreement telling us which label to print. We are paid by you, the person standing at our counter — which means our incentive is to find the cheapest honest way to get your box where it is going.
 
@@ -107,6 +107,6 @@ That is the difference. Not just cheaper shipping — though usually it is. It i
 
 You do not need to track USPS rate changes alone. You do not need to wonder whether the label you are about to print is the cheapest one.
 
-Bring your next box to [Mailbox Plus](/pack-ship) at 7554 Fredle Drive in Concord Township. We will weigh it, quote it across all four carriers, and send it out for less than you expected — with the tracking number in your hand before you leave.
+Bring your next box to [Mailbox Plus](/pack-ship/) at 7554 Fredle Drive in Concord Township. We will weigh it, quote it across all four carriers, and send it out for less than you expected — with the tracking number in your hand before you leave.
 
 No dashboard banners. No surprises. Just the cheapest honest rate, every time.

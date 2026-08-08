@@ -34,7 +34,7 @@ You need an address that does not change when your house does.
 
 ## One Address That Moves With You
 
-A [mailbox](/home-business/mailbox-rental) at Mailbox Plus in Concord Township is a real street address — 7554 Fredle Drive, Concord Township, Ohio. It is not a PO box. It is not a virtual forwarding service. It is a physical location where mail and packages arrive regardless of where you live.
+A [mailbox](/home-business/mailbox-rental/) at Mailbox Plus in Concord Township is a real street address — 7554 Fredle Drive, Concord Township, Ohio. It is not a PO box. It is not a virtual forwarding service. It is a physical location where mail and packages arrive regardless of where you live.
 
 You move to Hambden. You switch your address to Mailbox Plus. You update the bank, the credit cards, the DMV — one time. That is it.
 
@@ -44,7 +44,7 @@ You do not call thirty-three companies a second time.
 
 ## What Arrives
 
-Mail from every carrier. USPS. UPS. FedEx. DHL. All of them deliver to your mailbox at Mailbox Plus. The [pack-and-ship](/pack-ship) counter is right there too. If you need to return something from that Amazon order, you do it at the same stop.
+Mail from every carrier. USPS. UPS. FedEx. DHL. All of them deliver to your mailbox at Mailbox Plus. The [pack-and-ship](/pack-ship/) counter is right there too. If you need to return something from that Amazon order, you do it at the same stop.
 
 The mail that matters — bank statements, insurance cards, tax documents — lands in your box. We hold it until you pick it up. No soggy envelopes in a curb-side box. No packages left in the rain by a garage door that does not close all the way.
 
@@ -54,4 +54,4 @@ A change of address form with USPS costs $1.10. The time it takes to update ever
 
 A mailbox at Mailbox Plus is $19 a month. You pay it once and your address stops being a problem. You move houses. You move apartments. You move rentals. Your address stays the same.
 
-[Get your permanent address now](/home-business/mailbox-rental). One move is enough.
+[Get your permanent address now](/home-business/mailbox-rental/). One move is enough.

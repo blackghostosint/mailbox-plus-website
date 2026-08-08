@@ -34,7 +34,7 @@ The box has everything a data thief needs to file a fraudulent tax return, open 
 
 ## On-Site Shredding, Immediate Destruction
 
-At **Mailbox Plus**, [shredding](/home-business/shredding) happens on-site. You bring the box in. We empty it into a locked container. A certified operator runs the industrial shredder. The paper becomes confetti. Cross-cut. Unreadable.
+At **Mailbox Plus**, [shredding](/home-business/shredding/) happens on-site. You bring the box in. We empty it into a locked container. A certified operator runs the industrial shredder. The paper becomes confetti. Cross-cut. Unreadable.
 
 You watch if you want. Or you drop the box and pick up a receipt. Either way, the shredding is done while you stand there. No truck takes it somewhere else. No box sits in a warehouse overnight. It is destroyed and gone.
 
@@ -46,7 +46,7 @@ If you look at a piece of paper and think "I should probably shred this," you sh
 
 ## The Alternative to the Garage Box
 
-[Document scanning](/home-business/document-scanning) is the option for papers you need to keep. We scan them into a digital file. You get the PDF. The paper goes into the shredder.
+[Document scanning](/home-business/document-scanning/) is the option for papers you need to keep. We scan them into a digital file. You get the PDF. The paper goes into the shredder.
 
 Digital records do not sit in a garage. They do not get carried out in a box. They live on your hard drive and your backup. Accessible. Searchable. Gone from the shelf behind the snow shovels.
 

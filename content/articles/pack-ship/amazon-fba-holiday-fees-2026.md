@@ -59,11 +59,11 @@ The philosophical problem is choice. A two-person online business in Lake County
 
 ## What We See Every Day
 
-We are [Mailbox Plus](/pack-ship), at 7554 Fredle Drive in Concord Township, and we watch this happen to real sellers every quarter.
+We are [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township, and we watch this happen to real sellers every quarter.
 
 They walk in with boxes of product and a stack of questions. Some are just starting out, shipping ten orders a week from their kitchen table. Some are established sellers who moved hundreds of orders a month and are now doing the same math you are doing — wondering where the margin went. They all have the same look: determined, tired, and quietly furious about the fees.
 
-We are not Amazon. We are not a fulfillment network. We are an independent, locally owned pack-and-ship counter with real people behind it, and we are honest about what we do: we help you get your packages to FedEx, UPS, USPS, and DHL — whichever one makes sense for that specific box — packed properly, labeled correctly, and dropped off fast. We will also [hold your incoming packages](/pack-ship/package-receiving) so your home address stays off the street, and we sell the boxes, tape, and padding you need at prices that do not require a spreadsheet to understand.
+We are not Amazon. We are not a fulfillment network. We are an independent, locally owned pack-and-ship counter with real people behind it, and we are honest about what we do: we help you get your packages to FedEx, UPS, USPS, and DHL — whichever one makes sense for that specific box — packed properly, labeled correctly, and dropped off fast. We will also [hold your incoming packages](/pack-ship/package-receiving/) so your home address stays off the street, and we sell the boxes, tape, and padding you need at prices that do not require a spreadsheet to understand.
 
 We do not charge you a percentage of your revenue. We do not change our prices four times a year. When you walk out of here, you know exactly what you paid and exactly why.
 
@@ -71,7 +71,7 @@ We do not charge you a percentage of your revenue. We do not change our prices f
 
 The alternative to the fee stack is simpler than the marketing departments want you to believe. It is three steps.
 
-**One. Pack it your way.** Buy your boxes, tape, and bubble wrap at the counter — or bring your own. If you want it done for you, our [packing service](/pack-ship/professional-packing) starts at $10 for basic packing and $20 for fragile. You keep control of the box and what goes in it.
+**One. Pack it your way.** Buy your boxes, tape, and bubble wrap at the counter — or bring your own. If you want it done for you, our [packing service](/pack-ship/professional-packing/) starts at $10 for basic packing and $20 for fragile. You keep control of the box and what goes in it.
 
 **Two. Pick the carrier that fits the order.** Not every package needs the same network. Sometimes FedEx ground is the right price. Sometimes UPS is faster for the zone. Sometimes USPS Priority is the cheapest way to get a small, light item across the country. We work with all of them, so the carrier works for your order — not the other way around.
 
@@ -103,4 +103,4 @@ The holiday fees are not a surprise anymore. They are a schedule: October 15 to 
 
 You do not have to make your entire fulfillment decision today. But you should make one decision today: before you commit more inventory to the fee stack, come see what shipping looks like when the counter sets the price — not the algorithm.
 
-Stop by [Mailbox Plus](/pack-ship) at 7554 Fredle Drive in Concord Township. Bring a box, a label, or just your seller dashboard and your questions. We will show you your options, honestly, and you can decide for yourself.
+Stop by [Mailbox Plus](/pack-ship/) at 7554 Fredle Drive in Concord Township. Bring a box, a label, or just your seller dashboard and your questions. We will show you your options, honestly, and you can decide for yourself.

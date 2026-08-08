@@ -52,6 +52,6 @@ You can also bring the documents in, leave them, and pick the digital files up l
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden.
 
-After you scan, we can [shred the originals](/home-business/shredding) if you want the paper gone for good. No more filing cabinet. No more digging. No more wrinkled tax returns.
+After you scan, we can [shred the originals](/home-business/shredding/) if you want the paper gone for good. No more filing cabinet. No more digging. No more wrinkled tax returns.
 
-[Bring your papers in](/home-business/document-scanning). We scan them. You get digital files in your email. Done.
+[Bring your papers in](/home-business/document-scanning/). We scan them. You get digital files in your email. Done.

@@ -1,6 +1,7 @@
 import siteStructure from '../data/siteStructure.json';
 import { serviceAreas } from '../config/serviceAreas';
 import { services } from '../config/services';
+import { normalizePathname } from './canonical-url';
 
 export const getLocalPriorityServices = (citySlug: string) => {
   const city = serviceAreas.find((c) => c.slug === citySlug);
@@ -18,7 +19,7 @@ export const getBreadcrumbs = (pathname: string) => {
   if (pillar) {
     return [
       { label: 'Home', url: '/' },
-      { label: pillar.title, url: pillar.url, active: true },
+      { label: pillar.title, url: normalizePathname(pillar.url), active: true },
     ];
   }
 
@@ -28,8 +29,8 @@ export const getBreadcrumbs = (pathname: string) => {
     if (child) {
       return [
         { label: 'Home', url: '/' },
-        { label: p.title, url: p.url },
-        { label: child.title, url: child.url, active: true },
+        { label: p.title, url: normalizePathname(p.url) },
+        { label: child.title, url: normalizePathname(child.url), active: true },
       ];
     }
   }
@@ -40,7 +41,7 @@ export const getBreadcrumbs = (pathname: string) => {
     return [
       { label: 'Home', url: '/' },
       { label: 'Service Areas', url: '/service-area' },
-      { label: local.city, url: local.canonicalUrl, active: true },
+      { label: local.city, url: normalizePathname(local.canonicalUrl || local.slug), active: true },
     ];
   }
 

@@ -75,7 +75,7 @@ Here is how it works, step by step:
 
 **Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
-**Step 3 — Get notified, pick up on your schedule.** Mail is scanned as it arrives, and you get notified within four hours — which matters when you are on nights or in another state entirely. Call ahead before you drive over and your mail and packages are pulled and waiting at the counter. If you need mail opened, forwarded, or handled while you are on assignment, a [digital mailbox](/virtual-mailbox-concord-township) adds remote access on top of the same address.
+**Step 3 — Get notified, pick up on your schedule.** Mail is scanned as it arrives, and you get notified within four hours — which matters when you are on nights or in another state entirely. Call ahead before you drive over and your mail and packages are pulled and waiting at the counter. If you need mail opened, forwarded, or handled while you are on assignment, a [digital mailbox](/virtual-mailbox-concord-township/) adds remote access on top of the same address.
 
 That is the whole trick: the address follows your career, so your mail stops following you around.
 
@@ -105,7 +105,7 @@ A stable street address — one that accepts USPS, UPS, FedEx, and DHL, one that
 
 You have already mastered the hard part: walking into a new unit, learning a new charting system, and earning trust in a new city in a matter of days. Sorting out your mail should be the easy part.
 
-Stop by **7554 Fredle Drive in Concord Township**, or call ahead and we will walk you through the two-minute signup. If you want the details first — sizes, pricing, and how a private mailbox compares to a PO Box — the [Lake County private mailbox page](/private-mailbox-rental-lake-county) has the full picture, and our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box) covers the differences side by side.
+Stop by **7554 Fredle Drive in Concord Township**, or call ahead and we will walk you through the two-minute signup. If you want the details first — sizes, pricing, and how a private mailbox compares to a PO Box — the [Lake County private mailbox page](/private-mailbox-rental-lake-county/) has the full picture, and our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) covers the differences side by side.
 
 One address. Every contract. That is the whole job.
 

@@ -45,7 +45,7 @@ That’s how the runaround works. It is quiet. It doesn't announce itself. It ju
 
 ## The Illusion of Availability
 
-Most places that advertise [notary public services](/home-business/notary-services) treat them like an afterthought. They have one person on the payroll who took the state exam. If that person is sick, or on vacation, or standing in line at the deli down the street, you are out of luck.
+Most places that advertise [notary public services](/home-business/notary-services/) treat them like an afterthought. They have one person on the payroll who took the state exam. If that person is sick, or on vacation, or standing in line at the deli down the street, you are out of luck.
 
 They don't care about your car title or your power of attorney. To them, it’s a two-dollar transaction that gets in the way of selling mortgages or checking out books.
 
@@ -71,8 +71,8 @@ Your lunch hour is yours. You shouldn't have to spend it burning gas and collect
 
 If you have a document that needs to get signed, bring it by our counter. We’ll handle the seal and get you on your way.
 
-And if you need more than just a stamp, we can help you finish the whole job. We can make [high-quality document copies](/copy-print/document-printing), handle your [document scanning](/home-business/document-scanning) to email, or even [securely shred](/home-business/shredding) the old drafts you don't need anymore.
+And if you need more than just a stamp, we can help you finish the whole job. We can make [high-quality document copies](/copy-print/document-printing/), handle your [document scanning](/home-business/document-scanning/) to email, or even [securely shred](/home-business/shredding/) the old drafts you don't need anymore.
 
 Stop driving around Lake County looking for a stamp.
 
-[Visit Mailbox Plus today](/contact-us). Walk in with your unsigned paper. Walk out done.
+[Visit Mailbox Plus today](/contact-us/). Walk in with your unsigned paper. Walk out done.

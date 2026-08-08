@@ -54,8 +54,8 @@ You leave knowing exactly what is in that box and exactly how it is protected.
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden Township. Same drive you would make to the post office in Chardon — but you walk out with a package that has a real chance of arriving intact.
 
-We also offer [declared-value insurance](/pack-ship/professional-packing) for items worth more than the carrier's base liability. If the china is worth $800, we declare it for $800. If it breaks, you get $800.
+We also offer [declared-value insurance](/pack-ship/professional-packing/) for items worth more than the carrier's base liability. If the china is worth $800, we declare it for $800. If it breaks, you get $800.
 
 Your sister in Phoenix does not need to open a box of shattered blue floral china. She needs to set the table.
 
-[Bring your fragile items in](/pack-ship/package-drop-offs). We pack them. We ship them. They arrive.
+[Bring your fragile items in](/pack-ship/package-drop-offs/). We pack them. We ship them. They arrive.

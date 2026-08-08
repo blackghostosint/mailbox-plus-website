@@ -143,6 +143,6 @@ There’s no appointment needed. No special preparations. Just gather your pre-l
 
 Walk in with what you have. Walk out done. Done in 3 minutes. Your package is handled, scanned, and on its way. Your weekend is saved.
 
-Ready to reclaim your Saturday? Visit us today. For more information on all our services, including comprehensive packing and shipping solutions, explore our [main pack-ship services page](/pack-ship). And for specific details, view our [easy package drop-off services](/pack-ship/package-drop-offs).
+Ready to reclaim your Saturday? Visit us today. For more information on all our services, including comprehensive packing and shipping solutions, explore our [main pack-ship services page](/pack-ship/). And for specific details, view our [easy package drop-off services](/pack-ship/package-drop-offs/).
 
 Don't let the Saturday Squeeze steal another moment of your precious weekend. Bring it in, and get back to living your Chardon life. We're here, waiting to make your life easier.

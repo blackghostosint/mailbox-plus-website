@@ -451,7 +451,7 @@ export const PlusPoints: React.FC = () => {
 
                       <p className="text-center text-sm text-text-secondary mt-4">
                         Already a member?{' '}
-                        <a href="/rewards/me" className="text-primary font-bold hover:underline">
+                        <a href="/rewards/me/" className="text-primary font-bold hover:underline">
                           Log in here
                         </a>{' '}
                         or ask staff to look you up.

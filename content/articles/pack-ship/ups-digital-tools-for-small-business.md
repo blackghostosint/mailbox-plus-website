@@ -16,7 +16,8 @@ keywords:
     'UPS pickup dashboard small business',
     'pack and ship near me Concord Ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/pack-ship/package-drop-offs']
+relatedServices:
+  ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/pack-ship/package-drop-offs']
 author: 'Mailbox Plus Team'
 ---
 
@@ -24,7 +25,7 @@ author: 'Mailbox Plus Team'
 
 The kitchen table in Concord Township is a shipping station tonight.
 
-A stack of orders from three different marketplaces. A roll of packing tape. A laptop open to the UPS press release you read this morning: *UPS Makes Shipping Easier than Ever with New Digital Tools for SMB Customers.* The new pickup dashboard. The redesigned app. Faster label creation. Single-screen checkout.
+A stack of orders from three different marketplaces. A roll of packing tape. A laptop open to the UPS press release you read this morning: _UPS Makes Shipping Easier than Ever with New Digital Tools for SMB Customers._ The new pickup dashboard. The redesigned app. Faster label creation. Single-screen checkout.
 
 You scroll through it, and for a minute it feels like progress. Then you look down at the actual box in front of you — the ceramic mug wrapped in three layers of bubble, the jar of maple syrup that needs to survive five hundred miles of conveyor belts, the Amazon return that has to go back in one piece.
 
@@ -46,7 +47,7 @@ The problem is not that the label-creation screen has too many tabs. The problem
 
 You know the feeling. You are the one who printed the label, sealed the tape, and hoped. You watched the tracking number sit at "label created" for a day and a half. You wrote "FRAGILE" on the side in Sharpie — because that is what you were told to do — and the box still arrived with the corner crushed and the mug in three pieces.
 
-Then the customer sends the photo. You refund. You eat the loss. You re-ship. And somewhere in the back of your mind, a quiet voice says: *I do not actually know what I am doing here.*
+Then the customer sends the photo. You refund. You eat the loss. You re-ship. And somewhere in the back of your mind, a quiet voice says: _I do not actually know what I am doing here._
 
 That is the exact moment The Digital Mirage does its damage. Because when something goes wrong, the app does not know why. It cannot tell you that the jar of maple syrup needed to be double-bagged and separated from the ceramic before it went into the box. It cannot tell you that the box you reused was structurally compromised the moment you flattened it the first time. It cannot tell you that you should have used the other carrier — the one that would have been twelve dollars cheaper and two days faster for that particular package.
 
@@ -64,13 +65,13 @@ That is not nostalgia talking. That is the difference between software that mana
 
 ## What We See Every Day
 
-At Mailbox Plus, [7554 Fredle Drive in Concord Township](/pack-ship), we watch this play out every single day.
+At Mailbox Plus, [7554 Fredle Drive in Concord Township](/pack-ship/), we watch this play out every single day.
 
 We see the online seller who walked in with a box of maple syrup, unsure if it would survive the trip — and walked out knowing it would, because we double-bagged it, padded it, and told her which carrier would handle it best. We see the guy who brings in a returned Amazon item and is gone in three minutes, no label printed, no tape dispenser, no prayer. We see the small business owner who ships with all four major carriers and wants to know, before he pays, which one is actually cheapest for this package — because that is information no single-carrier app will ever give him.
 
 Here is the truth the carriers will not put in a press release: UPS just made a massive strategic bet on small businesses. It is scaling back its Amazon volume — planning to cut it roughly in half by late 2026 — to chase higher-margin SMB customers. Its own CEO, Carol Tomé, has said the cost per piece in an automated building is about 28 percent lower than in a non-automated one. FedEx is fighting for the same customers you are. USPS is competing on last mile. None of them has an app that tells you to use the other carrier when that carrier is cheaper.
 
-We do. Because we are not a franchise of any one of them. We sell UPS, FedEx, USPS, and DHL — all four, at one counter, with [real rates in front of you](/pack-ship/package-drop-offs) before you decide.
+We do. Because we are not a franchise of any one of them. We sell UPS, FedEx, USPS, and DHL — all four, at one counter, with [real rates in front of you](/pack-ship/package-drop-offs/) before you decide.
 
 The more the carriers push self-service software, the more valuable a real counter becomes. That is not us being afraid of the apps. That is us knowing exactly what the apps cannot do.
 
@@ -114,6 +115,6 @@ That is the feeling this is supposed to be. It is not supposed to be a workflow.
 
 The new UPS tools are good. Use them if they help. But when the box on your table matters — when it is fragile, or heavy, or time-sensitive, or just worth more than the label on it — bring it to a real counter.
 
-Mailbox Plus. 7554 Fredle Drive, Concord Township. Four carriers, [real rates](/pack-ship/ups-authorized-shipper-outlet), and someone who has packed your kind of item before.
+Mailbox Plus. 7554 Fredle Drive, Concord Township. Four carriers, [real rates](/pack-ship/ups-authorized-shipper-outlet/), and someone who has packed your kind of item before.
 
 No app required. Three minutes. Done.

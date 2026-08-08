@@ -82,7 +82,7 @@ Here is a detail you rarely hear outside a shipping counter: every serious point
 
 The software is not being nosy. It is checking eligibility for a pricing lane most consumers have never heard of: **cubic soft pack pricing**. USPS prices flexible packaging on its own scale, measured by **length plus width** (up to 36 inches) instead of all three dimensions, because a mailer flattens down to almost nothing. Same math philosophy as dimensional weight — but in reverse, working for the shipper.
 
-At our counter in Concord Township, we see sellers walk in every day with boxes that should be mailers. Not because they are careless. Because nobody ever showed them the two numbers side by side. They hand us a twelve-inch cube holding a t-shirt, the software flags it, and the rate doubles before their eyes. It is the same reason we stock a full range of [shipping supplies and packaging](/pack-ship/packaging-supplies) — the right box or mailer is the cheapest thing in the whole transaction.
+At our counter in Concord Township, we see sellers walk in every day with boxes that should be mailers. Not because they are careless. Because nobody ever showed them the two numbers side by side. They hand us a twelve-inch cube holding a t-shirt, the software flags it, and the rate doubles before their eyes. It is the same reason we stock a full range of [shipping supplies and packaging](/pack-ship/packaging-supplies/) — the right box or mailer is the cheapest thing in the whole transaction.
 
 It does not have to be that way. The cheapest package is the one you choose on purpose.
 
@@ -107,7 +107,7 @@ You do not need to memorize any of this. You need a counter where the person wei
 At Mailbox Plus, on Fredle Drive in Concord Township, this is what a shipment looks like:
 
 1. **Bring it in.** Your item, your order, your return — whatever it is, however it is currently packed.
-2. **We right-size it at the counter.** Tell us how fragile it is. We pick the packaging that protects it — mailer, bubble mailer, or box — and then pull rates from all four carriers on the same terminal: UPS, FedEx, USPS, and DHL. You see every price before anything is sealed. Need the whole job done for you? That is what our [professional packing service](/pack-ship/professional-packing) is for.
+2. **We right-size it at the counter.** Tell us how fragile it is. We pick the packaging that protects it — mailer, bubble mailer, or box — and then pull rates from all four carriers on the same terminal: UPS, FedEx, USPS, and DHL. You see every price before anything is sealed. Need the whole job done for you? That is what our [professional packing service](/pack-ship/professional-packing/) is for.
 3. **Walk out.** Label printed, package sealed, receipt in hand. Most shipments are done in under five minutes.
 
 If you want to ship your own way, we sell boxes and tape, we process labels, and we will happily tape up a box you brought from home. The advice is free either way.

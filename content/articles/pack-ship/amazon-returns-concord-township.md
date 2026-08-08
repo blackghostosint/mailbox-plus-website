@@ -117,4 +117,4 @@ You walk back to your car. The whole trip, from your driveway back to your drive
 
 If you have an Amazon return sitting in your hallway — or any return, from any retailer — bring it to Mailbox Plus at 7554 Fredle Drive in Concord Township. QR code, pre-labeled, any carrier. Sixty seconds at the counter, and you are done.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

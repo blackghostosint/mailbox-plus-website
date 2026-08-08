@@ -72,4 +72,4 @@ One stamp. 30 seconds. Done. No line. No wait. No wasted lunch break. That is a 
 
 We take returns. We ship your stuff.
 
-**[See all shipping services →](/pack-ship)** | **[Buy postage stamps →](/pack-ship/postage-stamps)**
+**[See all shipping services →](/pack-ship/)** | **[Buy postage stamps →](/pack-ship/postage-stamps/)**

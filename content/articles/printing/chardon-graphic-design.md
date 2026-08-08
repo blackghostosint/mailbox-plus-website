@@ -224,6 +224,6 @@ Don't let another Maple Festival, another networking event, or another client in
 
 **Visit us at Mailbox Plus. Walk in with your ideas, walk out knowing your brand's future is in expert hands, ready to impress.**
 
-Discover the difference professional design makes for your business: [Explore our Graphic Design Services](/copy-print/graphic-design)
+Discover the difference professional design makes for your business: [Explore our Graphic Design Services](/copy-print/graphic-design/)
 
-See all our comprehensive printing solutions: [View All Printing Services](/copy-print)
+See all our comprehensive printing solutions: [View All Printing Services](/copy-print/)

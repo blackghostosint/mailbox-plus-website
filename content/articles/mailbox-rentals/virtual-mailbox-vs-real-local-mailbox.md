@@ -87,7 +87,7 @@ We see the same mail you do. The FedEx truck pulls up, and one of us signs for y
 
 We see people who chose a middleman first, then found us later. Sometimes they pick our address on the iPostal1 or Anytime Mailbox site without realizing we're the store behind it. Then they come in to pick something up, meet us, and realize the whole transaction could have been direct.
 
-And yes — we see the other version too. The frustrated customer who spent a month on hold with a national service, whose mail was at a store two towns over the whole time, and who would have driven there in ten minutes if anyone had ever told them where it was. If you've ever wondered whether a private mailbox is just a fancy PO box, our comparison of [private mailboxes vs PO boxes](/articles/private-mailbox-vs-po-box) covers that myth too.
+And yes — we see the other version too. The frustrated customer who spent a month on hold with a national service, whose mail was at a store two towns over the whole time, and who would have driven there in ten minutes if anyone had ever told them where it was. If you've ever wondered whether a private mailbox is just a fancy PO box, our comparison of [private mailboxes vs PO boxes](/articles/private-mailbox-vs-po-box/) covers that myth too.
 
 We're not here to tell you the middlemen are evil. We're here to tell you the truth about what you're buying, so you can make the choice with your eyes open.
 
@@ -121,7 +121,7 @@ Getting a real local mailbox at Mailbox Plus takes about ten minutes:
 
 **Step 2 — Choose your mailbox.** Standard size for letters and small packages; larger options if you receive inventory or bigger shipments. Most people start with the standard and upgrade if they need to.
 
-**Step 3 — Start receiving.** You get a real street address (we're a registered Commercial Mail Receiving Agency), every carrier delivers — UPS, FedEx, USPS, DHL — and we sign for packages, notify you when mail arrives, and hold or forward it however you like. If you're traveling, we can [scan your mail and forward it](/mail-forwarding-concord-township) to wherever you are, just like a virtual mailbox — because a digital mailbox is a feature of a real local mailbox, not a separate species. Prefer to manage everything from your phone? Our [digital mailbox rental](/home-business/digital-mailbox-rental) adds app-style management on top of the same real street address.
+**Step 3 — Start receiving.** You get a real street address (we're a registered Commercial Mail Receiving Agency), every carrier delivers — UPS, FedEx, USPS, DHL — and we sign for packages, notify you when mail arrives, and hold or forward it however you like. If you're traveling, we can [scan your mail and forward it](/mail-forwarding-concord-township/) to wherever you are, just like a virtual mailbox — because a digital mailbox is a feature of a real local mailbox, not a separate species. Prefer to manage everything from your phone? Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds app-style management on top of the same real street address.
 
 The difference is what happens when you're in town: you drive in, we hand you your mail, and you don't pay a per-item fee for the privilege.
 
@@ -155,7 +155,7 @@ If you're still comparing "best virtual mailbox" options on a Reddit thread at m
 
 We're at 7554 Fredle Drive in Concord Township — right off Route 306, about a mile south of Route 20. Walk in with two forms of ID, and you can have a real street address before your coffee gets cold. No appointment, no waiting period, no middleman.
 
-If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township) or check out [private mailbox rental](/private-mailbox-rental-concord-township) — both start at $35 a month, both include package signing from every carrier, and both come with people who will know your name.
+If you want to see how the digital side works first, read about our [virtual mailbox service](/virtual-mailbox-concord-township/) or check out [private mailbox rental](/private-mailbox-rental-concord-township/) — both start at $35 a month, both include package signing from every carrier, and both come with people who will know your name.
 
 Your mail is going to arrive somewhere. The only question is who's holding it — a call center on the other end of a phone tree, or the person you can walk up to and say hi to.
 

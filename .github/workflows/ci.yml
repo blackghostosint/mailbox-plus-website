@@ -60,6 +60,9 @@ jobs:
       - name: Run SEO canonical trailing-slash check
         run: npm run seo:check-canonical
 
+      - name: Run SEO internal href trailing-slash check
+        run: npm run seo:check-href-slash
+
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

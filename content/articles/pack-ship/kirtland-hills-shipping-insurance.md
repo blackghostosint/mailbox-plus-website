@@ -79,4 +79,4 @@ Come see us at 7554 Fredle Drive. It is five minutes down Route 306. We handle t
 
 We take returns. We ship your stuff.
 
-**[Get a shipping insurance quote →](/specialty/insurance)** | **[Professional packing services →](/pack-ship/professional-packing)**
+**[Get a shipping insurance quote →](/specialty/insurance/)** | **[Professional packing services →](/pack-ship/professional-packing/)**

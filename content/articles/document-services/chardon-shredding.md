@@ -155,6 +155,6 @@ Concord Township, OH 44077
 
 You walk in with your paper burden. You watch us shred it instantly, right before your eyes. You walk out with a signed Certificate of Destruction, knowing your identity is protected, your space is reclaimed, and your peace of mind is fully restored. It's just $1 per pound, no minimum.
 
-Secure your past. Protect your future. Visit Mailbox Plus for your document destruction needs, and ask us about our other essential services, including secure [document scanning](/home-business/document-scanning) for your critical files. We’re here for all your [shredding needs](/home-business/shredding).
+Secure your past. Protect your future. Visit Mailbox Plus for your document destruction needs, and ask us about our other essential services, including secure [document scanning](/home-business/document-scanning/) for your critical files. We’re here for all your [shredding needs](/home-business/shredding/).
 
 Stop losing. Start living. Bring it in.

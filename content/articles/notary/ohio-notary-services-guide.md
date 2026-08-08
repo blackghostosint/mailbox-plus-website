@@ -132,4 +132,4 @@ You check your phone. You were in the store for three minutes. The fee was $5.00
 
 If you need a document notarized in Lake County, do not spend your afternoon driving around looking for an available stamp. Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township. No appointment needed. $5.00 per signature. In and out in under five minutes.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

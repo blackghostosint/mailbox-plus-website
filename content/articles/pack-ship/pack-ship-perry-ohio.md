@@ -29,7 +29,7 @@ And you know what they are doing. The rate they quoted you is not the rate your 
 
 ## Why the Franchise Store is Quiet About Your Options
 
-Single-carrier franchise stores have one job: sell their parent brand's service. They do not put a screen in front of you that says "UPS would charge $12.50 for this, but FedEx would do it for $9.80." They do not show you that [USPS ground](/pack-ship) is the cheapest option for a 5-pound box going 300 miles. They show you their rate. You pay it. They keep the markup.
+Single-carrier franchise stores have one job: sell their parent brand's service. They do not put a screen in front of you that says "UPS would charge $12.50 for this, but FedEx would do it for $9.80." They do not show you that [USPS ground](/pack-ship/) is the cheapest option for a 5-pound box going 300 miles. They show you their rate. You pay it. They keep the markup.
 
 The system works because it assumes you are in a hurry. It assumes you will not walk out and drive to the competitor down the street. And you don't. Because you drove 15 miles to get there.
 
@@ -37,7 +37,7 @@ The system works because it assumes you are in a hurry. It assumes you will not 
 
 At **Mailbox Plus** in Concord Township, there is no corporate parent demanding a markup. Every time you walk up to the counter with a package, we show you the rates from all four carriers side by side.
 
-[FedEx](/pack-ship/fedex-shipping). [UPS](/pack-ship/ups-authorized-shipper-outlet). USPS. DHL. You see the price for each. You pick the one that makes sense for your budget and your timeline.
+[FedEx](/pack-ship/fedex-shipping/). [UPS](/pack-ship/ups-authorized-shipper-outlet/). USPS. DHL. You see the price for each. You pick the one that makes sense for your budget and your timeline.
 
 It takes thirty seconds. No extra stop. No second trip. Just a screen with the numbers and you choose.
 
@@ -45,7 +45,7 @@ It takes thirty seconds. No extra stop. No second trip. Just a screen with the n
 
 Perry is 15 minutes from Concord Township. That is the same drive you are already making to Mentor — except when you drive to Mailbox Plus, you get real carrier choice at the counter, not a single-captive screen with a hidden markup.
 
-You ship a heavy box to California twice a month. [UPS](/pack-ship/ups-authorized-shipper-outlet) is cheaper for heavy residential. You know that now because we showed you. You ship fragile items to your daughter at college once a month. [FedEx](/pack-ship/fedex-shipping) is faster and has better tracking at the same price. You saw that too.
+You ship a heavy box to California twice a month. [UPS](/pack-ship/ups-authorized-shipper-outlet/) is cheaper for heavy residential. You know that now because we showed you. You ship fragile items to your daughter at college once a month. [FedEx](/pack-ship/fedex-shipping/) is faster and has better tracking at the same price. You saw that too.
 
 Over the course of a year, seeing all four rates on one screen saves you real money. The [USPS postage price calculator](https://postcalc.usps.com/) will tell you the government rate. [FedEx's rate calculator](https://www.fedex.com/en-us/rates) shows their ground and express pricing. We show you both — and the other two — at the same time.
 
@@ -55,4 +55,4 @@ You are driving 30 miles round trip to pay more than you should at a counter tha
 
 Stop making the long trip for a single-carrier quote.
 
-[Visit Mailbox Plus today](/contact-us). Bring your package. See all four rates. Pick the best one.
+[Visit Mailbox Plus today](/contact-us/). Bring your package. See all four rates. Pick the best one.

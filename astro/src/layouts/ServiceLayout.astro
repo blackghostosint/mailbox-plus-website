@@ -8,7 +8,7 @@ import type { Service, CTA } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
-import { toCanonicalUrl } from '../utils/canonical-url';
+import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from '../utils/canonical-url';
 
 export interface Props {
   service: Service;
@@ -18,10 +18,10 @@ export interface Props {
 
 // Core service → competitor alternative page mapping
 const competitorAlternatives: Record<string, { title: string; url: string }> = {
-  'fedex-shipping': { title: 'FedEx Office Alternative', url: '/fedex-office-alternative-concord-township' },
-  'ups-authorized-shipper-outlet': { title: 'UPS Store Alternative', url: '/ups-store-alternative-concord-township' },
-  'usps-services': { title: 'Post Office Alternative', url: '/post-office-alternative-concord-township' },
-  'printing-services-concord-township': { title: 'Staples Printing Alternative', url: '/staples-printing-alternative-concord-township' },
+  'fedex-shipping': { title: 'FedEx Office Alternative', url: '/fedex-office-alternative-concord-township/' },
+  'ups-authorized-shipper-outlet': { title: 'UPS Store Alternative', url: '/ups-store-alternative-concord-township/' },
+  'usps-services': { title: 'Post Office Alternative', url: '/post-office-alternative-concord-township/' },
+  'printing-services-concord-township': { title: 'Staples Printing Alternative', url: '/staples-printing-alternative-concord-township/' },
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel } = Astro.props;
@@ -159,7 +159,7 @@ const carriers = [
         <section class="max-w-5xl mx-auto">
           <div class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}>
             <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">{block.heading}</h2>
-            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={block.body} />
+            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={normalizeContentHrefs(block.body)} />
           </div>
         </section>
       ))}
@@ -244,7 +244,7 @@ const carriers = [
                   {service.cta.buttonText} →
                 </a>
               ) : (
-                <a href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
                   {service.cta.buttonText} →
                 </a>
               )}

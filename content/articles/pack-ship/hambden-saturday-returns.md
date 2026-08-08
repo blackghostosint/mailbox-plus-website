@@ -50,4 +50,4 @@ Concord Township is 15 minutes from Hambden. Girdled Road to Route 44. Same road
 
 You get home at 9:48. The lawn gets mowed. The gravel gets picked up. Saturday is still Saturday.
 
-[Bring your Saturday returns to Mailbox Plus](/pack-ship). Three minutes. Back to your weekend.
+[Bring your Saturday returns to Mailbox Plus](/pack-ship/). Three minutes. Back to your weekend.

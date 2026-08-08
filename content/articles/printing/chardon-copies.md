@@ -142,6 +142,6 @@ Self-serve copiers have one job — and they fail at it daily. Hand us your orig
 
 Visit us today, and let us handle your copying needs with the professional care and efficiency you deserve.
 
-Find out more about our copy services: [/copy-print/copies](/copy-print/copies)
+Find out more about our copy services: [/copy-print/copies](/copy-print/copies/)
 
-Need more extensive document printing? We've got you covered: [/copy-print/document-printing](/copy-print/document-printing)
+Need more extensive document printing? We've got you covered: [/copy-print/document-printing](/copy-print/document-printing/)

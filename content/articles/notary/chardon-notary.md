@@ -86,7 +86,7 @@ Here’s our straightforward, 3-step process:
 
 3.  **Walk Out. Done.** That’s it. In less than 3 minutes – yes, often under three minutes – your document will be properly notarized, stamped, and ready to go. You’ll pay our transparent, affordable fee of just $5 per signature, and you'll be on your way. You won’t have to wait, you won’t have to come back, and you certainly won’t have to explain your situation to yet another person who "can’t help you right now."
 
-It's that simple. We believe a notary service should be an effortless extension of your day, not a major expedition. We provide this vital service consistently and reliably, allowing you to cross that task off your list with confidence and ease. For more details on all our convenient notary offerings, you can always visit our dedicated notary services page: [/home-business/notary-services](/home-business/notary-services).
+It's that simple. We believe a notary service should be an effortless extension of your day, not a major expedition. We provide this vital service consistently and reliably, allowing you to cross that task off your list with confidence and ease. For more details on all our convenient notary offerings, you can always visit our dedicated notary services page: [/home-business/notary-services](/home-business/notary-services/).
 
 ## What You Lose by Not Acting
 
@@ -132,7 +132,7 @@ The sun feels warmer, the air crisper. You check your watch. It’s 9:52 AM, and
 
 This new freedom doesn’t stop at the notary. With your time reclaimed, what will you do? Perhaps you’ll swing by Patterson's Fruit Farm for some fresh cider or their famous donuts, a well-deserved treat for your efficient morning. Maybe you'll spend a few extra moments enjoying the quiet beauty of Chardon Square, unburdened by pending errands. You can get a head start on that project you’ve been procrastinating on, or simply enjoy a cup of tea, knowing you’re ahead of schedule.
 
-This is the transformation: from the frustrated errand-runner who wasted 40 minutes chasing a signature, to someone who walked in, was done in 5 minutes, document stamped, and is now back to their day, feeling accomplished and entirely in control. Imagine the peace of mind knowing that for all your important documents – whether it’s the car title that starts it all or other critical paperwork like deeds or power of attorney – a reliable, efficient solution is just a short, easy drive away. And for those other important documents, once they're notarized, you might even consider getting them scanned for secure digital storage. We can help with that too, right here: [/home-business/document-scanning](/home-business/document-scanning).
+This is the transformation: from the frustrated errand-runner who wasted 40 minutes chasing a signature, to someone who walked in, was done in 5 minutes, document stamped, and is now back to their day, feeling accomplished and entirely in control. Imagine the peace of mind knowing that for all your important documents – whether it’s the car title that starts it all or other critical paperwork like deeds or power of attorney – a reliable, efficient solution is just a short, easy drive away. And for those other important documents, once they're notarized, you might even consider getting them scanned for secure digital storage. We can help with that too, right here: [/home-business/document-scanning](/home-business/document-scanning/).
 
 ## Bring It In
 

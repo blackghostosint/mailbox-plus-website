@@ -151,9 +151,9 @@ None of this is dramatic on the day you register. It's the cost of choosing an a
 
 ## Take Your Home Off Your Seller Profile
 
-Ten minutes, two forms of ID, and a street address that passes Amazon's verification without being your house. Start with our [mailbox rental page for home businesses](/home-business/mailbox-rental) for pricing and details — it covers exactly this scenario — or stop by **7554 Fredle Drive** in Concord Township.
+Ten minutes, two forms of ID, and a street address that passes Amazon's verification without being your house. Start with our [mailbox rental page for home businesses](/home-business/mailbox-rental/) for pricing and details — it covers exactly this scenario — or stop by **7554 Fredle Drive** in Concord Township.
 
-If you're weighing a private mailbox against a post office box, our [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box) explains why the difference matters even more when an online marketplace — not just your mail carrier — is checking the address. And if you're an online seller across multiple platforms, our [guide to keeping your home address off your shipping labels](/articles/chardon-online-seller-mailbox) covers the eBay and Etsy side of the same problem.
+If you're weighing a private mailbox against a post office box, our [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box/) explains why the difference matters even more when an online marketplace — not just your mail carrier — is checking the address. And if you're an online seller across multiple platforms, our [guide to keeping your home address off your shipping labels](/articles/chardon-online-seller-mailbox/) covers the eBay and Etsy side of the same problem.
 
 The next verification cycle is coming. Amazon asks every high-volume seller to certify at least once a year — the only question is which address you'll be certifying.
 
