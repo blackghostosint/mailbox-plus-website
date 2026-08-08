@@ -44,18 +44,22 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /Digital-Fingerprinting /specialty/digital-fingerprinting 301!
 
 # Location Pages (Redirect to Service Area)
-/chardon /service-area/chardon 301!
-/concord-township /service-area/concord-township 301!
-/painesville /service-area/painesville 301!
-/willoughby /service-area/willoughby 301!
-/wickliffe /service-area/wickliffe 301!
-/kirtland /service-area/kirtland 301!
-/fairport-harbor /service-area/fairport-harbor 301!
-/madison /service-area/madison 301!
-/perry /service-area/perry 301!
-/eastlake /service-area/eastlake 301!
-/mentor /service-area/mentor 301!
-/geneva /service-area/geneva 301!
+# NOTE: targets carry a trailing slash so the redirect chain lands directly on
+# the canonical URL. GSC was choosing the no-slash form as canonical (flagging
+# the slash pages as "Duplicate without user-selected canonical") because these
+# redirected to the no-slash intermediate before Netlify's pretty-URL 301.
+/chardon /service-area/chardon/ 301!
+/concord-township /service-area/concord-township/ 301!
+/painesville /service-area/painesville/ 301!
+/willoughby /service-area/willoughby/ 301!
+/wickliffe /service-area/wickliffe/ 301!
+/kirtland /service-area/kirtland/ 301!
+/fairport-harbor /service-area/fairport-harbor/ 301!
+/madison /service-area/madison/ 301!
+/perry /service-area/perry/ 301!
+/eastlake /service-area/eastlake/ 301!
+/mentor /service-area/mentor/ 301!
+/geneva /service-area/geneva/ 301!
 
 # -----------------------------------
 # CASE NORMALIZATION & LEGACY CLEANUP
@@ -81,11 +85,14 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /MailboxPlusSalesPage.html /home-business/mailbox-rental/ 301!
 /mailboxplussalespage.html /home-business/mailbox-rental/ 301!
 
-# Serve research/shipping-label-osint.html at the no-extension variant
+# Serve research/shipping-label-osint.html at BOTH the extension-less and
+# trailing-slash variants (200, not 301) so the canonical URL resolves directly.
+# Canonical declared in the file is the trailing-slash form (site convention).
 /research/shipping-label-osint /research/shipping-label-osint.html 200
+/research/shipping-label-osint/ /research/shipping-label-osint.html 200
 
 # Redirects
-/shipping-near-me /service-area/concord-township 301
+/shipping-near-me /service-area/concord-township/ 301
 
 # Sitemap redirect (Astro generates sitemap-index.xml instead of sitemap.xml)
 /sitemap.xml /sitemap-index.xml 301
