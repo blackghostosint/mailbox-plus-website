@@ -85,8 +85,11 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /MailboxPlusSalesPage.html /home-business/mailbox-rental/ 301!
 /mailboxplussalespage.html /home-business/mailbox-rental/ 301!
 
-# Serve research/shipping-label-osint.html at the no-extension variant
+# Serve research/shipping-label-osint.html at BOTH the extension-less and
+# trailing-slash variants (200, not 301) so the canonical URL resolves directly.
+# Canonical declared in the file is the trailing-slash form (site convention).
 /research/shipping-label-osint /research/shipping-label-osint.html 200
+/research/shipping-label-osint/ /research/shipping-label-osint.html 200
 
 # Redirects
 /shipping-near-me /service-area/concord-township/ 301
