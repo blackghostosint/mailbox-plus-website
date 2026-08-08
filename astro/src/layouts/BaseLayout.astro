@@ -43,8 +43,8 @@ const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath
 // Only declare 1200x630 for auto-generated /og/*.png cards. Pages that pass a
 // custom ogImage (e.g. article R2 feature images, 1024x576) omit width/height
 // so social crawlers fetch and use the real dimensions instead of a mismatch.
-const ogImageWidth = ogImage ? undefined : 1200;
-const ogImageHeight = ogImage ? undefined : 630;
+const ogImageWidth = ogImage ? undefined : '1200';
+const ogImageHeight = ogImage ? undefined : '630';
 ---
 
 <!DOCTYPE html>
