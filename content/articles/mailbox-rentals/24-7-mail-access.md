@@ -67,17 +67,17 @@ For most shift workers and long commuters, that combination — call ahead, same
 
 If you are weighing a PO Box against a private mailbox, there is one more thing worth knowing. USPS offers what it calls Street Addressing on some PO Boxes, which lets packages from private carriers like UPS, FedEx, and DHL be delivered to the post office's street address — **subject to availability and restrictions**. That sounds like a 24-hour solution until you read the conditions: not every location offers it, and when a package needs a signature or does not fit the box, it still lands behind the counter during business hours.
 
-The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbered box at a counter, with business-hours pickup for anything important" vs. "a real street address where staff sign for everything, notify you, and hold it behind a locked counter until you walk in." Same human-hours reality — one of them simply does more with them. Our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box) lays out the full difference side by side.
+The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbered box at a counter, with business-hours pickup for anything important" vs. "a real street address where staff sign for everything, notify you, and hold it behind a locked counter until you walk in." Same human-hours reality — one of them simply does more with them. Our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) lays out the full difference side by side.
 
 ## What Actually Works for a Shift Worker
 
 Here is a plan that fits a schedule like yours, in three steps:
 
-1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental-concord-township) has the sizes, the pricing (from $35 a month, no annual contract), and the details.
+1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental-concord-township/) has the sizes, the pricing (from $35 a month, no annual contract), and the details.
 2. **Use call-ahead.** Before you leave work, call us. We pull your mail and packages and have them waiting. You are in and out on your schedule, not ours.
-3. **Check your phone, not your porch.** Mail is scanned and you get notified within four hours of arrival. If you are traveling or on a stretch of double shifts, you can see what is waiting without driving anywhere — and if you need mail opened, forwarded, or handled remotely, the [digital mailbox option](/virtual-mailbox-concord-township) adds that layer on top.
+3. **Check your phone, not your porch.** Mail is scanned and you get notified within four hours of arrival. If you are traveling or on a stretch of double shifts, you can see what is waiting without driving anywhere — and if you need mail opened, forwarded, or handled remotely, the [digital mailbox option](/virtual-mailbox-concord-township/) adds that layer on top.
 
-Want to know when the last pickup of the day is, or which days the trucks run? Our [carrier pickup hours page](/pickup-hours) has the schedule — and the rule we actually live by: if you miss the truck, your package is secured here, not sitting on a porch.
+Want to know when the last pickup of the day is, or which days the trucks run? Our [carrier pickup hours page](/pickup-hours/) has the schedule — and the rule we actually live by: if you miss the truck, your package is secured here, not sitting on a porch.
 
 ## The Honest Bottom Line
 
@@ -85,6 +85,6 @@ We are not going to tell you Mailbox Plus is open 24 hours a day. It is not, and
 
 If your schedule never touches 9-to-5, the fix is not a lobby that never closes. It is a system that works around you instead of the other way around.
 
-Stop by 7554 Fredle Drive in Concord Township, or call ahead and we will have your mail waiting. And if you are starting a business at the same time, the [business mailbox option](/home-business/mailbox-rental) keeps work mail separate from everything else — with the same street address and the same staffed pickup.
+Stop by 7554 Fredle Drive in Concord Township, or call ahead and we will have your mail waiting. And if you are starting a business at the same time, the [business mailbox option](/home-business/mailbox-rental/) keeps work mail separate from everything else — with the same street address and the same staffed pickup.
 
 _This article is for general information only. USPS PO Box policies, Street Addressing availability, and pickup procedures change periodically; verify current details at usps.com before relying on them for your mail._

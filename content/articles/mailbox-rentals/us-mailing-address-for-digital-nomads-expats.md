@@ -72,7 +72,7 @@ You set up a mailbox at **7554 Fredle Drive, Concord Township, OH 44077** — ab
 
 Then you leave. That's the whole trick — nothing else changes.
 
-While you're abroad, our [virtual mailbox service](/virtual-mailbox-concord-township) handles the day-to-day:
+While you're abroad, our [virtual mailbox service](/virtual-mailbox-concord-township/) handles the day-to-day:
 
 - **Mail arrives and we scan the envelope** — typically within four hours — and upload it to your portal.
 - **You see everything from your phone**, wherever in the world you are. No guessing what's in the pile; no asking a relative to open your statements.
@@ -103,8 +103,8 @@ You're not thinking about your mail. That's the point.
 
 ## Set It Up Before You Board the Plane
 
-Ten minutes, two forms of ID, and the address you keep for years — not the address you lose when you cross a border. Start with our [virtual mailbox page](/virtual-mailbox-concord-township) for the full rundown on scanning, forwarding, and pricing, or stop by **7554 Fredle Drive in Concord Township** before you leave.
+Ten minutes, two forms of ID, and the address you keep for years — not the address you lose when you cross a border. Start with our [virtual mailbox page](/virtual-mailbox-concord-township/) for the full rundown on scanning, forwarding, and pricing, or stop by **7554 Fredle Drive in Concord Township** before you leave.
 
-If you're still weighing a PO box against a real address, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box) covers the carrier and delivery differences that matter even more when you're not around to collect things. And when you're ready to manage it all remotely, the [digital mailbox option](/home-business/digital-mailbox-rental) walks through the portal — scans, shred requests, and one-click forwarding from anywhere.
+If you're still weighing a PO box against a real address, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) covers the carrier and delivery differences that matter even more when you're not around to collect things. And when you're ready to manage it all remotely, the [digital mailbox option](/home-business/digital-mailbox-rental/) walks through the portal — scans, shred requests, and one-click forwarding from anywhere.
 
 One honest caveat, repeated: no mailbox service can guarantee what a bank will do. What a real local mailbox gives you is the address that survives the questions — the one you can document, walk into, and defend. That's the whole job, and it's the one that matters when you're 6,000 miles away.

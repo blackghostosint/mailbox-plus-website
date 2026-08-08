@@ -79,4 +79,4 @@ Come to 7554 Fredle Drive. We design. We print. You impress. It starts with a co
 
 We take returns. We ship your stuff.
 
-**[Start your design project →](/copy-print/graphic-design)** | **[See all print services →](/copy-print)**
+**[Start your design project →](/copy-print/graphic-design/)** | **[See all print services →](/copy-print/)**

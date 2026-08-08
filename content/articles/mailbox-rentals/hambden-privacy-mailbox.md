@@ -40,7 +40,7 @@ Your home address is not private. It is a product. It is sold and resold and bun
 
 You cannot stop the data brokers from listing your address. But you can stop listing it as your address.
 
-A [private mailbox](/home-business/mailbox-rental) at Mailbox Plus gives you a real street address — 7554 Fredle Drive, Concord Township, Ohio. You use it for bills. You use it for shipping. You use it for anything that asks for your mailing address.
+A [private mailbox](/home-business/mailbox-rental/) at Mailbox Plus gives you a real street address — 7554 Fredle Drive, Concord Township, Ohio. You use it for bills. You use it for shipping. You use it for anything that asks for your mailing address.
 
 The data brokers still list 1234 Spruce Lane. But no one sends anything there anymore. No packages. No bank statements. No credit cards. No insurance cards. No jury duty summons. The address becomes a dead end. The only thing that arrives at your house is what you want to arrive at your house.
 
@@ -50,6 +50,6 @@ Start with the accounts that matter. Your bank. Your credit cards. Your insuranc
 
 It takes an afternoon. After that, data brokers can list whatever they want. You are not there anymore.
 
-You can also stop by for [notary services](/home-business/notary-services) when you need to notarize a change-of-address affidavit or a property document. One counter does it all.
+You can also stop by for [notary services](/home-business/notary-services/) when you need to notarize a change-of-address affidavit or a property document. One counter does it all.
 
-[Get your private address now](/home-business/mailbox-rental). Stop the data brokers from publishing where you live.
+[Get your private address now](/home-business/mailbox-rental/). Stop the data brokers from publishing where you live.

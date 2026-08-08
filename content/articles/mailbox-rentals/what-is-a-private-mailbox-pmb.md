@@ -89,7 +89,7 @@ Two things worth saying about this table.
 
 **First, the UPS Store box:** it's a real street address, but many UPS Store locations only accept UPS and USPS deliveries — FedEx and DHL drivers won't drop at a competitor's store. If you get packages from multiple carriers, that's a gap.
 
-**Second, the virtual mailbox:** the national middlemen (iPostal1, Anytime Mailbox) don't own the stores where your mail lands. They rent space at local mail centers — places exactly like ours — and layer an app and per-item fees on top. You're paying a middleman to manage a mailbox at a store you could have rented from directly. We explain exactly how that model works — and what it costs you — on our [virtual mailbox service page](/virtual-mailbox-concord-township). If the PO Box vs. private mailbox comparison is the one you need instead, we cover that too in [Private Mailbox vs PO Box](/articles/private-mailbox-vs-po-box).
+**Second, the virtual mailbox:** the national middlemen (iPostal1, Anytime Mailbox) don't own the stores where your mail lands. They rent space at local mail centers — places exactly like ours — and layer an app and per-item fees on top. You're paying a middleman to manage a mailbox at a store you could have rented from directly. We explain exactly how that model works — and what it costs you — on our [virtual mailbox service page](/virtual-mailbox-concord-township/). If the PO Box vs. private mailbox comparison is the one you need instead, we cover that too in [Private Mailbox vs PO Box](/articles/private-mailbox-vs-po-box/).
 
 ## Who Actually Needs a PMB
 
@@ -114,7 +114,7 @@ Here's the honest three-step version of getting a PMB from us:
 
 **Step 2 — Pick your mailbox size.** Small boxes are $35 a month; large boxes are $50 a month. Month-to-month, no contract, cancel anytime — and there's a 30-day risk-free period so you can try it without commitment. Annual terms are available if you want to lock in the rate.
 
-**Step 3 — Start using your real street address.** You get 7554 Fredle Drive plus your PMB number. Every carrier delivers — UPS, FedEx, DHL, and USPS — and we sign for your packages, notify you when mail arrives, and hold everything securely behind our locked counter. Traveling a lot? We can [scan your mail and forward it](/home-business/digital-mailbox-rental) to wherever you are.
+**Step 3 — Start using your real street address.** You get 7554 Fredle Drive plus your PMB number. Every carrier delivers — UPS, FedEx, DHL, and USPS — and we sign for your packages, notify you when mail arrives, and hold everything securely behind our locked counter. Traveling a lot? We can [scan your mail and forward it](/home-business/digital-mailbox-rental/) to wherever you are.
 
 That's the whole product. A street address that works everywhere, staffed by people you can actually talk to.
 
@@ -140,7 +140,7 @@ If you only remember three things from this article, make them these:
 
 Now that you know what a private mailbox actually is, the next step is simple: see it in person.
 
-We're at **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental-lake-county) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
+We're at **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental-lake-county/) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
 
 No appointment. No waiting period. No middleman. Just a real address, held by real people, in a building you can walk into.
 

@@ -44,7 +44,7 @@ When a customer sees the return address, they see your business address. Not you
 
 ## What Changes
 
-Your [private mailbox](/home-business/mailbox-rental) costs less than the price of having one address-linked data leak bill. Every package the carriers deliver goes to Mailbox Plus. You pick them up when you are ready. Or use [digital mailbox](/home-business/digital-mailbox-rental) and see the envelope image online within four hours.
+Your [private mailbox](/home-business/mailbox-rental/) costs less than the price of having one address-linked data leak bill. Every package the carriers deliver goes to Mailbox Plus. You pick them up when you are ready. Or use [digital mailbox](/home-business/digital-mailbox-rental/) and see the envelope image online within four hours.
 
 Your home address stops appearing on labels. Your home address stops being searchable on shipping lookups. Your home address stops being visible to every buyer who clicks "return."
 
@@ -56,4 +56,4 @@ A basic mailbox rental at Mailbox Plus is $19 a month. A data broker sells your 
 
 You sell online. The address on the label should be your business address, not your home address.
 
-[Get a real street address today](/home-business/mailbox-rental). Keep your Hambden home where it belongs.
+[Get a real street address today](/home-business/mailbox-rental/). Keep your Hambden home where it belongs.

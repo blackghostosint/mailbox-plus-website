@@ -8,12 +8,12 @@ function imageUrl(path: string): string {
 }
 
 const services = [
-  { title: 'Pack & Ship', link: '/pack-ship', desc: 'UPS, FedEx, DHL, USPS', icon: 'package' },
-  { title: 'Print Services', link: '/copy-print', desc: 'Copies, Photos', icon: 'printer' },
-  { title: 'Mailbox Rentals', link: '/home-business/mailbox-rental', desc: 'Secure, Private, Business Hours', icon: 'mail' },
-  { title: 'Notary Public', link: '/home-business/notary-services', desc: 'Official Notarizations', icon: 'file' },
-  { title: 'Scanning', link: '/home-business/document-scanning', desc: 'Digitize Your Documents', icon: 'scan' },
-  { title: 'Package Receiving', link: '/pack-ship/package-receiving', desc: 'Never Miss a Delivery', icon: 'box' },
+  { title: 'Pack & Ship', link: '/pack-ship/', desc: 'UPS, FedEx, DHL, USPS', icon: 'package' },
+  { title: 'Print Services', link: '/copy-print/', desc: 'Copies, Photos', icon: 'printer' },
+  { title: 'Mailbox Rentals', link: '/home-business/mailbox-rental/', desc: 'Secure, Private, Business Hours', icon: 'mail' },
+  { title: 'Notary Public', link: '/home-business/notary-services/', desc: 'Official Notarizations', icon: 'file' },
+  { title: 'Scanning', link: '/home-business/document-scanning/', desc: 'Digitize Your Documents', icon: 'scan' },
+  { title: 'Package Receiving', link: '/pack-ship/package-receiving/', desc: 'Never Miss a Delivery', icon: 'box' },
 ];
 
 const iconPaths: Record<string, string> = {
@@ -64,7 +64,7 @@ const iconPaths: Record<string, string> = {
       <p class="text-[var(--color-text-secondary)] leading-relaxed mb-8 text-lg">
         Whether you're shipping a package, printing documents, renting a private mailbox, or handling business tasks, our team is here to help every step of the way.
       </p>
-      <a href="/contact-us" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-lg">
+      <a href="/contact-us/" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-lg">
         Visit Us Today
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
@@ -167,7 +167,7 @@ const iconPaths: Record<string, string> = {
         Stop in today — we're conveniently located at <span class="text-white font-semibold">7554 Fredle Drive</span> in Concord Township.
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contact-us" class="inline-flex items-center justify-center bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-bold px-8 py-3.5 rounded-md shadow-lg hover:brightness-110 transition-all min-h-12">
+        <a href="/contact-us/" class="inline-flex items-center justify-center bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-bold px-8 py-3.5 rounded-md shadow-lg hover:brightness-110 transition-all min-h-12">
           Get in Touch
         </a>
         <a href="https://www.google.com/maps/dir//Mailbox+Plus+Concord+Township" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all min-h-12">

@@ -144,6 +144,6 @@ When your printer fails you, or when you simply need high-quality, professional 
 
 Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township. We’re just a quick, easy 15-minute drive from Chardon via Route 44 South, a straight shot that saves you time and stress.
 
-Experience the Mailbox Plus difference: professional <a href="/copy-print/document-printing">document printing</a>, color or black & white, while you wait. Same price, no markups, no lines. Just effortless, reliable printing solutions that empower you to be your best.
+Experience the Mailbox Plus difference: professional <a href="/copy-print/document-printing/">document printing</a>, color or black & white, while you wait. Same price, no markups, no lines. Just effortless, reliable printing solutions that empower you to be your best.
 
-Stop fighting your printer. Start focusing on your business. Let Mailbox Plus handle your printing needs, every time. Visit us today and discover why we're Chardon's trusted print shop. For all your <a href="/copy-print">copy and print services</a>, we're here to help.
+Stop fighting your printer. Start focusing on your business. Let Mailbox Plus handle your printing needs, every time. Visit us today and discover why we're Chardon's trusted print shop. For all your <a href="/copy-print/">copy and print services</a>, we're here to help.

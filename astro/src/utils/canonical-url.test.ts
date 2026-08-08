@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { normalizePathname, toCanonicalUrl } from './canonical-url';
+import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from './canonical-url';
 
 describe('normalizePathname', () => {
   it('should normalize relative paths', () => {
@@ -60,5 +60,31 @@ describe('toCanonicalUrl', () => {
     expect(toCanonicalUrl('https://mailboxplusohio.com/pack-ship#webpage')).toBe(
       'https://mailboxplusohio.com/pack-ship/#webpage'
     );
+  });
+});
+
+describe('normalizeContentHrefs', () => {
+  it('adds trailing slash to internal no-slash hrefs', () => {
+    const html = '<a href="/pack-ship/fedex-shipping">FedEx</a> <a href="/contact-us">Contact</a>';
+    expect(normalizeContentHrefs(html)).toBe(
+      '<a href="/pack-ship/fedex-shipping/">FedEx</a> <a href="/contact-us/">Contact</a>'
+    );
+  });
+
+  it('leaves already-slash hrefs untouched', () => {
+    const html = '<a href="/pack-ship/">Pack</a> <a href="/">Home</a>';
+    expect(normalizeContentHrefs(html)).toBe(html);
+  });
+
+  it('leaves external, anchor, and protocol-relative URLs untouched', () => {
+    const html =
+      '<a href="https://example.com/x">Ext</a> <a href="#section">Anchor</a> <a href="//cdn.example.com/a">CDN</a>';
+    expect(normalizeContentHrefs(html)).toBe(html);
+  });
+
+  it('leaves file, query, and hash hrefs untouched', () => {
+    const html =
+      '<a href="/images/logo.webp">Img</a> <a href="/guide?q=1">Q</a> <a href="/tracking#x">Hash</a>';
+    expect(normalizeContentHrefs(html)).toBe(html);
   });
 });

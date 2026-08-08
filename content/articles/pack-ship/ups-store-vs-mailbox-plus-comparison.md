@@ -121,4 +121,4 @@ It is a small win. But it is a win you would not have gotten at the franchise st
 
 If you have been defaulting to the same shipping store because it is familiar, try the alternative. Bring your next package to Mailbox Plus at 7554 Fredle Drive in Concord Township. See the rates from all four carriers side by side. Pick the one that works for you.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

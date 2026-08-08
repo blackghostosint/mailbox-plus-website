@@ -56,6 +56,6 @@ And because you are not buying a mailing list, you do not pay for names and addr
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden.
 
-We also handle [all your other printing](/copy-print) — business cards, flyers, banners, brochures. One stop for everything that needs ink and paper.
+We also handle [all your other printing](/copy-print/) — business cards, flyers, banners, brochures. One stop for everything that needs ink and paper.
 
-[Start your EDDM campaign](/home-business/every-door-direct-mail). Every mailbox in Hambden. Your message. No list needed.
+[Start your EDDM campaign](/home-business/every-door-direct-mail/). Every mailbox in Hambden. Your message. No list needed.

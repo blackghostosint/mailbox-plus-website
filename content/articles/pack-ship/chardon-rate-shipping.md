@@ -152,6 +152,6 @@ Ready to stop paying the franchise markup and start shipping smarter?
 
 Come visit us today. Your package is waiting for the best rate.
 
-[Discover more about our comprehensive pack & ship services here.](/pack-ship)
+[Discover more about our comprehensive pack & ship services here.](/pack-ship/)
 
-[Need to ship with FedEx? Learn more about our FedEx shipping options.](/pack-ship/fedex-shipping)
+[Need to ship with FedEx? Learn more about our FedEx shipping options.](/pack-ship/fedex-shipping/)

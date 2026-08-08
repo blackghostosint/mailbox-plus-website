@@ -81,7 +81,7 @@ Come to 7554 Fredle Drive. We shred on site. We shred while you wait. Do not let
 
 We take returns. We ship your stuff.
 
-**[Book shredding service →](/home-business/shredding)** | **[Document scanning services →](/home-business/document-scanning)**
+**[Book shredding service →](/home-business/shredding/)** | **[Document scanning services →](/home-business/document-scanning/)**
 
 <a href="https://www.ftc.gov/news-events/topics/identity-theft" target="_blank" rel="noopener noreferrer">Federal Trade Commission — Identity Theft Prevention</a>
 

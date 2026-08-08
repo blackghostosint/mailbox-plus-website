@@ -41,7 +41,7 @@ function imageUrl(imagePath: string): string {
             const { slug, title, description, pubDate, image, imageAlt, category } = article.frontmatter;
             return (
               <a
-                href={`/articles/${slug}`}
+                href={`/articles/${slug}/`}
                 class="group bg-[var(--color-bg-secondary)] rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-[var(--color-border)] hover:border-[var(--color-accent-warm)]"
               >
                 {/* Featured Image */}

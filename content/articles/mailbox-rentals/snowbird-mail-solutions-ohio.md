@@ -87,7 +87,7 @@ While you're gone:
 - **Mail arrives and we hold it.** No 30-day clock, no forwarding deadline, no "sign up again next season." Your box stays yours, month to month, all winter.
 - **Packages from every carrier get signed for** by a staff member and held in a locked building. A FedEx box with a signature requirement arrives in November — it waits for you, not on a porch.
 - **We notify you within four hours** of mail arriving. You check in from your phone in Naples or Fort Myers and see what's in the box.
-- **You decide what happens next.** Call us when you're ready and we'll have it all waiting when you roll through. Or set up **mail forwarding** — we bundle it up and send it to your Florida address, weekly, bi-weekly, monthly, or just when you call and say "send it all." You can even use our [digital mailbox option](/home-business/digital-mailbox-rental) to see scans of your envelopes from anywhere and tell us to open, forward, or shred.
+- **You decide what happens next.** Call us when you're ready and we'll have it all waiting when you roll through. Or set up **mail forwarding** — we bundle it up and send it to your Florida address, weekly, bi-weekly, monthly, or just when you call and say "send it all." You can even use our [digital mailbox option](/home-business/digital-mailbox-rental/) to see scans of your envelopes from anywhere and tell us to open, forward, or shred.
 
 Then in April, you drive home, walk in, and pick up the stack. The same store, the same people, the same box number — season after season. No forms filed in October. No forms canceled in April. The address is the constant; you're the variable.
 
@@ -124,8 +124,8 @@ That's what a real local mailbox gives a snowbird: the address works when you're
 
 ## Set It Up Before You Head South
 
-Ten minutes, two forms of ID, and you're set for the season — and every season after it. See our [private mailbox rental page](/private-mailbox-rental-concord-township) for rates and details, or stop by **7554 Fredle Drive in Concord Township** before you leave. We'll get you set up the same day.
+Ten minutes, two forms of ID, and you're set for the season — and every season after it. See our [private mailbox rental page](/private-mailbox-rental-concord-township/) for rates and details, or stop by **7554 Fredle Drive in Concord Township** before you leave. We'll get you set up the same day.
 
-If you're still deciding between a PO box and a real mailbox, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box) covers the carrier and delivery differences that matter even more when you're not around to pick things up. And when you're ready to send the winter's mail south, our [mail forwarding service](/mail-forwarding-concord-township) page walks through how bundling works — weekly, bi-weekly, monthly, or just when you call.
+If you're still deciding between a PO box and a real mailbox, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) covers the carrier and delivery differences that matter even more when you're not around to pick things up. And when you're ready to send the winter's mail south, our [mail forwarding service](/mail-forwarding-concord-township/) page walks through how bundling works — weekly, bi-weekly, monthly, or just when you call.
 
 Your address can do the hard part. Go enjoy the sunshine.

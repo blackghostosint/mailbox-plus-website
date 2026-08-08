@@ -135,8 +135,8 @@ One address. Four years. Zero reshuffling.
 
 ## Set It Up Before the Semester Starts
 
-The cheapest insurance you can buy for your student's paperwork is one hour and one visit before the chaos begins. Come in and we'll get the Form 1583 done — two forms of ID, ten minutes, address active the same day. See our [private mailbox rental page](/private-mailbox-rental-concord-township) for details, or stop by **7554 Fredle Drive in Concord Township**.
+The cheapest insurance you can buy for your student's paperwork is one hour and one visit before the chaos begins. Come in and we'll get the Form 1583 done — two forms of ID, ten minutes, address active the same day. See our [private mailbox rental page](/private-mailbox-rental-concord-township/) for details, or stop by **7554 Fredle Drive in Concord Township**.
 
-If you're still deciding between a PO box and a real mailbox, start with [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box) — the carrier and delivery differences apply to students exactly the same way. And for the full picture of what a street address gets you that a box number can't, read [Why Your Home Business Deserves a Real Street Address](/articles/concord-township-business-real-street-address) — those same forms are the ones your student will fill out for the next decade.
+If you're still deciding between a PO box and a real mailbox, start with [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) — the carrier and delivery differences apply to students exactly the same way. And for the full picture of what a street address gets you that a box number can't, read [Why Your Home Business Deserves a Real Street Address](/articles/concord-township-business-real-street-address/) — those same forms are the ones your student will fill out for the next decade.
 
 Your student is going to live at four different addresses in the next four years. Their mail doesn't have to.

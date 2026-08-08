@@ -105,7 +105,7 @@ At Mailbox Plus in Concord Township, the process is simple and the paperwork is 
 1. **Walk in with two forms of ID.** We're a registered Commercial Mail Receiving Agency, so we keep a USPS Form 1583 on file for every mailbox holder — the same federal paperwork national mailbox services use, minus the middleman. One primary photo ID and one secondary ID with your current address, about ten minutes, and you're done.
 2. **Get your street address.** Your LLC gets a real street address — 7554 Fredle Drive, Suite #\_\_\_, Concord Township, Ohio 44077 — that all four carriers deliver to. We sign for packages and hold them in a locked area.
 3. **Use it everywhere a business address is required.** The bank's business-address line. The vendor form's physical-address field. Your licenses. Your website footer. Your invoices. Your shipping labels. One professional address, repeated everywhere, none of it your home.
-4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
+4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
 
 Rates for a small mailbox start around **$35/month** — a fraction of an office lease, month to month, no annual contract. For a new LLC, that's the cheapest "real street address" you'll find.
 
@@ -139,7 +139,7 @@ Skipping either half isn't free — the cost just shows up later.
 
 Forming the LLC is the easy part — the address decisions are what most owners get wrong. Fill the statutory agent slot properly, then give your business a real street address that isn't your home.
 
-Ten minutes, two forms of ID, and your LLC has a professional address at 7554 Fredle Drive in Concord Township — right off the highway, all four carriers delivering, and a staffed counter that signs for your packages. Start with our [mailbox rental page for home businesses](/home-business/mailbox-rental) for pricing and details. If you're still deciding between a post-office box and a real address, our [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box) covers the difference in plain terms — and our [guide to real street addresses for local businesses](/articles/concord-township-business-real-street-address) explains the Ohio filing side of the same decision.
+Ten minutes, two forms of ID, and your LLC has a professional address at 7554 Fredle Drive in Concord Township — right off the highway, all four carriers delivering, and a staffed counter that signs for your packages. Start with our [mailbox rental page for home businesses](/home-business/mailbox-rental/) for pricing and details. If you're still deciding between a post-office box and a real address, our [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box/) covers the difference in plain terms — and our [guide to real street addresses for local businesses](/articles/concord-township-business-real-street-address/) explains the Ohio filing side of the same decision.
 
 Your business is real. Give it an address that looks the part — and keep your home exactly where it belongs.
 

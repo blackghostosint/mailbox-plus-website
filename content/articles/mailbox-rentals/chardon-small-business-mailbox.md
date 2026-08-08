@@ -186,4 +186,4 @@ Reclaim your privacy. Enhance your professionalism. Empower your Chardon small b
 
 _Ready to explore additional resources for small businesses? The [SBA small business resources](https://www.sba.gov/) offers valuable information for entrepreneurs._
 
-_Discover more ways to support your home-based business with our dedicated [mailbox rental services](/home-business/mailbox-rental) and convenient [notary services](/home-business/notary-services)._
+_Discover more ways to support your home-based business with our dedicated [mailbox rental services](/home-business/mailbox-rental/) and convenient [notary services](/home-business/notary-services/)._

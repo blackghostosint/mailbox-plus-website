@@ -22,7 +22,7 @@ const areas = serviceAreas.filter(a => !a.id.startsWith('faq-'));
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
       {areas.map((area) => (
         <a
-          href={`/service-area/${area.slug}`}
+          href={`/service-area/${area.slug}/`}
           class="block rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
         >
           <h2 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">{area.serviceName}</h2>

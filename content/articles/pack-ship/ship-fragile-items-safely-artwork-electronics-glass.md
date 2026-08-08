@@ -133,4 +133,4 @@ The buyer in Portland sends you a photo when it arrives. The frame is perfect.
 
 If you need to ship something fragile — a painting, a piece of electronics, a glass item, anything that cannot take a drop — bring it to Mailbox Plus at 7554 Fredle Drive in Concord Township. We pack it right, with two inches of cushioning on every side, in a box that can handle the trip.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

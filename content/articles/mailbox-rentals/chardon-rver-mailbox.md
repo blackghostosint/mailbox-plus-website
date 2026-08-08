@@ -120,5 +120,5 @@ Reclaim your time, protect your privacy, and secure your essential connections. 
 
 Explore our services online:
 
-- [Mailbox Rental for Home and Personal Use](/home-business/mailbox-rental)
-- [Digital Mailbox Rental for Ultimate Flexibility](/home-business/digital-mailbox-rental)
+- [Mailbox Rental for Home and Personal Use](/home-business/mailbox-rental/)
+- [Digital Mailbox Rental for Ultimate Flexibility](/home-business/digital-mailbox-rental/)

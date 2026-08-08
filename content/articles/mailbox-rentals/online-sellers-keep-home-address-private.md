@@ -92,7 +92,7 @@ Watch what happens on each platform:
 
 One address, three platforms, zero homes exposed.
 
-That's the whole pitch, and it's why we built [our private mailbox rental in Concord Township](/private-mailbox-rental-concord-township) the way we did.
+That's the whole pitch, and it's why we built [our private mailbox rental in Concord Township](/private-mailbox-rental-concord-township/) the way we did.
 
 ## How a Mailbox Plus Private Mailbox Works
 
@@ -104,7 +104,7 @@ At Mailbox Plus, on **7554 Fredle Drive in Concord Township, Ohio 44077**, the p
 
 Rates start around **$35/month** — a price point that looks even better once you count what you're not paying: no office rent, no UPS Store markup, no anxiety.
 
-And because we're a staffed store, not a kiosk, your mail and packages are handled by people who will text you when something lands. If you sell in the area, you can even pick up and drop off at the same counter where you ship — our [pack-and-ship services](/pack-ship) cover all four carriers under one roof.
+And because we're a staffed store, not a kiosk, your mail and packages are handled by people who will text you when something lands. If you sell in the area, you can even pick up and drop off at the same counter where you ship — our [pack-and-ship services](/pack-ship/) cover all four carriers under one roof.
 
 ## What It Costs to Keep Your Home on the Label
 
@@ -113,7 +113,7 @@ Let's be concrete about the other option — doing nothing.
 - **At $20K in eBay sales,** your full home address goes into every order confirmation. That's not speculation; it's the law, stated in eBay's own INFORM Act guidance.
 - **Your address is now searchable.** Reverse-address tools, property records, and social search connect a street address to a name in minutes. The r/Etsy sellers who worry about this aren't paranoid; they're early.
 - **A PO box doesn't fix Amazon.** It's the wrong tool for the strictest platform, which leaves you running a two-address system that leaks anyway.
-- **Porch theft gets personal.** When a package goes missing, the thief now knows exactly where the seller lives. Our [package protection article](/articles/porch-theft-lake-county-protect-packages) covers what that actually looks like in Lake County.
+- **Porch theft gets personal.** When a package goes missing, the thief now knows exactly where the seller lives. Our [package protection article](/articles/porch-theft-lake-county-protect-packages/) covers what that actually looks like in Lake County.
 - **Returns become an invitation.** Every return label you print is a map to your house, handed to a stranger who is already annoyed enough to send something back.
 
 None of these are dramatic on day one. They're the cost of a slow leak — until the day one of them isn't slow.
@@ -130,9 +130,9 @@ You still run your business from home. You just don't advertise it anymore.
 
 ## Take Your Address Off the Label
 
-Ten minutes, two forms of ID, and a street address that isn't your house. Start with our [private mailbox rental page](/private-mailbox-rental-concord-township) for pricing and details, or stop by **7554 Fredle Drive** — we're right off Route 306 in Concord Township, about fifteen minutes from the Chardon Square if you're coming from Geauga County.
+Ten minutes, two forms of ID, and a street address that isn't your house. Start with our [private mailbox rental page](/private-mailbox-rental-concord-township/) for pricing and details, or stop by **7554 Fredle Drive** — we're right off Route 306 in Concord Township, about fifteen minutes from the Chardon Square if you're coming from Geauga County.
 
-If you're weighing a mailbox against a post office box, our [Private Mailbox vs PO Box breakdown](/articles/private-mailbox-vs-po-box) spells out the carrier and delivery differences that matter even more when packages — not just letters — are the point. And for the broader seller picture — the rate hikes, the carrier shifts, the stuff that eats your margin — our [shipping costs article for online sellers](/articles/usps-rate-increase-online-sellers) has the full rundown.
+If you're weighing a mailbox against a post office box, our [Private Mailbox vs PO Box breakdown](/articles/private-mailbox-vs-po-box/) spells out the carrier and delivery differences that matter even more when packages — not just letters — are the point. And for the broader seller picture — the rate hikes, the carrier shifts, the stuff that eats your margin — our [shipping costs article for online sellers](/articles/usps-rate-increase-online-sellers/) has the full rundown.
 
 Your labels are going out either way. The only question is whose address is on them.
 

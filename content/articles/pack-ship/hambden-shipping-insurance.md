@@ -61,6 +61,6 @@ No one says "sorry, that is the $100 limit." No one shrugs and hands you a prepa
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden.
 
-We also [professionally pack](/pack-ship/professional-packing) the item before we ship it. Proper packing reduces the chance of damage. Insurance covers the chance that damage still happens. You use both.
+We also [professionally pack](/pack-ship/professional-packing/) the item before we ship it. Proper packing reduces the chance of damage. Insurance covers the chance that damage still happens. You use both.
 
-[Ship your valuable item from Hambden](/specialty/insurance). Declare the real value. Get paid the real value if something goes wrong.
+[Ship your valuable item from Hambden](/specialty/insurance/). Declare the real value. Get paid the real value if something goes wrong.

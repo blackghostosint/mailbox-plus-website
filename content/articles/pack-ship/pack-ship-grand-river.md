@@ -30,7 +30,7 @@ author: 'Mailbox Plus Team'
 
 Life in Grand River moves at its own pace—between the scenic river views, the bustling marinas, and the close-knit local community, your time is valuable. But when you need to ship a delicate package or handle business returns, the last thing you want to do is drive all over Lake County searching for the best rates.
 
-While we all love our local post office for everyday mail and [postage stamps](/pack-ship/postage-stamps), sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Grand River.
+While we all love our local post office for everyday mail and [postage stamps](/pack-ship/postage-stamps/), sometimes you need a broader range of services—like comparing rates between major carriers or getting a delicate antique [professionally packed](/pack-ship/professional-packing/) for transit. That's where **Mailbox Plus** steps in as your premier choice for everything "pack and ship" just minutes away from Grand River.
 
 ![Professional pack and ship services for Grand River residents at Mailbox Plus](articles/pack-ship/pack-ship-grand-river-featured.webp)
 
@@ -40,10 +40,10 @@ If you've ever waited in a long line only to realize you're paying more for ship
 
 At Mailbox Plus, we serve as a multi-carrier hub. This means you can walk in with a package and compare real-time rates and delivery windows for:
 
-- **[UPS](/pack-ship/ups-authorized-shipper-outlet):** The reliable choice for ground shipping and heavier parcels.
-- **[FedEx](/pack-ship/fedex-shipping):** Ideal for express shipping and convenient retail returns.
-- **[DHL](/pack-ship/dhl-express):** Our go-to for secure document and small parcel delivery within the U.S.
-- **[USPS](/pack-ship/usps-services):** Perfect for lightweight mail and traditional postal needs.
+- **[UPS](/pack-ship/ups-authorized-shipper-outlet/):** The reliable choice for ground shipping and heavier parcels.
+- **[FedEx](/pack-ship/fedex-shipping/):** Ideal for express shipping and convenient retail returns.
+- **[DHL](/pack-ship/dhl-express/):** Our go-to for secure document and small parcel delivery within the U.S.
+- **[USPS](/pack-ship/usps-services/):** Perfect for lightweight mail and traditional postal needs.
 
 By having all these carriers in one place, we help you pick the solution that best fits your budget and deadline in a single stop.
 
@@ -55,15 +55,15 @@ Professional packing is more than just tape and a box. At Mailbox Plus, we use h
 
 ## Business-Grade Services for Waterfront Entrepreneurs
 
-Grand River is a hub for local artisans and marine businesses. We support our local entrepreneurial community with more than just shipping — including [package receiving](/pack-ship/package-receiving) for your business deliveries when you can't be at the dock:
+Grand River is a hub for local artisans and marine businesses. We support our local entrepreneurial community with more than just shipping — including [package receiving](/pack-ship/package-receiving/) for your business deliveries when you can't be at the dock:
 
-- **[Notary Public](/home-business/notary-services):** Fast, professional notarization for contracts, legal forms, and affidavits.
-- **[Private Mailbox Rentals](/home-business/mailbox-rental):** Get a real street address for your business, improving your professional image and keeping your home address private.
-- **[Printing & Copying](/copy-print):** High-quality color and black-and-white services for flyers, project plans, and business documents.
-- **[Document Scanning](/home-business/document-scanning):** Convert paper records into organized digital files — perfect for boat registrations, insurance documents, and business paperwork.
+- **[Notary Public](/home-business/notary-services/):** Fast, professional notarization for contracts, legal forms, and affidavits.
+- **[Private Mailbox Rentals](/home-business/mailbox-rental/):** Get a real street address for your business, improving your professional image and keeping your home address private.
+- **[Printing & Copying](/copy-print/):** High-quality color and black-and-white services for flyers, project plans, and business documents.
+- **[Document Scanning](/home-business/document-scanning/):** Convert paper records into organized digital files — perfect for boat registrations, insurance documents, and business paperwork.
 
 ## Your 10-Minute Solution to Shipping Stress
 
-Convenience is key. Located just up the road in [Concord Township](/service-area/concord-township), Mailbox Plus is designed to get you in and out quickly. Skip the long lines at the corporate hubs in [Mentor](/service-area/mentor) and enjoy the personalized service of a locally-owned business that understands the Lake County community.
+Convenience is key. Located just up the road in [Concord Township](/service-area/concord-township/), Mailbox Plus is designed to get you in and out quickly. Skip the long lines at the corporate hubs in [Mentor](/service-area/mentor/) and enjoy the personalized service of a locally-owned business that understands the Lake County community.
 
-The next time you need to pack and ship from Grand River, visit us at **[Mailbox Plus](/contact-us)**. We're here to make your shipping experience as smooth as a calm day on the lake.
+The next time you need to pack and ship from Grand River, visit us at **[Mailbox Plus](/contact-us/)**. We're here to make your shipping experience as smooth as a calm day on the lake.

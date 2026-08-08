@@ -4,7 +4,7 @@ import { articleLoader } from '../../utils/articleLoader';
 import { marked } from 'marked';
 import { getArticleSchema, getWebPageSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
-import { toCanonicalUrl } from '../../utils/canonical-url';
+import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
 
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
@@ -158,7 +158,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
             {relatedServices.map((servicePath: string) => {
               const label = servicePath.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()) || 'View Service';
               return (
-                <a href={servicePath} class="group p-6 rounded-xl transition-all duration-300 cursor-pointer bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-accent-warm)]/10">
+                <a href={normalizePathname(servicePath)} class="group p-6 rounded-xl transition-all duration-300 cursor-pointer bg-[var(--color-bg-secondary)] border border-[var(--color-border)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-accent-warm)]/10">
                   <div class="flex justify-between items-center">
                     <span class="font-semibold group-hover:text-[var(--color-accent-warm)]" style="color: var(--color-text-primary)">
                       {label}
@@ -181,10 +181,10 @@ const webPageSchema = getWebPageSchema(siteConfig, {
           Stop by our location in Concord Township or give us a call. We're here to help with all your shipping and printing needs.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact-us" class="px-6 py-3 rounded-lg bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-semibold border-none hover:bg-[var(--color-accent-warm-light)] transition-colors">
+          <a href="/contact-us/" class="px-6 py-3 rounded-lg bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-semibold border-none hover:bg-[var(--color-accent-warm-light)] transition-colors">
             Contact Us
           </a>
-          <a href="/services" class="px-6 py-3 rounded-lg border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-semibold hover:bg-[var(--color-accent-warm)] hover:text-[var(--color-primary-dark)] transition-colors">
+          <a href="/services/" class="px-6 py-3 rounded-lg border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-semibold hover:bg-[var(--color-accent-warm)] hover:text-[var(--color-primary-dark)] transition-colors">
             View All Services
           </a>
         </div>
@@ -192,7 +192,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
 
       {/* Back to Articles */}
       <div class="mt-12 pt-8" style="border-top: 1px solid var(--color-border)">
-        <a href="/articles" class="text-[var(--color-accent-warm)] hover:underline font-semibold">&larr; Back to Articles</a>
+        <a href="/articles/" class="text-[var(--color-accent-warm)] hover:underline font-semibold">&larr; Back to Articles</a>
       </div>
     </div>
   </div>

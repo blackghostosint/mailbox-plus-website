@@ -76,4 +76,4 @@ Copies do not have to be a project. They can be a simple stop. Hand us the origi
 
 We take returns. We ship your stuff.
 
-**[Get copies done →](/copy-print/copies)** | **[Full document printing →](/copy-print/document-printing)**
+**[Get copies done →](/copy-print/copies/)** | **[Full document printing →](/copy-print/document-printing/)**

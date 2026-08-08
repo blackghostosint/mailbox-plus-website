@@ -43,7 +43,7 @@ But you should not have to grumble. You should not have to pay more than the bes
 
 ## Four Carriers, One Stop, Real Numbers
 
-At **Mailbox Plus** in Concord Township, there is no single-carrier loyalty at play. We are independent. We are authorized for [FedEx](/pack-ship/fedex-shipping), [UPS](/pack-ship/ups-authorized-shipper-outlet), USPS, and DHL. When you put a package on the counter, we pull up rates from all four.
+At **Mailbox Plus** in Concord Township, there is no single-carrier loyalty at play. We are independent. We are authorized for [FedEx](/pack-ship/fedex-shipping/), [UPS](/pack-ship/ups-authorized-shipper-outlet/), USPS, and DHL. When you put a package on the counter, we pull up rates from all four.
 
 You see the numbers. You pick the one that works. It takes as long as reading a paragraph.
 
@@ -65,4 +65,4 @@ You are already driving 12 miles to ship a package. That 12 miles should get you
 
 Mailbox Plus is at 7554 Fredle Drive in Concord Township. Fifteen minutes from Hambden. Same drive. Better outcome.
 
-[Bring your package in today](/contact-us). See all four rates. Pick the best one. Pay less than you have been.
+[Bring your package in today](/contact-us/). See all four rates. Pick the best one. Pay less than you have been.

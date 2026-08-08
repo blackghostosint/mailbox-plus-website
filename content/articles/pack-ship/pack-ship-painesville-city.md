@@ -36,35 +36,35 @@ That's where the "Drop-Box" convenience ends and the "Full-Service" frustration 
 
 The difference is simple: **We do the work for you.**
 
-Local pharmacies and dollar stores are great for [dropping off a return](/amazon-returns), but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
+Local pharmacies and dollar stores are great for [dropping off a return](/amazon-returns/), but they aren't shipping experts. They don't provide packing tape, they don't have custom boxes, and they certainly won't help you wrap a porcelain vase.
 
 At Mailbox Plus, we are professional packers. We don't just take your box; we ensure your items are cushioned, secured, and ready for a bumpy ride.
 
 ## FedEx, UPS, and DHL Services Minutes from Downtown Painesville
 
-You don't have to drive across the county to find your preferred carrier. We are located at **[7554 Fredle Dr. in Concord Township](/contact-us)**, which is just a 5 to 10-minute drive from downtown Painesville.
+You don't have to drive across the county to find your preferred carrier. We are located at **[7554 Fredle Dr. in Concord Township](/contact-us/)**, which is just a 5 to 10-minute drive from downtown Painesville.
 
-We are a truly carrier-neutral hub. That means you can bring one package for [FedEx](/pack-ship/fedex-shipping), one for [UPS](/pack-ship/ups-authorized-shipper-outlet), and a pile of mail for the [USPS](/pack-ship/usps-services), and we'll handle it all in one transaction. No more driving from one end of town to the other just to satisfy different shipping labels.
+We are a truly carrier-neutral hub. That means you can bring one package for [FedEx](/pack-ship/fedex-shipping/), one for [UPS](/pack-ship/ups-authorized-shipper-outlet/), and a pile of mail for the [USPS](/pack-ship/usps-services/), and we'll handle it all in one transaction. No more driving from one end of town to the other just to satisfy different shipping labels.
 
 ## Packaging Supplies and Moving Boxes for 44077
 
-Running out of tape halfway through a move is a universal nightmare. If you're packing up an office in downtown [Painesville](/service-area/painesville) or moving out of a dorm at Lake Erie College, you need real supplies.
+Running out of tape halfway through a move is a universal nightmare. If you're packing up an office in downtown [Painesville](/service-area/painesville/) or moving out of a dorm at Lake Erie College, you need real supplies.
 
 We stock:
 
 - Standard and heavy-duty moving boxes.
 - Professional-grade packing tape and dispensers.
 - Bubble wrap, packing peanuts, and cushioning.
-- [Custom-sized boxes](/pack-ship/custom-box-making) for those "impossible" items.
+- [Custom-sized boxes](/pack-ship/custom-box-making/) for those "impossible" items.
 
 ## International Shipping from Painesville (DHL Experts)
 
-Shipping overseas is complicated—customs forms, duties, and taxes can be a minefield. Many Painesville residents and international students rely on us because we are **[DHL Authorized Shipping Experts](/pack-ship/dhl-express)**. We'll make sure your international parcels are documented correctly so they don't get stuck in a warehouse halfway across the world.
+Shipping overseas is complicated—customs forms, duties, and taxes can be a minefield. Many Painesville residents and international students rely on us because we are **[DHL Authorized Shipping Experts](/pack-ship/dhl-express/)**. We'll make sure your international parcels are documented correctly so they don't get stuck in a warehouse halfway across the world.
 
 ## Skip the Lines and the Stress
 
-You shouldn't have to settle for a "[drop-off only](/pack-ship/package-drop-offs)" experience. Your packages deserve better, and your schedule definitely does too.
+You shouldn't have to settle for a "[drop-off only](/pack-ship/package-drop-offs/)" experience. Your packages deserve better, and your schedule definitely does too.
 
 Skip the Post Office lines and the pharmacy drop-off headaches. Come see the professionals at **Mailbox Plus**. We'll get you packed, shipped, and back to your day in record time.
 
-**While you're here:** Ask us about our [Digital Mailbox services](/home-business/digital-mailbox-rental)—perfect for Painesville residents who travel or want a secure business address!
+**While you're here:** Ask us about our [Digital Mailbox services](/home-business/digital-mailbox-rental/)—perfect for Painesville residents who travel or want a secure business address!

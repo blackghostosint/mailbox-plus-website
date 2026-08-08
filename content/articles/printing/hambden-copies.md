@@ -46,7 +46,7 @@ You walk in, you hand us the stack, you walk out with the copies. It takes less 
 
 A self-serve copy at the library is ten cents a page. Black-and-white. You do the work.
 
-At Mailbox Plus, [black-and-white copies](/copy-print/copies) start at a comparable rate. But you do not stand there. You do not fix the jam. You do not sort the pages. You hand us the stack. You get back to your day.
+At Mailbox Plus, [black-and-white copies](/copy-print/copies/) start at a comparable rate. But you do not stand there. You do not fix the jam. You do not sort the pages. You hand us the stack. You get back to your day.
 
 You need thirty copies of a five-page bid for a Hambden Township property. That is 150 pages. On a self-serve machine, you stand there for fifteen minutes feeding pages. At Mailbox Plus, you hand us the originals and come back to a finished stack.
 
@@ -54,7 +54,7 @@ You need thirty copies of a five-page bid for a Hambden Township property. That 
 
 Sometimes a copy is not enough. You need the document printed from a PDF. You need it on letterhead. You need it folded and inserted into an envelope.
 
-We do that too. [Document printing](/copy-print/document-printing) from digital files. Same counter. Same person. Same quick turnaround.
+We do that too. [Document printing](/copy-print/document-printing/) from digital files. Same counter. Same person. Same quick turnaround.
 
 Self-serve assumes you have time to fiddle with a machine. Mailbox Plus assumes you have better things to do.
 

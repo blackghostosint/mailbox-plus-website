@@ -52,8 +52,8 @@ You are not saving money on gas. You are saving the second and third stops. You 
 
 ## What Else You Can Do There
 
-While you are dropping off the returns, you can pick up [packaging supplies](/pack-ship/package-drop-offs) for the next shipment. You can ask about [mailbox rentals](/home-business/mailbox-rental) if the multi-carrier problem feels like a recurring theme in your life.
+While you are dropping off the returns, you can pick up [packaging supplies](/pack-ship/package-drop-offs/) for the next shipment. You can ask about [mailbox rentals](/home-business/mailbox-rental/) if the multi-carrier problem feels like a recurring theme in your life.
 
 The counter is open on Saturdays too.
 
-[Bring your returns to Mailbox Plus](/pack-ship). All three carriers. One counter. Done.
+[Bring your returns to Mailbox Plus](/pack-ship/). All three carriers. One counter. Done.

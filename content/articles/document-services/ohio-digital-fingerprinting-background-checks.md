@@ -128,4 +128,4 @@ You walk out. You were in the store for twelve minutes.
 
 If you need to get fingerprinted for a job, a license, or an adoption, do not spend a week chasing appointments at the sheriff's office. Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township. Digital fingerprinting, no appointment needed, in and out in fifteen minutes.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)

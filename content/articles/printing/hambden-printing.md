@@ -34,7 +34,7 @@ The home printer is not going to deliver.
 
 ## While You Wait Printing
 
-At **Mailbox Plus**, [document printing](/copy-print/document-printing) does not require a cartridge. It requires a USB drive or an email. You send us the file. We send it to a commercial printer that does not run out of ink halfway through page twelve.
+At **Mailbox Plus**, [document printing](/copy-print/document-printing/) does not require a cartridge. It requires a USB drive or an email. You send us the file. We send it to a commercial printer that does not run out of ink halfway through page twelve.
 
 We print your documents on the machine we maintain. We check the output. We staple it. We hand it to you.
 
@@ -46,7 +46,7 @@ Flyers for your Hambden business. Bid packets for a township project. Forms for 
 
 Black-and-white. Color. Single-sided. Double-sided. Stapled. Bound. Hole-punched.
 
-The [print counter](/copy-print) handles whatever you bring. A file on a USB stick. A PDF attached to an email. A stack of originals you want scanned and reprinted.
+The [print counter](/copy-print/) handles whatever you bring. A file on a USB stick. A PDF attached to an email. A stack of originals you want scanned and reprinted.
 
 ## The Same Drive, Different Outcome
 

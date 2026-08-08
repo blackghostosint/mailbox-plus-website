@@ -36,7 +36,7 @@ You did not mean to send that message. But the card sent it anyway.
 
 ## Professional Design, Professional Print
 
-At **Mailbox Plus**, [graphic design](/copy-print/graphic-design) starts with a conversation. What does your business do? Who are your customers? What feeling do you want the card to leave?
+At **Mailbox Plus**, [graphic design](/copy-print/graphic-design/) starts with a conversation. What does your business do? Who are your customers? What feeling do you want the card to leave?
 
 We build the layout. We pick the colors. We set the type so it reads clean. We check the margins. We send you a proof.
 
@@ -44,7 +44,7 @@ When you approve it, we print it on real card stock — 14-point, matte or gloss
 
 ## More Than Business Cards
 
-The same service covers [flyers, brochures, postcards, and door hangers](/copy-print). The landscaping company that hands a homeowner a glossy flyer with before-and-after photos gets more calls than the one handing out a photocopied sheet with a faded font.
+The same service covers [flyers, brochures, postcards, and door hangers](/copy-print/). The landscaping company that hands a homeowner a glossy flyer with before-and-after photos gets more calls than the one handing out a photocopied sheet with a faded font.
 
 Mailbox Plus designs and prints all of it. One conversation. One proof. One run on professional equipment.
 

@@ -1,6 +1,7 @@
 import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
+import { normalizePathname } from './canonical-url';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
 export type ServiceId = keyof typeof internalLinks;
@@ -10,19 +11,27 @@ export type ServiceId = keyof typeof internalLinks;
  * These avoid importing large config files like services.ts or serviceAreas.ts.
  */
 
+/**
+ * Normalizes a siteStructure URL to its trailing-slash canonical form at the
+ * emit boundary. siteStructure.json stores no-slash URLs (used by breadcrumb
+ * comparisons that strip the slash); hrefs emitted from them MUST carry the
+ * trailing slash so internal links agree with the canonical URLs Google chose.
+ */
+export const normalizeHref = (url: string): string => normalizePathname(url);
+
 export const getInternalLink = (serviceId: string) => {
   // Find the service in the site structure
   for (const pillar of siteStructure.pillars) {
-    if (pillar.id === serviceId) return pillar;
+    if (pillar.id === serviceId) return { ...pillar, url: normalizeHref(pillar.url) };
     const child = pillar.children.find((c) => c.id === serviceId);
-    if (child) return child;
+    if (child) return { ...child, url: normalizeHref(child.url) };
   }
   // Check sub-supporting
   const sub = siteStructure.subSupporting.find((s) => s.id === serviceId);
-  if (sub) return sub;
+  if (sub) return { ...sub, url: normalizeHref(sub.url) };
   // Check SEO landing pages (town variants, competitor alternatives)
   const seo = siteStructure['seo-landing']?.find((s) => s.id === serviceId);
-  if (seo) return seo;
+  if (seo) return { ...seo, url: normalizeHref(seo.url) };
 
   return null;
 };

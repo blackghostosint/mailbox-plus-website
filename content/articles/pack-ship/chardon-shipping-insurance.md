@@ -84,7 +84,7 @@ Marsh is a global leader in insurance broking and risk management. This isn't ca
 
 Remember that unsettling sound bite? "That $1,500 item ships with $100 carrier liability. That's a $1,400 gap. Close it with Marsh third-party insurance at Mailbox Plus." We don't just say it; we _do_ it. Our team will guide you through the process, ensuring your valuable Chardon shipment is protected at its true worth, not some arbitrary, insulting minimum.
 
-You can learn more about our dedicated insurance services at [/specialty/insurance](/specialty/insurance). We're here to offer you the peace of mind you deserve, right here, just a short drive from Chardon.
+You can learn more about our dedicated insurance services at [/specialty/insurance](/specialty/insurance/). We're here to offer you the peace of mind you deserve, right here, just a short drive from Chardon.
 
 ## How It Works
 
@@ -102,7 +102,7 @@ At this crucial moment, we naturally and proactively address the very issue that
 
 There’s no need to feel pressured or confused. Our team will explain the benefits, the cost (which is surprisingly affordable for the peace of mind it provides), and how this third-party insurance ensures you are reimbursed for the _actual_ value of your item, should the unexpected happen. We’ll help you complete the necessary paperwork quickly and efficiently.
 
-What if your item isn’t perfectly packed? Don’t worry. Our experts are also here to assist. If you’re unsure about your packing, or if an item needs professional reinforcement to meet insurance standards and ensure maximum safety, our professional packing services are available. We have all the specialized materials and expertise to secure your item properly. Learn more about our packing services at [/pack-ship/professional-packing](/pack-ship/professional-packing).
+What if your item isn’t perfectly packed? Don’t worry. Our experts are also here to assist. If you’re unsure about your packing, or if an item needs professional reinforcement to meet insurance standards and ensure maximum safety, our professional packing services are available. We have all the specialized materials and expertise to secure your item properly. Learn more about our packing services at [/pack-ship/professional-packing](/pack-ship/professional-packing/).
 
 **Step 3: Walk Out. Done in Under 3 Minutes. With Complete Peace of Mind.**
 

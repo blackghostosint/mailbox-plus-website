@@ -180,6 +180,6 @@ We'll sit down with you, understand your goals for reaching Chardon homes, and w
 
 Don't let another day pass while your competitors’ messages are landing in mailboxes across Chardon. Seize the opportunity to become the recognized, trusted name in your community. Let us turn your vision into a beautifully printed reality, delivered directly to every door.
 
-Stop wrestling with complex marketing and start connecting. Visit us today, or learn more about our direct mail services at [/home-business/every-door-direct-mail](/home-business/every-door-direct-mail) and our printing capabilities at [/copy-print](/copy-print). For general marketing guidance, the SBA offers a helpful resource at [sba.gov/business-guide/market-your-business](https://www.sba.gov/business-guide/market-your-business).
+Stop wrestling with complex marketing and start connecting. Visit us today, or learn more about our direct mail services at [/home-business/every-door-direct-mail](/home-business/every-door-direct-mail/) and our printing capabilities at [/copy-print](/copy-print/). For general marketing guidance, the SBA offers a helpful resource at [sba.gov/business-guide/market-your-business](https://www.sba.gov/business-guide/market-your-business).
 
 Your Chardon neighbors are waiting. Let Mailbox Plus put you in their mailbox.

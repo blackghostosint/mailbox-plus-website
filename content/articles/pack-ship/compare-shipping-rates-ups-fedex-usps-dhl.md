@@ -126,4 +126,4 @@ If you are tired of guessing which carrier is cheapest, or driving from store to
 
 No appointment needed. No line-hopping between stores. One counter, four prices, you pick.
 
-[Visit Mailbox Plus today →](/contact-us)
+[Visit Mailbox Plus today →](/contact-us/)
