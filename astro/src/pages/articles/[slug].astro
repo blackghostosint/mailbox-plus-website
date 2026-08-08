@@ -79,9 +79,9 @@ const webPageSchema = getWebPageSchema(siteConfig, {
   title={title}
   description={description}
   canonical={`/articles/${slug}`}
+  ogImage={ogImage}
 >
   <Fragment slot="head">
-    <meta property="og:image" content={ogImage} />
     <meta property="og:type" content="article" />
     <meta property="article:published_time" content={pubDate} />
     {lastModified && <meta property="article:modified_time" content={lastModified} />}
