@@ -85,11 +85,14 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /MailboxPlusSalesPage.html /home-business/mailbox-rental/ 301!
 /mailboxplussalespage.html /home-business/mailbox-rental/ 301!
 
-# Research page: old standalone .html → new Astro page (301, all variants)
+# Research page: old standalone .html → new Astro page (301)
 # The page now lives at /research/shipping-label-osint/ as a first-class
 # Astro route with canonical, sitemap, and internal links.
+# NOTE: only the .html rule is needed. An extension-less rule would ALSO
+# match the trailing-slash URL (Netlify normalizes trailing slashes when
+# matching) and create a self-redirect loop. Netlify auto-redirects
+# /research/shipping-label-osint -> /research/shipping-label-osint/.
 /research/shipping-label-osint.html /research/shipping-label-osint/ 301!
-/research/shipping-label-osint /research/shipping-label-osint/ 301!
 
 # Redirects
 /shipping-near-me /service-area/concord-township/ 301
