@@ -63,6 +63,9 @@ jobs:
       - name: Run SEO internal href trailing-slash check
         run: npm run seo:check-href-slash
 
+      - name: Check for unreferenced public/data files (legacy-drift guard)
+        run: npm run check:public-data
+
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4

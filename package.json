@@ -23,6 +23,7 @@
     "seo:check-jsonld": "node scripts/seo/check-jsonld-absolute-urls.mjs",
     "seo:check-canonical": "node scripts/seo/check-canonical-slash.mjs",
     "seo:check-href-slash": "node scripts/seo/check-internal-href-slash.mjs",
+    "check:public-data": "bash scripts/check-public-data-refs.sh",
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
