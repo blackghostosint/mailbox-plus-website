@@ -23,8 +23,13 @@ export default defineConfig({
     }),
     react(),
     sitemap({
-      filter: (page) => !page.includes('/404'),
-      lastmod: new Date(),
+      filter: (page) =>
+        !page.includes('/404') &&
+        !page.includes('/accept-invite') &&
+        !page.includes('/after-signup') &&
+        !page.includes('/rewards') &&
+        !page.includes('/terms') &&
+        !page.includes('/privacy'),
     }),
   ],
   trailingSlash: 'ignore',
