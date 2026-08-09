@@ -28,6 +28,8 @@ You did not give it to them. The county auditor did. The Ohio Bureau of Motor Ve
 
 Once one site has it, the rest scrape it. Once the scrapers have it, the marketing lists buy it. Once the marketing lists buy it, anyone with $4.95 can pull your full name, your address, your phone number, your relatives, and a satellite image of your house.
 
+A shipping label is often where that exposure starts — your name and address go on every package you send, and a single label can give a determined person the starting point for a full profile. We wrote up the complete attack path in our [shipping label OSINT guide](/research/shipping-label-osint/): how a name and address become a phone number, an email, social accounts, and a map of your life — and how a private mailbox stops it at step one.
+
 That is not a hypothetical. That is the product page on Spokeo.
 
 ## What Someone Does With It

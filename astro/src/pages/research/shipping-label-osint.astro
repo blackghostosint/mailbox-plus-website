@@ -1,0 +1,1173 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Shipping Label OSINT — The Label That Opens Every Door | Mailbox Plus';
+const description =
+  'A shipping label has your name and address. A bad actor uses OSINT to turn those two facts into your phone, email, social accounts, and more. See the attack path and how to defend against it.';
+---
+
+<BaseLayout title={title} description={description}>
+
+<div class="osint-page">
+  <div class="wrapper">
+      <!-- STICKY NAVIGATION — matches MailboxPlusSalesPage -->
+
+
+      <div class="wrapper">
+        <header class="doc-header">
+          <div class="badge">OSINT · Privacy Research</div>
+          <h1>The Label That Opens Every Door</h1>
+          <p class="subtitle">A Guide for Anyone Who Ships or Receives Mail</p>
+
+          <div
+            class="pipeline"
+            role="img"
+            aria-label="Data pipeline: Name leads to Phone leads to Email leads to Social leads to Profile"
+          >
+            <span class="pipeline-node" style="--i: 0">Name</span>
+            <span class="pipeline-arrow" style="--i: 0">⟶</span>
+            <span class="pipeline-node" style="--i: 1">Phone</span>
+            <span class="pipeline-arrow" style="--i: 1">⟶</span>
+            <span class="pipeline-node" style="--i: 2">Email</span>
+            <span class="pipeline-arrow" style="--i: 2">⟶</span>
+            <span class="pipeline-node" style="--i: 3">Social</span>
+            <span class="pipeline-arrow" style="--i: 3">⟶</span>
+            <span class="pipeline-node" style="--i: 4">Profile</span>
+          </div>
+        </header>
+
+        <article>
+          <section data-animate>
+            <p class="lead">
+              A shipping label seems simple. It has a name. It has an address. That is all.
+            </p>
+            <p class="lead"><strong>That is enough.</strong></p>
+            <p>
+              A bad actor starts with two facts. Your name. Your street. From there, they can find
+              your phone. They can find your email. They can find your relatives. They can find your
+              Facebook, your Instagram, your LinkedIn, your Twitter. They can find where you work.
+              They can find what your house is worth. They can find old addresses from five years ago.
+              They can find photos of your face.
+            </p>
+            <p>This guide shows how they do it.</p>
+            <p>
+              It does not tell you how to do it to someone else. It tells you what others can do to
+              you.
+            </p>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">01</span> You Ship a Package</h2>
+            <p>You tape the label. You drop the box in the mail. The label goes with the package.</p>
+            <p>
+              The label shows your name. It shows your address. You meant no harm. You thought it was
+              just paperwork.
+            </p>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">02</span> The Problem</h2>
+            <p>
+              A stranger finds that label. Or a worker at the shipping hub photographs it. Or the
+              stranger buys the data from a broker who scraped it from returns.
+            </p>
+            <p>
+              Now the stranger has a starting point. Name plus address is a skeleton key. One person
+              searches one website. A profile opens.
+            </p>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">03</span> This Guide</h2>
+            <p>
+              This guide is your window. It shows the path from label to full profile. You need to see
+              the path to block it.
+            </p>
+            <p>
+              The steps are real. The tools are real. The results are real. Knowing the steps lets you
+              stop them before they start.
+            </p>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">04</span> The Seven Phases</h2>
+
+            <div class="phases">
+              <div class="phase-item">
+                <div class="phase-num">1</div>
+                <div class="phase-content">
+                  <h3>Phase One. The People Search Engines</h3>
+                  <p>
+                    The stranger types your name and city into a website. These sites are free. They
+                    require no account.
+                  </p>
+                  <ul>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://www.truepeoplesearch.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >TruePeopleSearch</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://www.fastpeoplesearch.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >FastPeopleSearch</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://www.familytreenow.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >FamilyTreeNow</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://www.whitepages.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Whitepages</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://radaris.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Radaris</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="tool"
+                        href="https://www.spokeo.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        >Spokeo</a
+                      >
+                    </li>
+                  </ul>
+                  <p>
+                    These sites pull public records. Utility bills. Property deeds. Court filings.
+                    Voter rolls. Phone books. They combine them into one page.
+                  </p>
+                  <p>
+                    One name. One address. The site returns a list of phone numbers. It returns email
+                    addresses. It returns names of relatives. It returns old addresses. It returns
+                    associates.
+                  </p>
+                  <p><strong>Each new fact opens a new door.</strong></p>
+                </div>
+              </div>
+
+              <div class="phase-item">
+                <div class="phase-num">2</div>
+                <div class="phase-content">
+                  <h3>Phase Two. Property and Public Records</h3>
+                  <p>
+                    The stranger clicks on the county assessor's website. They search your street
+                    address.
+                  </p>
+                  <p>
+                    The assessor's page shows who owns the home. It shows the assessed value. It shows
+                    the last sale price. It shows the mortgage company. It shows the parcel map. It
+                    shows the lot size.
+                  </p>
+                  <p>
+                    If a business runs from that address, the stranger searches the Secretary of State
+                    business registry. They find the LLC filing. They see the registered agent. They
+                    see the officers.
+                  </p>
+                </div>
+              </div>
+
+              <div class="phase-item">
+                <div class="phase-num">3</div>
+                <div class="phase-content">
+                  <h3>Phase Three. Phone Number Analysis</h3>
+                  <p>The stranger has a phone number from Phase One. They enter it into new tools.</p>
+                  <p>
+                    <a
+                      class="tool"
+                      href="https://github.com/sundowndev/phoneinfoga"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >PhoneInfoga</a
+                    >
+                    shows the carrier. It shows whether the line is mobile or landline. It shows the
+                    country.
+                  </p>
+                  <p>
+                    <a
+                      class="tool"
+                      href="https://www.truecaller.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Truecaller</a
+                    >
+                    shows the name linked to the number. It shows the location.
+                  </p>
+                  <p>
+                    <a
+                      class="tool"
+                      href="https://www.spydialer.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Spy Dialer</a
+                    >
+                    plays the voicemail greeting if one exists. A voice confirms the identity.
+                  </p>
+                  <p>
+                    The stranger adds the number to WhatsApp. A profile appears. A picture. A status
+                    text. Last seen time.
+                  </p>
+                  <p>They check Telegram. A username. A bio. A list of groups.</p>
+                  <p>
+                    They check Facebook. They use the Forgot Password page. If the number is linked, a
+                    partial name appears.
+                  </p>
+                </div>
+              </div>
+
+              <div class="phase-item">
+                <div class="phase-num">4</div>
+                <div class="phase-content">
+                  <h3>Phase Four. Email Analysis</h3>
+                  <p>The stranger has an email from Phase One. This is the most powerful key.</p>
+                  <p>
+                    They enter the email into
+                    <a
+                      class="tool"
+                      href="https://epieos.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Epieos</a
+                    >. The tool returns the Google account linked to it. It shows a profile picture.
+                    It shows Google Maps reviews written by that person. It shows a Skype account. It
+                    shows a Gravatar image.
+                  </p>
+                  <p>
+                    It returns the email naming pattern for the person's employer. The domain is
+                    known. First initial last name at company dot com.
+                  </p>
+                  <p>
+                    They enter the email into
+                    <a
+                      class="tool"
+                      href="https://haveibeenpwned.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >HaveIBeenPwned</a
+                    >. The site tells them if the email appeared in a data breach. It lists which
+                    breach. It lists what was stolen. Passwords. Names. Addresses. Phone numbers.
+                  </p>
+                  <p>
+                    They enter the email into the Forgot Password page for Facebook. Instagram.
+                    LinkedIn. Twitter. TikTok. Snapchat. Each site responds. Some show the full
+                    account name. Some show the profile photo. Some show part of a username.
+                  </p>
+                </div>
+              </div>
+
+              <div class="phase-item">
+                <div class="phase-num">5</div>
+                <div class="phase-content">
+                  <h3>Phase Five. Social Media Cross-Reference</h3>
+                  <p>
+                    The stranger now has a name. An address. A phone. An email. They search social
+                    platforms.
+                  </p>
+                  <p>Facebook search: Name plus city. Results appear. The target's page.</p>
+                  <p>
+                    LinkedIn search: Name plus employer. The person's work history shows. Current job.
+                    Past jobs. Coworkers.
+                  </p>
+                  <p>Instagram: Name search. Or phone in the Find Friends tool.</p>
+                  <p>
+                    Twitter: Name. Location. Advanced search with
+                    <span class="code-like">near:"City"</span>.
+                  </p>
+                  <p>GitHub: Email or name. Code commits show the author's email.</p>
+                  <p>
+                    <a
+                      class="tool"
+                      href="https://github.com/sherlock-project/sherlock"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Sherlock</a
+                    >
+                    takes a username and hunts for it across four hundred sites. If the person uses
+                    the same handle everywhere, the stranger sees them all.
+                  </p>
+                </div>
+              </div>
+
+              <div class="phase-item">
+                <div class="phase-num">6</div>
+                <div class="phase-content">
+                  <h3>Phase Six. Advanced Methods</h3>
+                  <p>
+                    The stranger has a face from a profile photo. They upload it to Google Images.
+                    Yandex.
+                    <a
+                      class="tool"
+                      href="https://tineye.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >TinEye</a
+                    >. Baidu.
+                    <a
+                      class="tool"
+                      href="https://pimeyes.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Pimeyes</a
+                    >. The search finds the same face on other sites. It finds other photos.
+                  </p>
+                  <p>
+                    They search
+                    <a
+                      class="tool"
+                      href="https://informeddelivery.usps.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >USPS Informed Delivery</a
+                    >. The stranger signs up for the target's address using knowledge-based
+                    authentication questions. The answers came from the people-search sites. No alert
+                    goes to the target. The stranger now receives scanned images of the target's
+                    incoming mail every day.
+                  </p>
+                  <p>
+                    They Google dork for documents. They type
+                    <span class="code-like">"First Last" "Street Address" filetype:pdf</span>. They
+                    find court filings. Loan applications. Business records. The documents contain
+                    more data.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section data-animate class="defense-section">
+            <h2><span class="sec-num">05</span> Get a Private Mailbox</h2>
+            <p>
+              A private mailbox is your strongest defense. A PMB gives you a real street address. It
+              is not a P.O. Box. It accepts USPS, UPS, FedEx, DHL, and Amazon. You print this address
+              on every label.
+            </p>
+            <p>
+              <a
+                class="tool"
+                href="/"
+                >Mailbox Plus</a
+              >
+              provides such boxes. The address is
+              <span class="code-like">7554 Fredle Drive, PMB 456 in Concord Township</span>. A small
+              mailbox costs thirty-five dollars a month. A large mailbox costs fifty. There is no
+              setup fee. There is a five-dollar refundable key deposit. You can cancel any time. The
+              plan is month to month.
+            </p>
+            <p>
+              Your incoming mail is scanned. You get an electronic alert within four hours. You pick
+              up the mail when it suits you.
+            </p>
+
+            <div class="callout callout-defense">
+              <strong>How it stops the attack</strong>
+              When a bad actor finds a label with a PMB, they see the Mailbox Plus address. They
+              search people-search sites. They find the store name. They find the street. They do not
+              find your home. They do not find your city. They cannot map your house. They cannot find
+              where you sleep.
+              <p style="margin-top: var(--space-3)">
+                The PMB stops the pipeline at step one. The actor cannot build a profile from an
+                address that leads to a mailbox store.
+              </p>
+              <p style="margin-top: var(--space-3)">
+                Your home stays private. Your business looks professional. You stop feeling the knot
+                when you ship a box.
+              </p>
+            </div>
+          </section>
+
+          <section data-animate class="defense-section">
+            <h2><span class="sec-num">06</span> Other Defenses</h2>
+            <p>
+              Remove your data from people-search sites. The
+              <a
+                class="tool"
+                href="https://privacyrights.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Privacy Rights Clearinghouse</a
+              >
+              lists the sites. The
+              <a
+                class="tool"
+                href="https://github.com/beetlebugorg/badbool"
+                target="_blank"
+                rel="noopener noreferrer"
+                >BADBOOL</a
+              >
+              list gives the opt-out links. Work through them. It takes time. It works.
+            </p>
+            <p>
+              Freeze your credit with
+              <a
+                class="tool"
+                href="https://www.equifax.com/personal/credit-freeze/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Equifax</a
+              >.
+              <a
+                class="tool"
+                href="https://www.experian.com/freeze/center.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Experian</a
+              >.
+              <a
+                class="tool"
+                href="https://www.innovis.com/securityFreeze/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Innovis</a
+              >.
+              <a
+                class="tool"
+                href="https://www.transunion.com/credit-freeze"
+                target="_blank"
+                rel="noopener noreferrer"
+                >TransUnion</a
+              >. This blocks knowledge-based authentication. It blocks the Informed Delivery trick.
+            </p>
+            <p>
+              Register for
+              <a
+                class="tool"
+                href="https://informeddelivery.usps.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >USPS Informed Delivery</a
+              >
+              at your own address. Do it before a stranger does.
+            </p>
+            <p>
+              Use unique usernames on every site. Never reuse a handle.
+              <a
+                class="tool"
+                href="https://github.com/sherlock-project/sherlock"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Sherlock</a
+              >
+              cannot connect accounts if the names differ.
+            </p>
+            <p>
+              Check
+              <a
+                class="tool"
+                href="https://haveibeenpwned.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                >HaveIBeenPwned</a
+              >. See if your email appeared in a breach. Change passwords on affected accounts.
+            </p>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">07</span> Avoid Failure</h2>
+            <p>
+              If you do nothing, the pipeline works. A name and address become a phone and email.
+              Those become social accounts. Those become photos. Those become relatives. Those become
+              a map of your life.
+            </p>
+
+            <div class="callout callout-danger">
+              <strong>What inaction costs</strong>
+              A stranger can watch your mail. They can see when you travel. They can see who writes to
+              you. They can find your mother's name. They can find your children's names.
+              <p style="margin-top: var(--space-3)">
+                <strong>This is not fiction. This happens every day.</strong>
+              </p>
+            </div>
+          </section>
+
+          <section data-animate>
+            <h2><span class="sec-num">08</span> Success</h2>
+            <p>
+              You take the steps. You remove the data. You freeze the credit. You use a Private
+              Mailbox from
+              <a
+                class="tool"
+                href="/"
+                >Mailbox Plus</a
+              >. You vary your usernames.
+            </p>
+            <p>
+              The stranger finds a frozen record. They find a locked door. They find no data. They
+              move on.
+            </p>
+            <p>The label on your package becomes what it should be. A label. Nothing more.</p>
+
+            <div class="cta-wrap">
+              <a
+                href="/home-business/mailbox-rental/"
+                class="cta-direct" rel="noopener"
+              >
+                <span class="btn-arrow">&rarr;</span> Get Your Private Mailbox — 30-Day Risk-Free
+              </a>
+            </div>
+
+            <div class="callout callout-warning">
+              <strong>Purpose</strong>
+              This document is an educational reference. It explains how shipping labels can be
+              weaponized through OSINT so readers understand the attack path and can take defensive
+              action.
+            </div>
+          </section>
+        </article>
+
+        <!-- FOOTER — matches MailboxPlusSalesPage style -->
+
+      </div>
+
+  
+  </div>
+</div>
+
+<style>
+  .osint-page {
+--primary: #285a8e;
+    --primary-dark: #1f3f63;
+    --primary-deeper: #1a3554;
+    --primary-deep: #162c45;
+    --accent: #f7c82a;
+    --accent-light: #f7c82a;
+    --bg-primary: #f2ede4;
+    --bg-secondary: #ebe4d8;
+    --surface: #ffffff;
+    --text-primary: #1f2933;
+    --text-secondary: #4a5568;
+    --text-muted: #57616e;
+    --border: #e6e0d6;
+    --gradient-start: #285a8e;
+    --gradient-mid: #1f3f63;
+    --gradient-end: #162c45;
+    --shadow-sm: 0 10px 30px rgba(31, 38, 51, 0.04);
+    --shadow-md: 0 10px 30px rgba(31, 38, 51, 0.08);
+    --shadow-lg: 0 18px 45px rgba(31, 38, 51, 0.1);
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 26px;
+    --radius-xl: 30px;
+    --radius-2xl: 40px;
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    --sans: 'DM Sans', system-ui, sans-serif;
+    --display: 'Poppins', system-ui, sans-serif;
+    --mono: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Courier New', monospace;
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1.125rem;
+    --text-lg: 1.375rem;
+    --text-h3: 1.5rem;
+    --text-h2: 1.875rem;
+    --text-h1: 2.375rem;
+    --text-hero: 3rem;
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+    --space-20: 5rem;
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --dur-fast: 200ms;
+    --dur-entrance: 700ms;
+    --content-w: 740px;
+  }
+  .osint-page .wrapper {
+    max-width: var(--content-w);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+  }
+
+      /* ═══════════════════════════════════════════
+         LAYOUT WRAPPER
+         ═══════════════════════════════════════════ */
+      .wrapper {
+        max-width: var(--content-w);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+      }
+
+      /* ═══════════════════════════════════════════
+         DOC HEADER
+         ═══════════════════════════════════════════ */
+      .doc-header {
+        text-align: center;
+        padding: var(--space-16) 0 var(--space-12);
+        position: relative;
+      }
+
+      .doc-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 2px;
+        background: var(--primary);
+        border-radius: 1px;
+      }
+
+      .badge {
+        display: inline-block;
+        font-family: var(--mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        padding: var(--space-1) var(--space-3);
+        border-radius: 4px;
+        margin-bottom: var(--space-6);
+        opacity: 0;
+        animation: fadeSlideUp var(--dur-entrance) var(--ease-out-expo) 0.1s forwards;
+      }
+
+      .doc-header h1 {
+        font-size: var(--text-hero);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+        color: var(--text-primary);
+        margin-bottom: var(--space-3);
+        opacity: 0;
+        animation: fadeSlideUp var(--dur-entrance) var(--ease-out-expo) 0.3s forwards;
+      }
+
+      .doc-header .subtitle {
+        font-size: var(--text-lg);
+        font-weight: 400;
+        color: var(--text-secondary);
+        margin-bottom: var(--space-4);
+        opacity: 0;
+        animation: fadeSlideUp var(--dur-entrance) var(--ease-out-expo) 0.5s forwards;
+      }
+
+      /* ═══════════════════════════════════════════
+         DATA PIPELINE
+         ═══════════════════════════════════════════ */
+      .pipeline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+        padding: var(--space-8) 0 var(--space-4);
+        opacity: 0;
+        animation: fadeSlideUp var(--dur-entrance) var(--ease-out-expo) 0.7s forwards;
+        flex-wrap: wrap;
+      }
+
+      .pipeline-node {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        color: var(--primary);
+        background: var(--surface);
+        border: 1px solid var(--primary);
+        padding: var(--space-2) var(--space-3);
+        border-radius: 6px;
+        white-space: nowrap;
+        animation: pulseNode 3s var(--ease-out-quart) infinite;
+        animation-delay: calc(var(--i, 0) * 0.4s);
+      }
+
+      .pipeline-arrow {
+        display: flex;
+        align-items: center;
+        padding: 0 var(--space-2);
+        color: var(--accent);
+        font-size: var(--text-sm);
+        animation: arrowFlow 1.5s var(--ease-out-quart) infinite;
+        animation-delay: calc(var(--i, 0) * 0.3s);
+      }
+
+      @keyframes arrowFlow {
+        0%,
+        100% {
+          opacity: 0.3;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+
+      @keyframes pulseNode {
+        0%,
+        100% {
+          border-color: var(--primary);
+          color: var(--primary);
+        }
+        50% {
+          border-color: var(--primary-dark);
+          color: var(--primary-dark);
+          background: var(--bg-secondary);
+        }
+      }
+
+      @keyframes fadeSlideUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 640px) {
+        .osint-page {
+          --text-hero: 2rem;
+          --text-h2: 1.5rem;
+          --text-h3: 1.25rem;
+          --text-lg: 1.125rem;
+          --text-base: 1rem;
+        }
+
+        .wrapper {
+          padding: 0 var(--space-4);
+        }
+
+        .doc-header {
+          padding: var(--space-8) 0 var(--space-8);
+        }
+
+        section {
+          padding: var(--space-8) 0;
+        }
+
+        .pipeline-node {
+          font-size: 0.7rem;
+          padding: var(--space-1) var(--space-2);
+        }
+
+        .pipeline-arrow {
+          font-size: var(--text-xs);
+          padding: 0 var(--space-1);
+        }
+
+        .phase-item {
+          padding-left: 48px;
+        }
+
+        .phase-num {
+          width: 34px;
+          height: 34px;
+          font-size: var(--text-xs);
+        }
+
+        article h2 .sec-num {
+          min-width: 30px;
+          height: 30px;
+          font-size: var(--text-xs);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .pipeline {
+          gap: 0;
+          padding: var(--space-6) 0 var(--space-2);
+        }
+
+        .pipeline-node {
+          font-size: 0.6rem;
+          padding: 2px 6px;
+        }
+
+        article ul,
+        article ol {
+          margin-left: var(--space-4);
+        }
+      }
+
+      @media print {
+        .osint-page {
+          background: #fff;
+          color: #111;
+          font-size: 11pt;
+        }
+      }
+
+      /* ═══════════════════════════════════════════
+        SECTIONS
+        ═══════════════════════════════════════════ */
+      section {
+        padding: var(--space-12) 0;
+        border-bottom: 1px solid var(--border);
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      .section-visible {
+        animation: fadeSlideUp var(--dur-entrance) var(--ease-out-expo) forwards;
+      }
+
+      .section-hidden {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      /* ═══════════════════════════════════════════
+         TYPOGRAPHY — body
+         ═══════════════════════════════════════════ */
+      .lead {
+        font-size: var(--text-lg);
+        line-height: 1.75;
+        color: var(--text-primary);
+        margin-bottom: var(--space-6);
+        font-family: var(--display);
+      }
+
+      .lead strong {
+        color: var(--primary);
+        font-weight: 700;
+      }
+
+      article p {
+        margin-bottom: var(--space-4);
+        max-width: 68ch;
+      }
+
+      article ul,
+      article ol {
+        margin: var(--space-4) 0 var(--space-4) var(--space-6);
+      }
+
+      article li {
+        margin-bottom: var(--space-2);
+      }
+
+      /* ═══════════════════════════════════════════
+         HEADINGS — navy gradient from sales page
+         ═══════════════════════════════════════════ */
+      article h2 {
+        font-size: var(--text-h2);
+        font-weight: 800;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: var(--space-6);
+        color: var(--text-primary);
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-3);
+      }
+
+      article h2 .sec-num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        min-width: 36px;
+        height: 36px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 6px;
+        flex-shrink: 0;
+      }
+
+      article h3 {
+        font-size: var(--text-h3);
+        font-weight: 600;
+        line-height: 1.3;
+        margin-top: var(--space-8);
+        margin-bottom: var(--space-4);
+        color: var(--text-primary);
+      }
+
+      /* ═══════════════════════════════════════════
+         INLINE ELEMENTS
+         ═══════════════════════════════════════════ */
+      .tool {
+        font-weight: 700;
+        color: var(--primary);
+        text-decoration: none;
+        transition: color var(--dur-fast) var(--ease-out-quart);
+      }
+
+      a.tool:hover {
+        color: var(--primary-dark);
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+
+      a.tool::after {
+        content: ' ↗';
+        font-size: 0.75em;
+        opacity: 0.6;
+        transition: opacity var(--dur-fast) var(--ease-out-quart);
+      }
+
+      a.tool:hover::after {
+        opacity: 1;
+      }
+
+      .code-like {
+        font-family: var(--mono);
+        font-size: 0.9em;
+        background: var(--bg-secondary);
+        padding: 0.1em 0.4em;
+        border-radius: 4px;
+        border: 1px solid var(--border);
+        color: var(--text-primary);
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid var(--border);
+        margin: 0;
+      }
+
+      /* ═══════════════════════════════════════════
+         PHASES — vertical pipeline
+         ═══════════════════════════════════════════ */
+      .phases {
+        list-style: none;
+        margin: var(--space-8) 0 var(--space-4) 0;
+        padding: 0;
+        position: relative;
+      }
+
+      .phases::before {
+        content: '';
+        position: absolute;
+        left: 19px;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: linear-gradient(
+          to bottom,
+          var(--primary-dark),
+          var(--primary),
+          var(--primary-dark)
+        );
+      }
+
+      .phase-item {
+        position: relative;
+        padding-left: 56px;
+        padding-bottom: var(--space-8);
+      }
+
+      .phase-item:last-child {
+        padding-bottom: 0;
+      }
+
+      .phase-num {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--mono);
+        font-size: var(--text-sm);
+        font-weight: 700;
+        color: #fff;
+        background: var(--primary);
+        border-radius: 50%;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+
+      .phase-content {
+        padding-top: 6px;
+      }
+
+      .phase-content h3 {
+        font-family: var(--display);
+        font-size: var(--text-h3);
+        font-weight: 600;
+        margin-top: 0;
+        margin-bottom: var(--space-3);
+      }
+
+      .phase-content p {
+        margin-bottom: var(--space-3);
+      }
+
+      .phase-content ul {
+        margin: var(--space-3) 0 var(--space-3) var(--space-4);
+      }
+
+      .phase-content ul:last-child {
+        margin-bottom: 0;
+      }
+
+      /* ═══════════════════════════════════════════
+         CTA BUTTON — matches MailboxPlusSalesPage
+         ═══════════════════════════════════════════ */
+      .cta-direct {
+        display: inline-block;
+        background: var(--accent);
+        color: var(--primary-deep);
+        font-family: var(--display);
+        font-weight: 700;
+        font-size: 1.05rem;
+        padding: 1em 2em;
+        border-radius: var(--radius-2xl);
+        border: none;
+        cursor: pointer;
+        transition:
+          transform 0.3s var(--ease-out-quint),
+          box-shadow 0.3s var(--ease-out-quint),
+          background-color 0.3s var(--ease-out-quint);
+        text-align: center;
+        box-shadow: 0 4px 14px rgba(247, 200, 42, 0.2);
+        text-decoration: none;
+      }
+      .cta-direct:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 22px rgba(247, 200, 42, 0.35);
+        background-color: var(--accent-light);
+        color: var(--primary-deep);
+      }
+      .btn-arrow {
+        display: inline-block;
+        transition: transform 0.25s var(--ease-out-quint);
+      }
+      .cta-direct:hover .btn-arrow {
+        transform: translateX(6px);
+      }
+
+      .cta-wrap {
+        text-align: center;
+        margin: var(--space-8) 0 var(--space-6);
+      }
+
+      /* ═══════════════════════════════════════════
+         CALLOUTS
+         ═══════════════════════════════════════════ */
+      .callout {
+        padding: var(--space-6);
+        margin: var(--space-8) 0;
+        border-radius: var(--radius-md);
+        font-size: var(--text-base);
+        background: var(--surface);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .callout-warning {
+        border-left: 3px solid var(--accent);
+        color: var(--text-secondary);
+      }
+
+      .callout-warning strong {
+        display: block;
+        color: var(--text-primary);
+        font-weight: 700;
+        margin-bottom: var(--space-2);
+        font-size: var(--text-base);
+      }
+
+      .callout-defense {
+        border-left: 3px solid var(--primary);
+        color: var(--text-secondary);
+      }
+
+      .callout-defense strong {
+        display: block;
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: var(--space-2);
+        font-size: var(--text-base);
+      }
+
+      .callout-danger {
+        border-left: 3px solid #dc2626;
+        color: var(--text-secondary);
+      }
+
+      .callout-danger strong {
+        display: block;
+        color: #dc2626;
+        font-weight: 700;
+        margin-bottom: var(--space-2);
+        font-size: var(--text-base);
+      }
+
+      /* ═══════════════════════════════════════════
+         DEFENSE SECTION — differentiated look
+         ═══════════════════════════════════════════ */
+      .defense-section {
+        position: relative;
+      }
+
+      .defense-section::before {
+        content: '🛡️ DEFENSE';
+        display: block;
+        font-family: var(--mono);
+        font-size: var(--text-xs);
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        color: var(--primary);
+        margin-bottom: var(--space-3);
+      }
+
+      .defense-section h2 .sec-num {
+        background: var(--primary-deep);
+      }
+
+      
+</style>
+
+<script>
+  (function () {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const sections = document.querySelectorAll('.osint-page section[data-animate]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+          }
+        }
+      },
+      { threshold: 0.08 }
+    );
+    for (const section of sections) {
+      section.classList.add('section-hidden');
+      observer.observe(section);
+    }
+  })();
+</script>
+
+</BaseLayout>
