@@ -61,6 +61,8 @@ But the delivery system is designed for the carrier's convenience, not yours. Th
 
 That leaves you holding the risk. You paid for the item. You chose the delivery address. If the package disappears between the driver's photo and your arrival home, you are the one filing the claim, calling the retailer, waiting for the replacement.
 
+There is a quieter version of the same problem that most people never think about: the label on the package carries your home address, and a label that falls into the wrong hands can do more than lose you a shipment — it can start a full identity investigation. We documented the complete path — how OSINT tools turn a name and street address into your phone, your email, your social accounts, and worse — in our [shipping label OSINT guide](/research/shipping-label-osint/).
+
 The system is broken. The driver is incentivized to complete the delivery, not to ensure the package reaches your hands. And the thief is incentivized to grab it before you do.
 
 ## What We See Every Day

@@ -85,11 +85,11 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /MailboxPlusSalesPage.html /home-business/mailbox-rental/ 301!
 /mailboxplussalespage.html /home-business/mailbox-rental/ 301!
 
-# Serve research/shipping-label-osint.html at BOTH the extension-less and
-# trailing-slash variants (200, not 301) so the canonical URL resolves directly.
-# Canonical declared in the file is the trailing-slash form (site convention).
-/research/shipping-label-osint /research/shipping-label-osint.html 200
-/research/shipping-label-osint/ /research/shipping-label-osint.html 200
+# Research page: old standalone .html → new Astro page (301, all variants)
+# The page now lives at /research/shipping-label-osint/ as a first-class
+# Astro route with canonical, sitemap, and internal links.
+/research/shipping-label-osint.html /research/shipping-label-osint/ 301!
+/research/shipping-label-osint /research/shipping-label-osint/ 301!
 
 # Redirects
 /shipping-near-me /service-area/concord-township/ 301
