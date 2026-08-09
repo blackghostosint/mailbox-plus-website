@@ -8,6 +8,8 @@
 [build.environment]
   # Disable secrets scanning to prevent build failures from false positives on public CDN assets and HTML sales pages
   SECRETS_SCAN_ENABLED = "false"
+  # Astro 7 requires Node >=22.12; pin Netlify's build image to Node 22 LTS
+  NODE_VERSION = "22"
 
 [functions]
   included_files = [
