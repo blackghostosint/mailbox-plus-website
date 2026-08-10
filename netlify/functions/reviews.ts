@@ -3,25 +3,29 @@
  * Returns live Google reviews + aggregate rating for Mailbox Plus from the
  * Places API (New) Place Details endpoint.
  *
- * Caching:
- *  - Server-side: Netlify Blobs cache with 24h TTL (daily refresh is plenty;
- *    a new review shows up within a day).
- *  - CDN: Cache-Control set so Netlify's edge caches the response for 15 min
- *    (stale-while-revalidate 1h) to absorb bursts without hitting Blobs/API.
+ * Caching strategy (no Blobs dependency):
+ *  - Netlify-CDN-Cache-Control: public, max-age=86400, stale-while-revalidate=86400
+ *    → the CDN serves one cached payload for 24h and revalidates in the
+ *      background after that. Netlify edge caching means ~1 upstream Places
+ *      call/day → deep inside the free tier. (Low-traffic URLs can be evicted
+ *      earlier, which just means the function re-fetches live — still free.)
+ *  - Build-time snapshot (astro/src/data/reviews.json) is the ultimate
+ *    fallback: the static HTML + schema render from it regardless, and this
+ *    function only powers the client-side freshness refresh.
+ *
+ * NOTE: this deliberately does NOT use Netlify Blobs — NETLIFY_BLOBS_CONTEXT
+ * is not injected in this site's function runtime (the site's existing
+ * customer/referral functions hit MissingBlobsEnvironmentError too).
  *
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
 import { Handler } from '@netlify/functions';
-import { getStore } from '@netlify/blobs';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
 const FIELD_MASK =
   'rating,userRatingCount,reviews(authorAttribution,text,rating,publishTime,relativePublishTimeDescription)';
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24h
-const BLOB_STORE = 'reviews-cache';
-const BLOB_KEY = 'mpo-live-reviews';
 
 interface ReviewDto {
   author: string;
@@ -40,12 +44,7 @@ interface ReviewsPayload {
   source: 'live' | 'cache';
 }
 
-// Netlify Blobs: name-only getStore() auto-configures in the Netlify runtime
-// (Functions / Edge / CLI). Passing an explicit {siteID, token} config object
-// forces manual mode — NETLIFY_AUTH_TOKEN isn't injected into function
-// runtime, which breaks with MissingBlobsEnvironmentError. See the existing
-// lib/db.ts pattern which predates this and passes siteID/token explicitly.
-const getCacheStore = () => getStore(BLOB_STORE);
+const CDN_CACHE = 'public, max-age=86400, stale-while-revalidate=86400';
 
 async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
@@ -84,59 +83,19 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
 }
 
 export const handler: Handler = async () => {
-  const store = getCacheStore();
-
   try {
-    // 1) Try cache first
-    const cachedRaw = await store.get(BLOB_KEY);
-    if (cachedRaw) {
-      const cached: ReviewsPayload = JSON.parse(cachedRaw);
-      const age = Date.now() - new Date(cached.fetchedAt).getTime();
-      if (age < CACHE_TTL_MS) {
-        return {
-          statusCode: 200,
-          headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'public, max-age=900, stale-while-revalidate=3600',
-          },
-          body: JSON.stringify({ ...cached, source: 'cache' }),
-        };
-      }
-    }
-
-    // 2) Cache miss or stale → fetch live
     const fresh = await fetchFromPlaces();
-    await store.set(BLOB_KEY, JSON.stringify(fresh), { metadata: { fetchedAt: fresh.fetchedAt } });
-
     return {
       statusCode: 200,
       headers: {
         'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=900, stale-while-revalidate=3600',
+        'Cache-Control': 'public, max-age=0, must-revalidate', // browsers always revalidate
+        'Netlify-CDN-Cache-Control': CDN_CACHE, // edge caches ~24h
       },
       body: JSON.stringify({ ...fresh, source: 'live' }),
     };
   } catch (error) {
     console.error('Reviews function error:', error);
-
-    // 3) Serve stale cache on upstream failure rather than a 500
-    try {
-      const cachedRaw = await store.get(BLOB_KEY);
-      if (cachedRaw) {
-        const cached: ReviewsPayload = JSON.parse(cachedRaw);
-        return {
-          statusCode: 200,
-          headers: {
-            'Content-Type': 'application/json',
-            'Cache-Control': 'public, max-age=300',
-          },
-          body: JSON.stringify({ ...cached, source: 'cache' }),
-        };
-      }
-    } catch {
-      // ignore secondary failure
-    }
-
     return {
       statusCode: 502,
       headers: { 'Content-Type': 'application/json' },
