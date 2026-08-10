@@ -18,6 +18,10 @@ import type {
 
 import type { SiteConfig } from '../types/siteConfig';
 import { toCanonicalUrl } from './canonical-url';
+// Live review data (refreshed at build by scripts/fetch-reviews.mjs). Keeps the
+// LocalBusiness aggregateRating in sync with the visible ReviewSection content —
+// Google only shows review stars when schema and on-page content agree.
+import reviewsData from '../data/reviews.json';
 
 /** ---------- Small helpers ---------- */
 const getOrigin = (config: SiteConfig) => (config.domain || '').replace(/\/+$/, '');
@@ -162,13 +166,13 @@ export const getLocalBusinessSchema = (config: SiteConfig): WithContext<LocalBus
         },
       ],
     },
-    ...(config.aggregateRating && {
+    ...((config.aggregateRating || reviewsData) && {
       aggregateRating: {
         '@type': 'AggregateRating',
-        ratingValue: config.aggregateRating.ratingValue,
-        reviewCount: config.aggregateRating.reviewCount,
-        bestRating: config.aggregateRating.bestRating,
-        worstRating: config.aggregateRating.worstRating,
+        ratingValue: reviewsData?.rating ?? config.aggregateRating?.ratingValue,
+        reviewCount: reviewsData?.userRatingCount ?? config.aggregateRating?.reviewCount,
+        bestRating: config.aggregateRating?.bestRating ?? 5,
+        worstRating: config.aggregateRating?.worstRating ?? 1,
       },
     }),
     contactPoint: {
