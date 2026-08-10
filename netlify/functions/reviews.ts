@@ -40,12 +40,12 @@ interface ReviewsPayload {
   source: 'live' | 'cache';
 }
 
-const getCacheStore = () =>
-  getStore({
-    name: BLOB_STORE,
-    siteID: process.env.NETLIFY_SITE_ID || '7a885e38-5ed0-4988-bc5c-a6007fce97a4',
-    token: process.env.NETLIFY_AUTH_TOKEN,
-  });
+// Netlify Blobs: name-only getStore() auto-configures in the Netlify runtime
+// (Functions / Edge / CLI). Passing an explicit {siteID, token} config object
+// forces manual mode — NETLIFY_AUTH_TOKEN isn't injected into function
+// runtime, which breaks with MissingBlobsEnvironmentError. See the existing
+// lib/db.ts pattern which predates this and passes siteID/token explicitly.
+const getCacheStore = () => getStore(BLOB_STORE);
 
 async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
