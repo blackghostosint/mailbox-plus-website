@@ -13,14 +13,12 @@
  *    fallback: the static HTML + schema render from it regardless, and this
  *    function only powers the client-side freshness refresh.
  *
- * NOTE: this deliberately does NOT use Netlify Blobs — NETLIFY_BLOBS_CONTEXT
- * is not injected in this site's function runtime (the site's existing
- * customer/referral functions hit MissingBlobsEnvironmentError too).
+ * Routing: exposed at /api/reviews via `config.path` (the [[redirects]]
+ * /api/* rule in netlify.toml is not effective on this site — pre-existing
+ * issue affecting the rewards functions too).
  *
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
-
-import { Handler } from '@netlify/functions';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -82,24 +80,26 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   };
 }
 
-export const handler: Handler = async () => {
+export default async () => {
   try {
     const fresh = await fetchFromPlaces();
-    return {
-      statusCode: 200,
+    return new Response(JSON.stringify({ ...fresh, source: 'live' }), {
+      status: 200,
       headers: {
         'Content-Type': 'application/json',
         'Cache-Control': 'public, max-age=0, must-revalidate', // browsers always revalidate
         'Netlify-CDN-Cache-Control': CDN_CACHE, // edge caches ~24h
       },
-      body: JSON.stringify({ ...fresh, source: 'live' }),
-    };
+    });
   } catch (error) {
     console.error('Reviews function error:', error);
-    return {
-      statusCode: 502,
+    return new Response(JSON.stringify({ error: 'Reviews temporarily unavailable' }), {
+      status: 502,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Reviews temporarily unavailable' }),
-    };
+    });
   }
+};
+
+export const config = {
+  path: '/api/reviews',
 };
