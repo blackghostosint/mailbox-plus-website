@@ -9,7 +9,7 @@ export const gscLandingPages: Service[] = [
     slug: '/pack-and-ship-concord-ohio',
     pageTitle: 'Pack & Ship Near Me in Concord Township, OH 44077 | UPS, FedEx, DHL | Mailbox Plus',
     metaDescription:
-      'Pack and ship near me in Concord Township (44077). Full-service packing and shipping with UPS, FedEx, DHL, and USPS. Expert packing, same-day processing, freight. 5.0★ from 32 Google reviews. Call (440) 709-1946.',
+      'Pack and ship near me in Concord Township (44077). Full-service packing and shipping with UPS, FedEx, DHL, and USPS. Expert packing, same-day processing, freight. Rated 5.0★ on Google. Call (440) 709-1946.',
     keywords: 'pack and ship, Concord Township, shipping, packing, UPS, FedEx',
     heroTitle: 'Pack & Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
     heroSubtitle:
@@ -86,7 +86,7 @@ export const gscLandingPages: Service[] = [
     slug: '/domestic-package-shipping-company-concord-ohio',
     pageTitle: 'Domestic Package Shipping Company Near Me in Concord Township, OH | Mailbox Plus',
     metaDescription:
-      'Domestic package shipping company near me in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, business accounts, volume discounts, and professional packing. 5.0★ from 32 reviews. Call (440) 709-1946.',
+      'Domestic package shipping company near me in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, business accounts, volume discounts, and professional packing. Rated 5.0★ on Google. Call (440) 709-1946.',
     keywords: 'domestic package shipping, Concord Township, business shipping',
     heroTitle: 'Domestic Package Shipping for Your Business',
     heroSubtitle:
