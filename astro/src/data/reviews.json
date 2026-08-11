@@ -1,0 +1,48 @@
+{
+  "rating": 5,
+  "userRatingCount": 41,
+  "reviews": [
+    {
+      "author": "Steve M.",
+      "authorUri": "https://www.google.com/maps/contrib/102245246466011355697/reviews",
+      "rating": 5,
+      "text": "Great place with easy and fast shipping services. Frank was excellent! Not only was he friendly and professional, but went out of his way to find me the easiest and most affordable option to ship my golf clubs across country while I was visiting OH. Made things simple and my travels way easier.",
+      "relativeTime": "a month ago",
+      "publishTime": "2026-07-01T02:47:25.706844268Z"
+    },
+    {
+      "author": "Sarah Moukhliss",
+      "authorUri": "https://www.google.com/maps/contrib/113491497290932557218/reviews",
+      "rating": 5,
+      "text": "Frank, the owner of Mailbox Plus in Concord Township by Lucky’s Market, is truly exceptional. He is brilliant, thoughtful, attentive, and takes the work of shipping and transportation seriously. I have been mailing sentimental items—some quite large and bulky—to different parts of the U.S., and Frank consistently goes above and beyond to make sure everything is handled with care.\nMost recently, my friend received a set of 10 collector plates, and they arrived safe and sound because they were packaged so exceptionally well. If you talk with Frank, you quickly learn that he has a real philosophy and a deep sense of care when it comes to shipping people’s belongings. He treats each item with respect, and that means so much.\nBeyond the quality of his work, Frank is simply a good man. He listened kindly while we rang up the transaction, and having such a friendly, caring person behind the counter made the experience even more meaningful. I am grateful for his help and highly recommend supporting this store.",
+      "relativeTime": "a month ago",
+      "publishTime": "2026-07-02T16:07:01.790150658Z"
+    },
+    {
+      "author": "Tina Orlando",
+      "authorUri": "https://www.google.com/maps/contrib/102347637789188612555/reviews",
+      "rating": 5,
+      "text": "Love this place! I pop in several times a week and have never had an issue! Makes shipping so easy and convenient! Owners are so sweet and easily approachable. They ship out through lots of carriers and offer a variety of shipping packaging options, making it a one stop shop!",
+      "relativeTime": "2 months ago",
+      "publishTime": "2026-05-19T21:47:39.036470179Z"
+    },
+    {
+      "author": "Jennifer Sharaba",
+      "authorUri": "https://www.google.com/maps/contrib/100860000099580211736/reviews",
+      "rating": 5,
+      "text": "Thank you Mailbox Plus for moving into Concord and for providing friendly, convenient service! Gone are the days of fighting traffic in Mentor to get to the UPS store. The owner provides such convenient services for dropping off and shipping. When I shipped a box to MN, I was able to select between UPS, USPS, and FedEx. They showed prices for every option on one screen, making it so easy to make the right decision for my needs. I highly recommend using Mailbox Plus for all your shipping needs so it never goes away!",
+      "relativeTime": "8 months ago",
+      "publishTime": "2025-12-12T14:21:38.640213173Z"
+    },
+    {
+      "author": "Jenny Gallion",
+      "authorUri": "https://www.google.com/maps/contrib/108890074911958115282/reviews",
+      "rating": 5,
+      "text": "I am writing to share my positive experience with Mailbox Plus. After searching for a local UPS drop-off location, I was pleasantly surprised to find this convenient option so close to home.\n\nFrank was incredibly helpful and provided great information regarding the full range of services this business offers. Because of his assistance, I was able to bring in two additional items I had originally planned to take to the USPS and ship them through your store instead.\n\nThank you for the excellent service.",
+      "relativeTime": "5 months ago",
+      "publishTime": "2026-02-26T20:57:22.008866392Z"
+    }
+  ],
+  "fetchedAt": "2026-08-10T11:46:28.411Z",
+  "note": "Refreshed at build time by scripts/fetch-reviews.mjs"
+}

@@ -131,9 +131,9 @@ export const competePages: Service[] = [
         isFullWidth: true,
       },
       {
-        heading: 'Trusted by Willoughby --- 5 Stars, 32+ Reviews',
+        heading: 'Trusted by Willoughby — Rated 5 Stars on Google',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Mailbox Plus has been serving Lake County since 2024, earning a <strong>5.0-star rating</strong> with 32+ reviews on Google and Yelp. Willoughby customers consistently tell us they love the convenience of handling shipping, mail, and business tasks in a single stop.
+              Mailbox Plus has been serving Lake County since 2024, earning a <strong>5.0-star rating</strong> from verified Google reviews. Willoughby customers consistently tell us they love the convenience of handling shipping, mail, and business tasks in a single stop.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-8">
               Unlike the corporate shipping center chains that rotate through staff and treat customers like numbers, we're locally owned and invested in this community. Every package you drop off supports a family-owned Lake County business.

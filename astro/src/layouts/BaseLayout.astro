@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import ReviewSection from '../components/ReviewSection.astro';
 import { siteConfig } from '../config/siteConfig';
 import { getLocalBusinessSchema } from '../utils/schema';
 import { toCanonicalUrl } from '../utils/canonical-url';
@@ -161,6 +162,7 @@ const ogImageHeight = ogImage ? undefined : '630';
     <main id="main-content" class="flex-1">
       <slot />
     </main>
+    <ReviewSection />
     <Footer />
   </body>
 </html>
