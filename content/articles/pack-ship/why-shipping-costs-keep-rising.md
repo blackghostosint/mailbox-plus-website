@@ -59,9 +59,9 @@ You should not need a degree in logistics to understand why your shipping bill k
 
 ## What We See Every Day
 
-We see this cascade every day at [Mailbox Plus](/pack-ship), at 7554 Fredle Drive in Concord Township. We stand behind the counter while customers drop off boxes that cost visibly more than they did a year ago, and we watch them wince at the receipt.
+We see this cascade every day at [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township. We stand behind the counter while customers drop off boxes that cost visibly more than they did a year ago, and we watch them wince at the receipt.
 
-Here is what we see that the big carriers do not want you to see: the same package does not cost the same everywhere. [UPS](/pack-ship/ups-authorized-shipper-outlet) and [FedEx](/pack-ship/fedex-shipping) publish different fuel percentages every week, on different schedules, based on slightly different fuel numbers. DHL runs its own table. USPS has its own add-ons. That means the box on your kitchen table can cost meaningfully different amounts depending on which carrier moves it this week — and no single-carrier store is going to tell you that, because it makes no money sending you to a competitor.
+Here is what we see that the big carriers do not want you to see: the same package does not cost the same everywhere. [UPS](/pack-ship/ups-authorized-shipper-outlet/) and [FedEx](/pack-ship/fedex-shipping/) publish different fuel percentages every week, on different schedules, based on slightly different fuel numbers. DHL runs its own table. USPS has its own add-ons. That means the box on your kitchen table can cost meaningfully different amounts depending on which carrier moves it this week — and no single-carrier store is going to tell you that, because it makes no money sending you to a competitor.
 
 We are not owned by any carrier. We are an independent, multi-carrier store — UPS, FedEx, USPS, and DHL all come to our counter. So when the cascade moves the numbers, we can do something about it: we check the current rates across all four carriers, on the spot, before you pay. When FedEx is cheaper this week, we say FedEx. When USPS gets it there for less, we say USPS. Your package goes out on the carrier that costs you the least, and you see the comparison before you hand over a card.
 
