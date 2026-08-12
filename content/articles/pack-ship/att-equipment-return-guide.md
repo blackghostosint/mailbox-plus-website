@@ -32,7 +32,7 @@ Somewhere, a clock is running. You have three weeks to figure out where this equ
 
 Here is the thing about returning AT&T equipment: it is not hard, but it is genuinely easy to get wrong, and AT&T does not make the rules obvious.
 
-The equipment has to go back — not because it is valuable to you, but because AT&T will bill you for it if it does not. The amounts are blunt: $150 for a Wi-Fi or All-Fi gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender or All-Fi booster. Return it damaged from rough handling and there can be a damaged-equipment fee on top. The policy is written in dollars because the dollars are the enforcement.
+The equipment has to go back — not because it is valuable to you, but because AT&T will bill you for it if it does not. The amounts are blunt: $150 for a Wi-Fi or All-Fi gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender or All-Fi booster that came with your extended Wi-Fi service. Return it damaged from rough handling and there can be a damaged-equipment fee on top. The policy is written in dollars because the dollars are the enforcement.
 
 There are also small traps in the details. Wall-mounted gear — the fiber jack, the Optical Network Terminal, anything a technician screwed into the wall — stays put. Do not unplug it, do not remove it. And there is a strict list of what has to come back: the hub, the extender, and the power supply for each. The HDMI cables, the ethernet cables, and the extra extender you bought yourself? Those are yours to keep.
 
@@ -62,7 +62,7 @@ Mailbox Plus is a full-service shipping and returns store in Concord Township. R
 
 The honest answer is no, and we will tell you that to your face.
 
-AT&T's return program only runs through two types of locations: FedEx Office and The UPS Store. Those are AT&T's own authorized return points — the ones the company's systems are set up to scan and receive. Mailbox Plus is an independent shipping center, not a The UPS Store franchise and not a FedEx Office, so we are simply not in AT&T's return network. If we took your gateway, it would not reach AT&T in a way that clears your account — and you would still owe the fee. We would rather tell you the truth than take your box and your $150.
+AT&T's return program routes through two types of locations: FedEx Office and The UPS Store. Those are AT&T's own authorized return points — the ones the company's systems are set up to scan and receive. Mailbox Plus is an independent shipping center, not a The UPS Store franchise and not a FedEx Office, so we are simply not in AT&T's return network. If we took your gateway, it would not reach AT&T in a way that clears your account — and you would still owe the fee. We would rather tell you the truth than take your box and your $150.
 
 Here is why that honesty matters: because it is the same instinct we apply to every return that comes through our door. When we say we can take something, we mean it. When we say a carrier needs it elsewhere, we say so. You will never leave our counter with a false promise and a fee down the line.
 
@@ -70,13 +70,13 @@ Here is why that honesty matters: because it is the same instinct we apply to ev
 
 Here is the whole thing, stripped down, from AT&T's own published process.
 
-**What has to go back.** The All-Fi Hub or gateway — the white unit, models like the BGW320, BGW210, CGW450, BGW830, or BGW530. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
+**What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 cover AT&T Internet and Fiber, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
 
 **What stays.** Anything mounted to the wall — the fiber jack, the ONT, the green cable — leave it in place. Do not unplug it. And cables, third-party extenders, and gear you bought yourself are yours to keep.
 
-**Where it goes.** AT&T accepts returns only at a company-owned FedEx Office or a The UPS Store. You do not box it, you do not print a label. You bring the equipment unboxed, tell them it is an AT&T return, and give them your nine-digit account number. A store representative scans the equipment, packs and ships it for you, and hands you a tracking receipt. [AT&T's return page](https://www.att.com/support/how-to/internet/equipment-return/) is the reference for all of this.
+**Where it goes.** AT&T accepts returns at a company-owned FedEx Office or a The UPS Store. You do not box it, you do not print a label. You bring the equipment unboxed, tell them it is an AT&T return, and give them your nine-digit account number. A store representative scans the equipment, packs and ships it for you, and hands you a tracking receipt. [AT&T's return page](https://www.att.com/support/how-to/internet/equipment-return/) is the reference for all of this.
 
-**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and, in a few cases (a disability, or living more than ten miles from an authorized location), gets you a return kit with a prepaid label you ship yourself.
+**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and, in a few cases (a disability, or living more than ten miles from a FedEx Office or The UPS Store), gets you a return kit with a prepaid label you ship yourself.
 
 That is the entire procedure. Two hours of fear, five minutes of action.
 
