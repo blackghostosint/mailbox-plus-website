@@ -5,6 +5,13 @@ const matter = require('gray-matter');
 const sitemapConfig = require('../astro/src/data/sitemap-config.json');
 const validRoutes = new Set(sitemapConfig.routes);
 
+// Normalize a path for route comparison: strip trailing slashes (keep root '/'),
+// so links written with the trailing-slash convention (e.g. '/pack-ship/') match
+// the no-slash routes stored in sitemap-config.json (e.g. '/pack-ship').
+function normalizeRoute(p) {
+  return p && p.length > 1 ? p.replace(/\/+$/, '') : p;
+}
+
 // Simple recursive directory walker
 function walkDir(dir, callback) {
   fs.readdirSync(dir).forEach((f) => {
@@ -75,7 +82,7 @@ walkDir(contentDir, (filePath) => {
     if (Array.isArray(data.relatedServices)) {
       data.relatedServices.forEach((servicePath) => {
         linkCount++;
-        if (!validRoutes.has(servicePath)) {
+        if (!validRoutes.has(normalizeRoute(servicePath))) {
           errors.push(
             `❌ ${path.basename(filePath)}: relatedServices path '${servicePath}' does not match any known route`
           );
@@ -89,7 +96,7 @@ walkDir(contentDir, (filePath) => {
     while ((match = linkRegex.exec(content)) !== null) {
       const linkPath = match[2];
       linkCount++;
-      if (!validRoutes.has(linkPath)) {
+      if (!validRoutes.has(normalizeRoute(linkPath))) {
         errors.push(
           `❌ ${path.basename(filePath)}: Markdown link '${linkPath}' does not match any known route`
         );
