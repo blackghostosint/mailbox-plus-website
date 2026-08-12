@@ -15,7 +15,8 @@ keywords:
     'best shipping carrier Ohio',
     'pack and ship near me',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/fedex-shipping', '/pack-ship/ups-shipping']
+relatedServices:
+  ['/pack-ship', '/pack-ship/fedex-shipping', '/pack-ship/ups-authorized-shipper-outlet']
 author: 'Mailbox Plus Team'
 ---
 

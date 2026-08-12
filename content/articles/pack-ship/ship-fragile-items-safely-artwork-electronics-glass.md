@@ -15,7 +15,12 @@ keywords:
     'packing fragile items for shipping',
     'fragile shipping Concord Township',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/fragile-shipping', '/pack-ship/shipping-insurance']
+relatedServices:
+  [
+    '/pack-ship',
+    '/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+    '/specialty/insurance',
+  ]
 author: 'Mailbox Plus Team'
 ---
 

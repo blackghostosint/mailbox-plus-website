@@ -15,7 +15,8 @@ keywords:
     'Amazon return drop off near me',
     'return Amazon package without printer Ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/ups-shipping', '/home-business/mailbox-rental']
+relatedServices:
+  ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/home-business/mailbox-rental']
 author: 'Mailbox Plus Team'
 ---
 
