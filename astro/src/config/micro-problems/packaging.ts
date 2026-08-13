@@ -203,8 +203,7 @@ export const packagingMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Print and Attach a Shipping Label Correctly in Concord Township',
     slug: '/print-and-attach-a-shipping-label-correctly-in-concord-township',
-    pageTitle:
-      'Print a Shipping Label in Concord Township | Mailbox Plus',
+    pageTitle: 'Print a Shipping Label in Concord Township | Mailbox Plus',
     metaDescription:
       'Not sure where the label goes? We print and attach shipping labels correctly—flat surface, scannable barcode, no tape coverage. Bring your label and box to Mailbox Plus in Concord Township.',
     heroTitle: 'Print and Attach a Shipping Label Correctly in Concord Township',
