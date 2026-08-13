@@ -337,7 +337,7 @@
     {
       "id": "geo-dropoffs",
       "title": "Drop-Off Locations",
-      "url": "/drop-off-locations",
+      "url": "/pack-ship/package-drop-offs",
       "description": "Carrier drop-off locations in Lake County and surrounding areas.",
       "children": [
         {
