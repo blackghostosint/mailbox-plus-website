@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-madison',
     category: 'pack-ship',
     city: 'Madison',
-    serviceName: 'FedEx Office Alternative Near Madison — Worth the Drive | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Madison | Mailbox Plus',
     slug: '/fedex-office-alternative-madison',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-madison',
-    pageTitle: 'FedEx Office Alternative Near Madison — Worth the Drive | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Madison | Mailbox Plus',
     metaDescription:
       'Need a FedEx Office alternative near Madison, OH? Mailbox Plus offers FedEx, UPS, USPS, and DHL — plus printing, mailboxes, and notary — all locally owned.',
     keywords: 'FedEx Office alternative Madison, Madison shipping services, Mailbox Plus Concord',

@@ -74,7 +74,7 @@ export const packagingMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Package Multiple Items Into One Shipment in Concord Township',
     slug: '/package-multiple-items-into-one-shipment-in-concord-township',
-    pageTitle: 'Package Multiple Items Into One Shipment in Concord Township | Mailbox Plus',
+    pageTitle: 'Package Multiple Items in Concord Township | Mailbox Plus',
     metaDescription:
       "Shipping several items to the same person? We'll combine them into one shipment, packed securely so nothing shifts or breaks. Save on shipping costs at Mailbox Plus in Concord Township.",
     heroTitle: 'Package Multiple Items Into One Shipment in Concord Township',
@@ -203,8 +203,7 @@ export const packagingMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Print and Attach a Shipping Label Correctly in Concord Township',
     slug: '/print-and-attach-a-shipping-label-correctly-in-concord-township',
-    pageTitle:
-      'Print and Attach a Shipping Label Correctly in Concord Township | Mailbox Plus Ohio',
+    pageTitle: 'Print a Shipping Label in Concord Township | Mailbox Plus',
     metaDescription:
       'Not sure where the label goes? We print and attach shipping labels correctly—flat surface, scannable barcode, no tape coverage. Bring your label and box to Mailbox Plus in Concord Township.',
     heroTitle: 'Print and Attach a Shipping Label Correctly in Concord Township',
@@ -270,7 +269,7 @@ export const packagingMicroProblems: Service[] = [
     city: 'concord-township',
     serviceName: 'Get Help Choosing the Right Box for Shipping',
     slug: '/get-help-choosing-the-right-box-for-shipping-in-concord-township',
-    pageTitle: 'Get Help Choosing the Right Box for Shipping in Concord Township | Mailbox Plus',
+    pageTitle: 'Choosing the Right Box in Concord Township | Mailbox Plus',
     metaDescription:
       "Not sure what size box to use? We'll measure your item and pick the perfect box that fits properly without wasting space or money. Visit Mailbox Plus in Concord Township.",
     heroTitle: 'Get Help Choosing the Right Box for Shipping in Concord Township',

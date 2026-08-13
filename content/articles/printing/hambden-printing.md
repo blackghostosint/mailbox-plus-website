@@ -1,5 +1,5 @@
 ---
-title: 'Your Hambden Printer Ran Out of Ink. Your Meeting Is in 30 Minutes. | Mailbox Plus'
+title: 'Your Hambden Printer Ran Out of Ink. Your Meeting Is in 30 Minutes.'
 description: 'Printer died before a deadline? Mailbox Plus prints your documents, flyers, and forms while you wait.'
 slug: 'hambden-printing'
 category: 'printing'

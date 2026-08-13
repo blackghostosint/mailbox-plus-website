@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-chardon',
     category: 'pack-ship',
     city: 'Chardon',
-    serviceName: 'FedEx Office Alternative Near Chardon — More Choices | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Chardon | Mailbox Plus',
     slug: '/fedex-office-alternative-chardon',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-chardon',
-    pageTitle: 'FedEx Office Alternative Near Chardon — More Choices | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Chardon | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx Office alternative near Chardon, OH? Mailbox Plus ships with all 4 carriers — same FedEx service, more options, shorter lines.',
     keywords: 'FedEx Office alternative Chardon, Chardon shipping services, Mailbox Plus Concord',

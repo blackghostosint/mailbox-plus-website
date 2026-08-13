@@ -7,7 +7,7 @@ export const gscLandingPages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Pack & Ship Services',
     slug: '/pack-and-ship-concord-ohio',
-    pageTitle: 'Pack & Ship Near Me in Concord Township, OH 44077 | UPS, FedEx, DHL | Mailbox Plus',
+    pageTitle: 'Pack & Ship in Concord | UPS, FedEx, DHL | Mailbox Plus',
     metaDescription:
       'Pack and ship near me in Concord Township (44077). Full-service packing and shipping with UPS, FedEx, DHL, and USPS. Expert packing, same-day processing, freight. Rated 5.0★ on Google. Call (440) 709-1946.',
     keywords: 'pack and ship, Concord Township, shipping, packing, UPS, FedEx',
@@ -84,7 +84,7 @@ export const gscLandingPages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Domestic Package Shipping',
     slug: '/domestic-package-shipping-company-concord-ohio',
-    pageTitle: 'Domestic Package Shipping Company Near Me in Concord Township, OH | Mailbox Plus',
+    pageTitle: 'Domestic Shipping in Concord Township | Mailbox Plus',
     metaDescription:
       'Domestic package shipping company near me in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, business accounts, volume discounts, and professional packing. Rated 5.0★ on Google. Call (440) 709-1946.',
     keywords: 'domestic package shipping, Concord Township, business shipping',
@@ -163,7 +163,7 @@ export const gscLandingPages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Mailing Services',
     slug: '/mailing-services-concord-ohio',
-    pageTitle: 'Mailing Services Near Me in Concord Township, OH 44077 | Mailbox Plus | 5.0★',
+    pageTitle: 'Mailing Services in Concord Township | Mailbox Plus',
     metaDescription:
       'Full mailing services in Concord Township (44077): USPS stamps, package shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call (440) 709-1946.',
     keywords: 'mailing services, Concord Township, stamps, mail forwarding, digital mail',

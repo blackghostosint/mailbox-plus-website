@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-mentor',
     category: 'pack-ship',
     city: 'Mentor',
-    serviceName: 'FedEx Office Alternative in Mentor — Compare All 4 Carriers | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Mentor | Mailbox Plus',
     slug: '/fedex-office-alternative-mentor',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-mentor',
-    pageTitle: 'FedEx Office Alternative in Mentor — Compare All 4 Carriers | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Mentor | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx Office alternative near Mentor, OH? Mailbox Plus has FedEx, UPS, USPS, and DHL — plus packing, printing, and notary services.',
     keywords: 'FedEx Office alternative Mentor, Mentor shipping services, Mailbox Plus Concord',

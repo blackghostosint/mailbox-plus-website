@@ -30,7 +30,7 @@ export const documentServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Every Door Direct Mail (EDDM)',
     slug: '/home-business/every-door-direct-mail',
-    pageTitle: 'Every Door Direct Mail (EDDM) in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Every Door Direct Mail (EDDM) in Concord | Mailbox Plus',
     metaDescription:
       'Grow your business with EDDM services in Concord Township. We help with design, printing, and USPS paperwork to reach every home in your target area.',
     keywords: 'EDDM, direct mail, Concord Township, Lake County',
@@ -302,7 +302,7 @@ export const documentServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Fax Services',
     slug: '/home-business/fax-services',
-    pageTitle: 'Fax Services Near Me in Concord Township, OH 44077 | Mailbox Plus',
+    pageTitle: 'Fax Services in Concord Township | Mailbox Plus',
     metaDescription:
       'Fax services in Concord Township. Send and receive faxes \u2014 no fax machine needed. Local, domestic, international. Confirmation sheet included.',
     keywords:

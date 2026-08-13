@@ -1,5 +1,5 @@
 ---
-title: 'Your Hambden LLC Filing Has Your Home Address in the Public Record | Mailbox Plus'
+title: 'Your Hambden LLC Filing Has Your Home Address in the Public Record'
 description: 'Your Hambden business address is on public record. Mailbox Plus gives you a real street address that separates home from business.'
 slug: 'hambden-small-business-mailbox'
 category: 'mailbox-rentals'

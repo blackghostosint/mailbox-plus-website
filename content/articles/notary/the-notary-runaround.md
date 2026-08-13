@@ -1,5 +1,5 @@
 ---
-title: 'The Notary Runaround: One Signature Shouldn’t Take All Afternoon | Mailbox Plus'
+title: 'The Notary Runaround: One Signature Shouldn’t Take All Afternoon'
 description: 'Tired of driving to banks only to find the notary is out to lunch? Mailbox Plus in Concord Township offers fast, walk-in Notary Public services.'
 slug: 'the-notary-runaround'
 category: 'notary'

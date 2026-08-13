@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-drop-off-willoughby',
     category: 'pack-ship',
     city: 'Willoughby',
-    serviceName: 'FedEx Drop-Off in Willoughby — Authorized Location Near You | Mailbox Plus',
+    serviceName: 'FedEx Drop-Off in Willoughby | Mailbox Plus',
     slug: '/fedex-drop-off-willoughby',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-willoughby',
-    pageTitle: 'FedEx Drop-Off in Willoughby — Authorized Location Near You | Mailbox Plus',
+    pageTitle: 'FedEx Drop-Off in Willoughby | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx drop-off location near Willoughby, OH? Mailbox Plus is an authorized FedEx ShipCenter on Fredle Drive — in and out fast.',
     keywords: 'FedEx drop-off Willoughby, Willoughby FedEx shipping, Mailbox Plus Concord',

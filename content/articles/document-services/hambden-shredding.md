@@ -1,5 +1,5 @@
 ---
-title: 'Your Hambden Tax Returns Are Sitting in a Box in the Garage | Mailbox Plus'
+title: 'Your Hambden Tax Returns Are Sitting in a Box in the Garage'
 description: 'Old tax returns in a Hambden garage — one break-in and your identity is gone. Mailbox Plus shreds on-site, immediate destruction.'
 slug: 'hambden-shredding'
 category: 'document-services'

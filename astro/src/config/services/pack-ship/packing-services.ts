@@ -18,7 +18,7 @@ export const packingServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Professional Packing',
     slug: '/pack-ship/professional-packing',
-    pageTitle: 'Professional Packing in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Professional Packing in Concord Township | Mailbox Plus',
     metaDescription:
       'Professional packing services in Concord Township. We pack fragile, valuable, and odd-shaped items with carrier-compliant materials. Damage-free delivery guaranteed.',
     keywords:

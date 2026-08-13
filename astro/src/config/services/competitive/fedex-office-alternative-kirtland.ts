@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-kirtland',
     category: 'pack-ship',
     city: 'Kirtland',
-    serviceName: 'FedEx Office Alternative Near Kirtland — Local & Fast | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Kirtland | Mailbox Plus',
     slug: '/fedex-office-alternative-kirtland',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-kirtland',
-    pageTitle: 'FedEx Office Alternative Near Kirtland — Local & Fast | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Kirtland | Mailbox Plus',
     metaDescription:
       'Need a FedEx Office alternative near Kirtland, OH? Mailbox Plus is 4 miles away with FedEx, UPS, USPS, DHL, printing, and notary services.',
     keywords: 'FedEx Office alternative Kirtland, Kirtland shipping services, Mailbox Plus Concord',

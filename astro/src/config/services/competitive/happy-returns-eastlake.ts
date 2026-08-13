@@ -12,7 +12,7 @@ export const competePages: Service[] = [
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off Near Eastlake — No Hassle | Mailbox Plus',
     slug: '/happy-returns-eastlake',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns-eastlake',
-    pageTitle: 'Happy Returns Drop-Off Near Eastlake — No Hassle | Mailbox Plus',
+    pageTitle: 'Happy Returns Drop-Off in Eastlake | Mailbox Plus',
     metaDescription:
       'Happy Returns drop-off near Eastlake, OH. Bring your QR code or pre-labeled return to Mailbox Plus — in and out fast.',
     keywords: 'Happy Returns Eastlake, return drop-off Eastlake, Mailbox Plus Concord',

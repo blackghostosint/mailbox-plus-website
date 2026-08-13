@@ -1,5 +1,5 @@
 ---
-title: 'Your Hambden Copier Jammed. Hand Us the Originals. | Mailbox Plus'
+title: 'Your Hambden Copier Jammed. Hand Us the Originals.'
 description: 'Standing in front of a flashing error message on a self-serve copier? Hand us your originals and we make the copies for you.'
 slug: 'hambden-copies'
 category: 'printing'

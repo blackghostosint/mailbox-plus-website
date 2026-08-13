@@ -12,7 +12,7 @@ export const competePages: Service[] = [
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
     slug: '/happy-returns-kirtland',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns-kirtland',
-    pageTitle: 'Happy Returns Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
+    pageTitle: 'Happy Returns Drop-Off in Kirtland | Mailbox Plus',
     metaDescription:
       'Need a Happy Returns drop-off near Kirtland, OH? Mailbox Plus is just 4 miles away on Fredle Drive in Concord Township.',
     keywords: 'Happy Returns Kirtland, return drop-off Kirtland, Mailbox Plus Concord',

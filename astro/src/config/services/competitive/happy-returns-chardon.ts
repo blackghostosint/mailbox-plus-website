@@ -12,7 +12,7 @@ export const competePages: Service[] = [
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off Near Chardon — Local Service | Mailbox Plus',
     slug: '/happy-returns-chardon',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns-chardon',
-    pageTitle: 'Happy Returns Drop-Off Near Chardon — Local Service | Mailbox Plus',
+    pageTitle: 'Happy Returns Drop-Off in Chardon | Mailbox Plus',
     metaDescription:
       'Happy Returns drop-off near Chardon, OH. Mailbox Plus handles all your returns — Happy Returns, FedEx Easy Returns, and carrier drop-offs.',
     keywords: 'Happy Returns Chardon, return drop-off Chardon, Mailbox Plus Concord',

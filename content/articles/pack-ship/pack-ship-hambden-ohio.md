@@ -1,5 +1,5 @@
 ---
-title: 'Hambden: Why Drive 25 Miles for a Shipping Counter That Only Shows One Rate? | Mailbox Plus'
+title: 'Hambden: Why Drive 25 Miles for a Shipping Counter That Only Shows One Rate?'
 description: "Stop driving 25 miles to a franchise store that only shows one carrier's rate. Mailbox Plus in Concord Township compares FedEx, UPS, USPS, and DHL side by side."
 slug: 'pack-ship-hambden-ohio'
 category: 'pack-ship'

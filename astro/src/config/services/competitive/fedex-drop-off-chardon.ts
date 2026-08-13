@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-drop-off-chardon',
     category: 'pack-ship',
     city: 'Chardon',
-    serviceName: 'FedEx Drop-Off Near Chardon — Local Alternative | Mailbox Plus',
+    serviceName: 'FedEx Drop-Off in Chardon | Mailbox Plus',
     slug: '/fedex-drop-off-chardon',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-chardon',
-    pageTitle: 'FedEx Drop-Off Near Chardon — Local Alternative | Mailbox Plus',
+    pageTitle: 'FedEx Drop-Off in Chardon | Mailbox Plus',
     metaDescription:
       'Need a FedEx drop-off near Chardon, OH? Mailbox Plus in Concord Township handles FedEx shipments with shorter waits and local service.',
     keywords: 'FedEx drop-off Chardon, Chardon FedEx shipping, Mailbox Plus Concord',

@@ -151,7 +151,7 @@ export const carrierServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'UPS Authorized Shipper Outlet',
     slug: '/pack-ship/ups-authorized-shipper-outlet',
-    pageTitle: 'UPS Authorized Shipper Outlet in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'UPS Authorized Shipper Outlet in Concord | Mailbox Plus',
     metaDescription:
       'UPS Authorized Shipping Outlet in Concord Township. Ground, Next Day Air, and International. Free pre-labeled drop-offs. Compare UPS, FedEx, USPS, and DHL rates at one counter.',
     keywords: 'ups shipping, concord township, lake county, ups drop off, ups store alternative',
@@ -282,7 +282,7 @@ export const carrierServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'USPS Postal Services',
     slug: '/pack-ship/usps-services',
-    pageTitle: 'USPS Postal Services in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'USPS Services in Concord Township | Mailbox Plus',
     metaDescription:
       'USPS postal services in Concord Township — Priority Mail, First-Class, Certified Mail, and stamps. No post office lines. We handle UPS, FedEx, and DHL too.',
     keywords: 'usps, postal services, concord township, lake county, post office alternative',

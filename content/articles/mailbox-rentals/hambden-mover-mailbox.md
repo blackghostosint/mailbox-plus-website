@@ -1,5 +1,5 @@
 ---
-title: 'Moving to Hambden? Your Address Should Move With You, Not Change Every Time | Mailbox Plus'
+title: 'Moving to Hambden? Your Address Should Move With You, Not Change Every Time'
 description: 'New place in Hambden? Keep one address that follows you. Mailbox Plus — real street address, works for all carriers, never change it again.'
 slug: 'hambden-mover-mailbox'
 category: 'mailbox-rentals'
