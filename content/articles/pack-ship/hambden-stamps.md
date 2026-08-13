@@ -1,5 +1,5 @@
 ---
-title: 'You Live in Hambden. You Need a Stamp. The Post Office Line Is 20 Minutes. | Mailbox Plus'
+title: 'You Live in Hambden. You Need a Stamp. The Post Office Line Is 20 Minutes.'
 description: 'The post office line is 20 minutes for a $0.73 stamp. Mailbox Plus sells stamps at the counter — same price, no line.'
 slug: 'hambden-stamps'
 category: 'pack-ship'

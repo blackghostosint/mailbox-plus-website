@@ -1,5 +1,5 @@
 ---
-title: '20 Data Broker Sites Have Your Hambden Address Right Now | Mailbox Plus'
+title: '20 Data Broker Sites Have Your Hambden Address Right Now'
 description: 'Your Hambden home address is for sale online. Mailbox Plus gives you a real street address that keeps your home private from data brokers.'
 slug: 'hambden-privacy-mailbox'
 category: 'mailbox-rentals'

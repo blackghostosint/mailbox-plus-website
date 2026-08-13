@@ -1,5 +1,5 @@
 ---
-title: 'Snowbird Leaving Hambden for the Winter? Keep Your Ohio Address | Mailbox Plus'
+title: 'Snowbird Leaving Hambden for the Winter? Keep Your Ohio Address'
 description: 'Heading south for winter? Keep your Hambden address active. Mailbox Plus holds your mail, scans it within 4 hours, forwards when you want.'
 slug: 'hambden-rver-mailbox'
 category: 'mailbox-rentals'

@@ -76,7 +76,7 @@ export const shippingMicroProblems: Service[] = [
     serviceName: 'Ship an Odd-Shaped or Oversized Item',
     slug: '/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
     pageTitle:
-      'Ship an Odd-Shaped or Oversized Item in Concord Township – Guitars, Lamps, Sports Equipment | Mailbox Plus',
+      'Ship Odd-Sized Items in Concord Township | Mailbox Plus',
     metaDescription:
       "Got something that doesn't fit in a normal box? Golf clubs, a floor lamp, a bicycle wheel, artwork? We ship weird-shaped stuff all the time. We'll figure it out.",
     heroTitle: 'Ship an Odd-Shaped or Oversized Item in Concord Township',
@@ -277,7 +277,7 @@ export const shippingMicroProblems: Service[] = [
     serviceName: 'Ship Artwork, Framed Items, or Collectibles',
     slug: '/ship-artwork-framed-items-or-collectibles-safely-in-concord-township',
     pageTitle:
-      'Ship Artwork, Framed Items, or Collectibles Safely in Concord Township | Mailbox Plus',
+      'Ship Artwork & Collectibles in Concord | Mailbox Plus',
     metaDescription:
       'Shipping something irreplaceable? A painting, framed photo, signed poster, or collectible? We treat these like museum pieces with corner protectors, custom boxes, and full insurance.',
     heroTitle: 'Ship Artwork, Framed Items, or Collectibles Safely in Concord Township',
@@ -536,7 +536,7 @@ export const shippingMicroProblems: Service[] = [
     serviceName: 'Ship an Item That Needs Extra Protection or Padding',
     slug: '/ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
     pageTitle:
-      'Ship an Item That Needs Extra Protection or Padding in Concord Township, OH | Mailbox Plus',
+      'Ship Fragile Items Safely in Concord Township | Mailbox Plus',
     metaDescription:
       'Professional protective packaging for delicate, expensive, or sentimental items. We use foam inserts, corner protectors, and double-boxing to protect your shipment from drops and rough handling.',
     heroTitle: 'Ship an Item That Needs Extra Protection or Padding in Concord Township',
@@ -602,7 +602,7 @@ export const shippingMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: "Ship a Package When You're Short on Time",
     slug: '/ship-a-package-when-youre-short-on-time-in-concord-township',
-    pageTitle: "Ship a Package When You're Short on Time in Concord Township | Mailbox Plus",
+    pageTitle: "Fast Package Shipping in Concord Township | Mailbox Plus",
     metaDescription:
       "Need it shipped today? Have 10 minutes before you need to be somewhere else? We move fast. Walk in, tell us what you need, and we'll have you out the door with tracking in hand.",
     heroTitle: "Ship a Package When You're Short on Time in Concord Township",
@@ -742,7 +742,7 @@ export const shippingMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Chewy Prescription Mail-In',
     slug: '/chewy-prescription-mail-in',
-    pageTitle: 'Chewy Prescription Mail-In in Concord Township, OH | Mailbox Plus',
+    pageTitle: 'Chewy Prescription Mail-In in Concord | Mailbox Plus',
     metaDescription:
       "Need to mail your pet's prescription to Chewy Pharmacy? We're a FedEx Authorized ShipCenter — bring your original Rx and QR code, we'll seal it up and ship it out same day if dropped off before 3 PM.",
     heroTitle: 'Chewy Prescription Mail-In in Concord Township',

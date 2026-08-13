@@ -116,7 +116,7 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-concord-township',
-    pageTitle: 'UPS Store Alternative in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'UPS Store Alternative in Concord Township | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Concord Township? We offer UPS, FedEx, USPS, and DHL shipping at one counter \u2014 mailbox rentals, printing, notary. Locally owned, faster service.',
     keywords: 'UPS Store alternative, Concord Township, Mailbox Plus, shipping',
@@ -331,7 +331,7 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'FedEx Office Alternative',
     slug: '/fedex-office-alternative-concord-township',
-    pageTitle: 'FedEx Office Alternative in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Concord Township | Mailbox Plus',
     metaDescription:
       'Your local FedEx Office Alternative in Concord Township. Authorized FedEx shipping, printing, and business services. Compare rates with UPS and USPS at one counter.',
     keywords: 'FedEx Office alternative, Concord Township, Mailbox Plus, shipping',
@@ -562,7 +562,7 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Staples Printing Alternative',
     slug: '/staples-printing-alternative-concord-township',
-    pageTitle: 'Staples Printing Alternative in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Staples Printing Alternative in Concord | Mailbox Plus',
     metaDescription:
       'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and laminating. Quick turnaround, friendly service.',
     keywords: 'Staples printing alternative, Concord Township, Mailbox Plus, printing services',
@@ -630,7 +630,7 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Office Depot Alternative',
     slug: '/office-depot-alternative-concord-township',
-    pageTitle: 'Office Depot Alternative in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Office Depot Alternative in Concord Township | Mailbox Plus',
     metaDescription:
       'Your local Office Depot Alternative in Concord Township. Printing, copying, shipping, and office services \u2014 all under one roof with personalized service.',
     keywords: 'Office Depot alternative, Concord Township, Mailbox Plus, printing services',
@@ -770,7 +770,7 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Shipping, Mailing & Pack and Ship Services',
     slug: '/pack-and-ship-services-concord-township',
-    pageTitle: 'Shipping & Mailing Services in Concord Township, OH | Mailbox Plus',
+    pageTitle: 'Shipping & Mailing in Concord Township | Mailbox Plus',
     metaDescription:
       'Shipping, mailing, and pack & ship services in Concord Township (44077). UPS, FedEx, USPS, DHL, mailbox rentals, notary, printing. Rated 5.0★ on Google. Call (440) 709-1946.',
     keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping, packing',

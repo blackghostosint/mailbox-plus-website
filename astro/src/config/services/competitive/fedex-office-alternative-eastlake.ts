@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-eastlake',
     category: 'pack-ship',
     city: 'Eastlake',
-    serviceName: 'FedEx Office Alternative Near Eastlake — Smarter Choice | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Eastlake | Mailbox Plus',
     slug: '/fedex-office-alternative-eastlake',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-eastlake',
-    pageTitle: 'FedEx Office Alternative Near Eastlake — Smarter Choice | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Eastlake | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx Office alternative near Eastlake, OH? Mailbox Plus does everything FedEx Office does — plus UPS, USPS, DHL, mailboxes, and notary.',
     keywords: 'FedEx Office alternative Eastlake, Eastlake shipping services, Mailbox Plus Concord',

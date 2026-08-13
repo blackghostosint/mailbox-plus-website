@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-drop-off-painesville',
     category: 'pack-ship',
     city: 'Painesville',
-    serviceName: 'FedEx Drop-Off in Painesville — Quick, Local, Reliable | Mailbox Plus',
+    serviceName: 'FedEx Drop-Off in Painesville | Mailbox Plus',
     slug: '/fedex-drop-off-painesville',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-painesville',
-    pageTitle: 'FedEx Drop-Off in Painesville — Quick, Local, Reliable | Mailbox Plus',
+    pageTitle: 'FedEx Drop-Off in Painesville | Mailbox Plus',
     metaDescription:
       'Need a FedEx drop-off near Painesville, OH? Mailbox Plus is just minutes away with authorized FedEx shipping and drop-off service.',
     keywords: 'FedEx drop-off Painesville, Painesville FedEx shipping, Mailbox Plus Concord',

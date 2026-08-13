@@ -1,5 +1,5 @@
 ---
-title: 'You Sell from Hambden. Your Customers See Your Home Address. | Mailbox Plus'
+title: 'You Sell from Hambden. Your Customers See Your Home Address.'
 description: 'Every return label from your Hambden home has your address on it. Get a real street address at Mailbox Plus — your home stays private.'
 slug: 'hambden-online-seller-mailbox'
 category: 'mailbox-rentals'

@@ -203,7 +203,7 @@ export const coreServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Copy & Print',
     slug: '/copy-print',
-    pageTitle: 'Copy and Print Services in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Copy & Print Services in Concord Township | Mailbox Plus',
     metaDescription:
       'Professional Copy & Print services in Concord Township — without the big box runaround. Business cards, flyers, document printing, and design. Real people, fast turnaround, no self-serve kiosks.',
     keywords:

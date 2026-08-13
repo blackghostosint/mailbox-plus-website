@@ -12,7 +12,7 @@ export const competePages: Service[] = [
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off in Painesville — Quick & Local | Mailbox Plus',
     slug: '/happy-returns-painesville',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns-painesville',
-    pageTitle: 'Happy Returns Drop-Off in Painesville — Quick & Local | Mailbox Plus',
+    pageTitle: 'Happy Returns Drop-Off in Painesville | Mailbox Plus',
     metaDescription:
       'Looking for a Happy Returns drop-off near Painesville, OH? Mailbox Plus on Fredle Drive handles returns fast — just minutes away.',
     keywords: 'Happy Returns Painesville, return drop-off Painesville, Mailbox Plus Concord',

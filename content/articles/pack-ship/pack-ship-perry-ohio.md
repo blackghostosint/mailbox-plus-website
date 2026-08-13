@@ -1,5 +1,5 @@
 ---
-title: "Perry: The 30-Mile Shipping Trip You Don't Have to Make | Mailbox Plus"
+title: "Perry: The 30-Mile Shipping Trip You Don't Have to Make"
 description: 'Skip the 30-mile round trip to a franchise store. Mailbox Plus in Concord Township shows you rates from all 4 carriers — the best price every time, 15 minutes from Perry.'
 slug: 'pack-ship-perry-ohio'
 category: 'pack-ship'

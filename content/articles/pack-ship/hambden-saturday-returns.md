@@ -1,5 +1,5 @@
 ---
-title: 'Your Saturday in Hambden Is Too Short for a Post Office Line | Mailbox Plus'
+title: 'Your Saturday in Hambden Is Too Short for a Post Office Line'
 description: 'The post office line eats your only free day. Mailbox Plus in Concord Township takes UPS, FedEx, USPS returns — in and out in 3 minutes.'
 slug: 'hambden-saturday-returns'
 category: 'pack-ship'

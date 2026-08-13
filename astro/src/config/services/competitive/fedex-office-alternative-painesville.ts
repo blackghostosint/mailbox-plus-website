@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-painesville',
     category: 'pack-ship',
     city: 'Painesville',
-    serviceName: 'FedEx Office Alternative in Painesville — More Options, Less Wait | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Painesville | Mailbox Plus',
     slug: '/fedex-office-alternative-painesville',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-painesville',
-    pageTitle: 'FedEx Office Alternative in Painesville — More Options, Less Wait | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Painesville | Mailbox Plus',
     metaDescription:
       'Need a FedEx Office alternative near Painesville, OH? Mailbox Plus offers authorized FedEx shipping plus UPS, USPS, and DHL — all at one counter.',
     keywords:

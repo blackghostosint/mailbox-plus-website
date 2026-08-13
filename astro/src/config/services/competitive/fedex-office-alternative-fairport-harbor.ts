@@ -8,10 +8,10 @@ export const competePages: Service[] = [
     id: 'fedex-office-alternative-fairport-harbor',
     category: 'pack-ship',
     city: 'Fairport Harbor',
-    serviceName: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
+    serviceName: 'FedEx Office Alternative in Fairport Harbor | Mailbox Plus',
     slug: '/fedex-office-alternative-fairport-harbor',
     canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-fairport-harbor',
-    pageTitle: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
+    pageTitle: 'FedEx Office Alternative in Fairport Harbor | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx Office alternative near Fairport Harbor, OH? Mailbox Plus does FedEx, UPS, USPS, and DHL — one counter, locally owned.',
     keywords:

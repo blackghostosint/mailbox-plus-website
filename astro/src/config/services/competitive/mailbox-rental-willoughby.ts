@@ -9,11 +9,11 @@ export const competePages: Service[] = [
     category: 'mailbox-rentals',
     city: 'Willoughby',
     serviceName:
-      'Mailbox Rental Near Me Willoughby --- Private Mailbox Serving Willoughby, OH | Mailbox Plus',
+      'Mailbox Rental in Willoughby | Mailbox Plus',
     slug: '/mailbox-rental-willoughby',
     canonicalUrl: 'https://mailboxplusohio.com/mailbox-rental-willoughby',
     pageTitle:
-      'Mailbox Rental Near Me Willoughby --- Private Mailbox Serving Willoughby, OH | Mailbox Plus',
+      'Mailbox Rental in Willoughby | Mailbox Plus',
     metaDescription:
       'Searching for mailbox rental near me in Willoughby? Get a real street address, secure mail, and package receiving — from $35/month at Mailbox Plus.',
     keywords:

@@ -1,5 +1,5 @@
 ---
-title: 'Your Hambden Business Card Looks DIY. Your Customers Notice. | Mailbox Plus'
+title: 'Your Hambden Business Card Looks DIY. Your Customers Notice.'
 description: 'A DIY business card hurts your credibility. Mailbox Plus designs and prints professional marketing materials.'
 slug: 'hambden-graphic-design'
 category: 'printing'

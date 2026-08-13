@@ -606,7 +606,7 @@ export const returnMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Vinted Drop-Off Location',
     slug: '/vinted-drop-off',
-    pageTitle: 'Vinted Drop-Off Location in Concord Township, OH | Mailbox Plus',
+    pageTitle: 'Vinted Drop-Off in Concord Township | Mailbox Plus',
     metaDescription:
       'Selling on Vinted? Drop off your prepaid packages at Mailbox Plus in Concord Township. We are an official Vinted Go drop-off location — fast, friendly, and local.',
     heroTitle: 'Vinted Drop-Off Location in Concord Township',

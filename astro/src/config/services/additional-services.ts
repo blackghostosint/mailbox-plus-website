@@ -366,7 +366,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Digital Fingerprinting',
     slug: '/specialty/digital-fingerprinting',
-    pageTitle: 'Digital Fingerprinting in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Digital Fingerprinting in Concord Township | Mailbox Plus',
     metaDescription:
       'Digital fingerprinting in Concord Township \u2014 appointments required. Fast digital capture for background checks, licensing, and employment. BCI & FBI compliant. Book at FastFingerprints.com.',
     keywords: 'digital fingerprinting, background check, BCI, FBI, Concord Township, Lake County',
@@ -657,7 +657,7 @@ export const additionalServices: Service[] = [
     serviceName: 'Happy Returns Return Bar',
     slug: '/happy-returns',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns',
-    pageTitle: 'Happy Returns Return Bar in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Happy Returns Return Bar in Concord Township | Mailbox Plus',
     metaDescription:
       'Mailbox Plus is a Happy Returns Return Bar in Concord Township. Bring your QR code — no box, no label, no printer needed. We scan, bag, and receipt you in under 60 seconds. Free, fast, and friendly.',
     keywords:

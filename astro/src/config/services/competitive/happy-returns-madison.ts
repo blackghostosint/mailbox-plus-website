@@ -12,7 +12,7 @@ export const competePages: Service[] = [
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     slug: '/happy-returns-madison',
     canonicalUrl: 'https://mailboxplusohio.com/happy-returns-madison',
-    pageTitle: 'Happy Returns Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
+    pageTitle: 'Happy Returns Drop-Off in Madison | Mailbox Plus',
     metaDescription:
       'Need a Happy Returns drop-off near Madison, OH? Mailbox Plus in Concord Township handles returns for Happy Returns, FedEx, UPS, and USPS.',
     keywords: 'Happy Returns Madison, return drop-off Madison, Mailbox Plus Concord',

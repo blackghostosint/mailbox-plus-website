@@ -1,5 +1,5 @@
 ---
-title: 'Three Returns. Three Carriers. One 25-Mile Drive From Hambden. | Mailbox Plus'
+title: 'Three Returns. Three Carriers. One 25-Mile Drive From Hambden.'
 description: 'Amazon goes UPS. Zappos goes FedEx. That Etsy order goes USPS. Drop all three at Mailbox Plus — one counter, all carriers, 15 minutes from Hambden.'
 slug: 'hambden-returns-r1'
 category: 'pack-ship'
