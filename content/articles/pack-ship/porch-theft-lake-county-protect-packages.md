@@ -15,7 +15,7 @@ keywords:
     'package theft protection Concord Township',
     'secure package delivery Lake County',
   ]
-relatedServices: ['/pack-ship', '/home-business/mailbox-rental', '/package-receiving']
+relatedServices: ['/pack-ship', '/home-business/mailbox-rental', '/pack-ship/package-receiving']
 author: 'Mailbox Plus Team'
 ---
 

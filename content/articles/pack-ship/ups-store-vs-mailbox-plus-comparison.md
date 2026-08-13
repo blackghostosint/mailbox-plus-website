@@ -15,7 +15,8 @@ keywords:
     'Mailbox Plus vs UPS Store',
     'local shipping center Concord Ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/ups-shipping', '/pack-ship/fedex-shipping']
+relatedServices:
+  ['/pack-ship', '/pack-ship/ups-authorized-shipper-outlet', '/pack-ship/fedex-shipping']
 author: 'Mailbox Plus Team'
 ---
 
