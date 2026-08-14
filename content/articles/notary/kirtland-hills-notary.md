@@ -73,4 +73,4 @@ No line. No sign. No waiting.
 
 **Your car title is ready. We are ready.**
 
-Drive to 7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+Drive to 7554 Fredle Drive, Concord Township, OH 44077.

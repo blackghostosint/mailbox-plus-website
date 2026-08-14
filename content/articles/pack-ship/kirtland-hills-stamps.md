@@ -70,6 +70,4 @@ The next time you need a stamp, skip the line. Drive to 7554 Fredle Drive. We ke
 
 One stamp. 30 seconds. Done. No line. No wait. No wasted lunch break. That is a better way to buy postage.
 
-We take returns. We ship your stuff.
-
 **[See all shipping services →](/pack-ship/)** | **[Buy postage stamps →](/pack-ship/postage-stamps/)**

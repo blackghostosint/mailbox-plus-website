@@ -72,5 +72,3 @@ The coffee is still warm from the cup you grabbed on the way. That is how fast i
 ## Your Next Step
 
 Next time you need to return something, skip the runaround. Drive to 7554 Fredle Drive. Drop every box at one counter. Leave in three minutes.
-
-We take returns. We ship your stuff.

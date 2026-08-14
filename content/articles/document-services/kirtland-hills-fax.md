@@ -76,4 +76,4 @@ The machine stays at our shop. You never think about it again.
 
 **Need to fax? We have the machine.**
 
-7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+7554 Fredle Drive, Concord Township, OH 44077.

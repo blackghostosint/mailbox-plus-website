@@ -81,4 +81,4 @@ She sends a photo of the table set with grandmother's china. That is the only re
 
 **Don't wrap it yourself. Let us do it.**
 
-Drive to 7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+Drive to 7554 Fredle Drive, Concord Township, OH 44077.

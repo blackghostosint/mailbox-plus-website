@@ -72,5 +72,3 @@ Packages arrive during business hours. You pick them up on your schedule. Your p
 ## Your Next Step
 
 Drive down Route 306 to 7554 Fredle Drive. Sign up for a mailbox. File the address change with the state. Separate your home from your business.
-
-We take returns. We ship your stuff.

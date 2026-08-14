@@ -79,4 +79,4 @@ The filing cabinet is gone. You reclaimed that corner for a bookshelf.
 
 **Bring us your paper. Take home digital files.**
 
-7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+7554 Fredle Drive, Concord Township, OH 44077.

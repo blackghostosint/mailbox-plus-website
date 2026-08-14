@@ -64,7 +64,7 @@ One trip. One check. One thousand mailboxes.
 
 Landscapers use it every spring. Realtors use it before open houses. Pet groomers use it before the holidays. Contractors use it after storms.
 
-A roofer in Kirtland Hills used EDDM after a wind storm. His phone rang for two days. A piano teacher used it in August. Her fall schedule filled up.
+A roofer uses it after a storm. A piano teacher uses it before the fall semester. Same pattern — the postcard lands in every mailbox on their route, and the work follows.
 
 Kirtland Hills has hundreds of homes. They all have mailboxes. They all need something you offer.
 
@@ -76,4 +76,4 @@ Your name is now known. Your business is now local.
 
 **Every mailbox. One trip. We handle the rest.**
 
-7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+7554 Fredle Drive, Concord Township, OH 44077.

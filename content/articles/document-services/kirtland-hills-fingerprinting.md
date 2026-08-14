@@ -33,7 +33,7 @@ The sheriff's office handles law enforcement first. Civilian fingerprinting come
 
 Your job offer does not care about priority. It cares about a deadline.
 
-A teacher in Kirtilland needs prints for the Ohio Department of Education. A nurse in Concord Township needs prints for the Ohio Board of Nursing. A real estate agent on Route 306 needs prints for her license. All of them hit the same bottleneck.
+A teacher in Kirtland needs prints for the Ohio Department of Education. A nurse in Concord Township needs prints for the Ohio Board of Nursing. A real estate agent on Route 306 needs prints for her license. All of them hit the same bottleneck.
 
 ## Live Scan. Instant Results. No Ink.
 
@@ -77,4 +77,4 @@ Your employer gets the results in days. You get the job in weeks. One scan chang
 
 **Ten minutes. No appointment. Walk in.**
 
-7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+7554 Fredle Drive, Concord Township, OH 44077.

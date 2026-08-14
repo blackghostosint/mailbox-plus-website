@@ -73,5 +73,3 @@ You never worry about your porch again. The Kirtland Hills snow melts. Your mail
 ## Your Next Step
 
 Stop by Mailbox Plus at 7554 Fredle Drive before you head south. Sign up for a mailbox. Set up digital scanning. Leave with the peace of mind that your mail is handled.
-
-We take returns. We ship your stuff.

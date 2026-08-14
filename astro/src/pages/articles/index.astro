@@ -5,7 +5,7 @@ import { articleLoader } from '../../utils/articleLoader';
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
 const allArticles = await articleLoader.getAllArticles();
-const published = allArticles.filter(a => a.frontmatter.status !== 'draft');
+const published = allArticles.filter(a => a.frontmatter.status !== 'draft' && a.frontmatter.status !== 'archived');
 const categories = [...new Set(published.map(a => a.frontmatter.category))];
 
 function formatDate(dateStr: string): string {
