@@ -7,7 +7,7 @@ intentKey: 'college-students-stable-mailing-address'
 pubDate: '2026-08-05T16:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/college-students-stable-mailing-address-featured.webp'
-imageAlt: 'A college student moving boxes into a dorm room while a parent holds a steady stack of mail — one mailbox address that stays the same through every move'
+imageAlt: 'A college student moving boxes into a dorm room while a parent holds a steady stack of mail — one mailbox address that stays the same through every move — Mailbox Plus mailbox rentals in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

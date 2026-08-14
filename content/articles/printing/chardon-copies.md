@@ -7,7 +7,7 @@ intentKey: 'chardon-copies'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/printing/chardon-copies-featured.webp'
-imageAlt: 'A stack of freshly copied papers on a counter, someone handing over originals. Warm, helpful.'
+imageAlt: 'A stack of freshly copied papers on a counter, someone handing over originals. Warm, helpful — Mailbox Plus printing and copying in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon copy services', 'chardon printing', 'chardon copies']
 relatedServices: ['/copy-print/copies', '/copy-print/document-printing']

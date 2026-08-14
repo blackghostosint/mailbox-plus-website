@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-online-seller-mailbox'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/kirtland-hills-online-seller-mailbox-featured.webp'
-imageAlt: 'A home office near Kirtland Hills with shipping labels stacked next to a laptop, warm afternoon light through a window overlooking manicured lawns'
+imageAlt: 'A home office near Kirtland Hills with shipping labels stacked next to a laptop, warm afternoon light through a window overlooking manicured lawns — Mailbox Plus mailbox rentals in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

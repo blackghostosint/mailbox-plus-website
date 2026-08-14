@@ -7,7 +7,7 @@ intentKey: 'hambden-document-scanning'
 pubDate: '2026-06-27T22:21:00-05:00'
 status: 'published'
 image: 'articles/document-services/hambden-document-scanning-featured.webp'
-imageAlt: 'A stack of old papers and a filing cabinet drawer half-open'
+imageAlt: 'A stack of old papers and a filing cabinet drawer half-open — Mailbox Plus document services in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden document scanning', 'hambden ohio digitize', 'hambden paper scanning']
 relatedServices: ['/home-business/document-scanning', '/home-business/shredding']

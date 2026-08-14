@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-notary'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/notary/kirtland-hills-notary-featured.webp'
-imageAlt: 'A close-up of a notary seal stamping a document on a clean wooden counter, professional warm lighting'
+imageAlt: 'A close-up of a notary seal stamping a document on a clean wooden counter, professional warm lighting — Mailbox Plus notary services in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   ['kirtland hills notary public', 'kirtland hills ohio notary', 'walk in notary kirtland hills']

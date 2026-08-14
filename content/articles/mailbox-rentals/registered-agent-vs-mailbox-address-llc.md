@@ -7,7 +7,7 @@ intentKey: 'registered-agent-vs-mailbox-address-llc'
 pubDate: '2026-08-19T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/registered-agent-vs-mailbox-address-llc-featured.webp'
-imageAlt: 'A new LLC owner reading Ohio Articles of Organization paperwork at a kitchen table, with a mailbox storefront showing a real street address behind them'
+imageAlt: 'A new LLC owner reading Ohio Articles of Organization paperwork at a kitchen table, with a mailbox storefront showing a real street address behind them — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

@@ -17,7 +17,7 @@ location: 'Hambden Township, OH'
 keywords:
   ['pack and ship', 'Hambden Township', 'Ohio', 'rural shipping', 'logistics', 'Geauga County']
 image: 'articles/pack-ship/pack-ship-hambden-township-featured.webp'
-imageAlt: 'A scenic view of shipping logistics connecting rural Hambden Township, Ohio, to the world.'
+imageAlt: 'A scenic view of shipping logistics connecting rural Hambden Township, Ohio, to the world — Mailbox Plus packing and shipping in Hambden Township, OH.'
 ---
 
 # Reliable Packing and Shipping Services for Hambden Township

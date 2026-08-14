@@ -7,7 +7,7 @@ intentKey: 'pack-ship-hambden-ohio'
 pubDate: '2026-06-27T21:32:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/pack-ship-hambden-ohio-featured.webp'
-imageAlt: 'A long, quiet rural road winding through Geauga County farmland'
+imageAlt: 'A long, quiet rural road winding through Geauga County farmland — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords:
   [

@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-fragile-shipping'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-fragile-shipping-featured.webp'
-imageAlt: 'A person carefully wrapping a glass item in bubble wrap at a clean packing counter, professional lighting'
+imageAlt: 'A person carefully wrapping a glass item in bubble wrap at a clean packing counter, professional lighting — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

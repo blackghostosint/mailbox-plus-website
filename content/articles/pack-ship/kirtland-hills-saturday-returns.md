@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-saturday-returns'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-saturday-returns-featured.webp'
-imageAlt: 'A person walking out of a store with packages handled, looking relaxed, bright daylight, open sky'
+imageAlt: 'A person walking out of a store with packages handled, looking relaxed, bright daylight, open sky — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

@@ -24,7 +24,7 @@ keywords:
     'Lake County',
   ]
 image: 'articles/pack-ship/pack-ship-munson-township-featured.webp'
-imageAlt: 'Modern digital art portraying efficient packing and shipping connections for Munson Township residents.'
+imageAlt: 'Modern digital art portraying efficient packing and shipping connections for Munson Township residents — Mailbox Plus packing and shipping in Munson Township, OH.'
 ---
 
 # Efficient Packing and Shipping for Munson Township Residents

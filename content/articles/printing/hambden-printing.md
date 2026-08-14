@@ -7,7 +7,7 @@ intentKey: 'hambden-printing'
 pubDate: '2026-06-27T22:40:00-05:00'
 status: 'published'
 image: 'articles/printing/hambden-printing-featured.webp'
-imageAlt: 'An inkjet printer with a flashing low-ink warning light on a home office desk'
+imageAlt: 'An inkjet printer with a flashing low-ink warning light on a home office desk — Mailbox Plus printing and copying in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden printing services', 'hambden document printing', 'hambden print shop']
 relatedServices: ['/copy-print/document-printing', '/copy-print']

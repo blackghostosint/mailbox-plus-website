@@ -22,7 +22,7 @@ keywords:
     'shipping willowick ohio',
     'mailbox plus concord',
   ]
-imageAlt: 'Professional packing and shipping services for the West Lake County corridor, including Willoughby, Wickliffe, and Willowick.'
+imageAlt: 'Professional packing and shipping services for the West Lake County corridor, including Willoughby, Wickliffe, and Willowick — Mailbox Plus packing and shipping serving West Lake County, OH.'
 image: 'articles/pack-ship/pack-ship-west-lake-county-featured.webp'
 ---
 

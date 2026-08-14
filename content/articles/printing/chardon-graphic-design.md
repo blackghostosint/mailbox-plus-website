@@ -7,7 +7,7 @@ intentKey: 'chardon-graphic-design'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/printing/chardon-graphic-design-featured.webp'
-imageAlt: "A clean wooden desk with professional business cards and a tablet showing a logo design. A designer's workspace."
+imageAlt: "A clean wooden desk with professional business cards and a tablet showing a logo design. A designer's workspace — Mailbox Plus printing and copying in Chardon, OH."
 location: 'chardon'
 keywords: ['chardon graphic design', 'chardon business cards', 'chardon printing services']
 relatedServices: ['/copy-print/graphic-design', '/copy-print']

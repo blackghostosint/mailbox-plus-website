@@ -7,7 +7,7 @@ intentKey: 'usps-ups-air-cargo-contract-shipping-costs'
 pubDate: '2026-08-12T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/usps-ups-air-cargo-contract-shipping-costs-featured.webp'
-imageAlt: 'A USPS truck and a cargo plane side by side, with a mailbox in the foreground representing rising shipping costs'
+imageAlt: 'A USPS truck and a cargo plane side by side, with a mailbox in the foreground representing rising shipping costs — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

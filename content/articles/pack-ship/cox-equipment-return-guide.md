@@ -7,7 +7,7 @@ intentKey: 'cox-equipment-return-guide'
 pubDate: '2026-08-12T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/cox-equipment-return-guide-featured.webp'
-imageAlt: 'A Cox internet modem and a digital TV receiver with their power cords on a clean counter, ready to be returned, warm natural light in a local shipping store'
+imageAlt: 'A Cox internet modem and a digital TV receiver with their power cords on a clean counter, ready to be returned, warm natural light in a local shipping store — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

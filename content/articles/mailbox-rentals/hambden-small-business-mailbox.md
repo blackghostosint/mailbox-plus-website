@@ -7,7 +7,7 @@ intentKey: 'hambden-small-business-mailbox'
 pubDate: '2026-06-27T22:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/hambden-small-business-mailbox-featured.webp'
-imageAlt: 'A small business storefront window in rural Geauga County with a hand-painted sign'
+imageAlt: 'A small business storefront window in rural Geauga County with a hand-painted sign — Mailbox Plus mailbox rentals in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden business address', 'hambden ohio llc', 'hambden small business']
 relatedServices: ['/home-business/mailbox-rental', '/home-business/notary-services']

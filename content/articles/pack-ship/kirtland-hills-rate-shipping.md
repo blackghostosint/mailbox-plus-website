@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-rate-shipping'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-rate-shipping-featured.webp'
-imageAlt: 'A shipping counter with a monitor showing four carrier rate options side by side, clean warm store interior'
+imageAlt: 'A shipping counter with a monitor showing four carrier rate options side by side, clean warm store interior — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

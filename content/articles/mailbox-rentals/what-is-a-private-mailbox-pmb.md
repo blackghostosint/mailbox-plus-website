@@ -7,7 +7,7 @@ intentKey: 'what-is-a-private-mailbox-pmb'
 pubDate: '2026-08-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/what-is-a-private-mailbox-pmb-featured.webp'
-imageAlt: 'A clean private mailbox address card showing PMB 123 on the address line, next to a stack of envelopes and a small package at a local mailbox store counter'
+imageAlt: 'A clean private mailbox address card showing PMB 123 on the address line, next to a stack of envelopes and a small package at a local mailbox store counter — Mailbox Plus mailbox rentals in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

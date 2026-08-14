@@ -7,7 +7,7 @@ intentKey: 'compare-shipping-rates-ups-fedex-usps-dhl'
 pubDate: '2026-07-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/compare-shipping-rates-ups-fedex-usps-dhl-featured.webp'
-imageAlt: 'A package on a counter with four carrier labels side by side — UPS brown, FedEx purple, USPS blue, DHL yellow — with price tags visibly different'
+imageAlt: 'A package on a counter with four carrier labels side by side — UPS brown, FedEx purple, USPS blue, DHL yellow — with price tags visibly different — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

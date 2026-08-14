@@ -7,7 +7,7 @@ intentKey: 'chardon-online-seller-mailbox'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/chardon-online-seller-mailbox-featured.webp'
-imageAlt: 'A rustic farmhouse kitchen table stacked with maple syrup jars and shipping labels. Morning light through a window overlooking Chardon hills.'
+imageAlt: 'A rustic farmhouse kitchen table stacked with maple syrup jars and shipping labels. Morning light through a window overlooking Chardon hills — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon ohio mailbox rental', 'chardon online seller', 'private mailbox chardon']
 relatedServices: ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental']

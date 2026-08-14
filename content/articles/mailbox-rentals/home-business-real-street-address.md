@@ -7,7 +7,7 @@ intentKey: 'home-business-real-street-address'
 pubDate: '2026-08-19T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/home-business-real-street-address-featured.webp'
-imageAlt: 'A home business owner at a desk with business documents and a bank card, with a mailbox storefront showing a real street address behind them'
+imageAlt: 'A home business owner at a desk with business documents and a bank card, with a mailbox storefront showing a real street address behind them — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

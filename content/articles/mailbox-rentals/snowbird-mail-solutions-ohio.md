@@ -7,7 +7,7 @@ intentKey: 'snowbird-mail-solutions-ohio'
 pubDate: '2026-09-01T17:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/snowbird-mail-solutions-ohio-featured.webp'
-imageAlt: 'A pair of suitcases beside a sunny Florida lanai with a stack of forwarded mail on a table, waiting to be opened'
+imageAlt: 'A pair of suitcases beside a sunny Florida lanai with a stack of forwarded mail on a table, waiting to be opened — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

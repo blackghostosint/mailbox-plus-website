@@ -7,7 +7,7 @@ intentKey: 'amazon-fba-holiday-fees-2026'
 pubDate: '2026-08-03T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/amazon-fba-holiday-fees-2026-featured.webp'
-imageAlt: 'A stack of sealed shipping boxes on a counter beside a laptop showing a seller dashboard, warm storefront light'
+imageAlt: 'A stack of sealed shipping boxes on a counter beside a laptop showing a seller dashboard, warm storefront light — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

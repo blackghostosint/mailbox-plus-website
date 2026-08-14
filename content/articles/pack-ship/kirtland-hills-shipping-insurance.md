@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-shipping-insurance'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-shipping-insurance-featured.webp'
-imageAlt: 'Valuable items being carefully packed with protective foam at a clean packing station, close-up professional'
+imageAlt: 'Valuable items being carefully packed with protective foam at a clean packing station, close-up professional — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

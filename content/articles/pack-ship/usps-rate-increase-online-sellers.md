@@ -7,7 +7,7 @@ intentKey: 'usps-rate-increase-online-sellers'
 pubDate: '2026-07-31T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/usps-rate-increase-online-sellers-featured.webp'
-imageAlt: 'A seller at a counter watching USPS package rates climb on a screen, with a stack of outgoing boxes nearby'
+imageAlt: 'A seller at a counter watching USPS package rates climb on a screen, with a stack of outgoing boxes nearby — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

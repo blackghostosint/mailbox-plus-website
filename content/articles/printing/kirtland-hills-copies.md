@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-copies'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/printing/kirtland-hills-copies-featured.webp'
-imageAlt: 'A stack of freshly copied papers on a counter, someone handing over originals, warm helpful lighting'
+imageAlt: 'A stack of freshly copied papers on a counter, someone handing over originals, warm helpful lighting — Mailbox Plus printing and copying in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords: [kirtland hills copy services, kirtland hills printing, kirtland hills copies]
 relatedServices: ['/copy-print/copies', '/copy-print/document-printing']

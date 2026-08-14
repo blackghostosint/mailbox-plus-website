@@ -7,7 +7,7 @@ intentKey: 'poly-mailer-vs-box'
 pubDate: '2026-08-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/poly-mailer-vs-box-featured.webp'
-imageAlt: 'A poly mailer and a cardboard box side by side on a shipping counter, with a scale showing they weigh the same while their price tags are different'
+imageAlt: 'A poly mailer and a cardboard box side by side on a shipping counter, with a scale showing they weigh the same while their price tags are different — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

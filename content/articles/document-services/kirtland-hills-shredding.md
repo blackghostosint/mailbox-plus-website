@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-shredding'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/kirtland-hills-shredding-featured.webp'
-imageAlt: 'A cardboard box of old papers next to a professional industrial shredder, clean secure bright lighting'
+imageAlt: 'A cardboard box of old papers next to a professional industrial shredder, clean secure bright lighting — Mailbox Plus document services in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

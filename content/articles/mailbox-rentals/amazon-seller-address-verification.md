@@ -7,7 +7,7 @@ intentKey: 'amazon-seller-address-verification'
 pubDate: '2026-08-19T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/amazon-seller-address-verification-featured.webp'
-imageAlt: 'An Amazon seller at a home desk holding a verification postcard, with a private mailbox storefront visible behind them'
+imageAlt: 'An Amazon seller at a home desk holding a verification postcard, with a private mailbox storefront visible behind them — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

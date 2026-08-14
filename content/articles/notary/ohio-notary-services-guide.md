@@ -7,7 +7,7 @@ intentKey: 'ohio-notary-services-guide'
 pubDate: '2026-07-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/notary/ohio-notary-services-guide-featured.webp'
-imageAlt: 'A document being stamped with a notary seal on a clean hardwood counter, pen and ID card next to it, bright professional lighting'
+imageAlt: 'A document being stamped with a notary seal on a clean hardwood counter, pen and ID card next to it, bright professional lighting — Mailbox Plus notary services in Concord Township, OH.'
 location: 'concord-township'
 keywords: ['notary services Ohio', 'notary near me Lake County', 'Ohio notary public guide']
 relatedServices:

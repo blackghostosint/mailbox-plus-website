@@ -7,7 +7,7 @@ intentKey: 'chardon-printing'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/printing/chardon-printing-featured.webp'
-imageAlt: 'A professional printer running, a clean counter with printed documents ready to pick up. Fast, efficient.'
+imageAlt: 'A professional printer running, a clean counter with printed documents ready to pick up. Fast, efficient — Mailbox Plus printing and copying in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon printing services', 'chardon document printing', 'chardon print shop']
 relatedServices: ['/copy-print/document-printing', '/copy-print']

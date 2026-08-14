@@ -7,7 +7,7 @@ intentKey: 'how-to-get-mail-living-in-an-rv-ohio'
 pubDate: '2026-08-05T17:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/how-to-get-mail-living-in-an-rv-ohio-featured.webp'
-imageAlt: 'An RV parked beside a Lake Erie campground with a stack of mail and a package waiting at a small mailbox store counter'
+imageAlt: 'An RV parked beside a Lake Erie campground with a stack of mail and a package waiting at a small mailbox store counter — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

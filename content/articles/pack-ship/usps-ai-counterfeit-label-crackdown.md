@@ -7,7 +7,7 @@ intentKey: 'usps-ai-counterfeit-label-crackdown'
 pubDate: '2026-08-13T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/usps-ai-counterfeit-label-crackdown-featured.webp'
-imageAlt: 'A seller at a counter watching a USPS shipping label being scanned by a screen showing an AI detection alert, warm storefront light'
+imageAlt: 'A seller at a counter watching a USPS shipping label being scanned by a screen showing an AI detection alert, warm storefront light — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

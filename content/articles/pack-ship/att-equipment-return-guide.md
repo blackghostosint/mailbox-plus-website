@@ -7,7 +7,7 @@ intentKey: 'att-equipment-return-guide'
 pubDate: '2026-08-12T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/att-equipment-return-guide-featured.webp'
-imageAlt: 'An AT&T Wi-Fi gateway and its power supply on a clean counter, ready to be returned, warm natural light in a local shipping store'
+imageAlt: 'An AT&T Wi-Fi gateway and its power supply on a clean counter, ready to be returned, warm natural light in a local shipping store — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

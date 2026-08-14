@@ -7,7 +7,7 @@ intentKey: 'why-shipping-costs-keep-rising'
 pubDate: '2026-08-11T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/why-shipping-costs-keep-rising-featured.webp'
-imageAlt: 'A stack of shipping boxes beside a laptop on a kitchen table at night, with a tape measure and a roll of tape, warm overhead light'
+imageAlt: 'A stack of shipping boxes beside a laptop on a kitchen table at night, with a tape measure and a roll of tape, warm overhead light — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

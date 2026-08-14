@@ -7,7 +7,7 @@ intentKey: 'chardon-saturday-returns'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-saturday-returns-featured.webp'
-imageAlt: 'A person walking out of a store with packages handled, checking their watch, relaxed. Bright daylight, Chardon hills in the distance.'
+imageAlt: 'A person walking out of a store with packages handled, checking their watch, relaxed. Bright daylight, Chardon hills in the distance — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon saturday returns', 'chardon ohio weekend shipping', 'chardon package drop']
 relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs']

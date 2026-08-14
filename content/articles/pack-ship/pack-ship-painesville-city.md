@@ -6,7 +6,7 @@ category: 'pack-ship'
 intentKey: 'pack-ship-painesville'
 pubDate: '2026-02-07T20:02:45-05:00'
 image: 'articles/pack-ship/pack-ship-painesville-city-featured.webp'
-imageAlt: 'Full-service pack and ship center near Painesville City Ohio offering UPS FedEx USPS and DHL shipping with expert packing services'
+imageAlt: 'Full-service pack and ship center near Painesville City Ohio offering UPS FedEx USPS and DHL shipping with expert packing services — Mailbox Plus packing and shipping in Painesville, OH.'
 location: 'painesville-city'
 keywords:
   [

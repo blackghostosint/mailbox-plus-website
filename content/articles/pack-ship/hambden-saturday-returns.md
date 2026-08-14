@@ -7,7 +7,7 @@ intentKey: 'hambden-saturday-returns'
 pubDate: '2026-06-27T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/hambden-saturday-returns-featured.webp'
-imageAlt: 'A Saturday morning view of a quiet Hambden road with fog rising off a field'
+imageAlt: 'A Saturday morning view of a quiet Hambden road with fog rising off a field — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden saturday returns', 'hambden ohio weekend shipping', 'hambden package drop']
 relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs']

@@ -7,7 +7,7 @@ intentKey: 'hambden-shipping-insurance'
 pubDate: '2026-06-27T22:33:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/hambden-shipping-insurance-featured.webp'
-imageAlt: 'A box on a counter with a shipping label and an insurance declaration sticker'
+imageAlt: 'A box on a counter with a shipping label and an insurance declaration sticker — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords:
   ['hambden shipping insurance', 'hambden ohio valuable shipping', 'hambden package insurance']

@@ -22,7 +22,7 @@ keywords:
     'mailbox plus concord',
     'specialty packing kirtland',
   ]
-imageAlt: "A collection of expertly packed items representative of Kirtland's local character, ready for secure shipping."
+imageAlt: "A collection of expertly packed items representative of Kirtland's local character, ready for secure shipping — Mailbox Plus packing and shipping in Kirtland, OH."
 image: 'articles/pack-ship/pack-ship-kirtland-featured.webp'
 ---
 

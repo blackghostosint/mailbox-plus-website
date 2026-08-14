@@ -7,7 +7,7 @@ intentKey: 'chardon-fragile-shipping'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-fragile-shipping-featured.webp'
-imageAlt: 'A person carefully holding a wrapped fragile item at a clean packing counter. Professional lighting, detailed textures.'
+imageAlt: 'A person carefully holding a wrapped fragile item at a clean packing counter. Professional lighting, detailed textures — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon fragile shipping', 'chardon ohio packing', 'chardon heirloom shipping']
 relatedServices: ['/pack-ship/professional-packing', '/pack-ship/package-drop-offs']

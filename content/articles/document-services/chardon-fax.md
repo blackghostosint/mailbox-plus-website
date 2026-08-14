@@ -7,7 +7,7 @@ intentKey: 'chardon-fax'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/chardon-fax-featured.webp'
-imageAlt: 'A classic fax machine on a wooden counter, a document feeding through. Warm store lighting, clean.'
+imageAlt: 'A classic fax machine on a wooden counter, a document feeding through. Warm store lighting, clean — Mailbox Plus document services in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon fax services', 'chardon ohio fax', 'send fax chardon']
 relatedServices: ['/home-business/fax-services', '/home-business/notary-services']

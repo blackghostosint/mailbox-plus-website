@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-printing'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/printing/kirtland-hills-printing-featured.webp'
-imageAlt: 'A professional printer running, a clean counter with printed documents ready to pick up, fast efficient'
+imageAlt: 'A professional printer running, a clean counter with printed documents ready to pick up, fast efficient — Mailbox Plus printing and copying in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [kirtland hills printing services, kirtland hills document printing, kirtland hills print shop]

@@ -24,7 +24,7 @@ keywords:
     'Lake County',
   ]
 image: 'articles/pack-ship/pack-ship-chardon-township-featured.webp'
-imageAlt: 'A professional shipping counter in Chardon Township, Ohio, prepared for efficient package handling and shipping.'
+imageAlt: 'A professional shipping counter in Chardon Township, Ohio, prepared for efficient package handling and shipping — Mailbox Plus packing and shipping in Chardon Township, OH.'
 ---
 
 # The Chardon Township Guide to Stress-Free Packing and Shipping

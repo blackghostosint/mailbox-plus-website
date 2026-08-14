@@ -7,7 +7,7 @@ intentKey: 'why-po-boxes-get-rejected-street-address'
 pubDate: '2026-08-05T14:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/why-po-boxes-get-rejected-street-address-featured.webp'
-imageAlt: 'A bank form, a driver license application, and a tax document stacked on a counter, each with a PO box address crossed out in red pen — replaced by a street address'
+imageAlt: 'A bank form, a driver license application, and a tax document stacked on a counter, each with a PO box address crossed out in red pen — replaced by a street address — Mailbox Plus mailbox rentals in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

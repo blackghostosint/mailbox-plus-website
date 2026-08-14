@@ -20,7 +20,7 @@ keywords:
     'fedex drop off aquilla',
     'mailbox plus concord',
   ]
-imageAlt: 'Professional packing and shipping services for residents of Aquilla, Ohio, connecting local shipments to a global network.'
+imageAlt: 'Professional packing and shipping services for residents of Aquilla, Ohio, connecting local shipments to a global network — Mailbox Plus packing and shipping in Aquilla, OH.'
 image: 'articles/pack-ship/pack-ship-aquilla-featured.webp'
 pubDate: '2026-02-08T10:00:00-05:00'
 ---

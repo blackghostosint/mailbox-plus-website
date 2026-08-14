@@ -7,7 +7,7 @@ intentKey: 'hambden-returns-r1'
 pubDate: '2026-06-27T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/hambden-returns-r1-featured.webp'
-imageAlt: 'Three packages with different carrier labels stacked on a shipping counter'
+imageAlt: 'Three packages with different carrier labels stacked on a shipping counter — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden ohio returns', 'hambden package drop off', 'hambden multi carrier']
 relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs']

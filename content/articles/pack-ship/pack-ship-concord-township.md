@@ -6,7 +6,7 @@ category: 'pack-ship'
 intentKey: 'pack-ship-concord-township'
 pubDate: '2026-02-07T22:30:00-05:00'
 image: 'articles/pack-ship/pack-ship-concord-township-featured.webp'
-imageAlt: 'Professional multi-carrier shipping center in Concord Township Ohio offering FedEx UPS and USPS services'
+imageAlt: 'Professional multi-carrier shipping center in Concord Township Ohio offering FedEx UPS and USPS services — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

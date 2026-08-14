@@ -7,7 +7,7 @@ intentKey: 'hambden-fax'
 pubDate: '2026-06-27T22:24:00-05:00'
 status: 'published'
 image: 'articles/document-services/hambden-fax-featured.webp'
-imageAlt: 'A fax machine sitting on a counter next to a stack of papers'
+imageAlt: 'A fax machine sitting on a counter next to a stack of papers — Mailbox Plus document services in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden fax services', 'hambden ohio fax', 'send fax hambden']
 relatedServices: ['/home-business/fax-services', '/home-business/notary-services']

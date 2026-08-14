@@ -7,7 +7,7 @@ intentKey: 'hambden-eddm'
 pubDate: '2026-06-27T22:27:00-05:00'
 status: 'published'
 image: 'articles/printing/hambden-eddm-featured.webp'
-imageAlt: 'A stack of colorful postcards ready for mailing next to a USPS tray'
+imageAlt: 'A stack of colorful postcards ready for mailing next to a USPS tray — Mailbox Plus printing and copying in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden direct mail', 'hambden marketing', 'hambden eddm']
 relatedServices: ['/home-business/every-door-direct-mail', '/copy-print']

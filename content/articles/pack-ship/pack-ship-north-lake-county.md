@@ -22,7 +22,7 @@ keywords:
     'fedex madison ohio',
     'mailbox plus concord',
   ]
-imageAlt: 'Professional shipping and packing services serving the North Lake County shoreline communities of Madison and Perry.'
+imageAlt: 'Professional shipping and packing services serving the North Lake County shoreline communities of Madison and Perry — Mailbox Plus packing and shipping serving North Lake County, OH.'
 image: 'articles/pack-ship/pack-ship-north-lake-county-featured.webp'
 ---
 
