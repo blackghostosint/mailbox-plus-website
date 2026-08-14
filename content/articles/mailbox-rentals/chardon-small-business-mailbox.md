@@ -7,7 +7,7 @@ intentKey: 'chardon-small-business-mailbox'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/chardon-small-business-mailbox-featured.webp'
-imageAlt: 'A laptop open on a desk in a Chardon home office, business documents visible, warm lamp light through a window.'
+imageAlt: 'A laptop open on a desk in a Chardon home office, business documents visible, warm lamp light through a window — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon business address', 'chardon ohio llc', 'chardon small business']
 relatedServices: ['/home-business/mailbox-rental', '/home-business/notary-services']

@@ -7,7 +7,7 @@ intentKey: 'chardon-notary'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/notary/chardon-notary-featured.webp'
-imageAlt: 'A close-up of a hand stamping a notary seal on a document on a clean wooden counter. Professional, warm, detailed.'
+imageAlt: 'A close-up of a hand stamping a notary seal on a document on a clean wooden counter. Professional, warm, detailed — Mailbox Plus notary services in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon notary public', 'chardon ohio notary', 'walk in notary chardon']
 relatedServices: ['/home-business/notary-services', '/home-business/document-scanning']

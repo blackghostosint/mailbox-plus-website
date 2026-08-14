@@ -7,7 +7,7 @@ intentKey: 'us-mailing-address-for-digital-nomads-expats'
 pubDate: '2026-08-18T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/us-mailing-address-for-digital-nomads-expats-featured.webp'
-imageAlt: 'A digital nomad working from a laptop on a wooden table beside a suitcase, with a scan of an envelope showing on the screen and a stack of mail waiting to be managed remotely'
+imageAlt: 'A digital nomad working from a laptop on a wooden table beside a suitcase, with a scan of an envelope showing on the screen and a stack of mail waiting to be managed remotely — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

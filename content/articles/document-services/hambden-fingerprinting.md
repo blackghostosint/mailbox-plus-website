@@ -7,7 +7,7 @@ intentKey: 'hambden-fingerprinting'
 pubDate: '2026-06-27T22:30:00-05:00'
 status: 'published'
 image: 'articles/document-services/hambden-fingerprinting-featured.webp'
-imageAlt: 'A Live Scan fingerprinting device on a counter with hands being scanned'
+imageAlt: 'A Live Scan fingerprinting device on a counter with hands being scanned — Mailbox Plus document services in Hambden Township, OH.'
 location: 'hambden-town township'
 keywords: ['hambden fingerprinting', 'hambden ohio background check', 'hambden live scan']
 relatedServices: ['/home-business/notary-services', '/home-business/document-scanning']

@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-mover-mailbox'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/kirtland-hills-mover-mailbox-featured.webp'
-imageAlt: 'A moving truck on Route 306 near Kirtland Hills, moving boxes on a curb, trees and open sky in the background'
+imageAlt: 'A moving truck on Route 306 near Kirtland Hills, moving boxes on a curb, trees and open sky in the background — Mailbox Plus mailbox rentals in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   ['kirtland hills moving address', 'kirtland hills ohio mailbox', 'address change kirtland hills']

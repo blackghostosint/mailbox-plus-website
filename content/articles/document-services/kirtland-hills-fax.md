@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-fax'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/kirtland-hills-fax-featured.webp'
-imageAlt: 'A classic fax machine on a wooden counter, a document feeding through, warm store lighting'
+imageAlt: 'A classic fax machine on a wooden counter, a document feeding through, warm store lighting — Mailbox Plus document services in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords: ['kirtland hills fax services', 'kirtland hills ohio fax', 'send fax kirtland hills']
 relatedServices: ['/home-business/fax-services', '/home-business/notary-services']

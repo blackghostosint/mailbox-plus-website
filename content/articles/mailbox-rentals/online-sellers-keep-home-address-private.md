@@ -7,7 +7,7 @@ intentKey: 'online-sellers-keep-home-address-private'
 pubDate: '2026-08-19T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/online-sellers-keep-home-address-private-featured.webp'
-imageAlt: 'A seller at a kitchen table peeling a shipping label off a printer, with the return address on the label visibly blurred and a private mailbox storefront in the background'
+imageAlt: 'A seller at a kitchen table peeling a shipping label off a printer, with the return address on the label visibly blurred and a private mailbox storefront in the background — Mailbox Plus mailbox rentals serving Lake County, OH.'
 location: 'lake-county'
 keywords:
   [

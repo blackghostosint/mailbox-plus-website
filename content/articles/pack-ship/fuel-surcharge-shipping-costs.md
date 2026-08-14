@@ -7,7 +7,7 @@ intentKey: 'fuel-surcharge-shipping-costs'
 pubDate: '2026-07-31T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/fuel-surcharge-shipping-costs-featured.webp'
-imageAlt: 'A shipping receipt with the fuel surcharge line item circled, sitting on a counter beside a taped box, warm store lighting'
+imageAlt: 'A shipping receipt with the fuel surcharge line item circled, sitting on a counter beside a taped box, warm store lighting — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

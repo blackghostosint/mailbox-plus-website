@@ -7,7 +7,7 @@ intentKey: 'hambden-stamps'
 pubDate: '2026-06-27T22:10:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/hambden-stamps-featured.webp'
-imageAlt: 'A worn linoleum floor and a rope queue at a rural post office counter'
+imageAlt: 'A worn linoleum floor and a rope queue at a rural post office counter — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden postage stamps', 'hambden ohio stamps', 'hambden mail']
 relatedServices: ['/pack-ship', '/pack-ship/postage-stamps']

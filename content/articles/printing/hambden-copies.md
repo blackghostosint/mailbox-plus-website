@@ -7,7 +7,7 @@ intentKey: 'hambden-copies'
 pubDate: '2026-06-27T22:00:00-05:00'
 status: 'published'
 image: 'articles/printing/hambden-copies-featured.webp'
-imageAlt: 'A self-serve copier screen blinking an error code in fluorescent office light'
+imageAlt: 'A self-serve copier screen blinking an error code in fluorescent office light — Mailbox Plus printing and copying in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden copy services', 'hambden printing', 'hambden copies']
 relatedServices: ['/copy-print/copies', '/copy-print/document-printing']

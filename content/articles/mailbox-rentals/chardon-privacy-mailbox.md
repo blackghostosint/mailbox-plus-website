@@ -7,7 +7,7 @@ intentKey: 'chardon-privacy-mailbox'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/chardon-privacy-mailbox-featured.webp'
-imageAlt: 'A laptop on a Chardon home desk showing a data broker website, snow visible through a frosty window. Blue evening light.'
+imageAlt: 'A laptop on a Chardon home desk showing a data broker website, snow visible through a frosty window. Blue evening light — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon address privacy', 'chardon ohio data brokers', 'private mailbox chardon']
 relatedServices: ['/home-business/mailbox-rental', '/home-business/notary-services']

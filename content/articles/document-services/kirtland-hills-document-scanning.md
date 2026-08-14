@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-document-scanning'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/kirtland-hills-document-scanning-featured.webp'
-imageAlt: 'A stack of old papers next to a filing cabinet in a Kirtland Hills home office, warm slightly cluttered'
+imageAlt: 'A stack of old papers next to a filing cabinet in a Kirtland Hills home office, warm slightly cluttered — Mailbox Plus document services in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

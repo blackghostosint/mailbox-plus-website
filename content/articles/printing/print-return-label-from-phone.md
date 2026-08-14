@@ -7,7 +7,7 @@ intentKey: 'print-return-label-from-phone'
 pubDate: '2026-08-13T12:00:00-05:00'
 status: 'published'
 image: 'articles/printing/print-return-label-from-phone-featured.webp'
-imageAlt: 'A smartphone printing a correctly sized 4x6 return shipping label, beside a neatly packed box ready to ship.'
+imageAlt: 'A smartphone printing a correctly sized 4x6 return shipping label, beside a neatly packed box ready to ship — Mailbox Plus printing and copying in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

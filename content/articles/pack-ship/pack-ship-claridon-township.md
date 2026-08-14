@@ -24,7 +24,7 @@ keywords:
     'Geauga County',
   ]
 image: 'articles/pack-ship/pack-ship-claridon-township-featured.webp'
-imageAlt: 'Modern digital art portraying efficient shipping connections for rural Claridon Township residents.'
+imageAlt: 'Modern digital art portraying efficient shipping connections for rural Claridon Township residents — Mailbox Plus packing and shipping in Claridon Township, OH.'
 ---
 
 # Complete Packing and Shipping Services for Claridon Township

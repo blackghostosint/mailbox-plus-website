@@ -7,7 +7,7 @@ intentKey: 'hambden-graphic-design'
 pubDate: '2026-06-27T22:20:00-05:00'
 status: 'published'
 image: 'articles/printing/hambden-graphic-design-featured.webp'
-imageAlt: 'A bent, inkjet-printed business card with jagged cut edges sitting on a table'
+imageAlt: 'A bent, inkjet-printed business card with jagged cut edges sitting on a table — Mailbox Plus printing and copying in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden graphic design', 'hambden business cards', 'hambden printing services']
 relatedServices: ['/copy-print/graphic-design', '/copy-print']

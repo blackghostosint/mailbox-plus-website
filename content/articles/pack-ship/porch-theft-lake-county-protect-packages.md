@@ -7,7 +7,7 @@ intentKey: 'porch-theft-lake-county-protect-packages'
 pubDate: '2026-07-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/porch-theft-lake-county-protect-packages-featured.webp'
-imageAlt: 'A residential front porch in Concord Township with a delivered package visible from the street, a shadowy figure approaching in the background, tense suburban evening light'
+imageAlt: 'A residential front porch in Concord Township with a delivered package visible from the street, a shadowy figure approaching in the background, tense suburban evening light — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

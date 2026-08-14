@@ -7,7 +7,7 @@ intentKey: 'ohio-digital-fingerprinting-background-checks'
 pubDate: '2026-07-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/ohio-digital-fingerprinting-background-checks-featured.webp'
-imageAlt: 'Digital fingerprint scanner on a clean counter, a hand being scanned, blue light on the scanner, professional office background'
+imageAlt: 'Digital fingerprint scanner on a clean counter, a hand being scanned, blue light on the scanner, professional office background — Mailbox Plus document services in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

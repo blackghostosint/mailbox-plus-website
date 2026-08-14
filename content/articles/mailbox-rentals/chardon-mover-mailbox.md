@@ -7,7 +7,7 @@ intentKey: 'chardon-mover-mailbox'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/chardon-mover-mailbox-featured.webp'
-imageAlt: 'A moving truck on Route 44 near Chardon Square, moving boxes on the curb, a mailbox in the foreground. Late afternoon sun.'
+imageAlt: 'A moving truck on Route 44 near Chardon Square, moving boxes on the curb, a mailbox in the foreground. Late afternoon sun — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon moving address', 'chardon ohio mailbox', 'address change chardon']
 relatedServices: ['/home-business/mailbox-rental', '/pack-ship']

@@ -7,7 +7,7 @@ intentKey: 'ups-digital-tools-for-small-business'
 pubDate: '2026-07-30T21:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/ups-digital-tools-for-small-business-featured.webp'
-imageAlt: 'A kitchen table in Ohio with a stack of orders, a laptop open to a shipping app, ceramic mugs, a jar of maple syrup, and an Amazon return box waiting to be packed'
+imageAlt: 'A kitchen table in Ohio with a stack of orders, a laptop open to a shipping app, ceramic mugs, a jar of maple syrup, and an Amazon return box waiting to be packed — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

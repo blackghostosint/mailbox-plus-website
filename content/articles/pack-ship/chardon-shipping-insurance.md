@@ -7,7 +7,7 @@ intentKey: 'chardon-shipping-insurance'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-shipping-insurance-featured.webp'
-imageAlt: 'Valuable items being carefully packed with protective foam at a clean packing station. Close-up, professional, detailed.'
+imageAlt: 'Valuable items being carefully packed with protective foam at a clean packing station. Close-up, professional, detailed — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords:
   ['chardon shipping insurance', 'chardon ohio valuable shipping', 'chardon package insurance']

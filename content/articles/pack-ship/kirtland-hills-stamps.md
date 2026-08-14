@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-stamps'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-stamps-featured.webp'
-imageAlt: 'A book of Forever stamps on a store counter next to outgoing mail, clean simple warm lighting'
+imageAlt: 'A book of Forever stamps on a store counter next to outgoing mail, clean simple warm lighting — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords: [kirtland hills postage stamps, kirtland hills ohio stamps, kirtland hills mail]
 relatedServices: ['/pack-ship', '/pack-ship/postage-stamps']

@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-privacy-mailbox'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/kirtland-hills-privacy-mailbox-featured.webp'
-imageAlt: 'A laptop screen showing a people-search website on a Kirtland Hills home desk, blue evening light through a window'
+imageAlt: 'A laptop screen showing a people-search website on a Kirtland Hills home desk, blue evening light through a window — Mailbox Plus mailbox rentals in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

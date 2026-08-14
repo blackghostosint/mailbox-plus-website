@@ -7,7 +7,7 @@ intentKey: 'chardon-shredding'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/chardon-shredding-featured.webp'
-imageAlt: 'A cardboard box of old papers next to a professional industrial shredder. Clean, secure, bright.'
+imageAlt: 'A cardboard box of old papers next to a professional industrial shredder. Clean, secure, bright — Mailbox Plus document services in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon shredding', 'chardon ohio document destruction', 'chardon paper shredding']
 relatedServices: ['/home-business/shredding', '/home-business/document-scanning']

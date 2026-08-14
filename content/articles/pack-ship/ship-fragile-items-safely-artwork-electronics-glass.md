@@ -7,7 +7,7 @@ intentKey: 'ship-fragile-items-safely-artwork-electronics-glass'
 pubDate: '2026-07-07T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/ship-fragile-items-safely-artwork-electronics-glass-featured.webp'
-imageAlt: 'Hands carefully wrapping a framed photograph in bubble wrap on a packing table, rolls of tape and packing materials visible, warm workshop lighting'
+imageAlt: 'Hands carefully wrapping a framed photograph in bubble wrap on a packing table, rolls of tape and packing materials visible, warm workshop lighting — Mailbox Plus packing and shipping in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

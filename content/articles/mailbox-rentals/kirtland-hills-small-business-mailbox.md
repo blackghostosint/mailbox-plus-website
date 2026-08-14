@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-small-business-mailbox'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/kirtland-hills-small-business-mailbox-featured.webp'
-imageAlt: 'A laptop open on a clean desk in a Kirtland Hills home office, business documents neatly organized, soft lamp light'
+imageAlt: 'A laptop open on a clean desk in a Kirtland Hills home office, business documents neatly organized, soft lamp light — Mailbox Plus mailbox rentals in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   ['kirtland hills business address', 'kirtland hills ohio llc', 'kirtland hills small business']

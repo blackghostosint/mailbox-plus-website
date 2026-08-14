@@ -7,7 +7,7 @@ intentKey: 'chardon-fingerprinting'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/chardon-fingerprinting-featured.webp'
-imageAlt: 'A professional fingerprinting station with a Live Scan machine. Clean, bright, official setting.'
+imageAlt: 'A professional fingerprinting station with a Live Scan machine. Clean, bright, official setting — Mailbox Plus document services in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon fingerprinting', 'chardon ohio background check', 'chardon live scan']
 relatedServices: ['/home-business/notary-services', '/home-business/document-scanning']

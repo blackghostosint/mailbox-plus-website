@@ -7,7 +7,7 @@ intentKey: 'hambden-notary'
 pubDate: '2026-06-27T22:18:00-05:00'
 status: 'published'
 image: 'articles/notary/hambden-notary-featured.webp'
-imageAlt: 'A notary stamp and seal sitting on a signed document on a wooden desk'
+imageAlt: 'A notary stamp and seal sitting on a signed document on a wooden desk — Mailbox Plus notary services in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden notary public', 'hambden ohio notary', 'walk in notary hambden']
 relatedServices: ['/home-business/notary-services', '/home-business/document-scanning']

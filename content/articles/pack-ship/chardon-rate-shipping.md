@@ -7,7 +7,7 @@ intentKey: 'chardon-rate-shipping'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-rate-shipping-featured.webp'
-imageAlt: 'A shipping counter with a monitor showing four carrier rate options. Clean, modern, warm store interior.'
+imageAlt: 'A shipping counter with a monitor showing four carrier rate options. Clean, modern, warm store interior — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon shipping rates', 'chardon ohio carriers', 'compare shipping chardon']
 relatedServices: ['/pack-ship', '/pack-ship/fedex-shipping']

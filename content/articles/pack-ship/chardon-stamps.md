@@ -7,7 +7,7 @@ intentKey: 'chardon-stamps'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-stamps-featured.webp'
-imageAlt: 'A book of Forever stamps on a store counter next to outgoing mail. Clean, simple, warm lighting.'
+imageAlt: 'A book of Forever stamps on a store counter next to outgoing mail. Clean, simple, warm lighting — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon postage stamps', 'chardon ohio stamps', 'chardon mail']
 relatedServices: ['/pack-ship', '/pack-ship/postage-stamps']

@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-fingerprinting'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/kirtland-hills-fingerprinting-featured.webp'
-imageAlt: 'A professional fingerprinting station with a Live Scan machine, clean bright official setting'
+imageAlt: 'A professional fingerprinting station with a Live Scan machine, clean bright official setting — Mailbox Plus document services in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   [

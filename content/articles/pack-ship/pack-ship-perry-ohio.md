@@ -7,7 +7,7 @@ intentKey: 'pack-ship-perry-ohio'
 pubDate: '2026-06-27T21:05:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/pack-ship-perry-ohio-featured.webp'
-imageAlt: 'A rural road with a highway sign pointing toward Concord Township'
+imageAlt: 'A rural road with a highway sign pointing toward Concord Township — Mailbox Plus packing and shipping in Perry, OH.'
 location: 'perry'
 keywords: ['pack and ship perry ohio', 'perry ohio fedex', 'shipping perry ohio', 'perry ohio ups']
 relatedServices:

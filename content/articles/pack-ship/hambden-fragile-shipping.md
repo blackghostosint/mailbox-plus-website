@@ -7,7 +7,7 @@ intentKey: 'hambden-fragile-shipping'
 pubDate: '2026-06-27T22:15:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/hambden-fragile-shipping-featured.webp'
-imageAlt: 'A cardboard box filled with bubble wrap and a ceramic dish packed for shipping'
+imageAlt: 'A cardboard box filled with bubble wrap and a ceramic dish packed for shipping — Mailbox Plus packing and shipping in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden fragile shipping', 'hambden ohio packing', 'hambden heirloom shipping']
 relatedServices: ['/pack-ship/professional-packing', '/pack-ship/package-drop-offs']

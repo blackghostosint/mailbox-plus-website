@@ -7,7 +7,7 @@ intentKey: 'chardon-eddm'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/printing/chardon-eddm-featured.webp'
-imageAlt: 'A stack of colorful postcards ready for mailing on a clean print shop counter. Bright, professional.'
+imageAlt: 'A stack of colorful postcards ready for mailing on a clean print shop counter. Bright, professional — Mailbox Plus printing and copying in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon direct mail', 'chardon marketing', 'chardon eddm']
 relatedServices: ['/home-business/every-door-direct-mail', '/copy-print']

@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-eddm'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/printing/kirtland-hills-eddm-featured.webp'
-imageAlt: 'A stack of colorful postcards ready for mailing on a clean print shop counter, bright professional'
+imageAlt: 'A stack of colorful postcards ready for mailing on a clean print shop counter, bright professional — Mailbox Plus printing and copying in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords: ['kirtland hills direct mail', 'kirtland hills marketing', 'kirtland hills eddm']
 relatedServices: ['/home-business/every-door-direct-mail', '/copy-print']

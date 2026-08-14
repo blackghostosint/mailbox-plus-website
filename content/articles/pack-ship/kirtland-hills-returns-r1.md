@@ -7,7 +7,7 @@ intentKey: 'kirtland-hills-returns-r1'
 pubDate: '2026-06-30T22:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/kirtland-hills-returns-r1-featured.webp'
-imageAlt: 'A person at a counter with three different packages, relieved smile, warm store interior, bright lighting'
+imageAlt: 'A person at a counter with three different packages, relieved smile, warm store interior, bright lighting — Mailbox Plus packing and shipping in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords:
   ['kirtland hills ohio returns', 'kirtland hills package drop off', 'kirtland hills multi carrier']

@@ -7,7 +7,7 @@ intentKey: 'chardon-returns-r1'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/chardon-returns-r1-featured.webp'
-imageAlt: 'A person at a counter with three different labeled packages, relieved expression. Warm store interior, bright lighting.'
+imageAlt: 'A person at a counter with three different labeled packages, relieved expression. Warm store interior, bright lighting — Mailbox Plus packing and shipping in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon ohio returns', 'chardon package drop off', 'chardon multi carrier']
 relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs']

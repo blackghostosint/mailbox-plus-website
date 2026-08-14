@@ -7,7 +7,7 @@ intentKey: 'chardon-document-scanning'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/chardon-document-scanning-featured.webp'
-imageAlt: 'A stack of old papers and a filing cabinet in a Chardon home office. Warm, nostalgic, slightly cluttered.'
+imageAlt: 'A stack of old papers and a filing cabinet in a Chardon home office. Warm, nostalgic, slightly cluttered — Mailbox Plus document services in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon document scanning', 'chardon ohio digitize', 'chardon paper scanning']
 relatedServices: ['/home-business/document-scanning', '/home-business/shredding']

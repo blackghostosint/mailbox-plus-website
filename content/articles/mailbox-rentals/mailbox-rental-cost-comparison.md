@@ -7,7 +7,7 @@ intentKey: 'mailbox-rental-cost-comparison'
 pubDate: '2026-08-05T13:00:00-05:00'
 status: 'published'
 image: 'articles/mailbox-rentals/mailbox-rental-cost-comparison-featured.webp'
-imageAlt: 'A simple price comparison of mailbox options — a post office box, a store mailbox, and a private mailbox — with monthly price tags and a calculator on a clean desk'
+imageAlt: 'A simple price comparison of mailbox options — a post office box, a store mailbox, and a private mailbox — with monthly price tags and a calculator on a clean desk — Mailbox Plus mailbox rentals in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [

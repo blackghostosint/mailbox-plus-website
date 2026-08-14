@@ -7,7 +7,7 @@ intentKey: 'hambden-shredding'
 pubDate: '2026-06-27T22:30:00-05:00'
 status: 'published'
 image: 'articles/document-services/hambden-shredding-featured.webp'
-imageAlt: 'A cardboard storage box in a dusty garage with folders labeled Taxes 2014-2019'
+imageAlt: 'A cardboard storage box in a dusty garage with folders labeled Taxes 2014-2019 — Mailbox Plus document services in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden shredding', 'hambden ohio document destruction', 'hambden paper shredding']
 relatedServices: ['/home-business/shredding', '/home-business/document-scanning']
