@@ -128,7 +128,7 @@ export const mailboxRentalServices: Service[] = [
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available in 3, 6, and 12-month terms.</p>`,
+                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available month-to-month or annual.</p>`,
       },
       // ── SB7 POSITION 4b: PROCESS PLAN ──
       {
