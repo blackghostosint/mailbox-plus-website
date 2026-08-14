@@ -11,9 +11,9 @@ imageAlt: 'Valuable items being carefully packed with protective foam at a clean
 location: 'kirtland-hills'
 keywords:
   [
-    kirtland hills shipping insurance,
-    kirtland hills ohio valuable shipping,
-    kirtland hills package insurance,
+    'kirtland hills shipping insurance',
+    'kirtland hills ohio valuable shipping',
+    'kirtland hills package insurance',
   ]
 relatedServices: ['/specialty/insurance', '/pack-ship/professional-packing']
 author: 'Mailbox Plus Team'
@@ -76,7 +76,5 @@ No call to a claim center. No paperwork. No $100 check.
 ### Ship Smart From Kirtland Hills
 
 Come see us at 7554 Fredle Drive. It is five minutes down Route 306. We handle the insurance. We handle the packing. We handle the carrier.
-
-We take returns. We ship your stuff.
 
 **[Get a shipping insurance quote →](/specialty/insurance/)** | **[Professional packing services →](/pack-ship/professional-packing/)**

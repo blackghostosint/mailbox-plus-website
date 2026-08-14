@@ -34,6 +34,7 @@ walkDir(contentDir, (filePath) => {
     const frontmatterRaw = match[1];
     let slug = '';
     let pubDate = '';
+    let status = '';
 
     frontmatterRaw.split('\n').forEach((line) => {
       const colonIndex = line.indexOf(':');
@@ -45,7 +46,11 @@ walkDir(contentDir, (filePath) => {
         .replace(/^["']|["']$/g, '');
       if (key === 'slug') slug = value;
       if (key === 'pubDate') pubDate = value;
+      if (key === 'status') status = value;
     });
+
+    // Skip archived articles — they keep their URL but leave the sitemap
+    if (status === 'archived') return;
 
     if (slug) {
       const route = `/articles/${slug}`;

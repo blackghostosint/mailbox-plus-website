@@ -74,5 +74,3 @@ A full Saturday with one quick stop. The return is done. The rest of the day is 
 ## Your Next Step
 
 Skip the post office line this Saturday. Drive 5 minutes to 7554 Fredle Drive. Drop your package at Mailbox Plus. Keep your weekend.
-
-We take returns. We ship your stuff.

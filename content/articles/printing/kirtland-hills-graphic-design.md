@@ -5,7 +5,7 @@ slug: 'kirtland-hills-graphic-design'
 category: 'printing'
 intentKey: 'kirtland-hills-graphic-design'
 pubDate: '2026-06-30T22:00:00-05:00'
-status: 'published'
+status: 'archived'
 image: 'articles/printing/kirtland-hills-graphic-design-featured.webp'
 imageAlt: "A clean wooden desk with professional business cards and a tablet showing a logo design, a designer's workspace — Mailbox Plus printing and copying in Kirtland Hills, OH."
 location: 'kirtland-hills'
@@ -76,7 +76,5 @@ You live in Kirtland Hills. Your business card is the first impression. Make it 
 A good card opens a conversation. A bad card closes it. Choose the one that opens.
 
 Come to 7554 Fredle Drive. We design. We print. You impress. It starts with a conversation.
-
-We take returns. We ship your stuff.
 
 **[Start your design project →](/copy-print/graphic-design/)** | **[See all print services →](/copy-print/)**

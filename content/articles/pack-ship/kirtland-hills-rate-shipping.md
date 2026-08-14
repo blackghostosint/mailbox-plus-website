@@ -55,7 +55,7 @@ You also get a person who knows the address of every subdivision off Route 306.
 
 Before you leave the house, you can check [FedEx rates](https://www.fedex.com/en-us/rates) online. You can check [USPS postage](https://postcalc.usps.com/). Write down the number.
 
-Bring that number to 7554 Fredle Drive. We will match it or beat it.
+Bring that number to 7554 Fredle Drive. We will match it — the same rate the carrier would charge you, with no franchise markup on top.
 
 We mean that.
 
@@ -79,4 +79,4 @@ You walk out with a receipt and a tracking number. You see the price. You see th
 
 **Stop guessing. Come compare.**
 
-7554 Fredle Drive, Concord Township, OH 44077. We take returns. We ship your stuff.
+7554 Fredle Drive, Concord Township, OH 44077.

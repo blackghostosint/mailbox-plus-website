@@ -74,6 +74,4 @@ The right choice is clear. Come to 7554 Fredle Drive. We handle the machine. You
 
 Copies do not have to be a project. They can be a simple stop. Hand us the originals. Pick up the finished stack. Get to your meeting on time.
 
-We take returns. We ship your stuff.
-
 **[Get copies done →](/copy-print/copies/)** | **[Full document printing →](/copy-print/document-printing/)**

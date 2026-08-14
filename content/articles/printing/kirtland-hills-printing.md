@@ -79,8 +79,4 @@ Skip the ink run. Skip the driver install. Skip the error message. Come to Mailb
 
 Route 306 to Fredle Drive. Five minutes. Printed and out.
 
-We take returns. We ship your stuff.
-
 **[Print your documents →](/copy-print/document-printing/)** | **[See all print services →](/copy-print/)**
-
-Looking to market your small business? The <a href="https://www.sba.gov/business-guide/market-your-business" target="_blank" rel="noopener noreferrer">SBA Marketing Guide</a> is a great resource.

@@ -76,5 +76,3 @@ The data broker sites still exist. They just do not have your current address. Y
 ## Your Next Step
 
 Drive 5 minutes from Kirtland Hills to 7554 Fredle Drive. Sign up for a mailbox. Start using your new address. Let the data broker sites lose track of you.
-
-We take returns. We ship your stuff.

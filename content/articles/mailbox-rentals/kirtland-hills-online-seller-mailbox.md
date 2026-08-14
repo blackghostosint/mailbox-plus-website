@@ -74,5 +74,3 @@ Your shop grows. Your sales increase. Your address stays private. You never thin
 ## Your Next Step
 
 Drive 5 minutes down Route 306 to 7554 Fredle Drive. Sign up for a mailbox rental. Change one field on your seller accounts. Keep selling.
-
-We take returns. We ship your stuff.

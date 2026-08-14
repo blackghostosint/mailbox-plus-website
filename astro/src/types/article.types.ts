@@ -12,7 +12,7 @@ export interface ArticleFrontmatter {
   relatedServices?: string[];
   author?: string;
   lastModified?: string;
-  status?: 'draft' | 'published';
+  status?: 'draft' | 'published' | 'archived';
 }
 
 export interface Article {

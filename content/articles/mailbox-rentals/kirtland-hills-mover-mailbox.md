@@ -72,5 +72,3 @@ One less thing on the list. Every single time.
 ## Your Next Step
 
 Before you unpack the last box, drive to 7554 Fredle Drive. Sign up for a mailbox. Change your address once. Let every future move be one less thing to handle.
-
-We take returns. We ship your stuff.

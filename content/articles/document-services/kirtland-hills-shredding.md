@@ -11,9 +11,9 @@ imageAlt: 'A cardboard box of old papers next to a professional industrial shred
 location: 'kirtland-hills'
 keywords:
   [
-    kirtland hills shredding,
-    kirtland hills ohio document destruction,
-    kirtland hills paper shredding,
+    'kirtland hills shredding',
+    'kirtland hills ohio document destruction',
+    'kirtland hills paper shredding',
   ]
 relatedServices: ['/home-business/shredding', '/home-business/document-scanning']
 author: 'Mailbox Plus Team'
@@ -78,8 +78,6 @@ That is the after picture.
 ### Shred Your Box Today
 
 Come to 7554 Fredle Drive. We shred on site. We shred while you wait. Do not let the box sit another year.
-
-We take returns. We ship your stuff.
 
 **[Book shredding service →](/home-business/shredding/)** | **[Document scanning services →](/home-business/document-scanning/)**
 
