@@ -77,7 +77,7 @@ Three steps, and the hard part is none of them.
 2. **We sign for it.** The driver arrives, our 21-plus staff signs for the adult-signature delivery, and your wine comes inside to our temperature-controlled receiving area. No porch, no sun, no truck.
 3. **Pick it up on your time.** Come in during our business hours, show your ID, and your wine is yours. Whether that's the same afternoon or three days later, it's waiting for you, safe and sound.
 
-It's the same for a single bottle, a mixed case, or a monthly wine club shipment. **$10 per package**, or **$30 per month** for unlimited receiving if you get packages regularly. No contract to lock you in.
+It's the same for a single bottle, a mixed case, or a monthly wine club shipment. **$10 per package**, or **$50 per month** for unlimited receiving if you get packages regularly. No contract to lock you in.
 
 ## What You Lose by Not Acting
 
@@ -105,4 +105,4 @@ You ordered something nice for yourself. Now it actually arrives — on your ter
 
 If you order wine, liquor, or anything else online and you're tired of babysitting a delivery window, stop by Mailbox Plus in Concord Township. We sign for it, we store it safely and securely, and you pick it up when it's convenient for you.
 
-**$10 per package, or $30 per month for unlimited receiving. No contract.** Swing by the counter and we'll get you set up in a couple of minutes.
+**$10 per package, or $50 per month for unlimited receiving. No contract.** Swing by the counter and we'll get you set up in a couple of minutes.
