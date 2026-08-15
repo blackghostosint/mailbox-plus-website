@@ -42,13 +42,13 @@ The formula is published and short:
 
 Run the coat box through it — 14 × 12 × 11 = 1,848 cubic inches. Divide by 139: **13.3 pounds**, rounded up to **14**. The coat weighs three pounds. The box bills as fourteen. You are paying for eleven pounds of nothing.
 
-That is the blind spot: dimensional weight happens to nearly every package over a cubic foot, and almost nobody is watching for it. In one parcel industry case study, a shipper found that accessorial charges and billing corrections had quietly grown to about ten percent of its total shipping spend — and then saved roughly $300,000 in 45 days by fixing the problem.
+That is the blind spot: dimensional weight happens to nearly every package over a cubic foot, and almost nobody is watching for it. In one parcel industry case study, a shipper found that accessorial charges and billing corrections had quietly grown to about ten percent of its total shipping spend — and then saved roughly $300,000 in 45 days by fixing the problem. (Reported in Parcel magazine, May/June 2026.)
 
-## The Rules Just Got Stricker — July 2026
+## The Rules Just Got Stricter — July 2026
 
 Here is the part that should make every online seller in Lake County sit up. On **July 12, 2026, USPS changed its dimensional weight rules** to match UPS and FedEx — and the new rules bill higher.
 
-For years, USPS used a divisor of **166** for dimensional weight — a gentler number that produced lower billed weights. As of July 12, USPS uses **139**, the same divisor UPS and FedEx use. A lower divisor means a higher billable weight on every package that triggers it.
+For a long time, USPS used a divisor of **166** for dimensional weight — a gentler number that produced lower billed weights. As of July 12, USPS uses **139**, the same divisor UPS and FedEx use. A lower divisor means a higher billable weight on every package that triggers it.
 
 The second change compounds the first: **any fraction of an inch now rounds up to the next whole inch.** A box that measures 12.2 inches is calculated as 13. A 14 × 12 × 11-inch box that used to bill at 12 pounds under the old USPS math now bills at 14. Two extra pounds on a three-pound package — for nothing but the calendar changing.
 
@@ -62,7 +62,7 @@ You weighed it. You measured it. You typed it in honestly. And the number that c
 
 For a seller, it is worse, because the blind spot compounds across every order. Three pounds billing as fourteen is not a rounding error — it is the difference between a profitable sale and a break-even one. Ship fifty of those a week and you are not losing pennies. You are losing a paycheck.
 
-And the sneakiest part: the carrier does not need your dimensions to be wrong for this to hurt. It just needs them to be _imprecise_. A box you measured at 18×12×10 — but that the carrier's scanner reads at 20×13×11 after packing, sealing, and handling — bills at the scanned size, not the size you typed. The carrier bills what it measures. You pay what it says.
+And the sneakiest part: the carrier does not need your dimensions to be wrong for this to hurt. It just needs them to be _imprecise_. A box you measured at 18×12×10 — but that the carrier's scanner reads at 20×13×11 after packing, sealing, and handling — bills at the scanned size, not the size you typed. The carrier bills what it measures. You pay what it says. (The scan-gap example comes from Parcel magazine, May/June 2026.)
 
 ## Why It Should Not Be This Way
 
@@ -98,7 +98,7 @@ No accounts, no logins, no rate-shopping apps to learn. The dimensional math tha
 
 ## What You Lose by Not Acting
 
-**Money.** This is the big one, and it is bigger than it looks. A three-pound package billing at fourteen pounds is not a surcharge — it is a multiplier on everything you ship over a cubic foot. The July USPS change moved the goalposts: packages that billed at actual weight under the old 166 divisor now trigger dimensional weight under 139. If you are still packing in boxes that fit "well enough," you are paying the new math on every single order.
+**Money.** This is the big one, and it is bigger than it looks. A three-pound package billing at fourteen pounds is not a surcharge — it is a multiplier on everything you ship over a cubic foot. The July USPS change moved the goalposts: some packages that billed at actual weight under the old 166 divisor now trigger dimensional weight under 139. If you are still packing in boxes that fit "well enough," you are paying the new math on more of your orders.
 
 **Time.** Beating dimensional weight yourself is a part-time job. You would need to measure every box precisely, round correctly, know which carrier's divisor applies, and re-check the rules every time a carrier changes them — which they just did. That is not what you started your business to do on a Thursday night.
 
