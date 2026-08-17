@@ -302,11 +302,11 @@ export const documentServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Fax Services',
     slug: '/home-business/fax-services',
-    pageTitle: 'Fax Services in Concord Township | Mailbox Plus',
+    pageTitle: 'Fax Near Me in Concord Township, OH 44077 | Send & Receive | Mailbox Plus',
     metaDescription:
-      'Fax services in Concord Township. Send and receive faxes \u2014 no fax machine needed. Local, domestic, international. Confirmation sheet included.',
+      'Fax near me in Concord Township, OH 44077. Send and receive faxes \u2014 no fax machine needed. Local, domestic, international. Confirmation sheet included.',
     keywords:
-      'fax services, send fax, receive fax, Concord Township, Lake County, document transmission',
+      'fax near me, fax services, send fax, receive fax, Concord Township, Lake County, document transmission',
     heroTitle: 'Where Do You Even Find a Fax Machine These Days?',
     heroSubtitle:
       'Fax services in Concord Township. Send and receive \u2014 local, domestic, international. No machine needed. We handle it.',

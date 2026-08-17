@@ -290,18 +290,19 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Private Mailbox Rental',
     slug: '/private-mailbox-rental-concord-township',
-    pageTitle: 'Private Mailbox Rental in Concord Township | Mailbox Plus',
+    pageTitle: 'PMB Rental in Concord Township, OH 44077 | Private Mailbox | Mailbox Plus',
     metaDescription:
-      'Rent a private mailbox in Concord Township for security and privacy. Real street address for your business or personal mail. Package acceptance included.',
-    keywords: 'private mailbox rental, Concord Township, Mailbox Plus',
-    heroTitle: 'Your Private Mailbox — Keeps Your Home Off the Label',
+      'Rent a PMB (private mailbox) in Concord Township, OH 44077 for security and privacy. Real street address for your business or personal mail. Package acceptance included.',
+    keywords:
+      'pmb, pmb rental, private mailbox rental, private mailbox, Concord Township, Mailbox Plus',
+    heroTitle: 'Your PMB — Keeps Your Home Off the Label',
     heroSubtitle:
       'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $35/month.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     content: [
       {
         heading: 'The Security of a Physical Presence',
-        body: 'A <a href="/home-business/mailbox-rental">private mailbox rental</a> at Mailbox Plus is more than just a place to store mail—it\'s a <strong>complete mail management solution</strong>. Whether you\'re a home-based business looking for a professional image or a resident concerned about porch theft, our secure facility and professional staff ensure your <a href="/pack-ship/package-receiving">package receiving</a> needs are handled with care and discretion.',
+        body: 'A <a href="/home-business/mailbox-rental">PMB (private mailbox)</a> at Mailbox Plus is more than just a place to store mail—it\'s a <strong>complete mail management solution</strong>. Whether you\'re a home-based business looking for a professional image or a resident concerned about porch theft, our secure facility and professional staff ensure your <a href="/pack-ship/package-receiving">package receiving</a> needs are handled with care and discretion.',
       },
       {
         heading: 'Why Upgrade to Private Mailbox Rental?',
@@ -379,10 +380,11 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Virtual Mailbox',
     slug: '/virtual-mailbox-concord-township',
-    pageTitle: 'Virtual Mailbox in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Private Virtual Mailbox Near Me in Concord Township, OH 44077 | Mailbox Plus',
     metaDescription:
-      'Virtual mailbox solutions in Concord Township. manage your physical mail digitally. Perfect for travelers, businesses, and remote workers.',
-    keywords: 'virtual mailbox, Concord Township, Mailbox Plus',
+      'Private virtual mailbox near me in Concord Township, OH 44077. Manage your physical mail digitally. Perfect for travelers, businesses, and remote workers.',
+    keywords:
+      'private virtual mailbox, virtual mailbox, virtual mailbox near me, Concord Township, Mailbox Plus',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
     heroSubtitle:
       'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
