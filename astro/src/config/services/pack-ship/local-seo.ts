@@ -420,10 +420,11 @@ export const localSeoServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Post Office Alternative',
     slug: '/post-office-alternative-concord-township',
-    pageTitle: 'Post Office Alternative in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'PO Box Alternative in Concord Township, OH 44077 | Mailbox Plus',
     metaDescription:
-      'Skip the Post Office lines! We are your Post Office Alternative in Concord Township. Authorized USPS shipping, stamps, and mail services.',
-    keywords: 'Post Office alternative, Concord Township, Mailbox Plus, shipping',
+      'PO box alternative in Concord Township, OH 44077. Skip the Post Office lines! Authorized USPS shipping, stamps, and mail services.',
+    keywords:
+      'po box alternative, post office alternative, Concord Township, Mailbox Plus, shipping',
     heroTitle: 'The Best Post Office Alternative in Concord Township: Mailbox Plus',
     heroSubtitle:
       'Mailbox Plus offers all the essential shipping services you need in a friendly, customer-focused environment.',

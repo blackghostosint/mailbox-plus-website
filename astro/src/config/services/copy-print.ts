@@ -1112,10 +1112,11 @@ export const copyPrintServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Printing Services',
     slug: '/printing-services-concord-township',
-    pageTitle: 'Printing Services in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Print and Post Services Near Me in Concord Township, OH 44077 | Mailbox Plus',
     metaDescription:
-      'Comprehensive printing services in Concord Township. From business cards to banners, we handle all your personal and business printing needs locally.',
-    keywords: 'printing services, Concord Township, Mailbox Plus',
+      'Print and post services near me in Concord Township, OH 44077. From business cards to banners, we handle all your personal and business printing needs locally.',
+    keywords:
+      'print and post services, printing services, print and post, Concord Township, Mailbox Plus',
     heroTitle: 'High-Quality Printing Services in Concord Township: Mailbox Plus',
     heroSubtitle:
       'Mailbox Plus is your local print shop for everything from business cards and flyers to documents and presentations.',
