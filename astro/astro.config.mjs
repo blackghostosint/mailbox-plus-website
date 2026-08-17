@@ -29,7 +29,7 @@ export default defineConfig({
         !page.includes('/articles/kirtland-hills-graphic-design'),
     }),
   ],
-  trailingSlash: 'ignore',
+  trailingSlash: 'always',
   build: {
     format: 'directory',
   },
