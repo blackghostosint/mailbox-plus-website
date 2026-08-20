@@ -108,4 +108,4 @@ The drone hums somewhere over the lake, delivering an iPhone to a driveway in Wi
 
 Amazon is spending billions to deliver small things fast. We are right here in Concord Township, delivering the rest of it — safely, affordably, and with a human being on the other side of the counter.
 
-Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there.
+Stop by 7554 Fredle Drive, call us, or [send a message](/contact-us/). Ask about package receiving, a mailbox rental with a real street address, or a return you have been putting off. We will take it from there.
