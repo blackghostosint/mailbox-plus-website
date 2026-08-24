@@ -528,7 +528,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
         btn.disabled = true;
         var controller = new AbortController();
         var timer = setTimeout(function () { controller.abort(); }, 20000); // 20s guard so a slow function can't hang the button
-        fetch('/api/create-checkout', {
+        fetch('/.netlify/functions/create-checkout', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ tier: tier }),
