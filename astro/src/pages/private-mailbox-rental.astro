@@ -255,7 +255,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
             <li>Your box + unit number</li>
             <li>Secure, behind the counter</li>
           </ul>
-          <a class="btn btn-outline" href="/contact-us/">Choose Small Mail Only →</a>
+          <a class="btn btn-outline" href="/contact-us/" data-tier="small_mail_only" class="btn btn-outline checkout-btn">Choose Small Mail Only →</a>
         </div>
         <div class="price-card featured">
           <div class="price-flag">Most Popular</div>
@@ -271,7 +271,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
             <li><strong>Text + email alerts</strong> for every item</li>
             <li>Best for frequent online shoppers</li>
           </ul>
-          <a class="btn btn-warm" href="/contact-us/">Choose Small +10 →</a>
+          <a class="btn btn-warm" href="/contact-us/" data-tier="small_packages10" class="btn btn-warm checkout-btn">Choose Small +10 →</a>
         </div>
         <div class="price-card">
           <div class="tier">Large · Mail Only</div>
@@ -283,7 +283,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
             <li>Roomier box for bulk mail</li>
             <li>Secure, behind the counter</li>
           </ul>
-          <a class="btn btn-outline" href="/contact-us/">Choose Large Mail Only →</a>
+          <a class="btn btn-outline" href="/contact-us/" data-tier="large_mail_only" class="btn btn-outline checkout-btn">Choose Large Mail Only →</a>
         </div>
         <div class="price-card">
           <div class="tier">Large · +10 Packages</div>
@@ -298,7 +298,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
             <li><strong>Text + email alerts</strong> for every item</li>
             <li>Room for everything</li>
           </ul>
-          <a class="btn btn-outline" href="/contact-us/">Choose Large +10 →</a>
+          <a class="btn btn-outline" href="/contact-us/" data-tier="large_packages10" class="btn btn-outline checkout-btn">Choose Large +10 →</a>
         </div>
       </div>
       <p class="price-note">+10 Package tiers include 10+ packages/month, then $5 per package. Oversized packages (over 18" or 20 lbs): $5 flat. Held longer than 5 days: $1/day. Key deposit: $5 refundable. Existing customers keep their current rate — this pricing is for new customers.</p>
@@ -514,6 +514,41 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
     <span class="carrier-name">USPS</span>
     <span class="carrier-name">DHL</span>
   </div>
+
+  <script is:inline>
+    // Direct-to-Stripe: "Choose [tier]" buttons create a Checkout Session via the
+    // create-checkout Netlify function, then redirect to Stripe Checkout.
+    document.querySelectorAll('.checkout-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tier = btn.getAttribute('data-tier');
+        if (!tier) return;
+        var original = btn.textContent;
+        btn.textContent = 'Opening secure checkout…';
+        btn.disabled = true;
+        fetch('/api/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tier: tier }),
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            if (res.ok && res.d.url) {
+              window.location.href = res.d.url;
+            } else {
+              throw new Error(res.d.error || 'Checkout failed');
+            }
+          })
+          .catch(function (err) {
+            console.error('Checkout error:', err);
+            btn.textContent = original;
+            btn.disabled = false;
+            alert('Sorry, we couldn’t open checkout. Please call us at 440-709-1946.');
+          });
+      });
+    });
+  </script>
+
 </BaseLayout>
 
 <style>
