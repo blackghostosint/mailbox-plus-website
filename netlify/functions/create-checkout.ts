@@ -72,9 +72,24 @@ export const handler: Handler = async (event) => {
     // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
     const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
 
+    // Resolve the tier's lookup key to a Price ID (Checkout line_items.price needs the ID)
+    const prices = await stripe.prices.list({
+      lookup_keys: [TIER_LOOKUP_KEYS[tier]],
+      limit: 1,
+      expand: ['data'],
+    });
+    const price = prices.data[0];
+    if (!price) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: `Price not found for tier: ${tier}` }),
+      };
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
-      line_items: [{ price: TIER_LOOKUP_KEYS[tier], quantity: 1 }],
+      line_items: [{ price: price.id, quantity: 1 }],
       // Per locked capture split: email + current address + phone
       billing_address_collection: 'required',
       phone_number_collection: { enabled: true },
