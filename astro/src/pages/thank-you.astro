@@ -1,0 +1,283 @@
+---
+// thank-you.astro — Post-checkout thank-you page for the consumer private mailbox flow
+// Audience: everyday renters who just paid for a mailbox tier via Stripe Checkout.
+// Design: matches the consumer sales page (/private-mailbox-rental/) — warm paper bg,
+// navy-gradient hero, gold #f7c82a + terracotta #a45c40 accents, DM Sans.
+// NOTE: local build only (feat/thank-you-page-local branch) — not deployed yet.
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+
+const pageTitle = "You're All Set — Your Mailbox Is Reserved | Mailbox Plus";
+const metaDescription =
+  'Your Mailbox Plus mailbox is reserved. Here is exactly what to bring and what happens next — two IDs, a 10-minute in-store visit, and your key.';
+const canonical = '/thank-you/';
+
+// Canonical store facts (single source: siteConfig)
+const storePhone = siteConfig.contact.phone;
+const storeAddress = `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
+const storeMapUrl = siteConfig.mapUrl;
+const storeHours = [
+  { day: 'Monday – Friday', hours: '9:00 AM – 6:00 PM' },
+  { day: 'Saturday', hours: '9:00 AM – 2:00 PM' },
+  { day: 'Sunday', hours: 'Closed' },
+];
+---
+
+<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} noindex>
+
+  <!-- ============ CONFIRMATION HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="trust-pill">
+          <span class="pill-check">✓</span>
+          <span>Payment received · Your mailbox is reserved</span>
+        </div>
+        <h1>You're All Set. Your Mailbox Is Reserved.</h1>
+        <p class="subhead">
+          Your first payment is done and your box is held for you. There's just one
+          quick, USPS-required step left — and it happens <strong>in person at our counter</strong>,
+          takes about <strong>10 minutes</strong>, and we've already pre-filled the paperwork for you.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold btn-lg" href="#what-to-bring">What to Bring →</a>
+          <a class="btn btn-outline btn-lg" href="#visit">Store Info</a>
+        </div>
+        <p class="hero-proof"><strong>Check your email</strong> — your receipt and confirmation are on the way from Stripe.</p>
+      </div>
+      <div class="check-wrap">
+        <div class="check-card">
+          <div class="check-badge">✓</div>
+          <div class="check-title">Reserved</div>
+          <div class="check-line">Your box number is assigned</div>
+          <div class="check-line">First payment secured</div>
+          <div class="check-line">Forms pre-filled for you</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHY IN PERSON (split-intake context) ============ -->
+  <section class="banded" id="why">
+    <div class="container">
+      <div class="why-banner">
+        <div class="why-emoji">🪪</div>
+        <div class="why-body">
+          <h2>Why do I have to come in?</h2>
+          <p>
+            The USPS requires us to <strong>verify your ID in person</strong> and witness your signature on
+            <strong>Form 1583</strong> before we can hand over your key. It's a federal requirement for private
+            mailbox rentals — not us being difficult. The good news: we've already captured your details online,
+            so we just print the forms and you sign. <strong>No online forms, no re-entering anything.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT TO BRING (ID checklist) ============ -->
+  <section id="what-to-bring">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What to Bring</div>
+        <h2>Two IDs. That's It.</h2>
+        <p>Bring these two forms of ID and the counter visit is painless.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card id-card">
+          <div class="icon">🪪</div>
+          <h3>ID #1 — Primary Photo ID</h3>
+          <p class="id-sub">Must be current &amp; valid. Pick one:</p>
+          <ul class="id-list">
+            <li>Driver's License or State ID</li>
+            <li>U.S. Passport or Passport Card</li>
+            <li>Military / Government / Corporate ID</li>
+          </ul>
+        </div>
+        <div class="card id-card">
+          <div class="icon">🏠</div>
+          <h3>ID #2 — Address Proof</h3>
+          <p class="id-sub">Must show your current address. Pick one:</p>
+          <ul class="id-list">
+            <li>Lease / Rental Agreement</li>
+            <li>Mortgage or Deed</li>
+            <li>Voter / Vehicle Registration</li>
+            <li>Home or Vehicle Insurance Policy</li>
+          </ul>
+        </div>
+      </div>
+      <div class="no-banner">
+        <strong>⚠️ Don't bring a utility bill.</strong>
+        USPS regulations <em>don't</em> accept utility bills, credit cards, or birth certificates as
+        proof of address. Save yourself the trip — bring one of the documents above.
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NEXT STEPS ============ -->
+  <section class="banded" id="steps">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Next Steps</div>
+        <h2>Three Simple Steps to Your Key</h2>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Check your email</h3>
+          <p>Your receipt and reservation confirmation are on their way. Keep them handy — optional, but nice to have.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Grab your two IDs</h3>
+          <p>One photo ID + one address proof. See the checklist above — no utility bills!</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Stop by the store</h3>
+          <p>Walk in, sign the pre-filled forms, and we hand you your key. About 10 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORE INFO ============ -->
+  <section id="visit">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Come See Us</div>
+        <h2>Stop By When It's Convenient</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="card visit-card">
+          <div class="icon">📍</div>
+          <h3>Our Location</h3>
+          <p class="visit-addr">{storeAddress}</p>
+          <p class="visit-sub">Fredle Square retail center — parking right at the door.</p>
+          <a class="btn btn-outline" href={storeMapUrl} target="_blank" rel="noopener">Get Directions →</a>
+        </div>
+        <div class="card visit-card">
+          <div class="icon">🕐</div>
+          <h3>Store Hours</h3>
+          <ul class="hours-list">
+            {storeHours.map((h) => (
+              <li><span class="h-day">{h.day}</span><span class="h-time">{h.hours}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="card visit-card">
+          <div class="icon">📞</div>
+          <h3>Questions?</h3>
+          <p class="visit-addr"><a href={`tel:${storePhone}`}>{storePhone}</a></p>
+          <p class="visit-sub">Call us before you head over — we're happy to help.</p>
+          <a class="btn btn-gold" href={`tel:${storePhone}`}>Call {storePhone} →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta">
+    <div class="container text-center">
+      <h2>Welcome to Mailbox Plus.</h2>
+      <p>We can't wait to hand you your key. See you at the counter.</p>
+      <a class="btn btn-gold btn-lg" href="/private-mailbox-rental/">Back to Mailbox Rental →</a>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* ===== Thank-you page styles (matches consumer sales page design) ===== */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-deep) 100%); color: #fff; padding: 72px 0 96px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; inset: auto 0 0 0; height: 48px; background: linear-gradient(to bottom, transparent, var(--color-bg-primary)); }
+  .hero-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+  .trust-pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 6px 16px; margin-bottom: 24px; backdrop-filter: blur(8px); }
+  .pill-check { color: #f7c82a; font-weight: 800; }
+  .trust-pill span { font-size: 13px; color: rgba(255,255,255,.92); font-weight: 500; }
+  .hero h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.08; font-weight: 700; letter-spacing: -.02em; margin-bottom: 20px; }
+  .hero .subhead { font-size: clamp(17px, 2vw, 21px); color: rgba(255,255,255,.85); max-width: 540px; margin-bottom: 28px; font-weight: 500; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+  .hero-proof { font-size: 14px; color: rgba(255,255,255,.75); }
+  .hero-proof strong { color: #fff; }
+
+  /* Check card visual */
+  .check-wrap { position: relative; }
+  .check-card { background: #fff; border-radius: var(--radius-md); padding: 36px 30px; box-shadow: var(--shadow-xl); transform: rotate(1.5deg); max-width: 340px; color: var(--color-text-primary); }
+  .check-badge { width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-warm); color: #fff; font-size: 28px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .check-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
+  .check-line { font-size: 15px; color: var(--color-text-secondary); padding: 4px 0 4px 22px; position: relative; }
+  .check-line::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: var(--radius-sm); padding: 12px 24px; font-size: 16px; cursor: pointer; transition: filter .15s ease, transform .15s ease; border: none; text-decoration: none; }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-gold { background: var(--color-accent-gold); color: var(--color-text-primary); }
+  .btn-outline { background: transparent; border: 2px solid var(--color-border-strong); color: var(--color-text-primary); }
+  .btn-lg { padding: 16px 32px; font-size: 18px; }
+  .hero .btn-outline { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* Section spacing */
+  section { padding: 72px 0; }
+  .banded { background: var(--color-bg-secondary); border-block: 1px solid var(--color-border); }
+  .section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+  .eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--color-accent-warm); margin-bottom: 12px; }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; letter-spacing: -.01em; line-height: 1.15; margin-bottom: 14px; }
+  .section-head p { color: var(--color-text-secondary); font-size: 17px; max-width: 620px; margin: 0 auto; }
+
+  /* Why banner */
+  .why-banner { display: flex; gap: 24px; align-items: flex-start; background: #fff; border: 2px solid var(--color-accent-warm); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-md); }
+  .why-emoji { font-size: 42px; flex-shrink: 0; }
+  .why-body h2 { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
+  .why-body p { color: var(--color-text-secondary); font-size: 16.5px; line-height: 1.6; }
+
+  /* Grids */
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); }
+  .card .icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 24px; }
+  .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+
+  /* ID checklist */
+  .id-card { border-color: var(--color-border); }
+  .id-sub { color: var(--color-text-muted); font-size: 14px; margin-bottom: 12px; }
+  .id-list { list-style: none; margin: 0; }
+  .id-list li { font-size: 15px; color: var(--color-text-secondary); padding: 5px 0 5px 24px; position: relative; }
+  .id-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
+  .no-banner { margin-top: 24px; background: #fff; border: 2px solid var(--color-accent-warm); border-left: 6px solid var(--color-accent-warm); border-radius: var(--radius-md); padding: 18px 22px; color: var(--color-text-primary); font-size: 15.5px; }
+
+  /* Steps */
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .step { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm); }
+  .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-warm); color: #fff; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+  .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .step p { color: var(--color-text-secondary); font-size: 15px; }
+
+  /* Visit grid */
+  .visit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .visit-card { text-align: left; }
+  .visit-addr { font-size: 17px; font-weight: 600; color: var(--color-text-primary); margin-bottom: 8px; }
+  .visit-addr a { color: var(--color-primary); text-decoration: none; }
+  .visit-addr a:hover { text-decoration: underline; }
+  .visit-sub { color: var(--color-text-muted); font-size: 14px; margin-bottom: 18px; }
+  .hours-list { list-style: none; margin: 0 0 8px; }
+  .hours-list li { display: flex; justify-content: space-between; font-size: 15px; color: var(--color-text-secondary); padding: 6px 0; border-bottom: 1px dashed var(--color-border); }
+  .hours-list li:last-child { border-bottom: none; }
+  .h-day { font-weight: 600; color: var(--color-text-primary); }
+
+  /* Final CTA */
+  .final-cta { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-deep) 100%); color: #fff; }
+  .final-cta h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; margin-bottom: 14px; }
+  .final-cta p { color: rgba(255,255,255,.85); font-size: 17px; margin-bottom: 24px; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .grid-2, .steps, .visit-grid { grid-template-columns: 1fr; }
+    .why-banner { flex-direction: column; }
+    .check-card { margin: 0 auto; }
+  }
+</style>
