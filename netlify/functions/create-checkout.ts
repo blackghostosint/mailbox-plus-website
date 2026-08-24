@@ -124,3 +124,10 @@ export const handler: Handler = async (event) => {
     };
   }
 };
+
+// Expose at /api/create-checkout via config.path (the [[redirects]] /api/* rule
+// in netlify.toml is not effective on this site — pre-existing issue; the
+// reviews function uses the same pattern).
+export const config = {
+  path: '/api/create-checkout',
+};
