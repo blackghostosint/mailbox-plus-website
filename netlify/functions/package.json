@@ -5,6 +5,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "@netlify/blobs": "^10.7.9",
+    "@netlify/functions": "^2.8.2",
     "dotenv": "^17.2.3",
     "resend": "^6.16.0",
     "stripe": "^22.5.0"
