@@ -106,7 +106,7 @@ export const handler: Handler = async (event) => {
         product: TIER_NAMES[tier],
         source: 'private-mailbox-rental',
       },
-      success_url: `${siteUrl}/private-mailbox-rental/?checkout=success&session_id={CHECKOUT_SESSION_ID}`,
+      success_url: `${siteUrl}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${siteUrl}/private-mailbox-rental/`,
     });
 
