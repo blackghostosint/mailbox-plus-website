@@ -45,9 +45,9 @@ const serviceSchema = getServiceSchema(siteConfig, {
     { name: 'Storage Fee (per day after 5 days)', price: '1.00', currency: 'USD', availability: 'https://schema.org/InStock' },
     { name: 'Key Deposit (Refundable)', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
   ],
-  areaServed: service.areaServed,
+  areaServed: siteConfig.areaServed,
   category: service.category,
-  serviceOutput: service.serviceOutput,
+  serviceOutput: 'Business mailbox rental with street address, package receiving, and mail services at Mailbox Plus Concord Township',
 });
 const faqSchema = getFAQSchema(siteConfig, faqs);
 
