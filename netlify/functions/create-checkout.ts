@@ -52,6 +52,11 @@ const TIER_CANCEL_URLS: Record<string, string> = {
   business_large: '/home-business/mailbox-rental/',
 };
 
+// One-time key deposit, charged on the FIRST invoice at account creation (2026-08-25).
+// Lookup key lives on the one-time price under the "Mailbox Plus Fees" product.
+const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
+const KEY_DEPOSIT_DISPLAY_NAME = 'Key deposit (refundable)';
+
 export const handler: Handler = async (event) => {
   // CORS headers (needed if called cross-origin; same-origin via /api/* proxy)
   const headers = {
@@ -112,9 +117,27 @@ export const handler: Handler = async (event) => {
       };
     }
 
+    // Resolve the one-time key deposit price (billed on the first invoice at account creation)
+    const depositPrices = await stripe.prices.list({
+      lookup_keys: [KEY_DEPOSIT_LOOKUP_KEY],
+      limit: 1,
+    });
+    const depositPrice = depositPrices.data[0];
+    if (!depositPrice) {
+      return {
+        statusCode: 500,
+        headers,
+        body: JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
+      };
+    }
+
     const session = await stripe.checkout.sessions.create({
       mode: 'subscription',
-      line_items: [{ price: price.id, quantity: 1 }],
+      line_items: [
+        { price: price.id, quantity: 1 },
+        // One-time key deposit — shows at checkout, charged on the initial invoice only
+        { price: depositPrice.id, quantity: 1 },
+      ],
       // Per locked capture split: email + current address + phone
       billing_address_collection: 'required',
       phone_number_collection: { enabled: true },
