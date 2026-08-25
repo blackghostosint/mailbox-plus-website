@@ -1,8 +1,604 @@
 ---
-import ServiceLayout from '../../layouts/ServiceLayout.astro';
+// home-business/mailbox-rental.astro — Business mailbox rental sales page
+// Redesigned to match the consumer page (/private-mailbox-rental/) visual language:
+// navy-gradient hero, gold #f7c82a + terracotta #a45c40, warm paper bg, DM Sans.
+// Content preserved VERBATIM from the ServiceLayout-driven config (mailbox-rental service)
+// EXCEPT: pricing updated to the new 4-tier matrix, "30-day risk-free" → "Completely risk-free",
+// and the 1583 ID list corrected (Lease, Mortgage, or Insurance Policy — not Utility Bill).
+// Audience: business owners (LLCs, online sellers, home businesses).
+// Cross-links both ways to the consumer page.
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteConfig } from '../../config/siteConfig';
+import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../../utils/schema';
 import { getServiceById } from '../../utils/services-helpers';
+import { mailboxRentalFaqs, generalHomeBusinessFaqs } from '../../config/faqs';
 
 const service = getServiceById('mailbox-rental')!;
+const faqs = [...generalHomeBusinessFaqs, ...mailboxRentalFaqs];
+
+const pageTitle = service.pageTitle;
+// Corrected meta description — pricing updated to the new matrix (was "$35/month. 30-day risk-free")
+const metaDescription =
+  'Stop putting your home address on every package and filing. Get a real street address in Concord Township. All 4 carriers. From $35/month. Completely risk-free. Porch theft protection included.';
+const canonical = '/home-business/mailbox-rental/';
+
+const webPageSchema = getWebPageSchema(siteConfig, {
+  name: pageTitle,
+  description: metaDescription,
+  url: canonical,
+  breadcrumbItems: [
+    { name: 'Home', url: '/' },
+    { name: 'Home Business', url: '/home-business/' },
+    { name: 'Mailbox Rental', url: '/home-business/mailbox-rental/' },
+  ],
+});
+const serviceSchema = getServiceSchema(siteConfig, {
+  serviceName: service.serviceName,
+  url: canonical,
+  // Updated offers — business 2-tier matrix, month-to-month only
+  offers: [
+    { name: 'Business Mailbox - Small', price: '35.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Business Mailbox - Large', price: '50.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Package Overage', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Oversized Package Fee', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Storage Fee (per day after 5 days)', price: '1.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Key Deposit (Refundable)', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+  ],
+  areaServed: service.areaServed,
+  category: service.category,
+  serviceOutput: service.serviceOutput,
+});
+const faqSchema = getFAQSchema(siteConfig, faqs);
+
+// Store facts (single source: siteConfig)
+const storePhone = siteConfig.contact.phone;
+const storePhoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+const storeAddress = `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
+
+// New pricing matrix (month-to-month ONLY, new customers)
+const tiers = [
+  {
+    name: 'Business Small',
+    price: '$35',
+    per: 'No lock-in · Cancel anytime',
+    featured: true,
+    bullets: [
+      '<strong>Real business filing address</strong> (LLC/DBL, website, cards, vendors)',
+      '<strong>All 4 carriers deliver</strong>',
+      '<strong>We sign for packages</strong>',
+      '<strong>10 packages included</strong>',
+      'Beyond that: $5 per package',
+      '<strong>Text + email alerts</strong> for every item',
+      '<strong>Up to 3 authorized recipients</strong> included',
+      '<strong>Digital Business Card page</strong> + 250 business cards',
+    ],
+    tierKey: 'business_small',
+  },
+  {
+    name: 'Business Large',
+    price: '$50',
+    per: 'No lock-in · Cancel anytime',
+    featured: false,
+    bullets: [
+      'Everything in Small',
+      '<strong>Roomier box</strong> for bulk mail',
+      '<strong>25 packages included</strong>',
+      'Beyond that: $5 per package',
+      '<strong>Free notarizations included</strong>',
+      '<strong>1 mail-forwarding batch/mo</strong> (shipping at cost)',
+      '<strong>Digital Business Card page</strong> + 250 business cards',
+    ],
+    tierKey: 'business_large',
+  },
+];
 ---
 
-<ServiceLayout service={service} />
+<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical}>
+  <!-- JSON-LD Schemas -->
+  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="container hero-inner">
+      <div>
+        <div class="trust-pill">
+          <span class="stars">★★★★★</span>
+          <span>5.0 rating · 44 verified Google reviews</span>
+        </div>
+        <h1>Your Home Address Is On Every Package You Ship</h1>
+        <p class="subhead">A real street address. All 4 carriers. From <strong>$35/month</strong>. Your home stays private.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold btn-lg" href="/contact-us/">Get Your Lake County Address →</a>
+          <a class="btn btn-outline btn-lg" href="#pricing">See Pricing</a>
+        </div>
+        <p class="hero-proof"><strong>Completely risk-free.</strong> Month-to-month. Cancel anytime.</p>
+      </div>
+      <div class="label-wrap">
+        <div class="label-stamp">Real Street Address</div>
+        <div class="label-card">
+          <div class="tag">Your professional business address</div>
+          <div class="addr-name">Your Business, LLC</div>
+          <div class="addr-line">7554 Fredle Dr #234</div>
+          <div class="addr-city">Concord Township, OH 44077</div>
+          <div class="addr-badge">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            Not a P.O. Box
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REINFORCEMENT WEDGE ============ -->
+  <div class="wedge">
+    <div class="container wedge-inner">
+      <div class="wedge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        No lock-in · Cancel anytime
+      </div>
+      <div class="wedge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        10+ packages/mo on +10 plans
+      </div>
+      <div class="wedge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        Text + email alerts on all plans
+      </div>
+      <div class="wedge-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        We sign deliveries on +10 plans
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ BENEFITS (solution grid) ============ -->
+  <section id="benefits">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Why customers choose this service</div>
+        <h2>Clear benefits, protections, and options designed for your peace of mind and convenience.</h2>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg></div>
+          <h3>Real Street Address</h3>
+          <p>Not a P.O. Box. Your address is a legitimate street address that all 4 carriers deliver to.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg></div>
+          <h3>All-Carrier Acceptance</h3>
+          <p>UPS, FedEx, USPS, and DHL — we sign for everything so you never miss a delivery.</p>
+        </div>
+        <div class="card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg></div>
+          <h3>Secure &amp; Private</h3>
+          <p>Your mail is held behind a locked counter. Your home address never goes on a label.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STORY: The Address Pipeline ============ -->
+  <section class="pt-0">
+    <div class="container">
+      <div class="story-block">
+        <div>
+          <div class="kicker">The problem nobody warns you about</div>
+          <h3>The Address Pipeline — Who Has Your Home Address Right Now?</h3>
+          <p>Every shipping label you print, every LLC filing, every Amazon return, every online checkout — they all pump your home address into a system you can't control. Data brokers resell it. Porch pirates track deliveries by watching for boxes. Clients see your living room on your business filings. The mechanism is simple: every time you give your home address, it circulates further. You don't know who has it. And once it's out there, you can't pull it back.</p>
+        </div>
+        <div class="story-visual">
+          <div class="inner">
+            <div class="visual-emoji">🔗</div>
+            <strong>Your address is in a pipeline you can't see</strong>
+            <p>Every label, filing, and checkout feeds it.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="story-visual">
+          <div class="inner">
+            <div class="visual-emoji">🌙</div>
+            <strong>The feeling of exposure</strong>
+            <p>Every doorstep package is an invitation.</p>
+          </div>
+        </div>
+        <div>
+          <div class="kicker">Why it grinds on you</div>
+          <h3>Why That Keeps You Up at Night</h3>
+          <p>You check the front porch before you pull into the driveway. You hesitate before putting your address on a business card. You wonder if that &ldquo;free shipping&rdquo; label is worth your privacy. It's not paranoia — it's the feeling of exposure that comes from knowing your home address is floating around in a pipeline you can't see and can't stop. Every package left on your doorstep is an invitation. Every filing made public is a data point.</p>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div>
+          <div class="kicker">The part you can't control</div>
+          <h3>Your Home Should Be for Living — Not for Business</h3>
+          <p>You work hard for your home. It's where you relax, where your family is, where you should feel safe. But somewhere along the way, your home address became a public utility — used for shipping labels, business registrations, and databases you never signed up for. That's not how it should work. Your sanctuary shouldn't be a public drop zone.</p>
+        </div>
+        <div class="story-visual">
+          <div class="inner">
+            <div class="visual-emoji">🏡</div>
+            <strong>Your sanctuary shouldn't be a public drop zone</strong>
+            <p>Home is for living — not for business.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-block">
+        <div class="story-visual">
+          <div class="inner">
+            <div class="visual-emoji">🛡️</div>
+            <strong>We plug the leak</strong>
+            <p>Your mail goes to us — not your home.</p>
+          </div>
+        </div>
+        <div>
+          <div class="kicker">We plug the leak</div>
+          <h3>We Plug the Leak. Your Home Stays Private.</h3>
+          <p>We know the feeling — that knot in your stomach when a delivery says &ldquo;left at front door&rdquo; and you're 20 minutes away. That hesitation when a client asks for your business address. That's why Mailbox Plus exists. A real street address in Concord Township, Ohio that your mail goes to — not your home. We sign for your packages from UPS, FedEx, USPS, and DHL. We notify you within 4 hours. And your address stays professional, private, and off the pipeline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE NO-STRINGS PITCH ============ -->
+  <section class="banded" id="no-strings">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">The no-strings pitch</div>
+        <h2>The No-Strings Pitch</h2>
+      </div>
+      <div class="pitch-list">
+        <div class="pitch-item">
+          <span class="pitch-check">✓</span>
+          <p><strong>No annual contract.</strong> Month-to-month. Cancel anytime.</p>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-check">✓</span>
+          <p><strong>Real street address.</strong> Not a P.O. Box. Valid for all 4 carriers — UPS, FedEx, USPS, DHL.</p>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-check">✓</span>
+          <p><strong>4-hour notification.</strong> We scan and notify you the moment mail arrives.</p>
+        </div>
+        <div class="pitch-item">
+          <span class="pitch-check">✓</span>
+          <p><strong>Completely risk-free.</strong> Not sure? Try it. If it's not for you, walk away.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PRICING (NEW 4-TIER MATRIX) ============ -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Transparent pricing — what you see is what you pay</div>
+        <h2>Pick your box. No surprises, no lock-in.</h2>
+        <p>Month-to-month. Cancel anytime. No 3-month or 6-month terms, no discount games — just honest flat pricing.</p>
+      </div>
+      <div class="pricing-grid">
+        {tiers.map((t) => (
+          <div class:list={['price-card', { featured: t.featured }]}>
+            {t.featured && <div class="price-flag">Most Popular</div>}
+            <div class="tier">{t.name}</div>
+            <div class="price">{t.price}<span>/mo</span></div>
+            <div class="per">{t.per}</div>
+            <ul set:html={t.bullets.map((b) => `<li>${b}</li>`).join('')} />
+            <a class:list={['btn', t.featured ? 'btn-warm' : 'btn-outline', 'checkout-btn']} href="/contact-us/" data-tier={t.tierKey}>Choose {t.name} →</a>
+          </div>
+        ))}
+      </div>
+      <p class="price-note">Business Small includes 10 packages/month, Business Large includes 25 — beyond that: $5 per package. Oversized packages (over 18&quot; or 20 lbs): $5 flat. Held longer than 5 days: $1/day. Key deposit: $5 refundable. Existing customers keep their current rate — this pricing is for new customers.</p>
+    </div>
+  </section>
+
+  <!-- ============ SETUP (USPS Form 1583) ============ -->
+  <section class="banded" id="setup">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Quick &amp; easy setup</div>
+        <h2>Quick &amp; Easy Setup (USPS Form 1583)</h2>
+        <p>Setting up your address takes about 10 minutes. We handle the paperwork. Here's what you need:</p>
+      </div>
+      <div class="grid-3">
+        <div class="card step-card">
+          <div class="step-num">1</div>
+          <h3>Fill Out Form</h3>
+          <p>Complete USPS Form 1583 with your details. Each authorized recipient needs their own ID check.</p>
+        </div>
+        <div class="card step-card">
+          <div class="step-num">2</div>
+          <h3>Bring ID</h3>
+          <p>One primary photo ID (Passport, DL) and one secondary ID showing your current address (Lease, Mortgage, or Insurance Policy).</p>
+        </div>
+        <div class="card step-card">
+          <div class="step-num">3</div>
+          <h3>Start Using It</h3>
+          <p>Once verified, your new address is active. Start using it for packages, business filings, and everything else — immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ STAKES (Loss Aversion) ============ -->
+  <section id="stakes">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What you lose</div>
+        <h2>What You Lose by Keeping Your Home Address Public</h2>
+      </div>
+      <div class="grid-2">
+        <div class="card stake-card">
+          <div class="stake-emoji">🏠</div>
+          <h3>Porch Theft</h3>
+          <p>Packages left on your doorstep are visible to everyone who drives by. One delivery notification is all a thief needs. A mailbox at Mailbox Plus means every package is signed for and stored behind a locked counter.</p>
+        </div>
+        <div class="card stake-card">
+          <div class="stake-emoji">🔓</div>
+          <h3>Privacy Breach</h3>
+          <p>Every shipping label in your trash has your home address. Every business filing is public record. Data brokers scrape and resell this information. A real business address keeps your home off the grid.</p>
+        </div>
+        <div class="card stake-card">
+          <div class="stake-emoji">📭</div>
+          <h3>Missed Deliveries</h3>
+          <p>Not home when a package arrives? FedEx, UPS, and DHL can't deliver to P.O. Boxes. With a Mailbox Plus street address, all 4 carriers deliver every time — and we sign for you.</p>
+        </div>
+        <div class="card stake-card">
+          <div class="stake-emoji">💼</div>
+          <h3>Unprofessional Image</h3>
+          <p>A home address on your business card, website, or LLC filing says &ldquo;side hustle.&rdquo; A real Concord Township street address says &ldquo;legitimate business.&rdquo; Perception matters — and it costs the same as a PO Box.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SEE PRICING CTA (between stakes & success) ============ -->
+  <div class="see-pricing-cta">
+    <div class="container text-center">
+      <a class="btn btn-warm btn-lg" href="#pricing">See Pricing →</a>
+    </div>
+  </div>
+
+  <!-- ============ SUCCESS (Aspirational Identity) ============ -->
+  <section class="banded" id="success">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">What changes for you</div>
+        <h2>Your Home Back. Your Privacy Intact. You Look Professional.</h2>
+        <p>Imagine ordering anything online without checking the porch. Handing out your business card without hesitating. Filing your LLC without listing your living room. That's what a Mailbox Plus address does. One stable address. Your home stays private. You look like you've been in business for years — even if you're just getting started. And the best part? You stop thinking about it. Your mail just shows up. Your packages are safe. You move on with your day.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CROSS-LINK: For everyday renters ============ -->
+  <section class="crosslink" id="crosslink">
+    <div class="container">
+      <div class="crosslink-banner">
+        <div class="crosslink-emoji">📦</div>
+        <div class="crosslink-body">
+          <div class="kicker">Not a business?</div>
+          <h2>Just want your packages off the porch?</h2>
+          <p>Most of our mailbox holders are everyday residents — people who get a lot of packages, want their mail off the porch, or just like knowing their home address isn't floating around. Check out our consumer mailbox page for the everyday-renter story and pricing.</p>
+          <a class="btn btn-gold btn-lg" href="/private-mailbox-rental/">Everyday Mailbox Rental →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="banded" id="faq">
+    <div class="container">
+      <div class="section-head">
+        <div class="eyebrow">Frequently asked questions</div>
+        <h2>Quick answers</h2>
+        <p>Get quick answers to the most common questions about packaging, carriers, pricing, and what to expect.</p>
+      </div>
+      <div class="faq-list">
+        {faqs.map((f) => (
+          <details class="faq-item">
+            <summary>{f.question}</summary>
+            <p>{f.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final-cta" id="cta">
+    <div class="container text-center">
+      <h2>Take Your Address Off The Pipeline</h2>
+      <p>Real street address. All 4 carriers. From $35/month. Completely risk-free.</p>
+      <a class="btn btn-gold btn-lg" href="/contact-us/">Get Your Lake County Address →</a>
+      <p class="cta-back"><a href="#pricing">← Compare plans &amp; pricing again</a></p>
+    </div>
+  </section>
+
+  <!-- Checkout wiring: direct-to-Stripe via Netlify function -->
+  <script is:inline>
+    // Direct-to-Stripe: "Choose [tier]" buttons create a Checkout Session via the
+    // create-checkout Netlify function, then redirect to Stripe Checkout.
+    document.querySelectorAll('.checkout-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var tier = btn.getAttribute('data-tier');
+        if (!tier) return;
+        var original = btn.textContent;
+        btn.textContent = 'Opening secure checkout…';
+        btn.disabled = true;
+        var controller = new AbortController();
+        var timer = setTimeout(function () { controller.abort(); }, 20000); // 20s guard so a slow function can't hang the button
+        fetch('/.netlify/functions/create-checkout', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ tier: tier }),
+          signal: controller.signal,
+        })
+          .then(function (r) { return r.json().then(function (d) { return { ok: r.ok, d: d }; }); })
+          .then(function (res) {
+            clearTimeout(timer);
+            if (res.ok && res.d.url) {
+              window.location.href = res.d.url;
+            } else {
+              throw new Error(res.d.error || 'Checkout failed');
+            }
+          })
+          .catch(function (err) {
+            clearTimeout(timer);
+            console.error('Checkout error:', err);
+            btn.textContent = original;
+            btn.disabled = false;
+            alert('Sorry, we couldn’t open checkout. Please call us at 440-709-1946.');
+          });
+      });
+    });
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* ===== Business mailbox page styles (matches consumer sales page design) ===== */
+  .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+  .text-center { text-align: center; }
+
+  /* Hero */
+  .hero { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-deep) 100%); color: #fff; padding: 72px 0 96px; position: relative; overflow: hidden; }
+  .hero::after { content: ''; position: absolute; inset: auto 0 0 0; height: 48px; background: linear-gradient(to bottom, transparent, var(--color-bg-primary)); }
+  .hero-inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; position: relative; z-index: 2; }
+  .trust-pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.35); border-radius: 999px; padding: 6px 16px; margin-bottom: 24px; backdrop-filter: blur(8px); }
+  .stars { color: #f7c82a; letter-spacing: 2px; font-size: 15px; }
+  .trust-pill span { font-size: 13px; color: rgba(255,255,255,.92); font-weight: 500; }
+  .hero h1 { font-size: clamp(34px, 5vw, 54px); line-height: 1.08; font-weight: 700; letter-spacing: -.02em; margin-bottom: 20px; }
+  .hero .subhead { font-size: clamp(17px, 2vw, 21px); color: rgba(255,255,255,.85); max-width: 540px; margin-bottom: 28px; font-weight: 500; }
+  .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 22px; }
+  .hero-proof { font-size: 14px; color: rgba(255,255,255,.75); }
+  .hero-proof strong { color: #fff; }
+
+  /* Address label visual */
+  .label-card { background: #fff; border-radius: var(--radius-md); padding: 34px 26px 26px; box-shadow: var(--shadow-xl); transform: rotate(1.5deg); max-width: 380px; }
+  .label-card .tag { font-size: 11px; text-transform: uppercase; letter-spacing: .08em; color: var(--color-text-muted); font-weight: 700; margin-bottom: 10px; }
+  .label-card .addr-name { font-size: 20px; font-weight: 700; color: var(--color-text-primary); }
+  .label-card .addr-line { font-size: 18px; font-weight: 600; color: var(--color-primary); margin: 2px 0; }
+  .label-card .addr-city { font-size: 15px; color: var(--color-text-secondary); }
+  .label-card .addr-badge { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; background: var(--color-accent-gold); color: var(--color-text-primary); font-size: 12px; font-weight: 700; padding: 5px 12px; border-radius: 999px; }
+  .label-card .addr-badge svg { width: 14px; height: 14px; }
+  .label-stamp { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--color-accent-warm); color: #fff; font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; padding: 7px 18px; border-radius: 999px; white-space: nowrap; box-shadow: var(--shadow-md); z-index: 3; }
+  .label-wrap { position: relative; }
+
+  /* Buttons */
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: var(--radius-sm); padding: 12px 24px; font-size: 16px; cursor: pointer; transition: filter .15s ease, transform .15s ease; border: none; text-decoration: none; }
+  .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+  .btn-gold { background: var(--color-accent-gold); color: var(--color-text-primary); }
+  .btn-warm { background: var(--color-accent-warm); color: #fff; }
+  .btn-outline { background: transparent; border: 2px solid var(--color-border-strong); color: var(--color-text-primary); }
+  .btn-lg { padding: 16px 32px; font-size: 18px; }
+  .hero .btn-outline { border-color: rgba(255,255,255,.5); color: #fff; }
+
+  /* Section spacing */
+  section { padding: 72px 0; }
+  .section-head { max-width: 720px; margin: 0 auto 44px; text-align: center; }
+  .eyebrow { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .1em; color: var(--color-accent-warm); margin-bottom: 12px; }
+  .section-head h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; letter-spacing: -.01em; line-height: 1.15; margin-bottom: 14px; }
+  .section-head p { color: var(--color-text-secondary); font-size: 17px; max-width: 620px; margin: 0 auto; }
+  .pt-0 { padding-top: 0; }
+  .banded { background: var(--color-bg-secondary); border-block: 1px solid var(--color-border); }
+  #pricing, #setup, #faq, #benefits, #stakes, #no-strings, #crosslink { scroll-margin-top: 80px; }
+
+  /* Wedge */
+  .wedge { background: var(--color-bg-secondary); border-block: 1px solid var(--color-border); padding: 28px 0; }
+  .wedge-inner { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 40px; align-items: center; }
+  .wedge-item { display: flex; align-items: center; gap: 10px; font-size: 17px; font-weight: 700; color: var(--color-text-primary); }
+  .wedge-item svg { width: 22px; height: 22px; color: var(--color-accent-warm); flex-shrink: 0; }
+
+  /* Grids */
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+  .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); transition: transform .18s ease, box-shadow .18s ease; }
+  .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .card .icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .card .icon svg { width: 24px; height: 24px; }
+  .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
+  .card p { color: var(--color-text-secondary); font-size: 15px; }
+
+  /* Story */
+  .story-block { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; margin-bottom: 48px; }
+  .story-block:last-child { margin-bottom: 0; }
+  .story-block .kicker { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--color-accent-warm); margin-bottom: 10px; }
+  .story-block h3 { font-size: 26px; font-weight: 700; line-height: 1.2; margin-bottom: 14px; }
+  .story-block p { color: var(--color-text-secondary); font-size: 16.5px; }
+  .story-block p + p { margin-top: 12px; }
+  .story-visual { background: var(--color-bg-secondary); border: 1px solid var(--color-border); border-radius: var(--radius-xl); padding: 36px; min-height: 220px; display: flex; align-items: center; justify-content: center; }
+  .story-visual .inner { max-width: 320px; text-align: center; color: var(--color-text-muted); font-size: 15px; }
+  .visual-emoji { font-size: 40px; margin-bottom: 12px; }
+
+  /* No-strings pitch */
+  .pitch-list { max-width: 720px; margin: 0 auto; }
+  .pitch-item { display: flex; align-items: flex-start; gap: 14px; background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 18px 22px; margin-bottom: 14px; box-shadow: var(--shadow-sm); }
+  .pitch-check { color: var(--color-accent-warm); font-weight: 800; font-size: 20px; flex-shrink: 0; line-height: 1.2; }
+  .pitch-item p { color: var(--color-text-secondary); font-size: 16px; }
+
+  /* Pricing */
+  .pricing { background: var(--color-bg-secondary); border-block: 1px solid var(--color-border); scroll-margin-top: 80px; }
+  .pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(300px, 1fr)); gap: 24px; max-width: 820px; margin: 0 auto; }
+  .price-card { background: #fff; border: 2px solid var(--color-border); border-radius: var(--radius-xl); padding: 28px 24px; position: relative; box-shadow: var(--shadow-sm); display: flex; flex-direction: column; }
+  .price-card.featured { border-color: var(--color-accent-warm); box-shadow: var(--shadow-lg); transform: translateY(-6px); }
+  .price-flag { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--color-accent-warm); color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .06em; padding: 5px 14px; border-radius: 999px; white-space: nowrap; }
+  .price-card .tier { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-muted); margin-bottom: 10px; }
+  .price-card .price { font-size: 42px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+  .price-card .price span { font-size: 16px; font-weight: 600; color: var(--color-text-muted); }
+  .price-card .per { font-size: 13px; color: var(--color-text-muted); margin: 4px 0 14px; }
+  .price-card ul { list-style: none; margin: 0 0 20px; }
+  .price-card ul li { font-size: 14px; color: var(--color-text-secondary); padding: 5px 0 5px 24px; position: relative; }
+  .price-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
+  .price-card .btn { margin-top: auto; }
+  .price-note { margin-top: 22px; text-align: center; color: var(--color-text-muted); font-size: 14px; }
+
+  /* Setup steps */
+  .step-card { text-align: center; }
+  .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-warm); color: #fff; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+
+  /* Stakes */
+  .stake-card .stake-emoji { font-size: 32px; margin-bottom: 12px; }
+
+  /* See pricing CTA */
+  .see-pricing-cta { padding: 8px 0 64px; }
+  .see-pricing-cta .btn { min-width: 220px; }
+
+  /* Cross-link banner */
+  .crosslink-banner { display: flex; gap: 28px; align-items: center; background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary) 55%, var(--color-primary-deep)); border-radius: var(--radius-xl); padding: 40px 44px; color: #fff; box-shadow: var(--shadow-lg); }
+  .crosslink-emoji { font-size: 52px; flex-shrink: 0; }
+  .crosslink-body { flex: 1; }
+  .crosslink-body .kicker { color: var(--color-accent-gold); }
+  .crosslink-body h2 { font-size: clamp(24px, 3vw, 32px); font-weight: 700; margin-bottom: 10px; }
+  .crosslink-body p { color: rgba(255,255,255,.85); font-size: 16px; margin-bottom: 20px; max-width: 560px; }
+
+  /* FAQ */
+  .faq-list { max-width: 760px; margin: 0 auto; }
+  .faq-item { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: 0; margin-bottom: 12px; box-shadow: var(--shadow-sm); }
+  .faq-item summary { padding: 18px 22px; font-size: 16px; font-weight: 600; cursor: pointer; list-style: none; position: relative; padding-right: 48px; color: var(--color-text-primary); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after { content: '+'; position: absolute; right: 20px; top: 50%; transform: translateY(-50%); font-size: 24px; font-weight: 400; color: var(--color-accent-warm); }
+  .faq-item[open] summary::after { content: '−'; }
+  .faq-item p { padding: 0 22px 18px; color: var(--color-text-secondary); font-size: 15px; }
+
+  /* Final CTA */
+  .final-cta { background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 45%, var(--color-primary-deep) 100%); color: #fff; }
+  .final-cta h2 { font-size: clamp(28px, 3.4vw, 38px); font-weight: 700; margin-bottom: 14px; }
+  .final-cta p { color: rgba(255,255,255,.85); font-size: 17px; margin-bottom: 24px; }
+  .cta-back { margin-top: 18px; }
+  .cta-back a { color: rgba(255,255,255,.75); font-size: 15px; text-decoration: underline; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 32px; }
+    .grid-2, .grid-3, .pricing-grid { grid-template-columns: 1fr; }
+    .story-block { grid-template-columns: 1fr; gap: 24px; }
+    .crosslink-banner { flex-direction: column; text-align: center; padding: 32px 24px; }
+    .label-card { margin: 0 auto; }
+  }
+</style>

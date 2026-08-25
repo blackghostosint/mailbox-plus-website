@@ -18,6 +18,9 @@ const TIER_LOOKUP_KEYS: Record<string, string> = {
   small_packages10: 'pmb_small_packages10_monthly',
   large_mail_only: 'pmb_large_mail_only_monthly',
   large_packages10: 'pmb_large_packages10_monthly',
+  // Business tiers (2026-08-25) — prices live in Stripe: pmb_biz_small_monthly / pmb_biz_large_monthly
+  business_small: 'pmb_biz_small_monthly',
+  business_large: 'pmb_biz_large_monthly',
 };
 
 const TIER_NAMES: Record<string, string> = {
@@ -25,6 +28,28 @@ const TIER_NAMES: Record<string, string> = {
   small_packages10: 'Small · +10 Packages',
   large_mail_only: 'Large · Mail Only',
   large_packages10: 'Large · +10 Packages',
+  business_small: 'Business Small',
+  business_large: 'Business Large',
+};
+
+// Where the checkout came from — distinguishes consumer vs business signups in Stripe
+const TIER_SOURCES: Record<string, string> = {
+  small_mail_only: 'private-mailbox-rental',
+  small_packages10: 'private-mailbox-rental',
+  large_mail_only: 'private-mailbox-rental',
+  large_packages10: 'private-mailbox-rental',
+  business_small: 'home-business-mailbox-rental',
+  business_large: 'home-business-mailbox-rental',
+};
+
+// Cancel URL per tier — business checkouts return to the business page
+const TIER_CANCEL_URLS: Record<string, string> = {
+  small_mail_only: '/private-mailbox-rental/',
+  small_packages10: '/private-mailbox-rental/',
+  large_mail_only: '/private-mailbox-rental/',
+  large_packages10: '/private-mailbox-rental/',
+  business_small: '/home-business/mailbox-rental/',
+  business_large: '/home-business/mailbox-rental/',
 };
 
 export const handler: Handler = async (event) => {
@@ -98,16 +123,16 @@ export const handler: Handler = async (event) => {
         metadata: {
           tier,
           product: TIER_NAMES[tier],
-          source: 'private-mailbox-rental',
+          source: TIER_SOURCES[tier],
         },
       },
       metadata: {
         tier,
         product: TIER_NAMES[tier],
-        source: 'private-mailbox-rental',
+        source: TIER_SOURCES[tier],
       },
       success_url: `${siteUrl}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}/private-mailbox-rental/`,
+      cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
     });
 
     return {
