@@ -151,6 +151,11 @@ export const handler: Handler = async (event) => {
       // Per locked capture split: email + current address + phone
       billing_address_collection: 'required',
       phone_number_collection: { enabled: true },
+      // Native ToS acceptance checkbox (2026-08-26): renders "I agree to the Terms" with a
+      // link to the ToS URL set in Stripe Dashboard → Settings → Public details.
+      // Acceptance is recorded on the Customer object with IP + user-agent — a stronger
+      // audit record than prose, and applies to ALL tiers (everyone signs the rental terms).
+      consent_collection: { terms_of_service: 'required' },
       // A2P 10DLC SMS consent (Clause 13) — required ONLY on tiers that include text alerts.
       // Records an affirmative typed consent + phone + timestamp on the session for Twilio.
       custom_fields: TIER_HAS_SMS[tier]
