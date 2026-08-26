@@ -58,6 +58,7 @@ const DEFAULT_ALLOWED_EXACT = [
   '/404',
   '/privacy',
   '/terms',
+  '/sms-consent',
   '/contact-us',
   '/about-us',
   '/services',
