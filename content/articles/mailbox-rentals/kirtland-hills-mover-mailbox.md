@@ -11,7 +11,7 @@ imageAlt: 'A moving truck on Route 306 near Kirtland Hills, moving boxes on a cu
 location: 'kirtland-hills'
 keywords:
   ['kirtland hills moving address', 'kirtland hills ohio mailbox', 'address change kirtland hills']
-relatedServices: ['/home-business/mailbox-rental', '/pack-ship']
+relatedServices: ['/private-mailbox-rental', '/home-business/mailbox-rental', '/pack-ship']
 author: 'Mailbox Plus Team'
 ---
 

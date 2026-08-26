@@ -19,7 +19,8 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental-concord-township',
+    '/home-business/mailbox-rental',
+    '/private-mailbox-rental',
     '/articles/chardon-online-seller-mailbox',
     '/articles/usps-rate-increase-online-sellers',
     '/articles/private-mailbox-vs-po-box',
@@ -92,7 +93,7 @@ Watch what happens on each platform:
 
 One address, three platforms, zero homes exposed.
 
-That's the whole pitch, and it's why we built [our private mailbox rental in Concord Township](/private-mailbox-rental-concord-township/) the way we did.
+That's the whole pitch, and it's why we built [our private mailbox rental in Concord Township](/private-mailbox-rental/) the way we did.
 
 ## How a Mailbox Plus Private Mailbox Works
 
@@ -130,7 +131,7 @@ You still run your business from home. You just don't advertise it anymore.
 
 ## Take Your Address Off the Label
 
-Ten minutes, two forms of ID, and a street address that isn't your house. Start with our [private mailbox rental page](/private-mailbox-rental-concord-township/) for pricing and details, or stop by **7554 Fredle Drive** — we're right off Route 306 in Concord Township, about fifteen minutes from the Chardon Square if you're coming from Geauga County.
+Ten minutes, two forms of ID, and a street address that isn't your house. Start with our [private mailbox rental page](/private-mailbox-rental/) for pricing and details, or stop by **7554 Fredle Drive** — we're right off Route 306 in Concord Township, about fifteen minutes from the Chardon Square if you're coming from Geauga County. If you're a registered business or want LLC-ready features like multiple authorized recipients and business cards, the [business mailbox rental](/home-business/mailbox-rental/) page covers that option.
 
 If you're weighing a mailbox against a post office box, our [Private Mailbox vs PO Box breakdown](/articles/private-mailbox-vs-po-box/) spells out the carrier and delivery differences that matter even more when packages — not just letters — are the point. And for the broader seller picture — the rate hikes, the carrier shifts, the stuff that eats your margin — our [shipping costs article for online sellers](/articles/usps-rate-increase-online-sellers/) has the full rundown.
 

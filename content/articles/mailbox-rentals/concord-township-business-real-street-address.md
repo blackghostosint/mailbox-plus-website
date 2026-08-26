@@ -115,4 +115,6 @@ The phone rings during dinner. You do not tense up. It is just your sister calli
 
 If you run a business from your Concord Township home and your home address is on the public record, walk into Mailbox Plus at 7554 Fredle Drive. Get a real street address that keeps your home private and checks every box the state requires.
 
+See our [business mailbox rental](/home-business/mailbox-rental/) page for pricing and plan details — or just walk in and get set up today.
+
 [Visit Mailbox Plus today →](/contact-us/)

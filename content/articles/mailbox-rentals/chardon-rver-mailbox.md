@@ -10,7 +10,12 @@ image: 'articles/mailbox-rentals/chardon-rver-mailbox-featured.webp'
 imageAlt: 'An RV parked in a Chardon driveway with snow-covered hills in the background. Blue winter light, sky clearing after a snowfall — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon snowbird mailbox', 'chardon ohio rv', 'snowbird address ohio']
-relatedServices: ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental']
+relatedServices:
+  [
+    '/private-mailbox-rental',
+    '/home-business/mailbox-rental',
+    '/home-business/digital-mailbox-rental',
+  ]
 author: 'Mailbox Plus Team'
 ---
 

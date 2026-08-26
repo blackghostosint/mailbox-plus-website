@@ -11,7 +11,12 @@ imageAlt: 'A real street-address mailbox at Mailbox Plus with a FedEx package cl
 location: 'concord-township'
 keywords: ['private mailbox vs PO Box', 'mailbox rental near me', 'business mailbox address Ohio']
 relatedServices:
-  ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental', '/pack-ship']
+  [
+    '/private-mailbox-rental',
+    '/home-business/mailbox-rental',
+    '/home-business/digital-mailbox-rental',
+    '/pack-ship',
+  ]
 author: 'Mailbox Plus Team'
 ---
 
@@ -167,5 +172,7 @@ You can keep running between the post office and the UPS facility and the FedEx 
 Or you can walk into Mailbox Plus at 7554 Fredle Drive in Concord Township, fill out a simple form, and start using an address that works for every carrier, every package, and every piece of mail you will ever receive.
 
 No appointment needed. No waiting period. Walk in with your ID. Walk out with an address that actually works.
+
+Curious about pricing and plan options? See our [private mailbox rental page](/private-mailbox-rental/) for the full breakdown — or just walk in and get set up today.
 
 [Visit Mailbox Plus today →](/contact-us/)

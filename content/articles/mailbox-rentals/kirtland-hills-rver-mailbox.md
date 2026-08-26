@@ -10,7 +10,12 @@ image: 'articles/mailbox-rentals/kirtland-hills-rver-mailbox-featured.webp'
 imageAlt: 'An RV in a Kirtland Hills driveway with autumn trees in the background, golden late-afternoon light, Lake County landscape — Mailbox Plus mailbox rentals in Kirtland Hills, OH.'
 location: 'kirtland-hills'
 keywords: ['kirtland hills snowbird mailbox', 'kirtland hills ohio rv', 'snowbird address ohio']
-relatedServices: ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental']
+relatedServices:
+  [
+    '/private-mailbox-rental',
+    '/home-business/mailbox-rental',
+    '/home-business/digital-mailbox-rental',
+  ]
 author: 'Mailbox Plus Team'
 ---
 

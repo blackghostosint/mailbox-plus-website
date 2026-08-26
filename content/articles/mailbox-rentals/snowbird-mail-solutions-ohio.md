@@ -18,7 +18,7 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental-concord-township',
+    '/private-mailbox-rental',
     '/mail-forwarding-concord-township',
     '/articles/private-mailbox-vs-po-box',
     '/home-business/digital-mailbox-rental',
@@ -124,7 +124,7 @@ That's what a real local mailbox gives a snowbird: the address works when you're
 
 ## Set It Up Before You Head South
 
-Ten minutes, two forms of ID, and you're set for the season — and every season after it. See our [private mailbox rental page](/private-mailbox-rental-concord-township/) for rates and details, or stop by **7554 Fredle Drive in Concord Township** before you leave. We'll get you set up the same day.
+Ten minutes, two forms of ID, and you're set for the season — and every season after it. See our [private mailbox rental page](/private-mailbox-rental/) for rates and details, or stop by **7554 Fredle Drive in Concord Township** before you leave. We'll get you set up the same day.
 
 If you're still deciding between a PO box and a real mailbox, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) covers the carrier and delivery differences that matter even more when you're not around to pick things up. And when you're ready to send the winter's mail south, our [mail forwarding service](/mail-forwarding-concord-township/) page walks through how bundling works — weekly, bi-weekly, monthly, or just when you call.
 

@@ -15,7 +15,8 @@ keywords:
     'kirtland hills ohio data brokers',
     'private mailbox kirtland hills',
   ]
-relatedServices: ['/home-business/mailbox-rental', '/home-business/notary-services']
+relatedServices:
+  ['/private-mailbox-rental', '/home-business/mailbox-rental', '/home-business/notary-services']
 author: 'Mailbox Plus Team'
 ---
 

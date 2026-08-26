@@ -10,7 +10,7 @@ image: 'articles/mailbox-rentals/chardon-mover-mailbox-featured.webp'
 imageAlt: 'A moving truck on Route 44 near Chardon Square, moving boxes on the curb, a mailbox in the foreground. Late afternoon sun — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon moving address', 'chardon ohio mailbox', 'address change chardon']
-relatedServices: ['/home-business/mailbox-rental', '/pack-ship']
+relatedServices: ['/private-mailbox-rental', '/home-business/mailbox-rental', '/pack-ship']
 author: 'Mailbox Plus Team'
 ---
 

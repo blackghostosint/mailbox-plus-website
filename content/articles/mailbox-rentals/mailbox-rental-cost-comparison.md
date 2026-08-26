@@ -19,7 +19,7 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental-concord-township',
+    '/private-mailbox-rental',
     '/mailbox-rental-concord-ohio',
     '/virtual-mailbox-concord-township',
     '/home-business/digital-mailbox-rental',
@@ -145,6 +145,6 @@ If you want to see the numbers in person, we're at **7554 Fredle Drive in Concor
 
 The mailbox that's cheapest on paper is rarely the cheapest in December, when the packages are coming and the per-item fees are stacking.
 
-A real private mailbox costs $25 or $35 a month — flat. You can see the whole picture on our [private mailbox rental page](/private-mailbox-rental-concord-township/) or check [mailbox rental in Concord, Ohio](/mailbox-rental-concord-ohio/) for the local details. Or just come in with your mail volume and your questions, and we'll tell you honestly whether a mailbox is even the right answer for you — and if it is, we'll have you set up in about ten minutes.
+A real private mailbox costs $25 or $35 a month — flat. You can see the whole picture on our [private mailbox rental page](/private-mailbox-rental/) or check [mailbox rental in Concord, Ohio](/mailbox-rental-concord-ohio/) for the local details. Or just come in with your mail volume and your questions, and we'll tell you honestly whether a mailbox is even the right answer for you — and if it is, we'll have you set up in about ten minutes.
 
 Your mail is going to land somewhere every month. The only question is what the bill looks like when it does.
