@@ -19,9 +19,9 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Mailbox Rental',
     slug: '/home-business/mailbox-rental',
-    pageTitle: 'Mailbox Rental in Concord Township | Mailbox Plus',
+    pageTitle: 'Business Mailbox Rental in Concord Township | Mailbox Plus',
     metaDescription:
-      'Stop putting your home address on every package and filing. Get a real street address in Concord Township. All 4 carriers. From $35/month. 30-day risk-free. Porch theft protection included.',
+      'Business mailbox rental for LLCs, online sellers, and home businesses. Real Concord Township street address. All 4 carriers, from $35/month.',
     keywords:
       'mailbox rental, private mailbox, street address, Concord Township, Lake County, business address, privacy',
     heroTitle: 'Your Home Address Is On Every Package You Ship',
