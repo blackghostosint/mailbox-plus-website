@@ -82,7 +82,7 @@ Here is how the two approaches compare in practice:
 | Forwarding                   | Piece-by-piece, up to 2 weeks         | When you ask, bundled    |
 | Marketing Mail               | Discarded                             | Held (or you choose)     |
 
-When you rent a [private mailbox](/private-mailbox-rental) at Mailbox Plus, your mail and packages land at 7554 Fredle Drive — a real street address in a staffed building. Every carrier delivers there: USPS, UPS, FedEx, and DHL. A staff member signs for packages that would otherwise bounce back to the sender. Mail accumulates in a locked, secure area instead of an overflowing box or a porch.
+When you rent a [private mailbox](/private-mailbox-rental/) at Mailbox Plus, your mail and packages land at 7554 Fredle Drive — a real street address in a staffed building. Every carrier delivers there: USPS, UPS, FedEx, and DHL. A staff member signs for packages that would otherwise bounce back to the sender. Mail accumulates in a locked, secure area instead of an overflowing box or a porch.
 
 Then you control the forwarding. Going to Florida for the winter? Tell us when you want your mail shipped and we bundle it and send it — via whatever carrier works best — on your schedule, not whenever the forwarding queue gets around to it. And with a [virtual mailbox](/virtual-mailbox-concord-township/), you do not even need to wait for a shipment: we scan your envelopes and you see what arrived from anywhere in the world, then decide what to open, forward, or shred.
 
@@ -116,7 +116,7 @@ That is what a real mailbox service gives you that forwarding cannot: the addres
 
 If you are planning a move, a long trip, or a season away from Lake County, do not wait until the first envelope goes missing. Set up the address while you are still home, update your accounts over the next week, and travel with the knowledge that your mail is handled by real people at a real counter.
 
-Start with our [private mailbox rental page](/private-mailbox-rental) for the details — a real street address, all four carriers, package signing included, from around $35 a month. If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details — a real street address, all four carriers, package signing included, from around $35 a month. If you travel constantly and want to see your mail digitally no matter where you are, the [virtual mailbox option](/virtual-mailbox-concord-township/) is the one to read next. And for a full side-by-side with PO boxes, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) covers the differences in plain terms.
 
 Your mail has been waiting for a system that works as hard as your lifestyle. Give it one. Set up your mailbox at Mailbox Plus, and stop letting the forwarding network decide what you see.
 

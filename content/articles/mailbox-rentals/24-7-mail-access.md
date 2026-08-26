@@ -73,7 +73,7 @@ The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbe
 
 Here is a plan that fits a schedule like yours, in three steps:
 
-1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental) has the sizes, the pricing (from $35 a month, no annual contract), and the details.
+1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental/) has the sizes, the pricing (from $35 a month, no annual contract), and the details.
 2. **Use call-ahead.** Before you leave work, call us. We pull your mail and packages and have them waiting. You are in and out on your schedule, not ours.
 3. **Check your phone, not your porch.** Mail is scanned and you get notified within four hours of arrival. If you are traveling or on a stretch of double shifts, you can see what is waiting without driving anywhere — and if you need mail opened, forwarded, or handled remotely, the [digital mailbox option](/virtual-mailbox-concord-township/) adds that layer on top.
 
