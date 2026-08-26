@@ -10,7 +10,8 @@ image: 'articles/mailbox-rentals/chardon-privacy-mailbox-featured.webp'
 imageAlt: 'A laptop on a Chardon home desk showing a data broker website, snow visible through a frosty window. Blue evening light — Mailbox Plus mailbox rentals in Chardon, OH.'
 location: 'chardon'
 keywords: ['chardon address privacy', 'chardon ohio data brokers', 'private mailbox chardon']
-relatedServices: ['/home-business/mailbox-rental', '/home-business/notary-services']
+relatedServices:
+  ['/private-mailbox-rental', '/home-business/mailbox-rental', '/home-business/notary-services']
 author: 'Mailbox Plus Team'
 ---
 

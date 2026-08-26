@@ -16,12 +16,7 @@ keywords:
     'pmb address meaning',
     'private mailbox rental near me',
   ]
-relatedServices:
-  [
-    '/private-mailbox-rental-lake-county',
-    '/private-mailbox-rental-concord-township',
-    '/home-business/digital-mailbox-rental',
-  ]
+relatedServices: ['/private-mailbox-rental', '/home-business/digital-mailbox-rental']
 author: 'Mailbox Plus Team'
 ---
 
@@ -140,7 +135,7 @@ If you only remember three things from this article, make them these:
 
 Now that you know what a private mailbox actually is, the next step is simple: see it in person.
 
-We're at **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental-lake-county/) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
+We're at **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
 
 No appointment. No waiting period. No middleman. Just a real address, held by real people, in a building you can walk into.
 

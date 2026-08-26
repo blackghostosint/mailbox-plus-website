@@ -19,6 +19,7 @@ keywords:
   ]
 relatedServices:
   [
+    '/private-mailbox-rental',
     '/virtual-mailbox-concord-township',
     '/home-business/digital-mailbox-rental',
     '/mail-forwarding-concord-township',
@@ -103,7 +104,7 @@ You're not thinking about your mail. That's the point.
 
 ## Set It Up Before You Board the Plane
 
-Ten minutes, two forms of ID, and the address you keep for years — not the address you lose when you cross a border. Start with our [virtual mailbox page](/virtual-mailbox-concord-township/) for the full rundown on scanning, forwarding, and pricing, or stop by **7554 Fredle Drive in Concord Township** before you leave.
+Ten minutes, two forms of ID, and the address you keep for years — not the address you lose when you cross a border. Start with our [virtual mailbox page](/virtual-mailbox-concord-township/) for the full rundown on scanning, forwarding, and pricing, or stop by **7554 Fredle Drive in Concord Township** before you leave. If you just need a stable personal address for packages and mail while you travel, our [private mailbox rental](/private-mailbox-rental/) page covers that option.
 
 If you're still weighing a PO box against a real address, [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) covers the carrier and delivery differences that matter even more when you're not around to collect things. And when you're ready to manage it all remotely, the [digital mailbox option](/home-business/digital-mailbox-rental/) walks through the portal — scans, shred requests, and one-click forwarding from anywhere.
 

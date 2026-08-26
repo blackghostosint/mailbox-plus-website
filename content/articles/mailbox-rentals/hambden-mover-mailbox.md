@@ -10,7 +10,7 @@ image: 'articles/mailbox-rentals/hambden-mover-mailbox-featured.webp'
 imageAlt: 'A moving truck parked in front of a Hambden Township home with boxes on the lawn — Mailbox Plus mailbox rentals in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden moving address', 'hambden ohio mailbox', 'address change hambden']
-relatedServices: ['/home-business/mailbox-rental', '/pack-ship']
+relatedServices: ['/private-mailbox-rental', '/home-business/mailbox-rental', '/pack-ship']
 author: 'Mailbox Plus Team'
 ---
 

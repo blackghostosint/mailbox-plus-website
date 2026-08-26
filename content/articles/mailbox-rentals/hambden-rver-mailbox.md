@@ -10,7 +10,12 @@ image: 'articles/mailbox-rentals/hambden-rver-mailbox-featured.webp'
 imageAlt: 'An RV parked in a Hambden driveway with autumn leaves on the ground — Mailbox Plus mailbox rentals in Hambden Township, OH.'
 location: 'hambden-township'
 keywords: ['hambden rver mailbox', 'hambden snowbird address', 'hambden ohio rv']
-relatedServices: ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental']
+relatedServices:
+  [
+    '/private-mailbox-rental',
+    '/home-business/mailbox-rental',
+    '/home-business/digital-mailbox-rental',
+  ]
 author: 'Mailbox Plus Team'
 ---
 

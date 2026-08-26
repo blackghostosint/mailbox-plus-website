@@ -19,7 +19,7 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental-lake-county',
+    '/private-mailbox-rental',
     '/articles/private-mailbox-vs-po-box',
     '/virtual-mailbox-concord-township',
     '/pickup-hours',
@@ -105,7 +105,7 @@ A stable street address — one that accepts USPS, UPS, FedEx, and DHL, one that
 
 You have already mastered the hard part: walking into a new unit, learning a new charting system, and earning trust in a new city in a matter of days. Sorting out your mail should be the easy part.
 
-Stop by **7554 Fredle Drive in Concord Township**, or call ahead and we will walk you through the two-minute signup. If you want the details first — sizes, pricing, and how a private mailbox compares to a PO Box — the [Lake County private mailbox page](/private-mailbox-rental-lake-county/) has the full picture, and our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) covers the differences side by side.
+Stop by **7554 Fredle Drive in Concord Township**, or call ahead and we will walk you through the two-minute signup. If you want the details first — sizes, pricing, and how a private mailbox compares to a PO Box — the [Lake County private mailbox page](/private-mailbox-rental) has the full picture, and our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) covers the differences side by side.
 
 One address. Every contract. That is the whole job.
 

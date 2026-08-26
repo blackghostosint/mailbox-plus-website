@@ -18,7 +18,7 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental-lake-county',
+    '/private-mailbox-rental',
     '/articles/private-mailbox-vs-po-box',
     '/articles/chardon-rver-mailbox',
     '/home-business/digital-mailbox-rental',
@@ -121,7 +121,7 @@ That's what a real local mailbox gives a full-timer: the address works when you'
 
 ## Set It Up Before the Next Trip
 
-Ten minutes, two forms of ID, and you're done. See our [private mailbox rental page](/private-mailbox-rental-lake-county/) for the details, or stop by **7554 Fredle Drive in Concord Township** — we'll get you set up the same day.
+Ten minutes, two forms of ID, and you're done. See our [private mailbox rental page](/private-mailbox-rental) for the details, or stop by **7554 Fredle Drive in Concord Township** — we'll get you set up the same day.
 
 Still deciding between a PO box and a real mailbox? [Private Mailbox vs PO Box: Which Is Better for Your Business?](/articles/private-mailbox-vs-po-box/) walks through the carrier and delivery differences — they apply to an RVer exactly the same way they apply to a business. And if you spend your winters parked down south, our [snowbird mailbox guide for Chardon](/articles/chardon-rver-mailbox/) covers the seasonal rhythm of holding, scanning, and forwarding mail while you're away. For the full picture of managing your mail from the road, take a look at our [digital mailbox option](/home-business/digital-mailbox-rental/).
 
