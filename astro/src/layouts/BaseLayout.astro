@@ -31,15 +31,27 @@ const fallbackUrl = toCanonicalUrl('/');
 
 const localBusinessSchema = getLocalBusinessSchema(siteConfig);
 
-// Derive OG image URL from canonical path, fall back to home
-// If an explicit ogImage is provided (e.g. from article frontmatter), use it directly
+// OG image URL resolution.
+// - Explicit ogImage prop: used as-is (absolute URL or site-relative path).
+// - No ogImage: fall back to the shared default brand card (/og/default.png).
+//   We intentionally do NOT derive a per-page /og/{slug}.png — those files
+//   are only generated for pages that opt in by passing ogImage, so a derived
+//   path would 404 for every other page and break social share previews.
+//   (Historical bug: pages with an absolute canonical produced garbage paths
+//   like /og/https:--mailboxplusohio.com-...png; pages with no canonical
+//   pointed at a never-generated /og/home.png. Both now resolve to the
+//   default card.)
+const DEFAULT_OG = '/og/default.png';
+const canonicalPath = (canonical || '')
+  .replace(/^https?:\/\/[^/]+/, '') // strip scheme + host if a full URL
+  .replace(/^\//, '')
+  .replace(/\/$/, '')
+  .replace(/\//g, '-');
 const ogPath = ogImage
-  ? (ogImage.startsWith('http') ? ogImage : ogImage.startsWith('/')
-    ? ogImage
-    : `/og/${canonical?.replace(/^\//, '').replace(/\//g, '-') || 'home'}.png`)
-  : canonical
-    ? `/og/${canonical.replace(/^\//, '').replace(/\//g, '-')}.png`
-    : '/og/home.png';
+  ? (ogImage.startsWith('http') || ogImage.startsWith('/')
+      ? ogImage
+      : `/og/${canonicalPath || 'home'}.png`)
+  : DEFAULT_OG;
 const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath}`;
 // Only declare 1200x630 for auto-generated /og/*.png cards. Pages that pass a
 // custom ogImage (e.g. article R2 feature images, 1024x576) omit width/height
