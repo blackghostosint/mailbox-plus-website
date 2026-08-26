@@ -57,6 +57,16 @@ const TIER_CANCEL_URLS: Record<string, string> = {
 const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
 const KEY_DEPOSIT_DISPLAY_NAME = 'Key deposit (refundable)';
 
+// Tiers that include "Text + email alerts on every item" (per PRICING-AND-FEES.md).
+// Only these require the A2P 10DLC SMS consent affirmation at checkout (Clause 13).
+// Mail-only tiers never send SMS and do NOT show the consent field.
+const TIER_HAS_SMS: Record<string, boolean> = {
+  small_packages10: true,
+  large_packages10: true,
+  business_small: true,
+  business_large: true,
+};
+
 export const handler: Handler = async (event) => {
   // CORS headers (needed if called cross-origin; same-origin via /api/* proxy)
   const headers = {
@@ -141,6 +151,19 @@ export const handler: Handler = async (event) => {
       // Per locked capture split: email + current address + phone
       billing_address_collection: 'required',
       phone_number_collection: { enabled: true },
+      // A2P 10DLC SMS consent (Clause 13) — required ONLY on tiers that include text alerts.
+      // Records an affirmative typed consent + phone + timestamp on the session for Twilio.
+      custom_fields: TIER_HAS_SMS[tier]
+        ? [
+            {
+              key: 'sms_consent',
+              label: { type: 'custom', custom: 'Type YES to consent to SMS text alerts' },
+              optional: false,
+              type: 'text',
+              text: { minimum_length: 1, maximum_length: 100 },
+            },
+          ]
+        : [],
       // Per "Completely risk-free / no lock-in": month-to-month subscription, cancel anytime
       subscription_data: {
         metadata: {
