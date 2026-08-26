@@ -57,7 +57,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
 const faqSchema = getFAQSchema(siteConfig, faqs);
 ---
 
-<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical}>
+<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} ogImage="/og/private-mailbox-rental.png">
   <!-- JSON-LD Schemas -->
   <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
