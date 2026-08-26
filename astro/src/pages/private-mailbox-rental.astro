@@ -7,7 +7,7 @@
 
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
-import { getWebPageSchema, getFAQSchema } from '../utils/schema';
+import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
 
 const pageTitle = 'Private Mailbox Rental in Concord Township | Mailbox Plus';
 const metaDescription =
@@ -36,12 +36,31 @@ const webPageSchema = getWebPageSchema(siteConfig, {
   datePublished: '2026-08-23',
   dateModified: '2026-08-23',
 });
+const serviceSchema = getServiceSchema(siteConfig, {
+  serviceName: 'Private Mailbox Rental',
+  url: canonical,
+  // Consumer 4-tier matrix (month-to-month only, new customers) + flat fees
+  offers: [
+    { name: 'Private Mailbox - Small Mail Only', price: '15.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Small +10 Packages', price: '25.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Large Mail Only', price: '30.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Large +10 Packages', price: '40.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Package Overage', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Oversized Package Fee', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Storage Fee (per day after 5 days)', price: '1.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Key Deposit (Refundable)', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+  ],
+  areaServed: siteConfig.areaServed,
+  category: 'mailbox-rentals',
+  serviceOutput: 'Private mailbox rental with real street address, package receiving, and mail services at Mailbox Plus Concord Township',
+});
 const faqSchema = getFAQSchema(siteConfig, faqs);
 ---
 
 <BaseLayout title={pageTitle} description={metaDescription} canonical={canonical}>
   <!-- JSON-LD Schemas -->
   <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- ============ HERO ============ -->
