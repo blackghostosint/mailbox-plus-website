@@ -380,7 +380,7 @@
         "Can I return items here?",
         "Do you accept Amazon returns?"
       ],
-      "answer": "Yes, we process returns for Amazon, UPS, FedEx, and other retailers. Bring your return label or QR code.",
+      "answer": "Yes, we process returns for UPS, FedEx, and other retailers. Bring your return label or QR code.",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false
