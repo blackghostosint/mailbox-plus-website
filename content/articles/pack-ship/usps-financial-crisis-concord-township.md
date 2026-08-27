@@ -97,7 +97,7 @@ And if you receive packages — from Amazon, from suppliers, from customers send
 
 You pull off Route 306 and turn onto Fredle Drive. The parking lot at Mailbox Plus has space. You walk in. The person at the counter knows your name.
 
-You put down three packages. One is going to a buyer in California — FedEx Ground, five dollars less than USPS Priority. One is an Amazon return — they scan the QR code, hand you a receipt, and you are done in under a minute. The third is a gift for a cousin in Chicago — UPS Ground, tracking number sent to your phone before you leave the counter.
+You put down three packages. One is going to a buyer in California — FedEx Ground, five dollars less than USPS Priority. One is an Amazon return with the label already on — they scan it in, hand you a receipt, and you are done in under a minute. The third is a gift for a cousin in Chicago — UPS Ground, tracking number sent to your phone before you leave the counter.
 
 The clock on the wall reads 9:52 AM. You were inside for four minutes. You drive back toward Route 306 with the rest of your morning still intact. No line. No surcharge surprise. No wondering whether the post office in your town will still be there in six months.
 

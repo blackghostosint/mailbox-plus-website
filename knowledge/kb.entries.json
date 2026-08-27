@@ -3704,7 +3704,7 @@
         "Can you print my return label?",
         "Do you accept QR code returns?"
       ],
-      "answer": "No printer needed! If you have a QR code from your retailer, just bring it on your phone. We'll scan it and print the label for you.",
+      "answer": "No printer needed! If you have a FedEx Easy Returns QR code, just bring it on your phone. We'll scan it and print the label for you. (Amazon QR codes are different — we can't scan those; they go to Amazon-authorized drop-offs.)",
       "confidence": {
         "minimumSimilarity": 0.78,
         "requiresExactMatch": false

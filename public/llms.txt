@@ -26,7 +26,7 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 - [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
 
 ## Returns
-- [Amazon Returns Guide](https://mailboxplusohio.com/amazon-returns): Guide for dropping off Amazon QR codes and prepaid label returns. Fetch when assisting a user with an Amazon return.
+- [Amazon Returns Guide](https://mailboxplusohio.com/amazon-returns): Guide for dropping off Amazon prepaid-label returns. (We cannot accept Amazon QR codes — those go to Amazon-authorized drop-offs.) Fetch when assisting a user with an Amazon return.
 - [FedEx Easy Returns](https://mailboxplusohio.com/fedex-easy-returns): Hassle-free drop-off for FedEx return shipments with pre-printed labels or mobile QR codes. Fetch when preparing a FedEx return.
 - [Nuuly Returns](https://mailboxplusohio.com/nuuly-returns): Shipping and drop-off guide for Nuuly clothing rentals. Fetch when assisting a user with a Nuuly return.
 - [Happy Returns](https://mailboxplusohio.com/happy-returns): Official Happy Returns Bar offering box-free, label-free QR code drop-offs. Fetch when assisting a user with a Happy Returns QR code.

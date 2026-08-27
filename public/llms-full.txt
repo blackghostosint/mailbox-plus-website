@@ -115,10 +115,10 @@ On-site FBI/BCI electronic digital fingerprinting services.
 ## 5. Returns & Drop-Off Guides
 
 ### 5.1 Amazon Returns Guide
-We are the fastest, most convenient location in Concord Township to process Amazon returns.
+We are the fastest, most convenient location in Concord Township to process Amazon returns that come with a printable label.
 - **Prepaid UPS Label returns:** If Amazon issued you a PDF return label, bring it on your phone (we can print it for $1-2) or print and attach it. Drop off is 100% free.
 - **Prepaid USPS returns:** If Amazon assigned USPS, drop it off with us before our daily pickup.
-- **QR Code Returns:** If Amazon provided a QR code, show us your phone screen. We scan the QR code, print the adhesive label, box or pack your return item, and ship it.
+- **QR Code Returns:** We cannot accept Amazon QR codes. If Amazon only gave you a QR code (no printable label), that return must go to an Amazon-authorized drop-off (The UPS Store, Kohl's, Whole Foods, Amazon Hub).
 - **What to bring:** Your phone with the Amazon app open to the return detail page, the item to be returned, and any original retail boxes if you have them.
 
 ### 5.2 FedEx Easy Returns

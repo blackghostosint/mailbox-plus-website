@@ -61,7 +61,7 @@ export const returnMicroProblems: Service[] = [
       {
         question: 'What if the label is a QR code?',
         answer:
-          'Perfect—we scan and print those all the time. Most Amazon returns are QR codes now.',
+          "If the QR code contains a printable label, we scan it and print it for you in seconds. One exception: Amazon label-free QR returns have to go to an Amazon-authorized drop-off — we can't scan those.",
       },
       {
         question: 'Can you email me the label so I can come back later?',
@@ -87,12 +87,12 @@ export const returnMicroProblems: Service[] = [
     city: 'Concord Township',
     serviceName: 'Print an Amazon Return Label',
     slug: '/print-amazon-return-label',
-    pageTitle: 'Print an Amazon Return Label in Concord Township (QR Code or PDF)',
+    pageTitle: 'Print an Amazon Return Label in Concord Township',
     metaDescription:
-      'Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds. We can help you pack the item too.',
-    heroTitle: 'Print an Amazon Return Label (QR Code or PDF)',
+      'Amazon sent you a PDF return label? We print it in 30 seconds — show us your phone or email. We can help you pack the item too.',
+    heroTitle: 'Print an Amazon Return Label',
     heroSubtitle:
-      'Amazon gave you a QR code or PDF label? We print them every single day. Show us your phone or email—takes 30 seconds.',
+      'Amazon sent you a PDF return label? We print it in 30 seconds — show us your phone or email.',
     heroImage: getServiceImageUrl('/images/micro/print-label.webp'),
     content: [
       {
@@ -101,7 +101,7 @@ export const returnMicroProblems: Service[] = [
       },
       {
         heading: 'Why This Happens',
-        body: "Amazon's return system assumes you have a printer. Half the time they give you a QR code, half the time they give you a PDF. We need to have the label.",
+        body: "Amazon's return system assumes you have a printer. When Amazon issues a printable PDF label, we print it for you here in seconds. (If Amazon only gives you a QR code with no printable label, that return has to go to an Amazon-authorized drop-off — we can't scan Amazon QR codes.)",
       },
       {
         heading: 'How We Help',
@@ -126,11 +126,11 @@ export const returnMicroProblems: Service[] = [
       {
         question: 'Amazon says "QR code label-free return"—do I still need a label?',
         answer:
-          "If you'd rather we handle it, we can not scan the code. We need a label and then we can pack it for you.",
+          "Yes. If Amazon only gave you a QR code (label-free), that return must go to an Amazon-authorized partner — The UPS Store, Kohl's, Whole Foods, or Amazon Hub. We can't scan Amazon QR codes. If your return includes a printable label, bring it or send it to us and we'll handle the rest.",
       },
       {
         question: 'Amazon assigned UPS—can I drop it off?',
-        answer: 'Yes. We acceptUPS returns every day.',
+        answer: 'Yes. We accept UPS returns every day.',
       },
       {
         question: "What if I don't have the original box?",
