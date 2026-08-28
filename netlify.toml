@@ -30,14 +30,6 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
-# Archived article: kirtland-hills-graphic-design removed (thin duplicate, 0
-# clicks/90d). 301 to the strongest same-service article so link equity and any
-# residual indexation consolidate on a live page instead of a dead URL.
-[[redirects]]
-  from = "/articles/kirtland-hills-graphic-design/*"
-  to = "/articles/chardon-graphic-design/"
-  status = 301
-
 [[headers]]
   for = "/*"
   [headers.values]
