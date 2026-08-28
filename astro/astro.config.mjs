@@ -24,9 +24,7 @@ export default defineConfig({
         !page.includes('/after-signup') &&
         !page.includes('/rewards') &&
         !page.includes('/terms') &&
-        !page.includes('/privacy') &&
-        // Archived articles keep their URL but leave the sitemap
-        !page.includes('/articles/kirtland-hills-graphic-design'),
+        !page.includes('/privacy'),
     }),
   ],
   trailingSlash: 'always',
