@@ -100,5 +100,10 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Sitemap redirect (Astro generates sitemap-index.xml instead of sitemap.xml)
 /sitemap.xml /sitemap-index.xml 301
 
+# Archived article: kirtland-hills-graphic-design removed (thin duplicate, 0
+# clicks/90d, archived in #335). 301 to the strongest same-service article so
+# link equity + any residual indexation consolidate on a live page.
+/articles/kirtland-hills-graphic-design* /articles/chardon-graphic-design/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404
