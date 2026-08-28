@@ -17,7 +17,6 @@
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
     "build:embeddings": "tsx scripts/build-embeddings.ts",
     "audit:articles": "node scripts/validate-articles.cjs",
-    "generate:article-sitemap": "node scripts/generate-article-sitemap.cjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
     "seo:check-links": "node scripts/seo/check-internal-link-strategy.mjs",
     "seo:check-jsonld": "node scripts/seo/check-jsonld-absolute-urls.mjs",

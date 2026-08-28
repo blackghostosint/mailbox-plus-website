@@ -24,11 +24,11 @@ astro/                     # The Astro application (build: cd astro && npm run b
   src/pages/               # .astro pages (routes)
   src/components/          # .astro + React islands
   src/config/              # Service configs, micro-problems, FAQs
-  src/data/                # sitemap-config.json, internalLinks.json, siteStructure.json
+  src/data/                # internalLinks.json, siteStructure.json
   src/utils/               # Shared utilities (+ vitest unit tests)
 content/articles/          # Article markdown (YAML frontmatter)
 public/                    # Static assets (Astro publicDir)
-scripts/                   # Article/sitemap/SEO audit tooling
+scripts/                   # Article/SEO audit tooling
 netlify/functions/         # Serverless functions
 ```
 
