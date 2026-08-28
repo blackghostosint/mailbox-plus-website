@@ -71,13 +71,13 @@ That is not a small omission. That is the whole gap.
 
 ## What We See Every Day
 
-At [Mailbox Plus](/pack-ship), 7554 Fredle Drive in Concord Township, we see the other side of the Cost-Per-Piece Machine every single day.
+At [Mailbox Plus](/pack-ship/), 7554 Fredle Drive in Concord Township, we see the other side of the Cost-Per-Piece Machine every single day.
 
 We see the online seller who walks in with a box she packed herself and asks, nervously, whether it will survive. We open it. We repack it — properly this time, with the right void fill and the right box, because a $20 fragile packing job is cheaper than a single damage claim. We see the small business owner who ships with all four major carriers and wants to know, before he pays, which one is actually best for _this_ package — not the one whose app he happens to have open.
 
 And we see the packages themselves. The ones that arrive at our counter already half-crushed from a machine's journey. The ones that need a different box, a different carrier, a different route. We are the human step the automated network does not have — the place where a package stops being a unit and becomes, for three minutes, the only thing on the counter.
 
-We are an independent, multi-carrier store: [UPS](/pack-ship/ups-authorized-shipper-outlet), FedEx, USPS, and DHL all come to our counter. We are not a franchise of any one of them. That matters more than ever as the carriers automate, because we can tell you the truth about which carrier handles your kind of item best — and [pack it so the machine does not matter](/pack-ship/professional-packing).
+We are an independent, multi-carrier store: [UPS](/pack-ship/ups-authorized-shipper-outlet/), FedEx, USPS, and DHL all come to our counter. We are not a franchise of any one of them. That matters more than ever as the carriers automate, because we can tell you the truth about which carrier handles your kind of item best — and [pack it so the machine does not matter](/pack-ship/professional-packing/).
 
 ## How It Works
 
