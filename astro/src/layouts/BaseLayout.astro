@@ -155,6 +155,71 @@ const ogImageHeight = ogImage ? undefined : '630';
         } else {
           window.setTimeout(loadTrackingSDKs, 2000);
         }
+
+        // ============ Conversion & engagement events (GA4 + Meta Pixel) ============
+        // gtag/fbq stubs are initialized above, so events called before SDK load
+        // are queued in dataLayer/fbq.queue and flushed on SDK load. No loss.
+
+        // --- 1. CTA click tracking (delegated: covers checkout-btn, hero, final, all anchors) ---
+        document.addEventListener('click', function(e) {
+          var a = e.target && e.target.closest ? e.target.closest('a.btn, .checkout-btn') : null;
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          var isCheckout = a.classList.contains('checkout-btn') || href.indexOf('/contact-us') !== -1;
+          var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+          var page = window.location.pathname;
+          // GA4
+          window.gtag('event', 'cta_click', {
+            cta_label: label,
+            cta_tier: a.getAttribute('data-tier') || null,
+            cta_destination: href.indexOf('#') === 0 ? 'pricing_section' : href,
+            page_path: page
+          });
+          // Meta: only count intent-to-purchase clicks (tier checkout buttons), not pricing anchors
+          if (isCheckout && a.classList.contains('checkout-btn')) {
+            window.fbq('track', 'InitiateCheckout', { content_name: a.getAttribute('data-tier') || label });
+          }
+        }, false);
+
+        // --- 2. Scroll depth (GA4; 25/50/75/90, once per threshold per page) ---
+        var scrollThresholds = { 25: false, 50: false, 75: false, 90: false };
+        var scrollTimer = null;
+        window.addEventListener('scroll', function() {
+          if (scrollTimer) return;
+          scrollTimer = setTimeout(function() {
+            scrollTimer = null;
+            var doc = document.documentElement;
+            var max = Math.max(doc.scrollHeight - window.innerHeight, 1);
+            var pct = Math.min(Math.round((window.scrollY / max) * 100), 100);
+            for (var t in scrollThresholds) {
+              if (!scrollThresholds[t] && pct >= Number(t)) {
+                scrollThresholds[t] = true;
+                window.gtag('event', 'scroll_depth', { percent_scrolled: Number(t), page_path: window.location.pathname });
+              }
+            }
+          }, 250);
+        }, { passive: true });
+
+        // --- 3. Pricing section visibility (GA4; fires once when pricing enters viewport) ---
+        var pricingSeen = false;
+        function watchPricing() {
+          var el = document.querySelector('#pricing');
+          if (!el || pricingSeen || !('IntersectionObserver' in window)) return;
+          new IntersectionObserver(function(entries, obs) {
+            entries.forEach(function(en) {
+              if (en.isIntersecting && !pricingSeen) {
+                pricingSeen = true;
+                obs.disconnect();
+                window.gtag('event', 'pricing_view', { page_path: window.location.pathname });
+              }
+            });
+          }, { threshold: 0.3 }).observe(el);
+        }
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', watchPricing);
+        } else {
+          watchPricing();
+        }
       })();
     </script>
     <!-- End Deferred Third-Party Analytics -->
