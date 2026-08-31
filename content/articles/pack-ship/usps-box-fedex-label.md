@@ -49,7 +49,7 @@ And the rule has teeth. The very next line:
 
 _Regardless of how markings may be obliterated._ The Postal Service thought about people covering up the logo. They wrote it down. Cover the branding, cut the box apart, turn it inside out — if a Priority Mail box enters the USPS system, you pay the Priority Mail price. That is the flat-rate trap: the pricing sticks to the packaging, not the label.
 
-So what happens when you walk up to the post office counter with that Priority box and a FedEx label? The clerk is not allowed to sell you a FedEx label — but they _are_ looking at USPS packaging they cannot send anywhere except through the USPS product the box belongs to. Every clerk handles it a little differently, but the box is now a contradiction: branded for one carrier, labeled for another. The easiest thing for the clerk to say is no.
+So what happens when you walk up to the post office counter with that Priority box and a FedEx label? The clerk will not sell you a FedEx label — that is not a product the post office carries. But they _are_ looking at USPS packaging they cannot send anywhere except through the USPS product the box belongs to. Every clerk handles it a little differently, but the box is now a contradiction: branded for one carrier, labeled for another. The easiest thing for the clerk to say is no.
 
 ## What It Actually Feels Like
 
@@ -69,7 +69,7 @@ Here is the part that makes people angry: **FedEx and UPS have no problem with t
 
 Look at what the carriers themselves say. FedEx's official shipping guidance tells you to use "any sturdy, undamaged packaging." Their own free envelopes and boxes carry a restriction — they are meant for FedEx shipments — but nothing in FedEx's rules says a customer's box has to be brand-neutral. UPS is the same: their published packing guidance cares that the box is sturdy, undamaged, and that you have **removed any old labels and shipping markings** before slapping on a new one.
 
-So the confusion you felt at the counter? It only runs one direction. FedEx will carry a USPS-branded box all day. UPS will carry it all day. It is the _USPS_ side of the transaction — the free box — that comes with a string attached.
+So the confusion you felt at the counter? It only runs one direction. FedEx will happily carry a USPS-branded box — their own guidance says any sturdy packaging works. UPS is the same. It is the _USPS_ side of the transaction — the free box — that comes with a string attached.
 
 And that string is not stupidity or pettiness. Those free Priority boxes cost the Postal Service real money, and the service pricing is built on the assumption that anything in that box pays Priority rates. The rule exists to stop people from treating a subsidized product as a generic free box. Perfectly reasonable — and completely invisible to you at 9 PM in your kitchen.
 
@@ -86,7 +86,7 @@ Because here is the thing: this problem has a two-second fix, and it is not "go 
 
 That is the whole game. The brand on the box and the brand on the label should be the same brand, or there should be no brand on the box at all.
 
-And one more counter-honest note: used boxes are fine. Every carrier allows reused cardboard — just strip every old label, every old barcode, every old marking before the new label goes on. A stale barcode next to a fresh one is how packages get sorted to the wrong network, and that is a far more common failure than any policy dispute.
+And one more counter-honest note: used boxes are fine. All the major carriers allow reused cardboard — just strip every old label, every old barcode, every old marking before the new label goes on. A stale barcode next to a fresh one is how packages get sorted to the wrong network, and that is a far more common failure than any policy dispute.
 
 ## How It Works
 
