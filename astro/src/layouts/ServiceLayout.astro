@@ -241,14 +241,41 @@ const carriers = [
             <div class="relative px-8 py-9 md:px-10 md:py-11 text-white text-center">
               <h2 class="text-2xl md:text-3xl font-bold mb-2">{service.cta.title}</h2>
               {service.cta.subtitle && <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">{service.cta.subtitle}</p>}
-              {service.cta.buttonLink.startsWith('http') ? (
-                <a href={service.cta.buttonLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
-                  {service.cta.buttonText} →
-                </a>
-              ) : (
-                <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
-                  {service.cta.buttonText} →
-                </a>
+              <div class="flex flex-wrap justify-center gap-3">
+                {service.cta.buttonLink.startsWith('http') ? (
+                  <a href={service.cta.buttonLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                    {service.cta.buttonText} →
+                  </a>
+                ) : (
+                  <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                    {service.cta.buttonText} →
+                  </a>
+                )}
+                {service.cta.extraButtons?.map((btn) =>
+                  btn.external || btn.link.startsWith('http') ? (
+                    <a href={btn.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
+                      {btn.text} →
+                    </a>
+                  ) : (
+                    <a href={normalizePathname(btn.link)} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
+                      {btn.text} →
+                    </a>
+                  )
+                )}
+              </div>
+              {service.cta.finePrint && (
+                <p class="mt-4 text-sm opacity-80">
+                  {service.cta.finePrint.text}
+                  {service.cta.finePrint.link && (
+                    <>
+                      {' '}
+                      <a href={normalizePathname(service.cta.finePrint.link)} class="underline font-semibold hover:opacity-100">
+                        {service.cta.finePrint.linkText ?? 'Contact us'}
+                      </a>
+                      .
+                    </>
+                  )}
+                </p>
               )}
             </div>
           </div>

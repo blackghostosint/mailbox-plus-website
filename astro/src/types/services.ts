@@ -28,6 +28,18 @@ export interface CTA {
   bgImage?: string; // optional background image path
   align?: 'left' | 'center'; // layout preference
   variant?: 'brand' | 'neutral' | 'ghost'; // style variants
+  /** Optional additional buttons rendered alongside the primary button (e.g. provider sign-up links) */
+  extraButtons?: Array<{
+    text: string;
+    link: string;
+    external?: boolean;
+  }>;
+  /** Optional small-print line rendered under the buttons (e.g. questions/contact fallback) */
+  finePrint?: {
+    text: string;
+    link?: string;
+    linkText?: string;
+  };
 }
 
 export interface Offer {

@@ -197,11 +197,11 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Digital Mailbox Rental',
     slug: '/home-business/digital-mailbox-rental',
-    pageTitle: 'Digital Mailbox Rental in Concord Township | Mailbox Plus',
+    pageTitle: 'Digital Mailbox Rental Concord Township | Virtual Mailbox Service | Mailbox Plus',
     metaDescription:
-      'Access your postal mail from anywhere with a digital mailbox in Concord Township. We scan, you decide. Forward, shred, or view online. Real street address included.',
+      'Digital mailbox rental in Concord Township. Envelope scans within 4 hours, forward or shred on demand, real street address. Choose iPostal1, Anytime Mailbox, or PostScan — or set it up in store.',
     keywords:
-      'digital mailbox, virtual mailbox, remote mail, Concord Township, Lake County, traveler, snowbird',
+      'digital mailbox, virtual mailbox service, virtual mailbox, remote mail, ipostal1 concord township, anytime mailbox ohio, postscan mail ohio, Concord Township, Lake County, traveler, snowbird',
     heroTitle: 'Your Mail. Anywhere. No Matter Where You Are.',
     heroSubtitle:
       'A real Concord Township street address. We scan the envelopes. You decide what happens next. From $35/month.',
@@ -222,6 +222,28 @@ export const mailboxRentalServices: Service[] = [
         heading: 'We Hold the Mail. You Hold the Keys. Online.',
         body: "Your mail arrives at our secure Concord Township facility. We scan every envelope and upload it to your digital portal within 4 hours. You log in from anywhere — your phone, your laptop, a hotel business center. See what arrived. Tell us to scan the contents, shred it, or forward it. You're in control. We're the hands.",
       },
+      // ── SB7 POSITION 4: PLATFORM CHOICE (dual-CTA hub: remote sign-ups + local walk-in) ──
+      {
+        heading: 'Three Platforms. One Facility. Your Choice.',
+        body: `<div class="grid gap-6 md:grid-cols-3 my-8">
+                    <div class="p-6 rounded-2xl bg-white/50 border border-white/80 shadow-sm flex flex-col">
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">iPostal1</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium flex-1">The largest national virtual mailbox network — ideal if you travel widely or move often. App-first: view, forward, or shred from your phone.</p>
+                        <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex justify-center items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-4 py-2.5 rounded-md hover:brightness-110 transition-all text-sm">Sign Up with iPostal1 \u2192</a>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/50 border border-white/80 shadow-sm flex flex-col">
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">Anytime Mailbox</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium flex-1">Your own dedicated Ohio signup with a clean, simple interface. Strong choice for snowbirds and seasonal travelers.</p>
+                        <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex justify-center items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-4 py-2.5 rounded-md hover:brightness-110 transition-all text-sm">Sign Up with Anytime Mailbox \u2192</a>
+                    </div>
+                    <div class="p-6 rounded-2xl bg-white/50 border border-white/80 shadow-sm flex flex-col">
+                        <div class="font-bold text-[var(--color-primary)] mb-2 text-lg">PostScan Mail</div>
+                        <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium flex-1">Flexible plans with AI-powered mail summaries — popular with business users who want their mail managed with less effort.</p>
+                        <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex justify-center items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-4 py-2.5 rounded-md hover:brightness-110 transition-all text-sm">Sign Up with PostScan Mail \u2192</a>
+                    </div>
+                </div>
+                <p>Whichever platform you choose, your mail is received, scanned, and handled at our Concord Township facility by our own staff. <strong>Prefer a human? <a href="/contact-us/">Call or stop by</a></strong> — we set you up in about 10 minutes.</p>`,
+      },
       // ── SB7 POSITION 4: FEATURES ──
       {
         heading: 'Premium Digital Mail Features',
@@ -238,13 +260,17 @@ export const mailboxRentalServices: Service[] = [
                         <div class="font-bold text-[var(--color-primary)] mb-2 text-lg italic">Real-Time Alerts</div>
                         <p class="text-sm leading-relaxed text-[var(--color-text-secondary)] font-medium">Receive push notifications the moment your mail or packages arrive at our Concord Township location.</p>
                     </div>
-                </div>
-                <p>We partner with leading providers like <a href="https://ipostal1.com/mailboxplusohio" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">iPostal1</a>, <a href="https://mailboxplusofohiollc.anytimemailbox.com/signup" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">Anytime Mailbox</a>, and <a href="https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] font-semibold underline">PostScan Mail</a> to give you the most flexible virtual mailbox experience in Lake County.</p>`,
+                </div>`,
+      },
+      // ── PACKAGES SECTION ──
+      {
+        heading: 'What Happens to Packages?',
+        body: 'Because your mailbox is a real street address — not a P.O. Box — every carrier delivers: UPS, FedEx, DHL, and USPS. We hold your packages securely, notify you when they arrive, and can <strong><a href="/pack-ship/package-receiving/">consolidate and forward</a></strong> them wherever you are. One box, one address, everything in it.',
       },
       // ── SB7 POSITION 4: NOT A P.O. BOX ──
       {
         heading: "Not a P.O. Box — It's a Real Street Address",
-        body: 'Every digital mailbox plan provides a unique <strong>Concord Township street address</strong>. This means you can receive packages from all major carriers, including UPS, FedEx, and DHL, which standard P.O. Boxes often reject. Your mail goes to a real location. You see it from anywhere.',
+        body: 'Every digital mailbox plan provides a unique <strong>Concord Township street address</strong>. This means you can receive packages from all major carriers, including UPS, FedEx, and DHL, which standard P.O. Boxes often reject. Your mail goes to a real location. You see it from anywhere. Learn more in our guide to the <a href="/articles/private-mailbox-vs-po-box/">private mailbox vs. the P.O. Box</a>.',
       },
       // ── SB7 POSITION 6: STAKES ──
       {
@@ -278,8 +304,25 @@ export const mailboxRentalServices: Service[] = [
     cta: {
       title: 'Leave Ohio. Keep Your Address.',
       subtitle: 'Your Lake County address works from anywhere. From $35/month. 30-day risk-free.',
-      buttonText: 'Set Up Your Digital Mailbox \u2192',
-      buttonLink: '/contact-us',
+      buttonText: 'Sign Up with iPostal1',
+      buttonLink: 'https://ipostal1.com/mailboxplusohio',
+      extraButtons: [
+        {
+          text: 'Sign Up with Anytime Mailbox',
+          link: 'https://mailboxplusofohiollc.anytimemailbox.com/signup',
+          external: true,
+        },
+        {
+          text: 'Sign Up with PostScan Mail',
+          link: 'https://app.postscanmail.com/registration?plan=19527&store=1400&address=2489&expand=true&by_store=true',
+          external: true,
+        },
+      ],
+      finePrint: {
+        text: 'Questions? Call or stop by — we set you up in 10 minutes.',
+        link: '/contact-us',
+        linkText: 'Contact us',
+      },
       variant: 'brand',
       align: 'center',
     },
@@ -380,48 +423,156 @@ export const mailboxRentalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Virtual Mailbox',
     slug: '/virtual-mailbox-concord-township',
-    pageTitle: 'Private Virtual Mailbox Near Me in Concord Township, OH 44077 | Mailbox Plus',
+    pageTitle: 'Virtual Mailbox Concord Township OH | Real Street Address | Mailbox Plus',
     metaDescription:
-      'Private virtual mailbox near me in Concord Township, OH 44077. Manage your physical mail digitally. Perfect for travelers, businesses, and remote workers.',
+      'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online. From $35/mo.',
     keywords:
-      'private virtual mailbox, virtual mailbox, virtual mailbox near me, Concord Township, Mailbox Plus',
+      'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, street address mailbox',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
     heroSubtitle:
       'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN ──
       {
-        heading: 'The Modern Way to Manage Physical Mail',
-        body: 'Perfect for digital nomads, frequent travelers, and small business owners, our <strong><a href="/home-business/digital-mailbox-rental">Virtual Mailbox</a> service</strong> bridges the gap between physical mail and your digital life. Your mail arrives at our Concord Township facility, and we instantly provide a digital preview, allowing you to manage your post from anywhere in the world. You can also set up <a href="/mail-forwarding-concord-township">mail forwarding</a> to any location.',
+        heading: 'The Mail Tether — The Errand That Follows You Everywhere',
+        body: `<p class="mb-4">Here's the deal nobody tells you when you start traveling, running a business from home, or selling online: <strong>the mail always finds you.</strong></p>
+        <div class="grid gap-3 md:grid-cols-3 my-6">
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">📬</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The bank statement</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Sitting in a box anyone on the street can open.</p>
+          </div>
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">⏰</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The IRS letter</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A 30-day deadline, buried under pizza coupons.</p>
+          </div>
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🌧️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The customer's check</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Soaked through on your porch while you're 600 miles away.</p>
+          </div>
+        </div>
+        <p>The villain isn't laziness — it's the assumption that a physical address and a physical presence have to be the same thing. Miss the mail, and it costs you money, deadlines, or your privacy. Chase the mail, and it costs you every trip, every winter away, every package the carrier won't deliver to your P.O. Box.</p>`,
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
+      {
+        heading: "The Quiet Anxiety of What's Piling Up",
+        body: `<p>You know the feeling. You're three states away and you're doing mental math: <em>did the title paperwork come? Did the customer's check arrive? Is that box on the porch getting rained on?</em></p>
+        <div class="space-y-3 my-6">
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Ask a neighbor to grab it?</strong> Now your mail is in someone else's hands.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Pay for a P.O. Box?</strong> FedEx and UPS say they don't deliver to those.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Forward your address?</strong> Six weeks later your bank statement is in a stranger's recycling bin.</p>
+          </div>
+        </div>
+        <p>Every workaround has a catch, and the low hum of <em>what am I missing?</em> never quite stops.</p>`,
+      },
+      // ── SB7 POSITION 3: GUIDE ──
+      {
+        heading: 'We Hold the Mail. You Hold the Keys. From Anywhere.',
+        body: "Mailbox Plus has been Lake County's mail authority for years — real people, real facility, real street address at 7554 Fredle Drive in Concord Township. Our <strong><a href=\"/home-business/digital-mailbox-rental/\">Virtual Mailbox</a></strong> service breaks the tether: your mail arrives at our secure facility, we scan the envelope within hours, and you decide — open it, forward it, shred it — from your phone, from anywhere in the world. You get the empathy of a local team and the reach of a national platform. We're the hands. You're still in control.",
+      },
+      // ── SB7 POSITION 4: PLAN ──
       {
         heading: 'How Your Virtual Mailbox Works',
         body: `<div class="grid gap-4 md:grid-cols-4 my-8">
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">01</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Receive</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Mail arrives at our secure Lake County facility.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">02</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Scan</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">We scan the envelope and upload it to your portal.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">03</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">You Decide</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Tell us to scan contents, forward, or shred.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">04</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">4</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Action</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">We execute your request quickly and securely.</p>
                     </div>
                 </div>`,
       },
+      // ── SB7 POSITION 5: WHO THIS IS FOR (agreement/plan detail) ──
       {
-        heading: 'Unmatched Privacy & Security',
-        body: "By choosing a virtual mailbox in Concord Township, you gain the benefit of a professional street address while keeping your actual location private. Every piece of mail is handled by our trained staff and stored in a restricted area until you decide its final destination. No more cluttered mailboxes or missed packages while you're away.",
+        heading: 'Built for the Way You Actually Live and Work',
+        body: `<div class="grid gap-4 md:grid-cols-2 my-8">
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">✈️</div>
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Travelers &amp; Snowbirds</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Spend winters away? Your mail is scanned and managed from anywhere — see our <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/snowbird-mail-solutions-ohio/">snowbird mail solutions</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">🏢</div>
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Small Businesses</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A real street address on LLC filings, bank accounts, and vendor forms — see <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/concord-township-business-real-street-address/">a real street address for your business</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">📦</div>
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Online Sellers</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Keep your home address off labels and public listings — <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/online-sellers-keep-home-address-private/">how sellers protect their home address</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">🚐</div>
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">RVers &amp; Nomads</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A stable mailing address that moves with you — <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/how-to-get-mail-living-in-an-rv-ohio/">how to get mail living in an RV</a>.</p>
+                    </div>
+                </div>`,
+      },
+      // ── SB7 POSITION 5b: AGAINST THE ALTERNATIVE (P.O. Box comparison) ──
+      {
+        heading: 'Virtual Mailbox vs. P.O. Box',
+        body: `A P.O. Box only accepts USPS mail. Carriers like UPS, FedEx, and DHL will not deliver to one — and neither will most stores that ship via those carriers. A virtual mailbox at Mailbox Plus is a <strong>real street address</strong> in Concord Township: every carrier delivers to it, and you see a scan of every envelope online the same day. Read more in our guide to <a href="/articles/why-po-boxes-get-rejected-street-address/">why P.O. Boxes get rejected</a> or compare a <a href="/articles/virtual-mailbox-vs-real-local-mailbox/">virtual mailbox vs. a real local mailbox</a>.`,
+      },
+      // ── SB7 POSITION 6: STAKES ──
+      {
+        heading: 'What Missing One Letter Can Cost You',
+        body: `<div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">⚖️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Compounding Fees</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A missed IRS notice compounds daily until it becomes a lien. Tax deadlines don't wait for you to get home.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🕵️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Identity Theft</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A bank statement in an unlocked box is an identity-theft starter kit. Your name, account, address — free to whoever walks by.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">💸</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Revenue</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A customer's check that bounces back to the sender makes your business look unreliable — and often never gets resent.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🚚</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">The P.O. Box Dead End</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">The workaround fails exactly when it matters — the carrier driving past your box won't stop there.</p>
+          </div>
+        </div>
+        <p>The stakes aren't hypothetical: they're fees, fraud, and lost trust, one uncollected envelope at a time.</p>`,
+      },
+      // ── SB7 POSITION 7: SUCCESS ──
+      {
+        heading: 'Untethered. Your Mail Works Wherever You Are.',
+        body: "Picture it: you're at a campsite in Utah or a client meeting in Cleveland. A notification lands — two envelopes, one package. You tap: scan the contract, forward the package, shred the catalog. Done in ninety seconds. Your address stays professional and permanent in Lake County. Your life goes wherever you want. The mail is finally something that happens <em>for</em> you, not something you chase.",
+      },
+      {
+        heading: 'Privacy & Security, Handled Like We Handle Our Own',
+        body: "Every piece of mail is handled by our trained staff and stored in a restricted area until you decide its final destination. Digital scans live behind encrypted access. Your home address never appears on a label, a listing, or a public record again. No more cluttered mailbox, no more porch risk, no more missed packages while you're away.",
       },
     ],
     features: [
@@ -431,19 +582,34 @@ export const mailboxRentalServices: Service[] = [
     ],
     faqs: [
       {
-        question: 'Is it safe to scan my mail?',
+        question: 'Can I use my virtual mailbox address as a business address?',
         answer:
-          'Yes, we use secure, encrypted systems to store your digital mail images, and physical mail is kept in a restricted area.',
+          'Yes. Your virtual mailbox is a real street address in Concord Township — not a P.O. Box — so it can be used on LLC filings, bank accounts, vendor forms, and business registrations.',
       },
       {
-        question: 'Can you deposit checks for me?',
+        question: 'Do you accept packages from all carriers?',
         answer:
-          'Some plans may offer check depositing services. Please inquire for specific details.',
+          'Yes. UPS, FedEx, DHL, and USPS all deliver to your street address. P.O. Boxes reject most of these — a virtual mailbox does not.',
+      },
+      {
+        question: 'How fast do I see my mail online?',
+        answer:
+          'Envelope scans are uploaded to your secure portal within 4 hours of arrival, the same business day.',
+      },
+      {
+        question: 'Can I sign up without visiting the store?',
+        answer:
+          'Yes. You can sign up online in minutes through our portal partners — iPostal1, Anytime Mailbox, or PostScan Mail — or walk in and we will set everything up in about 10 minutes.',
+      },
+      {
+        question: 'Is it safe to scan my mail?',
+        answer:
+          'Yes. Digital mail images are stored with secure, encrypted systems. Physical mail is kept in a restricted area and handled only by our trained staff at our Concord Township facility.',
       },
       {
         question: 'How much does it cost?',
         answer:
-          'Mailbox plans start at $35/month for a small box. Contact us for virtual mailbox pricing.',
+          'Virtual mailbox plans start at $35/month. Pricing varies slightly by platform — contact us and we will match you to the right plan.',
       },
     ],
     cta: {
