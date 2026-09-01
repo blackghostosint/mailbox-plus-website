@@ -220,6 +220,29 @@ const ogImageHeight = ogImage ? undefined : '630';
         } else {
           watchPricing();
         }
+
+        // --- 4. Outbound provider sign-up clicks (GA4; attributed affiliate links) ---
+        var PROVIDER_HOSTS = ['ipostal1.com', 'anytimemailbox.com', 'postscanmail.com'];
+        document.addEventListener('click', function(e) {
+          var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+          if (!a) return;
+          var href = a.getAttribute('href') || '';
+          if (href.indexOf('http') !== 0) return;
+          var host = '';
+          try { host = new URL(href).hostname.replace(/^www\./, ''); } catch (err) { return; }
+          var isProvider = false;
+          for (var i = 0; i < PROVIDER_HOSTS.length; i++) {
+            if (host === PROVIDER_HOSTS[i] || host.indexOf('.' + PROVIDER_HOSTS[i]) === host.length - PROVIDER_HOSTS[i].length - 1) { isProvider = true; break; }
+          }
+          if (!isProvider) return;
+          var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+          window.gtag('event', 'provider_signup_click', {
+            provider: host.indexOf('ipostal1') !== -1 ? 'ipostal1' : (host.indexOf('anytimemailbox') !== -1 ? 'anytime_mailbox' : 'postscan_mail'),
+            provider_url: href.slice(0, 120),
+            link_label: label,
+            page_path: window.location.pathname
+          });
+        }, false);
       })();
     </script>
     <!-- End Deferred Third-Party Analytics -->
