@@ -433,35 +433,22 @@ export const mailboxRentalServices: Service[] = [
       'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
+      // ── SB7 POSITION 1-2: VILLAIN ──
       {
-        heading: 'The Modern Way to Manage Physical Mail',
-        body: 'Perfect for digital nomads, frequent travelers, and small business owners, our <strong><a href="/home-business/digital-mailbox-rental/">Virtual Mailbox</a> service</strong> bridges the gap between physical mail and your digital life. Your mail arrives at our Concord Township facility, and we instantly provide a digital preview, allowing you to manage your post from anywhere in the world. You can also set up <a href="/mail-forwarding-concord-township/">mail forwarding</a> to any location.',
+        heading: 'The Mail Tether — The Errand That Follows You Everywhere',
+        body: "Here's the deal nobody tells you when you start traveling, running a business from home, or selling online: <strong>the mail always finds you.</strong> The bank statement with your account number, sitting in a box anyone can open. The IRS letter with a 30-day deadline, buried under pizza coupons. The check from a customer, soaked through on your porch. The villain isn't laziness — it's the assumption that a physical address and a physical presence have to be the same thing. Miss the mail, and it costs you money, deadlines, or your privacy. Chase the mail, and it costs you every trip, every winter away, every package you can't receive because the carrier won't deliver to your P.O. Box.",
       },
+      // ── SB7 POSITION 2: INTERNAL PROBLEM ──
       {
-        heading: 'Virtual Mailbox vs. P.O. Box',
-        body: `A P.O. Box only accepts USPS mail. Carriers like UPS, FedEx, and DHL will not deliver to one — and neither will most stores that ship via those carriers. A virtual mailbox at Mailbox Plus is a <strong>real street address</strong> in Concord Township: every carrier delivers to it, and you see a scan of every envelope online the same day. Read more in our guide to <a href="/articles/why-po-boxes-get-rejected-street-address/">why P.O. Boxes get rejected</a> or compare a <a href="/articles/virtual-mailbox-vs-real-local-mailbox/">virtual mailbox vs. a real local mailbox</a>.`,
+        heading: "The Quiet Anxiety of What's Piling Up",
+        body: "You know the feeling. You're three states away and you're doing mental math: <em>did the title paperwork come? Did the customer's check arrive? Is that box on the porch getting rained on?</em> You ask a neighbor to grab it — now your mail is in someone else's hands. You pay for a P.O. Box — and then FedEx says they don't deliver to P.O. Boxes. You forward your address — and six weeks later your bank statement is in a stranger's recycling bin. Every workaround has a catch, and the low hum of <em>what am I missing?</em> never quite stops.",
       },
+      // ── SB7 POSITION 3: GUIDE ──
       {
-        heading: 'Who Uses a Virtual Mailbox',
-        body: `<div class="grid gap-4 md:grid-cols-2 my-8">
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Travelers &amp; Snowbirds</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Spend winters away? Your mail is scanned and managed from anywhere — see our <a href="/articles/snowbird-mail-solutions-ohio/">snowbird mail solutions</a>.</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Small Businesses</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Use a real street address on LLC filings, bank accounts, and vendor forms — see <a href="/articles/concord-township-business-real-street-address/">a real street address for your business</a>.</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Online Sellers</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Keep your home address off labels and public listings — <a href="/articles/online-sellers-keep-home-address-private/">how sellers protect their home address</a>.</p>
-                    </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="font-bold text-[var(--color-text-primary)] mb-1">RVers &amp; Nomads</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A stable mailing address that moves with you — <a href="/articles/how-to-get-mail-living-in-an-rv-ohio/">how to get mail living in an RV</a>.</p>
-                    </div>
-                </div>`,
+        heading: 'We Hold the Mail. You Hold the Keys. From Anywhere.',
+        body: "Mailbox Plus has been Lake County's mail authority for years — real people, real facility, real street address at 7554 Fredle Drive in Concord Township. Our <strong><a href=\"/home-business/digital-mailbox-rental/\">Virtual Mailbox</a></strong> service breaks the tether: your mail arrives at our secure facility, we scan the envelope within hours, and you decide — open it, forward it, shred it — from your phone, from anywhere in the world. You get the empathy of a local team and the reach of a national platform. We're the hands. You're still in control.",
       },
+      // ── SB7 POSITION 4: PLAN ──
       {
         heading: 'How Your Virtual Mailbox Works',
         body: `<div class="grid gap-4 md:grid-cols-4 my-8">
@@ -487,9 +474,46 @@ export const mailboxRentalServices: Service[] = [
                     </div>
                 </div>`,
       },
+      // ── SB7 POSITION 5: WHO THIS IS FOR (agreement/plan detail) ──
       {
-        heading: 'Unmatched Privacy & Security',
-        body: "By choosing a virtual mailbox in Concord Township, you gain the benefit of a professional street address while keeping your actual location private. Every piece of mail is handled by our trained staff and stored in a restricted area until you decide its final destination. No more cluttered mailboxes or missed packages while you're away.",
+        heading: 'Built for the Way You Actually Live and Work',
+        body: `<div class="grid gap-4 md:grid-cols-2 my-8">
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Travelers &amp; Snowbirds</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Spend winters away? Your mail is scanned and managed from anywhere — see our <a href="/articles/snowbird-mail-solutions-ohio/">snowbird mail solutions</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Small Businesses</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A real street address on LLC filings, bank accounts, and vendor forms — see <a href="/articles/concord-township-business-real-street-address/">a real street address for your business</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">Online Sellers</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Keep your home address off labels and public listings — <a href="/articles/online-sellers-keep-home-address-private/">how sellers protect their home address</a>.</p>
+                    </div>
+                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                        <div class="font-bold text-[var(--color-text-primary)] mb-1">RVers &amp; Nomads</div>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A stable mailing address that moves with you — <a href="/articles/how-to-get-mail-living-in-an-rv-ohio/">how to get mail living in an RV</a>.</p>
+                    </div>
+                </div>`,
+      },
+      // ── SB7 POSITION 5b: AGAINST THE ALTERNATIVE (P.O. Box comparison) ──
+      {
+        heading: 'Virtual Mailbox vs. P.O. Box',
+        body: `A P.O. Box only accepts USPS mail. Carriers like UPS, FedEx, and DHL will not deliver to one — and neither will most stores that ship via those carriers. A virtual mailbox at Mailbox Plus is a <strong>real street address</strong> in Concord Township: every carrier delivers to it, and you see a scan of every envelope online the same day. Read more in our guide to <a href="/articles/why-po-boxes-get-rejected-street-address/">why P.O. Boxes get rejected</a> or compare a <a href="/articles/virtual-mailbox-vs-real-local-mailbox/">virtual mailbox vs. a real local mailbox</a>.`,
+      },
+      // ── SB7 POSITION 6: STAKES ──
+      {
+        heading: 'What Missing One Letter Can Cost You',
+        body: "A missed IRS notice compounds daily until it becomes a lien. A bank statement in an unlocked box is an identity-theft starter kit. A customer's check that bounces back to the sender makes your business look unreliable — and often never gets resent. The P.O. Box workaround fails exactly when it matters, because the carrier driving past your box won't stop there. The stakes aren't hypothetical: they're fees, fraud, and lost trust, one uncollected envelope at a time.",
+      },
+      // ── SB7 POSITION 7: SUCCESS ──
+      {
+        heading: 'Untethered. Your Mail Works Wherever You Are.',
+        body: "Picture it: you're at a campsite in Utah or a client meeting in Cleveland. A notification lands — two envelopes, one package. You tap: scan the contract, forward the package, shred the catalog. Done in ninety seconds. Your address stays professional and permanent in Lake County. Your life goes wherever you want. The mail is finally something that happens <em>for</em> you, not something you chase.",
+      },
+      {
+        heading: 'Privacy & Security, Handled Like We Handle Our Own',
+        body: "Every piece of mail is handled by our trained staff and stored in a restricted area until you decide its final destination. Digital scans live behind encrypted access. Your home address never appears on a label, a listing, or a public record again. No more cluttered mailbox, no more porch risk, no more missed packages while you're away.",
       },
     ],
     features: [
