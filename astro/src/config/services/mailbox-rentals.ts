@@ -436,12 +436,45 @@ export const mailboxRentalServices: Service[] = [
       // ── SB7 POSITION 1-2: VILLAIN ──
       {
         heading: 'The Mail Tether — The Errand That Follows You Everywhere',
-        body: "Here's the deal nobody tells you when you start traveling, running a business from home, or selling online: <strong>the mail always finds you.</strong> The bank statement with your account number, sitting in a box anyone can open. The IRS letter with a 30-day deadline, buried under pizza coupons. The check from a customer, soaked through on your porch. The villain isn't laziness — it's the assumption that a physical address and a physical presence have to be the same thing. Miss the mail, and it costs you money, deadlines, or your privacy. Chase the mail, and it costs you every trip, every winter away, every package you can't receive because the carrier won't deliver to your P.O. Box.",
+        body: `<p class="mb-4">Here's the deal nobody tells you when you start traveling, running a business from home, or selling online: <strong>the mail always finds you.</strong></p>
+        <div class="grid gap-3 md:grid-cols-3 my-6">
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">📬</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The bank statement</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Sitting in a box anyone on the street can open.</p>
+          </div>
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">⏰</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The IRS letter</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A 30-day deadline, buried under pizza coupons.</p>
+          </div>
+          <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🌧️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-1 text-sm">The customer's check</h4>
+            <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Soaked through on your porch while you're 600 miles away.</p>
+          </div>
+        </div>
+        <p>The villain isn't laziness — it's the assumption that a physical address and a physical presence have to be the same thing. Miss the mail, and it costs you money, deadlines, or your privacy. Chase the mail, and it costs you every trip, every winter away, every package the carrier won't deliver to your P.O. Box.</p>`,
       },
       // ── SB7 POSITION 2: INTERNAL PROBLEM ──
       {
         heading: "The Quiet Anxiety of What's Piling Up",
-        body: "You know the feeling. You're three states away and you're doing mental math: <em>did the title paperwork come? Did the customer's check arrive? Is that box on the porch getting rained on?</em> You ask a neighbor to grab it — now your mail is in someone else's hands. You pay for a P.O. Box — and then FedEx says they don't deliver to P.O. Boxes. You forward your address — and six weeks later your bank statement is in a stranger's recycling bin. Every workaround has a catch, and the low hum of <em>what am I missing?</em> never quite stops.",
+        body: `<p>You know the feeling. You're three states away and you're doing mental math: <em>did the title paperwork come? Did the customer's check arrive? Is that box on the porch getting rained on?</em></p>
+        <div class="space-y-3 my-6">
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Ask a neighbor to grab it?</strong> Now your mail is in someone else's hands.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Pay for a P.O. Box?</strong> FedEx and UPS say they don't deliver to those.</p>
+          </div>
+          <div class="flex items-start gap-3 p-4 rounded-xl bg-[var(--color-bg-warm-tint)] border border-[var(--color-border)]">
+            <span class="text-[var(--color-accent-warm)] font-bold shrink-0 text-lg">✕</span>
+            <p class="text-sm text-[var(--color-text-primary)] leading-relaxed"><strong>Forward your address?</strong> Six weeks later your bank statement is in a stranger's recycling bin.</p>
+          </div>
+        </div>
+        <p>Every workaround has a catch, and the low hum of <em>what am I missing?</em> never quite stops.</p>`,
       },
       // ── SB7 POSITION 3: GUIDE ──
       {
@@ -452,23 +485,23 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'How Your Virtual Mailbox Works',
         body: `<div class="grid gap-4 md:grid-cols-4 my-8">
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">01</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Receive</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Mail arrives at our secure Lake County facility.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">02</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Scan</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">We scan the envelope and upload it to your portal.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">03</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">3</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">You Decide</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Tell us to scan contents, forward, or shred.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
-                        <div class="text-2xl font-bold text-[var(--color-primary)] mb-2">04</div>
+                    <div class="p-5 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
+                        <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">4</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">We Action</div>
                         <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">We execute your request quickly and securely.</p>
                     </div>
@@ -478,21 +511,25 @@ export const mailboxRentalServices: Service[] = [
       {
         heading: 'Built for the Way You Actually Live and Work',
         body: `<div class="grid gap-4 md:grid-cols-2 my-8">
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">✈️</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">Travelers &amp; Snowbirds</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Spend winters away? Your mail is scanned and managed from anywhere — see our <a href="/articles/snowbird-mail-solutions-ohio/">snowbird mail solutions</a>.</p>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Spend winters away? Your mail is scanned and managed from anywhere — see our <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/snowbird-mail-solutions-ohio/">snowbird mail solutions</a>.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">🏢</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">Small Businesses</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A real street address on LLC filings, bank accounts, and vendor forms — see <a href="/articles/concord-township-business-real-street-address/">a real street address for your business</a>.</p>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A real street address on LLC filings, bank accounts, and vendor forms — see <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/concord-township-business-real-street-address/">a real street address for your business</a>.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">📦</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">Online Sellers</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Keep your home address off labels and public listings — <a href="/articles/online-sellers-keep-home-address-private/">how sellers protect their home address</a>.</p>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">Keep your home address off labels and public listings — <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/online-sellers-keep-home-address-private/">how sellers protect their home address</a>.</p>
                     </div>
-                    <div class="p-5 rounded-2xl bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/10">
+                    <div class="p-5 rounded-2xl bg-white border border-[var(--color-border)] shadow-sm hover:border-[var(--color-accent-warm)] hover:bg-[var(--color-accent-warm)]/5 transition-all">
+                        <div class="text-3xl mb-3">🚐</div>
                         <div class="font-bold text-[var(--color-text-primary)] mb-1">RVers &amp; Nomads</div>
-                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A stable mailing address that moves with you — <a href="/articles/how-to-get-mail-living-in-an-rv-ohio/">how to get mail living in an RV</a>.</p>
+                        <p class="text-xs text-[var(--color-text-secondary)] leading-relaxed">A stable mailing address that moves with you — <a class="font-semibold text-[var(--color-accent-warm)] hover:underline" href="/articles/how-to-get-mail-living-in-an-rv-ohio/">how to get mail living in an RV</a>.</p>
                     </div>
                 </div>`,
       },
@@ -504,7 +541,29 @@ export const mailboxRentalServices: Service[] = [
       // ── SB7 POSITION 6: STAKES ──
       {
         heading: 'What Missing One Letter Can Cost You',
-        body: "A missed IRS notice compounds daily until it becomes a lien. A bank statement in an unlocked box is an identity-theft starter kit. A customer's check that bounces back to the sender makes your business look unreliable — and often never gets resent. The P.O. Box workaround fails exactly when it matters, because the carrier driving past your box won't stop there. The stakes aren't hypothetical: they're fees, fraud, and lost trust, one uncollected envelope at a time.",
+        body: `<div class="grid md:grid-cols-2 gap-6 my-6">
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">⚖️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Compounding Fees</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A missed IRS notice compounds daily until it becomes a lien. Tax deadlines don't wait for you to get home.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🕵️</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Identity Theft</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A bank statement in an unlocked box is an identity-theft starter kit. Your name, account, address — free to whoever walks by.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">💸</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Lost Revenue</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">A customer's check that bounces back to the sender makes your business look unreliable — and often never gets resent.</p>
+          </div>
+          <div class="bg-white p-6 rounded-2xl border border-[var(--color-border)] shadow-sm">
+            <div class="text-3xl mb-3">🚚</div>
+            <h4 class="font-bold text-[var(--color-text-primary)] mb-2">The P.O. Box Dead End</h4>
+            <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">The workaround fails exactly when it matters — the carrier driving past your box won't stop there.</p>
+          </div>
+        </div>
+        <p>The stakes aren't hypothetical: they're fees, fraud, and lost trust, one uncollected envelope at a time.</p>`,
       },
       // ── SB7 POSITION 7: SUCCESS ──
       {
