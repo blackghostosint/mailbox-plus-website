@@ -93,7 +93,7 @@ The definitional answer is boring: anyone who wants a street address that isn't 
 - **Home-based business owners and LLCs** who don't want their home address on filings, labels, or Google. A real street address looks professional; a PO Box number screams "hobby."
 - **Online sellers** (eBay, Etsy, Amazon) who want their home address off every shipping label before a stranger looks them up.
 - **People with porch-pirate problems** who want packages signed for and held behind a locked counter instead of left on a doorstep.
-- **Frequent travelers, snowbirds, and RVers** who need a stable address that holds mail and forwards it when they're gone.
+- **Frequent travelers, snowbirds, and RVers** who need a stable address that holds mail and forwards it when they're gone. If you're never in Ohio to pick mail up, look at the [virtual mailbox vs. a real local mailbox breakdown](/articles/virtual-mailbox-vs-real-local-mailbox/) — or go straight to [digital mailbox rental](/home-business/digital-mailbox-rental/), where we scan your envelopes and you decide what happens from your phone.
 - **College students and young renters** who move every year and are tired of changing their address everywhere.
 - **Anyone whose bank, DMV, or marketplace rejected a PO Box** and needs a street address that works everywhere.
 
@@ -130,6 +130,8 @@ If you only remember three things from this article, make them these:
 1. **A PMB is a private mailbox** — a real street address at a registered commercial mail receiving agency, not a PO Box.
 2. **The PMB on your address is a USPS requirement**, and it tells the mail system which box at the store is yours. PMB and # are the only allowed formats.
 3. **Form 1583 is normal, required paperwork** — two forms of ID and ten minutes at the counter. It's how you get a street address the whole system recognizes.
+
+One last confusion worth clearing up, since the search terms tell us you're asking: **a "virtual PO box" is the same product as a virtual mailbox** — a real street address where staff scan your envelopes and you manage everything remotely. The national providers (iPostal1, Anytime Mailbox, PostScan) sell it through an app at a markup; we offer the same physical receiving at our own counter, direct. Compare them side by side on our [virtual mailbox page](/virtual-mailbox-concord-township/), or if you want a real address you can walk into, [rent a private mailbox from $35/month](/private-mailbox-rental/).
 
 ## Bring It In
 

@@ -427,7 +427,7 @@ export const mailboxRentalServices: Service[] = [
     metaDescription:
       'Virtual mailbox with a real Concord Township street address. We scan your envelopes, you decide: forward, shred, or open. Walk in or sign up online. From $35/mo.',
     keywords:
-      'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, street address mailbox',
+      'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, virtual po box, virtual po box alternative, street address mailbox',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
     heroSubtitle:
       'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
@@ -536,7 +536,7 @@ export const mailboxRentalServices: Service[] = [
       // ── SB7 POSITION 5b: AGAINST THE ALTERNATIVE (P.O. Box comparison) ──
       {
         heading: 'Virtual Mailbox vs. P.O. Box',
-        body: `A P.O. Box only accepts USPS mail. Carriers like UPS, FedEx, and DHL will not deliver to one — and neither will most stores that ship via those carriers. A virtual mailbox at Mailbox Plus is a <strong>real street address</strong> in Concord Township: every carrier delivers to it, and you see a scan of every envelope online the same day. Read more in our guide to <a href="/articles/why-po-boxes-get-rejected-street-address/">why P.O. Boxes get rejected</a> or compare a <a href="/articles/virtual-mailbox-vs-real-local-mailbox/">virtual mailbox vs. a real local mailbox</a>.`,
+        body: `A P.O. Box only accepts USPS mail. Carriers like UPS, FedEx, and DHL will not deliver to one — and neither will most stores that ship via those carriers. A virtual mailbox at Mailbox Plus is a <strong>real street address</strong> in Concord Township: every carrier delivers to it, and you see a scan of every envelope online the same day. (If you've been searching for a "virtual PO box," this is it — the same remote-managed street address, without the post office's mail-only limitation.) Read more in our guide to <a href="/articles/why-po-boxes-get-rejected-street-address/">why P.O. Boxes get rejected</a> or compare a <a href="/articles/virtual-mailbox-vs-real-local-mailbox/">virtual mailbox vs. a real local mailbox</a>.`,
       },
       // ── SB7 POSITION 6: STAKES ──
       {
