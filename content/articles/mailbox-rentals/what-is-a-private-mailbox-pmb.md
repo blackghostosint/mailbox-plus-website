@@ -39,6 +39,8 @@ Here's the part that confuses everyone: a PMB is not a PO Box. They're different
 
 That last part is the whole point. Your address looks like a normal street address, not a box number. And because it's a street address, **every carrier can deliver to it — UPS, FedEx, DHL, and USPS** — not just the post office.
 
+Want one? A [private mailbox at Mailbox Plus starts at $35/month](/private-mailbox-rental/) — month-to-month, no contract. Bring two forms of ID and you walk out with a real street address. The rest of this article explains how it all works.
+
 ## What the PMB on Your Address Actually Means
 
 If you've ever seen an address like this and wondered what "PMB" was doing there:
