@@ -160,24 +160,36 @@ const ogImageHeight = ogImage ? undefined : '630';
         // gtag/fbq stubs are initialized above, so events called before SDK load
         // are queued in dataLayer/fbq.queue and flushed on SDK load. No loss.
 
-        // --- 1. CTA click tracking (delegated: covers checkout-btn, hero, final, all anchors) ---
+        // --- 1. Element click tracking (delegated: ALL links + buttons, site-wide) ---
+        // Excludes #main-content skip link and same-URL hash jumps to keep noise down.
         document.addEventListener('click', function(e) {
-          var a = e.target && e.target.closest ? e.target.closest('a.btn, .checkout-btn') : null;
-          if (!a) return;
-          var href = a.getAttribute('href') || '';
-          var isCheckout = a.classList.contains('checkout-btn') || href.indexOf('/contact-us') !== -1;
-          var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
+          var el = e.target && e.target.closest ? e.target.closest('a[href], button') : null;
+          if (!el || el.id === 'main-content') return;
+          var href = el.getAttribute('href') || '';
+          if (href.indexOf('#') === 0) return;
+          var label = (el.getAttribute('data-cta') || el.getAttribute('aria-label') || el.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
           var page = window.location.pathname;
-          // GA4
-          window.gtag('event', 'cta_click', {
-            cta_label: label,
-            cta_tier: a.getAttribute('data-tier') || null,
-            cta_destination: href.indexOf('#') === 0 ? 'pricing_section' : href,
+          var isExternal = href.indexOf('http') === 0 && href.indexOf(window.location.hostname) === -1 && href.indexOf('maps.google') === -1 && href.indexOf('google.com/maps') === -1;
+          // GA4 — every link/button click, with element context
+          window.gtag('event', 'element_click', {
+            element_type: el.tagName.toLowerCase(),
+            element_label: label,
+            element_destination: href.slice(0, 120),
+            is_external: isExternal,
             page_path: page
           });
+          // Keep legacy cta_click for .btn/.checkout-btn continuity in GA4 reports
+          if (el.matches('a.btn, .checkout-btn, a[href^="tel:"], a[href^="mailto:"]')) {
+            window.gtag('event', 'cta_click', {
+              cta_label: label,
+              cta_tier: el.getAttribute('data-tier') || null,
+              cta_destination: href.indexOf('#') === 0 ? 'pricing_section' : href,
+              page_path: page
+            });
+          }
           // Meta: only count intent-to-purchase clicks (tier checkout buttons), not pricing anchors
-          if (isCheckout && a.classList.contains('checkout-btn')) {
-            window.fbq('track', 'InitiateCheckout', { content_name: a.getAttribute('data-tier') || label });
+          if (el.classList.contains('checkout-btn')) {
+            window.fbq('track', 'InitiateCheckout', { content_name: el.getAttribute('data-tier') || label });
           }
         }, false);
 
