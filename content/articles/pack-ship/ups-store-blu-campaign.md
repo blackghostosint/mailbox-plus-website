@@ -62,7 +62,7 @@ We are Mailbox Plus, on Fredle Drive in Concord Township — and yes, we are the
 
 The Blu campaign is right that a shipping store should be more than shipping. We offer printing, shredding, private mailboxes with a real street address, notary, fingerprinting, document scanning — a lot of the same menu the ads are introducing to America this fall. Good. The more people understand what a counter like ours can do, the better for everyone, including us.
 
-The difference is not the menu. It is what sits under the menu. We are not a franchise of any carrier. We carry UPS, FedEx, USPS, and DHL, and we sell all four — so when your box is on our counter, you see the prices side by side on a screen turned toward you, and you pick. Sometimes UPS wins. Sometimes it does not. The point is you find out before you pay, not never. If you want the full side-by-side of how a franchise store and an independent one differ, we wrote the honest version in [our UPS Store comparison](/articles/ups-store-vs-mailbox-plus-comparison/), and [our pack-and-ship counter](/pack-ship) does the work behind it.
+The difference is not the menu. It is what sits under the menu. We are not a franchise of any carrier. We carry UPS, FedEx, USPS, and DHL, and we sell all four — so when your box is on our counter, you see the prices side by side on a screen turned toward you, and you pick. Sometimes UPS wins. Sometimes it does not. The point is you find out before you pay, not never. If you want the full side-by-side of how a franchise store and an independent one differ, we wrote the honest version in [our UPS Store comparison](/articles/ups-store-vs-mailbox-plus-comparison/), and [our pack-and-ship counter](/pack-ship/) does the work behind it.
 
 ## How It Works
 
