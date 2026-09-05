@@ -100,4 +100,4 @@ Bring your next box to Mailbox Plus, 7554 Fredle Drive, Concord Township, OH 440
 
 One counter. Four carriers. Every rate on one screen, before you pay a cent.
 
-See our full pack and ship services here: [/pack-ship](/pack-ship). And if you ship often, ask about a private mailbox so your home address stays off every label: [/private-mailbox-rental](/private-mailbox-rental).
+See our full pack and ship services here: [/pack-ship](/pack-ship/). And if you ship often, ask about a private mailbox so your home address stays off every label: [/private-mailbox-rental](/private-mailbox-rental/).
