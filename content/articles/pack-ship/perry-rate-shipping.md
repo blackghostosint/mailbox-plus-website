@@ -1,6 +1,6 @@
 ---
-title: "The Perry Shipping Rates You Are Never Shown"
-description: 'Franchise counters from Perry quote one carrier's rate. Mailbox Plus in Concord Township, about 11 miles away, prices your box across UPS, FedEx, USPS, and DHL — side by side.'
+title: 'The Perry Shipping Rates You Are Never Shown'
+description: "Franchise counters from Perry quote one carrier's rate. Mailbox Plus in Concord Township, about 11 miles away, prices your box across UPS, FedEx, USPS, and DHL — side by side."
 slug: 'perry-rate-shipping'
 category: 'pack-ship'
 intentKey: 'perry-rate-shipping'
@@ -16,7 +16,8 @@ keywords:
     'compare shipping rates perry',
     'ups fedex usps rates perry ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/fedex-shipping', '/pack-ship/ups-authorized-shipper-outlet']
+relatedServices:
+  ['/pack-ship', '/pack-ship/fedex-shipping', '/pack-ship/ups-authorized-shipper-outlet']
 author: 'Mailbox Plus Team'
 ---
 
