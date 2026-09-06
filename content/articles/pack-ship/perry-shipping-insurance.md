@@ -54,9 +54,9 @@ And protecting something that matters shouldn't require a law degree. You should
 
 ## What We See Every Day
 
-At [Mailbox Plus](/pack-ship), 7554 Fredle Drive in Concord Township, the value conversation happens before the label prints — every shipment, not just when someone remembers to ask. We're independent, so we're not steering you into one carrier's answer. We ship UPS, FedEx, USPS, and DHL, and we'll tell you which carrier's liability terms actually fit what you're sending.
+At [Mailbox Plus](/pack-ship/), 7554 Fredle Drive in Concord Township, the value conversation happens before the label prints — every shipment, not just when someone remembers to ask. We're independent, so we're not steering you into one carrier's answer. We ship UPS, FedEx, USPS, and DHL, and we'll tell you which carrier's liability terms actually fit what you're sending.
 
-For valuable shipments we offer [declared-value coverage](/specialty/insurance) — including third-party coverage with protection up to $50,000 per package when the item is professionally packed by our staff. That last part matters more than people expect, because coverage and packing are not separate decisions. If the box is packed right, the claim stands. If it isn't, nothing else you paid for matters.
+For valuable shipments we offer [declared-value coverage](/specialty/insurance/) — including third-party coverage with protection up to $50,000 per package when the item is professionally packed by our staff. That last part matters more than people expect, because coverage and packing are not separate decisions. If the box is packed right, the claim stands. If it isn't, nothing else you paid for matters.
 
 The people who make the trip out from Perry are usually shipping something the default can't cover: the seller who sent a $900 phone and wanted the payout to match the listing, the family shipping a christening gown to a granddaughter, the collector moving a piece of his father's tool chest to a buyer three states away. They didn't come in asking about insurance. They came in because someone finally explained the number.
 
