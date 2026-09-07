@@ -16,7 +16,8 @@ keywords:
     'heirloom shipping lake county ohio',
     'ship fragile items concord township',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/professional-packing', '/pack-ship/package-drop-offs']
+relatedServices:
+  ['/pack-ship/', '/pack-ship/professional-packing/', '/pack-ship/package-drop-offs/']
 author: 'Mailbox Plus Team'
 ---
 
