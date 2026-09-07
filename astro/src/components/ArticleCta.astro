@@ -4,7 +4,7 @@ interface Props {
   slug?: string;
 }
 
-const { category } = Astro.props;
+const { category, slug = '' } = Astro.props;
 
 interface CtaContent {
   tagline: string;
@@ -82,8 +82,14 @@ const content = CTA_DATA[category] || {
 };
 ---
 
-<aside class="mt-20 p-8 sm:p-10 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] rounded-2xl shadow-xl text-white relative overflow-hidden" aria-label="Take action at Mailbox Plus">
-  {/* Subtle decorative background ring */}
+<aside
+  id="article-bottom-cta"
+  data-category={category}
+  data-slug={slug}
+  class="mt-20 p-8 sm:p-10 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] rounded-2xl shadow-xl text-white relative overflow-hidden"
+  aria-label="Take action at Mailbox Plus"
+>
+  {/* Decorative background ring */}
   <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl"></div>
 
   <div class="relative z-10 max-w-2xl mx-auto text-center">
@@ -102,11 +108,14 @@ const content = CTA_DATA[category] || {
       {content.description}
     </p>
 
-    {/* Two-Tone Action Buttons (One Gold Primary + One Outline Secondary) */}
+    {/* Two-Tone Action Buttons */}
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
       <a
         href={content.primaryCtaLink}
-        class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] font-bold shadow-md hover:bg-[var(--color-accent-gold-light)] hover:shadow-lg transition-all text-base"
+        class="btn inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] font-bold shadow-md hover:bg-[var(--color-accent-gold-light)] hover:shadow-lg transition-all text-base"
+        data-cta={`article_${category}_primary_cta`}
+        data-category={category}
+        data-section="article_bottom_cta"
       >
         {content.primaryCtaText}
       </a>
@@ -114,7 +123,10 @@ const content = CTA_DATA[category] || {
         href={content.secondaryCtaLink}
         target={content.secondaryCtaLink.startsWith('http') ? '_blank' : undefined}
         rel={content.secondaryCtaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-        class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base"
+        class="btn inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base"
+        data-cta={`article_${category}_directions_cta`}
+        data-category={category}
+        data-section="article_bottom_cta"
       >
         {content.secondaryCtaText}
         {content.secondaryCtaLink.startsWith('http') && (
@@ -138,3 +150,29 @@ const content = CTA_DATA[category] || {
     </div>
   </div>
 </aside>
+
+{/* Client-side Impression Tracking: Fires 'article_cta_view' when CTA scrolls into viewport */}
+<script is:inline>
+  (function() {
+    if (!('IntersectionObserver' in window)) return;
+    var ctaEl = document.getElementById('article-bottom-cta');
+    if (!ctaEl) return;
+    var seen = false;
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !seen) {
+          seen = true;
+          if (typeof window.gtag === 'function') {
+            window.gtag('event', 'article_cta_view', {
+              cta_category: ctaEl.getAttribute('data-category') || 'general',
+              cta_slug: ctaEl.getAttribute('data-slug') || '',
+              page_path: window.location.pathname
+            });
+          }
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(ctaEl);
+  })();
+</script>
