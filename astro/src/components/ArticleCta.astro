@@ -1,0 +1,140 @@
+---
+interface Props {
+  category: string;
+  slug?: string;
+}
+
+const { category } = Astro.props;
+
+interface CtaContent {
+  tagline: string;
+  headline: string;
+  description: string;
+  primaryCtaText: string;
+  primaryCtaLink: string;
+  secondaryCtaText: string;
+  secondaryCtaLink: string;
+  trustPoints: string[];
+}
+
+const CTA_DATA: Record<string, CtaContent> = {
+  'mailbox-rentals': {
+    tagline: 'COMMERCIAL STREET ADDRESS · SUITE NUMBERS',
+    headline: 'Stop PO Box Rejections & Protect Your Home Address',
+    description: 'Get a real Concord Township street address accepted by banks, state registries, and every carrier (UPS, FedEx, DHL, USPS). Starting at $15/month with packages held safely behind the counter.',
+    primaryCtaText: 'Explore Mailbox Plans & Pricing',
+    primaryCtaLink: '/home-business/mailbox-rental/',
+    secondaryCtaText: 'Get Directions to 7554 Fredle Dr',
+    secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+    trustPoints: ['Real Street Suite Address', 'All Carriers Accepted', 'Personal & Business Tiers'],
+  },
+  'pack-ship': {
+    tagline: 'MULTI-CARRIER COUNTER · ZERO GUESSWORK',
+    headline: 'Bring Your Packages in — Compare All Rates on One Screen',
+    description: 'We check UPS, FedEx, USPS, and DHL rates side by side so you always know you got the best number. We also process Nuuly, Happy Returns, and all prepaid drop-offs with fast scan-and-go counter receipts.',
+    primaryCtaText: 'See Pack & Ship Services',
+    primaryCtaLink: '/pack-ship/',
+    secondaryCtaText: 'Get Directions to Counter',
+    secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+    trustPoints: ['UPS, FedEx, DHL & USPS Counter', '#1 Happy Returns in 44077', 'Custom Box Making Available'],
+  },
+  'notary': {
+    tagline: 'NO APPOINTMENT NEEDED · WALK-IN COUNTER',
+    headline: 'Licensed Notary Public Always on Duty During Business Hours',
+    description: 'Skip the bank teller excuses and library lunch breaks. Walk in with your car title, legal documents, real estate contracts, or powers of attorney and get them officially stamped on the spot.',
+    primaryCtaText: 'View Notary Service Details',
+    primaryCtaLink: '/home-business/notary-services/',
+    secondaryCtaText: 'Get Directions to 7554 Fredle Dr',
+    secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+    trustPoints: ['Always Staffed', 'Fast Walk-In Verification', 'Document Copying & Scanning on Site'],
+  },
+  'document-services': {
+    tagline: 'CONFIDENTIAL & FAST · RIGHT OFF ROUTE 44',
+    headline: 'Shredding, High-Res Scanning & Secure Fax Made Simple',
+    description: 'Clear out confidential paper clutter, digitize thick document bundles, or transmit critical records. Staffed walk-in counter with printed receipts and zero waiting in line.',
+    primaryCtaText: 'View Document Services',
+    primaryCtaLink: '/document-services-concord-township/',
+    secondaryCtaText: 'Get Directions to Counter',
+    secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+    trustPoints: ['Secure Document Destruction', 'High-Speed Page Scanning', 'Certified Fax Confirmations'],
+  },
+  'printing': {
+    tagline: 'LOCAL PRINT COUNTER · CRISP FINISHING',
+    headline: 'Copies, Flyers & Local Print Runs Handled by Real People',
+    description: 'From quick multi-page document copies to vibrant marketing flyers, EDDM postcards, and business materials. Fast turnarounds with clean precision and counter proofing.',
+    primaryCtaText: 'Explore Copy & Print Options',
+    primaryCtaLink: '/copy-print/',
+    secondaryCtaText: 'Get Directions to 7554 Fredle Dr',
+    secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+    trustPoints: ['High-Resolution Digital Print', 'Volume Tier Pricing', 'Full Cutting & Finishing'],
+  },
+};
+
+const content = CTA_DATA[category] || {
+  tagline: 'CONCORD TOWNSHIP · INDEPENDENT BUSINESS HUB',
+  headline: 'Done in Under 3 Minutes at 7554 Fredle Drive',
+  description: 'Independent multi-carrier shipping, private mailboxes, walk-in notary, and business services located right off Route 44 and Crile Road in Concord Township.',
+  primaryCtaText: 'Explore All Services',
+  primaryCtaLink: '/services/',
+  secondaryCtaText: 'Get Directions & Hours',
+  secondaryCtaLink: 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164',
+  trustPoints: ['Always Staffed', 'Easy Parking at Door', 'Minutes from Route 44 & I-90'],
+};
+---
+
+<aside class="mt-20 p-8 sm:p-10 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] rounded-2xl shadow-xl text-white relative overflow-hidden" aria-label="Take action at Mailbox Plus">
+  {/* Subtle decorative background ring */}
+  <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-white/5 pointer-events-none blur-2xl"></div>
+
+  <div class="relative z-10 max-w-2xl mx-auto text-center">
+    {/* Category Gold Tagline */}
+    <span class="inline-block px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-[var(--color-accent-gold)]/20 text-[var(--color-accent-gold)] border border-[var(--color-accent-gold)]/30 mb-4">
+      {content.tagline}
+    </span>
+
+    {/* Punchy Headline */}
+    <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+      {content.headline}
+    </h3>
+
+    {/* Subtitle / Value Proposition */}
+    <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-8">
+      {content.description}
+    </p>
+
+    {/* Two-Tone Action Buttons (One Gold Primary + One Outline Secondary) */}
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+      <a
+        href={content.primaryCtaLink}
+        class="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] font-bold shadow-md hover:bg-[var(--color-accent-gold-light)] hover:shadow-lg transition-all text-base"
+      >
+        {content.primaryCtaText}
+      </a>
+      <a
+        href={content.secondaryCtaLink}
+        target={content.secondaryCtaLink.startsWith('http') ? '_blank' : undefined}
+        rel={content.secondaryCtaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
+        class="inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base"
+      >
+        {content.secondaryCtaText}
+        {content.secondaryCtaLink.startsWith('http') && (
+          <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        )}
+      </a>
+    </div>
+
+    {/* Trust line */}
+    <div class="pt-6 border-t border-white/15 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-xs sm:text-sm text-white/70 font-medium">
+      {content.trustPoints.map((point) => (
+        <span class="inline-flex items-center gap-1.5">
+          <svg class="w-4 h-4 text-[var(--color-accent-gold)] flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+          </svg>
+          {point}
+        </span>
+      ))}
+    </div>
+  </div>
+</aside>
