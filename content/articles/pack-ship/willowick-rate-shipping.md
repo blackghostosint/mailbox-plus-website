@@ -16,7 +16,8 @@ keywords:
     'cheapest way to ship a package willowick',
     'willowick ohio pack and ship',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs', '/pack-ship/ups-authorized-shipper-outlet']
+relatedServices:
+  ['/pack-ship', '/pack-ship/package-drop-offs', '/pack-ship/ups-authorized-shipper-outlet']
 author: 'Mailbox Plus Team'
 ---
 
@@ -50,11 +51,11 @@ Shipping is one of the few purchases where the seller controls what you are allo
 
 Mailbox Plus is independent, and independence changes what the counter can do. We are not one carrier's franchise, so our screen is not one carrier's screen. We quote UPS, FedEx, USPS, and DHL for the same box — real rates for your actual dimensions, weight, destination, and delivery speed — and you pick. Sometimes the cheapest is the carrier whose store is three miles from your driveway. Sometimes it is not. The point is that you find out before you pay, not after.
 
-Willowick shippers make the drive for exactly this. The online seller with twenty packages a week who learned the "best" carrier changed depending on where the box was going — and stopped guessing. The parent shipping care packages to a college kid, who wanted the cheapest way to get there in four days, not the fastest way to overspend. The kinds of saves we watch happen are not exotic; they are what happens the moment a second rate appears on the screen. (We broke down how a [multi-carrier comparison](/pack-ship) actually works if you want the full picture.)
+Willowick shippers make the drive for exactly this. The online seller with twenty packages a week who learned the "best" carrier changed depending on where the box was going — and stopped guessing. The parent shipping care packages to a college kid, who wanted the cheapest way to get there in four days, not the fastest way to overspend. The kinds of saves we watch happen are not exotic; they are what happens the moment a second rate appears on the screen. (We broke down how a [multi-carrier comparison](/pack-ship/) actually works if you want the full picture.)
 
 ## How It Works
 
-1. **Bring in the box.** Packed or not — we can [pack it for you](/pack-ship/professional-packing) too. Tell us where it is going and when it needs to be there.
+1. **Bring in the box.** Packed or not — we can [pack it for you](/pack-ship/professional-packing/) too. Tell us where it is going and when it needs to be there.
 2. **We quote all four carriers.** UPS, FedEx, USPS, DHL, side by side, for your box. The comparison takes a minute at the counter, not an evening of your life.
 3. **You pick, we ship.** The label prints for the carrier you chose. If you want the cheapest, you get it. If you want the fastest, you get that — knowing what it costs next to the alternative.
 

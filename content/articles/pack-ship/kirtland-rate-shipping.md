@@ -51,7 +51,7 @@ You should be able to walk in with a box and watch every major carrier's real ra
 
 ## What We See Every Day
 
-At [Mailbox Plus](/pack-ship), 7554 Fredle Drive in Concord Township, we are independent. No franchise contract, no parent carrier we are obligated to sell. That independence is what lets us do the one thing the branded counters structurally cannot: weigh your box, run it against UPS, FedEx, USPS, and DHL, and put all four rates in front of you before you spend a dollar.
+At [Mailbox Plus](/pack-ship/), 7554 Fredle Drive in Concord Township, we are independent. No franchise contract, no parent carrier we are obligated to sell. That independence is what lets us do the one thing the branded counters structurally cannot: weigh your box, run it against UPS, FedEx, USPS, and DHL, and put all four rates in front of you before you spend a dollar.
 
 And Lake County shippers take advantage of it every week. The kinds of saves we watch happen: an eBay seller's padded envelopes that qualify for First-Class instead of Priority because the weight is under the threshold — often half the price for the delivery window she actually needed. A woodworker's 20-pound box that drops a full rate tier once it is repacked into a smaller cube. A heavy shipment split across two services because the rate math favors the split — the kind of comparison that can cover a month of shipping costs in one visit.
 
@@ -59,8 +59,8 @@ None of them changed what they ship. They changed which screen they were looking
 
 ## How It Works
 
-1. **Bring in the box — packed or not.** Ready to go, it goes straight on the scale. Needs packing, we pack it properly — the right box is often the cheapest upgrade you can buy. See our [professional packing](/pack-ship/professional-packing) options.
-2. **We run all four carriers.** UPS, FedEx, USPS, DHL — real rates for your package's actual weight and dimensions, side by side, while you watch. If you want to understand what goes into the number, our [multi-carrier strategy guide](/articles/multi-carrier-shipping-strategy) breaks it down.
+1. **Bring in the box — packed or not.** Ready to go, it goes straight on the scale. Needs packing, we pack it properly — the right box is often the cheapest upgrade you can buy. See our [professional packing](/pack-ship/professional-packing/) options.
+2. **We run all four carriers.** UPS, FedEx, USPS, DHL — real rates for your package's actual weight and dimensions, side by side, while you watch. If you want to understand what goes into the number, our [multi-carrier strategy guide](/articles/multi-carrier-shipping-strategy/) breaks it down.
 3. **You pick. Ship. Done.** We print the label, your package goes out with the carrier you chose, and you leave having picked the best price instead of the only one offered.
 
 (If you ever want to sanity-check a quote yourself, the [USPS postage price calculator](https://postcalc.usps.com/) and [FedEx's rating tool](https://www.fedex.com/en-us/online/rating.html) are free and public — though neither will show you the other three carriers on the same screen. That comparison is what we are for.)
