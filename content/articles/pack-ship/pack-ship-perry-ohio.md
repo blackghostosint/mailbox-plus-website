@@ -1,6 +1,6 @@
 ---
 title: "Perry: The 30-Mile Shipping Trip You Don't Have to Make"
-description: 'Skip the 30-mile round trip to a franchise store. Mailbox Plus in Concord Township shows you rates from all 4 carriers — the best price every time, 15 minutes from Perry.'
+description: 'The nearest single-carrier counter is a 30-mile round trip from Perry. Mailbox Plus in Concord Township is 11 miles away and shows you UPS, FedEx, USPS, and DHL rates side by side.'
 slug: 'pack-ship-perry-ohio'
 category: 'pack-ship'
 intentKey: 'pack-ship-perry-ohio'
@@ -15,44 +15,80 @@ relatedServices:
 author: 'Mailbox Plus Team'
 ---
 
-# Perry: The 30-Mile Shipping Trip You Don't Have to Make
+## You Know the Trip Before You Make It
 
-![A rural road with a highway sign pointing toward Concord Township](articles/pack-ship/pack-ship-perry-ohio-featured.webp)
+You ship packages from Perry, and you already know the routine. The post office on Center Road is a walk-in window with a small lobby — fine for stamps and letters, but the line forms early on Saturdays and closes at noon. The nearest staffed franchise counter that quotes UPS is a franchise store on Mentor Avenue. The nearest FedEx-owned counter is another stretch of Mentor Avenue east of it. Every real shipping decision you make starts with twenty-some minutes of driving.
 
-You live in Perry. You need to ship a package.
+It should not work that way. Shipping a box should be a two-minute errand at a counter close to home, where you see what the shipment actually costs instead of accepting the one price you were shown.
 
-The closest UPS Store is in Mentor, the closest FedEx office is in Mentor, the post office in Perry has lines that snake past the PO box wall on a Tuesday afternoon. So you get in the car. You drive 15 miles north on Route 44. You spend 20 minutes in line at a franchise counter that only shows you their carrier's rate. You drive 15 miles back.
+That is what happens at Mailbox Plus in Concord Township — an independent counter about 11 miles from Perry that shows you UPS, FedEx, USPS, and DHL rates side by side, and lets you pick. Here is how it works.
 
-That is 30 miles. That is an hour of your afternoon. That is the Franchise Markup — the quiet, accepted cost of living in an outlying Lake County town where the nearest shipping counter is a single-carrier franchise owned by a corporate brand that marks up the sticker price.
+## The Franchise Markup
 
-And you know what they are doing. The rate they quoted you is not the rate your neighbor who shipped the same box with the same weight through a different carrier paid. But you don't have time to drive to three different stores to compare.
+Call the mechanism what it is: the Franchise Markup. Not a scam — a business model, operating in plain sight.
 
-## Why the Franchise Store is Quiet About Your Options
+A franchise shipping store signs a contract with one carrier. That contract decides what the clerk's screen can show you, and what it can show you is that carrier's retail rate. If another carrier would carry your box across the country for noticeably less, that number does not exist inside the store. You cannot compare rates you are never shown.
 
-Single-carrier franchise stores have one job: sell their parent brand's service. They do not put a screen in front of you that says "UPS would charge $12.50 for this, but FedEx would do it for $9.80." They do not show you that [USPS ground](/pack-ship/) is the cheapest option for a 5-pound box going 300 miles. They show you their rate. You pay it. They keep the markup.
+The math only works because of where you live. A franchise store puts one logo on the counter and charges franchise rates. You, standing in Perry with a box in your hands, are a captive customer: the alternative is a long drive to a different logo, so most people pay the number on the screen. The markup is not hidden. It is simply never compared against anything.
 
-The system works because it assumes you are in a hurry. It assumes you will not walk out and drive to the competitor down the street. And you don't. Because you drove 15 miles to get there.
+And the nearest comparison is genuinely far. From Perry, reaching the staffed single-carrier counters means driving to Mentor — about 15 miles to the UPS franchise store on Mentor Avenue, and about 14 to the FedEx Office on Mentor Avenue — roughly a 30-mile round trip once you have driven to one, found its rate wanting, and driven to the other.
 
-## All Four Rates, One Counter
+## What It Actually Feels Like
 
-At **Mailbox Plus** in Concord Township, there is no corporate parent demanding a markup. Every time you walk up to the counter with a package, we show you the rates from all four carriers side by side.
+You put the box on the counter. The clerk weighs it, types, and turns the screen around. One number.
 
-[FedEx](/pack-ship/fedex-shipping/). [UPS](/pack-ship/ups-authorized-shipper-outlet/). USPS. DHL. You see the price for each. You pick the one that makes sense for your budget and your timeline.
+You ask — because you always ask — whether that is the cheapest way. The answer is a version of "that's our rate." There is no second number on the screen to argue with. There is no screen with four numbers anywhere in the building.
 
-It takes thirty seconds. No extra stop. No second trip. Just a screen with the numbers and you choose.
+So you pay it. And on the drive home, the thought that stays with you is not about the box. It is about the principle: you suspect the same box, weighed the same way, carried by a different carrier, had a different price — and you will never know, because nobody puts the options side by side.
 
-## What That Means for Perry
+If you ship a few packages a month, it is a small stone in your pocket. If you ship for a small business every week, the stone has a dollar figure on it that grows all year.
 
-Perry is 15 minutes from Concord Township. That is the same drive you are already making to Mentor — except when you drive to Mailbox Plus, you get real carrier choice at the counter, not a single-captive screen with a hidden markup.
+## Why It Should Not Be This Way
 
-You ship a heavy box to California twice a month. [UPS](/pack-ship/ups-authorized-shipper-outlet/) is cheaper for heavy residential. You know that now because we showed you. You ship fragile items to your daughter at college once a month. [FedEx](/pack-ship/fedex-shipping/) is faster and has better tracking at the same price. You saw that too.
+The rates are not secret. The postal service publishes a full retail [price calculator](https://postcalc.usps.com/) on its own website. FedEx runs a public [rate quote tool](https://www.fedex.com/en-us/online/rating.html). UPS will quote a package on its site. Every number exists — it is just scattered across four websites you would have to visit from your kitchen, guessing at weights and zones, while the actual box sits by the door.
 
-Over the course of a year, seeing all four rates on one screen saves you real money. The [USPS postage price calculator](https://postcalc.usps.com/) will tell you the government rate. [FedEx's rate calculator](https://www.fedex.com/en-us/rates) shows their ground and express pricing. We show you both — and the other two — at the same time.
+There is no technical reason you cannot see all four rates at once, on one screen, while the box is on the scale. The only thing between you and that screen is a business model that prefers you see one.
 
-## Stop Driving Past the Better Option
+You should be able to look at the whole board before you pay. That is not a luxury feature. That is what "buying a service" means everywhere else in your life.
 
-You are driving 30 miles round trip to pay more than you should at a counter that does not tell you the full story. Mailbox Plus is at 7554 Fredle Drive in Concord Township. It is 15 minutes from Perry. It is the same drive you are already making — but when you arrive, you get every carrier, every rate, and zero franchise markup.
+## What We See Every Day
 
-Stop making the long trip for a single-carrier quote.
+Mailbox Plus sits at 7554 Fredle Drive in Concord Township — an independent, owner-operated counter, not a franchise. Independence is the mechanism here, not a slogan: we are an authorized [FedEx ShipCenter](/pack-ship/fedex-shipping/), a [UPS Authorized Shipper](/pack-ship/ups-authorized-shipper-outlet/), a USPS provider, and a DHL Service Point, all at the same address, and because no carrier owns us, nothing stops us from showing you all four.
 
-[Visit Mailbox Plus today](/contact-us/). Bring your package. See all four rates. Pick the best one.
+Perry neighbors come down Route 44 with boxes bound for their kids at college, their eBay buyers, their customers out of state. We put the box on the scale, type the destination, and turn the screen around: UPS, FedEx, USPS, and DHL, side by side, with delivery estimates. You pick the rate that fits your budget and your deadline. We print the label.
+
+Because we ship through every carrier daily, we also see the things a single-carrier screen never volunteers — like when a residential surcharge makes the "cheap" option expensive, or when a slightly smaller box drops the price a whole service tier. That advice costs you nothing, because we do not care which carrier wins. You do.
+
+## How It Works
+
+1. **Bring the box in.** Packed, half-packed, or not packed at all — we handle all three at the counter, from a [basic pack job](/pack-ship/) to full fragile packing.
+2. **We weigh it and show you all four rates.** UPS, FedEx, USPS, and DHL side by side on one screen, with delivery estimates. Real numbers, while the box is on the scale.
+3. **You pick one and walk out.** We print the label, the carrier picks up from our dock, and tracking updates once the carrier scans and moves the box.
+
+That is the whole process. One counter instead of a 30-mile circuit.
+
+## What You Lose by Not Acting
+
+**Money.** Every shipment through a one-rate counter is a price you accepted, not a price you chose. Ship ten packages a week and even a small per-box difference compounds into hundreds of dollars a year — and occasionally the difference is not small, because USPS Ground Advantage or DHL was dramatically cheaper for that specific weight and zone and nobody showed you.
+
+**Time.** The comparison trip to Mentor is 30 miles round trip before you have compared anything. Do that twice a month and you have spent a full workday of your year driving to counters that were each only allowed to show you one answer.
+
+**Certainty.** A price you could not compare is a price you cannot trust. You are left doing rate math on your phone at the kitchen table, guessing at weights and zones, while the actual box — the one thing that would make the numbers real — sits out in the car.
+
+Every week you keep accepting the single number, the old system keeps its cut. It does not get fairer on its own.
+
+## Your Afternoon After the Change
+
+Here is the same shipment, rerouted.
+
+You take Route 44 south out of Perry and pick up the ridge roads west — it is about 11 miles to 7554 Fredle Drive, roughly 15 to 20 minutes. You turn onto Fredle Drive, park by the door, and carry the box in.
+
+It goes on the scale. The screen turns around, and there they are — four carriers, four rates, four delivery estimates, side by side. You point at the one that fits. Label printed, box scanned, receipt in hand, back in the car with the errand done and certainty you did not overpay.
+
+No 30-mile loop. No one-number screen. Just the whole board, and your pick.
+
+## Bring It In
+
+Bring your next box to Mailbox Plus, 7554 Fredle Drive, Concord Township, OH 44077 — about 11 miles from Perry via SR-44 and the ridge roads. We are open Monday through Friday 9 AM to 6 PM and Saturday 9 AM to 2 PM, and you can call 440-709-1946 before you drive out.
+
+Walk in. See all four rates. Pick your price.
