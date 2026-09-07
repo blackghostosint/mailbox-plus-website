@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCta from '../../components/ArticleCta.astro';
 import { articleLoader } from '../../utils/articleLoader';
 import { marked } from 'marked';
 import { getArticleSchema, getWebPageSchema } from '../../utils/schema';
@@ -174,21 +175,8 @@ const webPageSchema = getWebPageSchema(siteConfig, {
         </div>
       )}
 
-      {/* Bottom CTA - Navy Gradient */}
-      <div class="mt-20 p-8 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] rounded-2xl shadow-xl text-center text-white">
-        <h3 class="text-2xl font-bold mb-4">Have Questions?</h3>
-        <p class="text-white/80 mb-8 max-w-xl mx-auto">
-          Stop by our location in Concord Township or give us a call. We're here to help with all your shipping and printing needs.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/contact-us/" class="px-6 py-3 rounded-lg bg-[var(--color-accent-warm)] text-[var(--color-primary-dark)] font-semibold border-none hover:bg-[var(--color-accent-warm-light)] transition-colors">
-            Contact Us
-          </a>
-          <a href="/services/" class="px-6 py-3 rounded-lg border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-semibold hover:bg-[var(--color-accent-warm)] hover:text-[var(--color-primary-dark)] transition-colors">
-            View All Services
-          </a>
-        </div>
-      </div>
+      {/* Bottom CTA - Dynamic Category-Aware Component */}
+      <ArticleCta category={category} slug={slug} />
 
       {/* Back to Articles */}
       <div class="mt-12 pt-8" style="border-top: 1px solid var(--color-border)">
