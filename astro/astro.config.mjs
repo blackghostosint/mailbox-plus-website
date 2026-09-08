@@ -65,8 +65,8 @@ export default defineConfig({
         // item.url is the full URL; /articles/<slug>/ entries get their
         // frontmatter date as lastmod. Non-articles serialize unchanged.
         try {
-          const u = new URL(item.url);
-          const iso = articleDates.get(u.pathname);
+          const pathname = item.url.replace(/^https?:\/\/[^/]+/, '');
+          const iso = articleDates.get(pathname);
           if (iso) return { ...item, lastmod: iso };
         } catch { /* fall through */ }
         return item;
