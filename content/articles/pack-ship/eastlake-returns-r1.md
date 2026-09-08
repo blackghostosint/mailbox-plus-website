@@ -30,9 +30,13 @@ The villain here isn't any single store. It's the way online returns are built: 
 
 So the system quietly converts one errand into three. Each carrier wants its packages handed back on its own terms: this one at a staffed counter, that one at a drop box, this one only at "authorized" locations. Miss the fine print and your return doesn't scan, the tracking never updates, and your refund sits in limbo while you drive a second loop across Lake County. You didn't do anything wrong. You just ordered from three different stores, and three different stores each handed you a different chore.
 
+And here's the part nobody admits: the retailers know. The return policy page promises a "hassle-free" refund, but the footnote routes you to whichever carrier negotiated the cheapest return rate — not whichever one has a counter near your house. The carrier, meanwhile, sells drop-off access as a premium: staffed counters, authorized outlets, account requirements. Every player in the chain optimized its own piece, and the seams between the pieces landed on your driveway. The runaround isn't a bug one company could fix. It's what happens when nobody owns the last mile of your refund.
+
 ## What It Actually Feels Like
 
 You're doing the mental math in the driveway. You pull up to the UPS counter, then the FedEx drop-off, then the post office — three stops, three parking lots, three lines. It's holding a box up to a clerk and hearing "we can't take that here" for the third time in one afternoon. It's checking the return window on your phone in the school pickup lane, calculating whether Tuesday's loop can wait until Thursday. It's a garage bay where the return pile slowly migrates toward the car and never quite makes it.
+
+And it compounds. The first box sat by the door for two days because the UPS errand alone wasn't worth the drive. Then the boots arrived. Then the shelf brackets. One unreturned package makes the second one easier to ignore, and by the third, the pile has its own gravity. You're not lazy — every single one of those returns has a plan. The plan just needs three separate car trips that you keep hoping will merge into one.
 
 ## Why It Should Not Be This Way
 
@@ -41,6 +45,17 @@ You already paid for the return. The label is paid postage — the carrier's job
 ## What We See Every Day
 
 At Mailbox Plus, at 7554 Fredle Drive in Concord Township, we're an independent shipping counter — not a single-carrier franchise — and we take prepaid return labels for UPS, FedEx, and USPS at the same register — DHL too, per our [DHL drop-off service](/dhl-drop-off-eastlake/). The same counter is also a UPS Authorized Shipper Outlet and FedEx ShipCenter, which is why labels that get refused elsewhere scan here. Most days we watch someone come in juggling two or three boxes from different retailers and walk out two minutes later with everything scanned and a receipt for each. We're about 22 minutes from Eastlake — one counter instead of three stops.
+
+## The Comparison
+
+Say the honest thing first: a single-carrier drop-off works fine when everything you own comes from one store. If every label in your house says UPS, the UPS counter solves your problem and you should go there. This article is for the other situation — the one most households are actually in — where the labels disagree.
+
+- **The dedicated UPS counter** takes your Amazon return in ninety seconds and then points your FedEx box back out the door.
+- **The FedEx drop-off point** is often an unstaffed kiosk inside another retailer, with size limits and no receipt beyond what the box's label promises.
+- **The post office** takes the USPS label but puts you in the line that also serves passports, money orders, and every stamp purchase in the township.
+- **One multi-carrier counter** takes all three in the time it takes the single-carrier stop to take one — and hands you a separate receipt for each scan.
+
+That's the whole trade. You're not getting a discount on the postage; the postage is already paid. You're buying back the second and third errand.
 
 ## How It Works
 
