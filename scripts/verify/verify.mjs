@@ -180,8 +180,15 @@ function cmdArticle(arg, asJson) {
   const rel = data.relatedServices || [];
   if (Array.isArray(rel)) {
     const bad = rel.filter((r) => typeof r === 'string' && r.length > 1 && !r.endsWith('/'));
-    // Renderer normalizes (normalizePathname) and CI passes on the existing corpus — advisory, not a gate.
-    if (bad.length) check('frontmatter:relatedServices-slash', true, `non-canonical (advisory): ${bad.join(', ')}`);
+    // Trailing slashes are the site convention (FRANK RULE: canonical trailing-slash links mandatory).
+    // Renderer normalizes so CI passes on legacy entries, but new articles gate hard under --strict.
+    if (bad.length === 0) {
+      check('frontmatter:relatedServices-slash', true, 'all canonical');
+    } else if (process.argv.includes('--strict')) {
+      check('frontmatter:relatedServices-slash', false, `non-canonical: ${bad.join(', ')}`, 'add trailing slashes — canonical form required');
+    } else {
+      check('frontmatter:relatedServices-slash', true, `non-canonical (advisory in non-strict): ${bad.join(', ')}`);
+    }
   }
 }
 
