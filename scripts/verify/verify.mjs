@@ -175,6 +175,11 @@ function cmdArticle(arg, asJson) {
   const words = content.split(/\s+/).filter(Boolean).length;
   check('content:word-count', words >= 400 && words <= 5300, `${words} words (workflow target 1200-4000)`, 'article body out of publishable range');
 
+  // 8b) robots — BaseLayout defaults to index,follow; articles only risk noindex via explicit status
+  const status = String(data.status || 'published').toLowerCase();
+  check('meta:robots', status !== 'draft-noindex', `status='${status}' → index,follow (BaseLayout default)`,
+    'set status: published unless intentionally excluding from search');
+
   // 9) relatedServices canonical form — the renderer normalizes via normalizePathname(), but the
   // CI href-slash gate scans built HTML; keep source canonical (trailing slash) to match the site convention.
   const rel = data.relatedServices || [];
@@ -197,12 +202,69 @@ const [cmd, ...rest] = process.argv.slice(2);
 const asJson = rest.includes('--json');
 const arg = rest.find((r) => !r.startsWith('--'));
 
+function cmdBuild() {
+  let before;
+  try { before = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim(); } catch { before = '0'; }
+  try {
+    execSync('npm run build', { cwd: ROOT, stdio: 'inherit', timeout: 600000 });
+  } catch (e) {
+    check('build', false, 'npm run build failed', 'fix build errors first');
+    return;
+  }
+  const after = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim();
+  check('build', true, `page count: ${before} → ${after}`);
+}
+
+function cmdSitemap(expectPath) {
+  const sm = path.join(ROOT, 'dist', 'sitemap-0.xml');
+  if (!fs.existsSync(sm)) {
+    check('sitemap', false, 'dist/sitemap-0.xml missing — run build first', 'npm run build');
+    return;
+  }
+  const xml = fs.readFileSync(sm, 'utf8');
+  if (expectPath) {
+    const url = `https://mailboxplusohio.com/${expectPath.replace(/^\/+/, '')}`;
+    const found = xml.includes(url);
+        if (found) {
+      check('sitemap:contains', true, url);
+    } else {
+      // article slugs route under /articles/<slug>/ regardless of content folder — try that form
+      const slug = path.basename(expectPath.replace(/\/+$/, ''));
+      const alt = `https://mailboxplusohio.com/articles/${slug}/`;
+      if (xml.includes(alt)) {
+        check('sitemap:contains', true, `${alt} (article route)`);
+      } else {
+        check('sitemap:contains', false, `${url} NOT in sitemap (also tried ${alt})`, 'route not generated — check slug/filename');
+      }
+    }
+  } else {
+    const n = (xml.match(/<loc>/g) || []).length;
+    check('sitemap', true, `${n} URLs in sitemap`);
+  }
+}
+
 if (cmd === 'doctor') {
   cmdDoctor();
 } else if (cmd === 'article' && arg) {
   cmdArticle(arg, asJson);
+} else if (cmd === 'build') {
+  cmdBuild();
+} else if (cmd === 'sitemap') {
+  cmdSitemap(arg);
+} else if (cmd === 'seo-gates') {
+  // Shell to the CI's own gates — one command, no logic duplication
+  for (const script of ['seo:check-href-slash', 'seo:check-canonical', 'seo:check-jsonld', 'seo:check-routes']) {
+    try {
+      execSync(`npm run ${script}`, { cwd: ROOT, stdio: 'pipe', timeout: 300000 });
+      check(script, true, 'pass');
+    } catch (e) {
+      const out = (e.stdout || e.stderr || '').toString();
+      const firstFail = out.split('\n').find((l) => l.includes('FAIL')) || `${script} failed`;
+      check(script, false, firstFail.trim().slice(0, 160), 'run npm run ' + script + ' for full output');
+    }
+  }
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path>> [--json]');
+  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|build|sitemap [path]|seo-gates> [--json]');
   process.exit(2);
 }
 
