@@ -95,7 +95,7 @@ Three steps, and you do not need to buy a roll of bubble wrap or keep shipping b
 
 ## Your Saturday After the Change
 
-Ten minutes. That is what it takes at our counter on Fredle Drive, just off Route 306 — you walk in with the vase still wrapped in the beach towel you grabbed on the way out, and you walk out with it as the middle item of a three-layer structure: bubble and foam around the piece, a rigid inner carton, measured cushioning between that and a double-wall outer box, every seam taped, duplicate label inside, "Fragile" marked, declared value on the receipt.
+Ten minutes. That is what it takes at our counter on Fredle Drive, just off Crile Road, minutes from SR-44 and I-90 — you walk in with the vase still wrapped in the beach towel you grabbed on the way out, and you walk out with it as the middle item of a three-layer structure: bubble and foam around the piece, a rigid inner carton, measured cushioning between that and a double-wall outer box, every seam taped, duplicate label inside, "Fragile" marked, declared value on the receipt.
 
 You are back in the car before the coffee goes cold. No tape gun, no half-finished roll of bubble wrap in your trunk, no two-week claim window in your future — because the box was built to the standard before it ever entered the network. If the buyer texts you in six days, you will be texting back "it's there — let me know it arrived in one piece," and meaning it.
 

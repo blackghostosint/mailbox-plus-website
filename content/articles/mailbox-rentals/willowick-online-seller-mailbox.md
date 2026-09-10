@@ -55,7 +55,7 @@ At Mailbox Plus, 7554 Fredle Drive in Concord Township, we set up sellers like y
 
 The address you get is a real street address, not a box number — one that accepts mail and packages from USPS, UPS, FedEx, and DHL alike. Whether a marketplace mails your customer's return by Ground, or a supplier ships a pallet-sized carton by freight, it lands at our counter, behind a staffed front desk, not on your porch. And because we are multi-carrier at the same counter, you can drop your outbound shipments at the same stop where your inbound mail is waiting.
 
-We know the drive from Willowick — you probably already come down Lakeland Boulevard or over to Route 306 for errands, and we sit about 24 minutes out on Fredle Drive. You are not making a special pilgrimage. You are adding one practical stop to a drive you already make.
+We know the drive from Willowick — you probably already come down Lakeland Boulevard and out Route 20 for errands, and we sit about 24 minutes out on Fredle Drive. You are not making a special pilgrimage. You are adding one practical stop to a drive you already make.
 
 ## How It Works
 
@@ -81,6 +81,6 @@ On your way back from the lake or an errand, you swing by the store, park, and g
 
 ## Bring It In
 
-Come by Mailbox Plus at 7554 Fredle Drive in Concord Township — about 24 minutes from Willowick via Lakeland Boulevard and Route 306 — or call ahead and we will have the paperwork ready so setup takes minutes, not an afternoon. Bring your ID, pick your box, and ship your next order without your street address on it.
+Come by Mailbox Plus at 7554 Fredle Drive in Concord Township — about 24 minutes from Willowick via Lakeland Boulevard and Route 20 — or call ahead and we will have the paperwork ready so setup takes minutes, not an afternoon. Bring your ID, pick your box, and ship your next order without your street address on it.
 
 Sources and standards referenced: USPS Domestic Mail Manual 508, section 1.8 (Commercial Mail Receiving Agencies), https://pe.usps.com/text/dmm300/508.htm; USPS PO Box and Street Addressing guidance, https://www.usps.com/manage/po-boxes.htm.

@@ -1,6 +1,6 @@
 ---
 title: 'You Live in Kirtland Hills. You Need a Stamp. The Post Office Line Is Out the Door.'
-description: 'The post office near Kirtland Hills has a line. Mailbox Plus sells stamps at the counter — same price, no line, 5 minutes down Route 306.'
+description: 'The post office near Kirtland Hills has a line. Mailbox Plus sells stamps at the counter — same price, no line, 5 minutes off Crile Road.'
 slug: 'kirtland-hills-stamps'
 category: 'pack-ship'
 intentKey: 'kirtland-hills-stamps'

@@ -82,7 +82,7 @@ And if you're an Ohio full-timer — if Ohio is where you vote, where your docto
 
 ## How It Works
 
-Mailbox Plus is at **7554 Fredle Drive in Concord Township**, right off I-90 and Route 306. We're a registered Commercial Mail Receiving Agency, which is the legal setup that lets us give you a real street address — **7554 Fredle Drive, # your box number, Concord Township, OH 44077** — instead of a PO box number. Setting it up takes about ten minutes:
+Mailbox Plus is at **7554 Fredle Drive in Concord Township**, just off Crile Road, minutes from SR-44 and I-90. We're a registered Commercial Mail Receiving Agency, which is the legal setup that lets us give you a real street address — **7554 Fredle Drive, # your box number, Concord Township, OH 44077** — instead of a PO box number. Setting it up takes about ten minutes:
 
 1. **Walk in** with two forms of ID — a driver's license and a credit card, for example.
 2. **Fill out USPS Form 1583** — the same standard form every licensed mailbox service uses. Once, at the counter, with a human.

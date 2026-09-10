@@ -66,7 +66,7 @@ You, the small business owner in Chardon, the busy professional with a deadline,
 
 At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, just a short, easy 15-minute drive from Chardon via Route 44 South, we see this scene play out every single day. We see the frantic expressions, the rushed apologies, the palpable relief when someone realizes they've found a genuine solution. We hear the stories of the printer blackouts, the failed cartridges, the missed deadlines that were almost missed.
 
-We are not another corporate chain. We are your neighbors, an independent, fully staffed solution, deeply rooted in the community. You can easily find us right off Route 306, a quick turn that brings you directly to our front door. Unlike the maze of a big-box store or the unpredictable hours of a public library, our doors are open, our staff is ready, and our machines are always in prime working condition.
+We are not another corporate chain. We are your neighbors, an independent, fully staffed solution, deeply rooted in the community. You can easily find us just off Crile Road, minutes from SR-44 and I-90, a quick turn that brings you directly to our front door. Unlike the maze of a big-box store or the unpredictable hours of a public library, our doors are open, our staff is ready, and our machines are always in prime working condition.
 
 We don’t just offer printing; we offer peace of mind. While we are well-known as a comprehensive shipping hub – offering all major carriers like UPS, FedEx, USPS, and DHL, ensuring your packages get where they need to go, reliably and without hassle – our document printing services are a quiet revelation for many. We are always staffed by knowledgeable, friendly faces who understand that your time is valuable.
 
@@ -126,7 +126,7 @@ Mailbox Plus offers a secure, private environment for your printing needs. Your 
 
 Imagine this alternate reality. The microwave clock still blazes 10:28 AM, but this time, the rising panic is replaced by a calm, confident plan. Your printer at home or your small Chardon office still flashes "Ink Level Low," but you simply shrug. It’s an inconvenience, yes, but no longer a crisis.
 
-You grab your USB drive (or just open your email on your phone). You hop in your car, not with a sense of dread, but with quiet efficiency. You head south on Route 44, passing familiar Chardon landmarks, the early morning light playing on the last remnants of winter snow. The drive is peaceful, just under 15 minutes, down towards Concord Township. You turn off Route 306 onto Fredle Drive, a quick, easy turn, and pull into the Mailbox Plus parking lot. There are plenty of spaces available.
+You grab your USB drive (or just open your email on your phone). You hop in your car, not with a sense of dread, but with quiet efficiency. You head south on Route 44, passing familiar Chardon landmarks, the early morning light playing on the last remnants of winter snow. The drive is peaceful, just under 15 minutes, down towards Concord Township. You turn off Auburn Road onto Fredle Drive, a quick, easy turn, and pull into the Mailbox Plus parking lot. There are plenty of spaces available.
 
 You walk inside. The air is warm and inviting, a welcome contrast to the still-chilly Chardon air. A friendly face behind the counter greets you. You walk straight up, no line, no waiting. "Good morning," you say, "I just need this report printed, double-sided, color please." You hand over your USB drive.
 

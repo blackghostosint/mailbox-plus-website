@@ -48,7 +48,7 @@ The expectation of care for valuable items is not a luxury; it's a right. When y
 
 ## What We See Every Day
 
-At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, just a short, easy 15-minute drive south of Chardon down Route 44 and a quick turn onto Route 306, we see this struggle every single day. We see the relief in people’s eyes when they realize there’s a better way. We are not a corporate franchise bound by rigid, indifferent protocols. We are your independent, fully staffed, reliable alternative right here in your community.
+At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, just a short, easy 15-minute drive south of Chardon down Route 44 and a quick turn onto Auburn Road, we see this struggle every single day. We see the relief in people’s eyes when they realize there’s a better way. We are not a corporate franchise bound by rigid, indifferent protocols. We are your independent, fully staffed, reliable alternative right here in your community.
 
 For years, we’ve been the trusted hub for residents and businesses across Northeast Ohio. We understand that shipping isn't a one-size-fits-all solution. That's why we offer a comprehensive suite of services designed with _your_ needs in mind, especially for those high-value, fragile items that national carriers treat with such dismissive indifference.
 
@@ -65,7 +65,7 @@ When you walk into Mailbox Plus, you're not just walking into a shipping store; 
 
 We believe that peace of mind should be simple, not complicated. Shipping your fragile, high-value item with Mailbox Plus follows a process so straightforward, you’ll wonder why you ever did it any other way. We've distilled it down to three effortless steps:
 
-1.  **Walk In:** No appointment needed. No calling ahead to see if "the packing guy" is in. Just gather your item – whether it's the ceramic vase, the painting, the camera gear, or whatever precious cargo you need to send – and drive the short distance from Chardon. You’ll find our location at 7554 Fredle Drive in Concord Township, just off Route 306, easily accessible and with ample parking.
+1.  **Walk In:** No appointment needed. No calling ahead to see if "the packing guy" is in. Just gather your item – whether it's the ceramic vase, the painting, the camera gear, or whatever precious cargo you need to send – and drive the short distance from Chardon. You’ll find our location at 7554 Fredle Drive in Concord Township, just off Crile Road, minutes from SR-44 and I-90, easily accessible and with ample parking.
 2.  **Put It On The Counter:** Bring your item to our counter. That’s it. You don't need to have it pre-boxed, pre-wrapped, or even pre-thought-out. Our expert staff will greet you, assess the item, and discuss the best packing and shipping options. We’ll handle all the professional packing, ensuring it’s double-boxed, cushioned meticulously, and labeled appropriately with clear "FRAGILE" indicators. We’ll compare carrier rates (UPS, FedEx, USPS, DHL) to find the perfect fit for your needs and budget. We'll even prepare the labels and paperwork.
 3.  **Walk Out. Done.** In under three minutes from the moment we have your item and your shipping instructions, you'll be walking out our door. Your package, professionally packed and securely labeled, will be ready to enter the shipping system with the utmost care. You’ll leave with a receipt, a tracking number, and, most importantly, a profound sense of relief. The anxiety that knotted your stomach will be replaced by the quiet confidence of knowing your valuable item is in the best possible hands. You can then track its journey with confidence, knowing it was prepared the right way from the start.
 
@@ -108,7 +108,7 @@ When you weigh these three profound losses – your irreplaceable time, your har
 
 Imagine this: It’s a bright, clear afternoon. The sun is shining over Chardon, perhaps casting long shadows from the trees near the square. You have that delicate ceramic vase, or that cherished painting, or your expensive camera equipment nestled securely in your passenger seat. But this time, there’s no dread, no knot in your stomach. There’s a quiet confidence.
 
-You drive south from Chardon, the familiar landscape of Route 44 passing by. In just about 15 minutes, you take the easy turn onto Route 306, then right onto Fredle Drive. Our sign for Mailbox Plus at 7554 Fredle Drive welcomes you. You pull into a convenient parking spot, the whole process feeling effortless.
+You drive south from Chardon, the familiar landscape of Route 44 passing by. In just about 15 minutes, you take Route 44 to Auburn Road, then right onto Fredle Drive. Our sign for Mailbox Plus at 7554 Fredle Drive welcomes you. You pull into a convenient parking spot, the whole process feeling effortless.
 
 You walk inside. Our clean, welcoming space immediately feels different from the frantic, impersonal atmosphere of other shipping places. You approach the counter, place your item down, and explain what you need. Our professional, friendly staff takes over immediately. They handle your item with the respect it deserves, discussing the best packing materials and carrier options. They expertly double-box it, surround it with custom cushioning, and apply the "FRAGILE" labels with deliberate care. The entire interaction is efficient, informed, and reassuring.
 

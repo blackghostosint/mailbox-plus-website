@@ -54,7 +54,7 @@ The change of address order only changes your mailing address with the Post Offi
 
 ## What We See Every Day
 
-At Mailbox Plus at 7554 Fredle Drive in Concord Township — just off the Route 306 and State Route 84 corridor — we talk to movers at every stage of this. The couple moving from one end of the township to the other. The renter signing lease #3 since 2021, who had to explain to their boss that the W-2 went to a stranger's mailbox at the old apartment — and swore that would never happen again. The family that moved out to Lake County from Cuyahoga and is discovering, sender by sender, which companies still have their old address on file.
+At Mailbox Plus at 7554 Fredle Drive in Concord Township — just off the Crile Road and State Route 84 corridor — we talk to movers at every stage of this. The couple moving from one end of the township to the other. The renter signing lease #3 since 2021, who had to explain to their boss that the W-2 went to a stranger's mailbox at the old apartment — and swore that would never happen again. The family that moved out to Lake County from Cuyahoga and is discovering, sender by sender, which companies still have their old address on file.
 
 We are not the Post Office, and that is the point. We are an independent, registered commercial mail receiving agency — a real street address with a suite number, staffed by people, receiving mail and packages from USPS, UPS, FedEx, and DHL. When you rent a mailbox with us, your mailing address stops being tied to your house. You give the new address to your bank, your insurer, your employers, your subscriptions — one address, updated once — and it follows you to the next move, and the one after that, for as long as you keep it.
 
@@ -82,7 +82,7 @@ Three steps, and you can do all of them in one visit:
 
 Picture the next move — because statistically there will be one. There is no USPS form this time. There is no $1.25 fee, no two-week lag, no spreadsheet of senders, no wondering whether a statement rode in a Marketing Mail bundle that never forwards.
 
-You tell nobody, because your address did not change. Your bank statement, your packages, your periodicals — all of it lands at the same street address it did before, at 7554 Fredle Drive, and you pick it up on your way home down Route 306. The box of moving-day hardware still sits on the counter. Your mail is already where you are.
+You tell nobody, because your address did not change. Your bank statement, your packages, your periodicals — all of it lands at the same street address it did before, at 7554 Fredle Drive, and you pick it up on your way home down Crile Road. The box of moving-day hardware still sits on the counter. Your mail is already where you are.
 
 That is what the change-of-address form was supposed to feel like.
 

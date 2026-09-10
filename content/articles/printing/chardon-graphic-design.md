@@ -182,7 +182,7 @@ Let’s rewind to earlier in the week. You drove the easy 15 minutes from Chardo
 
 Now, today, the text arrived: "Your order is ready for pickup!"
 
-You take a leisurely drive back to Mailbox Plus. The drive down Route 306, turning onto Fredle Drive, feels different. There's no anxiety, no dread. Instead, there's a pleasant anticipation. You pull into the parking lot, step out of your car, and walk inside. The clock on the wall reads 9:52 AM.
+You take a leisurely drive back to Mailbox Plus. The drive down Crile Road, turning onto Fredle Drive, feels different. There's no anxiety, no dread. Instead, there's a pleasant anticipation. You pull into the parking lot, step out of your car, and walk inside. The clock on the wall reads 9:52 AM.
 
 You put your existing, old box of self-made business cards and faded flyers down on the counter. In exchange, you’re handed a beautifully packaged box of your _new_ business cards. They feel substantial, premium, in your hands. The colors are vibrant and true, the logo crisp and perfectly rendered, the typography elegant and readable. You also pick up a stack of your new flyers – a seamless design, professionally printed, ready to grab attention.
 
@@ -218,7 +218,7 @@ Bring your ideas, your rough sketches, your existing DIY attempts, or simply you
 
 **Walk out done.**
 
-Just 15 minutes from Chardon, right off Route 306 on Fredle Drive in Concord Township, Mailbox Plus is your local, one-stop solution for professional graphic design and high-quality printing services. We’re here to empower your brand, boost your credibility, and free up your precious time.
+Just 15 minutes from Chardon, just off Crile Road on Fredle Drive in Concord Township, Mailbox Plus is your local, one-stop solution for professional graphic design and high-quality printing services. We’re here to empower your brand, boost your credibility, and free up your precious time.
 
 Don't let another Maple Festival, another networking event, or another client interaction be diminished by materials that don’t do justice to your hard work. Elevate your brand today.
 

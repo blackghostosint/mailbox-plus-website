@@ -110,7 +110,7 @@ No account, no logins, no rate-shopping apps to learn, no spreadsheets. The comp
 
 ## Your Afternoon After the Change
 
-It is a Tuesday in mid-December. You have four boxes in the back of your car — two holiday orders, one birthday gift for your sister in Columbus, and one return. You pull off Route 306 onto Fredle Drive, park, and walk into Mailbox Plus.
+It is a Tuesday in mid-December. You have four boxes in the back of your car — two holiday orders, one birthday gift for your sister in Columbus, and one return. You pull off Crile Road onto Fredle Drive, park, and walk into Mailbox Plus.
 
 You put the boxes on the counter. In the time it takes to check your phone, you hear four options across the carriers, including this week's surcharge tables, and you pick the one that makes sense. The gift goes USPS flat rate — the cheapest option this week, arrives Friday. The shop orders go on the carrier that did not raise its demand fees this window. The return goes wherever its label says, one counter, no extra stops.
 

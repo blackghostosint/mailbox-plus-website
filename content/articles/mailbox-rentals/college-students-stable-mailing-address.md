@@ -98,7 +98,7 @@ What it does is solve the actual problem: **the address that keeps changing**. T
 
 ## The Local Math (It's Ridiculously Close)
 
-Mailbox Plus is in Concord Township, right off I-90 and Route 306 at 7554 Fredle Drive. For the two biggest campuses in Lake County, that's practically in the neighborhood:
+Mailbox Plus is in Concord Township, just off Crile Road, minutes from SR-44 and I-90 at 7554 Fredle Drive. For the two biggest campuses in Lake County, that's practically in the neighborhood:
 
 - **Lake Erie College** in Painesville (391 W Washington St) is about **4.5 miles** — roughly an **11-minute drive**.
 - **Lakeland Community College** in Kirtland (7700 Clocktower Dr) is about **9 miles** — roughly a **15-minute drive**.

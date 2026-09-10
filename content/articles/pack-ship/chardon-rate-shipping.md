@@ -60,7 +60,7 @@ Shipping, fundamentally, is a service. A service should adapt to the customer's 
 
 Every single day, customers just like you, driving from Chardon, Montville, Claridon, and beyond, walk through our doors at Mailbox Plus. They arrive with that familiar look of quiet resignation, clutching their packages, ready to accept whatever rate we show them, bracing for the usual limited options. And every single day, we get to witness their transformation when we show them something truly revolutionary: all their options, laid out clearly on one screen.
 
-We are Mailbox Plus, located at 7554 Fredle Drive in Concord Township. We’re not a franchise tied to one carrier. We’re an independent, fully staffed, reliable partner for all your shipping needs, and we’re just a short, pleasant 15-minute drive south from Chardon Square, easily accessible down Route 44, turning onto Route 306. You'll pass rolling hills, maybe some sugar maples standing tall, and before you know it, you're here.
+We are Mailbox Plus, located at 7554 Fredle Drive in Concord Township. We’re not a franchise tied to one carrier. We’re an independent, fully staffed, reliable partner for all your shipping needs, and we’re just a short, pleasant 15-minute drive south from Chardon Square, easily accessible down Route 44, turning onto Auburn Road. You'll pass rolling hills, maybe some sugar maples standing tall, and before you know it, you're here.
 
 At Mailbox Plus, we are built on a simple, yet powerful, philosophy: you deserve choice and transparency. That’s why we partner with all the major carriers: UPS, FedEx, USPS, and DHL. When you bring your package to us, our advanced system doesn't just calculate one rate; it instantly retrieves and displays the real-time rates from _all four_ carriers. Side by side. On one easy-to-read screen.
 
@@ -123,7 +123,7 @@ Every package you ship without comparing rates is money you're leaving on the co
 
 Imagine the crisp Chardon morning. The air is still and bright, maybe with a hint of the approaching maple sugaring season. You have a package to send – not a burden, but a simple task. No knot in your stomach this time, no internal sigh. You smile, grab your box, and hop in the car.
 
-Instead of dreading the usual routine, you anticipate a quick, efficient stop. You head south from Chardon Square, enjoying the familiar drive down Route 44. The road unfolds easily, past the charming rural landscapes that define Geauga County. You pass the turn for Auburn Road (Route 608) and continue on, making the easy turn onto Route 306, then a swift turn onto Fredle Drive. The entire drive, a mere 15 minutes, is a pleasant transition, not a stressful prelude.
+Instead of dreading the usual routine, you anticipate a quick, efficient stop. You head south from Chardon Square, enjoying the familiar drive down Route 44. The road unfolds easily, past the charming rural landscapes that define Geauga County. You pass the turn for Auburn Road and continue on, making the easy turn onto Auburn Road, then a swift turn onto Fredle Drive. The entire drive, a mere 15 minutes, is a pleasant transition, not a stressful prelude.
 
 You pull into the Mailbox Plus parking lot. It’s easy to find a spot. As you step inside, the welcoming atmosphere instantly sets a different tone. No harsh fluorescent glare, no long, shuffling lines. You’re greeted warmly. You place your package on the counter, and instead of a single, ambiguous price, a screen swivels, and there it is: your options.
 
