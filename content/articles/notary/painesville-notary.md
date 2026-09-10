@@ -30,13 +30,13 @@ You need one signature, one embossed stamp, and six minutes of someone's undivid
 
 A notarization should be the cleanest errand of your week. You have your unexpired Ohio driver's license in your pocket, your document is printed on crisp bond paper with blank lines ready, and you just need an authorized official to witness your pen touch the page and press an ink seal onto the jurat.
 
-At Mailbox Plus, commissioned Ohio notaries staff our [walk-in notary services counter](/home-business/notary-services/) every hour our doors are open, just nine minutes south of downtown Painesville. Walk through our front door, place your paperwork on the counter, show your ID, sign your name, and walk back to your car with your notarized paperwork ready to file. Here is how the process works and why you never need to beg a bank manager for an appointment again.
+At Mailbox Plus, commissioned Ohio notaries staff our [walk-in notary services counter](/home-business/notary-services/) every hour our doors are open, about eleven minutes south of the Lake County Courthouse. Walk through our front door, place your paperwork on the counter, show your ID, sign your name, and walk back to your car with your notarized paperwork ready to file. Here is how the process works and why you never need to beg a bank manager for an appointment again.
 
 ## The Banker Hours Runaround
 
 The frustration you feel in bank lobbies across Lake County is not an accident of bad timing. It is a predictable byproduct of how retail bank branches view notary services.
 
-To a commercial bank branch manager in Painesville, the notary seal is an unpaid customer courtesy. The employee who holds the state commission is almost always an assistant manager opening home equity lines, a personal banker pitching credit cards, or a platform officer working through underwriting files. When you walk into their lobby holding a power of attorney, an out-of-state vehicle title, or a real estate deed, you are asking someone to stop doing revenue-generating work to perform a three-dollar state-capped ministerial duty.
+To a commercial bank branch manager in Painesville, the notary seal is an unpaid customer courtesy. The employee who holds the state commission is almost always an assistant manager opening home equity lines, a personal banker pitching credit cards, or a platform officer working through underwriting files. When you walk into their lobby holding a power of attorney, an out-of-state vehicle title, or a real estate deed, you are asking someone to stop doing revenue-generating work to perform a ministerial duty Ohio caps at five dollars.
 
 Because of that internal conflict, branches invent quiet barriers. They require you to schedule an appointment forty-eight hours in advance through an online portal. They establish unwritten internal guidelines that ban their employees from notarizing real estate packets, living trusts, or medical directives because corporate risk compliance does not want the legal liability.
 
@@ -54,7 +54,7 @@ By the time they pick back up to say the notary left for an off-site closing, yo
 
 ## Why It Should Not Be This Way
 
-Ohio Revised Code § 147 caps a notary's legal duty: verify your photo ID, confirm you understand what you are signing, and watch your pen hit the line. No credit pitch, no loan cross-sell, no lecture.
+Ohio Revised Code Chapter 147 defines a notary's duty narrowly: verify your photo ID, confirm you understand what you are signing, and watch your pen hit the line. No credit pitch, no loan cross-sell, no lecture.
 
 You should never have to disclose your personal banking relationships or beg for a slot on an executive's calendar just to get an acknowledgment stamped on an affidavit. You should be able to walk into our counter, hand across your paperwork, and get stamped before your phone stops ringing—no bank branch interrogation, no twenty-minute line.
 
@@ -84,13 +84,13 @@ Postponing a notarization because a bank teller turned you away carries immediat
 
 - **Missed Contract and Escrow Deadlines:** Real estate purchase agreements, deed transfers, and court filings carry rigid statutory cutoffs. Delaying a signature by twenty-four hours can delay a closing, trigger contract penalties, or invalidate a legal filing.
 - **Reputational Damage:** Making a client, attorney, or title officer wait an extra day because you could not find someone to witness an autograph makes you look disorganized and unprepared.
-- **Ruined Paperwork:** When people get desperate, they often sign the document at their kitchen table hoping a notary will stamp it later. Under Ohio Revised Code § 147.14, a notary cannot notarize a signature made outside their presence without a formal acknowledgment—which means reprinting a forty-page packet from scratch.
+- **Ruined Paperwork:** When people get desperate, they often sign the document at their kitchen table hoping a notary will stamp it later. Under Ohio Revised Code § 147.141, a notary may not execute a jurat without administering the oath in person, and may not notarize a document that is incomplete or blank—which means reprinting a forty-page packet from scratch.
 
 ## Your Afternoon After the Counter Visit
 
 Think about how different your afternoon looks when the task is off your shoulders.
 
-You pull out of Painesville, head straight down Route 44, and pull into the Fredle Drive plaza. You park ten feet from our front door—no parking garages, no security badges, no teller lines.
+You pull out of Painesville on Mentor Avenue, pick up Route 44 south, turn onto Auburn Road and then Crile Road, and pull into the Fredle Drive plaza. You park ten feet from our front door—no parking garages, no security badges, no teller lines.
 
 You walk inside. In four minutes, your ID is checked, your signature is witnessed, the heavy thud of the Ohio seal lands on your jurat, and you have your completed legal document back in your hands.
 
@@ -100,4 +100,4 @@ By 12:22 PM, you are back in your car, air conditioning running, pulling back on
 
 Stop calling around Lake County asking who has an open notary on duty today.
 
-Bring your unsigned document and your unexpired photo ID to Mailbox Plus at 7554 Fredle Drive in Concord Township. We are open Monday through Friday from 8:30 AM to 6:00 PM and Saturday from 9:00 AM to 3:00 PM. Walk right in, sign your document at the counter, and get back to your business.
+Bring your unsigned document and your unexpired photo ID to Mailbox Plus at 7554 Fredle Drive in Concord Township. We are open Monday through Friday from 9:00 AM to 6:00 PM and Saturday from 9:00 AM to 2:00 PM. Walk right in, sign your document at the counter, and get back to your business.
