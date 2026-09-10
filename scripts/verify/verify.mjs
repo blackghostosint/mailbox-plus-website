@@ -10,7 +10,8 @@
  * Commands:
  *   doctor                       environment sanity (repo root, deps, main branch hygiene)
  *   article <path.md>            full article pre-flight (frontmatter, links, images, gates)
- *   article <path.md> --strict   gates hard on all standard rules
+ *   article <path.md> --strict   gates hard on all standard rules (incl. image:exists, gates:factcheck)
+ *   --offline                    skip network checks (image:exists)
  *   articles [--strict]          run verification across all articles in content/articles/
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
@@ -29,6 +30,16 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 const PAGES_DIR = path.resolve(ROOT, 'astro', 'src', 'pages');
 const CONTENT_DIR = path.resolve(ROOT, 'content', 'articles');
+const R2_PUBLIC_BASE = process.env.R2_PUBLIC_BASE || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+const DRAFTS_DIR = process.env.ARTICLE_DRAFTS_DIR || '/home/blackghost/work/batch_articles/drafts';
+const SKIP_NETWORK = process.argv.includes('--offline');
+
+// HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
+function headStatus(url) {
+  try {
+    return execSync(`curl -sI -o /dev/null -w "%{http_code}" --max-time 10 "${url}"`, { cwd: ROOT }).toString().trim();
+  } catch { return 'ERR'; }
+}
 
 let gray;
 try { gray = (await import('gray-matter')).default; } catch { gray = null; }
@@ -281,6 +292,23 @@ function cmdArticle(arg, isStrict = false) {
     check('image:alt', true, `${imgAlt.length} chars`);
   }
 
+  // 9b) Featured image must actually exist on the CDN — path shape alone shipped a 404 hero (painesville-notary, 9/9/26).
+  if (img && /^articles\//.test(img)) {
+    if (SKIP_NETWORK) {
+      check('image:exists', true, 'skipped (--offline)');
+    } else {
+      const url = `${R2_PUBLIC_BASE}/${img}`;
+      const code = headStatus(url);
+      if (code === '200') {
+        check('image:exists', true, `HTTP 200 ${url}`);
+      } else if (isStrict) {
+        check('image:exists', false, `HTTP ${code} ${url}`, 'generate + upload the featured image (rclone copyto → mailboxplus-r2:mailbox-plus-images/<image>) before PR');
+      } else {
+        check('image:exists', true, `HTTP ${code} (advisory in non-strict) ${url}`);
+      }
+    }
+  }
+
   // 10) Astro layout hygiene: No H1 in body & no duplicate featured image
   const bodyH1Match = content.match(/^#\s+([^\n]+)/m);
   if (bodyH1Match) {
@@ -318,6 +346,22 @@ function cmdArticle(arg, isStrict = false) {
   // 12) Word count guardrails
   const words = content.split(/\s+/).filter(Boolean).length;
   check('content:word-count', words >= 400 && words <= 5300, `${words} words (workflow target 1200-4000)`, 'article body out of publishable range');
+
+  // 12b) Fact-check receipt — the gate that would have caught the $3-vs-$5 notary fee error. Strict-only, new articles.
+  const fcCandidates = [
+    path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
+    path.join(DRAFTS_DIR, `${slug}.factcheck`),
+    path.join(path.dirname(abs), `${slug}.factcheck.md`),
+  ];
+  const fcFound = fcCandidates.find((f) => fs.existsSync(f));
+  if (fcFound) {
+    const fcSize = fs.statSync(fcFound).size;
+    check('gates:factcheck', fcSize > 200, `${path.relative(ROOT, fcFound)} (${fcSize} bytes)`, 'fact-check file exists but is nearly empty — fill the claim table');
+  } else if (isStrict) {
+    check('gates:factcheck', false, `no ${slug}.factcheck.md in ${DRAFTS_DIR}`, 'run the Fact-Check Gate and write the claim/verdict/source table before PR');
+  } else {
+    check('gates:factcheck', true, 'no receipt (advisory in non-strict)');
+  }
 
   // 13) Robots status
   const status = String(data.status || 'published').toLowerCase();
@@ -473,7 +517,7 @@ if (cmd === 'doctor') {
 } else if (cmd === 'seo-gates') {
   cmdSeoGates();
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|build|sitemap [path]|seo-gates> [--json]');
+  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|build|sitemap [path]|seo-gates> [--json] [--offline]');
   process.exit(2);
 }
 
