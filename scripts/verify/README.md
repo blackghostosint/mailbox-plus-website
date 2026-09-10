@@ -22,6 +22,8 @@ pattern (lauren/@poteto).
         - internal link targets exist in valid routes (catches 404 targets)
         - relatedServices canonical form & target route existence
         - featured image + descriptive imageAlt (R2 path shape)
+        - image:exists — HEAD against the R2 CDN; strict-fails on non-200 (skip with --offline)
+        - gates:factcheck — requires drafts/<slug>.factcheck.md (>200 bytes) under --strict
         - Astro layout hygiene (no body H1 '# Title', no duplicate featured image embed)
         - banned software terms (PostalMate, Stamps.com, Endicia)
         - word count 400-5300 (workflow target 1200-4000)
