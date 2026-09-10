@@ -79,7 +79,7 @@ Every week on the single-rate screen is a week of paying full price by default.
 
 Here is the same errand, rerouted.
 
-You take Route 306 or Chillicothe Road (Route 44) out of Kirtland, and you are at 7554 Fredle Drive in about eight miles — roughly 13 minutes by the map. Here is the part worth knowing: the UPS Store on S.O.M. Center Road is actually about six miles from central Kirtland, and the FedEx Office on Mentor Avenue is farther still. The drive to us is not a detour — it is the same kind of trip you already make to a counter that shows you less.
+You take Chillicothe Road (OH-306) south out of Kirtland, then Route 44 east, and you are at 7554 Fredle Drive in about eight miles — roughly 13 minutes by the map. Here is the part worth knowing: the UPS Store on S.O.M. Center Road is actually about six miles from central Kirtland, and the FedEx Office on Mentor Avenue is farther still. The drive to us is not a detour — it is the same kind of trip you already make to a counter that shows you less.
 
 You walk in with the week's boxes. They get weighed, measured, and priced across four carriers while you watch. The one that used to cost you $19 ships for $12. The one that needed a smaller box gets one. You are back in the car in twenty minutes with your labels, your receipts, and the unfamiliar satisfaction of having paid the right price on purpose.
 

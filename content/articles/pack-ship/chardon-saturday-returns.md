@@ -73,7 +73,7 @@ Forget everything you know about package drop-offs. Forget the lines, the forms,
 Here’s our incredibly efficient 3-step process:
 
 1.  **Walk In.**
-    You drive down Route 44 from Chardon, turning onto Route 306, then a quick turn onto Fredle Drive. Our store is easy to find, with ample parking right outside. No circling the block. No battling for a space. You walk in, package in hand, ready to get on with your day. The atmosphere inside is calm, professional, and welcoming – a stark contrast to the harried environment you might be accustomed to elsewhere.
+    You drive down Route 44 from Chardon, turning onto Auburn Road, then a quick turn onto Fredle Drive. Our store is easy to find, with ample parking right outside. No circling the block. No battling for a space. You walk in, package in hand, ready to get on with your day. The atmosphere inside is calm, professional, and welcoming – a stark contrast to the harried environment you might be accustomed to elsewhere.
 
 2.  **Put It On The Counter.**
     You approach our friendly, knowledgeable staff. No long lines, no confusing self-service kiosks. You simply place your pre-labeled package – whether it’s a USPS return, a UPS return, a FedEx return, or even DHL – directly onto the counter. Our team instantly recognizes your need and is ready to assist. If you have any questions, they’re answered immediately. If you need a receipt for proof of drop-off (which we highly recommend for returns), it’s printed right then and there. We’ll scan your label, confirm everything, and take it off your hands. It’s that easy.
@@ -123,7 +123,7 @@ By not acting, by continuing the old pattern, you're not just losing an hour. Yo
 
 Imagine this scenario instead. It’s Saturday morning in Chardon. The air is crisp, maybe a touch of that famous Geauga County maple syrup sweetness hangs in the air. You’ve got your package, perfectly taped, label affixed. But this time, there’s no dread, no mental calculation of lost hours.
 
-You hop in your car, taking the familiar short drive from Chardon, perhaps down Route 44, passing the rolling hills and quiet neighborhoods. You turn onto Route 306, a quick, smooth ride, and then onto Fredle Drive. In less than 15 minutes, you're pulling into the ample parking lot of Mailbox Plus in Concord Township.
+You hop in your car, taking the familiar short drive from Chardon, perhaps down Route 44, passing the rolling hills and quiet neighborhoods. You turn onto Auburn Road, a quick, smooth ride, and then onto Fredle Drive. In less than 15 minutes, you're pulling into the ample parking lot of Mailbox Plus in Concord Township.
 
 You walk in. The store is clean, bright, and welcoming. A friendly face greets you from behind the counter. You place your package down. The clerk scans the label, hands you a confirmation receipt. You exchange a brief, pleasant word. In perhaps 90 seconds, you’re done. You walk out, the clock on your car’s dashboard reads 9:52 AM.
 
@@ -139,7 +139,7 @@ You’ve heard the promises, you’ve felt the frustration, and now you know the
 
 It's time for a change. It’s time to choose convenience, efficiency, and respect for your time.
 
-There’s no appointment needed. No special preparations. Just gather your pre-labeled packages – whether they’re for USPS, UPS, FedEx, or DHL – and bring them to Mailbox Plus. We are located at 7554 Fredle Drive in Concord Township, just a quick and easy drive from Chardon via Route 44 or Route 608 to Route 306.
+There’s no appointment needed. No special preparations. Just gather your pre-labeled packages – whether they’re for USPS, UPS, FedEx, or DHL – and bring them to Mailbox Plus. We are located at 7554 Fredle Drive in Concord Township, just a quick and easy drive from Chardon via Route 44 or Route 608.
 
 Walk in with what you have. Walk out done. Done in 3 minutes. Your package is handled, scanned, and on its way. Your weekend is saved.
 

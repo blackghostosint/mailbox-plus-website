@@ -98,6 +98,6 @@ And it took you one visit. One conversation with a designer. One proof approval.
 
 Bring your current card — even the one you're embarrassed by. That's enough to start.
 
-Mailbox Plus, 7554 Fredle Drive, Concord Township — just a short drive from Kirtland Hills down Route 306.
+Mailbox Plus, 7554 Fredle Drive, Concord Township — just a short drive from Kirtland Hills down Chillicothe Road and across Route 44.
 
 **[See our design and print services →](/copy-print/graphic-design/)** | **[All copying and printing →](/copy-print/)**

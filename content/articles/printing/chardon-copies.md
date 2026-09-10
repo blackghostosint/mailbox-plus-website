@@ -56,7 +56,7 @@ Your time, especially living in a vibrant, busy community like Chardon, is incre
 
 ## What We See Every Day
 
-Just a short, easy drive from Chardon, precisely 15 minutes down Route 44 (Water Street) and then a quick turn onto Auburn Road or Route 608 to reach Route 306, you’ll find us. At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, we see the ripple effect of "The Self-Service Dread" every single day. We see the Chardon residents walking through our doors, sometimes with that tell-tale sigh of relief, often with a slight tremor of frustration still lingering from their previous encounter with an uncooperative machine.
+Just a short, easy drive from Chardon, precisely 15 minutes down Route 44 (Water Street) and then a quick turn onto Auburn Road or Route 608 to Auburn Road, you’ll find us. At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, we see the ripple effect of "The Self-Service Dread" every single day. We see the Chardon residents walking through our doors, sometimes with that tell-tale sigh of relief, often with a slight tremor of frustration still lingering from their previous encounter with an uncooperative machine.
 
 They come in with crumpled papers, tales of flashing error messages, and the weary resignation of having fought a losing battle against technology. They've driven from Chardon, perhaps detoured from their original errands to Chardon Square or a stop at Giant Eagle, because they know _we can help_.
 
@@ -71,7 +71,7 @@ Our core capabilities extend far beyond just flawless copies. We are your compre
 Forget the convoluted instructions, the endless button-pressing, and the silent pleas to a blinking machine. At Mailbox Plus, getting your copies done is refreshingly, wonderfully simple. We’ve distilled the process down to three effortless steps, designed to get you in and out, with perfect copies in hand, often in under three minutes.
 
 **Step 1: Walk In.**
-That’s it. No appointment necessary. No need to pre-load a plastic card with funds you might never fully use. No agonizing over whether the machine will even be operational. You simply walk through our doors, originals in hand, ready to finally get this task off your plate. We’re conveniently located at 7554 Fredle Drive in Concord Township, just a straight shot down Route 44 and a short hop over to Route 306 from Chardon. The short drive is a small investment for the peace of mind you’re about to experience.
+That’s it. No appointment necessary. No need to pre-load a plastic card with funds you might never fully use. No agonizing over whether the machine will even be operational. You simply walk through our doors, originals in hand, ready to finally get this task off your plate. We’re conveniently located at 7554 Fredle Drive in Concord Township, just a straight shot down Route 44 to Auburn Road from Chardon. The short drive is a small investment for the peace of mind you’re about to experience.
 
 **Step 2: Put It On The Counter.**
 This is where the magic of actual service happens. You approach our counter, greeted by a friendly face, not an automated voice. You simply place your stack of originals down and tell us what you need. "25 copies, please, black and white, double-sided." Or "Can I get 10 color copies of this flyer, single-sided?" Our experienced staff will take your instructions, clarify any specifics, and handle your documents with care. No fumbling with feeders, no squinting at tiny touchscreens, no trying to figure out the price per copy. You hand it over, and we take over.
@@ -116,7 +116,7 @@ Imagine this alternate reality, your afternoon _after_ you’ve made the simple,
 
 It's still a crisp Tuesday afternoon in Chardon, but instead of battling a stubborn machine, you’re feeling light, accomplished, and completely in control. You left Chardon Square, maybe grabbed that lunch, and then, instead of dreading the copy errand, you simply pointed your car south.
 
-The drive is short and familiar. You head down Route 44, passing familiar Chardon landmarks, then make a quick, easy turn onto Auburn Road or Route 608, leading you straight to Route 306. In less than 15 minutes, you're turning onto Fredle Drive, pulling into a clean, well-lit parking lot with ample space right in front of Mailbox Plus at 7554 Fredle Drive in Concord Township. No circling, no stress.
+The drive is short and familiar. You head down Route 44, passing familiar Chardon landmarks, then make a quick, easy turn onto Auburn Road or Route 608, leading you straight to Auburn Road. In less than 15 minutes, you're turning onto Fredle Drive, pulling into a clean, well-lit parking lot with ample space right in front of Mailbox Plus at 7554 Fredle Drive in Concord Township. No circling, no stress.
 
 You walk inside. The air is warm and welcoming, a pleasant contrast to the brisk Chardon weather outside. There’s a friendly face at the counter, a genuine smile. You place your stack of originals – those crucial school forms, the vibrant Maple Festival flyers, the important meeting documents – onto the counter. "20 copies, double-sided, grayscale," you say, simply and clearly.
 
@@ -134,7 +134,7 @@ You’ve seen the struggle. You’ve felt the frustration. You’ve lost the tim
 
 No appointment is needed. No special cards to buy. No pre-loading funds. No guesswork.
 
-Simply gather your originals, no matter how few or how many, and bring them to Mailbox Plus. We are located at 7554 Fredle Drive in Concord Township, just a quick, easy 15-minute drive from anywhere in Chardon. Head south on Route 44 (Water Street), turn onto Auburn Road or Route 608, and you'll find us right off Route 306.
+Simply gather your originals, no matter how few or how many, and bring them to Mailbox Plus. We are located at 7554 Fredle Drive in Concord Township, just a quick, easy 15-minute drive from anywhere in Chardon. Head south on Route 44 (Water Street), turn onto Auburn Road or Route 608, and you'll find us just off Crile Road, minutes from SR-44 and I-90.
 
 Walk in with what you have. Hand us your originals. We'll take care of the rest.
 

@@ -91,7 +91,7 @@ If you do nothing, here is what the next four months look like.
 
 Picture the version of your business where fulfillment is not a monthly anxiety.
 
-It is a Tuesday in October, and you have a stack of orders on your kitchen table — not your whole Q4, just the orders that make sense to ship yourself. You drive down Route 306 and turn onto Fredle Drive. You park. You walk into Mailbox Plus with your boxes, your labels already printed, and your route planned: a couple of FedEx ground, one UPS, one USPS small flat-rate.
+It is a Tuesday in October, and you have a stack of orders on your kitchen table — not your whole Q4, just the orders that make sense to ship yourself. You drive down Crile Road and turn onto Fredle Drive. You park. You walk into Mailbox Plus with your boxes, your labels already printed, and your route planned: a couple of FedEx ground, one UPS, one USPS small flat-rate.
 
 Ten minutes later you are done. The packages are weighed, checked, and gone. You know the exact cost of every single one — whatever the counter says, right there, before the tape goes on — because you paid it at the counter instead of discovering it in a statement next month. No peak fee. No percentage surcharge. No algorithm deciding your margin.
 

@@ -103,7 +103,7 @@ If you recognize yourself in any of those, a PMB isn't a luxury — it's the add
 
 ## What It Looks Like at Mailbox Plus
 
-We're at **7554 Fredle Drive in Concord Township, Ohio** — right off I-90 and Route 306, about a mile south of Route 20 — and we serve every town in Lake County: Mentor, Willoughby, Painesville, Eastlake, Madison, Kirtland, and the rest. From your town, the drive is four to fifteen minutes.
+We're at **7554 Fredle Drive in Concord Township, Ohio** — just off Crile Road, minutes from SR-44 and I-90, about a mile south of Route 20 — and we serve every town in Lake County: Mentor, Willoughby, Painesville, Eastlake, Madison, Kirtland, and the rest. From your town, the drive is four to fifteen minutes.
 
 Here's the honest three-step version of getting a PMB from us:
 
@@ -139,7 +139,7 @@ One last confusion worth clearing up, since the search terms tell us you're aski
 
 Now that you know what a private mailbox actually is, the next step is simple: see it in person.
 
-We're at **7554 Fredle Drive in Concord Township** — right off I-90 and Route 306 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental/) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
+We're at **7554 Fredle Drive in Concord Township** — just off Crile Road, minutes from SR-44 and I-90 — open Monday through Saturday, with [private mailbox rental serving all of Lake County](/private-mailbox-rental/) from $35 a month. Bring two forms of ID, and you can walk out with a real street address before your coffee gets cold.
 
 No appointment. No waiting period. No middleman. Just a real address, held by real people, in a building you can walk into.
 

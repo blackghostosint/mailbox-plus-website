@@ -63,7 +63,7 @@ You shouldn't need a lease on a storefront to get a business address. You should
 
 ## What We See Every Day
 
-Walk into our counter at 7554 Fredle Drive in Concord Township and you'll hear the same story from sellers in Mentor, Painesville, Willoughby, and all along the Route 20 and Route 306 corridor: "I looked down at my label and realized every buyer knows where I live."
+Walk into our counter at 7554 Fredle Drive in Concord Township and you'll hear the same story from sellers in Mentor, Painesville, Willoughby, and all along the Route 20 and SR-44 corridor: "I looked down at my label and realized every buyer knows where I live."
 
 We're an independent, locally run counter — not a franchise kiosk at a big-box store. We staff the counter with people who know your name and your routine. And we handle every carrier: USPS, UPS, FedEx, and DHL all deliver to and ship from our address, which matters for the next part.
 

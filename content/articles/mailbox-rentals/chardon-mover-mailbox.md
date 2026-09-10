@@ -102,7 +102,7 @@ Every move without a stable, permanent address costs you days of paperwork, miss
 
 Imagine this: It’s a beautiful Chardon morning, perhaps a hint of spring in the air, or the vibrant colors of autumn painting the trees along Route 44. You've had your coffee, the morning light streaming into your new apartment. But instead of that familiar knot of dread in your stomach, that heavy cloud of "change of address" looming over your day, you feel... light. Free.
 
-You grab your car keys, perhaps hum a little tune, and pull out of your driveway. The short, pleasant drive down Route 306 to Fredle Drive in Concord Township is easy, familiar now. The traffic is light, and the drive, roughly 15 minutes from Chardon Square, feels like a quick errand, not a monumental pilgrimage. You turn onto Fredle Drive, pull into the Mailbox Plus parking lot, and there's a space waiting for you right by the door.
+You grab your car keys, perhaps hum a little tune, and pull out of your driveway. The short, pleasant drive down Auburn Road to Fredle Drive in Concord Township is easy, familiar now. The traffic is light, and the drive, roughly 15 minutes from Chardon Square, feels like a quick errand, not a monumental pilgrimage. You turn onto Fredle Drive, pull into the Mailbox Plus parking lot, and there's a space waiting for you right by the door.
 
 You walk in, a small stack of mail and packages in your arms that you know have been delivered safely and securely. The chime above the door announces your arrival. You’re greeted with a friendly smile. No lines. No paperwork. You simply place your items on the counter, mention your box number, and within moments, you have your receipts, confirmation that everything is checked in, and your new mail added to your box.
 

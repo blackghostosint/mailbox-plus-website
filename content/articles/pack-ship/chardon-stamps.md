@@ -56,7 +56,7 @@ Think about it: you don't go to the Department of Transportation to buy gasoline
 
 ## What We See Every Day
 
-This exact scenario – the exasperation, the wasted time, the quiet frustration – is what we, at Mailbox Plus, see and hear about every single day. We’re located at 7554 Fredle Drive in Concord Township, just a short, pleasant 15-minute drive south from Chardon Square down Route 44. You'll find us conveniently right off Route 306, easily accessible and designed with your convenience in mind.
+This exact scenario – the exasperation, the wasted time, the quiet frustration – is what we, at Mailbox Plus, see and hear about every single day. We’re located at 7554 Fredle Drive in Concord Township, just a short, pleasant 15-minute drive south from Chardon Square down Route 44. You'll find us conveniently just off Crile Road, minutes from SR-44 and I-90, easily accessible and designed with your convenience in mind.
 
 We are not the post office. We are an independent, fully staffed, and incredibly efficient alternative, built from the ground up to solve these very problems. Mailbox Plus is a registered Commercial Mail Receiving Agency (CMRA), which means we are fully equipped and authorized to handle all your mailing and shipping needs with the utmost professionalism and security.
 
@@ -70,7 +70,7 @@ We understand that for residents of Chardon and the surrounding Geauga County ar
 
 The process at Mailbox Plus is designed for speed, simplicity, and your utmost convenience. Especially when it comes to something as straightforward as buying stamps. Forget the elaborate choreography of the post office queue. Forget the multi-step interactions. Here’s our incredibly simple process, distilled into three effortless steps for your stamp needs:
 
-1.  **Walk In:** You drive the quick 15 minutes from Chardon, perhaps down Route 44, past the familiar Chardon landmarks. You pull into our ample parking lot at 7554 Fredle Drive in Concord Township, right off Route 306. There's always parking available. You step inside our clean, well-lit, and welcoming store. No intimidating lines, no confusing signs, just a clear counter staffed by a friendly face ready to assist you.
+1.  **Walk In:** You drive the quick 15 minutes from Chardon, perhaps down Route 44, past the familiar Chardon landmarks. You pull into our ample parking lot at 7554 Fredle Drive in Concord Township, just off Crile Road, minutes from SR-44 and I-90. There's always parking available. You step inside our clean, well-lit, and welcoming store. No intimidating lines, no confusing signs, just a clear counter staffed by a friendly face ready to assist you.
 
 2.  **Ask for Stamps:** You approach the counter. "I just need a book of Forever stamps, please," you say. Or perhaps you need a few individual stamps for a specific letter. Our team member will retrieve them immediately. There's no complex weighing process, no package dimensions to calculate, no passport forms to scrutinize. It’s a direct, efficient request for a readily available item.
 
@@ -97,7 +97,7 @@ Every moment you spend in that interminable post office line is a choice. A choi
 
 Let’s fast-forward. Imagine it’s a Tuesday afternoon again. The same crisp Chardon air, the same busy schedule. But this time, something is different. You’ve got a stack of envelopes, thank-you notes, or perhaps your annual holiday cards that need to go out. The thought of stamps crosses your mind, but instead of a groan, there’s a flicker of satisfaction.
 
-You hop in your car. Instead of veering towards the potential chaos of Chardon Square and the always-uncertain post office parking, you turn south onto Route 44. The drive is familiar, relaxing. You pass the beautiful landscapes of Geauga County, perhaps noticing the first signs of spring or the vibrant colors of autumn. In less than 15 minutes, you're making the easy turn onto Route 306, and then a quick pivot onto Fredle Drive in Concord Township.
+You hop in your car. Instead of veering towards the potential chaos of Chardon Square and the always-uncertain post office parking, you turn south onto Route 44. The drive is familiar, relaxing. You pass the beautiful landscapes of Geauga County, perhaps noticing the first signs of spring or the vibrant colors of autumn. In less than 15 minutes, you're making the easy turn onto Auburn Road, and then a quick pivot onto Fredle Drive in Concord Township.
 
 You pull into the Mailbox Plus parking lot. Plenty of spaces available, right up front. You grab your envelopes and walk inside. The atmosphere is calm, welcoming, and efficient. No line. Just a friendly face at the counter.
 

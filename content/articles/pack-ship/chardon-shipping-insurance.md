@@ -67,7 +67,7 @@ The philosophical problem is laid bare: **When you pay to ship something, you sh
 
 ## What We See Every Day
 
-At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, just a straightforward 15-minute drive south of Chardon, we see this struggle every single day. We witness the frustration, the anxiety, and the quiet desperation in the eyes of customers who walk through our doors. They arrive from Chardon, driving down Route 44 South, turning onto Route 306 East, then a quick right onto Fredle Drive, often with that familiar knot of worry about their valuable shipments.
+At Mailbox Plus, located at 7554 Fredle Drive in Concord Township, just a straightforward 15-minute drive south of Chardon, we see this struggle every single day. We witness the frustration, the anxiety, and the quiet desperation in the eyes of customers who walk through our doors. They arrive from Chardon, driving down Route 44 South, turning onto Auburn Road East, then a quick right onto Fredle Drive, often with that familiar knot of worry about their valuable shipments.
 
 They come with irreplaceable family heirlooms, crucial business documents, meticulously crafted artisan goods, and, yes, precious collections of local maple syrup, all worth far more than the $100 carrier default. They've experienced the lines, the confusion, and the feeling of being just another transaction. And they're looking for something different. They're looking for a partner, not just a service provider.
 
@@ -92,7 +92,7 @@ Imagine a shipping experience so simple, so straightforward, and so reassuring t
 
 **Step 1: Walk In. From Chardon Square, It’s a Quick Trip.**
 
-Forget wrestling with online forms, trying to find a box, or rushing to beat the closing time of a single-carrier store. From anywhere in Chardon, whether you're starting your day near the Geauga County Courthouse or wrapping up errands on Route 44, a quick, scenic 15-minute drive down Route 44 South, then connecting to Route 306 East and a simple turn onto Fredle Drive, brings you directly to our convenient location at 7554 Fredle Drive in Concord Township. Our parking lot is ample, making your arrival effortless. No appointments needed, no long lines to dread. Just walk through our doors, your precious cargo in hand.
+Forget wrestling with online forms, trying to find a box, or rushing to beat the closing time of a single-carrier store. From anywhere in Chardon, whether you're starting your day near the Geauga County Courthouse or wrapping up errands on Route 44, a quick, scenic 15-minute drive down Route 44 South, then connecting to Auburn Road and a simple turn onto Fredle Drive, brings you directly to our convenient location at 7554 Fredle Drive in Concord Township. Our parking lot is ample, making your arrival effortless. No appointments needed, no long lines to dread. Just walk through our doors, your precious cargo in hand.
 
 **Step 2: Put It On The Counter. Let Us Handle the Rest.**
 
@@ -147,7 +147,7 @@ By choosing not to act and continue to gamble on carrier liability, you are acti
 
 Picture this: It's late morning, and the Chardon sun, perhaps finally breaking through the spring clouds, casts a hopeful glow. You’ve just left Mailbox Plus, your valuable maple syrup collection – or whatever important item you had – now officially in transit, fully protected by Marsh third-party declared-value insurance.
 
-You smoothly pull out of our lot on Fredle Drive, turning right onto Route 306 East, then effortlessly merging onto Route 44 North, heading back towards Chardon. The trees lining the road, still hinting at the coming green, seem to shimmer with a new lightness. The journey back to your home or office near Chardon Square feels entirely different than any shipping trip before.
+You smoothly pull out of our lot on Fredle Drive, turning right onto Auburn Road, then effortlessly merging onto Route 44 North, heading back towards Chardon. The trees lining the road, still hinting at the coming green, seem to shimmer with a new lightness. The journey back to your home or office near Chardon Square feels entirely different than any shipping trip before.
 
 There's no knot in your stomach. No lingering anxiety. No nagging voice in the back of your mind wondering, "What if?" Instead, there's a profound sense of calm, a deep exhale you didn't even realize you were holding. You glance at the clock on your dashboard: 10:15 AM. You were in and out in less than three minutes, and now, before your day has even truly begun, that significant errand is not just done, but done _right_.
 
@@ -163,7 +163,7 @@ Don't leave your valuable Chardon shipments unprotected for another moment. Don'
 
 It’s time for a change. It’s time for clarity, security, and true peace of mind.
 
-Mailbox Plus is here, just a short, easy 15-minute drive from Chardon via Route 44 South, then connecting to Route 306 East and onto Fredle Drive. **No appointment needed.**
+Mailbox Plus is here, just a short, easy 15-minute drive from Chardon via Route 44 South, then connecting to Route 44 South and onto Auburn Road, then Fredle Drive. **No appointment needed.**
 
 Walk in with what you have – your exquisite maple syrup collection, your irreplaceable family heirloom, your critical business documents, or any valuable item that deserves full protection. Put it on our counter. Let our expert team guide you through the simple process of securing third-party declared-value insurance through Marsh, closing that $1,400 gap and ensuring your item is covered at its _true_ worth.
 

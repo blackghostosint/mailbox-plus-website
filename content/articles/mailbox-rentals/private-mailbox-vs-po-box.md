@@ -107,7 +107,7 @@ You are paying for an address. You deserve an address that works for all of your
 
 ## What We See Every Day
 
-At Mailbox Plus, we process packages from every major carrier every single day. Our counter at **7554 Fredle Drive in Concord Township** — right off Route 306, about a mile south of Route 20 — receives FedEx trucks, UPS vans, USPS mail carriers, and DHL couriers interchangeably. They all deliver to us because we have a physical street address, not a PO Box number.
+At Mailbox Plus, we process packages from every major carrier every single day. Our counter at **7554 Fredle Drive in Concord Township** — just off Crile Road, minutes from SR-44 and I-90, about a mile south of Route 20 — receives FedEx trucks, UPS vans, USPS mail carriers, and DHL couriers interchangeably. They all deliver to us because we have a physical street address, not a PO Box number.
 
 What does that mean for you?
 
@@ -129,7 +129,7 @@ The clerk at the post office cannot offer you any of this. It is not because the
 
 Switching from a PO Box to a private mailbox at Mailbox Plus takes about ten minutes:
 
-**Step 1 — Walk in.** Bring two forms of valid ID (driver's license and a credit card or passport work). Our counter is at 7554 Fredle Drive, right off Route 306 in Concord Township. We are open Monday through Saturday.
+**Step 1 — Walk in.** Bring two forms of valid ID (driver's license and a credit card or passport work). Our counter is at 7554 Fredle Drive, just off Crile Road in Concord Township. We are open Monday through Saturday.
 
 **Step 2 — Choose your mailbox size.** We have multiple sizes depending on what you receive. If you mostly get letters and small packages, the standard size works. If you receive inventory boxes or larger shipments, we have bigger options. Most people start with the standard and upgrade if they need to.
 
@@ -151,7 +151,7 @@ Staying with a PO Box — or relying on your home address — costs you in three
 
 ## Your Afternoon After the Change
 
-You drive down Route 306, past the Concord Township line. you turn onto Fredle Drive. The parking lot is right in front.
+You drive down Crile Road and turn onto Fredle Drive. The parking lot is right in front.
 
 You walk in. The counter is staffed. You give your mailbox number. The attendant hands you a small stack of mail and a medium-sized box that arrived via FedEx this morning.
 
