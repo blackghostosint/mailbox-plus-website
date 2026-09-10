@@ -10,7 +10,11 @@
  * Commands:
  *   doctor                       environment sanity (repo root, deps, main branch hygiene)
  *   article <path.md>            full article pre-flight (frontmatter, links, images, gates)
- *   article <path.md> --json     machine-readable output
+ *   article <path.md> --strict   gates hard on all standard rules
+ *   articles [--strict]          run verification across all articles in content/articles/
+ *   build                        runs npm run build, reports page-count delta
+ *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
+ *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
  *
  * Exit codes: 0 = all checks passed, 1 = one or more failures, 2 = usage error.
@@ -22,12 +26,94 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
+const PAGES_DIR = path.resolve(ROOT, 'astro', 'src', 'pages');
+const CONTENT_DIR = path.resolve(ROOT, 'content', 'articles');
+
 let gray;
 try { gray = (await import('gray-matter')).default; } catch { gray = null; }
 
 const results = [];
 function check(name, pass, detail, fix) {
   results.push({ name, pass: !!pass, detail, fix });
+}
+
+// ---------- Route Registry & Cache ----------
+let registryInitialized = false;
+const validRoutes = new Set();
+const dynamicPrefixes = [];
+const intentKeyMap = new Map(); // intentKey -> Array<relPath>
+
+function walkDir(dir, callback) {
+  if (!fs.existsSync(dir)) return;
+  fs.readdirSync(dir).forEach((f) => {
+    const dirPath = path.join(dir, f);
+    fs.statSync(dirPath).isDirectory() ? walkDir(dirPath, callback) : callback(dirPath);
+  });
+}
+
+function initRouteRegistry() {
+  if (registryInitialized) return;
+  registryInitialized = true;
+
+  // 1) Pages under astro/src/pages
+  walkDir(PAGES_DIR, (filePath) => {
+    if (path.extname(filePath) !== '.astro') return;
+    const rel = path
+      .relative(PAGES_DIR, filePath)
+      .replace(/\\/g, '/')
+      .replace(/\.astro$/, '');
+    const segments = rel.split('/');
+    const dynamicIdx = segments.findIndex((s) => s.startsWith('[') && s.endsWith(']'));
+    if (dynamicIdx !== -1) {
+      const prefix = '/' + segments.slice(0, dynamicIdx).join('/').replace(/\/$/, '');
+      dynamicPrefixes.push({
+        prefix: prefix === '' ? '/' : prefix,
+        catchAll: segments[dynamicIdx].startsWith('[...'),
+      });
+      return;
+    }
+    let route = rel.replace(/\.astro$/, '');
+    if (route.endsWith('/index')) route = route.slice(0, -6);
+    validRoutes.add('/' + route);
+  });
+
+  // 2) Article routes & intentKeys from content/articles
+  if (gray && fs.existsSync(CONTENT_DIR)) {
+    walkDir(CONTENT_DIR, (filePath) => {
+      if (path.extname(filePath) !== '.md') return;
+      if (path.basename(filePath).toLowerCase() === 'readme.md') return;
+      try {
+        const raw = fs.readFileSync(filePath, 'utf8');
+        const { data } = gray(raw);
+        if (data.slug) validRoutes.add('/articles/' + data.slug);
+        if (data.intentKey) {
+          const ik = String(data.intentKey);
+          const rel = path.relative(ROOT, filePath);
+          if (!intentKeyMap.has(ik)) intentKeyMap.set(ik, []);
+          intentKeyMap.get(ik).push(rel);
+        }
+      } catch (e) {}
+    });
+  }
+}
+
+function normalizeRoute(p) {
+  if (!p) return p;
+  const clean = p.split('?')[0].split('#')[0];
+  return clean.length > 1 ? clean.replace(/\/+$/, '') : clean;
+}
+
+function isKnownRoute(target) {
+  initRouteRegistry();
+  const norm = normalizeRoute(target);
+  if (validRoutes.has(norm)) return true;
+  for (const { prefix, catchAll } of dynamicPrefixes) {
+    if (norm === prefix) return true;
+    if (prefix === '/' || !norm.startsWith(prefix + '/')) continue;
+    const rest = norm.slice(prefix.length + 1);
+    if (catchAll || !rest.includes('/')) return true;
+  }
+  return false;
 }
 
 // ---------- doctor ----------
@@ -38,7 +124,7 @@ function cmdDoctor() {
     'root + astro node_modules present', 'npm ci (root) && cd astro && npm ci');
   check('gray-matter', !!gray, gray ? 'gray-matter available' : 'gray-matter missing',
     'npm install gray-matter --save-dev');
-// execSync usage: only fixed, constant git commands with no user input — no injection surface.
+
   let branch = '', ahead = 0;
   try {
     branch = execSync('git branch --show-current', { cwd: ROOT }).toString().trim();
@@ -53,11 +139,8 @@ function cmdDoctor() {
 }
 
 // ---------- article ----------
-const TITLE_SUFFIX_CATEGORIES = new Set([
-  'pack-ship', 'copy-print', 'printing', 'mailbox-rentals', 'notary', 'document-services',
-]);
 const REQUIRED_FRONTMATTER = ['title', 'description', 'slug', 'category', 'intentKey', 'pubDate', 'status', 'image', 'imageAlt', 'keywords', 'relatedServices', 'author'];
-const DISALLOWED_LINK_STYLE = /<a\s+(?![^>]*href="\/[^"]*\/")[^>]*href="\/(?!\/)[^"]*"(?![^>]*\/>)/g;
+const BANNED_TERMS_RE = /\b(PostalMate|Stamps\.com|Endicia)\b/i;
 
 function extractInternalHrefs(content) {
   const hrefs = [];
@@ -69,23 +152,9 @@ function extractInternalHrefs(content) {
   return hrefs;
 }
 
-function extractImages(content, filePath) {
-  const imgs = [];
-  const reMd = /!\[([^\]]*)\]\(([^)\s]+)\)/g;
-  let m;
-  while ((m = reMd.exec(content))) imgs.push({ alt: m[1], src: m[2], line: content.slice(0, m.index).split('\n').length });
-  const reHtml = /<img\s+([^>]*)>/g;
-  while ((m = reHtml.exec(content))) {
-    const attrs = m[1];
-    const src = /src="([^"]*)"/.exec(attrs)?.[1] || '';
-    const alt = /alt="([^"]*)"/.exec(attrs)?.[1] || '';
-    imgs.push({ alt, src, line: content.slice(0, m.index).split('\n').length, html: true, attrs });
-  }
-  return imgs;
-}
-
-function cmdArticle(arg, asJson) {
+function cmdArticle(arg, isStrict = false) {
   const abs = path.isAbsolute(arg) ? arg : path.join(ROOT, arg);
+  const relPath = path.relative(ROOT, abs);
   if (!fs.existsSync(abs)) {
     check('file-exists', false, `${arg} not found`, 'pass a path relative to repo root, e.g. content/articles/pack-ship/foo.md');
     return;
@@ -93,6 +162,8 @@ function cmdArticle(arg, asJson) {
   const raw = fs.readFileSync(abs, 'utf8');
   if (!gray) { check('parse', false, 'gray-matter unavailable', 'npm install gray-matter --save-dev'); return; }
   const { data, content } = gray(raw);
+
+  initRouteRegistry();
 
   // 1) Required frontmatter
   for (const f of REQUIRED_FRONTMATTER) {
@@ -107,7 +178,7 @@ function cmdArticle(arg, asJson) {
     }
   }
 
-  // 2) Description length (150-160 target, hard fail outside 120-170)
+  // 2) Description length (150-160 target, hard fail outside 100-280)
   const desc = String(data.description || '');
   const dlen = desc.length;
   if (dlen < 100 || dlen > 280) {
@@ -116,23 +187,38 @@ function cmdArticle(arg, asJson) {
     check('meta:description-length', true, `${dlen} chars`);
   }
 
-  // 3) Title suffix rule — competitive/service categories get ' | Mailbox Plus', articles don't
+  // 3) Title rules: No pipes (|), no brand suffixes (" | Mailbox Plus", " - Mailbox Plus")
   const title = String(data.title || '');
-  const hasSuffix = / \| Mailbox Plus$/i.test(title);
-  const expectsSuffix = TITLE_SUFFIX_CATEGORIES.has(String(data.category || ''));
-  if (String(data.category) === 'micro-problem') {
-    check('meta:title-rule', !hasSuffix, 'micro-problem article: suffix must be absent', hasSuffix ? "remove ' | Mailbox Plus' from title" : '');
-  } else if (expectsSuffix) {
-    check('meta:title-rule', true, `category '${data.category}': suffix optional for long-form articles (page configs enforce their own rule)`);
+  const hasPipe = /\|/.test(title);
+  const hasBrandSuffix = /\s*[|—-]\s*Mailbox Plus\s*$/i.test(title);
+  if (hasPipe || hasBrandSuffix) {
+    if (isStrict) {
+      check('meta:title-rule', false, `title contains pipe or brand suffix: "${title}"`,
+        "remove pipes ('|') and brand suffixes; titles must read naturally without 'Mailbox Plus'");
+    } else {
+      check('meta:title-rule', true, `title has suffix/pipe (advisory in non-strict): "${title}"`);
+    }
   } else {
-    check('meta:title-rule', true, `category '${data.category}': no suffix rule`);
+    check('meta:title-rule', true, 'clean (no pipes or brand suffixes)');
   }
 
   // 4) Slug hygiene
   const slug = String(data.slug || '');
   check('meta:slug-format', /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug), slug, 'slug must be lowercase kebab-case');
 
-  // 5) pubDate parses + is not in the future
+  // 5) IntentKey uniqueness across corpus
+  const ik = String(data.intentKey || '');
+  if (ik) {
+    const matchingFiles = (intentKeyMap.get(ik) || []).filter((p) => p !== relPath);
+    if (matchingFiles.length > 0) {
+      check('meta:intentKey-unique', false, `duplicate intentKey '${ik}' (also in ${matchingFiles.join(', ')})`,
+        'intentKey must be unique across all articles to prevent cannibalization');
+    } else {
+      check('meta:intentKey-unique', true, `'${ik}' is unique`);
+    }
+  }
+
+  // 6) pubDate parses + is not in the future
   const pd = new Date(String(data.pubDate || ''));
   if (isNaN(pd.getTime())) {
     check('meta:pubDate', false, String(data.pubDate), 'ISO 8601 with offset, e.g. 2026-09-08T17:30:00-04:00');
@@ -140,22 +226,45 @@ function cmdArticle(arg, asJson) {
     check('meta:pubDate', pd.getTime() <= Date.now() + 86400000, pd.toISOString(), 'pubDate more than 1 day in the future');
   }
 
-  // 6) Internal links: minimum 2, trailing slash on all
+  // 7) Internal links: count, trailing slashes, and route existence
   const hrefs = extractInternalHrefs(content);
   const noSlash = hrefs.filter((h) => h.length > 1 && !h.endsWith('/'));
-  // Min-2 is the new-article standard (checklist skill). Corpus has 49 legacy articles below it, so
-  // gate only in --strict mode; default run flags advisory.
+  const unknownHrefs = hrefs.filter((h) => !isKnownRoute(h));
+
   if (hrefs.length >= 2) {
     check('links:minimum', true, `${hrefs.length} internal links`);
-  } else if (process.argv.includes('--strict')) {
+  } else if (isStrict) {
     check('links:minimum', false, `${hrefs.length} internal links (min 2)`, 'add at least 2 contextual links to related Mailbox Plus pages');
   } else {
     check('links:minimum', true, `${hrefs.length} internal links (advisory — min 2 for new articles)`);
   }
-  check('links:trailing-slash', noSlash.length === 0, noSlash.length ? `missing trailing slash: ${noSlash.join(', ')}` : 'all internal links end with /', 'CI seo:check-href-slash will fail — add trailing slashes');
+  check('links:trailing-slash', noSlash.length === 0,
+    noSlash.length ? `missing trailing slash: ${noSlash.join(', ')}` : 'all internal links end with /',
+    'CI seo:check-href-slash will fail — add trailing slashes');
+  check('links:valid-targets', unknownHrefs.length === 0,
+    unknownHrefs.length ? `unknown route targets: ${unknownHrefs.join(', ')}` : `all ${hrefs.length} targets exist`,
+    'link points to non-existent route — verify path matches a published page or article');
 
-  // 7) Featured image: frontmatter.image + imageAlt are required and must reference a valid R2 path shape.
-  // (Articles use the frontmatter featured image; inline body images are optional.)
+  // 8) relatedServices canonical form + route existence
+  const rel = data.relatedServices || [];
+  if (Array.isArray(rel)) {
+    const badSlash = rel.filter((r) => typeof r === 'string' && r.length > 1 && !r.endsWith('/'));
+    const unknownServices = rel.filter((r) => typeof r === 'string' && !isKnownRoute(r));
+
+    if (badSlash.length === 0) {
+      check('frontmatter:relatedServices-slash', true, 'all canonical');
+    } else if (isStrict) {
+      check('frontmatter:relatedServices-slash', false, `non-canonical: ${badSlash.join(', ')}`, 'add trailing slashes — canonical form required');
+    } else {
+      check('frontmatter:relatedServices-slash', true, `non-canonical (advisory in non-strict): ${badSlash.join(', ')}`);
+    }
+
+    check('frontmatter:relatedServices-targets', unknownServices.length === 0,
+      unknownServices.length ? `unknown route targets: ${unknownServices.join(', ')}` : `all ${rel.length} services exist`,
+      'relatedServices entry does not match any known route');
+  }
+
+  // 9) Featured image: frontmatter.image + imageAlt
   const img = String(data.image || '');
   const imgAlt = String(data.imageAlt || '');
   if (!img) {
@@ -171,37 +280,91 @@ function cmdArticle(arg, asJson) {
     check('image:alt', true, `${imgAlt.length} chars`);
   }
 
-  // 8) Word count guardrails (article workflow: 1.2k-4k words)
+  // 10) Astro layout hygiene: No H1 in body & no duplicate featured image
+  const bodyH1Match = content.match(/^#\s+([^\n]+)/m);
+  if (bodyH1Match) {
+    if (isStrict) {
+      check('layout:no-body-h1', false, `H1 in markdown body: "${bodyH1Match[1]}"`,
+        'remove "# Title" from markdown body; Astro layout renders H1 automatically from frontmatter');
+    } else {
+      check('layout:no-body-h1', true, `H1 in body (advisory in non-strict): "${bodyH1Match[1]}"`);
+    }
+  } else {
+    check('layout:no-body-h1', true, 'no H1 in body (Astro layout safe)');
+  }
+
+  const embedsFeatured = img && content.includes(img);
+  if (embedsFeatured) {
+    if (isStrict) {
+      check('layout:no-featured-in-body', false, 'featured image embedded in body',
+        'remove featured image markdown from body; Astro layout floats it automatically from frontmatter');
+    } else {
+      check('layout:no-featured-in-body', true, 'featured image in body (advisory in non-strict)');
+    }
+  } else {
+    check('layout:no-featured-in-body', true, 'featured image not duplicated in body');
+  }
+
+  // 11) Banned vendor / software terms
+  const bannedMatch = content.match(BANNED_TERMS_RE);
+  if (bannedMatch) {
+    check('content:no-banned-terms', false, `found banned software term: "${bannedMatch[0]}"`,
+      "refer to software generically (e.g. 'point-of-sale software', 'computers behind counter')");
+  } else {
+    check('content:no-banned-terms', true, 'clean (no banned vendor terms)');
+  }
+
+  // 12) Word count guardrails
   const words = content.split(/\s+/).filter(Boolean).length;
   check('content:word-count', words >= 400 && words <= 5300, `${words} words (workflow target 1200-4000)`, 'article body out of publishable range');
 
-  // 8b) robots — BaseLayout defaults to index,follow; articles only risk noindex via explicit status
+  // 13) Robots status
   const status = String(data.status || 'published').toLowerCase();
   check('meta:robots', status !== 'draft-noindex', `status='${status}' → index,follow (BaseLayout default)`,
     'set status: published unless intentionally excluding from search');
-
-  // 9) relatedServices canonical form — the renderer normalizes via normalizePathname(), but the
-  // CI href-slash gate scans built HTML; keep source canonical (trailing slash) to match the site convention.
-  const rel = data.relatedServices || [];
-  if (Array.isArray(rel)) {
-    const bad = rel.filter((r) => typeof r === 'string' && r.length > 1 && !r.endsWith('/'));
-    // Trailing slashes are the site convention (FRANK RULE: canonical trailing-slash links mandatory).
-    // Renderer normalizes so CI passes on legacy entries, but new articles gate hard under --strict.
-    if (bad.length === 0) {
-      check('frontmatter:relatedServices-slash', true, 'all canonical');
-    } else if (process.argv.includes('--strict')) {
-      check('frontmatter:relatedServices-slash', false, `non-canonical: ${bad.join(', ')}`, 'add trailing slashes — canonical form required');
-    } else {
-      check('frontmatter:relatedServices-slash', true, `non-canonical (advisory in non-strict): ${bad.join(', ')}`);
-    }
-  }
 }
 
-// ---------- main ----------
-const [cmd, ...rest] = process.argv.slice(2);
-const asJson = rest.includes('--json');
-const arg = rest.find((r) => !r.startsWith('--'));
+function cmdArticles(isStrict = false) {
+  initRouteRegistry();
+  const files = [];
+  walkDir(CONTENT_DIR, (f) => {
+    if (f.endsWith('.md') && path.basename(f).toLowerCase() !== 'readme.md') {
+      files.push(f);
+    }
+  });
 
+  console.log(`🔍 Verifying ${files.length} articles (${isStrict ? 'STRICT' : 'STANDARD'} mode)...\n`);
+  let totalPass = 0;
+  let totalFail = 0;
+  const failedArticles = [];
+
+  for (const f of files) {
+    const rel = path.relative(ROOT, f);
+    const startIdx = results.length;
+    cmdArticle(f, isStrict);
+    const fileChecks = results.slice(startIdx);
+    const fileFailed = fileChecks.filter((c) => !c.pass);
+    if (fileFailed.length === 0) {
+      totalPass++;
+    } else {
+      totalFail++;
+      failedArticles.push({ file: rel, failures: fileFailed });
+    }
+  }
+
+  for (const { file, failures } of failedArticles) {
+    console.log(`❌ ${file}:`);
+    for (const f of failures) {
+      console.log(`   - ${f.name}: ${f.detail}`);
+      if (f.fix) console.log(`     fix: ${f.fix}`);
+    }
+  }
+
+  console.log(`\nSummary: ${totalPass} passed, ${totalFail} failed out of ${files.length} articles.`);
+  process.exit(totalFail === 0 ? 0 : 1);
+}
+
+// ---------- build, sitemap, seo-gates ----------
 function cmdBuild() {
   let before;
   try { before = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim(); } catch { before = '0'; }
@@ -225,10 +388,9 @@ function cmdSitemap(expectPath) {
   if (expectPath) {
     const url = `https://mailboxplusohio.com/${expectPath.replace(/^\/+/, '')}`;
     const found = xml.includes(url);
-        if (found) {
+    if (found) {
       check('sitemap:contains', true, url);
     } else {
-      // article slugs route under /articles/<slug>/ regardless of content folder — try that form
       const slug = path.basename(expectPath.replace(/\/+$/, ''));
       const alt = `https://mailboxplusohio.com/articles/${slug}/`;
       if (xml.includes(alt)) {
@@ -243,16 +405,7 @@ function cmdSitemap(expectPath) {
   }
 }
 
-if (cmd === 'doctor') {
-  cmdDoctor();
-} else if (cmd === 'article' && arg) {
-  cmdArticle(arg, asJson);
-} else if (cmd === 'build') {
-  cmdBuild();
-} else if (cmd === 'sitemap') {
-  cmdSitemap(arg);
-} else if (cmd === 'seo-gates') {
-  // Shell to the CI's own gates — one command, no logic duplication
+function cmdSeoGates() {
   for (const script of ['seo:check-href-slash', 'seo:check-canonical', 'seo:check-jsonld', 'seo:check-routes']) {
     try {
       execSync(`npm run ${script}`, { cwd: ROOT, stdio: 'pipe', timeout: 300000 });
@@ -263,20 +416,42 @@ if (cmd === 'doctor') {
       check(script, false, firstFail.trim().slice(0, 160), 'run npm run ' + script + ' for full output');
     }
   }
+}
+
+// ---------- CLI dispatch ----------
+const [cmd, ...rest] = process.argv.slice(2);
+const asJson = rest.includes('--json');
+const isStrict = rest.includes('--strict');
+const arg = rest.find((r) => !r.startsWith('--'));
+
+if (cmd === 'doctor') {
+  cmdDoctor();
+} else if (cmd === 'article' && arg) {
+  cmdArticle(arg, isStrict);
+} else if (cmd === 'articles') {
+  cmdArticles(isStrict);
+} else if (cmd === 'build') {
+  cmdBuild();
+} else if (cmd === 'sitemap') {
+  cmdSitemap(arg);
+} else if (cmd === 'seo-gates') {
+  cmdSeoGates();
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|build|sitemap [path]|seo-gates> [--json]');
+  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|build|sitemap [path]|seo-gates> [--json]');
   process.exit(2);
 }
 
-const failed = results.filter((r) => !r.pass);
-if (asJson) {
-  console.log(JSON.stringify({ ok: failed.length === 0, passed: results.length - failed.length, failed: failed.length, results }, null, 2));
-} else {
-  for (const r of results) {
-    const icon = r.pass ? '✅' : '❌';
-    console.log(`${icon} ${r.name}${r.detail ? ' — ' + r.detail : ''}`);
-    if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
+if (cmd !== 'articles') {
+  const failed = results.filter((r) => !r.pass);
+  if (asJson) {
+    console.log(JSON.stringify({ ok: failed.length === 0, passed: results.length - failed.length, failed: failed.length, results }, null, 2));
+  } else {
+    for (const r of results) {
+      const icon = r.pass ? '✅' : '❌';
+      console.log(`${icon} ${r.name}${r.detail ? ' — ' + r.detail : ''}`);
+      if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
+    }
+    console.log(`\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`);
   }
-  console.log(`\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`);
+  process.exit(failed.length === 0 ? 0 : 1);
 }
-process.exit(failed.length === 0 ? 0 : 1);
