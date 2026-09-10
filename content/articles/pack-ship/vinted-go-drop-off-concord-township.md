@@ -86,7 +86,7 @@ If you're a regular seller, this is worth knowing early: Vinted lets buyers choo
 
 ## Your Next Sale, Handled
 
-Here's what it looks like once the routine exists. The sale comes through while you're at work. That evening you press "Get shipping label," print it, tape it on, and the box goes in the car. The next day, on a trip you were making anyway — down Auburn Road, onto Fredle Drive — you pull into Mailbox Plus, carry the box in, and hand it to the person at the counter. The barcode scans. You get your confirmation. Total effort: a stop, not a project.
+Here's what it looks like once the routine exists. The sale comes through while you're at work. That evening you press "Get shipping label," print it, tape it on, and the box goes in the car. The next day, on a trip you were making anyway — down Crile Road, onto Fredle Drive — you pull into Mailbox Plus, carry the box in, and hand it to the person at the counter. The barcode scans. You get your confirmation. Total effort: a stop, not a project.
 
 The next time someone asks in a Vinted seller forum where to drop off a SpeedX package in Lake County, you'll be the one with the answer.
 
