@@ -14,6 +14,7 @@
  *   articles [--strict]          run verification across all articles in content/articles/
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
+ *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 80/100)
  *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
  *
@@ -405,6 +406,39 @@ function cmdSitemap(expectPath) {
   }
 }
 
+
+function cmdReview(targetPath) {
+  const abs = path.isAbsolute(targetPath) ? targetPath : path.join(ROOT, targetPath);
+  if (!fs.existsSync(abs)) {
+    check('review:file-exists', false, `${targetPath} not found`, 'check file path');
+    return;
+  }
+  const scriptPath = path.join(ROOT, 'scripts', 'review-article-copy.py');
+  if (!fs.existsSync(scriptPath)) {
+    check('review:script-exists', false, 'scripts/review-article-copy.py not found', 'script missing');
+    return;
+  }
+
+  const providerIdx = rest.indexOf('--provider');
+  const provider = providerIdx !== -1 ? rest[providerIdx + 1] : 'nous';
+  const modelIdx = rest.indexOf('--model');
+  const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'tencent/hy3';
+  const minScoreIdx = rest.indexOf('--min-score');
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '80';
+
+  console.log(`🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`);
+  try {
+    const jsonFlag = asJson ? ' --json' : '';
+    execSync(`python3 "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`, {
+      stdio: 'inherit',
+      cwd: ROOT,
+    });
+    check('review:rubric-score', true, 'passed review matrix (score >= 80)');
+  } catch (e) {
+    check('review:rubric-score', false, 'failed review matrix (score < 80 or error)', 'review feedback above and revise draft');
+  }
+}
+
 function cmdSeoGates() {
   for (const script of ['seo:check-href-slash', 'seo:check-canonical', 'seo:check-jsonld', 'seo:check-routes']) {
     try {
@@ -434,10 +468,12 @@ if (cmd === 'doctor') {
   cmdBuild();
 } else if (cmd === 'sitemap') {
   cmdSitemap(arg);
+} else if (cmd === 'review' && arg) {
+  cmdReview(arg);
 } else if (cmd === 'seo-gates') {
   cmdSeoGates();
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|build|sitemap [path]|seo-gates> [--json]');
+  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|build|sitemap [path]|seo-gates> [--json]');
   process.exit(2);
 }
 

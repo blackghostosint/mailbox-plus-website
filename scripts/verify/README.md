@@ -30,6 +30,15 @@ pattern (lauren/@poteto).
     node scripts/verify/verify.mjs articles [--json] [--strict]
       Batch verification across all articles in content/articles/.
 
+    node scripts/verify/verify.mjs review <path.md> [--provider <p>] [--model <m>] [--min-score 80]
+      Grades draft against the 5-point adversarial Direct Response copy rubric:
+        1. Sensory & Physical Grounding (20 pts)
+        2. One-Person Ear & Intimacy (20 pts)
+        3. Identity & Status Stakes (20 pts)
+        4. Villain Legitimacy & Mechanism (20 pts)
+        5. Fluff Density (20 pts)
+      Fails closed (exit 1) if overall score is below 80/100.
+
     node scripts/verify/verify.mjs build
       Runs npm run build, reports page-count delta (catches "build passes but page didn't generate").
 
