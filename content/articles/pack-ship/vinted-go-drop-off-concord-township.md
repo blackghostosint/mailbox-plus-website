@@ -72,7 +72,7 @@ If you're a regular seller, this is worth knowing early: Vinted lets buyers choo
 
 **Step 1 — Get the label in the app.** After the sale, press "Get shipping label" in your conversation with the buyer. Vinted generates the prepaid label and also emails it to you. Pack the item properly — Vinted warns that orders damaged in transit from poor packing can be cancelled and refunded — and print the label at home, then stick it on the box. Vinted also suggests keeping a photo of how the package was packed, in case a claim ever needs it.
 
-**Step 2 — Bring it to Mailbox Plus.** Drive to 7554 Fredle Drive, Concord Township — just off Route 306. Walk in with the package already labeled. You don't need an appointment, an account, or a receipt. Hand it across the counter.
+**Step 2 — Bring it to Mailbox Plus.** Drive to 7554 Fredle Drive, Concord Township — in the Gristmill Village plaza, just off Auburn Road near Crile Road, minutes from SR-44 and I-90. Walk in with the package already labeled. You don't need an appointment, an account, or a receipt. Hand it across the counter.
 
 **Step 3 — We scan it into the network.** Our staff scans the label's barcode so the drop-off registers with the carrier. Vinted's help center notes that tracking can take up to 48 hours after sending to appear in the app, and that you'll get an email confirming the drop-off — so keep that confirmation, and keep a copy of the label until the order completes, which Vinted recommends in case of any shipping dispute. Then the package moves, and you get on with your day. And if you ship enough that a home printer keeps failing you, a [mailbox rental](/home-business/mailbox-rental/) gives your closet operation a real street address for incoming carrier deliveries too.
 
@@ -86,7 +86,7 @@ If you're a regular seller, this is worth knowing early: Vinted lets buyers choo
 
 ## Your Next Sale, Handled
 
-Here's what it looks like once the routine exists. The sale comes through while you're at work. That evening you press "Get shipping label," print it, tape it on, and the box goes in the car. The next day, on a trip you were making anyway — down Route 306, onto Fredle Drive — you pull into Mailbox Plus, carry the box in, and hand it to the person at the counter. The barcode scans. You get your confirmation. Total effort: a stop, not a project.
+Here's what it looks like once the routine exists. The sale comes through while you're at work. That evening you press "Get shipping label," print it, tape it on, and the box goes in the car. The next day, on a trip you were making anyway — down Auburn Road, onto Fredle Drive — you pull into Mailbox Plus, carry the box in, and hand it to the person at the counter. The barcode scans. You get your confirmation. Total effort: a stop, not a project.
 
 The next time someone asks in a Vinted seller forum where to drop off a SpeedX package in Lake County, you'll be the one with the answer.
 
