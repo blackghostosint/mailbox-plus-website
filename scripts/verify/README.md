@@ -27,6 +27,7 @@ pattern (lauren/@poteto).
         - Astro layout hygiene (no body H1 '# Title', no duplicate featured image embed)
         - banned software terms (PostalMate, Stamps.com, Endicia)
         - word count 400-5300 (workflow target 1200-4000)
+        - heading variation: no-retired-headings + heading-diversity (see below)
         - robots status check
 
     node scripts/verify/verify.mjs articles [--json] [--strict]
@@ -47,6 +48,11 @@ pattern (lauren/@poteto).
     node scripts/verify/verify.mjs sitemap <path-or-slug>
       Confirms URL is in dist/sitemap-0.xml (article slugs auto-resolve to their /articles/<slug>/ route form).
 
+    node scripts/verify/verify.mjs headings [--json]
+      Heading-variation report across the whole corpus: article count, H2 count,
+      how many H2s are still retired template strings, how many articles are
+      legacy-boilerplate, and the 10 most-reused headings.
+
     node scripts/verify/verify.mjs seo-gates
       Shells to the CI's own gates (seo:check-href-slash, seo:check-canonical, seo:check-jsonld, seo:check-routes)
       as one pass/fail command.
@@ -60,6 +66,28 @@ the CI gates. Where the checklist skill aspires to a standard the existing
 corpus doesn't meet (min 2 links, legacy H1s, non-canonical relatedServices slashes),
 the CLI flags advisory by default in standard mode and gates hard with --strict.
 New articles MUST be run with --strict in the PR flow.
+
+## Heading variation gate
+
+The batch rewrite prompts used to hardcode literal H2 strings, so 58% of every
+H2 on the site was one of 8 boilerplate headings (`Bring It In` alone appears
+129 times). Structure is frozen — the 9 SB7 slots never change — but the surface
+text must vary, so headings are now assigned per article from
+`content/heading_banks.json` via `scripts/assign_headings.py` (in the
+batch_articles pipeline).
+
+Two checks enforce it:
+
+- `content:no-retired-headings` — a new or changed article may not reuse 3+ of the
+  retired template strings. Advisory in standard mode.
+- `content:heading-diversity` — max H2-set overlap against any other article, limit
+  60% (override with `HEADING_OVERLAP_MAX`). Advisory in standard mode.
+
+Both hard-fail only in `--strict` **and** only for articles added or modified vs
+`origin/main`, so the 100-article legacy backlog doesn't drown the signal and
+`articles --strict` stays green over the existing corpus. Legacy subjects
+(≥60% retired headings) are skipped as subjects but still count in the baseline —
+so copying the old template into a new article still fails.
 
 ## Wiring
 
