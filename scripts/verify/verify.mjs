@@ -16,6 +16,7 @@
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
  *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 80/100)
+ *   headings [--json]            heading-variation report across the whole corpus
  *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
  *
@@ -128,7 +129,108 @@ function isKnownRoute(target) {
   return false;
 }
 
-// ---------- doctor ----------
+// ---------- heading diversity ----------
+// Legacy articles shared the same 8 literal H2 strings (58% of all H2s across 179 files),
+// which reads as machine output and wastes topical-relevance surface area. Structure is
+// frozen; surface text must vary. This gate measures heading-set overlap between articles.
+const HEADING_OVERLAP_MAX = Number(process.env.HEADING_OVERLAP_MAX || 0.6);
+
+// Retired fixed headings from the legacy template. Used only to classify the legacy cohort.
+const RETIRED_TEMPLATE = [
+  'bring it in', 'what it actually feels like', 'why it should not be this way',
+  'what we see every day', 'how it works', 'what you lose by not acting',
+  'your afternoon after the change', 'the scene that starts everything',
+  'the direct opening that names the problem',
+];
+
+const normHeading = (h) => h.toLowerCase().replace(/[^a-z ]/g, '').trim();
+
+function extractH2s(content) {
+  const out = [];
+  const re = /^##\s+(.+)$/gm;
+  let m;
+  while ((m = re.exec(content))) out.push(m[1].trim());
+  return out;
+}
+
+let headingCorpus = null;   // [{ rel, set:Set<string>, legacy:boolean }]
+let newArticleCache = null; // Set<relPath> of articles added/changed vs origin/main
+
+function initHeadingCorpus() {
+  if (headingCorpus) return headingCorpus;
+  headingCorpus = [];
+  if (!gray || !fs.existsSync(CONTENT_DIR)) return headingCorpus;
+  walkDir(CONTENT_DIR, (filePath) => {
+    if (path.extname(filePath) !== '.md') return;
+    if (path.basename(filePath).toLowerCase() === 'readme.md') return;
+    try {
+      const { content } = gray(fs.readFileSync(filePath, 'utf8'));
+      const hs = extractH2s(content).map(normHeading);
+      if (!hs.length) return;
+      const set = new Set(hs);
+      const retired = hs.filter((h) => RETIRED_TEMPLATE.includes(h)).length;
+      headingCorpus.push({
+        rel: path.relative(ROOT, filePath),
+        set,
+        // Legacy cohort = boilerplate articles. Excluded from the gate so the backlog
+        // doesn't drown real signal; the gate self-tightens as varied articles accumulate.
+        legacy: retired / hs.length >= 0.6,
+      });
+    } catch (e) {}
+  });
+  return headingCorpus;
+}
+
+// "New" = added or modified relative to origin/main (working tree, index, or commits).
+// The gate only hard-fails on new articles, so running `articles --strict` over the
+// existing corpus stays green while every new PR is held to the standard.
+function initNewArticles() {
+  if (newArticleCache) return newArticleCache;
+  newArticleCache = new Set();
+  try {
+    const base = execSync('git merge-base HEAD origin/main', { cwd: ROOT, stdio: 'pipe' }).toString().trim();
+    // base is a git SHA from our own repo; still validate the shape before interpolating.
+    if (!/^[0-9a-f]{7,40}$/.test(base)) return newArticleCache;
+    const committed = execSync(`git diff --name-only ${base} HEAD`, { cwd: ROOT, stdio: 'pipe' }).toString();
+    const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
+    for (const line of (committed + '\n' + status).split('\n')) {
+      const rel = line.slice(3).trim().replace(/^.*-> /, '');
+      if (rel) newArticleCache.add(rel);
+    }
+  } catch (e) {}
+  return newArticleCache;
+}
+
+function headingOverlap(a, b) {
+  if (!a.size || !b.size) return 0;
+  let inter = 0;
+  for (const h of a) if (b.has(h)) inter++;
+  return inter / Math.min(a.size, b.size);
+}
+
+function cmdHeadings() {
+  const corpus = initHeadingCorpus();
+  if (!corpus.length) {
+    check('headings:corpus', false, 'no articles found', 'run from the repo root');
+    return;
+  }
+  const counter = new Map();
+  for (const { set } of corpus) for (const h of set) counter.set(h, (counter.get(h) || 0) + 1);
+
+  const totalH2 = [...counter.values()].reduce((a, b) => a + b, 0);
+  const retiredHits = RETIRED_TEMPLATE.reduce((a, h) => a + (counter.get(h) || 0), 0);
+  const legacyCount = corpus.filter((c) => c.legacy).length;
+
+  check('headings:corpus', true,
+    `${corpus.length} articles, ${totalH2} H2s; ${retiredHits} (${Math.round((retiredHits / totalH2) * 100)}%) still on a retired template string`);
+  check('headings:legacy-cohort', true, `${legacyCount}/${corpus.length} articles are ≥60% boilerplate headings (backlog)`);
+
+  const top = [...counter.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
+  console.log('Most-reused H2s:');
+  for (const [h, c] of top) console.log(`  ${String(c).padStart(4)}  ${h}`);
+}
+
+
 function cmdDoctor() {
   check('repo-root', fs.existsSync(path.join(ROOT, 'astro', 'package.json')),
     `resolved ${ROOT}`, 'run from scripts/verify/ inside the repo; never from ~/Projects clone (stale)');
@@ -367,6 +469,53 @@ function cmdArticle(arg, isStrict = false) {
   const status = String(data.status || 'published').toLowerCase();
   check('meta:robots', status !== 'draft-noindex', `status='${status}' → index,follow (BaseLayout default)`,
     'set status: published unless intentionally excluding from search');
+
+  // 14) Heading variation — the structural skeleton is frozen, the surface text is not.
+  //     Retired headings are the legacy boilerplate strings; reusing them is a regression.
+  const h2set = new Set(extractH2s(content).map(normHeading));
+  if (h2set.size >= 4) {
+    const isNew = initNewArticles().has(relPath);
+    const retiredHits = [...h2set].filter((h) => RETIRED_TEMPLATE.includes(h)).length;
+    const retiredRatio = retiredHits / h2set.size;
+
+    if (retiredHits >= 3) {
+      if (isStrict && isNew) {
+        check('content:no-retired-headings', false,
+          `${retiredHits} retired template headings (${Math.round(retiredRatio * 100)}% of H2s)`,
+          'assign headings from content/heading_banks.json via scripts/assign_headings.py — do not hand-write the old template');
+      } else {
+        check('content:no-retired-headings', true,
+          `${retiredHits} retired headings${isNew ? '' : ' (advisory — existing article)'}`);
+      }
+    } else {
+      check('content:no-retired-headings', true, `${retiredHits} retired headings`);
+    }
+
+    // Legacy subjects are skipped so the existing backlog doesn't drown out new signal.
+    // Everything else is compared against the full corpus, so copying the old template still fails.
+    if (retiredRatio < 0.6) {
+      let worst = 0;
+      let worstRel = null;
+      for (const entry of initHeadingCorpus()) {
+        if (entry.rel === relPath) continue;
+        const o = headingOverlap(h2set, entry.set);
+        if (o > worst) { worst = o; worstRel = entry.rel; }
+        if (!worstRel) worstRel = entry.rel;
+      }
+      const pct = Math.round(worst * 100);
+      const detail = worstRel
+        ? `max ${pct}% overlap with ${worstRel} (limit ${Math.round(HEADING_OVERLAP_MAX * 100)}%)`
+        : 'no other articles in baseline';
+      if (isStrict && isNew && worst > HEADING_OVERLAP_MAX) {
+        check('content:heading-diversity', false, detail,
+          'vary the H2 wording: python3 scripts/assign_headings.py --slug <slug> --villain "<villain>" --json');
+      } else {
+        check('content:heading-diversity', true, detail);
+      }
+    } else {
+      check('content:heading-diversity', true, 'legacy boilerplate article — baseline excluded (backlog)');
+    }
+  }
 }
 
 function cmdArticles(isStrict = false) {
@@ -514,10 +663,12 @@ if (cmd === 'doctor') {
   cmdSitemap(arg);
 } else if (cmd === 'review' && arg) {
   cmdReview(arg);
+} else if (cmd === 'headings') {
+  cmdHeadings();
 } else if (cmd === 'seo-gates') {
   cmdSeoGates();
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|build|sitemap [path]|seo-gates> [--json] [--offline]');
+  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]');
   process.exit(2);
 }
 
