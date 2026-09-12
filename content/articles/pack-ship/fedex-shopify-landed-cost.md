@@ -1,20 +1,20 @@
 ---
 title: 'The Surprise Fee That Kills Your International Sale (And the App That Just Fixed It)'
-description: "FedEx's new Duty and Tax Shopify app shows international buyers a guaranteed landed cost at checkout. What online sellers in Lake County need to know."
+description: "FedEx's Duty and Tax Shopify app shows international buyers a guaranteed landed cost at checkout. What online sellers in Lake County need to know — plus where to drop the pre-labeled box."
 slug: 'fedex-shopify-landed-cost'
 category: 'pack-ship'
 intentKey: 'fedex-shopify-landed-cost'
 pubDate: '2026-09-11T12:00:00-05:00'
 status: 'published'
 image: 'articles/pack-ship/fedex-shopify-landed-cost-featured.webp'
-imageAlt: 'A small shipping box on a wooden store counter beside a laptop showing a checkout total, warm storefront light — Mailbox Plus international shipping help in Concord Township, OH.'
+imageAlt: 'A small shipping box on a wooden store counter beside a laptop showing a checkout total, warm storefront light — a package drop-off counter in Concord Township, OH.'
 location: 'concord-township'
 keywords:
   [
     'surprise import charges',
     'FedEx Duty and Tax Shopify app',
     'landed cost guarantee checkout',
-    'international shipping fees for online sellers',
+    'surprise import charges buyer refund',
   ]
 relatedServices: ['/pack-ship/', '/pack-ship/fedex-shipping/', '/pack-ship/professional-packing/']
 author: 'Mailbox Plus Team'
@@ -22,9 +22,9 @@ author: 'Mailbox Plus Team'
 
 ## You Paid for the Sale. Then the Fee Bomb Went Off.
 
-You finally made the sale. A buyer across the border — Canada, the UK, Australia — hit the checkout button, paid, and you sent your congratulations email. Then the message lands: customs is holding the package until somebody pays the duties and taxes. And the buyer is asking why YOUR charge was twenty dollars higher than what the website said. You didn't quote it. You can't refund it twice. You either eat the cost or eat the chargeback.
+Your phone buzzes at 1:22 in the morning. A dispute from Manchester: the package is at the local depot, customs wants £31 more, and the buyer wants to know why YOUR checkout lied to them. The label you printed after dinner is still sitting under the cold coffee mug. You didn't quote that £31. You can't refund it twice. You either eat the cost or eat the chargeback.
 
-This is the international shipping experience nobody warns you about when you open your first cross-border order from a kitchen table in Lake County. FedEx just launched a Shopify app that shows the buyer a guaranteed duty and tax total at checkout — and covers any overage itself — the same [international shipping counter help](/pack-ship/) you get when you walk in. That ends the ambush. Here's how it works — and how to make your next international sale the boring kind, where nothing blows up.
+This is the international shipping experience nobody warns you about when you open your first cross-border order from a kitchen table in Lake County. FedEx just launched a Shopify app that shows the buyer a guaranteed duty and tax total at checkout — and covers any overage itself — and it fixes the problem where it actually starts: the checkout button. That ends the ambush. Here's how it works — and how to make your next international sale the boring kind, where nothing blows up.
 
 ## The Name for What's Been Happening
 
@@ -32,7 +32,7 @@ The villain has a name: the landed-cost gap. Here's how it operates in broad day
 
 When a package crosses a border, the destination country charges duties and import taxes. Nobody argues the government is entitled to collect. The trap is in the TIMING of when the buyer finds out what they owe. If your checkout shows a product price and a shipping fee, but the duties and taxes get assessed later — after the buyer has already paid — then your buyer gets billed by the carrier for clearance. The carrier is the government's collection agent at the door, and the bill arrives with your store's name implied, because YOU sold them the item.
 
-It gets worse for the seller. FedEx surveyed small and medium businesses last spring, and 68% of them said their customers get surprised by additional duties, taxes or fees at delivery at least some of the time. Read that again: better than two out of three sellers you'd ask are watching this happen to their buyers. On any given international order, it's a coin flip. And every one of those surprises costs you one of three things: a refund from your margin, a package refused at the border, or a buyer who never comes back and tells the review section why.
+It gets worse for the seller. FedEx's 2026 Small Business Trade Index found 68% of small- and medium-sized businesses regularly see customers surprised by duties at delivery — and 60% report losing revenue to refunds or abandoned purchases. Read that again: better than two out of three sellers you'd ask are watching this happen to their buyers. On any given international order, it's a coin flip — and the 68% isn't just your buyer, it's the friend they warn on Facebook, killing the next cart before you ever see it. And every one of those surprises costs you one of three things: a refund from your margin, a package refused at the border, or a buyer who never comes back and tells the review section why.
 
 ## The Sigh You Make at the Counter
 
@@ -48,9 +48,9 @@ The technology to show a complete total has existed for years. The reason it has
 
 ## The Stories That Repeat at Our Counter
 
-Before FedEx touches your box, your paperwork passes across the counter at Mailbox Plus on Fredle Drive in Concord Township, where we handle [FedEx shipping](/pack-ship/fedex-shipping/) alongside UPS and USPS every day. When you bring an international box in, you hand over the same stack every time — customs declaration, Harmonized System codes, declared values, country of origin. None of it is optional, and getting it sloppy is how clearance delays start. You don't need an enterprise trade-compliance department. You need your forms done right and your buyer's expectations set correctly before the box leaves your hands.
+Here's the honest part most shipping articles skip: the customs paperwork on an international box is exacting, and the rules change constantly — which is why we don't process international shipments at our counter. What we do every day is domestic [FedEx, UPS, and USPS shipping](/pack-ship/) — and we accept your pre-labeled international drop-offs — the same counter logic that makes a [mailbox rental](/home-business/mailbox-rental/) useful for an online seller, since your carrier boxes and buyer returns all land at a real street address instead of your porch. You generate the label through your carrier account or marketplace, the paperwork is exactly what that carrier's system asked for, and we take the box from there. The in-store counter is where domestic boxes get packed and rated; the international box leaves your hands already labeled and already documented by the system that priced it.
 
-So when a carrier finally ships a real tool aimed at the surprise-fee problem, it matters to you directly — because you are the one getting those angry messages, and clean paperwork plus a clear checkout total is how the message never gets written.
+So when a carrier ships a real tool aimed at the surprise-fee problem, it matters to you twice: the app fixes the checkout math your buyer sees, and your carrier account's own paperwork flow is what your dropped-off box travels with. One system, start to finish.
 
 ## The New Math at Checkout
 
@@ -68,23 +68,13 @@ And you have options. UPS launched a similar service, Global Checkout, that show
 ## What Happens After You Walk In
 
 1. **Show the total at checkout.** Install the app, turn on the duty-and-tax display, and let the buyer see the full landed cost — item, shipping, duties, taxes — before they commit. No post-purchase ambush.
-2. **Get your paperwork right at the counter.** Bring your international packages to Mailbox Plus at 7554 Fredle Drive and the customs declaration, harmonized codes, and declared values get filled out correctly before they leave your hands — because a guarantee at checkout doesn't protect a package that gets held for sloppy paperwork.
+2. **Drop the pre-labeled box.** Print the label from your carrier account — the customs declaration, HS codes, and declared values are all captured by that system when you create the label — and bring the box to Mailbox Plus at 7554 Fredle Drive. We accept pre-labeled international drop-offs, same as any pre-labeled package. A guarantee at checkout doesn't protect a box that never leaves your garage, so get it dropped the same day.
 3. **Ship, then forget it.** When the box clears, the buyer is already done paying. No invoices at the door, no chargebacks three weeks later, no apology emails at midnight.
-
-## What Another Year of This Looks Like
-
-**Sales you never make.** The 68% figure cuts both ways: buyers who were burned once abandon international carts faster than any other kind. Every cross-border buyer who hears "additional charges" secondhand from a friend stops being a buyer at all.
-
-**Margin you never budgeted.** Every fee you eat is straight off the bottom line, and it never appears in your pricing spreadsheet because you didn't see it coming. Not acting means the ambush stays open.
-
-**The reputation you actually built.** You spent years earning five-star reviews. One billing surprise at the door undoes months of trust, because the buyer doesn't blame the government's tariff schedule. They blame your store.
-
-**Your own willingness to keep selling internationally.** This is the quiet cost. After enough fee bombs, sellers simply stop offering it — and a market of millions of buyers shrinks back down to a road trip away.
 
 ## The Drive Home After
 
-With the app live, your next border sale ends at checkout — no asterisk, no "fees may apply," no phone call. Your box leaves our counter with clean paperwork and just clears. Three weeks later the review says "exactly as described" instead of "beware hidden fees." That boring $99-a-month certainty beats one lost customer, every time.
+Install the app, drop the pre-labeled box at 7554 Fredle Drive, and the only surprise your buyer gets is how boring the whole thing was — no asterisk at checkout, no invoice at the door, no midnight apology email. Three weeks later the review says "exactly as described." That boring certainty beats one lost customer, every time.
 
 ## Then Come Tell Us
 
-If you're selling across borders from Lake County, bring your next international package to Mailbox Plus at 7554 Fredle Drive in Concord Township. Get the customs paperwork filled out right, get your rates across FedEx, UPS, and USPS on the counter, and get the box moving — while you keep the checkout promise you made. Walk in, put it on the counter, walk out.
+If you're selling across borders from Lake County, make your next international package a same-day drop: label printed from your carrier account, box taped, and brought to Mailbox Plus at 7554 Fredle Drive in Concord Township. We'll take it from your hands and scan it into the network — and for everything domestic, the counter packs, rates, and ships it across FedEx, UPS, and USPS while you're standing there. Walk in, put it on the counter, walk out.
