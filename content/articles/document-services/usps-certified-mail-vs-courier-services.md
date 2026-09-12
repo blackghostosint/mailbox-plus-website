@@ -31,7 +31,7 @@ Most people overpay for the wrong one or under-protect themselves with the right
 
 ## The Clock-and-File-Cabinet Problem
 
-The villain has a name: the green-card return lag. USPS mails your proof back to you on its own slow trip — a paper card crawling through sorting machines while your court date races forward — and every counter that sells you the service without telling you that is part of the mechanism. Underneath it sits the deeper problem: a system that treats "proof" as one thing when it is really two.
+The problem has a name: the green-card return lag. USPS mails your proof back to you on its own slow trip — a paper card crawling through sorting machines while your court date races forward — and every counter that sells you the service without telling you that is part of the mechanism. Underneath it sits the deeper problem: a system that treats "proof" as one thing when it is really two.
 
 Courts, agencies, and opposing attorneys do not all want the same evidence. Some want proof that you **mailed** the notice — a timestamped record that you did your part on the 14th, whatever happened after. Some want proof that the other party actually **received** it — a signature, a name, a date, something a judge can hold. Most legal notice statutes ask for both, or one plus the other as backup.
 

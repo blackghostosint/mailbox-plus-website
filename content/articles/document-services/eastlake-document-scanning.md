@@ -30,7 +30,7 @@ That's exactly what Mailbox Plus does. Bring the box to our counter at 7554 Fred
 
 ## The Paper Avalanche
 
-The box isn't the villain. The villain is the system that built the box, and it's worth naming: call it **The Paper Avalanche**.
+The box isn't the problem. The problem is the system that built the box, and it's worth naming: call it **The Paper Avalanche**.
 
 Every institution you deal with — the hospital, the county auditor, the bank, the tax agencies — still mails you one physical copy of the most important documents of your life, on paper, once. Then it's on you. If you file it, you have to be able to find it years later. If you don't, it joins the pile. No one hands you a digital copy of your deed at closing "just in case." Nobody emails you a backup of your 2015 tax return. The paper copy is the only copy, and the only filing cabinet assigned to protect it is the one you bought at an office supply store in 2011.
 

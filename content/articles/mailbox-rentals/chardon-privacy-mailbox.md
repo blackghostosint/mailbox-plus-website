@@ -29,7 +29,7 @@ It's the persistent feeling that your personal space, your precise Chardon addre
 
 ## Data Brokers
 
-Meet the villain in this story: data brokers.
+Meet the problem in this story: data brokers.
 
 They are the silent, ubiquitous architects of your eroding privacy. These companies specialize in collecting, aggregating, and selling personal information about you to anyone willing to pay. And yes, your very own Chardon home address is one of their most valuable commodities. This isn't some shadowy, underground operation; it's a multi-billion-dollar industry operating in plain sight, entirely within the bounds of the law, yet often beyond the reach of ethical scrutiny.
 
