@@ -930,7 +930,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What We Offer',
-        body: `<p>We pack and ship fragile items. We print documents in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>For students at Lake Erie College, we ship move-in and move-out packages. For county government workers, we handle certified mail and document services. For the Hispanic business community, we serve customers in Spanish.</p><p>We sell boxes, bubble wrap, tape, and packing peanuts. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p>`,
+        body: `<p>We pack and ship fragile items. We print documents in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>For students at Lake Erie College, we ship move-in and move-out packages. For county government workers, we handle certified mail and document services. For the Hispanic business community, we serve customers in Spanish.</p><p>We sell boxes, bubble wrap, tape, and packing peanuts. We sell postage stamps. We accept labeled Amazon returns — pre-paid shipping labels only. We take pre-labeled drop-offs from any carrier.</p>`,
       },
       {
         heading: 'Why Painesville Needs This',
@@ -1179,7 +1179,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What We Offer',
-        body: `<p>We pack fragile items. We print documents and business cards. We make copies in color and black and white. We notarize signatures with no appointment. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p><p>For Mentor\u2019s small businesses, we offer a professional address. Mail goes to 7554 Fredle Drive. You pick it up or we forward it. Your home address stays private.</p>`,
+        body: `<p>We pack fragile items. We print documents and business cards. We make copies in color and black and white. We notarize signatures with no appointment. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept labeled Amazon returns — pre-paid shipping labels only. We take pre-labeled drop-offs from any carrier.</p><p>For Mentor\u2019s small businesses, we offer a professional address. Mail goes to 7554 Fredle Drive. You pick it up or we forward it. Your home address stays private.</p>`,
       },
     ],
     features: [
@@ -1345,7 +1345,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What We Offer',
-        body: `<p>We ship with UPS, FedEx, USPS, and DHL. We pack fragile and oversized items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures with no appointment.</p><p>We rent private mailboxes with a real street address. We forward your mail. We accept packages from any carrier on your behalf.</p><p>We sell corrugated boxes in every size. We sell bubble wrap, packing peanuts, and heavy-duty tape. We sell postage stamps. We accept Amazon returns.</p>`,
+        body: `<p>We ship with UPS, FedEx, USPS, and DHL. We pack fragile and oversized items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures with no appointment.</p><p>We rent private mailboxes with a real street address. We forward your mail. We accept packages from any carrier on your behalf.</p><p>We sell corrugated boxes in every size. We sell bubble wrap, packing peanuts, and heavy-duty tape. We sell postage stamps. We accept labeled Amazon returns — pre-paid shipping labels only.</p>`,
       },
     ],
     features: [
@@ -1424,7 +1424,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What We Offer',
-        body: `<p>We ship packages with all four major carriers. We compare rates so you pay the best price. We pack fragile and bulky items. We print documents and business cards. We notarize signatures.</p><p>We rent private mailboxes with a real street address. For seasonal residents, we hold your mail while you are away. We forward it when you need it. We accept packages from any carrier.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns.</p>`,
+        body: `<p>We ship packages with all four major carriers. We compare rates so you pay the best price. We pack fragile and bulky items. We print documents and business cards. We notarize signatures.</p><p>We rent private mailboxes with a real street address. For seasonal residents, we hold your mail while you are away. We forward it when you need it. We accept packages from any carrier.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept labeled Amazon returns — pre-paid shipping labels only.</p>`,
       },
       {
         heading: 'The Community Difference',
@@ -1507,7 +1507,7 @@ export const localSeoServices: Service[] = [
       },
       {
         heading: 'What We Offer',
-        body: `<p>We pack fragile items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept Amazon returns. We take pre-labeled drop-offs from any carrier.</p><p>For Willoughby small business owners, we are the place that handles everything. Ship the product. Print the marketing materials. Notarize the contract. Rent the mailbox. One trip.</p>`,
+        body: `<p>We pack fragile items. We print in color and black and white. We make copies, business cards, and flyers. We notarize signatures. We rent private mailboxes with a real street address.</p><p>We sell boxes, bubble wrap, and tape. We sell postage stamps. We accept labeled Amazon returns — pre-paid shipping labels only. We take pre-labeled drop-offs from any carrier.</p><p>For Willoughby small business owners, we are the place that handles everything. Ship the product. Print the marketing materials. Notarize the contract. Rent the mailbox. One trip.</p>`,
       },
       {
         heading: 'Why Drive Six Minutes?',
