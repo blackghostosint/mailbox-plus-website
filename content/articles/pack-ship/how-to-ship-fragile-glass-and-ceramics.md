@@ -31,7 +31,7 @@ Here is what nobody told you: the carrier's liability for damage depends on how 
 
 Here is the exact method UPS and FedEx publish in their own packaging guidelines but never hand you at the counter — and how we build that box at our shop in Concord Township so you never make that phone call.
 
-## The Villain: The One-Box Wrap
+## The Problem: The One-Box Wrap
 
 The system working against you is not a careless driver. It is a packaging method that looks identical to correct packing but fails the physics of a sort facility — and it is completely legal, extremely common, and fully the shipper's responsibility.
 
@@ -41,7 +41,7 @@ It works like this. You take the item, wrap it in a layer or two of bubble wrap,
 - **There is no second box.** The outer carton is the only barrier between the shelf edge, the conveyor roller, and the falling box above it. Fragile goods are precisely the case where UPS recommends the two-box method, with the outer box larger than the inner box all the way around.
 - **The cushioning migrates.** Loose peanuts settle and shift in transit. UPS calls for a minimum of about two inches of loose-fill cushioning around lightweight items — and without a rigid inner box holding its position, the item works its way toward the wall of the carton over hundreds of miles of vibration.
 
-Then the villain closes the trap. The package arrives broken, you file a claim, and the claim is reviewed against the packaging itself. Carriers publish detailed guidelines — box strength, cushioning thickness, wrapping items individually, sealing seams — and their terms state plainly that it is the shipper's responsibility to ensure the contents are properly packed. A package that does not meet the published standard is not a carrier failure. It is a packing failure, and the claim denial says so in one line.
+Then the mechanism closes the trap. The package arrives broken, you file a claim, and the claim is reviewed against the packaging itself. Carriers publish detailed guidelines — box strength, cushioning thickness, wrapping items individually, sealing seams — and their terms state plainly that it is the shipper's responsibility to ensure the contents are properly packed. A package that does not meet the published standard is not a carrier failure. It is a packing failure, and the claim denial says so in one line.
 
 You are not stupid for wrapping it the way most people wrap it. You were never told the standard. Nobody prints the standard on the label.
 

@@ -30,7 +30,7 @@ Here's the fix: professional design and printing under one roof, at 7554 Fredle 
 
 ## The DIY Design Gap
 
-The villain here isn't your printer or your taste. It's the gap between "I can open a template" and "this looks professional."
+The problem here isn't your printer or your taste. It's the gap between "I can open a template" and "this looks professional."
 
 Template design tools make the first ninety percent of the job feel easy — say, roughly nine-tenths of it, to borrow a round number. Pick a layout, type your name, drop in a phone number. Done, it seems. But the last ten percent — spacing, kerning, color consistency, bleed margins, print resolution — is exactly the part that separates a card people keep from a card people quietly recycle. And that last ten percent is invisible until the cards come back from a home printer with cropped edges and washed-out color.
 
