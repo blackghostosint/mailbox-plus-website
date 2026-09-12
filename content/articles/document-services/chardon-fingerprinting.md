@@ -24,7 +24,7 @@ Two to three weeks? Your stomach clenches. This isn't some casual formality. Thi
 
 ## The Background Check Gauntlet
 
-The villain in this story isn't a person; it's a process. We call it "The Background Check Gauntlet" – a bewildering, multi-step ordeal that seems specifically designed to test your patience, your resourcefulness, and your ability to navigate obscure bureaucratic pathways. It’s not just about getting your fingerprints taken; it's about the entire confusing journey that precedes and follows that simple act.
+The problem in this story isn't a person; it's a process. We call it "The Background Check Gauntlet" – a bewildering, multi-step ordeal that seems specifically designed to test your patience, your resourcefulness, and your ability to navigate obscure bureaucratic pathways. It’s not just about getting your fingerprints taken; it's about the entire confusing journey that precedes and follows that simple act.
 
 First, you have to _find_ an approved location. In many areas, especially outside of major metropolitan centers, this often means your local Sheriff's office or perhaps a specialized agency that's only open during limited, inconvenient hours. For those of us in Chardon, the default thought is always the Sheriff’s Office, perfectly positioned near the historic courthouse. But as you've likely discovered, while they provide an invaluable service to our community, they are often overwhelmed with demand for non-emergency administrative tasks like fingerprinting. Their primary mission is public safety, and fingerprinting, while important, isn't always at the top of the priority list when resources are tight.
 

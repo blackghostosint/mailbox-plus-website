@@ -31,7 +31,7 @@ There's a cleaner way: a private mailbox with a real street address at Mailbox P
 
 ## The Forwarding Gap
 
-Call the villain what it is: **The Forwarding Gap**.
+Call it what it is: **The Forwarding Gap**.
 
 The default move is a temporary change of address with the post office. It's free, it's familiar, and it quietly doesn't do what a snowbird needs. According to USPS's own guidance, a temporary change of address provides piece-by-piece forwarding of primarily First-Class Mail and Periodicals — and generally does not forward Marketing Mail or Package Services mail. Translation: the letters come. The packages don't. The catalogs and offers pile up at an empty house for months.
 

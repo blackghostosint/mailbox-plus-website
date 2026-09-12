@@ -26,7 +26,7 @@ You calculate the route in your head. First, down Route 44 South, past the famil
 
 ## The Return Runaround
 
-This is the villain of our story, plain and simple: **The Return Runaround.** It's not a person, but a pervasive, almost insidious system that has insidiously woven itself into the fabric of modern commerce. You’re not doing anything wrong. You've embraced online shopping, a convenience that should simplify life, not add layers of logistical nightmares. But here's the insidious twist: the very convenience of ordering online often comes with the inconvenient stipulation of _how_ to send it back.
+This is the mechanism working against you, plain and simple: **The Return Runaround.** It's not a person, but a pervasive, almost insidious system that has insidiously woven itself into the fabric of modern commerce. You’re not doing anything wrong. You've embraced online shopping, a convenience that should simplify life, not add layers of logistical nightmares. But here's the insidious twist: the very convenience of ordering online often comes with the inconvenient stipulation of _how_ to send it back.
 
 Amazon, with its vast network, often defaults to UPS. Zappos, known for its impeccable shoe service, frequently partners with FedEx for returns. And that charming, independent boutique, or perhaps a small business on Etsy, often relies on the venerable, if sometimes slow, USPS. These aren't just preferences; they're mandated. Your return label dictates your path. You can't just drop a FedEx return at UPS, or a UPS package at the Post Office. The system is rigid, unyielding, and completely fragmented.
 

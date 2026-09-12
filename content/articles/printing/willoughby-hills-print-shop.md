@@ -28,7 +28,7 @@ Here is the part almost nobody tells you: the file was probably fine. What faile
 
 ## The File-to-Paper Gap
 
-Call the villain what it is: the File-to-Paper Gap.
+Call it what it is: the File-to-Paper Gap.
 
 Your screen produces color with light. Paper produces it with ink. Those are physically different systems, and the translation between them — the conversion from the RGB color your monitor shows to the CMYK ink a press lays down — is where bright blues go dull and reds go muddy. Professional designers build in that conversion. Everyone else discovers it after the print run, when the money is already spent.
 
@@ -71,7 +71,7 @@ None of them learned print production. They found a counter that checks first an
 ## How It Works
 
 1. **Bring the file — any file.** A print-ready PDF, a designer's original, an image on your phone, or last year's card to copy. If it is not right, we will tell you what is wrong and what we need, in plain English.
-2. **We check it before it prints.** Resolution, color, bleed, margins — the whole checklist from the villain section, run by a human, on your file, while you are still able to fix it cheaply.
+2. **We check it before it prints.** Resolution, color, bleed, margins — the whole checklist from the section above, run by a human, on your file, while you are still able to fix it cheaply.
 3. **You approve the proof and walk out with print that matches.** Cards, flyers, letterhead, copies — and when the reorder comes next quarter, the file is already right, so it just prints.
 
 That last point compounds. Once your file is fixed and on file, every future order inherits the correction. The gap only bites you once.
