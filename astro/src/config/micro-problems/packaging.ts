@@ -54,7 +54,7 @@ export const packagingMicroProblems: Service[] = [
       {
         question: 'What if my label was on the damaged box?',
         answer:
-          "We'll carefully remove it and attach it to the new box. If it's destroyed, we can reprint it for $1–2.",
+          "We'll carefully remove it and attach it to the new box. If it's destroyed, we can reprint it for a flat $2.",
       },
       {
         question: 'How much does a new box cost?',

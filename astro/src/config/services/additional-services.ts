@@ -201,63 +201,58 @@ export const additionalServices: Service[] = [
     id: 'amazon-returns-drop-off-concord-township',
     category: 'additional-services',
     city: 'Concord Township',
-    serviceName: 'Amazon Returns Drop Off',
+    serviceName: 'Ship Your Amazon Return',
     slug: '/amazon-returns-drop-off-concord-township',
     canonicalUrl: 'https://mailboxplusohio.com/amazon-returns-drop-off-concord-township',
-    pageTitle: 'Amazon Returns Drop Off in Concord Township, Ohio | Mailbox Plus',
+    pageTitle: 'Ship Your Amazon Return in Concord Township, OH | Mailbox Plus',
     metaDescription:
-      'Fast Amazon returns drop-off in Concord Township. Bring your pre-paid UPS label packages to Mailbox Plus for quick, hassle-free returns.',
-    keywords: 'Amazon returns drop off, Concord Township, Mailbox Plus',
-    heroTitle: 'Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus',
+      'Have an Amazon return with a pre-paid shipping label? Bring it to Mailbox Plus in Concord Township — we scan the label and ship it out. Label printing available. We do not process Amazon QR codes.',
+    keywords: 'Amazon return pre-paid label, ship Amazon return, Concord Township, Mailbox Plus',
+    heroTitle: 'Ship Your Amazon Return From Mailbox Plus',
     heroSubtitle:
-      'Need to return an Amazon package? Mailbox Plus is your convenient Amazon returns drop-off location in Concord Township, Ohio.',
+      'Already have a pre-paid shipping label for your Amazon return? Bring it in — we scan the label and get your package on its way. Note: we are not an Amazon returns counter; we cannot process Amazon QR codes.',
     heroImage: getServiceImageUrl('/images/ups-shipping.webp'),
     content: [
       {
-        heading: 'Easy Amazon Returns Drop Off in Concord Township: Mailbox Plus',
-        body: `<p>Need to return an Amazon package? Mailbox Plus is your convenient <strong><a href="/amazon-returns">Amazon returns drop-off</a> location in Concord Township, Ohio</strong>.</p>
-                <p>We accept eligible Amazon returns that have a pre-paid UPS shipping label. Skip the long lines at other stores and enjoy a quick, hassle-free <a href="/pack-ship/package-drop-offs">package drop-off</a> experience. While you're here, check out our other services including <strong>FedEx, USPS, and DHL shipping</strong>, packing supplies, and more.</p>`,
+        heading: 'Ship Your Amazon Return in Concord Township',
+        body: `<p>Need to send back an Amazon purchase that already has a <strong>pre-paid shipping label</strong>? Bring the boxed package to Mailbox Plus. We scan the label, hand you a drop-off receipt, and the package goes out on the next carrier pickup — usually <strong>UPS</strong>.</p>
+                <p><strong>Please note:</strong> Mailbox Plus is not an Amazon hub or Amazon return desk. We cannot scan Amazon QR codes or accept box-free Amazon returns. If your return is QR-only, Amazon's app will direct you to an Amazon-authorized location (UPS, Kohl's, Whole Foods, etc.).</p>`,
       },
       {
-        heading: 'Why Drop Off Amazon Returns at Mailbox Plus?',
+        heading: 'What We CAN Do for Your Amazon Return',
+        body: `<ul>
+                <li><strong>Pre-Labeled Drop-Offs:</strong> Bring your Amazon return with its pre-paid shipping label — we scan it and ship it out.</li>
+                <li><strong>Label Printing:</strong> Email us the label PDF and we'll print it for you (small fee).</li>
+                <li><strong>Boxes & Packing:</strong> Need a box or tape? We sell packaging supplies and can pack it for you.</li>
+                <li><strong>Receipt Provided:</strong> You'll get a drop-off receipt for your records.</li>
+                <li><strong>Multi-Carrier Shipping:</strong> No label? We can ship your return via UPS, FedEx, USPS, or DHL at carrier rates.</li>
+                </ul>`,
+      },
+      {
+        heading: 'Why Mailbox Plus for Your Labeled Return?',
         body: `<ul>
                 <li><strong>Fast & Easy:</strong> We scan your label and get you on your way in seconds.</li>
-                <li><strong>No Long Lines:</strong> Avoid the crowds often found at The UPS Store.</li>
+                <li><strong>No Long Lines:</strong> Avoid the crowds at big-box stores.</li>
                 <li><strong>Convenient Location:</strong> Right here in Concord Township, close to home.</li>
                 <li><strong>Friendly Service:</strong> Our staff is happy to help with any shipping questions.</li>
-                <li><strong>Receipt Provided:</strong> We'll give you a drop-off receipt for your records.</li>
-                <li><strong>More Services:</strong> Buy a box or tape if you need to pack your return.</li>
                 </ul>`,
       },
-      {
-        heading: 'Return & Shipping Services',
-        body: `<ul>
-                <li><strong>Amazon Drop-Offs:</strong> Accepting Amazon returns with pre-paid UPS shipping labels.</li>
-                <li><strong>Packing Assistance:</strong> Need a box? We sell packaging supplies to get your return ready.</li>
-                <li><strong>Label Printing:</strong> Email us your label and we can print it for you (small fee may apply).</li>
-                <li><strong>Multi-Carrier Shipping:</strong> We also ship via FedEx, USPS, and DHL for your other needs.</li>
-                </ul>`,
-      },
-    ],
-    features: [
-      { title: 'Wait Time', description: 'Minimal.', icon: Clock },
-      { title: 'Service', description: 'Personal & Friendly.', icon: Users },
-      { title: 'Flexibility', description: 'Accepts UPS, FedEx, USPS.', icon: Truck },
     ],
     faqs: [
       {
-        question: 'Do I need to print my label?',
+        question: 'Can I drop off my Amazon return at Mailbox Plus?',
         answer:
-          "Yes, please have your label printed and attached to the package. If you don't have a printer, we can print it for a small fee.",
+          'Yes — if your Amazon return has a pre-paid shipping label and is boxed and sealed, bring it in. We scan the label and ship it out, and we sell boxes and tape if you need them. We do not process Amazon QR codes or box-free returns.',
       },
       {
-        question: 'Do you take QR codes?',
+        question: 'Do you scan Amazon QR codes?',
         answer:
-          'Currently, we accept packages with pre-printed shipping labels. For QR codes, please check the instructions from Amazon.',
+          'No. Mailbox Plus is not an Amazon returns counter — we cannot scan Amazon QR codes or accept box-free Amazon returns. QR-only returns must go to an Amazon-authorized location like UPS, Kohl\u2019s, or Whole Foods.',
       },
       {
-        question: 'Do I need to box my return?',
-        answer: 'Yes, items must be boxed and sealed. We sell boxes and tape if you need them!',
+        question: 'Can you print my Amazon return label?',
+        answer:
+          'Yes. Email us the label PDF and we can print it for a small fee. Attach it to your boxed package and we’ll ship it out.',
       },
     ],
   },

@@ -26,7 +26,7 @@ So, they sit. Those boxes. A silent, growing monument to procrastination and goo
 
 ## The Curb-Side Data Leak
 
-The villain in this story isn't some shadowy, digital hacker lurking in the dark corners of the internet, though that threat is real enough. No, our villain is far more mundane, more tangible, and far closer to home. We call it **The Curb-Side Data Leak**. It’s an insidious, everyday threat that operates right out in the open, often in broad daylight, under the very noses of unsuspecting Chardon residents.
+The problem in this story isn't some shadowy, digital hacker lurking in the dark corners of the internet, though that threat is real enough. No, our problem is far more mundane, more tangible, and far closer to home. We call it **The Curb-Side Data Leak**. It’s an insidious, everyday threat that operates right out in the open, often in broad daylight, under the very noses of unsuspecting Chardon residents.
 
 Think about it. Every recycling bin, every trash bag, every pile of unsecured paper placed out for collection isn't just refuse; it’s an identity thief’s treasure hunt. The mechanism is shockingly simple, tragically effective, and frighteningly commonplace. Imagine a person – anyone – with five minutes to spare and absolutely no shame. They don't need fancy tools or advanced degrees. All they need is access to what _you_ deem "trash."
 
