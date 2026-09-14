@@ -37,7 +37,7 @@ That is exactly what you get at Mailbox Plus, at 7554 Fredle Drive in Concord To
 
 ## The Background Check Gauntlet
 
-The villain here is not a person. It is a mechanism, and it operates in perfectly legal daylight: the fingerprinting infrastructure in Ohio runs on a patchwork of public agencies, school districts, and private providers, each with its own hours, its own booking system, and its own rules about who they will print.
+The problem here is not a person. It is a mechanism, and it operates in perfectly legal daylight: the fingerprinting infrastructure in Ohio runs on a patchwork of public agencies, school districts, and private providers, each with its own hours, its own booking system, and its own rules about who they will print.
 
 Here's the trap, and you may have already stepped in it. You call the sheriff's office, the one forty minutes round-trip from your driveway, and a voicemail tells you the WebCheck window is "closed between 12 and 1." The school district down the road prints only on Tuesday mornings, and it does not take your licensing board's code anyway. The state requires your prints be submitted electronically — mailed fingerprint cards can take up to a month to process, while electronic submissions usually come back in days ([ohioattorneygeneral.gov](https://www.ohioattorneygeneral.gov/Law-Enforcement/Bureau-of-Criminal-Investigation/Identification-Division/Civilian-Services)) — but the electronic option lives scattered across agencies and providers that don't share a calendar.
 

@@ -30,7 +30,7 @@ Here is how it works: Instead of wrestling with a flimsy home shredder or lettin
 
 ## The Curb-Side Data Leak
 
-The villain you’re up against isn't some shadowy figure in a trench coat, but a far more insidious and commonplace threat: The Curb-Side Data Leak. It’s the recycling bin you wheel out to the street every week. It’s the overflowing trash bag left by the curb. It’s any pile of unsecured paper that, in the wrong hands, instantly becomes an identity thief’s treasure map. In communities like Kirtland Hills, where privacy and security are paramount, this vulnerability feels especially jarring.
+What you’re up against isn't some shadowy figure in a trench coat, but a far more insidious and commonplace threat: The Curb-Side Data Leak. It’s the recycling bin you wheel out to the street every week. It’s the overflowing trash bag left by the curb. It’s any pile of unsecured paper that, in the wrong hands, instantly becomes an identity thief’s treasure map. In communities like Kirtland Hills, where privacy and security are paramount, this vulnerability feels especially jarring.
 
 The mechanism is deceptively simple and operates in plain legal daylight. You, like many busy professionals and homeowners, might mistakenly believe that once your recycling leaves your driveway, it’s secure. Or, perhaps, you're simply overwhelmed by the sheer volume of paper and resort to discarding sensitive documents intact, telling yourself "it will probably be fine." But the reality is stark: Anyone with five minutes and no shame can sift through unsecured trash or recycling bins. They aren't looking for aluminum cans; they're looking for account numbers, dates of birth, Social Security numbers, medical histories, and anything else that can unlock your identity.
 

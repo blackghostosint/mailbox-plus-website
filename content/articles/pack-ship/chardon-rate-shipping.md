@@ -24,7 +24,7 @@ You pull into the familiar parking lot of the single-carrier franchise store, th
 
 ## The Franchise Markup
 
-Let's call the villain by its true name: The Franchise Markup. It’s not some shadowy conspiracy; it’s a perfectly legal, yet ethically questionable, mechanism built into the very business model of single-carrier franchise stores. Here’s how it operates, right there in plain sight, often without you even realizing the true cost.
+Let's call it by its true name: The Franchise Markup. It’s not some shadowy conspiracy; it’s a perfectly legal, yet ethically questionable, mechanism built into the very business model of single-carrier franchise stores. Here’s how it operates, right there in plain sight, often without you even realizing the true cost.
 
 Imagine this: you walk into a store that proudly displays the logo of one specific major shipping carrier – say, a familiar brown truck or a red-and-blue shield. What they don't tell you, or rather, what they deliberately _don't show you_, is that there are three other equally reputable, often more affordable, carriers who could get your package to its destination. It’s like walking into a car dealership that only sells one brand of car and refuses to even acknowledge the existence of other manufacturers, let alone compare their models and prices for you.
 

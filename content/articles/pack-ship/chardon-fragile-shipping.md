@@ -24,7 +24,7 @@ You know it needs to be packed right. Cushioned right. Labeled right. It needs t
 
 ## The Conor Belt Gamble
 
-Let’s be brutally honest about the silent, faceless villain in this scenario: the modern national sorting system. We call it "The Conor Belt Gamble" – a sprawling, intricate network of conveyor belts, automated sorting machines, and sheer brute force designed for one thing: speed and volume. It’s a system that treats every package, from a pallet of paper towels to your grandmother’s hand-painted china, as uniform bulk freight.
+Let’s be brutally honest about the silent, faceless trap in this scenario: the modern national sorting system. We call it "The Conor Belt Gamble" – a sprawling, intricate network of conveyor belts, automated sorting machines, and sheer brute force designed for one thing: speed and volume. It’s a system that treats every package, from a pallet of paper towels to your grandmother’s hand-painted china, as uniform bulk freight.
 
 Imagine your precious item entering this labyrinth. It’s scanned, dropped, shunted, and slid. It tumbles down chutes, jostles against hundreds of other boxes, and is stacked indiscriminately. A 50-pound box of textbooks could be dropped onto your carefully wrapped antique. A pallet of auto parts might slide on top of a stack containing your family heirloom. There’s no human hand guiding it with care, no discerning eye saying, "This one is fragile; handle with caution." The system is blind, deaf, and utterly indifferent to the contents of your box.
 

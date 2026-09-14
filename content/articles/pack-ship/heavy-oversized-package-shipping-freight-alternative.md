@@ -33,7 +33,7 @@ You weighed the box at home. Sixty pounds, give or take. You looked up the rate 
 
 ## The Surcharge Stack
 
-The villain here is not one fee. It is a stack of them, each one legal, each one disclosed — in a service guide most people never open.
+The problem here is not one fee. It is a stack of them, each one legal, each one disclosed — in a service guide most people never open.
 
 The first layer is **additional handling**. Both major carriers charge it when a package gets physically awkward. UPS applies it when the longest side exceeds 48 inches, the second-longest side exceeds 30 inches, the package weighs more than 50 pounds, or the box is over a certain cubic size. FedEx applies its own version on the same logic. Your box did not change. It just tripped a rule.
 

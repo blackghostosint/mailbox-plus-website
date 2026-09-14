@@ -28,7 +28,7 @@ This is the international shipping experience nobody warns you about when you op
 
 ## The Name for What's Been Happening
 
-The villain has a name: the landed-cost gap. Here's how it operates in broad daylight.
+The problem has a name: the landed-cost gap. Here's how it operates in broad daylight.
 
 When a package crosses a border, the destination country charges duties and import taxes. Nobody argues the government is entitled to collect. The trap is in the TIMING of when the buyer finds out what they owe. If your checkout shows a product price and a shipping fee, but the duties and taxes get assessed later — after the buyer has already paid — then your buyer gets billed by the carrier for clearance. The carrier is the government's collection agent at the door, and the bill arrives with your store's name implied, because YOU sold them the item.
 

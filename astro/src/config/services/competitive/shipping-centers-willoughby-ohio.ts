@@ -105,7 +105,7 @@ export const competePages: Service[] = [
               </div>
               <div class="p-5 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Returns Accepted</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Amazon returns, Happy Returns, online order returns --- all accepted.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled returns accepted --- Happy Returns, Nuuly, and carrier drop-offs with a shipping label.</p>
               </div>
             </div>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">

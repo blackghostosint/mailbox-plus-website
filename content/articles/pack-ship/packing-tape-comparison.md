@@ -34,7 +34,7 @@ The box left your hands looking fine. It arrived at your buyer's door flaps-firs
 
 That's the outcome you're after: the adhesive bond is what decides whether your box survives the sorters — and here is the mechanism behind it.
 
-## The Villain: The Junk Drawer Tape Trap
+## The Problem: The Junk Drawer Tape Trap
 
 Nobody's careless on purpose. The trap is that duct tape, painter's tape, electrical tape, and cheap plastic tape all _look_ strong, and your kitchen drawer has held them all at one time or another. So when the box needs sealing, your hand reaches for what's closest.
 

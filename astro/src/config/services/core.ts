@@ -91,7 +91,7 @@ export const coreServices: Service[] = [
               <a href="/amazon-returns" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="text-3xl mb-4">↩️</div>
                 <h3 class="text-lg font-bold text-[var(--color-text-primary)] mb-1">Amazon Returns</h3>
-                <p class="text-sm text-[var(--color-text-secondary)]">From your cart to our counter. Label printing, packing, and drop-off.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Have a pre-paid return label? We print, pack, and ship it out. (No Amazon QR returns.)</p>
               </a>
               <a href="/pack-ship/packaging-supplies" class="block p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm hover:shadow-md transition-shadow">
                 <div class="text-3xl mb-4">📎</div>

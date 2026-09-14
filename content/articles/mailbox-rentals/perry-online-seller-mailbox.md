@@ -31,7 +31,7 @@ A private mailbox at Mailbox Plus gives you a real street address for your busin
 
 ## The Label Problem
 
-Call the villain what it is: **The Home-Address Label**. Every major selling platform generates shipping and return labels from the address you have on file. For a home-based seller, that address is your house.
+Call it what it is: **The Home-Address Label**. Every major selling platform generates shipping and return labels from the address you have on file. For a home-based seller, that address is your house.
 
 There's no conspiracy here — it's just how the default works. Set up a seller account, enter your home address, and the system stamps it on every label you print. Thousands of labels, all pointing back to your kitchen table. Marketplace help centers even instruct sellers to print return labels with their own address on them — that's the design, not a bug you can toggle off.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Still Faxing in Mentor? Here''s Where the Machine Actually Works'
+title: "Still Faxing in Mentor? Here's Where the Machine Actually Works"
 description: 'The title company wants it faxed by 5. No machine, no line, no out-of-order sign. Mailbox Plus near Mentor sends and receives faxes with a confirmation sheet in hand.'
 slug: 'mentor-fax'
 category: 'document-services'
@@ -9,7 +9,13 @@ status: 'published'
 image: 'articles/document-services/mentor-fax-featured.webp'
 imageAlt: 'A document feeding through a fax machine on a clean shipping counter, confirmation sheet printing — fax services for Mentor, OH residents.'
 location: 'mentor'
-keywords: ['fax service Mentor', 'send fax without machine', 'Mentor Ohio fax services', 'where to fax documents Mentor']
+keywords:
+  [
+    'fax service Mentor',
+    'send fax without machine',
+    'Mentor Ohio fax services',
+    'where to fax documents Mentor',
+  ]
 relatedServices: ['/home-business/fax-services/', '/home-business/notary-services/']
 author: 'Mailbox Plus Team'
 ---
@@ -22,7 +28,7 @@ It should take five minutes: hand over a page, dial a number, get proof it went 
 
 ## The Machine Everyone Retired but the Requirement Didn't
 
-The villain has a name: the Fax Dead Zone.
+The problem has a name: the Fax Dead Zone.
 
 Here's the mechanism. In the late 2000s, fax machines disappeared from homes and, one by one, from businesses. Nobody re-bought one, because email was faster and free. But thousands of institutions — title agencies, courts, medical offices, lenders, government benefits processors — never retired the fax itself. They kept it because a fax is a point-to-point transmission over the phone network: it arrives with a transmission record, it goes to a dedicated line, and it satisfies their compliance checkboxes in a way an emailed PDF sometimes doesn't. So the requirement survived while the machines died.
 

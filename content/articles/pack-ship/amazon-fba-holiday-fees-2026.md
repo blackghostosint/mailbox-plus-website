@@ -33,7 +33,7 @@ You are not surprised. You have seen this movie before. But you still feel the s
 
 ## The Fee Stack
 
-The villain here is not Amazon the marketplace. Amazon is a tool — probably the best tool there is for getting your products in front of buyers. The villain is the fee stack that quietly grows on top of every order you fulfill through the program.
+The problem here is not Amazon the marketplace. Amazon is a tool — probably the best tool there is for getting your products in front of buyers. The problem is the fee stack that quietly grows on top of every order you fulfill through the program.
 
 Here is how it works in legal daylight. Amazon publishes a fee schedule. During the holiday rush, it applies a second, higher fee schedule on top of the first. And on top of that sits a percentage surcharge described as temporary but with no expiration date. Each layer is announced publicly. Each layer is disclosed in Seller Central. Nothing is hidden. And yet the total you pay keeps climbing — because the layers compound.
 

@@ -71,7 +71,7 @@ export const returnMicroProblems: Service[] = [
       {
         question: 'Do you charge for printing labels?',
         answer:
-          "$1–2 depending on size. If you're also using our packing or shipping services, we usually include it.",
+          "A flat $2. If you're also using our packing or shipping services, we usually include it.",
       },
     ],
     cta: {

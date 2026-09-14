@@ -31,7 +31,7 @@ Here's the outcome it should be: you carry the item in loose, someone who packs 
 
 ## The Self-Pack Gamble
 
-The villain here isn't a person or even a store. It's the quiet assumption built into every drop-off-only shipping point: that by the time a package reaches the counter, the hard part is already done. The packing. The part that actually determines whether the item survives. Nobody does it. It's your problem.
+The problem here isn't a person or even a store. It's the quiet assumption built into every drop-off-only shipping point: that by the time a package reaches the counter, the hard part is already done. The packing. The part that actually determines whether the item survives. Nobody does it. It's your problem.
 
 And it runs deeper than Geneva's lack of a full-service counter. Even at a packing store, the protection you're buying stops at the box. The major carriers all draw the same line between what they take responsibility for and what they don't. FedEx's own declared-value page states plainly that the first $100 of value is included at no extra charge as part of its standard liability limit, and that anything beyond that costs extra — and that declared value is not shipping insurance. USPS builds up to $100 of insurance into Priority Mail and Priority Mail Express. The UPS Store's Pack & Ship Guarantee reimburses you up to only $100 for the item's value if you didn't declare a value when the store packed it — and a pro packer who does declare can lift that cap. In every case the message is the same: the system's default answer to "what if it breaks?" is "the first hundred dollars. After that, it was on you."
 

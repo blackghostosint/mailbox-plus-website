@@ -31,7 +31,7 @@ You can get there in one trip: a private mailbox with a real street address at M
 
 ## The Public Record Default
 
-Call the villain what it is: **The Public Record Default**.
+Call it what it is: **The Public Record Default**.
 
 When you form an Ohio LLC, the state requires you to appoint and maintain a statutory agent — the person or business that receives legal documents and official notices — and that agent's name and street address go on the filing with the Ohio Secretary of State. It is searchable. Anyone can look it up, for free, in under a minute.
 

@@ -29,7 +29,7 @@ It should be simple: your business gets a business address, your home stays a ho
 
 ## The Home-Address Default
 
-The villain here has a boring name: the home-address default. Online marketplaces, suppliers, and shipping platforms all assume the person shipping from a kitchen table ships _from home_. So the return label they generate shows your residence. The supplier's packing slip shows your residence. The customer who wants a refund can read your residence right off the box.
+The problem here has a boring name: the home-address default. Online marketplaces, suppliers, and shipping platforms all assume the person shipping from a kitchen table ships _from home_. So the return label they generate shows your residence. The supplier's packing slip shows your residence. The customer who wants a refund can read your residence right off the box.
 
 This is not a hack or a leak. It is the system working exactly as designed — for warehouses and storefronts, not for the fastest-growing kind of seller there is: the one working out of a spare room in Willowick. The platforms treat your front door as your receiving dock. They have never asked whether you agreed to that trade.
 

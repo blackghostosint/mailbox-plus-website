@@ -26,7 +26,7 @@ You have three boxes sitting by the door in Eastlake, and none of them agree on 
 
 ## The Return Runaround
 
-The villain here isn't any single store. It's the way online returns are built: each retailer picks its own carrier, prints its own label, and leaves the last mile of the return to you. Amazon's return flow sends most labels to UPS. Other retailers default to FedEx. Etsy sellers and boutique shops often use USPS. Nobody coordinates, because coordinating isn't their problem — it's yours.
+The problem here isn't any single store. It's the way online returns are built: each retailer picks its own carrier, prints its own label, and leaves the last mile of the return to you. Amazon's return flow sends most labels to UPS. Other retailers default to FedEx. Etsy sellers and boutique shops often use USPS. Nobody coordinates, because coordinating isn't their problem — it's yours.
 
 So the system quietly converts one errand into three. Each carrier wants its packages handed back on its own terms: this one at a staffed counter, that one at a drop box, this one only at "authorized" locations. Miss the fine print and your return doesn't scan, the tracking never updates, and your refund sits in limbo while you drive a second loop across Lake County. You didn't do anything wrong. You just ordered from three different stores, and three different stores each handed you a different chore.
 

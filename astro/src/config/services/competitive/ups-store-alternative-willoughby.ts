@@ -132,7 +132,7 @@ export const competePages: Service[] = [
       {
         question: 'Can I make Amazon returns at Mailbox Plus?',
         answer:
-          'Yes! We accept Amazon returns with or without a box. We can print your label for just $2.',
+          'We accept Amazon returns with a pre-paid shipping label — we scan the label and ship it out. We can also print your label for a small fee. We do not process Amazon QR codes.',
       },
     ],
     aggregateRating: {

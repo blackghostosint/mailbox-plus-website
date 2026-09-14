@@ -31,7 +31,7 @@ There's a fix, and it takes one trip: a private mailbox with a real street addre
 
 ## The Home-Address Label
 
-Call the villain what it is: **The Home-Address Label**.
+Call it what it is: **The Home-Address Label**.
 
 It's not a hacker and not a scam. It's the default. You open a seller account, you type in your address, and from that moment the platform stamps it onto every shipping label, every return label, every packing slip, every carrier manifest. Hundreds of labels over a year, all pointing back to your kitchen table.
 

@@ -29,7 +29,7 @@ It should work the other way: your business gets a business address, and your ho
 
 ## The Home-Address Default
 
-The villain has a boring name: the home-address default. Marketplaces, suppliers, and shipping platforms all assume the person shipping from a spare room ships _from home_. So the return label they generate shows your residence. The supplier's packing slip shows your residence. A customer who wants a refund can read your street right off the box.
+The problem has a boring name: the home-address default. Marketplaces, suppliers, and shipping platforms all assume the person shipping from a spare room ships _from home_. So the return label they generate shows your residence. The supplier's packing slip shows your residence. A customer who wants a refund can read your street right off the box.
 
 This is not a hack or a leak. It is the system working exactly as designed — for warehouses and storefronts, not for the fastest-growing kind of seller there is: the one working from a kitchen table in Willoughby. The platforms treat your front door as your receiving dock. They have never asked whether you agreed to that trade.
 

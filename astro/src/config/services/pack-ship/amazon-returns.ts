@@ -275,7 +275,7 @@ export const amazonReturnsService: Service = {
             </li>
           </ul>
           <div class="bg-red-50 p-6 rounded-2xl border border-red-100 text-red-800 font-bold text-center text-lg">
-            If the return instructions only show a QR code with no option for a shipping label, we cannot process that return.
+            If the return instructions only show a QR code with no option for a shipping label, we cannot process that return. Mailbox Plus is not an Amazon hub or Amazon return desk — pre-labeled returns only.
           </div>
         </div>
       `,

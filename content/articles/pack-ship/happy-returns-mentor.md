@@ -23,7 +23,7 @@ It does not have to work that way. Happy Returns was built to kill every one of 
 
 ## The Box-and-Label Machine
 
-The villain here has a name, and it is not the retailer and it is not you. It is the packaging requirement that the shipping industry bolted onto returns decades ago and never took off.
+The problem here has a name, and it is not the retailer and it is not you. It is the packaging requirement that the shipping industry bolted onto returns decades ago and never took off.
 
 Here is the mechanism. When most retailers process a traditional return, they hand you a prepaid carrier label and a set of unstated obligations. You supply the box. You supply the tape. You supply the printer — or you drive somewhere that will print the label for you. Then you supply the mileage: a trip to whichever carrier the label happens to name, which is rarely the carrier you were near yesterday. Each of those steps exists because the carrier network was designed around parcels, and parcels demand packaging. The system is not broken. It is working exactly as it was designed — for the carriers' sorting machines, not for your Tuesday afternoon.
 

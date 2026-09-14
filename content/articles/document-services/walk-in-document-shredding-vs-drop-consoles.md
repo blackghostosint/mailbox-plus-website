@@ -29,7 +29,7 @@ Instead, the big retail chains turn that simple trip into a handoff you cannot s
 
 ## The Locked-Console Handoff
 
-The villain has a name: the off-site handoff.
+The problem has a name: the off-site handoff.
 
 It works like this, and it is completely legal and completely normal in the retail shredding industry. FedEx Office states on its own shredding page that documents placed in locked shred bins are "securely transported off-site for destruction by a certified shredding provider." The UPS Store says the same thing differently: its shredding is provided by Iron Mountain, a national document destruction vendor, and your papers go into "the secured, locked shredding bin" when you visit. FedEx Office offers shredding at select locations only, currently at $1.49 per pound.
 

@@ -26,7 +26,7 @@ Panic starts to bubble. The Chardon Square clock tower will strike 11:00 AM befo
 
 ## The Printer Blackout
 
-Let’s name the villain, shall we? It’s not just _your_ printer that’s failing you; it’s a systemic enemy we call **The Printer Blackout**. It’s that universal failure cascade, a meticulously orchestrated dance of inconvenience designed to strike at the worst possible moment. Think about it:
+Let’s name the problem, shall we? It’s not just _your_ printer that’s failing you; it’s a systemic enemy we call **The Printer Blackout**. It’s that universal failure cascade, a meticulously orchestrated dance of inconvenience designed to strike at the worst possible moment. Think about it:
 
 First, your printer runs out of ink – always when you need it most, like 30 minutes before a meeting at the Courthouse, or before a crucial presentation for a potential client just off Route 44.
 

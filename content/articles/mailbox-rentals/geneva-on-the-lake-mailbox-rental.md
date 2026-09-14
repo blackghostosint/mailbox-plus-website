@@ -1,6 +1,6 @@
 ---
 title: 'Geneva-on-the-Lake Is a Great Place to Run a Business From. It Is a Hard Place to Get Mail.'
-description: "No mailbox rental exists in Geneva-on-the-Lake, and a PO Box turns away every carrier except USPS. A real street address exists 30 minutes southwest — here is how it works."
+description: 'No mailbox rental exists in Geneva-on-the-Lake, and a PO Box turns away every carrier except USPS. A real street address exists 30 minutes southwest — here is how it works.'
 slug: 'geneva-on-the-lake-mailbox-rental'
 category: 'mailbox-rentals'
 intentKey: 'geneva-on-the-lake-mailbox-rental'
@@ -17,7 +17,8 @@ keywords:
     'mail forwarding lake erie ohio vacation home',
     'rv mail service geneva on the lake',
   ]
-relatedServices: ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental', '/pack-ship']
+relatedServices:
+  ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental', '/pack-ship']
 author: 'Mailbox Plus Team'
 ---
 
@@ -29,7 +30,7 @@ Here is what it should be: you rent one real street address, all of your mail an
 
 ## The PO Box Wall
 
-The villain has a boring name and a hard edge: the PO Box address itself. It is a box number at a federal facility, and that design carries three limits that hit the moment your life gets more complicated than letters.
+The problem has a boring name and a hard edge: the PO Box address itself. It is a box number at a federal facility, and that design carries three limits that hit the moment your life gets more complicated than letters.
 
 First, the carrier wall. Only the Postal Service delivers to a PO Box — the USPS's own rules define PO Box service as delivery "only through receptacles owned or operated by the USPS or its agents," and UPS puts it just as plainly on its address guidelines: "UPS cannot deliver to a PO Box." UPS goes further and warns that a shipment addressed to a PO Box can be delayed, is not covered by any service guarantee, and can get hit with an address correction surcharge. So the art print you ordered, the kayak paddle from a company that ships FedEx, the replacement part for your golf cart — none of them can follow you to your box.
 
