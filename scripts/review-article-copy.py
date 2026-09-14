@@ -49,12 +49,12 @@ Grade the draft strictly across these 5 dimensions (0 to 20 points each, 100 tot
    - FAIL (0-15): Relies on abstract emotional adjectives ("deeply stressful", "incredibly overwhelming", "profoundly frustrating") without physical evidence.
 
 2. ONE-PERSON EAR & CONVERSATIONAL INTIMACY (0-20):
-   - PASS (16-20): Reads like an intimate 1-on-1 letter or a quiet conversation across a counter. Natural cadence, direct second-person singular ("you").
-   - FAIL (0-15): Sounds like a brochure, a lecture, or a corporate press release ("Residents of Kirtland Hills often experience...", "In today's fast-paced world...").
+   - PASS (16-20): Reads like an intimate 1-on-1 letter or a quiet conversation across a counter from start to finish. Natural cadence, direct second-person singular ("you"). The close feels like a supportive human handoff across the counter.
+   - FAIL (0-15): Sounds like a brochure, a lecture, or a corporate press release ("Residents of Kirtland Hills often experience...", "In today's fast-paced world...") or lapses into transactional sales catalog copy at the end.
 
-3. IDENTITY & STATUS STAKES (0-20):
-   - PASS (16-20): Exposes the deeper psychological tension (looking amateur running an Etsy shop from a kitchen table; dreading customer confrontation at the front door; family privacy exposed).
-   - FAIL (0-15): Treats the problem as a minor errand inconvenience or a 5-minute schedule delay.
+3. IDENTITY STAKES & ANXIETY DISSOLUTION (0-20):
+   - PASS (16-20): Exposes the deeper psychological tension (looking amateur, fear of carrier confrontation or judgment, dread of making a mistake) AND explicitly dissolves it in the final stages (success scene & CTA). The close must execute the 'Burden Transfer'—proving that the Mailbox Plus counter absorbs the friction, confusing rules, and anxiety so the customer doesn't have to carry them. The CTA must function as a 'permission slip' (reassuring the customer they don't need to apologize, pre-tape, or have everything figured out), leaving them feeling relieved and shielded.
+   - FAIL (0-15): Treats the problem as a minor errand inconvenience or a 5-minute schedule delay OR exposes the dread early only to abandon the hero at the end with a flat brochure pitch ("We offer document printing at 7554 Fredle Drive, visit us today") without resolving their internal anxiety or transferring the burden.
 
 4. VILLAIN LEGITIMACY & MECHANISM (0-20):
    - PASS (16-20): Names a concrete systemic mechanism (e.g. "The Return-Label Printout", "The Franchise Markup") and explains how it operates legally at the customer's expense, absolving the customer of personal incompetence.
