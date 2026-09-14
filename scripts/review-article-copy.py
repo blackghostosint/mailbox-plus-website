@@ -137,7 +137,7 @@ def call_openai_compatible(base_url, api_key, model, prompt_text, extra_headers=
     }
 
     req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers)
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    with urllib.request.urlopen(req, timeout=300) as resp:
         res = json.loads(resp.read().decode())
         return res["choices"][0]["message"]["content"]
 
@@ -160,7 +160,7 @@ def call_gemini(api_key, model, prompt_text):
     }
     
     req = urllib.request.Request(url, data=json.dumps(payload).encode(), headers=headers)
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    with urllib.request.urlopen(req, timeout=300) as resp:
         res = json.loads(resp.read().decode())
         return res["candidates"][0]["content"]["parts"][0]["text"]
 
