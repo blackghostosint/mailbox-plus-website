@@ -40,7 +40,10 @@ walkDir(PAGES_DIR, (filePath) => {
     // Dynamic template: register the static prefix before the [..] segment.
     // '[slug]' matches exactly one segment; '[...slug]' matches any depth.
     const prefix = '/' + segments.slice(0, dynamicIdx).join('/').replace(/\/$/, '');
-    dynamicPrefixes.push({ prefix: prefix === '' ? '/' : prefix, catchAll: segments[dynamicIdx].startsWith('[...') });
+    dynamicPrefixes.push({
+      prefix: prefix === '' ? '/' : prefix,
+      catchAll: segments[dynamicIdx].startsWith('[...'),
+    });
     return;
   }
   let route = rel.replace(/\.astro$/, '');

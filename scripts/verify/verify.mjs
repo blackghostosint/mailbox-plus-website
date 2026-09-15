@@ -31,19 +31,28 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
 const PAGES_DIR = path.resolve(ROOT, 'astro', 'src', 'pages');
 const CONTENT_DIR = path.resolve(ROOT, 'content', 'articles');
-const R2_PUBLIC_BASE = process.env.R2_PUBLIC_BASE || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+const R2_PUBLIC_BASE =
+  process.env.R2_PUBLIC_BASE || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 const DRAFTS_DIR = process.env.ARTICLE_DRAFTS_DIR || '/home/blackghost/work/batch_articles/drafts';
 const SKIP_NETWORK = process.argv.includes('--offline');
 
 // HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
 function headStatus(url) {
   try {
-    return execSync(`curl -sI -o /dev/null -w "%{http_code}" --max-time 10 "${url}"`, { cwd: ROOT }).toString().trim();
-  } catch { return 'ERR'; }
+    return execSync(`curl -sI -o /dev/null -w "%{http_code}" --max-time 10 "${url}"`, { cwd: ROOT })
+      .toString()
+      .trim();
+  } catch {
+    return 'ERR';
+  }
 }
 
 let gray;
-try { gray = (await import('gray-matter')).default; } catch { gray = null; }
+try {
+  gray = (await import('gray-matter')).default;
+} catch {
+  gray = null;
+}
 
 const results = [];
 function check(name, pass, detail, fix) {
@@ -137,13 +146,22 @@ const HEADING_OVERLAP_MAX = Number(process.env.HEADING_OVERLAP_MAX || 0.6);
 
 // Retired fixed headings from the legacy template. Used only to classify the legacy cohort.
 const RETIRED_TEMPLATE = [
-  'bring it in', 'what it actually feels like', 'why it should not be this way',
-  'what we see every day', 'how it works', 'what you lose by not acting',
-  'your afternoon after the change', 'the scene that starts everything',
+  'bring it in',
+  'what it actually feels like',
+  'why it should not be this way',
+  'what we see every day',
+  'how it works',
+  'what you lose by not acting',
+  'your afternoon after the change',
+  'the scene that starts everything',
   'the direct opening that names the problem',
 ];
 
-const normHeading = (h) => h.toLowerCase().replace(/[^a-z ]/g, '').trim();
+const normHeading = (h) =>
+  h
+    .toLowerCase()
+    .replace(/[^a-z ]/g, '')
+    .trim();
 
 function extractH2s(content) {
   const out = [];
@@ -153,7 +171,7 @@ function extractH2s(content) {
   return out;
 }
 
-let headingCorpus = null;   // [{ rel, set:Set<string>, legacy:boolean }]
+let headingCorpus = null; // [{ rel, set:Set<string>, legacy:boolean }]
 let newArticleCache = null; // Set<relPath> of articles added/changed vs origin/main
 
 function initHeadingCorpus() {
@@ -188,13 +206,21 @@ function initNewArticles() {
   if (newArticleCache) return newArticleCache;
   newArticleCache = new Set();
   try {
-    const base = execSync('git merge-base HEAD origin/main', { cwd: ROOT, stdio: 'pipe' }).toString().trim();
+    const base = execSync('git merge-base HEAD origin/main', { cwd: ROOT, stdio: 'pipe' })
+      .toString()
+      .trim();
     // base is a git SHA from our own repo; still validate the shape before interpolating.
     if (!/^[0-9a-f]{7,40}$/.test(base)) return newArticleCache;
-    const committed = execSync(`git diff --name-only ${base} HEAD`, { cwd: ROOT, stdio: 'pipe' }).toString();
+    const committed = execSync(`git diff --name-only ${base} HEAD`, {
+      cwd: ROOT,
+      stdio: 'pipe',
+    }).toString();
     const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
     for (const line of (committed + '\n' + status).split('\n')) {
-      const rel = line.slice(3).trim().replace(/^.*-> /, '');
+      const rel = line
+        .slice(3)
+        .trim()
+        .replace(/^.*-> /, '');
       if (rel) newArticleCache.add(rel);
     }
   } catch (e) {}
@@ -221,39 +247,88 @@ function cmdHeadings() {
   const retiredHits = RETIRED_TEMPLATE.reduce((a, h) => a + (counter.get(h) || 0), 0);
   const legacyCount = corpus.filter((c) => c.legacy).length;
 
-  check('headings:corpus', true,
-    `${corpus.length} articles, ${totalH2} H2s; ${retiredHits} (${Math.round((retiredHits / totalH2) * 100)}%) still on a retired template string`);
-  check('headings:legacy-cohort', true, `${legacyCount}/${corpus.length} articles are ≥60% boilerplate headings (backlog)`);
+  check(
+    'headings:corpus',
+    true,
+    `${corpus.length} articles, ${totalH2} H2s; ${retiredHits} (${Math.round((retiredHits / totalH2) * 100)}%) still on a retired template string`
+  );
+  check(
+    'headings:legacy-cohort',
+    true,
+    `${legacyCount}/${corpus.length} articles are ≥60% boilerplate headings (backlog)`
+  );
 
   const top = [...counter.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
   console.log('Most-reused H2s:');
   for (const [h, c] of top) console.log(`  ${String(c).padStart(4)}  ${h}`);
 }
 
-
 function cmdDoctor() {
-  check('repo-root', fs.existsSync(path.join(ROOT, 'astro', 'package.json')),
-    `resolved ${ROOT}`, 'run from scripts/verify/ inside the repo; never from ~/Projects clone (stale)');
-  check('node-modules', fs.existsSync(path.join(ROOT, 'node_modules')) && fs.existsSync(path.join(ROOT, 'astro', 'node_modules')),
-    'root + astro node_modules present', 'npm ci (root) && cd astro && npm ci');
-  check('gray-matter', !!gray, gray ? 'gray-matter available' : 'gray-matter missing',
-    'npm install gray-matter --save-dev');
+  check(
+    'repo-root',
+    fs.existsSync(path.join(ROOT, 'astro', 'package.json')),
+    `resolved ${ROOT}`,
+    'run from scripts/verify/ inside the repo; never from ~/Projects clone (stale)'
+  );
+  check(
+    'node-modules',
+    fs.existsSync(path.join(ROOT, 'node_modules')) &&
+      fs.existsSync(path.join(ROOT, 'astro', 'node_modules')),
+    'root + astro node_modules present',
+    'npm ci (root) && cd astro && npm ci'
+  );
+  check(
+    'gray-matter',
+    !!gray,
+    gray ? 'gray-matter available' : 'gray-matter missing',
+    'npm install gray-matter --save-dev'
+  );
 
-  let branch = '', ahead = 0;
+  let branch = '',
+    ahead = 0;
   try {
     branch = execSync('git branch --show-current', { cwd: ROOT }).toString().trim();
-    ahead = parseInt(execSync('git rev-list --count origin/main..HEAD', { cwd: ROOT }).toString().trim() || '0', 10);
-    check('branch-hygiene', branch !== 'main' || ahead === 0, `branch=${branch} ahead=${ahead}`,
-      'work on a feature branch; never commit directly to main');
+    ahead = parseInt(
+      execSync('git rev-list --count origin/main..HEAD', { cwd: ROOT }).toString().trim() || '0',
+      10
+    );
+    check(
+      'branch-hygiene',
+      branch !== 'main' || ahead === 0,
+      `branch=${branch} ahead=${ahead}`,
+      'work on a feature branch; never commit directly to main'
+    );
   } catch (e) {
-    check('branch-hygiene', false, 'git check failed: ' + e.message.slice(0, 80), 'run inside the repo clone');
+    check(
+      'branch-hygiene',
+      false,
+      'git check failed: ' + e.message.slice(0, 80),
+      'run inside the repo clone'
+    );
   }
-  check('scripts-present', ['validate-articles.cjs', 'seo'].every((p) => fs.existsSync(path.join(ROOT, 'scripts', p))),
-    'scripts/seo + validate-articles.cjs present', 'git checkout main && git pull');
+  check(
+    'scripts-present',
+    ['validate-articles.cjs', 'seo'].every((p) => fs.existsSync(path.join(ROOT, 'scripts', p))),
+    'scripts/seo + validate-articles.cjs present',
+    'git checkout main && git pull'
+  );
 }
 
 // ---------- article ----------
-const REQUIRED_FRONTMATTER = ['title', 'description', 'slug', 'category', 'intentKey', 'pubDate', 'status', 'image', 'imageAlt', 'keywords', 'relatedServices', 'author'];
+const REQUIRED_FRONTMATTER = [
+  'title',
+  'description',
+  'slug',
+  'category',
+  'intentKey',
+  'pubDate',
+  'status',
+  'image',
+  'imageAlt',
+  'keywords',
+  'relatedServices',
+  'author',
+];
 const BANNED_TERMS_RE = /\b(PostalMate|Stamps\.com|Endicia)\b/i;
 
 function extractInternalHrefs(content) {
@@ -270,11 +345,19 @@ function cmdArticle(arg, isStrict = false) {
   const abs = path.isAbsolute(arg) ? arg : path.join(ROOT, arg);
   const relPath = path.relative(ROOT, abs);
   if (!fs.existsSync(abs)) {
-    check('file-exists', false, `${arg} not found`, 'pass a path relative to repo root, e.g. content/articles/pack-ship/foo.md');
+    check(
+      'file-exists',
+      false,
+      `${arg} not found`,
+      'pass a path relative to repo root, e.g. content/articles/pack-ship/foo.md'
+    );
     return;
   }
   const raw = fs.readFileSync(abs, 'utf8');
-  if (!gray) { check('parse', false, 'gray-matter unavailable', 'npm install gray-matter --save-dev'); return; }
+  if (!gray) {
+    check('parse', false, 'gray-matter unavailable', 'npm install gray-matter --save-dev');
+    return;
+  }
   const { data, content } = gray(raw);
 
   initRouteRegistry();
@@ -296,7 +379,12 @@ function cmdArticle(arg, isStrict = false) {
   const desc = String(data.description || '');
   const dlen = desc.length;
   if (dlen < 100 || dlen > 280) {
-    check('meta:description-length', false, `${dlen} chars (target 150-160)`, 'rewrite description');
+    check(
+      'meta:description-length',
+      false,
+      `${dlen} chars (target 150-160)`,
+      'rewrite description'
+    );
   } else {
     check('meta:description-length', true, `${dlen} chars`);
   }
@@ -307,8 +395,12 @@ function cmdArticle(arg, isStrict = false) {
   const hasBrandSuffix = /\s*[|—-]\s*Mailbox Plus\s*$/i.test(title);
   if (hasPipe || hasBrandSuffix) {
     if (isStrict) {
-      check('meta:title-rule', false, `title contains pipe or brand suffix: "${title}"`,
-        "remove pipes ('|') and brand suffixes; titles must read naturally without 'Mailbox Plus'");
+      check(
+        'meta:title-rule',
+        false,
+        `title contains pipe or brand suffix: "${title}"`,
+        "remove pipes ('|') and brand suffixes; titles must read naturally without 'Mailbox Plus'"
+      );
     } else {
       check('meta:title-rule', true, `title has suffix/pipe (advisory in non-strict): "${title}"`);
     }
@@ -318,15 +410,24 @@ function cmdArticle(arg, isStrict = false) {
 
   // 4) Slug hygiene
   const slug = String(data.slug || '');
-  check('meta:slug-format', /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug), slug, 'slug must be lowercase kebab-case');
+  check(
+    'meta:slug-format',
+    /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug),
+    slug,
+    'slug must be lowercase kebab-case'
+  );
 
   // 5) IntentKey uniqueness across corpus
   const ik = String(data.intentKey || '');
   if (ik) {
     const matchingFiles = (intentKeyMap.get(ik) || []).filter((p) => p !== relPath);
     if (matchingFiles.length > 0) {
-      check('meta:intentKey-unique', false, `duplicate intentKey '${ik}' (also in ${matchingFiles.join(', ')})`,
-        'intentKey must be unique across all articles to prevent cannibalization');
+      check(
+        'meta:intentKey-unique',
+        false,
+        `duplicate intentKey '${ik}' (also in ${matchingFiles.join(', ')})`,
+        'intentKey must be unique across all articles to prevent cannibalization'
+      );
     } else {
       check('meta:intentKey-unique', true, `'${ik}' is unique`);
     }
@@ -335,9 +436,19 @@ function cmdArticle(arg, isStrict = false) {
   // 6) pubDate parses + is not in the future
   const pd = new Date(String(data.pubDate || ''));
   if (isNaN(pd.getTime())) {
-    check('meta:pubDate', false, String(data.pubDate), 'ISO 8601 with offset, e.g. 2026-09-08T17:30:00-04:00');
+    check(
+      'meta:pubDate',
+      false,
+      String(data.pubDate),
+      'ISO 8601 with offset, e.g. 2026-09-08T17:30:00-04:00'
+    );
   } else {
-    check('meta:pubDate', pd.getTime() <= Date.now() + 86400000, pd.toISOString(), 'pubDate more than 1 day in the future');
+    check(
+      'meta:pubDate',
+      pd.getTime() <= Date.now() + 86400000,
+      pd.toISOString(),
+      'pubDate more than 1 day in the future'
+    );
   }
 
   // 7) Internal links: count, trailing slashes, and route existence
@@ -348,16 +459,35 @@ function cmdArticle(arg, isStrict = false) {
   if (hrefs.length >= 2) {
     check('links:minimum', true, `${hrefs.length} internal links`);
   } else if (isStrict) {
-    check('links:minimum', false, `${hrefs.length} internal links (min 2)`, 'add at least 2 contextual links to related Mailbox Plus pages');
+    check(
+      'links:minimum',
+      false,
+      `${hrefs.length} internal links (min 2)`,
+      'add at least 2 contextual links to related Mailbox Plus pages'
+    );
   } else {
-    check('links:minimum', true, `${hrefs.length} internal links (advisory — min 2 for new articles)`);
+    check(
+      'links:minimum',
+      true,
+      `${hrefs.length} internal links (advisory — min 2 for new articles)`
+    );
   }
-  check('links:trailing-slash', noSlash.length === 0,
-    noSlash.length ? `missing trailing slash: ${noSlash.join(', ')}` : 'all internal links end with /',
-    'CI seo:check-href-slash will fail — add trailing slashes');
-  check('links:valid-targets', unknownHrefs.length === 0,
-    unknownHrefs.length ? `unknown route targets: ${unknownHrefs.join(', ')}` : `all ${hrefs.length} targets exist`,
-    'link points to non-existent route — verify path matches a published page or article');
+  check(
+    'links:trailing-slash',
+    noSlash.length === 0,
+    noSlash.length
+      ? `missing trailing slash: ${noSlash.join(', ')}`
+      : 'all internal links end with /',
+    'CI seo:check-href-slash will fail — add trailing slashes'
+  );
+  check(
+    'links:valid-targets',
+    unknownHrefs.length === 0,
+    unknownHrefs.length
+      ? `unknown route targets: ${unknownHrefs.join(', ')}`
+      : `all ${hrefs.length} targets exist`,
+    'link points to non-existent route — verify path matches a published page or article'
+  );
 
   // 8) relatedServices canonical form + route existence
   const rel = data.relatedServices || [];
@@ -368,23 +498,47 @@ function cmdArticle(arg, isStrict = false) {
     if (badSlash.length === 0) {
       check('frontmatter:relatedServices-slash', true, 'all canonical');
     } else if (isStrict) {
-      check('frontmatter:relatedServices-slash', false, `non-canonical: ${badSlash.join(', ')}`, 'add trailing slashes — canonical form required');
+      check(
+        'frontmatter:relatedServices-slash',
+        false,
+        `non-canonical: ${badSlash.join(', ')}`,
+        'add trailing slashes — canonical form required'
+      );
     } else {
-      check('frontmatter:relatedServices-slash', true, `non-canonical (advisory in non-strict): ${badSlash.join(', ')}`);
+      check(
+        'frontmatter:relatedServices-slash',
+        true,
+        `non-canonical (advisory in non-strict): ${badSlash.join(', ')}`
+      );
     }
 
-    check('frontmatter:relatedServices-targets', unknownServices.length === 0,
-      unknownServices.length ? `unknown route targets: ${unknownServices.join(', ')}` : `all ${rel.length} services exist`,
-      'relatedServices entry does not match any known route');
+    check(
+      'frontmatter:relatedServices-targets',
+      unknownServices.length === 0,
+      unknownServices.length
+        ? `unknown route targets: ${unknownServices.join(', ')}`
+        : `all ${rel.length} services exist`,
+      'relatedServices entry does not match any known route'
+    );
   }
 
   // 9) Featured image: frontmatter.image + imageAlt
   const img = String(data.image || '');
   const imgAlt = String(data.imageAlt || '');
   if (!img) {
-    check('image:featured', false, 'missing frontmatter image', "add image: 'articles/<category>/<slug>-featured.webp'");
+    check(
+      'image:featured',
+      false,
+      'missing frontmatter image',
+      "add image: 'articles/<category>/<slug>-featured.webp'"
+    );
   } else if (!/^articles\/[a-z-]+\/[a-z0-9-]+\.(webp|jpg|png)$/.test(img)) {
-    check('image:featured', false, img, "expected R2 path shape: articles/<category>/<slug>-featured.webp");
+    check(
+      'image:featured',
+      false,
+      img,
+      'expected R2 path shape: articles/<category>/<slug>-featured.webp'
+    );
   } else {
     check('image:featured', true, img);
   }
@@ -404,7 +558,12 @@ function cmdArticle(arg, isStrict = false) {
       if (code === '200') {
         check('image:exists', true, `HTTP 200 ${url}`);
       } else if (isStrict) {
-        check('image:exists', false, `HTTP ${code} ${url}`, 'generate + upload the featured image (rclone copyto → mailboxplus-r2:mailbox-plus-images/<image>) before PR');
+        check(
+          'image:exists',
+          false,
+          `HTTP ${code} ${url}`,
+          'generate + upload the featured image (rclone copyto → mailboxplus-r2:mailbox-plus-images/<image>) before PR'
+        );
       } else {
         check('image:exists', true, `HTTP ${code} (advisory in non-strict) ${url}`);
       }
@@ -415,8 +574,12 @@ function cmdArticle(arg, isStrict = false) {
   const bodyH1Match = content.match(/^#\s+([^\n]+)/m);
   if (bodyH1Match) {
     if (isStrict) {
-      check('layout:no-body-h1', false, `H1 in markdown body: "${bodyH1Match[1]}"`,
-        'remove "# Title" from markdown body; Astro layout renders H1 automatically from frontmatter');
+      check(
+        'layout:no-body-h1',
+        false,
+        `H1 in markdown body: "${bodyH1Match[1]}"`,
+        'remove "# Title" from markdown body; Astro layout renders H1 automatically from frontmatter'
+      );
     } else {
       check('layout:no-body-h1', true, `H1 in body (advisory in non-strict): "${bodyH1Match[1]}"`);
     }
@@ -427,8 +590,12 @@ function cmdArticle(arg, isStrict = false) {
   const embedsFeatured = img && content.includes(img);
   if (embedsFeatured) {
     if (isStrict) {
-      check('layout:no-featured-in-body', false, 'featured image embedded in body',
-        'remove featured image markdown from body; Astro layout floats it automatically from frontmatter');
+      check(
+        'layout:no-featured-in-body',
+        false,
+        'featured image embedded in body',
+        'remove featured image markdown from body; Astro layout floats it automatically from frontmatter'
+      );
     } else {
       check('layout:no-featured-in-body', true, 'featured image in body (advisory in non-strict)');
     }
@@ -439,15 +606,24 @@ function cmdArticle(arg, isStrict = false) {
   // 11) Banned vendor / software terms
   const bannedMatch = content.match(BANNED_TERMS_RE);
   if (bannedMatch) {
-    check('content:no-banned-terms', false, `found banned software term: "${bannedMatch[0]}"`,
-      "refer to software generically (e.g. 'point-of-sale software', 'computers behind counter')");
+    check(
+      'content:no-banned-terms',
+      false,
+      `found banned software term: "${bannedMatch[0]}"`,
+      "refer to software generically (e.g. 'point-of-sale software', 'computers behind counter')"
+    );
   } else {
     check('content:no-banned-terms', true, 'clean (no banned vendor terms)');
   }
 
   // 12) Word count guardrails
   const words = content.split(/\s+/).filter(Boolean).length;
-  check('content:word-count', words >= 400 && words <= 5300, `${words} words (workflow target 1200-4000)`, 'article body out of publishable range');
+  check(
+    'content:word-count',
+    words >= 400 && words <= 5300,
+    `${words} words (workflow target 1200-4000)`,
+    'article body out of publishable range'
+  );
 
   // 12b) Fact-check receipt — the gate that would have caught the $3-vs-$5 notary fee error. Strict-only, new articles.
   const fcCandidates = [
@@ -458,17 +634,31 @@ function cmdArticle(arg, isStrict = false) {
   const fcFound = fcCandidates.find((f) => fs.existsSync(f));
   if (fcFound) {
     const fcSize = fs.statSync(fcFound).size;
-    check('gates:factcheck', fcSize > 200, `${path.relative(ROOT, fcFound)} (${fcSize} bytes)`, 'fact-check file exists but is nearly empty — fill the claim table');
+    check(
+      'gates:factcheck',
+      fcSize > 200,
+      `${path.relative(ROOT, fcFound)} (${fcSize} bytes)`,
+      'fact-check file exists but is nearly empty — fill the claim table'
+    );
   } else if (isStrict) {
-    check('gates:factcheck', false, `no ${slug}.factcheck.md in ${DRAFTS_DIR}`, 'run the Fact-Check Gate and write the claim/verdict/source table before PR');
+    check(
+      'gates:factcheck',
+      false,
+      `no ${slug}.factcheck.md in ${DRAFTS_DIR}`,
+      'run the Fact-Check Gate and write the claim/verdict/source table before PR'
+    );
   } else {
     check('gates:factcheck', true, 'no receipt (advisory in non-strict)');
   }
 
   // 13) Robots status
   const status = String(data.status || 'published').toLowerCase();
-  check('meta:robots', status !== 'draft-noindex', `status='${status}' → index,follow (BaseLayout default)`,
-    'set status: published unless intentionally excluding from search');
+  check(
+    'meta:robots',
+    status !== 'draft-noindex',
+    `status='${status}' → index,follow (BaseLayout default)`,
+    'set status: published unless intentionally excluding from search'
+  );
 
   // 14) Heading variation — the structural skeleton is frozen, the surface text is not.
   //     Retired headings are the legacy boilerplate strings; reusing them is a regression.
@@ -480,12 +670,18 @@ function cmdArticle(arg, isStrict = false) {
 
     if (retiredHits >= 3) {
       if (isStrict && isNew) {
-        check('content:no-retired-headings', false,
+        check(
+          'content:no-retired-headings',
+          false,
           `${retiredHits} retired template headings (${Math.round(retiredRatio * 100)}% of H2s)`,
-          'assign headings from content/heading_banks.json via scripts/assign_headings.py — do not hand-write the old template');
+          'assign headings from content/heading_banks.json via scripts/assign_headings.py — do not hand-write the old template'
+        );
       } else {
-        check('content:no-retired-headings', true,
-          `${retiredHits} retired headings${isNew ? '' : ' (advisory — existing article)'}`);
+        check(
+          'content:no-retired-headings',
+          true,
+          `${retiredHits} retired headings${isNew ? '' : ' (advisory — existing article)'}`
+        );
       }
     } else {
       check('content:no-retired-headings', true, `${retiredHits} retired headings`);
@@ -499,7 +695,10 @@ function cmdArticle(arg, isStrict = false) {
       for (const entry of initHeadingCorpus()) {
         if (entry.rel === relPath) continue;
         const o = headingOverlap(h2set, entry.set);
-        if (o > worst) { worst = o; worstRel = entry.rel; }
+        if (o > worst) {
+          worst = o;
+          worstRel = entry.rel;
+        }
         if (!worstRel) worstRel = entry.rel;
       }
       const pct = Math.round(worst * 100);
@@ -507,13 +706,21 @@ function cmdArticle(arg, isStrict = false) {
         ? `max ${pct}% overlap with ${worstRel} (limit ${Math.round(HEADING_OVERLAP_MAX * 100)}%)`
         : 'no other articles in baseline';
       if (isStrict && isNew && worst > HEADING_OVERLAP_MAX) {
-        check('content:heading-diversity', false, detail,
-          'vary the H2 wording: python3 scripts/assign_headings.py --slug <slug> --villain "<villain>" --json');
+        check(
+          'content:heading-diversity',
+          false,
+          detail,
+          'vary the H2 wording: python3 scripts/assign_headings.py --slug <slug> --villain "<villain>" --json'
+        );
       } else {
         check('content:heading-diversity', true, detail);
       }
     } else {
-      check('content:heading-diversity', true, 'legacy boilerplate article — baseline excluded (backlog)');
+      check(
+        'content:heading-diversity',
+        true,
+        'legacy boilerplate article — baseline excluded (backlog)'
+      );
     }
   }
 }
@@ -527,7 +734,9 @@ function cmdArticles(isStrict = false) {
     }
   });
 
-  console.log(`🔍 Verifying ${files.length} articles (${isStrict ? 'STRICT' : 'STANDARD'} mode)...\n`);
+  console.log(
+    `🔍 Verifying ${files.length} articles (${isStrict ? 'STRICT' : 'STANDARD'} mode)...\n`
+  );
   let totalPass = 0;
   let totalFail = 0;
   const failedArticles = [];
@@ -554,14 +763,20 @@ function cmdArticles(isStrict = false) {
     }
   }
 
-  console.log(`\nSummary: ${totalPass} passed, ${totalFail} failed out of ${files.length} articles.`);
+  console.log(
+    `\nSummary: ${totalPass} passed, ${totalFail} failed out of ${files.length} articles.`
+  );
   process.exit(totalFail === 0 ? 0 : 1);
 }
 
 // ---------- build, sitemap, seo-gates ----------
 function cmdBuild() {
   let before;
-  try { before = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim(); } catch { before = '0'; }
+  try {
+    before = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim();
+  } catch {
+    before = '0';
+  }
   try {
     execSync('npm run build', { cwd: ROOT, stdio: 'inherit', timeout: 600000 });
   } catch (e) {
@@ -590,7 +805,12 @@ function cmdSitemap(expectPath) {
       if (xml.includes(alt)) {
         check('sitemap:contains', true, `${alt} (article route)`);
       } else {
-        check('sitemap:contains', false, `${url} NOT in sitemap (also tried ${alt})`, 'route not generated — check slug/filename');
+        check(
+          'sitemap:contains',
+          false,
+          `${url} NOT in sitemap (also tried ${alt})`,
+          'route not generated — check slug/filename'
+        );
       }
     }
   } else {
@@ -598,7 +818,6 @@ function cmdSitemap(expectPath) {
     check('sitemap', true, `${n} URLs in sitemap`);
   }
 }
-
 
 function cmdReview(targetPath) {
   const abs = path.isAbsolute(targetPath) ? targetPath : path.join(ROOT, targetPath);
@@ -608,7 +827,12 @@ function cmdReview(targetPath) {
   }
   const scriptPath = path.join(ROOT, 'scripts', 'review-article-copy.py');
   if (!fs.existsSync(scriptPath)) {
-    check('review:script-exists', false, 'scripts/review-article-copy.py not found', 'script missing');
+    check(
+      'review:script-exists',
+      false,
+      'scripts/review-article-copy.py not found',
+      'script missing'
+    );
     return;
   }
 
@@ -619,28 +843,48 @@ function cmdReview(targetPath) {
   const minScoreIdx = rest.indexOf('--min-score');
   const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '80';
 
-  console.log(`🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`);
+  console.log(
+    `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
+  );
   try {
     const jsonFlag = asJson ? ' --json' : '';
-    execSync(`python3 "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`, {
-      stdio: 'inherit',
-      cwd: ROOT,
-    });
+    execSync(
+      `python3 "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
+      {
+        stdio: 'inherit',
+        cwd: ROOT,
+      }
+    );
     check('review:rubric-score', true, 'passed review matrix (score >= 80)');
   } catch (e) {
-    check('review:rubric-score', false, 'failed review matrix (score < 80 or error)', 'review feedback above and revise draft');
+    check(
+      'review:rubric-score',
+      false,
+      'failed review matrix (score < 80 or error)',
+      'review feedback above and revise draft'
+    );
   }
 }
 
 function cmdSeoGates() {
-  for (const script of ['seo:check-href-slash', 'seo:check-canonical', 'seo:check-jsonld', 'seo:check-routes']) {
+  for (const script of [
+    'seo:check-href-slash',
+    'seo:check-canonical',
+    'seo:check-jsonld',
+    'seo:check-routes',
+  ]) {
     try {
       execSync(`npm run ${script}`, { cwd: ROOT, stdio: 'pipe', timeout: 300000 });
       check(script, true, 'pass');
     } catch (e) {
       const out = (e.stdout || e.stderr || '').toString();
       const firstFail = out.split('\n').find((l) => l.includes('FAIL')) || `${script} failed`;
-      check(script, false, firstFail.trim().slice(0, 160), 'run npm run ' + script + ' for full output');
+      check(
+        script,
+        false,
+        firstFail.trim().slice(0, 160),
+        'run npm run ' + script + ' for full output'
+      );
     }
   }
 }
@@ -668,21 +912,36 @@ if (cmd === 'doctor') {
 } else if (cmd === 'seo-gates') {
   cmdSeoGates();
 } else {
-  console.log('usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]');
+  console.log(
+    'usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
+  );
   process.exit(2);
 }
 
 if (cmd !== 'articles') {
   const failed = results.filter((r) => !r.pass);
   if (asJson) {
-    console.log(JSON.stringify({ ok: failed.length === 0, passed: results.length - failed.length, failed: failed.length, results }, null, 2));
+    console.log(
+      JSON.stringify(
+        {
+          ok: failed.length === 0,
+          passed: results.length - failed.length,
+          failed: failed.length,
+          results,
+        },
+        null,
+        2
+      )
+    );
   } else {
     for (const r of results) {
       const icon = r.pass ? '✅' : '❌';
       console.log(`${icon} ${r.name}${r.detail ? ' — ' + r.detail : ''}`);
       if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
     }
-    console.log(`\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`);
+    console.log(
+      `\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`
+    );
   }
   process.exit(failed.length === 0 ? 0 : 1);
 }

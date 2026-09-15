@@ -73,11 +73,18 @@ function articleSection(articles) {
     for (const a of byCat.get(cat).sort((x, y) => x.slug.localeCompare(y.slug))) {
       const desc = a.description ? `: ${a.description}` : '';
       lines.push(`- [${a.title}](${BASE}/articles/${a.slug}/)${desc}`);
-      lines.push(`  Published ${fmtDate(a.pubDate)}${a.lastModified ? `, updated ${fmtDate(a.lastModified)}` : ''}.`);
+      lines.push(
+        `  Published ${fmtDate(a.pubDate)}${a.lastModified ? `, updated ${fmtDate(a.lastModified)}` : ''}.`
+      );
     }
     lines.push('');
   }
-  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
+  return (
+    lines
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trimEnd() + '\n'
+  );
 }
 
 function fullSection(articles) {
@@ -88,14 +95,21 @@ function fullSection(articles) {
     lines.push('');
     lines.push(`URL: ${BASE}/articles/${a.slug}/`);
     lines.push(`Category: ${a.category}`);
-    lines.push(`Published: ${fmtDate(a.pubDate)}${a.lastModified ? ` | Updated: ${fmtDate(a.lastModified)}` : ''}`);
+    lines.push(
+      `Published: ${fmtDate(a.pubDate)}${a.lastModified ? ` | Updated: ${fmtDate(a.lastModified)}` : ''}`
+    );
     lines.push('');
     lines.push(a.content.trim());
     lines.push('');
     lines.push('---');
     lines.push('');
   }
-  return lines.join('\n').replace(/\n{3,}/g, '\n\n').trimEnd() + '\n';
+  return (
+    lines
+      .join('\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trimEnd() + '\n'
+  );
 }
 
 function spliceSection(existing, headerRegex, newContent) {

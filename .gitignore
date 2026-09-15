@@ -63,5 +63,9 @@ convert-images.cjs
 .github/skills/impeccable/
 .impeccable/
 
+# Playwright test outputs
+test-results/
+playwright-report/
+
 # Astro generated directory
 astro/.astro/
