@@ -1,5 +1,7 @@
 # Contributing to Mailbox Plus Website
 
+> **AI agents:** hard rules live in [AGENTS.md](AGENTS.md) — read it before writing any code.
+
 ## Getting Started
 
 1. Clone the repository
