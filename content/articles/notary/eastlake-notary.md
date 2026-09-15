@@ -78,7 +78,7 @@ And if the errand does not end at the signature, we are set up for the step afte
 
 ## What the Alternative Costs You
 
-Every hour the bank's notary stays "back Thursday," the title transfer, court filing, or school packet slides with it. And if you sign at the kitchen table hoping to find a stamp later, you may have to reprint and re-sign the entire packet — Ohio notaries cannot jurat a document that was signed outside their presence. Meanwhile the buyer, the clerk, or the school reads the delay as _your_ delay. Ninety seconds of ink should never cost you your standing. Our counter ends the clock today.
+Every hour the bank's notary stays "back Thursday," the title transfer, court filing, or school packet slides with it. And if you sign at the kitchen table hoping to find a stamp later, you may have to reprint and re-sign the entire packet — Ohio notaries cannot jurat a document that was signed outside their presence. Meanwhile the buyer, the clerk, or the school reads the delay as your delay. Ninety seconds of ink should never cost you your standing. Our counter ends the clock today.
 
 ## The Drive From Eastlake
 
