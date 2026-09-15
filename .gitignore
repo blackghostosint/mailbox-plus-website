@@ -65,3 +65,6 @@ convert-images.cjs
 
 # Astro generated directory
 astro/.astro/
+
+# Lighthouse CI output
+.lighthouseci/
