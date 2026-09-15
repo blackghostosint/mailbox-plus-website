@@ -26,11 +26,17 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Dependency Security Audit (root)
+        run: npm audit --audit-level=high --omit=dev
+
       - name: Lint check (zero warnings policy)
         run: npm run lint
 
       - name: Install Astro dependencies
         run: cd astro && npm ci
+
+      - name: Dependency Security Audit (Astro)
+        run: cd astro && npm audit --audit-level=high
 
       - name: TypeScript type check (Astro)
         run: cd astro && npm run check
@@ -92,3 +98,38 @@ jobs:
           name: build-output
           path: dist/
           retention-days: 7
+
+  secret-scanning:
+    name: Secret Scanning (Gitleaks)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Run Gitleaks Secret Scan
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  codeql-analysis:
+    name: CodeQL Static Security Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript-typescript
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
