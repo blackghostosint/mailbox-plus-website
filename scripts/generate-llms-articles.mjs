@@ -113,9 +113,10 @@ function fullSection(articles) {
 }
 
 function spliceSection(existing, headerRegex, newContent) {
-  const re = new RegExp(`\\n${headerRegex.source}\\n[\\s\\S]*?(?=\\n## |$)`);
-  if (re.test(existing)) {
-    return existing.replace(re, '\n' + newContent.trimEnd() + '\n');
+  const match = existing.match(headerRegex);
+  if (match) {
+    const beforeHeader = existing.slice(0, match.index).trimEnd();
+    return beforeHeader + '\n\n' + newContent.trimEnd() + '\n';
   }
   return existing.trimEnd() + '\n\n' + newContent.trimEnd() + '\n';
 }
