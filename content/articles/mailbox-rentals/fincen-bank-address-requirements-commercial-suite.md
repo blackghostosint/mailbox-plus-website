@@ -9,7 +9,13 @@ status: 'published'
 image: 'articles/mailbox-rentals/fincen-bank-address-requirements-commercial-suite-featured.webp'
 imageAlt: 'A bank branch counter with LLC paperwork, a laptop, and a business card showing a commercial street address instead of a home address.'
 location: 'concord-township'
-keywords: ['bank rejected LLC address', 'virtual mailbox bank account', 'commercial address for LLC', 'USPS Form 1583 business address']
+keywords:
+  [
+    'bank rejected LLC address',
+    'virtual mailbox bank account',
+    'commercial address for LLC',
+    'USPS Form 1583 business address',
+  ]
 relatedServices: ['/home-business/mailbox-rental/', '/home-business/notary-services/']
 author: 'Mailbox Plus Team'
 ---
