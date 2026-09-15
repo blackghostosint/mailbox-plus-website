@@ -62,7 +62,7 @@ That is the entire transaction. No cross-sell, no account review, no "is there a
 
 ## What the Counter Looks Like at Mailbox Plus
 
-Our counter at 7554 Fredle Drive in Concord Township sits about fifteen miles west of Eastlake, and we are the opposite of a branch lobby. We staff commissioned notaries at our [walk-in notary services counter](/home-business/notary-services/) every hour we are open, with no appointment and no account. Nobody here earns a commission on your loan, and nobody here needs a reason to stamp your document.
+Our counter at 7554 Fredle Drive in Concord Township sits about seventeen miles east of Eastlake, and we are the opposite of a branch lobby. We staff commissioned notaries at our [walk-in notary services counter](/home-business/notary-services/) every hour we are open, with no appointment and no account. Nobody here earns a commission on your loan, and nobody here needs a reason to stamp your document.
 
 People from Eastlake walk through our door carrying the usual cast: BMV title transfers, powers of attorney, child travel consent forms, affidavits for the BMV or the courts, school enrollment packets, vehicle bills of sale. They push the glass door open, a chime sounds, and the first thing they usually ask is, "Can someone notarize this right now, or do I need to come back?"
 
@@ -82,9 +82,9 @@ Every hour the bank's notary stays "back Thursday," the title transfer, court fi
 
 ## The Drive From Eastlake
 
-From Eastlake City Hall, take Lake Shore Boulevard to S.O.M. Center Road, head south to the Lakeland Freeway (State Route 2) east, merge toward State Route 44 south, and take the Auburn Road exit onto Crile Road, then turn onto Fredle Drive. Roughly seventeen miles and about twenty-five minutes in normal traffic — one straight run, no parking garage, no security desk, and you park within a few steps of the door.
+From Eastlake City Hall, take Lake Shore Boulevard south to the Lakeland Freeway (State Route 2) east toward Painesville, exit at State Route 44 south, take the Auburn Road exit onto Crile Road, then turn onto Fredle Drive. Roughly seventeen miles and about twenty-five minutes in normal traffic — one straight run, no parking garage, no security desk, and you park within a few steps of the door.
 
-You leave Eastlake with an unsigned document. You are back on Route 2 about thirty minutes later with it stamped, sealed, and — if it needs to ship — already in the outgoing bin.
+You leave Eastlake with an unsigned document. You are back on Route 2 about twenty-five minutes later with it stamped, sealed, and — if it needs to ship — already in the outgoing bin.
 
 ## Bring It In
 
