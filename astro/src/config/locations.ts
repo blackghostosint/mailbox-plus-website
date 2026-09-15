@@ -45,7 +45,7 @@ export const primaryLocations: LocationData[] = [
     population: 18000,
     uniqueContent: {
       directions:
-        "We're located at 7554 Fredle Drive in the Capital Plaza, right next to Pet Supplies Plus.",
+        "We're located at 7554 Fredle Drive in the Gristmill Village plaza, right next to Pub Frato.",
       landmarks: ['Great Lakes Mall', 'Target Plaza', 'Quail Hollow', 'Auburn Career Center'],
       localExample: 'We help Quail Hollow families ship packages to college students every fall.',
       driveTime: "You're already here!",
@@ -64,7 +64,7 @@ export const primaryLocations: LocationData[] = [
     population: 47000,
     uniqueContent: {
       directions:
-        "From Mentor, take Route 44 south about 3 miles. We're in Capital Plaza on the left, past Johnnycake Ridge.",
+        "From Mentor, take Route 44 south about 3 miles. We're in the Gristmill Village plaza on the left, past Johnnycake Ridge.",
       landmarks: [
         'Mentor Headlands Beach',
         'Great Lakes Mall',
@@ -88,7 +88,7 @@ export const primaryLocations: LocationData[] = [
     population: 20000,
     uniqueContent: {
       directions:
-        "From downtown Painesville, take Route 44 south about 6 miles. We're located at 7554 Fredle Drive in the Capital Plaza (on Auburn Road).",
+        "From downtown Painesville, take Route 44 south about 6 miles. We're located at 7554 Fredle Drive in the Gristmill Village plaza (off Auburn Road, near Crile Road).",
       landmarks: [
         'Lake County Courthouse',
         'Painesville Square',
@@ -136,7 +136,7 @@ export const primaryLocations: LocationData[] = [
     population: 5200,
     uniqueContent: {
       directions:
-        "From Chardon Square, take Route 44 north about 8 miles. We're located at 7554 Fredle Drive in the Capital Plaza (on Auburn Road) in Concord Township.",
+        "From Chardon Square, take Route 44 north about 8 miles. We're located at 7554 Fredle Drive in the Gristmill Village plaza (off Auburn Road, near Crile Road) in Concord Township.",
       landmarks: [
         'Chardon Square',
         'Geauga County Courthouse',
@@ -368,7 +368,7 @@ export function generateLocationPageConfig(
       },
       {
         heading: `How to Find Us from ${location.name}`,
-        body: `${location.uniqueContent.directions} Look for 7554 Fredle Drive in Capital Plaza - we're next to Pet Supplies Plus.${
+        body: `${location.uniqueContent.directions} Look for 7554 Fredle Drive in the Gristmill Village plaza - we're next to Pub Frato.${
           location.uniqueContent.nearbyHighways
             ? ` Easy access from ${location.uniqueContent.nearbyHighways.join(', ')}.`
             : ''
