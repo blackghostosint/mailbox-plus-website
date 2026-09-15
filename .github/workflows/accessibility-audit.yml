@@ -1,0 +1,39 @@
+name: Accessibility Audit
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+jobs:
+  accessibility-audit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Astro dependencies
+        run: cd astro && npm ci
+
+      - name: Build static site
+        run: npm run build
+
+      - name: Run axe-core accessibility audit
+        run: |
+          npx serve dist -p 4321 &
+          sleep 3
+          npm run audit:a11y
