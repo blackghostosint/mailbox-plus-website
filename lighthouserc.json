@@ -3,6 +3,7 @@
     "collect": {
       "numberOfRuns": 3,
       "staticDistDir": "./dist",
+      "url": ["http://localhost/", "http://localhost/about-us/", "http://localhost/services/"],
       "settings": {
         "headless": "new",
         "preset": "desktop"
