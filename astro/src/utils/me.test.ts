@@ -50,7 +50,7 @@ describe('/api/me authentication guard', () => {
     expect(JSON.parse(response.body)).toEqual({ error: 'Method Not Allowed' });
   });
 
-  it('rejects unauthenticated requests missing tokens with 401 and prevents DB lookup', async () => {
+  it('rejects unauthenticated requests missing clientContext user with 401 and prevents DB lookup', async () => {
     const getCustomerSpy = vi.spyOn(db, 'getCustomer');
     const getCustomerByRefSpy = vi.spyOn(db, 'getCustomerByReferralCode');
 
@@ -68,16 +68,29 @@ describe('/api/me authentication guard', () => {
     expect(getCustomerByRefSpy).not.toHaveBeenCalled();
   });
 
-  it('rejects requests with invalid authorization headers with 401 and prevents DB lookup', async () => {
+  it('rejects requests with forged bearer token payloads in Authorization header with 401 and prevents DB lookup', async () => {
     const getCustomerSpy = vi.spyOn(db, 'getCustomer');
     const getCustomerByRefSpy = vi.spyOn(db, 'getCustomerByReferralCode');
+
+    // Forged JWT with victim id in sub and arbitrary signature
+    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
+    const forgedPayload = Buffer.from(
+      JSON.stringify({
+        sub: 'cust_123',
+        id: 'cust_123',
+        email: 'sarah.m@gmail.com',
+        exp: Math.floor(Date.now() / 1000) + 3600,
+      })
+    ).toString('base64url');
+    const forgedToken = `${header}.${forgedPayload}.garbage-signature`;
 
     const event = {
       httpMethod: 'GET',
       queryStringParameters: { id: 'cust_123' },
-      headers: { authorization: 'Bearer invalid.token.payload' },
+      headers: { authorization: `Bearer ${forgedToken}` },
     };
 
+    // Passed without Netlify runtime's verified context.clientContext.user
     const response: any = await handler(event, {});
 
     expect(response.statusCode).toBe(401);
@@ -86,20 +99,13 @@ describe('/api/me authentication guard', () => {
     expect(getCustomerByRefSpy).not.toHaveBeenCalled();
   });
 
-  it('rejects requests with expired bearer JWT tokens with 401 and prevents DB lookup', async () => {
+  it('rejects requests with arbitrary non-JWT bearer tokens with 401 and prevents DB lookup', async () => {
     const getCustomerSpy = vi.spyOn(db, 'getCustomer');
-
-    // Create an expired JWT (exp in the past)
-    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(
-      JSON.stringify({ sub: 'cust_123', exp: Math.floor(Date.now() / 1000) - 3600 })
-    ).toString('base64url');
-    const expiredToken = `${header}.${payload}.signature`;
 
     const event = {
       httpMethod: 'GET',
       queryStringParameters: { id: 'cust_123' },
-      headers: { authorization: `Bearer ${expiredToken}` },
+      headers: { authorization: 'Bearer cust_123' },
     };
 
     const response: any = await handler(event, {});
@@ -112,51 +118,51 @@ describe('/api/me authentication guard', () => {
   it('rejects authenticated non-staff user attempting to access another user data with 401 and prevents DB lookup', async () => {
     const getCustomerSpy = vi.spyOn(db, 'getCustomer');
 
-    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(
-      JSON.stringify({
-        sub: 'cust_123',
-        email: 'sarah.m@gmail.com',
-        exp: Math.floor(Date.now() / 1000) + 3600,
-      })
-    ).toString('base64url');
-    const userToken = `${header}.${payload}.signature`;
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'cust_123',
+          email: 'sarah.m@gmail.com',
+          user_metadata: { id: 'cust_123' },
+        },
+      },
+    };
 
     // Non-staff user cust_123 attempts to request cust_999
     const event = {
       httpMethod: 'GET',
       queryStringParameters: { id: 'cust_999' },
-      headers: { authorization: `Bearer ${userToken}` },
+      headers: {},
     };
 
-    const response: any = await handler(event, {});
+    const response: any = await handler(event, context);
 
     expect(response.statusCode).toBe(401);
     expect(JSON.parse(response.body)).toEqual({ error: 'Unauthorized' });
     expect(getCustomerSpy).not.toHaveBeenCalled();
   });
 
-  it('grants access to matching customer record for validated bearer token', async () => {
+  it('grants access to matching customer record for authenticated user in clientContext', async () => {
     vi.spyOn(db, 'getCustomer').mockResolvedValue(mockCustomer);
     vi.spyOn(db, 'getTransactions').mockResolvedValue(mockActivities);
 
-    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(
-      JSON.stringify({
-        sub: 'cust_123',
-        email: 'sarah.m@gmail.com',
-        exp: Math.floor(Date.now() / 1000) + 3600,
-      })
-    ).toString('base64url');
-    const userToken = `${header}.${payload}.signature`;
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'cust_123',
+          email: 'sarah.m@gmail.com',
+          user_metadata: { id: 'cust_123' },
+        },
+      },
+    };
 
     const event = {
       httpMethod: 'GET',
       queryStringParameters: { id: 'cust_123' },
-      headers: { authorization: `Bearer ${userToken}` },
+      headers: {},
     };
 
-    const response: any = await handler(event, {});
+    const response: any = await handler(event, context);
 
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);
@@ -165,27 +171,26 @@ describe('/api/me authentication guard', () => {
     expect(body.activities).toHaveLength(1);
   });
 
-  it('grants access to matching customer record by referral code', async () => {
+  it('grants access to matching customer record by referral code for authenticated user in clientContext', async () => {
     vi.spyOn(db, 'getCustomerByReferralCode').mockResolvedValue(mockCustomer);
     vi.spyOn(db, 'getTransactions').mockResolvedValue(mockActivities);
 
-    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
-    const payload = Buffer.from(
-      JSON.stringify({
-        sub: 'cust_123',
-        user_metadata: { referralCode: 'SARAH-M' },
-        exp: Math.floor(Date.now() / 1000) + 3600,
-      })
-    ).toString('base64url');
-    const userToken = `${header}.${payload}.signature`;
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'cust_123',
+          user_metadata: { referralCode: 'SARAH-M' },
+        },
+      },
+    };
 
     const event = {
       httpMethod: 'GET',
       queryStringParameters: { code: 'SARAH-M' },
-      headers: { authorization: `Bearer ${userToken}` },
+      headers: {},
     };
 
-    const response: any = await handler(event, {});
+    const response: any = await handler(event, context);
 
     expect(response.statusCode).toBe(200);
     const body = JSON.parse(response.body);

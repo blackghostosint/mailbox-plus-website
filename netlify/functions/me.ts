@@ -12,80 +12,21 @@ export interface AuthenticatedUser {
 }
 
 /**
- * Extract case-insensitive header value
+ * Extract authenticated user context from Netlify function context.
+ * Only context.clientContext.user is trustworthy because Netlify verifies
+ * the Identity JWT server-side before populating clientContext.user.
  */
-function getHeader(
-  headers: Record<string, string | undefined> | undefined,
-  name: string
-): string | undefined {
-  if (!headers) return undefined;
-  const target = name.toLowerCase();
-  for (const key of Object.keys(headers)) {
-    if (key.toLowerCase() === target) {
-      return headers[key];
-    }
-  }
-  return undefined;
-}
-
-/**
- * Extract authenticated user context from Netlify function context or Authorization header
- */
-export function getAuthenticatedUser(event: any, context: any): AuthenticatedUser | null {
-  // 1. Check Netlify Identity clientContext
+export function getAuthenticatedUser(_event: any, context: any): AuthenticatedUser | null {
   if (context?.clientContext?.user) {
     return context.clientContext.user as AuthenticatedUser;
   }
-
-  // 2. Check Authorization header
-  const authHeader = getHeader(event?.headers, 'authorization');
-  if (!authHeader) return null;
-
-  const match = authHeader.match(/^Bearer\s+(.+)$/i);
-  if (!match) return null;
-
-  const token = match[1].trim();
-  if (!token) return null;
-
-  // Try decoding as JWT (header.payload.signature)
-  const parts = token.split('.');
-  if (parts.length === 3) {
-    try {
-      let base64 = parts[1].replace(/-/g, '+').replace(/_/g, '/');
-      while (base64.length % 4 !== 0) {
-        base64 += '=';
-      }
-      const jsonPayload = Buffer.from(base64, 'base64').toString('utf-8');
-      const payload = JSON.parse(jsonPayload);
-
-      // Check expiry if present
-      if (typeof payload.exp === 'number' && Date.now() / 1000 > payload.exp) {
-        return null; // Expired token
-      }
-
-      return payload as AuthenticatedUser;
-    } catch {
-      return null;
-    }
-  }
-
-  // Try parsing as JSON token
-  try {
-    const parsed = JSON.parse(token);
-    if (parsed && typeof parsed === 'object') {
-      return parsed as AuthenticatedUser;
-    }
-  } catch {
-    // Treat as direct token string identifier if non-empty
-  }
-
-  return { sub: token, id: token, token };
+  return null;
 }
 
 /**
  * Check if the authenticated user is a staff member
  */
-export function isStaffUser(user: AuthenticatedUser, context: any): boolean {
+export function isStaffUser(user: AuthenticatedUser, _context?: any): boolean {
   if (!user) return false;
 
   const roles = user.app_metadata?.roles || (user as any).roles || [];
@@ -94,11 +35,6 @@ export function isStaffUser(user: AuthenticatedUser, context: any): boolean {
   }
 
   if ((user as any).role === 'staff' || (user as any).role === 'admin') {
-    return true;
-  }
-
-  // If Netlify Identity clientContext user is present without specific customer metadata
-  if (context?.clientContext?.user && !user.user_metadata?.customer_id && !user.user_metadata?.id) {
     return true;
   }
 
