@@ -53,10 +53,11 @@ test.describe('Customer Portal Rewards Join Flow', () => {
     // Check terms agreement checkbox
     await page.check('#terms');
 
-    // Wait for response promise when submitting form
-    const responsePromise = page.waitForResponse('**/api/customer');
-    await page.click('button[type="submit"]');
-    await responsePromise;
+    // Submit form and wait for API response
+    await Promise.all([
+      page.waitForResponse('**/api/customer'),
+      page.click('button[type="submit"]'),
+    ]);
 
     // Verify submitted request payload contains form data
     expect(submittedPayload).not.toBeNull();

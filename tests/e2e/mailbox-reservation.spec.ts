@@ -24,9 +24,10 @@ test.describe('Private Mailbox Reservation Flow', () => {
       const btn = page.locator(`.checkout-btn[data-tier="${tier}"]`);
       await expect(btn).toBeVisible();
 
-      const responsePromise = page.waitForResponse('**/.netlify/functions/create-checkout');
-      await btn.click();
-      await responsePromise;
+      await Promise.all([
+        page.waitForResponse('**/.netlify/functions/create-checkout'),
+        btn.click(),
+      ]);
 
       expect(interceptedTier).toBe(tier);
     });

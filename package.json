@@ -12,7 +12,6 @@
     "test": "cd astro && npm test",
     "test:watch": "cd astro && npm run test:watch",
     "test:e2e": "playwright test",
-    "test:e2e:ci": "playwright test",
     "lint": "eslint .",
     "audit:micro-problems": "node scripts/audit-micro-problems.cjs",
     "audit:micro-problems:report": "node scripts/audit-micro-problems.cjs",
