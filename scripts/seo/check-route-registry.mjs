@@ -58,6 +58,7 @@ const DEFAULT_ALLOWED_EXACT = [
   '/404',
   '/privacy',
   '/terms',
+  '/accessibility',
   '/sms-consent',
   '/rental-agreement',
   '/contact-us',

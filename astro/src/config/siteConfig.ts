@@ -28,6 +28,11 @@ export const siteConfig: SiteConfig = {
       country: 'US',
     },
   },
+  accessibility: {
+    complianceStandard: 'WCAG 2.1 AA',
+    contactEmail: 'help@mailboxplusohio.com',
+    phone: '440-709-1946',
+  },
   hours: {
     monday: '9:00 AM - 6:00 PM',
     tuesday: '9:00 AM - 6:00 PM',
