@@ -17,7 +17,7 @@
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
     "build:embeddings": "tsx scripts/build-embeddings.ts",
     "audit:articles": "node scripts/validate-articles.cjs",
-    "audit:a11y": "axe http://localhost:4321 http://localhost:4321/accessibility/ http://localhost:4321/contact-us/ --exit --tags wcag2a,wcag2aa,wcag21a,wcag21aa",
+    "audit:a11y": "node scripts/audit-a11y.mjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
     "seo:check-links": "node scripts/seo/check-internal-link-strategy.mjs",
     "seo:check-jsonld": "node scripts/seo/check-jsonld-absolute-urls.mjs",
