@@ -29,7 +29,9 @@ function buildArticleDateMap() {
             map.set(`/articles/${fm.slug}/`, iso);
             map.set(`/articles/${fm.slug}`, iso);
           }
-        } catch { /* skip unreadable file */ }
+        } catch {
+          /* skip unreadable file */
+        }
       }
     }
   };
@@ -68,7 +70,9 @@ export default defineConfig({
           const pathname = item.url.replace(/^https?:\/\/[^/]+/, '');
           const iso = articleDates.get(pathname);
           if (iso) return { ...item, lastmod: iso };
-        } catch { /* fall through */ }
+        } catch {
+          /* fall through */
+        }
         return item;
       },
     }),
