@@ -2,10 +2,6 @@ export interface AccessibilityConfig {
   complianceStandard: string;
   contactEmail: string;
   phone: string;
-  slas: {
-    acknowledgmentDays: number;
-    resolutionDays: number;
-  };
 }
 
 export interface SiteConfig {
