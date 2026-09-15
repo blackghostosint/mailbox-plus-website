@@ -1,3 +1,13 @@
+export interface AccessibilityConfig {
+  complianceStandard: string;
+  contactEmail: string;
+  phone: string;
+  slas: {
+    acknowledgmentDays: number;
+    resolutionDays: number;
+  };
+}
+
 export interface SiteConfig {
   name: string;
   legalName?: string; // legal entity name for schema.org (e.g. "Mailbox Plus of Ohio, LLC")
@@ -24,6 +34,7 @@ export interface SiteConfig {
       country: string;
     };
   };
+  accessibility?: AccessibilityConfig;
   hours: Record<string, string>; // e.g. { monday: "9:00 AM - 6:00 PM", sunday: "Closed" }
   social?: Record<string, string>; // flexible for Facebook, Instagram, etc.
   geo: {

@@ -41,7 +41,7 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 
 | Token                       | Value     | WCAG on warm paper | Usage                                                           |
 | --------------------------- | --------- | ------------------ | --------------------------------------------------------------- |
-| `--color-accent-warm`       | `#a45c40` | 4.30:1 ✅ AA       | Filled CTAs on light, links, active states, warm accent borders |
+| `--color-accent-warm`       | `#984b2e` | 4.76:1 ✅ AA       | Filled CTAs on light, links, active states, warm accent borders |
 | `--color-accent-warm-light` | `#b8734d` | 3.25:1 AA (lg)     | Hover states, softer accent on light                            |
 
 > **In practical terms:** The terracotta is your everyday action color. It lives on the cream backgrounds — "Learn More" on a service card, "Drop Off a Return" button, "See All Services" links. It reads as warm, premium, and intentional.
