@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd astro && npm run dev",
+    "prebuild": "node scripts/fetch-reviews.mjs && node scripts/generate-llms-articles.mjs --write",
     "build": "cd astro && npm run build",
     "preview": "cd astro && npm run preview",
     "check": "cd astro && npm run check",
