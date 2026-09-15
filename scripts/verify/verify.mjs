@@ -651,6 +651,25 @@ function cmdArticle(arg, isStrict = false) {
     check('gates:factcheck', true, 'no receipt (advisory in non-strict)');
   }
 
+  // 12c) claims:verify — Layer A deterministic claim-verification (Frank, 2026-09-15).
+  // Forbidden phrases, canonical value checks, receipt coverage of numeric claims,
+  // source-URL resolution, and verdict sanity. Strict-only.
+  if (isStrict) {
+    try {
+      const claimsGate = path.resolve(__dirname, 'claims-gate.js');
+      const out = execSync(
+        `node "${claimsGate}" --slug "${slug}" --article "${abs}" --root "${ROOT}" --drafts "${DRAFTS_DIR}"${SKIP_NETWORK ? ' --offline' : ''}`,
+        { cwd: ROOT, encoding: 'utf8', timeout: 120000 }
+      );
+      for (const r of JSON.parse(out.trim())) {
+        check(r.name, r.pass, r.detail, r.fix);
+      }
+    } catch (e) {
+      const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+      check('claims:verify', false, `gate error: ${stderr}`, 'inspect scripts/verify/claims-gate.js');
+    }
+  }
+
   // 13) Robots status
   const status = String(data.status || 'published').toLowerCase();
   check(
