@@ -69,3 +69,6 @@ playwright-report/
 
 # Astro generated directory
 astro/.astro/
+
+# Lighthouse CI output
+.lighthouseci/
