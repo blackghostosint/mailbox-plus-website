@@ -34,3 +34,7 @@ Fix what the task asks for. If you find an unrelated problem, open a separate is
 ## Design system
 
 The visual system is token-driven — see `docs/DESIGN_SYSTEM.md`. Do not change color tokens or typography without owner approval; brand colors are a business decision.
+
+## Articles
+
+Writing or editing anything in `content/articles/`? Follow `docs/ARTICLE-WORKFLOW.md` — style standard, structure, and the hard gates (fact-check, copy review ≥ 80, strict verification). All apply before you open the PR.
