@@ -19,16 +19,16 @@ const navigation = [
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-10 text-sm">
         <div class="flex items-center space-x-6">
-          <div class="flex items-center space-x-2 text-white/70">
+          <div class="flex items-center space-x-2 text-white/90">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <a href={`tel:${phoneDigits}`} class="hover:text-[var(--color-accent-gold)] transition-colors">{siteConfig.contact.phone}</a>
+            <a href={`tel:${phoneDigits}`} class="hover:text-[var(--color-accent-gold-light)] transition-colors">{siteConfig.contact.phone}</a>
           </div>
-          <div class="hidden sm:flex items-center space-x-2 text-white/70">
+          <div class="hidden sm:flex items-center space-x-2 text-white/90">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <a href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-accent-gold)] transition-colors">Concord Township, OH</a>
+            <a href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH" target="_blank" rel="noopener noreferrer" class="hover:text-[var(--color-accent-gold-light)] transition-colors">Concord Township, OH</a>
           </div>
         </div>
-        <div class="text-white/60">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
+        <div class="text-white/90">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
       </div>
     </div>
   </div>
@@ -48,14 +48,14 @@ const navigation = [
           item.gold ? (
             <a href={item.href} class="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors">{item.name}</a>
           ) : (
-            <a href={item.href} class="text-[15px] font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors">{item.name}</a>
+            <a href={item.href} class="text-[15px] font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors">{item.name}</a>
           )
         )}
       </nav>
 
       <!-- Mobile Menu Toggle (client:load island) -->
       <div class="md:hidden">
-        <button id="mobile-menu-btn" class="p-2 rounded-lg text-white/80 hover:text-[var(--color-accent-gold)] hover:bg-white/10" aria-label="Open menu" aria-expanded="false">
+        <button id="mobile-menu-btn" class="p-2 rounded-lg text-white/90 hover:text-[var(--color-accent-gold-light)] hover:bg-white/10" aria-label="Open menu" aria-expanded="false">
           <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
         </button>
@@ -70,7 +70,7 @@ const navigation = [
         item.gold ? (
           <a href={item.href} class="block text-base font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors" data-mobile-link>{item.name}</a>
         ) : (
-          <a href={item.href} class="block text-base font-medium text-white/80 hover:text-[var(--color-accent-gold)] transition-colors" data-mobile-link>{item.name}</a>
+          <a href={item.href} class="block text-base font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors" data-mobile-link>{item.name}</a>
         )
       )}
     </nav>

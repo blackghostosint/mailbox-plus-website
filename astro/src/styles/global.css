@@ -22,7 +22,7 @@
 
     /* Two-Tone Accent System */
     --color-accent-gold: #f7c82a;
-    --color-accent-gold-light: #f7d46a;
+    --color-accent-gold-light: #ffe875;
     --color-accent: var(--color-accent-gold);
     --color-accent-light: var(--color-accent-gold-light);
     --color-accent-warm: #984b2e;
@@ -36,7 +36,7 @@
     /* Text — charcoal navy + warm slate */
     --color-text-primary: #1f2933;
     --color-text-secondary: #4a5568;
-    --color-text-muted: #667085;
+    --color-text-muted: #545e6f;
 
     /* Borders — gentle warm gray */
     --color-border: #e6e0d6;
