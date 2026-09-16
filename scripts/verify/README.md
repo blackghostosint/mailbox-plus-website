@@ -6,8 +6,14 @@ pattern (lauren/@poteto).
 
 ## Usage
 
-    node scripts/verify/verify.mjs doctor
+    npm run verify [-- --strict] [--offline]
+      Differential inspection targeting only newly added or modified markdown articles.
+
+    npm run verify:doctor
       Environment sanity: repo root, deps, gray-matter, branch hygiene.
+
+    npm run verify:articles [-- --strict] [--offline]
+      Batch verification across all articles in content/articles/.
 
     node scripts/verify/verify.mjs article <path.md> [--json] [--strict]
       Full article pre-flight:
