@@ -4,10 +4,7 @@ import matter from 'gray-matter';
 
 vi.mock('gray-matter', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
-  const matterFn =
-    typeof actual === 'function'
-      ? actual
-      : (actual.default as (raw: string) => ReturnType<typeof matter>);
+  const matterFn = typeof actual === 'function' ? actual : (actual.default as typeof matter);
   return {
     ...actual,
     default: vi.fn((raw: string) => matterFn(raw)),
