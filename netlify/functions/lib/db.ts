@@ -42,7 +42,7 @@ const getDBStore = (name: string) => {
     name,
     // Site ID and Token can fall back to environment variables for local testing
     siteID: process.env.NETLIFY_SITE_ID || '7a885e38-5ed0-4988-bc5c-a6007fce97a4',
-    token: process.env.NETLIFY_AUTH_TOKEN,
+    token: process.env.NETLIFY_AUTH_TOKEN || 'test-token',
   });
 };
 
