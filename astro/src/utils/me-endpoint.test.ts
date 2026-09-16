@@ -1,18 +1,4 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-interface HandlerEvent {
-  httpMethod: string;
-  queryStringParameters?: Record<string, string> | null;
-  body?: string | null;
-  headers?: Record<string, string>;
-  multiValueHeaders?: Record<string, string[]>;
-  isBase64Encoded?: boolean;
-  path?: string;
-  rawUrl?: string;
-  rawQuery?: string;
-  multiValueQueryStringParameters?: Record<string, string[]> | null;
-}
-
-type HandlerContext = Record<string, unknown>;
 import { handler } from '../../../netlify/functions/me';
 import { db } from '../../../netlify/functions/lib/db';
 import type { Customer } from '../../../netlify/functions/lib/db';
@@ -56,17 +42,17 @@ vi.mock('../../../netlify/functions/lib/db', () => ({
   },
 }));
 
-const dummyContext = {} as HandlerContext;
+const dummyContext = {} as any;
 const staffContext = {
   clientContext: { user: { email: 'staff@mailboxplus.com' } },
-} as HandlerContext;
+} as any;
 
 function createEvent(
   httpMethod: string,
   queryStringParameters: Record<string, string> = {},
   body?: string,
   headers: Record<string, string> = {}
-): HandlerEvent {
+): any {
   return {
     httpMethod,
     queryStringParameters,
