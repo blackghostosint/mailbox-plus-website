@@ -127,7 +127,11 @@ async function generateEmbedding(
       );
     }
 
-    return result.embedding.values;
+    const values = result.embedding.values;
+    const primaryKey = `${taskType}::${text}`;
+    embeddingCache[primaryKey] = values;
+
+    return values;
   }
 
   // Offline lookup in embeddingCache.
@@ -176,7 +180,7 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 }
 
 /**
- * Pre-compute and cache embeddings for all KB entries when GEMINI_API_KEY is present
+ * Pre-compute and cache embeddings for all KB entries and retrieval test suite queries when GEMINI_API_KEY is present
  */
 async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
@@ -209,10 +213,12 @@ async function buildEmbeddingCache(): Promise<boolean> {
     // Embed questionVariants with RETRIEVAL_QUERY taskType (they are example queries)
     for (const variant of entry.questionVariants) {
       const cacheKey = `${entry.id}::${variant}`;
+      const taskKey = `RETRIEVAL_QUERY::${variant}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] || !embeddingCache[taskKey]) {
         const embedding = await generateEmbedding(variant, 'RETRIEVAL_QUERY');
         embeddingCache[cacheKey] = embedding;
+        embeddingCache[taskKey] = embedding;
         newEmbeddings++;
 
         // Small delay to avoid rate limiting
@@ -224,15 +230,31 @@ async function buildEmbeddingCache(): Promise<boolean> {
     const documentTexts = [entry.searchText, entry.title];
     for (const text of documentTexts) {
       const cacheKey = `${entry.id}::${text}`;
+      const taskKey = `RETRIEVAL_DOCUMENT::${text}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] || !embeddingCache[taskKey]) {
         const embedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
         embeddingCache[cacheKey] = embedding;
+        embeddingCache[taskKey] = embedding;
         newEmbeddings++;
 
         // Small delay to avoid rate limiting
         await new Promise((resolve) => setTimeout(resolve, 100));
       }
+    }
+  }
+
+  // Pre-cache embeddings for all test suite queries
+  for (const testCase of retrievalTests) {
+    const taskKey = `RETRIEVAL_QUERY::${testCase.query}`;
+
+    if (!embeddingCache[taskKey]) {
+      const embedding = await generateEmbedding(testCase.query, 'RETRIEVAL_QUERY');
+      embeddingCache[taskKey] = embedding;
+      newEmbeddings++;
+
+      // Small delay to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 100));
     }
   }
 
@@ -677,6 +699,17 @@ async function main() {
     console.log(`❌ ${failed} TEST(S) FAILED - UI rollout blocked!\n`);
     console.log(`See ${reportPath} for details.\n`);
     process.exit(1);
+  }
+
+  if (!isOfflineMode && Object.keys(embeddingCache).length > 0) {
+    try {
+      writeFileSync(CACHE_FILE, JSON.stringify(embeddingCache, null, 2), 'utf-8');
+      console.log(
+        `✓ Updated ${CACHE_FILE} with ${Object.keys(embeddingCache).length} cached vectors`
+      );
+    } catch (err) {
+      console.warn('⚠ Could not write updated embedding cache:', err);
+    }
   }
 
   if (isOfflineMode) {
