@@ -129,13 +129,6 @@ export const handler: Handler = async (event: any, context: any) => {
         };
       }
 
-      if (code && !staff && !token) {
-        return {
-          statusCode: 401,
-          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
-        };
-      }
-
       let customer = null;
       if (id) {
         customer = await db.getCustomer(id);
@@ -147,13 +140,6 @@ export const handler: Handler = async (event: any, context: any) => {
         return {
           statusCode: 404,
           body: JSON.stringify({ error: 'Customer not found' }),
-        };
-      }
-
-      if (code && !staff && (!token || !verifyCustomerToken(token, customer.id))) {
-        return {
-          statusCode: 401,
-          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
         };
       }
 

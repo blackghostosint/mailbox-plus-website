@@ -42,20 +42,44 @@ vi.mock('../../../netlify/functions/lib/db', () => ({
   },
 }));
 
-const dummyContext = {} as any;
-const staffContext = {
+interface MockContext {
+  clientContext?: {
+    user?: {
+      email?: string;
+      app_metadata?: {
+        roles?: string[];
+      };
+    };
+  };
+}
+
+interface MockEvent {
+  httpMethod: string;
+  queryStringParameters: Record<string, string>;
+  body: string | null;
+  headers: Record<string, string>;
+  multiValueHeaders: Record<string, string[]>;
+  isBase64Encoded: boolean;
+  path: string;
+  rawUrl: string;
+  rawQuery: string;
+  multiValueQueryStringParameters: null;
+}
+
+const dummyContext: MockContext = {};
+const staffContext: MockContext = {
   clientContext: { user: { email: 'staff@mailboxplus.com', app_metadata: { roles: ['staff'] } } },
-} as any;
-const nonStaffUserContext = {
+};
+const nonStaffUserContext: MockContext = {
   clientContext: { user: { email: 'customer@mailboxplus.com', app_metadata: { roles: [] } } },
-} as any;
+};
 
 function createEvent(
   httpMethod: string,
   queryStringParameters: Record<string, string> = {},
   body?: string,
   headers: Record<string, string> = {}
-): any {
+): MockEvent {
   return {
     httpMethod,
     queryStringParameters,
@@ -127,6 +151,38 @@ describe('me.ts serverless function handler', () => {
       () => undefined
     );
     expect(resPatch?.statusCode).toBe(404);
+  });
+
+  it('returns HTTP 200 and issues session token when GET is called with a valid referral code (session bootstrap)', async () => {
+    const res = await handler(
+      createEvent('GET', { code: 'JANE-D' }),
+      dummyContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(200);
+    const body = JSON.parse(res?.body || '{}');
+    expect(body.firstName).toBe('Jane');
+    expect(body.referralCode).toBe('JANE-D');
+    expect(body.token).toBeDefined();
+  });
+
+  it('returns HTTP 404 when GET is called with an invalid referral code regardless of headers', async () => {
+    const resNoToken = await handler(
+      createEvent('GET', { code: 'INVALID-CODE' }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resNoToken?.statusCode).toBe(404);
+
+    const junkToken = generateCustomerToken('cust_junk');
+    const resJunkToken = await handler(
+      createEvent('GET', { code: 'INVALID-CODE' }, undefined, {
+        authorization: `Bearer ${junkToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resJunkToken?.statusCode).toBe(404);
   });
 
   it('returns HTTP 401 when GET is called without session token or staff auth', async () => {

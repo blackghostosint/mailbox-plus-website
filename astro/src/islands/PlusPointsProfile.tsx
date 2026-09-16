@@ -62,16 +62,31 @@ export const PlusPointsProfile: React.FC = () => {
   useEffect(() => {
     const fetchRealData = async () => {
       const params = new URLSearchParams(window.location.search);
+      const hashParams = new URLSearchParams(window.location.hash.substring(1));
+
       const id = params.get('id');
       const code = params.get('code');
-      const urlToken = params.get('token');
+      const hashToken = hashParams.get('token');
+      const queryToken = params.get('token');
+      const urlToken = hashToken || queryToken;
 
       const savedToken =
         typeof localStorage !== 'undefined' ? localStorage.getItem('plus_points_token') : null;
       const token = urlToken || savedToken || '';
 
-      if (urlToken && typeof localStorage !== 'undefined') {
-        localStorage.setItem('plus_points_token', urlToken);
+      if (urlToken) {
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('plus_points_token', urlToken);
+        }
+        // Sanitize URL by stripping token parameter/hash fragment to prevent leakage
+        if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
+          const cleanSearch = window.location.search
+            .replace(/([?&])token=[^&]*(&|$)/, '$1')
+            .replace(/[?&]$/, '');
+          const cleanHash = window.location.hash.replace(/#?token=[^&]*/, '');
+          const cleanUrl = window.location.pathname + cleanSearch + (cleanHash ? cleanHash : '');
+          window.history.replaceState({}, document.title, cleanUrl);
+        }
       }
 
       if (!id && !code && !token) return; // Keep mock preview if no specific account requested

@@ -34,7 +34,7 @@
 | No dependency auto-update (Dependabot)                            | Low      | Enable in GitHub settings                                                                                               |
 | No automated security scanning in CI                              | Low      | Add `npm audit` + Snyk/Trivy step                                                                                       |
 | R2 bucket is public (intentional for images)                      | Low      | Monitor for unusual access patterns                                                                                     |
-| Session token in localStorage (`plus_points_token` for `/api/me`) | Low      | Acceptable for self-service rewards profile threat model; protected against CSRF via Authorization header, XSS-readable |
+| Session token in localStorage (`plus_points_token` for `/api/me`) | Low      | Acceptable for self-service rewards profile threat model; protected against CSRF via Authorization header. Tokens delivered via URL hash fragments/params are stripped immediately upon load via `window.history.replaceState` to prevent leakage in logs/Referer. |
 | No WAF (Netlify doesn't offer one)                                | Low      | CSP + headers provide baseline                                                                                          |
 
 ---
