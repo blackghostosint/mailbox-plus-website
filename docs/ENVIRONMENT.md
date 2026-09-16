@@ -11,7 +11,7 @@ All environment variables are loaded from `.env` or Netlify dashboard environmen
 | `GEMINI_API_KEY` | Google Gemini API key for AI embeddings/chat | `AIzaSy...` |
 | `GOOGLE_PLACES_API_KEY` | Google Places API key for Google reviews sync | `AIzaSy...` |
 | `NETLIFY_AUTH_TOKEN` | Netlify API authentication token | `nfp_...` |
-| `VITE_RECAPTCHA_SECRET_KEY` | reCAPTCHA secret key for serverless verification | `6Lc...` |
+| `RECAPTCHA_SECRET_KEY` | reCAPTCHA secret key for serverless verification (server-only) | `6Lc...` |
 | `SITE_URL` | Canonical site URL (e.g., https://mailboxplusohio.com) | `https://mailboxplusohio.com` |
 
 ## Additional Frontend / Build Variables
