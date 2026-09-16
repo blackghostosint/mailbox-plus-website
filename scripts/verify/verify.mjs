@@ -102,54 +102,56 @@ function initRouteRegistry() {
 
   // 1b) Routes from siteStructure.json & route-registry-allowlist.json
   const SITE_STRUCTURE_PATH = path.join(ROOT, 'astro', 'src', 'data', 'siteStructure.json');
-  if (fs.existsSync(SITE_STRUCTURE_PATH)) {
-    try {
-      const siteStruct = JSON.parse(fs.readFileSync(SITE_STRUCTURE_PATH, 'utf8'));
-      const addUrl = (url) => {
-        if (!url) return;
-        let norm = url.trim();
-        if (norm.endsWith('.html')) norm = norm.slice(0, -5);
-        if (!norm.startsWith('/')) norm = '/' + norm;
-        if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
-        validRoutes.add(norm);
-      };
-      if (siteStruct.homepage?.url) addUrl(siteStruct.homepage.url);
-      if (Array.isArray(siteStruct.pillars)) {
-        for (const p of siteStruct.pillars) {
-          addUrl(p.url);
-          if (Array.isArray(p.children)) {
-            for (const c of p.children) addUrl(c.url);
-          }
+  if (!fs.existsSync(SITE_STRUCTURE_PATH)) {
+    throw new Error(`❌ Required siteStructure file missing at ${SITE_STRUCTURE_PATH}`);
+  }
+  try {
+    const siteStruct = JSON.parse(fs.readFileSync(SITE_STRUCTURE_PATH, 'utf8'));
+    const addUrl = (url) => {
+      if (!url) return;
+      let norm = url.trim();
+      if (norm.endsWith('.html')) norm = norm.slice(0, -5);
+      if (!norm.startsWith('/')) norm = '/' + norm;
+      if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
+      validRoutes.add(norm);
+    };
+    if (siteStruct.homepage?.url) addUrl(siteStruct.homepage.url);
+    if (Array.isArray(siteStruct.pillars)) {
+      for (const p of siteStruct.pillars) {
+        addUrl(p.url);
+        if (Array.isArray(p.children)) {
+          for (const c of p.children) addUrl(c.url);
         }
       }
-      if (Array.isArray(siteStruct.subSupporting)) {
-        for (const s of siteStruct.subSupporting) addUrl(s.url);
-      }
-      if (Array.isArray(siteStruct['seo-landing'])) {
-        for (const l of siteStruct['seo-landing']) addUrl(l.url);
-      }
-    } catch (e) {
-      console.error(`❌ Failed to read or parse siteStructure at ${SITE_STRUCTURE_PATH}:`, e);
-      throw e;
     }
+    if (Array.isArray(siteStruct.subSupporting)) {
+      for (const s of siteStruct.subSupporting) addUrl(s.url);
+    }
+    if (Array.isArray(siteStruct['seo-landing'])) {
+      for (const l of siteStruct['seo-landing']) addUrl(l.url);
+    }
+  } catch (e) {
+    console.error(`❌ Failed to read or parse siteStructure at ${SITE_STRUCTURE_PATH}:`, e);
+    throw e;
   }
 
   const ALLOWLIST_PATH = path.join(ROOT, 'scripts', 'seo', 'route-registry-allowlist.json');
-  if (fs.existsSync(ALLOWLIST_PATH)) {
-    try {
-      const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST_PATH, 'utf8'));
-      if (Array.isArray(allowlist.allowed_exact)) {
-        for (const url of allowlist.allowed_exact) {
-          let norm = url.trim();
-          if (!norm.startsWith('/')) norm = '/' + norm;
-          if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
-          validRoutes.add(norm);
-        }
+  if (!fs.existsSync(ALLOWLIST_PATH)) {
+    throw new Error(`❌ Required route registry allowlist missing at ${ALLOWLIST_PATH}`);
+  }
+  try {
+    const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST_PATH, 'utf8'));
+    if (Array.isArray(allowlist.allowed_exact)) {
+      for (const url of allowlist.allowed_exact) {
+        let norm = url.trim();
+        if (!norm.startsWith('/')) norm = '/' + norm;
+        if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
+        validRoutes.add(norm);
       }
-    } catch (e) {
-      console.error(`❌ Failed to read or parse route registry allowlist at ${ALLOWLIST_PATH}:`, e);
-      throw e;
     }
+  } catch (e) {
+    console.error(`❌ Failed to read or parse route registry allowlist at ${ALLOWLIST_PATH}:`, e);
+    throw e;
   }
 
   // 2) Article routes & intentKeys from content/articles

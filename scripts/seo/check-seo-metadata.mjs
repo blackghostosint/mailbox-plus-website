@@ -24,7 +24,7 @@ function walkDir(dir) {
 function evaluateServiceFile(file) {
   let content = fs.readFileSync(file, 'utf8');
 
-  // Strip icon and helper imports / stubs
+  // Strip icon and type imports
   content = content.replace(/import\s+(\w+)\s+from\s+['"].*~icons\/.*['"];?/g, 'const $1 = {};');
   content = content.replace(
     /import\s+.*from\s+['"].*\/schema['"];?/g,
@@ -32,20 +32,30 @@ function evaluateServiceFile(file) {
   );
   content = content.replace(/import\s+type\s+.*from\s+['"].*['"];?/g, '');
   content = content.replace(/import\s+.*from\s+['"].*\/lib\/storage['"];?/g, '');
-  content = content.replace(/import\s+\{([^}]+)\}\s+from\s+['"].*\/faqs['"];?/g, (m, p1) =>
+
+  // Handle named imports (e.g. import { x, y } from './foo')
+  content = content.replace(/import\s+\{([^}]+)\}\s+from\s+['"].*['"];?/g, (m, p1) =>
     p1
       .split(',')
-      .map((s) => `const ${s.trim().split(/\s+as\s+/)[0]} = [];`)
+      .map((s) => {
+        const name = s.trim().split(/\s+as\s+/)[0];
+        return name ? `const ${name} = [];` : '';
+      })
       .join('\n')
   );
-  content = content.replace(/import\s+.*from\s+['"].*\/faqs['"];?/g, 'const faqs = {};');
-  content = content.replace(
-    /import\s+.*from\s+['"].*\/micro-problems['"];?/g,
-    'const microProblemPages = [];'
-  );
-  content = content.replace(
-    /import\s+.*from\s+['"].*\/pack-ship\/.*['"];?/g,
-    'const carriers = [], amazonReturnsPages = [], localSeoPages = [], packingServicesPages = [], receivingDropOffPages = [], specialtyShippingPages = [];'
+
+  // Handle default / wildcard imports from relative paths
+  content = content.replace(/import\s+(\w+)\s+from\s+['"]\.\/.*['"];?/g, 'const $1 = [];');
+
+  // Handle re-exports (e.g. export { microProblems } from '../micro-problems')
+  content = content.replace(/export\s+\{([^}]+)\}\s+from\s+['"].*['"];?/g, (m, p1) =>
+    p1
+      .split(',')
+      .map((s) => {
+        const name = s.trim().split(/\s+as\s+/)[0];
+        return name ? `const ${name} = [];\nexport { ${name} };` : '';
+      })
+      .join('\n')
   );
 
   // Helper stubs
@@ -81,6 +91,7 @@ function discoverServiceMetadata() {
   const tsFiles = walkDir(SERVICES_DIR);
   const ogImageChecks = [];
   const imageObjectSchemaChecks = [];
+  let evalErrors = 0;
 
   for (const file of tsFiles) {
     if (file.endsWith('index.ts')) continue;
@@ -108,11 +119,12 @@ function discoverServiceMetadata() {
         }
       }
     } catch (err) {
-      console.warn(`⚠️ Warning: Failed to evaluate ${file}: ${err.message}`);
+      console.error(`❌ Error: Failed to evaluate ${file}: ${err.message}`);
+      evalErrors++;
     }
   }
 
-  return { ogImageChecks, imageObjectSchemaChecks };
+  return { ogImageChecks, imageObjectSchemaChecks, evalErrors };
 }
 
 function main() {
@@ -125,7 +137,7 @@ function main() {
     process.exit(1);
   }
 
-  const { ogImageChecks, imageObjectSchemaChecks } = discoverServiceMetadata();
+  const { ogImageChecks, imageObjectSchemaChecks, evalErrors } = discoverServiceMetadata();
   console.log(
     `Discovered ${ogImageChecks.length} og:image route requirement(s) from service configs.`
   );
@@ -133,7 +145,7 @@ function main() {
     `Discovered ${imageObjectSchemaChecks.length} ImageObject schema route requirement(s) from service configs.\n`
   );
 
-  let errors = 0;
+  let errors = evalErrors;
 
   for (const item of ogImageChecks) {
     const htmlFile = path.join(DIST_DIR, item.route, 'index.html');

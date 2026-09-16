@@ -39,7 +39,11 @@ export async function getStaticPaths() {
       if (STATIC_SERVICE_SLUGS.has(cleanSlug)) {
         continue;
       }
-      throw new Error(`[slug].astro: Service slug collision detected. Service "${service.id}" with slug "${cleanSlug}" collides with an existing static page file in astro/src/pages/.`);
+      throw new Error(
+        `[slug].astro: Service slug collision detected. Service "${service.id}" with slug "${cleanSlug}" collides with an existing static page file in astro/src/pages/. ` +
+          `If this static page is intended to override the dynamic config route, add "${cleanSlug}" to STATIC_SERVICE_SLUGS in astro/src/pages/[slug].astro. ` +
+          `Otherwise, rename the static page file or change the service slug.`
+      );
     }
     if (seenSlugs.has(cleanSlug)) continue;
 
