@@ -23,17 +23,15 @@ export function getAuthenticatedUser(_event: any, context: any): AuthenticatedUs
 }
 
 /**
- * Check if the authenticated user is a staff member
+ * Check if the authenticated user is a staff member.
+ * Strictly evaluates app_metadata.roles (admin-provisioned via Netlify Identity).
+ * Ignores user_metadata and top-level role claims to prevent client-side privilege escalation.
  */
 export function isStaffUser(user: AuthenticatedUser, _context?: any): boolean {
   if (!user) return false;
 
-  const roles = user.app_metadata?.roles || (user as any).roles || [];
+  const roles = user.app_metadata?.roles;
   if (Array.isArray(roles) && (roles.includes('staff') || roles.includes('admin'))) {
-    return true;
-  }
-
-  if ((user as any).role === 'staff' || (user as any).role === 'admin') {
     return true;
   }
 
@@ -44,6 +42,12 @@ export function isStaffUser(user: AuthenticatedUser, _context?: any): boolean {
  * Extract identity claims for matching non-staff users against customer records.
  * Only server-verified claims (sub, id, email, app_metadata) are trusted.
  * user_metadata is user-editable and must never be trusted for authorization.
+ *
+ * Provisioning Model:
+ * Netlify Identity binds Identity users to Customer DB records by storing the Customer ID
+ * or Referral Code in app_metadata (e.g. app_metadata.customer_id = 'cust_123').
+ * app_metadata is read-only to end users and set exclusively by admin API or Identity webhooks.
+ * For users where user.sub === customer.id or user.email === customer.email, linkage is direct.
  */
 export function getUserClaims(user: AuthenticatedUser): string[] {
   const claims = new Set<string>();
@@ -119,7 +123,11 @@ export const handler: Handler = async (event: any, context: any) => {
       } else {
         // Derive parameter if omitted by non-staff authenticated user
         const derivedId =
-          user.sub || user.id || user.app_metadata?.id || user.app_metadata?.customer_id;
+          user.app_metadata?.customer_id ||
+          user.app_metadata?.customerId ||
+          user.app_metadata?.id ||
+          user.sub ||
+          user.id;
         if (derivedId) {
           id = derivedId;
         } else {

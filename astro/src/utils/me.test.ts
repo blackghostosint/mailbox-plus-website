@@ -239,7 +239,7 @@ describe('/api/me authentication guard', () => {
     expect(body.referralCode).toBe('SARAH-M');
   });
 
-  it('grants staff context access to any customer profile', async () => {
+  it('grants staff context access to any customer profile when app_metadata.roles contains staff', async () => {
     vi.spyOn(db, 'getCustomer').mockResolvedValue(mockCustomer);
     vi.spyOn(db, 'getTransactions').mockResolvedValue(mockActivities);
 
@@ -261,6 +261,62 @@ describe('/api/me authentication guard', () => {
     const response: any = await handler(event, context);
 
     expect(response.statusCode).toBe(200);
+    const body = JSON.parse(response.body);
+    expect(body.id).toBe('cust_123');
+  });
+
+  it('rejects staff access when role is in user_metadata or top-level role property', async () => {
+    const getCustomerSpy = vi.spyOn(db, 'getCustomer');
+
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'user_456',
+          email: 'user@example.com',
+          role: 'staff',
+          roles: ['staff'],
+          user_metadata: { roles: ['staff'], role: 'admin' },
+        },
+      },
+    };
+
+    const event = {
+      httpMethod: 'GET',
+      queryStringParameters: { id: 'cust_123' },
+      headers: {},
+    };
+
+    const response: any = await handler(event, context);
+
+    expect(response.statusCode).toBe(403);
+    expect(JSON.parse(response.body)).toEqual({ error: 'Forbidden' });
+    expect(getCustomerSpy).not.toHaveBeenCalled();
+  });
+
+  it('derives customer id from app_metadata.customer_id when query parameters are omitted', async () => {
+    vi.spyOn(db, 'getCustomer').mockResolvedValue(mockCustomer);
+    vi.spyOn(db, 'getTransactions').mockResolvedValue(mockActivities);
+
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'identity_uuid_888',
+          email: 'sarah.m@gmail.com',
+          app_metadata: { customer_id: 'cust_123' },
+        },
+      },
+    };
+
+    const event = {
+      httpMethod: 'GET',
+      queryStringParameters: {},
+      headers: {},
+    };
+
+    const response: any = await handler(event, context);
+
+    expect(response.statusCode).toBe(200);
+    expect(db.getCustomer).toHaveBeenCalledWith('cust_123');
     const body = JSON.parse(response.body);
     expect(body.id).toBe('cust_123');
   });

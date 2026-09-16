@@ -80,6 +80,8 @@ export const PlusPointsProfile: React.FC = () => {
       setLoading(true);
       try {
         const query = id ? `id=${id}` : `code=${code}`;
+        // Netlify Identity attaches server-verified clientContext.user automatically on authenticated Function calls.
+        // Sending the Authorization: Bearer token header triggers Netlify's Identity proxy token exchange.
         const headers: Record<string, string> = {};
         const win =
           typeof window !== 'undefined' ? (window as unknown as NetlifyIdentityWindow) : undefined;
