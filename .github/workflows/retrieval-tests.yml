@@ -37,6 +37,8 @@ jobs:
         with:
           path: knowledge/.embedding-cache.json
           key: embedding-cache-${{ hashFiles('knowledge/kb.entries.json', 'knowledge/retrieval-test-suite.ts', 'knowledge/retrieval-test-runner.ts') }}
+          restore-keys: |
+            embedding-cache-
 
       - name: Run AI knowledge base retrieval evaluation
         run: npm run test:retrieval
