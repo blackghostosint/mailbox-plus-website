@@ -64,6 +64,9 @@ jobs:
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
+      - name: Run retrieval test suite (offline)
+        run: npm run test:retrieval
+
       - name: Verify generated static assets drift
         run: git diff --exit-code public/llms.txt public/llms-full.txt
 

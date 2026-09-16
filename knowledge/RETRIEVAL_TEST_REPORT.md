@@ -1,6 +1,6 @@
 # Retrieval Test Report (Gemini Embeddings)
 
-**Generated:** 2026-01-04T21:22:53.207Z
+**Generated:** 2026-09-16T20:47:44.106Z
 
 **Embedding Model:** text-embedding-004
 **Minimum Similarity Threshold:** 0.78
@@ -38,16 +38,16 @@
 | direct-04 | Can you ship internationally? | ACCEPT | ACCEPT | ✅ | 100.0% | Exact match from questionVariants |
 | direct-05 | Can you pack fragile items? | ACCEPT | ACCEPT | ✅ | 100.0% | Exact match from questionVariants |
 | direct-06 | Do you accept Amazon returns? | ACCEPT | ACCEPT | ✅ | 100.0% | Exact match from questionVariants |
-| paraphrase-01 | What shipping companies can I choose from? | ACCEPT | ACCEPT | ✅ | 90.6% | Same intent as "Which carriers do you work with?" |
+| paraphrase-01 | What shipping companies can I choose from? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "Which carriers do you work with?" |
 | paraphrase-02 | Will you give me a tracking number? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "Will I receive tracking information?" |
-| paraphrase-03 | Can you send packages to other countries? | ACCEPT | ACCEPT | ✅ | 93.7% | Same intent as "Can you ship internationally?" |
-| paraphrase-04 | Do you handle delicate or breakable items? | ACCEPT | ACCEPT | ✅ | 90.4% | Same intent as "Can you pack fragile items?" |
-| paraphrase-05 | Can I return Amazon purchases at your location? | ACCEPT | ACCEPT | ✅ | 83.0% | Same intent as "Do you accept Amazon returns?" |
-| paraphrase-06 | How much time does delivery usually take? | ACCEPT | ACCEPT | ✅ | 95.5% | Same intent as "How long will shipping take?" |
+| paraphrase-03 | Can you send packages to other countries? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "Can you ship internationally?" |
+| paraphrase-04 | Do you handle delicate or breakable items? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "Can you pack fragile items?" |
+| paraphrase-05 | Can I return Amazon purchases at your location? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "Do you accept Amazon returns?" |
+| paraphrase-06 | How much time does delivery usually take? | ACCEPT | ACCEPT | ✅ | 100.0% | Same intent as "How long will shipping take?" |
 | paraphrase-07 | Do you offer Private Mailbox (PMB) services? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for private mailbox / PMB |
 | paraphrase-08 | Can I rent a PMB there? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for PMB |
 | paraphrase-09 | What is a P.O. Box alternative? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for P.O. Box alternative |
-| paraphrase-10 | Can I use a Private Mailbox for my business? | ACCEPT | ACCEPT | ✅ | 94.0% | Search for business use of private mailbox |
+| paraphrase-10 | Can I use a Private Mailbox for my business? | ACCEPT | ACCEPT | ✅ | 100.0% | Search for business use of private mailbox |
 | ambiguous-01 | What business services do you offer? | REFUSE | REFUSE | ✅ | N/A | Spans multiple FAQs - too broad to answer safely |
 | ambiguous-02 | What can you help me with? | REFUSE | REFUSE | ✅ | N/A | Extremely broad - would require listing multiple services |
 | ambiguous-03 | What services does Mailbox Plus provide? | REFUSE | REFUSE | ✅ | N/A | Covers entire service catalog - ambiguous intent |

@@ -31,22 +31,21 @@ import {
 } from './retrieval-test-suite.js';
 
 // ========================================
-// Validate API Key (Fail Fast)
-// ========================================
-if (!process.env.GEMINI_API_KEY) {
-  throw new Error(
-    'GEMINI_API_KEY is not set. Define it in .env.local or your environment before running retrieval tests.'
-  );
-}
-
-// ========================================
-// Gemini API Setup
+// Mode & Gemini API Setup
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+const isOfflineMode = !GEMINI_API_KEY;
 
-console.log('✓ Gemini API initialized with text-embedding-004 model');
+let genAI: GoogleGenerativeAI | null = null;
+let embeddingModel: any = null;
+
+if (!isOfflineMode) {
+  genAI = new GoogleGenerativeAI(GEMINI_API_KEY!);
+  embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+  console.log('✓ Gemini API initialized with text-embedding-004 model');
+} else {
+  console.log('ℹ GEMINI_API_KEY not set. Running in offline mode using precomputed embeddings.');
+}
 
 // ========================================
 // Load Knowledge Base
@@ -74,32 +73,67 @@ const kb: KnowledgeBase = JSON.parse(readFileSync(kbPath, 'utf-8'));
 console.log(`✓ Loaded ${kb.entries.length} FAQ entries from knowledge base`);
 
 // ========================================
-// Embedding Cache
+// Embedding Cache & Snapshot Loading
 // ========================================
 interface EmbeddingCache {
   [key: string]: number[];
 }
 
+const SNAPSHOT_FILE = join(__dirname, 'embeddings.json');
 const CACHE_FILE = join(__dirname, '.embedding-cache.json');
 let embeddingCache: EmbeddingCache = {};
 
-// Load existing cache if available
-if (existsSync(CACHE_FILE)) {
-  try {
-    embeddingCache = JSON.parse(readFileSync(CACHE_FILE, 'utf-8'));
-    console.log(`✓ Loaded cached embeddings for ${Object.keys(embeddingCache).length} entries`);
-  } catch (err) {
-    console.warn('⚠ Could not load embedding cache, will rebuild');
+function loadEmbeddingsFile(filePath: string): number {
+  if (existsSync(filePath)) {
+    try {
+      const parsed = JSON.parse(readFileSync(filePath, 'utf-8'));
+      const vectors: Record<string, number[]> = parsed.embeddings || parsed;
+      let count = 0;
+      for (const [key, val] of Object.entries(vectors)) {
+        if (Array.isArray(val)) {
+          embeddingCache[key] = val;
+          count++;
+        }
+      }
+      return count;
+    } catch (err) {
+      console.warn(`⚠ Could not load embedding file ${filePath}:`, err);
+    }
   }
+  return 0;
 }
 
+loadEmbeddingsFile(SNAPSHOT_FILE);
+loadEmbeddingsFile(CACHE_FILE);
+
+console.log(`✓ Loaded cached embeddings for ${Object.keys(embeddingCache).length} entries`);
+
 /**
- * Generate embedding for a single text using Gemini
+ * Generate embedding for a single text using Gemini (or return cached in offline mode)
  */
 async function generateEmbedding(
   text: string,
   taskType: string = 'RETRIEVAL_DOCUMENT'
 ): Promise<number[]> {
+  const cacheKeyCandidates = [
+    `${taskType}::${text}`,
+    `RETRIEVAL_QUERY::${text}`,
+    `RETRIEVAL_DOCUMENT::${text}`,
+    text,
+  ];
+
+  for (const key of cacheKeyCandidates) {
+    if (embeddingCache[key]) {
+      return embeddingCache[key];
+    }
+  }
+
+  if (isOfflineMode) {
+    throw new Error(
+      `Offline mode error: Missing precomputed embedding for text: "${text.substring(0, 50)}..." (${taskType}). Run 'npm run build:embeddings' with GEMINI_API_KEY set.`
+    );
+  }
+
   try {
     const result = await embeddingModel.embedContent({
       content: { parts: [{ text }] },
@@ -110,7 +144,9 @@ async function generateEmbedding(
       throw new Error('Invalid embedding response from Gemini API');
     }
 
-    return result.embedding.values;
+    const values = result.embedding.values;
+    embeddingCache[`${taskType}::${text}`] = values;
+    return values;
   } catch (error) {
     console.error(`Failed to generate embedding for text: "${text.substring(0, 50)}..."`);
     throw error;
@@ -122,7 +158,7 @@ async function generateEmbedding(
  */
 function cosineSimilarity(vec1: number[], vec2: number[]): number {
   if (vec1.length !== vec2.length) {
-    throw new Error('Vectors must have the same length');
+    throw new Error(`Vectors must have the same length (got ${vec1.length} and ${vec2.length})`);
   }
 
   let dotProduct = 0;
@@ -145,6 +181,16 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
  * Pre-compute and cache embeddings for all KB entries
  */
 async function buildEmbeddingCache(): Promise<void> {
+  if (isOfflineMode) {
+    if (Object.keys(embeddingCache).length === 0) {
+      throw new Error(
+        'Offline mode error: No precomputed embeddings found in knowledge/embeddings.json.'
+      );
+    }
+    console.log('✓ Using committed embedding snapshot (offline mode)');
+    return;
+  }
+
   console.log('\n📦 Building/updating embedding cache...');
 
   let newEmbeddings = 0;
@@ -154,7 +200,7 @@ async function buildEmbeddingCache(): Promise<void> {
     for (const variant of entry.questionVariants) {
       const cacheKey = `${entry.id}::${variant}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] && !embeddingCache[`RETRIEVAL_QUERY::${variant}`]) {
         const embedding = await generateEmbedding(variant, 'RETRIEVAL_QUERY');
         embeddingCache[cacheKey] = embedding;
         newEmbeddings++;
@@ -169,7 +215,7 @@ async function buildEmbeddingCache(): Promise<void> {
     for (const text of documentTexts) {
       const cacheKey = `${entry.id}::${text}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] && !embeddingCache[`RETRIEVAL_DOCUMENT::${text}`]) {
         const embedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
         embeddingCache[cacheKey] = embedding;
         newEmbeddings++;
@@ -180,9 +226,28 @@ async function buildEmbeddingCache(): Promise<void> {
     }
   }
 
-  // Save cache to file
-  writeFileSync(CACHE_FILE, JSON.stringify(embeddingCache, null, 2), 'utf-8');
-  console.log(`✓ Cache updated: ${newEmbeddings} new embeddings generated`);
+  // Also precompute embeddings for test suite queries
+  for (const testCase of retrievalTests) {
+    const cacheKey = `RETRIEVAL_QUERY::${testCase.query}`;
+    if (!embeddingCache[cacheKey] && !embeddingCache[testCase.query]) {
+      const embedding = await generateEmbedding(testCase.query, 'RETRIEVAL_QUERY');
+      embeddingCache[cacheKey] = embedding;
+      newEmbeddings++;
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+  }
+
+  // Save cache to snapshot file
+  const snapshotData = {
+    metadata: {
+      model: 'text-embedding-004',
+      generatedAt: new Date().toISOString(),
+    },
+    embeddings: embeddingCache,
+  };
+
+  writeFileSync(SNAPSHOT_FILE, JSON.stringify(snapshotData, null, 2), 'utf-8');
+  console.log(`✓ Snapshot updated: ${newEmbeddings} new embeddings generated`);
   console.log(`✓ Total cached embeddings: ${Object.keys(embeddingCache).length}\n`);
 }
 
@@ -205,10 +270,24 @@ async function calculateSimilarity(
 
   for (const text of entryTexts) {
     const cacheKey = `${entryId}::${text}`;
-    const entryEmbedding = embeddingCache[cacheKey];
+    let entryEmbedding = embeddingCache[cacheKey];
 
     if (!entryEmbedding) {
-      throw new Error(`Missing cached embedding for: ${cacheKey}`);
+      const candidates = [`RETRIEVAL_DOCUMENT::${text}`, `RETRIEVAL_QUERY::${text}`, text];
+      for (const cand of candidates) {
+        if (embeddingCache[cand]) {
+          entryEmbedding = embeddingCache[cand];
+          break;
+        }
+      }
+    }
+
+    if (!entryEmbedding) {
+      if (isOfflineMode) {
+        throw new Error(`Missing cached embedding for: ${cacheKey}`);
+      }
+      entryEmbedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
+      embeddingCache[cacheKey] = entryEmbedding;
     }
 
     const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
