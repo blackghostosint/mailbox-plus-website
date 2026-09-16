@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, '..', '.env.local') });
 dotenv.config({ path: join(__dirname, '..', '.env') });
 
-import { readFileSync, writeFileSync, existsSync, statSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, statSync, appendFileSync } from 'fs';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import {
   retrievalTests,
@@ -484,7 +484,9 @@ async function main() {
   // Build embedding cache first
   const cacheReady = await buildEmbeddingCache();
   if (!cacheReady) {
-    console.error('❌ Retrieval test suite failed: GEMINI_API_KEY is not set and no embedding cache was found.\n');
+    console.error(
+      '❌ Retrieval test suite failed: GEMINI_API_KEY is not set and no embedding cache was found.\n'
+    );
     process.exit(1);
   }
 
@@ -551,6 +553,36 @@ async function main() {
   console.log(
     `   Out-of-Scope:    ${categoryResults.out_of_scope.passed}/${categoryResults.out_of_scope.passed + categoryResults.out_of_scope.failed} passed\n`
   );
+
+  // Write step summary to GITHUB_STEP_SUMMARY if running in GitHub Actions CI
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      const uiApproved = failed === 0;
+      const passRate = ((passed / results.length) * 100).toFixed(1);
+      let summaryContent = `## AI Knowledge Base Retrieval Evaluation\n\n`;
+      if (isOfflineMode) {
+        summaryContent += `> ⚠️ **OFFLINE EVALUATION MODE**: Evaluated against pre-cached vector embeddings because \`GEMINI_API_KEY\` was not set. Results do **NOT** test live model embeddings.\n\n`;
+      } else {
+        summaryContent += `> ✅ **LIVE EVALUATION MODE**: Evaluated live against Gemini \`text-embedding-004\` API.\n\n`;
+      }
+      summaryContent += `| Total Tests | Passed | Failed | Pass Rate |\n`;
+      summaryContent += `|-------------|--------|--------|-----------|\n`;
+      summaryContent += `| ${results.length} | ${passed} | ${failed} | ${passRate}% |\n\n`;
+      if (uiApproved) {
+        if (isOfflineMode) {
+          summaryContent += `⚠️ **RETRIEVAL APPROVED (OFFLINE MODE)** - All tests passed against pre-cached vector embeddings. Note: validates cached vectors, not live model behavior.\n`;
+        } else {
+          summaryContent += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n`;
+        }
+      } else {
+        summaryContent += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed.\n`;
+      }
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, summaryContent, 'utf-8');
+      console.log('✓ Written summary to GITHUB_STEP_SUMMARY\n');
+    } catch (err) {
+      console.warn('⚠ Could not write to GITHUB_STEP_SUMMARY:', err);
+    }
+  }
 
   if (failed === 0) {
     if (isOfflineMode) {
