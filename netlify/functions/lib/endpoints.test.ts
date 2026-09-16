@@ -30,7 +30,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
     });
 
     it('returns status 400 for invalid tier with CORS and Content-Type headers', async () => {
-      process.env.STRIPE_SECRET_KEY = 'sk_test_mock';
+      process.env.STRIPE_SECRET_KEY = 'dummy_stripe_secret_key';
       const res = await createCheckoutHandler(
         { httpMethod: 'POST', body: JSON.stringify({ tier: 'invalid_tier' }) } as any,
         mockContext
@@ -106,7 +106,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
     });
 
     it('returns status 400 for invalid session_id with CORS and Content-Type headers', async () => {
-      process.env.STRIPE_SECRET_KEY = 'sk_test_mock';
+      process.env.STRIPE_SECRET_KEY = 'dummy_stripe_secret_key';
       const res = await verifySessionHandler(
         {
           httpMethod: 'GET',
