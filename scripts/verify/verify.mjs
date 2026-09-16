@@ -385,6 +385,48 @@ function cmdDoctor() {
     'scripts/seo + validate-articles.cjs present',
     'git checkout main && git pull'
   );
+
+  // CSP header alignment with R2_PUBLIC_BASE
+  const netlifyTomlPath = path.join(ROOT, 'netlify.toml');
+  if (fs.existsSync(netlifyTomlPath)) {
+    const netlifyToml = fs.readFileSync(netlifyTomlPath, 'utf8');
+    const imgSrcMatch = netlifyToml.match(/img-src\s+([^;]+);/);
+    if (imgSrcMatch) {
+      const imgSrc = imgSrcMatch[1];
+      const activeDomain = R2_PUBLIC_BASE;
+      const hasActive = imgSrc.includes(activeDomain);
+      const hasWildcard = imgSrc.includes('https://*.r2.dev');
+      const hasObsolete = imgSrc.includes('pub-4515923f088c4228b1756250c1b20c6f');
+
+      const pass = hasActive && !hasWildcard && !hasObsolete;
+      let detail = `img-src aligned with ${activeDomain}`;
+      if (!hasActive) detail = `img-src missing active R2 base domain '${activeDomain}'`;
+      else if (hasWildcard) detail = 'img-src contains generic wildcard origin https://*.r2.dev';
+      else if (hasObsolete)
+        detail = 'img-src contains obsolete R2 bucket domain pub-4515923f088c4228b1756250c1b20c6f';
+
+      check(
+        'csp:r2-domain',
+        pass,
+        detail,
+        'update netlify.toml Content-Security-Policy img-src directive to whitelist active R2 domain and remove obsolete/wildcard domains'
+      );
+    } else {
+      check(
+        'csp:r2-domain',
+        false,
+        'img-src directive not found in netlify.toml',
+        'check netlify.toml CSP configuration'
+      );
+    }
+  } else {
+    check(
+      'csp:r2-domain',
+      false,
+      'netlify.toml not found',
+      'ensure netlify.toml exists in repository root'
+    );
+  }
 }
 
 // ---------- article ----------
