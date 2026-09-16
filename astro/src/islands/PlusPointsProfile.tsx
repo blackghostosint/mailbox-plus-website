@@ -64,15 +64,38 @@ export const PlusPointsProfile: React.FC = () => {
       const params = new URLSearchParams(window.location.search);
       const id = params.get('id');
       const code = params.get('code');
+      const urlToken = params.get('token');
 
-      if (!id && !code) return; // Keep mock preview if no specific account requested
+      const savedToken =
+        typeof localStorage !== 'undefined' ? localStorage.getItem('plus_points_token') : null;
+      const token = urlToken || savedToken || '';
+
+      if (urlToken && typeof localStorage !== 'undefined') {
+        localStorage.setItem('plus_points_token', urlToken);
+      }
+
+      if (!id && !code && !token) return; // Keep mock preview if no specific account requested
 
       setLoading(true);
       try {
-        const query = id ? `id=${id}` : `code=${code}`;
-        const res = await fetch(`/api/me?${query}`);
+        const queryParams = new URLSearchParams();
+        if (id) queryParams.set('id', id);
+        if (code) queryParams.set('code', code);
+        if (token && !queryParams.has('id') && !queryParams.has('code')) {
+          queryParams.set('token', token);
+        }
+
+        const headers: Record<string, string> = {};
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+
+        const res = await fetch(`/api/me?${queryParams.toString()}`, { headers });
         if (res.ok) {
           const realData = await res.json();
+          if (realData.token && typeof localStorage !== 'undefined') {
+            localStorage.setItem('plus_points_token', realData.token);
+          }
           setCustomer(realData);
           setEditForm(realData);
         }
@@ -106,15 +129,27 @@ export const PlusPointsProfile: React.FC = () => {
     // Save back to backend API if it's not the mock customer
     if (customer.id !== 'cust_123') {
       try {
+        const token =
+          typeof localStorage !== 'undefined'
+            ? localStorage.getItem('plus_points_token') || ''
+            : '';
+        const headers: Record<string, string> = {
+          'Content-Type': 'application/json',
+        };
+        if (token) {
+          headers['Authorization'] = `Bearer ${token}`;
+        }
+
         const res = await fetch(`/api/me?id=${customer.id}`, {
           method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
+          headers,
           body: JSON.stringify(editForm),
         });
         if (res.ok) {
           const updated = await res.json();
+          if (updated.token && typeof localStorage !== 'undefined') {
+            localStorage.setItem('plus_points_token', updated.token);
+          }
           setCustomer(updated);
           setEditForm(updated);
         }

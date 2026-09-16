@@ -1,6 +1,7 @@
 import { Handler } from '@netlify/functions';
 import { db } from './lib/db';
 import type { Customer } from './lib/db';
+import { generateCustomerToken, verifyCustomerToken } from './lib/auth';
 
 const ALLOWED_CONTACT_FIELDS: Array<keyof Customer> = [
   'firstName',
@@ -14,7 +15,27 @@ const ALLOWED_CONTACT_FIELDS: Array<keyof Customer> = [
   'birthday',
 ];
 
-export const handler: Handler = async (event: any) => {
+function isStaff(context: any): boolean {
+  return !!(context && context.clientContext && context.clientContext.user);
+}
+
+function getTokenFromEvent(event: any): string | null {
+  const authHeader = event.headers?.authorization || event.headers?.Authorization;
+  if (authHeader && authHeader.startsWith('Bearer ')) {
+    return authHeader.substring(7).trim();
+  }
+  const xSessionToken = event.headers?.['x-session-token'] || event.headers?.['X-Session-Token'];
+  if (xSessionToken) {
+    return xSessionToken.trim();
+  }
+  const queryToken = event.queryStringParameters?.token;
+  if (queryToken) {
+    return queryToken.trim();
+  }
+  return null;
+}
+
+export const handler: Handler = async (event: any, context: any) => {
   const method = event.httpMethod;
 
   try {
@@ -51,8 +72,24 @@ export const handler: Handler = async (event: any) => {
         };
       }
 
+      // Authorization Check
+      const token = getTokenFromEvent(event);
+      const staff = isStaff(context);
+      const isAuthorized = staff || (!!token && verifyCustomerToken(token, customer.id));
+
+      if (!isAuthorized) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
+        };
+      }
+
       // Fetch transactions
       const activities = await db.getTransactions(customer.id);
+      const sessionToken =
+        token && verifyCustomerToken(token, customer.id)
+          ? token
+          : generateCustomerToken(customer.id);
 
       return {
         statusCode: 200,
@@ -60,6 +97,7 @@ export const handler: Handler = async (event: any) => {
         body: JSON.stringify({
           ...customer,
           activities,
+          token: sessionToken,
         }),
       };
     }
@@ -77,6 +115,18 @@ export const handler: Handler = async (event: any) => {
         return {
           statusCode: 404,
           body: JSON.stringify({ error: 'Customer not found' }),
+        };
+      }
+
+      // Authorization Check
+      const token = getTokenFromEvent(event);
+      const staff = isStaff(context);
+      const isAuthorized = staff || (!!token && verifyCustomerToken(token, existingCustomer.id));
+
+      if (!isAuthorized) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
         };
       }
 
@@ -114,6 +164,10 @@ export const handler: Handler = async (event: any) => {
       await db.saveCustomer(updatedCustomer);
 
       const activities = await db.getTransactions(updatedCustomer.id);
+      const sessionToken =
+        token && verifyCustomerToken(token, updatedCustomer.id)
+          ? token
+          : generateCustomerToken(updatedCustomer.id);
 
       return {
         statusCode: 200,
@@ -121,6 +175,7 @@ export const handler: Handler = async (event: any) => {
         body: JSON.stringify({
           ...updatedCustomer,
           activities,
+          token: sessionToken,
         }),
       };
     }
