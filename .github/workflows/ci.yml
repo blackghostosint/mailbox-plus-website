@@ -88,6 +88,9 @@ jobs:
       - name: Check for unreferenced public/data files (legacy-drift guard)
         run: npm run check:public-data
 
+      - name: Check Netlify functions integrity
+        run: npm run check:functions
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 

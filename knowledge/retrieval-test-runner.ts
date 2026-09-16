@@ -363,7 +363,7 @@ async function executeTest(testCase: TestCase): Promise<TestExecutionResult> {
     return {
       testCase,
       actualResult: 'MISS',
-      passed: true,
+      passed: false,
       isMiss: true,
       failureReason: 'no vector — skipped (offline mode)',
     };
@@ -406,7 +406,7 @@ function generateMarkdownReport(
   const passed = nonMissResults.filter((r) => r.passed).length;
   const failed = nonMissResults.filter((r) => !r.passed).length;
   const total = results.length;
-  const passRate = total > 0 ? (((passed + misses) / total) * 100).toFixed(1) : '0.0';
+  const passRate = total > 0 ? ((passed / total) * 100).toFixed(1) : '0.0';
 
   let report = `# Retrieval Test Report (Gemini Embeddings)\n\n`;
   if (isOfflineMode) {
@@ -434,8 +434,10 @@ function generateMarkdownReport(
 
   // Exit Criteria
   report += `## Exit Criteria\n\n`;
-  if (missRate > missThreshold) {
-    report += `❌ **RUN FAILED** - Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding the 10% threshold. Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
+  if (misses > 0 && isOfflineMode) {
+    report += `❌ **RUN FAILED** - ${misses}/${total} test(s) missed vector cache in offline mode. Offline mode requires 100% vector cache coverage (misses === 0). Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
+  } else if (missRate > missThreshold) {
+    report += `❌ **RUN FAILED** - Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold. Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
   } else if (failed > 0) {
     report += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed. Fix issues before proceeding.\n\n`;
   } else if (isOfflineMode) {
@@ -443,6 +445,24 @@ function generateMarkdownReport(
   } else {
     report += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n\n`;
   }
+
+  // Test Category Breakdown
+  report += `## Test Category Breakdown\n\n`;
+  report += `| Category | Count | Passed | Failed | Skipped (MISS) | Should Accept | Should Refuse |\n`;
+  report += `|----------|-------|--------|--------|----------------|---------------|---------------|\n`;
+
+  const categories = Object.keys(stats.byCategory);
+  for (const category of categories) {
+    const count = stats.byCategory[category];
+    const categoryTests = results.filter((r) => r.testCase.category === category);
+    const catPassed = categoryTests.filter((r) => r.passed && !r.isMiss).length;
+    const catFailed = categoryTests.filter((r) => !r.passed && !r.isMiss).length;
+    const catMisses = categoryTests.filter((r) => r.isMiss).length;
+    const accept = categoryTests.filter((r) => r.testCase.expectedResult === 'ACCEPT').length;
+    const refuse = categoryTests.filter((r) => r.testCase.expectedResult === 'REFUSE').length;
+    report += `| ${category} | ${count} | ${catPassed} | ${catFailed} | ${catMisses} | ${accept} | ${refuse} |\n`;
+  }
+  report += `\n`;
 
   // Detailed Test Results Table
   report += `## Detailed Test Results\n\n`;
@@ -461,6 +481,45 @@ function generateMarkdownReport(
   }
   report += `\n`;
 
+  // Failures & Misses Section (if any)
+  const failures = results.filter((r) => !r.passed);
+  if (failures.length > 0) {
+    report += `## ⚠️ Failed Tests & Cache Misses\n\n`;
+    for (const failure of failures) {
+      report += `### ${failure.testCase.id}: ${failure.testCase.query}\n\n`;
+      report += `- **Category:** ${failure.testCase.category}\n`;
+      report += `- **Expected:** ${failure.testCase.expectedResult}\n`;
+      report += `- **Actual:** ${failure.actualResult}\n`;
+      if (failure.actualFaqId) {
+        report += `- **Matched FAQ:** ${failure.actualFaqId}\n`;
+      }
+      if (failure.confidence) {
+        report += `- **Confidence:** ${(failure.confidence * 100).toFixed(1)}%\n`;
+      }
+      if (failure.failureReason) {
+        report += `- **Reason:** ${failure.failureReason}\n`;
+      }
+      report += `\n`;
+    }
+  }
+
+  // Recommendations
+  report += `## Recommendations\n\n`;
+  const uiApproved = failed === 0 && misses === 0;
+  if (uiApproved) {
+    report += `All tests passed! You may proceed to UI development.\n\n`;
+  } else {
+    report += `**Action Required:** Fix the failed tests or missing vector embeddings before UI rollout.\n\n`;
+    report += `**Allowed Fixes:**\n`;
+    report += `1. Adjust \`minimumSimilarity\` threshold (currently ${MINIMUM_SIMILARITY})\n`;
+    report += `2. Improve \`searchText\` in FAQ entries without changing answers\n`;
+    report += `3. Supply \`GEMINI_API_KEY\` to generate missing vector embeddings\n\n`;
+    report += `**Do NOT:**\n`;
+    report += `- Rewrite answers to fit failing tests\n`;
+    report += `- Remove tests to improve pass rate\n`;
+    report += `- Proceed to UI with failing tests or un-embedded vectors\n\n`;
+  }
+
   return report;
 }
 
@@ -468,6 +527,18 @@ function generateMarkdownReport(
 // Main Execution
 // ========================================
 async function main() {
+  if (process.env.CI && !GEMINI_API_KEY) {
+    console.error('\n❌ CI RUN FAILED: GEMINI_API_KEY secret is not present in CI environment.');
+    console.error(
+      '❌ Live AI retrieval evaluation requires GEMINI_API_KEY set in GitHub Actions secrets.'
+    );
+    console.error('❌ Please configure secrets.GEMINI_API_KEY in repository settings.\n');
+    const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+    const errReport = `# Retrieval Test Report (CI Failed - Missing GEMINI_API_KEY)\n\n**Generated:** ${new Date().toISOString()}\n\n❌ **CI RUN FAILED**: GEMINI_API_KEY secret is not configured in GitHub Actions CI environment.\n`;
+    writeFileSync(reportPath, errReport, 'utf-8');
+    process.exit(1);
+  }
+
   if (isOfflineMode) {
     console.log('================================================================');
     console.log(
@@ -532,6 +603,40 @@ async function main() {
   console.log(`Failed: ${failed}`);
   console.log(`Miss Rate: ${(missRate * 100).toFixed(1)}%\n`);
 
+  // Category breakdown console output
+  console.log('📈 Results by Category:');
+  const categoryResults: Record<
+    string,
+    { total: number; passed: number; failed: number; misses: number }
+  > = {
+    direct_match: { total: 0, passed: 0, failed: 0, misses: 0 },
+    paraphrase: { total: 0, passed: 0, failed: 0, misses: 0 },
+    ambiguous: { total: 0, passed: 0, failed: 0, misses: 0 },
+    operational: { total: 0, passed: 0, failed: 0, misses: 0 },
+    out_of_scope: { total: 0, passed: 0, failed: 0, misses: 0 },
+  };
+
+  for (const result of results) {
+    const cat = result.testCase.category;
+    if (categoryResults[cat]) {
+      categoryResults[cat].total++;
+      if (result.isMiss) {
+        categoryResults[cat].misses++;
+      } else if (result.passed) {
+        categoryResults[cat].passed++;
+      } else {
+        categoryResults[cat].failed++;
+      }
+    }
+  }
+
+  for (const [cat, res] of Object.entries(categoryResults)) {
+    console.log(
+      `   ${cat.padEnd(16)} ${res.passed}/${res.total} passed (${res.failed} failed, ${res.misses} misses)`
+    );
+  }
+  console.log();
+
   if (misses > 0) {
     console.log('⚠️  Summary of Cache Misses (Offline Mode):');
     const missResults = results.filter((r) => r.isMiss);
@@ -555,8 +660,10 @@ async function main() {
       summaryContent += `|-------------|--------|----------------|--------|-----------|\n`;
       summaryContent += `| ${total} | ${passed} | ${misses} | ${failed} | ${(missRate * 100).toFixed(1)}% |\n\n`;
 
-      if (missRate > missThreshold) {
-        summaryContent += `❌ **RUN FAILED**: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding the 10% threshold. Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
+      if (isOfflineMode && misses > 0) {
+        summaryContent += `❌ **RUN FAILED**: ${misses}/${total} test(s) missed vector cache in offline mode. In offline mode, 100% vector cache coverage is required (misses === 0). Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
+      } else if (missRate > missThreshold) {
+        summaryContent += `❌ **RUN FAILED**: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold. Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
       } else if (failed > 0) {
         summaryContent += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed.\n`;
       } else if (isOfflineMode) {
@@ -571,10 +678,20 @@ async function main() {
     }
   }
 
-  // Check miss rate threshold first
+  // Check offline misses or threshold exceedance
+  if (isOfflineMode && misses > 0) {
+    console.error(
+      `❌ RUN FAILED: ${misses}/${total} test(s) missed vector cache in offline mode. In offline mode, 100% vector cache coverage is required (misses === 0).`
+    );
+    console.error(
+      `❌ Please run with GEMINI_API_KEY set to regenerate the vector cache (locally or via CI cache flow).\n`
+    );
+    process.exit(1);
+  }
+
   if (missRate > missThreshold) {
     console.error(
-      `❌ RUN FAILED: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding the 10% threshold.`
+      `❌ RUN FAILED: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold.`
     );
     console.error(
       `❌ Please run with GEMINI_API_KEY set to regenerate the vector cache (locally or via CI cache flow).\n`
