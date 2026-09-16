@@ -44,7 +44,6 @@ const ALLOWED_PREFIXES = [
   '/articles',
   '/service-area',
   '/guide',
-  '/rewards',
   '/research',
   '/images',
 ];

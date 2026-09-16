@@ -52,7 +52,7 @@ function getHtmlFiles(dir, fileList = []) {
 }
 
 // Default static allowlist of utility/section pages
-const DEFAULT_ALLOWED_PREFIXES = ['/articles', '/service-area', '/guide', '/rewards'];
+const DEFAULT_ALLOWED_PREFIXES = ['/articles', '/service-area', '/guide'];
 
 const DEFAULT_ALLOWED_EXACT = [
   '/404',
