@@ -19,7 +19,7 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, '..', '.env.local') });
 dotenv.config({ path: join(__dirname, '..', '.env') });
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync, statSync } from 'fs';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import {
   retrievalTests,
@@ -175,14 +175,16 @@ async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
     const cachedCount = Object.keys(embeddingCache).length;
     if (cachedCount === 0) {
-      console.log(
-        `⚠️  Offline mode: GEMINI_API_KEY is not set and no cached vector embeddings exist at ${CACHE_FILE}.\n` +
-          `⚠️  Skipping retrieval test suite. Provide GEMINI_API_KEY or generate .embedding-cache.json to run tests.\n`
+      console.error(
+        `❌ ERROR: GEMINI_API_KEY is not set and no cached vector embeddings exist at ${CACHE_FILE}.\n` +
+          `❌ Cannot run AI retrieval evaluation suite. Provide GEMINI_API_KEY or restore .embedding-cache.json to run tests.\n`
       );
       return false;
     }
+    const stats = existsSync(CACHE_FILE) ? statSync(CACHE_FILE) : null;
+    const cacheAgeInfo = stats ? ` (cache modified: ${stats.mtime.toISOString()})` : '';
     console.log(
-      `✓ Offline mode: using pre-cached vector embeddings (${cachedCount} cached entries)\n`
+      `✓ Offline mode: using pre-cached vector embeddings (${cachedCount} cached entries)${cacheAgeInfo}\n`
     );
     return true;
   }
@@ -473,7 +475,10 @@ async function main() {
   // Build embedding cache first
   const cacheReady = await buildEmbeddingCache();
   if (!cacheReady) {
-    process.exit(0);
+    console.error(
+      '❌ FAILED: Retrieval test suite could not run because vector cache is missing and GEMINI_API_KEY is not set.\n'
+    );
+    process.exit(1);
   }
 
   const results: TestExecutionResult[] = [];
