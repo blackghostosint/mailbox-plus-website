@@ -77,32 +77,4 @@ const navigation = [
   </div>
 </header>
 
-<script>
-  // Mobile menu toggle — inline vanilla JS, no React needed
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  const iconOpen = document.getElementById('menu-icon-open');
-  const iconClose = document.getElementById('menu-icon-close');
-  if (btn && menu) {
-    btn.addEventListener('click', () => {
-      const isOpen = menu.style.maxHeight !== '0px' && menu.style.maxHeight !== '';
-      menu.style.maxHeight = isOpen ? '0' : '500px';
-      menu.style.opacity = isOpen ? '0' : '1';
-      btn.setAttribute('aria-expanded', String(!isOpen));
-      btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
-      iconOpen?.classList.toggle('hidden');
-      iconClose?.classList.toggle('hidden');
-    });
-    // Close on link click
-    document.querySelectorAll('[data-mobile-link]').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.style.maxHeight = '0';
-        menu.style.opacity = '0';
-        btn.setAttribute('aria-expanded', 'false');
-        btn.setAttribute('aria-label', 'Open menu');
-        iconOpen?.classList.remove('hidden');
-        iconClose?.classList.add('hidden');
-      });
-    });
-  }
-</script>
+<script src="/js/header.js" defer></script>
