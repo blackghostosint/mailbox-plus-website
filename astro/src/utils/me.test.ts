@@ -115,7 +115,7 @@ describe('/api/me authentication guard', () => {
     expect(getCustomerSpy).not.toHaveBeenCalled();
   });
 
-  it('rejects authenticated non-staff user attempting to access another user data with 401 and prevents DB lookup', async () => {
+  it('rejects authenticated non-staff user attempting to access another user data with 403 and prevents DB lookup', async () => {
     const getCustomerSpy = vi.spyOn(db, 'getCustomer');
 
     const context = {
@@ -123,7 +123,6 @@ describe('/api/me authentication guard', () => {
         user: {
           sub: 'cust_123',
           email: 'sarah.m@gmail.com',
-          user_metadata: { id: 'cust_123' },
         },
       },
     };
@@ -137,8 +136,52 @@ describe('/api/me authentication guard', () => {
 
     const response: any = await handler(event, context);
 
-    expect(response.statusCode).toBe(401);
-    expect(JSON.parse(response.body)).toEqual({ error: 'Unauthorized' });
+    expect(response.statusCode).toBe(403);
+    expect(JSON.parse(response.body)).toEqual({ error: 'Forbidden' });
+    expect(getCustomerSpy).not.toHaveBeenCalled();
+  });
+
+  it('rejects user with planted user_metadata referralCode or id attempting IDOR access with 403 Forbidden and prevents DB lookup', async () => {
+    const getCustomerSpy = vi.spyOn(db, 'getCustomer');
+    const getCustomerByRefSpy = vi.spyOn(db, 'getCustomerByReferralCode');
+
+    // Attacker sets user_metadata via Netlify Identity client API to victim's referralCode and id
+    const context = {
+      clientContext: {
+        user: {
+          sub: 'attacker_uuid_999',
+          email: 'attacker@example.com',
+          user_metadata: {
+            id: 'cust_123',
+            customer_id: 'cust_123',
+            referralCode: 'SARAH-M',
+          },
+        },
+      },
+    };
+
+    // Attacker attempts access via referral code
+    const event1 = {
+      httpMethod: 'GET',
+      queryStringParameters: { code: 'SARAH-M' },
+      headers: {},
+    };
+
+    const response1: any = await handler(event1, context);
+    expect(response1.statusCode).toBe(403);
+    expect(JSON.parse(response1.body)).toEqual({ error: 'Forbidden' });
+    expect(getCustomerByRefSpy).not.toHaveBeenCalled();
+
+    // Attacker attempts access via customer ID
+    const event2 = {
+      httpMethod: 'GET',
+      queryStringParameters: { id: 'cust_123' },
+      headers: {},
+    };
+
+    const response2: any = await handler(event2, context);
+    expect(response2.statusCode).toBe(403);
+    expect(JSON.parse(response2.body)).toEqual({ error: 'Forbidden' });
     expect(getCustomerSpy).not.toHaveBeenCalled();
   });
 
@@ -151,7 +194,6 @@ describe('/api/me authentication guard', () => {
         user: {
           sub: 'cust_123',
           email: 'sarah.m@gmail.com',
-          user_metadata: { id: 'cust_123' },
         },
       },
     };
@@ -171,7 +213,7 @@ describe('/api/me authentication guard', () => {
     expect(body.activities).toHaveLength(1);
   });
 
-  it('grants access to matching customer record by referral code for authenticated user in clientContext', async () => {
+  it('grants access to matching customer record by referral code in app_metadata for authenticated user in clientContext', async () => {
     vi.spyOn(db, 'getCustomerByReferralCode').mockResolvedValue(mockCustomer);
     vi.spyOn(db, 'getTransactions').mockResolvedValue(mockActivities);
 
@@ -179,7 +221,7 @@ describe('/api/me authentication guard', () => {
       clientContext: {
         user: {
           sub: 'cust_123',
-          user_metadata: { referralCode: 'SARAH-M' },
+          app_metadata: { referralCode: 'SARAH-M' },
         },
       },
     };

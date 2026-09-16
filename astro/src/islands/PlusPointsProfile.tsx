@@ -1,5 +1,15 @@
-/* eslint-disable jsx-a11y/control-has-associated-label, @typescript-eslint/no-explicit-any */
+/* eslint-disable jsx-a11y/control-has-associated-label */
 import React, { useState, useEffect } from 'react';
+
+interface NetlifyIdentityUser {
+  jwt(): Promise<string>;
+}
+
+interface NetlifyIdentityWindow {
+  netlifyIdentity?: {
+    currentUser(): NetlifyIdentityUser | null;
+  };
+}
 import Trophy from '~icons/lucide/trophy';
 import Award from '~icons/lucide/award';
 import LogOut from '~icons/lucide/log-out';
@@ -71,8 +81,10 @@ export const PlusPointsProfile: React.FC = () => {
       try {
         const query = id ? `id=${id}` : `code=${code}`;
         const headers: Record<string, string> = {};
-        if (typeof window !== 'undefined' && (window as any).netlifyIdentity) {
-          const currentUser = (window as any).netlifyIdentity.currentUser();
+        const win =
+          typeof window !== 'undefined' ? (window as unknown as NetlifyIdentityWindow) : undefined;
+        if (win?.netlifyIdentity) {
+          const currentUser = win.netlifyIdentity.currentUser();
           if (currentUser) {
             try {
               const token = await currentUser.jwt();

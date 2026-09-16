@@ -8,7 +8,6 @@ export interface AuthenticatedUser {
   user_metadata?: Record<string, any>;
   app_metadata?: Record<string, any>;
   exp?: number;
-  token?: string;
 }
 
 /**
@@ -42,7 +41,9 @@ export function isStaffUser(user: AuthenticatedUser, _context?: any): boolean {
 }
 
 /**
- * Extract identity claims for matching non-staff users against customer records
+ * Extract identity claims for matching non-staff users against customer records.
+ * Only server-verified claims (sub, id, email, app_metadata) are trusted.
+ * user_metadata is user-editable and must never be trusted for authorization.
  */
 export function getUserClaims(user: AuthenticatedUser): string[] {
   const claims = new Set<string>();
@@ -55,16 +56,14 @@ export function getUserClaims(user: AuthenticatedUser): string[] {
   add(user.sub);
   add(user.id);
   add(user.email);
-  add(user.token);
 
-  if (user.user_metadata) {
-    add(user.user_metadata.id);
-    add(user.user_metadata.customer_id);
-    add(user.user_metadata.customerId);
-    add(user.user_metadata.referralCode);
-    add(user.user_metadata.referral_code);
-    add(user.user_metadata.code);
-    add(user.user_metadata.email);
+  if (user.app_metadata) {
+    add(user.app_metadata.id);
+    add(user.app_metadata.customer_id);
+    add(user.app_metadata.customerId);
+    add(user.app_metadata.referralCode);
+    add(user.app_metadata.referral_code);
+    add(user.app_metadata.code);
   }
 
   return Array.from(claims);
@@ -104,31 +103,25 @@ export const handler: Handler = async (event: any, context: any) => {
       if (id) {
         if (!claims.includes(id.toLowerCase())) {
           return {
-            statusCode: 401,
+            statusCode: 403,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ error: 'Unauthorized' }),
+            body: JSON.stringify({ error: 'Forbidden' }),
           };
         }
       } else if (code) {
         if (!claims.includes(code.toLowerCase())) {
           return {
-            statusCode: 401,
+            statusCode: 403,
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ error: 'Unauthorized' }),
+            body: JSON.stringify({ error: 'Forbidden' }),
           };
         }
       } else {
         // Derive parameter if omitted by non-staff authenticated user
         const derivedId =
-          user.sub || user.id || user.user_metadata?.id || user.user_metadata?.customer_id;
-        const derivedCode =
-          user.user_metadata?.referralCode ||
-          user.user_metadata?.referral_code ||
-          user.user_metadata?.code;
+          user.sub || user.id || user.app_metadata?.id || user.app_metadata?.customer_id;
         if (derivedId) {
           id = derivedId;
-        } else if (derivedCode) {
-          code = derivedCode;
         } else {
           return {
             statusCode: 400,
@@ -172,9 +165,9 @@ export const handler: Handler = async (event: any, context: any) => {
       const matches = claims.some((c) => c === custId || c === custCode || c === custEmail);
       if (!matches) {
         return {
-          statusCode: 401,
+          statusCode: 403,
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ error: 'Unauthorized' }),
+          body: JSON.stringify({ error: 'Forbidden' }),
         };
       }
     }
