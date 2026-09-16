@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
 import { handler as createCheckoutHandler } from '../create-checkout';
-import { handler as sendEmailHandler } from '../sendEmail';
+import { handler as sendEmailHandler, getClientIp } from '../sendEmail';
 import { handler as verifySessionHandler } from '../verify-session';
 import cspReportHandler from '../csp-report';
 import healthHandler from '../health';
@@ -107,6 +107,76 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(429);
       expect(JSON.parse(res!.body || '{}')).toEqual({
         error: 'Too many requests. Please try again later.',
+      });
+    });
+
+    describe('getClientIp anti-spoofing resilience', () => {
+      it('prioritizes x-nf-client-connection-ip over x-forwarded-for and client-ip', () => {
+        const headers = {
+          'x-forwarded-for': '203.0.113.1, 198.51.100.1',
+          'client-ip': '198.51.100.2',
+          'x-nf-client-connection-ip': '203.0.113.99',
+        };
+        expect(getClientIp(headers)).toBe('203.0.113.99');
+      });
+
+      it('is case-insensitive when extracting Netlify connection IP headers', () => {
+        const headers = {
+          'X-Nf-Client-Connection-Ip': '203.0.113.88',
+          'X-Forwarded-For': '10.0.0.1',
+        };
+        expect(getClientIp(headers)).toBe('203.0.113.88');
+      });
+
+      it('correctly uses client-ip when x-nf-client-connection-ip is not set', () => {
+        const headers = {
+          'CLIENT-IP': '198.51.100.42',
+          'x-forwarded-for': '10.0.0.1',
+        };
+        expect(getClientIp(headers)).toBe('198.51.100.42');
+      });
+
+      it('extracts the last IP in x-forwarded-for when Edge connection headers are absent', () => {
+        const headers = {
+          'x-forwarded-for': 'spoofed_ip_1, spoofed_ip_2, trusted_edge_ip',
+        };
+        expect(getClientIp(headers)).toBe('trusted_edge_ip');
+      });
+
+      it('prevents rate limit bypass via x-forwarded-for header spoofing', async () => {
+        const realConnectionIp = '198.51.100.150';
+
+        // Attacker attempts to change x-forwarded-for header on each attempt,
+        // but Netlify Edge sets x-nf-client-connection-ip to the real client IP.
+        for (let i = 0; i < 5; i++) {
+          const res = await sendEmailHandler(
+            {
+              httpMethod: 'POST',
+              headers: {
+                'x-nf-client-connection-ip': realConnectionIp,
+                'x-forwarded-for': `1.2.3.${i}`,
+              },
+              body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
+            } as any,
+            mockContext
+          );
+          expect(res!.statusCode).not.toBe(429);
+        }
+
+        // 6th attempt with another spoofed x-forwarded-for should STILL hit rate limit (429)
+        const blockedRes = await sendEmailHandler(
+          {
+            httpMethod: 'POST',
+            headers: {
+              'x-nf-client-connection-ip': realConnectionIp,
+              'x-forwarded-for': '9.9.9.9',
+            },
+            body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
+          } as any,
+          mockContext
+        );
+
+        expect(blockedRes!.statusCode).toBe(429);
       });
     });
   });
