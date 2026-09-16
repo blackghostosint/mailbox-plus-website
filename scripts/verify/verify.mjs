@@ -206,17 +206,36 @@ function initNewArticles() {
   if (newArticleCache) return newArticleCache;
   newArticleCache = new Set();
   try {
-    const base = execSync('git merge-base HEAD origin/main', { cwd: ROOT, stdio: 'pipe' })
-      .toString()
-      .trim();
-    // base is a git SHA from our own repo; still validate the shape before interpolating.
-    if (!/^[0-9a-f]{7,40}$/.test(base)) return newArticleCache;
-    const committed = execSync(`git diff --name-only ${base} HEAD`, {
-      cwd: ROOT,
-      stdio: 'pipe',
-    }).toString();
+    let base = '';
+    const baseRef = process.env.GITHUB_BASE_REF || 'main';
+    try {
+      base = execSync(`git merge-base HEAD origin/${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+        .toString()
+        .trim();
+    } catch {
+      try {
+        base = execSync(`git merge-base HEAD ${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+          .toString()
+          .trim();
+      } catch {
+        base = 'HEAD~1';
+      }
+    }
+
+    if (base && (/^[0-9a-f]{7,40}$/.test(base) || base === 'HEAD~1')) {
+      const committed = execSync(`git diff --name-only ${base} HEAD`, {
+        cwd: ROOT,
+        stdio: 'pipe',
+      }).toString();
+      for (const line of committed.split('\n')) {
+        const rel = line.trim();
+        if (rel) newArticleCache.add(rel);
+      }
+    }
+
     const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
-    for (const line of (committed + '\n' + status).split('\n')) {
+    for (const line of status.split('\n')) {
+      if (!line.trim()) continue;
       const rel = line
         .slice(3)
         .trim()
@@ -225,6 +244,39 @@ function initNewArticles() {
     }
   } catch (e) {}
   return newArticleCache;
+}
+
+function getChangedArticleFiles() {
+  const allChanged = initNewArticles();
+  const changedArticles = [];
+  for (const rel of allChanged) {
+    const abs = path.isAbsolute(rel) ? rel : path.join(ROOT, rel);
+    const relPath = path.relative(ROOT, abs);
+    if (!fs.existsSync(abs)) continue;
+    if (!relPath.startsWith('content/articles/') || !relPath.endsWith('.md')) continue;
+    if (path.basename(relPath).toLowerCase() === 'readme.md') continue;
+    changedArticles.push(relPath);
+  }
+  return changedArticles;
+}
+
+function cmdChanged(isStrict = false) {
+  initRouteRegistry();
+  const changedFiles = getChangedArticleFiles();
+  if (changedFiles.length === 0) {
+    console.log('ℹ️ No changed or newly added article files detected.');
+    check('changed:articles', true, '0 changed articles found');
+    return;
+  }
+
+  console.log(
+    `🔍 Verifying ${changedFiles.length} changed article(s) (${isStrict ? 'STRICT' : 'STANDARD'} mode)...\n`
+  );
+
+  for (const rel of changedFiles) {
+    const abs = path.join(ROOT, rel);
+    cmdArticle(abs, isStrict);
+  }
 }
 
 function headingOverlap(a, b) {
@@ -666,7 +718,12 @@ function cmdArticle(arg, isStrict = false) {
       }
     } catch (e) {
       const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-      check('claims:verify', false, `gate error: ${stderr}`, 'inspect scripts/verify/claims-gate.js');
+      check(
+        'claims:verify',
+        false,
+        `gate error: ${stderr}`,
+        'inspect scripts/verify/claims-gate.js'
+      );
     }
   }
 
@@ -909,30 +966,66 @@ function cmdSeoGates() {
 }
 
 // ---------- CLI dispatch ----------
-const [cmd, ...rest] = process.argv.slice(2);
+const rawArgs = process.argv.slice(2);
+let cmd = rawArgs[0];
+
+// Default command if none provided or if first arg starts with --
+if (!cmd || cmd.startsWith('--')) {
+  cmd = 'changed';
+}
+
+const rest = cmd === rawArgs[0] ? rawArgs.slice(1) : rawArgs;
 const asJson = rest.includes('--json');
 const isStrict = rest.includes('--strict');
-const arg = rest.find((r) => !r.startsWith('--'));
+const fileArgs = rest.filter((r) => !r.startsWith('--'));
 
 if (cmd === 'doctor') {
   cmdDoctor();
-} else if (cmd === 'article' && arg) {
-  cmdArticle(arg, isStrict);
+} else if (cmd === 'changed') {
+  cmdChanged(isStrict);
+} else if (cmd === 'article') {
+  if (fileArgs.length === 0) {
+    check(
+      'article:args',
+      false,
+      'no article path provided',
+      'provide path to article markdown file'
+    );
+  } else {
+    for (const f of fileArgs) {
+      const abs = path.isAbsolute(f) ? f : path.join(ROOT, f);
+      const relPath = path.relative(ROOT, abs);
+      if (!fs.existsSync(abs)) {
+        check('file-exists', false, `${f} not found`, 'check file path');
+      } else if (
+        !relPath.startsWith('content/articles/') ||
+        path.basename(relPath).toLowerCase() === 'readme.md'
+      ) {
+        check(
+          'article:skipped',
+          true,
+          `${relPath} is not an article in content/articles/ — skipping`
+        );
+      } else {
+        cmdArticle(abs, isStrict);
+      }
+    }
+  }
 } else if (cmd === 'articles') {
   cmdArticles(isStrict);
 } else if (cmd === 'build') {
   cmdBuild();
 } else if (cmd === 'sitemap') {
-  cmdSitemap(arg);
-} else if (cmd === 'review' && arg) {
-  cmdReview(arg);
+  cmdSitemap(fileArgs[0]);
+} else if (cmd === 'review' && fileArgs[0]) {
+  cmdReview(fileArgs[0]);
 } else if (cmd === 'headings') {
   cmdHeadings();
 } else if (cmd === 'seo-gates') {
   cmdSeoGates();
 } else {
   console.log(
-    'usage: node scripts/verify/verify.mjs <doctor|article <path> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
+    'usage: node scripts/verify/verify.mjs <doctor|changed [--strict]|article <path...> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
   );
   process.exit(2);
 }
