@@ -1,24 +1,31 @@
+import { verifyRecaptchaToken } from './lib/recaptcha';
+
 export const handler = async (event) => {
   try {
-    const { token } = JSON.parse(event.body);
-    const secret = process.env.RECAPTCHA_SECRET_KEY;
+    const data = JSON.parse(event.body || '{}');
+    const token = data.token || data.recaptchaToken || data['g-recaptcha-response'];
+    const clientIp =
+      event.headers?.['client-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim();
 
-    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: `secret=${secret}&response=${token}`,
-    });
-
-    const data = await response.json();
-    if (!data.success) {
+    const success = await verifyRecaptchaToken(token, clientIp);
+    if (!success) {
       return {
         statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ success: false, error: 'reCAPTCHA verification failed' }),
       };
     }
 
-    return { statusCode: 200, body: JSON.stringify({ success: true }) };
+    return {
+      statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ success: true }),
+    };
   } catch (error) {
-    return { statusCode: 500, body: JSON.stringify({ success: false, error: error.message }) };
+    return {
+      statusCode: 500,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ success: false, error: error.message }),
+    };
   }
 };

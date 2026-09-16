@@ -17,6 +17,7 @@ describe('verifyRecaptcha Netlify Function', () => {
     process.env.RECAPTCHA_SECRET_KEY = 'test_secret_key_123';
 
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
       json: async () => ({ success: true }),
     });
 
@@ -37,6 +38,7 @@ describe('verifyRecaptcha Netlify Function', () => {
 
     expect(response).toEqual({
       statusCode: 200,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ success: true }),
     });
   });
@@ -45,6 +47,7 @@ describe('verifyRecaptcha Netlify Function', () => {
     process.env.RECAPTCHA_SECRET_KEY = 'test_secret_key_123';
 
     vi.spyOn(globalThis, 'fetch').mockResolvedValue({
+      ok: true,
       json: async () => ({ success: false, 'error-codes': ['invalid-input-response'] }),
     });
 
@@ -56,24 +59,20 @@ describe('verifyRecaptcha Netlify Function', () => {
 
     expect(response).toEqual({
       statusCode: 400,
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ success: false, error: 'reCAPTCHA verification failed' }),
     });
   });
 
-  it('handles exception and returns status 500', async () => {
-    process.env.RECAPTCHA_SECRET_KEY = 'test_secret_key_123';
-
-    vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('Network error'));
-
+  it('handles invalid json body and returns status 500', async () => {
     const event = {
-      body: JSON.stringify({ token: 'test_token' }),
+      body: 'invalid-json-{',
     };
 
     const response = await handler(event);
 
-    expect(response).toEqual({
-      statusCode: 500,
-      body: JSON.stringify({ success: false, error: 'Network error' }),
-    });
+    expect(response.statusCode).toEqual(500);
+    expect(response.headers).toEqual({ 'Content-Type': 'application/json' });
+    expect(JSON.parse(response.body).success).toBe(false);
   });
 });
