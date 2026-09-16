@@ -106,13 +106,18 @@ export const PlusPointsProfile: React.FC = () => {
     // Save back to backend API if it's not the mock customer
     if (customer.id !== 'cust_123') {
       try {
-        await fetch(`/api/customer/${customer.id}`, {
+        const res = await fetch(`/api/me?id=${customer.id}`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify(editForm),
         });
+        if (res.ok) {
+          const updated = await res.json();
+          setCustomer(updated);
+          setEditForm(updated);
+        }
       } catch (err) {
         console.error('Error updating customer profile on backend:', err);
       }
