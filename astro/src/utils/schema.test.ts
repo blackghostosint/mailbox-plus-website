@@ -73,7 +73,7 @@ const mockSiteConfig: SiteConfig = {
 
 describe('getLocalBusinessSchema', () => {
   it('generates complete LocalBusiness schema with valid site configuration', () => {
-    const schema: any = getLocalBusinessSchema(mockSiteConfig);
+    const schema = getLocalBusinessSchema(mockSiteConfig) as unknown as Record<string, unknown>;
 
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('LocalBusiness');
@@ -103,11 +103,7 @@ describe('getLocalBusinessSchema', () => {
     });
 
     expect(schema.hasMap).toBe('https://maps.google.com/?q=Mailbox+Plus');
-    expect(schema.servesArea).toEqual([
-      'Concord Township, OH',
-      'Painesville, OH',
-      'Mentor, OH',
-    ]);
+    expect(schema.servesArea).toEqual(['Concord Township, OH', 'Painesville, OH', 'Mentor, OH']);
     expect(schema.knowsAbout).toEqual(['Shipping', 'Notary', 'Mailbox Rental']);
     expect(schema.sameAs).toEqual([
       'https://facebook.com/mailboxplusohio',
@@ -116,8 +112,8 @@ describe('getLocalBusinessSchema', () => {
   });
 
   it('normalizes operating hours into HH:MM OpeningHoursSpecification', () => {
-    const schema: any = getLocalBusinessSchema(mockSiteConfig);
-    const hoursSpec = schema.openingHoursSpecification as any[];
+    const schema = getLocalBusinessSchema(mockSiteConfig) as unknown as Record<string, unknown>;
+    const hoursSpec = schema.openingHoursSpecification as Array<Record<string, unknown>>;
 
     expect(hoursSpec).toBeDefined();
     expect(hoursSpec).toHaveLength(6); // Sunday is Closed and excluded
@@ -153,24 +149,24 @@ describe('getLocalBusinessSchema', () => {
       },
     };
 
-    const schema: any = getLocalBusinessSchema(customConfig);
-    const hoursSpec = schema.openingHoursSpecification as any[];
+    const schema = getLocalBusinessSchema(customConfig) as unknown as Record<string, unknown>;
+    const hoursSpec = schema.openingHoursSpecification as Array<Record<string, unknown>>;
 
     const monday = hoursSpec.find((h) => h.dayOfWeek === 'Monday');
-    expect(monday.opens).toBe('08:30');
-    expect(monday.closes).toBe('17:30');
+    expect(monday?.opens).toBe('08:30');
+    expect(monday?.closes).toBe('17:30');
 
     const tuesday = hoursSpec.find((h) => h.dayOfWeek === 'Tuesday');
-    expect(tuesday.opens).toBe('08:00');
-    expect(tuesday.closes).toBe('17:00');
+    expect(tuesday?.opens).toBe('08:00');
+    expect(tuesday?.closes).toBe('17:00');
 
     const wednesday = hoursSpec.find((h) => h.dayOfWeek === 'Wednesday');
-    expect(wednesday.opens).toBe('12:00');
-    expect(wednesday.closes).toBe('20:00');
+    expect(wednesday?.opens).toBe('12:00');
+    expect(wednesday?.closes).toBe('20:00');
 
     const thursday = hoursSpec.find((h) => h.dayOfWeek === 'Thursday');
-    expect(thursday.opens).toBe('00:00');
-    expect(thursday.closes).toBe('12:00');
+    expect(thursday?.opens).toBe('00:00');
+    expect(thursday?.closes).toBe('12:00');
 
     expect(hoursSpec.find((h) => h.dayOfWeek === 'Friday')).toBeUndefined();
   });
@@ -198,7 +194,7 @@ describe('getLocalBusinessSchema', () => {
       geo: { lat: 40, lng: -80 },
     };
 
-    const schema: any = getLocalBusinessSchema(minimalConfig);
+    const schema = getLocalBusinessSchema(minimalConfig) as unknown as Record<string, unknown>;
     expect(schema.legalName).toBeUndefined();
     expect(schema.hasMap).toBeUndefined();
     expect(schema.openingHoursSpecification).toBeUndefined();
@@ -298,9 +294,7 @@ describe('getServiceSchema', () => {
     const schema = getServiceSchema(mockSiteConfig, {
       serviceName: 'Notary Public Services',
       url: '/home-business/notary-services',
-      offers: [
-        { name: 'Standard Notarization', price: '10.00' },
-      ],
+      offers: [{ name: 'Standard Notarization', price: '10.00' }],
       reviews: [
         {
           author: 'Jane Doe',
@@ -316,9 +310,7 @@ describe('getServiceSchema', () => {
 
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Service');
-    expect(schema['@id']).toBe(
-      'https://mailboxplusohio.com#service-notary-public-services'
-    );
+    expect(schema['@id']).toBe('https://mailboxplusohio.com#service-notary-public-services');
     expect(schema.serviceType).toBe('Notary Public Services');
     expect(schema.provider).toEqual({
       '@id': 'https://mailboxplusohio.com#localbusiness',
@@ -369,7 +361,7 @@ describe('getServiceSchema', () => {
     });
 
     // Ensure aggregateRating property is not present on Service schema
-    expect((schema as any).aggregateRating).toBeUndefined();
+    expect((schema as unknown as Record<string, unknown>).aggregateRating).toBeUndefined();
     expect(schema).not.toHaveProperty('aggregateRating');
   });
 });
@@ -423,9 +415,7 @@ describe('getProductSchema', () => {
 
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Product');
-    expect(schema['@id']).toBe(
-      'https://mailboxplusohio.com#product-custom-rubber-stamp'
-    );
+    expect(schema['@id']).toBe('https://mailboxplusohio.com#product-custom-rubber-stamp');
     expect(schema.name).toBe('Custom Rubber Stamp');
     expect(schema.description).toBe('Personalized self-inking rubber stamp.');
     expect(schema.sku).toBe('STAMP-001');
@@ -478,14 +468,10 @@ describe('getArticleSchema', () => {
 
     expect(schema['@context']).toBe('https://schema.org');
     expect(schema['@type']).toBe('Article');
-    expect(schema['@id']).toBe(
-      'https://mailboxplusohio.com/articles/holiday-shipping/#article'
-    );
+    expect(schema['@id']).toBe('https://mailboxplusohio.com/articles/holiday-shipping/#article');
     expect(schema.headline).toBe('Shipping Tips for the Holidays');
     expect(schema.description).toBe('How to ship packages on time during peak season.');
-    expect(schema.image).toBe(
-      'https://mailboxplusohio.com/images/articles/holiday-shipping.jpg'
-    );
+    expect(schema.image).toBe('https://mailboxplusohio.com/images/articles/holiday-shipping.jpg');
     expect(schema.datePublished).toBe('2025-11-01');
     expect(schema.dateModified).toBe('2025-11-05');
     expect(schema.author).toEqual({
@@ -538,9 +524,7 @@ describe('getTrackingSchema', () => {
     expect(schema).not.toBeNull();
     expect(schema!['@context']).toBe('https://schema.org');
     expect(schema!['@type']).toBe('ParcelDelivery');
-    expect(schema!['@id']).toBe(
-      'https://mailboxplusohio.com#parcel-1Z9999999999999999'
-    );
+    expect(schema!['@id']).toBe('https://mailboxplusohio.com#parcel-1Z9999999999999999');
     expect(schema!.trackingNumber).toBe('1Z9999999999999999');
     expect(schema!.provider).toEqual({
       '@type': 'Organization',
