@@ -5,7 +5,11 @@ import os
 import re
 import sys
 
-VAULT = '/mnt/storage1/Obsidian/MainVault/Mailbox Plus'
+if len(sys.argv) > 1 and sys.argv[1]:
+    VAULT = sys.argv[1]
+else:
+    default_vault = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'vault'))
+    VAULT = os.environ.get('VAULT_PATH', default_vault)
 KNOWLEDGE = os.path.join(VAULT, 'Knowledge')
 PLANNING = os.path.join(VAULT, 'Planning')
 TEMPLATES = os.path.join(VAULT, 'Templates')

@@ -20,16 +20,16 @@ REPO="${REPO:-$DEFAULT_REPO}"
 if [ ! -d "$REPO" ]; then
   REPO="$DEFAULT_REPO"
 fi
-SERVER="server"
-VAULT="/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge"
-GEN="$REPO/scripts/vault-sync/vault-generate.py"
+SERVER="${VAULT_SYNC_SERVER:-${SERVER:-server}}"
+VAULT="${VAULT_PATH:-${VAULT:-/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge}}"
+GEN="${GEN:-$SCRIPT_DIR/vault-generate.py}"
 TMP_DATA="/tmp/vault-data.json"
 STAGE="/tmp/vault-stage/Knowledge"
 UPLOAD="/tmp/vault-upload"
 
 echo "==> [1/4] Extracting site configs (vitest)"
 cd "$REPO/astro"
-npx vitest run src/scripts/vault-extract.test.ts >/dev/null 2>&1 || {
+npx vitest run ../scripts/vault-sync/vault-extract.test.ts >/dev/null 2>&1 || {
   echo "extract failed"; exit 1; }
 test -f "$TMP_DATA" || { echo "no data dump"; exit 1; }
 
