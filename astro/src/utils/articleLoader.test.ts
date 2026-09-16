@@ -3,8 +3,11 @@ import { articleLoader, invalidateArticleCache } from './articleLoader';
 import matter from 'gray-matter';
 
 vi.mock('gray-matter', async (importOriginal) => {
-  const actual = await importOriginal<any>();
-  const matterFn = typeof actual === 'function' ? actual : actual.default;
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  const matterFn =
+    typeof actual === 'function'
+      ? actual
+      : (actual.default as (raw: string) => ReturnType<typeof matter>);
   return {
     ...actual,
     default: vi.fn((raw: string) => matterFn(raw)),
@@ -137,7 +140,7 @@ describe('articleLoader', () => {
               status: 'draft',
             },
             content: 'Draft body',
-          } as any;
+          } as unknown as ReturnType<typeof matter>;
         }
         return {
           data: {
@@ -148,8 +151,8 @@ describe('articleLoader', () => {
             status: 'published',
           },
           content: 'Published body',
-        } as any;
-      }) as any);
+        } as unknown as ReturnType<typeof matter>;
+      }) as unknown as typeof matter);
 
       invalidateArticleCache();
       const articles = await articleLoader.getAllArticles();
@@ -175,7 +178,7 @@ describe('articleLoader', () => {
               status: 'draft',
             },
             content: 'Draft body',
-          } as any;
+          } as unknown as ReturnType<typeof matter>;
         }
         return {
           data: {
@@ -186,8 +189,8 @@ describe('articleLoader', () => {
             status: 'published',
           },
           content: 'Published body',
-        } as any;
-      }) as any);
+        } as unknown as ReturnType<typeof matter>;
+      }) as unknown as typeof matter);
 
       invalidateArticleCache();
       const articles = await articleLoader.getAllArticles();
@@ -214,7 +217,7 @@ describe('articleLoader', () => {
               status: 'draft',
             },
             content: 'Draft body',
-          } as any;
+          } as unknown as ReturnType<typeof matter>;
         }
         return {
           data: {
@@ -225,8 +228,8 @@ describe('articleLoader', () => {
             status: 'published',
           },
           content: 'Published body',
-        } as any;
-      }) as any);
+        } as unknown as ReturnType<typeof matter>;
+      }) as unknown as typeof matter);
 
       invalidateArticleCache();
       const articles = await articleLoader.getAllArticles();
@@ -253,7 +256,7 @@ describe('articleLoader', () => {
               status: 'draft',
             },
             content: 'Draft body',
-          } as any;
+          } as unknown as ReturnType<typeof matter>;
         }
         return {
           data: {
@@ -264,8 +267,8 @@ describe('articleLoader', () => {
             status: 'published',
           },
           content: 'Published body',
-        } as any;
-      }) as any);
+        } as unknown as ReturnType<typeof matter>;
+      }) as unknown as typeof matter);
 
       invalidateArticleCache();
       const articles = await articleLoader.getAllArticles();
