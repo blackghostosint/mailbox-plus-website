@@ -1,5 +1,11 @@
 import { describe, it, expect, vi } from 'vitest';
-import { withCors, withWebCors, DEFAULT_CORS_HEADERS } from './cors';
+import {
+  withCors,
+  withWebCors,
+  DEFAULT_CORS_HEADERS,
+  DEFAULT_ALLOWED_ORIGINS,
+  resolveAllowedOrigin,
+} from './cors';
 import type { HandlerEvent, HandlerContext } from '@netlify/functions';
 
 describe('CORS Middleware Utility', () => {
@@ -96,6 +102,33 @@ describe('CORS Middleware Utility', () => {
       const res = await wrapped(event, mockContext);
 
       expect(res!.headers).toHaveProperty(
+        'Access-Control-Allow-Origin',
+        'https://mailboxplusohio.com'
+      );
+    });
+
+    it('matches allowed origin patterns dynamically against request Origin header', async () => {
+      const innerHandler = vi.fn().mockResolvedValue({ statusCode: 200, body: '{}' });
+      const wrapped = withCors(innerHandler, {
+        allowOrigin: DEFAULT_ALLOWED_ORIGINS,
+      });
+
+      const eventPreview: HandlerEvent = {
+        httpMethod: 'POST',
+        headers: { origin: 'https://deploy-preview-513--mailboxplus.netlify.app' },
+      } as any;
+      const resPreview = await wrapped(eventPreview, mockContext);
+      expect(resPreview!.headers).toHaveProperty(
+        'Access-Control-Allow-Origin',
+        'https://deploy-preview-513--mailboxplus.netlify.app'
+      );
+
+      const eventDisallowed: HandlerEvent = {
+        httpMethod: 'POST',
+        headers: { origin: 'https://malicious-site.com' },
+      } as any;
+      const resDisallowed = await wrapped(eventDisallowed, mockContext);
+      expect(resDisallowed!.headers).toHaveProperty(
         'Access-Control-Allow-Origin',
         'https://mailboxplusohio.com'
       );

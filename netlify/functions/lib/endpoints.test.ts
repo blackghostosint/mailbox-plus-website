@@ -8,13 +8,14 @@ import reviewsHandler from '../reviews';
 
 describe('Netlify Function Endpoints CORS and Header Consistency', () => {
   const mockContext: any = {};
+  const EXPECTED_ORIGIN = 'https://mailboxplusohio.com';
 
   describe('create-checkout', () => {
     it('handles OPTIONS preflight with status 204 and standard CORS headers', async () => {
       const res = await createCheckoutHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
       expect(res!.statusCode).toBe(204);
       expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
       });
@@ -25,7 +26,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(405);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
     });
 
@@ -38,7 +39,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(400);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
       expect(JSON.parse(res!.body || '{}')).toHaveProperty('error');
     });
@@ -49,7 +50,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const res = await sendEmailHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
       expect(res!.statusCode).toBe(204);
       expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
       });
@@ -60,7 +61,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(405);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
     });
 
@@ -79,9 +80,34 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(400);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
       expect(JSON.parse(res!.body || '{}')).toEqual({ error: 'reCAPTCHA verification failed' });
+    });
+
+    it('returns status 429 when IP rate limit is exceeded', async () => {
+      const rateLimitIp = '192.168.1.100';
+      const event = {
+        httpMethod: 'POST',
+        headers: { 'client-ip': rateLimitIp },
+        body: JSON.stringify({
+          name: 'Spammer',
+          email: 'spam@example.com',
+          recaptchaToken: 'test',
+        }),
+      } as any;
+
+      // Exhaust 5 allowed attempts
+      for (let i = 0; i < 5; i++) {
+        await sendEmailHandler(event, mockContext);
+      }
+
+      // 6th attempt should trigger 429 Too Many Requests
+      const res = await sendEmailHandler(event, mockContext);
+      expect(res!.statusCode).toBe(429);
+      expect(JSON.parse(res!.body || '{}')).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
     });
   });
 
@@ -90,7 +116,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const res = await verifySessionHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
       expect(res!.statusCode).toBe(204);
       expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
         'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
       });
@@ -101,7 +127,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(405);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
     });
 
@@ -117,7 +143,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res!.statusCode).toBe(400);
       expect(res!.headers).toMatchObject({
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
       });
       expect(JSON.parse(res!.body || '{}')).toEqual({ error: 'Invalid session_id' });
     });
@@ -130,7 +156,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       });
       const res = await cspReportHandler(request, mockContext);
       expect(res.status).toBe(204);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(res.headers.get('Access-Control-Allow-Methods')).toBe(
         'GET, POST, PATCH, PUT, DELETE, OPTIONS'
       );
@@ -142,7 +168,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       });
       const res = await cspReportHandler(request, mockContext);
       expect(res.status).toBe(405);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(res.headers.get('Content-Type')).toBe('application/json');
     });
 
@@ -154,7 +180,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       });
       const res = await cspReportHandler(request, mockContext);
       expect(res.status).toBe(204);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
   });
 
@@ -165,7 +191,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       });
       const res = await healthHandler(request, mockContext);
       expect(res.status).toBe(204);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
 
     it('returns status 200 with CORS and custom X-Health-Check headers', async () => {
@@ -174,7 +200,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       });
       const res = await healthHandler(request, mockContext);
       expect(res.status).toBe(200);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(res.headers.get('Content-Type')).toBe('application/json');
       expect(res.headers.get('X-Health-Check')).toBe('true');
     });
@@ -185,7 +211,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const request = new Request('https://example.com/api/reviews', { method: 'OPTIONS' });
       const res = await reviewsHandler(request, mockContext);
       expect(res.status).toBe(204);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
 
     it('returns status 502 with CORS and Content-Type headers when API key is missing', async () => {
@@ -196,7 +222,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const res = await reviewsHandler(request, mockContext);
 
       expect(res.status).toBe(502);
-      expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(res.headers.get('Content-Type')).toBe('application/json');
 
       consoleErrorSpy.mockRestore();

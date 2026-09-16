@@ -20,7 +20,7 @@
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
-import { withWebCors } from './lib/cors';
+import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -82,25 +82,28 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   };
 }
 
-export default withWebCors(async () => {
-  try {
-    const fresh = await fetchFromPlaces();
-    return new Response(JSON.stringify({ ...fresh, source: 'live' }), {
-      status: 200,
-      headers: {
-        'Content-Type': 'application/json',
-        'Cache-Control': 'public, max-age=0, must-revalidate', // browsers always revalidate
-        'Netlify-CDN-Cache-Control': CDN_CACHE, // edge caches ~24h
-      },
-    });
-  } catch (error) {
-    console.error('Reviews function error:', error);
-    return new Response(JSON.stringify({ error: 'Reviews temporarily unavailable' }), {
-      status: 502,
-      headers: { 'Content-Type': 'application/json' },
-    });
-  }
-});
+export default withWebCors(
+  async () => {
+    try {
+      const fresh = await fetchFromPlaces();
+      return new Response(JSON.stringify({ ...fresh, source: 'live' }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=0, must-revalidate', // browsers always revalidate
+          'Netlify-CDN-Cache-Control': CDN_CACHE, // edge caches ~24h
+        },
+      });
+    } catch (error) {
+      console.error('Reviews function error:', error);
+      return new Response(JSON.stringify({ error: 'Reviews temporarily unavailable' }), {
+        status: 502,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+  },
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+);
 
 export const config = {
   path: '/api/reviews',

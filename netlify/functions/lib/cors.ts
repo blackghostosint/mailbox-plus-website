@@ -6,21 +6,91 @@ export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
 };
 
+export type CorsOriginOption = string | (string | RegExp)[] | ((origin: string) => boolean);
+
 export interface CorsOptions {
-  allowOrigin?: string;
+  allowOrigin?: CorsOriginOption;
   allowMethods?: string;
   allowHeaders?: string;
 }
+
+export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = [
+  process.env.SITE_URL || 'https://mailboxplusohio.com',
+  'https://mailboxplusohio.com',
+  /\.netlify\.app$/,
+  /localhost(:\d+)?$/,
+  /127\.0\.0\.1(:\d+)?$/,
+];
 
 function hasHeader(headers: Record<string, any>, name: string): boolean {
   const lowerName = name.toLowerCase();
   return Object.keys(headers).some((k) => k.toLowerCase() === lowerName);
 }
 
-function getEffectiveCorsHeaders(options?: CorsOptions): Record<string, string> {
+function getHeaderValue(
+  headers: Record<string, any> | undefined,
+  name: string
+): string | undefined {
+  if (!headers) return undefined;
+  const lowerName = name.toLowerCase();
+  for (const key of Object.keys(headers)) {
+    if (key.toLowerCase() === lowerName) {
+      return String(headers[key]);
+    }
+  }
+  return undefined;
+}
+
+export function resolveAllowedOrigin(
+  reqOrigin: string | undefined,
+  option?: CorsOriginOption
+): string {
+  if (!option || option === '*') {
+    return '*';
+  }
+
+  if (typeof option === 'string') {
+    return option;
+  }
+
+  if (typeof option === 'function') {
+    if (reqOrigin && option(reqOrigin)) {
+      return reqOrigin;
+    }
+    return typeof DEFAULT_ALLOWED_ORIGINS[0] === 'string'
+      ? DEFAULT_ALLOWED_ORIGINS[0]
+      : 'https://mailboxplusohio.com';
+  }
+
+  if (Array.isArray(option)) {
+    if (reqOrigin) {
+      const isAllowed = option.some((pattern) => {
+        if (typeof pattern === 'string') {
+          return pattern === reqOrigin;
+        }
+        if (pattern instanceof RegExp) {
+          return pattern.test(reqOrigin);
+        }
+        return false;
+      });
+      if (isAllowed) {
+        return reqOrigin;
+      }
+    }
+    const firstStr = option.find((item): item is string => typeof item === 'string');
+    return firstStr || 'https://mailboxplusohio.com';
+  }
+
+  return '*';
+}
+
+function getEffectiveCorsHeaders(
+  reqOrigin?: string,
+  options?: CorsOptions
+): Record<string, string> {
+  const allowOrigin = resolveAllowedOrigin(reqOrigin, options?.allowOrigin);
   return {
-    'Access-Control-Allow-Origin':
-      options?.allowOrigin ?? DEFAULT_CORS_HEADERS['Access-Control-Allow-Origin'],
+    'Access-Control-Allow-Origin': allowOrigin,
     'Access-Control-Allow-Methods':
       options?.allowMethods ?? DEFAULT_CORS_HEADERS['Access-Control-Allow-Methods'],
     'Access-Control-Allow-Headers':
@@ -35,9 +105,10 @@ function getEffectiveCorsHeaders(options?: CorsOptions): Record<string, string> 
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
 export function withCors(handler: Handler, options?: CorsOptions): Handler {
-  const corsHeaders = getEffectiveCorsHeaders(options);
-
   return async (event: HandlerEvent, context: HandlerContext) => {
+    const reqHeaders = event.headers || {};
+    const reqOrigin = getHeaderValue(reqHeaders, 'origin') || getHeaderValue(reqHeaders, 'referer');
+    const corsHeaders = getEffectiveCorsHeaders(reqOrigin, options);
     const httpMethod = (event.httpMethod || '').toUpperCase();
 
     if (httpMethod === 'OPTIONS') {
@@ -98,9 +169,9 @@ export type WebHandler = (request: Request, context?: any) => Promise<Response> 
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
 export function withWebCors(handler: WebHandler, options?: CorsOptions): WebHandler {
-  const corsHeaders = getEffectiveCorsHeaders(options);
-
   return async (request: Request, context?: any) => {
+    const reqOrigin = request.headers.get('origin') || request.headers.get('referer') || undefined;
+    const corsHeaders = getEffectiveCorsHeaders(reqOrigin, options);
     const method = request.method ? request.method.toUpperCase() : 'GET';
 
     if (method === 'OPTIONS') {
