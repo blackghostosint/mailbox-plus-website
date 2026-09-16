@@ -1,5 +1,18 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-import type { HandlerEvent, HandlerContext } from '@netlify/functions';
+interface HandlerEvent {
+  httpMethod: string;
+  queryStringParameters?: Record<string, string> | null;
+  body?: string | null;
+  headers?: Record<string, string>;
+  multiValueHeaders?: Record<string, string[]>;
+  isBase64Encoded?: boolean;
+  path?: string;
+  rawUrl?: string;
+  rawQuery?: string;
+  multiValueQueryStringParameters?: Record<string, string[]> | null;
+}
+
+type HandlerContext = Record<string, unknown>;
 import { handler } from '../../../netlify/functions/me';
 import { db } from '../../../netlify/functions/lib/db';
 import type { Customer } from '../../../netlify/functions/lib/db';
