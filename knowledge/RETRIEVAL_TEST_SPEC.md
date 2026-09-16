@@ -245,8 +245,8 @@ This will:
 5. Exit with code 0 (success) or 1 (failure)
 
 > **Note on Embedding Cache:**
-> `.embedding-cache.json` is tracked in git so that offline evaluation runs deterministically in CI and local development without requiring `GEMINI_API_KEY`.
-> When editing knowledge base content (`kb.entries.json`), run `GEMINI_API_KEY=<key> npm run test:retrieval` to update the embedding cache.
+> `.embedding-cache.json` is gitignored (untracked in git) to prevent bloating repository history with large generated binary/JSON data. In CI, vector embeddings are cached across runs via GitHub Actions `actions/cache`.
+> When editing knowledge base content (`kb.entries.json`) or test queries locally, run `GEMINI_API_KEY=<key> npm run test:retrieval` to generate live embeddings and update the local cache.
 
 ---
 

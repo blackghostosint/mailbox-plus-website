@@ -41,7 +41,7 @@ jobs:
       - name: Run AI knowledge base retrieval evaluation
         run: npm run test:retrieval
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY || secrets.VITE_GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
       - name: Upload Retrieval Test Report
         if: always()
