@@ -186,16 +186,13 @@ async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
     const cachedCount = Object.keys(embeddingCache).length;
     if (cachedCount === 0) {
-      console.error(
-        '❌ OFFLINE MODE ERROR: GEMINI_API_KEY is missing and vector cache (.embedding-cache.json) is missing or empty.'
+      console.warn(
+        '⚠️  OFFLINE MODE NOTICE: GEMINI_API_KEY is not set and vector cache (.embedding-cache.json) is missing or empty.'
       );
-      console.error(
-        '❌ Cannot run retrieval evaluation without GEMINI_API_KEY or pre-cached vector embeddings.'
+      console.warn(
+        '⚠️  Retrieval evaluation skipped. Set GEMINI_API_KEY to generate embeddings or restore .embedding-cache.json.\n'
       );
-      console.error(
-        '❌ Set GEMINI_API_KEY to generate embeddings, or restore .embedding-cache.json.\n'
-      );
-      throw new Error('Offline mode requested but vector embedding cache is missing or empty.');
+      return false;
     }
     const stats = existsSync(CACHE_FILE) ? statSync(CACHE_FILE) : null;
     const cacheAgeInfo = stats ? ` (cache modified: ${stats.mtime.toISOString()})` : '';
@@ -557,7 +554,33 @@ async function main() {
 
   console.log('🧪 Running Retrieval Test Suite with Gemini Embeddings...\n');
 
-  await buildEmbeddingCache();
+  const cacheBuilt = await buildEmbeddingCache();
+  if (!cacheBuilt) {
+    const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+    const skippedReport = `# Retrieval Test Report (Skipped Execution)
+
+**Generated:** ${new Date().toISOString()}
+
+> ⚠️ **SKIPPED — GEMINI_API_KEY is not set in the environment and no pre-cached vector embeddings (.embedding-cache.json) exist.**
+> To run retrieval evaluation, set \`GEMINI_API_KEY\` or populate the vector cache via GitHub Actions cache / local run.
+`;
+    writeFileSync(reportPath, skippedReport, 'utf-8');
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      try {
+        appendFileSync(
+          process.env.GITHUB_STEP_SUMMARY,
+          `## AI Knowledge Base Retrieval Evaluation\n\n> ⚠️ **SKIPPED**: \`GEMINI_API_KEY\` is not set and vector cache is missing.\n`,
+          'utf-8'
+        );
+      } catch (err) {
+        // ignore
+      }
+    }
+    console.log(
+      '⚠️  SKIPPED: GEMINI_API_KEY is not set and vector cache is missing. Exiting cleanly.\n'
+    );
+    process.exit(0);
+  }
 
   const results: TestExecutionResult[] = [];
 
