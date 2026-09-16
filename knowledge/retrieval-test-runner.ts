@@ -171,12 +171,20 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 /**
  * Pre-compute and cache embeddings for all KB entries
  */
-async function buildEmbeddingCache(): Promise<void> {
+async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
+    const cachedCount = Object.keys(embeddingCache).length;
+    if (cachedCount === 0) {
+      console.log(
+        `⚠️  Offline mode: GEMINI_API_KEY is not set and no cached vector embeddings exist at ${CACHE_FILE}.\n` +
+          `⚠️  Skipping retrieval test suite. Provide GEMINI_API_KEY or generate .embedding-cache.json to run tests.\n`
+      );
+      return false;
+    }
     console.log(
-      `✓ Offline mode: using pre-cached vector embeddings (${Object.keys(embeddingCache).length} cached entries)\n`
+      `✓ Offline mode: using pre-cached vector embeddings (${cachedCount} cached entries)\n`
     );
-    return;
+    return true;
   }
 
   console.log('\n📦 Building/updating embedding cache...');
@@ -218,6 +226,7 @@ async function buildEmbeddingCache(): Promise<void> {
   writeFileSync(CACHE_FILE, JSON.stringify(embeddingCache, null, 2), 'utf-8');
   console.log(`✓ Cache updated: ${newEmbeddings} new embeddings generated`);
   console.log(`✓ Total cached embeddings: ${Object.keys(embeddingCache).length}\n`);
+  return true;
 }
 
 // ========================================
@@ -462,7 +471,10 @@ async function main() {
   console.log('🧪 Running Retrieval Test Suite with Gemini Embeddings...\n');
 
   // Build embedding cache first
-  await buildEmbeddingCache();
+  const cacheReady = await buildEmbeddingCache();
+  if (!cacheReady) {
+    process.exit(0);
+  }
 
   const results: TestExecutionResult[] = [];
 
