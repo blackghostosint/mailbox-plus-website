@@ -23,19 +23,53 @@
     "next to Pub Frato"
   ],
   "forbidden": [
-    { "pattern": "Route 306", "reason": "OH-306 (Chillicothe Rd) does not touch Fredle Drive; ~3 mi west of store. Valid ONLY when describing the reader's own Kirtland-area streets — allow if line also mentions Kirtland, Kirtland Hills, Chillicothe, Baldwin Rd, or Holden Arboretum." },
-    { "pattern": "Capital Plaza", "reason": "Stale/wrong plaza name (was in old locations config). Plaza is Gristmill Village." },
+    {
+      "pattern": "Route 306",
+      "reason": "OH-306 (Chillicothe Rd) does not touch Fredle Drive; ~3 mi west of store. Valid ONLY when describing the reader's own Kirtland-area streets — allow if line also mentions Kirtland, Kirtland Hills, Chillicothe, Baldwin Rd, or Holden Arboretum."
+    },
+    {
+      "pattern": "Capital Plaza",
+      "reason": "Stale/wrong plaza name (was in old locations config). Plaza is Gristmill Village."
+    },
     { "pattern": "Pet Supplies Plus", "reason": "Wrong neighbor. Neighbor is Pub Frato." },
     { "pattern": "just off Route 306", "reason": "wrong road claim" }
   ],
   "owner_verified_claims": [
-    { "claim": "Certificate of Destruction provided for shredding jobs", "since": "2026-09-12", "note": "Frank designing official certificate; claims in articles OK (PR #461 thread)." },
-    { "claim": "International drop-offs accepted; NO in-store international shipment processing", "since": "2026-09-11", "note": "PR #460/#462 threads." },
-    { "claim": "Fingerprinting (Live Scan, Ohio BCI/FBI) offered at counter", "since": "2026-09-15", "note": "Eastlake fingerprinting/fingerprinting articles; services catalog." },
-    { "claim": "Shredding $1.00/lb on-site, no minimums, staples OK", "since": "2026-09-15", "note": "Site config + PR #461." },
-    { "claim": "Notary on duty all open hours, walk-in, no appointment", "since": "2026-09-15", "note": "Notary articles + site config." },
-    { "claim": "$1 re-seal / tape-check service", "since": "2026-09-11", "note": "PR #457 packing-tape article." },
-    { "claim": "SpeedX drop-off / Vinted Go pre-labeled drop-off accepted", "since": "2026-09-10", "note": "PR #455." }
+    {
+      "claim": "Certificate of Destruction provided for shredding jobs",
+      "since": "2026-09-12",
+      "note": "Frank designing official certificate; claims in articles OK (PR #461 thread)."
+    },
+    {
+      "claim": "International drop-offs accepted; NO in-store international shipment processing",
+      "since": "2026-09-11",
+      "note": "PR #460/#462 threads."
+    },
+    {
+      "claim": "Fingerprinting (Live Scan, Ohio BCI/FBI) offered at counter",
+      "since": "2026-09-15",
+      "note": "Eastlake fingerprinting/fingerprinting articles; services catalog."
+    },
+    {
+      "claim": "Shredding $1.00/lb on-site, no minimums, staples OK",
+      "since": "2026-09-15",
+      "note": "Site config + PR #461."
+    },
+    {
+      "claim": "Notary on duty all open hours, walk-in, no appointment",
+      "since": "2026-09-15",
+      "note": "Notary articles + site config."
+    },
+    {
+      "claim": "$1 re-seal / tape-check service",
+      "since": "2026-09-11",
+      "note": "PR #457 packing-tape article."
+    },
+    {
+      "claim": "SpeedX drop-off / Vinted Go pre-labeled drop-off accepted",
+      "since": "2026-09-10",
+      "note": "PR #455."
+    }
   ],
   "notary_fee_cap_ohio": "$5",
   "shredding_price_per_pound": "$1.00",

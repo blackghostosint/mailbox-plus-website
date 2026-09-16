@@ -245,9 +245,8 @@ This will:
 5. Exit with code 0 (success) or 1 (failure)
 
 > **Note on Embedding Cache:**
-> `.embedding-cache.json` is ignored by git to keep large binary blobs out of the repository history.
-> In CI, the embedding cache is maintained as a GitHub Actions workflow cache artifact.
-> When editing knowledge base content (`kb.entries.json`), run `GEMINI_API_KEY=<key> npm run test:retrieval` to update the local embedding cache.
+> `.embedding-cache.json` is tracked in git so that offline evaluation runs deterministically in CI and local development without requiring `GEMINI_API_KEY`.
+> When editing knowledge base content (`kb.entries.json`), run `GEMINI_API_KEY=<key> npm run test:retrieval` to update the embedding cache.
 
 ---
 
