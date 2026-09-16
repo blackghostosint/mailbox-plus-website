@@ -12,6 +12,16 @@ export async function getStaticPaths() {
       .filter((slug) => slug !== '[slug]' && slug !== '')
   );
 
+  // Service slugs with dedicated static page templates or section index pages
+  const STATIC_SERVICE_SLUGS = new Set([
+    'pack-ship',
+    'copy-print',
+    'home-business',
+    'private-mailbox-rental',
+    'amazon-counter',
+    'mailbox-rental-concord-ohio',
+  ]);
+
   const seenSlugs = new Set<string>();
   const paths = [];
 
@@ -21,7 +31,12 @@ export async function getStaticPaths() {
 
     // Only route root-level slugs (no subdirectories) that are not static pages
     if (cleanSlug.includes('/')) continue;
-    if (EXCLUDED_SLUGS.has(cleanSlug)) continue;
+    if (EXCLUDED_SLUGS.has(cleanSlug)) {
+      if (STATIC_SERVICE_SLUGS.has(cleanSlug)) {
+        continue;
+      }
+      throw new Error(`[slug].astro: Service slug collision detected. Service "${service.id}" with slug "${cleanSlug}" collides with an existing static page file in astro/src/pages/.`);
+    }
     if (seenSlugs.has(cleanSlug)) continue;
 
     seenSlugs.add(cleanSlug);
@@ -41,4 +56,4 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<ServiceLayout service={service} ogImage={service.ogImage} />
+<ServiceLayout service={service} />
