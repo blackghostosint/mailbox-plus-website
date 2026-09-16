@@ -26,7 +26,7 @@ function checkInlineScripts() {
   const violations = [];
 
   // Match <script ...> contents </script> or self-closing <script ... />
-  const scriptRegex = /<script\b([^>]*)>([\s\S]*?)<\/script>/gi;
+  const scriptRegex = /<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi;
 
   for (const file of htmlFiles) {
     const content = fs.readFileSync(file, 'utf-8');
