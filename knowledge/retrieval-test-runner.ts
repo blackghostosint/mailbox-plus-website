@@ -132,6 +132,9 @@ async function generateEmbedding(
     }
   }
 
+  // Broad scan fallback matches keys ending in "::<text>" regardless of taskType prefix
+  // (e.g. entryId::text vs taskType::text). While harmless for offline test verification,
+  // exact key match is preferred when available.
   for (const [key, vec] of Object.entries(embeddingCache)) {
     if (key.endsWith(`::${text}`) || key === text) {
       return vec;
@@ -173,6 +176,13 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
  */
 async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
+    if (process.env.CI) {
+      console.error(
+        `❌ ERROR: GEMINI_API_KEY environment variable is not set in CI.\n` +
+          `❌ CI retrieval quality evaluation requires GEMINI_API_KEY secret to perform live model evaluation.\n`
+      );
+      return false;
+    }
     const cachedCount = Object.keys(embeddingCache).length;
     if (cachedCount === 0) {
       console.error(
