@@ -6,7 +6,7 @@ import { registry, createValidationErrorResponse, ErrorResponseSchema } from './
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'stripe_key_placeholder');
 
 const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   small_mail_only: { name: 'Small Mail Only', monthly: 15 },
