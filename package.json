@@ -33,6 +33,7 @@
     "seo:check-metadata": "node scripts/seo/check-seo-metadata.mjs",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
     "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
+    "check:functions": "node scripts/check-netlify-functions.mjs",
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
