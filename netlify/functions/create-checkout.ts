@@ -8,11 +8,6 @@ import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { z } from 'zod';
-import {
-  registry,
-  createValidationErrorResponse,
-  ErrorResponseSchema,
-} from './lib/openapi-registry';
 
 dotenv.config();
 
@@ -78,63 +73,18 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
-export const CreateCheckoutRequestSchema = z
-  .object({
-    tier: z.string().min(1, 'tier is required'),
-  })
-  .openapi('CreateCheckoutRequest');
+export const CreateCheckoutRequestSchema = z.object({
+  tier: z.string().min(1, 'tier is required'),
+});
 
-export const CreateCheckoutResponseSchema = z
-  .object({
-    url: z.string().optional(),
-    error: z.string().optional(),
-    details: z.record(z.unknown()).optional(),
-  })
-  .openapi('CreateCheckoutResponse');
+export const CreateCheckoutResponseSchema = z.object({
+  url: z.string().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
 
 export type CreateCheckoutRequest = z.infer<typeof CreateCheckoutRequestSchema>;
 export type CreateCheckoutResponse = z.infer<typeof CreateCheckoutResponseSchema>;
-
-registry.registerPath({
-  method: 'post',
-  path: '/.netlify/functions/create-checkout',
-  summary: 'Create Stripe Checkout Session for mailbox rental',
-  request: {
-    body: {
-      content: {
-        'application/json': {
-          schema: CreateCheckoutRequestSchema,
-        },
-      },
-    },
-  },
-  responses: {
-    200: {
-      description: 'Stripe Checkout URL',
-      content: {
-        'application/json': {
-          schema: CreateCheckoutResponseSchema,
-        },
-      },
-    },
-    400: {
-      description: 'Validation failed or invalid tier',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-    500: {
-      description: 'Stripe API or server configuration error',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-  },
-});
 
 export const handler: Handler = async (event) => {
   // CORS headers (needed if called cross-origin; same-origin via /api/* proxy)
@@ -177,7 +127,14 @@ export const handler: Handler = async (event) => {
 
   const parseResult = CreateCheckoutRequestSchema.safeParse(bodyData);
   if (!parseResult.success) {
-    return createValidationErrorResponse(parseResult.error);
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({
+        error: 'Validation failed',
+        details: parseResult.error.flatten(),
+      }),
+    };
   }
 
   const { tier } = parseResult.data;

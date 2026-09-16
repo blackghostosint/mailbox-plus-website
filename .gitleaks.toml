@@ -1,5 +1,5 @@
 [allowlist]
-description = "Allowlist historical placeholder commit"
-commits = [
-  "9664125618bd153a724ac4861aec278aa8a29044"
+description = "Ignore non-secret stripe key placeholder string"
+regexes = [
+  '''stripe_key_placeholder'''
 ]

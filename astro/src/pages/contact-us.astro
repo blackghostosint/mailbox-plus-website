@@ -1,10 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
-import type { SendEmailRequest, SendEmailResponse } from '../../../netlify/functions/sendEmail';
-
-export type ContactReq = SendEmailRequest;
-export type ContactRes = SendEmailResponse;
 const { contact } = siteConfig;
 const phoneDigits = contact.phone.replace(/[^0-9]/g, '');
 const hours = [

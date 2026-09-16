@@ -1,110 +1,85 @@
-import { Handler } from '@netlify/functions';
+/**
+ * CSP Report Collector Netlify Function
+ * Receives Content-Security-Policy violation reports from browsers
+ * Logs them for monitoring
+ */
+
+import type { Context } from 'https://edge.netlify.com/';
 import { z } from 'zod';
-import { registry, createValidationErrorResponse, ErrorResponseSchema } from './lib/openapi-registry';
 
-export const CspReportRequestSchema = z
-  .object({
-    'csp-report': z.record(z.any()).optional(),
-  })
-  .passthrough()
-  .openapi('CspReportRequest');
-
-export const CspReportResponseSchema = z
-  .object({
-    status: z.string(),
-  })
-  .openapi('CspReportResponse');
-
-export type CspReportRequest = z.infer<typeof CspReportRequestSchema>;
-export type CspReportResponse = z.infer<typeof CspReportResponseSchema>;
-
-registry.registerPath({
-  method: 'post',
-  path: '/.netlify/functions/csp-report',
-  summary: 'Collect CSP violation reports',
-  request: {
-    body: {
-      content: {
-        'application/json': {
-          schema: CspReportRequestSchema,
-        },
-      },
-    },
-  },
-  responses: {
-    200: {
-      description: 'Report accepted',
-      content: {
-        'application/json': {
-          schema: CspReportResponseSchema,
-        },
-      },
-    },
-    400: {
-      description: 'Invalid request payload',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-  },
+export const CspReportSchema = z.object({
+  'csp-report': z
+    .object({
+      'document-uri': z.string().optional(),
+      'violated-directive': z.string().optional(),
+      'blocked-uri': z.string().optional(),
+      'source-file': z.string().optional(),
+      'line-number': z.number().optional(),
+    })
+    .passthrough()
+    .optional(),
+  documentUri: z.string().optional(),
+  violatedDirective: z.string().optional(),
+  blockedUri: z.string().optional(),
+  sourceFile: z.string().optional(),
+  lineNumber: z.number().optional(),
 });
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
+export type CspReportRequest = z.infer<typeof CspReportSchema>;
+
+export default async (request: Request, context: Context) => {
+  if (request.method === 'OPTIONS') {
+    return new Response(null, {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
   }
 
-  let bodyData: any;
+  if (request.method !== 'POST') {
+    return new Response('Method not allowed', { status: 405 });
+  }
+
   try {
-    bodyData = JSON.parse(event.body || '{}');
-  } catch (e) {
-    return {
-      statusCode: 400,
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Invalid JSON body' }),
-    };
+    const rawBody = await request.json();
+    const parseResult = CspReportSchema.safeParse(rawBody);
+
+    let report: any = {};
+    if (parseResult.success) {
+      report = parseResult.data['csp-report'] || parseResult.data;
+    } else {
+      report = rawBody['csp-report'] || rawBody || {};
+    }
+
+    console.warn(
+      '[CSP Violation]',
+      JSON.stringify({
+        documentUri: report['document-uri'] || report.documentUri,
+        violatedDirective: report['violated-directive'] || report.violatedDirective,
+        blockedUri: report['blocked-uri'] || report.blockedUri,
+        sourceFile: report['source-file'] || report.sourceFile,
+        lineNumber: report['line-number'] || report.lineNumber,
+        timestamp: new Date().toISOString(),
+        userAgent: request.headers.get('user-agent') || 'unknown',
+      })
+    );
+
+    return new Response('OK', {
+      status: 204,
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+      },
+    });
+  } catch (err) {
+    console.error('[CSP Report Error]', err);
+    return new Response('Bad Request', { status: 400 });
   }
-
-  const parseResult = CspReportRequestSchema.safeParse(bodyData);
-  if (!parseResult.success) {
-    return createValidationErrorResponse(parseResult.error);
-  }
-
-  const data = parseResult.data;
-  const report = data['csp-report'] || data;
-
-  console.warn(
-    '[CSP Violation]',
-    JSON.stringify({
-      documentUri: report['document-uri'] || report.documentUri,
-      violatedDirective: report['violated-directive'] || report.violatedDirective,
-      blockedUri: report['blocked-uri'] || report.blockedUri,
-      sourceFile: report['source-file'] || report.sourceFile,
-      lineNumber: report['line-number'] || report.lineNumber,
-      timestamp: new Date().toISOString(),
-      userAgent: event.headers?.['user-agent'] || 'unknown',
-    })
-  );
-
-  return {
-    statusCode: 200,
-    headers: {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type',
-    },
-    body: JSON.stringify({ status: 'ok' }),
-  };
 };
-
-export default handler;
 
 export const config = {
   path: '/.netlify/functions/csp-report',

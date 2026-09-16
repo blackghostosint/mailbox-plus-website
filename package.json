@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd astro && npm run dev",
-    "generate-openapi": "npx tsx scripts/generate-openapi.ts",
-    "prebuild": "node scripts/fetch-reviews.mjs && node scripts/generate-llms-articles.mjs --write && npm run generate-openapi",
+    "prebuild": "node scripts/fetch-reviews.mjs && node scripts/generate-llms-articles.mjs --write",
     "build": "cd astro && npm run build",
     "preview": "cd astro && npm run preview",
     "check": "cd astro && npm run check",
@@ -43,8 +42,7 @@
     "dotenv": "^17.2.3",
     "resend": "^6.16.0",
     "stripe": "^22.5.0",
-    "zod": "^3.23.8",
-    "@asteasolutions/zod-to-openapi": "^7.3.0"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.13.0",
