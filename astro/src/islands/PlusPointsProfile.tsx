@@ -1,4 +1,4 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
+/* eslint-disable jsx-a11y/control-has-associated-label, @typescript-eslint/no-explicit-any */
 import React, { useState, useEffect } from 'react';
 import Trophy from '~icons/lucide/trophy';
 import Award from '~icons/lucide/award';
@@ -70,7 +70,22 @@ export const PlusPointsProfile: React.FC = () => {
       setLoading(true);
       try {
         const query = id ? `id=${id}` : `code=${code}`;
-        const res = await fetch(`/api/me?${query}`);
+        const headers: Record<string, string> = {};
+        if (typeof window !== 'undefined' && (window as any).netlifyIdentity) {
+          const currentUser = (window as any).netlifyIdentity.currentUser();
+          if (currentUser) {
+            try {
+              const token = await currentUser.jwt();
+              if (token) {
+                headers['Authorization'] = `Bearer ${token}`;
+              }
+            } catch (jwtErr) {
+              console.error('Error fetching identity token:', jwtErr);
+            }
+          }
+        }
+
+        const res = await fetch(`/api/me?${query}`, { headers });
         if (res.ok) {
           const realData = await res.json();
           setCustomer(realData);
