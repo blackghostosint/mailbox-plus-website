@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import { getServiceImageUrl } from '../../../lib/storage';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
@@ -7,21 +8,11 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'post-office-alternative-fairport-harbor',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl: 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/images/usps-services.webp',
-      description: 'Mailbox Plus post office alternative for Fairport Harbor customers',
       name: 'Post Office Alternative in Fairport Harbor, OH | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus post office alternative for Fairport Harbor customers',
+    }),
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'Post Office Alternative \u2014 Fairport Harbor',

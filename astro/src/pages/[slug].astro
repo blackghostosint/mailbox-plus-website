@@ -12,7 +12,11 @@ export async function getStaticPaths() {
       .filter((slug) => slug !== '[slug]' && slug !== '')
   );
 
-  // Service slugs with dedicated static page templates or section index pages
+  // Service slugs with dedicated static page templates or section index pages.
+  // EXCLUDED_SLUGS automatically detects all static .astro file names in pages/ (e.g., 'private-mailbox-rental').
+  // STATIC_SERVICE_SLUGS lists the service slugs that intentionally have dedicated static page templates
+  // or section index routes, allowing getStaticPaths() to bypass generating them dynamically
+  // without triggering the slug collision exception.
   const STATIC_SERVICE_SLUGS = new Set([
     'pack-ship',
     'copy-print',

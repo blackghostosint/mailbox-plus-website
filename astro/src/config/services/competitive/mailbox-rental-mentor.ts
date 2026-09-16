@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import MapPin from '~icons/lucide/map-pin';
 import Package from '~icons/lucide/package';
 import Clock from '~icons/lucide/clock';
@@ -9,22 +10,12 @@ import Shield from '~icons/lucide/shield';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-mentor',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/mailbox-services/mailbox-rental-mentor-featured.webp',
-      description: 'Mailbox Plus mailbox rental service for Mentor customers',
       name: 'Mailbox Rental in Mentor — Private Mailbox Serving Mentor, OH | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus mailbox rental service for Mentor customers',
+    }),
     category: 'mailbox-rentals',
     city: 'Mentor',
     serviceName:

@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,22 +7,12 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'dhl-drop-off-mentor',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-mentor-featured.webp',
-      description: 'Mailbox Plus shipping service for Mentor customers',
       name: 'DHL Drop-Off in Mentor — In & Out Fast | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus shipping service for Mentor customers',
+    }),
     category: 'pack-ship',
     city: 'Mentor',
     serviceName: 'DHL Drop-Off in Mentor — In & Out Fast | Mailbox Plus',

@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,22 +7,12 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'package-receiving-lake-county',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/package-receiving-lake-county-featured.webp',
-      description: 'Mailbox Plus shipping service for Concord Township customers',
       name: 'Package Receiving Service in Lake County, OH — Secure Drop-Offs | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus shipping service for Concord Township customers',
+    }),
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Package Receiving Service in Lake County, OH — Secure Drop-Offs | Mailbox Plus',

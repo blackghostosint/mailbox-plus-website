@@ -128,7 +128,10 @@ function initRouteRegistry() {
       if (Array.isArray(siteStruct['seo-landing'])) {
         for (const l of siteStruct['seo-landing']) addUrl(l.url);
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error(`❌ Failed to read or parse siteStructure at ${SITE_STRUCTURE_PATH}:`, e);
+      throw e;
+    }
   }
 
   const ALLOWLIST_PATH = path.join(ROOT, 'scripts', 'seo', 'route-registry-allowlist.json');
@@ -143,7 +146,10 @@ function initRouteRegistry() {
           validRoutes.add(norm);
         }
       }
-    } catch (e) {}
+    } catch (e) {
+      console.error(`❌ Failed to read or parse route registry allowlist at ${ALLOWLIST_PATH}:`, e);
+      throw e;
+    }
   }
 
   // 2) Article routes & intentKeys from content/articles

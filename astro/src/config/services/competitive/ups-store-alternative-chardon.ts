@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import MapPin from '~icons/lucide/map-pin';
@@ -6,22 +7,12 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-chardon',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-chardon-featured.webp',
-      description: 'Mailbox Plus UPS Store Alternative serving Chardon customers',
       name: 'UPS Store Alternative in Chardon, Ohio | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus UPS Store Alternative serving Chardon customers',
+    }),
     category: 'pack-ship',
     city: 'Chardon',
     serviceName: 'UPS Store Alternative',

@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,22 +7,12 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'pack-and-ship-madison',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/pack-and-ship-madison-featured.webp',
-      description: 'Mailbox Plus shipping service for Madison customers',
       name: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus shipping service for Madison customers',
+    }),
     category: 'pack-ship',
     city: 'Madison',
     serviceName: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',

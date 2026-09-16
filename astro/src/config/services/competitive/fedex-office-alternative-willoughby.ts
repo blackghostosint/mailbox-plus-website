@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Star from '~icons/lucide/star';
 import Truck from '~icons/lucide/truck';
 import Users from '~icons/lucide/users';
@@ -6,22 +7,12 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'fedex-office-alternative-willoughby',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
-      description: 'Mailbox Plus shipping service for Willoughby customers',
       name: 'FedEx Office Alternative in Willoughby — 4 Carriers, 1 Counter | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus shipping service for Willoughby customers',
+    }),
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'FedEx Office Alternative in Willoughby | Mailbox Plus',

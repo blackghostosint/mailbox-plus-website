@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import MapPin from '~icons/lucide/map-pin';
@@ -6,22 +7,12 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-kirtland',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-kirtland-featured.webp',
-      description: 'Mailbox Plus UPS Store Alternative serving Kirtland customers',
       name: 'UPS Store Alternative in Kirtland, Ohio | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus UPS Store Alternative serving Kirtland customers',
+    }),
     category: 'pack-ship',
     city: 'Kirtland',
     serviceName: 'UPS Store Alternative',

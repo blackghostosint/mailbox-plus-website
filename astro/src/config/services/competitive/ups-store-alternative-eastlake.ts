@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import MapPin from '~icons/lucide/map-pin';
@@ -6,22 +7,12 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-eastlake',
-    headJsonLd: {
-      '@context': 'https://schema.org',
-      '@type': 'ImageObject',
+    headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-eastlake-featured.webp',
-      description: 'Mailbox Plus UPS Store Alternative serving Eastlake customers',
       name: 'UPS Store Alternative in Eastlake, Ohio | Mailbox Plus',
-      author: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-      copyrightHolder: {
-        '@type': 'Organization',
-        name: 'Mailbox Plus',
-      },
-    },
+      description: 'Mailbox Plus UPS Store Alternative serving Eastlake customers',
+    }),
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'UPS Store Alternative',

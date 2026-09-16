@@ -506,3 +506,30 @@ export const getTrackingSchema = (
     },
   } as WithContext<ParcelDelivery>;
 };
+
+/** ---------- ImageObject ---------- */
+export const getImageObjectSchema = ({
+  contentUrl,
+  name,
+  description,
+  city,
+}: {
+  contentUrl: string;
+  name: string;
+  description?: string;
+  city?: string;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  contentUrl,
+  description: description || (city ? `Mailbox Plus shipping service for ${city} customers` : name),
+  name,
+  author: {
+    '@type': 'Organization',
+    name: 'Mailbox Plus',
+  },
+  copyrightHolder: {
+    '@type': 'Organization',
+    name: 'Mailbox Plus',
+  },
+});
