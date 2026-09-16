@@ -20,7 +20,7 @@ dotenv.config({ path: join(__dirname, '..', '.env.local') });
 dotenv.config({ path: join(__dirname, '..', '.env') });
 
 import { readFileSync, writeFileSync, existsSync, statSync, appendFileSync } from 'fs';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { GoogleGenerativeAI, type GenerativeModel } from '@google/generative-ai';
 import {
   retrievalTests,
   FALLBACK_RESPONSE,
@@ -45,7 +45,7 @@ class CacheMissError extends Error {
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 let genAI: GoogleGenerativeAI | null = null;
-let embeddingModel: any = null;
+let embeddingModel: GenerativeModel | null = null;
 const isOfflineMode = !GEMINI_API_KEY;
 
 if (GEMINI_API_KEY) {
@@ -134,15 +134,21 @@ async function generateEmbedding(
   // Note: We use specific prefix keys (`query::`, `RETRIEVAL_QUERY::`, `RETRIEVAL_DOCUMENT::`)
   // rather than a broad-scan suffix fallback to prevent cross-matching query embeddings
   // with document embeddings for identical text.
-  const cachedKeys = [
-    `query::${text}`,
-    `RETRIEVAL_QUERY::${text}`,
-    `RETRIEVAL_DOCUMENT::${text}`,
-    text,
-  ];
+  const primaryKey = `${taskType}::${text}`;
+  const queryFallbackKey = `query::${text}`;
+  const docFallbackKey =
+    taskType === 'RETRIEVAL_QUERY' ? `RETRIEVAL_DOCUMENT::${text}` : `RETRIEVAL_QUERY::${text}`;
+  const bareKey = text;
+
+  const cachedKeys = [primaryKey, queryFallbackKey, docFallbackKey, bareKey];
 
   for (const key of cachedKeys) {
     if (embeddingCache[key]) {
+      if (process.env.DEBUG_RETRIEVAL && key !== primaryKey) {
+        console.warn(
+          `[Cache Lookup] Matched non-primary key form "${key.split('::')[0]}" for taskType "${taskType}"`
+        );
+      }
       return embeddingCache[key];
     }
   }
