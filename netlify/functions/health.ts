@@ -1,40 +1,59 @@
-/**
- * Health Check Netlify Function
- * Returns 200 OK with timestamp and basic system status
- * Used for uptime monitoring and load balancer health checks
- */
+import { z } from 'zod';
+import { registry } from './lib/openapi-registry';
 
-import type { Context } from 'https://edge.netlify.com/';
+export const HealthResponseSchema = z
+  .object({
+    status: z.string(),
+    timestamp: z.string(),
+    environment: z.string().optional(),
+    checks: z
+      .object({
+        server: z.string(),
+      })
+      .optional(),
+    responseTime: z.number().optional(),
+  })
+  .openapi('HealthResponse');
 
-export default async (request: Request, context: Context) => {
+export type HealthResponse = z.infer<typeof HealthResponseSchema>;
+
+registry.registerPath({
+  method: 'get',
+  path: '/.netlify/functions/health',
+  summary: 'Health check endpoint',
+  responses: {
+    200: {
+      description: 'System health status',
+      content: {
+        'application/json': {
+          schema: HealthResponseSchema,
+        },
+      },
+    },
+  },
+});
+
+export const handler = async () => {
   const startTime = Date.now();
-
-  // Basic health checks
-  const healthData = {
+  const healthData: HealthResponse = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    environment: Netlify.env.get('CONTEXT') || 'unknown',
+    environment: process.env.CONTEXT || 'unknown',
     checks: {
-      // Add more checks as needed (database, external APIs, etc.)
       server: 'ok',
     },
-    responseTime: 0, // Will be calculated below
+    responseTime: Date.now() - startTime,
   };
 
-  // You can add more sophisticated checks here:
-  // - Check R2 image CDN connectivity
-  // - Check API endpoints
-  // - Check database connectivity (if applicable)
-
-  const responseTime = Date.now() - startTime;
-  healthData.responseTime = responseTime;
-
-  return new Response(JSON.stringify(healthData, null, 2), {
-    status: 200,
+  return {
+    statusCode: 200,
     headers: {
       'Content-Type': 'application/json',
       'Cache-Control': 'no-cache, no-store, must-revalidate',
       'X-Health-Check': 'true',
     },
-  });
+    body: JSON.stringify(healthData),
+  };
 };
+
+export default handler;

@@ -1,0 +1,11 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PlusPointsProfile } from '../../islands/PlusPointsProfile.tsx';
+---
+
+<BaseLayout
+  title="My Rewards Profile | Mailbox Plus PlusPoints"
+  description="View your PlusPoints rewards balance, referral code, and transaction history."
+>
+  <PlusPointsProfile client:load />
+</BaseLayout>

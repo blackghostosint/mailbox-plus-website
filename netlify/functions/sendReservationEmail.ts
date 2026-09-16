@@ -4,50 +4,51 @@ import { z } from 'zod';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { registry, createValidationErrorResponse, ErrorResponseSchema } from './lib/openapi-registry';
 
-export const SendEmailRequestSchema = z
+export const SendReservationEmailRequestSchema = z
   .object({
     name: z.string().min(1, 'Name is required'),
     email: z.string().email('Invalid email address'),
     phone: z.string().optional(),
-    service: z.string().optional(),
-    message: z.string().min(1, 'Message is required'),
+    plan: z.string().optional(),
+    mailboxSize: z.string().optional(),
+    term: z.string().optional(),
     token: z.string().optional(),
     recaptchaToken: z.string().optional(),
     'g-recaptcha-response': z.string().optional(),
   })
-  .openapi('SendEmailRequest');
+  .openapi('SendReservationEmailRequest');
 
-export const SendEmailResponseSchema = z
+export const SendReservationEmailResponseSchema = z
   .object({
     success: z.boolean().optional(),
     id: z.string().optional(),
     error: z.string().optional(),
     details: z.any().optional(),
   })
-  .openapi('SendEmailResponse');
+  .openapi('SendReservationEmailResponse');
 
-export type SendEmailRequest = z.infer<typeof SendEmailRequestSchema>;
-export type SendEmailResponse = z.infer<typeof SendEmailResponseSchema>;
+export type SendReservationEmailRequest = z.infer<typeof SendReservationEmailRequestSchema>;
+export type SendReservationEmailResponse = z.infer<typeof SendReservationEmailResponseSchema>;
 
 registry.registerPath({
   method: 'post',
-  path: '/.netlify/functions/sendEmail',
-  summary: 'Send contact form email',
+  path: '/.netlify/functions/sendReservationEmail',
+  summary: 'Send reservation email',
   request: {
     body: {
       content: {
         'application/json': {
-          schema: SendEmailRequestSchema,
+          schema: SendReservationEmailRequestSchema,
         },
       },
     },
   },
   responses: {
     200: {
-      description: 'Email sent successfully',
+      description: 'Reservation email sent',
       content: {
         'application/json': {
-          schema: SendEmailResponseSchema,
+          schema: SendReservationEmailResponseSchema,
         },
       },
     },
@@ -60,7 +61,7 @@ registry.registerPath({
       },
     },
     500: {
-      description: 'Email sending failed',
+      description: 'Server or Resend error',
       content: {
         'application/json': {
           schema: ErrorResponseSchema,
@@ -82,7 +83,7 @@ export const handler: Handler = async (event) => {
     };
   }
 
-  const parseResult = SendEmailRequestSchema.safeParse(bodyData);
+  const parseResult = SendReservationEmailRequestSchema.safeParse(bodyData);
   if (!parseResult.success) {
     return createValidationErrorResponse(parseResult.error);
   }
@@ -105,25 +106,24 @@ export const handler: Handler = async (event) => {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to send message' }),
+      body: JSON.stringify({ error: 'Failed to send reservation email' }),
     };
   }
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
+    const { name, email, phone, plan, mailboxSize } = data;
 
     await resend.emails.send({
-      from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
+      from: 'Mailbox Plus <help@mailboxplusohio.com>',
       to: 'help@mailboxplusohio.com',
-      reply_to: data.email,
-      subject: `New Contact Form Submission from ${data.name}`,
+      subject: `📬 New Mailbox Reservation from ${name}`,
       html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone || 'N/A'}</p>
-        <p><strong>Service Interest:</strong> ${data.service || 'N/A'}</p>
-        <p><strong>Message:</strong><br>${data.message}</p>
+        <h2>Mailbox Reservation Request</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone || 'N/A'}</p>
+        <p><strong>Selected Plan:</strong> ${plan || mailboxSize || 'N/A'}</p>
       `,
     });
 
@@ -132,12 +132,12 @@ export const handler: Handler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ success: true }),
     };
-  } catch (error) {
-    console.error('Email sending error:', error);
+  } catch (error: any) {
+    console.error('Resend error:', error);
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to send message' }),
+      body: JSON.stringify({ error: error.message || 'Failed to send reservation email' }),
     };
   }
 };

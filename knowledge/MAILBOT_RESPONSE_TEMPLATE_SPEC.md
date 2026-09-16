@@ -266,6 +266,6 @@ Validation is performed by the `validateV1Response()` function in `mailbot-respo
 
 ## References
 
-- Implementation: [`netlify/functions/lib/mailbot-response-template-v1.ts`](file:///d:/mailbox-plus-website/mailbox-plus-website/netlify/functions/lib/mailbot-response-template-v1.ts)
-- Integration: [`netlify/functions/chat-retrieve.ts`](file:///d:/mailbox-plus-website/mailbox-plus-website/netlify/functions/chat-retrieve.ts)
-- FAQ Database: [`knowledge/kb.entries.json`](file:///d:/mailbox-plus-website/mailbox-plus-website/knowledge/kb.entries.json)
+- Implementation: [`netlify/functions/lib/mailbot-response-template-v1.ts`](netlify/functions/lib/mailbot-response-template-v1.ts)
+- Integration: [`netlify/functions/chat-retrieve.ts`](netlify/functions/chat-retrieve.ts)
+- FAQ Database: [`knowledge/kb.entries.json`](knowledge/kb.entries.json)

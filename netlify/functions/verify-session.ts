@@ -1,27 +1,13 @@
-// verify-session.ts — Netlify Function: server-side retrieval of a completed
-// Stripe Checkout Session so the thank-you page can fire an ACCURATE Purchase
-// event (Meta pixel + GA4) with the real tier name and amount.
-//
-// Why server-side: the page must never hold the Stripe secret key, and session
-// IDs in the URL are client-editable — the function treats them as untrusted.
-//
-// Security posture:
-// - GET only; session_id must match Stripe's cs_... format (rejects injection).
-// - Returns ONLY the non-sensitive fields the pixel needs (tier name, display
-//   amount, currency). Never returns customer PII (email, address, phone).
-// - Payment status must be "paid" (or the subscription's initial invoice paid).
-
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { z } from 'zod';
+import { registry, createValidationErrorResponse, ErrorResponseSchema } from './lib/openapi-registry';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
 
-// Tier metadata → human name + monthly display price (for pixel value).
-// Amount is NOT trusted from here for revenue reporting — Stripe is the source
-// of truth at webhook time; this is the client-side pixel value only.
 const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   small_mail_only: { name: 'Small Mail Only', monthly: 15 },
   small_packages10: { name: 'Small +10 Packages', monthly: 25 },
@@ -30,6 +16,62 @@ const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   business_small: { name: 'Business Small', monthly: 35 },
   business_large: { name: 'Business Large', monthly: 50 },
 };
+
+export const VerifySessionQuerySchema = z
+  .object({
+    session_id: z.string().regex(/^cs_(test|live)_[A-Za-z0-9]+$/, 'Invalid session_id format'),
+  })
+  .openapi('VerifySessionQuery');
+
+export const VerifySessionResponseSchema = z
+  .object({
+    ok: z.boolean().optional(),
+    tier: z.string().nullable().optional(),
+    product: z.string().optional(),
+    amount: z.number().optional(),
+    currency: z.string().optional(),
+    error: z.string().optional(),
+    details: z.any().optional(),
+  })
+  .openapi('VerifySessionResponse');
+
+export type VerifySessionQuery = z.infer<typeof VerifySessionQuerySchema>;
+export type VerifySessionResponse = z.infer<typeof VerifySessionResponseSchema>;
+
+registry.registerPath({
+  method: 'get',
+  path: '/.netlify/functions/verify-session',
+  summary: 'Verify Stripe Checkout session',
+  request: {
+    query: VerifySessionQuerySchema,
+  },
+  responses: {
+    200: {
+      description: 'Session verification payload',
+      content: {
+        'application/json': {
+          schema: VerifySessionResponseSchema,
+        },
+      },
+    },
+    400: {
+      description: 'Invalid query parameters',
+      content: {
+        'application/json': {
+          schema: ErrorResponseSchema,
+        },
+      },
+    },
+    404: {
+      description: 'Session not found',
+      content: {
+        'application/json': {
+          schema: ErrorResponseSchema,
+        },
+      },
+    },
+  },
+});
 
 const json = (code: number, body: unknown) => ({
   statusCode: code,
@@ -55,11 +97,13 @@ export const handler: Handler = async (event) => {
     return json(500, { error: 'Stripe is not configured' });
   }
 
-  const sessionId = (event.queryStringParameters?.session_id || '').trim();
-  // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
-  if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
-    return json(400, { error: 'Invalid session_id' });
+  const queryParams = event.queryStringParameters || {};
+  const parseResult = VerifySessionQuerySchema.safeParse(queryParams);
+  if (!parseResult.success) {
+    return createValidationErrorResponse(parseResult.error);
   }
+
+  const { session_id: sessionId } = parseResult.data;
 
   try {
     const session = await stripe.checkout.sessions.retrieve(sessionId, {
@@ -74,11 +118,8 @@ export const handler: Handler = async (event) => {
     const tier = (session.metadata?.tier || '').trim();
     const tierInfo = TIER_LABELS[tier];
 
-    // Prefer the actual amount from Stripe; fall back to the tier table.
     let amount = tierInfo?.monthly ?? 0;
     if (typeof session.amount_total === 'number' && session.amount_total > 0) {
-      // amount_total includes the key deposit line on first invoice — that's
-      // what the customer actually paid, so it's the honest pixel value.
       amount = session.amount_total / 100;
     }
 
@@ -90,8 +131,9 @@ export const handler: Handler = async (event) => {
       currency: (session.currency || 'usd').toUpperCase(),
     });
   } catch (err: any) {
-    // Invalid/unknown session → 404 without detail (don't leak error strings)
     console.error('verify-session error:', err?.message || err);
     return json(404, { error: 'Session not found' });
   }
 };
+
+export default handler;
