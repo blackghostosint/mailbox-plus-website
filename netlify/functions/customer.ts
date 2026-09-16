@@ -1,5 +1,6 @@
 import { Handler } from '@netlify/functions';
 import { db, Customer } from './lib/db';
+import { verifyRecaptchaToken } from './lib/recaptcha';
 import crypto from 'crypto';
 
 export const handler: Handler = async (event: any, context: any) => {
@@ -20,6 +21,22 @@ export const handler: Handler = async (event: any, context: any) => {
     // --- POST /api/customer (Public Sign-up / Counter Create) ---
     if (method === 'POST') {
       const data = JSON.parse(event.body || '{}');
+
+      // Unauthenticated public POST requests require valid reCAPTCHA
+      if (!isStaff()) {
+        const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
+        const clientIp =
+          event.headers?.['client-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim();
+        const isValid = await verifyRecaptchaToken(token, clientIp);
+        if (!isValid) {
+          return {
+            statusCode: 400,
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+          };
+        }
+      }
+
       const { firstName, lastName, phone, email, street, city, state, zip, birthday, referredBy } =
         data;
 
