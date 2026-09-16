@@ -54,6 +54,13 @@ try {
   gray = null;
 }
 
+let validateArticleFrontmatter;
+try {
+  validateArticleFrontmatter = (await import('../lib/article-schema.ts')).validateArticleFrontmatter;
+} catch {
+  validateArticleFrontmatter = null;
+}
+
 let currentFile = null;
 const results = [];
 function check(name, pass, detail, fix, file = currentFile) {
@@ -435,8 +442,8 @@ function cmdDoctor() {
   }
   check(
     'scripts-present',
-    ['validate-articles.cjs', 'seo'].every((p) => fs.existsSync(path.join(ROOT, 'scripts', p))),
-    'scripts/seo + validate-articles.cjs present',
+    ['validate-articles.ts', 'seo'].every((p) => fs.existsSync(path.join(ROOT, 'scripts', p))),
+    'scripts/seo + validate-articles.ts present',
     'git checkout main && git pull'
   );
 
@@ -536,7 +543,17 @@ function cmdArticle(arg, isStrict = false) {
 
     initRouteRegistry();
 
-    // 1) Required frontmatter
+    // 1) Required frontmatter & Zod schema check
+    if (validateArticleFrontmatter) {
+      const zres = validateArticleFrontmatter(data, path.basename(abs));
+      if (!zres.success) {
+        for (const err of zres.errors) {
+          check('frontmatter:schema', false, err, 'fix frontmatter schema error');
+        }
+      } else {
+        check('frontmatter:schema', true, 'valid Zod frontmatter schema');
+      }
+    }
     for (const f of REQUIRED_FRONTMATTER) {
       if (data[f] === undefined || data[f] === null || data[f] === '') {
         if (f === 'status') {
@@ -1038,12 +1055,12 @@ function cmdReview(targetPath) {
     check('review:file-exists', false, `${targetPath} not found`, 'check file path');
     return;
   }
-  const scriptPath = path.join(ROOT, 'scripts', 'review-article-copy.py');
+  const scriptPath = path.join(ROOT, 'scripts', 'review-article-copy.ts');
   if (!fs.existsSync(scriptPath)) {
     check(
       'review:script-exists',
       false,
-      'scripts/review-article-copy.py not found',
+      'scripts/review-article-copy.ts not found',
       'script missing'
     );
     return;
@@ -1062,7 +1079,7 @@ function cmdReview(targetPath) {
   try {
     const jsonFlag = asJson ? ' --json' : '';
     execSync(
-      `python3 "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
+      `npx tsx "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
       {
         stdio: 'inherit',
         cwd: ROOT,

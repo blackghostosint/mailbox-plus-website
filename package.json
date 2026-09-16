@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "cd astro && npm run dev",
-    "prebuild": "node scripts/fetch-reviews.mjs && node scripts/generate-llms-articles.mjs --write",
+    "prebuild": "node scripts/fetch-reviews.mjs && tsx scripts/generate-llms-articles.ts --write",
     "build": "cd astro && npm run build",
     "preview": "cd astro && npm run preview",
     "check": "cd astro && npm run check",
@@ -19,7 +19,8 @@
     "audit:micro-problems:report": "node scripts/audit-micro-problems.cjs",
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
     "build:embeddings": "tsx scripts/build-embeddings.ts",
-    "audit:articles": "node scripts/verify/verify.mjs articles --offline",
+    "audit:articles": "tsx scripts/validate-articles.ts",
+    "audit:copy": "tsx scripts/review-article-copy.ts",
     "audit:quality": "npm run format:check && npm run audit:articles && npm run seo:check-links",
     "verify": "node scripts/verify/verify.mjs changed",
     "verify:doctor": "node scripts/verify/verify.mjs doctor",
@@ -42,7 +43,8 @@
     "@netlify/blobs": "^10.7.9",
     "dotenv": "^17.2.3",
     "resend": "^6.16.0",
-    "stripe": "^22.5.0"
+    "stripe": "^22.5.0",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.13.0",

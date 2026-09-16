@@ -64,7 +64,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose.
 3. **Copy review ≥ 80/100.**
    ```bash
-   python3 scripts/review-article-copy.py content/articles/{category}/{slug}.md
+   npx tsx scripts/review-article-copy.ts content/articles/{category}/{slug}.md
    ```
    Five rubric dimensions (sensory grounding, one-person ear, identity stakes & anxiety dissolution, villain legitimacy, fluff density). The success scene and CTA must dissolve the reader's dread (burden transfer), not pitch like a flyer.
 4. **Deterministic verification (strict mode).**
