@@ -31,6 +31,7 @@
     "seo:check-href-slash": "node scripts/seo/check-internal-href-slash.mjs",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
     "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
+    "check:functions": "node scripts/check-netlify-functions.mjs",
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
