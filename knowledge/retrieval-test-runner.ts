@@ -137,6 +137,9 @@ async function generateEmbedding(
   // exact key match is preferred when available.
   for (const [key, vec] of Object.entries(embeddingCache)) {
     if (key.endsWith(`::${text}`) || key === text) {
+      console.warn(
+        `⚠️ Non-exact cache key match fallback used for "${text.substring(0, 30)}..." (matched key: ${key})`
+      );
       return vec;
     }
   }
@@ -181,10 +184,13 @@ async function buildEmbeddingCache(): Promise<boolean> {
       console.log('\n================================================================');
       console.log('⚠️  NOTICE: GEMINI_API_KEY is not set and no vector cache was found.');
       console.log('⚠️  Skipping AI retrieval evaluation suite.');
-      console.log('⚠️  Provide GEMINI_API_KEY or restore knowledge/.embedding-cache.json to run tests.');
+      console.log(
+        '⚠️  Provide GEMINI_API_KEY or restore knowledge/.embedding-cache.json to run tests.'
+      );
       console.log('================================================================\n');
 
-      const skippedReport = `# Retrieval Test Report (Skipped)\n\n` +
+      const skippedReport =
+        `# Retrieval Test Report (Skipped)\n\n` +
         `> ⚠️ **EVALUATION SKIPPED**: \`GEMINI_API_KEY\` environment variable is not set and no pre-cached vector embeddings file (\`knowledge/.embedding-cache.json\`) was found.\n\n` +
         `**Generated:** ${new Date().toISOString()}\n\n` +
         `To run retrieval evaluation, provide \`GEMINI_API_KEY\` or generate/restore \`knowledge/.embedding-cache.json\`.\n`;
