@@ -38,3 +38,7 @@ The visual system is token-driven — see `docs/DESIGN_SYSTEM.md`. Do not change
 ## Articles
 
 Writing or editing anything in `content/articles/`? Follow `docs/ARTICLE-WORKFLOW.md` — style standard, structure, and the hard gates (fact-check, copy review ≥ 80, strict verification). All apply before you open the PR.
+
+## 7. State the auth model for every API change
+
+Every PR that adds or modifies a Netlify function (or any API endpoint) must state the endpoint's auth model in the PR body: who is allowed to call it and how identity is proven (token, session, signed request, etc.). "The endpoint exists and validates its input" is not an auth model. A PR that adds or modifies an endpoint without this section is rejected on sight. Existence checks, field whitelists, and ID-format constraints do not count as authorization.
