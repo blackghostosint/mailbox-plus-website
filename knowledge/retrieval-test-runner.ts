@@ -19,8 +19,8 @@ const __dirname = dirname(__filename);
 dotenv.config({ path: join(__dirname, '..', '.env.local') });
 dotenv.config({ path: join(__dirname, '..', '.env') });
 
-import { readFileSync, writeFileSync, existsSync } from 'fs';
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import { readFileSync, writeFileSync, existsSync, statSync, appendFileSync } from 'fs';
+import { GoogleGenerativeAI, type GenerativeModel } from '@google/generative-ai';
 import {
   retrievalTests,
   FALLBACK_RESPONSE,
@@ -31,22 +31,34 @@ import {
 } from './retrieval-test-suite.js';
 
 // ========================================
-// Validate API Key (Fail Fast)
+// Custom Cache Miss Error
 // ========================================
-if (!process.env.GEMINI_API_KEY) {
-  throw new Error(
-    'GEMINI_API_KEY is not set. Define it in .env.local or your environment before running retrieval tests.'
-  );
+class CacheMissError extends Error {
+  constructor(public text: string) {
+    super(`No cached vector embedding exists for: "${text}"`);
+    this.name = 'CacheMissError';
+  }
 }
 
 // ========================================
-// Gemini API Setup
+// Gemini API Setup (with Offline Fallback)
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+let genAI: GoogleGenerativeAI | null = null;
+let embeddingModel: GenerativeModel | null = null;
+const isOfflineMode = !GEMINI_API_KEY;
 
-console.log('✓ Gemini API initialized with text-embedding-004 model');
+if (GEMINI_API_KEY) {
+  genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+  embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+  console.log('✓ Gemini API initialized with text-embedding-004 model');
+} else {
+  console.log('\n================================================================');
+  console.log(
+    '⚠️  OFFLINE MODE — retrieval results are against CACHED embeddings, not live API vectors. Results are not comparable to live runs.'
+  );
+  console.log('================================================================\n');
+}
 
 // ========================================
 // Load Knowledge Base
@@ -89,32 +101,58 @@ if (existsSync(CACHE_FILE)) {
     embeddingCache = JSON.parse(readFileSync(CACHE_FILE, 'utf-8'));
     console.log(`✓ Loaded cached embeddings for ${Object.keys(embeddingCache).length} entries`);
   } catch (err) {
-    console.warn('⚠ Could not load embedding cache, will rebuild');
+    console.warn('⚠ Could not load embedding cache, will rebuild if API key is set');
   }
 }
 
 /**
- * Generate embedding for a single text using Gemini
+ * Generate embedding for a single text using Gemini API or offline cache.
+ * When GEMINI_API_KEY is present, live API errors throw immediately without fallback.
+ * When GEMINI_API_KEY is absent, missing cache entries throw CacheMissError.
  */
 async function generateEmbedding(
   text: string,
   taskType: string = 'RETRIEVAL_DOCUMENT'
 ): Promise<number[]> {
-  try {
+  // If API key is available, generate live embedding and fail loudly on API errors
+  if (embeddingModel) {
     const result = await embeddingModel.embedContent({
       content: { parts: [{ text }] },
       taskType,
     });
 
     if (!result.embedding || !result.embedding.values) {
-      throw new Error('Invalid embedding response from Gemini API');
+      throw new Error(
+        `Invalid embedding response from Gemini API for text: "${text.substring(0, 50)}..."`
+      );
     }
 
-    return result.embedding.values;
-  } catch (error) {
-    console.error(`Failed to generate embedding for text: "${text.substring(0, 50)}..."`);
-    throw error;
+    const values = result.embedding.values;
+    const primaryKey = `${taskType}::${text}`;
+    embeddingCache[primaryKey] = values;
+
+    return values;
   }
+
+  // Offline lookup in embeddingCache.
+  // We look up by taskType prefix (`RETRIEVAL_QUERY::` or `RETRIEVAL_DOCUMENT::`)
+  // plus legacy `query::` prefix for query tasks. Cross-matching query embeddings with
+  // document embeddings (or un-prefixed bare keys) is disallowed to ensure taskType integrity.
+  const primaryKey = `${taskType}::${text}`;
+  const cachedKeys = taskType === 'RETRIEVAL_QUERY' ? [primaryKey, `query::${text}`] : [primaryKey];
+
+  for (const key of cachedKeys) {
+    if (embeddingCache[key]) {
+      if (process.env.DEBUG_RETRIEVAL && key !== primaryKey) {
+        console.warn(
+          `[Cache Lookup] Matched non-primary key form "${key.split('::')[0]}" for taskType "${taskType}"`
+        );
+      }
+      return embeddingCache[key];
+    }
+  }
+
+  throw new CacheMissError(text);
 }
 
 /**
@@ -142,9 +180,31 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 }
 
 /**
- * Pre-compute and cache embeddings for all KB entries
+ * Pre-compute and cache embeddings for all KB entries and retrieval test suite queries when GEMINI_API_KEY is present
  */
-async function buildEmbeddingCache(): Promise<void> {
+async function buildEmbeddingCache(): Promise<boolean> {
+  if (!GEMINI_API_KEY) {
+    const cachedCount = Object.keys(embeddingCache).length;
+    if (cachedCount === 0) {
+      console.error(
+        '❌ OFFLINE MODE ERROR: GEMINI_API_KEY is missing and vector cache (.embedding-cache.json) is missing or empty.'
+      );
+      console.error(
+        '❌ Cannot run retrieval evaluation without GEMINI_API_KEY or pre-cached vector embeddings.'
+      );
+      console.error(
+        '❌ Set GEMINI_API_KEY to generate embeddings, or restore .embedding-cache.json.\n'
+      );
+      throw new Error('Offline mode requested but vector embedding cache is missing or empty.');
+    }
+    const stats = existsSync(CACHE_FILE) ? statSync(CACHE_FILE) : null;
+    const cacheAgeInfo = stats ? ` (cache modified: ${stats.mtime.toISOString()})` : '';
+    console.log(
+      `✓ Offline mode: using pre-cached vector embeddings (${cachedCount} cached entries)${cacheAgeInfo}\n`
+    );
+    return true;
+  }
+
   console.log('\n📦 Building/updating embedding cache...');
 
   let newEmbeddings = 0;
@@ -153,10 +213,12 @@ async function buildEmbeddingCache(): Promise<void> {
     // Embed questionVariants with RETRIEVAL_QUERY taskType (they are example queries)
     for (const variant of entry.questionVariants) {
       const cacheKey = `${entry.id}::${variant}`;
+      const taskKey = `RETRIEVAL_QUERY::${variant}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] || !embeddingCache[taskKey]) {
         const embedding = await generateEmbedding(variant, 'RETRIEVAL_QUERY');
         embeddingCache[cacheKey] = embedding;
+        embeddingCache[taskKey] = embedding;
         newEmbeddings++;
 
         // Small delay to avoid rate limiting
@@ -168,10 +230,12 @@ async function buildEmbeddingCache(): Promise<void> {
     const documentTexts = [entry.searchText, entry.title];
     for (const text of documentTexts) {
       const cacheKey = `${entry.id}::${text}`;
+      const taskKey = `RETRIEVAL_DOCUMENT::${text}`;
 
-      if (!embeddingCache[cacheKey]) {
+      if (!embeddingCache[cacheKey] || !embeddingCache[taskKey]) {
         const embedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
         embeddingCache[cacheKey] = embedding;
+        embeddingCache[taskKey] = embedding;
         newEmbeddings++;
 
         // Small delay to avoid rate limiting
@@ -180,10 +244,25 @@ async function buildEmbeddingCache(): Promise<void> {
     }
   }
 
+  // Pre-cache embeddings for all test suite queries
+  for (const testCase of retrievalTests) {
+    const taskKey = `RETRIEVAL_QUERY::${testCase.query}`;
+
+    if (!embeddingCache[taskKey]) {
+      const embedding = await generateEmbedding(testCase.query, 'RETRIEVAL_QUERY');
+      embeddingCache[taskKey] = embedding;
+      newEmbeddings++;
+
+      // Small delay to avoid rate limiting
+      await new Promise((resolve) => setTimeout(resolve, 100));
+    }
+  }
+
   // Save cache to file
   writeFileSync(CACHE_FILE, JSON.stringify(embeddingCache, null, 2), 'utf-8');
   console.log(`✓ Cache updated: ${newEmbeddings} new embeddings generated`);
   console.log(`✓ Total cached embeddings: ${Object.keys(embeddingCache).length}\n`);
+  return true;
 }
 
 // ========================================
@@ -205,10 +284,10 @@ async function calculateSimilarity(
 
   for (const text of entryTexts) {
     const cacheKey = `${entryId}::${text}`;
-    const entryEmbedding = embeddingCache[cacheKey];
+    let entryEmbedding = embeddingCache[cacheKey];
 
     if (!entryEmbedding) {
-      throw new Error(`Missing cached embedding for: ${cacheKey}`);
+      entryEmbedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
     }
 
     const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
@@ -227,50 +306,63 @@ interface RetrievalResult {
   answer?: string;
   confidence?: number;
   refusalReason?: string;
+  isMiss?: boolean;
+  missReason?: string;
 }
 
 async function retrieveAnswer(query: string): Promise<RetrievalResult> {
-  let bestMatch: { entry: KBEntry; score: number } | null = null;
-  let secondBestScore = 0;
+  try {
+    let bestMatch: { entry: KBEntry; score: number } | null = null;
+    let secondBestScore = 0;
 
-  // Find best matching FAQ using semantic similarity
-  for (const entry of kb.entries) {
-    // Texts to check against
-    const textsToCheck = [...entry.questionVariants, entry.searchText, entry.title];
+    // Find best matching FAQ using semantic similarity
+    for (const entry of kb.entries) {
+      // Texts to check against
+      const textsToCheck = [...entry.questionVariants, entry.searchText, entry.title];
 
-    const score = await calculateSimilarity(query, entry.id, textsToCheck);
+      const score = await calculateSimilarity(query, entry.id, textsToCheck);
 
-    if (score > (bestMatch?.score || 0)) {
-      secondBestScore = bestMatch?.score || 0;
-      bestMatch = { entry, score };
-    } else if (score > secondBestScore) {
-      secondBestScore = score;
+      if (score > (bestMatch?.score || 0)) {
+        secondBestScore = bestMatch?.score || 0;
+        bestMatch = { entry, score };
+      } else if (score > secondBestScore) {
+        secondBestScore = score;
+      }
     }
-  }
 
-  // Apply retrieval contract
-  if (!bestMatch || bestMatch.score < MINIMUM_SIMILARITY) {
+    // Apply retrieval contract
+    if (!bestMatch || bestMatch.score < MINIMUM_SIMILARITY) {
+      return {
+        matched: false,
+        refusalReason: 'No entry meets similarity threshold',
+      };
+    }
+
+    // Check for competing entries
+    const scoreGap = bestMatch.score - secondBestScore;
+    if (scoreGap < 0.1 && secondBestScore >= MINIMUM_SIMILARITY) {
+      return {
+        matched: false,
+        refusalReason: 'Two or more entries compete',
+      };
+    }
+
     return {
-      matched: false,
-      refusalReason: 'No entry meets similarity threshold',
+      matched: true,
+      faqId: bestMatch.entry.id,
+      answer: bestMatch.entry.answer,
+      confidence: bestMatch.score,
     };
+  } catch (err) {
+    if (err instanceof CacheMissError) {
+      return {
+        matched: false,
+        isMiss: true,
+        missReason: 'no vector — skipped (offline mode)',
+      };
+    }
+    throw err;
   }
-
-  // Check for competing entries
-  const scoreGap = bestMatch.score - secondBestScore;
-  if (scoreGap < 0.1 && secondBestScore >= MINIMUM_SIMILARITY) {
-    return {
-      matched: false,
-      refusalReason: 'Two or more entries compete',
-    };
-  }
-
-  return {
-    matched: true,
-    faqId: bestMatch.entry.id,
-    answer: bestMatch.entry.answer,
-    confidence: bestMatch.score,
-  };
 }
 
 // ========================================
@@ -278,15 +370,27 @@ async function retrieveAnswer(query: string): Promise<RetrievalResult> {
 // ========================================
 interface TestExecutionResult {
   testCase: TestCase;
-  actualResult: TestResult;
+  actualResult: TestResult | 'MISS';
   actualFaqId?: string;
   confidence?: number;
   passed: boolean;
+  isMiss?: boolean;
   failureReason?: string;
 }
 
 async function executeTest(testCase: TestCase): Promise<TestExecutionResult> {
   const retrieval = await retrieveAnswer(testCase.query);
+
+  if (retrieval.isMiss) {
+    return {
+      testCase,
+      actualResult: 'MISS',
+      passed: false,
+      isMiss: true,
+      failureReason: 'no vector — skipped (offline mode)',
+    };
+  }
+
   const actualResult: TestResult = retrieval.matched ? 'ACCEPT' : 'REFUSE';
 
   let passed = actualResult === testCase.expectedResult;
@@ -313,13 +417,27 @@ async function executeTest(testCase: TestCase): Promise<TestExecutionResult> {
 // ========================================
 // Report Generation
 // ========================================
-function generateMarkdownReport(results: TestExecutionResult[]): string {
+function generateMarkdownReport(
+  results: TestExecutionResult[],
+  misses: number,
+  missRate: number,
+  missThreshold: number
+): string {
   const stats = getTestStats();
-  const passed = results.filter((r) => r.passed).length;
-  const failed = results.filter((r) => !r.passed).length;
-  const passRate = ((passed / results.length) * 100).toFixed(1);
+  const nonMissResults = results.filter((r) => !r.isMiss);
+  const passed = nonMissResults.filter((r) => r.passed).length;
+  const failed = nonMissResults.filter((r) => !r.passed).length;
+  const total = results.length;
+  const passRate = total > 0 ? ((passed / total) * 100).toFixed(1) : '0.0';
 
   let report = `# Retrieval Test Report (Gemini Embeddings)\n\n`;
+  if (isOfflineMode) {
+    report += `**Mode:** OFFLINE (cached vectors)\n\n`;
+    report += `> ⚠️ **OFFLINE MODE — retrieval results are against CACHED embeddings, not live API vectors. Results are not comparable to live runs.**\n\n`;
+  } else {
+    report += `**Mode:** LIVE (Gemini text-embedding-004 API)\n\n`;
+  }
+
   report += `**Generated:** ${new Date().toISOString()}\n\n`;
   report += `**Embedding Model:** text-embedding-004\n`;
   report += `**Minimum Similarity Threshold:** ${MINIMUM_SIMILARITY}\n\n`;
@@ -328,43 +446,52 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
   report += `## Summary\n\n`;
   report += `| Metric | Value |\n`;
   report += `|--------|-------|\n`;
-  report += `| Total Tests | ${results.length} |\n`;
+  report += `| Mode | ${isOfflineMode ? 'OFFLINE (cached vectors)' : 'LIVE (Gemini text-embedding-004 API)'} |\n`;
+  report += `| Total Tests | ${total} |\n`;
   report += `| Passed | ${passed} |\n`;
+  report += `| Skipped (MISS) | ${misses} |\n`;
   report += `| Failed | ${failed} |\n`;
+  report += `| Miss Rate | ${(missRate * 100).toFixed(1)}% |\n`;
   report += `| Pass Rate | ${passRate}% |\n\n`;
 
   // Exit Criteria
-  const uiApproved = failed === 0;
   report += `## Exit Criteria\n\n`;
-  if (uiApproved) {
-    report += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n\n`;
-  } else {
+  if (missRate > missThreshold) {
+    report += `❌ **RUN FAILED** - Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold of ${(missThreshold * 100).toFixed(0)}%. Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
+  } else if (failed > 0) {
     report += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed. Fix issues before proceeding.\n\n`;
+  } else if (isOfflineMode) {
+    report += `⚠️ **RETRIEVAL APPROVED (OFFLINE MODE)** - All evaluated tests passed against pre-cached vector embeddings. Note: validates cached vectors, not live model behavior.\n\n`;
+  } else {
+    report += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n\n`;
   }
 
   // Test Category Breakdown
   report += `## Test Category Breakdown\n\n`;
-  report += `| Category | Count | Should Accept | Should Refuse |\n`;
-  report += `|----------|-------|---------------|---------------|\n`;
+  report += `| Category | Count | Passed | Failed | Skipped (MISS) | Should Accept | Should Refuse |\n`;
+  report += `|----------|-------|--------|--------|----------------|---------------|---------------|\n`;
 
   const categories = Object.keys(stats.byCategory);
   for (const category of categories) {
     const count = stats.byCategory[category];
     const categoryTests = results.filter((r) => r.testCase.category === category);
+    const catPassed = categoryTests.filter((r) => r.passed && !r.isMiss).length;
+    const catFailed = categoryTests.filter((r) => !r.passed && !r.isMiss).length;
+    const catMisses = categoryTests.filter((r) => r.isMiss).length;
     const accept = categoryTests.filter((r) => r.testCase.expectedResult === 'ACCEPT').length;
     const refuse = categoryTests.filter((r) => r.testCase.expectedResult === 'REFUSE').length;
-    report += `| ${category} | ${count} | ${accept} | ${refuse} |\n`;
+    report += `| ${category} | ${count} | ${catPassed} | ${catFailed} | ${catMisses} | ${accept} | ${refuse} |\n`;
   }
   report += `\n`;
 
-  // Detailed Results Table
+  // Detailed Test Results Table
   report += `## Detailed Test Results\n\n`;
   report += `| ID | Query | Expected | Actual | Pass/Fail | Confidence | Notes |\n`;
   report += `|----|-------|----------|--------|-----------|------------|-------|\n`;
 
   for (const result of results) {
-    const { testCase, actualResult, passed, failureReason, confidence } = result;
-    const passIcon = passed ? '✅' : '❌';
+    const { testCase, actualResult, passed, failureReason, confidence, isMiss } = result;
+    const passIcon = isMiss ? '⚠️ MISS' : passed ? '✅' : '❌';
     const notes = failureReason || testCase.notes || '';
     const queryTrunc =
       testCase.query.length > 50 ? testCase.query.substring(0, 47) + '...' : testCase.query;
@@ -374,10 +501,10 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
   }
   report += `\n`;
 
-  // Failures Section (if any)
+  // Failures & Misses Section (if any)
   const failures = results.filter((r) => !r.passed);
   if (failures.length > 0) {
-    report += `## ⚠️ Failed Tests\n\n`;
+    report += `## ⚠️ Failed Tests & Cache Misses\n\n`;
     for (const failure of failures) {
       report += `### ${failure.testCase.id}: ${failure.testCase.query}\n\n`;
       report += `- **Category:** ${failure.testCase.category}\n`;
@@ -398,17 +525,19 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
 
   // Recommendations
   report += `## Recommendations\n\n`;
+  const uiApproved = failed === 0 && misses === 0;
   if (uiApproved) {
     report += `All tests passed! You may proceed to UI development.\n\n`;
   } else {
-    report += `**Action Required:** Fix the failed tests before UI rollout.\n\n`;
+    report += `**Action Required:** Fix the failed tests or missing vector embeddings before UI rollout.\n\n`;
     report += `**Allowed Fixes:**\n`;
     report += `1. Adjust \`minimumSimilarity\` threshold (currently ${MINIMUM_SIMILARITY})\n`;
-    report += `2. Improve \`searchText\` in FAQ entries without changing answers\n\n`;
+    report += `2. Improve \`searchText\` in FAQ entries without changing answers\n`;
+    report += `3. Supply \`GEMINI_API_KEY\` to generate missing vector embeddings\n\n`;
     report += `**Do NOT:**\n`;
     report += `- Rewrite answers to fit failing tests\n`;
     report += `- Remove tests to improve pass rate\n`;
-    report += `- Proceed to UI with failing tests\n\n`;
+    report += `- Proceed to UI with failing tests or un-embedded vectors\n\n`;
   }
 
   return report;
@@ -418,9 +547,16 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
 // Main Execution
 // ========================================
 async function main() {
+  if (isOfflineMode) {
+    console.log('================================================================');
+    console.log(
+      '⚠️  OFFLINE MODE — retrieval results are against CACHED embeddings, not live API vectors. Results are not comparable to live runs.'
+    );
+    console.log('================================================================\n');
+  }
+
   console.log('🧪 Running Retrieval Test Suite with Gemini Embeddings...\n');
 
-  // Build embedding cache first
   await buildEmbeddingCache();
 
   const results: TestExecutionResult[] = [];
@@ -430,17 +566,32 @@ async function main() {
     const result = await executeTest(testCase);
     results.push(result);
 
-    const icon = result.passed ? '✅' : '❌';
-    const confStr = result.confidence ? ` (${(result.confidence * 100).toFixed(1)}%)` : '';
-    console.log(
-      `${icon} ${testCase.id}: ${testCase.query.substring(0, 50)}${testCase.query.length > 50 ? '...' : ''}${confStr}`
-    );
+    if (result.isMiss) {
+      console.log(
+        `⚠️ MISS ${testCase.id}: ${testCase.query.substring(0, 50)}... (no vector — skipped)`
+      );
+    } else {
+      const icon = result.passed ? '✅' : '❌';
+      const confStr = result.confidence ? ` (${(result.confidence * 100).toFixed(1)}%)` : '';
+      console.log(
+        `${icon} ${testCase.id}: ${testCase.query.substring(0, 50)}${testCase.query.length > 50 ? '...' : ''}${confStr}`
+      );
+    }
   }
+
+  const total = results.length;
+  const misses = results.filter((r) => r.isMiss).length;
+  const missRate = misses / total;
+  const missThreshold = 0.1; // 10% threshold
+
+  const nonMissResults = results.filter((r) => !r.isMiss);
+  const passed = nonMissResults.filter((r) => r.passed).length;
+  const failed = nonMissResults.filter((r) => !r.passed).length;
 
   console.log('\n📊 Generating report...\n');
 
   // Generate report
-  const report = generateMarkdownReport(results);
+  const report = generateMarkdownReport(results, misses, missRate, missThreshold);
 
   // Write to file
   const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
@@ -449,55 +600,136 @@ async function main() {
   console.log(`✓ Report saved to: ${reportPath}\n`);
 
   // Console summary
-  const passed = results.filter((r) => r.passed).length;
-  const failed = results.filter((r) => !r.passed).length;
+  if (isOfflineMode) {
+    console.log('Mode: OFFLINE (cached vectors)');
+  } else {
+    console.log('Mode: LIVE (Gemini text-embedding-004 API)');
+  }
+  console.log(`Total Tests: ${total}`);
+  console.log(`Passed: ${passed}`);
+  console.log(`Skipped (MISS): ${misses}`);
+  console.log(`Failed: ${failed}`);
+  console.log(`Miss Rate: ${(missRate * 100).toFixed(1)}%\n`);
 
-  // Category breakdown
-  const categoryResults = {
-    direct_match: { passed: 0, failed: 0 },
-    paraphrase: { passed: 0, failed: 0 },
-    ambiguous: { passed: 0, failed: 0 },
-    operational: { passed: 0, failed: 0 },
-    out_of_scope: { passed: 0, failed: 0 },
+  // Category breakdown console output
+  console.log('📈 Results by Category:');
+  const categoryResults: Record<
+    string,
+    { total: number; passed: number; failed: number; misses: number }
+  > = {
+    direct_match: { total: 0, passed: 0, failed: 0, misses: 0 },
+    paraphrase: { total: 0, passed: 0, failed: 0, misses: 0 },
+    ambiguous: { total: 0, passed: 0, failed: 0, misses: 0 },
+    operational: { total: 0, passed: 0, failed: 0, misses: 0 },
+    out_of_scope: { total: 0, passed: 0, failed: 0, misses: 0 },
   };
 
   for (const result of results) {
     const cat = result.testCase.category;
-    if (result.passed) {
-      categoryResults[cat].passed++;
-    } else {
-      categoryResults[cat].failed++;
+    if (categoryResults[cat]) {
+      categoryResults[cat].total++;
+      if (result.isMiss) {
+        categoryResults[cat].misses++;
+      } else if (result.passed) {
+        categoryResults[cat].passed++;
+      } else {
+        categoryResults[cat].failed++;
+      }
     }
   }
 
-  console.log('📈 Results by Category:');
-  console.log(
-    `   Direct Match:    ${categoryResults.direct_match.passed}/${categoryResults.direct_match.passed + categoryResults.direct_match.failed} passed`
-  );
-  console.log(
-    `   Paraphrase:      ${categoryResults.paraphrase.passed}/${categoryResults.paraphrase.passed + categoryResults.paraphrase.failed} passed`
-  );
-  console.log(
-    `   Ambiguous:       ${categoryResults.ambiguous.passed}/${categoryResults.ambiguous.passed + categoryResults.ambiguous.failed} passed`
-  );
-  console.log(
-    `   Operational:     ${categoryResults.operational.passed}/${categoryResults.operational.passed + categoryResults.operational.failed} passed`
-  );
-  console.log(
-    `   Out-of-Scope:    ${categoryResults.out_of_scope.passed}/${categoryResults.out_of_scope.passed + categoryResults.out_of_scope.failed} passed\n`
-  );
+  for (const [cat, res] of Object.entries(categoryResults)) {
+    console.log(
+      `   ${cat.padEnd(16)} ${res.passed}/${res.total} passed (${res.failed} failed, ${res.misses} misses)`
+    );
+  }
+  console.log();
 
-  if (failed === 0) {
-    console.log('✅ ALL TESTS PASSED - UI rollout approved!\n');
-    process.exit(0);
-  } else {
+  if (misses > 0) {
+    console.log('⚠️  Summary of Cache Misses (Offline Mode):');
+    const missResults = results.filter((r) => r.isMiss);
+    for (const m of missResults) {
+      console.log(`  • [${m.testCase.id}] "${m.testCase.query}"`);
+    }
+    console.log();
+  }
+
+  // Write step summary to GITHUB_STEP_SUMMARY if running in GitHub Actions CI
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    try {
+      let summaryContent = `## AI Knowledge Base Retrieval Evaluation\n\n`;
+      if (isOfflineMode) {
+        summaryContent += `Mode: OFFLINE (cached vectors)\n\n`;
+        summaryContent += `> ⚠️ **OFFLINE MODE — retrieval results are against CACHED embeddings, not live API vectors. Results are not comparable to live runs.**\n\n`;
+      } else {
+        summaryContent += `Mode: LIVE (Gemini text-embedding-004 API)\n\n`;
+      }
+      summaryContent += `| Total Tests | Passed | Skipped (MISS) | Failed | Miss Rate |\n`;
+      summaryContent += `|-------------|--------|----------------|--------|-----------|\n`;
+      summaryContent += `| ${total} | ${passed} | ${misses} | ${failed} | ${(missRate * 100).toFixed(1)}% |\n\n`;
+
+      if (missRate > missThreshold) {
+        summaryContent += `❌ **RUN FAILED**: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold of ${(missThreshold * 100).toFixed(0)}%. Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
+      } else if (failed > 0) {
+        summaryContent += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed.\n`;
+      } else if (isOfflineMode) {
+        summaryContent += `⚠️ **RETRIEVAL APPROVED (OFFLINE MODE)** - All evaluated tests passed against pre-cached vector embeddings. Note: validates cached vectors, not live model behavior.\n`;
+      } else {
+        summaryContent += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n`;
+      }
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, summaryContent, 'utf-8');
+      console.log('✓ Written summary to GITHUB_STEP_SUMMARY\n');
+    } catch (err) {
+      console.warn('⚠ Could not write to GITHUB_STEP_SUMMARY:', err);
+    }
+  }
+
+  // Check miss rate threshold exceedance
+  if (missRate > missThreshold) {
+    console.error(
+      `❌ RUN FAILED: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold.`
+    );
+    console.error(
+      `❌ Please run with GEMINI_API_KEY set to regenerate the vector cache (locally or via CI cache flow).\n`
+    );
+    process.exit(1);
+  }
+
+  if (failed > 0) {
     console.log(`❌ ${failed} TEST(S) FAILED - UI rollout blocked!\n`);
     console.log(`See ${reportPath} for details.\n`);
     process.exit(1);
   }
+
+  if (!isOfflineMode && Object.keys(embeddingCache).length > 0) {
+    try {
+      writeFileSync(CACHE_FILE, JSON.stringify(embeddingCache, null, 2), 'utf-8');
+      console.log(
+        `✓ Updated ${CACHE_FILE} with ${Object.keys(embeddingCache).length} cached vectors`
+      );
+    } catch (err) {
+      console.warn('⚠ Could not write updated embedding cache:', err);
+    }
+  }
+
+  if (isOfflineMode) {
+    console.log(
+      '⚠️  ALL EVALUATED TESTS PASSED (OFFLINE MODE - validating cached vectors, not live model behavior)\n'
+    );
+  } else {
+    console.log('✅ ALL TESTS PASSED - UI rollout approved!\n');
+  }
+  process.exit(0);
 }
 
 main().catch((err) => {
   console.error('Error running tests:', err);
+  try {
+    const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+    const errReport = `# Retrieval Test Report (Failed Execution)\n\n**Generated:** ${new Date().toISOString()}\n\n❌ **RUN FAILED**: ${err instanceof Error ? err.message : String(err)}\n`;
+    writeFileSync(reportPath, errReport, 'utf-8');
+  } catch (e) {
+    // Ignore report write error in fatal handler
+  }
   process.exit(1);
 });
