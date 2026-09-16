@@ -16,6 +16,7 @@ type HandlerContext = Record<string, unknown>;
 import { handler } from '../../../netlify/functions/me';
 import { db } from '../../../netlify/functions/lib/db';
 import type { Customer } from '../../../netlify/functions/lib/db';
+import { generateCustomerToken } from '../../../netlify/functions/lib/auth';
 
 vi.mock('@netlify/blobs', () => ({
   getStore: vi.fn(),
@@ -56,17 +57,21 @@ vi.mock('../../../netlify/functions/lib/db', () => ({
 }));
 
 const dummyContext = {} as HandlerContext;
+const staffContext = {
+  clientContext: { user: { email: 'staff@mailboxplus.com' } },
+} as HandlerContext;
 
 function createEvent(
   httpMethod: string,
   queryStringParameters: Record<string, string> = {},
-  body?: string
+  body?: string,
+  headers: Record<string, string> = {}
 ): HandlerEvent {
   return {
     httpMethod,
     queryStringParameters,
     body: body || null,
-    headers: {},
+    headers,
     multiValueHeaders: {},
     isBase64Encoded: false,
     path: '/api/me',
@@ -90,26 +95,110 @@ describe('me.ts serverless function handler', () => {
     expect(res?.statusCode).toBe(405);
   });
 
-  it('returns HTTP 400 when PATCH request has no id parameter', async () => {
-    const res = await handler(
-      createEvent('PATCH', {}, JSON.stringify({ firstName: 'NewName' })),
+  it('returns HTTP 400 when GET/PATCH parameter is missing', async () => {
+    const resGet = await handler(createEvent('GET', {}), dummyContext, () => undefined);
+    expect(resGet?.statusCode).toBe(400);
+
+    const resPatch = await handler(
+      createEvent('PATCH', {}, JSON.stringify({ firstName: 'New' })),
       dummyContext,
       () => undefined
     );
-    expect(res?.statusCode).toBe(400);
-    expect(JSON.parse(res?.body || '{}').error).toBe('Missing required parameter: id');
+    expect(resPatch?.statusCode).toBe(400);
+    expect(JSON.parse(resPatch?.body || '{}').error).toBe('Missing required parameter: id');
   });
 
-  it('returns HTTP 404 when PATCH customer is not found', async () => {
-    const res = await handler(
-      createEvent('PATCH', { id: 'non_existent_id' }, JSON.stringify({ firstName: 'NewName' })),
+  it('returns HTTP 404 when customer is not found', async () => {
+    const resGet = await handler(
+      createEvent('GET', { id: 'non_existent' }),
       dummyContext,
       () => undefined
     );
-    expect(res?.statusCode).toBe(404);
+    expect(resGet?.statusCode).toBe(404);
+
+    const resPatch = await handler(
+      createEvent('PATCH', { id: 'non_existent' }, JSON.stringify({ firstName: 'New' })),
+      dummyContext,
+      () => undefined
+    );
+    expect(resPatch?.statusCode).toBe(404);
   });
 
-  it('updates whitelisted contact fields and returns HTTP 200 with updated customer', async () => {
+  it('returns HTTP 401 when GET is called without session token or staff auth', async () => {
+    const res = await handler(
+      createEvent('GET', { id: 'cust_test_123' }),
+      dummyContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(401);
+    expect(JSON.parse(res?.body || '{}').error).toContain('Unauthorized');
+  });
+
+  it('returns HTTP 401 when PATCH is called without session token or staff auth', async () => {
+    const res = await handler(
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify({ firstName: 'Janet' })),
+      dummyContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(401);
+    expect(JSON.parse(res?.body || '{}').error).toContain('Unauthorized');
+  });
+
+  it('returns HTTP 401 when GET / PATCH is called with an invalid or mismatched session token', async () => {
+    const wrongToken = generateCustomerToken('cust_other_456');
+    const resGet = await handler(
+      createEvent('GET', { id: 'cust_test_123' }, undefined, {
+        authorization: `Bearer ${wrongToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resGet?.statusCode).toBe(401);
+
+    const resPatch = await handler(
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify({ firstName: 'Hacked' }), {
+        authorization: `Bearer ${wrongToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resPatch?.statusCode).toBe(401);
+  });
+
+  it('returns HTTP 200 on GET when called with valid session token', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
+    const res = await handler(
+      createEvent('GET', { id: 'cust_test_123' }, undefined, {
+        authorization: `Bearer ${validToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+
+    expect(res?.statusCode).toBe(200);
+    const body = JSON.parse(res?.body || '{}');
+    expect(body.firstName).toBe('Jane');
+    expect(body.token).toBeDefined();
+  });
+
+  it('returns HTTP 200 on GET / PATCH when accessed by staff context', async () => {
+    const resGet = await handler(
+      createEvent('GET', { id: 'cust_test_123' }),
+      staffContext,
+      () => undefined
+    );
+    expect(resGet?.statusCode).toBe(200);
+
+    const resPatch = await handler(
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify({ firstName: 'Janet' })),
+      staffContext,
+      () => undefined
+    );
+    expect(resPatch?.statusCode).toBe(200);
+  });
+
+  it('updates whitelisted contact fields and returns HTTP 200 with updated customer when authorized', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
     const patchPayload = {
       firstName: 'Janet',
       lastName: 'Smith',
@@ -123,7 +212,9 @@ describe('me.ts serverless function handler', () => {
     };
 
     const res = await handler(
-      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify(patchPayload)),
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify(patchPayload), {
+        authorization: `Bearer ${validToken}`,
+      }),
       dummyContext,
       () => undefined
     );
@@ -142,7 +233,8 @@ describe('me.ts serverless function handler', () => {
     expect(db.saveCustomer).toHaveBeenCalled();
   });
 
-  it('ignores and strips privileged fields in PATCH payloads', async () => {
+  it('ignores and strips privileged fields in PATCH payloads even when authorized', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
     const maliciousPayload = {
       firstName: 'Janet',
       tier: 'Pro',
@@ -154,7 +246,9 @@ describe('me.ts serverless function handler', () => {
     };
 
     const res = await handler(
-      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify(maliciousPayload)),
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify(maliciousPayload), {
+        authorization: `Bearer ${validToken}`,
+      }),
       dummyContext,
       () => undefined
     );

@@ -1,6 +1,7 @@
 import { Handler } from '@netlify/functions';
 import { db, Customer } from './lib/db';
 import { verifyRecaptchaToken } from './lib/recaptcha';
+import { generateCustomerToken } from './lib/auth';
 import crypto from 'crypto';
 
 export const handler: Handler = async (event: any, context: any) => {
@@ -93,10 +94,15 @@ export const handler: Handler = async (event: any, context: any) => {
         await db.logReferralClaim(referredBy, newCustomer.id);
       }
 
+      const token = generateCustomerToken(newCustomer.id);
+
       return {
         statusCode: 201,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newCustomer),
+        body: JSON.stringify({
+          ...newCustomer,
+          token,
+        }),
       };
     }
 
