@@ -54,9 +54,10 @@ try {
   gray = null;
 }
 
+let currentFile = null;
 const results = [];
-function check(name, pass, detail, fix) {
-  results.push({ name, pass: !!pass, detail, fix });
+function check(name, pass, detail, fix, file = currentFile) {
+  results.push({ name, pass: !!pass, detail, fix, file });
 }
 
 // ---------- Route Registry & Cache ----------
@@ -205,44 +206,64 @@ function initHeadingCorpus() {
 function initNewArticles() {
   if (newArticleCache) return newArticleCache;
   newArticleCache = new Set();
+  let base = '';
+  const baseRef = process.env.GITHUB_BASE_REF || 'main';
+
   try {
-    let base = '';
-    const baseRef = process.env.GITHUB_BASE_REF || 'main';
+    base = execSync(`git merge-base HEAD origin/${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+      .toString()
+      .trim();
+  } catch {
     try {
-      base = execSync(`git merge-base HEAD origin/${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+      base = execSync(`git merge-base HEAD ${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
         .toString()
         .trim();
     } catch {
-      try {
-        base = execSync(`git merge-base HEAD ${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
-          .toString()
-          .trim();
-      } catch {
-        base = 'HEAD~1';
+      if (
+        process.env.GITHUB_BASE_SHA &&
+        /^[0-9a-f]{7,40}$/i.test(process.env.GITHUB_BASE_SHA.trim())
+      ) {
+        base = process.env.GITHUB_BASE_SHA.trim();
+      } else if (process.env.GITHUB_EVENT_PATH && fs.existsSync(process.env.GITHUB_EVENT_PATH)) {
+        try {
+          const eventPayload = JSON.parse(fs.readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
+          if (
+            eventPayload.pull_request?.base?.sha &&
+            /^[0-9a-f]{7,40}$/i.test(eventPayload.pull_request.base.sha)
+          ) {
+            base = eventPayload.pull_request.base.sha.trim();
+          }
+        } catch {}
       }
     }
+  }
 
-    if (base && (/^[0-9a-f]{7,40}$/.test(base) || base === 'HEAD~1')) {
-      const committed = execSync(`git diff --name-only ${base} HEAD`, {
-        cwd: ROOT,
-        stdio: 'pipe',
-      }).toString();
-      for (const line of committed.split('\n')) {
-        const rel = line.trim();
-        if (rel) newArticleCache.add(rel);
-      }
-    }
+  if (!base || !/^[0-9a-f]{7,40}$/i.test(base)) {
+    throw new Error(
+      `Failed to determine git merge-base against target branch '${baseRef}'. ` +
+        `Ensure target branch ref 'origin/${baseRef}' or '${baseRef}' is fetched.`
+    );
+  }
 
-    const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
-    for (const line of status.split('\n')) {
-      if (!line.trim()) continue;
-      const rel = line
-        .slice(3)
-        .trim()
-        .replace(/^.*-> /, '');
-      if (rel) newArticleCache.add(rel);
-    }
-  } catch (e) {}
+  const committed = execSync(`git diff --name-only ${base} HEAD`, {
+    cwd: ROOT,
+    stdio: 'pipe',
+  }).toString();
+  for (const line of committed.split('\n')) {
+    const rel = line.trim();
+    if (rel) newArticleCache.add(rel);
+  }
+
+  const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
+  for (const line of status.split('\n')) {
+    if (!line.trim()) continue;
+    const rel = line
+      .slice(3)
+      .trim()
+      .replace(/^.*-> /, '');
+    if (rel) newArticleCache.add(rel);
+  }
+
   return newArticleCache;
 }
 
@@ -396,408 +417,426 @@ function extractInternalHrefs(content) {
 function cmdArticle(arg, isStrict = false) {
   const abs = path.isAbsolute(arg) ? arg : path.join(ROOT, arg);
   const relPath = path.relative(ROOT, abs);
-  if (!fs.existsSync(abs)) {
-    check(
-      'file-exists',
-      false,
-      `${arg} not found`,
-      'pass a path relative to repo root, e.g. content/articles/pack-ship/foo.md'
-    );
-    return;
-  }
-  const raw = fs.readFileSync(abs, 'utf8');
-  if (!gray) {
-    check('parse', false, 'gray-matter unavailable', 'npm install gray-matter --save-dev');
-    return;
-  }
-  const { data, content } = gray(raw);
+  const prevFile = currentFile;
+  currentFile = relPath;
+  try {
+    if (!fs.existsSync(abs)) {
+      check(
+        'file-exists',
+        false,
+        `${arg} not found`,
+        'pass a path relative to repo root, e.g. content/articles/pack-ship/foo.md'
+      );
+      return;
+    }
+    const raw = fs.readFileSync(abs, 'utf8');
+    if (!gray) {
+      check('parse', false, 'gray-matter unavailable', 'npm install gray-matter --save-dev');
+      return;
+    }
+    const { data, content } = gray(raw);
 
-  initRouteRegistry();
+    initRouteRegistry();
 
-  // 1) Required frontmatter
-  for (const f of REQUIRED_FRONTMATTER) {
-    if (data[f] === undefined || data[f] === null || data[f] === '') {
-      if (f === 'status') {
-        check('frontmatter:status', true, 'absent (advisory — defaults to published)');
+    // 1) Required frontmatter
+    for (const f of REQUIRED_FRONTMATTER) {
+      if (data[f] === undefined || data[f] === null || data[f] === '') {
+        if (f === 'status') {
+          check('frontmatter:status', true, 'absent (advisory — defaults to published)');
+        } else {
+          check(`frontmatter:${f}`, false, 'missing or empty', `add '${f}' to frontmatter`);
+        }
       } else {
-        check(`frontmatter:${f}`, false, 'missing or empty', `add '${f}' to frontmatter`);
+        check(`frontmatter:${f}`, true, 'present');
+      }
+    }
+
+    // 2) Description length (150-160 target, hard fail outside 100-280)
+    const desc = String(data.description || '');
+    const dlen = desc.length;
+    if (dlen < 100 || dlen > 280) {
+      check(
+        'meta:description-length',
+        false,
+        `${dlen} chars (target 150-160)`,
+        'rewrite description'
+      );
+    } else {
+      check('meta:description-length', true, `${dlen} chars`);
+    }
+
+    // 3) Title rules: No pipes (|), no brand suffixes (" | Mailbox Plus", " - Mailbox Plus")
+    const title = String(data.title || '');
+    const hasPipe = /\|/.test(title);
+    const hasBrandSuffix = /\s*[|—-]\s*Mailbox Plus\s*$/i.test(title);
+    if (hasPipe || hasBrandSuffix) {
+      if (isStrict) {
+        check(
+          'meta:title-rule',
+          false,
+          `title contains pipe or brand suffix: "${title}"`,
+          "remove pipes ('|') and brand suffixes; titles must read naturally without 'Mailbox Plus'"
+        );
+      } else {
+        check(
+          'meta:title-rule',
+          true,
+          `title has suffix/pipe (advisory in non-strict): "${title}"`
+        );
       }
     } else {
-      check(`frontmatter:${f}`, true, 'present');
+      check('meta:title-rule', true, 'clean (no pipes or brand suffixes)');
     }
-  }
 
-  // 2) Description length (150-160 target, hard fail outside 100-280)
-  const desc = String(data.description || '');
-  const dlen = desc.length;
-  if (dlen < 100 || dlen > 280) {
+    // 4) Slug hygiene
+    const slug = String(data.slug || '');
     check(
-      'meta:description-length',
-      false,
-      `${dlen} chars (target 150-160)`,
-      'rewrite description'
+      'meta:slug-format',
+      /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug),
+      slug,
+      'slug must be lowercase kebab-case'
     );
-  } else {
-    check('meta:description-length', true, `${dlen} chars`);
-  }
 
-  // 3) Title rules: No pipes (|), no brand suffixes (" | Mailbox Plus", " - Mailbox Plus")
-  const title = String(data.title || '');
-  const hasPipe = /\|/.test(title);
-  const hasBrandSuffix = /\s*[|—-]\s*Mailbox Plus\s*$/i.test(title);
-  if (hasPipe || hasBrandSuffix) {
-    if (isStrict) {
+    // 5) IntentKey uniqueness across corpus
+    const ik = String(data.intentKey || '');
+    if (ik) {
+      const matchingFiles = (intentKeyMap.get(ik) || []).filter((p) => p !== relPath);
+      if (matchingFiles.length > 0) {
+        check(
+          'meta:intentKey-unique',
+          false,
+          `duplicate intentKey '${ik}' (also in ${matchingFiles.join(', ')})`,
+          'intentKey must be unique across all articles to prevent cannibalization'
+        );
+      } else {
+        check('meta:intentKey-unique', true, `'${ik}' is unique`);
+      }
+    }
+
+    // 6) pubDate parses + is not in the future
+    const pd = new Date(String(data.pubDate || ''));
+    if (isNaN(pd.getTime())) {
       check(
-        'meta:title-rule',
+        'meta:pubDate',
         false,
-        `title contains pipe or brand suffix: "${title}"`,
-        "remove pipes ('|') and brand suffixes; titles must read naturally without 'Mailbox Plus'"
+        String(data.pubDate),
+        'ISO 8601 with offset, e.g. 2026-09-08T17:30:00-04:00'
       );
     } else {
-      check('meta:title-rule', true, `title has suffix/pipe (advisory in non-strict): "${title}"`);
-    }
-  } else {
-    check('meta:title-rule', true, 'clean (no pipes or brand suffixes)');
-  }
-
-  // 4) Slug hygiene
-  const slug = String(data.slug || '');
-  check(
-    'meta:slug-format',
-    /^[a-z0-9]+(-[a-z0-9]+)*$/.test(slug),
-    slug,
-    'slug must be lowercase kebab-case'
-  );
-
-  // 5) IntentKey uniqueness across corpus
-  const ik = String(data.intentKey || '');
-  if (ik) {
-    const matchingFiles = (intentKeyMap.get(ik) || []).filter((p) => p !== relPath);
-    if (matchingFiles.length > 0) {
       check(
-        'meta:intentKey-unique',
-        false,
-        `duplicate intentKey '${ik}' (also in ${matchingFiles.join(', ')})`,
-        'intentKey must be unique across all articles to prevent cannibalization'
+        'meta:pubDate',
+        pd.getTime() <= Date.now() + 86400000,
+        pd.toISOString(),
+        'pubDate more than 1 day in the future'
       );
-    } else {
-      check('meta:intentKey-unique', true, `'${ik}' is unique`);
     }
-  }
 
-  // 6) pubDate parses + is not in the future
-  const pd = new Date(String(data.pubDate || ''));
-  if (isNaN(pd.getTime())) {
-    check(
-      'meta:pubDate',
-      false,
-      String(data.pubDate),
-      'ISO 8601 with offset, e.g. 2026-09-08T17:30:00-04:00'
-    );
-  } else {
-    check(
-      'meta:pubDate',
-      pd.getTime() <= Date.now() + 86400000,
-      pd.toISOString(),
-      'pubDate more than 1 day in the future'
-    );
-  }
+    // 7) Internal links: count, trailing slashes, and route existence
+    const hrefs = extractInternalHrefs(content);
+    const noSlash = hrefs.filter((h) => h.length > 1 && !h.endsWith('/'));
+    const unknownHrefs = hrefs.filter((h) => !isKnownRoute(h));
 
-  // 7) Internal links: count, trailing slashes, and route existence
-  const hrefs = extractInternalHrefs(content);
-  const noSlash = hrefs.filter((h) => h.length > 1 && !h.endsWith('/'));
-  const unknownHrefs = hrefs.filter((h) => !isKnownRoute(h));
-
-  if (hrefs.length >= 2) {
-    check('links:minimum', true, `${hrefs.length} internal links`);
-  } else if (isStrict) {
-    check(
-      'links:minimum',
-      false,
-      `${hrefs.length} internal links (min 2)`,
-      'add at least 2 contextual links to related Mailbox Plus pages'
-    );
-  } else {
-    check(
-      'links:minimum',
-      true,
-      `${hrefs.length} internal links (advisory — min 2 for new articles)`
-    );
-  }
-  check(
-    'links:trailing-slash',
-    noSlash.length === 0,
-    noSlash.length
-      ? `missing trailing slash: ${noSlash.join(', ')}`
-      : 'all internal links end with /',
-    'CI seo:check-href-slash will fail — add trailing slashes'
-  );
-  check(
-    'links:valid-targets',
-    unknownHrefs.length === 0,
-    unknownHrefs.length
-      ? `unknown route targets: ${unknownHrefs.join(', ')}`
-      : `all ${hrefs.length} targets exist`,
-    'link points to non-existent route — verify path matches a published page or article'
-  );
-
-  // 8) relatedServices canonical form + route existence
-  const rel = data.relatedServices || [];
-  if (Array.isArray(rel)) {
-    const badSlash = rel.filter((r) => typeof r === 'string' && r.length > 1 && !r.endsWith('/'));
-    const unknownServices = rel.filter((r) => typeof r === 'string' && !isKnownRoute(r));
-
-    if (badSlash.length === 0) {
-      check('frontmatter:relatedServices-slash', true, 'all canonical');
+    if (hrefs.length >= 2) {
+      check('links:minimum', true, `${hrefs.length} internal links`);
     } else if (isStrict) {
       check(
-        'frontmatter:relatedServices-slash',
+        'links:minimum',
         false,
-        `non-canonical: ${badSlash.join(', ')}`,
-        'add trailing slashes — canonical form required'
+        `${hrefs.length} internal links (min 2)`,
+        'add at least 2 contextual links to related Mailbox Plus pages'
       );
     } else {
       check(
-        'frontmatter:relatedServices-slash',
+        'links:minimum',
         true,
-        `non-canonical (advisory in non-strict): ${badSlash.join(', ')}`
+        `${hrefs.length} internal links (advisory — min 2 for new articles)`
       );
     }
-
     check(
-      'frontmatter:relatedServices-targets',
-      unknownServices.length === 0,
-      unknownServices.length
-        ? `unknown route targets: ${unknownServices.join(', ')}`
-        : `all ${rel.length} services exist`,
-      'relatedServices entry does not match any known route'
+      'links:trailing-slash',
+      noSlash.length === 0,
+      noSlash.length
+        ? `missing trailing slash: ${noSlash.join(', ')}`
+        : 'all internal links end with /',
+      'CI seo:check-href-slash will fail — add trailing slashes'
     );
-  }
-
-  // 9) Featured image: frontmatter.image + imageAlt
-  const img = String(data.image || '');
-  const imgAlt = String(data.imageAlt || '');
-  if (!img) {
     check(
-      'image:featured',
-      false,
-      'missing frontmatter image',
-      "add image: 'articles/<category>/<slug>-featured.webp'"
+      'links:valid-targets',
+      unknownHrefs.length === 0,
+      unknownHrefs.length
+        ? `unknown route targets: ${unknownHrefs.join(', ')}`
+        : `all ${hrefs.length} targets exist`,
+      'link points to non-existent route — verify path matches a published page or article'
     );
-  } else if (!/^articles\/[a-z-]+\/[a-z0-9-]+\.(webp|jpg|png)$/.test(img)) {
-    check(
-      'image:featured',
-      false,
-      img,
-      'expected R2 path shape: articles/<category>/<slug>-featured.webp'
-    );
-  } else {
-    check('image:featured', true, img);
-  }
-  if (!imgAlt || imgAlt.length < 15) {
-    check('image:alt', false, imgAlt || '(empty)', 'imageAlt must be descriptive (15+ chars)');
-  } else {
-    check('image:alt', true, `${imgAlt.length} chars`);
-  }
 
-  // 9b) Featured image must actually exist on the CDN — path shape alone shipped a 404 hero (painesville-notary, 9/9/26).
-  if (img && /^articles\//.test(img)) {
-    if (SKIP_NETWORK) {
-      check('image:exists', true, 'skipped (--offline)');
-    } else {
-      const url = `${R2_PUBLIC_BASE}/${img}`;
-      const code = headStatus(url);
-      if (code === '200') {
-        check('image:exists', true, `HTTP 200 ${url}`);
+    // 8) relatedServices canonical form + route existence
+    const rel = data.relatedServices || [];
+    if (Array.isArray(rel)) {
+      const badSlash = rel.filter((r) => typeof r === 'string' && r.length > 1 && !r.endsWith('/'));
+      const unknownServices = rel.filter((r) => typeof r === 'string' && !isKnownRoute(r));
+
+      if (badSlash.length === 0) {
+        check('frontmatter:relatedServices-slash', true, 'all canonical');
       } else if (isStrict) {
         check(
-          'image:exists',
+          'frontmatter:relatedServices-slash',
           false,
-          `HTTP ${code} ${url}`,
-          'generate + upload the featured image (rclone copyto → mailboxplus-r2:mailbox-plus-images/<image>) before PR'
-        );
-      } else {
-        check('image:exists', true, `HTTP ${code} (advisory in non-strict) ${url}`);
-      }
-    }
-  }
-
-  // 10) Astro layout hygiene: No H1 in body & no duplicate featured image
-  const bodyH1Match = content.match(/^#\s+([^\n]+)/m);
-  if (bodyH1Match) {
-    if (isStrict) {
-      check(
-        'layout:no-body-h1',
-        false,
-        `H1 in markdown body: "${bodyH1Match[1]}"`,
-        'remove "# Title" from markdown body; Astro layout renders H1 automatically from frontmatter'
-      );
-    } else {
-      check('layout:no-body-h1', true, `H1 in body (advisory in non-strict): "${bodyH1Match[1]}"`);
-    }
-  } else {
-    check('layout:no-body-h1', true, 'no H1 in body (Astro layout safe)');
-  }
-
-  const embedsFeatured = img && content.includes(img);
-  if (embedsFeatured) {
-    if (isStrict) {
-      check(
-        'layout:no-featured-in-body',
-        false,
-        'featured image embedded in body',
-        'remove featured image markdown from body; Astro layout floats it automatically from frontmatter'
-      );
-    } else {
-      check('layout:no-featured-in-body', true, 'featured image in body (advisory in non-strict)');
-    }
-  } else {
-    check('layout:no-featured-in-body', true, 'featured image not duplicated in body');
-  }
-
-  // 11) Banned vendor / software terms
-  const bannedMatch = content.match(BANNED_TERMS_RE);
-  if (bannedMatch) {
-    check(
-      'content:no-banned-terms',
-      false,
-      `found banned software term: "${bannedMatch[0]}"`,
-      "refer to software generically (e.g. 'point-of-sale software', 'computers behind counter')"
-    );
-  } else {
-    check('content:no-banned-terms', true, 'clean (no banned vendor terms)');
-  }
-
-  // 12) Word count guardrails
-  const words = content.split(/\s+/).filter(Boolean).length;
-  check(
-    'content:word-count',
-    words >= 400 && words <= 5300,
-    `${words} words (workflow target 1200-4000)`,
-    'article body out of publishable range'
-  );
-
-  // 12b) Fact-check receipt — the gate that would have caught the $3-vs-$5 notary fee error. Strict-only, new articles.
-  const fcCandidates = [
-    path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
-    path.join(DRAFTS_DIR, `${slug}.factcheck`),
-    path.join(path.dirname(abs), `${slug}.factcheck.md`),
-  ];
-  const fcFound = fcCandidates.find((f) => fs.existsSync(f));
-  if (fcFound) {
-    const fcSize = fs.statSync(fcFound).size;
-    check(
-      'gates:factcheck',
-      fcSize > 200,
-      `${path.relative(ROOT, fcFound)} (${fcSize} bytes)`,
-      'fact-check file exists but is nearly empty — fill the claim table'
-    );
-  } else if (isStrict) {
-    check(
-      'gates:factcheck',
-      false,
-      `no ${slug}.factcheck.md in ${DRAFTS_DIR}`,
-      'run the Fact-Check Gate and write the claim/verdict/source table before PR'
-    );
-  } else {
-    check('gates:factcheck', true, 'no receipt (advisory in non-strict)');
-  }
-
-  // 12c) claims:verify — Layer A deterministic claim-verification (Frank, 2026-09-15).
-  // Forbidden phrases, canonical value checks, receipt coverage of numeric claims,
-  // source-URL resolution, and verdict sanity. Strict-only.
-  if (isStrict) {
-    try {
-      const claimsGate = path.resolve(__dirname, 'claims-gate.js');
-      const out = execSync(
-        `node "${claimsGate}" --slug "${slug}" --article "${abs}" --root "${ROOT}" --drafts "${DRAFTS_DIR}"${SKIP_NETWORK ? ' --offline' : ''}`,
-        { cwd: ROOT, encoding: 'utf8', timeout: 120000 }
-      );
-      for (const r of JSON.parse(out.trim())) {
-        check(r.name, r.pass, r.detail, r.fix);
-      }
-    } catch (e) {
-      const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-      check(
-        'claims:verify',
-        false,
-        `gate error: ${stderr}`,
-        'inspect scripts/verify/claims-gate.js'
-      );
-    }
-  }
-
-  // 13) Robots status
-  const status = String(data.status || 'published').toLowerCase();
-  check(
-    'meta:robots',
-    status !== 'draft-noindex',
-    `status='${status}' → index,follow (BaseLayout default)`,
-    'set status: published unless intentionally excluding from search'
-  );
-
-  // 14) Heading variation — the structural skeleton is frozen, the surface text is not.
-  //     Retired headings are the legacy boilerplate strings; reusing them is a regression.
-  const h2set = new Set(extractH2s(content).map(normHeading));
-  if (h2set.size >= 4) {
-    const isNew = initNewArticles().has(relPath);
-    const retiredHits = [...h2set].filter((h) => RETIRED_TEMPLATE.includes(h)).length;
-    const retiredRatio = retiredHits / h2set.size;
-
-    if (retiredHits >= 3) {
-      if (isStrict && isNew) {
-        check(
-          'content:no-retired-headings',
-          false,
-          `${retiredHits} retired template headings (${Math.round(retiredRatio * 100)}% of H2s)`,
-          'assign headings from content/heading_banks.json via scripts/assign_headings.py — do not hand-write the old template'
+          `non-canonical: ${badSlash.join(', ')}`,
+          'add trailing slashes — canonical form required'
         );
       } else {
         check(
-          'content:no-retired-headings',
+          'frontmatter:relatedServices-slash',
           true,
-          `${retiredHits} retired headings${isNew ? '' : ' (advisory — existing article)'}`
+          `non-canonical (advisory in non-strict): ${badSlash.join(', ')}`
+        );
+      }
+
+      check(
+        'frontmatter:relatedServices-targets',
+        unknownServices.length === 0,
+        unknownServices.length
+          ? `unknown route targets: ${unknownServices.join(', ')}`
+          : `all ${rel.length} services exist`,
+        'relatedServices entry does not match any known route'
+      );
+    }
+
+    // 9) Featured image: frontmatter.image + imageAlt
+    const img = String(data.image || '');
+    const imgAlt = String(data.imageAlt || '');
+    if (!img) {
+      check(
+        'image:featured',
+        false,
+        'missing frontmatter image',
+        "add image: 'articles/<category>/<slug>-featured.webp'"
+      );
+    } else if (!/^articles\/[a-z-]+\/[a-z0-9-]+\.(webp|jpg|png)$/.test(img)) {
+      check(
+        'image:featured',
+        false,
+        img,
+        'expected R2 path shape: articles/<category>/<slug>-featured.webp'
+      );
+    } else {
+      check('image:featured', true, img);
+    }
+    if (!imgAlt || imgAlt.length < 15) {
+      check('image:alt', false, imgAlt || '(empty)', 'imageAlt must be descriptive (15+ chars)');
+    } else {
+      check('image:alt', true, `${imgAlt.length} chars`);
+    }
+
+    // 9b) Featured image must actually exist on the CDN — path shape alone shipped a 404 hero (painesville-notary, 9/9/26).
+    if (img && /^articles\//.test(img)) {
+      if (SKIP_NETWORK) {
+        check('image:exists', true, 'skipped (--offline)');
+      } else {
+        const url = `${R2_PUBLIC_BASE}/${img}`;
+        const code = headStatus(url);
+        if (code === '200') {
+          check('image:exists', true, `HTTP 200 ${url}`);
+        } else if (isStrict) {
+          check(
+            'image:exists',
+            false,
+            `HTTP ${code} ${url}`,
+            'generate + upload the featured image (rclone copyto → mailboxplus-r2:mailbox-plus-images/<image>) before PR'
+          );
+        } else {
+          check('image:exists', true, `HTTP ${code} (advisory in non-strict) ${url}`);
+        }
+      }
+    }
+
+    // 10) Astro layout hygiene: No H1 in body & no duplicate featured image
+    const bodyH1Match = content.match(/^#\s+([^\n]+)/m);
+    if (bodyH1Match) {
+      if (isStrict) {
+        check(
+          'layout:no-body-h1',
+          false,
+          `H1 in markdown body: "${bodyH1Match[1]}"`,
+          'remove "# Title" from markdown body; Astro layout renders H1 automatically from frontmatter'
+        );
+      } else {
+        check(
+          'layout:no-body-h1',
+          true,
+          `H1 in body (advisory in non-strict): "${bodyH1Match[1]}"`
         );
       }
     } else {
-      check('content:no-retired-headings', true, `${retiredHits} retired headings`);
+      check('layout:no-body-h1', true, 'no H1 in body (Astro layout safe)');
     }
 
-    // Legacy subjects are skipped so the existing backlog doesn't drown out new signal.
-    // Everything else is compared against the full corpus, so copying the old template still fails.
-    if (retiredRatio < 0.6) {
-      let worst = 0;
-      let worstRel = null;
-      for (const entry of initHeadingCorpus()) {
-        if (entry.rel === relPath) continue;
-        const o = headingOverlap(h2set, entry.set);
-        if (o > worst) {
-          worst = o;
-          worstRel = entry.rel;
-        }
-        if (!worstRel) worstRel = entry.rel;
+    const embedsFeatured = img && content.includes(img);
+    if (embedsFeatured) {
+      if (isStrict) {
+        check(
+          'layout:no-featured-in-body',
+          false,
+          'featured image embedded in body',
+          'remove featured image markdown from body; Astro layout floats it automatically from frontmatter'
+        );
+      } else {
+        check(
+          'layout:no-featured-in-body',
+          true,
+          'featured image in body (advisory in non-strict)'
+        );
       }
-      const pct = Math.round(worst * 100);
-      const detail = worstRel
-        ? `max ${pct}% overlap with ${worstRel} (limit ${Math.round(HEADING_OVERLAP_MAX * 100)}%)`
-        : 'no other articles in baseline';
-      if (isStrict && isNew && worst > HEADING_OVERLAP_MAX) {
+    } else {
+      check('layout:no-featured-in-body', true, 'featured image not duplicated in body');
+    }
+
+    // 11) Banned vendor / software terms
+    const bannedMatch = content.match(BANNED_TERMS_RE);
+    if (bannedMatch) {
+      check(
+        'content:no-banned-terms',
+        false,
+        `found banned software term: "${bannedMatch[0]}"`,
+        "refer to software generically (e.g. 'point-of-sale software', 'computers behind counter')"
+      );
+    } else {
+      check('content:no-banned-terms', true, 'clean (no banned vendor terms)');
+    }
+
+    // 12) Word count guardrails
+    const words = content.split(/\s+/).filter(Boolean).length;
+    check(
+      'content:word-count',
+      words >= 400 && words <= 5300,
+      `${words} words (workflow target 1200-4000)`,
+      'article body out of publishable range'
+    );
+
+    // 12b) Fact-check receipt — the gate that would have caught the $3-vs-$5 notary fee error. Strict-only, new articles.
+    const fcCandidates = [
+      path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
+      path.join(DRAFTS_DIR, `${slug}.factcheck`),
+      path.join(path.dirname(abs), `${slug}.factcheck.md`),
+    ];
+    const fcFound = fcCandidates.find((f) => fs.existsSync(f));
+    if (fcFound) {
+      const fcSize = fs.statSync(fcFound).size;
+      check(
+        'gates:factcheck',
+        fcSize > 200,
+        `${path.relative(ROOT, fcFound)} (${fcSize} bytes)`,
+        'fact-check file exists but is nearly empty — fill the claim table'
+      );
+    } else if (isStrict) {
+      check(
+        'gates:factcheck',
+        false,
+        `no ${slug}.factcheck.md in ${DRAFTS_DIR}`,
+        'run the Fact-Check Gate and write the claim/verdict/source table before PR'
+      );
+    } else {
+      check('gates:factcheck', true, 'no receipt (advisory in non-strict)');
+    }
+
+    // 12c) claims:verify — Layer A deterministic claim-verification (Frank, 2026-09-15).
+    // Forbidden phrases, canonical value checks, receipt coverage of numeric claims,
+    // source-URL resolution, and verdict sanity. Strict-only.
+    if (isStrict) {
+      try {
+        const claimsGate = path.resolve(__dirname, 'claims-gate.js');
+        const out = execSync(
+          `node "${claimsGate}" --slug "${slug}" --article "${abs}" --root "${ROOT}" --drafts "${DRAFTS_DIR}"${SKIP_NETWORK ? ' --offline' : ''}`,
+          { cwd: ROOT, encoding: 'utf8', timeout: 120000 }
+        );
+        for (const r of JSON.parse(out.trim())) {
+          check(r.name, r.pass, r.detail, r.fix);
+        }
+      } catch (e) {
+        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+        check(
+          'claims:verify',
+          false,
+          `gate error: ${stderr}`,
+          'inspect scripts/verify/claims-gate.js'
+        );
+      }
+    }
+
+    // 13) Robots status
+    const status = String(data.status || 'published').toLowerCase();
+    check(
+      'meta:robots',
+      status !== 'draft-noindex',
+      `status='${status}' → index,follow (BaseLayout default)`,
+      'set status: published unless intentionally excluding from search'
+    );
+
+    // 14) Heading variation — the structural skeleton is frozen, the surface text is not.
+    //     Retired headings are the legacy boilerplate strings; reusing them is a regression.
+    const h2set = new Set(extractH2s(content).map(normHeading));
+    if (h2set.size >= 4) {
+      const isNew = initNewArticles().has(relPath);
+      const retiredHits = [...h2set].filter((h) => RETIRED_TEMPLATE.includes(h)).length;
+      const retiredRatio = retiredHits / h2set.size;
+
+      if (retiredHits >= 3) {
+        if (isStrict && isNew) {
+          check(
+            'content:no-retired-headings',
+            false,
+            `${retiredHits} retired template headings (${Math.round(retiredRatio * 100)}% of H2s)`,
+            'assign headings from content/heading_banks.json via scripts/assign_headings.py — do not hand-write the old template'
+          );
+        } else {
+          check(
+            'content:no-retired-headings',
+            true,
+            `${retiredHits} retired headings${isNew ? '' : ' (advisory — existing article)'}`
+          );
+        }
+      } else {
+        check('content:no-retired-headings', true, `${retiredHits} retired headings`);
+      }
+
+      // Legacy subjects are skipped so the existing backlog doesn't drown out new signal.
+      // Everything else is compared against the full corpus, so copying the old template still fails.
+      if (retiredRatio < 0.6) {
+        let worst = 0;
+        let worstRel = null;
+        for (const entry of initHeadingCorpus()) {
+          if (entry.rel === relPath) continue;
+          const o = headingOverlap(h2set, entry.set);
+          if (o > worst) {
+            worst = o;
+            worstRel = entry.rel;
+          }
+          if (!worstRel) worstRel = entry.rel;
+        }
+        const pct = Math.round(worst * 100);
+        const detail = worstRel
+          ? `max ${pct}% overlap with ${worstRel} (limit ${Math.round(HEADING_OVERLAP_MAX * 100)}%)`
+          : 'no other articles in baseline';
+        if (isStrict && isNew && worst > HEADING_OVERLAP_MAX) {
+          check(
+            'content:heading-diversity',
+            false,
+            detail,
+            'vary the H2 wording: python3 scripts/assign_headings.py --slug <slug> --villain "<villain>" --json'
+          );
+        } else {
+          check('content:heading-diversity', true, detail);
+        }
+      } else {
         check(
           'content:heading-diversity',
-          false,
-          detail,
-          'vary the H2 wording: python3 scripts/assign_headings.py --slug <slug> --villain "<villain>" --json'
+          true,
+          'legacy boilerplate article — baseline excluded (backlog)'
         );
-      } else {
-        check('content:heading-diversity', true, detail);
       }
-    } else {
-      check(
-        'content:heading-diversity',
-        true,
-        'legacy boilerplate article — baseline excluded (backlog)'
-      );
     }
+  } finally {
+    currentFile = prevFile;
   }
 }
 
@@ -1048,7 +1087,8 @@ if (cmd !== 'articles') {
   } else {
     for (const r of results) {
       const icon = r.pass ? '✅' : '❌';
-      console.log(`${icon} ${r.name}${r.detail ? ' — ' + r.detail : ''}`);
+      const filePrefix = r.file ? `[${r.file}] ` : '';
+      console.log(`${icon} ${filePrefix}${r.name}${r.detail ? ' — ' + r.detail : ''}`);
       if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
     }
     console.log(

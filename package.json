@@ -23,7 +23,6 @@
     "verify": "node scripts/verify/verify.mjs changed",
     "verify:doctor": "node scripts/verify/verify.mjs doctor",
     "verify:articles": "node scripts/verify/verify.mjs articles",
-    "verify:changed": "node scripts/verify/verify.mjs changed",
     "audit:a11y": "node scripts/audit-a11y.mjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
     "seo:check-links": "node scripts/seo/check-internal-link-strategy.mjs",

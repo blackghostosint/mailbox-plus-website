@@ -6,7 +6,7 @@ pattern (lauren/@poteto).
 
 ## Usage
 
-    npm run verify / npm run verify:changed [-- --strict] [--offline]
+    npm run verify [-- --strict] [--offline]
       Differential inspection targeting only newly added or modified markdown articles.
 
     npm run verify:doctor
