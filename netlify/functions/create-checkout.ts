@@ -11,7 +11,7 @@ import { withCors } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
 const TIER_LOOKUP_KEYS: Record<string, string> = {

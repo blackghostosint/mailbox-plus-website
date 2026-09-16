@@ -18,7 +18,7 @@ import { withCors } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier metadata → human name + monthly display price (for pixel value).
 // Amount is NOT trusted from here for revenue reporting — Stripe is the source
