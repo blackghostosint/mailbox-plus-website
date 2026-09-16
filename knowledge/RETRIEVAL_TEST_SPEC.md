@@ -229,15 +229,26 @@ You may proceed to UI **only if**:
 ## Running the Tests
 
 ```bash
+# Live mode (validates retrieval quality against Gemini API & updates cache)
+GEMINI_API_KEY=your_key npm run test:retrieval
+
+# Offline mode (runs against local cached vectors in .embedding-cache.json)
 npm run test:retrieval
 ```
 
 This will:
 
-1. Load all 24 test cases
-2. Execute retrieval logic against `kb.entries.json`
-3. Generate `RETRIEVAL_TEST_REPORT.md` with results
-4. Exit with code 0 (success) or 1 (failure)
+1. Load all 28 test cases and knowledge base entries
+2. Generate live embeddings via Gemini API (if `GEMINI_API_KEY` is provided) or use cached vectors (in offline mode)
+3. Execute retrieval evaluation logic against `kb.entries.json`
+4. Generate `RETRIEVAL_TEST_REPORT.md` (untracked) with results
+5. Exit with code 0 (success) or 1 (failure)
+
+> **Note on Embedding Cache & Initial Bootstrap:**
+> `.embedding-cache.json` is gitignored (untracked in git) to prevent bloating repository history with large generated binary/JSON data.
+>
+> - **In CI:** The workflow relies on `GEMINI_API_KEY` stored in repository secrets (`secrets.GEMINI_API_KEY`). On the initial run (or when the cache key changes/expires), `actions/cache` starts empty. The test runner uses `secrets.GEMINI_API_KEY` to query Gemini (`text-embedding-004`), generates embeddings for all entries and test queries, and `actions/cache@v4` caches `.embedding-cache.json` for subsequent workflow runs.
+> - **Offline Mode & Content Edits:** In offline mode (without `GEMINI_API_KEY`), if a knowledge base text or test query vector is missing from `.embedding-cache.json`, it is marked as `MISS` / `"no vector — skipped (offline mode)"`. The run succeeds if the miss rate is <= 10%. If misses exceed 10%, the runner fails loudly with an error instructing the author to run with `GEMINI_API_KEY` set to regenerate the cache.
 
 ---
 
