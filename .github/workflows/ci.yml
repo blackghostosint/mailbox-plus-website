@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [main, staging]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   quality-audits:
     name: Quality Audits
@@ -86,7 +90,12 @@ jobs:
         run: cd astro && npm test
 
       - name: Build project
-        run: npm run build
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run build 2>&1 | tee build-output.txt
+          echo "Build completed. Output size:"
+          du -sh dist | cut -f1
         env:
           VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
           VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
@@ -94,12 +103,6 @@ jobs:
 
       - name: Verify generated static assets drift
         run: git diff --exit-code public/llms.txt public/llms-full.txt
-
-      - name: Check build output
-        run: |
-          npm run build 2>&1 | tee build-output.txt
-          echo "Build completed. Output size:"
-          du -sh dist | cut -f1
 
       - name: Run SEO route registry check
         run: npm run seo:check-routes

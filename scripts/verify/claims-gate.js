@@ -7,7 +7,7 @@
 
 const FACTS_PATH_REL = ['content', 'facts.json'];
 
-function makeClaimsGate(fs, path) {
+export function makeClaimsGate(fs, path) {
   function loadFacts(ROOT) {
     try {
       return JSON.parse(fs.readFileSync(path.join(ROOT, ...FACTS_PATH_REL), 'utf8'));
