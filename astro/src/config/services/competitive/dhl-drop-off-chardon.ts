@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'dhl-drop-off-chardon',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+      description: 'Mailbox Plus shipping service for Chardon customers',
+      name: 'DHL Drop-Off Near Chardon — Easy Drop | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Chardon',
     serviceName: 'DHL Drop-Off Near Chardon — Easy Drop | Mailbox Plus',

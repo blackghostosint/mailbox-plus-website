@@ -9,6 +9,22 @@ import Shield from '~icons/lucide/shield';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-mentor',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/mailbox-services/mailbox-rental-mentor-featured.webp',
+      description: 'Mailbox Plus mailbox rental service for Mentor customers',
+      name: 'Mailbox Rental in Mentor — Private Mailbox Serving Mentor, OH | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'mailbox-rentals',
     city: 'Mentor',
     serviceName:

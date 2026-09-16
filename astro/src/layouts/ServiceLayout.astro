@@ -26,7 +26,8 @@ const competitorAlternatives: Record<string, { title: string; url: string }> = {
   'printing-services-concord-township': { title: 'Staples Printing Alternative', url: '/staples-printing-alternative-concord-township/' },
 };
 
-const { service, breadcrumbsBaseUrl, breadcrumbsLabel, ogImage } = Astro.props;
+const { service, breadcrumbsBaseUrl, breadcrumbsLabel, ogImage: ogImageProp } = Astro.props;
+const ogImage = ogImageProp || service.ogImage;
 const canonicalUrl = toCanonicalUrl(service.canonicalUrl || service.slug);
 const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
@@ -36,6 +37,12 @@ const { getRelatedServices } = await import('../utils/internal-links');
 const relatedServices = (getRelatedServices(service.id as any) || []).filter(Boolean) as Array<{ id: string; title: string; url: string }>;
 
 const alt = service.id ? competitorAlternatives[service.id] : null;
+
+const extraHeadSchemas = service.headJsonLd
+  ? Array.isArray(service.headJsonLd)
+    ? service.headJsonLd
+    : [service.headJsonLd]
+  : [];
 
 // Schema
 const schemas = [
@@ -51,6 +58,7 @@ const schemas = [
       item: { '@type': 'Thing', '@id': item.url, name: item.name },
     })),
   },
+  ...extraHeadSchemas,
 ];
 
 // Carriers — using R2 image URLs

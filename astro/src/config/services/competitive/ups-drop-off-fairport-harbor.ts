@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'ups-drop-off-fairport-harbor',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-fairport-harbor-featured.webp',
+      description: 'Mailbox Plus shipping service for Fairport Harbor customers',
+      name: 'UPS Drop-Off Near Fairport Harbor — Easy & Fast | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'UPS Drop-Off Near Fairport Harbor — Easy & Fast | Mailbox Plus',

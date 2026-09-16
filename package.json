@@ -30,6 +30,7 @@
     "seo:check-jsonld": "node scripts/seo/check-jsonld-absolute-urls.mjs",
     "seo:check-canonical": "node scripts/seo/check-canonical-slash.mjs",
     "seo:check-href-slash": "node scripts/seo/check-internal-href-slash.mjs",
+    "seo:check-metadata": "node scripts/seo/check-seo-metadata.mjs",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
     "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
     "prepare": "husky || true",

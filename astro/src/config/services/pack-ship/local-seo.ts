@@ -113,6 +113,7 @@ export const localSeoServices: Service[] = [
   {
     id: 'ups-store-alternative-concord-township',
     category: 'pack-ship',
+    ogImage: '/og/ups-store-alternative-concord-township.png',
     city: 'Concord Township',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-concord-township',
@@ -417,6 +418,7 @@ export const localSeoServices: Service[] = [
   {
     id: 'post-office-alternative-concord-township',
     category: 'pack-ship',
+    ogImage: '/og/post-office-alternative-concord-township.png',
     city: 'Concord Township',
     serviceName: 'Post Office Alternative',
     slug: '/post-office-alternative-concord-township',
@@ -507,6 +509,7 @@ export const localSeoServices: Service[] = [
   {
     id: 'shipping-center-concord-township',
     category: 'pack-ship',
+    ogImage: '/og/shipping-center-concord-township.png',
     city: 'Concord Township',
     serviceName: 'Shipping Center',
     slug: '/shipping-center-concord-township',

@@ -6,6 +6,22 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-willoughby',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-willoughby-featured.webp',
+      description: 'Mailbox Plus UPS Store Alternative serving Willoughby customers',
+      name: 'UPS Store Alternative in Willoughby, Ohio | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'UPS Store Alternative',

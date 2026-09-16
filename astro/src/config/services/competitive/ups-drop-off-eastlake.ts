@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'ups-drop-off-eastlake',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-eastlake-featured.webp',
+      description: 'Mailbox Plus shipping service for Eastlake customers',
+      name: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',

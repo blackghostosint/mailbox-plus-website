@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'happy-returns-mentor',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/happy-returns-mentor-featured.webp',
+      description: 'Mailbox Plus shipping service for Mentor customers',
+      name: 'Happy Returns Drop-Off in Mentor — One Stop | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Mentor',
     serviceName:

@@ -7,6 +7,21 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'post-office-alternative-eastlake',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl: 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/images/usps-services.webp',
+      description: 'Mailbox Plus post office alternative for Eastlake customers',
+      name: 'Post Office Alternative in Eastlake, OH | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'Post Office Alternative --- Eastlake',

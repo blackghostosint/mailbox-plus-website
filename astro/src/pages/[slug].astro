@@ -4,34 +4,13 @@ import { services } from '../config/services';
 import type { Service } from '../types/services';
 
 export async function getStaticPaths() {
-  // Slugs that are handled by explicit static files in astro/src/pages/
-  const EXCLUDED_SLUGS = new Set([
-    'about-us',
-    'accessibility',
-    'after-signup',
-    'amazon-counter',
-    'ask-mailbox-plus',
-    'contact-us',
-    'copy-print',
-    'guide',
-    'home-business',
-    'index',
-    'mailbox-rental-concord-ohio',
-    'pack-ship',
-    'pickup-hours',
-    'privacy',
-    'private-mailbox-rental',
-    'rental-agreement',
-    'research',
-    'service-area',
-    'services',
-    'shipping-partners',
-    'sms-consent',
-    'specialty',
-    'terms',
-    'thank-you',
-    'tracking',
-  ]);
+  // Derive excluded slugs dynamically from existing static page files and top-level subdirectories in astro/src/pages/
+  const staticPageFiles = import.meta.glob(['./*.astro', './*/index.astro', './*.ts', './*.js']);
+  const EXCLUDED_SLUGS = new Set(
+    Object.keys(staticPageFiles)
+      .map((file) => file.replace(/^\.\//, '').replace(/\.astro$/, '').replace(/\/index$/, '').replace(/\.(ts|js)$/, ''))
+      .filter((slug) => slug !== '[slug]' && slug !== '')
+  );
 
   const seenSlugs = new Set<string>();
   const paths = [];
@@ -62,4 +41,4 @@ interface Props {
 const { service } = Astro.props;
 ---
 
-<ServiceLayout service={service} />
+<ServiceLayout service={service} ogImage={service.ogImage} />

@@ -101,6 +101,10 @@ export interface Service {
   // Optional Schema.org Offers
   offers?: Offer[];
 
+  // Optional social share image and head JSON-LD schema
+  ogImage?: string;
+  headJsonLd?: Record<string, any> | Array<Record<string, any>>;
+
   // Optional legal disclaimer and competitor reference link for regulated pages
   disclaimer?: string;
   refLink?: {

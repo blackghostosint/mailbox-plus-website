@@ -6,6 +6,22 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-eastlake',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/mailbox-services/mailbox-rental-eastlake-featured.webp',
+      description: 'Mailbox Plus shipping service for Eastlake customers',
+      name: 'Mailbox Rental in Eastlake — Private Mailbox Near Eastlake, OH | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'mailbox-rentals',
     city: 'Eastlake',
     serviceName: 'Mailbox Rental in Eastlake — Private Mailbox Near Eastlake, OH | Mailbox Plus',

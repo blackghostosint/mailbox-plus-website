@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'fedex-drop-off-painesville',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-drop-off-painesville-featured.webp',
+      description: 'Mailbox Plus shipping service for Painesville customers',
+      name: 'FedEx Drop-Off in Painesville — Quick, Local, Reliable | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Painesville',
     serviceName: 'FedEx Drop-Off in Painesville | Mailbox Plus',

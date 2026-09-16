@@ -6,6 +6,22 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'dhl-drop-off-madison',
+    headJsonLd: {
+      '@context': 'https://schema.org',
+      '@type': 'ImageObject',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-madison-featured.webp',
+      description: 'Mailbox Plus shipping service for Madison customers',
+      name: 'DHL Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
+      author: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+      copyrightHolder: {
+        '@type': 'Organization',
+        name: 'Mailbox Plus',
+      },
+    },
     category: 'pack-ship',
     city: 'Madison',
     serviceName: 'DHL Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
