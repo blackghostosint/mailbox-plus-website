@@ -1,5 +1,4 @@
-# Embedding Cache & Generated Test Output
-.embedding-cache.json
+# Generated Test Output
 embeddings.json
 RETRIEVAL_TEST_REPORT.md
 
