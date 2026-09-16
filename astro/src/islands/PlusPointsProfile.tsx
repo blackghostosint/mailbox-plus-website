@@ -81,9 +81,6 @@ export const PlusPointsProfile: React.FC = () => {
         const queryParams = new URLSearchParams();
         if (id) queryParams.set('id', id);
         if (code) queryParams.set('code', code);
-        if (token && !queryParams.has('id') && !queryParams.has('code')) {
-          queryParams.set('token', token);
-        }
 
         const headers: Record<string, string> = {};
         if (token) {

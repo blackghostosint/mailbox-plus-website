@@ -27,14 +27,15 @@
 
 ### Known gaps ⚠️
 
-| Risk                                             | Severity | Mitigation needed                   |
-| ------------------------------------------------ | -------- | ----------------------------------- |
-| `unsafe-inline` in CSP script-src                | Medium   | Remove — use nonces/hashes for GTM  |
-| No rate limiting on `/api/*` (Netlify Functions) | Medium   | Add function-level rate limiting    |
-| No dependency auto-update (Dependabot)           | Low      | Enable in GitHub settings           |
-| No automated security scanning in CI             | Low      | Add `npm audit` + Snyk/Trivy step   |
-| R2 bucket is public (intentional for images)     | Low      | Monitor for unusual access patterns |
-| No WAF (Netlify doesn't offer one)               | Low      | CSP + headers provide baseline      |
+| Risk                                                              | Severity | Mitigation needed                                                                                                       |
+| ----------------------------------------------------------------- | -------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `unsafe-inline` in CSP script-src                                 | Medium   | Remove — use nonces/hashes for GTM                                                                                      |
+| No rate limiting on `/api/*` (Netlify Functions)                  | Medium   | Add function-level rate limiting                                                                                        |
+| No dependency auto-update (Dependabot)                            | Low      | Enable in GitHub settings                                                                                               |
+| No automated security scanning in CI                              | Low      | Add `npm audit` + Snyk/Trivy step                                                                                       |
+| R2 bucket is public (intentional for images)                      | Low      | Monitor for unusual access patterns                                                                                     |
+| Session token in localStorage (`plus_points_token` for `/api/me`) | Low      | Acceptable for self-service rewards profile threat model; protected against CSRF via Authorization header, XSS-readable |
+| No WAF (Netlify doesn't offer one)                                | Low      | CSP + headers provide baseline                                                                                          |
 
 ---
 

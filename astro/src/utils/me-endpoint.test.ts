@@ -44,7 +44,10 @@ vi.mock('../../../netlify/functions/lib/db', () => ({
 
 const dummyContext = {} as any;
 const staffContext = {
-  clientContext: { user: { email: 'staff@mailboxplus.com' } },
+  clientContext: { user: { email: 'staff@mailboxplus.com', app_metadata: { roles: ['staff'] } } },
+} as any;
+const nonStaffUserContext = {
+  clientContext: { user: { email: 'customer@mailboxplus.com', app_metadata: { roles: [] } } },
 } as any;
 
 function createEvent(
@@ -94,17 +97,33 @@ describe('me.ts serverless function handler', () => {
     expect(JSON.parse(resPatch?.body || '{}').error).toBe('Missing required parameter: id');
   });
 
-  it('returns HTTP 404 when customer is not found', async () => {
+  it('returns HTTP 401 when non-staff/unauthenticated user queries non-existent customer', async () => {
     const resGet = await handler(
       createEvent('GET', { id: 'non_existent' }),
       dummyContext,
+      () => undefined
+    );
+    expect(resGet?.statusCode).toBe(401);
+
+    const resPatch = await handler(
+      createEvent('PATCH', { id: 'non_existent' }, JSON.stringify({ firstName: 'New' })),
+      dummyContext,
+      () => undefined
+    );
+    expect(resPatch?.statusCode).toBe(401);
+  });
+
+  it('returns HTTP 404 when staff context queries non-existent customer', async () => {
+    const resGet = await handler(
+      createEvent('GET', { id: 'non_existent' }),
+      staffContext,
       () => undefined
     );
     expect(resGet?.statusCode).toBe(404);
 
     const resPatch = await handler(
       createEvent('PATCH', { id: 'non_existent' }, JSON.stringify({ firstName: 'New' })),
-      dummyContext,
+      staffContext,
       () => undefined
     );
     expect(resPatch?.statusCode).toBe(404);
@@ -118,6 +137,25 @@ describe('me.ts serverless function handler', () => {
     );
     expect(res?.statusCode).toBe(401);
     expect(JSON.parse(res?.body || '{}').error).toContain('Unauthorized');
+  });
+
+  it('returns HTTP 401 when Netlify Identity user without staff role attempts access', async () => {
+    const res = await handler(
+      createEvent('GET', { id: 'cust_test_123' }),
+      nonStaffUserContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(401);
+  });
+
+  it('returns HTTP 401 when token is provided in query string instead of headers', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
+    const res = await handler(
+      createEvent('GET', { id: 'cust_test_123', token: validToken }),
+      dummyContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(401);
   });
 
   it('returns HTTP 401 when PATCH is called without session token or staff auth', async () => {
@@ -167,7 +205,7 @@ describe('me.ts serverless function handler', () => {
     expect(body.token).toBeDefined();
   });
 
-  it('returns HTTP 200 on GET / PATCH when accessed by staff context', async () => {
+  it('returns HTTP 200 on GET / PATCH when accessed by staff context with app_metadata roles', async () => {
     const resGet = await handler(
       createEvent('GET', { id: 'cust_test_123' }),
       staffContext,
@@ -181,6 +219,35 @@ describe('me.ts serverless function handler', () => {
       () => undefined
     );
     expect(resPatch?.statusCode).toBe(200);
+  });
+
+  it('returns HTTP 400 on PATCH when input validation fails', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
+
+    // Invalid email format
+    const resEmail = await handler(
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify({ email: 'not-an-email' }), {
+        authorization: `Bearer ${validToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resEmail?.statusCode).toBe(400);
+    expect(JSON.parse(resEmail?.body || '{}').error).toBe('Invalid email format');
+
+    // Excessive length
+    const resLongName = await handler(
+      createEvent(
+        'PATCH',
+        { id: 'cust_test_123' },
+        JSON.stringify({ firstName: 'A'.repeat(101) }),
+        { authorization: `Bearer ${validToken}` }
+      ),
+      dummyContext,
+      () => undefined
+    );
+    expect(resLongName?.statusCode).toBe(400);
+    expect(JSON.parse(resLongName?.body || '{}').error).toBe('First name exceeds maximum length');
   });
 
   it('updates whitelisted contact fields and returns HTTP 200 with updated customer when authorized', async () => {

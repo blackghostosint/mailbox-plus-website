@@ -15,11 +15,12 @@ const ALLOWED_CONTACT_FIELDS: Array<keyof Customer> = [
   'birthday',
 ];
 
-function isStaff(context: any): boolean {
-  return !!(context && context.clientContext && context.clientContext.user);
+export function isStaff(context: any): boolean {
+  const roles = context?.clientContext?.user?.app_metadata?.roles;
+  return Array.isArray(roles) && (roles.includes('staff') || roles.includes('admin'));
 }
 
-function getTokenFromEvent(event: any): string | null {
+export function getTokenFromEvent(event: any): string | null {
   const authHeader = event.headers?.authorization || event.headers?.Authorization;
   if (authHeader && authHeader.startsWith('Bearer ')) {
     return authHeader.substring(7).trim();
@@ -28,9 +29,68 @@ function getTokenFromEvent(event: any): string | null {
   if (xSessionToken) {
     return xSessionToken.trim();
   }
-  const queryToken = event.queryStringParameters?.token;
-  if (queryToken) {
-    return queryToken.trim();
+  return null;
+}
+
+function validatePatchFields(updates: Record<string, any>): string | null {
+  if (updates.email !== undefined) {
+    if (typeof updates.email !== 'string' || updates.email.length > 254) {
+      return 'Email exceeds maximum length';
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(updates.email)) {
+      return 'Invalid email format';
+    }
+  }
+  if (updates.phone !== undefined) {
+    if (
+      typeof updates.phone !== 'string' ||
+      updates.phone.length > 30 ||
+      updates.phone.length < 7
+    ) {
+      return 'Invalid phone number format';
+    }
+  }
+  if (updates.zip !== undefined) {
+    if (typeof updates.zip !== 'string' || updates.zip.length > 10) {
+      return 'Invalid ZIP code format';
+    }
+  }
+  if (
+    updates.firstName !== undefined &&
+    (typeof updates.firstName !== 'string' || updates.firstName.length > 100)
+  ) {
+    return 'First name exceeds maximum length';
+  }
+  if (
+    updates.lastName !== undefined &&
+    (typeof updates.lastName !== 'string' || updates.lastName.length > 100)
+  ) {
+    return 'Last name exceeds maximum length';
+  }
+  if (
+    updates.street !== undefined &&
+    (typeof updates.street !== 'string' || updates.street.length > 200)
+  ) {
+    return 'Street address exceeds maximum length';
+  }
+  if (
+    updates.city !== undefined &&
+    (typeof updates.city !== 'string' || updates.city.length > 200)
+  ) {
+    return 'City exceeds maximum length';
+  }
+  if (
+    updates.state !== undefined &&
+    (typeof updates.state !== 'string' || updates.state.length > 50)
+  ) {
+    return 'State exceeds maximum length';
+  }
+  if (
+    updates.birthday !== undefined &&
+    (typeof updates.birthday !== 'string' || updates.birthday.length > 20)
+  ) {
+    return 'Birthday exceeds maximum length';
   }
   return null;
 }
@@ -58,6 +118,24 @@ export const handler: Handler = async (event: any, context: any) => {
         };
       }
 
+      const token = getTokenFromEvent(event);
+      const staff = isStaff(context);
+
+      // Perform authorization check BEFORE fetching customer record if target ID is directly specified
+      if (id && !staff && (!token || !verifyCustomerToken(token, id))) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
+        };
+      }
+
+      if (code && !staff && !token) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
+        };
+      }
+
       let customer = null;
       if (id) {
         customer = await db.getCustomer(id);
@@ -72,12 +150,7 @@ export const handler: Handler = async (event: any, context: any) => {
         };
       }
 
-      // Authorization Check
-      const token = getTokenFromEvent(event);
-      const staff = isStaff(context);
-      const isAuthorized = staff || (!!token && verifyCustomerToken(token, customer.id));
-
-      if (!isAuthorized) {
+      if (code && !staff && (!token || !verifyCustomerToken(token, customer.id))) {
         return {
           statusCode: 401,
           body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
@@ -110,23 +183,22 @@ export const handler: Handler = async (event: any, context: any) => {
         };
       }
 
+      const token = getTokenFromEvent(event);
+      const staff = isStaff(context);
+
+      // Perform authorization check BEFORE fetching existing customer
+      if (!staff && (!token || !verifyCustomerToken(token, id))) {
+        return {
+          statusCode: 401,
+          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
+        };
+      }
+
       const existingCustomer = await db.getCustomer(id);
       if (!existingCustomer) {
         return {
           statusCode: 404,
           body: JSON.stringify({ error: 'Customer not found' }),
-        };
-      }
-
-      // Authorization Check
-      const token = getTokenFromEvent(event);
-      const staff = isStaff(context);
-      const isAuthorized = staff || (!!token && verifyCustomerToken(token, existingCustomer.id));
-
-      if (!isAuthorized) {
-        return {
-          statusCode: 401,
-          body: JSON.stringify({ error: 'Unauthorized: Session token or staff login required' }),
         };
       }
 
@@ -137,6 +209,14 @@ export const handler: Handler = async (event: any, context: any) => {
         return {
           statusCode: 400,
           body: JSON.stringify({ error: 'Invalid JSON body' }),
+        };
+      }
+
+      const validationError = validatePatchFields(updates);
+      if (validationError) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: validationError }),
         };
       }
 

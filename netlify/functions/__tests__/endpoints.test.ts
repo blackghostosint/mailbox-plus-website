@@ -52,7 +52,7 @@ describe('Serverless Handler reCAPTCHA Guards', () => {
 
       const context = {
         clientContext: {
-          user: { id: 'staff_user' },
+          user: { id: 'staff_user', app_metadata: { roles: ['staff'] } },
         },
       };
 

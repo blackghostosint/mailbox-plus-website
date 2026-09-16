@@ -1,10 +1,10 @@
 import crypto from 'crypto';
 
-const SECRET = process.env.SESSION_SECRET || process.env.JWT_SECRET;
+const SECRET = process.env.SESSION_SECRET;
 
 if (!SECRET) {
   throw new Error(
-    'SESSION_SECRET environment variable is missing. A signing secret is required to run.'
+    'SESSION_SECRET environment variable is missing. SESSION_SECRET must be configured in Netlify environment variables.'
   );
 }
 

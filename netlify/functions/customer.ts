@@ -15,7 +15,8 @@ export const handler: Handler = async (event: any, context: any) => {
 
   // 1. Staff Authentication Helper
   const isStaff = () => {
-    return !!(context.clientContext && context.clientContext.user);
+    const roles = context?.clientContext?.user?.app_metadata?.roles;
+    return Array.isArray(roles) && (roles.includes('staff') || roles.includes('admin'));
   };
 
   try {
