@@ -9,7 +9,6 @@
     "dotenv": "^17.2.3",
     "resend": "^6.16.0",
     "stripe": "^22.5.0",
-    "zod": "^3.23.8",
-    "@asteasolutions/zod-to-openapi": "^7.3.0"
+    "zod": "^3.23.8"
   }
 }

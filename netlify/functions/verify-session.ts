@@ -15,11 +15,6 @@ import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { z } from 'zod';
-import {
-  registry,
-  createValidationErrorResponse,
-  ErrorResponseSchema,
-} from './lib/openapi-registry';
 
 dotenv.config();
 
@@ -43,61 +38,22 @@ const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   business_large: { name: 'Business Large', monthly: 50 },
 };
 
-export const VerifySessionQuerySchema = z
-  .object({
-    session_id: z.string().regex(/^cs_(test|live)_[A-Za-z0-9]+$/, 'Invalid session_id format'),
-  })
-  .openapi('VerifySessionQuery');
+export const VerifySessionQuerySchema = z.object({
+  session_id: z.string().regex(/^cs_(test|live)_[A-Za-z0-9]+$/, 'Invalid session_id format'),
+});
 
-export const VerifySessionResponseSchema = z
-  .object({
-    ok: z.boolean().optional(),
-    tier: z.string().nullable().optional(),
-    product: z.string().optional(),
-    amount: z.number().optional(),
-    currency: z.string().optional(),
-    error: z.string().optional(),
-    details: z.record(z.unknown()).optional(),
-  })
-  .openapi('VerifySessionResponse');
+export const VerifySessionResponseSchema = z.object({
+  ok: z.boolean().optional(),
+  tier: z.string().nullable().optional(),
+  product: z.string().optional(),
+  amount: z.number().optional(),
+  currency: z.string().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
 
 export type VerifySessionQuery = z.infer<typeof VerifySessionQuerySchema>;
 export type VerifySessionResponse = z.infer<typeof VerifySessionResponseSchema>;
-
-registry.registerPath({
-  method: 'get',
-  path: '/.netlify/functions/verify-session',
-  summary: 'Verify Stripe Checkout session',
-  request: {
-    query: VerifySessionQuerySchema,
-  },
-  responses: {
-    200: {
-      description: 'Session verification payload',
-      content: {
-        'application/json': {
-          schema: VerifySessionResponseSchema,
-        },
-      },
-    },
-    400: {
-      description: 'Invalid query parameters',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-    404: {
-      description: 'Session not found',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-  },
-});
 
 const json = (code: number, body: unknown) => ({
   statusCode: code,
@@ -123,13 +79,15 @@ export const handler: Handler = async (event) => {
     return json(500, { error: 'Stripe is not configured' });
   }
 
-  const queryParams = event.queryStringParameters || {};
-  const parseResult = VerifySessionQuerySchema.safeParse(queryParams);
-  if (!parseResult.success) {
-    return createValidationErrorResponse(parseResult.error);
+  const queryResult = VerifySessionQuerySchema.safeParse(event.queryStringParameters || {});
+  if (!queryResult.success) {
+    return json(400, {
+      error: 'Validation failed',
+      details: queryResult.error.flatten(),
+    });
   }
 
-  const { session_id: sessionId } = parseResult.data;
+  const { session_id: sessionId } = queryResult.data;
 
   try {
     const stripe = getStripe();

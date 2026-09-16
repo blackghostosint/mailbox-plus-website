@@ -1,39 +1,14 @@
 import { Handler } from '@netlify/functions';
 import { z } from 'zod';
-import { registry, ErrorResponseSchema } from './lib/openapi-registry';
 
-export const PingSupabaseResponseSchema = z
-  .object({
-    status: z.string(),
-    message: z.string(),
-  })
-  .openapi('PingSupabaseResponse');
+export const PingSupabaseResponseSchema = z.object({
+  status: z.string().optional(),
+  message: z.string().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
 
 export type PingSupabaseResponse = z.infer<typeof PingSupabaseResponseSchema>;
-
-registry.registerPath({
-  method: 'get',
-  path: '/.netlify/functions/ping-supabase',
-  summary: 'Supabase keep-alive ping endpoint',
-  responses: {
-    200: {
-      description: 'Ping status response',
-      content: {
-        'application/json': {
-          schema: PingSupabaseResponseSchema,
-        },
-      },
-    },
-    500: {
-      description: 'Internal server error',
-      content: {
-        'application/json': {
-          schema: ErrorResponseSchema,
-        },
-      },
-    },
-  },
-});
 
 export const handler: Handler = async () => {
   const SUPABASE_PING_URL =
@@ -52,7 +27,7 @@ export const handler: Handler = async () => {
     return {
       statusCode: 500,
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ error: 'Failed to ping Supabase', details: error?.message }),
+      body: JSON.stringify({ error: 'Failed to ping Supabase' }),
     };
   }
 };
