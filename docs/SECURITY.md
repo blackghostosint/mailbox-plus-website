@@ -129,14 +129,15 @@ curl -sI https://mailboxplusohio.com | grep -iE "content-security|x-frame|x-cont
 
 ### What to rotate
 
-| Secret                    | Where to update                           | Impact                |
-| ------------------------- | ----------------------------------------- | --------------------- |
-| `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break      |
-| `VITE_GEMINI_API_KEY`     | Netlify + `.env` local                    | Chatbot stops working |
-| `RECAPTCHA_SITE_KEY`      | Netlify dashboard                         | Contact form fails    |
-| `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops  |
-| Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks          |
-| GitHub PAT                | GitHub → Settings → Tokens                | gh CLI breaks         |
+| Secret                    | Where to update                           | Impact                          |
+| ------------------------- | ----------------------------------------- | ------------------------------- |
+| `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break                |
+| `VITE_GEMINI_API_KEY`     | Netlify + `.env` local                    | Chatbot stops working           |
+| `RECAPTCHA_SITE_KEY`      | Netlify dashboard                         | Contact form fails              |
+| `RECAPTCHA_SECRET_KEY`    | Netlify dashboard                         | Contact form verification fails |
+| `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops            |
+| Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks                    |
+| GitHub PAT                | GitHub → Settings → Tokens                | gh CLI breaks                   |
 
 ### Rotation procedure
 
