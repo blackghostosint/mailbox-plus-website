@@ -42,16 +42,7 @@ vi.mock('../../../netlify/functions/lib/db', () => ({
   },
 }));
 
-interface MockContext {
-  clientContext?: {
-    user?: {
-      email?: string;
-      app_metadata?: {
-        roles?: string[];
-      };
-    };
-  };
-}
+type MockContext = any;
 
 interface MockEvent {
   httpMethod: string;
