@@ -393,10 +393,12 @@ function cmdDoctor() {
     const imgSrcMatch = netlifyToml.match(/img-src\s+([^;]+);/);
     if (imgSrcMatch) {
       const imgSrc = imgSrcMatch[1];
+      const imgSrcTokens = new Set(imgSrc.trim().split(/\s+/));
       const activeDomain = R2_PUBLIC_BASE;
-      const hasActive = imgSrc.includes(activeDomain);
-      const hasWildcard = imgSrc.includes('https://*.r2.dev');
-      const hasObsolete = imgSrc.includes('pub-4515923f088c4228b1756250c1b20c6f');
+      const obsoleteDomain = 'https://pub-4515923f088c4228b1756250c1b20c6f.r2.dev';
+      const hasActive = imgSrcTokens.has(activeDomain);
+      const hasWildcard = imgSrcTokens.has('https://*.r2.dev');
+      const hasObsolete = imgSrcTokens.has(obsoleteDomain);
 
       const pass = hasActive && !hasWildcard && !hasObsolete;
       let detail = `img-src aligned with ${activeDomain}`;
