@@ -14,10 +14,15 @@
 # notes. Re-run this whenever site configs change.
 set -euo pipefail
 
-REPO="/home/blackghost/Projects/mailbox-plus-website"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+DEFAULT_REPO="$(cd "$SCRIPT_DIR/../.." && pwd)"
+REPO="${REPO:-$DEFAULT_REPO}"
+if [ ! -d "$REPO" ]; then
+  REPO="$DEFAULT_REPO"
+fi
 SERVER="server"
 VAULT="/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge"
-GEN="/home/blackghost/Projects/mailbox-plus-website/scripts/vault-sync/vault-generate.py"
+GEN="$REPO/scripts/vault-sync/vault-generate.py"
 TMP_DATA="/tmp/vault-data.json"
 STAGE="/tmp/vault-stage/Knowledge"
 UPLOAD="/tmp/vault-upload"
