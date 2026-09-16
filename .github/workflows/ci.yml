@@ -89,6 +89,9 @@ jobs:
       - name: Run SEO route registry check
         run: npm run seo:check-routes
 
+      - name: Run SEO internal link strategy check
+        run: npm run seo:check-links
+
       - name: Run SEO JSON-LD absolute URLs check
         run: npm run seo:check-jsonld
 
