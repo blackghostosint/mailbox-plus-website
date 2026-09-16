@@ -8,8 +8,11 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'post-office-alternative-fairport-harbor',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({
-      contentUrl: 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/images/usps-services.webp',
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
       name: 'Post Office Alternative in Fairport Harbor, OH | Mailbox Plus',
       description: 'Mailbox Plus post office alternative for Fairport Harbor customers',
     }),

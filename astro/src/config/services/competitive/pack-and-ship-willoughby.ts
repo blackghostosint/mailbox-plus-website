@@ -7,9 +7,11 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'pack-and-ship-willoughby',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/pack-and-ship-willoughby-featured.webp',
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
       name: 'Pack & Ship in Willoughby — Drop Off or Ship From Willoughby, OH | Mailbox Plus',
       description: 'Mailbox Plus shipping service for Willoughby customers',
     }),
@@ -49,7 +51,7 @@ export const competePages: Service[] = [
       },
       {
         heading: 'How It Works — Drop Off or Ship From Willoughby',
-        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/pack-and-ship-willoughby-featured.webp" alt="Mailbox Plus shipping service for Willoughby customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
+        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp" alt="Mailbox Plus shipping service for Willoughby customers" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1200" height="675" /><div class="grid md:grid-cols-3 gap-6 mb-8"><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">1. Bring Your Package</h4><p class="text-sm text-[var(--color-text-secondary)]">Pre-labeled or need help packing — we handle both.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">2. Quick Scan</h4><p class="text-sm text-[var(--color-text-secondary)]">We scan and provide a drop-off receipt on the spot.</p></div><div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]"><h4 class="font-bold text-[var(--color-text-primary)] mb-2">3. You're Done</h4><p class="text-sm text-[var(--color-text-secondary)]">Back in your day. In and out in under 2 minutes.</p></div></div>`,
         isFullWidth: true,
       },
       {

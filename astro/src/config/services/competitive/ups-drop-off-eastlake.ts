@@ -7,6 +7,8 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'ups-drop-off-eastlake',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-eastlake-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-eastlake-featured.webp',

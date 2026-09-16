@@ -103,7 +103,7 @@ export interface Service {
 
   // Optional social share image and head JSON-LD schema
   ogImage?: string;
-  headJsonLd?: Record<string, any> | Array<Record<string, any>>;
+  headJsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
 
   // Optional legal disclaimer and competitor reference link for regulated pages
   disclaimer?: string;

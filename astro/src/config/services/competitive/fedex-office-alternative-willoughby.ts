@@ -7,6 +7,8 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'fedex-office-alternative-willoughby',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',

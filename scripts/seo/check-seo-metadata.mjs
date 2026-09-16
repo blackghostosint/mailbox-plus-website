@@ -1,7 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { createRequire } from 'module';
+import ts from 'typescript';
 
+const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
@@ -18,39 +21,94 @@ function walkDir(dir) {
   return files;
 }
 
+function evaluateServiceFile(file) {
+  let content = fs.readFileSync(file, 'utf8');
+
+  // Strip icon and helper imports / stubs
+  content = content.replace(/import\s+(\w+)\s+from\s+['"].*~icons\/.*['"];?/g, 'const $1 = {};');
+  content = content.replace(
+    /import\s+.*from\s+['"].*\/schema['"];?/g,
+    'function getImageObjectSchema(opts) { return { "@context": "https://schema.org", "@type": "ImageObject", ...opts }; }'
+  );
+  content = content.replace(/import\s+type\s+.*from\s+['"].*['"];?/g, '');
+  content = content.replace(/import\s+.*from\s+['"].*\/lib\/storage['"];?/g, '');
+  content = content.replace(/import\s+\{([^}]+)\}\s+from\s+['"].*\/faqs['"];?/g, (m, p1) =>
+    p1
+      .split(',')
+      .map((s) => `const ${s.trim().split(/\s+as\s+/)[0]} = [];`)
+      .join('\n')
+  );
+  content = content.replace(/import\s+.*from\s+['"].*\/faqs['"];?/g, 'const faqs = {};');
+  content = content.replace(
+    /import\s+.*from\s+['"].*\/micro-problems['"];?/g,
+    'const microProblemPages = [];'
+  );
+  content = content.replace(
+    /import\s+.*from\s+['"].*\/pack-ship\/.*['"];?/g,
+    'const carriers = [], amazonReturnsPages = [], localSeoPages = [], packingServicesPages = [], receivingDropOffPages = [], specialtyShippingPages = [];'
+  );
+
+  // Helper stubs
+  if (
+    !content.includes('function getServiceImageUrl') &&
+    !content.includes('const getServiceImageUrl')
+  ) {
+    content =
+      'const getServiceImageUrl = (p) => "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/" + p;\n' +
+      content;
+  }
+
+  const js = ts.transpileModule(content, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS },
+  }).outputText;
+
+  const mod = { exports: {} };
+  const fn = new Function('exports', 'module', 'require', js);
+  fn(mod.exports, mod, require);
+
+  const services = [];
+  for (const val of Object.values(mod.exports)) {
+    if (Array.isArray(val)) {
+      services.push(...val);
+    } else if (val && typeof val === 'object' && val.slug) {
+      services.push(val);
+    }
+  }
+  return services;
+}
+
 function discoverServiceMetadata() {
   const tsFiles = walkDir(SERVICES_DIR);
   const ogImageChecks = [];
   const imageObjectSchemaChecks = [];
 
   for (const file of tsFiles) {
-    const content = fs.readFileSync(file, 'utf8');
-    const objectBlocks = content.split(/\{\s*id:/);
+    if (file.endsWith('index.ts')) continue;
+    try {
+      const services = evaluateServiceFile(file);
+      for (const service of services) {
+        if (!service || !service.slug) continue;
+        const route = service.slug.replace(/^\//, '').replace(/\/$/, '');
+        if (!route) continue;
 
-    for (const block of objectBlocks) {
-      const slugMatch = block.match(/slug:\s*['"`]([^'"`]+)['"`]/);
-      const ogMatch = block.match(/ogImage:\s*['"`]([^'"`]+)['"`]/);
-
-      if (slugMatch && ogMatch) {
-        const route = slugMatch[1].replace(/^\//, '').replace(/\/$/, '');
-        const expectedOgImage = ogMatch[1];
-        if (route && expectedOgImage && !ogImageChecks.some((c) => c.route === route)) {
-          ogImageChecks.push({ route, expectedOgImage });
+        if (service.ogImage) {
+          if (!ogImageChecks.some((c) => c.route === route)) {
+            ogImageChecks.push({ route, expectedOgImage: service.ogImage });
+          }
         }
-      }
 
-      if (
-        block.includes('headJsonLd') ||
-        block.includes('getImageObjectSchema') ||
-        block.includes('ImageObject')
-      ) {
-        if (slugMatch) {
-          const route = slugMatch[1].replace(/^\//, '').replace(/\/$/, '');
-          if (route && !imageObjectSchemaChecks.includes(route)) {
+        if (service.headJsonLd) {
+          const hasImageObject = Array.isArray(service.headJsonLd)
+            ? service.headJsonLd.some((s) => s && s['@type'] === 'ImageObject')
+            : service.headJsonLd && service.headJsonLd['@type'] === 'ImageObject';
+
+          if (hasImageObject && !imageObjectSchemaChecks.includes(route)) {
             imageObjectSchemaChecks.push(route);
           }
         }
       }
+    } catch (err) {
+      console.warn(`⚠️ Warning: Failed to evaluate ${file}: ${err.message}`);
     }
   }
 
@@ -89,7 +147,7 @@ function main() {
 
     const html = fs.readFileSync(htmlFile, 'utf8');
     const ogImageMetaPattern = new RegExp(
-      `<meta\\s+property=["']og:image["']\\s+content=["'][^"']*${item.expectedOgImage}["']`,
+      `<meta\\s+property=["']og:image["']\\s+content=["'][^"']*${item.expectedOgImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`,
       'i'
     );
 

@@ -10,9 +10,11 @@ import Shield from '~icons/lucide/shield';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-mentor',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/mailbox-services/mailbox-rental-mentor-featured.webp',
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
       name: 'Mailbox Rental in Mentor — Private Mailbox Serving Mentor, OH | Mailbox Plus',
       description: 'Mailbox Plus mailbox rental service for Mentor customers',
     }),

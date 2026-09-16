@@ -7,9 +7,11 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-madison',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-mentor-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-store-alternative-madison-featured.webp',
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-mentor-featured.webp',
       name: 'UPS Store Alternative in Madison, Ohio | Mailbox Plus',
       description: 'Mailbox Plus UPS Store Alternative serving Madison customers',
     }),

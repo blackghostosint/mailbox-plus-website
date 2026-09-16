@@ -7,6 +7,8 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'fedex-office-alternative-kirtland',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-kirtland-featured.webp',
     headJsonLd: getImageObjectSchema({
       contentUrl:
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-kirtland-featured.webp',
