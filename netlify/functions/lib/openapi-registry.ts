@@ -8,7 +8,7 @@ export const registry = new OpenAPIRegistry();
 export const ErrorResponseSchema = z
   .object({
     error: z.string(),
-    details: z.any().optional(),
+    details: z.record(z.unknown()).optional(),
   })
   .openapi('ErrorResponse');
 

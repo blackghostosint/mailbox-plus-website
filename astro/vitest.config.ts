@@ -16,7 +16,7 @@ export default defineConfig({
   test: {
     environment: 'node',
     globals: true,
-    include: ['src/**/*.{test,spec}.{ts,tsx}', '../netlify/functions/lib/**/*.test.{ts,tsx}'],
-    exclude: ['**/node_modules/**'],
+    include: ['src/**/*.{test,spec}.{ts,tsx}', '../netlify/functions/**/*.{test,spec}.{ts,tsx}'],
+    exclude: ['**/node_modules/**', '../**/node_modules/**'],
   },
 });
