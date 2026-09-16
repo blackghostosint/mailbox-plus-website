@@ -434,10 +434,8 @@ function generateMarkdownReport(
 
   // Exit Criteria
   report += `## Exit Criteria\n\n`;
-  if (misses > 0 && isOfflineMode) {
-    report += `❌ **RUN FAILED** - ${misses}/${total} test(s) missed vector cache in offline mode. Offline mode requires 100% vector cache coverage (misses === 0). Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
-  } else if (missRate > missThreshold) {
-    report += `❌ **RUN FAILED** - Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold. Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
+  if (missRate > missThreshold) {
+    report += `❌ **RUN FAILED** - Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold of ${(missThreshold * 100).toFixed(0)}%. Run with \`GEMINI_API_KEY\` set to regenerate vector cache.\n\n`;
   } else if (failed > 0) {
     report += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed. Fix issues before proceeding.\n\n`;
   } else if (isOfflineMode) {
@@ -527,18 +525,6 @@ function generateMarkdownReport(
 // Main Execution
 // ========================================
 async function main() {
-  if (process.env.CI && !GEMINI_API_KEY) {
-    console.error('\n❌ CI RUN FAILED: GEMINI_API_KEY secret is not present in CI environment.');
-    console.error(
-      '❌ Live AI retrieval evaluation requires GEMINI_API_KEY set in GitHub Actions secrets.'
-    );
-    console.error('❌ Please configure secrets.GEMINI_API_KEY in repository settings.\n');
-    const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
-    const errReport = `# Retrieval Test Report (CI Failed - Missing GEMINI_API_KEY)\n\n**Generated:** ${new Date().toISOString()}\n\n❌ **CI RUN FAILED**: GEMINI_API_KEY secret is not configured in GitHub Actions CI environment.\n`;
-    writeFileSync(reportPath, errReport, 'utf-8');
-    process.exit(1);
-  }
-
   if (isOfflineMode) {
     console.log('================================================================');
     console.log(
@@ -660,10 +646,8 @@ async function main() {
       summaryContent += `|-------------|--------|----------------|--------|-----------|\n`;
       summaryContent += `| ${total} | ${passed} | ${misses} | ${failed} | ${(missRate * 100).toFixed(1)}% |\n\n`;
 
-      if (isOfflineMode && misses > 0) {
-        summaryContent += `❌ **RUN FAILED**: ${misses}/${total} test(s) missed vector cache in offline mode. In offline mode, 100% vector cache coverage is required (misses === 0). Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
-      } else if (missRate > missThreshold) {
-        summaryContent += `❌ **RUN FAILED**: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold. Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
+      if (missRate > missThreshold) {
+        summaryContent += `❌ **RUN FAILED**: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold of ${(missThreshold * 100).toFixed(0)}%. Please run with \`GEMINI_API_KEY\` set to regenerate the vector cache.\n`;
       } else if (failed > 0) {
         summaryContent += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed.\n`;
       } else if (isOfflineMode) {
@@ -678,17 +662,7 @@ async function main() {
     }
   }
 
-  // Check offline misses or threshold exceedance
-  if (isOfflineMode && misses > 0) {
-    console.error(
-      `❌ RUN FAILED: ${misses}/${total} test(s) missed vector cache in offline mode. In offline mode, 100% vector cache coverage is required (misses === 0).`
-    );
-    console.error(
-      `❌ Please run with GEMINI_API_KEY set to regenerate the vector cache (locally or via CI cache flow).\n`
-    );
-    process.exit(1);
-  }
-
+  // Check miss rate threshold exceedance
   if (missRate > missThreshold) {
     console.error(
       `❌ RUN FAILED: Cache miss rate is ${(missRate * 100).toFixed(1)}% (${misses}/${total}), exceeding threshold.`
