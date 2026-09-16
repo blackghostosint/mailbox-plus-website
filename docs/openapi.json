@@ -1,0 +1,20 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Mailbox Plus Serverless API",
+    "version": "1.0.0",
+    "description": "API specification for Mailbox Plus Netlify serverless functions"
+  },
+  "servers": [
+    {
+      "url": "https://mailboxplusohio.com",
+      "description": "Production server"
+    }
+  ],
+  "components": {
+    "schemas": {},
+    "parameters": {}
+  },
+  "paths": {},
+  "webhooks": {}
+}

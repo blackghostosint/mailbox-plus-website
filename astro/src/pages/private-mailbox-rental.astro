@@ -8,6 +8,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+import type { CreateCheckoutRequest, CreateCheckoutResponse } from '../../../netlify/functions/create-checkout';
+
+export type CheckoutReq = CreateCheckoutRequest;
+export type CheckoutRes = CreateCheckoutResponse;
 
 const pageTitle = 'Private Mailbox Rental in Concord Township | Mailbox Plus';
 const metaDescription =
