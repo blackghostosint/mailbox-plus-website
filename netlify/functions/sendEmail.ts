@@ -2,7 +2,11 @@ import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
 import { z } from 'zod';
 import { verifyRecaptchaToken } from './lib/recaptcha';
-import { registry, createValidationErrorResponse, ErrorResponseSchema } from './lib/openapi-registry';
+import {
+  registry,
+  createValidationErrorResponse,
+  ErrorResponseSchema,
+} from './lib/openapi-registry';
 
 export const SendEmailRequestSchema = z
   .object({
@@ -22,7 +26,7 @@ export const SendEmailResponseSchema = z
     success: z.boolean().optional(),
     id: z.string().optional(),
     error: z.string().optional(),
-    details: z.any().optional(),
+    details: z.record(z.unknown()).optional(),
   })
   .openapi('SendEmailResponse');
 

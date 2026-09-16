@@ -1,7 +1,11 @@
 import { Handler } from '@netlify/functions';
 import { z } from 'zod';
 import { verifyRecaptchaToken } from './lib/recaptcha';
-import { registry, createValidationErrorResponse, ErrorResponseSchema } from './lib/openapi-registry';
+import {
+  registry,
+  createValidationErrorResponse,
+  ErrorResponseSchema,
+} from './lib/openapi-registry';
 
 export const VerifyRecaptchaRequestSchema = z
   .object({
@@ -9,10 +13,9 @@ export const VerifyRecaptchaRequestSchema = z
     recaptchaToken: z.string().optional(),
     'g-recaptcha-response': z.string().optional(),
   })
-  .refine(
-    (data) => !!(data.token || data.recaptchaToken || data['g-recaptcha-response']),
-    { message: 'A reCAPTCHA token is required' }
-  )
+  .refine((data) => !!(data.token || data.recaptchaToken || data['g-recaptcha-response']), {
+    message: 'A reCAPTCHA token is required',
+  })
   .openapi('VerifyRecaptchaRequest');
 
 export const VerifyRecaptchaResponseSchema = z
@@ -20,7 +23,7 @@ export const VerifyRecaptchaResponseSchema = z
     success: z.boolean(),
     score: z.number().optional(),
     error: z.string().optional(),
-    details: z.any().optional(),
+    details: z.record(z.unknown()).optional(),
   })
   .openapi('VerifyRecaptchaResponse');
 
