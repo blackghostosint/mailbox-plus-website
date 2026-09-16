@@ -666,7 +666,12 @@ function cmdArticle(arg, isStrict = false) {
       }
     } catch (e) {
       const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
-      check('claims:verify', false, `gate error: ${stderr}`, 'inspect scripts/verify/claims-gate.js');
+      check(
+        'claims:verify',
+        false,
+        `gate error: ${stderr}`,
+        'inspect scripts/verify/claims-gate.js'
+      );
     }
   }
 
