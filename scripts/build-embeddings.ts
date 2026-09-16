@@ -4,13 +4,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
-import {
-  EMBEDDING_MODEL,
-  MODEL_NAME,
-  buildCacheKey,
-  type KBEntry,
-  type KnowledgeBase,
-} from '../knowledge/retrieval-core.js';
+import { buildCacheKey, type KBEntry, type KnowledgeBase } from '../knowledge/retrieval-core.js';
+
+const MODEL_NAME = 'gemini-embedding-001';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);

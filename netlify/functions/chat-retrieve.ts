@@ -3,6 +3,7 @@ import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import * as dotenv from 'dotenv';
+import { verifyRecaptchaToken } from './lib/recaptcha.js';
 import {
   EMBEDDING_MODEL,
   MINIMUM_SIMILARITY,
@@ -84,29 +85,6 @@ function initializeResources(): void {
         break;
       } catch (error) {
         console.error(`Failed to parse embeddings JSON at ${path}`, error);
-      }
-    }
-  }
-
-  if (!foundEmbeddings) {
-    // Fallback to local test cache if available
-    const fallbackPaths = [
-      join(process.cwd(), 'knowledge', '.embedding-cache.json'),
-      join(process.cwd(), '..', 'knowledge', '.embedding-cache.json'),
-      join(__dirname, '..', '..', 'knowledge', '.embedding-cache.json'),
-      join(__dirname, 'knowledge', '.embedding-cache.json'),
-    ];
-    for (const path of fallbackPaths) {
-      if (existsSync(path)) {
-        try {
-          const fileContent = readFileSync(path, 'utf-8');
-          embeddingCache = JSON.parse(fileContent);
-          foundEmbeddings = true;
-          console.log(`Successfully loaded fallback embeddings from ${path}`);
-          break;
-        } catch (error) {
-          console.error(`Failed to parse fallback embedding cache at ${path}`, error);
-        }
       }
     }
   }
@@ -241,6 +219,30 @@ export const handler: Handler = async (event: HandlerEvent) => {
       };
     }
 
+    // Authorization: verify reCAPTCHA token
+    const token =
+      body.recaptchaToken ||
+      body.token ||
+      body['g-recaptcha-response'] ||
+      event.headers?.['x-recaptcha-token'] ||
+      event.headers?.['X-Recaptcha-Token'];
+
+    const clientIp =
+      event.headers?.['client-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim();
+
+    const isAuthorized = await verifyRecaptchaToken(token, clientIp);
+    if (!isAuthorized) {
+      console.warn('chat-retrieve refused: reCAPTCHA verification failed');
+      return {
+        statusCode: 401,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'refuse',
+          reason: 'unauthorized',
+        }),
+      };
+    }
+
     initializeResources();
 
     if (!kb) {
@@ -259,7 +261,7 @@ export const handler: Handler = async (event: HandlerEvent) => {
       ? {
           type: 'accept',
           answer: result.answer!,
-          sourceUrl: result.sourceUrl!,
+          sourceUrl: result.sourceUrl ?? null,
           faqId: result.faqId!,
           confidence: result.confidence!,
         }

@@ -120,6 +120,29 @@ describe('Retrieval Core Module', () => {
       expect(result.refusalReason).toBe('Two or more entries compete');
     });
 
+    it('throws when throwOnMissing is true and key is absent', () => {
+      const queryVector = [1, 0, 0];
+      expect(() =>
+        calculateCandidateSimilarity(queryVector, ['nonexistent::key'], mockCache, true)
+      ).toThrow('Missing cached embedding for: nonexistent::key');
+    });
+
+    it('honors per-entry threshold override when honorEntryThreshold is true', () => {
+      const customEntry: KBEntry = {
+        ...mockEntries[0],
+        confidence: { minimumSimilarity: 0.9 },
+      };
+      const candidates = [{ entry: customEntry, score: 0.85 }];
+
+      // Default: ignores entry threshold
+      const resDefault = evaluateRetrievalCandidates(candidates, 0.78, 0.1, false);
+      expect(resDefault.matched).toBe(true);
+
+      // honorEntryThreshold = true: uses 0.9 threshold
+      const resHonored = evaluateRetrievalCandidates(candidates, 0.78, 0.1, true);
+      expect(resHonored.matched).toBe(false);
+    });
+
     it('retrieves answer using retrieveAnswerCore', () => {
       const queryVector = [1, 0, 0];
       const result = retrieveAnswerCore(queryVector, mockEntries, mockCache, 0.78);

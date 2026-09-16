@@ -99,24 +99,38 @@ export function cosineSimilarity(vec1: number[], vec2: number[]): number {
   return dotProduct / magnitude;
 }
 
+export interface RetrievalOptions {
+  globalMinSimilarity?: number;
+  ambiguityGapThreshold?: number;
+  honorEntryThreshold?: boolean;
+  throwOnMissing?: boolean;
+}
+
 /**
  * Calculates max similarity between a query vector and candidate embeddings in cache
  */
 export function calculateCandidateSimilarity(
   queryEmbedding: number[],
   cacheKeys: string[],
-  embeddingCache: EmbeddingCache
+  embeddingCache: EmbeddingCache,
+  throwOnMissing: boolean = false
 ): number {
   let maxSimilarity = 0;
+  let foundKey = false;
 
   for (const cacheKey of cacheKeys) {
     const entryEmbedding = embeddingCache[cacheKey];
     if (!entryEmbedding) continue;
 
+    foundKey = true;
     const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
     if (similarity > maxSimilarity) {
       maxSimilarity = similarity;
     }
+  }
+
+  if (throwOnMissing && !foundKey && cacheKeys.length > 0) {
+    throw new Error(`Missing cached embedding for: ${cacheKeys[0]}`);
   }
 
   return maxSimilarity;
@@ -132,7 +146,8 @@ export function calculateCandidateSimilarity(
 export function evaluateRetrievalCandidates(
   candidates: Array<{ entry: KBEntry; score: number }>,
   globalMinSimilarity: number = MINIMUM_SIMILARITY,
-  ambiguityGapThreshold: number = AMBIGUITY_GAP_THRESHOLD
+  ambiguityGapThreshold: number = AMBIGUITY_GAP_THRESHOLD,
+  honorEntryThreshold: boolean = false
 ): RetrievalResult {
   if (candidates.length === 0) {
     return {
@@ -141,12 +156,15 @@ export function evaluateRetrievalCandidates(
     };
   }
 
-  // Sort candidates by similarity score descending
+  // Sort candidates by similarity score descending.
+  // Note: Array.prototype.sort is stable in V8/Node.js, preserving original iteration order for candidates with tied scores.
   const sorted = [...candidates].sort((a, b) => b.score - a.score);
   const bestMatch = sorted[0];
   const secondBestScore = sorted[1]?.score ?? 0;
 
-  const effectiveMin = bestMatch.entry.confidence?.minimumSimilarity ?? globalMinSimilarity;
+  const effectiveMin = honorEntryThreshold
+    ? (bestMatch.entry.confidence?.minimumSimilarity ?? globalMinSimilarity)
+    : globalMinSimilarity;
 
   // Threshold check
   if (bestMatch.score < effectiveMin) {
@@ -189,34 +207,53 @@ export function retrieveAnswerCore(
   queryEmbedding: number[],
   kbEntries: KBEntry[],
   embeddingCache: EmbeddingCache,
-  globalMinSimilarity: number = MINIMUM_SIMILARITY
+  optionsOrMinSimilarity: number | RetrievalOptions = MINIMUM_SIMILARITY
 ): RetrievalResult {
+  const options: RetrievalOptions =
+    typeof optionsOrMinSimilarity === 'number'
+      ? { globalMinSimilarity: optionsOrMinSimilarity }
+      : optionsOrMinSimilarity;
+
+  const globalMinSimilarity = options.globalMinSimilarity ?? MINIMUM_SIMILARITY;
+  const ambiguityGapThreshold = options.ambiguityGapThreshold ?? AMBIGUITY_GAP_THRESHOLD;
+  const honorEntryThreshold = options.honorEntryThreshold ?? false;
+  const throwOnMissing = options.throwOnMissing ?? false;
+
   const candidates: Array<{ entry: KBEntry; score: number }> = [];
 
   for (const entry of kbEntries) {
-    const cacheKeys: string[] = [];
+    const entryTexts = [...entry.questionVariants, entry.searchText, entry.title].filter(Boolean);
 
-    // Check questionVariants under both RETRIEVAL_QUERY and entryId prefixes
-    for (const variant of entry.questionVariants) {
-      cacheKeys.push(buildCacheKey('RETRIEVAL_QUERY', variant));
-      cacheKeys.push(buildCacheKey(entry.id, variant));
+    let maxEntrySimilarity = 0;
+
+    for (const text of entryTexts) {
+      // Primary runner cache key `${entry.id}::${text}` followed by taskType cache key fallback
+      const primaryKey = buildCacheKey(entry.id, text);
+      const isQueryText = entry.questionVariants.includes(text);
+      const fallbackTaskTypeKey = isQueryText
+        ? buildCacheKey('RETRIEVAL_QUERY', text)
+        : buildCacheKey('RETRIEVAL_DOCUMENT', text);
+
+      const candidateKeys = [primaryKey, fallbackTaskTypeKey];
+      const similarity = calculateCandidateSimilarity(
+        queryEmbedding,
+        candidateKeys,
+        embeddingCache,
+        throwOnMissing
+      );
+
+      if (similarity > maxEntrySimilarity) {
+        maxEntrySimilarity = similarity;
+      }
     }
 
-    // Check searchText under RETRIEVAL_DOCUMENT and entryId prefixes
-    if (entry.searchText) {
-      cacheKeys.push(buildCacheKey('RETRIEVAL_DOCUMENT', entry.searchText));
-      cacheKeys.push(buildCacheKey(entry.id, entry.searchText));
-    }
-
-    // Check title under RETRIEVAL_DOCUMENT and entryId prefixes
-    if (entry.title) {
-      cacheKeys.push(buildCacheKey('RETRIEVAL_DOCUMENT', entry.title));
-      cacheKeys.push(buildCacheKey(entry.id, entry.title));
-    }
-
-    const score = calculateCandidateSimilarity(queryEmbedding, cacheKeys, embeddingCache);
-    candidates.push({ entry, score });
+    candidates.push({ entry, score: maxEntrySimilarity });
   }
 
-  return evaluateRetrievalCandidates(candidates, globalMinSimilarity);
+  return evaluateRetrievalCandidates(
+    candidates,
+    globalMinSimilarity,
+    ambiguityGapThreshold,
+    honorEntryThreshold
+  );
 }

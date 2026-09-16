@@ -165,7 +165,7 @@ async function calculateSimilarity(
 ): Promise<number> {
   const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
   const cacheKeys = entryTexts.map((text) => buildCacheKey(entryId, text));
-  return calculateCandidateSimilarity(queryEmbedding, cacheKeys, embeddingCache);
+  return calculateCandidateSimilarity(queryEmbedding, cacheKeys, embeddingCache, true);
 }
 
 // ========================================
@@ -173,7 +173,10 @@ async function calculateSimilarity(
 // ========================================
 async function retrieveAnswer(query: string): Promise<RetrievalResult> {
   const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
-  return retrieveAnswerCore(queryEmbedding, kb.entries, embeddingCache, MINIMUM_SIMILARITY);
+  return retrieveAnswerCore(queryEmbedding, kb.entries, embeddingCache, {
+    globalMinSimilarity: MINIMUM_SIMILARITY,
+    throwOnMissing: true,
+  });
 }
 
 // ========================================
