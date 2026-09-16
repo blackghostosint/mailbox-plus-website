@@ -13,6 +13,8 @@ import ChevronRight from '~icons/lucide/chevron-right';
 import Calculator from '~icons/lucide/calculator';
 import Sparkles from '~icons/lucide/sparkles';
 import Lock from '~icons/lucide/lock';
+import { AccessibleModal } from '../components/ui/AccessibleModal';
+import { FormField } from '../components/ui/FormField';
 
 declare global {
   interface Window {
@@ -783,217 +785,141 @@ export const PlusPointsAdmin: React.FC = () => {
       </div>
 
       {/* Add Customer Modal */}
-      {showAddModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full border border-border-strong shadow-xl overflow-hidden animate-fade-in-up">
-            <div className="bg-bg-secondary p-6 border-b border-border">
-              <h3 className="text-xl font-bold text-text-primary">Add New Customer Profile</h3>
-            </div>
-            <form onSubmit={handleAddCustomer}>
-              <div className="p-6 space-y-4 max-h-[70vh] overflow-y-auto pr-1">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="addFirst"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      First Name *
-                    </label>
-                    <input
-                      id="addFirst"
-                      required
-                      type="text"
-                      value={newCustomerForm.firstName}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, firstName: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="addLast"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      Last Name *
-                    </label>
-                    <input
-                      id="addLast"
-                      required
-                      type="text"
-                      value={newCustomerForm.lastName}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, lastName: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="addPhone"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Phone Number *
-                  </label>
-                  <input
-                    id="addPhone"
-                    required
-                    type="text"
-                    value={newCustomerForm.phone}
-                    onChange={(e) =>
-                      setNewCustomerForm({ ...newCustomerForm, phone: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="addEmail"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Email Address *
-                  </label>
-                  <input
-                    id="addEmail"
-                    required
-                    type="email"
-                    value={newCustomerForm.email}
-                    onChange={(e) =>
-                      setNewCustomerForm({ ...newCustomerForm, email: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="addStreet"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Street Address
-                  </label>
-                  <input
-                    id="addStreet"
-                    type="text"
-                    value={newCustomerForm.street}
-                    onChange={(e) =>
-                      setNewCustomerForm({ ...newCustomerForm, street: e.target.value })
-                    }
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                  />
-                </div>
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <label
-                      htmlFor="addCity"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      City
-                    </label>
-                    <input
-                      id="addCity"
-                      type="text"
-                      value={newCustomerForm.city}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, city: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="addState"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      State
-                    </label>
-                    <input
-                      id="addState"
-                      type="text"
-                      value={newCustomerForm.state}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, state: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="addZip"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      ZIP
-                    </label>
-                    <input
-                      id="addZip"
-                      type="text"
-                      value={newCustomerForm.zip}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, zip: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                    />
-                  </div>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="addBday"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      Birthday (MM/DD)
-                    </label>
-                    <input
-                      id="addBday"
-                      type="text"
-                      value={newCustomerForm.birthday}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, birthday: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                      placeholder="MM/DD"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="addReferred"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      Referred By (Code)
-                    </label>
-                    <input
-                      id="addReferred"
-                      type="text"
-                      value={newCustomerForm.referredBy}
-                      onChange={(e) =>
-                        setNewCustomerForm({ ...newCustomerForm, referredBy: e.target.value })
-                      }
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary text-sm bg-bg-primary"
-                      placeholder="e.g. SARAH-M"
-                    />
-                  </div>
-                </div>
-              </div>
-              <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border justify-end">
-                <button
-                  type="button"
-                  onClick={() => setShowAddModal(false)}
-                  className="px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:bg-bg-primary transition-colors text-sm"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  disabled={addLoading}
-                  className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors text-sm flex items-center gap-2"
-                >
-                  {addLoading ? 'Registering...' : 'Register Profile'}
-                </button>
-              </div>
-            </form>
-          </div>
+      <AccessibleModal
+        isOpen={showAddModal}
+        onClose={() => setShowAddModal(false)}
+        title="Add New Customer Profile"
+        titleId="add-customer-modal-title"
+        className="animate-fade-in-up"
+      >
+        <div className="bg-bg-secondary p-6 border-b border-border">
+          <h3 id="add-customer-modal-title" className="text-xl font-bold text-text-primary">
+            Add New Customer Profile
+          </h3>
         </div>
-      )}
+        <form onSubmit={handleAddCustomer}>
+          <div className="p-6 space-y-4 max-h-[70vh] overflow-y-auto pr-1">
+            <div className="grid grid-cols-2 gap-4">
+              <FormField id="addFirst" label="First Name" required>
+                <input
+                  required
+                  type="text"
+                  value={newCustomerForm.firstName}
+                  onChange={(e) =>
+                    setNewCustomerForm({ ...newCustomerForm, firstName: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                />
+              </FormField>
+              <FormField id="addLast" label="Last Name" required>
+                <input
+                  required
+                  type="text"
+                  value={newCustomerForm.lastName}
+                  onChange={(e) =>
+                    setNewCustomerForm({ ...newCustomerForm, lastName: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                />
+              </FormField>
+            </div>
+            <FormField id="addPhone" label="Phone Number" required>
+              <input
+                required
+                type="text"
+                value={newCustomerForm.phone}
+                onChange={(e) => setNewCustomerForm({ ...newCustomerForm, phone: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+              />
+            </FormField>
+            <FormField id="addEmail" label="Email Address" required>
+              <input
+                required
+                type="email"
+                value={newCustomerForm.email}
+                onChange={(e) => setNewCustomerForm({ ...newCustomerForm, email: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+              />
+            </FormField>
+            <FormField id="addStreet" label="Street Address">
+              <input
+                type="text"
+                value={newCustomerForm.street}
+                onChange={(e) => setNewCustomerForm({ ...newCustomerForm, street: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+              />
+            </FormField>
+            <div className="grid grid-cols-3 gap-4">
+              <FormField id="addCity" label="City">
+                <input
+                  type="text"
+                  value={newCustomerForm.city}
+                  onChange={(e) => setNewCustomerForm({ ...newCustomerForm, city: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                />
+              </FormField>
+              <FormField id="addState" label="State">
+                <input
+                  type="text"
+                  value={newCustomerForm.state}
+                  onChange={(e) =>
+                    setNewCustomerForm({ ...newCustomerForm, state: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                />
+              </FormField>
+              <FormField id="addZip" label="ZIP">
+                <input
+                  type="text"
+                  value={newCustomerForm.zip}
+                  onChange={(e) => setNewCustomerForm({ ...newCustomerForm, zip: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                />
+              </FormField>
+            </div>
+            <div className="grid grid-cols-2 gap-4">
+              <FormField id="addBday" label="Birthday (MM/DD)" helpText="MM/DD format">
+                <input
+                  type="text"
+                  value={newCustomerForm.birthday}
+                  onChange={(e) =>
+                    setNewCustomerForm({ ...newCustomerForm, birthday: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                  placeholder="MM/DD"
+                />
+              </FormField>
+              <FormField id="addReferred" label="Referred By (Code)" helpText="e.g. SARAH-M">
+                <input
+                  type="text"
+                  value={newCustomerForm.referredBy}
+                  onChange={(e) =>
+                    setNewCustomerForm({ ...newCustomerForm, referredBy: e.target.value })
+                  }
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none text-sm bg-bg-primary"
+                  placeholder="e.g. SARAH-M"
+                />
+              </FormField>
+            </div>
+          </div>
+          <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border justify-end">
+            <button
+              type="button"
+              onClick={() => setShowAddModal(false)}
+              className="px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:bg-bg-primary transition-colors text-sm"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              disabled={addLoading}
+              className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors text-sm flex items-center gap-2"
+            >
+              {addLoading ? 'Registering...' : 'Register Profile'}
+            </button>
+          </div>
+        </form>
+      </AccessibleModal>
     </>
   );
 };
