@@ -1,9 +1,7 @@
 import { Resend } from 'resend';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 
-const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
-
-export const handler = async (event) => {
+export const handler = async (event: any) => {
   try {
     const data = JSON.parse(event.body || '{}');
 
@@ -18,6 +16,17 @@ export const handler = async (event) => {
         body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
       };
     }
+
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is missing from environment');
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Failed to send message' }),
+      };
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({
       from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',

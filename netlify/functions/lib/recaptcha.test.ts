@@ -49,27 +49,40 @@ describe('verifyRecaptchaToken', () => {
     );
   });
 
-  it('falls back to VITE_RECAPTCHA_SECRET_KEY if RECAPTCHA_SECRET_KEY is missing', async () => {
+  it('returns false if RECAPTCHA_SECRET_KEY is missing, even if VITE_RECAPTCHA_SECRET_KEY is set', async () => {
     delete process.env.RECAPTCHA_SECRET_KEY;
     process.env.VITE_RECAPTCHA_SECRET_KEY = 'vite_secret_456';
 
+    const result = await verifyRecaptchaToken('test_token');
+    expect(result).toBe(false);
+  });
+
+  it('rejects tokens with reCAPTCHA v3 score below threshold', async () => {
+    process.env.RECAPTCHA_SECRET_KEY = 'secret_123';
     vi.stubGlobal(
       'fetch',
       vi.fn().mockResolvedValue({
         ok: true,
-        json: async () => ({ success: true }),
+        json: async () => ({ success: true, score: 0.3 }),
       })
     );
 
-    const result = await verifyRecaptchaToken('test_token');
+    const result = await verifyRecaptchaToken('low_score_token');
+    expect(result).toBe(false);
+  });
+
+  it('accepts tokens with reCAPTCHA v3 score at or above threshold', async () => {
+    process.env.RECAPTCHA_SECRET_KEY = 'secret_123';
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({ success: true, score: 0.8 }),
+      })
+    );
+
+    const result = await verifyRecaptchaToken('high_score_token');
     expect(result).toBe(true);
-
-    expect(fetch).toHaveBeenCalledWith(
-      'https://www.google.com/recaptcha/api/siteverify',
-      expect.objectContaining({
-        body: 'secret=vite_secret_456&response=test_token',
-      })
-    );
   });
 
   it('returns false when Google returns success: false', async () => {

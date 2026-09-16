@@ -3,9 +3,9 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
     return false;
   }
 
-  const secret = process.env.RECAPTCHA_SECRET_KEY || process.env.VITE_RECAPTCHA_SECRET_KEY;
+  const secret = process.env.RECAPTCHA_SECRET_KEY;
   if (!secret) {
-    console.error('reCAPTCHA secret key is missing from environment');
+    console.error('reCAPTCHA secret key (RECAPTCHA_SECRET_KEY) is missing from environment');
     return false;
   }
 
@@ -34,8 +34,18 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
       return false;
     }
 
-    const data = (await response.json()) as { success?: boolean };
-    return !!data.success;
+    const data = (await response.json()) as { success?: boolean; score?: number };
+    if (!data.success) {
+      return false;
+    }
+
+    const minScore = parseFloat(process.env.RECAPTCHA_MIN_SCORE || '0.5');
+    if (typeof data.score === 'number' && data.score < minScore) {
+      console.warn(`reCAPTCHA score ${data.score} below minimum threshold ${minScore}`);
+      return false;
+    }
+
+    return true;
   } catch (error) {
     console.error('Error verifying reCAPTCHA token:', error);
     return false;

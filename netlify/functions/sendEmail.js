@@ -17,6 +17,15 @@ export const handler = async (event) => {
       };
     }
 
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY is missing from environment');
+      return {
+        statusCode: 500,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'Failed to send message' }),
+      };
+    }
+
     const resend = new Resend(process.env.RESEND_API_KEY);
 
     await resend.emails.send({

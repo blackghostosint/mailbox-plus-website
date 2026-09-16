@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import * as recaptchaLib from '../lib/recaptcha';
+import { db } from '../lib/db';
 import { handler as customerHandler } from '../customer';
 import { handler as sendEmailTsHandler } from '../sendEmail';
 import { handler as sendEmailJsHandler } from '../sendEmail.js';
@@ -37,6 +38,9 @@ describe('Serverless Handler reCAPTCHA Guards', () => {
 
     it('bypasses reCAPTCHA verification for staff requests', async () => {
       vi.spyOn(recaptchaLib, 'verifyRecaptchaToken').mockResolvedValue(false);
+      vi.spyOn(db, 'getCustomerByPhone').mockResolvedValue(null);
+      vi.spyOn(db, 'getCustomerByReferralCode').mockResolvedValue(null);
+      vi.spyOn(db, 'saveCustomer').mockResolvedValue(undefined);
 
       const event = {
         httpMethod: 'POST',
@@ -56,8 +60,8 @@ describe('Serverless Handler reCAPTCHA Guards', () => {
       };
 
       const res = await customerHandler(event as any, context as any);
-      // Because staff auth bypasses reCAPTCHA, it proceeds to customer creation (or validation error if missing fields, or 201)
-      expect(res.statusCode).not.toBe(400);
+      // Because staff auth bypasses reCAPTCHA, it proceeds to customer creation
+      expect(res.statusCode).toBe(201);
       expect(JSON.parse(res.body)).not.toEqual({ error: 'reCAPTCHA verification failed' });
     });
   });
