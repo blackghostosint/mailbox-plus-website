@@ -52,6 +52,9 @@ export default defineConfig({
   },
   vite: {
     plugins: [Icons({ compiler: 'jsx', jsx: 'react' })],
+    build: {
+      assetsInlineLimit: 0,
+    },
   },
   integrations: [
     react(),
