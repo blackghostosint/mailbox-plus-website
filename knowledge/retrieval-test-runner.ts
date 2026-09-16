@@ -79,8 +79,8 @@ interface EmbeddingCache {
   [key: string]: number[];
 }
 
-const SNAPSHOT_FILE = join(__dirname, 'embeddings.json');
 const CACHE_FILE = join(__dirname, '.embedding-cache.json');
+const SNAPSHOT_FILE = join(__dirname, 'embeddings.json');
 let embeddingCache: EmbeddingCache = {};
 
 function loadEmbeddingsFile(filePath: string): number {
@@ -103,8 +103,8 @@ function loadEmbeddingsFile(filePath: string): number {
   return 0;
 }
 
-loadEmbeddingsFile(SNAPSHOT_FILE);
 loadEmbeddingsFile(CACHE_FILE);
+loadEmbeddingsFile(SNAPSHOT_FILE);
 
 console.log(`✓ Loaded cached embeddings for ${Object.keys(embeddingCache).length} entries`);
 
@@ -183,11 +183,19 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 async function buildEmbeddingCache(): Promise<void> {
   if (isOfflineMode) {
     if (Object.keys(embeddingCache).length === 0) {
-      throw new Error(
-        'Offline mode error: No precomputed embeddings found in knowledge/embeddings.json.'
+      console.log(
+        'ℹ GEMINI_API_KEY not set and no cached vector embeddings found in .embedding-cache.json.'
       );
+      console.log('ℹ Skipping retrieval evaluation tests in offline mode.\n');
+      const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+      const skippedReport =
+        `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
+        `**Generated:** ${new Date().toISOString()}\n\n` +
+        `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file (.embedding-cache.json) was found.\n`;
+      writeFileSync(reportPath, skippedReport, 'utf-8');
+      process.exit(0);
     }
-    console.log('✓ Using committed embedding snapshot (offline mode)');
+    console.log('✓ Using precomputed vector embedding cache (offline mode)');
     return;
   }
 
@@ -237,8 +245,8 @@ async function buildEmbeddingCache(): Promise<void> {
     }
   }
 
-  // Save cache to snapshot file
-  const snapshotData = {
+  // Save cache to CACHE_FILE
+  const cacheData = {
     metadata: {
       model: 'text-embedding-004',
       generatedAt: new Date().toISOString(),
@@ -246,8 +254,8 @@ async function buildEmbeddingCache(): Promise<void> {
     embeddings: embeddingCache,
   };
 
-  writeFileSync(SNAPSHOT_FILE, JSON.stringify(snapshotData, null, 2), 'utf-8');
-  console.log(`✓ Snapshot updated: ${newEmbeddings} new embeddings generated`);
+  writeFileSync(CACHE_FILE, JSON.stringify(cacheData, null, 2), 'utf-8');
+  console.log(`✓ Embedding cache updated: ${newEmbeddings} new embeddings generated`);
   console.log(`✓ Total cached embeddings: ${Object.keys(embeddingCache).length}\n`);
 }
 

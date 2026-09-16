@@ -13,7 +13,7 @@ dotenv.config();
 dotenv.config({ path: join(__dirname, '..', '.env.local') });
 
 const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
-const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
+const OUTPUT_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
 const MODEL_NAME = 'text-embedding-004';
 
 interface KBEntry {
