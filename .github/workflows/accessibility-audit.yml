@@ -34,7 +34,7 @@ jobs:
 
       - name: Run axe-core accessibility audit
         run: |
-          npx serve dist -p 4321 &
+          npx serve dist -l 4321 &
           for i in {1..30}; do
             if curl -s http://localhost:4321 > /dev/null; then
               echo "Server is up and listening on port 4321"
