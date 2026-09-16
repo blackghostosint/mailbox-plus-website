@@ -6,11 +6,13 @@ on:
     paths:
       - 'knowledge/**'
       - '.github/workflows/retrieval-tests.yml'
+      - 'package.json'
   pull_request:
     branches: [main, staging]
     paths:
       - 'knowledge/**'
       - '.github/workflows/retrieval-tests.yml'
+      - 'package.json'
   workflow_dispatch:
 
 jobs:
