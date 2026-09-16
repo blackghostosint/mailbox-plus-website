@@ -4,6 +4,13 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
+import {
+  EMBEDDING_MODEL,
+  MODEL_NAME,
+  buildCacheKey,
+  type KBEntry,
+  type KnowledgeBase,
+} from '../knowledge/retrieval-core.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -14,18 +21,6 @@ dotenv.config({ path: join(__dirname, '..', '.env.local') });
 
 const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
 const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
-const MODEL_NAME = 'gemini-embedding-001';
-
-interface KBEntry {
-  id: string;
-  title: string;
-  questionVariants: string[];
-  searchText: string;
-}
-
-interface KnowledgeBase {
-  entries: KBEntry[];
-}
 
 interface EmbeddingResult {
   metadata: {
@@ -84,7 +79,7 @@ async function buildEmbeddings() {
   for (const text of uniqueTexts) {
     count++;
     const taskType = taskMap.get(text)!;
-    const cacheKey = `${taskType}::${text}`;
+    const cacheKey = buildCacheKey(taskType, text);
 
     try {
       process.stdout.write(
