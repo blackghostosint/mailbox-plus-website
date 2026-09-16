@@ -91,6 +91,9 @@ jobs:
       - name: Check for unreferenced public/data files (legacy-drift guard)
         run: npm run check:public-data
 
+      - name: Verify zero executable inline scripts in dist HTML
+        run: npm run check:inline-scripts
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 

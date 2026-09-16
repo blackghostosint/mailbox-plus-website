@@ -2,9 +2,7 @@
   const contactForm = document.querySelector('form[name="contact"]');
   if (!contactForm) return;
 
-  const recaptchaSiteKey =
-    contactForm.getAttribute('data-recaptcha-site-key') ||
-    '6LfeYdkrAAAAAOf6yYm63d91lI8R4mD56l5UoOTo';
+  const recaptchaSiteKey = contactForm.getAttribute('data-recaptcha-site-key') || '';
 
   if (
     recaptchaSiteKey &&
