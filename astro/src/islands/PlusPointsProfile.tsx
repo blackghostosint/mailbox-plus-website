@@ -16,6 +16,10 @@ import TrendingUp from '~icons/lucide/trending-up';
 import Clock from '~icons/lucide/clock';
 import AlertCircle from '~icons/lucide/alert-circle';
 import Sparkles from '~icons/lucide/sparkles';
+import { AccessibleModal } from '../components/ui/AccessibleModal';
+import { FormField } from '../components/ui/FormField';
+import { IconWrapper } from '../components/ui/IconWrapper';
+import { useLiveAnnouncer } from '../hooks/useLiveAnnouncer';
 
 // Mock data based on the spec "Sarah Miller — Shipper tier"
 const mockCustomer = {
@@ -47,6 +51,7 @@ const mockCustomer = {
 };
 
 export const PlusPointsProfile: React.FC = () => {
+  const { announcePolite, LiveAnnouncer } = useLiveAnnouncer();
   const [customer, setCustomer] = useState(mockCustomer);
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
@@ -87,6 +92,7 @@ export const PlusPointsProfile: React.FC = () => {
   const handleCopy = () => {
     navigator.clipboard.writeText(referralLinkText);
     setIsCopied(true);
+    announcePolite('Referral link copied to clipboard');
     setTimeout(() => setIsCopied(false), 2000);
   };
 
@@ -147,6 +153,7 @@ export const PlusPointsProfile: React.FC = () => {
 
   return (
     <>
+      <LiveAnnouncer />
       <div className="bg-bg-primary min-h-screen py-8 md:py-12">
         <div className="container mx-auto px-4 max-w-5xl">
           {loading ? (
@@ -458,214 +465,162 @@ export const PlusPointsProfile: React.FC = () => {
       </div>
 
       {/* Upgrade Instruction Modal */}
-      {showUpgradeModal && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-md w-full border border-border-strong shadow-xl overflow-hidden animate-fade-in-up">
-            <div className="bg-bg-secondary p-6 border-b border-border text-center">
-              <Award className="w-12 h-12 text-accent-gold mx-auto mb-3" />
-              <h3 className="text-xl font-bold text-text-primary">Instantly Skip the Earn-in</h3>
-            </div>
-            <div className="p-6 space-y-4 text-sm text-text-secondary leading-relaxed">
-              <p>
-                For Phase 1 of our program, upgrades are paid and processed directly at the counter.
-              </p>
-              <div className="bg-bg-warm-tint p-4 rounded-xl border border-border flex items-start gap-3">
-                <AlertCircle className="w-5 h-5 text-accent-warm mt-0.5 flex-shrink-0" />
-                <p className="text-xs text-text-primary">
-                  Just ask any staff member at the counter on your next visit to pay and fast-track
-                  your account to a higher rewards tier!
-                </p>
-              </div>
-            </div>
-            <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border">
-              <button
-                onClick={() => setShowUpgradeModal(false)}
-                className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
-              >
-                Got it, thanks!
-              </button>
-            </div>
+      <AccessibleModal
+        isOpen={showUpgradeModal}
+        onClose={() => setShowUpgradeModal(false)}
+        title="Instantly Skip the Earn-in"
+        titleId="upgrade-modal-title"
+        className="max-w-md animate-fade-in-up"
+      >
+        <div className="bg-bg-secondary p-6 border-b border-border text-center">
+          <IconWrapper>
+            <Award className="w-12 h-12 text-accent-gold mx-auto mb-3" />
+          </IconWrapper>
+          <h3 id="upgrade-modal-title" className="text-xl font-bold text-text-primary">
+            Instantly Skip the Earn-in
+          </h3>
+        </div>
+        <div className="p-6 space-y-4 text-sm text-text-secondary leading-relaxed">
+          <p>
+            For Phase 1 of our program, upgrades are paid and processed directly at the counter.
+          </p>
+          <div className="bg-bg-warm-tint p-4 rounded-xl border border-border flex items-start gap-3">
+            <IconWrapper>
+              <AlertCircle className="w-5 h-5 text-accent-warm mt-0.5 flex-shrink-0" />
+            </IconWrapper>
+            <p className="text-xs text-text-primary">
+              Just ask any staff member at the counter on your next visit to pay and fast-track your
+              account to a higher rewards tier!
+            </p>
           </div>
         </div>
-      )}
+        <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border">
+          <button
+            onClick={() => setShowUpgradeModal(false)}
+            className="w-full py-3 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
+          >
+            Got it, thanks!
+          </button>
+        </div>
+      </AccessibleModal>
 
       {/* Edit Info Modal */}
-      {isEditing && (
-        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-lg w-full border border-border-strong shadow-xl overflow-hidden">
-            <div className="bg-bg-secondary p-6 border-b border-border">
-              <h3 className="text-xl font-bold text-text-primary">Edit Contact Profile</h3>
-            </div>
-            <form onSubmit={handleSaveInfo}>
-              <div className="p-6 space-y-4">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="editFirstName"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      First Name
-                    </label>
-                    <input
-                      id="editFirstName"
-                      required
-                      type="text"
-                      value={editForm.firstName}
-                      onChange={(e) => setEditForm({ ...editForm, firstName: e.target.value })}
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="editLastName"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      Last Name
-                    </label>
-                    <input
-                      id="editLastName"
-                      required
-                      type="text"
-                      value={editForm.lastName}
-                      onChange={(e) => setEditForm({ ...editForm, lastName: e.target.value })}
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="editEmail"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Email Address
-                  </label>
-                  <input
-                    id="editEmail"
-                    required
-                    type="email"
-                    value={editForm.email}
-                    onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="editPhone"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Phone Number
-                  </label>
-                  <input
-                    id="editPhone"
-                    required
-                    type="text"
-                    value={editForm.phone}
-                    onChange={(e) => setEditForm({ ...editForm, phone: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="editStreet"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Street Address
-                  </label>
-                  <input
-                    id="editStreet"
-                    required
-                    type="text"
-                    value={editForm.street}
-                    onChange={(e) => setEditForm({ ...editForm, street: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                  />
-                </div>
-                <div className="grid grid-cols-3 gap-4">
-                  <div>
-                    <label
-                      htmlFor="editCity"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      City
-                    </label>
-                    <input
-                      id="editCity"
-                      required
-                      type="text"
-                      value={editForm.city}
-                      onChange={(e) => setEditForm({ ...editForm, city: e.target.value })}
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="editState"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      State
-                    </label>
-                    <input
-                      id="editState"
-                      required
-                      type="text"
-                      value={editForm.state}
-                      onChange={(e) => setEditForm({ ...editForm, state: e.target.value })}
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    />
-                  </div>
-                  <div>
-                    <label
-                      htmlFor="editZip"
-                      className="block text-xs font-bold text-text-primary mb-2"
-                    >
-                      ZIP
-                    </label>
-                    <input
-                      id="editZip"
-                      required
-                      type="text"
-                      value={editForm.zip}
-                      onChange={(e) => setEditForm({ ...editForm, zip: e.target.value })}
-                      className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label
-                    htmlFor="editBirthday"
-                    className="block text-xs font-bold text-text-primary mb-2"
-                  >
-                    Birthday (MM/DD)
-                  </label>
-                  <input
-                    id="editBirthday"
-                    type="text"
-                    value={editForm.birthday}
-                    onChange={(e) => setEditForm({ ...editForm, birthday: e.target.value })}
-                    className="w-full px-3 py-2 border border-border rounded-lg outline-none focus:border-primary"
-                    placeholder="MM/DD"
-                  />
-                </div>
-              </div>
-              <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border justify-end">
-                <button
-                  type="button"
-                  onClick={() => setIsEditing(false)}
-                  className="px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:bg-bg-primary transition-colors"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
-                >
-                  Save Changes
-                </button>
-              </div>
-            </form>
-          </div>
+      <AccessibleModal
+        isOpen={isEditing}
+        onClose={() => setIsEditing(false)}
+        title="Edit Contact Profile"
+        titleId="edit-profile-modal-title"
+      >
+        <div className="bg-bg-secondary p-6 border-b border-border">
+          <h3 id="edit-profile-modal-title" className="text-xl font-bold text-text-primary">
+            Edit Contact Profile
+          </h3>
         </div>
-      )}
+        <form onSubmit={handleSaveInfo}>
+          <div className="p-6 space-y-4">
+            <div className="grid grid-cols-2 gap-4">
+              <FormField id="editFirstName" label="First Name" required>
+                <input
+                  required
+                  type="text"
+                  value={editForm.firstName}
+                  onChange={(e) => setEditForm({ ...editForm, firstName: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                />
+              </FormField>
+              <FormField id="editLastName" label="Last Name" required>
+                <input
+                  required
+                  type="text"
+                  value={editForm.lastName}
+                  onChange={(e) => setEditForm({ ...editForm, lastName: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                />
+              </FormField>
+            </div>
+            <FormField id="editEmail" label="Email Address" required>
+              <input
+                required
+                type="email"
+                value={editForm.email}
+                onChange={(e) => setEditForm({ ...editForm, email: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+              />
+            </FormField>
+            <FormField id="editPhone" label="Phone Number" required>
+              <input
+                required
+                type="text"
+                value={editForm.phone}
+                onChange={(e) => setEditForm({ ...editForm, phone: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+              />
+            </FormField>
+            <FormField id="editStreet" label="Street Address" required>
+              <input
+                required
+                type="text"
+                value={editForm.street}
+                onChange={(e) => setEditForm({ ...editForm, street: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+              />
+            </FormField>
+            <div className="grid grid-cols-3 gap-4">
+              <FormField id="editCity" label="City" required>
+                <input
+                  required
+                  type="text"
+                  value={editForm.city}
+                  onChange={(e) => setEditForm({ ...editForm, city: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                />
+              </FormField>
+              <FormField id="editState" label="State" required>
+                <input
+                  required
+                  type="text"
+                  value={editForm.state}
+                  onChange={(e) => setEditForm({ ...editForm, state: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                />
+              </FormField>
+              <FormField id="editZip" label="ZIP" required>
+                <input
+                  required
+                  type="text"
+                  value={editForm.zip}
+                  onChange={(e) => setEditForm({ ...editForm, zip: e.target.value })}
+                  className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                />
+              </FormField>
+            </div>
+            <FormField id="editBirthday" label="Birthday (MM/DD)" helpText="MM/DD format">
+              <input
+                type="text"
+                value={editForm.birthday}
+                onChange={(e) => setEditForm({ ...editForm, birthday: e.target.value })}
+                className="w-full px-3 py-2 border border-border rounded-lg outline-none"
+                placeholder="MM/DD"
+              />
+            </FormField>
+          </div>
+          <div className="bg-bg-secondary p-4 flex gap-4 border-t border-border justify-end">
+            <button
+              type="button"
+              onClick={() => setIsEditing(false)}
+              className="px-4 py-2 border border-border-strong rounded-lg text-text-secondary hover:bg-bg-primary transition-colors"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="px-6 py-2 bg-primary text-white font-bold rounded-lg hover:bg-opacity-90 transition-colors"
+            >
+              Save Changes
+            </button>
+          </div>
+        </form>
+      </AccessibleModal>
     </>
   );
 };

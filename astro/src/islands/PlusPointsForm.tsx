@@ -9,8 +9,11 @@ import Mailbox from '~icons/lucide/mailbox';
 import Trophy from '~icons/lucide/trophy';
 import Award from '~icons/lucide/award';
 import Star from '~icons/lucide/star';
+import { FormField } from '../components/ui/FormField';
+import { useLiveAnnouncer } from '../hooks/useLiveAnnouncer';
 
 export const PlusPoints: React.FC = () => {
+  const { announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -51,11 +54,15 @@ export const PlusPoints: React.FC = () => {
         setSuccess(true);
       } else {
         const err = await res.json();
-        setErrorMsg(err.error || 'Failed to register account');
+        const msg = err.error || 'Failed to register account';
+        setErrorMsg(msg);
+        announceAssertive(msg);
       }
     } catch (err) {
       console.error('Error registering customer:', err);
-      setErrorMsg('Network error. Please try again.');
+      const msg = 'Network error. Please try again.';
+      setErrorMsg(msg);
+      announceAssertive(msg);
     } finally {
       setSubmitting(false);
     }
@@ -67,6 +74,7 @@ export const PlusPoints: React.FC = () => {
 
   return (
     <>
+      <LiveAnnouncer />
       <div className="plus-points-wrapper">
         {/* Hero Section */}
         <section className="relative overflow-hidden bg-primary text-white py-16 lg:py-24">
@@ -253,179 +261,117 @@ export const PlusPoints: React.FC = () => {
                     )}
                     <form onSubmit={handleSubmit} className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label
-                            htmlFor="firstName"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            First Name
-                          </label>
+                        <FormField id="firstName" label="First Name" required>
                           <input
-                            id="firstName"
                             required
                             type="text"
                             name="firstName"
                             value={formData.firstName}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="First Name"
                           />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="lastName"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            Last Name
-                          </label>
+                        </FormField>
+                        <FormField id="lastName" label="Last Name" required>
                           <input
-                            id="lastName"
                             required
                             type="text"
                             name="lastName"
                             value={formData.lastName}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="Last Name"
                           />
-                        </div>
+                        </FormField>
                       </div>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                          <label
-                            htmlFor="phone"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            Phone Number
-                          </label>
+                        <FormField id="phone" label="Phone Number" required>
                           <input
-                            id="phone"
                             required
                             type="tel"
                             name="phone"
                             value={formData.phone}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="(555) 555-5555"
                           />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="email"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            Email Address
-                          </label>
+                        </FormField>
+                        <FormField id="email" label="Email Address" required>
                           <input
-                            id="email"
                             required
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="you@email.com"
                           />
-                        </div>
+                        </FormField>
                       </div>
 
-                      <div>
-                        <label
-                          htmlFor="street"
-                          className="block text-sm font-bold text-text-primary mb-2"
-                        >
-                          Street Address
-                        </label>
+                      <FormField id="street" label="Street Address" required>
                         <input
-                          id="street"
                           required
                           type="text"
                           name="street"
                           value={formData.street}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                          className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                           placeholder="123 Main St"
                         />
-                      </div>
+                      </FormField>
 
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="md:col-span-1">
-                          <label
-                            htmlFor="city"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            City
-                          </label>
+                        <FormField id="city" label="City" required className="md:col-span-1">
                           <input
-                            id="city"
                             required
                             type="text"
                             name="city"
                             value={formData.city}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="City"
                           />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="state"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            State
-                          </label>
+                        </FormField>
+                        <FormField id="state" label="State" required>
                           <input
-                            id="state"
                             required
                             type="text"
                             name="state"
                             value={formData.state}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="State"
                           />
-                        </div>
-                        <div>
-                          <label
-                            htmlFor="zip"
-                            className="block text-sm font-bold text-text-primary mb-2"
-                          >
-                            ZIP
-                          </label>
+                        </FormField>
+                        <FormField id="zip" label="ZIP" required>
                           <input
-                            id="zip"
                             required
                             type="text"
                             name="zip"
                             value={formData.zip}
                             onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                            className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                             placeholder="ZIP"
                           />
-                        </div>
+                        </FormField>
                       </div>
 
-                      <div>
-                        <label
-                          htmlFor="birthday"
-                          className="block text-sm font-bold text-text-primary mb-2"
-                        >
-                          Birthday{' '}
-                          <span className="text-text-muted font-normal">
-                            (Optional — for birthday treat)
-                          </span>
-                        </label>
+                      <FormField
+                        id="birthday"
+                        label="Birthday"
+                        helpText="Optional — for birthday treat"
+                      >
                         <input
-                          id="birthday"
                           type="text"
                           name="birthday"
                           value={formData.birthday}
                           onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-colors text-text-primary bg-bg-primary"
+                          className="w-full px-4 py-3 rounded-lg border border-border transition-colors text-text-primary bg-bg-primary"
                           placeholder="MM/DD"
                         />
-                      </div>
+                      </FormField>
 
                       <div className="flex items-start gap-3 mt-4">
                         <input
