@@ -42,7 +42,7 @@ function main() {
   let hasErrors = false;
 
   const scriptRegex =
-    /<script\s+[^>]*type\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script>/gi;
+    /<script\s+[^>]*type\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script\b[^>]*>/gi;
 
   for (const file of htmlFiles) {
     const relPath = path.relative(ROOT_DIR, file).replace(/\\/g, '/');

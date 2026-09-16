@@ -19,7 +19,8 @@
     "audit:micro-problems:report": "node scripts/audit-micro-problems.cjs",
     "test:retrieval": "tsx knowledge/retrieval-test-runner.ts",
     "build:embeddings": "tsx scripts/build-embeddings.ts",
-    "audit:articles": "node scripts/verify/verify.mjs articles",
+    "audit:articles": "node scripts/verify/verify.mjs articles --offline",
+    "audit:quality": "npm run format:check && npm run audit:articles && npm run seo:check-links",
     "verify": "node scripts/verify/verify.mjs changed",
     "verify:doctor": "node scripts/verify/verify.mjs doctor",
     "verify:articles": "node scripts/verify/verify.mjs articles",
@@ -30,6 +31,7 @@
     "seo:check-canonical": "node scripts/seo/check-canonical-slash.mjs",
     "seo:check-href-slash": "node scripts/seo/check-internal-href-slash.mjs",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
+    "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
