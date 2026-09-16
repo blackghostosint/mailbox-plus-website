@@ -67,7 +67,7 @@ const recaptchaSiteKey =
         <div class="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md h-full">
           <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">Send Us a Message</h2>
           <p class="text-[var(--color-text-secondary)] mb-8 leading-relaxed">Have a question about our services or need a custom quote? Fill out the form below and we'll get back to you promptly.</p>
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-6">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-recaptcha-site-key={recaptchaSiteKey} class="space-y-6">
             <input type="hidden" name="form-name" value="contact" />
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="space-y-2">
@@ -172,69 +172,5 @@ const recaptchaSiteKey =
     </section>
   </div>
 
-  <script define:vars={{ recaptchaSiteKey }}>
-    if (recaptchaSiteKey && typeof document !== 'undefined' && !document.getElementById('recaptcha-v3-script')) {
-      const s = document.createElement('script');
-      s.id = 'recaptcha-v3-script';
-      s.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
-      s.async = true;
-      document.head.appendChild(s);
-    }
-
-    const contactForm = document.querySelector('form[name="contact"]');
-    if (contactForm) {
-      contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        if (submitBtn) submitBtn.disabled = true;
-
-        let recaptchaToken = '';
-        if (recaptchaSiteKey && window.grecaptcha) {
-          try {
-            recaptchaToken = await new Promise((resolve) => {
-              window.grecaptcha.ready(() => {
-                window.grecaptcha
-                  .execute(recaptchaSiteKey, { action: 'contact_us' })
-                  .then(resolve)
-                  .catch(() => resolve(''));
-              });
-            });
-          } catch (err) {
-            console.error('reCAPTCHA execution error:', err);
-          }
-        }
-
-        const formData = new FormData(contactForm);
-        const payload = {
-          name: formData.get('name'),
-          email: formData.get('email'),
-          phone: formData.get('phone'),
-          service: formData.get('service'),
-          message: formData.get('message'),
-          recaptchaToken,
-        };
-
-        try {
-          const res = await fetch('/.netlify/functions/sendEmail', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload),
-          });
-
-          if (res.ok) {
-            contactForm.innerHTML =
-              '<div class="p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200">Thank you! Your message has been sent.</div>';
-          } else {
-            const data = await res.json().catch(() => ({}));
-            alert(data.error || 'Failed to send message. Please try again.');
-            if (submitBtn) submitBtn.disabled = false;
-          }
-        } catch (err) {
-          console.error('Submission error:', err);
-          alert('Network error. Please try again.');
-          if (submitBtn) submitBtn.disabled = false;
-        }
-      });
-    }
-  </script>
+  <script src="/js/contact-form.js" defer></script>
 </BaseLayout>
