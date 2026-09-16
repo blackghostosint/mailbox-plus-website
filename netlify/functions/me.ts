@@ -80,11 +80,13 @@ function validatePatchFields(updates: Record<string, any>): string | null {
   ) {
     return 'City exceeds maximum length';
   }
-  if (
-    updates.state !== undefined &&
-    (typeof updates.state !== 'string' || updates.state.length > 50)
-  ) {
-    return 'State exceeds maximum length';
+  if (updates.state !== undefined) {
+    if (typeof updates.state !== 'string' || updates.state.length > 50) {
+      return 'State exceeds maximum length';
+    }
+    if (updates.state.length > 0 && !/^[A-Za-z]{2}$/.test(updates.state.trim())) {
+      return 'Invalid state format';
+    }
   }
   if (
     updates.birthday !== undefined &&
@@ -143,20 +145,38 @@ export const handler: Handler = async (event: any, context: any) => {
         };
       }
 
-      // Fetch transactions
-      const activities = await db.getTransactions(customer.id);
-      const sessionToken =
-        token && verifyCustomerToken(token, customer.id)
-          ? token
-          : generateCustomerToken(customer.id);
+      const isAuthorized = staff || (Boolean(token) && verifyCustomerToken(token!, customer.id));
 
+      if (id || isAuthorized) {
+        // Full profile returned for authorized requests (session token or staff login)
+        const activities = await db.getTransactions(customer.id);
+        const sessionToken =
+          token && verifyCustomerToken(token, customer.id)
+            ? token
+            : generateCustomerToken(customer.id);
+
+        return {
+          statusCode: 200,
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            ...customer,
+            activities,
+            token: sessionToken,
+          }),
+        };
+      }
+
+      // Referral code lookup without valid session token or staff auth:
+      // Return a reduced record (points & tier only) and DO NOT mint a session token or return contact PII.
       return {
         statusCode: 200,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          ...customer,
-          activities,
-          token: sessionToken,
+          tier: customer.tier,
+          points: customer.points,
+          multiplier: customer.multiplier,
+          ytdPoints: customer.ytdPoints,
+          referralCode: customer.referralCode,
         }),
       };
     }

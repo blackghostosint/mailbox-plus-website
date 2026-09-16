@@ -108,8 +108,8 @@ export const PlusPointsProfile: React.FC = () => {
           if (realData.token && typeof localStorage !== 'undefined') {
             localStorage.setItem('plus_points_token', realData.token);
           }
-          setCustomer(realData);
-          setEditForm(realData);
+          setCustomer((prev) => ({ ...prev, ...realData }));
+          setEditForm((prev) => ({ ...prev, ...realData }));
         }
       } catch (err) {
         console.error('Error fetching real rewards profile:', err);

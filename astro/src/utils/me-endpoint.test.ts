@@ -153,7 +153,7 @@ describe('me.ts serverless function handler', () => {
     expect(resPatch?.statusCode).toBe(404);
   });
 
-  it('returns HTTP 200 and issues session token when GET is called with a valid referral code (session bootstrap)', async () => {
+  it('returns HTTP 200 with a reduced record (points and tier only) and NO session token or PII when GET is called with a referral code without auth', async () => {
     const res = await handler(
       createEvent('GET', { code: 'JANE-D' }),
       dummyContext,
@@ -161,8 +161,30 @@ describe('me.ts serverless function handler', () => {
     );
     expect(res?.statusCode).toBe(200);
     const body = JSON.parse(res?.body || '{}');
-    expect(body.firstName).toBe('Jane');
+    expect(body.points).toBe(500);
+    expect(body.tier).toBe('Shipper');
     expect(body.referralCode).toBe('JANE-D');
+    expect(body.token).toBeUndefined();
+    expect(body.firstName).toBeUndefined();
+    expect(body.lastName).toBeUndefined();
+    expect(body.email).toBeUndefined();
+    expect(body.phone).toBeUndefined();
+    expect(body.activities).toBeUndefined();
+  });
+
+  it('returns HTTP 200 with full customer PII and token when GET is called with referral code and valid session token', async () => {
+    const validToken = generateCustomerToken('cust_test_123');
+    const res = await handler(
+      createEvent('GET', { code: 'JANE-D' }, undefined, {
+        authorization: `Bearer ${validToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(res?.statusCode).toBe(200);
+    const body = JSON.parse(res?.body || '{}');
+    expect(body.firstName).toBe('Jane');
+    expect(body.email).toBe('jane@example.com');
     expect(body.token).toBeDefined();
   });
 
@@ -304,6 +326,17 @@ describe('me.ts serverless function handler', () => {
     );
     expect(resLongName?.statusCode).toBe(400);
     expect(JSON.parse(resLongName?.body || '{}').error).toBe('First name exceeds maximum length');
+
+    // Invalid state format
+    const resState = await handler(
+      createEvent('PATCH', { id: 'cust_test_123' }, JSON.stringify({ state: 'INVALID' }), {
+        authorization: `Bearer ${validToken}`,
+      }),
+      dummyContext,
+      () => undefined
+    );
+    expect(resState?.statusCode).toBe(400);
+    expect(JSON.parse(resState?.body || '{}').error).toBe('Invalid state format');
   });
 
   it('updates whitelisted contact fields and returns HTTP 200 with updated customer when authorized', async () => {
