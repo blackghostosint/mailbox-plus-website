@@ -298,6 +298,68 @@ function printReport(filePath: string, result: any, minScore = 80) {
   console.log('\n' + '='.repeat(80) + '\n');
 }
 
+function matchWildcardSegment(text: string, pattern: string): boolean {
+  if (pattern === '*') return true;
+  const parts = pattern.split('*');
+  if (parts.length === 1) return text === pattern;
+
+  if (!text.startsWith(parts[0])) return false;
+  if (!text.endsWith(parts[parts.length - 1])) return false;
+
+  let pos = parts[0].length;
+  for (let i = 1; i < parts.length - 1; i++) {
+    const part = parts[i];
+    if (part === '') continue;
+    const found = text.indexOf(part, pos);
+    if (found === -1) return false;
+    pos = found + part.length;
+  }
+  return pos <= text.length - parts[parts.length - 1].length;
+}
+
+function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
+  let fIndex = 0;
+  let pIndex = 0;
+
+  while (pIndex < patSegs.length && fIndex < fileSegs.length) {
+    const p = patSegs[pIndex];
+    if (p === '**') {
+      if (pIndex === patSegs.length - 1) return true;
+      for (let i = fIndex; i <= fileSegs.length; i++) {
+        if (matchPathSegments(fileSegs.slice(i), patSegs.slice(pIndex + 1))) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (!matchWildcardSegment(fileSegs[fIndex], p)) {
+      return false;
+    }
+
+    fIndex++;
+    pIndex++;
+  }
+
+  while (pIndex < patSegs.length && patSegs[pIndex] === '**') {
+    pIndex++;
+  }
+
+  return fIndex === fileSegs.length && pIndex === patSegs.length;
+}
+
+function globMatch(filePath: string, pattern: string): boolean {
+  const fileSegs = filePath
+    .replace(/\\/g, '/')
+    .split('/')
+    .filter((s) => s && s !== '.');
+  const patSegs = pattern
+    .replace(/\\/g, '/')
+    .split('/')
+    .filter((s) => s && s !== '.');
+  return matchPathSegments(fileSegs, patSegs);
+}
+
 function resolveFiles(target: string): string[] {
   if (fs.existsSync(target) && fs.statSync(target).isFile()) {
     return [target];
@@ -317,15 +379,7 @@ function resolveFiles(target: string): string[] {
       : '.';
     const allMd = walkMdFiles(searchDir);
 
-    // Simple wildcard regex replacement
-    const patternStr = target
-      .replace(/\\/g, '/')
-      .replace(/\./g, '\\.')
-      .replace(/\*\*/g, '.*')
-      .replace(/\*/g, '[^/]*');
-    const regex = new RegExp(`^${patternStr}$`);
-
-    return allMd.filter((f) => regex.test(f.replace(/\\/g, '/')));
+    return allMd.filter((f) => globMatch(f, target));
   }
 
   return [];
