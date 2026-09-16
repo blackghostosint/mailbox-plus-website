@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Astro dependencies
+        run: cd astro && npm ci
+
       - name: Run verification doctor
         run: npm run verify:doctor
 
@@ -44,9 +47,6 @@ jobs:
 
       - name: Lint check (zero warnings policy)
         run: npm run lint
-
-      - name: Install Astro dependencies
-        run: cd astro && npm ci
 
       - name: Dependency Security Audit (Astro)
         run: cd astro && npm audit --audit-level=high
