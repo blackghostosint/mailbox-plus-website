@@ -14,10 +14,11 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { withCors } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
 
 // Tier metadata → human name + monthly display price (for pixel value).
 // Amount is NOT trusted from here for revenue reporting — Stripe is the source
@@ -40,14 +41,7 @@ const json = (code: number, body: unknown) => ({
   body: JSON.stringify(body),
 });
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 204,
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      body: '',
-    };
-  }
+export const handler: Handler = withCors(async (event) => {
   if (event.httpMethod !== 'GET') {
     return json(405, { error: 'Method not allowed' });
   }
@@ -94,4 +88,4 @@ export const handler: Handler = async (event) => {
     console.error('verify-session error:', err?.message || err);
     return json(404, { error: 'Session not found' });
   }
-};
+});

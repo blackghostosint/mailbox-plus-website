@@ -5,8 +5,9 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
+import { withWebCors } from './lib/cors';
 
-export default async (request: Request, context: Context) => {
+export default withWebCors(async (request: Request, context: Context) => {
   // Only accept POST requests
   if (request.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 });
@@ -30,19 +31,14 @@ export default async (request: Request, context: Context) => {
       })
     );
 
-    return new Response('OK', {
+    return new Response(null, {
       status: 204,
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type',
-      },
     });
   } catch (err) {
     console.error('[CSP Report Error]', err);
     return new Response('Bad Request', { status: 400 });
   }
-};
+});
 
 export const config = {
   path: '/.netlify/functions/csp-report',

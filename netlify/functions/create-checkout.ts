@@ -7,10 +7,11 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { withCors } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'sk_test_placeholder');
 
 // Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
 const TIER_LOOKUP_KEYS: Record<string, string> = {
@@ -55,7 +56,6 @@ const TIER_CANCEL_URLS: Record<string, string> = {
 // One-time key deposit, charged on the FIRST invoice at account creation (2026-08-25).
 // Lookup key lives on the one-time price under the "Mailbox Plus Fees" product.
 const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
-const KEY_DEPOSIT_DISPLAY_NAME = 'Key deposit (refundable)';
 
 // Tiers that include "Text + email alerts on every item" (per PRICING-AND-FEES.md).
 // Only these require the A2P 10DLC SMS consent affirmation at checkout (Clause 13).
@@ -67,22 +67,10 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
-export const handler: Handler = async (event) => {
-  // CORS headers (needed if called cross-origin; same-origin via /api/* proxy)
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  };
-
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers, body: '' };
-  }
-
+export const handler: Handler = withCors(async (event) => {
   if (event.httpMethod !== 'POST') {
     return {
       statusCode: 405,
-      headers,
       body: JSON.stringify({ error: 'Method not allowed' }),
     };
   }
@@ -90,7 +78,6 @@ export const handler: Handler = async (event) => {
   if (!process.env.STRIPE_SECRET_KEY) {
     return {
       statusCode: 500,
-      headers,
       body: JSON.stringify({ error: 'Stripe is not configured on the server' }),
     };
   }
@@ -102,7 +89,6 @@ export const handler: Handler = async (event) => {
     if (!tier || !TIER_LOOKUP_KEYS[tier]) {
       return {
         statusCode: 400,
-        headers,
         body: JSON.stringify({
           error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
         }),
@@ -122,7 +108,6 @@ export const handler: Handler = async (event) => {
     if (!price) {
       return {
         statusCode: 500,
-        headers,
         body: JSON.stringify({ error: `Price not found for tier: ${tier}` }),
       };
     }
@@ -136,7 +121,6 @@ export const handler: Handler = async (event) => {
     if (!depositPrice) {
       return {
         statusCode: 500,
-        headers,
         body: JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
       };
     }
@@ -188,15 +172,13 @@ export const handler: Handler = async (event) => {
 
     return {
       statusCode: 200,
-      headers,
       body: JSON.stringify({ url: session.url }),
     };
   } catch (err: any) {
     console.error('create-checkout error:', err?.message || err);
     return {
       statusCode: 500,
-      headers,
       body: JSON.stringify({ error: 'Failed to create checkout session' }),
     };
   }
-};
+});

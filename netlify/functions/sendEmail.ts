@@ -1,7 +1,16 @@
+import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
 import { verifyRecaptchaToken } from './lib/recaptcha';
+import { withCors } from './lib/cors';
 
-export const handler = async (event: any) => {
+export const handler: Handler = withCors(async (event: any) => {
+  if (event.httpMethod && event.httpMethod.toUpperCase() !== 'POST') {
+    return {
+      statusCode: 405,
+      body: JSON.stringify({ error: 'Method not allowed' }),
+    };
+  }
+
   try {
     const data = JSON.parse(event.body || '{}');
 
@@ -12,7 +21,6 @@ export const handler = async (event: any) => {
     if (!isValid) {
       return {
         statusCode: 400,
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
       };
     }
@@ -21,7 +29,6 @@ export const handler = async (event: any) => {
       console.error('RESEND_API_KEY is missing from environment');
       return {
         statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ error: 'Failed to send message' }),
       };
     }
@@ -54,4 +61,4 @@ export const handler = async (event: any) => {
       body: JSON.stringify({ error: 'Failed to send message' }),
     };
   }
-};
+});

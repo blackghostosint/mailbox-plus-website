@@ -5,15 +5,19 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
+import { withWebCors } from './lib/cors';
 
-export default async (request: Request, context: Context) => {
+export default withWebCors(async (request: Request, context: Context) => {
   const startTime = Date.now();
 
   // Basic health checks
   const healthData = {
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    environment: Netlify.env.get('CONTEXT') || 'unknown',
+    environment:
+      (typeof Netlify !== 'undefined' && Netlify.env?.get('CONTEXT')) ||
+      process.env.CONTEXT ||
+      'unknown',
     checks: {
       // Add more checks as needed (database, external APIs, etc.)
       server: 'ok',
@@ -37,4 +41,4 @@ export default async (request: Request, context: Context) => {
       'X-Health-Check': 'true',
     },
   });
-};
+});
