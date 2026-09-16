@@ -135,6 +135,8 @@ async function generateEmbedding(
   // Broad scan fallback matches keys ending in "::<text>" regardless of taskType prefix
   // (e.g. entryId::text vs taskType::text). While harmless for offline test verification,
   // exact key match is preferred when available.
+  // Note: Broad scanning could cross-match a test query embedding with a document embedding
+  // if a query and document text are identical. It is retained strictly as an offline fallback.
   for (const [key, vec] of Object.entries(embeddingCache)) {
     if (key.endsWith(`::${text}`) || key === text) {
       console.warn(
@@ -181,21 +183,21 @@ async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
     const cachedCount = Object.keys(embeddingCache).length;
     if (cachedCount === 0) {
-      console.log('\n================================================================');
-      console.log('⚠️  NOTICE: GEMINI_API_KEY is not set and no vector cache was found.');
-      console.log('⚠️  Skipping AI retrieval evaluation suite.');
-      console.log(
-        '⚠️  Provide GEMINI_API_KEY or restore knowledge/.embedding-cache.json to run tests.'
+      console.error('\n================================================================');
+      console.error('❌ ERROR: GEMINI_API_KEY is not set and no vector cache was found.');
+      console.error('❌ Cannot run AI retrieval evaluation suite without API key or cache.');
+      console.error(
+        '❌ Provide GEMINI_API_KEY or restore knowledge/.embedding-cache.json to run tests.'
       );
-      console.log('================================================================\n');
+      console.error('================================================================\n');
 
-      const skippedReport =
-        `# Retrieval Test Report (Skipped)\n\n` +
-        `> ⚠️ **EVALUATION SKIPPED**: \`GEMINI_API_KEY\` environment variable is not set and no pre-cached vector embeddings file (\`knowledge/.embedding-cache.json\`) was found.\n\n` +
+      const failedReport =
+        `# Retrieval Test Report (Failed - Missing API Key & Cache)\n\n` +
+        `> ❌ **EVALUATION FAILED**: \`GEMINI_API_KEY\` environment variable is not set and no pre-cached vector embeddings file (\`knowledge/.embedding-cache.json\`) was found.\n\n` +
         `**Generated:** ${new Date().toISOString()}\n\n` +
         `To run retrieval evaluation, provide \`GEMINI_API_KEY\` or generate/restore \`knowledge/.embedding-cache.json\`.\n`;
       const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
-      writeFileSync(reportPath, skippedReport, 'utf-8');
+      writeFileSync(reportPath, failedReport, 'utf-8');
       return false;
     }
     const stats = existsSync(CACHE_FILE) ? statSync(CACHE_FILE) : null;
@@ -492,8 +494,8 @@ async function main() {
   // Build embedding cache first
   const cacheReady = await buildEmbeddingCache();
   if (!cacheReady) {
-    console.log('⚠️ Retrieval test suite skipped cleanly (no API key / cache).\n');
-    process.exit(0);
+    console.error('❌ Retrieval test suite failed: GEMINI_API_KEY is not set and no embedding cache was found.\n');
+    process.exit(1);
   }
 
   const results: TestExecutionResult[] = [];

@@ -244,9 +244,11 @@ This will:
 4. Generate `RETRIEVAL_TEST_REPORT.md` (untracked) with results
 5. Exit with code 0 (success) or 1 (failure)
 
-> **Note on Embedding Cache:**
-> `.embedding-cache.json` is gitignored (untracked in git) to prevent bloating repository history with large generated binary/JSON data. In CI, vector embeddings are cached across runs via GitHub Actions `actions/cache`.
-> When editing knowledge base content (`kb.entries.json`) or test queries locally, run `GEMINI_API_KEY=<key> npm run test:retrieval` to generate live embeddings and update the local cache.
+> **Note on Embedding Cache & Initial Bootstrap:**
+> `.embedding-cache.json` is gitignored (untracked in git) to prevent bloating repository history with large generated binary/JSON data.
+>
+> - **In CI:** The workflow relies on `GEMINI_API_KEY` stored in repository secrets (`secrets.GEMINI_API_KEY`). On the initial run (or when the cache key changes/expires), `actions/cache` starts empty. The test runner uses `secrets.GEMINI_API_KEY` to query Gemini (`text-embedding-004`), generates embeddings for all entries and test queries, and `actions/cache@v4` caches `.embedding-cache.json` for subsequent workflow runs.
+> - **Local Development:** If `GEMINI_API_KEY` is not present and no local `.embedding-cache.json` exists, running `npm run test:retrieval` will fail loudly with exit code `1` to avoid false-green passes. To bootstrap or refresh the local vector cache when knowledge base content or test queries change, run `GEMINI_API_KEY=<key> npm run test:retrieval` once with a valid API key.
 
 ---
 
