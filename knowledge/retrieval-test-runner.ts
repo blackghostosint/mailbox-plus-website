@@ -130,7 +130,10 @@ async function generateEmbedding(
     return result.embedding.values;
   }
 
-  // Offline lookup in embeddingCache
+  // Offline lookup in embeddingCache.
+  // Note: We use specific prefix keys (`query::`, `RETRIEVAL_QUERY::`, `RETRIEVAL_DOCUMENT::`)
+  // rather than a broad-scan suffix fallback to prevent cross-matching query embeddings
+  // with document embeddings for identical text.
   const cachedKeys = [
     `query::${text}`,
     `RETRIEVAL_QUERY::${text}`,
@@ -177,6 +180,18 @@ function cosineSimilarity(vec1: number[], vec2: number[]): number {
 async function buildEmbeddingCache(): Promise<boolean> {
   if (!GEMINI_API_KEY) {
     const cachedCount = Object.keys(embeddingCache).length;
+    if (cachedCount === 0) {
+      console.error(
+        '❌ OFFLINE MODE ERROR: GEMINI_API_KEY is missing and vector cache (.embedding-cache.json) is missing or empty.'
+      );
+      console.error(
+        '❌ Cannot run retrieval evaluation without GEMINI_API_KEY or pre-cached vector embeddings.'
+      );
+      console.error(
+        '❌ Set GEMINI_API_KEY to generate embeddings, or restore .embedding-cache.json.\n'
+      );
+      throw new Error('Offline mode requested but vector embedding cache is missing or empty.');
+    }
     const stats = existsSync(CACHE_FILE) ? statSync(CACHE_FILE) : null;
     const cacheAgeInfo = stats ? ` (cache modified: ${stats.mtime.toISOString()})` : '';
     console.log(
@@ -575,5 +590,12 @@ async function main() {
 
 main().catch((err) => {
   console.error('Error running tests:', err);
+  try {
+    const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+    const errReport = `# Retrieval Test Report (Failed Execution)\n\n**Generated:** ${new Date().toISOString()}\n\n❌ **RUN FAILED**: ${err instanceof Error ? err.message : String(err)}\n`;
+    writeFileSync(reportPath, errReport, 'utf-8');
+  } catch (e) {
+    // Ignore report write error in fatal handler
+  }
   process.exit(1);
 });

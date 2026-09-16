@@ -248,6 +248,7 @@ This will:
 > `.embedding-cache.json` is gitignored (untracked in git) to prevent bloating repository history with large generated binary/JSON data.
 >
 > - **In CI:** The workflow relies on `GEMINI_API_KEY` stored in repository secrets (`secrets.GEMINI_API_KEY`). On the initial run (or when the cache key changes/expires), `actions/cache` starts empty. The test runner uses `secrets.GEMINI_API_KEY` to query Gemini (`text-embedding-004`), generates embeddings for all entries and test queries, and `actions/cache@v4` caches `.embedding-cache.json` for subsequent workflow runs.
+> - **Local Bootstrap Path:** When running locally on a fresh checkout without `GEMINI_API_KEY` and without a restored `.embedding-cache.json`, `npm run test:retrieval` will fail loudly because no cached vectors exist. To bootstrap or refresh local vector embeddings, run `GEMINI_API_KEY=your_key npm run test:retrieval`.
 > - **Offline Mode & Content Edits:** In offline mode (without `GEMINI_API_KEY`), if a knowledge base text or test query vector is missing from `.embedding-cache.json`, it is marked as `MISS` / `"no vector — skipped (offline mode)"`. The run succeeds if the miss rate is <= 10%. If misses exceed 10%, the runner fails loudly with an error instructing the author to run with `GEMINI_API_KEY` set to regenerate the cache.
 
 ---
