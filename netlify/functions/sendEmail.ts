@@ -1,10 +1,23 @@
 import { Resend } from 'resend';
+import { verifyRecaptchaToken } from './lib/recaptcha';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+const resend = new Resend(process.env.RESEND_API_KEY || 're_dummy_key');
 
 export const handler = async (event) => {
   try {
-    const data = JSON.parse(event.body);
+    const data = JSON.parse(event.body || '{}');
+
+    const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
+    const clientIp =
+      event.headers?.['client-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim();
+    const isValid = await verifyRecaptchaToken(token, clientIp);
+    if (!isValid) {
+      return {
+        statusCode: 400,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+      };
+    }
 
     await resend.emails.send({
       from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
