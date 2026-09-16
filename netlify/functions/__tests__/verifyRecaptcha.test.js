@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { handler } from './verifyRecaptcha.js';
+import { handler } from '../verifyRecaptcha.js';
 
 describe('verifyRecaptcha Netlify Function', () => {
   const originalEnv = process.env;
