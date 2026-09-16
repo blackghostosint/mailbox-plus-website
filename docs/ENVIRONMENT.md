@@ -23,11 +23,12 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 
 These are set in the Netlify dashboard (Site settings > Environment variables), not in `.env`:
 
-| Variable               | Description                                    |
-| ---------------------- | ---------------------------------------------- |
-| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v3 server-side secret                |
-| `SENDGRID_API_KEY`     | SendGrid API key for contact form emails       |
-| `CONTACT_EMAIL`        | Destination email for contact form submissions |
+| Variable               | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| `SESSION_SECRET`       | Required signing secret for customer session HMAC tokens in `/api/me` |
+| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v3 server-side secret                                       |
+| `SENDGRID_API_KEY`     | SendGrid API key for contact form emails                              |
+| `CONTACT_EMAIL`        | Destination email for contact form submissions                        |
 
 ## Setting Up Local Development
 

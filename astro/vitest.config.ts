@@ -17,5 +17,8 @@ export default defineConfig({
     environment: 'node',
     globals: true,
     include: ['src/**/*.{test,spec}.{ts,tsx}', '../netlify/functions/**/*.{test,spec}.{ts,tsx}'],
+    env: {
+      SESSION_SECRET: 'test-session-secret-key-for-vitest-12345',
+    },
   },
 });

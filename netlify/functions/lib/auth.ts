@@ -1,9 +1,12 @@
 import crypto from 'crypto';
 
-const SECRET =
-  process.env.SESSION_SECRET ||
-  process.env.JWT_SECRET ||
-  'mailbox-plus-session-secret-default-key-2026';
+const SECRET = process.env.SESSION_SECRET || process.env.JWT_SECRET;
+
+if (!SECRET) {
+  throw new Error(
+    'SESSION_SECRET environment variable is missing. A signing secret is required to run.'
+  );
+}
 
 export function generateCustomerToken(customerId: string): string {
   const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
