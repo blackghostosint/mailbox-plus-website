@@ -1,6 +1,13 @@
 import { z } from 'zod';
 
-const dateOrStringSchema = z.union([z.string().min(1), z.date().transform((d) => d.toISOString())]);
+const isValidDateString = (val: string) => !isNaN(Date.parse(val));
+
+const dateOrStringSchema = z.union([
+  z.string().min(1, 'Date string must not be empty').refine(isValidDateString, {
+    message: 'Date string must be a valid parseable date/ISO format',
+  }),
+  z.date().transform((d) => d.toISOString()),
+]);
 
 /**
  * Single Zod schema defining all frontmatter validation rules for articles

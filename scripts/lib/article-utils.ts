@@ -158,7 +158,9 @@ export function loadArticles(
     const validation = validateArticleFrontmatter(data, path.basename(filePath));
 
     if (!validation.success) {
-      // If safe fallback / warning required, construct basic frontmatter object
+      console.warn(
+        `[loadArticles] Warning: Skipping '${path.relative(root, filePath)}' due to invalid frontmatter:\n  ${validation.errors.join('\n  ')}`
+      );
       continue;
     }
 

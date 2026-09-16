@@ -22,9 +22,9 @@
     "audit:articles": "tsx scripts/validate-articles.ts",
     "audit:copy": "tsx scripts/review-article-copy.ts",
     "audit:quality": "npm run format:check && npm run audit:articles && npm run seo:check-links",
-    "verify": "node scripts/verify/verify.mjs changed",
-    "verify:doctor": "node scripts/verify/verify.mjs doctor",
-    "verify:articles": "node scripts/verify/verify.mjs articles",
+    "verify": "tsx scripts/verify/verify.mjs changed",
+    "verify:doctor": "tsx scripts/verify/verify.mjs doctor",
+    "verify:articles": "tsx scripts/verify/verify.mjs articles",
     "audit:a11y": "node scripts/audit-a11y.mjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
     "seo:check-links": "node scripts/seo/check-internal-link-strategy.mjs",
@@ -72,7 +72,7 @@
       "prettier --write"
     ],
     "*.md": [
-      "node scripts/verify/verify.mjs article",
+      "tsx scripts/verify/verify.mjs article",
       "prettier --write"
     ],
     "*.{json,css,html}": [

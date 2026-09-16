@@ -129,7 +129,7 @@ async function callOpenAICompatible(
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${apiKey}`,
-    'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) Chrome/126.0',
+    'User-Agent': 'MailboxPlusArticleReviewer/1.0',
     ...extraHeaders,
   };
 
@@ -458,6 +458,8 @@ async function main() {
   process.exit(overallFailed ? 1 : 0);
 }
 
+// Note: import.meta.url comparison can be fragile under tsx on some platforms/environments,
+// so process.argv[1]?.endsWith('review-article-copy.ts') serves as a robust fallback check.
 if (
   import.meta.url === `file://${process.argv[1]}` ||
   process.argv[1]?.endsWith('review-article-copy.ts')

@@ -56,7 +56,8 @@ try {
 
 let validateArticleFrontmatter;
 try {
-  validateArticleFrontmatter = (await import('../lib/article-schema.ts')).validateArticleFrontmatter;
+  validateArticleFrontmatter = (await import('../lib/article-schema.ts'))
+    .validateArticleFrontmatter;
 } catch {
   validateArticleFrontmatter = null;
 }
@@ -553,6 +554,13 @@ function cmdArticle(arg, isStrict = false) {
       } else {
         check('frontmatter:schema', true, 'valid Zod frontmatter schema');
       }
+    } else {
+      check(
+        'frontmatter:schema',
+        false,
+        'article-schema.ts could not be loaded (run verify via tsx for Zod schema checks)',
+        'run verify via tsx or npm run verify'
+      );
     }
     for (const f of REQUIRED_FRONTMATTER) {
       if (data[f] === undefined || data[f] === null || data[f] === '') {
