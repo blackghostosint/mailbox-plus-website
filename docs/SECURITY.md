@@ -222,6 +222,17 @@ npm run build          # Production build verification
 
 ---
 
+## 8. API Authorization & IDOR Protection
+
+### `/api/me` Pre-lookup Authorization Guard
+
+- **Server-Verified Identity:** Rejects requests missing `context.clientContext.user` with `401 Unauthorized`. Client-supplied `Authorization` headers are ignored unless verified by Netlify Identity.
+- **Pre-lookup Claim Verification:** Non-staff authenticated requests match the requested `id` or `code` against server-verified claims (`sub`, `id`, `email`, `app_metadata`) BEFORE executing any database or storage lookups.
+- **Information Leak Prevention:** Unmatched requested IDs return `403 Forbidden` without executing a database query. Because the pre-check authorization gate runs before storage lookups, authenticated users learn nothing about customer record existence for other IDs.
+- **Staff Access Control:** Staff privileges are granted strictly via `app_metadata.roles` containing `'staff'` or `'admin'`. `user_metadata` and top-level role fields are explicitly ignored.
+
+---
+
 ## Appendix A: Security Headers Reference
 
 Current header values (from `netlify.toml`):

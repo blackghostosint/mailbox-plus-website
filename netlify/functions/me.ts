@@ -43,11 +43,16 @@ export function isStaffUser(user: AuthenticatedUser, _context?: any): boolean {
  * Only server-verified claims (sub, id, email, app_metadata) are trusted.
  * user_metadata is user-editable and must never be trusted for authorization.
  *
- * Provisioning Model:
+ * Provisioning Model & Derived-ID Fallback Convention:
  * Netlify Identity binds Identity users to Customer DB records by storing the Customer ID
  * or Referral Code in app_metadata (e.g. app_metadata.customer_id = 'cust_123').
  * app_metadata is read-only to end users and set exclusively by admin API or Identity webhooks.
- * For users where user.sub === customer.id or user.email === customer.email, linkage is direct.
+ *
+ * Direct linkage occurs when user.sub or user.id matches customer.id (the primary key in DB),
+ * or when user.email matches customer.email. When non-staff users omit query parameters,
+ * derivedId evaluates user.app_metadata.customer_id first, then falls back to user.sub / user.id.
+ * Note: user.sub / user.id will 404 for any user provisioned without app_metadata.customer_id
+ * unless sub was explicitly provisioned to equal customer.id in Netlify Identity.
  */
 export function getUserClaims(user: AuthenticatedUser): string[] {
   const claims = new Set<string>();
