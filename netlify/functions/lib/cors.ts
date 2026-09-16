@@ -6,9 +6,26 @@ export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
 };
 
+export interface CorsOptions {
+  allowOrigin?: string;
+  allowMethods?: string;
+  allowHeaders?: string;
+}
+
 function hasHeader(headers: Record<string, any>, name: string): boolean {
   const lowerName = name.toLowerCase();
   return Object.keys(headers).some((k) => k.toLowerCase() === lowerName);
+}
+
+function getEffectiveCorsHeaders(options?: CorsOptions): Record<string, string> {
+  return {
+    'Access-Control-Allow-Origin':
+      options?.allowOrigin ?? DEFAULT_CORS_HEADERS['Access-Control-Allow-Origin'],
+    'Access-Control-Allow-Methods':
+      options?.allowMethods ?? DEFAULT_CORS_HEADERS['Access-Control-Allow-Methods'],
+    'Access-Control-Allow-Headers':
+      options?.allowHeaders ?? DEFAULT_CORS_HEADERS['Access-Control-Allow-Headers'],
+  };
 }
 
 /**
@@ -17,7 +34,9 @@ function hasHeader(headers: Record<string, any>, name: string): boolean {
  * handles unhandled exceptions (returning 500 JSON with CORS headers),
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
-export function withCors(handler: Handler): Handler {
+export function withCors(handler: Handler, options?: CorsOptions): Handler {
+  const corsHeaders = getEffectiveCorsHeaders(options);
+
   return async (event: HandlerEvent, context: HandlerContext) => {
     const httpMethod = (event.httpMethod || '').toUpperCase();
 
@@ -25,7 +44,7 @@ export function withCors(handler: Handler): Handler {
       return {
         statusCode: 204,
         headers: {
-          ...DEFAULT_CORS_HEADERS,
+          ...corsHeaders,
         },
         body: '',
       };
@@ -40,16 +59,13 @@ export function withCors(handler: Handler): Handler {
       const mergedHeaders: Record<string, string | number | boolean> = { ...existingHeaders };
 
       if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Origin')) {
-        mergedHeaders['Access-Control-Allow-Origin'] =
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Origin'];
+        mergedHeaders['Access-Control-Allow-Origin'] = corsHeaders['Access-Control-Allow-Origin'];
       }
       if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Methods')) {
-        mergedHeaders['Access-Control-Allow-Methods'] =
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Methods'];
+        mergedHeaders['Access-Control-Allow-Methods'] = corsHeaders['Access-Control-Allow-Methods'];
       }
       if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Headers')) {
-        mergedHeaders['Access-Control-Allow-Headers'] =
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Headers'];
+        mergedHeaders['Access-Control-Allow-Headers'] = corsHeaders['Access-Control-Allow-Headers'];
       }
       if (!hasHeader(mergedHeaders, 'Content-Type')) {
         mergedHeaders['Content-Type'] = 'application/json';
@@ -65,7 +81,7 @@ export function withCors(handler: Handler): Handler {
         statusCode: 500,
         headers: {
           'Content-Type': 'application/json',
-          ...DEFAULT_CORS_HEADERS,
+          ...corsHeaders,
         },
         body: JSON.stringify({ error: 'Internal server error' }),
       };
@@ -81,7 +97,9 @@ export type WebHandler = (request: Request, context?: any) => Promise<Response> 
  * handles unhandled exceptions (returning 500 JSON with CORS headers),
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
-export function withWebCors(handler: WebHandler): WebHandler {
+export function withWebCors(handler: WebHandler, options?: CorsOptions): WebHandler {
+  const corsHeaders = getEffectiveCorsHeaders(options);
+
   return async (request: Request, context?: any) => {
     const method = request.method ? request.method.toUpperCase() : 'GET';
 
@@ -89,7 +107,7 @@ export function withWebCors(handler: WebHandler): WebHandler {
       return new Response(null, {
         status: 204,
         headers: {
-          ...DEFAULT_CORS_HEADERS,
+          ...corsHeaders,
         },
       });
     }
@@ -99,22 +117,13 @@ export function withWebCors(handler: WebHandler): WebHandler {
       const headers = new Headers(response.headers);
 
       if (!headers.has('Access-Control-Allow-Origin')) {
-        headers.set(
-          'Access-Control-Allow-Origin',
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Origin']
-        );
+        headers.set('Access-Control-Allow-Origin', corsHeaders['Access-Control-Allow-Origin']);
       }
       if (!headers.has('Access-Control-Allow-Methods')) {
-        headers.set(
-          'Access-Control-Allow-Methods',
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Methods']
-        );
+        headers.set('Access-Control-Allow-Methods', corsHeaders['Access-Control-Allow-Methods']);
       }
       if (!headers.has('Access-Control-Allow-Headers')) {
-        headers.set(
-          'Access-Control-Allow-Headers',
-          DEFAULT_CORS_HEADERS['Access-Control-Allow-Headers']
-        );
+        headers.set('Access-Control-Allow-Headers', corsHeaders['Access-Control-Allow-Headers']);
       }
       if (
         !headers.has('Content-Type') ||
@@ -134,7 +143,7 @@ export function withWebCors(handler: WebHandler): WebHandler {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
-          ...DEFAULT_CORS_HEADERS,
+          ...corsHeaders,
         },
       });
     }

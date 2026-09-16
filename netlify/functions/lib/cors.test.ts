@@ -85,6 +85,21 @@ describe('CORS Middleware Utility', () => {
 
       consoleErrorSpy.mockRestore();
     });
+
+    it('respects custom CorsOptions provided to withCors', async () => {
+      const innerHandler = vi.fn().mockResolvedValue({ statusCode: 200, body: '{}' });
+      const wrapped = withCors(innerHandler, {
+        allowOrigin: 'https://mailboxplusohio.com',
+      });
+
+      const event: HandlerEvent = { httpMethod: 'POST' } as any;
+      const res = await wrapped(event, mockContext);
+
+      expect(res!.headers).toHaveProperty(
+        'Access-Control-Allow-Origin',
+        'https://mailboxplusohio.com'
+      );
+    });
   });
 
   describe('withWebCors (Web Standard Handler)', () => {
