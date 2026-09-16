@@ -49,8 +49,7 @@
       report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
       report-to csp-endpoint;
     """
-  [headers.values.report-to]
-    csp-endpoint = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
+    Report-To = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
 
 # Noindex + security for staff invitation page
 [[headers]]
