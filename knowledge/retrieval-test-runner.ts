@@ -132,20 +132,6 @@ async function generateEmbedding(
     }
   }
 
-  // Broad scan fallback matches keys ending in "::<text>" regardless of taskType prefix
-  // (e.g. entryId::text vs taskType::text). While harmless for offline test verification,
-  // exact key match is preferred when available.
-  // Note: Broad scanning could cross-match a test query embedding with a document embedding
-  // if a query and document text are identical. It is retained strictly as an offline fallback.
-  for (const [key, vec] of Object.entries(embeddingCache)) {
-    if (key.endsWith(`::${text}`) || key === text) {
-      console.warn(
-        `⚠️ Non-exact cache key match fallback used for "${text.substring(0, 30)}..." (matched key: ${key})`
-      );
-      return vec;
-    }
-  }
-
   throw new Error(
     `GEMINI_API_KEY is not set and no cached vector embedding exists for: "${text}". ` +
       `Please run "GEMINI_API_KEY=<key> npm run test:retrieval" to generate live embeddings and update the cache.`
@@ -408,7 +394,11 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
   const uiApproved = failed === 0;
   report += `## Exit Criteria\n\n`;
   if (uiApproved) {
-    report += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n\n`;
+    if (isOfflineMode) {
+      report += `⚠️ **RETRIEVAL APPROVED (OFFLINE MODE)** - All tests passed against pre-cached vector embeddings. Note: validates cached vectors, not live model behavior.\n\n`;
+    } else {
+      report += `✅ **RETRIEVAL APPROVED** - All tests passed. UI rollout may proceed.\n\n`;
+    }
   } else {
     report += `❌ **UI ROLLOUT BLOCKED** - ${failed} test(s) failed. Fix issues before proceeding.\n\n`;
   }
@@ -563,7 +553,13 @@ async function main() {
   );
 
   if (failed === 0) {
-    console.log('✅ ALL TESTS PASSED - UI rollout approved!\n');
+    if (isOfflineMode) {
+      console.log(
+        '⚠️  ALL TESTS PASSED (OFFLINE MODE - validating cached vectors, not live model behavior)\n'
+      );
+    } else {
+      console.log('✅ ALL TESTS PASSED - UI rollout approved!\n');
+    }
     process.exit(0);
   } else {
     console.log(`❌ ${failed} TEST(S) FAILED - UI rollout blocked!\n`);
