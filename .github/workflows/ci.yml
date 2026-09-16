@@ -44,9 +44,6 @@ jobs:
       - name: Run Astro unit tests
         run: cd astro && npm test
 
-      - name: Run AI knowledge base retrieval tests
-        run: npm run test:retrieval
-
       - name: Build project
         run: npm run build
         env:

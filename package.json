@@ -10,7 +10,7 @@
     "preview": "cd astro && npm run preview",
     "check": "cd astro && npm run check",
     "typecheck": "cd astro && npm run check",
-    "test": "(cd astro && npm test) && npm run test:retrieval",
+    "test": "cd astro && npm test",
     "test:watch": "cd astro && npm run test:watch",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test",

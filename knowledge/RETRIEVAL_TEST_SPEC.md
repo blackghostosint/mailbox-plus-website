@@ -229,15 +229,25 @@ You may proceed to UI **only if**:
 ## Running the Tests
 
 ```bash
+# Live mode (validates retrieval quality against Gemini API & updates cache)
+GEMINI_API_KEY=your_key npm run test:retrieval
+
+# Offline mode (runs against local cached vectors in .embedding-cache.json)
 npm run test:retrieval
 ```
 
 This will:
 
-1. Load all 24 test cases
-2. Execute retrieval logic against `kb.entries.json`
-3. Generate `RETRIEVAL_TEST_REPORT.md` with results
-4. Exit with code 0 (success) or 1 (failure)
+1. Load all 28 test cases and knowledge base entries
+2. Generate live embeddings via Gemini API (if `GEMINI_API_KEY` is provided) or use cached vectors (in offline mode)
+3. Execute retrieval evaluation logic against `kb.entries.json`
+4. Generate `RETRIEVAL_TEST_REPORT.md` (untracked) with results
+5. Exit with code 0 (success) or 1 (failure)
+
+> **Note on Embedding Cache:**
+> `.embedding-cache.json` is ignored by git to keep large binary blobs out of the repository history.
+> In CI, the embedding cache is maintained as a GitHub Actions workflow cache artifact.
+> When editing knowledge base content (`kb.entries.json`), run `GEMINI_API_KEY=<key> npm run test:retrieval` to update the local embedding cache.
 
 ---
 

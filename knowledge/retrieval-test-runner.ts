@@ -36,15 +36,18 @@ import {
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 let genAI: GoogleGenerativeAI | null = null;
 let embeddingModel: any = null;
+const isOfflineMode = !GEMINI_API_KEY;
 
 if (GEMINI_API_KEY) {
   genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
   embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
   console.log('✓ Gemini API initialized with text-embedding-004 model');
 } else {
-  console.log(
-    '⚠ GEMINI_API_KEY is not set. Running in offline mode using pre-cached vector embeddings.'
-  );
+  console.log('\n================================================================');
+  console.log('⚠️  NOTICE: GEMINI_API_KEY is not set.');
+  console.log('⚠️  Running in OFFLINE MODE using pre-cached vector embeddings.');
+  console.log('⚠️  Results do NOT test live model embeddings.');
+  console.log('================================================================\n');
 }
 
 // ========================================
@@ -99,25 +102,23 @@ async function generateEmbedding(
   text: string,
   taskType: string = 'RETRIEVAL_DOCUMENT'
 ): Promise<number[]> {
-  // If API key is available, attempt live generation
+  // If API key is available, generate live embedding and fail loudly on API errors
   if (embeddingModel) {
-    try {
-      const result = await embeddingModel.embedContent({
-        content: { parts: [{ text }] },
-        taskType,
-      });
+    const result = await embeddingModel.embedContent({
+      content: { parts: [{ text }] },
+      taskType,
+    });
 
-      if (result.embedding && result.embedding.values) {
-        return result.embedding.values;
-      }
-    } catch (error) {
-      console.warn(
-        `⚠ Live API embedding generation failed for "${text.substring(0, 30)}...", falling back to cache.`
+    if (!result.embedding || !result.embedding.values) {
+      throw new Error(
+        `Invalid embedding response from Gemini API for text: "${text.substring(0, 50)}..."`
       );
     }
+
+    return result.embedding.values;
   }
 
-  // Offline or fallback lookup in embeddingCache
+  // Offline lookup in embeddingCache
   const cachedKeys = [
     `query::${text}`,
     `RETRIEVAL_QUERY::${text}`,
@@ -137,7 +138,10 @@ async function generateEmbedding(
     }
   }
 
-  throw new Error(`GEMINI_API_KEY is not set and no cached vector embedding exists for: "${text}"`);
+  throw new Error(
+    `GEMINI_API_KEY is not set and no cached vector embedding exists for: "${text}". ` +
+      `Please run "GEMINI_API_KEY=<key> npm run test:retrieval" to generate live embeddings and update the cache.`
+  );
 }
 
 /**
@@ -354,6 +358,9 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
   const passRate = ((passed / results.length) * 100).toFixed(1);
 
   let report = `# Retrieval Test Report (Gemini Embeddings)\n\n`;
+  if (isOfflineMode) {
+    report += `> ⚠️ **OFFLINE EVALUATION MODE**: Running against pre-cached vector embeddings because \`GEMINI_API_KEY\` was not set in the environment.\n\n`;
+  }
   report += `**Generated:** ${new Date().toISOString()}\n\n`;
   report += `**Embedding Model:** text-embedding-004\n`;
   report += `**Minimum Similarity Threshold:** ${MINIMUM_SIMILARITY}\n\n`;
