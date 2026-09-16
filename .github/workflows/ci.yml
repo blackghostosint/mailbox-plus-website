@@ -62,7 +62,9 @@ jobs:
         run: cd astro && npm test
 
       - name: Build project
+        shell: bash
         run: |
+          set -o pipefail
           npm run build 2>&1 | tee build-output.txt
           echo "Build completed. Output size:"
           du -sh dist | cut -f1
