@@ -16,6 +16,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
@@ -26,14 +28,25 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install Astro dependencies
+        run: cd astro && npm ci
+
+      - name: Run verification doctor
+        run: npm run verify:doctor
+
+      - name: Run PR content verification (strict, offline)
+        if: github.event_name == 'pull_request'
+        run: npm run verify -- --strict --offline
+
+      - name: Run corpus-wide content verification (target branches)
+        if: github.event_name == 'push'
+        run: npm run verify:articles -- --offline
+
       - name: Dependency Security Audit (root)
         run: npm audit --audit-level=high --omit=dev
 
       - name: Lint check (zero warnings policy)
         run: npm run lint
-
-      - name: Install Astro dependencies
-        run: cd astro && npm ci
 
       - name: Dependency Security Audit (Astro)
         run: cd astro && npm audit --audit-level=high
