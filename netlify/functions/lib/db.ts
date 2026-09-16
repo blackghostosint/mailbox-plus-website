@@ -40,9 +40,11 @@ const getDBStore = (name: string) => {
   // During local development, Netlify CLI handles auth if logged in
   return getStore({
     name,
-    // Site ID and Token can fall back to environment variables for local testing
+    // Site ID and Token fall back to environment variables when set
     siteID: process.env.NETLIFY_SITE_ID || '7a885e38-5ed0-4988-bc5c-a6007fce97a4',
-    token: process.env.NETLIFY_AUTH_TOKEN,
+    token:
+      process.env.NETLIFY_AUTH_TOKEN ||
+      (process.env.NODE_ENV === 'test' ? 'test-token' : undefined),
   });
 };
 

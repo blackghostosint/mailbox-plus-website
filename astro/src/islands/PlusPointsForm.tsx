@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckCircle from '~icons/lucide/check-circle';
 import Check from '~icons/lucide/check';
 import ChevronRight from '~icons/lucide/chevron-right';
@@ -11,6 +11,22 @@ import Award from '~icons/lucide/award';
 import Star from '~icons/lucide/star';
 import { FormField } from '../components/ui/FormField';
 import { useLiveAnnouncer } from '../hooks/useLiveAnnouncer';
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      /* eslint-disable no-unused-vars */
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+      /* eslint-enable no-unused-vars */
+    };
+  }
+}
+
+const RECAPTCHA_SITE_KEY =
+  (import.meta.env && import.meta.env.VITE_RECAPTCHA_SITE_KEY) ||
+  (import.meta.env && import.meta.env.RECAPTCHA_SITE_KEY) ||
+  '';
 
 export const PlusPoints: React.FC = () => {
   const { announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
@@ -30,6 +46,20 @@ export const PlusPoints: React.FC = () => {
   const [success, setSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
+  useEffect(() => {
+    if (
+      RECAPTCHA_SITE_KEY &&
+      typeof document !== 'undefined' &&
+      !document.getElementById('recaptcha-v3-script')
+    ) {
+      const script = document.createElement('script');
+      script.id = 'recaptcha-v3-script';
+      script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(RECAPTCHA_SITE_KEY)}`;
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
@@ -39,6 +69,22 @@ export const PlusPoints: React.FC = () => {
       const queryParams = new URLSearchParams(window.location.search);
       const referredBy = queryParams.get('r') || '';
 
+      let recaptchaToken = '';
+      if (RECAPTCHA_SITE_KEY && window.grecaptcha) {
+        try {
+          recaptchaToken = await new Promise<string>((resolve) => {
+            window.grecaptcha?.ready(() => {
+              window.grecaptcha
+                ?.execute(RECAPTCHA_SITE_KEY, { action: 'plus_points_signup' })
+                .then(resolve)
+                .catch(() => resolve(''));
+            });
+          });
+        } catch (err) {
+          console.error('reCAPTCHA execution error:', err);
+        }
+      }
+
       const res = await fetch('/api/customer', {
         method: 'POST',
         headers: {
@@ -47,6 +93,7 @@ export const PlusPoints: React.FC = () => {
         body: JSON.stringify({
           ...formData,
           referredBy,
+          recaptchaToken,
         }),
       });
 

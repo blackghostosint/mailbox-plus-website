@@ -42,3 +42,7 @@ Writing or editing anything in `content/articles/`? Follow `docs/ARTICLE-WORKFLO
 ## 7. State the auth model for every API change
 
 Every PR that adds or modifies a Netlify function (or any API endpoint) must state the endpoint's auth model in the PR body: who is allowed to call it and how identity is proven (token, session, signed request, etc.). "The endpoint exists and validates its input" is not an auth model. A PR that adds or modifies an endpoint without this section is rejected on sight. Existence checks, field whitelists, and ID-format constraints do not count as authorization.
+
+## 8. Netlify functions are TypeScript only
+
+Every file in `netlify/functions/` must use the `.ts` extension. Plain `.js` functions are not bundled by Netlify's build — their relative imports (e.g. `./lib/recaptcha`, `./lib/db`) fail at runtime with `Runtime.ImportModuleError`, returning 502 to users while CI stays green (CI does not exercise deployed function bundles). This broke the contact form in production on 2026-09-16; do not reintroduce it. When creating a function, write it as `.ts` from the start — never `.js`.
