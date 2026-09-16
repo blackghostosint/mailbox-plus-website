@@ -2,7 +2,7 @@
 import os
 import sys
 import argparse
-import boto3
+from pathlib import Path
 
 def load_env(env_path):
     """Load environment variables from a .env file."""
@@ -18,14 +18,17 @@ def load_env(env_path):
                 os.environ[key.strip()] = val.strip()
 
 def main():
+    default_env = str(Path(__file__).resolve().parent.parent / '.env')
     parser = argparse.ArgumentParser(description="Upload files to Cloudflare R2 bucket")
     parser.add_argument("--file", required=True, help="Local file path to upload")
     parser.add_argument("--key", required=True, help="Destination key (path) in R2")
-    parser.add_argument("--env", default="/home/blackghost/mailbox-plus-website/.env", help="Path to .env file")
+    parser.add_argument("--env", default=default_env, help="Path to .env file")
     args = parser.parse_args()
 
     # Load credentials
     load_env(args.env)
+
+    import boto3
 
     endpoint = os.getenv("R2_ENDPOINT_URL")
     access_key = os.getenv("R2_ACCESS_KEY_ID")
