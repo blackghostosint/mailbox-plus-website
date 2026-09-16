@@ -3,7 +3,7 @@
   publish = "dist"
   functions = "netlify/functions"
   # Allow deploy previews for feature branches + production on main
-  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*", "jules/*"]
+  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*"]
 
 [build.environment]
   # Disable secrets scanning to prevent build failures from false positives on public CDN assets and HTML sales pages
@@ -49,7 +49,8 @@
       report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
       report-to csp-endpoint;
     """
-    Report-To = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
+  [headers.values.report-to]
+    csp-endpoint = '{"group":"csp-endpoint","max_age":10886400,"endpoints":[{"url":"https://mailboxplusohio.com/.netlify/functions/csp-report"}]}'
 
 # Noindex + security for staff invitation page
 [[headers]]
