@@ -42,12 +42,19 @@
     // Stars
     const stars = document.createElement('div');
     stars.className = 'flex gap-0.5 mb-3';
+    const srLabel = document.createElement('span');
+    srLabel.className = 'sr-only';
+    srLabel.textContent = `${r.rating || 5} out of 5 stars`;
+    stars.appendChild(srLabel);
+
     for (let i = 1; i <= 5; i++) {
       const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
       svg.setAttribute(
         'class',
         `w-4 h-4 ${i <= (r.rating || 0) ? 'fill-yellow-400 text-yellow-400' : 'fill-[var(--color-border)] text-[var(--color-border)]'}`
       );
+      svg.setAttribute('aria-hidden', 'true');
+      svg.setAttribute('focusable', 'false');
       svg.setAttribute('viewBox', '0 0 24 24');
       svg.setAttribute('fill', 'currentColor');
       const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
