@@ -20,18 +20,11 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
-    environmentMatchGlobs: [
-      ['../public/js/**', 'happy-dom'],
-      ['../tests/public-js/**', 'happy-dom'],
-      ['**/*.dom.test.*', 'happy-dom'],
-    ],
     globals: true,
     include: [
       'src/**/*.{test,spec}.{ts,tsx}',
       '../netlify/functions/**/*.{test,spec}.{ts,tsx}',
       '../scripts/**/*.{test,spec}.{ts,tsx}',
-      '../public/js/**/*.{test,spec}.{ts,js}',
-      '../tests/public-js/**/*.{test,spec}.{ts,js}',
     ],
   },
 });
