@@ -3,6 +3,7 @@ import matter from 'gray-matter';
 import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
 import fs from 'node:fs';
 import path from 'node:path';
+import process from 'node:process';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.
@@ -72,10 +73,8 @@ export function parseArticleFrontmatter(
     fallbackData.pubDate = mtimeIso;
   }
   if (!(typeof data.status === 'string' && data.status.trim())) fallbackData.status = 'published';
-  if (!(typeof data.image === 'string' && data.image.trim()))
-    fallbackData.image = '';
-  if (!(typeof data.imageAlt === 'string' && data.imageAlt.trim()))
-    fallbackData.imageAlt = '';
+  if (!(typeof data.image === 'string' && data.image.trim())) fallbackData.image = '';
+  if (!(typeof data.imageAlt === 'string' && data.imageAlt.trim())) fallbackData.imageAlt = '';
   if (!(Array.isArray(data.keywords) && data.keywords.length > 0))
     fallbackData.keywords = ['article'];
   if (!Array.isArray(data.relatedServices)) fallbackData.relatedServices = [];
