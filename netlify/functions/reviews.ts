@@ -20,6 +20,7 @@
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
+import { z } from 'zod';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
@@ -27,22 +28,33 @@ const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
 const FIELD_MASK =
   'rating,userRatingCount,reviews(authorAttribution,text,rating,publishTime,relativePublishTimeDescription)';
 
-interface ReviewDto {
-  author: string;
-  authorUri: string;
-  rating: number;
-  text: string;
-  relativeTime: string;
-  publishTime: string;
-}
+export const ReviewsQuerySchema = z.object({
+  limit: z
+    .string()
+    .optional()
+    .transform((val) => (val ? parseInt(val, 10) : 5)),
+});
 
-interface ReviewsPayload {
-  rating: number;
-  userRatingCount: number;
-  reviews: ReviewDto[];
-  fetchedAt: string;
-  source: 'live' | 'cache';
-}
+export const ReviewDtoSchema = z.object({
+  author: z.string(),
+  authorUri: z.string(),
+  rating: z.number(),
+  text: z.string(),
+  relativeTime: z.string(),
+  publishTime: z.string(),
+});
+
+export const ReviewsResponseSchema = z.object({
+  rating: z.number().optional(),
+  userRatingCount: z.number().optional(),
+  reviews: z.array(ReviewDtoSchema).optional(),
+  fetchedAt: z.string().optional(),
+  source: z.enum(['live', 'cache']).optional(),
+  error: z.string().optional(),
+});
+
+export type ReviewDto = z.infer<typeof ReviewDtoSchema>;
+export type ReviewsPayload = z.infer<typeof ReviewsResponseSchema>;
 
 const CDN_CACHE = 'public, max-age=86400, stale-while-revalidate=86400';
 

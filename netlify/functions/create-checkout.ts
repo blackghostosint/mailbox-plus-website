@@ -7,11 +7,18 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { z } from 'zod';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
+function getStripe(): Stripe {
+  const apiKey = process.env.STRIPE_SECRET_KEY;
+  if (!apiKey) {
+    throw new Error('Stripe is not configured on the server');
+  }
+  return new Stripe(apiKey);
+}
 
 // Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
 const TIER_LOOKUP_KEYS: Record<string, string> = {
@@ -67,6 +74,19 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
+export const CreateCheckoutRequestSchema = z.object({
+  tier: z.string().min(1, 'tier is required'),
+});
+
+export const CreateCheckoutResponseSchema = z.object({
+  url: z.string().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
+
+export type CreateCheckoutRequest = z.infer<typeof CreateCheckoutRequestSchema>;
+export type CreateCheckoutResponse = z.infer<typeof CreateCheckoutResponseSchema>;
+
 export const handler: Handler = withCors(
   async (event) => {
     if (event.httpMethod !== 'POST') {
@@ -83,18 +103,40 @@ export const handler: Handler = withCors(
       };
     }
 
+    let bodyData: any;
     try {
-      const body = JSON.parse(event.body || '{}');
-      const { tier } = body;
+      bodyData = JSON.parse(event.body || '{}');
+    } catch (e) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({ error: 'Invalid JSON body' }),
+      };
+    }
 
-      if (!tier || !TIER_LOOKUP_KEYS[tier]) {
-        return {
-          statusCode: 400,
-          body: JSON.stringify({
-            error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
-          }),
-        };
-      }
+    const parseResult = CreateCheckoutRequestSchema.safeParse(bodyData);
+    if (!parseResult.success) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: 'Validation failed',
+          details: parseResult.error.flatten(),
+        }),
+      };
+    }
+
+    const { tier } = parseResult.data;
+
+    if (!TIER_LOOKUP_KEYS[tier]) {
+      return {
+        statusCode: 400,
+        body: JSON.stringify({
+          error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
+        }),
+      };
+    }
+
+    try {
+      const stripe = getStripe();
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
       const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';

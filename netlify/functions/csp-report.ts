@@ -5,7 +5,28 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
+import { z } from 'zod';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const CspReportSchema = z.object({
+  'csp-report': z
+    .object({
+      'document-uri': z.string().optional(),
+      'violated-directive': z.string().optional(),
+      'blocked-uri': z.string().optional(),
+      'source-file': z.string().optional(),
+      'line-number': z.number().optional(),
+    })
+    .passthrough()
+    .optional(),
+  documentUri: z.string().optional(),
+  violatedDirective: z.string().optional(),
+  blockedUri: z.string().optional(),
+  sourceFile: z.string().optional(),
+  lineNumber: z.number().optional(),
+});
+
+export type CspReportRequest = z.infer<typeof CspReportSchema>;
 
 export default withWebCors(
   async (request: Request, context: Context) => {
@@ -15,8 +36,15 @@ export default withWebCors(
     }
 
     try {
-      const body = await request.json();
-      const report = body['csp-report'] || body;
+      const rawBody = await request.json();
+      const parseResult = CspReportSchema.safeParse(rawBody);
+
+      let report: any = {};
+      if (parseResult.success) {
+        report = parseResult.data['csp-report'] || parseResult.data;
+      } else {
+        report = rawBody['csp-report'] || rawBody || {};
+      }
 
       // Log the violation (in production, send to Sentry or a logging service)
       console.warn(

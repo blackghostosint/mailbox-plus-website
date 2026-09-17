@@ -1,8 +1,29 @@
 import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
 import { getStore } from '@netlify/blobs';
+import { z } from 'zod';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const SendEmailSchema = z.object({
+  name: z.string().min(1, 'Name is required'),
+  email: z.string().email('Valid email is required'),
+  phone: z.string().optional().default(''),
+  service: z.string().optional().default(''),
+  message: z.string().optional().default(''),
+  recaptchaToken: z.string().optional(),
+  token: z.string().optional(),
+  'g-recaptcha-response': z.string().optional(),
+});
+
+export const SendEmailResponseSchema = z.object({
+  success: z.boolean().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
+
+export type SendEmailRequest = z.infer<typeof SendEmailSchema>;
+export type SendEmailResponse = z.infer<typeof SendEmailResponseSchema>;
 
 // IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
@@ -107,7 +128,28 @@ export const handler: Handler = withCors(
         };
       }
 
-      const data = JSON.parse(event.body || '{}');
+      let bodyData: any;
+      try {
+        bodyData = JSON.parse(event.body || '{}');
+      } catch {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Invalid JSON body' }),
+        };
+      }
+
+      const parseResult = SendEmailSchema.safeParse(bodyData);
+      if (!parseResult.success) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: 'Validation failed',
+            details: parseResult.error.flatten(),
+          }),
+        };
+      }
+
+      const data = parseResult.data;
 
       const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
       const isValid = await verifyRecaptchaToken(token, clientIp);

@@ -1,0 +1,5 @@
+[allowlist]
+description = "Ignore non-secret stripe key placeholder string"
+regexes = [
+  '''stripe_key_placeholder'''
+]

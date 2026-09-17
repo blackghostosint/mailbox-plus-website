@@ -14,11 +14,18 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { z } from 'zod';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
+function getStripe(): Stripe {
+  const apiKey = process.env.STRIPE_SECRET_KEY;
+  if (!apiKey) {
+    throw new Error('Stripe is not configured on the server');
+  }
+  return new Stripe(apiKey);
+}
 
 // Tier metadata → human name + monthly display price (for pixel value).
 // Amount is NOT trusted from here for revenue reporting — Stripe is the source
@@ -31,6 +38,23 @@ const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   business_small: { name: 'Business Small', monthly: 35 },
   business_large: { name: 'Business Large', monthly: 50 },
 };
+
+export const VerifySessionQuerySchema = z.object({
+  session_id: z.string().regex(/^cs_(test|live)_[A-Za-z0-9]+$/, 'Invalid session_id format'),
+});
+
+export const VerifySessionResponseSchema = z.object({
+  ok: z.boolean().optional(),
+  tier: z.string().nullable().optional(),
+  product: z.string().optional(),
+  amount: z.number().optional(),
+  currency: z.string().optional(),
+  error: z.string().optional(),
+  details: z.record(z.unknown()).optional(),
+});
+
+export type VerifySessionQuery = z.infer<typeof VerifySessionQuerySchema>;
+export type VerifySessionResponse = z.infer<typeof VerifySessionResponseSchema>;
 
 const json = (code: number, body: unknown) => ({
   statusCode: code,
@@ -50,13 +74,15 @@ export const handler: Handler = withCors(
       return json(500, { error: 'Stripe is not configured' });
     }
 
-    const sessionId = (event.queryStringParameters?.session_id || '').trim();
-    // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
-    if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+    const queryResult = VerifySessionQuerySchema.safeParse(event.queryStringParameters || {});
+    if (!queryResult.success) {
       return json(400, { error: 'Invalid session_id' });
     }
 
+    const { session_id: sessionId } = queryResult.data;
+
     try {
+      const stripe = getStripe();
       const session = await stripe.checkout.sessions.retrieve(sessionId, {
         expand: ['subscription'],
       });
