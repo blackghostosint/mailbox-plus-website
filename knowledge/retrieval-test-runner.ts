@@ -24,11 +24,22 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 import {
   retrievalTests,
   FALLBACK_RESPONSE,
-  MINIMUM_SIMILARITY,
   getTestStats,
   type TestCase,
   type TestResult,
 } from './retrieval-test-suite.js';
+import {
+  EMBEDDING_MODEL,
+  MINIMUM_SIMILARITY,
+  buildCacheKey,
+  cosineSimilarity,
+  calculateCandidateSimilarity,
+  retrieveAnswerCore,
+  type KBEntry,
+  type KnowledgeBase,
+  type EmbeddingCache,
+  type RetrievalResult,
+} from './retrieval-core.js';
 
 // ========================================
 // Validate API Key (Fail Fast)
@@ -44,30 +55,13 @@ if (!process.env.GEMINI_API_KEY) {
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
-const embeddingModel = genAI.getGenerativeModel({ model: 'text-embedding-004' });
+const embeddingModel = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
 
-console.log('✓ Gemini API initialized with text-embedding-004 model');
+console.log(`✓ Gemini API initialized with ${EMBEDDING_MODEL} model`);
 
 // ========================================
 // Load Knowledge Base
 // ========================================
-interface KBEntry {
-  id: string;
-  intent: string;
-  title: string;
-  questionVariants: string[];
-  answer: string;
-  searchText: string;
-  confidence: {
-    minimumSimilarity: number;
-    requiresExactMatch: boolean;
-  };
-}
-
-interface KnowledgeBase {
-  entries: KBEntry[];
-}
-
 const kbPath = join(__dirname, 'kb.entries.json');
 const kb: KnowledgeBase = JSON.parse(readFileSync(kbPath, 'utf-8'));
 
@@ -76,10 +70,6 @@ console.log(`✓ Loaded ${kb.entries.length} FAQ entries from knowledge base`);
 // ========================================
 // Embedding Cache
 // ========================================
-interface EmbeddingCache {
-  [key: string]: number[];
-}
-
 const CACHE_FILE = join(__dirname, '.embedding-cache.json');
 let embeddingCache: EmbeddingCache = {};
 
@@ -118,30 +108,6 @@ async function generateEmbedding(
 }
 
 /**
- * Calculate cosine similarity between two embedding vectors
- */
-function cosineSimilarity(vec1: number[], vec2: number[]): number {
-  if (vec1.length !== vec2.length) {
-    throw new Error('Vectors must have the same length');
-  }
-
-  let dotProduct = 0;
-  let mag1 = 0;
-  let mag2 = 0;
-
-  for (let i = 0; i < vec1.length; i++) {
-    dotProduct += vec1[i] * vec2[i];
-    mag1 += vec1[i] * vec1[i];
-    mag2 += vec2[i] * vec2[i];
-  }
-
-  const magnitude = Math.sqrt(mag1) * Math.sqrt(mag2);
-  if (magnitude === 0) return 0;
-
-  return dotProduct / magnitude;
-}
-
-/**
  * Pre-compute and cache embeddings for all KB entries
  */
 async function buildEmbeddingCache(): Promise<void> {
@@ -152,7 +118,7 @@ async function buildEmbeddingCache(): Promise<void> {
   for (const entry of kb.entries) {
     // Embed questionVariants with RETRIEVAL_QUERY taskType (they are example queries)
     for (const variant of entry.questionVariants) {
-      const cacheKey = `${entry.id}::${variant}`;
+      const cacheKey = buildCacheKey(entry.id, variant);
 
       if (!embeddingCache[cacheKey]) {
         const embedding = await generateEmbedding(variant, 'RETRIEVAL_QUERY');
@@ -167,7 +133,7 @@ async function buildEmbeddingCache(): Promise<void> {
     // Embed searchText and title with RETRIEVAL_DOCUMENT taskType (they are document content)
     const documentTexts = [entry.searchText, entry.title];
     for (const text of documentTexts) {
-      const cacheKey = `${entry.id}::${text}`;
+      const cacheKey = buildCacheKey(entry.id, text);
 
       if (!embeddingCache[cacheKey]) {
         const embedding = await generateEmbedding(text, 'RETRIEVAL_DOCUMENT');
@@ -197,80 +163,20 @@ async function calculateSimilarity(
   entryId: string,
   entryTexts: string[]
 ): Promise<number> {
-  // Generate embedding for query (using RETRIEVAL_QUERY task type)
   const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
-
-  // Find best match among all entry texts
-  let maxSimilarity = 0;
-
-  for (const text of entryTexts) {
-    const cacheKey = `${entryId}::${text}`;
-    const entryEmbedding = embeddingCache[cacheKey];
-
-    if (!entryEmbedding) {
-      throw new Error(`Missing cached embedding for: ${cacheKey}`);
-    }
-
-    const similarity = cosineSimilarity(queryEmbedding, entryEmbedding);
-    maxSimilarity = Math.max(maxSimilarity, similarity);
-  }
-
-  return maxSimilarity;
+  const cacheKeys = entryTexts.map((text) => buildCacheKey(entryId, text));
+  return calculateCandidateSimilarity(queryEmbedding, cacheKeys, embeddingCache, true);
 }
 
 // ========================================
 // Retrieval Logic
 // ========================================
-interface RetrievalResult {
-  matched: boolean;
-  faqId?: string;
-  answer?: string;
-  confidence?: number;
-  refusalReason?: string;
-}
-
 async function retrieveAnswer(query: string): Promise<RetrievalResult> {
-  let bestMatch: { entry: KBEntry; score: number } | null = null;
-  let secondBestScore = 0;
-
-  // Find best matching FAQ using semantic similarity
-  for (const entry of kb.entries) {
-    // Texts to check against
-    const textsToCheck = [...entry.questionVariants, entry.searchText, entry.title];
-
-    const score = await calculateSimilarity(query, entry.id, textsToCheck);
-
-    if (score > (bestMatch?.score || 0)) {
-      secondBestScore = bestMatch?.score || 0;
-      bestMatch = { entry, score };
-    } else if (score > secondBestScore) {
-      secondBestScore = score;
-    }
-  }
-
-  // Apply retrieval contract
-  if (!bestMatch || bestMatch.score < MINIMUM_SIMILARITY) {
-    return {
-      matched: false,
-      refusalReason: 'No entry meets similarity threshold',
-    };
-  }
-
-  // Check for competing entries
-  const scoreGap = bestMatch.score - secondBestScore;
-  if (scoreGap < 0.1 && secondBestScore >= MINIMUM_SIMILARITY) {
-    return {
-      matched: false,
-      refusalReason: 'Two or more entries compete',
-    };
-  }
-
-  return {
-    matched: true,
-    faqId: bestMatch.entry.id,
-    answer: bestMatch.entry.answer,
-    confidence: bestMatch.score,
-  };
+  const queryEmbedding = await generateEmbedding(query, 'RETRIEVAL_QUERY');
+  return retrieveAnswerCore(queryEmbedding, kb.entries, embeddingCache, {
+    globalMinSimilarity: MINIMUM_SIMILARITY,
+    throwOnMissing: true,
+  });
 }
 
 // ========================================
