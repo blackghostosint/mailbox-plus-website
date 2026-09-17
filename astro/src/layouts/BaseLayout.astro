@@ -88,6 +88,10 @@ const ogImageHeight = ogImage ? undefined : '630';
     <slot name="head" />
     <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel) -->
+    <script>
+      import { initAnalyticsStubs } from '../utils/hydration-helpers';
+      initAnalyticsStubs(window);
+    </script>
     <script src="/js/analytics.js" defer></script>
     <!-- End Deferred Third-Party Analytics -->
     <!-- Google Preferred Sources button library -->
