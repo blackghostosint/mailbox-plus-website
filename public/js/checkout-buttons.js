@@ -1,5 +1,4 @@
-// Direct-to-Stripe: "Choose [tier]" buttons create a Checkout Session via the
-// create-checkout Netlify function, then redirect to Stripe Checkout.
+/* global module */
 (function () {
   function initCheckoutButtons() {
     document.querySelectorAll('.checkout-btn').forEach(function (btn) {
@@ -46,9 +45,18 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initCheckoutButtons);
-  } else {
-    initCheckoutButtons();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCheckoutButtons);
+    } else {
+      initCheckoutButtons();
+    }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initCheckoutButtons };
+  }
+  if (typeof window !== 'undefined') {
+    window.initCheckoutButtons = initCheckoutButtons;
   }
 })();

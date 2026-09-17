@@ -1,3 +1,4 @@
+/* global module */
 (function () {
   function initBackToTop() {
     const btn = document.getElementById('back-to-top');
@@ -9,9 +10,18 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initBackToTop);
-  } else {
-    initBackToTop();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBackToTop);
+    } else {
+      initBackToTop();
+    }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initBackToTop };
+  }
+  if (typeof window !== 'undefined') {
+    window.initBackToTop = initBackToTop;
   }
 })();

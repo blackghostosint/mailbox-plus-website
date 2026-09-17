@@ -1,3 +1,4 @@
+/* global module */
 (function () {
   function copyToClipboard(text) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -67,9 +68,18 @@
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAmazonCounter);
-  } else {
-    initAmazonCounter();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAmazonCounter);
+    } else {
+      initAmazonCounter();
+    }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initAmazonCounter, copyToClipboard, showToast };
+  }
+  if (typeof window !== 'undefined') {
+    window.initAmazonCounter = initAmazonCounter;
   }
 })();

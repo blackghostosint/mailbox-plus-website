@@ -1,3 +1,4 @@
+/* global module */
 (function () {
   // Initialize GA4 dataLayer & gtag
   window.dataLayer = window.dataLayer || [];
@@ -102,15 +103,20 @@
         href.indexOf('maps.google') === -1 &&
         href.indexOf('google.com/maps') === -1;
       // GA4 — every link/button click, with element context
-      window.gtag('event', 'element_click', {
-        element_type: el.tagName.toLowerCase(),
-        element_label: label,
-        element_destination: href.slice(0, 120),
-        is_external: isExternal,
-        page_path: page,
-      });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'element_click', {
+          element_type: el.tagName.toLowerCase(),
+          element_label: label,
+          element_destination: href.slice(0, 120),
+          is_external: isExternal,
+          page_path: page,
+        });
+      }
       // Keep legacy cta_click for .btn/.checkout-btn continuity in GA4 reports
-      if (el.matches('a.btn, .checkout-btn, a[href^="tel:"], a[href^="mailto:"]')) {
+      if (
+        typeof window.gtag === 'function' &&
+        el.matches('a.btn, .checkout-btn, a[href^="tel:"], a[href^="mailto:"]')
+      ) {
         window.gtag('event', 'cta_click', {
           cta_label: label,
           cta_tier: el.getAttribute('data-tier') || null,
@@ -119,7 +125,7 @@
         });
       }
       // Meta: only count intent-to-purchase clicks (tier checkout buttons), not pricing anchors
-      if (el.classList.contains('checkout-btn')) {
+      if (typeof window.fbq === 'function' && el.classList.contains('checkout-btn')) {
         window.fbq('track', 'InitiateCheckout', {
           content_name: el.getAttribute('data-tier') || label,
         });
@@ -205,18 +211,27 @@
       }
       if (!isProvider) return;
       var label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
-      window.gtag('event', 'provider_signup_click', {
-        provider:
-          host.indexOf('ipostal1') !== -1
-            ? 'ipostal1'
-            : host.indexOf('anytimemailbox') !== -1
-              ? 'anytime_mailbox'
-              : 'postscan_mail',
-        provider_url: href.slice(0, 120),
-        link_label: label,
-        page_path: window.location.pathname,
-      });
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'provider_signup_click', {
+          provider:
+            host.indexOf('ipostal1') !== -1
+              ? 'ipostal1'
+              : host.indexOf('anytimemailbox') !== -1
+                ? 'anytime_mailbox'
+                : 'postscan_mail',
+          provider_url: href.slice(0, 120),
+          link_label: label,
+          page_path: window.location.pathname,
+        });
+      }
     },
     false
   );
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { loadTrackingSDKs };
+  }
+  if (typeof window !== 'undefined') {
+    window.loadTrackingSDKs = loadTrackingSDKs;
+  }
 })();

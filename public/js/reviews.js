@@ -1,37 +1,35 @@
-// Live refresh: pull /api/reviews and swap in fresher data when available.
-// Fails silently — static build output remains if the function errors.
-// NOTE: review cards are built with DOM APIs + textContent only (never
-// innerHTML) because review text is user-generated content from the
-// Places API — escaping at the template level is not sufficient.
-(async () => {
-  try {
-    const res = await fetch('/api/reviews');
-    if (!res.ok) return;
-    const data = await res.json();
-    if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) return;
+/* global module */
+(function () {
+  async function initReviews() {
+    try {
+      const res = await fetch('/api/reviews');
+      if (!res.ok) return;
+      const data = await res.json();
+      if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) return;
 
-    const countEl = document.getElementById('reviews-count');
-    const ratingEl = document.getElementById('reviews-rating');
+      const countEl = document.getElementById('reviews-count');
+      const ratingEl = document.getElementById('reviews-rating');
 
-    if (countEl && typeof data.userRatingCount === 'number') {
-      countEl.textContent = String(data.userRatingCount);
+      if (countEl && typeof data.userRatingCount === 'number') {
+        countEl.textContent = String(data.userRatingCount);
+      }
+      if (ratingEl && typeof data.rating === 'number') {
+        ratingEl.textContent = String(data.rating);
+      }
+
+      const listEl = document.getElementById('reviews-list');
+      if (!listEl) return;
+
+      const newest = data.reviews
+        .slice()
+        .sort((a, b) => new Date(b.publishTime).getTime() - new Date(a.publishTime).getTime())
+        .slice(0, 3);
+
+      if (!newest.length) return;
+      listEl.replaceChildren(...newest.map((r) => buildCard(r)));
+    } catch {
+      // silent — keep static content
     }
-    if (ratingEl && typeof data.rating === 'number') {
-      ratingEl.textContent = String(data.rating);
-    }
-
-    const listEl = document.getElementById('reviews-list');
-    if (!listEl) return;
-
-    const newest = data.reviews
-      .slice()
-      .sort((a, b) => new Date(b.publishTime).getTime() - new Date(a.publishTime).getTime())
-      .slice(0, 3);
-
-    if (!newest.length) return;
-    listEl.replaceChildren(...newest.map((r) => buildCard(r)));
-  } catch {
-    // silent — keep static content
   }
 
   function buildCard(r) {
@@ -101,5 +99,20 @@
     }
     article.appendChild(footer);
     return article;
+  }
+
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReviews);
+    } else {
+      initReviews();
+    }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initReviews, buildCard };
+  }
+  if (typeof window !== 'undefined') {
+    window.initReviews = initReviews;
   }
 })();

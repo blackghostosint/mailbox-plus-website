@@ -1,4 +1,5 @@
-window.addEventListener('DOMContentLoaded', () => {
+/* global module */
+function init404() {
   // 🍪 Easter Egg — The Office cookie
   document.cookie = 'kevin_cookie=Oops! Kevin spilled this page; path=/; max-age=86400';
   console.log('🥣 Kevin’s Famous Chili: Too bad this page didn’t make it.');
@@ -30,4 +31,19 @@ window.addEventListener('DOMContentLoaded', () => {
       quoteEl.textContent = randomQuote;
     });
   }
-});
+}
+
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init404);
+  } else {
+    init404();
+  }
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { init404 };
+}
+if (typeof window !== 'undefined') {
+  window.init404 = init404;
+}

@@ -1,3 +1,4 @@
+/* global module */
 // Mobile menu toggle — vanilla JS
 (function () {
   function initHeader() {
@@ -29,9 +30,18 @@
     }
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initHeader);
-  } else {
-    initHeader();
+  if (typeof document !== 'undefined') {
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initHeader);
+    } else {
+      initHeader();
+    }
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { initHeader };
+  }
+  if (typeof window !== 'undefined') {
+    window.initHeader = initHeader;
   }
 })();
