@@ -1,6 +1,4 @@
-/* eslint-disable react-refresh/only-export-components */
-import React, { useState, useRef, useCallback, useEffect } from 'react';
-import { useLiveAnnouncer } from '../hooks/useLiveAnnouncer';
+import React from 'react';
 
 export interface TranscriptCue {
   id: string;
@@ -141,128 +139,18 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
   descriptionsUrl = '/videos/mailbox-plus-explainer-descriptions.vtt',
   ariaLabel = 'Mailbox Plus explainer video — what happens after signing up for mailbox service',
   cues = DEFAULT_TRANSCRIPT_CUES,
-  descriptionCues = DEFAULT_DESCRIPTION_CUES,
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [activeCueIndex, setActiveCueIndex] = useState<number>(-1);
-  const [audioDescriptionsEnabled, setAudioDescriptionsEnabled] = useState<boolean>(false);
-  const [activeDescriptionId, setActiveDescriptionId] = useState<string | null>(null);
-
-  const { announcePolite, LiveAnnouncer } = useLiveAnnouncer();
-  const lastAnnouncedCueRef = useRef<number>(-1);
-  const lastSpokenDescRef = useRef<string | null>(null);
-
-  // Sync track modes on video textTracks when audio descriptions toggle changes
-  useEffect(() => {
-    if (!videoRef.current) return;
-    const tracks = videoRef.current.textTracks;
-    for (let i = 0; i < tracks.length; i++) {
-      const track = tracks[i];
-      if (track.kind === 'descriptions') {
-        track.mode = audioDescriptionsEnabled ? 'showing' : 'disabled';
-      }
-    }
-  }, [audioDescriptionsEnabled]);
-
-  // Handle video timeupdate / seek events
-  const handleTimeUpdate = useCallback(() => {
-    if (!videoRef.current) return;
-    const currentTime = videoRef.current.currentTime;
-
-    // Find active transcript cue
-    const index = cues.findIndex((cue) => currentTime >= cue.start && currentTime < cue.end);
-
-    if (index !== activeCueIndex) {
-      setActiveCueIndex(index);
-      if (index !== -1 && index !== lastAnnouncedCueRef.current) {
-        lastAnnouncedCueRef.current = index;
-        announcePolite(`Transcript line: ${cues[index].text}`);
-      }
-    }
-
-    // Handle Audio Descriptions when enabled
-    if (audioDescriptionsEnabled) {
-      const descCue = descriptionCues.find(
-        (cue) => currentTime >= cue.start && currentTime < cue.end
-      );
-
-      if (descCue) {
-        if (descCue.id !== activeDescriptionId) {
-          setActiveDescriptionId(descCue.id);
-          if (
-            descCue.id !== lastSpokenDescRef.current &&
-            typeof window !== 'undefined' &&
-            'speechSynthesis' in window
-          ) {
-            lastSpokenDescRef.current = descCue.id;
-            window.speechSynthesis.cancel();
-            const utterance = new SpeechSynthesisUtterance(descCue.text);
-            utterance.rate = 1.0;
-            window.speechSynthesis.speak(utterance);
-          }
-        }
-      } else {
-        setActiveDescriptionId(null);
-      }
-    }
-  }, [
-    activeCueIndex,
-    activeDescriptionId,
-    audioDescriptionsEnabled,
-    cues,
-    descriptionCues,
-    announcePolite,
-  ]);
-
-  // Handle seeking to a cue timestamp
-  const handleSeek = useCallback(
-    (startTime: number, event?: React.MouseEvent<HTMLButtonElement>) => {
-      if (videoRef.current) {
-        videoRef.current.currentTime = startTime;
-        videoRef.current.play().catch(() => {
-          // Playback failed or user gesture needed
-        });
-      }
-      // Retain focus on clicked trigger for keyboard users
-      if (event?.currentTarget) {
-        event.currentTarget.focus();
-      }
-    },
-    []
-  );
-
-  // Toggle audio descriptions
-  const toggleAudioDescriptions = useCallback(() => {
-    setAudioDescriptionsEnabled((prev) => {
-      const next = !prev;
-      if (!next && typeof window !== 'undefined' && 'speechSynthesis' in window) {
-        window.speechSynthesis.cancel();
-      }
-      announcePolite(`Audio descriptions ${next ? 'enabled' : 'disabled'}`);
-      return next;
-    });
-  }, [announcePolite]);
-
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Video Container */}
       <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--color-border-strong)] bg-[var(--color-primary-deep)] relative aspect-video mb-6">
         <video
-          ref={videoRef}
           className="w-full h-full object-cover"
           controls
           preload="metadata"
           poster={posterUrl}
           playsInline
           aria-label={ariaLabel}
-          onTimeUpdate={handleTimeUpdate}
-          onSeeked={handleTimeUpdate}
-          onPlay={handleTimeUpdate}
-          onPause={() => {
-            if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
-              window.speechSynthesis.cancel();
-            }
-          }}
         >
           <source src={videoUrl} type="video/mp4" />
           <track src={captionsUrl} kind="captions" srcLang="en" label="English" default />
@@ -301,13 +189,8 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
 
         <button
           type="button"
-          onClick={toggleAudioDescriptions}
-          aria-pressed={audioDescriptionsEnabled}
-          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 ${
-            audioDescriptionsEnabled
-              ? 'bg-[var(--color-primary)] text-white shadow-sm'
-              : 'bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'
-          }`}
+          aria-pressed="false"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
         >
           <svg
             className="w-4 h-4"
@@ -323,43 +206,38 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
               d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"
             />
           </svg>
-          <span>{`Audio Descriptions: ${audioDescriptionsEnabled ? 'ON' : 'OFF'}`}</span>
+          <span>Audio Descriptions: OFF</span>
         </button>
       </div>
 
-      {/* Audio Description Banner when active */}
-      {audioDescriptionsEnabled && activeDescriptionId && (
-        <div
-          role="status"
-          aria-live="polite"
-          className="mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] flex items-start gap-3 animate-fade-in"
+      {/* Audio Description Banner container when activated via JS */}
+      <div
+        id="audio-description-banner"
+        className="hidden mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] flex items-start gap-3"
+      >
+        <svg
+          className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-primary)]"
+          aria-hidden="true"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
         >
-          <svg
-            className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-primary)]"
-            aria-hidden="true"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-          <div>
-            <span className="font-bold block text-xs uppercase tracking-wider text-[var(--color-primary)] mb-1">
-              Audio Description Narrating
-            </span>
-            <p className="text-sm font-medium leading-relaxed">
-              {descriptionCues.find((c) => c.id === activeDescriptionId)?.text}
-            </p>
-          </div>
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+          />
+        </svg>
+        <div>
+          <span className="font-bold block text-xs uppercase tracking-wider text-[var(--color-primary)] mb-1">
+            Audio Description Narrating
+          </span>
+          <p id="audio-description-text" className="text-sm font-medium leading-relaxed"></p>
         </div>
-      )}
+      </div>
 
-      {/* Synchronized Interactive Transcript Island */}
+      {/* Synchronized Interactive Transcript */}
       <div className="bg-[var(--color-bg-secondary)] border border-[var(--color-border-strong)] rounded-2xl p-6 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6 pb-4 border-b border-[var(--color-border)]">
           <div className="flex items-center gap-3">
@@ -387,20 +265,14 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
         </div>
 
         <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-1">
-          {cues.map((cue, index) => {
-            const isActive = index === activeCueIndex;
+          {cues.map((cue) => {
             return (
               <div
                 key={cue.id}
-                className={`p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 ${
-                  isActive
-                    ? 'bg-[var(--color-bg-warm-tint)] border-[var(--color-accent-warm)] shadow-sm ring-1 ring-[var(--color-accent-warm)]/30'
-                    : 'bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]'
-                }`}
+                className="p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]"
               >
                 <button
                   type="button"
-                  onClick={(e) => handleSeek(cue.start, e)}
                   aria-label={`Seek video to ${formatTimecode(cue.start)}`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold font-mono text-[var(--color-primary)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)] hover:text-white transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                 >
@@ -423,16 +295,9 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
 
                 <button
                   type="button"
-                  onClick={(e) => handleSeek(cue.start, e)}
-                  aria-current={isActive ? 'true' : undefined}
                   className="text-left flex-1 text-base leading-relaxed text-[var(--color-text-primary)] font-medium hover:text-[var(--color-primary)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 rounded-md p-1 -m-1"
                 >
                   <span>{cue.text}</span>
-                  {isActive && (
-                    <span className="ml-2.5 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-accent-warm)] text-white align-middle">
-                      Active
-                    </span>
-                  )}
                 </button>
               </div>
             );
@@ -441,7 +306,13 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
       </div>
 
       {/* ARIA Live Region for Screen Readers */}
-      <LiveAnnouncer />
+      <div
+        id="video-transcript-announcer"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="sr-only"
+      />
     </div>
   );
 };

@@ -93,11 +93,20 @@ document.addEventListener('DOMContentLoaded', () => {
   let activeCueIndex = -1;
   let activeDescriptionId = null;
   let lastSpokenDesc = null;
+  let lastAnnouncedCueIndex = -1;
 
-  // Find Audio Description toggle button
+  // Find DOM elements
   const audioDescBtn = document.querySelector('button[aria-pressed]');
-  // Find transcript cue items
+  const audioDescBanner = document.getElementById('audio-description-banner');
+  const audioDescText = document.getElementById('audio-description-text');
+  const liveAnnouncer = document.getElementById('video-transcript-announcer');
   const cueContainers = document.querySelectorAll('.space-y-3 > div');
+
+  const announce = (message) => {
+    if (liveAnnouncer) {
+      liveAnnouncer.textContent = message;
+    }
+  };
 
   // Timecode seeking handlers
   cueContainers.forEach((container, index) => {
@@ -131,15 +140,18 @@ document.addEventListener('DOMContentLoaded', () => {
           'text-[var(--color-text-primary)]'
         );
         audioDescBtn.classList.add('bg-[var(--color-primary)]', 'text-white', 'shadow-sm');
+        announce('Audio descriptions enabled');
       } else {
         audioDescBtn.classList.add(
           'bg-[var(--color-bg-primary)]',
           'text-[var(--color-text-primary)]'
         );
         audioDescBtn.classList.remove('bg-[var(--color-primary)]', 'text-white', 'shadow-sm');
+        if (audioDescBanner) audioDescBanner.classList.add('hidden');
         if ('speechSynthesis' in window) {
           window.speechSynthesis.cancel();
         }
+        announce('Audio descriptions disabled');
       }
 
       // Sync tracks
@@ -165,27 +177,47 @@ document.addEventListener('DOMContentLoaded', () => {
       activeCueIndex = newCueIndex;
       cueContainers.forEach((container, idx) => {
         const isActive = idx === activeCueIndex;
+        const textBtn = container.querySelectorAll('button')[1];
         if (isActive) {
           container.className =
             'p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 bg-[var(--color-bg-warm-tint)] border-[var(--color-accent-warm)] shadow-sm ring-1 ring-[var(--color-accent-warm)]/30';
-          const textBtn = container.querySelectorAll('button')[1];
-          if (textBtn) textBtn.setAttribute('aria-current', 'true');
+          if (textBtn) {
+            textBtn.setAttribute('aria-current', 'true');
+            if (!textBtn.querySelector('.active-badge')) {
+              const badge = document.createElement('span');
+              badge.className =
+                'active-badge ml-2.5 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-accent-warm)] text-white align-middle';
+              badge.textContent = 'Active';
+              textBtn.appendChild(badge);
+            }
+          }
         } else {
           container.className =
             'p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]';
-          const textBtn = container.querySelectorAll('button')[1];
-          if (textBtn) textBtn.removeAttribute('aria-current');
+          if (textBtn) {
+            textBtn.removeAttribute('aria-current');
+            const badge = textBtn.querySelector('.active-badge');
+            if (badge) badge.remove();
+          }
         }
       });
+
+      if (activeCueIndex !== -1 && activeCueIndex !== lastAnnouncedCueIndex) {
+        lastAnnouncedCueIndex = activeCueIndex;
+        announce(`Transcript line: ${transcriptCues[activeCueIndex].text}`);
+      }
     }
 
     // Speech synthesis audio descriptions
-    if (audioDescriptionsEnabled && 'speechSynthesis' in window) {
+    if (audioDescriptionsEnabled) {
       const descCue = descriptionCues.find((c) => currentTime >= c.start && currentTime < c.end);
       if (descCue) {
         if (descCue.id !== activeDescriptionId) {
           activeDescriptionId = descCue.id;
-          if (descCue.id !== lastSpokenDesc) {
+          if (audioDescText) audioDescText.textContent = descCue.text;
+          if (audioDescBanner) audioDescBanner.classList.remove('hidden');
+
+          if (descCue.id !== lastSpokenDesc && 'speechSynthesis' in window) {
             lastSpokenDesc = descCue.id;
             window.speechSynthesis.cancel();
             const utterance = new SpeechSynthesisUtterance(descCue.text);
@@ -195,6 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } else {
         activeDescriptionId = null;
+        if (audioDescBanner) audioDescBanner.classList.add('hidden');
       }
     }
   };
