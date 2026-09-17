@@ -1,19 +1,20 @@
-#!/usr/bin/env node
+#!/usr/bin/env tsx
 /**
  * Generates the "## Articles" section of public/llms.txt and appends full
  * article content to public/llms-full.txt, from the content/articles tree.
  *
  * Run automatically during netlify build (see netlify.toml) so the files can
  * never drift from the article corpus. Also runnable manually:
- *   node scripts/generate-llms-articles.cjs [--write]
+ *   npx tsx scripts/generate-llms-articles.ts [--write]
  * Without --write it prints a summary only (safe for CI checks).
  */
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import matter from 'gray-matter';
+import { loadArticles } from './lib/article-utils.ts';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
 const LLMS_PATH = path.join(ROOT, 'public', 'llms.txt');
@@ -21,36 +22,7 @@ const LLMS_FULL_PATH = path.join(ROOT, 'public', 'llms-full.txt');
 
 const BASE = 'https://mailboxplusohio.com';
 
-function walkMd(dir) {
-  const out = [];
-  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-    const p = path.join(dir, entry.name);
-    if (entry.isDirectory()) out.push(...walkMd(p));
-    else if (entry.name.endsWith('.md') && entry.name !== 'README.md') out.push(p);
-  }
-  return out;
-}
-
-function loadArticles() {
-  const articles = [];
-  for (const file of walkMd(CONTENT_DIR)) {
-    const raw = fs.readFileSync(file, 'utf8');
-    const { data: fm, content } = matter(raw);
-    if (!fm.slug || fm.status === 'draft') continue;
-    articles.push({
-      slug: fm.slug,
-      title: fm.title || fm.slug,
-      description: (fm.description || '').replace(/\s+/g, ' ').trim(),
-      category: fm.category || 'general',
-      pubDate: fm.pubDate || null,
-      lastModified: fm.lastModified || null,
-      content,
-    });
-  }
-  return articles;
-}
-
-function fmtDate(iso) {
+function fmtDate(iso: string | null | undefined): string {
   if (!iso) return 'unknown';
   try {
     return new Date(iso).toISOString().slice(0, 10);
@@ -59,18 +31,41 @@ function fmtDate(iso) {
   }
 }
 
-function articleSection(articles) {
-  const byCat = new Map();
+interface ArticleItem {
+  slug: string;
+  title: string;
+  description: string;
+  category: string;
+  pubDate: string | null;
+  lastModified: string | null;
+  content: string;
+}
+
+function getLLMArticles(): ArticleItem[] {
+  const loaded = loadArticles(CONTENT_DIR, { filterPublished: true, rootDir: ROOT });
+  return loaded.map((art) => ({
+    slug: art.frontmatter.slug,
+    title: art.frontmatter.title || art.frontmatter.slug,
+    description: (art.frontmatter.description || '').replace(/\s+/g, ' ').trim(),
+    category: art.frontmatter.category || 'general',
+    pubDate: art.frontmatter.pubDate || null,
+    lastModified: art.frontmatter.lastModified || null,
+    content: art.content,
+  }));
+}
+
+function articleSection(articles: ArticleItem[]): string {
+  const byCat = new Map<string, ArticleItem[]>();
   for (const a of articles) {
     if (!byCat.has(a.category)) byCat.set(a.category, []);
-    byCat.get(a.category).push(a);
+    byCat.get(a.category)!.push(a);
   }
-  const lines = ['', '## Articles', ''];
+  const lines: string[] = ['', '## Articles', ''];
   const cats = [...byCat.keys()].sort();
   for (const cat of cats) {
     lines.push(`### ${cat}`);
     lines.push('');
-    for (const a of byCat.get(cat).sort((x, y) => x.slug.localeCompare(y.slug))) {
+    for (const a of byCat.get(cat)!.sort((x, y) => x.slug.localeCompare(y.slug))) {
       const desc = a.description ? `: ${a.description}` : '';
       lines.push(`- [${a.title}](${BASE}/articles/${a.slug}/)${desc}`);
       lines.push(
@@ -87,8 +82,8 @@ function articleSection(articles) {
   );
 }
 
-function fullSection(articles) {
-  const lines = ['', '## Articles (Full Text)', ''];
+function fullSection(articles: ArticleItem[]): string {
+  const lines: string[] = ['', '## Articles (Full Text)', ''];
   const sorted = [...articles].sort((a, b) => a.slug.localeCompare(b.slug));
   for (const a of sorted) {
     lines.push(`### ${a.title}`);
@@ -112,7 +107,7 @@ function fullSection(articles) {
   );
 }
 
-function spliceSection(existing, headerRegex, newContent) {
+function spliceSection(existing: string, headerRegex: RegExp, newContent: string): string {
   const match = existing.match(headerRegex);
   if (match) {
     const beforeHeader = existing.slice(0, match.index).trimEnd();
@@ -122,7 +117,7 @@ function spliceSection(existing, headerRegex, newContent) {
 }
 
 const write = process.argv.includes('--write');
-const articles = loadArticles();
+const articles = getLLMArticles();
 console.log(`[llms] loaded ${articles.length} published articles`);
 
 if (!write) {
