@@ -420,7 +420,14 @@ const tiers = [
   </section>
 
   <!-- Checkout wiring: direct-to-Stripe via Netlify function -->
-  <script src="/js/checkout-buttons.js" defer></script>
+  <script>
+    import { initCheckoutButtons } from '../../lib/checkout';
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCheckoutButtons);
+    } else {
+      initCheckoutButtons();
+    }
+  </script>
 
 </BaseLayout>
 
