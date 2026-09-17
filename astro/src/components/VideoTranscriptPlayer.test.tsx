@@ -31,7 +31,7 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(html).toContain('/videos/mailbox-plus-explainer-captions.vtt');
     expect(html).toContain('/videos/mailbox-plus-explainer-descriptions.vtt');
     expect(html).toContain('kind="descriptions"');
-    expect(html).toContain('kind="subtitles"');
+    expect(html).toContain('kind="captions"');
 
     // Accessibility controls
     expect(html).toContain('Audio Descriptions: OFF');
