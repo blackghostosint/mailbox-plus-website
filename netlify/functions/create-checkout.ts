@@ -7,10 +7,11 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
 const TIER_LOOKUP_KEYS: Record<string, string> = {
@@ -55,7 +56,6 @@ const TIER_CANCEL_URLS: Record<string, string> = {
 // One-time key deposit, charged on the FIRST invoice at account creation (2026-08-25).
 // Lookup key lives on the one-time price under the "Mailbox Plus Fees" product.
 const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
-const KEY_DEPOSIT_DISPLAY_NAME = 'Key deposit (refundable)';
 
 // Tiers that include "Text + email alerts on every item" (per PRICING-AND-FEES.md).
 // Only these require the A2P 10DLC SMS consent affirmation at checkout (Clause 13).
@@ -67,136 +67,121 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
-export const handler: Handler = async (event) => {
-  // CORS headers (needed if called cross-origin; same-origin via /api/* proxy)
-  const headers = {
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Content-Type',
-    'Access-Control-Allow-Methods': 'POST, OPTIONS',
-  };
-
-  if (event.httpMethod === 'OPTIONS') {
-    return { statusCode: 204, headers, body: '' };
-  }
-
-  if (event.httpMethod !== 'POST') {
-    return {
-      statusCode: 405,
-      headers,
-      body: JSON.stringify({ error: 'Method not allowed' }),
-    };
-  }
-
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: 'Stripe is not configured on the server' }),
-    };
-  }
-
-  try {
-    const body = JSON.parse(event.body || '{}');
-    const { tier } = body;
-
-    if (!tier || !TIER_LOOKUP_KEYS[tier]) {
+export const handler: Handler = withCors(
+  async (event) => {
+    if (event.httpMethod !== 'POST') {
       return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({
-          error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
-        }),
+        statusCode: 405,
+        body: JSON.stringify({ error: 'Method not allowed' }),
       };
     }
 
-    // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
-    const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
-
-    // Resolve the tier's lookup key to a Price ID (Checkout line_items.price needs the ID)
-    const prices = await stripe.prices.list({
-      lookup_keys: [TIER_LOOKUP_KEYS[tier]],
-      limit: 1,
-      expand: ['data'],
-    });
-    const price = prices.data[0];
-    if (!price) {
+    if (!process.env.STRIPE_SECRET_KEY) {
       return {
         statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: `Price not found for tier: ${tier}` }),
+        body: JSON.stringify({ error: 'Stripe is not configured on the server' }),
       };
     }
 
-    // Resolve the one-time key deposit price (billed on the first invoice at account creation)
-    const depositPrices = await stripe.prices.list({
-      lookup_keys: [KEY_DEPOSIT_LOOKUP_KEY],
-      limit: 1,
-    });
-    const depositPrice = depositPrices.data[0];
-    if (!depositPrice) {
-      return {
-        statusCode: 500,
-        headers,
-        body: JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
-      };
-    }
+    try {
+      const body = JSON.parse(event.body || '{}');
+      const { tier } = body;
 
-    const session = await stripe.checkout.sessions.create({
-      mode: 'subscription',
-      line_items: [
-        { price: price.id, quantity: 1 },
-        // One-time key deposit — shows at checkout, charged on the initial invoice only
-        { price: depositPrice.id, quantity: 1 },
-      ],
-      // Per locked capture split: email + current address + phone
-      billing_address_collection: 'required',
-      phone_number_collection: { enabled: true },
-      // Native ToS acceptance checkbox (2026-08-26): renders "I agree to the Terms" with a
-      // link to the ToS URL set in Stripe Dashboard → Settings → Public details.
-      // Acceptance is recorded on the Customer object with IP + user-agent — a stronger
-      // audit record than prose, and applies to ALL tiers (everyone signs the rental terms).
-      consent_collection: { terms_of_service: 'required' },
-      // A2P 10DLC SMS consent (Clause 13) — required ONLY on tiers that include text alerts.
-      // Records an affirmative typed consent + phone + timestamp on the session for Twilio.
-      custom_fields: TIER_HAS_SMS[tier]
-        ? [
-            {
-              key: 'sms_consent',
-              label: { type: 'custom', custom: 'Type YES to consent to SMS text alerts' },
-              optional: false,
-              type: 'text',
-              text: { minimum_length: 1, maximum_length: 100 },
-            },
-          ]
-        : [],
-      // Per "Completely risk-free / no lock-in": month-to-month subscription, cancel anytime
-      subscription_data: {
+      if (!tier || !TIER_LOOKUP_KEYS[tier]) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
+          }),
+        };
+      }
+
+      // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
+      const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
+
+      // Resolve the tier's lookup key to a Price ID (Checkout line_items.price needs the ID)
+      const prices = await stripe.prices.list({
+        lookup_keys: [TIER_LOOKUP_KEYS[tier]],
+        limit: 1,
+        expand: ['data'],
+      });
+      const price = prices.data[0];
+      if (!price) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: `Price not found for tier: ${tier}` }),
+        };
+      }
+
+      // Resolve the one-time key deposit price (billed on the first invoice at account creation)
+      const depositPrices = await stripe.prices.list({
+        lookup_keys: [KEY_DEPOSIT_LOOKUP_KEY],
+        limit: 1,
+      });
+      const depositPrice = depositPrices.data[0];
+      if (!depositPrice) {
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
+        };
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        mode: 'subscription',
+        line_items: [
+          { price: price.id, quantity: 1 },
+          // One-time key deposit — shows at checkout, charged on the initial invoice only
+          { price: depositPrice.id, quantity: 1 },
+        ],
+        // Per locked capture split: email + current address + phone
+        billing_address_collection: 'required',
+        phone_number_collection: { enabled: true },
+        // Native ToS acceptance checkbox (2026-08-26): renders "I agree to the Terms" with a
+        // link to the ToS URL set in Stripe Dashboard → Settings → Public details.
+        // Acceptance is recorded on the Customer object with IP + user-agent — a stronger
+        // audit record than prose, and applies to ALL tiers (everyone signs the rental terms).
+        consent_collection: { terms_of_service: 'required' },
+        // A2P 10DLC SMS consent (Clause 13) — required ONLY on tiers that include text alerts.
+        // Records an affirmative typed consent + phone + timestamp on the session for Twilio.
+        custom_fields: TIER_HAS_SMS[tier]
+          ? [
+              {
+                key: 'sms_consent',
+                label: { type: 'custom', custom: 'Type YES to consent to SMS text alerts' },
+                optional: false,
+                type: 'text',
+                text: { minimum_length: 1, maximum_length: 100 },
+              },
+            ]
+          : [],
+        // Per "Completely risk-free / no lock-in": month-to-month subscription, cancel anytime
+        subscription_data: {
+          metadata: {
+            tier,
+            product: TIER_NAMES[tier],
+            source: TIER_SOURCES[tier],
+          },
+        },
         metadata: {
           tier,
           product: TIER_NAMES[tier],
           source: TIER_SOURCES[tier],
         },
-      },
-      metadata: {
-        tier,
-        product: TIER_NAMES[tier],
-        source: TIER_SOURCES[tier],
-      },
-      success_url: `${siteUrl}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
-    });
+        success_url: `${siteUrl}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
+      });
 
-    return {
-      statusCode: 200,
-      headers,
-      body: JSON.stringify({ url: session.url }),
-    };
-  } catch (err: any) {
-    console.error('create-checkout error:', err?.message || err);
-    return {
-      statusCode: 500,
-      headers,
-      body: JSON.stringify({ error: 'Failed to create checkout session' }),
-    };
-  }
-};
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ url: session.url }),
+      };
+    } catch (err: any) {
+      console.error('create-checkout error:', err?.message || err);
+      return {
+        statusCode: 500,
+        body: JSON.stringify({ error: 'Failed to create checkout session' }),
+      };
+    }
+  },
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+);

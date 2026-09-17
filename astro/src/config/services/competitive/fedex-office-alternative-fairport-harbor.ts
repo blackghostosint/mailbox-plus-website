@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Star from '~icons/lucide/star';
 import Truck from '~icons/lucide/truck';
 import Users from '~icons/lucide/users';
@@ -6,6 +7,14 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'fedex-office-alternative-fairport-harbor',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
+      name: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
+      description: 'Mailbox Plus shipping service for Fairport Harbor customers',
+    }),
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'FedEx Office Alternative in Fairport Harbor | Mailbox Plus',

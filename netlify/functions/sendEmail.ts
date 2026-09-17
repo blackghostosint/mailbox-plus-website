@@ -1,57 +1,159 @@
+import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
+import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
+import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
-export const handler = async (event: any) => {
+// IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
+const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
+
+/**
+ * Case-insensitively extracts the true client IP address from Netlify function headers.
+ * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
+ * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
+ */
+export function getClientIp(headers: Record<string, string | undefined> = {}): string {
+  const normalized: Record<string, string> = {};
+  for (const [key, val] of Object.entries(headers || {})) {
+    if (val) normalized[key.toLowerCase()] = String(val);
+  }
+
+  // Netlify Edge injects 'x-nf-client-connection-ip' with the true physical TCP connection IP
+  if (normalized['x-nf-client-connection-ip']) {
+    return normalized['x-nf-client-connection-ip'].trim();
+  }
+
+  // Netlify Edge also populates 'client-ip'
+  if (normalized['client-ip']) {
+    return normalized['client-ip'].trim();
+  }
+
+  // Fallback to 'x-forwarded-for' using the last IP appended by the edge proxy
+  if (normalized['x-forwarded-for']) {
+    const parts = normalized['x-forwarded-for']
+      .split(',')
+      .map((p) => p.trim())
+      .filter(Boolean);
+    if (parts.length > 0) {
+      return parts[parts.length - 1];
+    }
+  }
+
+  return 'unknown';
+}
+
+export async function checkRateLimit(
+  ip: string,
+  limit = 5,
+  windowMs = 10 * 60 * 1000
+): Promise<boolean> {
+  const now = Date.now();
+  const sanitizedIp = ip.replace(/[^a-zA-Z0-9_.-]/g, '_');
+  const blobKey = `rate_limit_${sanitizedIp}`;
+
+  // 1. Attempt Netlify Blobs for persistent rate limiting across serverless instances
   try {
-    const data = JSON.parse(event.body || '{}');
+    const store = getStore({ name: 'sendEmail-rate-limits', consistency: 'strong' });
+    const record = (await store.get(blobKey, { type: 'json' })) as {
+      count: number;
+      resetAt: number;
+    } | null;
 
-    const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
-    const clientIp =
-      event.headers?.['client-ip'] || event.headers?.['x-forwarded-for']?.split(',')[0]?.trim();
-    const isValid = await verifyRecaptchaToken(token, clientIp);
-    if (!isValid) {
+    if (!record || now > record.resetAt) {
+      await store.setJSON(blobKey, { count: 1, resetAt: now + windowMs });
+      return true;
+    }
+
+    if (record.count >= limit) {
+      return false;
+    }
+
+    await store.setJSON(blobKey, { count: record.count + 1, resetAt: record.resetAt });
+    return true;
+  } catch {
+    // 2. Fallback to in-memory Map store (for local dev, test environments, or when Blobs store is unconfigured)
+    const record = ipRequestCounts.get(ip);
+
+    if (!record || now > record.resetAt) {
+      ipRequestCounts.set(ip, { count: 1, resetAt: now + windowMs });
+      return true;
+    }
+
+    if (record.count >= limit) {
+      return false;
+    }
+
+    record.count += 1;
+    return true;
+  }
+}
+
+export const handler: Handler = withCors(
+  async (event: any) => {
+    if (event.httpMethod && event.httpMethod.toUpperCase() !== 'POST') {
       return {
-        statusCode: 400,
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+        statusCode: 405,
+        body: JSON.stringify({ error: 'Method not allowed' }),
       };
     }
 
-    if (!process.env.RESEND_API_KEY) {
-      console.error('RESEND_API_KEY is missing from environment');
+    try {
+      const clientIp = getClientIp(event.headers);
+
+      if (!(await checkRateLimit(clientIp))) {
+        return {
+          statusCode: 429,
+          body: JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+        };
+      }
+
+      const data = JSON.parse(event.body || '{}');
+
+      const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
+      const isValid = await verifyRecaptchaToken(token, clientIp);
+      if (!isValid) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
+        };
+      }
+
+      if (!process.env.RESEND_API_KEY) {
+        console.error('RESEND_API_KEY is missing from environment');
+        return {
+          statusCode: 500,
+          body: JSON.stringify({ error: 'Failed to send message' }),
+        };
+      }
+
+      const resend = new Resend(process.env.RESEND_API_KEY);
+
+      await resend.emails.send({
+        from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
+        to: 'help@mailboxplusohio.com', // your Workspace inbox
+        reply_to: data.email, // so replies go back to the sender
+        subject: `New Contact Form Submission from ${data.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${data.name}</p>
+          <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Phone:</strong> ${data.phone}</p>
+          <p><strong>Service Interest:</strong> ${data.service}</p>
+          <p><strong>Message:</strong><br>${data.message}</p>
+        `,
+      });
+
+      return {
+        statusCode: 200,
+        body: JSON.stringify({ success: true }),
+      };
+    } catch (error) {
+      console.error('Email sending error:', error);
       return {
         statusCode: 500,
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ error: 'Failed to send message' }),
       };
     }
-
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
-    await resend.emails.send({
-      from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
-      to: 'help@mailboxplusohio.com', // your Workspace inbox
-      reply_to: data.email, // so replies go back to the sender
-      subject: `New Contact Form Submission from ${data.name}`,
-      html: `
-        <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Phone:</strong> ${data.phone}</p>
-        <p><strong>Service Interest:</strong> ${data.service}</p>
-        <p><strong>Message:</strong><br>${data.message}</p>
-      `,
-    });
-
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ success: true }),
-    };
-  } catch (error) {
-    console.error('Email sending error:', error);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ error: 'Failed to send message' }),
-    };
-  }
-};
+  },
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+);
