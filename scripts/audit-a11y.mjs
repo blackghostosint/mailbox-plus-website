@@ -2,29 +2,66 @@ import { execSync, spawn } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
+import { fileURLToPath } from 'node:url';
 
-const BASE_URL = process.env.AUDIT_BASE_URL || 'http://127.0.0.1:4173';
-const DIST_DIR = path.resolve(process.cwd(), 'dist');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
+const DIST_DIR = path.join(ROOT_DIR, 'dist');
 const BATCH_SIZE = 25;
 
-const STANDALONE_UTILITY_PATHS = [
+const CATEGORIES = {
+  HOMEPAGE: 'Homepage',
+  SERVICE_PILLARS: 'Service Pillars',
+  SERVICE_DETAILS: 'Service Details',
+  ARTICLES: 'Articles',
+  GUIDES: 'Guides',
+  LOCAL_LANDING: 'Local Landing',
+  UTILITY_LEGAL: 'Utility/Legal',
+  INTERACTIVE: 'Interactive',
+  UNCATEGORIZED: 'Uncategorized',
+};
+
+const UTILITY_ROUTES = new Set([
   '/',
-  '/accessibility/',
-  '/contact-us/',
+  '/404/',
   '/privacy/',
   '/terms/',
+  '/accessibility/',
+  '/rental-agreement/',
+  '/sms-consent/',
   '/about-us/',
-  '/services/',
-  '/thank-you/',
-  '/tracking/',
+  '/contact-us/',
   '/pickup-hours/',
   '/shipping-partners/',
-  '/sms-consent/',
-  '/rental-agreement/',
+  '/thank-you/',
   '/after-signup/',
-];
+]);
 
-const CATEGORIES = [
+const INTERACTIVE_ROUTES = new Set(['/tracking/', '/ask-mailbox-plus/', '/amazon-counter/']);
+
+const SERVICE_PILLAR_INDEXES = new Set([
+  '/pack-ship/',
+  '/copy-print/',
+  '/home-business/',
+  '/services/',
+  '/service-area/',
+  '/articles/',
+]);
+
+const PREFERRED_REPRESENTATIVES = {
+  [CATEGORIES.HOMEPAGE]: ['/'],
+  [CATEGORIES.SERVICE_PILLARS]: ['/services/', '/pack-ship/'],
+  [CATEGORIES.SERVICE_DETAILS]: ['/pack-ship/fedex-shipping/', '/copy-print/business-cards/'],
+  [CATEGORIES.ARTICLES]: ['/articles/concord-township-shipping-insurance/'],
+  [CATEGORIES.GUIDES]: ['/guide/shipping-wine/'],
+  [CATEGORIES.LOCAL_LANDING]: ['/service-area/concord-township/'],
+  [CATEGORIES.UTILITY_LEGAL]: ['/accessibility/', '/contact-us/'],
+  [CATEGORIES.INTERACTIVE]: ['/ask-mailbox-plus/'],
+  [CATEGORIES.UNCATEGORIZED]: [],
+};
+
+const CATEGORIES_LIST_FOR_SAMPLING = [
   'articles',
   'service-area',
   'guide',
@@ -34,6 +71,176 @@ const CATEGORIES = [
   'specialty',
   'rewards',
 ];
+
+function parseArgs(args) {
+  const options = {
+    all: false,
+    limit: null,
+    category: null,
+    baseUrl: process.env.AUDIT_BASE_URL || process.env.BASE_URL || null,
+  };
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === '--all' || arg === '--mode=full') {
+      options.all = true;
+    } else if (arg === '--mode=sampled') {
+      options.all = false;
+    } else if (arg.startsWith('--limit=')) {
+      const parsed = parseInt(arg.split('=')[1], 10);
+      options.limit = isNaN(parsed) ? null : parsed;
+    } else if (arg === '--limit' && i + 1 < args.length) {
+      const parsed = parseInt(args[++i], 10);
+      options.limit = isNaN(parsed) ? null : parsed;
+    } else if (arg.startsWith('--category=')) {
+      options.category = arg.split('=')[1];
+    } else if (arg === '--category' && i + 1 < args.length) {
+      options.category = args[++i];
+    } else if (arg.startsWith('--base-url=')) {
+      options.baseUrl = arg.split('=')[1];
+    } else if (arg === '--base-url' && i + 1 < args.length) {
+      options.baseUrl = args[++i];
+    }
+  }
+
+  return options;
+}
+
+function discoverRoutes(distDir = DIST_DIR) {
+  if (!fs.existsSync(distDir)) {
+    console.error(`❌ Error: Build output directory "${distDir}" does not exist.`);
+    console.error('Please run "npm run build" before running the accessibility audit.\n');
+    process.exit(1);
+  }
+
+  const htmlFiles = [];
+  function walk(dir) {
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        walk(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        htmlFiles.push(fullPath);
+      }
+    }
+  }
+
+  walk(distDir);
+
+  if (htmlFiles.length === 0) {
+    console.error(`❌ Error: No HTML files found in "${distDir}". Please build the site first.\n`);
+    process.exit(1);
+  }
+
+  const routes = htmlFiles.map((file) => {
+    let rel = path.relative(distDir, file).replace(/\\/g, '/');
+    if (rel === 'index.html') return '/';
+    if (rel === '404.html') return '/404/';
+    if (rel.endsWith('/index.html')) return '/' + rel.slice(0, -11) + '/';
+    if (rel.endsWith('.html')) return '/' + rel.slice(0, -5) + '/';
+    return '/' + rel + '/';
+  });
+
+  return Array.from(new Set(routes)).sort();
+}
+
+function categorizeRoute(route) {
+  const norm = route.endsWith('/') ? route : route + '/';
+
+  if (norm === '/') return CATEGORIES.HOMEPAGE;
+  if (SERVICE_PILLAR_INDEXES.has(norm)) return CATEGORIES.SERVICE_PILLARS;
+  if (UTILITY_ROUTES.has(norm)) return CATEGORIES.UTILITY_LEGAL;
+  if (INTERACTIVE_ROUTES.has(norm) || norm.startsWith('/research/')) {
+    return CATEGORIES.INTERACTIVE;
+  }
+  if (norm.startsWith('/articles/')) return CATEGORIES.ARTICLES;
+  if (norm.startsWith('/guide/')) return CATEGORIES.GUIDES;
+  if (norm.startsWith('/service-area/')) return CATEGORIES.LOCAL_LANDING;
+  if (
+    norm.startsWith('/pack-ship/') ||
+    norm.startsWith('/copy-print/') ||
+    norm.startsWith('/home-business/') ||
+    norm.startsWith('/specialty/')
+  ) {
+    return CATEGORIES.SERVICE_DETAILS;
+  }
+
+  const pathSegments = norm.split('/').filter(Boolean);
+  if (pathSegments.length === 1) {
+    return CATEGORIES.LOCAL_LANDING;
+  }
+
+  return CATEGORIES.UNCATEGORIZED;
+}
+
+function normalizeCategoryKey(cat) {
+  return cat.toLowerCase().replace(/[^a-z0-9]/g, '');
+}
+
+function findCategoryMatch(categoryInput, categorizedRoutes) {
+  const normInput = normalizeCategoryKey(categoryInput);
+  const categories = Object.keys(categorizedRoutes);
+
+  if (normInput === 'utility' || normInput === 'legal') {
+    return CATEGORIES.UTILITY_LEGAL;
+  }
+
+  for (const cat of categories) {
+    if (normalizeCategoryKey(cat) === normInput) {
+      return cat;
+    }
+  }
+  return null;
+}
+
+function selectRepresentativeRoutes(categorizedRoutes) {
+  const selected = [];
+  for (const [catName, routes] of Object.entries(categorizedRoutes)) {
+    if (!routes || routes.length === 0) continue;
+
+    const preferredList = PREFERRED_REPRESENTATIVES[catName] || [];
+    let added = false;
+    for (const pref of preferredList) {
+      if (routes.includes(pref)) {
+        selected.push(pref);
+        added = true;
+        break;
+      }
+    }
+    if (!added && routes.length > 0) {
+      selected.push(routes[0]);
+    }
+  }
+  return selected;
+}
+
+function selectSampledRoutes(allRoutes) {
+  const routeSet = new Set(allRoutes);
+  const selected = new Set();
+
+  for (const utilPath of UTILITY_ROUTES) {
+    if (routeSet.has(utilPath)) {
+      selected.add(utilPath);
+    }
+  }
+
+  for (const cat of CATEGORIES_LIST_FOR_SAMPLING) {
+    const prefix = '/' + cat + '/';
+    const catRoutes = allRoutes.filter((r) => r === prefix || r.startsWith(prefix));
+    if (catRoutes.length > 0) {
+      const indexRoute = catRoutes.find((r) => r === prefix);
+      const subRoute = catRoutes.find((r) => r !== prefix);
+      if (indexRoute) selected.add(indexRoute);
+      if (subRoute) selected.add(subRoute);
+      if (!indexRoute && !subRoute && catRoutes[0]) {
+        selected.add(catRoutes[0]);
+      }
+    }
+  }
+
+  return Array.from(selected);
+}
 
 let serverProcess = null;
 
@@ -159,83 +366,6 @@ async function startBackgroundServer(distDir, preferredPort = 4173) {
   });
 }
 
-function getHtmlFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    if (fs.statSync(filePath).isDirectory()) {
-      getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html')) {
-      fileList.push(filePath);
-    }
-  }
-  return fileList;
-}
-
-function discoverRoutes() {
-  if (!fs.existsSync(DIST_DIR)) {
-    throw new Error(`Build directory "${DIST_DIR}" does not exist. Run "npm run build" first.`);
-  }
-
-  const htmlFiles = getHtmlFiles(DIST_DIR);
-  const routes = htmlFiles.map((file) => {
-    const rel = path.relative(DIST_DIR, file).replace(/\\/g, '/');
-    if (rel === 'index.html') return '/';
-    if (rel.endsWith('/index.html')) return '/' + rel.slice(0, -11) + '/';
-    if (rel.endsWith('.html')) return '/' + rel.slice(0, -5);
-    return '/' + rel;
-  });
-
-  return Array.from(new Set(routes)).sort();
-}
-
-function selectSampledRoutes(allRoutes) {
-  const routeSet = new Set(allRoutes);
-  const selected = new Set();
-
-  // 1. Audit all available standalone utility pages
-  for (const utilPath of STANDALONE_UTILITY_PATHS) {
-    if (routeSet.has(utilPath)) {
-      selected.add(utilPath);
-    }
-  }
-
-  // 2. Audit representative routes from each content category directory
-  for (const cat of CATEGORIES) {
-    const prefix = '/' + cat + '/';
-    const catRoutes = allRoutes.filter((r) => r === prefix || r.startsWith(prefix));
-    if (catRoutes.length > 0) {
-      const indexRoute = catRoutes.find((r) => r === prefix);
-      const subRoute = catRoutes.find((r) => r !== prefix);
-      if (indexRoute) selected.add(indexRoute);
-      if (subRoute) selected.add(subRoute);
-      if (!indexRoute && !subRoute && catRoutes[0]) {
-        selected.add(catRoutes[0]);
-      }
-    }
-  }
-
-  return Array.from(selected);
-}
-
-function parseModeArg() {
-  const args = process.argv.slice(2);
-  let mode = 'sampled';
-  for (let i = 0; i < args.length; i++) {
-    if (args[i] === '--mode=full') mode = 'full';
-    else if (args[i] === '--mode=sampled') mode = 'sampled';
-    else if (args[i] === '--mode' && args[i + 1] === 'full') {
-      mode = 'full';
-      i++;
-    } else if (args[i] === '--mode' && args[i + 1] === 'sampled') {
-      mode = 'sampled';
-      i++;
-    }
-  }
-  return mode;
-}
-
 function chunkArray(array, size) {
   const chunks = [];
   for (let i = 0; i < array.length; i += size) {
@@ -347,22 +477,91 @@ async function main() {
   let hasA11yViolations = false;
   let hasCliErrors = false;
   try {
-    const mode = parseModeArg();
-    console.log(`Starting accessibility audit in [${mode.toUpperCase()}] mode...`);
+    const options = parseArgs(process.argv.slice(2));
 
-    const allRoutes = discoverRoutes();
-    console.log(`Discovered ${allRoutes.length} total HTML routes built in dist/`);
+    const allRoutes = discoverRoutes(DIST_DIR);
 
-    const targetRoutePaths = mode === 'full' ? allRoutes : selectSampledRoutes(allRoutes);
-    console.log(`Selected ${targetRoutePaths.length} route(s) for accessibility auditing.`);
+    const categorized = {};
+    for (const catVal of Object.values(CATEGORIES)) {
+      categorized[catVal] = [];
+    }
 
-    let baseUrl = process.env.AUDIT_BASE_URL;
+    for (const r of allRoutes) {
+      const cat = categorizeRoute(r);
+      categorized[cat].push(r);
+    }
+
+    // Clean up empty categories from summary object
+    for (const catKey of Object.keys(categorized)) {
+      if (categorized[catKey].length === 0) {
+        delete categorized[catKey];
+      }
+    }
+
+    let targetCategories = { ...categorized };
+
+    if (options.category) {
+      const matchedCategory = findCategoryMatch(options.category, categorized);
+      if (!matchedCategory) {
+        const validNames = Object.keys(categorized).join(', ');
+        console.error(`❌ Error: Category "${options.category}" not found.`);
+        console.error(`Available categories with routes: ${validNames}\n`);
+        process.exit(1);
+      }
+      targetCategories = { [matchedCategory]: categorized[matchedCategory] };
+    }
+
+    let selectedRoutes = [];
+    let modeDescription = '';
+
+    if (options.all) {
+      for (const routes of Object.values(targetCategories)) {
+        selectedRoutes.push(...routes);
+      }
+      modeDescription = options.category
+        ? `All routes in category "${Object.keys(targetCategories)[0]}"`
+        : 'Comprehensive Audit (All Discovered Routes)';
+    } else {
+      selectedRoutes = selectRepresentativeRoutes(targetCategories);
+      modeDescription = options.category
+        ? `Representative route for category "${Object.keys(targetCategories)[0]}"`
+        : 'Representative Category Sampling (Default CI Mode)';
+    }
+
+    if (options.limit !== null && options.limit >= 0) {
+      selectedRoutes = selectedRoutes.slice(0, options.limit);
+      modeDescription += ` [Limited to ${options.limit} URL(s)]`;
+    }
+
+    console.log('\n==================================================');
+    console.log('       ACCESSIBILITY AUDIT (axe-core)            ');
+    console.log('==================================================');
+    console.log(
+      `Discovered ${allRoutes.length} static routes across ${Object.keys(categorized).length} categories in dist/\n`
+    );
+    console.log('Category Breakdown:');
+    for (const [catName, routes] of Object.entries(categorized)) {
+      console.log(`  - ${catName}: ${routes.length} route(s)`);
+    }
+    console.log(`\nMode: ${modeDescription}`);
+    console.log(`Auditing ${selectedRoutes.length} selected URL(s):`);
+    for (let i = 0; i < selectedRoutes.length; i++) {
+      console.log(`  ${i + 1}. ${selectedRoutes[i]}`);
+    }
+    console.log('==================================================\n');
+
+    if (selectedRoutes.length === 0) {
+      console.log('ℹ️ No URLs selected for audit. Exiting successfully.');
+      process.exit(0);
+    }
+
+    let baseUrl = options.baseUrl;
     if (!baseUrl) {
       console.log(`Starting background static server for ${DIST_DIR}...`);
       baseUrl = await startBackgroundServer(DIST_DIR, 4173);
       console.log(`Server is ready at ${baseUrl}`);
     } else {
-      console.log(`Using provided AUDIT_BASE_URL: ${baseUrl}`);
+      console.log(`Using provided base URL: ${baseUrl}`);
     }
 
     console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
@@ -385,7 +584,7 @@ async function main() {
       }
     }
 
-    const targetUrls = targetRoutePaths.map((r) => new URL(r, baseUrl).href);
+    const targetUrls = selectedRoutes.map((r) => new URL(r, baseUrl).href);
     const batches = chunkArray(targetUrls, BATCH_SIZE);
 
     console.log(
@@ -448,7 +647,16 @@ async function main() {
   }
 }
 
-export { evaluateBatchResult, runAxeCliBatch, discoverRoutes, selectSampledRoutes };
+export {
+  evaluateBatchResult,
+  runAxeCliBatch,
+  discoverRoutes,
+  selectSampledRoutes,
+  categorizeRoute,
+  selectRepresentativeRoutes,
+  parseArgs,
+  CATEGORIES,
+};
 
 const isMain =
   process.argv[1] &&

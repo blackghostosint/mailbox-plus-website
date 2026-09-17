@@ -1,7 +1,74 @@
 import { describe, it, expect } from 'vitest';
-import { evaluateBatchResult, selectSampledRoutes } from '../../../scripts/audit-a11y.mjs';
+import {
+  evaluateBatchResult,
+  selectSampledRoutes,
+  categorizeRoute,
+  selectRepresentativeRoutes,
+  parseArgs,
+  CATEGORIES,
+} from '../../../scripts/audit-a11y.mjs';
 
 describe('audit-a11y script', () => {
+  describe('parseArgs', () => {
+    it('parses --all, --limit, --category, and --base-url flags', () => {
+      const args = [
+        '--all',
+        '--limit=5',
+        '--category=Articles',
+        '--base-url=http://localhost:3000',
+      ];
+      const options = parseArgs(args);
+      expect(options.all).toBe(true);
+      expect(options.limit).toBe(5);
+      expect(options.category).toBe('Articles');
+      expect(options.baseUrl).toBe('http://localhost:3000');
+    });
+
+    it('parses space-separated --limit, --category, and --base-url arguments', () => {
+      const args = ['--limit', '10', '--category', 'guides', '--base-url', 'http://127.0.0.1:4173'];
+      const options = parseArgs(args);
+      expect(options.limit).toBe(10);
+      expect(options.category).toBe('guides');
+      expect(options.baseUrl).toBe('http://127.0.0.1:4173');
+    });
+
+    it('defaults options when no arguments are provided', () => {
+      const options = parseArgs([]);
+      expect(options.all).toBe(false);
+      expect(options.limit).toBeNull();
+      expect(options.category).toBeNull();
+    });
+  });
+
+  describe('categorizeRoute', () => {
+    it('correctly categorizes routes into template categories', () => {
+      expect(categorizeRoute('/')).toBe(CATEGORIES.HOMEPAGE);
+      expect(categorizeRoute('/services/')).toBe(CATEGORIES.SERVICE_PILLARS);
+      expect(categorizeRoute('/pack-ship/fedex-shipping/')).toBe(CATEGORIES.SERVICE_DETAILS);
+      expect(categorizeRoute('/articles/shipping-tips/')).toBe(CATEGORIES.ARTICLES);
+      expect(categorizeRoute('/guide/packing/')).toBe(CATEGORIES.GUIDES);
+      expect(categorizeRoute('/service-area/concord/')).toBe(CATEGORIES.LOCAL_LANDING);
+      expect(categorizeRoute('/privacy/')).toBe(CATEGORIES.UTILITY_LEGAL);
+      expect(categorizeRoute('/tracking/')).toBe(CATEGORIES.INTERACTIVE);
+    });
+  });
+
+  describe('selectRepresentativeRoutes', () => {
+    it('selects preferred representative routes per category', () => {
+      const categorized = {
+        [CATEGORIES.ARTICLES]: [
+          '/articles/other-article/',
+          '/articles/concord-township-shipping-insurance/',
+        ],
+        [CATEGORIES.GUIDES]: ['/guide/shipping-wine/', '/guide/boxes/'],
+      };
+      const selected = selectRepresentativeRoutes(categorized);
+      expect(selected).toContain('/articles/concord-township-shipping-insurance/');
+      expect(selected).toContain('/guide/shipping-wine/');
+      expect(selected.length).toBe(2);
+    });
+  });
+
   describe('evaluateBatchResult', () => {
     it('returns SUCCESS when all pages pass with zero violations and code 0', () => {
       const stdout = `
