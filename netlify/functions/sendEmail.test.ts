@@ -1,6 +1,12 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 // Mock dependencies before importing handler
+vi.mock('@netlify/blobs', () => ({
+  getStore: vi.fn().mockImplementation(() => {
+    throw new Error('Blobs store disabled in test environment');
+  }),
+}));
+
 vi.mock('./lib/recaptcha', () => ({
   verifyRecaptchaToken: vi.fn(),
 }));
@@ -36,6 +42,7 @@ describe('sendEmail function handler', () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(false);
 
     const event = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.1' },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'john@example.com',
@@ -53,6 +60,7 @@ describe('sendEmail function handler', () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
     const eventMissingEmail = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.2' },
       body: JSON.stringify({ name: 'John Doe', recaptchaToken: 'valid_token' }),
     };
     const res1 = await handler(eventMissingEmail);
@@ -60,6 +68,7 @@ describe('sendEmail function handler', () => {
     expect(JSON.parse(res1.body)).toEqual({ error: 'Invalid email address' });
 
     const eventMalformedEmail = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.3' },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'not-an-email',
@@ -76,6 +85,7 @@ describe('sendEmail function handler', () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
     const eventNonStringField = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.4' },
       body: JSON.stringify({
         recaptchaToken: 'valid_token',
         name: 12345,
@@ -93,6 +103,7 @@ describe('sendEmail function handler', () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
     const event = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.5' },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'john@example.com',
@@ -111,6 +122,7 @@ describe('sendEmail function handler', () => {
     mockSend.mockResolvedValue({ id: 'msg_123' });
 
     const event = {
+      headers: { 'x-nf-client-connection-ip': '10.0.0.6' },
       body: JSON.stringify({
         recaptchaToken: 'valid_token',
         name: 'Jane <Script> & "Quote"',
