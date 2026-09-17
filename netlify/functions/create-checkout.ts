@@ -6,10 +6,22 @@
 
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
+import { z } from 'zod';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
+
+export const CreateCheckoutRequestSchema = z.object({
+  tier: z.enum([
+    'small_mail_only',
+    'small_packages10',
+    'large_mail_only',
+    'large_packages10',
+    'business_small',
+    'business_large',
+  ]),
+});
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
@@ -84,17 +96,28 @@ export const handler: Handler = withCors(
     }
 
     try {
-      const body = JSON.parse(event.body || '{}');
-      const { tier } = body;
+      let rawBody: unknown;
+      try {
+        rawBody = JSON.parse(event.body || '{}');
+      } catch {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Invalid JSON body' }),
+        };
+      }
 
-      if (!tier || !TIER_LOOKUP_KEYS[tier]) {
+      const parseResult = CreateCheckoutRequestSchema.safeParse(rawBody);
+      if (!parseResult.success) {
         return {
           statusCode: 400,
           body: JSON.stringify({
             error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
+            details: parseResult.error.flatten(),
           }),
         };
       }
+
+      const { tier } = parseResult.data;
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
       const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';

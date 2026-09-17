@@ -42,7 +42,8 @@
     "@netlify/blobs": "^10.7.9",
     "dotenv": "^17.2.3",
     "resend": "^6.16.0",
-    "stripe": "^22.5.0"
+    "stripe": "^22.5.0",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@axe-core/cli": "^4.13.0",

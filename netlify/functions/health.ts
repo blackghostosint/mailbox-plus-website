@@ -5,10 +5,26 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
+import { z } from 'zod';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const HealthQuerySchema = z.object({}).catchall(z.string()).optional();
 
 export default withWebCors(
   async (request: Request, context: Context) => {
+    const url = new URL(request.url);
+    const queryParams = Object.fromEntries(url.searchParams.entries());
+    const queryResult = HealthQuerySchema.safeParse(queryParams);
+    if (!queryResult.success) {
+      return new Response(
+        JSON.stringify({ error: 'Invalid query parameters', details: queryResult.error.flatten() }),
+        {
+          status: 400,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
+
     const startTime = Date.now();
 
     // Basic health checks

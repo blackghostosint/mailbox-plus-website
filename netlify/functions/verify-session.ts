@@ -13,10 +13,15 @@
 
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
+import { z } from 'zod';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
+
+export const VerifySessionQuerySchema = z.object({
+  session_id: z.string().regex(/^cs_(test|live)_[A-Za-z0-9]+$/, 'Invalid session_id format'),
+});
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
@@ -50,11 +55,12 @@ export const handler: Handler = withCors(
       return json(500, { error: 'Stripe is not configured' });
     }
 
-    const sessionId = (event.queryStringParameters?.session_id || '').trim();
-    // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
-    if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+    const parseResult = VerifySessionQuerySchema.safeParse(event.queryStringParameters || {});
+    if (!parseResult.success) {
       return json(400, { error: 'Invalid session_id' });
     }
+
+    const sessionId = parseResult.data.session_id;
 
     try {
       const session = await stripe.checkout.sessions.retrieve(sessionId, {

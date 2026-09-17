@@ -5,7 +5,38 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
+import { z } from 'zod';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const CspReportSchema = z
+  .object({
+    'csp-report': z
+      .object({
+        'document-uri': z.string().optional(),
+        'violated-directive': z.string().optional(),
+        'blocked-uri': z.string().optional(),
+        'source-file': z.string().optional(),
+        'line-number': z.number().optional(),
+        documentUri: z.string().optional(),
+        violatedDirective: z.string().optional(),
+        blockedUri: z.string().optional(),
+        sourceFile: z.string().optional(),
+        lineNumber: z.number().optional(),
+      })
+      .passthrough()
+      .optional(),
+    'document-uri': z.string().optional(),
+    'violated-directive': z.string().optional(),
+    'blocked-uri': z.string().optional(),
+    'source-file': z.string().optional(),
+    'line-number': z.number().optional(),
+    documentUri: z.string().optional(),
+    violatedDirective: z.string().optional(),
+    blockedUri: z.string().optional(),
+    sourceFile: z.string().optional(),
+    lineNumber: z.number().optional(),
+  })
+  .passthrough();
 
 export default withWebCors(
   async (request: Request, context: Context) => {
@@ -15,7 +46,19 @@ export default withWebCors(
     }
 
     try {
-      const body = await request.json();
+      const rawBody = await request.json();
+      const parseResult = CspReportSchema.safeParse(rawBody);
+      if (!parseResult.success) {
+        return new Response(
+          JSON.stringify({
+            error: 'Invalid CSP report payload',
+            details: parseResult.error.flatten(),
+          }),
+          { status: 400, headers: { 'Content-Type': 'application/json' } }
+        );
+      }
+
+      const body = parseResult.data;
       const report = body['csp-report'] || body;
 
       // Log the violation (in production, send to Sentry or a logging service)

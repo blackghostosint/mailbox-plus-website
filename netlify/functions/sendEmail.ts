@@ -1,8 +1,25 @@
 import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
+import { z } from 'zod';
 import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const SendEmailSchema = z
+  .object({
+    name: z.string().optional().default(''),
+    email: z.string().optional().default(''),
+    message: z.string().optional().default(''),
+    phone: z.string().optional().default(''),
+    service: z.string().optional().default('General Inquiry'),
+    recaptchaToken: z.string().optional(),
+    token: z.string().optional(),
+    'g-recaptcha-response': z.string().optional(),
+  })
+  .refine((data) => Boolean(data.recaptchaToken || data.token || data['g-recaptcha-response']), {
+    message: 'reCAPTCHA token is required',
+    path: ['recaptchaToken'],
+  });
 
 // IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
@@ -107,7 +124,28 @@ export const handler: Handler = withCors(
         };
       }
 
-      const data = JSON.parse(event.body || '{}');
+      let rawData: unknown;
+      try {
+        rawData = JSON.parse(event.body || '{}');
+      } catch {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Invalid JSON body' }),
+        };
+      }
+
+      const parseResult = SendEmailSchema.safeParse(rawData);
+      if (!parseResult.success) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({
+            error: 'Validation failed',
+            details: parseResult.error.flatten(),
+          }),
+        };
+      }
+
+      const data = parseResult.data;
 
       const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
       const isValid = await verifyRecaptchaToken(token, clientIp);

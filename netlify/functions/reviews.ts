@@ -20,7 +20,10 @@
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
+import { z } from 'zod';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+
+export const ReviewsQuerySchema = z.object({}).catchall(z.string()).optional();
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
