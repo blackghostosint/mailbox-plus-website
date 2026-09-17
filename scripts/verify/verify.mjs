@@ -33,7 +33,7 @@ const PAGES_DIR = path.resolve(ROOT, 'astro', 'src', 'pages');
 const CONTENT_DIR = path.resolve(ROOT, 'content', 'articles');
 const R2_PUBLIC_BASE =
   process.env.R2_PUBLIC_BASE || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
-const DRAFTS_DIR = process.env.ARTICLE_DRAFTS_DIR || '/home/blackghost/work/batch_articles/drafts';
+const DRAFTS_DIR = process.env.ARTICLE_DRAFTS_DIR || path.resolve(ROOT, 'content', 'drafts');
 const SKIP_NETWORK = process.argv.includes('--offline');
 
 // HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
