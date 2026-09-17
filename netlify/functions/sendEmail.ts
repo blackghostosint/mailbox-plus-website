@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { escapeHtml } from './lib/escapeHtml';
 
 // IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
@@ -118,6 +119,28 @@ export const handler: Handler = withCors(
         };
       }
 
+      if (
+        !data.email ||
+        typeof data.email !== 'string' ||
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
+      ) {
+        return {
+          statusCode: 400,
+          body: JSON.stringify({ error: 'Invalid email address' }),
+        };
+      }
+
+      const stringFields = ['name', 'phone', 'service', 'plan', 'message'];
+      for (const field of stringFields) {
+        const val = data[field];
+        if (val !== undefined && val !== null && typeof val !== 'string') {
+          return {
+            statusCode: 400,
+            body: JSON.stringify({ error: `Invalid ${field}: must be a string` }),
+          };
+        }
+      }
+
       if (!process.env.RESEND_API_KEY) {
         console.error('RESEND_API_KEY is missing from environment');
         return {
@@ -128,19 +151,40 @@ export const handler: Handler = withCors(
 
       const resend = new Resend(process.env.RESEND_API_KEY);
 
+      const name = escapeHtml(data.name || '');
+      const email = escapeHtml(data.email || '');
+      const phone = escapeHtml(data.phone || '');
+      const service = escapeHtml(data.service || '');
+      const plan = escapeHtml(data.plan || '');
+      const message = escapeHtml(data.message || '');
+
+      const safeSubjectName = String(data.name || 'Customer').replace(/[\r\n]/g, ' ');
+
+      let htmlBody = `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${name}</p>
+          <p><strong>Email:</strong> ${email}</p>
+          <p><strong>Phone:</strong> ${phone}</p>
+          <p><strong>Service Interest:</strong> ${service}</p>
+      `;
+      if (plan) {
+        htmlBody += `<p><strong>Plan:</strong> ${plan}</p>\n`;
+      }
+      htmlBody += `<p><strong>Message:</strong><br>${message}</p>`;
+
+      let textBody = `New Contact Form Submission\n\nName: ${data.name || ''}\nEmail: ${data.email || ''}\nPhone: ${data.phone || ''}\nService Interest: ${data.service || ''}\n`;
+      if (data.plan) {
+        textBody += `Plan: ${data.plan}\n`;
+      }
+      textBody += `Message:\n${data.message || ''}`;
+
       await resend.emails.send({
         from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
         to: 'help@mailboxplusohio.com', // your Workspace inbox
         reply_to: data.email, // so replies go back to the sender
-        subject: `New Contact Form Submission from ${data.name}`,
-        html: `
-          <h2>New Contact Form Submission</h2>
-          <p><strong>Name:</strong> ${data.name}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Phone:</strong> ${data.phone}</p>
-          <p><strong>Service Interest:</strong> ${data.service}</p>
-          <p><strong>Message:</strong><br>${data.message}</p>
-        `,
+        subject: `New Contact Form Submission from ${safeSubjectName}`,
+        html: htmlBody,
+        text: textBody,
       });
 
       return {

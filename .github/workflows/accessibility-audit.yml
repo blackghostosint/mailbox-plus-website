@@ -2,9 +2,10 @@ name: Accessibility Audit
 
 on:
   push:
-    branches: [main, staging]
-  pull_request:
-    branches: [main, staging]
+    branches: [main]
+  schedule:
+    - cron: '0 0 * * 0'
+  workflow_dispatch:
 
 jobs:
   accessibility-audit:
@@ -32,14 +33,5 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Run axe-core accessibility audit
-        run: |
-          npx serve dist -l 4321 &
-          for i in {1..30}; do
-            if curl -s http://localhost:4321 > /dev/null; then
-              echo "Server is up and listening on port 4321"
-              break
-            fi
-            sleep 1
-          done
-          npm run audit:a11y
+      - name: Run axe-core accessibility audit (full site)
+        run: npm run audit:a11y -- --mode=full

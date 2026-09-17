@@ -138,6 +138,9 @@ jobs:
       - name: Verify zero executable inline scripts in dist HTML
         run: npm run check:inline-scripts
 
+      - name: Run accessibility audit (sampled PR gate)
+        run: npm run audit:a11y
+
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
