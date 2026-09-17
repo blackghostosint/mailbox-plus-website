@@ -61,12 +61,14 @@ test.describe('Contact Us Conversion Pathway', () => {
       message: 'Testing error state handling.',
     });
 
-    const dialogPromise = page.waitForEvent('dialog');
     await contactPage.submitForm();
-    const dialog = await dialogPromise;
 
-    expect(dialog.message()).toContain('Internal server error processing email');
-    await dialog.dismiss();
+    const alertContainer = contactPage.form.locator('[role="alert"]');
+    await expect(alertContainer).toBeVisible();
+    await expect(alertContainer).toHaveAttribute('aria-live', 'assertive');
+    await expect(alertContainer).toHaveAttribute('tabindex', '-1');
+    await expect(alertContainer).toContainText('Internal server error processing email');
+    await expect(alertContainer).toBeFocused();
     await expect(contactPage.submitButton).toBeEnabled();
   });
 
