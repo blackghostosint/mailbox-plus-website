@@ -69,6 +69,9 @@ jobs:
       - name: Run PR content verification (strict, offline)
         if: github.event_name == 'pull_request'
         run: npm run verify -- --strict --offline
+        env:
+          # Fact-check receipts live in the repo (.factchecks/) so CI can gate on them
+          ARTICLE_DRAFTS_DIR: ${{ github.workspace }}/.factchecks
 
       - name: Run corpus-wide content verification (target branches)
         if: github.event_name == 'push'
