@@ -40,7 +40,14 @@ const INTERNAL_LINKS = JSON.parse(
 
 // ---- Configurable thresholds ----
 const MIN_LINKS_PER_SEO_PAGE = 1; // Phase 3.3
-const ALLOWED_PREFIXES = ['/articles', '/service-area', '/guide', '/research', '/images'];
+const ALLOWED_PREFIXES = [
+  '/articles',
+  '/service-area',
+  '/guide',
+  '/research',
+  '/images',
+  '/contact-us',
+];
 
 // Service blocks that are "SEO landing pages" (Phase 3.3 scope) vs core services
 // SEO landing pages get their links ONLY from inline content. Core service pages

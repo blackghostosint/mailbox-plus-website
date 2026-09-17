@@ -10,26 +10,25 @@
 
 ### What's already protected ✅
 
-| Control                | Implementation                      | Location                     |
-| ---------------------- | ----------------------------------- | ---------------------------- |
-| CSP Headers            | Strict policy with report-uri       | `netlify.toml:33-43`         |
-| HSTS                   | 1 year, includeSubDomains           | `netlify.toml:32`            |
-| X-Frame-Options        | DENY (clickjacking)                 | `netlify.toml:28`            |
-| X-Content-Type-Options | nosniff                             | `netlify.toml:29`            |
-| Referrer-Policy        | strict-origin-when-cross-origin     | `netlify.toml:30`            |
-| Permissions-Policy     | camera/mic/geo disabled             | `netlify.toml:31`            |
-| Error tracking         | Sentry with PII scrubbing           | `src/sentry.config.ts`       |
-| Input sanitization     | reCAPTCHA on forms                  | `src/pages/ContactUs.tsx`    |
-| Dependency scanning    | `npm audit` in CI                   | GitHub Actions               |
-| Branch protection      | Required reviews, CI checks         | GitHub settings              |
-| No PII in logs         | Sentry PII scrubbing                | `src/sentry.config.ts:38-52` |
-| Env var isolation      | `.env` gitignored, Netlify injected | `.env.example`               |
+| Control                | Implementation                                 | Location                     |
+| ---------------------- | ---------------------------------------------- | ---------------------------- |
+| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`         |
+| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`            |
+| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`            |
+| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`            |
+| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`            |
+| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`            |
+| Error tracking         | Sentry with PII scrubbing                      | `src/sentry.config.ts`       |
+| Input sanitization     | reCAPTCHA on forms                             | `src/pages/ContactUs.tsx`    |
+| Dependency scanning    | `npm audit` in CI                              | GitHub Actions               |
+| Branch protection      | Required reviews, CI checks                    | GitHub settings              |
+| No PII in logs         | Sentry PII scrubbing                           | `src/sentry.config.ts:38-52` |
+| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`               |
 
 ### Known gaps ⚠️
 
 | Risk                                             | Severity | Mitigation needed                   |
 | ------------------------------------------------ | -------- | ----------------------------------- |
-| `unsafe-inline` in CSP script-src                | Medium   | Remove — use nonces/hashes for GTM  |
 | No rate limiting on `/api/*` (Netlify Functions) | Medium   | Add function-level rate limiting    |
 | No dependency auto-update (Dependabot)           | Low      | Enable in GitHub settings           |
 | No automated security scanning in CI             | Low      | Add `npm audit` + Snyk/Trivy step   |
@@ -176,7 +175,7 @@ To check for violations:
 
 Common violations to watch for:
 
-- **Inline scripts** → Usually GTM/google-analytics (expected with `unsafe-inline`)
+- **Inline scripts** → Violations indicating attempted execution of inline scripts (no longer allowed under strict CSP)
 - **External scripts** → Could indicate XSS injection
 - **Image loads from unexpected domains** → Could indicate hotlinking or injection
 
@@ -229,13 +228,14 @@ Current header values (from `netlify.toml`):
 
 ```
 Content-Security-Policy: default-src 'self';
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google.com https://ssl.gstatic.com https://www.google-analytics.com https://www.googleapis.com https://www.gstatic.com;
+  script-src 'self' https://www.google.com https://ssl.gstatic.com https://www.googleapis.com https://www.gstatic.com https://identity.netlify.com https://connect.facebook.net https://www.googletagmanager.com https://news.google.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
   font-src 'self' https://fonts.gstatic.com;
   img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev https://*.netlify.app https://www.facebook.com https://www.google.com https://www.googletagmanager.com https://news.google.com data:;
-  connect-src 'self' https://www.google.com https://analytics.google.com https://stats.g.doubleclick.net https://mailboxplusohio.com https://*.netlify.app https://ingesteer.services-prod.nsvcs.net;
-  frame-src 'self' https://www.googletagmanager.com https://www.google.com https://www.recaptcha.net https://app.netlify.com;
-  report-uri https://mailboxplusohio.com/.netlify/functions/csp-report
+  connect-src 'self' https://www.google.com https://news.google.com https://mailboxplusohio.com https://*.netlify.app https://ingesteer.services-prod.nsvcs.net https://identity.netlify.com https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com;
+  frame-src 'self' https://www.google.com https://news.google.com https://www.recaptcha.net https://app.netlify.com https://identity.netlify.com;
+  report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
+  report-to csp-endpoint;
 
 Strict-Transport-Security: max-age=31536000; includeSubDomains
 X-Frame-Options: DENY
