@@ -112,10 +112,11 @@ jobs:
           restore-keys: |
             embedding-cache-text-embedding-004-
 
-      - name: Run retrieval test suite (offline)
+      - name: Run retrieval test suite
         run: npm run test:retrieval
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
 
       - name: Verify generated static assets drift
         run: git diff --exit-code public/llms.txt public/llms-full.txt
