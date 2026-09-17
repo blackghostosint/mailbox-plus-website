@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import VideoTranscriptPlayer from '../components/VideoTranscriptPlayer';
 import { siteConfig } from '../config/siteConfig';
 import { toCanonicalUrl } from '../utils/canonical-url';
 import { getFAQSchema, getWebPageSchema } from '../utils/schema';
 
-const canonical = '/after-signup';
+const canonical = '/after-signup/';
 const pageUrl = toCanonicalUrl(canonical);
 const domain = siteConfig.domain;
 
@@ -38,9 +39,21 @@ const videoSchema = {
     'A 70-second walkthrough showing exactly how Mailbox Plus in Concord Township receives, secures, and manages your mail and packages after you sign up for a mailbox.',
   thumbnailUrl: `${domain}/videos/mailbox-plus-explainer-thumbnail.jpg`,
   contentUrl: `${domain}/videos/mailbox-plus-explainer.mp4`,
-  embedUrl: `${domain}/after-signup`,
+  embedUrl: pageUrl,
   uploadDate: '2026-06-29',
   duration: 'PT1M10S',
+  transcript:
+    "After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away. An activation email goes to your inbox. Open it. Click the link. Your mailbox opens. Your mailing address is 7554 Fredle Drive, PMB 456, Concord Township. A welcome email follows. It confirms your address. It lists office hours. It reminds you to bring ID. Print it or save it. Mail arrives. Packages arrive. We sign for carriers. We note each item. Everything stays secure until you arrive. Stop by during open hours. Show your ID. Collect your mail. Use the address now. Put it on bills. List it for online orders. Forward old mail here. That's the process. Shipping shouldn't cost you an hour.",
+  hasPart: [
+    {
+      '@type': 'WebPage',
+      name: 'Audio Descriptions VTT',
+      description: 'Audio description track for visually impaired users',
+      encodingFormat: 'text/vtt',
+      contentUrl: `${domain}/videos/mailbox-plus-explainer-descriptions.vtt`,
+      inLanguage: 'en',
+    },
+  ],
   publisher: {
     '@type': 'Organization',
     '@id': `${domain}#localbusiness`,
@@ -48,7 +61,7 @@ const videoSchema = {
   },
   potentialAction: {
     '@type': 'WatchAction',
-    target: `${domain}/after-signup`,
+    target: pageUrl,
   },
 };
 
@@ -177,27 +190,9 @@ const stepIcons = [
         and packages after you sign up for mailbox service.
       </p>
 
-      <!-- Video Container -->
-      <div class="max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--color-border-strong)] bg-[var(--color-primary-deep)] relative aspect-video">
-        <video
-          class="w-full h-full object-cover"
-          controls
-          preload="metadata"
-          poster="/videos/mailbox-plus-explainer-thumbnail.jpg"
-          playsinline
-          aria-label="Mailbox Plus explainer video — what happens after signing up for mailbox service"
-        >
-          <source src="/videos/mailbox-plus-explainer.mp4" type="video/mp4" />
-          <track
-            src="/videos/mailbox-plus-explainer-captions.vtt"
-            kind="subtitles"
-            srclang="en"
-            label="English"
-            default
-          />
-          Your browser does not support the video tag. Watch our walkthrough of what happens after signing up for a mailbox at Mailbox Plus in Concord Township, Ohio.
-        </video>
-      </div>
+      <!-- Video & Synchronized Interactive Transcript Player Island -->
+      <VideoTranscriptPlayer />
+      <script src="/js/video-transcript-player.js" defer></script>
     </div>
 
     <!-- Soft fade bottom -->
