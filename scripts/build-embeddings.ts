@@ -12,8 +12,6 @@ import {
 } from '../knowledge/retrieval-core.js';
 import { retrievalTests } from '../knowledge/retrieval-test-suite.js';
 
-const MODEL_NAME = EMBEDDING_MODEL;
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
@@ -22,7 +20,8 @@ dotenv.config();
 dotenv.config({ path: join(__dirname, '..', '.env.local') });
 
 const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
-const OUTPUT_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
+const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
+const CACHE_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
 
 interface EmbeddingResult {
   metadata: {
@@ -44,7 +43,7 @@ async function buildEmbeddings() {
   }
 
   const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: MODEL_NAME });
+  const model = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
 
   // Load KB
   console.log(`Loading Knowledge Base from: ${KB_PATH}`);
@@ -76,7 +75,7 @@ async function buildEmbeddings() {
 
   const result: EmbeddingResult = {
     metadata: {
-      model: MODEL_NAME,
+      model: EMBEDDING_MODEL,
       generatedAt: new Date().toISOString(),
     },
     embeddings: {},
@@ -95,8 +94,8 @@ async function buildEmbeddings() {
         `[${count}/${uniqueTexts.length}] Embedding: ${text.substring(0, 30)}... `
       );
       const embeddingResponse = await model.embedContent({
-        content: { parts: [{ text }] },
-        taskType,
+        content: { role: 'user', parts: [{ text }] },
+        taskType: taskType as any,
       });
 
       if (embeddingResponse.embedding && embeddingResponse.embedding.values) {
@@ -118,8 +117,10 @@ async function buildEmbeddings() {
     await new Promise((resolve) => setTimeout(resolve, 100));
   }
 
-  console.log(`Saving results to: ${OUTPUT_PATH}`);
-  writeFileSync(OUTPUT_PATH, JSON.stringify(result, null, 2));
+  console.log(`Saving results to: ${OUTPUT_PATH} and ${CACHE_PATH}`);
+  const jsonContent = JSON.stringify(result, null, 2);
+  writeFileSync(OUTPUT_PATH, jsonContent);
+  writeFileSync(CACHE_PATH, jsonContent);
   console.log('--- Done! ---');
 }
 
