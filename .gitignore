@@ -38,6 +38,8 @@ article-inbox/*.md
 !public/llms-full.txt
 *report.json
 *report.md
+*REPORT.md
+knowledge/RETRIEVAL_TEST_REPORT.md
 diagnostic_report.json
 button-report.json
 lint-errors.txt
