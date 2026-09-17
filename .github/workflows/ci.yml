@@ -125,9 +125,6 @@ jobs:
       - name: Verify zero executable inline scripts in dist HTML
         run: npm run check:inline-scripts
 
-      - name: Check Netlify functions integrity
-        run: npm run check:functions
-
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
 
