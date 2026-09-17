@@ -7,6 +7,7 @@ import { getServiceImageUrl } from '../../../lib/storage';
 export const amazonReturnsService: Service = {
   id: 'amazon-returns',
   category: 'additional-services',
+  ogImage: '/og/amazon-returns.png',
   city: 'Concord Township',
   serviceName: 'Amazon Return Guide',
   slug: '/amazon-returns',
