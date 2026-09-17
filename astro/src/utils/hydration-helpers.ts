@@ -38,7 +38,8 @@ export type AnalyticsWindow = DataLayerWindow & FbqWindow;
  * Initializes GA4 dataLayer array and gtag function stub on a target window/object.
  * Events pushed via gtag before GA4 script loads are buffered synchronously in dataLayer.
  */
-export function initDataLayer<T extends DataLayerWindow>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function initDataLayer<T extends Record<string, any> = DataLayerWindow>(
   target?: T
 ): T & Required<DataLayerWindow> {
   const win = (target || (typeof window !== 'undefined' ? window : {})) as T &
@@ -65,7 +66,10 @@ export function initDataLayer<T extends DataLayerWindow>(
  * Initializes Meta Pixel (fbq) function stub on a target window/object.
  * Events tracked via fbq before fbevents.js loads are queued in fbq.queue.
  */
-export function initFbqStub<T extends FbqWindow>(target?: T): T & Required<FbqWindow> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function initFbqStub<T extends Record<string, any> = FbqWindow>(
+  target?: T
+): T & Required<FbqWindow> {
   const win = (target || (typeof window !== 'undefined' ? window : {})) as T & Required<FbqWindow>;
 
   if (!win.fbq) {
@@ -100,7 +104,8 @@ export function initFbqStub<T extends FbqWindow>(target?: T): T & Required<FbqWi
  * Initializes all analytics queuing stubs (GA4 dataLayer/gtag and Meta Pixel fbq)
  * on a target object synchronously.
  */
-export function initAnalyticsStubs<T extends AnalyticsWindow>(
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function initAnalyticsStubs<T extends Record<string, any> = AnalyticsWindow>(
   target?: T
 ): T & Required<AnalyticsWindow> {
   const win = (target || (typeof window !== 'undefined' ? window : {})) as T &
