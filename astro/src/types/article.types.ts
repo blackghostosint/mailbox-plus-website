@@ -1,19 +1,6 @@
-export interface ArticleFrontmatter {
-  title: string;
-  description: string;
-  slug: string;
-  category: string;
-  intentKey: string;
-  pubDate: string;
-  image: string;
-  imageAlt: string;
-  location?: string;
-  keywords?: string[];
-  relatedServices?: string[];
-  author?: string;
-  lastModified?: string;
-  status?: 'draft' | 'published' | 'archived';
-}
+import type { ArticleFrontmatter } from '../../../scripts/lib/article-schema';
+
+export type { ArticleFrontmatter };
 
 export interface Article {
   frontmatter: ArticleFrontmatter;
