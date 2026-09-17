@@ -300,7 +300,7 @@ function generateMarkdownReport(results: TestExecutionResult[]): string {
 
   let report = `# Retrieval Test Report (Gemini Embeddings)\n\n`;
   report += `**Generated:** ${new Date().toISOString()}\n\n`;
-  report += `**Embedding Model:** text-embedding-004\n`;
+  report += `**Embedding Model:** ${EMBEDDING_MODEL}\n`;
   report += `**Minimum Similarity Threshold:** ${MINIMUM_SIMILARITY}\n\n`;
 
   // Summary
