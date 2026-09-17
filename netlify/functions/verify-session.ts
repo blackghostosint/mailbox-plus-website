@@ -14,10 +14,11 @@
 import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
+import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 dotenv.config();
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || '');
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier metadata → human name + monthly display price (for pixel value).
 // Amount is NOT trusted from here for revenue reporting — Stripe is the source
@@ -40,58 +41,54 @@ const json = (code: number, body: unknown) => ({
   body: JSON.stringify(body),
 });
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod === 'OPTIONS') {
-    return {
-      statusCode: 204,
-      headers: { 'Access-Control-Allow-Origin': '*' },
-      body: '',
-    };
-  }
-  if (event.httpMethod !== 'GET') {
-    return json(405, { error: 'Method not allowed' });
-  }
-  if (!process.env.STRIPE_SECRET_KEY) {
-    return json(500, { error: 'Stripe is not configured' });
-  }
-
-  const sessionId = (event.queryStringParameters?.session_id || '').trim();
-  // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
-  if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
-    return json(400, { error: 'Invalid session_id' });
-  }
-
-  try {
-    const session = await stripe.checkout.sessions.retrieve(sessionId, {
-      expand: ['subscription'],
-    });
-
-    const paid = session.payment_status === 'paid' || session.status === 'complete';
-    if (!paid) {
-      return json(402, { error: 'Session not paid' });
+export const handler: Handler = withCors(
+  async (event) => {
+    if (event.httpMethod !== 'GET') {
+      return json(405, { error: 'Method not allowed' });
+    }
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return json(500, { error: 'Stripe is not configured' });
     }
 
-    const tier = (session.metadata?.tier || '').trim();
-    const tierInfo = TIER_LABELS[tier];
-
-    // Prefer the actual amount from Stripe; fall back to the tier table.
-    let amount = tierInfo?.monthly ?? 0;
-    if (typeof session.amount_total === 'number' && session.amount_total > 0) {
-      // amount_total includes the key deposit line on first invoice — that's
-      // what the customer actually paid, so it's the honest pixel value.
-      amount = session.amount_total / 100;
+    const sessionId = (event.queryStringParameters?.session_id || '').trim();
+    // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
+    if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+      return json(400, { error: 'Invalid session_id' });
     }
 
-    return json(200, {
-      ok: true,
-      tier: tier || null,
-      product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
-      amount,
-      currency: (session.currency || 'usd').toUpperCase(),
-    });
-  } catch (err: any) {
-    // Invalid/unknown session → 404 without detail (don't leak error strings)
-    console.error('verify-session error:', err?.message || err);
-    return json(404, { error: 'Session not found' });
-  }
-};
+    try {
+      const session = await stripe.checkout.sessions.retrieve(sessionId, {
+        expand: ['subscription'],
+      });
+
+      const paid = session.payment_status === 'paid' || session.status === 'complete';
+      if (!paid) {
+        return json(402, { error: 'Session not paid' });
+      }
+
+      const tier = (session.metadata?.tier || '').trim();
+      const tierInfo = TIER_LABELS[tier];
+
+      // Prefer the actual amount from Stripe; fall back to the tier table.
+      let amount = tierInfo?.monthly ?? 0;
+      if (typeof session.amount_total === 'number' && session.amount_total > 0) {
+        // amount_total includes the key deposit line on first invoice — that's
+        // what the customer actually paid, so it's the honest pixel value.
+        amount = session.amount_total / 100;
+      }
+
+      return json(200, {
+        ok: true,
+        tier: tier || null,
+        product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
+        amount,
+        currency: (session.currency || 'usd').toUpperCase(),
+      });
+    } catch (err: any) {
+      // Invalid/unknown session → 404 without detail (don't leak error strings)
+      console.error('verify-session error:', err?.message || err);
+      return json(404, { error: 'Session not found' });
+    }
+  },
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+);
