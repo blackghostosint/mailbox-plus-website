@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { articleLoader, invalidateArticleCache } from './articleLoader';
+import { articleLoader, invalidateArticleCache, parseArticleFrontmatter } from './articleLoader';
 import matter from 'gray-matter';
 
 vi.mock('gray-matter', async (importOriginal) => {
@@ -273,6 +273,73 @@ describe('articleLoader', () => {
       const draftArticle = articles.find((a) => a.frontmatter.slug === 'draft-article-test');
       expect(draftArticle).toBeDefined();
       expect(draftArticle?.frontmatter.status).toBe('draft');
+    });
+  });
+
+  describe('parseArticleFrontmatter', () => {
+    it('returns complete valid frontmatter unchanged', () => {
+      const validData = {
+        title: 'Complete Article',
+        description: 'A complete test article description.',
+        slug: 'complete-article',
+        category: 'pack-ship',
+        intentKey: 'complete-article-intent',
+        pubDate: '2026-09-01',
+        status: 'published',
+        image: '/images/test.jpg',
+        imageAlt: 'Test image',
+        keywords: ['test', 'shipping'],
+        relatedServices: ['/services/pack-ship'],
+        author: 'Test Author',
+      };
+
+      const result = parseArticleFrontmatter(validData);
+      expect(result.title).toBe('Complete Article');
+      expect(result.description).toBe('A complete test article description.');
+      expect(result.slug).toBe('complete-article');
+      expect(result.category).toBe('pack-ship');
+      expect(result.intentKey).toBe('complete-article-intent');
+      expect(result.pubDate).toBe('2026-09-01');
+      expect(result.image).toBe('/images/test.jpg');
+      expect(result.keywords).toEqual(['test', 'shipping']);
+      expect(result.relatedServices).toEqual(['/services/pack-ship']);
+      expect(result.author).toBe('Test Author');
+    });
+
+    it('populates default fallbacks for missing optional/non-critical fields in sparse draft frontmatter', () => {
+      const sparseData = {
+        title: 'Draft Article',
+        slug: 'draft-article',
+        category: 'mailbox-rentals',
+      };
+
+      const result = parseArticleFrontmatter(sparseData, 'test-path.md', false);
+      expect(result.title).toBe('Draft Article');
+      expect(result.slug).toBe('draft-article');
+      expect(result.category).toBe('mailbox-rentals');
+      expect(result.description).toBe('No description provided.');
+      expect(result.intentKey).toBe('draft-article');
+      expect(result.status).toBe('published');
+      expect(result.image).toBe('/images/default-article.jpg');
+      expect(result.imageAlt).toBe('Article image');
+      expect(result.keywords).toEqual(['article']);
+      expect(result.relatedServices).toEqual([]);
+      expect(result.author).toBe('Mailbox Plus');
+      expect(typeof result.pubDate).toBe('string');
+    });
+
+    it('logs a non-fatal warning in development mode when falling back for sparse frontmatter', () => {
+      const consoleWarnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const sparseData = {
+        title: 'Sparse Article',
+      };
+
+      parseArticleFrontmatter(sparseData, 'sparse-article.md', true);
+      expect(consoleWarnSpy).toHaveBeenCalledWith(
+        expect.stringContaining(
+          "[articleLoader] Frontmatter validation warning for 'sparse-article.md'"
+        )
+      );
     });
   });
 });
