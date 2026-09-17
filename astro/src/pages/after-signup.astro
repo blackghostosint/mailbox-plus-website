@@ -160,7 +160,7 @@ const stepIcons = [
   <section class="relative overflow-hidden bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-20 md:py-32 text-center animate-fade-in-up">
     <div class="relative z-10 max-w-5xl mx-auto px-6">
       <!-- Welcome Badge -->
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[#F1C40F] font-bold mb-6">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[var(--color-accent-gold-light)] font-bold mb-6">
         <svg class="w-5 h-5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
         </svg>
@@ -169,7 +169,7 @@ const stepIcons = [
 
       <h1 class="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight mb-6 leading-none">
         Your Mailbox Journey <br />
-        <span class="text-[#F1C40F]">Starts Here</span>
+        <span class="text-[var(--color-accent-gold-light)]">Starts Here</span>
       </h1>
 
       <p class="text-lg md:text-xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-12">
@@ -211,7 +211,7 @@ const stepIcons = [
         <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
           What Happens Next?
         </h2>
-        <p class="text-[var(--color-text-secondary)] text-lg max-w-2xl mx-auto">
+        <p class="text-[var(--color-text-primary)] text-lg max-w-2xl mx-auto">
           Setting up your mailbox is quick and painless. Here is the step-by-step timeline of
           what to expect after signing up for mailbox service at Mailbox Plus.
         </p>
@@ -220,7 +220,7 @@ const stepIcons = [
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto stagger-group">
         {steps.map((step, index) => (
           <div class="bg-[var(--color-bg-secondary)] p-8 rounded-lg border border-[var(--color-border-strong)] hover:border-[var(--color-accent-warm)] transition-all duration-300 flex flex-col relative group hover:shadow-md">
-            <div class="absolute top-4 right-6 text-5xl font-black text-[var(--color-border-strong)]/40 group-hover:text-[var(--color-accent-warm)]/10 transition-colors pointer-events-none select-none" aria-hidden="true">
+            <div class="absolute top-4 right-6 text-5xl font-black text-[var(--color-primary-dark)]/70 group-hover:text-[var(--color-accent-warm)] transition-colors pointer-events-none select-none" aria-hidden="true">
               {step.stepNum}
             </div>
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[var(--color-accent-warm)] mb-6 shadow-sm border border-[var(--color-border)]">
@@ -229,7 +229,7 @@ const stepIcons = [
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
-            <p class="text-[var(--color-text-secondary)] text-base leading-relaxed">{step.desc}</p>
+            <p class="text-[var(--color-text-primary)] text-base leading-relaxed">{step.desc}</p>
           </div>
         ))}
       </div>
@@ -243,7 +243,7 @@ const stepIcons = [
         <h2 class="text-3xl font-bold text-[var(--color-text-primary)] mb-4">
           Common Questions About Your Mailbox Setup
         </h2>
-        <p class="text-[var(--color-text-secondary)]">
+        <p class="text-[var(--color-text-primary)]">
           Everything you need to know about your mailbox plus next steps after signing up.
         </p>
       </div>
@@ -255,7 +255,7 @@ const stepIcons = [
               <span class="text-[var(--color-accent-warm)] font-black" aria-hidden="true">Q:</span>
               {faq.question}
             </h3>
-            <p class="text-[var(--color-text-secondary)] pl-7 leading-relaxed text-base">
+            <p class="text-[var(--color-text-primary)] pl-7 leading-relaxed text-base">
               {faq.answer}
             </p>
           </div>
@@ -270,7 +270,7 @@ const stepIcons = [
       <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-6">
         Ready to Secure Your Mail?
       </h2>
-      <p class="text-[var(--color-text-secondary)] text-lg mb-10 max-w-xl mx-auto">
+      <p class="text-[var(--color-text-primary)] text-lg mb-10 max-w-xl mx-auto">
         If you have any questions, our local Concord Township team is standing by to help you
         get completely set up after signing up for mailbox service.
       </p>
