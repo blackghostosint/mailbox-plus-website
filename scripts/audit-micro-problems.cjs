@@ -95,6 +95,18 @@ if (!searchConsoleFile && !dryRun) {
     'Usage: node scripts/audit-micro-problems.cjs --search-console=path/to/search-console.csv'
   );
   console.error('   Or: node scripts/audit-micro-problems.cjs --dry-run (for testing without CSV)');
+
+  if (fs.existsSync(SEARCH_CONSOLE_DIR)) {
+    const csvFiles = fs.readdirSync(SEARCH_CONSOLE_DIR).filter((f) => f.endsWith('.csv'));
+    if (csvFiles.length > 0) {
+      console.error('\nAvailable CSV datasets in scripts/audits/search-console-data/:');
+      csvFiles.forEach((file) => {
+        const relPath = path.join('scripts/audits/search-console-data', file);
+        console.error(`  - ${relPath}`);
+      });
+    }
+  }
+
   process.exit(1);
 }
 
