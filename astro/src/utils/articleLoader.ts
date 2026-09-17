@@ -25,8 +25,8 @@ export function parseArticleFrontmatter(
   if (isDev) {
     const issueList = parseResult.error.issues
       .map(
-        (i: { path: (string | number)[]; message: string }) =>
-          `${i.path.join('.') || 'root'}: ${i.message}`
+        (i: { path: (string | number | symbol)[]; message: string }) =>
+          `${i.path.map(String).join('.') || 'root'}: ${i.message}`
       )
       .join('; ');
     const label = filePath ? `'${filePath}'` : 'article';
