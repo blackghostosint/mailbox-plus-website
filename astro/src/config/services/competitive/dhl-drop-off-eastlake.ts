@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,6 +7,14 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'dhl-drop-off-eastlake',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-eastlake-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-eastlake-featured.webp',
+      name: 'DHL Drop-Off Near Eastlake — No Hassle | Mailbox Plus',
+      description: 'Mailbox Plus shipping service for Eastlake customers',
+    }),
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'DHL Drop-Off Near Eastlake — No Hassle | Mailbox Plus',

@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,6 +7,14 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'fedex-drop-off-fairport-harbor',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-drop-off-fairport-harbor-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-drop-off-fairport-harbor-featured.webp',
+      name: 'FedEx Drop-Off Near Fairport Harbor — Local Service | Mailbox Plus',
+      description: 'Mailbox Plus shipping service for Fairport Harbor customers',
+    }),
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'FedEx Drop-Off in Fairport Harbor | Mailbox Plus',
