@@ -130,7 +130,16 @@ export const handler: Handler = withCors(
         };
       }
 
-      const stringFields = ['name', 'phone', 'service', 'plan', 'message'];
+      const stringFields = [
+        'name',
+        'phone',
+        'service',
+        'plan',
+        'message',
+        'barrier_description',
+        'url',
+        'preferred_contact',
+      ];
       for (const field of stringFields) {
         const val = data[field];
         if (val !== undefined && val !== null && typeof val !== 'string') {
@@ -156,7 +165,9 @@ export const handler: Handler = withCors(
       const phone = escapeHtml(data.phone || '');
       const service = escapeHtml(data.service || '');
       const plan = escapeHtml(data.plan || '');
-      const message = escapeHtml(data.message || '');
+      const message = escapeHtml(data.message || data.barrier_description || '');
+      const url = escapeHtml(data.url || '');
+      const preferredContact = escapeHtml(data.preferred_contact || '');
 
       const safeSubjectName = String(data.name || 'Customer').replace(/[\r\n]/g, ' ');
 
@@ -170,13 +181,25 @@ export const handler: Handler = withCors(
       if (plan) {
         htmlBody += `<p><strong>Plan:</strong> ${plan}</p>\n`;
       }
+      if (url) {
+        htmlBody += `<p><strong>URL / Location:</strong> ${url}</p>\n`;
+      }
+      if (preferredContact) {
+        htmlBody += `<p><strong>Preferred Contact:</strong> ${preferredContact}</p>\n`;
+      }
       htmlBody += `<p><strong>Message:</strong><br>${message}</p>`;
 
       let textBody = `New Contact Form Submission\n\nName: ${data.name || ''}\nEmail: ${data.email || ''}\nPhone: ${data.phone || ''}\nService Interest: ${data.service || ''}\n`;
       if (data.plan) {
         textBody += `Plan: ${data.plan}\n`;
       }
-      textBody += `Message:\n${data.message || ''}`;
+      if (data.url) {
+        textBody += `URL / Location: ${data.url}\n`;
+      }
+      if (data.preferred_contact) {
+        textBody += `Preferred Contact: ${data.preferred_contact}\n`;
+      }
+      textBody += `Message:\n${data.message || data.barrier_description || ''}`;
 
       await resend.emails.send({
         from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
