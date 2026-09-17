@@ -53,6 +53,18 @@ Testing complete of 1 pages
       expect(result.type).toBe('WCAG_VIOLATIONS');
     });
 
+    it('returns SUCCESS when stdout contains ANSI escape codes or flexible zero-violation strings', () => {
+      const stdout = `
+Testing http://127.0.0.1:4173/ ...
+\u001b[32m 0 violations found!\u001b[39m
+Testing http://127.0.0.1:4173/about-us/ ...
+ 0 violation found.
+Testing complete of 2 pages
+`;
+      const result = evaluateBatchResult({ code: 0, stdout, stderr: '' }, 2);
+      expect(result.type).toBe('SUCCESS');
+    });
+
     it('returns CLI_ERROR with error details when audit fails before completing all pages', () => {
       const stdout = `
 Testing http://127.0.0.1:4173/ ...

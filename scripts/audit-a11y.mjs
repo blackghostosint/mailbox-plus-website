@@ -295,19 +295,24 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath }) {
 function evaluateBatchResult(result, expectedUrlCount) {
   const { code, stdout, stderr } = result;
 
-  const zeroMatches = (stdout.match(/0 violations found!/g) || []).length;
+  const stripAnsi = (str) => (str || '').replace(/\u001b\[[0-9;]*[a-zA-Z]/g, '');
+  const cleanStdout = stripAnsi(stdout);
+  const cleanStderr = stripAnsi(stderr);
+
+  const zeroMatches = (cleanStdout.match(/(?:0|\bzero\b)\s+violations?\s+found/gi) || []).length;
+  const explicitViolationMatches = cleanStdout.match(/Violation of "[^"]+"/g) || [];
   const hasExplicitViolations =
-    /Violation of "/.test(stdout) ||
-    /[1-9]\d* violations found!/.test(stdout) ||
-    /[1-9]\d*\s+Accessibility issue/i.test(stdout);
+    explicitViolationMatches.length > 0 ||
+    /[1-9]\d*\s+violations?\s+found!/i.test(cleanStdout) ||
+    /[1-9]\d*\s+Accessibility\s+issues?\s+(?:detected|found)/i.test(cleanStdout);
 
   if (zeroMatches >= expectedUrlCount) {
     if (code !== 0) {
       console.warn(
         `\n⚠️ Notice: axe CLI exited with status ${code}, but all ${expectedUrlCount} page(s) passed with 0 violations.`
       );
-      if (stderr && stderr.trim()) {
-        console.warn(`CLI stderr output:\n${stderr.trim()}`);
+      if (cleanStderr.trim()) {
+        console.warn(`CLI stderr output:\n${cleanStderr.trim()}`);
       }
     }
     return {
@@ -324,8 +329,8 @@ function evaluateBatchResult(result, expectedUrlCount) {
   }
 
   const errorMsg =
-    stderr.trim() ||
-    stdout
+    cleanStderr.trim() ||
+    cleanStdout
       .trim()
       .split('\n')
       .filter((l) => l.toLowerCase().includes('error'))
