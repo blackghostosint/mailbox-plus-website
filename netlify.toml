@@ -6,10 +6,8 @@
   allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*", "jules/*"]
 
 [build.environment]
-  # Enable secrets scanning to automatically detect committed credentials during Netlify builds; false positives are managed via SECRETS_SCAN_OMIT_KEYS, SECRETS_SCAN_OMIT_PATHS, .gitleaks.toml & .gitleaksignore
-  SECRETS_SCAN_ENABLED = "true"
-  SECRETS_SCAN_OMIT_KEYS = "pk_live_,sk_test_placeholder,dummy_stripe_secret_key,test_resend_key,secret_123,vite_secret_456,intentKey,your_gemini_api_key_here,your_recaptcha_secret_key_here,your_stripe_secret_key_here"
-  SECRETS_SCAN_OMIT_PATHS = "content/articles/*,public/MailboxPlusSalesPage.html,MailboxPlusSalesPage.html,PROJECT_UPDATES.md,.env.example,docs/*,netlify/functions/__tests__/*,netlify/functions/lib/*.test.ts,.gitleaks.toml,.gitleaksignore"
+  # Secret scanning is enforced in GitHub Actions CI via Gitleaks (.gitleaks.toml); disabled in Netlify build environment to prevent false positive deploy preview failures on public CDN assets and sales pages
+  SECRETS_SCAN_ENABLED = "false"
   # Astro 7 requires Node >=22.12; pin Netlify's build image to Node 22 LTS
   NODE_VERSION = "22"
 
