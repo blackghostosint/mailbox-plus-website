@@ -57,10 +57,14 @@ export function walkMdFiles(dir: string): string[] {
 }
 
 /**
- * Initializes and derives the route registry from Astro page templates
- * and article frontmatter slugs.
+ * Initializes and derives the route registry from Astro page templates,
+ * siteStructure.json, route-registry-allowlist.json, and article frontmatter slugs.
  */
-export function initRouteRegistry(pagesDir: string, contentDir: string): RouteRegistry {
+export function initRouteRegistry(
+  pagesDir: string,
+  contentDir: string,
+  options?: { siteStructurePath?: string; allowlistPath?: string }
+): RouteRegistry {
   const validRoutes = new Set<string>();
   const dynamicPrefixes: DynamicPrefix[] = [];
   const intentKeyMap = new Map<string, string[]>();
@@ -86,6 +90,55 @@ export function initRouteRegistry(pagesDir: string, contentDir: string): RouteRe
     if (route.endsWith('/index')) route = route.slice(0, -6);
     validRoutes.add('/' + route);
   });
+
+  // 1b) Routes from siteStructure.json
+  const siteStructurePath =
+    options?.siteStructurePath || path.resolve(pagesDir, '../data/siteStructure.json');
+  if (fs.existsSync(siteStructurePath)) {
+    try {
+      const siteStruct = JSON.parse(fs.readFileSync(siteStructurePath, 'utf8'));
+      const addUrl = (url: string | undefined) => {
+        if (!url) return;
+        const norm = normalizeRoute(url);
+        if (norm) validRoutes.add(norm);
+      };
+      if (siteStruct.homepage?.url) addUrl(siteStruct.homepage.url);
+      if (Array.isArray(siteStruct.pillars)) {
+        for (const p of siteStruct.pillars) {
+          addUrl(p.url);
+          if (Array.isArray(p.children)) {
+            for (const c of p.children) addUrl(c.url);
+          }
+        }
+      }
+      if (Array.isArray(siteStruct.subSupporting)) {
+        for (const s of siteStruct.subSupporting) addUrl(s.url);
+      }
+      if (Array.isArray(siteStruct['seo-landing'])) {
+        for (const l of siteStruct['seo-landing']) addUrl(l.url);
+      }
+    } catch (e) {
+      // Ignore reading/parsing error
+    }
+  }
+
+  // 1c) Routes from route-registry-allowlist.json
+  const allowlistPath =
+    options?.allowlistPath ||
+    path.resolve(pagesDir, '../../../scripts/seo/route-registry-allowlist.json');
+  if (fs.existsSync(allowlistPath)) {
+    try {
+      const allowlist = JSON.parse(fs.readFileSync(allowlistPath, 'utf8'));
+      if (Array.isArray(allowlist.allowed_exact)) {
+        for (const url of allowlist.allowed_exact) {
+          const norm = normalizeRoute(url);
+          if (norm) validRoutes.add(norm);
+        }
+      }
+    } catch (e) {
+      // Ignore reading/parsing error
+    }
+  }
 
   // 2) Article routes and intentKeys under contentDir
   if (fs.existsSync(contentDir)) {
@@ -120,7 +173,8 @@ export function initRouteRegistry(pagesDir: string, contentDir: string): RouteRe
  */
 export function normalizeRoute(p: string): string {
   if (!p) return p;
-  const clean = p.split('?')[0].split('#')[0];
+  let clean = p.trim().split('?')[0].split('#')[0];
+  if (!clean.startsWith('/')) clean = '/' + clean;
   return clean.length > 1 ? clean.replace(/\/+$/, '') : clean;
 }
 
