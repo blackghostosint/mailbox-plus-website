@@ -37,14 +37,15 @@ function checkInlineScripts() {
 
       // Check if tag has src attribute
       const hasSrc = /\bsrc\s*=\s*/i.test(attributes);
-      
+
       // Check type attribute
       const typeMatch = attributes.match(/\btype\s*=\s*["']?([^"'\s>]+)["']?/i);
       const scriptType = typeMatch ? typeMatch[1].toLowerCase() : '';
 
       // JSON-LD or non-executable types are safe
       const isJsonLd = scriptType === 'application/ld+json';
-      const isNonExecutable = scriptType && scriptType !== 'module' && scriptType !== 'text/javascript' && !isJsonLd;
+      const isNonExecutable =
+        scriptType && scriptType !== 'module' && scriptType !== 'text/javascript' && !isJsonLd;
 
       // If it has no src and is not application/ld+json / non-executable type, it's an executable inline script
       if (!hasSrc && !isJsonLd && !isNonExecutable && scriptBody.length > 0) {

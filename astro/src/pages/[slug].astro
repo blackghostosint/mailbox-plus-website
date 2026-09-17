@@ -1,0 +1,67 @@
+---
+import ServiceLayout from '../layouts/ServiceLayout.astro';
+import { services } from '../config/services';
+import type { Service } from '../types/services';
+
+export async function getStaticPaths() {
+  // Derive excluded slugs dynamically from existing static page files and top-level subdirectories in astro/src/pages/
+  const staticPageFiles = import.meta.glob(['./*.astro', './*/index.astro', './*.ts', './*.js']);
+  const EXCLUDED_SLUGS = new Set(
+    Object.keys(staticPageFiles)
+      .map((file) => file.replace(/^\.\//, '').replace(/\.astro$/, '').replace(/\/index$/, '').replace(/\.(ts|js)$/, ''))
+      .filter((slug) => slug !== '[slug]' && slug !== '')
+  );
+
+  // Service slugs with dedicated static page templates or section index pages.
+  // EXCLUDED_SLUGS automatically detects all static .astro file names in pages/ (e.g., 'private-mailbox-rental').
+  // STATIC_SERVICE_SLUGS lists the service slugs that intentionally have dedicated static page templates
+  // or section index routes, allowing getStaticPaths() to bypass generating them dynamically
+  // without triggering the slug collision exception.
+  const STATIC_SERVICE_SLUGS = new Set([
+    'pack-ship',
+    'copy-print',
+    'home-business',
+    'private-mailbox-rental',
+    'amazon-counter',
+    'mailbox-rental-concord-ohio',
+  ]);
+
+  const seenSlugs = new Set<string>();
+  const paths = [];
+
+  for (const service of services) {
+    if (!service.slug) continue;
+    const cleanSlug = service.slug.replace(/^\//, '').replace(/\/$/, '');
+
+    // Only route root-level slugs (no subdirectories) that are not static pages
+    if (cleanSlug.includes('/')) continue;
+    if (EXCLUDED_SLUGS.has(cleanSlug)) {
+      if (STATIC_SERVICE_SLUGS.has(cleanSlug)) {
+        continue;
+      }
+      throw new Error(
+        `[slug].astro: Service slug collision detected. Service "${service.id}" with slug "${cleanSlug}" collides with an existing static page file in astro/src/pages/. ` +
+          `If this static page is intended to override the dynamic config route, add "${cleanSlug}" to STATIC_SERVICE_SLUGS in astro/src/pages/[slug].astro. ` +
+          `Otherwise, rename the static page file or change the service slug.`
+      );
+    }
+    if (seenSlugs.has(cleanSlug)) continue;
+
+    seenSlugs.add(cleanSlug);
+    paths.push({
+      params: { slug: cleanSlug },
+      props: { service },
+    });
+  }
+
+  return paths;
+}
+
+interface Props {
+  service: Service;
+}
+
+const { service } = Astro.props;
+---
+
+<ServiceLayout service={service} />

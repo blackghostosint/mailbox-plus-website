@@ -186,7 +186,7 @@ export const mailboxRentalServices: Service[] = [
       title: 'Take Your Address Off The Pipeline',
       subtitle: 'Real street address. All 4 carriers. From $35/month. 30-day risk-free.',
       buttonText: 'Get Your Lake County Address \u2192',
-      buttonLink: '/contact-us',
+      buttonLink: '/contact-us/',
       variant: 'brand',
       align: 'center',
     },
@@ -320,7 +320,7 @@ export const mailboxRentalServices: Service[] = [
       ],
       finePrint: {
         text: 'Questions? Call or stop by — we set you up in 10 minutes.',
-        link: '/contact-us',
+        link: '/contact-us/',
         linkText: 'Contact us',
       },
       variant: 'brand',
@@ -420,6 +420,7 @@ export const mailboxRentalServices: Service[] = [
   {
     id: 'virtual-mailbox-concord-township',
     category: 'mailbox-rentals',
+    ogImage: '/og/virtual-mailbox-concord-township.png',
     city: 'Concord Township',
     serviceName: 'Virtual Mailbox',
     slug: '/virtual-mailbox-concord-township',

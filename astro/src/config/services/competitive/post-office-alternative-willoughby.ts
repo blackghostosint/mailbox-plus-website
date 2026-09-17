@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import { getServiceImageUrl } from '../../../lib/storage';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
@@ -7,6 +8,14 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'post-office-alternative-willoughby',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+      name: 'Post Office Alternative in Willoughby, OH | Mailbox Plus',
+      description: 'Mailbox Plus post office alternative for Willoughby customers',
+    }),
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'Post Office Alternative --- Willoughby',

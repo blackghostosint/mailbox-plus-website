@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Clock from '~icons/lucide/clock';
 import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
@@ -6,6 +7,14 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'ups-drop-off-eastlake',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-eastlake-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-eastlake-featured.webp',
+      name: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',
+      description: 'Mailbox Plus shipping service for Eastlake customers',
+    }),
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',

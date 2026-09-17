@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { getImageObjectSchema } from '../../../utils/schema';
 import Star from '~icons/lucide/star';
 import Truck from '~icons/lucide/truck';
 import Users from '~icons/lucide/users';
@@ -6,6 +7,14 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'fedex-office-alternative-mentor',
+    ogImage:
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-mentor-featured.webp',
+    headJsonLd: getImageObjectSchema({
+      contentUrl:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-mentor-featured.webp',
+      name: 'FedEx Office Alternative in Mentor — Compare All 4 Carriers | Mailbox Plus',
+      description: 'Mailbox Plus shipping service for Mentor customers',
+    }),
     category: 'pack-ship',
     city: 'Mentor',
     serviceName: 'FedEx Office Alternative in Mentor | Mailbox Plus',
