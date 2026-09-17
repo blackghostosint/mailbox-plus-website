@@ -17,6 +17,7 @@ import type {
 } from 'schema-dts';
 
 import type { SiteConfig } from '../types/siteConfig';
+import { siteConfig } from '../config/siteConfig';
 import { toCanonicalUrl } from './canonical-url';
 // Live review data (refreshed at build by scripts/fetch-reviews.mjs). Keeps the
 // LocalBusiness aggregateRating in sync with the visible ReviewSection content —
@@ -506,3 +507,33 @@ export const getTrackingSchema = (
     },
   } as WithContext<ParcelDelivery>;
 };
+
+/** ---------- ImageObject ---------- */
+export const getImageObjectSchema = ({
+  contentUrl,
+  name,
+  description,
+  city,
+  config = siteConfig,
+}: {
+  contentUrl: string;
+  name: string;
+  description?: string;
+  city?: string;
+  config?: SiteConfig;
+}) => ({
+  '@context': 'https://schema.org',
+  '@type': 'ImageObject',
+  contentUrl,
+  description:
+    description || (city ? `${config.name} shipping service for ${city} customers` : name),
+  name,
+  author: {
+    '@type': 'Organization',
+    name: config.name,
+  },
+  copyrightHolder: {
+    '@type': 'Organization',
+    name: config.name,
+  },
+});
