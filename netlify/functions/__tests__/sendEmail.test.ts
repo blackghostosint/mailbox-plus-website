@@ -7,7 +7,7 @@ vi.mock('@netlify/blobs', () => ({
   }),
 }));
 
-vi.mock('./lib/recaptcha', () => ({
+vi.mock('../lib/recaptcha', () => ({
   verifyRecaptchaToken: vi.fn(),
 }));
 
@@ -22,8 +22,8 @@ vi.mock('resend', () => {
   };
 });
 
-import { handler } from './sendEmail';
-import { verifyRecaptchaToken } from './lib/recaptcha';
+import { handler } from '../sendEmail';
+import { verifyRecaptchaToken } from '../lib/recaptcha';
 
 describe('sendEmail function handler', () => {
   const originalEnv = process.env;
