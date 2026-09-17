@@ -1,0 +1,54 @@
+name: Knowledge Base Retrieval Evaluation
+
+on:
+  push:
+    branches: [main, staging]
+    paths:
+      - 'knowledge/**'
+      - '.github/workflows/retrieval-tests.yml'
+      - 'package.json'
+  pull_request:
+    branches: [main, staging]
+    paths:
+      - 'knowledge/**'
+      - '.github/workflows/retrieval-tests.yml'
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  retrieval-eval:
+    name: AI Retrieval Quality Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Cache embedding vectors
+        uses: actions/cache@v4
+        with:
+          path: knowledge/.embedding-cache.json
+          key: embedding-cache-text-embedding-004-${{ hashFiles('knowledge/**') }}
+          restore-keys: |
+            embedding-cache-text-embedding-004-
+
+      - name: Run AI knowledge base retrieval evaluation
+        run: npm run test:retrieval
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+
+      - name: Upload Retrieval Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retrieval-test-report
+          path: knowledge/RETRIEVAL_TEST_REPORT.md
+          retention-days: 14
