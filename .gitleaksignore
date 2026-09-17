@@ -1,2 +1,32 @@
+# Legacy commit entries
 52772df6fc3aa6943221ea77c49ba6f181ae5fef:netlify/functions/create-checkout.ts:stripe-access-token:14
 52772df6fc3aa6943221ea77c49ba6f181ae5fef:netlify/functions/verify-session.ts:stripe-access-token:21
+
+# Stripe test token placeholders
+1f6ea83cf66993e1f021e8f872e3ed384d7168f1:netlify/functions/create-checkout.ts:stripe-access-token:9
+1f6ea83cf66993e1f021e8f872e3ed384d7168f1:netlify/functions/verify-session.ts:stripe-access-token:9
+f61fdc3d0914b3165769bff720d67818659b84c9:netlify/functions/create-checkout.ts:stripe-access-token:9
+f61fdc3d0914b3165769bff720d67818659b84c9:netlify/functions/verify-session.ts:stripe-access-token:9
+
+# Article intent keys triggering generic-api-key heuristic
+06ba18321405e4099836fbcea90c967a37ef9dd3:content/articles/pack-ship/fedex-demand-surcharges-2026.md:generic-api-key:6
+207b84e3b29e047170ad2489f0eeb0b49066a654:content/articles/pack-ship/fedex-demand-surcharges-2026.md:generic-api-key:6
+5ebb035debe71cf0a0a64f8d1622390ea12e6435:content/articles/pack-ship/kirtland-hills-returns-r1.md:generic-api-key:6
+4eec5025651ce4ef1e4a9d2470f809a1e887d0a9:content/articles/pack-ship/chardon-returns-r1.md:generic-api-key:6
+c13f0f4617acd286c1e748d4524a6c92e652af22:content/articles/pack-ship/hambden-returns-r1.md:generic-api-key:6
+
+# Filesystem / working tree fingerprints for article intent keys
+content/articles/pack-ship/chardon-returns-r1.md:generic-api-key:6
+content/articles/pack-ship/fedex-demand-surcharges-2026.md:generic-api-key:6
+content/articles/pack-ship/hambden-returns-r1.md:generic-api-key:6
+content/articles/pack-ship/kirtland-hills-returns-r1.md:generic-api-key:6
+
+# Public Stripe publishable key on sales pages
+80e1b27647c2b961d40f274d43c768264df3506e:public/MailboxPlusSalesPage.html:generic-api-key:213
+8794958649683f2e3bddb42dbc9cd024b4fb88d6:public/MailboxPlusSalesPage.html:generic-api-key:1138
+8794958649683f2e3bddb42dbc9cd024b4fb88d6:public/MailboxPlusSalesPage.html:generic-api-key:1312
+ce8566f86d78a436c0185a4d52dcc1874c36e6d9:public/MailboxPlusSalesPage.html:generic-api-key:959
+ce8566f86d78a436c0185a4d52dcc1874c36e6d9:public/MailboxPlusSalesPage.html:generic-api-key:1073
+0fda88ccc02af9f04bf84350ef48ec42d2ceaf60:PROJECT_UPDATES.md:generic-api-key:11
+0fda88ccc02af9f04bf84350ef48ec42d2ceaf60:MailboxPlusSalesPage.html:generic-api-key:943
+0fda88ccc02af9f04bf84350ef48ec42d2ceaf60:MailboxPlusSalesPage.html:generic-api-key:1049
