@@ -420,6 +420,7 @@ export const mailboxRentalServices: Service[] = [
   {
     id: 'virtual-mailbox-concord-township',
     category: 'mailbox-rentals',
+    ogImage: '/og/virtual-mailbox-concord-township.png',
     city: 'Concord Township',
     serviceName: 'Virtual Mailbox',
     slug: '/virtual-mailbox-concord-township',
