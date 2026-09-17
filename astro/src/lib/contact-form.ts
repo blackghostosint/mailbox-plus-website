@@ -1,10 +1,13 @@
-(function () {
-  const forms = document.querySelectorAll(
+export function initContactForms(): void {
+  const forms = document.querySelectorAll<HTMLFormElement>(
     'form[name="contact"], form[name="accessibility-barrier"]'
   );
   if (!forms.length) return;
 
   forms.forEach((form) => {
+    if (form.hasAttribute('data-contact-initialized')) return;
+    form.setAttribute('data-contact-initialized', 'true');
+
     const recaptchaSiteKey = form.getAttribute('data-recaptcha-site-key') || '';
 
     if (
@@ -22,27 +25,26 @@
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Clear any existing error messages
       const existingError = form.querySelector('[role="alert"]');
       if (existingError) {
         existingError.remove();
       }
 
-      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
 
       let recaptchaToken = '';
       if (recaptchaSiteKey && window.grecaptcha) {
         try {
-          recaptchaToken = await new Promise((resolve) => {
-            window.grecaptcha.ready(() => {
+          recaptchaToken = await new Promise<string>((resolve) => {
+            window.grecaptcha?.ready(() => {
               window.grecaptcha
-                .execute(recaptchaSiteKey, { action: 'contact_us' })
+                ?.execute(recaptchaSiteKey, { action: 'contact_us' })
                 .then(resolve)
                 .catch(() => resolve(''));
             });
           });
-        } catch (err) {
+        } catch (err: unknown) {
           console.error('reCAPTCHA execution error:', err);
         }
       }
@@ -73,38 +75,42 @@
         if (res.ok) {
           form.innerHTML =
             '<div role="status" aria-live="polite" tabindex="-1" class="p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none">Thank you! Your message has been sent.</div>';
-          const statusElement = form.querySelector('[role="status"]');
+          const statusElement = form.querySelector<HTMLElement>('[role="status"]');
           if (statusElement) {
             statusElement.focus();
           }
         } else {
-          const data = await res.json().catch(() => ({}));
+          const data = (await res.json().catch(() => ({}))) as { error?: string };
           const errorMsg = data.error || 'Failed to send message. Please try again.';
-          showError(form, submitBtn, errorMsg);
+          showFormError(form, submitBtn, errorMsg);
         }
-      } catch (err) {
+      } catch (err: unknown) {
         console.error('Submission error:', err);
-        showError(form, submitBtn, 'Network error. Please try again.');
+        showFormError(form, submitBtn, 'Network error. Please try again.');
       }
     });
   });
+}
 
-  function showError(form, submitBtn, message) {
-    const errorDiv = document.createElement('div');
-    errorDiv.setAttribute('role', 'alert');
-    errorDiv.setAttribute('aria-live', 'assertive');
-    errorDiv.setAttribute('tabindex', '-1');
-    errorDiv.className =
-      'p-4 mb-4 text-sm text-red-800 bg-red-50 rounded-xl border border-red-200 focus:outline-none';
-    errorDiv.textContent = message;
+function showFormError(
+  form: HTMLFormElement,
+  submitBtn: HTMLButtonElement | null,
+  message: string
+): void {
+  const errorDiv = document.createElement('div');
+  errorDiv.setAttribute('role', 'alert');
+  errorDiv.setAttribute('aria-live', 'assertive');
+  errorDiv.setAttribute('tabindex', '-1');
+  errorDiv.className =
+    'p-4 mb-4 text-sm text-red-800 bg-red-50 rounded-xl border border-red-200 focus:outline-none';
+  errorDiv.textContent = message;
 
-    if (submitBtn && submitBtn.parentNode) {
-      submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
-    } else {
-      form.appendChild(errorDiv);
-    }
-
-    errorDiv.focus();
-    if (submitBtn) submitBtn.disabled = false;
+  if (submitBtn && submitBtn.parentNode) {
+    submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
+  } else {
+    form.appendChild(errorDiv);
   }
-})();
+
+  errorDiv.focus();
+  if (submitBtn) submitBtn.disabled = false;
+}

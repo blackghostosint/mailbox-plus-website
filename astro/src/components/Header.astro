@@ -77,4 +77,39 @@ const navigation = [
   </div>
 </header>
 
-<script src="/js/header.js" defer></script>
+<script>
+  function initHeader() {
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('menu-icon-open');
+    const iconClose = document.getElementById('menu-icon-close');
+    if (btn && menu) {
+      btn.addEventListener('click', () => {
+        const isOpen = menu.style.maxHeight !== '0px' && menu.style.maxHeight !== '';
+        menu.style.maxHeight = isOpen ? '0' : `${menu.scrollHeight}px`;
+        menu.style.opacity = isOpen ? '0' : '1';
+        btn.setAttribute('aria-expanded', String(!isOpen));
+        btn.setAttribute('aria-label', isOpen ? 'Open menu' : 'Close menu');
+        if (iconOpen) iconOpen.classList.toggle('hidden');
+        if (iconClose) iconClose.classList.toggle('hidden');
+      });
+
+      document.querySelectorAll('[data-mobile-link]').forEach((link) => {
+        link.addEventListener('click', () => {
+          menu.style.maxHeight = '0';
+          menu.style.opacity = '0';
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Open menu');
+          if (iconOpen) iconOpen.classList.remove('hidden');
+          if (iconClose) iconClose.classList.add('hidden');
+        });
+      });
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeader);
+  } else {
+    initHeader();
+  }
+</script>

@@ -535,7 +535,14 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
     <span class="carrier-name">DHL</span>
   </div>
 
-  <script src="/js/checkout-buttons.js" defer></script>
+  <script>
+    import { initCheckoutButtons } from '../lib/checkout';
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCheckoutButtons);
+    } else {
+      initCheckoutButtons();
+    }
+  </script>
 
 </BaseLayout>
 
