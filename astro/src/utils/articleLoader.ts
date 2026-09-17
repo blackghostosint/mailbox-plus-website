@@ -1,6 +1,8 @@
 import type { Article, ArticleFrontmatter } from '../types/article.types';
 import matter from 'gray-matter';
 import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
+import fs from 'node:fs';
+import path from 'node:path';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.
@@ -47,13 +49,33 @@ export function parseArticleFrontmatter(
   if (
     !((typeof data.pubDate === 'string' && data.pubDate.trim()) || data.pubDate instanceof Date)
   ) {
-    fallbackData.pubDate = new Date().toISOString();
+    let mtimeIso = '';
+    if (filePath) {
+      try {
+        const baseDir =
+          typeof import.meta !== 'undefined' && import.meta.dirname
+            ? import.meta.dirname
+            : process.cwd();
+        const absolutePath = path.resolve(baseDir, filePath);
+        if (fs.existsSync(absolutePath)) {
+          mtimeIso = fs.statSync(absolutePath).mtime.toISOString();
+        } else {
+          const rootPath = path.resolve(process.cwd(), filePath.replace(/^(\.\.\/)+/, ''));
+          if (fs.existsSync(rootPath)) {
+            mtimeIso = fs.statSync(rootPath).mtime.toISOString();
+          }
+        }
+      } catch {
+        // Ignore fs errors in virtual module environments
+      }
+    }
+    fallbackData.pubDate = mtimeIso;
   }
   if (!(typeof data.status === 'string' && data.status.trim())) fallbackData.status = 'published';
   if (!(typeof data.image === 'string' && data.image.trim()))
-    fallbackData.image = '/images/default-article.jpg';
+    fallbackData.image = '';
   if (!(typeof data.imageAlt === 'string' && data.imageAlt.trim()))
-    fallbackData.imageAlt = 'Article image';
+    fallbackData.imageAlt = '';
   if (!(Array.isArray(data.keywords) && data.keywords.length > 0))
     fallbackData.keywords = ['article'];
   if (!Array.isArray(data.relatedServices)) fallbackData.relatedServices = [];

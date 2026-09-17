@@ -320,12 +320,13 @@ describe('articleLoader', () => {
       expect(result.description).toBe('No description provided.');
       expect(result.intentKey).toBe('draft-article');
       expect(result.status).toBe('published');
-      expect(result.image).toBe('/images/default-article.jpg');
-      expect(result.imageAlt).toBe('Article image');
+      expect(result.image).toBe('');
+      expect(result.imageAlt).toBe('');
       expect(result.keywords).toEqual(['article']);
       expect(result.relatedServices).toEqual([]);
       expect(result.author).toBe('Mailbox Plus');
       expect(typeof result.pubDate).toBe('string');
+      expect(result.pubDate).toBe('');
     });
 
     it('logs a non-fatal warning in development mode when falling back for sparse frontmatter', () => {
@@ -340,6 +341,20 @@ describe('articleLoader', () => {
           "[articleLoader] Frontmatter validation warning for 'sparse-article.md'"
         )
       );
+    });
+
+    it('falls back to file mtime when pubDate is missing and file exists on disk', () => {
+      const sparseData = {
+        title: 'Sparse Article',
+      };
+      // Use an existing article path
+      const result = parseArticleFrontmatter(
+        sparseData,
+        '../../../content/articles/notary/concord-township-notary.md',
+        false
+      );
+      expect(result.pubDate).not.toBe('');
+      expect(isNaN(Date.parse(result.pubDate))).toBe(false);
     });
   });
 });
