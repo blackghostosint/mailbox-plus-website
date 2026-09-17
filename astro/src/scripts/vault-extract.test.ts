@@ -12,11 +12,7 @@ import { additionalServices } from '../config/services/additional-services';
 import { serviceAreas } from '../config/serviceAreas';
 import { primaryLocations, secondaryLocations } from '../config/locations';
 import { categories } from '../config/categories';
-import {
-  generalShippingFaqs,
-  generalCopyPrintFaqs,
-  generalHomeBusinessFaqs,
-} from '../config/faqs';
+import { generalShippingFaqs, generalCopyPrintFaqs, generalHomeBusinessFaqs } from '../config/faqs';
 
 async function collectFaqs(): Promise<Record<string, unknown[]>> {
   const collected: Record<string, unknown[]> = {};
