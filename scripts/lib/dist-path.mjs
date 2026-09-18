@@ -28,7 +28,7 @@ export function resolveDistDir() {
     console.error(
       `Error: dist directory "${envDist}" specified by DIST_DIR does not exist. Please run "npm run build" first.`
     );
-    return envDist;
+    process.exit(1);
   }
 
   const candidates = [path.resolve(ROOT_DIR, 'dist'), path.resolve(ROOT_DIR, 'astro', 'dist')];
