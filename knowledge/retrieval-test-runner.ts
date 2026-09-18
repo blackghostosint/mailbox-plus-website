@@ -55,9 +55,7 @@ if (!isOfflineMode) {
   embeddingModel = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
   console.log(`✓ Gemini API initialized with ${EMBEDDING_MODEL} model`);
 } else {
-  console.log(
-    'ℹ GEMINI_API_KEY not set. Running in offline mode using precomputed embeddings.'
-  );
+  console.log('ℹ GEMINI_API_KEY not set. Running in offline mode using precomputed embeddings.');
 }
 
 // ========================================

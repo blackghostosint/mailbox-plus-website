@@ -205,14 +205,9 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
 
   let rawResponse = '';
   if (provider === 'gemini') {
-    const key =
-      options.apiKey ||
-      process.env.GEMINI_API_KEY ||
-      envKeys.GEMINI_API_KEY;
+    const key = options.apiKey || process.env.GEMINI_API_KEY || envKeys.GEMINI_API_KEY;
     if (!key) {
-      throw new Error(
-        'GEMINI_API_KEY not found in environment or ~/.hermes/.env'
-      );
+      throw new Error('GEMINI_API_KEY not found in environment or ~/.hermes/.env');
     }
     rawResponse = await callGemini(key, model, content);
   } else if (provider === 'openrouter') {

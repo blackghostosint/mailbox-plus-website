@@ -38,9 +38,7 @@ async function buildEmbeddings() {
 
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error(
-      'Error: GEMINI_API_KEY environment variable is not set.'
-    );
+    console.error('Error: GEMINI_API_KEY environment variable is not set.');
     process.exit(1);
   }
 

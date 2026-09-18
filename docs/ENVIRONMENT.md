@@ -12,12 +12,12 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 
 ## Optional Variables
 
-| Variable                      | Description                                                              | Default      |
-| ----------------------------- | ------------------------------------------------------------------------ | ------------ |
-| `VITE_SENTRY_DSN`             | Sentry DSN for error tracking                                            | (none)       |
-| `VITE_SENTRY_ENVIRONMENT`     | Sentry environment tag                                                   | `production` |
-| `GEMINI_API_KEY`              | Gemini API key for Node test scripts and embedding generation            | (none)       |
-| `GEMINI_TIMEOUT_SECONDS`      | Gemini API timeout                                                       | `90`         |
+| Variable                  | Description                                                   | Default      |
+| ------------------------- | ------------------------------------------------------------- | ------------ |
+| `VITE_SENTRY_DSN`         | Sentry DSN for error tracking                                 | (none)       |
+| `VITE_SENTRY_ENVIRONMENT` | Sentry environment tag                                        | `production` |
+| `GEMINI_API_KEY`          | Gemini API key for Node test scripts and embedding generation | (none)       |
+| `GEMINI_TIMEOUT_SECONDS`  | Gemini API timeout                                            | `90`         |
 
 ### Gemini API Key Configuration
 
