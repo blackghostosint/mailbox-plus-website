@@ -1,7 +1,6 @@
 #!/usr/bin/env tsx
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
 import { fileURLToPath } from 'url';
 import { validateArticleFrontmatter } from './lib/article-schema.ts';
 import {
@@ -9,6 +8,7 @@ import {
   isKnownRoute,
   walkMdFiles,
   extractInternalHrefs,
+  matter,
 } from './lib/article-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);

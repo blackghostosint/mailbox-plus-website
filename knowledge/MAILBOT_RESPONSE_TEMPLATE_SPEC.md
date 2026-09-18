@@ -177,18 +177,22 @@ This template uses semantic versioning: `mailbot.response.template.vX.Y`
 
 ## Implementation Notes
 
+### Specification & Runtime Architecture
+
+_Note:_ Helper functions such as `validateV1Response()` and `parseRawAnswer()` define contract specifications for Mail-bot V1 response formatting and validation rather than live Netlify serverless files. Active runtime retrieval and fallback handling are currently driven by [`retrieval-core.ts`](./retrieval-core.ts) operating on [`kb.entries.json`](./kb.entries.json).
+
 ### Runtime Formatting
 
 The current implementation uses **runtime formatting**, meaning:
 
-- FAQ entries in `kb.entries.json` don't need to be pre-formatted
+- FAQ entries in [`kb.entries.json`](./kb.entries.json) don't need to be pre-formatted
 - The template formatter parses raw answers at request time
 - Validation warnings are logged but don't block responses
 - This allows gradual migration to pre-formatted answers
 
 ### Parser Heuristics
 
-The `parseRawAnswer()` function uses these heuristics:
+The `parseRawAnswer()` function specification uses these heuristics:
 
 1. If answer has 3-4 lines → Assume V1 formatted, parse directly
 2. Otherwise → Wrap in basic V1 structure:
@@ -201,9 +205,9 @@ The `parseRawAnswer()` function uses these heuristics:
 
 To update an FAQ entry to be V1-formatted:
 
-1. Edit the `answer` field in `kb.entries.json`
+1. Edit the `answer` field in [`kb.entries.json`](./kb.entries.json)
 2. Structure it as 3-4 lines (acknowledgment, answer, context, hand-off)
-3. Ensure it passes validation when run through `validateV1Response()`
+3. Ensure it passes validation when run through `validateV1Response()` contract rules
 4. The runtime formatter will recognize it and use it as-is
 
 ## Examples
@@ -262,10 +266,11 @@ All responses should be tested against:
 4. **Length constraints** (is it ≤6 lines?)
 5. **Forbidden phrases** (are there any banned terms?)
 
-Validation is performed by the `validateV1Response()` function in `mailbot-response-template-v1.ts`.
+Validation rules define the target V1 response contract specification (`validateV1Response()`). Automated retrieval accuracy and refusal contract verification are executed by [`retrieval-test-runner.ts`](./retrieval-test-runner.ts).
 
 ## References
 
-- Implementation: [`netlify/functions/lib/mailbot-response-template-v1.ts`](file:///d:/mailbox-plus-website/mailbox-plus-website/netlify/functions/lib/mailbot-response-template-v1.ts)
-- Integration: [`netlify/functions/chat-retrieve.ts`](file:///d:/mailbox-plus-website/mailbox-plus-website/netlify/functions/chat-retrieve.ts)
-- FAQ Database: [`knowledge/kb.entries.json`](file:///d:/mailbox-plus-website/mailbox-plus-website/knowledge/kb.entries.json)
+- Core Retrieval Engine: [`knowledge/retrieval-core.ts`](./retrieval-core.ts)
+- FAQ Database: [`knowledge/kb.entries.json`](./kb.entries.json)
+- Retrieval Test Runner: [`knowledge/retrieval-test-runner.ts`](./retrieval-test-runner.ts)
+- Knowledge Specification: [`knowledge/KNOWLEDGE_SPEC.md`](./KNOWLEDGE_SPEC.md)
