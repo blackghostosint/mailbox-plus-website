@@ -1,5 +1,4 @@
 import { Resend } from 'resend';
-import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
@@ -7,55 +6,6 @@ import { logger } from './lib/logger';
 import { getClientIp } from './lib/rate-limiter';
 
 export { getClientIp };
-
-// IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
-const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
-
-export async function checkRateLimit(
-  ip: string,
-  limit = 5,
-  windowMs = 10 * 60 * 1000
-): Promise<boolean> {
-  const now = Date.now();
-  const sanitizedIp = ip.replace(/[^a-zA-Z0-9_.-]/g, '_');
-  const blobKey = `rate_limit_${sanitizedIp}`;
-
-  // 1. Attempt Netlify Blobs for persistent rate limiting across serverless instances
-  try {
-    const store = getStore({ name: 'sendEmail-rate-limits', consistency: 'strong' });
-    const record = (await store.get(blobKey, { type: 'json' })) as {
-      count: number;
-      resetAt: number;
-    } | null;
-
-    if (!record || now > record.resetAt) {
-      await store.setJSON(blobKey, { count: 1, resetAt: now + windowMs });
-      return true;
-    }
-
-    if (record.count >= limit) {
-      return false;
-    }
-
-    await store.setJSON(blobKey, { count: record.count + 1, resetAt: record.resetAt });
-    return true;
-  } catch {
-    // 2. Fallback to in-memory Map store (for local dev, test environments, or when Blobs store is unconfigured)
-    const record = ipRequestCounts.get(ip);
-
-    if (!record || now > record.resetAt) {
-      ipRequestCounts.set(ip, { count: 1, resetAt: now + windowMs });
-      return true;
-    }
-
-    if (record.count >= limit) {
-      return false;
-    }
-
-    record.count += 1;
-    return true;
-  }
-}
 
 export const handler = withCors(
   async (request: Request) => {
@@ -65,13 +15,6 @@ export const handler = withCors(
 
     try {
       const clientIp = getClientIp(request.headers);
-
-      if (!(await checkRateLimit(clientIp))) {
-        return new Response(
-          JSON.stringify({ error: 'Too many requests. Please try again later.' }),
-          { status: 429 }
-        );
-      }
 
       const data = await request.json().catch(() => ({}));
 
