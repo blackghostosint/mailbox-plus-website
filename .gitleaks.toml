@@ -1,0 +1,21 @@
+# Gitleaks Configuration for Netlify Secret Scanning and CI Security Audits
+title = "Gitleaks secret scanning configuration"
+
+[allowlist]
+description = "Global allowlist for verified non-secret false positives"
+regexes = [
+  '''intentKey:''',
+  '''dummy_stripe_secret_key''',
+  '''sk_test_placeholder''',
+  '''secret_123''',
+  '''vite_secret_456''',
+  '''test_resend_key''',
+  '''sk-local'''
+]
+paths = [
+  '''content/articles/.*''',
+  '''\.env\.example''',
+  '''docs/.*''',
+  '''netlify/functions/__tests__/.*''',
+  '''netlify/functions/lib/.*\.test\.ts'''
+]
