@@ -7,7 +7,20 @@
 1. Clone the repository
 2. Run `npm install` and `cd astro && npm ci`
 3. Copy `.env.example` to `.env` and fill in required variables
-4. Run `npm run dev` to start the Astro development server
+4. Run `npm run verify:doctor` to verify repository environment sanity
+5. Run `npm run dev` to start the Astro development server
+
+## Pre-Flight Verification Workflow
+
+Before opening a pull request, contributors must run local pre-flight checks to ensure CI pipelines pass on first attempt:
+
+1. **Environment Sanity (`npm run verify:doctor`):**
+   Confirms repo root resolution, root and `astro` dependencies, node modules, branch hygiene, and CSP alignment.
+2. **Local Content Verification (`npm run verify`):**
+   Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), image CDN availability, heading diversity, and fact-check receipt requirements.
+3. **Corpus & Strict Verification Options:**
+   - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
+   - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
 
 ## Project Structure
 

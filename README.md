@@ -38,7 +38,9 @@ netlify/functions/         # Serverless functions
 npm install
 cd astro && npm ci
 cp .env.example .env    # Fill in required variables
+npm run verify:doctor   # Run environment and setup sanity checks
 npm run dev             # Astro dev server
+npm run verify          # Verify local article/content changes before opening PR
 npm run build           # Production build (cd astro && npm run build)
 npm test                # Astro unit tests (vitest)
 npm run check           # Astro type check (astro check)
