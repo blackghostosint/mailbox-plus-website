@@ -1,3 +1,5 @@
+import { logger } from './logger';
+
 export async function verifyRecaptchaToken(token?: string, remoteip?: string): Promise<boolean> {
   if (!token || typeof token !== 'string' || token.trim() === '') {
     return false;
@@ -5,7 +7,7 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
 
   const secret = process.env.RECAPTCHA_SECRET_KEY;
   if (!secret) {
-    console.error('reCAPTCHA secret key (RECAPTCHA_SECRET_KEY) is missing from environment');
+    logger.error('reCAPTCHA secret key (RECAPTCHA_SECRET_KEY) is missing from environment');
     return false;
   }
 
@@ -41,13 +43,13 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
 
     const minScore = parseFloat(process.env.RECAPTCHA_MIN_SCORE || '0.5');
     if (typeof data.score === 'number' && data.score < minScore) {
-      console.warn(`reCAPTCHA score ${data.score} below minimum threshold ${minScore}`);
+      logger.warn('reCAPTCHA score below minimum threshold', { score: data.score, minScore });
       return false;
     }
 
     return true;
   } catch (error) {
-    console.error('Error verifying reCAPTCHA token:', error);
+    logger.error('Error verifying reCAPTCHA token', error);
     return false;
   }
 }

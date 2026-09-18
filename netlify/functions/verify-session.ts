@@ -14,6 +14,7 @@
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { logger } from './lib/logger';
 
 dotenv.config();
 
@@ -86,7 +87,7 @@ export const handler = withCors(
       });
     } catch (err: any) {
       // Invalid/unknown session → 404 without detail (don't leak error strings)
-      console.error('verify-session error:', err?.message || err);
+      logger.error('verify-session error', { sessionId }, err);
       return json(404, { error: 'Session not found' });
     }
   },

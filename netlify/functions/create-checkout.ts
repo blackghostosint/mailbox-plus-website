@@ -7,6 +7,7 @@
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { logger } from './lib/logger';
 
 dotenv.config();
 
@@ -167,7 +168,7 @@ export const handler = withCors(
 
       return new Response(JSON.stringify({ url: session.url }), { status: 200 });
     } catch (err: any) {
-      console.error('create-checkout error:', err?.message || err);
+      logger.error('create-checkout error', err);
       return new Response(JSON.stringify({ error: 'Failed to create checkout session' }), {
         status: 500,
       });
