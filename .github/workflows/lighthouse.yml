@@ -32,7 +32,7 @@ jobs:
           GEMINI_TIMEOUT_SECONDS: ${{ secrets.GEMINI_TIMEOUT_SECONDS }}
 
       - name: Run Lighthouse CI
-        run: npx @lhci/cli autorun --config=./lighthouserc.json
+        run: npx @lhci/cli@latest autorun --config=./lighthouserc.json
 
       - name: Upload Lighthouse Report
         if: always()
