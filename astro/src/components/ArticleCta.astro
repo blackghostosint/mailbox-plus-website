@@ -2,9 +2,11 @@
 interface Props {
   category: string;
   slug?: string;
+  headingLevel?: 'h2' | 'h3' | 'h4';
 }
 
-const { category, slug = '' } = Astro.props;
+const { category, slug = '', headingLevel = 'h2' } = Astro.props;
+const HeadingTag = headingLevel;
 
 interface CtaContent {
   tagline: string;
@@ -99,9 +101,9 @@ const content = CTA_DATA[category] || {
     </span>
 
     {/* Punchy Headline */}
-    <h3 class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
+    <HeadingTag class="text-2xl sm:text-3xl font-bold text-white tracking-tight mb-4">
       {content.headline}
-    </h3>
+    </HeadingTag>
 
     {/* Subtitle / Value Proposition */}
     <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-8">

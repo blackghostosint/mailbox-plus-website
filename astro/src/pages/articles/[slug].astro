@@ -152,9 +152,9 @@ const webPageSchema = getWebPageSchema(siteConfig, {
       {/* Related Services */}
       {relatedServices && relatedServices.length > 0 && (
         <div class="mt-16 pt-10" style="border-top: 1px solid var(--color-border)">
-          <h3 class="text-2xl font-bold mb-6" style="color: var(--color-text-primary)">
+          <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text-primary)">
             Related Services
-          </h3>
+          </h2>
           <div class="grid gap-4 md:grid-cols-2">
             {relatedServices.map((servicePath: string) => {
               const label = servicePath.split('/').pop()?.replace(/-/g, ' ').replace(/\b\w/g, (c: string) => c.toUpperCase()) || 'View Service';
