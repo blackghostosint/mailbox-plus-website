@@ -197,10 +197,10 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
   });
 
   it('opens and closes drawer via toggleMenu', () => {
-    const btn = mockDocument.getElementById('mobile-menu-btn');
-    const menu = mockDocument.getElementById('mobile-menu');
-    const iconOpen = mockDocument.getElementById('menu-icon-open');
-    const iconClose = mockDocument.getElementById('menu-icon-close');
+    const btn = mockDocument.getElementById('mobile-menu-btn')!;
+    const menu = mockDocument.getElementById('mobile-menu')!;
+    const iconOpen = mockDocument.getElementById('menu-icon-open')!;
+    const iconClose = mockDocument.getElementById('menu-icon-close')!;
 
     expect(getIsOpen()).toBe(false);
     expect(btn.getAttribute('aria-expanded')).toBe('false');
@@ -228,11 +228,11 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
 
   it('shifts focus to the first mobile link when opened', () => {
     openMenu();
-    expect(mockDocument.activeElement.id).toBe('link-1');
+    expect(mockDocument.activeElement?.id).toBe('link-1');
   });
 
   it('closes drawer and restores focus to #mobile-menu-btn when Escape is pressed', () => {
-    const btn = mockDocument.getElementById('mobile-menu-btn');
+    const btn = mockDocument.getElementById('mobile-menu-btn')!;
 
     openMenu();
     expect(getIsOpen()).toBe(true);
@@ -252,8 +252,8 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
   });
 
   it('traps focus forward: tabbing past the last link wraps focus back to #mobile-menu-btn', () => {
-    const btn = mockDocument.getElementById('mobile-menu-btn');
-    const lastLink = mockDocument.getElementById('link-3');
+    const btn = mockDocument.getElementById('mobile-menu-btn')!;
+    const lastLink = mockDocument.getElementById('link-3')!;
 
     openMenu();
     lastLink.focus();
@@ -274,8 +274,8 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
   });
 
   it('traps focus backward: Shift-tabbing from #mobile-menu-btn wraps focus to the last link', () => {
-    const btn = mockDocument.getElementById('mobile-menu-btn');
-    const lastLink = mockDocument.getElementById('link-3');
+    const btn = mockDocument.getElementById('mobile-menu-btn')!;
+    const lastLink = mockDocument.getElementById('link-3')!;
 
     openMenu();
     btn.focus();
@@ -296,8 +296,8 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
   });
 
   it('traps focus backward: Shift-tabbing from the first link wraps focus to the last link', () => {
-    const firstLink = mockDocument.getElementById('link-1');
-    const lastLink = mockDocument.getElementById('link-3');
+    const firstLink = mockDocument.getElementById('link-1')!;
+    const lastLink = mockDocument.getElementById('link-3')!;
 
     openMenu();
     firstLink.focus();
@@ -318,8 +318,8 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
   });
 
   it('closes menu and restores focus to #mobile-menu-btn when a mobile link is clicked', () => {
-    const btn = mockDocument.getElementById('mobile-menu-btn');
-    const firstLink = mockDocument.getElementById('link-1');
+    const btn = mockDocument.getElementById('mobile-menu-btn')!;
+    const firstLink = mockDocument.getElementById('link-1')!;
 
     openMenu();
     expect(getIsOpen()).toBe(true);
