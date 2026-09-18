@@ -4,6 +4,9 @@ export function showToast(message: string): void {
   if (existing) existing.remove();
   const toast = document.createElement('div');
   toast.className = 'copy-toast';
+  toast.setAttribute('role', 'status');
+  toast.setAttribute('aria-live', 'polite');
+  toast.setAttribute('aria-atomic', 'true');
   toast.textContent = message;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 2000);
