@@ -2,6 +2,7 @@ import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
 import { normalizePathname } from './canonical-url';
+import { hashString } from './hash-helpers';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
 export type ServiceId = keyof typeof internalLinks;
@@ -87,11 +88,7 @@ export const getAnchorText = (
    * Context (like current path) is included to allow rotation across different pages.
    */
   const seed = serviceId + variant + context;
-  let hash = 0;
-  for (let i = 0; i < seed.length; i++) {
-    hash = (hash << 5) - hash + seed.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
+  const hash = hashString(seed);
   const index = Math.abs(hash) % variants.length;
   return variants[index];
 };
