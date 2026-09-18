@@ -1,12 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { resolveDistDir } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Paths
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const DIST_DIR = path.join(ROOT_DIR, 'dist');
+const DIST_DIR = resolveDistDir();
 const SITE_STRUCTURE_PATH = path.join(ROOT_DIR, 'astro/src/data/siteStructure.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ALLOWLIST_PATH = path.join(ROOT_DIR, 'scripts/seo/route-registry-allowlist.json');
