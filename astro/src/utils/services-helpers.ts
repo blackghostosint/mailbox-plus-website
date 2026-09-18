@@ -3,11 +3,29 @@ import type { Service, ServiceCategory } from '../types/services';
 import siteStructure from '../data/siteStructure.json';
 import { toCanonicalUrl } from './canonical-url';
 
+// O(1) Map Indices
+const serviceByIdMap = new Map<string, Service>(services.map((s) => [s.id, s]));
+const serviceBySlugMap = new Map<string, Service>(services.map((s) => [s.slug, s]));
+
+const servicesByCategoryMap = new Map<ServiceCategory, Service[]>();
+services.forEach((s) => {
+  const list = servicesByCategoryMap.get(s.category as ServiceCategory) || [];
+  list.push(s);
+  servicesByCategoryMap.set(s.category as ServiceCategory, list);
+});
+
+const parentPillarByChildIdMap = new Map<string, (typeof siteStructure.pillars)[0]>();
+for (const p of siteStructure.pillars) {
+  for (const c of p.children) {
+    parentPillarByChildIdMap.set(c.id, p);
+  }
+}
+
 /**
  * Get all services that belong to a specific category
  */
 export const getServicesByCategory = (category: ServiceCategory): Service[] =>
-  services.filter((s) => s.category === category);
+  servicesByCategoryMap.get(category) || [];
 
 /**
  * Get all services marked as popular/featured
@@ -17,14 +35,12 @@ export const getPopularServices = (): Service[] => services.filter((s) => s.popu
 /**
  * Find a service by its unique ID
  */
-export const getServiceById = (id: string): Service | undefined =>
-  services.find((s) => s.id === id);
+export const getServiceById = (id: string): Service | undefined => serviceByIdMap.get(id);
 
 /**
  * Find a service by its URL slug/href
  */
-export const getServiceByHref = (href: string): Service | undefined =>
-  services.find((s) => s.slug === href);
+export const getServiceByHref = (href: string): Service | undefined => serviceBySlugMap.get(href);
 
 /**
  * Search services by query string
@@ -126,10 +142,8 @@ export const getServiceBreadcrumbs = (
 ): { name: string; url: string }[] => {
   const breadcrumbs = [{ name: 'Home', url: toCanonicalUrl('/') }];
 
-  // Auto-detect parent pillar from siteStructure.json
-  const parentPillar = siteStructure.pillars.find((p) =>
-    p.children.some((c) => c.id === service.id)
-  );
+  // Auto-detect parent pillar from siteStructure.json Map index
+  const parentPillar = parentPillarByChildIdMap.get(service.id);
 
   if (parentPillar) {
     breadcrumbs.push({

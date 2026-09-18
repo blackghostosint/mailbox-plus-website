@@ -12,7 +12,7 @@ export const microProblems = [
   ...regulatedMicroProblems,
 ];
 
-if (import.meta.env.DEV) {
+if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
   const ids = new Set<string>();
   const slugs = new Set<string>();
 

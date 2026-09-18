@@ -36,11 +36,9 @@ interface EmbeddingResult {
 async function buildEmbeddings() {
   console.log('--- Starting Build-Time Embedding Generation ---');
 
-  const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+  const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.error(
-      'Error: Neither GEMINI_API_KEY nor VITE_GEMINI_API_KEY environment variable is set.'
-    );
+    console.error('Error: GEMINI_API_KEY environment variable is not set.');
     process.exit(1);
   }
 
