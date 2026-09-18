@@ -103,7 +103,7 @@ export default withCors(
       });
     }
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }
 );
 
 export const config = {

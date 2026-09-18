@@ -1,4 +1,6 @@
 import { logger } from './logger';
+import { checkRateLimit, getClientIp, type RateLimitOptions } from './rate-limiter';
+
 export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
@@ -11,12 +13,13 @@ export interface CorsOptions {
   allowOrigin?: CorsOriginOption;
   allowMethods?: string;
   allowHeaders?: string;
+  rateLimit?: RateLimitOptions | boolean;
 }
 
 export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = [
   process.env.SITE_URL || 'https://mailboxplusohio.com',
   'https://mailboxplusohio.com',
-  /\.netlify\.app$/,
+  /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
   /localhost(:\d+)?$/,
   /127\.0\.0\.1(:\d+)?$/,
 ];
@@ -103,6 +106,7 @@ export type WebHandler = (request: Request, context?: any) => Promise<Response> 
  * Higher-order middleware wrapper for Web Standard Request/Response Netlify Functions handlers.
  * Intercepts OPTIONS preflight requests (returning 204 with CORS headers),
  * handles unhandled exceptions (returning 500 JSON with CORS headers),
+ * evaluates rate limiting if enabled,
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
 export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler {
@@ -118,6 +122,34 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
           ...corsHeaders,
         },
       });
+    }
+
+    if (options?.rateLimit) {
+      try {
+        const clientIp = getClientIp(request.headers);
+        const rateLimitOpts = typeof options.rateLimit === 'object' ? options.rateLimit : undefined;
+        const limitResult = await checkRateLimit(clientIp, rateLimitOpts);
+        if (!limitResult.allowed) {
+          const retryAfterSeconds = Math.max(1, Math.ceil(limitResult.resetMs / 1000));
+          const maxRequests = rateLimitOpts?.maxRequests ?? 10;
+          return new Response(
+            JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+            {
+              status: 429,
+              headers: {
+                'Content-Type': 'application/json',
+                ...corsHeaders,
+                'Retry-After': String(retryAfterSeconds),
+                'X-RateLimit-Limit': String(maxRequests),
+                'X-RateLimit-Remaining': '0',
+                'X-RateLimit-Reset': String(Math.ceil((Date.now() + limitResult.resetMs) / 1000)),
+              },
+            }
+          );
+        }
+      } catch (err) {
+        console.error('Rate limit evaluation error in withCors:', err);
+      }
     }
 
     try {

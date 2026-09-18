@@ -18,6 +18,11 @@ function getRateLimitStore() {
   }
 }
 
+export interface RateLimitOptions {
+  windowMs?: number;
+  maxRequests?: number;
+}
+
 export interface RateLimitResult {
   allowed: boolean;
   count: number;
@@ -26,10 +31,66 @@ export interface RateLimitResult {
 }
 
 /**
- * Checks client IP request rate against a sliding 60-second window.
- * Max 10 requests per minute allowed.
+ * Case-insensitively extracts the true client IP address from Netlify function headers.
+ * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
+ * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
+ * Supports both Fetch API Headers objects and plain Record<string, string | undefined> header maps.
  */
-export async function checkRateLimit(clientIp: string): Promise<RateLimitResult> {
+export function getClientIp(headers: Record<string, string | undefined> | Headers = {}): string {
+  if (headers && typeof (headers as Headers).get === 'function') {
+    const h = headers as Headers;
+    const xNfIp = h.get('x-nf-client-connection-ip');
+    if (xNfIp) return xNfIp.trim();
+    const clientIp = h.get('client-ip');
+    if (clientIp) return clientIp.trim();
+    const xForwardedFor = h.get('x-forwarded-for');
+    if (xForwardedFor) {
+      const parts = xForwardedFor
+        .split(',')
+        .map((p) => p.trim())
+        .filter(Boolean);
+      if (parts.length > 0) return parts[parts.length - 1];
+    }
+    return 'unknown';
+  }
+
+  const normalized: Record<string, string> = {};
+  for (const [key, val] of Object.entries((headers as Record<string, string | undefined>) || {})) {
+    if (val) normalized[key.toLowerCase()] = String(val);
+  }
+
+  if (normalized['x-nf-client-connection-ip']) {
+    return normalized['x-nf-client-connection-ip'].trim();
+  }
+
+  if (normalized['client-ip']) {
+    return normalized['client-ip'].trim();
+  }
+
+  if (normalized['x-forwarded-for']) {
+    const parts = normalized['x-forwarded-for']
+      .split(',')
+      .map((p) => p.trim())
+      .filter(Boolean);
+    if (parts.length > 0) {
+      return parts[parts.length - 1];
+    }
+  }
+
+  return 'unknown';
+}
+
+/**
+ * Checks client IP request rate against a sliding window.
+ * Default: Max 10 requests per 60 seconds allowed.
+ */
+export async function checkRateLimit(
+  clientIp: string,
+  options?: RateLimitOptions
+): Promise<RateLimitResult> {
+  const windowMs = options?.windowMs ?? WINDOW_MS;
+  const maxRequests = options?.maxRequests ?? MAX_REQUESTS;
+
   const now = Date.now();
   const safeIp = clientIp || '127.0.0.1';
   const key = `ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
@@ -53,14 +114,14 @@ export async function checkRateLimit(clientIp: string): Promise<RateLimitResult>
   }
 
   // Filter timestamps within sliding window
-  const windowStart = now - WINDOW_MS;
+  const windowStart = now - windowMs;
   const validTimestamps = Array.isArray(timestamps)
     ? timestamps.filter((ts) => typeof ts === 'number' && ts > windowStart)
     : [];
 
-  if (validTimestamps.length >= MAX_REQUESTS) {
+  if (validTimestamps.length >= maxRequests) {
     const oldest = validTimestamps[0] || now;
-    const resetMs = Math.max(0, oldest + WINDOW_MS - now);
+    const resetMs = Math.max(0, oldest + windowMs - now);
     return {
       allowed: false,
       count: validTimestamps.length,
@@ -84,8 +145,8 @@ export async function checkRateLimit(clientIp: string): Promise<RateLimitResult>
   return {
     allowed: true,
     count: validTimestamps.length,
-    remaining: MAX_REQUESTS - validTimestamps.length,
-    resetMs: WINDOW_MS,
+    remaining: maxRequests - validTimestamps.length,
+    resetMs: windowMs,
   };
 }
 

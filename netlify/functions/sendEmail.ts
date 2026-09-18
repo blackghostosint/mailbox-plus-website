@@ -4,64 +4,12 @@ import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
+import { getClientIp } from './lib/rate-limiter';
+
+export { getClientIp };
 
 // IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
-
-/**
- * Case-insensitively extracts the true client IP address from Netlify function headers or Headers instance.
- * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
- * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
- */
-export function getClientIp(
-  headers: Headers | Record<string, string | undefined> = new Headers()
-): string {
-  if (headers instanceof Headers) {
-    const nfIp = headers.get('x-nf-client-connection-ip');
-    if (nfIp) return nfIp.trim();
-
-    const clientIp = headers.get('client-ip');
-    if (clientIp) return clientIp.trim();
-
-    const xForwardedFor = headers.get('x-forwarded-for');
-    if (xForwardedFor) {
-      const parts = xForwardedFor
-        .split(',')
-        .map((p) => p.trim())
-        .filter(Boolean);
-      if (parts.length > 0) return parts[parts.length - 1];
-    }
-    return 'unknown';
-  }
-
-  const normalized: Record<string, string> = {};
-  for (const [key, val] of Object.entries(headers || {})) {
-    if (val) normalized[key.toLowerCase()] = String(val);
-  }
-
-  // Netlify Edge injects 'x-nf-client-connection-ip' with the true physical TCP connection IP
-  if (normalized['x-nf-client-connection-ip']) {
-    return normalized['x-nf-client-connection-ip'].trim();
-  }
-
-  // Netlify Edge also populates 'client-ip'
-  if (normalized['client-ip']) {
-    return normalized['client-ip'].trim();
-  }
-
-  // Fallback to 'x-forwarded-for' using the last IP appended by the edge proxy
-  if (normalized['x-forwarded-for']) {
-    const parts = normalized['x-forwarded-for']
-      .split(',')
-      .map((p) => p.trim())
-      .filter(Boolean);
-    if (parts.length > 0) {
-      return parts[parts.length - 1];
-    }
-  }
-
-  return 'unknown';
-}
 
 export async function checkRateLimit(
   ip: string,
