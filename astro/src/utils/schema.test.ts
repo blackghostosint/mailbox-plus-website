@@ -8,6 +8,8 @@ import {
   getProductSchema,
   getArticleSchema,
   getTrackingSchema,
+  getImageObjectSchema,
+  getSchemaGraph,
 } from './schema';
 import type { SiteConfig } from '../types/siteConfig';
 
@@ -543,5 +545,86 @@ describe('getTrackingSchema', () => {
 
   it('returns null if tracking number is empty or falsy', () => {
     expect(getTrackingSchema(mockSiteConfig, '', 'UPS', 'https://ups.com')).toBeNull();
+  });
+});
+
+describe('getSchemaGraph', () => {
+  it('returns a valid @graph envelope with default LocalBusiness, WebSite, and WebPage nodes', () => {
+    const graph = getSchemaGraph(mockSiteConfig, [], {
+      title: 'Test Page Title',
+      description: 'Test Page Description',
+      canonicalUrl: 'https://mailboxplusohio.com/test-page/',
+    });
+
+    expect(graph['@context']).toBe('https://schema.org');
+    expect(Array.isArray(graph['@graph'])).toBe(true);
+
+    const types = graph['@graph'].map((node) => node['@type']);
+    expect(types).toContain('LocalBusiness');
+    expect(types).toContain('WebSite');
+    expect(types).toContain('WebPage');
+
+    // Verify @context is removed from individual nodes inside @graph
+    for (const node of graph['@graph']) {
+      expect(node['@context']).toBeUndefined();
+    }
+  });
+
+  it('links ImageObject as child property primaryImageOfPage and image instead of unlinked top-level node', () => {
+    const webPage = getWebPageSchema(mockSiteConfig, {
+      name: 'UPS Store Alternative',
+      description: 'Alternative in Madison',
+      url: '/ups-store-alternative-madison/',
+    });
+    const service = getServiceSchema(mockSiteConfig, {
+      serviceName: 'UPS Store Alternative',
+      url: '/ups-store-alternative-madison/',
+    });
+    const imageObj = getImageObjectSchema({
+      contentUrl: 'https://example.com/image.jpg',
+      name: 'UPS Store Alternative Image',
+      config: mockSiteConfig,
+    });
+
+    const graph = getSchemaGraph(mockSiteConfig, [webPage, service, imageObj]);
+
+    const topLevelTypes = graph['@graph'].map((n) => n['@type']);
+    expect(topLevelTypes).not.toContain('ImageObject');
+
+    const webPageNode = graph['@graph'].find((n) => n['@type'] === 'WebPage');
+    const serviceNode = graph['@graph'].find((n) => n['@type'] === 'Service');
+
+    expect(webPageNode).toBeDefined();
+    expect(webPageNode!.primaryImageOfPage).toEqual({
+      '@type': 'ImageObject',
+      contentUrl: 'https://example.com/image.jpg',
+      description: 'UPS Store Alternative Image',
+      name: 'UPS Store Alternative Image',
+      author: { '@type': 'Organization', name: 'Mailbox Plus' },
+      copyrightHolder: { '@type': 'Organization', name: 'Mailbox Plus' },
+    });
+
+    expect(serviceNode).toBeDefined();
+    expect(serviceNode!.image).toEqual({
+      '@type': 'ImageObject',
+      contentUrl: 'https://example.com/image.jpg',
+      description: 'UPS Store Alternative Image',
+      name: 'UPS Store Alternative Image',
+      author: { '@type': 'Organization', name: 'Mailbox Plus' },
+      copyrightHolder: { '@type': 'Organization', name: 'Mailbox Plus' },
+    });
+  });
+
+  it('deduplicates nodes and strips @context', () => {
+    const localBiz = getLocalBusinessSchema(mockSiteConfig);
+    const webSite = getWebSiteSchema(mockSiteConfig);
+
+    const graph = getSchemaGraph(mockSiteConfig, [localBiz, webSite]);
+
+    const localBizCount = graph['@graph'].filter((n) => n['@type'] === 'LocalBusiness').length;
+    const webSiteCount = graph['@graph'].filter((n) => n['@type'] === 'WebSite').length;
+
+    expect(localBizCount).toBe(1);
+    expect(webSiteCount).toBe(1);
   });
 });

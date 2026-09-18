@@ -537,3 +537,109 @@ export const getImageObjectSchema = ({
     name: config.name,
   },
 });
+
+/** ---------- Unified Schema Graph Builder ---------- */
+export interface SchemaPageMeta {
+  title?: string;
+  description?: string;
+  canonicalUrl?: string;
+  datePublished?: string;
+  dateModified?: string;
+  breadcrumbItems?: { name: string; url: string }[];
+  aboutLocalBusiness?: boolean;
+}
+
+export const getSchemaGraph = (
+  config: SiteConfig = siteConfig,
+  inputNodes: Array<unknown> = [],
+  pageMeta?: SchemaPageMeta
+): { '@context': string; '@graph': Record<string, unknown>[] } => {
+  const rawNodes = inputNodes
+    .filter((n): n is Record<string, unknown> => Boolean(n) && typeof n === 'object')
+    .map((n) => n as Record<string, unknown>);
+
+  const imageObjectNodes: Record<string, unknown>[] = [];
+  const otherNodes: Record<string, unknown>[] = [];
+
+  for (const node of rawNodes) {
+    if (node['@type'] === 'ImageObject') {
+      imageObjectNodes.push(node);
+    } else {
+      otherNodes.push(node);
+    }
+  }
+
+  let localBusinessNode = otherNodes.find((n) => n['@type'] === 'LocalBusiness');
+  if (!localBusinessNode) {
+    localBusinessNode = getLocalBusinessSchema(config) as unknown as Record<string, unknown>;
+  }
+
+  let webSiteNode = otherNodes.find((n) => n['@type'] === 'WebSite');
+  if (!webSiteNode) {
+    webSiteNode = getWebSiteSchema(config) as unknown as Record<string, unknown>;
+  }
+
+  let webPageNode = otherNodes.find((n) => n['@type'] === 'WebPage');
+  if (!webPageNode && pageMeta?.title && pageMeta?.canonicalUrl) {
+    webPageNode = getWebPageSchema(config, {
+      name: pageMeta.title,
+      description: pageMeta.description || '',
+      url: pageMeta.canonicalUrl,
+      datePublished: pageMeta.datePublished,
+      dateModified: pageMeta.dateModified,
+      breadcrumbItems: pageMeta.breadcrumbItems,
+      aboutLocalBusiness: pageMeta.aboutLocalBusiness,
+    }) as unknown as Record<string, unknown>;
+  }
+
+  const serviceNode = otherNodes.find((n) => n['@type'] === 'Service');
+
+  if (imageObjectNodes.length > 0) {
+    const cleanImageNode = { ...imageObjectNodes[0] };
+    delete cleanImageNode['@context'];
+
+    if (webPageNode) {
+      webPageNode.primaryImageOfPage = cleanImageNode;
+    }
+    if (serviceNode) {
+      serviceNode.image = cleanImageNode;
+    }
+  }
+
+  const graphNodesList: Record<string, unknown>[] = [];
+  graphNodesList.push(localBusinessNode);
+  graphNodesList.push(webSiteNode);
+
+  if (webPageNode) {
+    graphNodesList.push(webPageNode);
+  }
+
+  for (const node of otherNodes) {
+    if (node === localBusinessNode || node === webSiteNode || node === webPageNode) {
+      continue;
+    }
+    graphNodesList.push(node);
+  }
+
+  const seenIds = new Set<string>();
+  const finalGraphNodes: Record<string, unknown>[] = [];
+
+  for (const node of graphNodesList) {
+    const nodeCopy = { ...node };
+    delete nodeCopy['@context'];
+
+    const id = (nodeCopy['@id'] as string) || (nodeCopy['@type'] as string);
+    if (id && seenIds.has(id)) {
+      continue;
+    }
+    if (id) {
+      seenIds.add(id);
+    }
+    finalGraphNodes.push(nodeCopy);
+  }
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': finalGraphNodes,
+  };
+};

@@ -74,11 +74,7 @@ const carriers = [
 ];
 ---
 
-<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.canonicalUrl || service.slug} noindex={service.robots === 'noindex, nofollow'} ogImage={ogImage}>
-  <!-- JSON-LD Schemas -->
-  {schemas.map((schema) => (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  ))}
+<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.canonicalUrl || service.slug} noindex={service.robots === 'noindex, nofollow'} ogImage={ogImage} schema={schemas}>
 
   <!-- Breadcrumbs (semantic & accessible) -->
   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

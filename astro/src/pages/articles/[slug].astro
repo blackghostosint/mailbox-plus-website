@@ -81,6 +81,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
   description={description}
   canonical={`/articles/${slug}`}
   ogImage={ogImage}
+  schema={[articleSchema, webPageSchema]}
 >
   <Fragment slot="head">
     <meta property="og:type" content="article" />
@@ -88,8 +89,6 @@ const webPageSchema = getWebPageSchema(siteConfig, {
     {lastModified && <meta property="article:modified_time" content={lastModified} />}
     {author && <meta property="article:author" content={author} />}
     {keywords?.length && <meta name="keywords" content={keywords.join(', ')} />}
-    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
   </Fragment>
 
   {/* Hero Section */}

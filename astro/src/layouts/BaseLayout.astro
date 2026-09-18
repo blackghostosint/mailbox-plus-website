@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import { siteConfig } from '../config/siteConfig';
-import { getLocalBusinessSchema } from '../utils/schema';
+import { getSchemaGraph } from '../utils/schema';
 import { toCanonicalUrl } from '../utils/canonical-url';
 
 export interface Props {
@@ -13,9 +13,10 @@ export interface Props {
   canonical?: string;
   noindex?: boolean;
   ogImage?: string;
+  schema?: unknown | unknown[];
 }
 
-const { title, description, canonical, noindex, ogImage } = Astro.props;
+const { title, description, canonical, noindex, ogImage, schema } = Astro.props;
 const siteUrl = 'https://mailboxplusohio.com';
 // Emit a self-referencing canonical for every indexable page. Pages that
 // explicitly pass `canonical` use it; otherwise default to the current page
@@ -29,7 +30,17 @@ const canonicalUrl = canonical
     : toCanonicalUrl(Astro.url.pathname);
 const fallbackUrl = toCanonicalUrl('/');
 
-const localBusinessSchema = getLocalBusinessSchema(siteConfig);
+const schemaNodes = schema
+  ? Array.isArray(schema)
+    ? schema
+    : [schema]
+  : [];
+
+const schemaGraph = getSchemaGraph(siteConfig, schemaNodes, {
+  title,
+  description,
+  canonicalUrl: canonicalUrl || fallbackUrl,
+});
 
 // OG image URL resolution.
 // - Explicit ogImage prop: used as-is (absolute URL or site-relative path).
@@ -86,7 +97,7 @@ const ogImageHeight = ogImage ? undefined : '630';
     {ogImageWidth && <meta property="og:image:width" content={ogImageWidth} />}
     {ogImageHeight && <meta property="og:image:height" content={ogImageHeight} />}
     <slot name="head" />
-    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
     <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel) -->
     <script>
       import { initAnalytics } from '../lib/analytics';
