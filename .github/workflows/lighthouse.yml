@@ -28,7 +28,6 @@ jobs:
         run: npm run build
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
           GEMINI_TIMEOUT_SECONDS: ${{ secrets.GEMINI_TIMEOUT_SECONDS }}
 
       - name: Run Lighthouse CI
