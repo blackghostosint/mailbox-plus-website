@@ -6,7 +6,7 @@
   allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*", "jules/*"]
 
 [build.environment]
-  # Disable secrets scanning to prevent build failures from false positives on public CDN assets and HTML sales pages
+  # Secret scanning is enforced in GitHub Actions CI via Gitleaks (.gitleaks.toml); disabled in Netlify build environment to prevent false positive deploy preview failures on public CDN assets and sales pages
   SECRETS_SCAN_ENABLED = "false"
   # Astro 7 requires Node >=22.12; pin Netlify's build image to Node 22 LTS
   NODE_VERSION = "22"
