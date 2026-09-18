@@ -25,14 +25,13 @@ export function resolveDistDir() {
     if (fs.existsSync(envDist) && fs.statSync(envDist).isDirectory()) {
       return envDist;
     }
-    console.error(`Error: dist directory "${envDist}" specified by DIST_DIR does not exist. Please run "npm run build" first.`);
+    console.error(
+      `Error: dist directory "${envDist}" specified by DIST_DIR does not exist. Please run "npm run build" first.`
+    );
     return envDist;
   }
 
-  const candidates = [
-    path.resolve(ROOT_DIR, 'dist'),
-    path.resolve(ROOT_DIR, 'astro', 'dist'),
-  ];
+  const candidates = [path.resolve(ROOT_DIR, 'dist'), path.resolve(ROOT_DIR, 'astro', 'dist')];
 
   for (const candidate of candidates) {
     if (fs.existsSync(candidate) && fs.statSync(candidate).isDirectory()) {

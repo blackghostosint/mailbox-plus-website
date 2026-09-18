@@ -1013,7 +1013,9 @@ function cmdBuild() {
   let before;
   const targetDistBefore = resolveDistDir();
   try {
-    before = execSync(`find "${targetDistBefore}" -name "*.html" | wc -l`, { cwd: ROOT }).toString().trim();
+    before = execSync(`find "${targetDistBefore}" -name "*.html" | wc -l`, { cwd: ROOT })
+      .toString()
+      .trim();
   } catch {
     before = '0';
   }
@@ -1024,14 +1026,21 @@ function cmdBuild() {
     return;
   }
   const targetDistAfter = resolveDistDir();
-  const after = execSync(`find "${targetDistAfter}" -name "*.html" | wc -l`, { cwd: ROOT }).toString().trim();
+  const after = execSync(`find "${targetDistAfter}" -name "*.html" | wc -l`, { cwd: ROOT })
+    .toString()
+    .trim();
   check('build', true, `page count: ${before} → ${after}`);
 }
 
 function cmdSitemap(expectPath) {
   const sm = path.join(resolveDistDir(), 'sitemap-0.xml');
   if (!fs.existsSync(sm)) {
-    check('sitemap', false, `${path.relative(ROOT, sm)} missing — run build first`, 'npm run build');
+    check(
+      'sitemap',
+      false,
+      `${path.relative(ROOT, sm)} missing — run build first`,
+      'npm run build'
+    );
     return;
   }
   const xml = fs.readFileSync(sm, 'utf8');
