@@ -1,11 +1,5 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import {
-  logger,
-  sanitizeValue,
-  sanitizeString,
-  sanitizeError,
-  isSensitiveKey,
-} from './logger';
+import { logger, sanitizeValue, sanitizeString, sanitizeError, isSensitiveKey } from './logger';
 
 describe('Centralized Sanitizing Logger Module', () => {
   let consoleInfoSpy: any;
@@ -160,7 +154,8 @@ describe('Centralized Sanitizing Logger Module', () => {
   describe('sanitizeError', () => {
     it('normalizes Error instances into serializable objects with sanitized message and stack', () => {
       const error = new Error('Failed connecting for user test@example.com');
-      error.stack = 'Error: Failed connecting for user test@example.com\n  at /app/netlify/functions/sendEmail.ts:10:15';
+      error.stack =
+        'Error: Failed connecting for user test@example.com\n  at /app/netlify/functions/sendEmail.ts:10:15';
 
       const sanitized = sanitizeError(error);
 
