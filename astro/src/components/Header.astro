@@ -43,7 +43,7 @@ const navigation = [
       </a>
 
       <!-- Desktop Navigation -->
-      <nav class="hidden md:flex items-center space-x-8 flex-1 justify-center">
+      <nav class="hidden md:flex items-center space-x-8 flex-1 justify-center" aria-label="Main Navigation">
         {navigation.map((item) =>
           item.gold ? (
             <a href={item.href} class="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors">{item.name}</a>
