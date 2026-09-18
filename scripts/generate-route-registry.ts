@@ -52,6 +52,12 @@ const getId = (id: string) => {
   return id;
 };
 
+const getTitle = (id: string, serviceName: string) => {
+  if (id === 'ups-authorized-shipper-outlet') return 'UPS Shipping';
+  if (id === 'usps-services') return 'USPS Services';
+  return serviceName;
+};
+
 const isGeoDropoff = (s: (typeof services)[0]) => {
   if (!competitiveIds.has(s.id)) return false;
   const id = s.id;
@@ -85,7 +91,7 @@ services.forEach((s) => {
   const child = {
     id: getId(s.id),
     url: url,
-    title: s.serviceName,
+    title: getTitle(s.id, s.serviceName),
   };
 
   if (isGeoDropoff(s)) {

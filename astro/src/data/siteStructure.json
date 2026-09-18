@@ -33,12 +33,12 @@
         {
           "id": "ups-shipping",
           "url": "/pack-ship/ups-authorized-shipper-outlet",
-          "title": "UPS Authorized Shipper Outlet"
+          "title": "UPS Shipping"
         },
         {
           "id": "usps-services",
           "url": "/pack-ship/usps-services",
-          "title": "USPS Postal Services"
+          "title": "USPS Services"
         },
         {
           "id": "dhl-express",
