@@ -15,7 +15,7 @@ from pathlib import Path
 
 DATA = Path(sys.argv[1] if len(sys.argv) > 1 else '/tmp/vault-data.json')
 OUT = Path(sys.argv[2] if len(sys.argv) > 2 else '/tmp/vault-stage/Knowledge')
-REPO = Path(__file__).resolve().parent.parent.parent
+REPO = Path(os.environ.get('REPO_ROOT', os.environ.get('REPO', Path(__file__).resolve().parent.parent.parent)))
 TODAY = date.today().isoformat()
 
 d = json.load(open(DATA))

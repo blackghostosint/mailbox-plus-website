@@ -92,6 +92,11 @@ jobs:
       - name: Run Astro unit tests
         run: cd astro && npm test
 
+      - name: Run vault sync dry-run
+        run: npm run vault:sync
+        env:
+          DRY_RUN: '1'
+
       - name: Build project
         shell: bash
         run: |
