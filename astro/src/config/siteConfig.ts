@@ -1,3 +1,4 @@
+/* global process */
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
@@ -10,12 +11,12 @@ export const siteConfig: SiteConfig = {
   domain: 'https://mailboxplusohio.com',
   logo: '/mailbox_plus_logo.webp',
   favicon: {
-    default: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-32x32.png`,
-    appleTouch: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/apple-touch-icon.png`,
-    android192: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/android-chrome-192x192.png`,
-    android512: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/android-chrome-512x512.png`,
-    icon16: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-16x16.png`,
-    icon32: `${import.meta.env.VITE_R2_PUBLIC_BASE_URL}/favicon_io/favicon-32x32.png`,
+    default: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-32x32.png`,
+    appleTouch: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/apple-touch-icon.png`,
+    android192: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/android-chrome-192x192.png`,
+    android512: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/android-chrome-512x512.png`,
+    icon16: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-16x16.png`,
+    icon32: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-32x32.png`,
   },
   contact: {
     phone: '440-709-1946',

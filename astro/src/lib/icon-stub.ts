@@ -1,6 +1,7 @@
-// Stub module: all ~icons/lucide/ imports resolve here
-// The ServiceLayout.astro renders features without icons, so only the type is needed.
-const StubIcon = 'icon-placeholder';
+import type { IconComponent } from '../types/services';
+
+const StubIcon: IconComponent = () => null;
+
 export default StubIcon;
 export {
   StubIcon as AlertTriangle,
