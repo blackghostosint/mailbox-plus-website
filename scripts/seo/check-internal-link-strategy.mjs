@@ -22,6 +22,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { resolveDistDir } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -29,7 +30,7 @@ const DATA_DIR = path.join(ROOT, 'astro/src/data');
 const CONFIG_DIR = path.join(ROOT, 'astro/src/config/services');
 const MICRO_PROBLEMS_DIR = path.join(ROOT, 'astro/src/config/micro-problems');
 const ARTICLES_DIR = path.join(ROOT, 'content/articles');
-const DIST_DIR = path.join(ROOT, 'dist');
+const DIST_DIR = resolveDistDir();
 
 const SITE_STRUCTURE = JSON.parse(
   fs.readFileSync(path.join(DATA_DIR, 'siteStructure.json'), 'utf-8')
