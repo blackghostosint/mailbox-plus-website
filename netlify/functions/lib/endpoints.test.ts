@@ -1,7 +1,7 @@
 import { describe, it, expect, vi } from 'vitest';
-import { handler as createCheckoutHandler } from '../create-checkout';
-import { handler as sendEmailHandler, getClientIp } from '../sendEmail';
-import { handler as verifySessionHandler } from '../verify-session';
+import createCheckoutHandler from '../create-checkout';
+import sendEmailHandler, { getClientIp } from '../sendEmail';
+import verifySessionHandler from '../verify-session';
 import cspReportHandler from '../csp-report';
 import healthHandler from '../health';
 import reviewsHandler from '../reviews';
@@ -12,100 +12,125 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
 
   describe('create-checkout', () => {
     it('handles OPTIONS preflight with status 204 and standard CORS headers', async () => {
-      const res = await createCheckoutHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
-      expect(res!.statusCode).toBe(204);
-      expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+      const request = new Request('https://example.com/.netlify/functions/create-checkout', {
+        method: 'OPTIONS',
       });
+      const res = await createCheckoutHandler(request, mockContext);
+      expect(res.status).toBe(204);
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      expect(res.headers.get('Access-Control-Allow-Methods')).toBe(
+        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+      );
+      expect(res.headers.get('Access-Control-Allow-Headers')).toBe(
+        'Content-Type, Authorization, X-Requested-With'
+      );
     });
 
     it('returns status 405 for GET request with CORS and Content-Type headers', async () => {
-      const res = await createCheckoutHandler({ httpMethod: 'GET' } as any, mockContext);
-      expect(res!.statusCode).toBe(405);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
+      const request = new Request('https://example.com/.netlify/functions/create-checkout', {
+        method: 'GET',
       });
+      const res = await createCheckoutHandler(request, mockContext);
+      expect(res.status).toBe(405);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
 
     it('returns status 400 for invalid tier with CORS and Content-Type headers', async () => {
       process.env.STRIPE_SECRET_KEY = 'dummy_stripe_secret_key';
-      const res = await createCheckoutHandler(
-        { httpMethod: 'POST', body: JSON.stringify({ tier: 'invalid_tier' }) } as any,
-        mockContext
-      );
-      expect(res!.statusCode).toBe(400);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
+      const request = new Request('https://example.com/.netlify/functions/create-checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ tier: 'invalid_tier' }),
       });
-      expect(JSON.parse(res!.body || '{}')).toHaveProperty('error');
+      const res = await createCheckoutHandler(request, mockContext);
+      expect(res.status).toBe(400);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      const body = await res.json();
+      expect(body).toHaveProperty('error');
     });
   });
 
   describe('sendEmail', () => {
     it('handles OPTIONS preflight with status 204 and standard CORS headers', async () => {
-      const res = await sendEmailHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
-      expect(res!.statusCode).toBe(204);
-      expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+      const request = new Request('https://example.com/.netlify/functions/sendEmail', {
+        method: 'OPTIONS',
       });
+      const res = await sendEmailHandler(request, mockContext);
+      expect(res.status).toBe(204);
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      expect(res.headers.get('Access-Control-Allow-Methods')).toBe(
+        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+      );
+      expect(res.headers.get('Access-Control-Allow-Headers')).toBe(
+        'Content-Type, Authorization, X-Requested-With'
+      );
     });
 
     it('returns status 405 for GET request with CORS and Content-Type headers', async () => {
-      const res = await sendEmailHandler({ httpMethod: 'GET' } as any, mockContext);
-      expect(res!.statusCode).toBe(405);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
+      const request = new Request('https://example.com/.netlify/functions/sendEmail', {
+        method: 'GET',
       });
+      const res = await sendEmailHandler(request, mockContext);
+      expect(res.status).toBe(405);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
 
     it('returns status 400 for failed reCAPTCHA verification with CORS and Content-Type headers', async () => {
-      const res = await sendEmailHandler(
-        {
-          httpMethod: 'POST',
-          body: JSON.stringify({
-            name: 'John',
-            email: 'john@example.com',
-            recaptchaToken: 'invalid',
-          }),
-        } as any,
-        mockContext
-      );
-      expect(res!.statusCode).toBe(400);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
+      const request = new Request('https://example.com/.netlify/functions/sendEmail', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'John',
+          email: 'john@example.com',
+          recaptchaToken: 'invalid',
+        }),
       });
-      expect(JSON.parse(res!.body || '{}')).toEqual({ error: 'reCAPTCHA verification failed' });
+      const res = await sendEmailHandler(request, mockContext);
+      expect(res.status).toBe(400);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      expect(await res.json()).toEqual({ error: 'reCAPTCHA verification failed' });
     });
 
     it('returns status 429 when IP rate limit is exceeded', async () => {
       const rateLimitIp = '192.168.1.100';
-      const event = {
-        httpMethod: 'POST',
-        headers: { 'client-ip': rateLimitIp },
+
+      // Exhaust 5 allowed attempts
+      for (let i = 0; i < 5; i++) {
+        const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+          method: 'POST',
+          headers: {
+            'client-ip': rateLimitIp,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: 'Spammer',
+            email: 'spam@example.com',
+            recaptchaToken: 'test',
+          }),
+        });
+        await sendEmailHandler(req, mockContext);
+      }
+
+      // 6th attempt should trigger 429 Too Many Requests
+      const blockedReq = new Request('https://example.com/.netlify/functions/sendEmail', {
+        method: 'POST',
+        headers: {
+          'client-ip': rateLimitIp,
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify({
           name: 'Spammer',
           email: 'spam@example.com',
           recaptchaToken: 'test',
         }),
-      } as any;
-
-      // Exhaust 5 allowed attempts
-      for (let i = 0; i < 5; i++) {
-        await sendEmailHandler(event, mockContext);
-      }
-
-      // 6th attempt should trigger 429 Too Many Requests
-      const res = await sendEmailHandler(event, mockContext);
-      expect(res!.statusCode).toBe(429);
-      expect(JSON.parse(res!.body || '{}')).toEqual({
+      });
+      const res = await sendEmailHandler(blockedReq, mockContext);
+      expect(res.status).toBe(429);
+      expect(await res.json()).toEqual({
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -149,73 +174,73 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
         // Attacker attempts to change x-forwarded-for header on each attempt,
         // but Netlify Edge sets x-nf-client-connection-ip to the real client IP.
         for (let i = 0; i < 5; i++) {
-          const res = await sendEmailHandler(
-            {
-              httpMethod: 'POST',
-              headers: {
-                'x-nf-client-connection-ip': realConnectionIp,
-                'x-forwarded-for': `1.2.3.${i}`,
-              },
-              body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
-            } as any,
-            mockContext
-          );
-          expect(res!.statusCode).not.toBe(429);
+          const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+            method: 'POST',
+            headers: {
+              'x-nf-client-connection-ip': realConnectionIp,
+              'x-forwarded-for': `1.2.3.${i}`,
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
+          });
+          const res = await sendEmailHandler(req, mockContext);
+          expect(res.status).not.toBe(429);
         }
 
         // 6th attempt with another spoofed x-forwarded-for should STILL hit rate limit (429)
-        const blockedRes = await sendEmailHandler(
-          {
-            httpMethod: 'POST',
-            headers: {
-              'x-nf-client-connection-ip': realConnectionIp,
-              'x-forwarded-for': '9.9.9.9',
-            },
-            body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
-          } as any,
-          mockContext
-        );
+        const blockedReq = new Request('https://example.com/.netlify/functions/sendEmail', {
+          method: 'POST',
+          headers: {
+            'x-nf-client-connection-ip': realConnectionIp,
+            'x-forwarded-for': '9.9.9.9',
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ name: 'Spoofer', recaptchaToken: 'token' }),
+        });
+        const blockedRes = await sendEmailHandler(blockedReq, mockContext);
 
-        expect(blockedRes!.statusCode).toBe(429);
+        expect(blockedRes.status).toBe(429);
       });
     });
   });
 
   describe('verify-session', () => {
     it('handles OPTIONS preflight with status 204 and standard CORS headers', async () => {
-      const res = await verifySessionHandler({ httpMethod: 'OPTIONS' } as any, mockContext);
-      expect(res!.statusCode).toBe(204);
-      expect(res!.headers).toMatchObject({
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
+      const request = new Request('https://example.com/.netlify/functions/verify-session', {
+        method: 'OPTIONS',
       });
+      const res = await verifySessionHandler(request, mockContext);
+      expect(res.status).toBe(204);
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      expect(res.headers.get('Access-Control-Allow-Methods')).toBe(
+        'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+      );
+      expect(res.headers.get('Access-Control-Allow-Headers')).toBe(
+        'Content-Type, Authorization, X-Requested-With'
+      );
     });
 
     it('returns status 405 for POST request with CORS and Content-Type headers', async () => {
-      const res = await verifySessionHandler({ httpMethod: 'POST' } as any, mockContext);
-      expect(res!.statusCode).toBe(405);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
+      const request = new Request('https://example.com/.netlify/functions/verify-session', {
+        method: 'POST',
       });
+      const res = await verifySessionHandler(request, mockContext);
+      expect(res.status).toBe(405);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
 
     it('returns status 400 for invalid session_id with CORS and Content-Type headers', async () => {
       process.env.STRIPE_SECRET_KEY = 'dummy_stripe_secret_key';
-      const res = await verifySessionHandler(
-        {
-          httpMethod: 'GET',
-          queryStringParameters: { session_id: 'bad_session' },
-        } as any,
-        mockContext
+      const request = new Request(
+        'https://example.com/.netlify/functions/verify-session?session_id=bad_session',
+        { method: 'GET' }
       );
-      expect(res!.statusCode).toBe(400);
-      expect(res!.headers).toMatchObject({
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': EXPECTED_ORIGIN,
-      });
-      expect(JSON.parse(res!.body || '{}')).toEqual({ error: 'Invalid session_id' });
+      const res = await verifySessionHandler(request, mockContext);
+      expect(res.status).toBe(400);
+      expect(res.headers.get('Content-Type')).toBe('application/json');
+      expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
+      expect(await res.json()).toEqual({ error: 'Invalid session_id' });
     });
   });
 

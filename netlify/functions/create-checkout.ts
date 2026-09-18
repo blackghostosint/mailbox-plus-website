@@ -4,7 +4,6 @@
 // Stripe Checkout captures email + current address + phone (per the locked capture split).
 // Centralized config: tier → lookup key (matches vault _config/PRICING-AND-FEES.md).
 
-import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
@@ -67,33 +66,29 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
-export const handler: Handler = withCors(
-  async (event) => {
-    if (event.httpMethod !== 'POST') {
-      return {
-        statusCode: 405,
-        body: JSON.stringify({ error: 'Method not allowed' }),
-      };
+export const handler = withCors(
+  async (request: Request) => {
+    if (request.method !== 'POST') {
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
     }
 
     if (!process.env.STRIPE_SECRET_KEY) {
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Stripe is not configured on the server' }),
-      };
+      return new Response(JSON.stringify({ error: 'Stripe is not configured on the server' }), {
+        status: 500,
+      });
     }
 
     try {
-      const body = JSON.parse(event.body || '{}');
+      const body = await request.json().catch(() => ({}));
       const { tier } = body;
 
       if (!tier || !TIER_LOOKUP_KEYS[tier]) {
-        return {
-          statusCode: 400,
-          body: JSON.stringify({
+        return new Response(
+          JSON.stringify({
             error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
           }),
-        };
+          { status: 400 }
+        );
       }
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
@@ -107,10 +102,9 @@ export const handler: Handler = withCors(
       });
       const price = prices.data[0];
       if (!price) {
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: `Price not found for tier: ${tier}` }),
-        };
+        return new Response(JSON.stringify({ error: `Price not found for tier: ${tier}` }), {
+          status: 500,
+        });
       }
 
       // Resolve the one-time key deposit price (billed on the first invoice at account creation)
@@ -120,10 +114,10 @@ export const handler: Handler = withCors(
       });
       const depositPrice = depositPrices.data[0];
       if (!depositPrice) {
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
-        };
+        return new Response(
+          JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
+          { status: 500 }
+        );
       }
 
       const session = await stripe.checkout.sessions.create({
@@ -171,17 +165,15 @@ export const handler: Handler = withCors(
         cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
       });
 
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ url: session.url }),
-      };
+      return new Response(JSON.stringify({ url: session.url }), { status: 200 });
     } catch (err: any) {
       console.error('create-checkout error:', err?.message || err);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to create checkout session' }),
-      };
+      return new Response(JSON.stringify({ error: 'Failed to create checkout session' }), {
+        status: 500,
+      });
     }
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
 );
+
+export default handler;

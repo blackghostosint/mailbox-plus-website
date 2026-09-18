@@ -11,7 +11,6 @@
 //   amount, currency). Never returns customer PII (email, address, phone).
 // - Payment status must be "paid" (or the subscription's initial invoice paid).
 
-import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
@@ -32,25 +31,26 @@ const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   business_large: { name: 'Business Large', monthly: 50 },
 };
 
-const json = (code: number, body: unknown) => ({
-  statusCode: code,
-  headers: {
-    'Content-Type': 'application/json',
-    'Cache-Control': 'no-store',
-  },
-  body: JSON.stringify(body),
-});
+const json = (status: number, body: unknown) =>
+  new Response(JSON.stringify(body), {
+    status,
+    headers: {
+      'Content-Type': 'application/json',
+      'Cache-Control': 'no-store',
+    },
+  });
 
-export const handler: Handler = withCors(
-  async (event) => {
-    if (event.httpMethod !== 'GET') {
+export const handler = withCors(
+  async (request: Request) => {
+    if (request.method !== 'GET') {
       return json(405, { error: 'Method not allowed' });
     }
     if (!process.env.STRIPE_SECRET_KEY) {
       return json(500, { error: 'Stripe is not configured' });
     }
 
-    const sessionId = (event.queryStringParameters?.session_id || '').trim();
+    const url = new URL(request.url);
+    const sessionId = (url.searchParams.get('session_id') || '').trim();
     // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
     if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
       return json(400, { error: 'Invalid session_id' });
@@ -92,3 +92,5 @@ export const handler: Handler = withCors(
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
 );
+
+export default handler;
