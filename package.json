@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cd astro && npm run dev",
     "prebuild": "node scripts/fetch-reviews.mjs && tsx scripts/generate-llms-articles.ts --write",
-    "build": "npm run prebuild && cd astro && npm run build",
+    "build": "cd astro && npm run build",
     "preview": "cd astro && npm run preview",
     "check": "cd astro && npm run check",
     "typecheck": "cd astro && npm run check",
