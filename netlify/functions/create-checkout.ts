@@ -67,7 +67,7 @@ const TIER_HAS_SMS: Record<string, boolean> = {
   business_large: true,
 };
 
-export const handler = withCors(
+export default withCors(
   async (request: Request) => {
     if (request.method !== 'POST') {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
@@ -176,5 +176,3 @@ export const handler = withCors(
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }
 );
-
-export default handler;

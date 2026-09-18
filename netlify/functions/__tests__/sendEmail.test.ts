@@ -22,7 +22,7 @@ vi.mock('resend', () => {
   };
 });
 
-import { handler } from '../sendEmail';
+import handler from '../sendEmail';
 import { verifyRecaptchaToken } from '../lib/recaptcha';
 
 describe('sendEmail function handler', () => {

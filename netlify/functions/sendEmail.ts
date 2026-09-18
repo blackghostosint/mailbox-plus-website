@@ -21,7 +21,7 @@ export async function checkRateLimit(
   return result.allowed;
 }
 
-export const handler = withCors(
+export default withCors(
   async (request: Request) => {
     if (request.method !== 'POST') {
       return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
@@ -140,5 +140,3 @@ export const handler = withCors(
     },
   }
 );
-
-export default handler;
