@@ -1,111 +1,15 @@
 [
   {
-    "slug": "auburn-township",
-    "city": "Auburn Township",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Auburn Township, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Auburn Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Auburn Township, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Auburn Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
-    "canonical": "/service-area/auburn-township",
-    "heroImage": "/images/auburn-township.webp",
-    "services": ["pack-ship", "mailbox-rental"]
-  },
-  {
-    "slug": "chardon",
-    "city": "Chardon",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Chardon, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Chardon, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Chardon, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Chardon, Ohio, with professional shipping, printing, and mailbox services. From historic downtown businesses to local families, we deliver fast, friendly, and reliable solutions year-round.",
-    "canonical": "/service-area/chardon",
-    "heroImage": "/images/chardon.webp",
-    "services": ["pack-ship", "packaging-supplies"]
-  },
-  {
     "slug": "concord-township",
     "city": "Concord Township",
     "state": "OH",
     "introTitle": "Shipping & Business Services in Concord Township, OH",
     "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Concord Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
     "metaTitle": "Shipping & Printing in Concord Township, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals\u2014all in one convenient location. Trusted by local families and small businesses since 2024.",
+    "metaDescription": "Mailbox Plus proudly serves Concord Township, Ohio, with expert shipping, custom packaging, printing, and mailbox rentals—all in one convenient location. Trusted by local families and small businesses since 2024.",
     "canonical": "/service-area/concord-township",
     "heroImage": "/images/concord-township.webp",
     "services": ["pack-ship", "mailbox-rental", "fedex-shipping"]
-  },
-  {
-    "slug": "eastlake",
-    "city": "Eastlake",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Eastlake, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Eastlake, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Eastlake, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Eastlake, Ohio with dependable shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver fast, friendly solutions you can trust.",
-    "canonical": "/service-area/eastlake",
-    "heroImage": "/images/eastlake.webp",
-    "services": ["pack-ship", "mailbox-rental"]
-  },
-  {
-    "slug": "fairport-harbor",
-    "city": "Fairport Harbor",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Fairport Harbor, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Fairport Harbor, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Fairport Harbor, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Fairport Harbor, Ohio, with reliable shipping, printing, and mailbox services. From lakefront residents to local businesses, we deliver friendly, dependable service rooted in community care.",
-    "canonical": "/service-area/fairport-harbor",
-    "heroImage": "/images/Fairport_Harbor.webp",
-    "services": ["pack-ship", "postage-stamps"]
-  },
-  {
-    "slug": "kirtland",
-    "city": "Kirtland",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Kirtland, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Kirtland, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Kirtland, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Kirtland, Ohio, with professional shipping, printing, and mailbox services. From local businesses to families, we deliver dependable solutions rooted in community care and Lake County pride.",
-    "canonical": "/service-area/kirtland",
-    "heroImage": "/images/kirtland.webp",
-    "services": ["pack-ship", "copies"]
-  },
-  {
-    "slug": "leroy-township",
-    "city": "Leroy Township",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Leroy Township, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Leroy Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Leroy Township, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Leroy Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
-    "canonical": "/service-area/leroy-township",
-    "heroImage": "/images/leroy-township.webp",
-    "services": ["pack-ship", "mailbox-rental"]
-  },
-  {
-    "slug": "madison",
-    "city": "Madison",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Madison, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Madison, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Madison, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Madison, Ohio, with professional shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver trusted, local solutions with speed and reliability.",
-    "canonical": "/service-area/madison",
-    "heroImage": "/images/madison.webp",
-    "services": ["pack-ship", "shipping-insurance"]
-  },
-  {
-    "slug": "mayfield",
-    "city": "Mayfield",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Mayfield, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Mayfield, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Mayfield, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Mayfield, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
-    "canonical": "/service-area/mayfield",
-    "heroImage": "/images/mayfield.webp",
-    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "mentor",
@@ -132,28 +36,16 @@
     "services": ["pack-ship", "document-printing", "notary-services"]
   },
   {
-    "slug": "perry",
-    "city": "Perry",
+    "slug": "eastlake",
+    "city": "Eastlake",
     "state": "OH",
-    "introTitle": "Shipping & Business Services in Perry, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Perry, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Perry, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Perry, Ohio, with reliable shipping, packaging, and printing services. From local farms to families and small businesses, we deliver trusted solutions with hometown care.",
-    "canonical": "/service-area/perry",
-    "heroImage": "/images/perry.webp",
-    "services": ["pack-ship", "professional-packing"]
-  },
-  {
-    "slug": "wickliffe",
-    "city": "Wickliffe",
-    "state": "OH",
-    "introTitle": "Shipping & Business Services in Wickliffe, OH",
-    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Wickliffe, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
-    "metaTitle": "Shipping & Printing in Wickliffe, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Wickliffe, Ohio, with professional shipping, printing, and mailbox services. From local businesses to Lake County families, we deliver friendly, reliable solutions built on community trust.",
-    "canonical": "/service-area/wickliffe",
-    "heroImage": "/images/wickliffe.webp",
-    "services": ["pack-ship", "custom-box-making"]
+    "introTitle": "Shipping & Business Services in Eastlake, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Eastlake, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Eastlake, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Eastlake, Ohio with dependable shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver fast, friendly solutions you can trust.",
+    "canonical": "/service-area/eastlake",
+    "heroImage": "/images/eastlake.webp",
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "willoughby",
@@ -168,16 +60,136 @@
     "services": ["pack-ship", "flyers-brochures"]
   },
   {
+    "slug": "wickliffe",
+    "city": "Wickliffe",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Wickliffe, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Wickliffe, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Wickliffe, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Wickliffe, Ohio, with professional shipping, printing, and mailbox services. From local businesses to Lake County families, we deliver friendly, reliable solutions built on community trust.",
+    "canonical": "/service-area/wickliffe",
+    "heroImage": "/images/wickliffe.webp",
+    "services": ["pack-ship", "custom-box-making"]
+  },
+  {
+    "slug": "madison",
+    "city": "Madison",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Madison, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Madison, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Madison, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Madison, Ohio, with professional shipping, printing, and mailbox services. From small businesses to Lake Erie homeowners, we deliver trusted, local solutions with speed and reliability.",
+    "canonical": "/service-area/madison",
+    "heroImage": "/images/madison.webp",
+    "services": ["pack-ship", "shipping-insurance"]
+  },
+  {
+    "slug": "perry",
+    "city": "Perry",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Perry, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Perry, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Perry, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Perry, Ohio, with reliable shipping, packaging, and printing services. From local farms to families and small businesses, we deliver trusted solutions with hometown care.",
+    "canonical": "/service-area/perry",
+    "heroImage": "/images/perry.webp",
+    "services": ["pack-ship", "professional-packing"]
+  },
+  {
+    "slug": "kirtland",
+    "city": "Kirtland",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Kirtland, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Kirtland, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Kirtland, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Kirtland, Ohio, with professional shipping, printing, and mailbox services. From local businesses to families, we deliver dependable solutions rooted in community care and Lake County pride.",
+    "canonical": "/service-area/kirtland",
+    "heroImage": "/images/kirtland.webp",
+    "services": ["pack-ship", "copies"]
+  },
+  {
+    "slug": "chardon",
+    "city": "Chardon",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Chardon, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Chardon, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Chardon, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Chardon, Ohio, with professional shipping, printing, and mailbox services. From historic downtown businesses to local families, we deliver fast, friendly, and reliable solutions year-round.",
+    "canonical": "/service-area/chardon",
+    "heroImage": "/images/chardon.webp",
+    "services": ["pack-ship", "packaging-supplies"]
+  },
+  {
+    "slug": "fairport-harbor",
+    "city": "Fairport Harbor",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Fairport Harbor, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Fairport Harbor, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Fairport Harbor, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Fairport Harbor, Ohio, with reliable shipping, printing, and mailbox services. From lakefront residents to local businesses, we deliver friendly, dependable service rooted in community care.",
+    "canonical": "/service-area/fairport-harbor",
+    "heroImage": "/images/Fairport_Harbor.webp",
+    "services": ["pack-ship", "postage-stamps"]
+  },
+  {
+    "slug": "geneva",
+    "city": "Geneva",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Geneva, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Geneva, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Geneva, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Geneva, Ohio, with professional shipping, printing, and mailbox services. From Lake Erie wineries to downtown businesses, we deliver trusted local service with national carrier options.",
+    "canonical": "/service-area/geneva",
+    "heroImage": "/images/Geneva_Ohio.webp",
+    "services": ["pack-ship", "fedex-shipping"]
+  },
+  {
+    "slug": "leroy-township",
+    "city": "Leroy Township",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Leroy Township, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Leroy Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Leroy Township, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Leroy Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+    "canonical": "/service-area/leroy-township",
+    "heroImage": "/images/leroy-township.webp",
+    "services": ["pack-ship", "mailbox-rental"]
+  },
+  {
+    "slug": "mayfield",
+    "city": "Mayfield",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Mayfield, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Mayfield, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Mayfield, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Mayfield, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+    "canonical": "/service-area/mayfield",
+    "heroImage": "/images/mayfield.webp",
+    "services": ["pack-ship", "mailbox-rental"]
+  },
+  {
+    "slug": "auburn-township",
+    "city": "Auburn Township",
+    "state": "OH",
+    "introTitle": "Shipping & Business Services in Auburn Township, OH",
+    "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Auburn Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
+    "metaTitle": "Shipping & Printing in Auburn Township, Ohio",
+    "metaDescription": "Mailbox Plus proudly serves Auburn Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals.",
+    "canonical": "/service-area/auburn-township",
+    "heroImage": "/images/auburn-township.webp",
+    "services": ["pack-ship", "mailbox-rental"]
+  },
+  {
     "slug": "chardon-township",
     "city": "Chardon Township",
     "state": "OH",
     "introTitle": "Shipping & Business Services in Chardon Township, OH",
     "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Chardon Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
     "metaTitle": "Shipping & Printing in Chardon Township, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Chardon Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals. From historic downtown businesses to maple syrup producers, we deliver fast, friendly, and reliable solutions year-round.",
+    "metaDescription": "Mailbox Plus proudly serves Chardon Township, Ohio with expert multi-carrier shipping, custom packaging, secure mailboxes, and professional printing.",
     "canonical": "/service-area/chardon-township",
     "heroImage": "/images/chardon-township.webp",
-    "services": ["pack-ship", "mailbox-rental", "professional-packing"]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "munson-township",
@@ -186,10 +198,10 @@
     "introTitle": "Shipping & Business Services in Munson Township, OH",
     "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Munson Township, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
     "metaTitle": "Shipping & Printing in Munson Township, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Munson Township, Ohio with expert shipping, custom packaging, printing, and mailbox rentals. From Bass Lake homeowners to Geauga County entrepreneurs, we deliver reliable solutions with hometown care.",
+    "metaDescription": "Mailbox Plus proudly serves Munson Township, Ohio with expert multi-carrier shipping, custom packaging, secure mailboxes, and professional printing.",
     "canonical": "/service-area/munson-township",
     "heroImage": "/images/munson-township.webp",
-    "services": ["pack-ship", "mailbox-rental", "mail-forwarding"]
+    "services": ["pack-ship", "mailbox-rental"]
   },
   {
     "slug": "willoughby-hills",
@@ -198,9 +210,9 @@
     "introTitle": "Shipping & Business Services in Willoughby Hills, OH",
     "introductoryContent": "Mailbox Plus is proud to be the trusted shipping and business services partner for the residents and businesses of <strong>Willoughby Hills, OH</strong>. We are conveniently located just a short drive away, offering a reliable alternative for all your FedEx, UPS, and USPS needs.",
     "metaTitle": "Shipping & Printing in Willoughby Hills, Ohio",
-    "metaDescription": "Mailbox Plus proudly serves Willoughby Hills, Ohio with expert shipping, custom packaging, printing, and mailbox rentals. From medical professionals to families in the Chagrin Valley, we deliver professional solutions rooted in local care.",
+    "metaDescription": "Mailbox Plus proudly serves Willoughby Hills, Ohio with expert multi-carrier shipping, custom packaging, secure mailboxes, and professional printing.",
     "canonical": "/service-area/willoughby-hills",
     "heroImage": "/images/willoughby-hills.webp",
-    "services": ["pack-ship", "mailbox-rental", "notary-services"]
+    "services": ["pack-ship", "mailbox-rental"]
   }
 ]

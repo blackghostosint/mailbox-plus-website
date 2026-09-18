@@ -3,10 +3,56 @@ import { serviceAreas } from '../config/serviceAreas';
 import { services } from '../config/services';
 import { normalizePathname } from './canonical-url';
 
+// O(1) Map Indices
+const serviceAreaBySlugMap = new Map(serviceAreas.map((sa) => [sa.slug, sa]));
+const serviceAreaByPathMap = new Map<string, (typeof serviceAreas)[0]>();
+serviceAreas.forEach((sa) => {
+  if (sa.canonicalUrl) serviceAreaByPathMap.set(sa.canonicalUrl.replace(/\/$/, ''), sa);
+  if (sa.slug) serviceAreaByPathMap.set(`/service-area/${sa.slug}`, sa);
+});
+
+const serviceByIdMap = new Map(services.map((s) => [s.id, s]));
+
+interface PillarBreadcrumb {
+  title: string;
+  url: string;
+}
+
+interface ChildBreadcrumb {
+  pillarTitle: string;
+  pillarUrl: string;
+  childTitle: string;
+  childUrl: string;
+}
+
+const pillarByUrlMap = new Map<string, PillarBreadcrumb>();
+const childByUrlMap = new Map<string, ChildBreadcrumb>();
+
+for (const p of siteStructure.pillars) {
+  const pUrl = p.url.replace(/\/$/, '');
+  pillarByUrlMap.set(pUrl, { title: p.title, url: p.url });
+  for (const c of p.children) {
+    const cUrl = c.url.replace(/\/$/, '');
+    childByUrlMap.set(cUrl, {
+      pillarTitle: p.title,
+      pillarUrl: p.url,
+      childTitle: c.title,
+      childUrl: c.url,
+    });
+  }
+}
+
+const seoLandingByUrlMap = new Map<string, string>();
+if (Array.isArray(siteStructure['seo-landing'])) {
+  for (const item of siteStructure['seo-landing']) {
+    seoLandingByUrlMap.set(item.url.replace(/\/$/, ''), item.title);
+  }
+}
+
 export const getLocalPriorityServices = (citySlug: string) => {
-  const city = serviceAreas.find((c) => c.slug === citySlug);
+  const city = serviceAreaBySlugMap.get(citySlug);
   if (!city || !city.priorityServices) return [];
-  return city.priorityServices.map((id) => services.find((s) => s.id === id)).filter(Boolean);
+  return city.priorityServices.map((id) => serviceByIdMap.get(id)).filter(Boolean);
 };
 
 export const getBreadcrumbs = (pathname: string) => {
@@ -15,7 +61,7 @@ export const getBreadcrumbs = (pathname: string) => {
   if (path === '') return [];
 
   // Check Pillars
-  const pillar = siteStructure.pillars.find((p) => p.url === path);
+  const pillar = pillarByUrlMap.get(path);
   if (pillar) {
     return [
       { label: 'Home', url: '/' },
@@ -24,19 +70,17 @@ export const getBreadcrumbs = (pathname: string) => {
   }
 
   // Check Children
-  for (const p of siteStructure.pillars) {
-    const child = p.children.find((c) => c.url === path);
-    if (child) {
-      return [
-        { label: 'Home', url: '/' },
-        { label: p.title, url: normalizePathname(p.url) },
-        { label: child.title, url: normalizePathname(child.url), active: true },
-      ];
-    }
+  const childMatch = childByUrlMap.get(path);
+  if (childMatch) {
+    return [
+      { label: 'Home', url: '/' },
+      { label: childMatch.pillarTitle, url: normalizePathname(childMatch.pillarUrl) },
+      { label: childMatch.childTitle, url: normalizePathname(childMatch.childUrl), active: true },
+    ];
   }
 
   // Check Local Pages
-  const local = serviceAreas.find((l) => l.canonicalUrl === path);
+  const local = serviceAreaByPathMap.get(path);
   if (local) {
     return [
       { label: 'Home', url: '/' },
@@ -46,18 +90,11 @@ export const getBreadcrumbs = (pathname: string) => {
   }
 
   // Check Landing Pages
-  const landingPages: Record<string, string> = {
-    '/staples-printing-alternative-concord-township': 'Staples Alternative',
-    '/printing-services-concord-township': 'Printing Services',
-    '/office-depot-alternative-concord-township': 'Office Depot Alternative',
-    '/mail-forwarding-concord-township': 'Mail Forwarding',
-    '/document-services-concord-township': 'Document Services',
-  };
-
-  if (landingPages[path]) {
+  const landingTitle = seoLandingByUrlMap.get(path);
+  if (landingTitle) {
     return [
       { label: 'Home', url: '/' },
-      { label: landingPages[path], url: path, active: true },
+      { label: landingTitle, url: path, active: true },
     ];
   }
 

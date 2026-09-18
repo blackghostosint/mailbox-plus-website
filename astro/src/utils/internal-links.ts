@@ -19,21 +19,47 @@ export type ServiceId = keyof typeof internalLinks;
  */
 export const normalizeHref = (url: string): string => normalizePathname(url);
 
-export const getInternalLink = (serviceId: string) => {
-  // Find the service in the site structure
-  for (const pillar of siteStructure.pillars) {
-    if (pillar.id === serviceId) return { ...pillar, url: normalizeHref(pillar.url) };
-    const child = pillar.children.find((c) => c.id === serviceId);
-    if (child) return { ...child, url: normalizeHref(child.url) };
-  }
-  // Check sub-supporting
-  const sub = siteStructure.subSupporting.find((s) => s.id === serviceId);
-  if (sub) return { ...sub, url: normalizeHref(sub.url) };
-  // Check SEO landing pages (town variants, competitor alternatives)
-  const seo = siteStructure['seo-landing']?.find((s) => s.id === serviceId);
-  if (seo) return { ...seo, url: normalizeHref(seo.url) };
+interface InternalLinkNode {
+  id: string;
+  url: string;
+  title: string;
+}
 
-  return null;
+// O(1) Map Indices
+const internalLinkMap = new Map<string, InternalLinkNode>();
+const parentPillarMap = new Map<string, (typeof siteStructure.pillars)[0]>();
+
+for (const pillar of siteStructure.pillars) {
+  internalLinkMap.set(pillar.id, { id: pillar.id, url: pillar.url, title: pillar.title });
+  for (const child of pillar.children) {
+    internalLinkMap.set(child.id, { id: child.id, url: child.url, title: child.title });
+  }
+}
+if (Array.isArray(siteStructure.subSupporting)) {
+  for (const sub of siteStructure.subSupporting) {
+    internalLinkMap.set(sub.id, { id: sub.id, url: sub.url, title: sub.title });
+  }
+}
+if (Array.isArray(siteStructure['seo-landing'])) {
+  for (const seo of siteStructure['seo-landing']) {
+    internalLinkMap.set(seo.id, { id: seo.id, url: seo.url, title: seo.title });
+  }
+}
+
+const pillarByIdMap = new Map(siteStructure.pillars.map((p) => [p.id, p]));
+for (const [id, data] of Object.entries(internalLinks)) {
+  if (data.parent) {
+    const parentPillar = pillarByIdMap.get(data.parent);
+    if (parentPillar) {
+      parentPillarMap.set(id, parentPillar);
+    }
+  }
+}
+
+export const getInternalLink = (serviceId: string) => {
+  const node = internalLinkMap.get(serviceId);
+  if (!node) return null;
+  return { ...node, url: normalizeHref(node.url) };
 };
 
 export const getAnchorText = (
@@ -79,8 +105,5 @@ export const getRelatedServices = (serviceId: ServiceId) => {
 };
 
 export const getParentPillar = (serviceId: ServiceId) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const linkData = (internalLinks as any)[serviceId];
-  if (!linkData || !linkData.parent) return null;
-  return siteStructure.pillars.find((p) => p.id === linkData.parent);
+  return parentPillarMap.get(serviceId) || null;
 };

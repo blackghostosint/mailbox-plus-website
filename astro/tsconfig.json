@@ -3,7 +3,8 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "~icons/*": ["src/lib/icon-stub.ts"]
     },
     "jsx": "react-jsx",
     "jsxImportSource": "react"
