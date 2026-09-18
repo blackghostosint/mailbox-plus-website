@@ -6,20 +6,36 @@ of hand-maintaining thin summary notes.
 
 ## Files
 
-- `vault-extract.test.ts` — vitest test that imports every site config
+- `astro/src/scripts/vault-extract.test.ts` — vitest test that imports every site config
   (services, FAQs, serviceAreas, locations, siteConfig) and dumps them to
-  `/tmp/vault-data.json`. Lives under `astro/` so Vite resolves `~icons`
+  `/tmp/vault-data.json`. Lives under `astro/src/scripts/` so Vite resolves `~icons`
   and `import.meta.env`.
 - `vault-generate.py` — reads the JSON dump + `content/articles/**` frontmatter,
   writes rich markdown notes (with provenance frontmatter) to a staging dir.
-- `sync.sh` — the full pipeline: extract → generate → upload via scp.
+- `sync.sh` — the full pipeline: extract → generate → upload via scp or local copy.
 - `verify-links.py` — checks every wikilink in the vault resolves (handles
   spaces in `[[link names]]`, which shell loops cannot).
 
 ## Run
 
 ```bash
-bash scripts/vault-sync/sync.sh
+# Extract configs to JSON dump
+npm run vault:extract
+
+# Generate Markdown vault notes from JSON dump
+npm run vault:generate
+
+# Full pipeline sync (extract, generate, and upload/copy)
+npm run vault:sync
+
+# Dry-run mode (validates extraction and generation without uploading)
+DRY_RUN=1 npm run vault:sync
+
+# Sync to a local target directory
+DEST_DIR=/path/to/local/vault npm run vault:sync
+
+# Sync to custom SSH server target
+SSH_HOST=user@host VAULT_REMOTE_PATH=/remote/path npm run vault:sync
 ```
 
 ## What it generates (Knowledge/ section "Website Sync")
