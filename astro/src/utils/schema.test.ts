@@ -627,4 +627,33 @@ describe('getSchemaGraph', () => {
     expect(localBizCount).toBe(1);
     expect(webSiteCount).toBe(1);
   });
+
+  it('does not mutate caller-provided input schema objects when assigning ImageObject properties', () => {
+    const originalWebPage = getWebPageSchema(mockSiteConfig, {
+      name: 'Test Page',
+      description: 'Test Description',
+      url: '/test-page/',
+    });
+    const originalService = getServiceSchema(mockSiteConfig, {
+      serviceName: 'Test Service',
+      url: '/test-service/',
+    });
+    const imageObj = getImageObjectSchema({
+      contentUrl: 'https://example.com/test.jpg',
+      name: 'Test Image',
+      config: mockSiteConfig,
+    });
+
+    const webPageSnapshot = JSON.parse(JSON.stringify(originalWebPage));
+    const serviceSnapshot = JSON.parse(JSON.stringify(originalService));
+
+    getSchemaGraph(mockSiteConfig, [originalWebPage, originalService, imageObj]);
+
+    expect(originalWebPage).toEqual(webPageSnapshot);
+    expect(originalService).toEqual(serviceSnapshot);
+    expect(
+      (originalWebPage as unknown as Record<string, unknown>).primaryImageOfPage
+    ).toBeUndefined();
+    expect((originalService as unknown as Record<string, unknown>).image).toBeUndefined();
+  });
 });

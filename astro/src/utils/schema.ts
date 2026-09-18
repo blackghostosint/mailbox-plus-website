@@ -592,17 +592,30 @@ export const getSchemaGraph = (
     }) as unknown as Record<string, unknown>;
   }
 
-  const serviceNode = otherNodes.find((n) => n['@type'] === 'Service');
+  let serviceNode = otherNodes.find((n) => n['@type'] === 'Service');
 
+  // If an ImageObject is present in input nodes, attach it as a child property
+  // to primary nodes (WebPage.primaryImageOfPage, Service.image) rather than
+  // rendering as an unlinked top-level node.
+  // Note: webPageNode and serviceNode are shallow-copied before property assignment
+  // so that caller-provided input schema objects are never mutated.
   if (imageObjectNodes.length > 0) {
     const cleanImageNode = { ...imageObjectNodes[0] };
     delete cleanImageNode['@context'];
 
     if (webPageNode) {
-      webPageNode.primaryImageOfPage = cleanImageNode;
+      const pageIndex = otherNodes.indexOf(webPageNode);
+      webPageNode = { ...webPageNode, primaryImageOfPage: cleanImageNode };
+      if (pageIndex !== -1) {
+        otherNodes[pageIndex] = webPageNode;
+      }
     }
     if (serviceNode) {
-      serviceNode.image = cleanImageNode;
+      const serviceIndex = otherNodes.indexOf(serviceNode);
+      serviceNode = { ...serviceNode, image: cleanImageNode };
+      if (serviceIndex !== -1) {
+        otherNodes[serviceIndex] = serviceNode;
+      }
     }
   }
 
