@@ -1,10 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { resolveDistDir } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const DIST_DIR = path.join(ROOT_DIR, 'dist');
+const DIST_DIR = resolveDistDir();
 const TARGET_HOST = 'mailboxplusohio.com';
 
 // Recursively walks directory to find all .html files

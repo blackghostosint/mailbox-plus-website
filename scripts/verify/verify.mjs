@@ -26,6 +26,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
+import { resolveDistDir } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -1010,8 +1011,9 @@ function cmdArticles(isStrict = false) {
 // ---------- build, sitemap, seo-gates ----------
 function cmdBuild() {
   let before;
+  const targetDistBefore = resolveDistDir();
   try {
-    before = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim();
+    before = execSync(`find "${targetDistBefore}" -name "*.html" | wc -l`, { cwd: ROOT }).toString().trim();
   } catch {
     before = '0';
   }
@@ -1021,14 +1023,15 @@ function cmdBuild() {
     check('build', false, 'npm run build failed', 'fix build errors first');
     return;
   }
-  const after = execSync('find dist -name "*.html" | wc -l', { cwd: ROOT }).toString().trim();
+  const targetDistAfter = resolveDistDir();
+  const after = execSync(`find "${targetDistAfter}" -name "*.html" | wc -l`, { cwd: ROOT }).toString().trim();
   check('build', true, `page count: ${before} → ${after}`);
 }
 
 function cmdSitemap(expectPath) {
-  const sm = path.join(ROOT, 'dist', 'sitemap-0.xml');
+  const sm = path.join(resolveDistDir(), 'sitemap-0.xml');
   if (!fs.existsSync(sm)) {
-    check('sitemap', false, 'dist/sitemap-0.xml missing — run build first', 'npm run build');
+    check('sitemap', false, `${path.relative(ROOT, sm)} missing — run build first`, 'npm run build');
     return;
   }
   const xml = fs.readFileSync(sm, 'utf8');

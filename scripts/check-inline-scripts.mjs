@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { resolveDistDir } from './lib/dist-path.mjs';
 
 function getHtmlFiles(dir, files = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
@@ -15,9 +16,8 @@ function getHtmlFiles(dir, files = []) {
 }
 
 function checkInlineScripts() {
-  const distDir = path.resolve('dist');
+  const distDir = resolveDistDir();
   if (!fs.existsSync(distDir)) {
-    console.error('Error: dist directory does not exist. Run build first.');
     process.exit(1);
   }
 

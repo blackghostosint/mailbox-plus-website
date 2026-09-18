@@ -3,11 +3,12 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { createRequire } from 'module';
 import ts from 'typescript';
+import { resolveDistDir } from '../lib/dist-path.mjs';
 
 const require = createRequire(import.meta.url);
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const DIST_DIR = path.join(ROOT_DIR, 'dist');
+const DIST_DIR = resolveDistDir();
 const SERVICES_DIR = path.join(ROOT_DIR, 'astro', 'src', 'config', 'services');
 
 function walkDir(dir) {
