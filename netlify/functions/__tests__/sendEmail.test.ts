@@ -41,60 +41,76 @@ describe('sendEmail function handler', () => {
   it('returns 400 if reCAPTCHA verification fails', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(false);
 
-    const event = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.1' },
+    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.1',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'john@example.com',
         recaptchaToken: 'invalid_token',
       }),
-    };
+    });
 
-    const response = await handler(event);
-    expect(response.statusCode).toBe(400);
-    expect(JSON.parse(response.body)).toEqual({ error: 'reCAPTCHA verification failed' });
+    const response = await handler(req);
+    expect(response.status).toBe(400);
+    expect(await response.json()).toEqual({ error: 'reCAPTCHA verification failed' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
   it('returns 400 if email is missing or malformed', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
-    const eventMissingEmail = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.2' },
+    const reqMissingEmail = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.2',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({ name: 'John Doe', recaptchaToken: 'valid_token' }),
-    };
-    const res1 = await handler(eventMissingEmail);
-    expect(res1.statusCode).toBe(400);
-    expect(JSON.parse(res1.body)).toEqual({ error: 'Invalid email address' });
+    });
+    const res1 = await handler(reqMissingEmail);
+    expect(res1.status).toBe(400);
+    expect(await res1.json()).toEqual({ error: 'Invalid email address' });
 
-    const eventMalformedEmail = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.3' },
+    const reqMalformedEmail = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.3',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'not-an-email',
         recaptchaToken: 'valid_token',
       }),
-    };
-    const res2 = await handler(eventMalformedEmail);
-    expect(res2.statusCode).toBe(400);
-    expect(JSON.parse(res2.body)).toEqual({ error: 'Invalid email address' });
+    });
+    const res2 = await handler(reqMalformedEmail);
+    expect(res2.status).toBe(400);
+    expect(await res2.json()).toEqual({ error: 'Invalid email address' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
   it('returns 400 if field type is non-string', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
-    const eventNonStringField = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.4' },
+    const reqNonStringField = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.4',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         recaptchaToken: 'valid_token',
         name: 12345,
         email: 'john@example.com',
       }),
-    };
-    const res = await handler(eventNonStringField);
-    expect(res.statusCode).toBe(400);
-    expect(JSON.parse(res.body)).toEqual({ error: 'Invalid name: must be a string' });
+    });
+    const res = await handler(reqNonStringField);
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: 'Invalid name: must be a string' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -102,18 +118,22 @@ describe('sendEmail function handler', () => {
     delete process.env.RESEND_API_KEY;
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
 
-    const event = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.5' },
+    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.5',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         name: 'John Doe',
         email: 'john@example.com',
         recaptchaToken: 'valid_token',
       }),
-    };
+    });
 
-    const response = await handler(event);
-    expect(response.statusCode).toBe(500);
-    expect(JSON.parse(response.body)).toEqual({ error: 'Failed to send message' });
+    const response = await handler(req);
+    expect(response.status).toBe(500);
+    expect(await response.json()).toEqual({ error: 'Failed to send message' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -121,8 +141,12 @@ describe('sendEmail function handler', () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
     mockSend.mockResolvedValue({ id: 'msg_123' });
 
-    const event = {
-      headers: { 'x-nf-client-connection-ip': '10.0.0.6' },
+    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': '10.0.0.6',
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
         recaptchaToken: 'valid_token',
         name: 'Jane <Script> & "Quote"',
@@ -132,11 +156,11 @@ describe('sendEmail function handler', () => {
         plan: 'gold <tier>',
         message: 'Hello <script>alert("XSS")</script> & world!',
       }),
-    };
+    });
 
-    const response = await handler(event);
-    expect(response.statusCode).toBe(200);
-    expect(JSON.parse(response.body)).toEqual({ success: true });
+    const response = await handler(req);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toEqual({ success: true });
 
     expect(mockSend).toHaveBeenCalledTimes(1);
     const sendArgs = mockSend.mock.calls[0][0];
