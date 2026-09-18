@@ -38,9 +38,8 @@ const serviceSchema = getServiceSchema(siteConfig, {
   description="Concord Twp, OH — we're pushing to become your official Amazon returns counter. No box, no label, just a QR scan. Here's how you help make it happen."
   canonical="/amazon-counter/"
   ogImage="/og/amazon-counter.png"
+  schema={[webPageSchema, serviceSchema]}
 >
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-  <script slot="head" type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
   <!-- HERO -->
   <section class="relative bg-center py-16 lg:py-24 overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)]"></div>

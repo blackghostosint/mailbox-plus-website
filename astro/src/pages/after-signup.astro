@@ -143,11 +143,8 @@ const stepIcons = [
   title={metaTitle}
   description={metaDescription}
   canonical={canonical}
+  schema={schemas}
 >
-  <!-- JSON-LD Structured Data -->
-  {schemas.map((schema) => (
-    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  ))}
 
   <!-- Breadcrumbs -->
   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">

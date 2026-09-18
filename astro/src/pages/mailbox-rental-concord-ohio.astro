@@ -1,52 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/siteConfig';
+import { getServiceSchema } from '../utils/schema';
+
+const serviceSchema = getServiceSchema(siteConfig, {
+  serviceName: 'Private Mailbox Rental',
+  url: '/mailbox-rental-concord-ohio/',
+  areaServed: ['Concord Township, OH'],
+  offers: [{ name: 'Standard Mailbox Rental', price: '15.00', currency: 'USD' }],
+});
 ---
 <BaseLayout
   title="Mailbox Rental in Concord Township | Mailbox Plus"
   description="Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site. Rated 5.0★ on Google. Call (440) 709-1946."
+  canonical="/mailbox-rental-concord-ohio/"
+  schema={[serviceSchema]}
 >
-  <!-- JSON-LD Structured Data for Service and LocalBusiness -->
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      "name": "Private Mailbox Rental",
-      "description": "Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site.",
-      "areaServed": {
-        "@type": "Place",
-        "name": "Concord Township, OH",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Concord Township",
-          "addressRegion": "OH",
-          "postalCode": "44077",
-          "addressCountry": "US"
-        }
-      },
-      "provider": {
-        "@type": "LocalBusiness",
-        "name": "Mailbox Plus",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "7554 Fredle Drive",
-          "addressLocality": "Concord Township",
-          "addressRegion": "OH",
-          "postalCode": "44077"
-        },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "5.0",
-          "reviewCount": "32"
-        }
-      },
-      "offers": {
-        "@type": "Offer",
-        "name": "Standard Mailbox Rental",
-        "priceCurrency": "USD",
-        "priceRange": "Starting at $15/month"
-      }
-    }
-    </script>
 
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
     <h1 class="text-3xl font-bold text-center mb-8 text-[var(--color-primary)]">

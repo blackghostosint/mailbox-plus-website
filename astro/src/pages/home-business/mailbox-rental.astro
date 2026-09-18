@@ -94,11 +94,7 @@ const tiers = [
 ];
 ---
 
-<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} ogImage="/og/home-business-mailbox-rental.png">
-  <!-- JSON-LD Schemas -->
-  <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} ogImage="/og/home-business-mailbox-rental.png" schema={[webPageSchema, serviceSchema, faqSchema]}>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
