@@ -208,12 +208,10 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
     const key =
       options.apiKey ||
       process.env.GEMINI_API_KEY ||
-      process.env.VITE_GEMINI_API_KEY ||
-      envKeys.GEMINI_API_KEY ||
-      envKeys.VITE_GEMINI_API_KEY;
+      envKeys.GEMINI_API_KEY;
     if (!key) {
       throw new Error(
-        'Neither GEMINI_API_KEY nor VITE_GEMINI_API_KEY found in environment or ~/.hermes/.env'
+        'GEMINI_API_KEY not found in environment or ~/.hermes/.env'
       );
     }
     rawResponse = await callGemini(key, model, content);

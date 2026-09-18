@@ -16,14 +16,12 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 | ----------------------------- | ------------------------------------------------------------------------ | ------------ |
 | `VITE_SENTRY_DSN`             | Sentry DSN for error tracking                                            | (none)       |
 | `VITE_SENTRY_ENVIRONMENT`     | Sentry environment tag                                                   | `production` |
-| `VITE_GEMINI_API_KEY`         | Gemini API key for frontend chatbot AI features and test runner fallback | (none)       |
 | `GEMINI_API_KEY`              | Gemini API key for Node test scripts and embedding generation            | (none)       |
-| `VITE_GEMINI_TIMEOUT_SECONDS` | Gemini API timeout                                                       | `90`         |
+| `GEMINI_TIMEOUT_SECONDS`      | Gemini API timeout                                                       | `90`         |
 
-### Gemini API Key Compatibility
+### Gemini API Key Configuration
 
-- **Frontend Client:** Uses `VITE_GEMINI_API_KEY` (injected at build time via Vite).
-- **Node Test Scripts & Runner:** Test runners (such as `npm run test:retrieval` and `npm run build:embeddings`) check `GEMINI_API_KEY` first and automatically fall back to `VITE_GEMINI_API_KEY` if `GEMINI_API_KEY` is undefined. Local development setups with `VITE_GEMINI_API_KEY` in `.env` or `.env.local` work seamlessly without requiring duplicate environment variables.
+- **Server Secret:** `GEMINI_API_KEY` is used strictly by server/build-time scripts (such as `npm run test:retrieval` and `npm run build:embeddings`). It must not use the `VITE_` prefix to prevent Vite from inlining secrets into client JavaScript bundles.
 
 ## Netlify Function Variables
 

@@ -44,7 +44,7 @@ import {
 // ========================================
 // Mode & Gemini API Setup
 // ========================================
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY;
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const isOfflineMode = !GEMINI_API_KEY;
 
 let genAI: GoogleGenerativeAI | null = null;
@@ -56,7 +56,7 @@ if (!isOfflineMode) {
   console.log(`✓ Gemini API initialized with ${EMBEDDING_MODEL} model`);
 } else {
   console.log(
-    'ℹ Neither GEMINI_API_KEY nor VITE_GEMINI_API_KEY set. Running in offline mode using precomputed embeddings.'
+    'ℹ GEMINI_API_KEY not set. Running in offline mode using precomputed embeddings.'
   );
 }
 
@@ -122,7 +122,7 @@ async function generateEmbedding(
 
   if (isOfflineMode) {
     throw new Error(
-      `Offline mode error: Missing precomputed embedding for text: "${text.substring(0, 50)}..." (${taskType}). Run 'npm run build:embeddings' with GEMINI_API_KEY or VITE_GEMINI_API_KEY set.`
+      `Offline mode error: Missing precomputed embedding for text: "${text.substring(0, 50)}..." (${taskType}). Run 'npm run build:embeddings' with GEMINI_API_KEY set.`
     );
   }
 
@@ -152,14 +152,14 @@ async function buildEmbeddingCache(): Promise<void> {
   if (isOfflineMode) {
     if (Object.keys(embeddingCache).length === 0) {
       console.log(
-        'ℹ Neither GEMINI_API_KEY nor VITE_GEMINI_API_KEY set and no cached vector embeddings found in .embedding-cache.json.'
+        'ℹ GEMINI_API_KEY not set and no cached vector embeddings found in .embedding-cache.json.'
       );
       console.log('ℹ Skipping retrieval evaluation tests in offline mode.\n');
       const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
       const skippedReport =
         `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
         `**Generated:** ${new Date().toISOString()}\n\n` +
-        `ℹ Retrieval test suite skipped because neither GEMINI_API_KEY nor VITE_GEMINI_API_KEY was set and no cached vector embeddings file (.embedding-cache.json) was found.\n`;
+        `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file (.embedding-cache.json) was found.\n`;
       writeFileSync(reportPath, skippedReport, 'utf-8');
       process.exit(0);
     }
