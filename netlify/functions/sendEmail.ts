@@ -4,6 +4,7 @@ import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
+import { logger } from './lib/logger';
 
 // IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
@@ -151,7 +152,7 @@ export const handler: Handler = withCors(
       }
 
       if (!process.env.RESEND_API_KEY) {
-        console.error('RESEND_API_KEY is missing from environment');
+        logger.error('RESEND_API_KEY is missing from environment');
         return {
           statusCode: 500,
           body: JSON.stringify({ error: 'Failed to send message' }),
@@ -215,7 +216,7 @@ export const handler: Handler = withCors(
         body: JSON.stringify({ success: true }),
       };
     } catch (error) {
-      console.error('Email sending error:', error);
+      logger.error('Email sending error', error);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to send message' }),

@@ -8,6 +8,7 @@ import { Handler } from '@netlify/functions';
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { logger } from './lib/logger';
 
 dotenv.config();
 
@@ -176,7 +177,7 @@ export const handler: Handler = withCors(
         body: JSON.stringify({ url: session.url }),
       };
     } catch (err: any) {
-      console.error('create-checkout error:', err?.message || err);
+      logger.error('create-checkout error', err);
       return {
         statusCode: 500,
         body: JSON.stringify({ error: 'Failed to create checkout session' }),

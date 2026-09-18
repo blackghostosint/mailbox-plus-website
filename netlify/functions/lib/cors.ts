@@ -1,4 +1,5 @@
 import type { Handler, HandlerEvent, HandlerContext, HandlerResponse } from '@netlify/functions';
+import { logger } from './logger';
 
 export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
@@ -147,7 +148,16 @@ export function withCors(handler: Handler, options?: CorsOptions): Handler {
         headers: mergedHeaders,
       };
     } catch (error) {
-      console.error('Unhandled error in Netlify function handler:', error);
+      logger.error(
+        'Unhandled error in Netlify function handler',
+        {
+          path: event.path,
+          httpMethod: event.httpMethod,
+          queryStringParameters: event.queryStringParameters,
+          headers: event.headers,
+        },
+        error
+      );
       return {
         statusCode: 500,
         headers: {
@@ -209,7 +219,15 @@ export function withWebCors(handler: WebHandler, options?: CorsOptions): WebHand
         headers,
       });
     } catch (error) {
-      console.error('Unhandled error in Web Standard function handler:', error);
+      logger.error(
+        'Unhandled error in Web Standard function handler',
+        {
+          url: request.url,
+          method: request.method,
+          headers: Object.fromEntries(request.headers.entries()),
+        },
+        error
+      );
       return new Response(JSON.stringify({ error: 'Internal server error' }), {
         status: 500,
         headers: {

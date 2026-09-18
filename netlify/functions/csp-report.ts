@@ -6,6 +6,7 @@
 
 import type { Context } from 'https://edge.netlify.com/';
 import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { logger } from './lib/logger';
 
 export default withWebCors(
   async (request: Request, context: Context) => {
@@ -18,25 +19,21 @@ export default withWebCors(
       const body = await request.json();
       const report = body['csp-report'] || body;
 
-      // Log the violation (in production, send to Sentry or a logging service)
-      console.warn(
-        '[CSP Violation]',
-        JSON.stringify({
-          documentUri: report['document-uri'] || report.documentUri,
-          violatedDirective: report['violated-directive'] || report.violatedDirective,
-          blockedUri: report['blocked-uri'] || report.blockedUri,
-          sourceFile: report['source-file'] || report.sourceFile,
-          lineNumber: report['line-number'] || report.lineNumber,
-          timestamp: new Date().toISOString(),
-          userAgent: request.headers.get('user-agent') || 'unknown',
-        })
-      );
+      // Log the violation with automatic parameter / URL redaction
+      logger.warn('[CSP Violation]', {
+        documentUri: report['document-uri'] || report.documentUri,
+        violatedDirective: report['violated-directive'] || report.violatedDirective,
+        blockedUri: report['blocked-uri'] || report.blockedUri,
+        sourceFile: report['source-file'] || report.sourceFile,
+        lineNumber: report['line-number'] || report.lineNumber,
+        userAgent: request.headers.get('user-agent') || 'unknown',
+      });
 
       return new Response(null, {
         status: 204,
       });
     } catch (err) {
-      console.error('[CSP Report Error]', err);
+      logger.error('[CSP Report Error]', err);
       return new Response('Bad Request', { status: 400 });
     }
   },
