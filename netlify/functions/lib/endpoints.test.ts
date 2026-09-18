@@ -271,7 +271,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const rateLimitIp = '198.51.100.20';
       const makeRequest = () =>
         new Request(
-          'https://example.com/.netlify/functions/verify-session?session_id=cs_test_invalid',
+          'https://example.com/.netlify/functions/verify-session?session_id=invalid_session',
           {
             method: 'GET',
             headers: {
