@@ -3,9 +3,23 @@ import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
-import { getClientIp } from './lib/rate-limiter';
+import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
 
 export { getClientIp };
+
+export async function checkRateLimit(
+  ip: string,
+  limit = 5,
+  windowMs = 10 * 60 * 1000
+): Promise<boolean> {
+  const result = await checkRateLimitLib(ip, {
+    maxRequests: limit,
+    windowMs,
+    storeName: 'sendEmail-rate-limits',
+    keyPrefix: 'sendEmail',
+  });
+  return result.allowed;
+}
 
 export const handler = withCors(
   async (request: Request) => {
@@ -116,7 +130,15 @@ export const handler = withCors(
       return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
     }
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 5, windowMs: 10 * 60 * 1000 } }
+  {
+    allowOrigin: DEFAULT_ALLOWED_ORIGINS,
+    rateLimit: {
+      maxRequests: 5,
+      windowMs: 10 * 60 * 1000,
+      storeName: 'sendEmail-rate-limits',
+      keyPrefix: 'sendEmail',
+    },
+  }
 );
 
 export default handler;

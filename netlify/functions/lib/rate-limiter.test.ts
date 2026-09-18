@@ -83,6 +83,20 @@ describe('rate-limiter', () => {
     expect(allowedAgain.allowed).toBe(true);
   });
 
+  it('isolates rate limits by keyPrefix so endpoints do not interfere with each other', async () => {
+    const ip = '192.168.1.200';
+    const optsEndpointA = { maxRequests: 2, windowMs: 60000, keyPrefix: 'endpointA' };
+    const optsEndpointB = { maxRequests: 2, windowMs: 60000, keyPrefix: 'endpointB' };
+
+    // Exhaust endpoint A rate limit
+    await checkRateLimit(ip, optsEndpointA);
+    await checkRateLimit(ip, optsEndpointA);
+    expect((await checkRateLimit(ip, optsEndpointA)).allowed).toBe(false);
+
+    // Endpoint B should still be allowed for the same IP
+    expect((await checkRateLimit(ip, optsEndpointB)).allowed).toBe(true);
+  });
+
   describe('getClientIp', () => {
     it('extracts IP from plain record object prioritizing x-nf-client-connection-ip', () => {
       const headers = {

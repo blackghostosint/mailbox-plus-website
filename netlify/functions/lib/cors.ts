@@ -127,8 +127,15 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
     if (options?.rateLimit) {
       try {
         const clientIp = getClientIp(request.headers);
-        const rateLimitOpts = typeof options.rateLimit === 'object' ? options.rateLimit : undefined;
-        const limitResult = await checkRateLimit(clientIp, rateLimitOpts);
+        const rateLimitOpts = typeof options.rateLimit === 'object' ? options.rateLimit : {};
+        const urlPath = request.url
+          ? new URL(request.url).pathname.replace(/[^a-zA-Z0-9_.-]/g, '_')
+          : '';
+        const effectiveOpts: RateLimitOptions = {
+          keyPrefix: urlPath,
+          ...rateLimitOpts,
+        };
+        const limitResult = await checkRateLimit(clientIp, effectiveOpts);
         if (!limitResult.allowed) {
           const retryAfterSeconds = Math.max(1, Math.ceil(limitResult.resetMs / 1000));
           const maxRequests = rateLimitOpts?.maxRequests ?? 10;

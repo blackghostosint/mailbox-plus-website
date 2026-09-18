@@ -6,10 +6,10 @@ const MAX_REQUESTS = 10;
 // In-memory fallback map for temporary latency or offline environments
 const memoryStore = new Map<string, number[]>();
 
-function getRateLimitStore() {
+function getRateLimitStore(storeName = 'rate-limits') {
   try {
     return getStore({
-      name: 'rate-limits',
+      name: storeName,
       siteID: process.env.NETLIFY_SITE_ID,
       token: process.env.NETLIFY_AUTH_TOKEN,
     });
@@ -21,6 +21,8 @@ function getRateLimitStore() {
 export interface RateLimitOptions {
   windowMs?: number;
   maxRequests?: number;
+  storeName?: string;
+  keyPrefix?: string;
 }
 
 export interface RateLimitResult {
@@ -90,17 +92,19 @@ export async function checkRateLimit(
 ): Promise<RateLimitResult> {
   const windowMs = options?.windowMs ?? WINDOW_MS;
   const maxRequests = options?.maxRequests ?? MAX_REQUESTS;
+  const storeName = options?.storeName ?? 'rate-limits';
+  const prefix = options?.keyPrefix ? `${options.keyPrefix}_` : '';
 
   const now = Date.now();
   const safeIp = clientIp || '127.0.0.1';
-  const key = `ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
+  const key = `${prefix}ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
 
   let timestamps: number[] = [];
 
   // Try reading from Netlify Blobs with in-memory fallback
   let store: ReturnType<typeof getStore> | null = null;
   try {
-    store = getRateLimitStore();
+    store = getRateLimitStore(storeName);
     if (store) {
       const raw = await store.get(key);
       if (raw) {
