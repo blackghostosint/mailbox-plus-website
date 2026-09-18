@@ -53,7 +53,23 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
   description="Explore our comprehensive business services: shipping, printing, mailbox rentals, notary, shredding, and more. Your local solution in Concord Township, Ohio."
   ogImage="/og/services.png"
 >
-  <script src="/js/back-to-top.js" defer></script>
+  <script>
+    function initBackToTop() {
+      const btn = document.getElementById('back-to-top');
+      if (btn) {
+        window.addEventListener('scroll', () => {
+          btn.classList.toggle('hidden', window.scrollY < 300);
+        });
+        btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBackToTop);
+    } else {
+      initBackToTop();
+    }
+  </script>
 
   <!-- HERO -->
   <section class="relative bg-gradient-to-br from-[var(--color-primary-dark)] via-[var(--color-primary)] to-[var(--color-primary-deep)] py-16 lg:py-24 text-center overflow-hidden">
