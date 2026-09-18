@@ -152,9 +152,16 @@ const siteStructure = {
   'seo-landing': seoLanding,
 };
 
+import prettier from 'prettier';
+
 // Write files
-fs.writeFileSync(LOCAL_PAGES_PATH, JSON.stringify(localPages, null, 2) + '\n');
-fs.writeFileSync(SITE_STRUCTURE_PATH, JSON.stringify(siteStructure, null, 2) + '\n');
+const formattedLocalPages = await prettier.format(JSON.stringify(localPages), { parser: 'json' });
+const formattedSiteStructure = await prettier.format(JSON.stringify(siteStructure), {
+  parser: 'json',
+});
+
+fs.writeFileSync(LOCAL_PAGES_PATH, formattedLocalPages);
+fs.writeFileSync(SITE_STRUCTURE_PATH, formattedSiteStructure);
 
 const duration = (performance.now() - startTime).toFixed(2);
 console.log(`✅ Route registries emitted successfully in ${duration}ms!`);

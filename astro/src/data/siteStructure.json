@@ -233,11 +233,7 @@
           "url": "/copy-print/postcard-printing",
           "title": "Postcard Printing"
         },
-        {
-          "id": "copies",
-          "url": "/copy-print/copies",
-          "title": "Copies"
-        },
+        { "id": "copies", "url": "/copy-print/copies", "title": "Copies" },
         {
           "id": "staples-printing-alternative-concord-township",
           "url": "/staples-printing-alternative-concord-township",
