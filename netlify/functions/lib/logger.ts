@@ -4,6 +4,9 @@
  * structured JSON execution logs.
  */
 
+// Note: 'message' is intentionally included in SENSITIVE_KEYS to redact user-submitted
+// freeform message fields (e.g. contact form bodies) in logged context objects for PII protection.
+// Top-level log messages (LogPayload.message) and Error.message remain preserved via sanitizeString.
 const SENSITIVE_KEYS = new Set([
   'email',
   'phone',
