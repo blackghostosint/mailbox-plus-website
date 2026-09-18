@@ -372,6 +372,26 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.headers.get('Content-Type')).toBe('application/json');
       expect(res.headers.get('X-Health-Check')).toBe('true');
     });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const rateLimitIp = '198.51.100.50';
+      const request = () =>
+        new Request('https://example.com/.netlify/functions/health', {
+          method: 'GET',
+          headers: { 'x-nf-client-connection-ip': rateLimitIp },
+        });
+
+      for (let i = 0; i < 60; i++) {
+        await healthHandler(request(), mockContext);
+      }
+
+      const res = await healthHandler(request(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
+    });
   });
 
   describe('reviews', () => {

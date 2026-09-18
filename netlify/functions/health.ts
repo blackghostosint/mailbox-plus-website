@@ -43,5 +43,5 @@ export default withCors(
       },
     });
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 60, windowMs: 60 * 1000 } }
 );

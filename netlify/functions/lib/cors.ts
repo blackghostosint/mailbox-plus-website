@@ -132,6 +132,13 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
         if (!limitResult.allowed) {
           const retryAfterSeconds = Math.max(1, Math.ceil(limitResult.resetMs / 1000));
           const maxRequests = rateLimitOpts?.maxRequests ?? 10;
+          logger.warn('Rate limit exceeded', {
+            clientIp,
+            url: request.url,
+            method: request.method,
+            count: limitResult.count,
+            limit: maxRequests,
+          });
           return new Response(
             JSON.stringify({ error: 'Too many requests. Please try again later.' }),
             {
@@ -148,7 +155,7 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
           );
         }
       } catch (err) {
-        console.error('Rate limit evaluation error in withCors:', err);
+        logger.warn('Rate limit evaluation error, failing open', err);
       }
     }
 

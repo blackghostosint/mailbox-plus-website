@@ -173,7 +173,7 @@ export const handler = withCors(
       return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
     }
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 5, windowMs: 10 * 60 * 1000 } }
 );
 
 export default handler;
