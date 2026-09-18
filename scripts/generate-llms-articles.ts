@@ -116,23 +116,99 @@ function spliceSection(existing: string, headerRegex: RegExp, newContent: string
   return existing.trimEnd() + '\n\n' + newContent.trimEnd() + '\n';
 }
 
+function printDiffSummary(filename: string, existing: string, expected: string): void {
+  const existingLines = existing.split('\n');
+  const expectedLines = expected.split('\n');
+
+  console.error(`\n--- Diff Summary for ${filename} ---`);
+  console.error(`  On-disk line count:  ${existingLines.length}`);
+  console.error(`  Expected line count: ${expectedLines.length}`);
+
+  let diffCount = 0;
+  const maxDiffs = 10;
+  const maxLines = Math.max(existingLines.length, expectedLines.length);
+
+  for (let i = 0; i < maxLines; i++) {
+    const actualLine = existingLines[i];
+    const expectedLine = expectedLines[i];
+    if (actualLine !== expectedLine) {
+      diffCount++;
+      if (diffCount <= maxDiffs) {
+        console.error(`  Difference at line ${i + 1}:`);
+        console.error(
+          `    - Disk:     ${actualLine !== undefined ? JSON.stringify(actualLine) : '<EOF>'}`
+        );
+        console.error(
+          `    + Expected: ${expectedLine !== undefined ? JSON.stringify(expectedLine) : '<EOF>'}`
+        );
+      }
+    }
+  }
+
+  if (diffCount > maxDiffs) {
+    console.error(`  ... and ${diffCount - maxDiffs} more differing lines.`);
+  }
+  console.error(`--------------------------------------\n`);
+}
+
 const write = process.argv.includes('--write');
+const check = process.argv.includes('--check');
+
 const articles = getLLMArticles();
 console.log(`[llms] loaded ${articles.length} published articles`);
 
-if (!write) {
-  console.log('[llms] dry run (pass --write to update files)');
+const llmsExisting = fs.existsSync(LLMS_PATH) ? fs.readFileSync(LLMS_PATH, 'utf8') : '';
+const fullExisting = fs.existsSync(LLMS_FULL_PATH) ? fs.readFileSync(LLMS_FULL_PATH, 'utf8') : '';
+
+const expectedLlms = spliceSection(llmsExisting, /## Articles/, articleSection(articles));
+const expectedFull = spliceSection(
+  fullExisting,
+  /## Articles \(Full Text\)/,
+  fullSection(articles)
+);
+
+if (check) {
+  let hasDrift = false;
+
+  if (!fs.existsSync(LLMS_PATH)) {
+    console.error(`❌ public/llms.txt does not exist on disk.`);
+    hasDrift = true;
+  } else if (llmsExisting !== expectedLlms) {
+    console.error(`❌ Drift detected in public/llms.txt`);
+    printDiffSummary('public/llms.txt', llmsExisting, expectedLlms);
+    hasDrift = true;
+  }
+
+  if (!fs.existsSync(LLMS_FULL_PATH)) {
+    console.error(`❌ public/llms-full.txt does not exist on disk.`);
+    hasDrift = true;
+  } else if (fullExisting !== expectedFull) {
+    console.error(`❌ Drift detected in public/llms-full.txt`);
+    printDiffSummary('public/llms-full.txt', fullExisting, expectedFull);
+    hasDrift = true;
+  }
+
+  if (hasDrift) {
+    console.error(
+      `❌ LLM documentation feeds are out of sync with content/articles/!\n` +
+        `Run "npx tsx scripts/generate-llms-articles.ts --write" or "npm run prebuild" to update public feeds.`
+    );
+    process.exit(1);
+  }
+
+  console.log(
+    `✅ LLM documentation feeds (public/llms.txt, public/llms-full.txt) are synchronized with articles.`
+  );
   process.exit(0);
 }
 
-// llms.txt: replace/append the "## Articles" section, keep everything else intact
-const llms = fs.readFileSync(LLMS_PATH, 'utf8');
-const updatedLlms = spliceSection(llms, /## Articles/, articleSection(articles));
-fs.writeFileSync(LLMS_PATH, updatedLlms);
+if (!write) {
+  console.log('[llms] dry run (pass --write to update files or --check to verify sync)');
+  process.exit(0);
+}
 
-// llms-full.txt: replace/append "## Articles (Full Text)" section
-const full = fs.readFileSync(LLMS_FULL_PATH, 'utf8');
-const updatedFull = spliceSection(full, /## Articles \(Full Text\)/, fullSection(articles));
-fs.writeFileSync(LLMS_FULL_PATH, updatedFull);
+// Write mode
+fs.writeFileSync(LLMS_PATH, expectedLlms);
+fs.writeFileSync(LLMS_FULL_PATH, expectedFull);
 
 console.log('[llms] wrote llms.txt Articles section + llms-full.txt full text');

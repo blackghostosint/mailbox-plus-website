@@ -1,11 +1,92 @@
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
+import { createRequire } from 'module';
+import { fileURLToPath } from 'url';
 import {
   articleFrontmatterSchema,
   validateArticleFrontmatter,
   type ArticleFrontmatter,
 } from './article-schema.ts';
+
+export type GrayMatterFn = (
+  input: string | Buffer,
+  options?: Record<string, any>
+) => {
+  data: Record<string, any>;
+  content: string;
+  excerpt?: string;
+  orig?: Buffer | string;
+  language?: string;
+  matter?: string;
+};
+
+let cachedMatter: GrayMatterFn | null = null;
+
+/**
+ * Resiliently resolves and loads the `gray-matter` module.
+ * Tries standard specifier, relative candidate paths, and provides
+ * user-friendly error details if unavailable.
+ */
+export function getGrayMatter(): GrayMatterFn {
+  if (cachedMatter) return cachedMatter;
+
+  const errors: string[] = [];
+
+  // Attempt 1: Standard module specifier resolution
+  try {
+    const req = createRequire(import.meta.url);
+    const mod = req('gray-matter');
+    const fn = (
+      mod && typeof mod === 'object' && 'default' in mod ? mod.default : mod
+    ) as GrayMatterFn;
+    if (typeof fn === 'function') {
+      cachedMatter = fn;
+      return cachedMatter;
+    }
+  } catch (e: any) {
+    errors.push(`Standard specifier 'gray-matter': ${e?.message || e}`);
+  }
+
+  // Attempt 2: Relative module resolution paths
+  const currentDir = path.dirname(fileURLToPath(import.meta.url));
+  const candidatePaths = [
+    path.resolve(process.cwd(), 'node_modules', 'gray-matter'),
+    path.resolve(process.cwd(), 'astro', 'node_modules', 'gray-matter'),
+    path.resolve(currentDir, '..', '..', 'node_modules', 'gray-matter'),
+    path.resolve(currentDir, '..', '..', 'astro', 'node_modules', 'gray-matter'),
+  ];
+
+  const req = createRequire(import.meta.url);
+  for (const candidate of candidatePaths) {
+    try {
+      if (fs.existsSync(candidate)) {
+        const mod = req(candidate);
+        const fn = (
+          mod && typeof mod === 'object' && 'default' in mod ? mod.default : mod
+        ) as GrayMatterFn;
+        if (typeof fn === 'function') {
+          cachedMatter = fn;
+          return cachedMatter;
+        }
+      }
+    } catch (e: any) {
+      errors.push(`Candidate path '${candidate}': ${e?.message || e}`);
+    }
+  }
+
+  throw new Error(
+    `[ERR_MODULE_NOT_FOUND] Failed to load 'gray-matter' using resilient module resolution.\n` +
+      `Please ensure 'gray-matter' is installed in dependencies (npm install gray-matter).\n` +
+      `Resolution attempts log:\n  - ${errors.join('\n  - ')}`
+  );
+}
+
+/**
+ * Helper function that parses frontmatter using resiliently resolved `gray-matter`.
+ */
+export function matter(input: string | Buffer, options?: Record<string, any>) {
+  return getGrayMatter()(input, options);
+}
 
 export interface DynamicPrefix {
   prefix: string;
