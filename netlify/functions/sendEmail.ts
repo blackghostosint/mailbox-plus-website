@@ -1,4 +1,3 @@
-import { Handler } from '@netlify/functions';
 import { Resend } from 'resend';
 import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
@@ -10,11 +9,31 @@ import { logger } from './lib/logger';
 const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
 
 /**
- * Case-insensitively extracts the true client IP address from Netlify function headers.
+ * Case-insensitively extracts the true client IP address from Netlify function headers or Headers instance.
  * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
  * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
  */
-export function getClientIp(headers: Record<string, string | undefined> = {}): string {
+export function getClientIp(
+  headers: Headers | Record<string, string | undefined> = new Headers()
+): string {
+  if (headers instanceof Headers) {
+    const nfIp = headers.get('x-nf-client-connection-ip');
+    if (nfIp) return nfIp.trim();
+
+    const clientIp = headers.get('client-ip');
+    if (clientIp) return clientIp.trim();
+
+    const xForwardedFor = headers.get('x-forwarded-for');
+    if (xForwardedFor) {
+      const parts = xForwardedFor
+        .split(',')
+        .map((p) => p.trim())
+        .filter(Boolean);
+      if (parts.length > 0) return parts[parts.length - 1];
+    }
+    return 'unknown';
+  }
+
   const normalized: Record<string, string> = {};
   for (const [key, val] of Object.entries(headers || {})) {
     if (val) normalized[key.toLowerCase()] = String(val);
@@ -90,34 +109,30 @@ export async function checkRateLimit(
   }
 }
 
-export const handler: Handler = withCors(
-  async (event: any) => {
-    if (event.httpMethod && event.httpMethod.toUpperCase() !== 'POST') {
-      return {
-        statusCode: 405,
-        body: JSON.stringify({ error: 'Method not allowed' }),
-      };
+export const handler = withCors(
+  async (request: Request) => {
+    if (request.method !== 'POST') {
+      return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
     }
 
     try {
-      const clientIp = getClientIp(event.headers);
+      const clientIp = getClientIp(request.headers);
 
       if (!(await checkRateLimit(clientIp))) {
-        return {
-          statusCode: 429,
-          body: JSON.stringify({ error: 'Too many requests. Please try again later.' }),
-        };
+        return new Response(
+          JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+          { status: 429 }
+        );
       }
 
-      const data = JSON.parse(event.body || '{}');
+      const data = await request.json().catch(() => ({}));
 
       const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
       const isValid = await verifyRecaptchaToken(token, clientIp);
       if (!isValid) {
-        return {
-          statusCode: 400,
-          body: JSON.stringify({ error: 'reCAPTCHA verification failed' }),
-        };
+        return new Response(JSON.stringify({ error: 'reCAPTCHA verification failed' }), {
+          status: 400,
+        });
       }
 
       if (
@@ -125,10 +140,7 @@ export const handler: Handler = withCors(
         typeof data.email !== 'string' ||
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
       ) {
-        return {
-          statusCode: 400,
-          body: JSON.stringify({ error: 'Invalid email address' }),
-        };
+        return new Response(JSON.stringify({ error: 'Invalid email address' }), { status: 400 });
       }
 
       const stringFields = [
@@ -144,19 +156,15 @@ export const handler: Handler = withCors(
       for (const field of stringFields) {
         const val = data[field];
         if (val !== undefined && val !== null && typeof val !== 'string') {
-          return {
-            statusCode: 400,
-            body: JSON.stringify({ error: `Invalid ${field}: must be a string` }),
-          };
+          return new Response(JSON.stringify({ error: `Invalid ${field}: must be a string` }), {
+            status: 400,
+          });
         }
       }
 
       if (!process.env.RESEND_API_KEY) {
         logger.error('RESEND_API_KEY is missing from environment');
-        return {
-          statusCode: 500,
-          body: JSON.stringify({ error: 'Failed to send message' }),
-        };
+        return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
       }
 
       const resend = new Resend(process.env.RESEND_API_KEY);
@@ -211,17 +219,13 @@ export const handler: Handler = withCors(
         text: textBody,
       });
 
-      return {
-        statusCode: 200,
-        body: JSON.stringify({ success: true }),
-      };
+      return new Response(JSON.stringify({ success: true }), { status: 200 });
     } catch (error) {
       logger.error('Email sending error', error);
-      return {
-        statusCode: 500,
-        body: JSON.stringify({ error: 'Failed to send message' }),
-      };
+      return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
     }
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
 );
+
+export default handler;

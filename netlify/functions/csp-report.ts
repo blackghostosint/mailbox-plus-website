@@ -5,10 +5,10 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
-import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
-export default withWebCors(
+export default withCors(
   async (request: Request, context: Context) => {
     // Only accept POST requests
     if (request.method !== 'POST') {

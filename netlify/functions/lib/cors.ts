@@ -1,6 +1,4 @@
-import type { Handler, HandlerEvent, HandlerContext, HandlerResponse } from '@netlify/functions';
 import { logger } from './logger';
-
 export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS',
@@ -99,77 +97,6 @@ function getEffectiveCorsHeaders(
   };
 }
 
-/**
- * Higher-order middleware wrapper for AWS Lambda-style Netlify Functions handlers.
- * Intercepts OPTIONS preflight requests (returning 204 with CORS headers),
- * handles unhandled exceptions (returning 500 JSON with CORS headers),
- * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
- */
-export function withCors(handler: Handler, options?: CorsOptions): Handler {
-  return async (event: HandlerEvent, context: HandlerContext) => {
-    const reqHeaders = event.headers || {};
-    const reqOrigin = getHeaderValue(reqHeaders, 'origin') || getHeaderValue(reqHeaders, 'referer');
-    const corsHeaders = getEffectiveCorsHeaders(reqOrigin, options);
-    const httpMethod = (event.httpMethod || '').toUpperCase();
-
-    if (httpMethod === 'OPTIONS') {
-      return {
-        statusCode: 204,
-        headers: {
-          ...corsHeaders,
-        },
-        body: '',
-      };
-    }
-
-    try {
-      const response = (await handler(event, context)) || { statusCode: 200 };
-      const resObj: HandlerResponse =
-        typeof response === 'number' ? { statusCode: response } : response;
-
-      const existingHeaders: Record<string, string | number | boolean> = resObj.headers || {};
-      const mergedHeaders: Record<string, string | number | boolean> = { ...existingHeaders };
-
-      if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Origin')) {
-        mergedHeaders['Access-Control-Allow-Origin'] = corsHeaders['Access-Control-Allow-Origin'];
-      }
-      if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Methods')) {
-        mergedHeaders['Access-Control-Allow-Methods'] = corsHeaders['Access-Control-Allow-Methods'];
-      }
-      if (!hasHeader(mergedHeaders, 'Access-Control-Allow-Headers')) {
-        mergedHeaders['Access-Control-Allow-Headers'] = corsHeaders['Access-Control-Allow-Headers'];
-      }
-      if (!hasHeader(mergedHeaders, 'Content-Type')) {
-        mergedHeaders['Content-Type'] = 'application/json';
-      }
-
-      return {
-        ...resObj,
-        headers: mergedHeaders,
-      };
-    } catch (error) {
-      logger.error(
-        'Unhandled error in Netlify function handler',
-        {
-          path: event.path,
-          httpMethod: event.httpMethod,
-          queryStringParameters: event.queryStringParameters,
-          headers: event.headers,
-        },
-        error
-      );
-      return {
-        statusCode: 500,
-        headers: {
-          'Content-Type': 'application/json',
-          ...corsHeaders,
-        },
-        body: JSON.stringify({ error: 'Internal server error' }),
-      };
-    }
-  };
-}
-
 export type WebHandler = (request: Request, context?: any) => Promise<Response> | Response;
 
 /**
@@ -178,7 +105,7 @@ export type WebHandler = (request: Request, context?: any) => Promise<Response> 
  * handles unhandled exceptions (returning 500 JSON with CORS headers),
  * and ensures default CORS & Content-Type headers on all responses while preserving custom headers.
  */
-export function withWebCors(handler: WebHandler, options?: CorsOptions): WebHandler {
+export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler {
   return async (request: Request, context?: any) => {
     const reqOrigin = request.headers.get('origin') || request.headers.get('referer') || undefined;
     const corsHeaders = getEffectiveCorsHeaders(reqOrigin, options);
@@ -238,3 +165,8 @@ export function withWebCors(handler: WebHandler, options?: CorsOptions): WebHand
     }
   };
 }
+
+/**
+ * @deprecated Use `withCors` instead.
+ */
+export const withWebCors = withCors;

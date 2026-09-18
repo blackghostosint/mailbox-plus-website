@@ -20,7 +20,7 @@
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
-import { withWebCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
@@ -83,7 +83,7 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   };
 }
 
-export default withWebCors(
+export default withCors(
   async () => {
     try {
       const fresh = await fetchFromPlaces();
