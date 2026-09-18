@@ -50,6 +50,30 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const body = await res.json();
       expect(body).toHaveProperty('error');
     });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const rateLimitIp = '198.51.100.10';
+      const makeRequest = () =>
+        new Request('https://example.com/.netlify/functions/create-checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-nf-client-connection-ip': rateLimitIp,
+          },
+          body: JSON.stringify({ tier: 'invalid_tier' }),
+        });
+
+      for (let i = 0; i < 10; i++) {
+        await createCheckoutHandler(makeRequest(), mockContext);
+      }
+
+      const res = await createCheckoutHandler(makeRequest(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
+    });
   });
 
   describe('sendEmail', () => {
@@ -242,6 +266,31 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(await res.json()).toEqual({ error: 'Invalid session_id' });
     });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const rateLimitIp = '198.51.100.20';
+      const makeRequest = () =>
+        new Request(
+          'https://example.com/.netlify/functions/verify-session?session_id=cs_test_invalid',
+          {
+            method: 'GET',
+            headers: {
+              'x-nf-client-connection-ip': rateLimitIp,
+            },
+          }
+        );
+
+      for (let i = 0; i < 10; i++) {
+        await verifySessionHandler(makeRequest(), mockContext);
+      }
+
+      const res = await verifySessionHandler(makeRequest(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
+    });
   });
 
   describe('csp-report', () => {
@@ -277,6 +326,30 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(204);
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
     });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const rateLimitIp = '198.51.100.30';
+      const request = () =>
+        new Request('https://example.com/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-nf-client-connection-ip': rateLimitIp,
+          },
+          body: JSON.stringify({ 'csp-report': { documentUri: 'https://example.com' } }),
+        });
+
+      for (let i = 0; i < 10; i++) {
+        await cspReportHandler(request(), mockContext);
+      }
+
+      const res = await cspReportHandler(request(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
+    });
   });
 
   describe('health', () => {
@@ -299,6 +372,26 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.headers.get('Content-Type')).toBe('application/json');
       expect(res.headers.get('X-Health-Check')).toBe('true');
     });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const rateLimitIp = '198.51.100.50';
+      const request = () =>
+        new Request('https://example.com/.netlify/functions/health', {
+          method: 'GET',
+          headers: { 'x-nf-client-connection-ip': rateLimitIp },
+        });
+
+      for (let i = 0; i < 60; i++) {
+        await healthHandler(request(), mockContext);
+      }
+
+      const res = await healthHandler(request(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
+    });
   });
 
   describe('reviews', () => {
@@ -319,6 +412,29 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(502);
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
       expect(res.headers.get('Content-Type')).toBe('application/json');
+
+      consoleErrorSpy.mockRestore();
+    });
+
+    it('returns status 429 when rate limit is exceeded', async () => {
+      const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      const rateLimitIp = '198.51.100.40';
+      const request = () =>
+        new Request('https://example.com/api/reviews', {
+          method: 'GET',
+          headers: { 'x-nf-client-connection-ip': rateLimitIp },
+        });
+
+      for (let i = 0; i < 10; i++) {
+        await reviewsHandler(request(), mockContext);
+      }
+
+      const res = await reviewsHandler(request(), mockContext);
+      expect(res.status).toBe(429);
+      const body = await res.json();
+      expect(body).toEqual({
+        error: 'Too many requests. Please try again later.',
+      });
 
       consoleErrorSpy.mockRestore();
     });

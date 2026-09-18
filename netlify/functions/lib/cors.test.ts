@@ -114,5 +114,33 @@ describe('CORS Middleware Utility', () => {
         'https://mailboxplusohio.com'
       );
     });
+
+    it('enforces rate limiting in withCors when rateLimit option is configured', async () => {
+      const innerHandler = vi
+        .fn()
+        .mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+      const wrapped = withCors(innerHandler, {
+        allowOrigin: DEFAULT_ALLOWED_ORIGINS,
+        rateLimit: { maxRequests: 2, windowMs: 60000 },
+      });
+
+      const req = new Request('https://example.com/api/test', {
+        method: 'GET',
+        headers: { 'x-nf-client-connection-ip': '203.0.113.20' },
+      });
+
+      const res1 = await wrapped(req, {});
+      expect(res1.status).toBe(200);
+
+      const res2 = await wrapped(req, {});
+      expect(res2.status).toBe(200);
+
+      const res3 = await wrapped(req, {});
+      expect(res3.status).toBe(429);
+      expect(res3.headers.get('Retry-After')).toBeTruthy();
+      expect(res3.headers.get('X-RateLimit-Limit')).toBe('2');
+      const body = await res3.json();
+      expect(body).toEqual({ error: 'Too many requests. Please try again later.' });
+    });
   });
 });

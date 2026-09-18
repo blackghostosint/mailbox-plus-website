@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { checkRateLimit, resetRateLimitMemory } from './rate-limiter';
+import { checkRateLimit, resetRateLimitMemory, getClientIp } from './rate-limiter';
 
 describe('rate-limiter', () => {
   beforeEach(() => {
@@ -63,5 +63,68 @@ describe('rate-limiter', () => {
 
     expect((await checkRateLimit(ip1)).allowed).toBe(false);
     expect((await checkRateLimit(ip2)).allowed).toBe(true);
+  });
+
+  it('respects custom RateLimitOptions (maxRequests and windowMs)', async () => {
+    const ip = '192.168.1.200';
+    const options = { maxRequests: 3, windowMs: 30000 };
+
+    for (let i = 1; i <= 3; i++) {
+      const res = await checkRateLimit(ip, options);
+      expect(res.allowed).toBe(true);
+    }
+
+    const blocked = await checkRateLimit(ip, options);
+    expect(blocked.allowed).toBe(false);
+
+    vi.advanceTimersByTime(31000);
+
+    const allowedAgain = await checkRateLimit(ip, options);
+    expect(allowedAgain.allowed).toBe(true);
+  });
+
+  it('isolates rate limits by keyPrefix so endpoints do not interfere with each other', async () => {
+    const ip = '192.168.1.200';
+    const optsEndpointA = { maxRequests: 2, windowMs: 60000, keyPrefix: 'endpointA' };
+    const optsEndpointB = { maxRequests: 2, windowMs: 60000, keyPrefix: 'endpointB' };
+
+    // Exhaust endpoint A rate limit
+    await checkRateLimit(ip, optsEndpointA);
+    await checkRateLimit(ip, optsEndpointA);
+    expect((await checkRateLimit(ip, optsEndpointA)).allowed).toBe(false);
+
+    // Endpoint B should still be allowed for the same IP
+    expect((await checkRateLimit(ip, optsEndpointB)).allowed).toBe(true);
+  });
+
+  describe('getClientIp', () => {
+    it('extracts IP from plain record object prioritizing x-nf-client-connection-ip', () => {
+      const headers = {
+        'x-forwarded-for': '1.1.1.1, 2.2.2.2',
+        'client-ip': '3.3.3.3',
+        'x-nf-client-connection-ip': '4.4.4.4',
+      };
+      expect(getClientIp(headers)).toBe('4.4.4.4');
+    });
+
+    it('extracts IP from Fetch Headers object prioritizing x-nf-client-connection-ip', () => {
+      const headers = new Headers({
+        'x-forwarded-for': '1.1.1.1, 2.2.2.2',
+        'client-ip': '3.3.3.3',
+        'x-nf-client-connection-ip': '5.5.5.5',
+      });
+      expect(getClientIp(headers)).toBe('5.5.5.5');
+    });
+
+    it('extracts last IP from x-forwarded-for when edge connection headers are missing', () => {
+      const headers = {
+        'x-forwarded-for': '10.0.0.1, 10.0.0.2, 203.0.113.50',
+      };
+      expect(getClientIp(headers)).toBe('203.0.113.50');
+    });
+
+    it('returns unknown when no IP headers are present', () => {
+      expect(getClientIp({})).toBe('unknown');
+    });
   });
 });

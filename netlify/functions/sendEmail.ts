@@ -1,112 +1,24 @@
 import { Resend } from 'resend';
-import { getStore } from '@netlify/blobs';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
+import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
 
-// IP-based sliding window rate limiter (max 5 submissions per 10 minutes per IP)
-const ipRequestCounts = new Map<string, { count: number; resetAt: number }>();
-
-/**
- * Case-insensitively extracts the true client IP address from Netlify function headers or Headers instance.
- * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
- * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
- */
-export function getClientIp(
-  headers: Headers | Record<string, string | undefined> = new Headers()
-): string {
-  if (headers instanceof Headers) {
-    const nfIp = headers.get('x-nf-client-connection-ip');
-    if (nfIp) return nfIp.trim();
-
-    const clientIp = headers.get('client-ip');
-    if (clientIp) return clientIp.trim();
-
-    const xForwardedFor = headers.get('x-forwarded-for');
-    if (xForwardedFor) {
-      const parts = xForwardedFor
-        .split(',')
-        .map((p) => p.trim())
-        .filter(Boolean);
-      if (parts.length > 0) return parts[parts.length - 1];
-    }
-    return 'unknown';
-  }
-
-  const normalized: Record<string, string> = {};
-  for (const [key, val] of Object.entries(headers || {})) {
-    if (val) normalized[key.toLowerCase()] = String(val);
-  }
-
-  // Netlify Edge injects 'x-nf-client-connection-ip' with the true physical TCP connection IP
-  if (normalized['x-nf-client-connection-ip']) {
-    return normalized['x-nf-client-connection-ip'].trim();
-  }
-
-  // Netlify Edge also populates 'client-ip'
-  if (normalized['client-ip']) {
-    return normalized['client-ip'].trim();
-  }
-
-  // Fallback to 'x-forwarded-for' using the last IP appended by the edge proxy
-  if (normalized['x-forwarded-for']) {
-    const parts = normalized['x-forwarded-for']
-      .split(',')
-      .map((p) => p.trim())
-      .filter(Boolean);
-    if (parts.length > 0) {
-      return parts[parts.length - 1];
-    }
-  }
-
-  return 'unknown';
-}
+export { getClientIp };
 
 export async function checkRateLimit(
   ip: string,
   limit = 5,
   windowMs = 10 * 60 * 1000
 ): Promise<boolean> {
-  const now = Date.now();
-  const sanitizedIp = ip.replace(/[^a-zA-Z0-9_.-]/g, '_');
-  const blobKey = `rate_limit_${sanitizedIp}`;
-
-  // 1. Attempt Netlify Blobs for persistent rate limiting across serverless instances
-  try {
-    const store = getStore({ name: 'sendEmail-rate-limits', consistency: 'strong' });
-    const record = (await store.get(blobKey, { type: 'json' })) as {
-      count: number;
-      resetAt: number;
-    } | null;
-
-    if (!record || now > record.resetAt) {
-      await store.setJSON(blobKey, { count: 1, resetAt: now + windowMs });
-      return true;
-    }
-
-    if (record.count >= limit) {
-      return false;
-    }
-
-    await store.setJSON(blobKey, { count: record.count + 1, resetAt: record.resetAt });
-    return true;
-  } catch {
-    // 2. Fallback to in-memory Map store (for local dev, test environments, or when Blobs store is unconfigured)
-    const record = ipRequestCounts.get(ip);
-
-    if (!record || now > record.resetAt) {
-      ipRequestCounts.set(ip, { count: 1, resetAt: now + windowMs });
-      return true;
-    }
-
-    if (record.count >= limit) {
-      return false;
-    }
-
-    record.count += 1;
-    return true;
-  }
+  const result = await checkRateLimitLib(ip, {
+    maxRequests: limit,
+    windowMs,
+    storeName: 'sendEmail-rate-limits',
+    keyPrefix: 'sendEmail',
+  });
+  return result.allowed;
 }
 
 export const handler = withCors(
@@ -117,13 +29,6 @@ export const handler = withCors(
 
     try {
       const clientIp = getClientIp(request.headers);
-
-      if (!(await checkRateLimit(clientIp))) {
-        return new Response(
-          JSON.stringify({ error: 'Too many requests. Please try again later.' }),
-          { status: 429 }
-        );
-      }
 
       const data = await request.json().catch(() => ({}));
 
@@ -225,7 +130,15 @@ export const handler = withCors(
       return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
     }
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS }
+  {
+    allowOrigin: DEFAULT_ALLOWED_ORIGINS,
+    rateLimit: {
+      maxRequests: 5,
+      windowMs: 10 * 60 * 1000,
+      storeName: 'sendEmail-rate-limits',
+      keyPrefix: 'sendEmail',
+    },
+  }
 );
 
 export default handler;

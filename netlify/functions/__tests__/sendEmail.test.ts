@@ -180,4 +180,50 @@ describe('sendEmail function handler', () => {
     // Verify text content preserves unescaped string
     expect(sendArgs.text).toContain('Hello <script>alert("XSS")</script> & world!');
   });
+
+  it('enforces rate limit of 5 requests per 10 minutes and returns 429 on 6th attempt', async () => {
+    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    mockSend.mockResolvedValue({ id: 'msg_123' });
+
+    const clientIp = '203.0.113.77';
+
+    // Make 5 successful requests
+    for (let i = 0; i < 5; i++) {
+      const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+        method: 'POST',
+        headers: {
+          'x-nf-client-connection-ip': clientIp,
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          recaptchaToken: 'valid_token',
+          name: 'Jane Doe',
+          email: 'jane@example.com',
+          message: 'Hello',
+        }),
+      });
+      const res = await handler(req);
+      expect(res.status).toBe(200);
+    }
+
+    // 6th request should be rate limited with status 429
+    const req6 = new Request('https://example.com/.netlify/functions/sendEmail', {
+      method: 'POST',
+      headers: {
+        'x-nf-client-connection-ip': clientIp,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        recaptchaToken: 'valid_token',
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        message: 'Hello',
+      }),
+    });
+    const res6 = await handler(req6);
+    expect(res6.status).toBe(429);
+    expect(res6.headers.get('Retry-After')).toBeTruthy();
+    expect(res6.headers.get('X-RateLimit-Limit')).toBe('5');
+    expect(await res6.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+  });
 });
