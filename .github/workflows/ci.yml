@@ -101,7 +101,7 @@ jobs:
           du -sh dist | cut -f1
         env:
           VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Cache embedding vectors
@@ -116,10 +116,11 @@ jobs:
         run: npm run test:retrieval
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          VITE_GEMINI_API_KEY: ${{ secrets.VITE_GEMINI_API_KEY }}
 
       - name: Verify generated static assets drift
-        run: git diff --exit-code public/llms.txt public/llms-full.txt
+        run: |
+          npm run check:llms
+          git diff --exit-code public/llms.txt public/llms-full.txt
 
       - name: Run SEO route registry check
         run: npm run seo:check-routes
@@ -135,6 +136,9 @@ jobs:
 
       - name: Run SEO internal href trailing-slash check
         run: npm run seo:check-href-slash
+
+      - name: Run SEO metadata verification check
+        run: npm run seo:check-metadata
 
       - name: Check for unreferenced public/data files (legacy-drift guard)
         run: npm run check:public-data
