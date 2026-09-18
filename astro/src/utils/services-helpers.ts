@@ -2,6 +2,7 @@ import { services } from '../config/services';
 import type { Service, ServiceCategory } from '../types/services';
 import siteStructure from '../data/siteStructure.json';
 import { toCanonicalUrl } from './canonical-url';
+import { hashString } from './hash-helpers';
 
 // O(1) Map Indices
 const serviceByIdMap = new Map<string, Service>(services.map((s) => [s.id, s]));
@@ -78,11 +79,7 @@ export const getRandomServices = (
   if (pool.length === 0) return [];
 
   const hashSeed = (excludeId || '') + seed;
-  let hash = 0;
-  for (let i = 0; i < hashSeed.length; i++) {
-    hash = (hash << 5) - hash + hashSeed.charCodeAt(i);
-    hash |= 0; // Convert to 32bit integer
-  }
+  const hash = hashString(hashSeed);
   const start = Math.abs(hash) % pool.length;
 
   // Take `count` services starting from the hashed index, wrapping around
