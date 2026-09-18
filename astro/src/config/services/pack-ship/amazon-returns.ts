@@ -53,24 +53,32 @@ export const amazonReturnsService: Service = {
             {
               title: 'Start Your Return in the Amazon App',
               image: 'step-01-return-replace-your-item.webp',
+              imageAlt:
+                'Amazon Mobile app screen showing Your Orders list with highlighted Return or Replace Items button',
               description:
                 'Open the Amazon app or website and navigate to <strong>"Your Orders."</strong> Locate the item you wish to return to begin the process.',
             },
             {
               title: 'Pick Your Reason for Returning',
               image: 'step-02-why-are-you-returning-your-item.webp',
+              imageAlt:
+                'Amazon return reason menu with list of selectable options such as defective or no longer needed',
               description:
                 'Select the specific reason for your return from the provided list (e.g., "defective," "no longer needed"). This helps Amazon process your request accurately.',
             },
             {
               title: 'Confirm the Packaging Status',
               image: 'step-03-confirm-the-packaging-status.webp',
+              imageAlt:
+                'Amazon packaging status menu prompting if item is in original box or packaging',
               description:
                 'Indicate whether the item is still in its original packaging. This information helps Amazon determine the correct return method and restocking requirements.',
             },
             {
               title: 'Select Refund or Replacement',
               image: 'step-04-select-refund-replacement.webp',
+              imageAlt:
+                'Amazon return options screen showing choices between refund to original payment or item replacement',
               description:
                 'Choose your preferred resolution: receive a refund to your original payment method (or Amazon balance) or request a replacement item if available.',
             },
@@ -83,7 +91,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 1}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 1}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
+                <img src="${getServiceImageUrl(step.image)}" alt="${step.imageAlt || step.title}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
@@ -105,24 +113,32 @@ export const amazonReturnsService: Service = {
             {
               title: 'Describe the Issue and Proceed',
               image: 'step-05-describe-issue-and-proceed.webp',
+              imageAlt:
+                'Amazon return details entry screen with text field to describe item issues before proceeding',
               description:
                 'Add any specific comments describing the problem if prompted, then continue to the next step to finalize your return details.',
             },
             {
               title: 'Choose UPS Drop-Off (We can handle the Label!)',
               image: 'step-06-choose-ups-dropoff.webp',
+              imageAlt:
+                'Amazon return shipping methods screen selecting UPS Drop-off Points with a printable label',
               description:
                 '<strong>Crucial Step:</strong> Select a return method that provides a <strong>printable shipping label</strong> (often labeled as UPS Drop-off Points). <em>Avoid "No Box/No Label" options if you want to use Mailbox Plus.</em>',
             },
             {
               title: 'Share Your Return Label With Us ($2.00 fee)',
               image: 'step-07-share-label-with-friend.webp',
+              imageAlt:
+                'Amazon label screen featuring option to Share return label via email or messaging',
               description:
                 'No printer? No problem! We can print your label for a small $2.00 fee. Simply choose the option to <strong>"Share"</strong> or <strong>"Email"</strong> the label from the app.',
             },
             {
               title: 'Email the Label to Us',
               image: 'step-08-email-label-to-us.webp',
+              imageAlt:
+                'Mobile app share window selecting email application to transmit return label',
               description:
                 'Select your preferred email app and prepare to send the label file directly to our store for fast printing.',
             },
@@ -135,7 +151,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 5}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 5}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
+                <img src="${getServiceImageUrl(step.image)}" alt="${step.imageAlt || step.title}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
@@ -157,18 +173,24 @@ export const amazonReturnsService: Service = {
             {
               title: 'Send the Label to Mailbox Plus',
               image: 'step-09-use-our-email-address.webp',
+              imageAlt:
+                'Email compose screen directed to returns@mailboxplusohio.com with return label attachment',
               description:
                 'Send your shipping label to <strong>RETURNS@MAILBOXPLUSOHIO.COM</strong>. We will print it out and have it ready for your arrival.',
             },
             {
               title: 'Confirmation: Label Sent Successfully',
               image: 'step-10-label-sentto-us.webp',
+              imageAlt:
+                'Mobile email sent confirmation screen showing label successfully sent to Mailbox Plus',
               description:
                 'Ensure your email has been sent successfully. You can now head to our store knowing your paperwork is being handled.',
             },
             {
               title: 'Now Drop Off at Mailbox Plus',
               image: 'step-11-pack-label-dropoff.webp',
+              imageAlt:
+                'Mailbox Plus location at 7554 Fredle Drive for package drop-off and label printing',
               description:
                 "Bring your item to <strong>Mailbox Plus at 7554 Fredle Drive</strong> in Concord Township. We'll professionally pack it (if needed), attach the label, and ship it out for you!",
             },
@@ -181,7 +203,7 @@ export const amazonReturnsService: Service = {
                   <div class="w-10 h-10 rounded-full bg-[var(--color-primary)] text-white flex items-center justify-center font-bold text-lg shrink-0 shadow-md">${idx + 9}</div>
                   <h3 class="text-lg font-bold text-[var(--color-primary)] md:hidden">${step.title}</h3>
                 </div>
-                <img src="${getServiceImageUrl(step.image)}" alt="Step ${idx + 9}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
+                <img src="${getServiceImageUrl(step.image)}" alt="${step.imageAlt || step.title}" class="rounded-[28px] shadow-sm w-full aspect-[4/3]" />
               </div>
               <div class="w-full md:w-2/3">
                 <h3 class="hidden md:block text-2xl font-bold text-[var(--color-primary)] mb-3">${step.title}</h3>
