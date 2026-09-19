@@ -34,7 +34,7 @@ const allFaqs: FAQ[] = flattenFaqs(faqs);
           <details class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl p-4">
             <summary class="flex items-center justify-between font-semibold text-[var(--color-text-primary)] cursor-pointer">
               <span>{faq.question}</span>
-              <svg class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg aria-hidden="true" focusable="false" class="w-5 h-5 transform transition-transform duration-200" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
               </svg>
             </summary>

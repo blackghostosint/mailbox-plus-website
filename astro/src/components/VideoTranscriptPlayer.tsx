@@ -171,6 +171,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
           <svg
             className="w-5 h-5 text-[var(--color-primary)]"
             aria-hidden="true"
+            focusable="false"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -195,6 +196,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
           <svg
             className="w-4 h-4"
             aria-hidden="true"
+            focusable="false"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -218,6 +220,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
         <svg
           className="w-5 h-5 flex-shrink-0 mt-0.5 text-[var(--color-primary)]"
           aria-hidden="true"
+          focusable="false"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -244,6 +247,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
             <svg
               className="w-6 h-6 text-[var(--color-accent-warm)] flex-shrink-0"
               aria-hidden="true"
+              focusable="false"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -279,6 +283,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
                   <svg
                     className="w-3.5 h-3.5"
                     aria-hidden="true"
+                    focusable="false"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"

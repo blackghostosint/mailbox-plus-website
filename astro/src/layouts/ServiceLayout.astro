@@ -82,7 +82,7 @@ const carriers = [
       {breadcrumbs.map((item, index) => (
         <li class="flex items-center">
           {index > 0 && (
-            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           )}
@@ -202,7 +202,7 @@ const carriers = [
                   <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
                     <summary class="px-4 py-3 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
                       <span>{faq.question}</span>
-                      <svg class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg aria-hidden="true" focusable="false" class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                       </svg>
                     </summary>
