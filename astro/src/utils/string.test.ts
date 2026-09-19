@@ -74,20 +74,18 @@ describe('slugifySchemaId', () => {
 });
 
 describe('formatCategoryTitle', () => {
-  it('formats known category slugs to human-readable titles', () => {
-    expect(formatCategoryTitle('pack-ship')).toBe('Pack & Ship');
-    expect(formatCategoryTitle('pack-and-ship')).toBe('Pack & Ship');
-    expect(formatCategoryTitle('copy-print')).toBe('Copy & Print');
-    expect(formatCategoryTitle('copy-and-print')).toBe('Copy & Print');
-    expect(formatCategoryTitle('mailbox-rentals')).toBe('Mailbox Rentals');
-    expect(formatCategoryTitle('document-services')).toBe('Document Services');
-    expect(formatCategoryTitle('notary')).toBe('Notary');
-    expect(formatCategoryTitle('printing')).toBe('Printing');
+  it('formats category slugs by replacing hyphens with spaces', () => {
+    expect(formatCategoryTitle('pack-ship')).toBe('pack ship');
+    expect(formatCategoryTitle('copy-print')).toBe('copy print');
+    expect(formatCategoryTitle('mailbox-rentals')).toBe('mailbox rentals');
+    expect(formatCategoryTitle('document-services')).toBe('document services');
+    expect(formatCategoryTitle('notary')).toBe('notary');
+    expect(formatCategoryTitle('printing')).toBe('printing');
   });
 
-  it('capitalizes and formats arbitrary hyphenated category slugs', () => {
-    expect(formatCategoryTitle('shipping-supplies')).toBe('Shipping Supplies');
-    expect(formatCategoryTitle('local-seo-services')).toBe('Local Seo Services');
+  it('replaces hyphens with spaces for arbitrary hyphenated category slugs', () => {
+    expect(formatCategoryTitle('shipping-supplies')).toBe('shipping supplies');
+    expect(formatCategoryTitle('local-seo-services')).toBe('local seo services');
   });
 
   it('handles empty, null, and undefined input gracefully', () => {
@@ -104,8 +102,8 @@ describe('cleanImagePath', () => {
     expect(cleanImagePath('/images/articles/hero.webp')).toBe('articles/hero.webp');
   });
 
-  it('strips leading slash when images/ prefix is omitted', () => {
-    expect(cleanImagePath('/logo.png')).toBe('logo.png');
+  it('preserves paths when images/ prefix is omitted', () => {
+    expect(cleanImagePath('/logo.png')).toBe('/logo.png');
     expect(cleanImagePath('logo.png')).toBe('logo.png');
   });
 

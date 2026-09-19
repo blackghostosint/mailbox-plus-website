@@ -49,36 +49,21 @@ export function slugifySchemaId(str?: string | null): string {
 }
 
 /**
- * Formats a category slug into a human-readable, title-cased category header.
+ * Formats a category slug by replacing hyphens with spaces.
+ * Preserves exact behavioral equivalence with inline category string transformations.
  *
  * @param category Category slug or raw category string (e.g. "pack-ship")
- * @returns Human-readable category title (e.g. "Pack & Ship")
+ * @returns Formatted category title with hyphens replaced by spaces (e.g. "pack ship")
  */
 export function formatCategoryTitle(category?: string | null): string {
   if (!category) return '';
-
-  const knownCategories: Record<string, string> = {
-    'pack-ship': 'Pack & Ship',
-    'pack-and-ship': 'Pack & Ship',
-    'copy-print': 'Copy & Print',
-    'copy-and-print': 'Copy & Print',
-    'mailbox-rentals': 'Mailbox Rentals',
-    'document-services': 'Document Services',
-    notary: 'Notary',
-    printing: 'Printing',
-  };
-
-  const normalized = category.trim().toLowerCase();
-  if (knownCategories[normalized]) {
-    return knownCategories[normalized];
-  }
-
-  return category.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase());
+  return category.replace(/-/g, ' ');
 }
 
 /**
- * Normalizes and cleans image asset path strings by stripping leading slashes
- * and 'images/' prefixes. Leaves absolute HTTP/HTTPS URLs untouched.
+ * Normalizes image asset path strings by stripping leading '/images/' or 'images/' prefixes.
+ * Preserves exact behavioral equivalence with inline `replace(/^\/?images\//, '')` expressions.
+ * Leaves absolute HTTP/HTTPS URLs untouched.
  *
  * @param imagePath Relative or absolute image path/URL
  * @returns Cleaned image path (e.g. "mailboxes.webp")
@@ -88,5 +73,5 @@ export function cleanImagePath(imagePath?: string | null): string {
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
     return imagePath;
   }
-  return imagePath.replace(/^\/?(images\/)?/, '');
+  return imagePath.replace(/^\/?images\//, '');
 }
