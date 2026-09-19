@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { FormField } from '../components/ui/FormField';
+import { IconWrapper } from '../components/ui/IconWrapper';
 import { siteConfig } from '../config/siteConfig';
 import { getRecaptchaSiteKey } from '../lib/env';
 const { contact } = siteConfig;
@@ -71,22 +73,18 @@ const recaptchaSiteKey = getRecaptchaSiteKey();
           <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" data-recaptcha-site-key={recaptchaSiteKey} class="space-y-6">
             <input type="hidden" name="form-name" value="contact" />
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label for="name" class="text-sm font-semibold text-[var(--color-text-primary)]">Full Name *</label>
+              <FormField id="name" label="Full Name" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
                 <input type="text" id="name" name="name" required aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your name" />
-              </div>
-              <div class="space-y-2">
-                <label for="email" class="text-sm font-semibold text-[var(--color-text-primary)]">Email Address *</label>
+              </FormField>
+              <FormField id="email" label="Email Address" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
                 <input type="email" id="email" name="email" required aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your email" />
-              </div>
+              </FormField>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="space-y-2">
-                <label for="phone" class="text-sm font-semibold text-[var(--color-text-primary)]">Phone Number</label>
+              <FormField id="phone" label="Phone Number" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
                 <input type="tel" id="phone" name="phone" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="(440) 555-0123" />
-              </div>
-              <div class="space-y-2">
-                <label for="service" class="text-sm font-semibold text-[var(--color-text-primary)]">Service Interest</label>
+              </FormField>
+              <FormField id="service" label="Service Interest" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
                 <select id="service" name="service" aria-label="Service interest" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm appearance-none">
                   <option value="">Select a service</option>
                   <option value="shipping">Pack & Ship</option>
@@ -96,15 +94,14 @@ const recaptchaSiteKey = getRecaptchaSiteKey();
                   <option value="accessibility">Accessibility Barrier / Accommodation</option>
                   <option value="other">Other</option>
                 </select>
-              </div>
+              </FormField>
             </div>
-            <div class="space-y-2">
-              <label for="message" class="text-sm font-semibold text-[var(--color-text-primary)]">Message *</label>
+            <FormField id="message" label="Message" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
               <textarea id="message" name="message" required rows="5" aria-label="Your message" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm resize-none" placeholder="How can we help you?"></textarea>
-            </div>
+            </FormField>
             <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
             <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white font-semibold text-base px-8 py-3.5 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-md">
-              <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L11 13"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+              <IconWrapper><svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L11 13"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 2L15 22l-4-9-9-4 20-7z"/></svg></IconWrapper>
               Send Message
             </button>
           </form>
