@@ -1,7 +1,8 @@
 ---
 // Footer.astro — matches the production React Footer.tsx
 import { siteConfig } from '../config/siteConfig';
-const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
+import { extractPhoneDigits } from '../utils/string';
+const phoneDigits = extractPhoneDigits(siteConfig.contact.phone);
 const quickLinks = [
   { name: 'Pack & Ship', href: '/pack-ship/' },
   { name: 'FedEx Shipping', href: '/pack-ship/fedex-shipping/' },

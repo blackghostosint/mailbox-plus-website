@@ -5,3 +5,4 @@ export * from './animations';
 export * from './internal-links';
 export * from './hydration-helpers';
 export * from './hash-helpers';
+export * from './string';

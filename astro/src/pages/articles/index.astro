@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleLoader } from '../../utils/articleLoader';
+import { formatCategoryTitle, cleanImagePath } from '../../utils/string';
 
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
@@ -16,8 +17,7 @@ function formatDate(dateStr: string): string {
 
 function imageUrl(imagePath: string): string {
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) return imagePath;
-  const cleaned = imagePath.replace(/^\/?images\//, '');
-  return `${R2_BASE}/${cleaned}`;
+  return `${R2_BASE}/${cleanImagePath(imagePath)}`;
 }
 ---
 
@@ -35,7 +35,7 @@ function imageUrl(imagePath: string): string {
   <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     {categories.map(cat => (
       <div class="mb-16">
-        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6 capitalize">{cat.replace(/-/g, ' ')}</h2>
+        <h2 class="text-2xl font-bold text-[var(--color-text-primary)] mb-6">{formatCategoryTitle(cat)}</h2>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {published.filter(a => a.frontmatter.category === cat).map(article => {
             const { slug, title, description, pubDate, image, imageAlt, category } = article.frontmatter;
@@ -54,7 +54,7 @@ function imageUrl(imagePath: string): string {
                   />
                   {/* Category Badge */}
                   <div class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[var(--color-accent-warm)] text-white text-xs font-semibold uppercase tracking-wide">
-                    {category.replace(/-/g, ' ')}
+                    {formatCategoryTitle(category)}
                   </div>
                 </div>
 

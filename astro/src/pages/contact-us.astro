@@ -1,8 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
+import { extractPhoneDigits } from '../utils/string';
 const { contact } = siteConfig;
-const phoneDigits = contact.phone.replace(/[^0-9]/g, '');
+const phoneDigits = extractPhoneDigits(contact.phone);
 const hours = [
   { day: 'Monday - Friday', time: '9:00 AM - 6:00 PM' },
   { day: 'Saturday', time: '9:00 AM - 2:00 PM' },

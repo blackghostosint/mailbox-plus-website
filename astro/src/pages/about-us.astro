@@ -1,10 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { cleanImagePath } from '../utils/string';
 
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 function imageUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
-  return `${R2_BASE}/${path.replace(/^\/?images\//, '')}`;
+  return `${R2_BASE}/${cleanImagePath(path)}`;
 }
 
 const services = [

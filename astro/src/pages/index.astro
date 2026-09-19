@@ -1,7 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { siteConfig } from '../config/siteConfig'
-const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '')
+import { extractPhoneDigits, slugify } from '../utils/string'
+const phoneDigits = extractPhoneDigits(siteConfig.contact.phone)
 const localAreas = ['Concord Township','Mentor','Painesville','Eastlake','Willoughby','Wickliffe','Madison','Perry','Kirtland','Chardon','Fairport Harbor','Geneva']
 const star = '<svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>'
 ---
@@ -97,7 +98,7 @@ const star = '<svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="
       <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-10">Service Areas</h2>
       <div class="flex flex-wrap gap-4 justify-center">
         {localAreas.map((area) => {
-          const slug = area.toLowerCase().replace(/\s+/g, '-');
+          const slug = slugify(area);
           return (
             <a href={`/service-area/${slug}/`} class="inline-flex items-center px-5 py-2.5 rounded-full border-2 border-[var(--color-primary)] bg-white text-[var(--color-primary)] font-semibold text-sm hover:bg-[var(--color-accent-warm)]/10 hover:border-[var(--color-accent-warm)] transition-all">{area}</a>
           );

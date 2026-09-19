@@ -6,6 +6,7 @@ import { marked } from 'marked';
 import { getArticleSchema, getWebPageSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
+import { formatCategoryTitle, cleanImagePath } from '../../utils/string';
 
 const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
@@ -27,14 +28,14 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
 const articleUrl = toCanonicalUrl(`/articles/${slug}`);
-const ogImage = image.startsWith('http') ? image : `${R2_BASE}/${image.replace(/^\/?images\//, '')}`;
+const ogImage = image.startsWith('http') ? image : `${R2_BASE}/${cleanImagePath(image)}`;
 
 // Configure marked to rewrite relative image paths to R2 URLs
 const renderer = new marked.Renderer();
 renderer.image = ({ href, title: imgTitle, text }) => {
   let src = href || '';
   if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
-    src = `${R2_BASE}/${src.replace(/^\/?images\//, '')}`;
+    src = `${R2_BASE}/${cleanImagePath(src)}`;
   }
   const altText = text || imgTitle || '';
   return `<div class="my-8 rounded-xl overflow-hidden shadow-lg border border-[var(--color-bg-secondary)]">
@@ -98,7 +99,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
         <svg aria-hidden="true" focusable="false" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5a1.99 1.99 0 011.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.99 1.99 0 013 12V7a4 4 0 014-4z" />
         </svg>
-        <span class="uppercase tracking-wider">{category.replace(/-/g, ' ')}</span>
+        <span class="uppercase tracking-wider">{formatCategoryTitle(category)}</span>
       </div>
 
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-6">
