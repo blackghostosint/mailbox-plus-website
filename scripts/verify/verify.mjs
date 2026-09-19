@@ -406,12 +406,16 @@ function cmdDoctor() {
     `resolved ${ROOT}`,
     'run from scripts/verify/ inside the repo; never from ~/Projects clone (stale)'
   );
+  const hasWorkspaceSymlink = fs.existsSync(path.join(ROOT, 'node_modules', 'mailbox-plus-astro'));
+  const hasLegacyModules = fs.existsSync(path.join(ROOT, 'astro', 'node_modules'));
   check(
     'node-modules',
-    fs.existsSync(path.join(ROOT, 'node_modules')) &&
-      (fs.existsSync(path.join(ROOT, 'node_modules', 'mailbox-plus-astro')) ||
-        fs.existsSync(path.join(ROOT, 'astro', 'node_modules'))),
-    'workspace-hoisted node_modules present',
+    fs.existsSync(path.join(ROOT, 'node_modules')) && hasWorkspaceSymlink,
+    hasWorkspaceSymlink
+      ? hasLegacyModules
+        ? 'workspace-hoisted node_modules present (warning: legacy astro/node_modules directory present)'
+        : 'workspace-hoisted node_modules present'
+      : 'workspace-hoisted node_modules missing (mailbox-plus-astro workspace symlink not found)',
     'npm ci'
   );
   check(
