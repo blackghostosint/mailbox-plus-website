@@ -257,7 +257,9 @@ export function main() {
 
   console.log(`ℹ️ Found ${res.expectedPaths?.size || 0} registered routes in siteStructure.json`);
   if (res.localAllowlist?.length) {
-    console.log(`ℹ️ Loaded ${res.localAllowlist.length} extra exact routes from route-registry-allowlist.json`);
+    console.log(
+      `ℹ️ Loaded ${res.localAllowlist.length} extra exact routes from route-registry-allowlist.json`
+    );
   }
   console.log(`ℹ️ Scanned ${res.builtPaths?.size || 0} actual HTML routes from dist/`);
 
