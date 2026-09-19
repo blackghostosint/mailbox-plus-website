@@ -106,53 +106,66 @@ services.forEach((s) => {
   }
 });
 
-function resolveParentPillar(id: string, url: string, title: string): PillarNode {
+export function resolveParentPillar(id: string, url: string, title: string): PillarNode {
   const linkData = (internalLinks as Record<string, { parent?: string | null }>)[id];
   if (linkData && linkData.parent) {
     const pillar = pillarByIdMap.get(linkData.parent);
     if (pillar) return pillar;
   }
 
-  const combined = `${id} ${url} ${title}`.toLowerCase();
+  const idLower = (id || '').toLowerCase();
+  const urlLower = (url || '').toLowerCase();
+
+  // Structured route ID and URL prefix matching
   if (
-    combined.includes('pack') ||
-    combined.includes('ship') ||
-    combined.includes('fedex') ||
-    combined.includes('ups') ||
-    combined.includes('usps') ||
-    combined.includes('dhl') ||
-    combined.includes('post-office') ||
-    combined.includes('return')
+    idLower.startsWith('pack-and-ship-') ||
+    idLower.startsWith('shipping-') ||
+    idLower.startsWith('post-office-alternative-') ||
+    idLower.startsWith('fedex-') ||
+    idLower.startsWith('ups-') ||
+    idLower.startsWith('dhl-') ||
+    urlLower.includes('/pack-ship/') ||
+    urlLower.includes('pack-and-ship')
   ) {
     const p = pillarByIdMap.get('pack-ship');
     if (p) return p;
   }
+
   if (
-    combined.includes('mailbox') ||
-    combined.includes('business') ||
-    combined.includes('address') ||
-    combined.includes('pmb')
+    idLower.startsWith('mailbox-rental-') ||
+    idLower.startsWith('mail-boxes-etc-alternative-') ||
+    idLower.startsWith('private-mailbox-') ||
+    urlLower.includes('/mailbox-rentals/') ||
+    urlLower.includes('mailbox-rental')
   ) {
     const p = pillarByIdMap.get('home-business');
     if (p) return p;
   }
+
   if (
-    combined.includes('print') ||
-    combined.includes('copy') ||
-    combined.includes('copies') ||
-    combined.includes('staples') ||
-    combined.includes('office-depot')
+    idLower.startsWith('printing-') ||
+    idLower.startsWith('copy-') ||
+    urlLower.includes('/copy-print/') ||
+    urlLower.includes('copy-and-print')
   ) {
     const p = pillarByIdMap.get('copy-print');
     if (p) return p;
   }
-  if (combined.includes('vinted')) {
-    const p = pillarByIdMap.get('micro-problems');
-    if (p) return p;
-  }
-  if (combined.includes('fingerprint') || combined.includes('notary')) {
+
+  if (
+    idLower.includes('fingerprint') ||
+    idLower.includes('notary') ||
+    urlLower.includes('fingerprinting') ||
+    urlLower.includes('notary')
+  ) {
     const p = pillarByIdMap.get('specialty');
     if (p) return p;
+  }
+
+  if (import.meta.env.DEV) {
+    console.warn(
+      `[resolveParentPillar] Unmapped route id '${id}' (url: '${url}', title: '${title}'). Falling back to 'pack-ship' pillar.`
+    );
   }
 
   return (

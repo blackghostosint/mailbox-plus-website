@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { getInternalLink, getAnchorText } from './internal-links';
-import { getBreadcrumbs } from './navigation-helpers';
+import { getBreadcrumbs, resolveParentPillar } from './navigation-helpers';
 import { getServiceBreadcrumbs } from './services-helpers';
 import siteStructure from '../data/siteStructure.json';
 import { services } from '../config/services';
@@ -202,6 +202,47 @@ describe('internal-links', () => {
         expect(sc.label).toBe(directCrumbs[index].label);
         expect(sc.url).toBe(directCrumbs[index].url);
       });
+    });
+  });
+
+  describe('resolveParentPillar', () => {
+    it('resolves explicit parents from internalLinks.json', () => {
+      const parent = resolveParentPillar('amazon-returns', '/amazon-returns/', 'Amazon Returns');
+      expect(parent.id).toBe('pack-ship');
+    });
+
+    it('resolves explicit parents for newly mapped routes', () => {
+      const shippingPartnersParent = resolveParentPillar(
+        'shipping-partners',
+        '/shipping-partners/',
+        'Shipping Partners'
+      );
+      expect(shippingPartnersParent.id).toBe('pack-ship');
+
+      const mailboxEastlakeParent = resolveParentPillar(
+        'mailbox-rental-eastlake',
+        '/mailbox-rental-eastlake/',
+        'Mailbox Rental Eastlake'
+      );
+      expect(mailboxEastlakeParent.id).toBe('home-business');
+    });
+
+    it('is resilient against incidental keywords in unmapped titles or URLs', () => {
+      // Unmapped page with "return" or "business" in title/URL falls back safely
+      const unmappedReturnPrintPage = resolveParentPillar(
+        'unmapped-print-policy',
+        '/copy-print/return-policy',
+        'Print Services Return Policy'
+      );
+      // Structured URL prefix matches copy-print rather than misassigning to pack-ship via "return"
+      expect(unmappedReturnPrintPage.id).toBe('copy-print');
+
+      const unmappedBusinessCardPage = resolveParentPillar(
+        'unmapped-card-printing',
+        '/copy-print/business-cards-custom',
+        'Custom Business Cards'
+      );
+      expect(unmappedBusinessCardPage.id).toBe('copy-print');
     });
   });
 });
