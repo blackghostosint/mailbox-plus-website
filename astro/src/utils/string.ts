@@ -58,6 +58,7 @@ export function slugifySchemaId(str?: string | null): string {
  */
 export function formatCategoryTitle(category?: string | null): string {
   if (!category) return '';
+  // Replaces hyphens with spaces ('pack-ship' -> 'pack ship'); template CSS classes handle visual title casing.
   return category.replace(/-/g, ' ');
 }
 
