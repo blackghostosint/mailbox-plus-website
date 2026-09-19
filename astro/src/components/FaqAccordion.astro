@@ -1,0 +1,53 @@
+---
+import type { FAQ } from '../types/faq';
+
+export interface Props {
+  faqs?: FAQ[];
+  items?: FAQ[];
+  openFirst?: boolean;
+  defaultOpenIndex?: number;
+  class?: string;
+  className?: string;
+}
+
+const {
+  faqs: faqsProp,
+  items: itemsProp,
+  openFirst = false,
+  defaultOpenIndex,
+  class: classNameProp = '',
+  className = '',
+} = Astro.props;
+
+const faqs = faqsProp || itemsProp || [];
+const customClass = classNameProp || className;
+---
+
+<div class={`space-y-3 ${customClass}`.trim()}>
+  {faqs.map((faq, index) => {
+    const isOpen = defaultOpenIndex === index || (openFirst && index === 0);
+    return (
+      <details
+        open={isOpen}
+        class="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm transition-colors duration-200 open:bg-[var(--color-bg-secondary)]"
+      >
+        <summary class="flex cursor-pointer items-center justify-between px-4 py-3 text-left font-semibold text-[var(--color-accent-warm)] md:text-base list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-warm)] focus-visible:ring-offset-2 rounded-lg [&::-webkit-details-marker]:hidden">
+          <span>{faq.question}</span>
+          <svg
+            aria-hidden="true"
+            focusable="false"
+            class="h-4 w-4 shrink-0 text-[var(--color-text-muted)] transition-transform duration-200 group-open:rotate-180"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </summary>
+        <div class="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
+          {faq.answer}
+        </div>
+      </details>
+    );
+  })}
+</div>
