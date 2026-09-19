@@ -500,7 +500,11 @@ function cmdDoctor() {
       const obsoleteOrigins = ['identity.netlify.com', 'ssl.gstatic.com', 'www.googleapis.com'];
 
       const tokenMatchesDomain = (token, domain) => {
-        const clean = token.replace(/^'|'$/g, '').replace(/^https?:\/\//, '').split('/')[0].split(':')[0];
+        const clean = token
+          .replace(/^'|'$/g, '')
+          .replace(/^https?:\/\//, '')
+          .split('/')[0]
+          .split(':')[0];
         return clean === domain || clean.endsWith('.' + domain);
       };
 
