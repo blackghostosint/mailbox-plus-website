@@ -1,4 +1,29 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+
+const { mockPricesList, mockCheckoutSessionsCreate, mockCheckoutSessionsRetrieve } = vi.hoisted(
+  () => ({
+    mockPricesList: vi.fn(),
+    mockCheckoutSessionsCreate: vi.fn(),
+    mockCheckoutSessionsRetrieve: vi.fn(),
+  })
+);
+
+vi.mock('stripe', () => {
+  return {
+    default: vi.fn().mockImplementation(function (this: any) {
+      this.prices = {
+        list: mockPricesList,
+      };
+      this.checkout = {
+        sessions: {
+          create: mockCheckoutSessionsCreate,
+          retrieve: mockCheckoutSessionsRetrieve,
+        },
+      };
+    }),
+  };
+});
+
 import createCheckoutHandler from '../create-checkout';
 import sendEmailHandler, { getClientIp } from '../sendEmail';
 import verifySessionHandler from '../verify-session';
@@ -9,6 +34,13 @@ import reviewsHandler from '../reviews';
 describe('Netlify Function Endpoints CORS and Header Consistency', () => {
   const mockContext: any = {};
   const EXPECTED_ORIGIN = 'https://mailboxplusohio.com';
+
+  beforeEach(() => {
+    mockPricesList.mockReset();
+    mockCheckoutSessionsCreate.mockReset();
+    mockCheckoutSessionsRetrieve.mockReset();
+    mockCheckoutSessionsRetrieve.mockRejectedValue(new Error('Session not found'));
+  });
 
   describe('create-checkout', () => {
     it('handles OPTIONS preflight with status 204 and standard CORS headers', async () => {
