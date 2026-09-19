@@ -4,6 +4,7 @@
 // The only JS needed on the page is zero — FAQ uses native <details>/<summary>.
 
 import BaseLayout from './BaseLayout.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 import type { Service, CTA } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
 import reviewsData from '../data/reviews.json';
@@ -194,21 +195,7 @@ const carriers = [
                   Get quick answers to the most common questions about packaging, carriers, pricing, and what to expect.
                 </p>
               </div>
-              <div class="space-y-3">
-                {service.faqs.map((faq, i) => (
-                  <details class="rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm open:bg-[var(--color-bg-secondary)] group">
-                    <summary class="px-4 py-3 text-left text-[var(--color-accent-warm)] font-semibold cursor-pointer list-none flex items-center justify-between [&::-webkit-details-marker]:hidden">
-                      <span>{faq.question}</span>
-                      <svg aria-hidden="true" focusable="false" class="w-4 h-4 shrink-0 text-[var(--color-text-muted)] transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </summary>
-                    <div class="px-4 pb-4 text-sm md:text-base text-[var(--color-text-primary)] leading-relaxed">
-                      {faq.answer}
-                    </div>
-                  </details>
-                ))}
-              </div>
+              <FaqAccordion faqs={service.faqs} />
             </div>
           </div>
         </section>
