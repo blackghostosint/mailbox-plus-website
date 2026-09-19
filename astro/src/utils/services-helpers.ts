@@ -155,20 +155,39 @@ export const getServiceBreadcrumbs = (
   if (parentPillar) {
     return [
       homeNode,
-      { label: parentPillar.title, url: normalizePathname(parentPillar.url), name: parentPillar.title },
-      { label: service.serviceName, url: normalizePathname(serviceUrl), name: service.serviceName, active: true },
+      {
+        label: parentPillar.title,
+        url: normalizePathname(parentPillar.url),
+        name: parentPillar.title,
+      },
+      {
+        label: service.serviceName,
+        url: normalizePathname(serviceUrl),
+        name: service.serviceName,
+        active: true,
+      },
     ];
   } else if (baseUrl) {
     return [
       homeNode,
       { label: baseLabel, url: normalizePathname(baseUrl), name: baseLabel },
-      { label: service.serviceName, url: normalizePathname(serviceUrl), name: service.serviceName, active: true },
+      {
+        label: service.serviceName,
+        url: normalizePathname(serviceUrl),
+        name: service.serviceName,
+        active: true,
+      },
     ];
   }
 
   return [
     homeNode,
-    { label: service.serviceName, url: normalizePathname(serviceUrl), name: service.serviceName, active: true },
+    {
+      label: service.serviceName,
+      url: normalizePathname(serviceUrl),
+      name: service.serviceName,
+      active: true,
+    },
   ];
 };
 

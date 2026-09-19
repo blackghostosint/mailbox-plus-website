@@ -180,10 +180,7 @@ export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   // 1. Pillars
   const pillar = pillarByUrlMap.get(key);
   if (pillar) {
-    return [
-      homeNode,
-      { label: pillar.title, url: normalizePathname(pillar.url), active: true },
-    ];
+    return [homeNode, { label: pillar.title, url: normalizePathname(pillar.url), active: true }];
   }
 
   // 2. Pillar Children
