@@ -4,3 +4,5 @@ export * from './everyDoorDirectMailFaqs';
 export * from './shreddingFaqs';
 export * from './documentScanningFaqs';
 export * from './faxServicesFaqs';
+export * from './privateMailboxRentalFaqs';
+export * from './afterSignupFaqs';
