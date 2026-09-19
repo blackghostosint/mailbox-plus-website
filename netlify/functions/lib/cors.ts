@@ -1,5 +1,6 @@
 import { logger } from './logger';
 import { checkRateLimit, getClientIp, type RateLimitOptions } from './rate-limiter';
+import { serverEnv } from './env';
 
 export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
@@ -17,7 +18,7 @@ export interface CorsOptions {
 }
 
 export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = [
-  process.env.SITE_URL || 'https://mailboxplusohio.com',
+  serverEnv.SITE_URL,
   'https://mailboxplusohio.com',
   /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
   /localhost(:\d+)?$/,

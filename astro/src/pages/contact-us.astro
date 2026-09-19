@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
+import { getRecaptchaSiteKey } from '../lib/env';
 const { contact } = siteConfig;
 const phoneDigits = contact.phone.replace(/[^0-9]/g, '');
 const hours = [
@@ -8,8 +9,7 @@ const hours = [
   { day: 'Saturday', time: '9:00 AM - 2:00 PM' },
   { day: 'Sunday', time: 'Closed' },
 ];
-const recaptchaSiteKey =
-  import.meta.env.VITE_RECAPTCHA_SITE_KEY || import.meta.env.RECAPTCHA_SITE_KEY || '';
+const recaptchaSiteKey = getRecaptchaSiteKey();
 ---
 
 <BaseLayout

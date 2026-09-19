@@ -7,6 +7,7 @@
 import type { Context } from 'https://edge.netlify.com/';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { serverEnv } from './lib/env';
 
 export default withCors(
   async (request: Request, context: Context) => {

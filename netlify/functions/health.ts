@@ -6,6 +6,7 @@
 
 import type { Context } from 'https://edge.netlify.com/';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { serverEnv } from './lib/env';
 
 export default withCors(
   async (request: Request, context: Context) => {
@@ -16,9 +17,7 @@ export default withCors(
       status: 'healthy',
       timestamp: new Date().toISOString(),
       environment:
-        (typeof Netlify !== 'undefined' && Netlify.env?.get('CONTEXT')) ||
-        process.env.CONTEXT ||
-        'unknown',
+        (typeof Netlify !== 'undefined' && Netlify.env?.get('CONTEXT')) || serverEnv.CONTEXT,
       checks: {
         // Add more checks as needed (database, external APIs, etc.)
         server: 'ok',

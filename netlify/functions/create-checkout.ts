@@ -5,13 +5,11 @@
 // Centralized config: tier → lookup key (matches vault _config/PRICING-AND-FEES.md).
 
 import Stripe from 'stripe';
-import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { serverEnv } from './lib/env';
 
-dotenv.config();
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
+const getStripe = () => new Stripe(serverEnv.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
 const TIER_LOOKUP_KEYS: Record<string, string> = {
@@ -73,7 +71,7 @@ export default withCors(
       return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
     }
 
-    if (!process.env.STRIPE_SECRET_KEY) {
+    if (!serverEnv.STRIPE_SECRET_KEY) {
       return new Response(JSON.stringify({ error: 'Stripe is not configured on the server' }), {
         status: 500,
       });
@@ -93,7 +91,9 @@ export default withCors(
       }
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
-      const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
+      const siteUrl = serverEnv.SITE_URL;
+
+      const stripe = getStripe();
 
       // Resolve the tier's lookup key to a Price ID (Checkout line_items.price needs the ID)
       const prices = await stripe.prices.list({

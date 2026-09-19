@@ -29,6 +29,7 @@
 import { getStore } from '@netlify/blobs';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { serverEnv } from './lib/env';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -59,8 +60,8 @@ function getReviewsStore() {
   try {
     return getStore({
       name: 'reviews-cache',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
+      siteID: serverEnv.NETLIFY_SITE_ID,
+      token: serverEnv.NETLIFY_AUTH_TOKEN,
     });
   } catch {
     return null;
@@ -96,7 +97,7 @@ function isFresh(cached: { fetchedAt: string }): boolean {
 }
 
 async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
+  const apiKey = serverEnv.GOOGLE_PLACES_API_KEY;
   if (!apiKey) {
     throw new Error('GOOGLE_PLACES_API_KEY is not set');
   }

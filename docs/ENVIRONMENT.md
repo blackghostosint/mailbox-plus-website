@@ -4,11 +4,11 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 
 ## Required Variables
 
-| Variable                  | Description                                                      | Example                  |
-| ------------------------- | ---------------------------------------------------------------- | ------------------------ |
-| `VITE_R2_PUBLIC_BASE_URL` | Public R2 bucket base URL for images                             | `https://pub-xxx.r2.dev` |
-| `VITE_GOOGLE_MAPS_KEY`    | Google Maps API key for embed                                    | `AIza...`                |
-| `VITE_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key for contact form (or `RECAPTCHA_SITE_KEY`) | `6Lc...`                 |
+| Variable                  | Description                            | Example                  |
+| ------------------------- | -------------------------------------- | ------------------------ |
+| `VITE_R2_PUBLIC_BASE_URL` | Public R2 bucket base URL for images   | `https://pub-xxx.r2.dev` |
+| `VITE_GOOGLE_MAPS_KEY`    | Google Maps API key for embed          | `AIza...`                |
+| `VITE_RECAPTCHA_SITE_KEY` | reCAPTCHA v3 site key for contact form | `6Lc...`                 |
 
 ## Optional Variables
 
@@ -46,8 +46,8 @@ These are set in the Netlify dashboard (Site settings > Environment variables) f
 
 ### reCAPTCHA Site Key vs. Secret Key
 
-- **`VITE_RECAPTCHA_SITE_KEY` / `RECAPTCHA_SITE_KEY` (Public Site Key):** Loaded by front-end pages (`contact-us.astro`, `accessibility.astro`) to render the Google reCAPTCHA v3 client token generator. Safe for client bundles.
-- **`RECAPTCHA_SECRET_KEY` (Server Secret Key):** Kept strictly on the server/Netlify function runtime to verify user reCAPTCHA tokens against Google's verification endpoint. **Never** prefix with `VITE_` or expose to the client.
+- **`VITE_RECAPTCHA_SITE_KEY` (Public Site Key):** Loaded by front-end pages (`contact-us.astro`, `accessibility.astro`) via `astro/src/lib/env.ts` to render the Google reCAPTCHA v3 client token generator. Safe for client bundles.
+- **`RECAPTCHA_SECRET_KEY` (Server Secret Key):** Kept strictly on the server/Netlify function runtime and loaded via `netlify/functions/lib/env.ts` to verify user reCAPTCHA tokens against Google's verification endpoint. **Never** prefix with `VITE_` or expose to the client.
 
 ## Setting Up Local Development
 
