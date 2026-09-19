@@ -38,11 +38,8 @@ jobs:
       - name: Run verification doctor
         run: npm run verify:doctor
 
-      - name: Code formatting check (Prettier)
-        run: npm run format:check
-
-      - name: Article quality audit
-        run: npm run audit:articles
+      - name: Run quality audits
+        run: npm run audit:quality
 
       - name: Run PR content verification (strict, offline)
         if: github.event_name == 'pull_request'
