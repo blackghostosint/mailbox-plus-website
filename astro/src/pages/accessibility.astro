@@ -111,30 +111,30 @@ const recaptchaSiteKey =
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField id="acc-name" label="Full Name" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="text" name="name" aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm" placeholder="Enter your full name" />
+            <input type="text" id="acc-name" name="name" required aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your full name" />
           </FormField>
 
           <FormField id="acc-email" label="Email Address" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="email" name="email" aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm" placeholder="Enter your email address" />
+            <input type="email" id="acc-email" name="email" required aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your email address" />
           </FormField>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField id="acc-phone" label="Phone Number" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="tel" name="phone" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm" placeholder="(440) 555-0123" />
+            <input type="tel" id="acc-phone" name="phone" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="(440) 555-0123" />
           </FormField>
 
           <FormField id="acc-url" label="Webpage URL / Feature Location" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="text" name="url" aria-label="Webpage URL or feature location" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm" placeholder="e.g. /contact-us or service card dropdown" />
+            <input type="text" id="acc-url" name="url" aria-label="Webpage URL or feature location" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="e.g. /contact-us or service card dropdown" />
           </FormField>
         </div>
 
         <FormField id="acc-barrier" label="Description of Barrier or Accommodation Needed" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-          <textarea name="barrier_description" rows={5} aria-label="Description of accessibility barrier or accommodation needed" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm resize-none" placeholder="Please describe the barrier encountered or assistance required..."></textarea>
+          <textarea id="acc-barrier" name="barrier_description" required rows="5" aria-label="Description of accessibility barrier or accommodation needed" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm resize-none" placeholder="Please describe the barrier encountered or assistance required..."></textarea>
         </FormField>
 
         <FormField id="acc-preferred" label="Preferred Response Channel" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-          <select name="preferred_contact" aria-label="Preferred response channel" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] transition-all shadow-sm">
+          <select id="acc-preferred" name="preferred_contact" aria-label="Preferred response channel" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm">
             <option value="email">Email</option>
             <option value="phone">Phone Call</option>
             <option value="sms">SMS Text</option>
