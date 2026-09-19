@@ -62,7 +62,7 @@ describe('FormField Component', () => {
     const className = input.className;
     expect(className).toContain('bg-gray-100 p-2');
     expect(className).toContain('focus:ring-2');
-    expect(className).toContain('focus:ring-primary');
+    expect(className).toContain('focus:ring-border-strong');
   });
 
   it('renders help text and sets aria-describedby on child input', () => {
