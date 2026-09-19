@@ -409,9 +409,10 @@ function cmdDoctor() {
   check(
     'node-modules',
     fs.existsSync(path.join(ROOT, 'node_modules')) &&
-      fs.existsSync(path.join(ROOT, 'astro', 'node_modules')),
-    'root + astro node_modules present',
-    'npm ci (root) && cd astro && npm ci'
+      (fs.existsSync(path.join(ROOT, 'node_modules', 'mailbox-plus-astro')) ||
+        fs.existsSync(path.join(ROOT, 'astro', 'node_modules'))),
+    'workspace-hoisted node_modules present',
+    'npm ci'
   );
   check(
     'gray-matter',

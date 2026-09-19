@@ -5,7 +5,7 @@
 ## Getting Started
 
 1. Clone the repository
-2. Run `npm install` and `cd astro && npm ci`
+2. Run `npm install`
 3. Copy `.env.example` to `.env` and fill in required variables
 4. Run `npm run verify:doctor` to verify repository environment sanity
 5. Run `npm run dev` to start the Astro development server
