@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { FormField } from '../components/ui/FormField';
+import { IconWrapper } from '../components/ui/IconWrapper';
 import { siteConfig } from '../config/siteConfig';
 
 const accessibility = siteConfig.accessibility || {
@@ -108,45 +110,39 @@ const recaptchaSiteKey =
         <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-2">
-            <label for="acc-name" class="text-sm font-semibold text-[var(--color-text-primary)]">Full Name *</label>
+          <FormField id="acc-name" label="Full Name" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
             <input type="text" id="acc-name" name="name" required aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your full name" />
-          </div>
+          </FormField>
 
-          <div class="space-y-2">
-            <label for="acc-email" class="text-sm font-semibold text-[var(--color-text-primary)]">Email Address *</label>
+          <FormField id="acc-email" label="Email Address" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
             <input type="email" id="acc-email" name="email" required aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your email address" />
-          </div>
+          </FormField>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="space-y-2">
-            <label for="acc-phone" class="text-sm font-semibold text-[var(--color-text-primary)]">Phone Number</label>
+          <FormField id="acc-phone" label="Phone Number" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
             <input type="tel" id="acc-phone" name="phone" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="(440) 555-0123" />
-          </div>
+          </FormField>
 
-          <div class="space-y-2">
-            <label for="acc-url" class="text-sm font-semibold text-[var(--color-text-primary)]">Webpage URL / Feature Location</label>
+          <FormField id="acc-url" label="Webpage URL / Feature Location" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
             <input type="text" id="acc-url" name="url" aria-label="Webpage URL or feature location" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="e.g. /contact-us or service card dropdown" />
-          </div>
+          </FormField>
         </div>
 
-        <div class="space-y-2">
-          <label for="acc-barrier" class="text-sm font-semibold text-[var(--color-text-primary)]">Description of Barrier or Accommodation Needed *</label>
+        <FormField id="acc-barrier" label="Description of Barrier or Accommodation Needed" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
           <textarea id="acc-barrier" name="barrier_description" required rows="5" aria-label="Description of accessibility barrier or accommodation needed" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm resize-none" placeholder="Please describe the barrier encountered or assistance required..."></textarea>
-        </div>
+        </FormField>
 
-        <div class="space-y-2">
-          <label for="acc-preferred" class="text-sm font-semibold text-[var(--color-text-primary)]">Preferred Response Channel</label>
+        <FormField id="acc-preferred" label="Preferred Response Channel" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
           <select id="acc-preferred" name="preferred_contact" aria-label="Preferred response channel" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm">
             <option value="email">Email</option>
             <option value="phone">Phone Call</option>
             <option value="sms">SMS Text</option>
           </select>
-        </div>
+        </FormField>
 
         <button type="submit" class="w-full inline-flex items-center justify-center gap-2 bg-[var(--color-primary)] text-white font-semibold text-base px-8 py-3.5 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-md">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          <IconWrapper><svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg></IconWrapper>
           Submit Barrier Report
         </button>
       </form>
