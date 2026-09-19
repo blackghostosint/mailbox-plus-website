@@ -6,6 +6,8 @@ Disallow: /search
 Disallow: /Login
 Disallow: /Website-Admin
 Disallow: /seo/
+# API endpoints are not content — keep crawlers out of them.
+Disallow: /api/
 Allow: /
 
 Sitemap: https://mailboxplusohio.com/sitemap-index.xml
