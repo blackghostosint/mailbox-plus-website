@@ -484,6 +484,57 @@ function cmdDoctor() {
         'check netlify.toml CSP configuration'
       );
     }
+
+    const scriptSrcMatch = netlifyToml.match(/script-src\s+([^;]+);/);
+    if (scriptSrcMatch) {
+      const scriptSrc = scriptSrcMatch[1];
+      const scriptSrcTokens = new Set(scriptSrc.trim().split(/\s+/));
+      const requiredOrigins = [
+        "'self'",
+        'https://www.googletagmanager.com',
+        'https://connect.facebook.net',
+        'https://www.google.com',
+        'https://www.gstatic.com',
+        'https://news.google.com',
+      ];
+      const obsoleteOrigins = ['identity.netlify.com', 'ssl.gstatic.com', 'www.googleapis.com'];
+
+      const tokenMatchesDomain = (token, domain) => {
+        const clean = token
+          .replace(/^'|'$/g, '')
+          .replace(/^https?:\/\//, '')
+          .split('/')[0]
+          .split(':')[0];
+        return clean === domain || clean.endsWith('.' + domain);
+      };
+
+      const missingRequired = requiredOrigins.filter((o) => !scriptSrcTokens.has(o));
+      const foundObsolete = obsoleteOrigins.filter((obs) =>
+        Array.from(scriptSrcTokens).some((t) => tokenMatchesDomain(t, obs))
+      );
+
+      const pass = missingRequired.length === 0 && foundObsolete.length === 0;
+      let detail = 'script-src aligned with required active origins and free of obsolete domains';
+      if (missingRequired.length > 0) {
+        detail = `script-src missing required origin(s): ${missingRequired.join(', ')}`;
+      } else if (foundObsolete.length > 0) {
+        detail = `script-src contains obsolete origin(s): ${foundObsolete.join(', ')}`;
+      }
+
+      check(
+        'csp:script-src',
+        pass,
+        detail,
+        'update netlify.toml Content-Security-Policy script-src directive to whitelist active origins and remove obsolete domains (identity.netlify.com, ssl.gstatic.com, www.googleapis.com)'
+      );
+    } else {
+      check(
+        'csp:script-src',
+        false,
+        'script-src directive not found in netlify.toml',
+        'check netlify.toml CSP configuration'
+      );
+    }
   } else {
     check(
       'csp:r2-domain',
