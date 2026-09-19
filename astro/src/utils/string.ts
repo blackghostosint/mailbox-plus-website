@@ -50,11 +50,11 @@ export function slugifySchemaId(str?: string | null): string {
 
 /**
  * Formats a category slug by replacing hyphens with spaces.
- * Preserves exact behavioral equivalence with inline category string transformations (e.g., 'pack-ship' -> 'pack ship').
+ * Preserves exact behavioral equivalence with inline category string transformations (e.g. 'pack-ship' -> 'pack ship').
  * Note: Rendered visual title casing is provided via Tailwind CSS classes (such as `capitalize` or `uppercase`) on template elements.
  *
  * @param category Category slug or raw category string (e.g. "pack-ship")
- * @returns Formatted category title with hyphens replaced by spaces (e.g. "pack ship")
+ * @returns Formatted category title with hyphens replaced by spaces (e.g. 'pack-ship' -> 'pack ship')
  */
 export function formatCategoryTitle(category?: string | null): string {
   if (!category) return '';
