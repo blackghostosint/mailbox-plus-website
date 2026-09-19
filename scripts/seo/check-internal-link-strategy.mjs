@@ -32,16 +32,8 @@ const MICRO_PROBLEMS_DIR = path.join(ROOT, 'astro/src/config/micro-problems');
 const ARTICLES_DIR = path.join(ROOT, 'content/articles');
 const DIST_DIR = resolveDistDir();
 
-const SITE_STRUCTURE = JSON.parse(
-  fs.readFileSync(path.join(DATA_DIR, 'siteStructure.json'), 'utf-8')
-);
-const INTERNAL_LINKS = JSON.parse(
-  fs.readFileSync(path.join(DATA_DIR, 'internalLinks.json'), 'utf-8')
-);
-
-// ---- Configurable thresholds ----
-const MIN_LINKS_PER_SEO_PAGE = 1; // Phase 3.3
-const ALLOWED_PREFIXES = [
+export const MIN_LINKS_PER_SEO_PAGE = 1;
+export const ALLOWED_PREFIXES = [
   '/articles',
   '/service-area',
   '/guide',
@@ -50,17 +42,20 @@ const ALLOWED_PREFIXES = [
   '/contact-us',
 ];
 
-// Service blocks that are "SEO landing pages" (Phase 3.3 scope) vs core services
-// SEO landing pages get their links ONLY from inline content. Core service pages
-// additionally get links from the auto-rendered RelatedServices component.
-const SEO_LANDING_FILES = [
-  'competitive/', // all files under competitive/
+export const SEO_LANDING_FILES = [
+  'competitive/',
   'local-seo.ts',
   'gsc-landing-pages.ts',
   'micro-problems.ts',
 ];
 
-function normalizePath(p) {
+export const ALLOWED_LEGACY_ALIASES = new Set([
+  '/drop-off-locations',
+  '/package-drop-offs',
+  '/package-receiving',
+]);
+
+export function normalizePath(p) {
   if (!p) return '';
   let cleaned = p.trim();
   if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) {
@@ -77,278 +72,281 @@ function normalizePath(p) {
   return cleaned;
 }
 
-// ---- 1. Collect all known routes from siteStructure.json + built dist ----
-const knownRoutes = new Set();
-const knownIds = new Set();
-function register(item) {
-  if (!item || typeof item !== 'object') return;
-  if (item.id) knownIds.add(item.id);
-  if (item.url) knownRoutes.add(normalizePath(item.url));
-  if (Array.isArray(item.children)) item.children.forEach(register);
-}
-if (SITE_STRUCTURE.homepage) register(SITE_STRUCTURE.homepage);
-['pillars', 'subSupporting', 'seo-landing'].forEach((key) => {
-  (SITE_STRUCTURE[key] || []).forEach(register);
-});
-
-// Built routes from dist/ (ground truth for link target validity)
-const builtRoutes = new Set();
-function walkHtml(dir, list = []) {
-  if (!fs.existsSync(dir)) return list;
-  for (const entry of fs.readdirSync(dir)) {
-    const full = path.join(dir, entry);
-    if (fs.statSync(full).isDirectory()) walkHtml(full, list);
-    else if (entry.endsWith('.html')) list.push(full);
-  }
-  return list;
-}
-for (const f of walkHtml(DIST_DIR)) {
-  const rel = path.relative(DIST_DIR, f).replace(/\\/g, '/');
-  let urlPath =
-    rel === 'index.html' ? '/' : '/' + rel.replace(/\/index\.html$/, '').replace(/\.html$/, '');
-  builtRoutes.add(normalizePath(urlPath));
-}
-
-// ---- 2. Collect service config pages and their inline content links ----
-function walk(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  for (const entry of fs.readdirSync(dir)) {
-    const full = path.join(dir, entry);
-    if (fs.statSync(full).isDirectory()) walk(full, fileList);
-    else if (entry.endsWith('.ts')) fileList.push(full);
-  }
-  return fileList;
-}
-
-const configFiles = walk(CONFIG_DIR).concat(walk(MICRO_PROBLEMS_DIR));
-const pages = []; // { id, slug, file, links, isSeoLanding }
-const pagesById = new Map();
-const linkSinks = new Map(); // target -> inbound count from inline content links
-
-function isSeoLandingFile(file) {
-  const rel = path.relative(CONFIG_DIR, file).replace(/\\/g, '/');
+export function isSeoLandingFile(file, baseConfigDir = CONFIG_DIR) {
+  const rel = path.relative(baseConfigDir, file).replace(/\\/g, '/');
   return SEO_LANDING_FILES.some((p) => (p.endsWith('/') ? rel.startsWith(p) : rel.includes(p)));
 }
 
-function addPage(id, slug, file, block) {
-  const hrefs = [...block.matchAll(/href="(\/[^"#?]*)/g)].map((m) => normalizePath(m[1]));
-  const internal = hrefs.filter((h) => h && !h.startsWith('//') && !h.startsWith('/images'));
-  const page = {
-    id,
-    slug: normalizePath(slug),
-    file,
-    links: [...new Set(internal)],
-    isSeoLanding: isSeoLandingFile(file),
-  };
-  pages.push(page);
-  pagesById.set(id, page);
-  for (const target of new Set(internal)) {
-    linkSinks.set(target, (linkSinks.get(target) || 0) + 1);
+export function auditInternalLinkStrategy(options = {}) {
+  const dataDir = options.dataDir || DATA_DIR;
+  const configDir = options.configDir || CONFIG_DIR;
+  const microProblemsDir = options.microProblemsDir || MICRO_PROBLEMS_DIR;
+  const articlesDir = options.articlesDir || ARTICLES_DIR;
+  const distDir = options.distDir || DIST_DIR;
+
+  const siteStructurePath = path.join(dataDir, 'siteStructure.json');
+  const internalLinksPath = path.join(dataDir, 'internalLinks.json');
+
+  const siteStructure =
+    options.siteStructure ||
+    (fs.existsSync(siteStructurePath)
+      ? JSON.parse(fs.readFileSync(siteStructurePath, 'utf-8'))
+      : {});
+  const internalLinks =
+    options.internalLinks ||
+    (fs.existsSync(internalLinksPath)
+      ? JSON.parse(fs.readFileSync(internalLinksPath, 'utf-8'))
+      : {});
+
+  // 1. Collect all known routes
+  const knownRoutes = new Set();
+  const knownIds = new Set();
+  function register(item) {
+    if (!item || typeof item !== 'object') return;
+    if (item.id) knownIds.add(item.id);
+    if (item.url) knownRoutes.add(normalizePath(item.url));
+    if (Array.isArray(item.children)) item.children.forEach(register);
   }
-}
+  if (siteStructure.homepage) register(siteStructure.homepage);
+  ['pillars', 'subSupporting', 'seo-landing'].forEach((key) => {
+    (siteStructure[key] || []).forEach(register);
+  });
 
-for (const file of configFiles) {
-  const content = fs.readFileSync(file, 'utf-8');
-  const blocks = content.split(/\n\s*id:\s*'/);
-  for (let i = 1; i < blocks.length; i++) {
-    const block = blocks[i];
-    const id = block.slice(0, block.indexOf("'"));
-    if (!id) continue;
-    const slugMatch = block.match(/slug:\s*'([^']+)'/);
-    const slug = slugMatch ? slugMatch[1] : null;
-    addPage(id, slug || `/${id}`, file, block);
+  // Built routes from dist/
+  const builtRoutes = new Set();
+  function walkHtml(dir, list = []) {
+    if (!fs.existsSync(dir)) return list;
+    for (const entry of fs.readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkHtml(full, list);
+      else if (entry.endsWith('.html')) list.push(full);
+    }
+    return list;
   }
-}
+  for (const f of walkHtml(distDir)) {
+    const rel = path.relative(distDir, f).replace(/\\/g, '/');
+    let urlPath =
+      rel === 'index.html' ? '/' : '/' + rel.replace(/\/index\.html$/, '').replace(/\.html$/, '');
+    builtRoutes.add(normalizePath(urlPath));
+  }
 
-// ---- 3. Inbound edges from internalLinks.json "related" arrays ----
-// Each entry: key page has related: [ids...] -> those edges render as links
-// from the key page to each related page (RelatedServices component).
-// Map related IDs to their URL routes before counting inbound.
-const idToRoute = new Map();
-for (const p of pages) if (p.slug) idToRoute.set(p.id, p.slug);
-for (const item of [
-  SITE_STRUCTURE.homepage,
-  ...(SITE_STRUCTURE.pillars || []),
-  ...(SITE_STRUCTURE.subSupporting || []),
-  ...(SITE_STRUCTURE['seo-landing'] || []),
-]) {
-  if (item && item.id && item.url) idToRoute.set(item.id, normalizePath(item.url));
-}
+  // 2. Collect service config pages
+  function walkTsFiles(dir, fileList = []) {
+    if (!fs.existsSync(dir)) return fileList;
+    for (const entry of fs.readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkTsFiles(full, fileList);
+      else if (entry.endsWith('.ts')) fileList.push(full);
+    }
+    return fileList;
+  }
 
-const relatedEdges = new Map(); // targetRoute -> count
-for (const [srcId, entry] of Object.entries(INTERNAL_LINKS)) {
-  if (entry && Array.isArray(entry.related)) {
-    for (const relId of entry.related) {
-      const route = idToRoute.get(relId) || normalizePath(String(relId));
-      relatedEdges.set(route, (relatedEdges.get(route) || 0) + 1);
+  const configFiles = walkTsFiles(configDir).concat(walkTsFiles(microProblemsDir));
+  const pages = [];
+  const linkSinks = new Map();
+
+  function addPage(id, slug, file, block) {
+    const hrefs = [...block.matchAll(/href="(\/[^"#?]*)/g)].map((m) => normalizePath(m[1]));
+    const internal = hrefs.filter((h) => h && !h.startsWith('//') && !h.startsWith('/images'));
+    const page = {
+      id,
+      slug: normalizePath(slug),
+      file,
+      links: [...new Set(internal)],
+      isSeoLanding: isSeoLandingFile(file, configDir),
+    };
+    pages.push(page);
+    for (const target of new Set(internal)) {
+      linkSinks.set(target, (linkSinks.get(target) || 0) + 1);
     }
   }
-  // parent relationship itself is an inbound edge from parent
-  if (entry && entry.parent) {
-    const parentRoute = idToRoute.get(entry.parent) || normalizePath(String(entry.parent));
-    relatedEdges.set(parentRoute, (relatedEdges.get(parentRoute) || 0) + 1);
+
+  for (const file of configFiles) {
+    const content = fs.readFileSync(file, 'utf-8');
+    const blocks = content.split(/\n\s*id:\s*'/);
+    for (let i = 1; i < blocks.length; i++) {
+      const block = blocks[i];
+      const id = block.slice(0, block.indexOf("'"));
+      if (!id) continue;
+      const slugMatch = block.match(/slug:\s*'([^']+)'/);
+      const slug = slugMatch ? slugMatch[1] : null;
+      addPage(id, slug || `/${id}`, file, block);
+    }
   }
-}
 
-// ---- 4. Inbound links from articles ----
-const articleSinks = new Map();
-function walkMd(dir, list = []) {
-  if (!fs.existsSync(dir)) return list;
-  for (const entry of fs.readdirSync(dir)) {
-    const full = path.join(dir, entry);
-    if (fs.statSync(full).isDirectory()) walkMd(full, list);
-    else if (entry.endsWith('.md')) list.push(full);
+  // 3. Inbound edges from internalLinks.json
+  const idToRoute = new Map();
+  for (const p of pages) if (p.slug) idToRoute.set(p.id, p.slug);
+  for (const item of [
+    siteStructure.homepage,
+    ...(siteStructure.pillars || []),
+    ...(siteStructure.subSupporting || []),
+    ...(siteStructure['seo-landing'] || []),
+  ]) {
+    if (item && item.id && item.url) idToRoute.set(item.id, normalizePath(item.url));
   }
-  return list;
-}
-for (const f of walkMd(ARTICLES_DIR)) {
-  const content = fs.readFileSync(f, 'utf-8');
-  const hrefs = [...content.matchAll(/\]\((\/[^)#?\s]+)/g)].map((m) => normalizePath(m[1]));
-  for (const h of hrefs) {
-    if (h && !h.startsWith('//')) articleSinks.set(h, (articleSinks.get(h) || 0) + 1);
+
+  const relatedEdges = new Map();
+  for (const [srcId, entry] of Object.entries(internalLinks)) {
+    if (entry && Array.isArray(entry.related)) {
+      for (const relId of entry.related) {
+        const route = idToRoute.get(relId) || normalizePath(String(relId));
+        relatedEdges.set(route, (relatedEdges.get(route) || 0) + 1);
+      }
+    }
+    if (entry && entry.parent) {
+      const parentRoute = idToRoute.get(entry.parent) || normalizePath(String(entry.parent));
+      relatedEdges.set(parentRoute, (relatedEdges.get(parentRoute) || 0) + 1);
+    }
   }
-}
 
-// ---- Checks ----
-
-// Check 1: Content links on SEO landing pages (Phase 3.3)
-const seoPages = pages.filter((p) => p.isSeoLanding);
-const seoMissing = seoPages.filter((p) => p.links.length < MIN_LINKS_PER_SEO_PAGE);
-
-// Check 2: Link target validity (against siteStructure OR built routes)
-const brokenTargets = new Map();
-for (const page of pages) {
-  for (const target of page.links) {
-    if (knownRoutes.has(target) || builtRoutes.has(target)) continue;
-    if (ALLOWED_PREFIXES.some((p) => target.startsWith(p))) continue;
-    if (!brokenTargets.has(target)) brokenTargets.set(target, []);
-    brokenTargets.get(target).push(page.id);
+  // 4. Inbound links from articles
+  const articleSinks = new Map();
+  function walkMdFiles(dir, list = []) {
+    if (!fs.existsSync(dir)) return list;
+    for (const entry of fs.readdirSync(dir)) {
+      const full = path.join(dir, entry);
+      if (fs.statSync(full).isDirectory()) walkMdFiles(full, list);
+      else if (entry.endsWith('.md')) list.push(full);
+    }
+    return list;
   }
-}
-
-// Check 3: Registry coverage
-const internalLinkKeys = new Set(Object.keys(INTERNAL_LINKS));
-const registryMissingLinks = [...knownIds].filter((id) => !internalLinkKeys.has(id));
-
-// Check 4: Inbound coverage (inline + related edges + articles)
-const inboundTotal = new Map();
-for (const [t, c] of linkSinks) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
-for (const [t, c] of relatedEdges) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
-for (const [t, c] of articleSinks) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
-
-// Legacy alias / phantom routes that are intentionally not built as standalone
-// pages (handled under /pack-ship/ or allowed-missing in the route registry).
-const ALLOWED_LEGACY_ALIASES = new Set([
-  '/drop-off-locations', // geo dropoff landing; nested elsewhere
-  '/package-drop-offs', // built under /pack-ship/package-drop-offs
-  '/package-receiving', // built under /pack-ship/package-receiving
-]);
-
-const orphanRoutes = [];
-for (const route of knownRoutes) {
-  if (route === '/') continue;
-  if (ALLOWED_LEGACY_ALIASES.has(route)) continue;
-  const hasInbound = (inboundTotal.get(route) || 0) > 0;
-  if (!hasInbound) orphanRoutes.push(route);
-}
-
-// ---- Reporting ----
-let failed = false;
-console.log('==================================================');
-console.log('  SEO INTERNAL LINK STRATEGY AUDIT');
-console.log('==================================================\n');
-
-console.log(`ℹ️ Routes in siteStructure.json: ${knownRoutes.size}`);
-console.log(`ℹ️ Routes built in dist/: ${builtRoutes.size}`);
-console.log(
-  `ℹ️ Service config pages audited: ${pages.length} (${seoPages.length} SEO landing pages)`
-);
-console.log(`ℹ️ internalLinks.json entries: ${internalLinkKeys.size}`);
-console.log(`ℹ️ Articles scanned for links: ${walkMd(ARTICLES_DIR).length}\n`);
-
-// 1. Content links
-console.log('--- 1. Content Links on SEO Landing Pages (Phase 3.3) ---');
-if (seoMissing.length === 0) {
-  console.log(
-    `✅ OK: All ${seoPages.length} SEO landing pages have >= ${MIN_LINKS_PER_SEO_PAGE} contextual link(s).`
-  );
-} else {
-  failed = true;
-  console.error(
-    `❌ FAIL: ${seoMissing.length}/${seoPages.length} SEO landing page(s) have NO contextual links:`
-  );
-  for (const p of seoMissing) {
-    console.error(`   - ${p.id} (${p.slug}) [${path.relative(ROOT, p.file)}]`);
+  const articleFiles = walkMdFiles(articlesDir);
+  for (const f of articleFiles) {
+    const content = fs.readFileSync(f, 'utf-8');
+    const hrefs = [...content.matchAll(/\]\((\/[^)#?\s]+)/g)].map((m) => normalizePath(m[1]));
+    for (const h of hrefs) {
+      if (h && !h.startsWith('//')) articleSinks.set(h, (articleSinks.get(h) || 0) + 1);
+    }
   }
-}
-const seoWithLinks = seoPages.length - seoMissing.length;
 
-// 1b. Core pages (informational — they get RelatedServices links automatically)
-const coreMissing = pages.filter((p) => !p.isSeoLanding && p.links.length === 0);
-console.log(
-  `ℹ️ (Info) Core service pages with NO inline links (still linked via RelatedServices + nav): ${coreMissing.length}`
-);
+  // Audits
+  const seoPages = pages.filter((p) => p.isSeoLanding);
+  const seoMissing = seoPages.filter((p) => p.links.length < MIN_LINKS_PER_SEO_PAGE);
 
-// 2. Link targets
-console.log('\n--- 2. Link Target Validity ---');
-if (brokenTargets.size === 0) {
-  console.log('✅ OK: All internal href targets resolve to registered or built routes.');
-} else {
-  failed = true;
-  console.error(
-    `❌ FAIL: ${brokenTargets.size} internal link target(s) do NOT exist in siteStructure.json or dist/:`
-  );
-  for (const [t, sources] of [...brokenTargets.entries()].sort()) {
-    console.error(`   - ${t}  (linked from: ${sources.join(', ')})`);
+  const brokenTargets = new Map();
+  for (const page of pages) {
+    for (const target of page.links) {
+      if (knownRoutes.has(target) || builtRoutes.has(target)) continue;
+      if (ALLOWED_PREFIXES.some((p) => target.startsWith(p))) continue;
+      if (!brokenTargets.has(target)) brokenTargets.set(target, []);
+      brokenTargets.get(target).push(page.id);
+    }
   }
+
+  const internalLinkKeys = new Set(Object.keys(internalLinks));
+  const registryMissingLinks = [...knownIds].filter((id) => !internalLinkKeys.has(id));
+
+  const inboundTotal = new Map();
+  for (const [t, c] of linkSinks) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
+  for (const [t, c] of relatedEdges) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
+  for (const [t, c] of articleSinks) inboundTotal.set(t, (inboundTotal.get(t) || 0) + c);
+
+  const orphanRoutes = [];
+  for (const route of knownRoutes) {
+    if (route === '/') continue;
+    if (ALLOWED_LEGACY_ALIASES.has(route)) continue;
+    const hasInbound = (inboundTotal.get(route) || 0) > 0;
+    if (!hasInbound) orphanRoutes.push(route);
+  }
+
+  const success = seoMissing.length === 0 && brokenTargets.size === 0;
+
+  return {
+    success,
+    knownRoutesCount: knownRoutes.size,
+    builtRoutesCount: builtRoutes.size,
+    pagesCount: pages.length,
+    seoPagesCount: seoPages.length,
+    seoMissing,
+    brokenTargets,
+    registryMissingLinks,
+    orphanRoutes,
+    internalLinkKeysCount: internalLinkKeys.size,
+    articleCount: articleFiles.length,
+    linkSinks,
+  };
 }
 
-// 3. Registry coverage
-console.log('\n--- 3. Registry Coverage (internalLinks.json) ---');
-if (registryMissingLinks.length === 0) {
-  console.log(
-    '✅ OK: Every registered page ID has an internalLinks.json entry (RelatedServices renders links).'
-  );
-} else {
-  console.warn(
-    `⚠️ WARNING: ${registryMissingLinks.length} registered ID(s) missing from internalLinks.json:`
-  );
-  for (const id of registryMissingLinks.slice(0, 20)) console.warn(`   - ${id}`);
-}
-
-// 4. Inbound links
-console.log('\n--- 4. Inbound Link Coverage (no dead ends) ---');
-if (orphanRoutes.length === 0) {
-  console.log('✅ OK: Every registered route receives inbound links.');
-} else {
-  console.warn(
-    `⚠️ WARNING: ${orphanRoutes.length} registered route(s) have no detected inbound links:`
-  );
-  for (const r of orphanRoutes.slice(0, 25)) console.warn(`   - ${r}`);
-}
-
-// Link distribution summary
-console.log('\n--- Link Distribution ---');
-const seoLinks = seoPages.map((p) => p.links.length);
-const seoAvg = seoLinks.length
-  ? (seoLinks.reduce((a, b) => a + b, 0) / seoLinks.length).toFixed(1)
-  : '0';
-console.log(
-  `SEO landing pages with >=1 inline link: ${seoWithLinks}/${seoPages.length} (${Math.round((seoWithLinks / seoPages.length) * 100)}%)`
-);
-console.log(`Average inline links per SEO page: ${seoAvg}`);
-console.log(`Total unique inline link targets: ${linkSinks.size}`);
-const topTargets = [...linkSinks.entries()].sort((a, b) => b[1] - a[1]).slice(0, 10);
-console.log('Top inline link targets:');
-for (const [t, c] of topTargets) console.log(`   ${c}x  ${t}`);
-
-console.log('\n==================================================');
-if (failed) {
-  console.error('❌ INTERNAL LINK STRATEGY AUDIT FAILED.');
+export function main() {
+  console.log('==================================================');
+  console.log('  SEO INTERNAL LINK STRATEGY AUDIT');
   console.log('==================================================\n');
-  process.exit(1);
-} else {
-  console.log('🎉 INTERNAL LINK STRATEGY AUDIT PASSED.');
-  console.log('==================================================\n');
-  process.exit(0);
+
+  const res = auditInternalLinkStrategy();
+
+  console.log(`ℹ️ Routes in siteStructure.json: ${res.knownRoutesCount}`);
+  console.log(`ℹ️ Routes built in dist/: ${res.builtRoutesCount}`);
+  console.log(
+    `ℹ️ Service config pages audited: ${res.pagesCount} (${res.seoPagesCount} SEO landing pages)`
+  );
+  console.log(`ℹ️ internalLinks.json entries: ${res.internalLinkKeysCount}`);
+  console.log(`ℹ️ Articles scanned for links: ${res.articleCount}\n`);
+
+  // 1. Content links
+  console.log('--- 1. Content Links on SEO Landing Pages (Phase 3.3) ---');
+  if (res.seoMissing.length === 0) {
+    console.log(
+      `✅ OK: All ${res.seoPagesCount} SEO landing pages have >= ${MIN_LINKS_PER_SEO_PAGE} contextual link(s).`
+    );
+  } else {
+    console.error(
+      `❌ FAIL: ${res.seoMissing.length}/${res.seoPagesCount} SEO landing page(s) have NO contextual links:`
+    );
+    for (const p of res.seoMissing) {
+      console.error(`   - ${p.id} (${p.slug}) [${path.relative(ROOT, p.file)}]`);
+    }
+  }
+
+  // 2. Link targets
+  console.log('\n--- 2. Link Target Validity ---');
+  if (res.brokenTargets.size === 0) {
+    console.log('✅ OK: All internal href targets resolve to registered or built routes.');
+  } else {
+    console.error(
+      `❌ FAIL: ${res.brokenTargets.size} internal link target(s) do NOT exist in siteStructure.json or dist/:`
+    );
+    for (const [t, sources] of [...res.brokenTargets.entries()].sort()) {
+      console.error(`   - ${t}  (linked from: ${sources.join(', ')})`);
+    }
+  }
+
+  // 3. Registry coverage
+  console.log('\n--- 3. Registry Coverage (internalLinks.json) ---');
+  if (res.registryMissingLinks.length === 0) {
+    console.log(
+      '✅ OK: Every registered page ID has an internalLinks.json entry (RelatedServices renders links).'
+    );
+  } else {
+    console.warn(
+      `⚠️ WARNING: ${res.registryMissingLinks.length} registered ID(s) missing from internalLinks.json:`
+    );
+    for (const id of res.registryMissingLinks.slice(0, 20)) console.warn(`   - ${id}`);
+  }
+
+  // 4. Inbound links
+  console.log('\n--- 4. Inbound Link Coverage (no dead ends) ---');
+  if (res.orphanRoutes.length === 0) {
+    console.log('✅ OK: Every registered route receives inbound links.');
+  } else {
+    console.warn(
+      `⚠️ WARNING: ${res.orphanRoutes.length} registered route(s) have no detected inbound links:`
+    );
+    for (const r of res.orphanRoutes.slice(0, 25)) console.warn(`   - ${r}`);
+  }
+
+  console.log('\n==================================================');
+  if (!res.success) {
+    console.error('❌ INTERNAL LINK STRATEGY AUDIT FAILED.');
+    console.log('==================================================\n');
+    process.exit(1);
+  } else {
+    console.log('🎉 INTERNAL LINK STRATEGY AUDIT PASSED.');
+    console.log('==================================================\n');
+    process.exit(0);
+  }
+}
+
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main();
 }

@@ -22,16 +22,18 @@ const LLMS_FULL_PATH = path.join(ROOT, 'public', 'llms-full.txt');
 
 const BASE = 'https://mailboxplusohio.com';
 
-function fmtDate(iso: string | null | undefined): string {
+export function fmtDate(iso: string | null | undefined): string {
   if (!iso) return 'unknown';
   try {
-    return new Date(iso).toISOString().slice(0, 10);
+    const d = new Date(iso);
+    if (isNaN(d.getTime())) return 'unknown';
+    return d.toISOString().slice(0, 10);
   } catch {
     return 'unknown';
   }
 }
 
-interface ArticleItem {
+export interface ArticleItem {
   slug: string;
   title: string;
   description: string;
@@ -41,8 +43,11 @@ interface ArticleItem {
   content: string;
 }
 
-function getLLMArticles(): ArticleItem[] {
-  const loaded = loadArticles(CONTENT_DIR, { filterPublished: true, rootDir: ROOT });
+export function getLLMArticles(
+  contentDir: string = CONTENT_DIR,
+  rootDir: string = ROOT
+): ArticleItem[] {
+  const loaded = loadArticles(contentDir, { filterPublished: true, rootDir });
   return loaded.map((art) => ({
     slug: art.frontmatter.slug,
     title: art.frontmatter.title || art.frontmatter.slug,
@@ -54,7 +59,7 @@ function getLLMArticles(): ArticleItem[] {
   }));
 }
 
-function articleSection(articles: ArticleItem[]): string {
+export function articleSection(articles: ArticleItem[]): string {
   const byCat = new Map<string, ArticleItem[]>();
   for (const a of articles) {
     if (!byCat.has(a.category)) byCat.set(a.category, []);
@@ -82,7 +87,7 @@ function articleSection(articles: ArticleItem[]): string {
   );
 }
 
-function fullSection(articles: ArticleItem[]): string {
+export function fullSection(articles: ArticleItem[]): string {
   const lines: string[] = ['', '## Articles (Full Text)', ''];
   const sorted = [...articles].sort((a, b) => a.slug.localeCompare(b.slug));
   for (const a of sorted) {
@@ -107,7 +112,7 @@ function fullSection(articles: ArticleItem[]): string {
   );
 }
 
-function spliceSection(existing: string, headerRegex: RegExp, newContent: string): string {
+export function spliceSection(existing: string, headerRegex: RegExp, newContent: string): string {
   const match = existing.match(headerRegex);
   if (match) {
     const beforeHeader = existing.slice(0, match.index).trimEnd();
@@ -116,7 +121,7 @@ function spliceSection(existing: string, headerRegex: RegExp, newContent: string
   return existing.trimEnd() + '\n\n' + newContent.trimEnd() + '\n';
 }
 
-function printDiffSummary(filename: string, existing: string, expected: string): void {
+export function printDiffSummary(filename: string, existing: string, expected: string): void {
   const existingLines = existing.split('\n');
   const expectedLines = expected.split('\n');
 
@@ -151,64 +156,84 @@ function printDiffSummary(filename: string, existing: string, expected: string):
   console.error(`--------------------------------------\n`);
 }
 
-const write = process.argv.includes('--write');
-const check = process.argv.includes('--check');
+export function runGenerateLLMsArticles(options?: {
+  write?: boolean;
+  check?: boolean;
+  llmsPath?: string;
+  llmsFullPath?: string;
+  contentDir?: string;
+  rootDir?: string;
+}): { expectedLlms: string; expectedFull: string } {
+  const write = options?.write ?? false;
+  const check = options?.check ?? false;
+  const llmsPath = options?.llmsPath || LLMS_PATH;
+  const llmsFullPath = options?.llmsFullPath || LLMS_FULL_PATH;
+  const contentDir = options?.contentDir || CONTENT_DIR;
+  const rootDir = options?.rootDir || ROOT;
 
-const articles = getLLMArticles();
-console.log(`[llms] loaded ${articles.length} published articles`);
+  const articles = getLLMArticles(contentDir, rootDir);
+  console.log(`[llms] loaded ${articles.length} published articles`);
 
-const llmsExisting = fs.existsSync(LLMS_PATH) ? fs.readFileSync(LLMS_PATH, 'utf8') : '';
-const fullExisting = fs.existsSync(LLMS_FULL_PATH) ? fs.readFileSync(LLMS_FULL_PATH, 'utf8') : '';
+  const llmsExisting = fs.existsSync(llmsPath) ? fs.readFileSync(llmsPath, 'utf8') : '';
+  const fullExisting = fs.existsSync(llmsFullPath) ? fs.readFileSync(llmsFullPath, 'utf8') : '';
 
-const expectedLlms = spliceSection(llmsExisting, /## Articles/, articleSection(articles));
-const expectedFull = spliceSection(
-  fullExisting,
-  /## Articles \(Full Text\)/,
-  fullSection(articles)
-);
-
-if (check) {
-  let hasDrift = false;
-
-  if (!fs.existsSync(LLMS_PATH)) {
-    console.error(`❌ public/llms.txt does not exist on disk.`);
-    hasDrift = true;
-  } else if (llmsExisting !== expectedLlms) {
-    console.error(`❌ Drift detected in public/llms.txt`);
-    printDiffSummary('public/llms.txt', llmsExisting, expectedLlms);
-    hasDrift = true;
-  }
-
-  if (!fs.existsSync(LLMS_FULL_PATH)) {
-    console.error(`❌ public/llms-full.txt does not exist on disk.`);
-    hasDrift = true;
-  } else if (fullExisting !== expectedFull) {
-    console.error(`❌ Drift detected in public/llms-full.txt`);
-    printDiffSummary('public/llms-full.txt', fullExisting, expectedFull);
-    hasDrift = true;
-  }
-
-  if (hasDrift) {
-    console.error(
-      `❌ LLM documentation feeds are out of sync with content/articles/!\n` +
-        `Run "npx tsx scripts/generate-llms-articles.ts --write" or "npm run prebuild" to update public feeds.`
-    );
-    process.exit(1);
-  }
-
-  console.log(
-    `✅ LLM documentation feeds (public/llms.txt, public/llms-full.txt) are synchronized with articles.`
+  const expectedLlms = spliceSection(llmsExisting, /## Articles/, articleSection(articles));
+  const expectedFull = spliceSection(
+    fullExisting,
+    /## Articles \(Full Text\)/,
+    fullSection(articles)
   );
-  process.exit(0);
+
+  if (check) {
+    let hasDrift = false;
+
+    if (!fs.existsSync(llmsPath)) {
+      console.error(`❌ public/llms.txt does not exist on disk.`);
+      hasDrift = true;
+    } else if (llmsExisting !== expectedLlms) {
+      console.error(`❌ Drift detected in public/llms.txt`);
+      printDiffSummary('public/llms.txt', llmsExisting, expectedLlms);
+      hasDrift = true;
+    }
+
+    if (!fs.existsSync(llmsFullPath)) {
+      console.error(`❌ public/llms-full.txt does not exist on disk.`);
+      hasDrift = true;
+    } else if (fullExisting !== expectedFull) {
+      console.error(`❌ Drift detected in public/llms-full.txt`);
+      printDiffSummary('public/llms-full.txt', fullExisting, expectedFull);
+      hasDrift = true;
+    }
+
+    if (hasDrift) {
+      console.error(
+        `❌ LLM documentation feeds are out of sync with content/articles/!\n` +
+          `Run "npx tsx scripts/generate-llms-articles.ts --write" or "npm run prebuild" to update public feeds.`
+      );
+      process.exit(1);
+    }
+
+    console.log(
+      `✅ LLM documentation feeds (public/llms.txt, public/llms-full.txt) are synchronized with articles.`
+    );
+    process.exit(0);
+  }
+
+  if (!write) {
+    console.log('[llms] dry run (pass --write to update files or --check to verify sync)');
+    return { expectedLlms, expectedFull };
+  }
+
+  // Write mode
+  fs.writeFileSync(llmsPath, expectedLlms);
+  fs.writeFileSync(llmsFullPath, expectedFull);
+
+  console.log('[llms] wrote llms.txt Articles section + llms-full.txt full text');
+  return { expectedLlms, expectedFull };
 }
 
-if (!write) {
-  console.log('[llms] dry run (pass --write to update files or --check to verify sync)');
-  process.exit(0);
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  const write = process.argv.includes('--write');
+  const check = process.argv.includes('--check');
+  runGenerateLLMsArticles({ write, check });
 }
-
-// Write mode
-fs.writeFileSync(LLMS_PATH, expectedLlms);
-fs.writeFileSync(LLMS_FULL_PATH, expectedFull);
-
-console.log('[llms] wrote llms.txt Articles section + llms-full.txt full text');

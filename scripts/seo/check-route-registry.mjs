@@ -14,7 +14,7 @@ const ALLOWLIST_PATH = path.join(ROOT_DIR, 'scripts/seo/route-registry-allowlist
 
 // Normalizes path for comparing consistently:
 // Strips host/protocol, strips '.html', ensures leading slash, strips trailing slashes (except '/')
-function normalizePath(p) {
+export function normalizePath(p) {
   if (!p) return '';
   let cleaned = p.trim();
   if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) {
@@ -37,7 +37,7 @@ function normalizePath(p) {
 }
 
 // Recursively walks directory to find all .html files
-function getHtmlFiles(dir, fileList = []) {
+export function getHtmlFiles(dir, fileList = []) {
   if (!fs.existsSync(dir)) return fileList;
   const files = fs.readdirSync(dir);
   for (const file of files) {
@@ -53,9 +53,9 @@ function getHtmlFiles(dir, fileList = []) {
 }
 
 // Default static allowlist of utility/section pages
-const DEFAULT_ALLOWED_PREFIXES = ['/articles', '/service-area', '/guide'];
+export const DEFAULT_ALLOWED_PREFIXES = ['/articles', '/service-area', '/guide'];
 
-const DEFAULT_ALLOWED_EXACT = [
+export const DEFAULT_ALLOWED_EXACT = [
   '/404',
   '/privacy',
   '/terms',
@@ -73,7 +73,7 @@ const DEFAULT_ALLOWED_EXACT = [
 ];
 
 // List of registry URLs that are expected to be missing from the build (e.g. redirected or aliases)
-const ALLOW_MISSING_REGISTRY_PATHS = new Set(
+export const ALLOW_MISSING_REGISTRY_PATHS = new Set(
   [
     '/drop-off-locations', // Main geo dropoff landing page; handled or nested elsewhere
     '/package-drop-offs', // Built under /pack-ship/package-drop-offs
@@ -81,26 +81,41 @@ const ALLOW_MISSING_REGISTRY_PATHS = new Set(
   ].map(normalizePath)
 );
 
-function main() {
-  console.log('==================================================');
-  console.log('     SEO ROUTE REGISTRY & INTEGRITY CHECKER       ');
-  console.log('==================================================\n');
+export function isPathAllowedOrphan(p, localAllowlist = []) {
+  const norm = normalizePath(p);
+  if (DEFAULT_ALLOWED_EXACT.map(normalizePath).includes(norm)) return true;
+  if (localAllowlist.map(normalizePath).includes(norm)) return true;
+  for (const prefix of DEFAULT_ALLOWED_PREFIXES) {
+    if (norm === prefix || norm.startsWith(prefix + '/')) {
+      return true;
+    }
+  }
+  return false;
+}
 
-  if (!fs.existsSync(DIST_DIR)) {
-    console.error(`❌ Error: Build output directory "${DIST_DIR}" does not exist.`);
-    console.error('Please run "npm run build" before running the SEO route check.\n');
-    process.exit(1);
+export function checkRouteRegistry(options = {}) {
+  const distDir = options.distDir || DIST_DIR;
+  const siteStructurePath = options.siteStructurePath || SITE_STRUCTURE_PATH;
+  const allowlistPath = options.allowlistPath || ALLOWLIST_PATH;
+  const internalLinksPath = options.internalLinksPath || INTERNAL_LINKS_PATH;
+
+  if (!fs.existsSync(distDir)) {
+    return {
+      success: false,
+      error: `Build output directory "${distDir}" does not exist.`,
+    };
   }
 
-  if (!fs.existsSync(SITE_STRUCTURE_PATH)) {
-    console.error(`❌ Error: Site structure registry not found at "${SITE_STRUCTURE_PATH}".\n`);
-    process.exit(1);
+  if (!fs.existsSync(siteStructurePath)) {
+    return {
+      success: false,
+      error: `Site structure registry not found at "${siteStructurePath}".`,
+    };
   }
 
   // 1. Load siteStructure.json
-  const siteStructure = JSON.parse(fs.readFileSync(SITE_STRUCTURE_PATH, 'utf-8'));
+  const siteStructure = JSON.parse(fs.readFileSync(siteStructurePath, 'utf-8'));
 
-  // Collect all expected paths & IDs from the registry
   const expectedPaths = new Set();
   const registeredIds = new Set();
 
@@ -138,30 +153,25 @@ function main() {
     }
   }
 
-  console.log(`ℹ️ Found ${expectedPaths.size} registered routes in siteStructure.json`);
-
-  // 2. Load dynamic allowlist from route-registry-allowlist.json if present
+  // 2. Load dynamic allowlist
   let localAllowlist = [];
-  if (fs.existsSync(ALLOWLIST_PATH)) {
+  if (fs.existsSync(allowlistPath)) {
     try {
-      const content = JSON.parse(fs.readFileSync(ALLOWLIST_PATH, 'utf-8'));
+      const content = JSON.parse(fs.readFileSync(allowlistPath, 'utf-8'));
       if (Array.isArray(content.allowed_exact)) {
         localAllowlist = content.allowed_exact.map(normalizePath);
-        console.log(
-          `ℹ️ Loaded ${localAllowlist.length} extra exact routes from route-registry-allowlist.json`
-        );
       }
     } catch (e) {
-      console.warn(`⚠️ Warning: Failed to parse allowlist file: ${e.message}`);
+      // ignore
     }
   }
 
   // 3. Scan dist/ for actual built paths
-  const htmlFiles = getHtmlFiles(DIST_DIR);
+  const htmlFiles = getHtmlFiles(distDir);
   const builtPaths = new Set();
 
   for (const file of htmlFiles) {
-    const rel = path.relative(DIST_DIR, file).replace(/\\/g, '/');
+    const rel = path.relative(distDir, file).replace(/\\/g, '/');
     let urlPath = '';
     if (rel === 'index.html') {
       urlPath = '/';
@@ -175,128 +185,131 @@ function main() {
     builtPaths.add(normalizePath(urlPath));
   }
 
-  console.log(`ℹ️ Scanned ${builtPaths.size} actual HTML routes from dist/`);
-
-  // Helper check if a path is allowed/exempted from being an orphan
-  function isPathAllowedOrphan(p) {
-    const norm = normalizePath(p);
-    if (DEFAULT_ALLOWED_EXACT.map(normalizePath).includes(norm)) return true;
-    if (localAllowlist.includes(norm)) return true;
-    for (const prefix of DEFAULT_ALLOWED_PREFIXES) {
-      if (norm === prefix || norm.startsWith(prefix + '/')) {
-        return true;
-      }
-    }
-    return false;
-  }
-
-  let failed = false;
-
-  // 4. STRICT CHECK: Registry -> Built
-  // Every expected path in siteStructure.json must exist in dist/ (unless explicitly allowed missing)
-  console.log('\n--- Checking: Registry Paths Exist in Build (Strict) ---');
+  // 4. Strict Check: Registry -> Built
   const missingFromBuild = [];
   for (const expected of expectedPaths) {
     if (!builtPaths.has(expected)) {
       if (ALLOW_MISSING_REGISTRY_PATHS.has(expected)) {
-        continue; // Permitted missing with comments
+        continue;
       }
       missingFromBuild.push(expected);
     }
   }
 
-  if (missingFromBuild.length > 0) {
-    console.error(
-      '❌ FAIL: The following registered paths from siteStructure.json were NOT found in the build folder:'
-    );
-    for (const missing of missingFromBuild) {
-      console.error(`   - ${missing}`);
-    }
-    failed = true;
-  } else {
-    console.log('✅ OK: All registry paths successfully exist in the built site.');
-  }
-
-  // 5. ORPHANS CHECK: Built -> Registry
-  // Every built HTML page must either be registered in siteStructure.json or be allowlisted
-  console.log('\n--- Checking: Built Pages are Registered or Allowlisted ---');
+  // 5. Orphans Check: Built -> Registry
   const orphans = [];
   for (const built of builtPaths) {
-    if (!expectedPaths.has(built) && !isPathAllowedOrphan(built)) {
+    if (!expectedPaths.has(built) && !isPathAllowedOrphan(built, localAllowlist)) {
       orphans.push(built);
     }
   }
 
-  if (orphans.length > 0) {
-    console.error(
-      '❌ FAIL: Found built HTML pages that are NOT registered in siteStructure.json and are NOT allowlisted (Orphans):'
-    );
-    for (const orphan of orphans) {
-      console.error(`   - ${orphan}`);
-    }
-    console.error(`\n💡 To resolve orphans, either:`);
-    console.error(`   1. Add them to siteStructure.json under seo-landing or appropriate pillar`);
-    console.error(
-      `   2. If they are temporary/legitimate city landing pages, add them to scripts/seo/route-registry-allowlist.json`
-    );
-    failed = true;
-  } else {
-    console.log('✅ OK: No orphan pages detected.');
-  }
+  // 6. Warnings: internalLinks vs siteStructure
+  const keysMissingFromRegistry = [];
+  const registryIdsMissingFromLinks = [];
 
-  // 6. WARNINGS (Non-blocking): internalLinks.json vs siteStructure.json
-  console.log('\n--- Cross-Checking internalLinks.json Keys (Non-blocking Warnings) ---');
-  if (fs.existsSync(INTERNAL_LINKS_PATH)) {
+  if (fs.existsSync(internalLinksPath)) {
     try {
-      const internalLinks = JSON.parse(fs.readFileSync(INTERNAL_LINKS_PATH, 'utf-8'));
+      const internalLinks = JSON.parse(fs.readFileSync(internalLinksPath, 'utf-8'));
       const internalLinkKeys = Object.keys(internalLinks);
 
-      const keysMissingFromRegistry = [];
       for (const key of internalLinkKeys) {
         if (!registeredIds.has(key)) {
           keysMissingFromRegistry.push(key);
         }
       }
 
-      const registryIdsMissingFromLinks = [];
       for (const id of registeredIds) {
         if (!internalLinkKeys.includes(id)) {
           registryIdsMissingFromLinks.push(id);
         }
       }
-
-      if (keysMissingFromRegistry.length > 0) {
-        console.warn(
-          '⚠️ Warning: The following keys exist in internalLinks.json but are missing from siteStructure.json:'
-        );
-        for (const k of keysMissingFromRegistry) {
-          console.warn(`   - ${k}`);
-        }
-      }
-
-      if (registryIdsMissingFromLinks.length > 0) {
-        console.warn(
-          '⚠️ Warning: The following IDs exist in siteStructure.json but are missing from internalLinks.json:'
-        );
-        for (const id of registryIdsMissingFromLinks) {
-          console.warn(`   - ${id}`);
-        }
-      }
-
-      if (keysMissingFromRegistry.length === 0 && registryIdsMissingFromLinks.length === 0) {
-        console.log('✅ OK: Parity match between internalLinks.json and siteStructure.json IDs.');
-      }
     } catch (e) {
-      console.warn(`⚠️ Warning: Failed to parse internalLinks.json for cross-check: ${e.message}`);
+      // ignore
+    }
+  }
+
+  const success = missingFromBuild.length === 0 && orphans.length === 0;
+
+  return {
+    success,
+    expectedPaths,
+    builtPaths,
+    missingFromBuild,
+    orphans,
+    keysMissingFromRegistry,
+    registryIdsMissingFromLinks,
+    localAllowlist,
+  };
+}
+
+export function main() {
+  console.log('==================================================');
+  console.log('     SEO ROUTE REGISTRY & INTEGRITY CHECKER       ');
+  console.log('==================================================\n');
+
+  const res = checkRouteRegistry();
+
+  if (!res.success && res.error) {
+    console.error(`❌ Error: ${res.error}`);
+    process.exit(1);
+  }
+
+  console.log(`ℹ️ Found ${res.expectedPaths?.size || 0} registered routes in siteStructure.json`);
+  if (res.localAllowlist?.length) {
+    console.log(
+      `ℹ️ Loaded ${res.localAllowlist.length} extra exact routes from route-registry-allowlist.json`
+    );
+  }
+  console.log(`ℹ️ Scanned ${res.builtPaths?.size || 0} actual HTML routes from dist/`);
+
+  console.log('\n--- Checking: Registry Paths Exist in Build (Strict) ---');
+  if (res.missingFromBuild.length > 0) {
+    console.error(
+      '❌ FAIL: The following registered paths from siteStructure.json were NOT found in the build folder:'
+    );
+    for (const missing of res.missingFromBuild) {
+      console.error(`   - ${missing}`);
     }
   } else {
-    console.warn(
-      `⚠️ Warning: internalLinks.json not found at "${INTERNAL_LINKS_PATH}". Skipping ID check.`
+    console.log('✅ OK: All registry paths successfully exist in the built site.');
+  }
+
+  console.log('\n--- Checking: Built Pages are Registered or Allowlisted ---');
+  if (res.orphans.length > 0) {
+    console.error(
+      '❌ FAIL: Found built HTML pages that are NOT registered in siteStructure.json and are NOT allowlisted (Orphans):'
     );
+    for (const orphan of res.orphans) {
+      console.error(`   - ${orphan}`);
+    }
+  } else {
+    console.log('✅ OK: No orphan pages detected.');
+  }
+
+  console.log('\n--- Cross-Checking internalLinks.json Keys (Non-blocking Warnings) ---');
+  if (res.keysMissingFromRegistry.length > 0) {
+    console.warn(
+      '⚠️ Warning: The following keys exist in internalLinks.json but are missing from siteStructure.json:'
+    );
+    for (const k of res.keysMissingFromRegistry) {
+      console.warn(`   - ${k}`);
+    }
+  }
+  if (res.registryIdsMissingFromLinks.length > 0) {
+    console.warn(
+      '⚠️ Warning: The following IDs exist in siteStructure.json but are missing from internalLinks.json:'
+    );
+    for (const id of res.registryIdsMissingFromLinks) {
+      console.warn(`   - ${id}`);
+    }
+  }
+  if (res.keysMissingFromRegistry.length === 0 && res.registryIdsMissingFromLinks.length === 0) {
+    console.log('✅ OK: Parity match between internalLinks.json and siteStructure.json IDs.');
   }
 
   console.log('\n==================================================');
-  if (failed) {
+  if (!res.success) {
     console.error('❌ SEO route registry check FAILED.');
     console.log('==================================================\n');
     process.exit(1);
@@ -307,4 +320,6 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main();
+}
