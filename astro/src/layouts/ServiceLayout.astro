@@ -55,7 +55,7 @@ const schemas = [
     itemListElement: breadcrumbs.map((item, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      item: { '@type': 'Thing', '@id': item.url, name: item.name },
+      item: { '@type': 'Thing', '@id': toCanonicalUrl(item.url), name: item.label || item.name },
     })),
   },
   ...extraHeadSchemas,
@@ -88,11 +88,11 @@ const carriers = [
           )}
           {index < breadcrumbs.length - 1 ? (
             <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">
-              <span>{item.name}</span>
+              <span>{item.label || item.name}</span>
             </a>
           ) : (
             <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">
-              <span>{item.name}</span>
+              <span>{item.label || item.name}</span>
             </span>
           )}
         </li>

@@ -1,52 +1,167 @@
 import siteStructure from '../data/siteStructure.json';
+import internalLinks from '../data/internalLinks.json';
 import { serviceAreas } from '../config/serviceAreas';
 import { services } from '../config/services';
 import { normalizePathname } from './canonical-url';
 
-// O(1) Map Indices
-const serviceAreaBySlugMap = new Map(serviceAreas.map((sa) => [sa.slug, sa]));
-const serviceAreaByPathMap = new Map<string, (typeof serviceAreas)[0]>();
-serviceAreas.forEach((sa) => {
-  if (sa.canonicalUrl) serviceAreaByPathMap.set(sa.canonicalUrl.replace(/\/$/, ''), sa);
-  if (sa.slug) serviceAreaByPathMap.set(`/service-area/${sa.slug}`, sa);
-});
+export interface BreadcrumbItem {
+  label: string;
+  url: string;
+  active?: boolean;
+}
 
-const serviceByIdMap = new Map(services.map((s) => [s.id, s]));
-
-interface PillarBreadcrumb {
+interface PillarNode {
+  id: string;
   title: string;
   url: string;
 }
 
-interface ChildBreadcrumb {
+interface ChildNode {
+  id: string;
+  title: string;
+  url: string;
   pillarTitle: string;
   pillarUrl: string;
-  childTitle: string;
-  childUrl: string;
 }
 
-const pillarByUrlMap = new Map<string, PillarBreadcrumb>();
-const childByUrlMap = new Map<string, ChildBreadcrumb>();
+interface GenericPageNode {
+  id: string;
+  title: string;
+  url: string;
+}
 
+// Map Indices
+const pillarByIdMap = new Map<string, PillarNode>();
+const pillarByUrlMap = new Map<string, PillarNode>();
+const childByUrlMap = new Map<string, ChildNode>();
+const subSupportingByUrlMap = new Map<string, GenericPageNode>();
+const seoLandingByUrlMap = new Map<string, GenericPageNode>();
+const serviceAreaBySlugMap = new Map(serviceAreas.map((sa) => [sa.slug, sa]));
+const serviceAreaByPathMap = new Map<string, (typeof serviceAreas)[0]>();
+const serviceByPathMap = new Map<string, (typeof services)[0]>();
+const serviceByIdMap = new Map(services.map((s) => [s.id, s]));
+
+const toPathKey = (path: string): string => {
+  if (!path) return '';
+  const trimmed = path.trim().replace(/^\/+|\/+$/g, '');
+  return trimmed ? `/${trimmed}` : '';
+};
+
+// 1. Pillars and Pillar Children
 for (const p of siteStructure.pillars) {
-  const pUrl = p.url.replace(/\/$/, '');
-  pillarByUrlMap.set(pUrl, { title: p.title, url: p.url });
+  const pKey = toPathKey(p.url);
+  const pNode: PillarNode = { id: p.id, title: p.title, url: p.url };
+  pillarByIdMap.set(p.id, pNode);
+  if (pKey) pillarByUrlMap.set(pKey, pNode);
+
   for (const c of p.children) {
-    const cUrl = c.url.replace(/\/$/, '');
-    childByUrlMap.set(cUrl, {
-      pillarTitle: p.title,
-      pillarUrl: p.url,
-      childTitle: c.title,
-      childUrl: c.url,
-    });
+    const cKey = toPathKey(c.url);
+    if (cKey) {
+      childByUrlMap.set(cKey, {
+        id: c.id,
+        title: c.title,
+        url: c.url,
+        pillarTitle: p.title,
+        pillarUrl: p.url,
+      });
+    }
   }
 }
 
-const seoLandingByUrlMap = new Map<string, string>();
+// 2. SubSupporting Pages
+if (Array.isArray(siteStructure.subSupporting)) {
+  for (const item of siteStructure.subSupporting) {
+    const key = toPathKey(item.url);
+    if (key) {
+      subSupportingByUrlMap.set(key, { id: item.id, title: item.title, url: item.url });
+    }
+  }
+}
+
+// 3. SEO Landing Pages
 if (Array.isArray(siteStructure['seo-landing'])) {
   for (const item of siteStructure['seo-landing']) {
-    seoLandingByUrlMap.set(item.url.replace(/\/$/, ''), item.title);
+    const key = toPathKey(item.url);
+    if (key) {
+      seoLandingByUrlMap.set(key, { id: item.id, title: item.title, url: item.url });
+    }
   }
+}
+
+// 4. Service Areas
+serviceAreas.forEach((sa) => {
+  if (sa.canonicalUrl) serviceAreaByPathMap.set(toPathKey(sa.canonicalUrl), sa);
+  if (sa.slug) {
+    serviceAreaByPathMap.set(toPathKey(sa.slug), sa);
+    serviceAreaByPathMap.set(toPathKey(`/service-area/${sa.slug}`), sa);
+  }
+});
+
+// 5. Dynamic Services
+services.forEach((s) => {
+  if (s.canonicalUrl) serviceByPathMap.set(toPathKey(s.canonicalUrl), s);
+  if (s.slug) {
+    serviceByPathMap.set(toPathKey(s.slug), s);
+    serviceByPathMap.set(toPathKey(`/services/${s.slug}`), s);
+  }
+});
+
+function resolveParentPillar(id: string, url: string, title: string): PillarNode {
+  const linkData = (internalLinks as Record<string, { parent?: string | null }>)[id];
+  if (linkData && linkData.parent) {
+    const pillar = pillarByIdMap.get(linkData.parent);
+    if (pillar) return pillar;
+  }
+
+  const combined = `${id} ${url} ${title}`.toLowerCase();
+  if (
+    combined.includes('pack') ||
+    combined.includes('ship') ||
+    combined.includes('fedex') ||
+    combined.includes('ups') ||
+    combined.includes('usps') ||
+    combined.includes('dhl') ||
+    combined.includes('post-office') ||
+    combined.includes('return')
+  ) {
+    const p = pillarByIdMap.get('pack-ship');
+    if (p) return p;
+  }
+  if (
+    combined.includes('mailbox') ||
+    combined.includes('business') ||
+    combined.includes('address') ||
+    combined.includes('pmb')
+  ) {
+    const p = pillarByIdMap.get('home-business');
+    if (p) return p;
+  }
+  if (
+    combined.includes('print') ||
+    combined.includes('copy') ||
+    combined.includes('copies') ||
+    combined.includes('staples') ||
+    combined.includes('office-depot')
+  ) {
+    const p = pillarByIdMap.get('copy-print');
+    if (p) return p;
+  }
+  if (combined.includes('vinted')) {
+    const p = pillarByIdMap.get('micro-problems');
+    if (p) return p;
+  }
+  if (combined.includes('fingerprint') || combined.includes('notary')) {
+    const p = pillarByIdMap.get('specialty');
+    if (p) return p;
+  }
+
+  return (
+    pillarByIdMap.get('pack-ship') || {
+      id: 'pack-ship',
+      title: 'Pack & Ship',
+      url: '/pack-ship',
+    }
+  );
 }
 
 export const getLocalPriorityServices = (citySlug: string) => {
@@ -55,48 +170,93 @@ export const getLocalPriorityServices = (citySlug: string) => {
   return city.priorityServices.map((id) => serviceByIdMap.get(id)).filter(Boolean);
 };
 
-export const getBreadcrumbs = (pathname: string) => {
-  const path = pathname.replace(/\/$/, ''); // Remove trailing slash
+export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
+  const key = toPathKey(pathname);
 
-  if (path === '') return [];
+  if (!key) return [];
 
-  // Check Pillars
-  const pillar = pillarByUrlMap.get(path);
+  const homeNode: BreadcrumbItem = { label: 'Home', url: normalizePathname('/') };
+
+  // 1. Pillars
+  const pillar = pillarByUrlMap.get(key);
   if (pillar) {
     return [
-      { label: 'Home', url: '/' },
+      homeNode,
       { label: pillar.title, url: normalizePathname(pillar.url), active: true },
     ];
   }
 
-  // Check Children
-  const childMatch = childByUrlMap.get(path);
+  // 2. Pillar Children
+  const childMatch = childByUrlMap.get(key);
   if (childMatch) {
     return [
-      { label: 'Home', url: '/' },
+      homeNode,
       { label: childMatch.pillarTitle, url: normalizePathname(childMatch.pillarUrl) },
-      { label: childMatch.childTitle, url: normalizePathname(childMatch.childUrl), active: true },
+      { label: childMatch.title, url: normalizePathname(childMatch.url), active: true },
     ];
   }
 
-  // Check Local Pages
-  const local = serviceAreaByPathMap.get(path);
-  if (local) {
+  // 3. SubSupporting Pages
+  const subMatch = subSupportingByUrlMap.get(key);
+  if (subMatch) {
+    const parent = resolveParentPillar(subMatch.id, subMatch.url, subMatch.title);
     return [
-      { label: 'Home', url: '/' },
-      { label: 'Service Areas', url: '/service-area' },
-      { label: local.city, url: normalizePathname(local.canonicalUrl || local.slug), active: true },
+      homeNode,
+      { label: parent.title, url: normalizePathname(parent.url) },
+      { label: subMatch.title, url: normalizePathname(subMatch.url), active: true },
     ];
   }
 
-  // Check Landing Pages
-  const landingTitle = seoLandingByUrlMap.get(path);
-  if (landingTitle) {
+  // 4. SEO Landing Pages
+  const seoMatch = seoLandingByUrlMap.get(key);
+  if (seoMatch) {
+    const parent = resolveParentPillar(seoMatch.id, seoMatch.url, seoMatch.title);
     return [
-      { label: 'Home', url: '/' },
-      { label: landingTitle, url: path, active: true },
+      homeNode,
+      { label: parent.title, url: normalizePathname(parent.url) },
+      { label: seoMatch.title, url: normalizePathname(seoMatch.url), active: true },
     ];
   }
 
-  return [{ label: 'Home', url: '/' }];
+  // 5. Service Areas
+  if (key === '/service-area') {
+    return [
+      homeNode,
+      { label: 'Service Areas', url: normalizePathname('/service-area'), active: true },
+    ];
+  }
+  const localMatch = serviceAreaByPathMap.get(key);
+  if (localMatch) {
+    return [
+      homeNode,
+      { label: 'Service Areas', url: normalizePathname('/service-area') },
+      {
+        label: localMatch.city,
+        url: normalizePathname(localMatch.canonicalUrl || `/service-area/${localMatch.slug}`),
+        active: true,
+      },
+    ];
+  }
+
+  // 6. Dynamic Services
+  const serviceMatch = serviceByPathMap.get(key);
+  if (serviceMatch) {
+    const parent = resolveParentPillar(
+      serviceMatch.id,
+      serviceMatch.canonicalUrl || serviceMatch.slug,
+      serviceMatch.serviceName
+    );
+    return [
+      homeNode,
+      { label: parent.title, url: normalizePathname(parent.url) },
+      {
+        label: serviceMatch.serviceName,
+        url: normalizePathname(serviceMatch.canonicalUrl || serviceMatch.slug),
+        active: true,
+      },
+    ];
+  }
+
+  // 7. Fallback for unknown paths
+  return [homeNode];
 };

@@ -1,6 +1,9 @@
 import { describe, it, expect } from 'vitest';
 import { getInternalLink, getAnchorText } from './internal-links';
 import { getBreadcrumbs } from './navigation-helpers';
+import { getServiceBreadcrumbs } from './services-helpers';
+import siteStructure from '../data/siteStructure.json';
+import { services } from '../config/services';
 
 describe('internal-links', () => {
   describe('getInternalLink', () => {
@@ -145,10 +148,60 @@ describe('internal-links', () => {
       expect(result[0].label).toBe('Home');
     });
 
-    it('handles trailing slashes', () => {
+    it('handles trailing slashes consistently and emits normalized trailing-slash URLs', () => {
       const withSlash = getBreadcrumbs('/pack-ship/');
       const withoutSlash = getBreadcrumbs('/pack-ship');
       expect(withSlash.length).toBe(withoutSlash.length);
+      expect(withSlash[1].url).toBe('/pack-ship/');
+      expect(withoutSlash[1].url).toBe('/pack-ship/');
+    });
+
+    it('resolves multi-node breadcrumbs for all subSupporting routes in siteStructure.json', () => {
+      expect(Array.isArray(siteStructure.subSupporting)).toBe(true);
+      expect(siteStructure.subSupporting.length).toBeGreaterThan(0);
+
+      siteStructure.subSupporting.forEach((sub) => {
+        const crumbs = getBreadcrumbs(sub.url);
+        expect(crumbs.length).toBeGreaterThanOrEqual(3);
+        expect(crumbs[0].label).toBe('Home');
+        expect(crumbs[0].url).toBe('/');
+        expect(crumbs[crumbs.length - 1].label).toBeTruthy();
+        expect(crumbs[crumbs.length - 1].active).toBe(true);
+        crumbs.forEach((c) => {
+          expect(c.url.endsWith('/')).toBe(true);
+        });
+      });
+    });
+
+    it('resolves multi-node breadcrumbs for all seo-landing routes in siteStructure.json', () => {
+      expect(Array.isArray(siteStructure['seo-landing'])).toBe(true);
+      expect(siteStructure['seo-landing'].length).toBeGreaterThan(0);
+
+      siteStructure['seo-landing'].forEach((item) => {
+        const crumbs = getBreadcrumbs(item.url);
+        expect(crumbs.length).toBeGreaterThanOrEqual(2);
+        expect(crumbs[0].label).toBe('Home');
+        expect(crumbs[0].url).toBe('/');
+        expect(crumbs[crumbs.length - 1].label).toBe(item.title);
+        expect(crumbs[crumbs.length - 1].active).toBe(true);
+        crumbs.forEach((c) => {
+          expect(c.url.endsWith('/')).toBe(true);
+        });
+      });
+    });
+
+    it('delegates getServiceBreadcrumbs directly to navigation-helpers resolver', () => {
+      const testService = services[0];
+      expect(testService).toBeDefined();
+
+      const serviceCrumbs = getServiceBreadcrumbs(testService);
+      const directCrumbs = getBreadcrumbs(testService.canonicalUrl || testService.slug);
+
+      expect(serviceCrumbs.length).toBe(directCrumbs.length);
+      serviceCrumbs.forEach((sc, index) => {
+        expect(sc.label).toBe(directCrumbs[index].label);
+        expect(sc.url).toBe(directCrumbs[index].url);
+      });
     });
   });
 });
