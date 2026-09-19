@@ -32,7 +32,7 @@ export const FormField: React.FC<FormFieldProps> = ({
   const ariaDescribedBy = describedByIDs.length > 0 ? describedByIDs.join(' ') : undefined;
 
   const focusRingClasses =
-    'focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary focus:ring-offset-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2';
+    'focus:outline-none focus:border-accent-warm focus:ring-2 focus:ring-border-strong focus:ring-offset-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-strong focus-visible:ring-offset-2';
 
   const renderControl = () => {
     if (React.isValidElement(children)) {
