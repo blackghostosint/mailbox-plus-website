@@ -6,24 +6,15 @@
 //   once the create-checkout Netlify function is built. Until then they point at /contact-us/.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
 import { siteConfig } from '../config/siteConfig';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+import { privateMailboxRentalFaqs as faqs } from '../config/faqs';
 
 const pageTitle = 'Private Mailbox Rental in Concord Township | Mailbox Plus';
 const metaDescription =
   'Stop checking your phone for missed deliveries. Get a real Concord Township street address. All 4 carriers, from $15/month. Month-to-month, cancel anytime. Completely risk-free.';
 const canonical = '/private-mailbox-rental/';
-
-// FAQ schema for rich results (matching the visible FAQ section)
-const faqs = [
-  { question: "I'm not a business — can I still get a mailbox?", answer: "Absolutely. Most of our mailbox holders are everyday residents — people who get a lot of packages, want their mail off the porch, or just like knowing their home address isn't floating around in shipping databases. You don't need a business to rent one." },
-  { question: 'Do I need ID to rent a mailbox?', answer: "Yes — two valid forms of ID are required. One primary photo ID (Passport, Driver's License) and one secondary ID showing your current address (Lease, Mortgage, or Insurance Policy). It's a USPS requirement (Form 1583), done in person." },
-  { question: "Can I receive packages from all carriers?", answer: "Yes. FedEx, UPS, USPS, and DHL all deliver to your Mailbox Plus street address — no exceptions, no Street Addressing workarounds. We handle signature deliveries so you don't have to be home." },
-  { question: "What's the difference between this and a PO Box?", answer: "A PO Box is a box number at the post office — carriers generally can't deliver packages to a PO Box number alone (unless USPS Street Addressing is available at that location), and you're locked into 3/6/12-month prepaid terms. Your Mailbox Plus address is a real street address with a box number, so all 4 carriers deliver, and you're on month-to-month with no lock-in." },
-  { question: "What's your address look like on a label?", answer: "Your address is our street address plus your box number — e.g., 7554 Fredle Dr #234, Concord Township, OH 44077. It's a legitimate street address, not a PO Box number." },
-  { question: 'Can businesses use this service?', answer: 'Absolutely. We support both individuals and businesses — LLCs, online sellers, remote workers, and home-based businesses use Mailbox Plus every day.' },
-  { question: 'Can I cancel anytime?', answer: "Yes. We're month-to-month — no annual contract, no cancellation fee, no surprise charges. Just let us know." },
-];
 
 const webPageSchema = getWebPageSchema(siteConfig, {
   name: pageTitle,
@@ -481,34 +472,7 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
         <h2>Quick answers</h2>
       </div>
       <div class="faq-list">
-        <details class="faq" open>
-          <summary>I'm not a business — can I still get a mailbox?</summary>
-          <div class="faq-body">Absolutely. Most of our mailbox holders are everyday residents — people who get a lot of packages, want their mail off the porch, or just like knowing their home address isn't floating around in shipping databases. You don't need a business to rent one.</div>
-        </details>
-        <details class="faq">
-          <summary>Do I need ID to rent a mailbox?</summary>
-          <div class="faq-body">Yes — two valid forms of ID are required. One primary photo ID (Passport, Driver's License) and one secondary ID showing your current address (Lease, Mortgage, or Insurance Policy). It's a USPS requirement (Form 1583), done in person.</div>
-        </details>
-        <details class="faq">
-          <summary>Can I receive packages from all carriers?</summary>
-          <div class="faq-body">Yes. FedEx, UPS, USPS, and DHL all deliver to your Mailbox Plus street address — no exceptions, no Street Addressing workarounds. We handle signature deliveries so you don't have to be home.</div>
-        </details>
-        <details class="faq">
-          <summary>What's the difference between this and a PO Box?</summary>
-          <div class="faq-body">A PO Box is a box number at the post office — carriers generally can't deliver packages to a PO Box number alone (unless USPS Street Addressing is available at that location), and you're locked into 3/6/12-month prepaid terms. Your Mailbox Plus address is a real street address with a box number, so all 4 carriers deliver, and you're on month-to-month with no lock-in.</div>
-        </details>
-        <details class="faq">
-          <summary>What's your address look like on a label?</summary>
-          <div class="faq-body">Your address is our street address plus your box number — e.g., <strong>7554 Fredle Dr #234, Concord Township, OH 44077</strong>. It's a legitimate street address, not a PO Box number.</div>
-        </details>
-        <details class="faq">
-          <summary>Can businesses use this service?</summary>
-          <div class="faq-body">Absolutely. We support both individuals and businesses — LLCs, online sellers, remote workers, and home-based businesses use Mailbox Plus every day.</div>
-        </details>
-        <details class="faq">
-          <summary>Can I cancel anytime?</summary>
-          <div class="faq-body">Yes. We're month-to-month — no annual contract, no cancellation fee, no surprise charges. Just let us know.</div>
-        </details>
+        <FaqAccordion faqs={faqs} openFirst={true} />
       </div>
     </div>
   </section>
@@ -704,11 +668,6 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
 
   /* FAQ */
   .faq-list { max-width: 760px; margin: 0 auto; }
-  details.faq { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-sm); margin-bottom: 12px; box-shadow: var(--shadow-sm); overflow: hidden; }
-  details.faq summary { padding: 18px 22px; font-weight: 700; font-size: 16px; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-  details.faq summary::after { content: '+'; font-size: 22px; color: var(--color-accent-warm); font-weight: 400; }
-  details.faq[open] summary::after { content: '–'; }
-  details.faq .faq-body { padding: 0 22px 18px; color: var(--color-text-secondary); font-size: 15px; }
 
   /* Final CTA */
   .final-cta { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary) 55%, var(--color-primary-deep)); color: #fff; padding: 72px 0; text-align: center; }
