@@ -2,9 +2,41 @@ import { getStore } from '@netlify/blobs';
 
 const WINDOW_MS = 60 * 1000; // 60 seconds
 const MAX_REQUESTS = 10;
+const DEFAULT_MAX_MEMORY_ENTRIES = 1000;
 
 // In-memory fallback map for temporary latency or offline environments
 const memoryStore = new Map<string, number[]>();
+
+/**
+ * Sets or updates an entry in memoryStore while enforcing LRU eviction
+ * and active key deletion for empty timestamps.
+ */
+function setInMemoryStore(
+  key: string,
+  timestamps: number[],
+  maxEntries: number = DEFAULT_MAX_MEMORY_ENTRIES
+): void {
+  if (timestamps.length === 0) {
+    memoryStore.delete(key);
+    return;
+  }
+
+  // Re-insert to move key to Most Recently Used (MRU) position
+  if (memoryStore.has(key)) {
+    memoryStore.delete(key);
+  }
+  memoryStore.set(key, timestamps);
+
+  // Evict Least Recently Used (LRU) entry if capacity is exceeded
+  while (memoryStore.size > maxEntries) {
+    const oldestKey = memoryStore.keys().next().value;
+    if (oldestKey !== undefined) {
+      memoryStore.delete(oldestKey);
+    } else {
+      break;
+    }
+  }
+}
 
 function getRateLimitStore(storeName = 'rate-limits') {
   try {
@@ -23,6 +55,7 @@ export interface RateLimitOptions {
   maxRequests?: number;
   storeName?: string;
   keyPrefix?: string;
+  maxMemoryEntries?: number;
 }
 
 export interface RateLimitResult {
@@ -94,6 +127,7 @@ export async function checkRateLimit(
   const maxRequests = options?.maxRequests ?? MAX_REQUESTS;
   const storeName = options?.storeName ?? 'rate-limits';
   const prefix = options?.keyPrefix ? `${options.keyPrefix}_` : '';
+  const maxMemoryEntries = options?.maxMemoryEntries ?? DEFAULT_MAX_MEMORY_ENTRIES;
 
   const now = Date.now();
   const safeIp = clientIp || '127.0.0.1';
@@ -123,6 +157,13 @@ export async function checkRateLimit(
     ? timestamps.filter((ts) => typeof ts === 'number' && ts > windowStart)
     : [];
 
+  // Delete expired key immediately or update active timestamps
+  if (validTimestamps.length === 0) {
+    memoryStore.delete(key);
+  } else {
+    setInMemoryStore(key, validTimestamps, maxMemoryEntries);
+  }
+
   if (validTimestamps.length >= maxRequests) {
     const oldest = validTimestamps[0] || now;
     const resetMs = Math.max(0, oldest + windowMs - now);
@@ -136,7 +177,7 @@ export async function checkRateLimit(
 
   // Record current request timestamp
   validTimestamps.push(now);
-  memoryStore.set(key, validTimestamps);
+  setInMemoryStore(key, validTimestamps, maxMemoryEntries);
 
   try {
     if (store) {
@@ -156,4 +197,8 @@ export async function checkRateLimit(
 
 export function resetRateLimitMemory(): void {
   memoryStore.clear();
+}
+
+export function getMemoryStoreSize(): number {
+  return memoryStore.size;
 }
