@@ -1,5 +1,10 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { checkRateLimit, resetRateLimitMemory, getClientIp } from './rate-limiter';
+import {
+  checkRateLimit,
+  resetRateLimitMemory,
+  getClientIp,
+  getMemoryStoreSize,
+} from './rate-limiter';
 
 describe('rate-limiter', () => {
   beforeEach(() => {
@@ -51,6 +56,52 @@ describe('rate-limiter', () => {
     const allowedAgain = await checkRateLimit(ip);
     expect(allowedAgain.allowed).toBe(true);
     expect(allowedAgain.count).toBe(1);
+  });
+
+  it('deletes entry from memoryStore when all timestamps fall outside windowMs', async () => {
+    const ip = '192.168.1.100';
+    await checkRateLimit(ip);
+    expect(getMemoryStoreSize()).toBe(1);
+
+    // Advance past windowMs without new requests
+    vi.advanceTimersByTime(61 * 1000);
+
+    // Prior to checkRateLimit, the key was in memoryStore.
+    // Upon evaluation, expired timestamps are filtered out and the store size is re-evaluated.
+    const res = await checkRateLimit(ip);
+    expect(res.allowed).toBe(true);
+    expect(res.count).toBe(1);
+    expect(getMemoryStoreSize()).toBe(1);
+  });
+
+  it('strictly bounds memoryStore size at default max capacity (1,000 active keys)', async () => {
+    expect(getMemoryStoreSize()).toBe(0);
+
+    for (let i = 1; i <= 1200; i++) {
+      await checkRateLimit(`10.0.${Math.floor(i / 256)}.${i % 256}`);
+    }
+
+    expect(getMemoryStoreSize()).toBe(1000);
+  });
+
+  it('evicts least recently used (LRU) key when maxMemoryEntries capacity is exceeded', async () => {
+    const opts = { maxMemoryEntries: 3, windowMs: 60000 };
+
+    await checkRateLimit('10.0.0.1', opts); // IP 1
+    await checkRateLimit('10.0.0.2', opts); // IP 2
+    await checkRateLimit('10.0.0.3', opts); // IP 3
+    expect(getMemoryStoreSize()).toBe(3);
+
+    // Access IP 1 again to refresh its LRU position (MRU)
+    await checkRateLimit('10.0.0.1', opts);
+
+    // Insert IP 4. Capacity 3 exceeded -> IP 2 (LRU) must be evicted.
+    await checkRateLimit('10.0.0.4', opts);
+    expect(getMemoryStoreSize()).toBe(3);
+
+    // IP 2 was evicted, so a request from IP 2 starts clean with count 1
+    const ip2Result = await checkRateLimit('10.0.0.2', opts);
+    expect(ip2Result.count).toBe(1);
   });
 
   it('tracks distinct IP addresses independently', async () => {
