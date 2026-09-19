@@ -4,16 +4,21 @@ export const getServiceImageUrl = (imagePath: string): string => {
     return imagePath;
   }
 
-  const cleaned = imagePath.replace(/^\/?images\//, '');
-  const baseUrl =
+  const envBaseUrl =
     typeof import.meta !== 'undefined' && import.meta.env
       ? import.meta.env.VITE_R2_PUBLIC_BASE_URL
-      : process.env.VITE_R2_PUBLIC_BASE_URL;
+      : typeof process !== 'undefined' && process.env
+        ? process.env.VITE_R2_PUBLIC_BASE_URL
+        : undefined;
 
-  if (!baseUrl) {
+  if (!envBaseUrl) {
     console.warn('Missing R2 base URL environment variable, falling back to local path');
-    return imagePath;
+    if (!imagePath) return '/';
+    return imagePath.startsWith('/') ? imagePath : `/${imagePath}`;
   }
 
-  return `${baseUrl.replace(/\/$/, '')}/${cleaned}`;
+  const cleaned = imagePath.replace(/^\/?images\//, '').replace(/^\/+/, '');
+  const baseUrl = envBaseUrl.replace(/\/$/, '');
+
+  return cleaned ? `${baseUrl}/${cleaned}` : `${baseUrl}/`;
 };
