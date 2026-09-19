@@ -241,7 +241,7 @@ export const getWebPageSchema = (
     name: string;
     description: string;
     url: string;
-    breadcrumbItems?: { name: string; url: string }[];
+    breadcrumbItems?: { name?: string; label?: string; url: string }[];
     datePublished?: string;
     dateModified?: string;
     aboutLocalBusiness?: boolean;
@@ -270,7 +270,7 @@ export const getWebPageSchema = (
       itemListElement: breadcrumbItems.map((item, i) => ({
         '@type': 'ListItem',
         position: i + 1,
-        name: item.name,
+        name: item.name || item.label || '',
         item: toCanonicalUrl(item.url),
       })),
     };

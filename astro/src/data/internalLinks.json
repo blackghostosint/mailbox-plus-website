@@ -1279,7 +1279,7 @@
     "priority": true
   },
   "shipping-partners": {
-    "parent": null,
+    "parent": "pack-ship",
     "related": ["pack-ship", "copy-print", "home-business", "package-drop-offs"],
     "priority": true
   },
@@ -1558,5 +1558,25 @@
       "package-receiving"
     ],
     "priority": true
+  },
+  "pack-and-ship-madison": {
+    "parent": "pack-ship",
+    "related": ["pack-ship", "fedex-shipping", "ups-shipping", "usps-services"],
+    "priority": false
+  },
+  "pack-and-ship-kirtland": {
+    "parent": "pack-ship",
+    "related": ["pack-ship", "fedex-shipping", "ups-shipping", "usps-services"],
+    "priority": false
+  },
+  "pack-and-ship-willoughby": {
+    "parent": "pack-ship",
+    "related": ["pack-ship", "fedex-shipping", "ups-shipping", "usps-services"],
+    "priority": false
+  },
+  "mailbox-rental-eastlake": {
+    "parent": "home-business",
+    "related": ["mailbox-rental", "digital-mailbox-rental", "private-mailbox-rental"],
+    "priority": false
   }
 }
