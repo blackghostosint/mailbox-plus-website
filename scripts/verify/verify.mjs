@@ -499,9 +499,14 @@ function cmdDoctor() {
       ];
       const obsoleteOrigins = ['identity.netlify.com', 'ssl.gstatic.com', 'www.googleapis.com'];
 
+      const tokenMatchesDomain = (token, domain) => {
+        const clean = token.replace(/^'|'$/g, '').replace(/^https?:\/\//, '').split('/')[0].split(':')[0];
+        return clean === domain || clean.endsWith('.' + domain);
+      };
+
       const missingRequired = requiredOrigins.filter((o) => !scriptSrcTokens.has(o));
       const foundObsolete = obsoleteOrigins.filter((obs) =>
-        Array.from(scriptSrcTokens).some((t) => t.includes(obs))
+        Array.from(scriptSrcTokens).some((t) => tokenMatchesDomain(t, obs))
       );
 
       const pass = missingRequired.length === 0 && foundObsolete.length === 0;
