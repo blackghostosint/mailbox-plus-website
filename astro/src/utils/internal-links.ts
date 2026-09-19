@@ -1,8 +1,8 @@
-import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
 import { normalizePathname } from './canonical-url';
 import { hashString } from './hash-helpers';
+import { getInternalLinkNode, getParentPillarByServiceId } from './site-registry';
 
 type AnchorVariant = 'exact' | 'lsi' | 'geo';
 export type ServiceId = keyof typeof internalLinks;
@@ -20,45 +20,8 @@ export type ServiceId = keyof typeof internalLinks;
  */
 export const normalizeHref = (url: string): string => normalizePathname(url);
 
-interface InternalLinkNode {
-  id: string;
-  url: string;
-  title: string;
-}
-
-// O(1) Map Indices
-const internalLinkMap = new Map<string, InternalLinkNode>();
-const parentPillarMap = new Map<string, (typeof siteStructure.pillars)[0]>();
-
-for (const pillar of siteStructure.pillars) {
-  internalLinkMap.set(pillar.id, { id: pillar.id, url: pillar.url, title: pillar.title });
-  for (const child of pillar.children) {
-    internalLinkMap.set(child.id, { id: child.id, url: child.url, title: child.title });
-  }
-}
-if (Array.isArray(siteStructure.subSupporting)) {
-  for (const sub of siteStructure.subSupporting) {
-    internalLinkMap.set(sub.id, { id: sub.id, url: sub.url, title: sub.title });
-  }
-}
-if (Array.isArray(siteStructure['seo-landing'])) {
-  for (const seo of siteStructure['seo-landing']) {
-    internalLinkMap.set(seo.id, { id: seo.id, url: seo.url, title: seo.title });
-  }
-}
-
-const pillarByIdMap = new Map(siteStructure.pillars.map((p) => [p.id, p]));
-for (const [id, data] of Object.entries(internalLinks)) {
-  if (data.parent) {
-    const parentPillar = pillarByIdMap.get(data.parent);
-    if (parentPillar) {
-      parentPillarMap.set(id, parentPillar);
-    }
-  }
-}
-
 export const getInternalLink = (serviceId: string) => {
-  const node = internalLinkMap.get(serviceId);
+  const node = getInternalLinkNode(serviceId);
   if (!node) return null;
   return { ...node, url: normalizeHref(node.url) };
 };
@@ -102,5 +65,5 @@ export const getRelatedServices = (serviceId: ServiceId) => {
 };
 
 export const getParentPillar = (serviceId: ServiceId) => {
-  return parentPillarMap.get(serviceId) || null;
+  return getParentPillarByServiceId(serviceId) || null;
 };

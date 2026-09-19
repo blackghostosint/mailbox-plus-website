@@ -1,8 +1,16 @@
-import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import { serviceAreas } from '../config/serviceAreas';
 import { services } from '../config/services';
 import { normalizePathname } from './canonical-url';
+import {
+  toPathKey,
+  getServiceById,
+  getPillarById,
+  getPillarByUrl,
+  getChildByUrl,
+  getSubSupportingByUrl,
+  getSeoLandingByUrl,
+} from './site-registry';
 
 export interface BreadcrumbItem {
   label: string;
@@ -16,79 +24,12 @@ interface PillarNode {
   url: string;
 }
 
-interface ChildNode {
-  id: string;
-  title: string;
-  url: string;
-  pillarTitle: string;
-  pillarUrl: string;
-}
-
-interface GenericPageNode {
-  id: string;
-  title: string;
-  url: string;
-}
-
-// Map Indices
-const pillarByIdMap = new Map<string, PillarNode>();
-const pillarByUrlMap = new Map<string, PillarNode>();
-const childByUrlMap = new Map<string, ChildNode>();
-const subSupportingByUrlMap = new Map<string, GenericPageNode>();
-const seoLandingByUrlMap = new Map<string, GenericPageNode>();
+// Map Indices for local service-area and path-based lookups
 const serviceAreaBySlugMap = new Map(serviceAreas.map((sa) => [sa.slug, sa]));
 const serviceAreaByPathMap = new Map<string, (typeof serviceAreas)[0]>();
 const serviceByPathMap = new Map<string, (typeof services)[0]>();
-const serviceByIdMap = new Map(services.map((s) => [s.id, s]));
 
-const toPathKey = (path: string): string => {
-  if (!path) return '';
-  const trimmed = path.trim().replace(/^\/+|\/+$/g, '');
-  return trimmed ? `/${trimmed}` : '';
-};
-
-// 1. Pillars and Pillar Children
-for (const p of siteStructure.pillars) {
-  const pKey = toPathKey(p.url);
-  const pNode: PillarNode = { id: p.id, title: p.title, url: p.url };
-  pillarByIdMap.set(p.id, pNode);
-  if (pKey) pillarByUrlMap.set(pKey, pNode);
-
-  for (const c of p.children) {
-    const cKey = toPathKey(c.url);
-    if (cKey) {
-      childByUrlMap.set(cKey, {
-        id: c.id,
-        title: c.title,
-        url: c.url,
-        pillarTitle: p.title,
-        pillarUrl: p.url,
-      });
-    }
-  }
-}
-
-// 2. SubSupporting Pages
-if (Array.isArray(siteStructure.subSupporting)) {
-  for (const item of siteStructure.subSupporting) {
-    const key = toPathKey(item.url);
-    if (key) {
-      subSupportingByUrlMap.set(key, { id: item.id, title: item.title, url: item.url });
-    }
-  }
-}
-
-// 3. SEO Landing Pages
-if (Array.isArray(siteStructure['seo-landing'])) {
-  for (const item of siteStructure['seo-landing']) {
-    const key = toPathKey(item.url);
-    if (key) {
-      seoLandingByUrlMap.set(key, { id: item.id, title: item.title, url: item.url });
-    }
-  }
-}
-
-// 4. Service Areas
+// 1. Service Areas
 serviceAreas.forEach((sa) => {
   if (sa.canonicalUrl) serviceAreaByPathMap.set(toPathKey(sa.canonicalUrl), sa);
   if (sa.slug) {
@@ -97,7 +38,7 @@ serviceAreas.forEach((sa) => {
   }
 });
 
-// 5. Dynamic Services
+// 2. Dynamic Services
 services.forEach((s) => {
   if (s.canonicalUrl) serviceByPathMap.set(toPathKey(s.canonicalUrl), s);
   if (s.slug) {
@@ -109,7 +50,7 @@ services.forEach((s) => {
 export function resolveParentPillar(id: string, url: string, title: string): PillarNode {
   const linkData = (internalLinks as Record<string, { parent?: string | null }>)[id];
   if (linkData && linkData.parent) {
-    const pillar = pillarByIdMap.get(linkData.parent);
+    const pillar = getPillarById(linkData.parent);
     if (pillar) return pillar;
   }
 
@@ -127,7 +68,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
     urlLower.includes('/pack-ship/') ||
     urlLower.includes('pack-and-ship')
   ) {
-    const p = pillarByIdMap.get('pack-ship');
+    const p = getPillarById('pack-ship');
     if (p) return p;
   }
 
@@ -138,7 +79,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
     urlLower.includes('/mailbox-rentals/') ||
     urlLower.includes('mailbox-rental')
   ) {
-    const p = pillarByIdMap.get('home-business');
+    const p = getPillarById('home-business');
     if (p) return p;
   }
 
@@ -148,7 +89,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
     urlLower.includes('/copy-print/') ||
     urlLower.includes('copy-and-print')
   ) {
-    const p = pillarByIdMap.get('copy-print');
+    const p = getPillarById('copy-print');
     if (p) return p;
   }
 
@@ -158,7 +99,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
     urlLower.includes('fingerprinting') ||
     urlLower.includes('notary')
   ) {
-    const p = pillarByIdMap.get('specialty');
+    const p = getPillarById('specialty');
     if (p) return p;
   }
 
@@ -169,7 +110,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
   }
 
   return (
-    pillarByIdMap.get('pack-ship') || {
+    getPillarById('pack-ship') || {
       id: 'pack-ship',
       title: 'Pack & Ship',
       url: '/pack-ship',
@@ -180,7 +121,7 @@ export function resolveParentPillar(id: string, url: string, title: string): Pil
 export const getLocalPriorityServices = (citySlug: string) => {
   const city = serviceAreaBySlugMap.get(citySlug);
   if (!city || !city.priorityServices) return [];
-  return city.priorityServices.map((id) => serviceByIdMap.get(id)).filter(Boolean);
+  return city.priorityServices.map((id) => getServiceById(id)).filter(Boolean);
 };
 
 export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
@@ -191,13 +132,13 @@ export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   const homeNode: BreadcrumbItem = { label: 'Home', url: normalizePathname('/') };
 
   // 1. Pillars
-  const pillar = pillarByUrlMap.get(key);
+  const pillar = getPillarByUrl(key);
   if (pillar) {
     return [homeNode, { label: pillar.title, url: normalizePathname(pillar.url), active: true }];
   }
 
   // 2. Pillar Children
-  const childMatch = childByUrlMap.get(key);
+  const childMatch = getChildByUrl(key);
   if (childMatch) {
     return [
       homeNode,
@@ -207,7 +148,7 @@ export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   }
 
   // 3. SubSupporting Pages
-  const subMatch = subSupportingByUrlMap.get(key);
+  const subMatch = getSubSupportingByUrl(key);
   if (subMatch) {
     const parent = resolveParentPillar(subMatch.id, subMatch.url, subMatch.title);
     return [
@@ -218,7 +159,7 @@ export const getBreadcrumbs = (pathname: string): BreadcrumbItem[] => {
   }
 
   // 4. SEO Landing Pages
-  const seoMatch = seoLandingByUrlMap.get(key);
+  const seoMatch = getSeoLandingByUrl(key);
   if (seoMatch) {
     const parent = resolveParentPillar(seoMatch.id, seoMatch.url, seoMatch.title);
     return [

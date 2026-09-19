@@ -1,13 +1,13 @@
 import { services } from '../config/services';
 import type { Service, ServiceCategory } from '../types/services';
-import siteStructure from '../data/siteStructure.json';
 import { normalizePathname } from './canonical-url';
 import { hashString } from './hash-helpers';
 import { getBreadcrumbs } from './navigation-helpers';
-
-// O(1) Map Indices
-const serviceByIdMap = new Map<string, Service>(services.map((s) => [s.id, s]));
-const serviceBySlugMap = new Map<string, Service>(services.map((s) => [s.slug, s]));
+import {
+  getServiceById as registryGetServiceById,
+  getServiceBySlug as registryGetServiceBySlug,
+  getParentPillarByChildId,
+} from './site-registry';
 
 const servicesByCategoryMap = new Map<ServiceCategory, Service[]>();
 services.forEach((s) => {
@@ -15,13 +15,6 @@ services.forEach((s) => {
   list.push(s);
   servicesByCategoryMap.set(s.category as ServiceCategory, list);
 });
-
-const parentPillarByChildIdMap = new Map<string, (typeof siteStructure.pillars)[0]>();
-for (const p of siteStructure.pillars) {
-  for (const c of p.children) {
-    parentPillarByChildIdMap.set(c.id, p);
-  }
-}
 
 /**
  * Get all services that belong to a specific category
@@ -37,12 +30,13 @@ export const getPopularServices = (): Service[] => services.filter((s) => s.popu
 /**
  * Find a service by its unique ID
  */
-export const getServiceById = (id: string): Service | undefined => serviceByIdMap.get(id);
+export const getServiceById = (id: string): Service | undefined => registryGetServiceById(id);
 
 /**
  * Find a service by its URL slug/href
  */
-export const getServiceByHref = (href: string): Service | undefined => serviceBySlugMap.get(href);
+export const getServiceByHref = (href: string): Service | undefined =>
+  registryGetServiceBySlug(href);
 
 /**
  * Search services by query string
@@ -150,7 +144,7 @@ export const getServiceBreadcrumbs = (
 
   // Fallback if getBreadcrumbs returned single node or unknown
   const homeNode = { label: 'Home', url: normalizePathname('/'), name: 'Home' };
-  const parentPillar = parentPillarByChildIdMap.get(service.id);
+  const parentPillar = getParentPillarByChildId(service.id);
 
   if (parentPillar) {
     return [
