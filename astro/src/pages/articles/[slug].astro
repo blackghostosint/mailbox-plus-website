@@ -6,8 +6,7 @@ import { marked } from 'marked';
 import { getArticleSchema, getWebPageSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
-
-const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+import { getServiceImageUrl } from '../../lib/storage';
 
 export async function getStaticPaths() {
   const allArticles = await articleLoader.getAllArticles();
@@ -27,15 +26,12 @@ const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
 const articleUrl = toCanonicalUrl(`/articles/${slug}`);
-const ogImage = image.startsWith('http') ? image : `${R2_BASE}/${image.replace(/^\/?images\//, '')}`;
+const ogImage = getServiceImageUrl(image);
 
 // Configure marked to rewrite relative image paths to R2 URLs
 const renderer = new marked.Renderer();
 renderer.image = ({ href, title: imgTitle, text }) => {
-  let src = href || '';
-  if (src && !src.startsWith('http://') && !src.startsWith('https://')) {
-    src = `${R2_BASE}/${src.replace(/^\/?images\//, '')}`;
-  }
+  const src = getServiceImageUrl(href || '');
   const altText = text || imgTitle || '';
   return `<div class="my-8 rounded-xl overflow-hidden shadow-lg border border-[var(--color-bg-secondary)]">
     <img src="${src}" alt="${altText}" class="w-full h-auto object-cover" loading="lazy" />

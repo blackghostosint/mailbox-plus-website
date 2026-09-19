@@ -10,6 +10,7 @@ import reviewsData from '../data/reviews.json';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
 import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from '../utils/canonical-url';
+import { getServiceImageUrl } from '../lib/storage';
 
 export interface Props {
   service: Service;
@@ -62,15 +63,11 @@ const schemas = [
 ];
 
 // Carriers — using R2 image URLs
-const getImageUrl = (path: string) => {
-  const base = import.meta.env.VITE_R2_PUBLIC_BASE_URL || 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
-  return `${base}/${path.replace(/^\/?(images\/)?/, '')}`;
-};
 const carriers = [
-  { name: 'FedEx', src: getImageUrl('fedex-logo.webp'), url: 'https://www.fedex.com/' },
-  { name: 'UPS', src: getImageUrl('ups-logo.webp'), url: 'https://www.ups.com/' },
-  { name: 'USPS', src: getImageUrl('usps-logo.webp'), url: 'https://www.usps.com/' },
-  { name: 'DHL', src: getImageUrl('dhl-logo.webp'), url: 'https://www.dhl.com/' },
+  { name: 'FedEx', src: getServiceImageUrl('fedex-logo.webp'), url: 'https://www.fedex.com/' },
+  { name: 'UPS', src: getServiceImageUrl('ups-logo.webp'), url: 'https://www.ups.com/' },
+  { name: 'USPS', src: getServiceImageUrl('usps-logo.webp'), url: 'https://www.usps.com/' },
+  { name: 'DHL', src: getServiceImageUrl('dhl-logo.webp'), url: 'https://www.dhl.com/' },
 ];
 ---
 

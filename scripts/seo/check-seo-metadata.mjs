@@ -65,7 +65,7 @@ function evaluateServiceFile(file) {
     !content.includes('const getServiceImageUrl')
   ) {
     content =
-      'const getServiceImageUrl = (p) => "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/" + p;\n' +
+      'const getServiceImageUrl = (p) => p ? (p.startsWith("http://") || p.startsWith("https://") ? p : "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/" + p.replace(/^\\/?images\\//, "").replace(/^\\/+/, "")) : "";\n' +
       content;
   }
 
