@@ -132,7 +132,7 @@ curl -sI https://mailboxplusohio.com | grep -iE "content-security|x-frame|x-cont
 | ------------------------- | ----------------------------------------- | ------------------------------- |
 | `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break                |
 | `GEMINI_API_KEY`          | Netlify + `.env` local                    | Test scripts & embeddings fail  |
-| `RECAPTCHA_SITE_KEY`      | Netlify dashboard                         | Contact form fails              |
+| `VITE_RECAPTCHA_SITE_KEY` | Netlify dashboard                         | Contact form fails              |
 | `RECAPTCHA_SECRET_KEY`    | Netlify dashboard                         | Contact form verification fails |
 | `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops            |
 | Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks                    |
