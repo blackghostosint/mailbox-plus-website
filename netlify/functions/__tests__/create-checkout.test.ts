@@ -108,109 +108,6 @@ describe('create-checkout function handler', () => {
     });
   });
 
-  it('creates checkout session successfully for mail-only tier (no SMS custom field)', async () => {
-    mockPricesList
-      .mockResolvedValueOnce({ data: [{ id: 'price_small_mail_only' }] })
-      .mockResolvedValueOnce({ data: [{ id: 'price_key_deposit' }] });
-
-    mockCheckoutSessionsCreate.mockResolvedValueOnce({
-      url: 'https://checkout.stripe.com/c/pay/cs_test_small_mail_only',
-    });
-
-    const req = createRequest('POST', { tier: 'small_mail_only' });
-    const res = await handler(req);
-
-    expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({
-      url: 'https://checkout.stripe.com/c/pay/cs_test_small_mail_only',
-    });
-
-    expect(mockCheckoutSessionsCreate).toHaveBeenCalledWith({
-      mode: 'subscription',
-      line_items: [
-        { price: 'price_small_mail_only', quantity: 1 },
-        { price: 'price_key_deposit', quantity: 1 },
-      ],
-      billing_address_collection: 'required',
-      phone_number_collection: { enabled: true },
-      consent_collection: { terms_of_service: 'required' },
-      custom_fields: [],
-      subscription_data: {
-        metadata: {
-          tier: 'small_mail_only',
-          product: 'Small · Mail Only',
-          source: 'private-mailbox-rental',
-        },
-      },
-      metadata: {
-        tier: 'small_mail_only',
-        product: 'Small · Mail Only',
-        source: 'private-mailbox-rental',
-      },
-      success_url: 'https://mailboxplusohio.com/thank-you/?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: 'https://mailboxplusohio.com/private-mailbox-rental/',
-    });
-  });
-
-  it('creates checkout session successfully for package tier with SMS consent custom field', async () => {
-    mockPricesList
-      .mockResolvedValueOnce({ data: [{ id: 'price_small_packages' }] })
-      .mockResolvedValueOnce({ data: [{ id: 'price_key_deposit' }] });
-
-    mockCheckoutSessionsCreate.mockResolvedValueOnce({
-      url: 'https://checkout.stripe.com/c/pay/cs_test_small_packages',
-    });
-
-    const req = createRequest('POST', { tier: 'small_packages10' });
-    const res = await handler(req);
-
-    expect(res.status).toBe(200);
-    expect(await res.json()).toEqual({
-      url: 'https://checkout.stripe.com/c/pay/cs_test_small_packages',
-    });
-
-    expect(mockCheckoutSessionsCreate).toHaveBeenCalledWith(
-      expect.objectContaining({
-        custom_fields: [
-          {
-            key: 'sms_consent',
-            label: { type: 'custom', custom: 'Type YES to consent to SMS text alerts' },
-            optional: false,
-            type: 'text',
-            text: { minimum_length: 1, maximum_length: 100 },
-          },
-        ],
-      })
-    );
-  });
-
-  it('creates checkout session for business tier with correct cancel_url and source', async () => {
-    mockPricesList
-      .mockResolvedValueOnce({ data: [{ id: 'price_biz_small' }] })
-      .mockResolvedValueOnce({ data: [{ id: 'price_key_deposit' }] });
-
-    mockCheckoutSessionsCreate.mockResolvedValueOnce({
-      url: 'https://checkout.stripe.com/c/pay/cs_test_biz_small',
-    });
-
-    const req = createRequest('POST', { tier: 'business_small' });
-    const res = await handler(req);
-
-    expect(res.status).toBe(200);
-    expect(mockCheckoutSessionsCreate).toHaveBeenCalledWith(
-      expect.objectContaining({
-        cancel_url: 'https://mailboxplusohio.com/home-business/mailbox-rental/',
-        subscription_data: {
-          metadata: {
-            tier: 'business_small',
-            product: 'Business Small',
-            source: 'home-business-mailbox-rental',
-          },
-        },
-      })
-    );
-  });
-
   it('returns 500 when Stripe API throws an error', async () => {
     mockPricesList.mockRejectedValueOnce(new Error('Stripe API Connection Error'));
 
@@ -220,4 +117,132 @@ describe('create-checkout function handler', () => {
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Failed to create checkout session' });
   });
+
+  const allTiers = [
+    {
+      tier: 'small_mail_only',
+      expectedLookupKey: 'pmb_small_mail_only_monthly',
+      expectedProductName: 'Small · Mail Only',
+      expectedSource: 'private-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/private-mailbox-rental/',
+      hasSmsConsent: false,
+    },
+    {
+      tier: 'small_packages10',
+      expectedLookupKey: 'pmb_small_packages10_monthly',
+      expectedProductName: 'Small · +10 Packages',
+      expectedSource: 'private-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/private-mailbox-rental/',
+      hasSmsConsent: true,
+    },
+    {
+      tier: 'large_mail_only',
+      expectedLookupKey: 'pmb_large_mail_only_monthly',
+      expectedProductName: 'Large · Mail Only',
+      expectedSource: 'private-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/private-mailbox-rental/',
+      hasSmsConsent: false,
+    },
+    {
+      tier: 'large_packages10',
+      expectedLookupKey: 'pmb_large_packages10_monthly',
+      expectedProductName: 'Large · +10 Packages',
+      expectedSource: 'private-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/private-mailbox-rental/',
+      hasSmsConsent: true,
+    },
+    {
+      tier: 'business_small',
+      expectedLookupKey: 'pmb_biz_small_monthly',
+      expectedProductName: 'Business Small',
+      expectedSource: 'home-business-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/home-business/mailbox-rental/',
+      hasSmsConsent: true,
+    },
+    {
+      tier: 'business_large',
+      expectedLookupKey: 'pmb_biz_large_monthly',
+      expectedProductName: 'Business Large',
+      expectedSource: 'home-business-mailbox-rental',
+      expectedCancelUrl: 'https://mailboxplusohio.com/home-business/mailbox-rental/',
+      hasSmsConsent: true,
+    },
+  ];
+
+  it.each(allTiers)(
+    'creates checkout session with correct pricing key, deposit, ToS, SMS consent, cancel URL, and metadata for $tier',
+    async ({
+      tier,
+      expectedLookupKey,
+      expectedProductName,
+      expectedSource,
+      expectedCancelUrl,
+      hasSmsConsent,
+    }) => {
+      mockPricesList
+        .mockResolvedValueOnce({ data: [{ id: `price_${tier}` }] })
+        .mockResolvedValueOnce({ data: [{ id: 'price_key_deposit' }] });
+
+      mockCheckoutSessionsCreate.mockResolvedValueOnce({
+        url: `https://checkout.stripe.com/c/pay/cs_test_${tier}`,
+      });
+
+      const req = createRequest('POST', { tier });
+      const res = await handler(req);
+
+      expect(res.status).toBe(200);
+      expect(await res.json()).toEqual({
+        url: `https://checkout.stripe.com/c/pay/cs_test_${tier}`,
+      });
+
+      expect(mockPricesList).toHaveBeenNthCalledWith(1, {
+        lookup_keys: [expectedLookupKey],
+        limit: 1,
+        expand: ['data'],
+      });
+
+      expect(mockPricesList).toHaveBeenNthCalledWith(2, {
+        lookup_keys: ['pmb_fee_key_deposit'],
+        limit: 1,
+      });
+
+      const expectedSmsCustomField = hasSmsConsent
+        ? [
+            {
+              key: 'sms_consent',
+              label: { type: 'custom', custom: 'Type YES to consent to SMS text alerts' },
+              optional: false,
+              type: 'text',
+              text: { minimum_length: 1, maximum_length: 100 },
+            },
+          ]
+        : [];
+
+      expect(mockCheckoutSessionsCreate).toHaveBeenCalledWith({
+        mode: 'subscription',
+        line_items: [
+          { price: `price_${tier}`, quantity: 1 },
+          { price: 'price_key_deposit', quantity: 1 },
+        ],
+        billing_address_collection: 'required',
+        phone_number_collection: { enabled: true },
+        consent_collection: { terms_of_service: 'required' },
+        custom_fields: expectedSmsCustomField,
+        subscription_data: {
+          metadata: {
+            tier,
+            product: expectedProductName,
+            source: expectedSource,
+          },
+        },
+        metadata: {
+          tier,
+          product: expectedProductName,
+          source: expectedSource,
+        },
+        success_url: 'https://mailboxplusohio.com/thank-you/?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url: expectedCancelUrl,
+      });
+    }
+  );
 });
