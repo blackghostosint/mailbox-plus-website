@@ -1,4 +1,5 @@
 import { getStore } from '@netlify/blobs';
+import { serverEnv } from './env';
 
 const WINDOW_MS = 60 * 1000; // 60 seconds
 const MAX_REQUESTS = 10;
@@ -10,8 +11,8 @@ function getRateLimitStore(storeName = 'rate-limits') {
   try {
     return getStore({
       name: storeName,
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
+      siteID: serverEnv.NETLIFY_SITE_ID,
+      token: serverEnv.NETLIFY_AUTH_TOKEN,
     });
   } catch {
     return null;

@@ -4,6 +4,7 @@ import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
 import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
+import { serverEnv } from './lib/env';
 
 export { getClientIp };
 
@@ -67,12 +68,12 @@ export default withCors(
         }
       }
 
-      if (!process.env.RESEND_API_KEY) {
+      if (!serverEnv.RESEND_API_KEY) {
         logger.error('RESEND_API_KEY is missing from environment');
         return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
       }
 
-      const resend = new Resend(process.env.RESEND_API_KEY);
+      const resend = new Resend(serverEnv.RESEND_API_KEY);
 
       const name = escapeHtml(data.name || '');
       const email = escapeHtml(data.email || '');
@@ -117,7 +118,7 @@ export default withCors(
 
       await resend.emails.send({
         from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
-        to: 'help@mailboxplusohio.com', // your Workspace inbox
+        to: serverEnv.CONTACT_EMAIL, // your Workspace inbox
         reply_to: data.email, // so replies go back to the sender
         subject: `New Contact Form Submission from ${safeSubjectName}`,
         html: htmlBody,

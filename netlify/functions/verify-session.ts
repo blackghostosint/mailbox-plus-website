@@ -12,13 +12,11 @@
 // - Payment status must be "paid" (or the subscription's initial invoice paid).
 
 import Stripe from 'stripe';
-import * as dotenv from 'dotenv';
 import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { serverEnv } from './lib/env';
 
-dotenv.config();
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
+const getStripe = () => new Stripe(serverEnv.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
 
 // Tier metadata → human name + monthly display price (for pixel value).
 // Amount is NOT trusted from here for revenue reporting — Stripe is the source
@@ -46,7 +44,7 @@ export default withCors(
     if (request.method !== 'GET') {
       return json(405, { error: 'Method not allowed' });
     }
-    if (!process.env.STRIPE_SECRET_KEY) {
+    if (!serverEnv.STRIPE_SECRET_KEY) {
       return json(500, { error: 'Stripe is not configured' });
     }
 
@@ -58,6 +56,7 @@ export default withCors(
     }
 
     try {
+      const stripe = getStripe();
       const session = await stripe.checkout.sessions.retrieve(sessionId, {
         expand: ['subscription'],
       });
