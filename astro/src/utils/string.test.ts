@@ -1,5 +1,11 @@
 import { describe, it, expect } from 'vitest';
-import { extractPhoneDigits, slugify, formatCategoryTitle, cleanImagePath } from './string';
+import {
+  extractPhoneDigits,
+  slugify,
+  slugifySchemaId,
+  formatCategoryTitle,
+  cleanImagePath,
+} from './string';
 
 describe('extractPhoneDigits', () => {
   it('extracts numerical digits from a standard formatted phone number', () => {
@@ -49,10 +55,30 @@ describe('slugify', () => {
   });
 });
 
+describe('slugifySchemaId', () => {
+  it('converts names to lowercase hyphenated slugs WITHOUT replacing ampersands with "and"', () => {
+    expect(slugifySchemaId('Pack & Ship Services')).toBe('pack-ship-services');
+    expect(slugifySchemaId('Copy & Print')).toBe('copy-print');
+    expect(slugifySchemaId('Flyers & Brochures')).toBe('flyers-brochures');
+  });
+
+  it('removes non-alphanumeric characters and trims outer hyphens', () => {
+    expect(slugifySchemaId('  --Notary Public Services!  ')).toBe('notary-public-services');
+  });
+
+  it('handles empty, null, and undefined input gracefully', () => {
+    expect(slugifySchemaId('')).toBe('');
+    expect(slugifySchemaId(null)).toBe('');
+    expect(slugifySchemaId(undefined)).toBe('');
+  });
+});
+
 describe('formatCategoryTitle', () => {
   it('formats known category slugs to human-readable titles', () => {
     expect(formatCategoryTitle('pack-ship')).toBe('Pack & Ship');
+    expect(formatCategoryTitle('pack-and-ship')).toBe('Pack & Ship');
     expect(formatCategoryTitle('copy-print')).toBe('Copy & Print');
+    expect(formatCategoryTitle('copy-and-print')).toBe('Copy & Print');
     expect(formatCategoryTitle('mailbox-rentals')).toBe('Mailbox Rentals');
     expect(formatCategoryTitle('document-services')).toBe('Document Services');
     expect(formatCategoryTitle('notary')).toBe('Notary');

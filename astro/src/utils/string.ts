@@ -34,6 +34,21 @@ export function slugify(str?: string | null): string {
 }
 
 /**
+ * Converts a string into a schema entity ID slug without converting ampersands to 'and'.
+ * Preserves historical schema @id entity identities (e.g. "#service-pack-ship").
+ *
+ * @param str Input text (e.g. "Pack & Ship Services")
+ * @returns Schema ID slug (e.g. "pack-ship-services")
+ */
+export function slugifySchemaId(str?: string | null): string {
+  if (!str) return '';
+  return str
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)+/g, '');
+}
+
+/**
  * Formats a category slug into a human-readable, title-cased category header.
  *
  * @param category Category slug or raw category string (e.g. "pack-ship")
@@ -44,7 +59,9 @@ export function formatCategoryTitle(category?: string | null): string {
 
   const knownCategories: Record<string, string> = {
     'pack-ship': 'Pack & Ship',
+    'pack-and-ship': 'Pack & Ship',
     'copy-print': 'Copy & Print',
+    'copy-and-print': 'Copy & Print',
     'mailbox-rentals': 'Mailbox Rentals',
     'document-services': 'Document Services',
     notary: 'Notary',
