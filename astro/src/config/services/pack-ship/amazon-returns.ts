@@ -228,7 +228,7 @@ export const amazonReturnsService: Service = {
       heading: 'How Mailbox Plus Helps With Amazon Returns',
       body: `
         <div class="grid md:grid-cols-2 gap-8 my-8">
-          <div class="bg-[var(--color-bg-secondary)] text-white p-8 rounded-[28px] space-y-6 shadow-xl">
+          <div class="bg-[var(--color-primary-dark)] text-white p-8 rounded-[28px] space-y-6 shadow-xl">
             <h3 class="text-2xl font-bold text-[var(--color-accent)]">Services We Provide:</h3>
             <ul class="space-y-4">
               <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Print your Amazon label (if needed)</li>
@@ -273,7 +273,7 @@ export const amazonReturnsService: Service = {
             )
             .join('')}
         </div>
-        <p class="text-center font-bold text-red-600 text-lg">
+        <p class="text-center font-bold text-red-800 text-lg">
           "If Amazon only provides a QR code with no printable label, you must take that return to an authorized Amazon partner."
         </p>
       `,

@@ -968,7 +968,7 @@ export const copyPrintServices: Service[] = [
                         </div>
                     </div>
                     <div class="p-6 rounded-2xl bg-white shadow-sm border border-[var(--color-border)] flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-green-50 text-green-800 flex items-center justify-center shrink-0">
                             <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                         </div>
                         <div>
@@ -1058,15 +1058,15 @@ export const copyPrintServices: Service[] = [
                 <div class="grid md:grid-cols-2 gap-8 items-center bg-[var(--color-bg-secondary)] rounded-3xl p-8">
                     <div class="space-y-4">
                         <div class="flex items-center gap-3">
-                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-green-800 font-bold shrink-0">✓</span>
                             <span class="text-[var(--color-text-primary)]"><strong>Faster Service:</strong> We respect your busy schedule.</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-green-800 font-bold shrink-0">✓</span>
                             <span class="text-[var(--color-text-primary)]"><strong>No Long Lines:</strong> Skip the frustration found at mega-retailers.</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="text-green-600 font-bold shrink-0">✓</span>
+                            <span class="text-green-800 font-bold shrink-0">✓</span>
                             <span class="text-[var(--color-text-primary)]"><strong>Multi-Carrier Choice:</strong> UPS, FedEx, USPS, and DHL in one location.</span>
                         </div>
                     </div>

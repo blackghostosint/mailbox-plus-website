@@ -673,17 +673,17 @@ export const additionalServices: Service[] = [
             </p>
             <div class="grid md:grid-cols-3 gap-6 mt-8">
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4 text-red-500 text-lg font-bold">1</div>
+                <div class="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center mb-4 text-red-700 text-lg font-bold">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE PROCESS YOU CAN SEE</h4>
                 <p class="text-sm text-[var(--color-text-secondary)]">Find a box that fits. Print a return label. Tape it up, drive to a drop-off, wait in line, hope it gets scanned. Every step adds friction.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mb-4 text-orange-500 text-lg font-bold">2</div>
+                <div class="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center mb-4 text-orange-800 text-lg font-bold">2</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE FEELING YOU KNOW</h4>
                 <p class="text-sm text-[var(--color-text-secondary)]">Returns feel like a chore you keep putting off. That box in the corner stares at you. "I'll deal with it tomorrow." Tomorrow becomes next week.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
-                <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mb-4 text-amber-600 text-lg font-bold">3</div>
+                <div class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center mb-4 text-amber-800 text-lg font-bold">3</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">THE THING THAT'S WRONG</h4>
                 <p class="text-sm text-[var(--color-text-secondary)]">Returns shouldn't be harder than buying. You clicked once to order. Why does sending it back take an afternoon and three errands?</p>
               </div>
@@ -710,7 +710,7 @@ export const additionalServices: Service[] = [
                   <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Authorized Return Bar</p><p class="text-xs text-[var(--color-text-secondary)]">Official Happy Returns location — #1 in Lake County for 44077</p></div>
                 </div>
                 <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
-                  <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600"><svg aria-hidden="true" focusable="false" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
+                  <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-800"><svg aria-hidden="true" focusable="false" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"/></svg></div>
                   <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">No Box. No Label.</p><p class="text-xs text-[var(--color-text-secondary)]">We provide the bag. Just show your QR code on your phone.</p></div>
                 </div>
                 <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
@@ -718,7 +718,7 @@ export const additionalServices: Service[] = [
                   <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Under 60 Seconds</p><p class="text-xs text-[var(--color-text-secondary)]">We scan, bag, and receipt you. In and out before you know it.</p></div>
                 </div>
                 <div class="flex items-start gap-3 p-3 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
-                  <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-600"><svg aria-hidden="true" focusable="false" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+                  <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-800"><svg aria-hidden="true" focusable="false" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                   <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Friendly Local Staff</p><p class="text-xs text-[var(--color-text-secondary)]">Not a chaotic big-box counter. We know you by name.</p></div>
                 </div>
               </div>
@@ -756,12 +756,12 @@ export const additionalServices: Service[] = [
             <div class="p-6 bg-gradient-to-br from-[var(--color-primary-dark)]/5 via-[var(--color-primary)]/5 to-[var(--color-primary-deep)]/5 rounded-2xl border border-[var(--color-primary)]/20 shadow-sm">
               <h4 class="font-bold text-[var(--color-text-primary)] mb-4 text-lg">What You Get</h4>
               <div class="grid md:grid-cols-2 gap-3">
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Free — no charge to you</span></div>
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">No box, label, tape, or printer needed</span></div>
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Refund initiated immediately at drop-off</span></div>
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Receipt provided — proof of return</span></div>
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Friendly staff — not a crowded big-box counter</span></div>
-                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-600 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Closest Return Bar to most of Concord Township</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Free — no charge to you</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">No box, label, tape, or printer needed</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Refund initiated immediately at drop-off</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Receipt provided — proof of return</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Friendly staff — not a crowded big-box counter</span></div>
+                <div class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-5 h-5 text-green-800 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg><span class="text-sm text-[var(--color-text-secondary)]">Closest Return Bar to most of Concord Township</span></div>
               </div>
             </div>`,
       },
@@ -779,19 +779,19 @@ export const additionalServices: Service[] = [
             </div>
             <div class="space-y-4 mt-8">
               <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
-                <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 text-red-500 font-bold text-sm">1</div>
+                <div class="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center shrink-0 text-red-700 font-bold text-sm">1</div>
                 <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">The Problem</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Every return has friction. Box. Label. Tape. Line. By the time you're done, you've spent an afternoon on something that should take five minutes.</p></div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
-                <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center shrink-0 text-orange-500 font-bold text-sm">2</div>
+                <div class="w-8 h-8 rounded-full bg-orange-50 flex items-center justify-center shrink-0 text-orange-800 font-bold text-sm">2</div>
                 <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">The Fix</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Happy Returns removes the box, label, and tape entirely. One QR code on your phone. That's all you need. The rest is on us.</p></div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
-                <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-600 font-bold text-sm">3</div>
+                <div class="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center shrink-0 text-amber-800 font-bold text-sm">3</div>
                 <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Mailbox Plus Specifically</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">We're an authorized Return Bar. We know the process inside out. Show your QR code, we scan, bag, and receipt you. Under 60 seconds.</p></div>
               </div>
               <div class="flex items-start gap-4 p-4 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)]">
-                <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-600 font-bold text-sm">4</div>
+                <div class="w-8 h-8 rounded-full bg-green-50 flex items-center justify-center shrink-0 text-green-800 font-bold text-sm">4</div>
                 <div><p class="font-semibold text-[var(--color-text-primary)] text-sm">Take Action</p><p class="text-xs text-[var(--color-text-secondary)] mt-1">Bring your QR code to Mailbox Plus. Free. Fast. Friendly. We're the closest Return Bar to most of Concord Township.</p></div>
               </div>
             </div>`,
@@ -800,7 +800,7 @@ export const additionalServices: Service[] = [
         heading: 'From \\"Ugh, I Need to Return This\\" to \\"Done.\\"',
         body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
               <div class="p-6 bg-[var(--color-bg-warm-tint)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-red-600 mb-3 text-lg">Before</h4>
+                <h4 class="font-bold text-red-800 mb-3 text-lg">Before</h4>
                 <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
                   <li class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Finding a box, printing a label, hunting for tape</li>
                   <li class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-4 h-4 text-red-400 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Standing in line at a crowded big-box counter</li>
@@ -809,7 +809,7 @@ export const additionalServices: Service[] = [
                 </ul>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-green-200 shadow-sm">
-                <h4 class="font-bold text-green-700 mb-3 text-lg">After</h4>
+                <h4 class="font-bold text-green-800 mb-3 text-lg">After</h4>
                 <ul class="space-y-2 text-sm text-[var(--color-text-secondary)]">
                   <li class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Walk in with your item and your QR code</li>
                   <li class="flex items-start gap-2"><svg aria-hidden="true" focusable="false" class="w-4 h-4 text-green-500 shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>60 seconds at the counter — in and out</li>
@@ -825,17 +825,17 @@ export const additionalServices: Service[] = [
               <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-2xl mb-1">✅</div>
                 <p class="text-sm font-semibold text-[var(--color-text-primary)]">Your return is processed</p>
-                <p class="text-xs text-green-600 font-medium mt-1">External problem resolved</p>
+                <p class="text-xs text-green-800 font-medium mt-1">External problem resolved</p>
               </div>
               <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-2xl mb-1">✅</div>
                 <p class="text-sm font-semibold text-[var(--color-text-primary)]">No more dreaded chore</p>
-                <p class="text-xs text-green-600 font-medium mt-1">Internal problem resolved</p>
+                <p class="text-xs text-green-800 font-medium mt-1">Internal problem resolved</p>
               </div>
               <div class="p-4 bg-[var(--color-bg-primary)] rounded-xl border border-[var(--color-border)] shadow-sm">
                 <div class="text-2xl mb-1">✅</div>
                 <p class="text-sm font-semibold text-[var(--color-text-primary)]">Returns don’t have to be hard</p>
-                <p class="text-xs text-green-600 font-medium mt-1">Rights the wrong</p>
+                <p class="text-xs text-green-800 font-medium mt-1">Rights the wrong</p>
               </div>
             </div>`,
       },
