@@ -100,6 +100,29 @@ function getEffectiveCorsHeaders(
   };
 }
 
+/**
+ * Creates a JSON Response object with explicit Content-Type: application/json header.
+ */
+export function jsonResponse(data: unknown, init: number | ResponseInit = 200): Response {
+  const options: ResponseInit = typeof init === 'number' ? { status: init } : { ...init };
+  const headers = new Headers(options.headers);
+  if (!headers.has('Content-Type')) {
+    headers.set('Content-Type', 'application/json');
+  }
+  return new Response(JSON.stringify(data), {
+    ...options,
+    headers,
+  });
+}
+
+/**
+ * Creates a standardized JSON error Response object with { error: message } body.
+ */
+export function jsonError(message: string, init: number | ResponseInit = 400): Response {
+  const options: ResponseInit = typeof init === 'number' ? { status: init } : { ...init };
+  return jsonResponse({ error: message }, options);
+}
+
 export type WebHandler = (request: Request, context?: any) => Promise<Response> | Response;
 
 /**
@@ -179,10 +202,7 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
       if (!headers.has('Access-Control-Allow-Headers')) {
         headers.set('Access-Control-Allow-Headers', corsHeaders['Access-Control-Allow-Headers']);
       }
-      if (
-        !headers.has('Content-Type') ||
-        headers.get('Content-Type') === 'text/plain;charset=UTF-8'
-      ) {
+      if (!headers.has('Content-Type') && response.status !== 204 && response.body !== null) {
         headers.set('Content-Type', 'application/json');
       }
 

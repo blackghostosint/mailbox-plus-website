@@ -6,7 +6,7 @@
 
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
-import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
 dotenv.config();
@@ -70,13 +70,11 @@ const TIER_HAS_SMS: Record<string, boolean> = {
 export default withCors(
   async (request: Request) => {
     if (request.method !== 'POST') {
-      return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+      return jsonError('Method not allowed', 405);
     }
 
     if (!process.env.STRIPE_SECRET_KEY) {
-      return new Response(JSON.stringify({ error: 'Stripe is not configured on the server' }), {
-        status: 500,
-      });
+      return jsonError('Stripe is not configured on the server', 500);
     }
 
     try {
@@ -84,11 +82,9 @@ export default withCors(
       const { tier } = body;
 
       if (!tier || !TIER_LOOKUP_KEYS[tier]) {
-        return new Response(
-          JSON.stringify({
-            error: `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
-          }),
-          { status: 400 }
+        return jsonError(
+          `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
+          400
         );
       }
 
@@ -103,9 +99,7 @@ export default withCors(
       });
       const price = prices.data[0];
       if (!price) {
-        return new Response(JSON.stringify({ error: `Price not found for tier: ${tier}` }), {
-          status: 500,
-        });
+        return jsonError(`Price not found for tier: ${tier}`, 500);
       }
 
       // Resolve the one-time key deposit price (billed on the first invoice at account creation)
@@ -115,10 +109,7 @@ export default withCors(
       });
       const depositPrice = depositPrices.data[0];
       if (!depositPrice) {
-        return new Response(
-          JSON.stringify({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` }),
-          { status: 500 }
-        );
+        return jsonError(`Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}`, 500);
       }
 
       const session = await stripe.checkout.sessions.create({
@@ -166,12 +157,10 @@ export default withCors(
         cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
       });
 
-      return new Response(JSON.stringify({ url: session.url }), { status: 200 });
+      return jsonResponse({ url: session.url }, 200);
     } catch (err: any) {
       logger.error('create-checkout error', err);
-      return new Response(JSON.stringify({ error: 'Failed to create checkout session' }), {
-        status: 500,
-      });
+      return jsonError('Failed to create checkout session', 500);
     }
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }

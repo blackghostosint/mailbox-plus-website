@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { withCors, DEFAULT_CORS_HEADERS, DEFAULT_ALLOWED_ORIGINS } from './cors';
+import { withCors, jsonResponse, DEFAULT_CORS_HEADERS, DEFAULT_ALLOWED_ORIGINS } from './cors';
 
 describe('CORS Middleware Utility', () => {
   describe('withCors (Web Standard Handler)', () => {
@@ -23,10 +23,13 @@ describe('CORS Middleware Utility', () => {
 
     it('attaches default CORS and Content-Type headers to Web Standard responses', async () => {
       const innerHandler = vi.fn().mockResolvedValue(
-        new Response(JSON.stringify({ ok: true }), {
-          status: 200,
-          headers: { 'Netlify-CDN-Cache-Control': 'max-age=3600' },
-        })
+        jsonResponse(
+          { ok: true },
+          {
+            status: 200,
+            headers: { 'Netlify-CDN-Cache-Control': 'max-age=3600' },
+          }
+        )
       );
 
       const wrapped = withCors(innerHandler);

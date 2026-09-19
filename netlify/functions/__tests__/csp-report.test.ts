@@ -20,7 +20,7 @@ describe('csp-report function handler', () => {
     const req = createRequest('GET');
     const res = await handler(req, {} as any);
     expect(res.status).toBe(405);
-    expect(await res.text()).toBe('Method not allowed');
+    expect(await res.json()).toEqual({ error: 'Method not allowed' });
   });
 
   it('handles nested csp-report payload and returns status 204', async () => {
@@ -62,6 +62,6 @@ describe('csp-report function handler', () => {
     const res = await handler(req, {} as any);
 
     expect(res.status).toBe(400);
-    expect(await res.text()).toBe('Bad Request');
+    expect(await res.json()).toEqual({ error: 'Bad Request' });
   });
 });
