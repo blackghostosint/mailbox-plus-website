@@ -1,8 +1,9 @@
 import { services } from '../config/services';
 import type { Service, ServiceCategory } from '../types/services';
 import siteStructure from '../data/siteStructure.json';
-import { toCanonicalUrl } from './canonical-url';
+import { normalizePathname } from './canonical-url';
 import { hashString } from './hash-helpers';
+import { getBreadcrumbs } from './navigation-helpers';
 
 // O(1) Map Indices
 const serviceByIdMap = new Map<string, Service>(services.map((s) => [s.id, s]));
@@ -129,37 +130,65 @@ export const validateService = (service: Service): boolean => {
 };
 
 /**
- * Returns breadcrumb items for a given service with absolute URLs.
- * Auto-includes parent pillar landing page based on siteStructure.json.
+ * Returns breadcrumb items for a given service with canonical trailing-slash URLs.
+ * Delegates directly to unified navigation resolver `getBreadcrumbs`.
  */
 export const getServiceBreadcrumbs = (
   service: Service,
   baseUrl: string = '',
   baseLabel: string = 'Services'
-): { name: string; url: string }[] => {
-  const breadcrumbs = [{ name: 'Home', url: toCanonicalUrl('/') }];
+): { label: string; url: string; name: string; active?: boolean }[] => {
+  const serviceUrl = service.canonicalUrl || service.slug;
+  const crumbs = getBreadcrumbs(serviceUrl);
 
-  // Auto-detect parent pillar from siteStructure.json Map index
+  if (crumbs.length > 1) {
+    return crumbs.map((crumb) => ({
+      ...crumb,
+      name: crumb.label,
+    }));
+  }
+
+  // Fallback if getBreadcrumbs returned single node or unknown
+  const homeNode = { label: 'Home', url: normalizePathname('/'), name: 'Home' };
   const parentPillar = parentPillarByChildIdMap.get(service.id);
 
   if (parentPillar) {
-    breadcrumbs.push({
-      name: parentPillar.title,
-      url: toCanonicalUrl(parentPillar.url),
-    });
+    return [
+      homeNode,
+      {
+        label: parentPillar.title,
+        url: normalizePathname(parentPillar.url),
+        name: parentPillar.title,
+      },
+      {
+        label: service.serviceName,
+        url: normalizePathname(serviceUrl),
+        name: service.serviceName,
+        active: true,
+      },
+    ];
   } else if (baseUrl) {
-    breadcrumbs.push({
-      name: baseLabel,
-      url: toCanonicalUrl(baseUrl),
-    });
+    return [
+      homeNode,
+      { label: baseLabel, url: normalizePathname(baseUrl), name: baseLabel },
+      {
+        label: service.serviceName,
+        url: normalizePathname(serviceUrl),
+        name: service.serviceName,
+        active: true,
+      },
+    ];
   }
 
-  breadcrumbs.push({
-    name: service.serviceName,
-    url: toCanonicalUrl(service.canonicalUrl || service.slug),
-  });
-
-  return breadcrumbs;
+  return [
+    homeNode,
+    {
+      label: service.serviceName,
+      url: normalizePathname(serviceUrl),
+      name: service.serviceName,
+      active: true,
+    },
+  ];
 };
 
 /**
