@@ -296,6 +296,13 @@ const server = http.createServer((req, res) => {
     }
 
     if (!fs.existsSync(filePath) || fs.statSync(filePath).isDirectory()) {
+      const fallback404 = path.join(distDir, '404.html');
+      if (fs.existsSync(fallback404)) {
+        res.statusCode = 404;
+        res.setHeader('Content-Type', 'text/html; charset=utf-8');
+        fs.createReadStream(fallback404).pipe(res);
+        return;
+      }
       res.statusCode = 404;
       res.end('404 Not Found');
       return;
