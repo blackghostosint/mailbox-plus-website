@@ -5,9 +5,9 @@ import { services } from '../config/services';
 import { competitivePages } from '../config/services/competitive';
 import { localSeoServices } from '../config/services/pack-ship/local-seo';
 import { normalizePathname } from '../utils/canonical-url';
+import { getServiceImageUrl } from '../lib/storage';
 
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
-const R2_BASE = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
 const makeId = (s: string) => s.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
 
@@ -123,7 +123,7 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
               <div class="relative w-full aspect-[3/2] mb-6 overflow-hidden rounded-2xl group-hover:shadow-md transition-all bg-[var(--color-bg-warm-tint)]">
                 {service.heroImage ? (
                   <img
-                    src={service.heroImage.startsWith('http') ? service.heroImage : `${R2_BASE}/${service.heroImage.replace(/^\/?images\//, '')}`}
+                    src={getServiceImageUrl(service.heroImage)}
                     alt={service.serviceName}
                     class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"

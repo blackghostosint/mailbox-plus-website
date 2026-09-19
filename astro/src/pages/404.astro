@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getServiceImageUrl } from '../lib/storage';
 ---
 
 <BaseLayout
@@ -9,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   <div class="min-h-[70vh] flex flex-col items-center justify-center py-12 px-4 text-center">
     <div class="card max-w-md w-full bg-white rounded-2xl shadow-md border border-[var(--color-border)] p-8">
       <img
-        src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mailbox_plus_logo.webp"
+        src={getServiceImageUrl('mailbox_plus_logo.webp')}
         alt="Mailbox Plus Logo"
         class="logo max-w-[140px] mx-auto mb-6 brightness-0"
         loading="eager"
@@ -39,7 +40,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </button>
 
       <img
-        src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/mscott.webp"
+        src={getServiceImageUrl('mscott.webp')}
         alt="Michael Scott from The Office looking confused"
         class="mscott mt-8 mx-auto max-w-[280px] w-full rounded-xl shadow-sm"
         loading="eager"

@@ -70,7 +70,7 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 ## Images
 
 - Store images in the R2 bucket (`mailbox-plus-images`)
-- Use `getServiceImageUrl()` from `astro/src/utils/getServiceImageUrl.ts` for image paths
+- Use `getServiceImageUrl()` from `astro/src/lib/storage.ts` for image paths
 - Article featured images should be ~400×225 WebP at 16:9 aspect ratio
 - Use `<SmartImage>` component with `priority` on LCP/hero images, lazy otherwise
 
