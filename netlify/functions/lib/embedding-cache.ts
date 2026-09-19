@@ -1,5 +1,6 @@
 import { createHash } from 'node:crypto';
 import { getStore } from '@netlify/blobs';
+import { serverEnv } from './env';
 
 // In-memory fallback map for query embeddings
 const memoryEmbeddingCache = new Map<string, number[]>();
@@ -8,8 +9,8 @@ function getEmbeddingStore() {
   try {
     return getStore({
       name: 'query-embeddings',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
+      siteID: serverEnv.NETLIFY_SITE_ID,
+      token: serverEnv.NETLIFY_AUTH_TOKEN,
     });
   } catch {
     return null;

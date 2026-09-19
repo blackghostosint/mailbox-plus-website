@@ -1,14 +1,12 @@
-/* global process */
+import { getR2PublicBaseUrl } from './env';
+
 export const getServiceImageUrl = (imagePath: string): string => {
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
     return imagePath;
   }
 
   const cleaned = imagePath.replace(/^\/?images\//, '');
-  const baseUrl =
-    typeof import.meta !== 'undefined' && import.meta.env
-      ? import.meta.env.VITE_R2_PUBLIC_BASE_URL
-      : process.env.VITE_R2_PUBLIC_BASE_URL;
+  const baseUrl = getR2PublicBaseUrl();
 
   if (!baseUrl) {
     console.warn('Missing R2 base URL environment variable, falling back to local path');

@@ -1,14 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { siteConfig } from '../config/siteConfig';
+import { getRecaptchaSiteKey } from '../lib/env';
 
 const accessibility = siteConfig.accessibility || {
   complianceStandard: 'WCAG 2.1 AA',
   contactEmail: siteConfig.contact.email,
   phone: siteConfig.contact.phone,
 };
-const recaptchaSiteKey =
-  import.meta.env.VITE_RECAPTCHA_SITE_KEY || import.meta.env.RECAPTCHA_SITE_KEY || '';
+const recaptchaSiteKey = getRecaptchaSiteKey();
 ---
 
 <BaseLayout
