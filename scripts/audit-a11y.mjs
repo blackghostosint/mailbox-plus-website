@@ -390,6 +390,8 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath }) {
       ...urls,
       '--tags',
       'wcag2a,wcag2aa,wcag21a,wcag21aa',
+      '--load-delay',
+      '1500',
       '--chrome-options',
       'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
     ];
