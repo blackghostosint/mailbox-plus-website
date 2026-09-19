@@ -6,10 +6,9 @@ import { competitivePages } from '../config/services/competitive';
 import { localSeoServices } from '../config/services/pack-ship/local-seo';
 import { normalizePathname } from '../utils/canonical-url';
 import { getServiceImageUrl } from '../lib/storage';
+import { extractPhoneDigits, slugify } from '../utils/string';
 
-const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
-
-const makeId = (s: string) => s.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+const phoneDigits = extractPhoneDigits(siteConfig.contact.phone);
 
 const categoryMap: Record<string, string> = {
   'Pack & Ship Services': 'pack-ship',
@@ -87,7 +86,7 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
         <h2 class="text-2xl font-bold mb-6 text-[var(--color-text-primary)]">Explore Our Services</h2>
         <div class="flex flex-wrap justify-center gap-3">
           {serviceCategories.filter(hasServices).map((cat) => (
-            <a href={`#${makeId(cat)}`} class="px-6 py-3 bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-warm-tint)] rounded-full border border-[var(--color-border)] hover:border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:text-[var(--color-accent-warm)] transition-all shadow-sm font-medium">{cat}</a>
+            <a href={`#${slugify(cat)}`} class="px-6 py-3 bg-[var(--color-bg-primary)] hover:bg-[var(--color-bg-warm-tint)] rounded-full border border-[var(--color-border)] hover:border-[var(--color-border-strong)] text-[var(--color-text-primary)] hover:text-[var(--color-accent-warm)] transition-all shadow-sm font-medium">{cat}</a>
           ))}
         </div>
         <div class="mt-8 text-[var(--color-text-secondary)] max-w-2xl mx-auto">
@@ -102,7 +101,7 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
     const catKey = categoryMap[category];
     const catServices = services.filter(s => s.category === catKey && !hiddenFromGrid.has(s.id));
     return (
-      <section id={makeId(category)} class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id={slugify(category)} class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl font-bold mb-8 text-[var(--color-text-primary)] flex items-center">
           <span class="w-2 h-8 bg-gradient-to-b from-[var(--color-gradient-start)] to-[var(--color-accent-gold)] rounded-full mr-4"></span>
           {category}

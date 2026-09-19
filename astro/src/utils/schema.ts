@@ -19,6 +19,7 @@ import type {
 import type { SiteConfig } from '../types/siteConfig';
 import { siteConfig } from '../config/siteConfig';
 import { toCanonicalUrl } from './canonical-url';
+import { slugify } from './string';
 // Live review data (refreshed at build by scripts/fetch-reviews.mjs). Keeps the
 // LocalBusiness aggregateRating in sync with the visible ReviewSection content —
 // Google only shows review stars when schema and on-page content agree.
@@ -26,12 +27,6 @@ import reviewsData from '../data/reviews.json';
 
 /** ---------- Small helpers ---------- */
 const getOrigin = (config: SiteConfig) => (config.domain || '').replace(/\/+$/, '');
-
-const slugify = (s: string) =>
-  s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/(^-|-$)+/g, '');
 
 const dayName = (d: string) => {
   const map: Record<string, string> = {

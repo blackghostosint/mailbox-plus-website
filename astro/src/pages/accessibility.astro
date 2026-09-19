@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { FormField } from '../components/ui/FormField';
 import { IconWrapper } from '../components/ui/IconWrapper';
 import { siteConfig } from '../config/siteConfig';
+import { extractPhoneDigits } from '../utils/string';
 
 const accessibility = siteConfig.accessibility || {
   complianceStandard: 'WCAG 2.1 AA',
@@ -161,7 +162,7 @@ const recaptchaSiteKey =
         </div>
         <div>
           <strong>Phone Support:</strong><br />
-          <a href={`tel:${siteConfig.contact.phone.replace(/[^0-9]/g, '')}`} class="text-[var(--color-accent-warm)] font-medium hover:underline">{accessibility.phone}</a>
+          <a href={`tel:${extractPhoneDigits(siteConfig.contact.phone)}`} class="text-[var(--color-accent-warm)] font-medium hover:underline">{accessibility.phone}</a>
         </div>
         <div>
           <strong>In-Store Visit:</strong><br />
