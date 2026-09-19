@@ -5,7 +5,7 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
-import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonResponse, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 export default withCors(
   async (request: Request, context: Context) => {
@@ -34,10 +34,9 @@ export default withCors(
     const responseTime = Date.now() - startTime;
     healthData.responseTime = responseTime;
 
-    return new Response(JSON.stringify(healthData, null, 2), {
+    return jsonResponse(healthData, {
       status: 200,
       headers: {
-        'Content-Type': 'application/json',
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         'X-Health-Check': 'true',
       },

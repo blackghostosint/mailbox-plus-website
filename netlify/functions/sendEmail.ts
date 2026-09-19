@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 import { verifyRecaptchaToken } from './lib/recaptcha';
-import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
 import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
@@ -24,7 +24,7 @@ export async function checkRateLimit(
 export default withCors(
   async (request: Request) => {
     if (request.method !== 'POST') {
-      return new Response(JSON.stringify({ error: 'Method not allowed' }), { status: 405 });
+      return jsonError('Method not allowed', 405);
     }
 
     try {
@@ -35,9 +35,7 @@ export default withCors(
       const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
       const isValid = await verifyRecaptchaToken(token, clientIp);
       if (!isValid) {
-        return new Response(JSON.stringify({ error: 'reCAPTCHA verification failed' }), {
-          status: 400,
-        });
+        return jsonError('reCAPTCHA verification failed', 400);
       }
 
       if (
@@ -45,7 +43,7 @@ export default withCors(
         typeof data.email !== 'string' ||
         !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
       ) {
-        return new Response(JSON.stringify({ error: 'Invalid email address' }), { status: 400 });
+        return jsonError('Invalid email address', 400);
       }
 
       const stringFields = [
@@ -61,15 +59,13 @@ export default withCors(
       for (const field of stringFields) {
         const val = data[field];
         if (val !== undefined && val !== null && typeof val !== 'string') {
-          return new Response(JSON.stringify({ error: `Invalid ${field}: must be a string` }), {
-            status: 400,
-          });
+          return jsonError(`Invalid ${field}: must be a string`, 400);
         }
       }
 
       if (!process.env.RESEND_API_KEY) {
         logger.error('RESEND_API_KEY is missing from environment');
-        return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
+        return jsonError('Failed to send message', 500);
       }
 
       const resend = new Resend(process.env.RESEND_API_KEY);
@@ -124,10 +120,10 @@ export default withCors(
         text: textBody,
       });
 
-      return new Response(JSON.stringify({ success: true }), { status: 200 });
+      return jsonResponse({ success: true }, 200);
     } catch (error) {
       logger.error('Email sending error', error);
-      return new Response(JSON.stringify({ error: 'Failed to send message' }), { status: 500 });
+      return jsonError('Failed to send message', 500);
     }
   },
   {

@@ -5,14 +5,14 @@
  */
 
 import type { Context } from 'https://edge.netlify.com/';
-import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
 export default withCors(
   async (request: Request, context: Context) => {
     // Only accept POST requests
     if (request.method !== 'POST') {
-      return new Response('Method not allowed', { status: 405 });
+      return jsonError('Method not allowed', 405);
     }
 
     try {
@@ -34,7 +34,7 @@ export default withCors(
       });
     } catch (err) {
       logger.error('[CSP Report Error]', err);
-      return new Response('Bad Request', { status: 400 });
+      return jsonError('Bad Request', 400);
     }
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }

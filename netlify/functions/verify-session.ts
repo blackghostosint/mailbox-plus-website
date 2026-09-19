@@ -13,7 +13,7 @@
 
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
-import { withCors, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
 dotenv.config();
@@ -32,29 +32,22 @@ const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
   business_large: { name: 'Business Large', monthly: 50 },
 };
 
-const json = (status: number, body: unknown) =>
-  new Response(JSON.stringify(body), {
-    status,
-    headers: {
-      'Content-Type': 'application/json',
-      'Cache-Control': 'no-store',
-    },
-  });
+const NO_CACHE_HEADERS = { 'Cache-Control': 'no-store' };
 
 export default withCors(
   async (request: Request) => {
     if (request.method !== 'GET') {
-      return json(405, { error: 'Method not allowed' });
+      return jsonError('Method not allowed', { status: 405, headers: NO_CACHE_HEADERS });
     }
     if (!process.env.STRIPE_SECRET_KEY) {
-      return json(500, { error: 'Stripe is not configured' });
+      return jsonError('Stripe is not configured', { status: 500, headers: NO_CACHE_HEADERS });
     }
 
     const url = new URL(request.url);
     const sessionId = (url.searchParams.get('session_id') || '').trim();
     // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
     if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
-      return json(400, { error: 'Invalid session_id' });
+      return jsonError('Invalid session_id', { status: 400, headers: NO_CACHE_HEADERS });
     }
 
     try {
@@ -64,7 +57,7 @@ export default withCors(
 
       const paid = session.payment_status === 'paid' || session.status === 'complete';
       if (!paid) {
-        return json(402, { error: 'Session not paid' });
+        return jsonError('Session not paid', { status: 402, headers: NO_CACHE_HEADERS });
       }
 
       const tier = (session.metadata?.tier || '').trim();
@@ -78,17 +71,20 @@ export default withCors(
         amount = session.amount_total / 100;
       }
 
-      return json(200, {
-        ok: true,
-        tier: tier || null,
-        product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
-        amount,
-        currency: (session.currency || 'usd').toUpperCase(),
-      });
+      return jsonResponse(
+        {
+          ok: true,
+          tier: tier || null,
+          product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
+          amount,
+          currency: (session.currency || 'usd').toUpperCase(),
+        },
+        { status: 200, headers: NO_CACHE_HEADERS }
+      );
     } catch (err: any) {
       // Invalid/unknown session → 404 without detail (don't leak error strings)
       logger.error('verify-session error', { sessionId }, err);
-      return json(404, { error: 'Session not found' });
+      return jsonError('Session not found', { status: 404, headers: NO_CACHE_HEADERS });
     }
   },
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }
