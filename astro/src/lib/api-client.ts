@@ -107,15 +107,27 @@ export async function apiFetch<T = unknown>(
     }
 
     const contentType = res.headers?.get('content-type') || '';
-    if (contentType.includes('application/json')) {
+    if (contentType.includes('application/json') || contentType.includes('+json')) {
       return (await res.json()) as T;
     }
 
-    try {
-      return (await res.json()) as T;
-    } catch {
-      return (await res.text()) as unknown as T;
+    if (typeof res.text === 'function') {
+      const text = await res.text();
+      if (!text) {
+        return null as T;
+      }
+      try {
+        return JSON.parse(text) as T;
+      } catch {
+        return text as unknown as T;
+      }
     }
+
+    if (typeof res.json === 'function') {
+      return (await res.json()) as T;
+    }
+
+    return null as T;
   } catch (err: unknown) {
     if (err instanceof ApiClientError) {
       throw err;

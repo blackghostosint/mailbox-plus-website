@@ -222,4 +222,52 @@ describe('api-client module', () => {
       })
     );
   });
+
+  it('handles text/plain responses successfully without double body consumption', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/plain' }),
+      text: async () => 'OK',
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const promise = apiFetch<string>('/api/text');
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toBe('OK');
+  });
+
+  it('handles text/html or non-JSON plain text responses gracefully', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: new Headers({ 'content-type': 'text/html' }),
+      text: async () => '<html><body>Success</body></html>',
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const promise = apiFetch<string>('/api/html');
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toBe('<html><body>Success</body></html>');
+  });
+
+  it('parses JSON string from responses missing content-type header', async () => {
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      status: 200,
+      headers: new Headers(),
+      text: async () => JSON.stringify({ success: true }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const promise = apiFetch<{ success: boolean }>('/api/no-content-type');
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toEqual({ success: true });
+  });
 });
