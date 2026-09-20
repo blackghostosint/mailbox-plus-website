@@ -114,10 +114,10 @@ export function buildSiteStructure(
       s.category === 'document-services' ||
       s.category === 'notary-services' ||
       s.category === 'additional-services' ||
-      s.category === 'home-business'
+      (s.category as string) === 'home-business'
     ) {
       pillarChildrenMap['home-business'].push(child);
-    } else if (s.category === 'micro-problems' || s.category === 'micro-problem') {
+    } else if ((s.category as string) === 'micro-problems' || s.category === 'micro-problem') {
       pillarChildrenMap['micro-problems'].push(child);
     } else if (s.category === 'specialty') {
       pillarChildrenMap['specialty'].push(child);

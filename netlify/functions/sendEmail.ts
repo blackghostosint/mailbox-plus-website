@@ -114,7 +114,7 @@ export default withCors(
       await resend.emails.send({
         from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
         to: 'help@mailboxplusohio.com', // your Workspace inbox
-        reply_to: data.email, // so replies go back to the sender
+        replyTo: data.email, // so replies go back to the sender
         subject: `New Contact Form Submission from ${safeSubjectName}`,
         html: htmlBody,
         text: textBody,

@@ -47,7 +47,7 @@ export async function getCachedEmbedding(queryHash: string): Promise<number[] | 
   try {
     const store = getEmbeddingStore();
     if (store) {
-      const raw = await store.get(queryHash);
+      const raw = await store.get(queryHash, { type: 'text' });
       if (raw) {
         const parsed = JSON.parse(raw) as number[];
         if (Array.isArray(parsed) && parsed.length > 0) {
