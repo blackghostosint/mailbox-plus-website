@@ -81,6 +81,40 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
     </div>
   </section>
 
+  <!-- ============ PRICING STRIP (ABOVE THE FOLD) ============ -->
+  <section class="price-strip" aria-label="Pricing at a glance">
+    <div class="container">
+      <div class="strip-grid">
+        <div class="strip-card">
+          <div class="tier">Small · Mail Only</div>
+          <div class="price">$15<span>/mo</span></div>
+          <div class="mini">Mail behind the counter</div>
+          <a class="btn btn-outline checkout-btn" href="/contact-us/" data-tier="small_mail_only">Choose $15 →</a>
+        </div>
+        <div class="strip-card featured">
+          <div class="price-flag">Most Popular</div>
+          <div class="tier">Small · +10 Packages</div>
+          <div class="price">$25<span>/mo</span></div>
+          <div class="mini">All 4 carriers · we sign for you</div>
+          <a class="btn btn-warm checkout-btn" href="/contact-us/" data-tier="small_packages10">Choose $25 →</a>
+        </div>
+        <div class="strip-card">
+          <div class="tier">Large · Mail Only</div>
+          <div class="price">$30<span>/mo</span></div>
+          <div class="mini">Roomier box, same security</div>
+          <a class="btn btn-outline checkout-btn" href="/contact-us/" data-tier="large_mail_only">Choose $30 →</a>
+        </div>
+        <div class="strip-card">
+          <div class="tier">Large · +10 Packages</div>
+          <div class="price">$40<span>/mo</span></div>
+          <div class="mini">Everything, room for it all</div>
+          <a class="btn btn-outline checkout-btn" href="/contact-us/" data-tier="large_packages10">Choose $40 →</a>
+        </div>
+      </div>
+      <p class="strip-note">Every mailbox starts with a one-time, in-person USPS Form 1583 ID check — bring two IDs when you pick up your key; we handle the rest. Month-to-month, cancel anytime. <a href="#pricing">Full plan details ↓</a></p>
+    </div>
+  </section>
+
   <!-- ============ REINFORCEMENT WEDGE ============ -->
   <div class="wedge">
     <div class="container wedge-inner">
@@ -623,6 +657,26 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
   .price-card ul li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
   .price-card .btn { margin-top: auto; }
   .price-note { margin-top: 22px; text-align: center; color: var(--color-text-muted); font-size: 14px; }
+
+  /* Pricing strip (above the fold) */
+  .price-strip { background: var(--color-bg-primary); padding: 40px 0 34px; }
+  .strip-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  .strip-card { position: relative; background: #fff; border: 2px solid var(--color-border); border-radius: var(--radius-xl); padding: 22px 16px 18px; text-align: center; display: flex; flex-direction: column; gap: 8px; box-shadow: var(--shadow-sm); }
+  .strip-card.featured { border-color: var(--color-accent-warm); box-shadow: var(--shadow-lg); }
+  .strip-card .tier { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--color-text-muted); }
+  .strip-card .price { font-size: 34px; font-weight: 800; letter-spacing: -.02em; line-height: 1; }
+  .strip-card .price span { font-size: 15px; font-weight: 600; color: var(--color-text-muted); }
+  .strip-card .mini { font-size: 12.5px; color: var(--color-text-secondary); line-height: 1.4; min-height: 2.6em; }
+  .strip-card .btn { margin-top: auto; padding: 10px 14px; font-size: 15px; }
+  .strip-note { margin-top: 18px; text-align: center; color: var(--color-text-secondary); font-size: 14px; line-height: 1.5; }
+  .strip-note a { color: var(--color-accent-warm); font-weight: 700; white-space: nowrap; }
+  @media (max-width: 900px) {
+    .strip-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 540px) {
+    .strip-grid { grid-template-columns: 1fr; }
+    .price-strip { padding: 28px 0 24px; }
+  }
 
   /* Guarantee */
   .guarantee { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary) 55%, var(--color-primary-deep)); color: #fff; padding: 56px 0; }
