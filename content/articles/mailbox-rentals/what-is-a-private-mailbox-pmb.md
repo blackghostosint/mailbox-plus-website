@@ -101,7 +101,7 @@ Getting a PMB at Mailbox Plus is a one-visit errand, not a project.
 
 **Step 1 — Come in with two forms of ID.** One photo ID and one showing your current address. That's the requirement on **PS Form 1583**, the USPS form that authorizes us to receive your mail. Federal rules require a completed 1583 for every private mailbox holder — you sign it in front of us at the counter, we verify your ID, and it takes about ten minutes. Bring the IDs and it's the only paperwork of the whole process.
 
-**Step 2 — Pick your plan.** Mailbox plans start at **$15/month**, with larger plans at $25, $30, and $40 a month depending on how much mail and package volume you need held. Month-to-month, cancel anytime — no 12-month lock-in.
+**Step 2 — Pick your plan.** Mail-only plans start at **$15/month**. If you want us to receive and sign for your carrier packages — the reason most people choose a PMB — the **$25 plan includes 10 packages a month** with carrier delivery and signing, and larger boxes run **$30 and $40**. Month-to-month, cancel anytime — no 12-month lock-in.
 
 **Step 3 — Start using your address the same day.** You leave with your real street address and PMB number. All four carriers deliver; we sign for your packages and hold them securely. Setup takes about ten minutes, and your address is active that day.
 
