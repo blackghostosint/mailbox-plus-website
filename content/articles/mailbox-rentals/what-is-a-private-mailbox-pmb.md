@@ -4,6 +4,14 @@ description: 'PMB stands for Private Mailbox — a real street address at a CMRA
 slug: 'what-is-a-private-mailbox-pmb'
 category: 'mailbox-rentals'
 intentKey: 'what-is-a-private-mailbox-pmb'
+articleType: 'guide'
+quickAnswer: >-
+  PMB stands for Private Mailbox — your own numbered box at a Commercial Mail
+  Receiving Agency (CMRA) like Mailbox Plus, giving you a real street address
+  instead of a PO Box number. USPS requires the PMB or # designator on mail to
+  a CMRA (PMB 123 or #123); missing it, the Postal Service returns the item as
+  undeliverable. Unlike a PO Box, a PMB accepts all four carriers — USPS, FedEx,
+  UPS, and DHL. Mail-only plans start at $15/month.
 pubDate: '2026-08-05T12:00:00-05:00'
 lastModified: '2026-09-20T12:00:00-04:00'
 status: 'published'
