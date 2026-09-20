@@ -17,4 +17,9 @@ retarget (already validated against GSC drop-off queries).
 | ~~"easy seven-minute straight drive"~~ (old draft)                                                             | ❌ SOFTENED             | Figure not re-verified at source this pass; v2 says "minutes" only                                                                                    |
 | Pharmacy tape-refusal / post-office line scenes                                                                | ✅ KEPT (scenes)        | Illustrative narrative, consistent with carrier counter practices; no policy or price asserted as fact                                                |
 
-New draft contains NO numeric claims. All internal links verified live routes.
+Narrative figures (2026-09-20, post GitHub-review): ALL exact figures removed or generalized —
+post-office scene clock times + "fifteen people" generalized; "seven dollars" tape price removed;
+"ten steps"/"five minutes"/timed 1:10-1:21 errand resolution generalized (L3 concern on timed
+operational promises now fully resolved). Receipt previously asserted "NO numeric claims" — that
+assertion was WRONG (figures existed at lines 43-45, 55-57, 69, 79, 81, 85); corrected by removal,
+not by blessing. No numeric claims remain. All internal links verified live routes.

@@ -42,7 +42,7 @@ Door number one is the single-carrier franchise. Walk in and you get one network
 
 Door number two is the unstaffed drop box or the pharmacy counter. This one is worse, because it looks free. Nobody tells you that handing a parcel to an unattended bin means zero proof of custody until a driver scans it, hours later, if it fits. And if it does not fit — if a seam is open, if the box is a couple inches over some limit you never got told about — the answer comes from a cashier whose actual job is prescriptions, not parcels.
 
-So the errand that should take five minutes becomes a drive across town, a line, a maybe. And the box goes back on the passenger seat.
+So the errand that should be quick becomes a drive across town, a line, a maybe. And the box goes back on the passenger seat.
 
 ## The Third Door: Every Carrier, One Human, One Counter
 
@@ -52,9 +52,9 @@ And here is the part the pharmacy can never do: if the parcel is not ready — u
 
 ## The Tape Dispenser Conversation
 
-It is 1:15 on a Thursday. You pull onto Jackson Street by the post office, and the curb is solid. You circle past Erie Street and land two blocks away, carrying the heavy, half-sealed carton against your ribs. Inside, the line snakes to the door. Two clerk windows open, fifteen people deep. At 1:35 you are still holding the box, and your lunch break is a memory.
+It is mid-afternoon on a Thursday. You pull onto Jackson Street by the post office, and the curb is solid. You circle past Erie Street and land two blocks away, carrying the heavy, half-sealed carton against your ribs. Inside, the line snakes to the door. Two clerk windows open, a dozen people deep. You are still holding the box when your lunch break quietly ends.
 
-Or the drugstore version: you wait behind three people buying cold medicine, and when you finally reach the register the clerk points at your open flap. "We can't take it unless it's fully taped." You ask if they have tape. "Aisle four. Seven dollars."
+Or the drugstore version: you wait behind three people buying cold medicine, and when you finally reach the register the clerk points at your open flap. "We can't take it unless it's fully taped." You ask if they have tape. "Aisle four."
 
 You walk out with the same box, your wallet lighter, your errand undone. Being treated like an operational burden is its own kind of insult — and it happens because those counters were never built to want your package.
 
@@ -66,7 +66,7 @@ The carrier-neutral part is the part that saves you money. Our terminal pulls [F
 
 ## How the Errand Actually Goes
 
-You take Route 44 south, hang the right on Crile Road, and pull into the lot at Fredle Drive. No meters. No circling. The door is ten steps from the curb.
+You take Route 44 south, hang the right on Crile Road, and pull into the lot at Fredle Drive. No meters. No circling. The door is a few steps from the curb.
 
 You set the box on the counter — taped, half-taped, or fresh off the passenger seat. You ask the question you have been bracing to ask: "Can you take this even though it's not perfect?" And the answer is the one we give everybody, because it is true: "Set it right here. We'll take care of it."
 
@@ -76,13 +76,13 @@ From there it runs three moves:
 2. **The fix, if it needs one.** Open seam, wrong box, a heirloom wrapped in bath towels — if the parcel is not ready, we pack it properly right there. Bursting-test corrugated, real cushioning, reinforced seams. (Fragile pieces get the full treatment — that is what [professional packing](/pack-ship/professional-packing/) is for.) This is the step that also protects you later: carriers can deny a damage claim when packaging fails their published guidelines, so the box matters as much as the label.
 3. **The scan and the receipt.** Label applied, barcode scanned into the system in front of you, physical receipt in your hand with live tracking on it. Your parcel goes behind the counter and into the next scheduled carrier pickup. From that moment, custody is documented and the box is the system's problem.
 
-And while you are standing there: if the errand has layers — [copies](/copy-print/copies/), [document scanning](/home-business/document-scanning/), a [walk-in notary](/home-business/notary-services/) — those happen at the same counter, in the same five minutes.
+And while you are standing there: if the errand has layers — [copies](/copy-print/copies/), [document scanning](/home-business/document-scanning/), a [walk-in notary](/home-business/notary-services/) — those happen at the same counter, in the same stop.
 
-## The Same Box, Five Minutes Later
+## The Same Box, One Break Later
 
 Back up to the box that has been riding on your passenger seat since Tuesday. Here is its Tuesday-afternoon ending instead:
 
-You leave work at 1:10. You are back on Route 44, off at Crile, parked at Fredle Drive by 1:16. The box goes on the counter. It gets a better box, a proper seal, a rate comparison you can actually read, a scan you watched happen, and a receipt in your hand. At 1:21 you are back in the car, empty passenger seat, errand gone.
+You leave work when your break starts. You are back on Route 44, off at Crile, parked at Fredle Drive before you have finished being annoyed about it. The box goes on the counter. It gets a better box, a proper seal, a rate comparison you can actually read, a scan you watched happen, and a receipt in your hand. Then you are back in the car, empty passenger seat, errand gone — with your break mostly intact.
 
 No line. No aisle four. No bet on a plastic bin.
 
