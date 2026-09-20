@@ -41,7 +41,7 @@ Jane Smith
 Concord Township, OH 44077
 ```
 
-The details below — the number, the paperwork, the comparison to a PO Box — matter, because the difference between a PMB and a PO Box decides what gets delivered to you and what doesn't.
+Miss the PMB tag and your mail bounces back to the sender. Here's the exact format that keeps it alive.
 
 ## What Is a PMB Number?
 
@@ -53,17 +53,9 @@ Skip it, and the consequences are printed right in the rulebook: USPS may return
 
 So when you give out your address — to a bank, a supplier, your mother — give it exactly as issued: street address, then PMB and your number. That one line tells the entire mail system where your mail actually lives.
 
-## A PMB Address Example, Annotated
+## What a PMB Address Actually Looks Like
 
-Here's a real-format PMB address, part by part:
-
-```
-Jane Smith                        ← recipient: the name your mail is addressed to
-7554 Fredle Drive PMB 123         ← the store's street address + your PMB number
-Concord Township, OH 44077        ← city, state, ZIP of the store
-```
-
-Three things to notice.
+When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now. Three things about it are worth pausing on.
 
 **The address is a street address.** Not a box compartment in a post office lobby — an actual storefront on an actual road that any delivery driver can pull up to.
 
@@ -123,7 +115,7 @@ This is the part of the PMB definition that actually costs people money:
 - **Your home address costs you privacy.** Every label and vendor form puts your home into systems you don't control, and porch pirates read delivery schedules better than you think.
 - **The wrong address format costs you mail.** Use "Box" or "Suite" instead of PMB or # at a CMRA address, and the Postal Service's own rule sends it back to the sender — missing PMB or # sign, undeliverable.
 
-Picture the counter at 7554 Fredle Drive: we sign for your UPS box, slide it behind the locked glass, and you grab it on your way home. No porch pirate, no home address on the label. That's the product a PMB is.
+Picture the counter at 7554 Fredle Drive: we sign for your UPS box, slide it behind the locked glass, and you grab it on your way home. No porch pirate, no home address on the label.
 
 ## What Your First Week Looks Like
 
@@ -131,4 +123,4 @@ A seller on Etsy rents a mailbox on a Tuesday. The bell chirps when she pushes t
 
 Wednesday, a supplier ships her inventory to "7554 Fredle Drive PMB \_\_\_." The box lands on our counter with a thud — we sign for it and slide it behind the locked glass. She grabs it on the way home: no missed-delivery slip taped to a door her customers will never see, no home address printed on a label a stranger could read. Every carrier — USPS, FedEx, UPS, DHL — delivers to the same line, so nothing bounces the way it would to a PO Box. That's a private mailbox doing its whole job in one week, and it never touches her house.
 
-You don't need a plan for this. Bring whatever ID you have — if it's not enough, we'll tell you what is. Sit at the counter and we'll fill out Form 1583 with you, and you'll walk out with a real street address the same day. [Rent a private mailbox](/private-mailbox-rental/), or come see the counter at 7554 Fredle Drive first — we'll show you exactly what your address would look like before you spend a dollar, and the questions are free.
+That seller walked out in ten minutes, and her address was live before she got back to her car. You will too — same counter, same form, zero prep. [Rent a private mailbox](/private-mailbox-rental/), or come see the counter at 7554 Fredle Drive first and we'll show you exactly what your address would look like before you spend a dollar.
