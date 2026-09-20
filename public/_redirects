@@ -105,5 +105,13 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # link equity + any residual indexation consolidate on a live page.
 /articles/kirtland-hills-graphic-design* /articles/chardon-graphic-design/ 301!
 
+# 2026-09-20 corpus prune: 4 zero-impression articles removed (90-day GSC,
+# owner-approved per article). Evidence + verdicts: vault Mailbox Plus/SEO/
+# Article Corpus Segmentation 2026-09-20.md
+/articles/hambden-fragile-shipping* /pack-ship/ 301!
+/articles/pack-ship-aquilla-village* /pack-ship/ 301!
+/articles/hambden-shredding* /home-business/shredding/ 301!
+/articles/hambden-copies* /copy-print/copies/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404
