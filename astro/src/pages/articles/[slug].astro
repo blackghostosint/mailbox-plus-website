@@ -3,7 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCta from '../../components/ArticleCta.astro';
 import { articleLoader } from '../../utils/articleLoader';
 import { marked } from 'marked';
-import { getArticleSchema, getWebPageSchema } from '../../utils/schema';
+import { getArticleSchema, getWebPageSchema, getFAQSchema } from '../../utils/schema';
 import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
 import { getServiceImageUrl } from '../../lib/storage';
@@ -70,6 +70,8 @@ const webPageSchema = getWebPageSchema(siteConfig, {
     { name: title, url: articleUrl },
   ],
 });
+const faqs = (frontmatter as { faqs?: { question: string; answer: string }[] }).faqs;
+const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : undefined;
 ---
 
 <BaseLayout
@@ -77,7 +79,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
   description={description}
   canonical={`/articles/${slug}`}
   ogImage={ogImage}
-  schema={[articleSchema, webPageSchema]}
+  schema={[articleSchema, webPageSchema, ...(faqSchema ? [faqSchema] : [])]}
 >
   <Fragment slot="head">
     <meta property="og:type" content="article" />
