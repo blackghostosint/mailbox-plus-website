@@ -1,4 +1,5 @@
 // Shared client-side Google reviews loader and card builder.
+import { apiFetch } from './api-client';
 
 export interface ReviewItem {
   rating?: number;
@@ -86,9 +87,7 @@ export function buildReviewCard(r: ReviewItem): HTMLElement {
 
 export async function initReviewSection(): Promise<void> {
   try {
-    const res = await fetch('/api/reviews');
-    if (!res.ok) return;
-    const data = (await res.json()) as ReviewsApiData;
+    const data = await apiFetch<ReviewsApiData>('/api/reviews');
     if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) return;
 
     const countEl = document.getElementById('reviews-count');
