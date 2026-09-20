@@ -66,6 +66,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/slow', { timeout: 1000 });
+    promise.catch(() => {});
 
     vi.advanceTimersByTime(1001);
 
@@ -88,6 +89,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/submit');
+    promise.catch(() => {});
     await vi.runAllTimersAsync();
 
     await expect(promise).rejects.toThrow(ApiClientError);
@@ -110,6 +112,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/item');
+    promise.catch(() => {});
     await vi.runAllTimersAsync();
 
     await expect(promise).rejects.toThrow(ApiClientError);
@@ -132,6 +135,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/error');
+    promise.catch(() => {});
     await vi.runAllTimersAsync();
 
     await expect(promise).rejects.toThrow(ApiClientError);
@@ -146,6 +150,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/network-fail');
+    promise.catch(() => {});
     await vi.runAllTimersAsync();
 
     await expect(promise).rejects.toThrow(ApiClientError);
@@ -170,6 +175,7 @@ describe('api-client module', () => {
     vi.stubGlobal('fetch', fetchMock);
 
     const promise = apiFetch('/api/abort', { signal: controller.signal });
+    promise.catch(() => {});
     controller.abort();
 
     await vi.runAllTimersAsync();
