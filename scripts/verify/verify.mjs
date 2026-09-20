@@ -688,11 +688,7 @@ function cmdArticle(arg, isStrict = false) {
           "add a 40-80 word 'quickAnswer' that directly answers the intentKey query — see docs/ARTICLE-WORKFLOW.md"
         );
       } else {
-        check(
-          'content:quick-answer',
-          true,
-          'missing quickAnswer (advisory — legacy article)'
-        );
+        check('content:quick-answer', true, 'missing quickAnswer (advisory — legacy article)');
       }
     } else if (quickAnswer) {
       if (qaWords < 40 || qaWords > 80) {
