@@ -1,5 +1,12 @@
-import { describe, it, expect, vi } from 'vitest';
-import { withCors, jsonResponse, DEFAULT_CORS_HEADERS, DEFAULT_ALLOWED_ORIGINS } from './cors';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import {
+  withCors,
+  jsonResponse,
+  DEFAULT_CORS_HEADERS,
+  DEFAULT_ALLOWED_ORIGINS,
+  isDevelopmentEnvironment,
+  getDefaultAllowedOrigins,
+} from './cors';
 
 describe('CORS Middleware Utility', () => {
   describe('withCors (Web Standard Handler)', () => {
@@ -144,6 +151,128 @@ describe('CORS Middleware Utility', () => {
       expect(res3.headers.get('X-RateLimit-Limit')).toBe('2');
       const body = await res3.json();
       expect(body).toEqual({ error: 'Too many requests. Please try again later.' });
+    });
+  });
+
+  describe('Dynamic Environment Origin Filtering', () => {
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      delete process.env.NETLIFY_DEV;
+      delete process.env.CONTEXT;
+      delete process.env.NODE_ENV;
+    });
+
+    afterEach(() => {
+      process.env = { ...originalEnv };
+    });
+
+    it('rejects localhost and 127.0.0.1 origins when CONTEXT=production or NODE_ENV=production', async () => {
+      process.env.CONTEXT = 'production';
+      process.env.NODE_ENV = 'production';
+
+      expect(isDevelopmentEnvironment()).toBe(false);
+      expect(
+        getDefaultAllowedOrigins().some((pattern) =>
+          typeof pattern === 'string'
+            ? pattern.includes('localhost')
+            : pattern.test('http://localhost:3000')
+        )
+      ).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:3000' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+
+      const reqLoopback = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://127.0.0.1:8080' },
+      });
+      const resLoopback = await wrapped(reqLoopback, {});
+      expect(resLoopback.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+    });
+
+    it('rejects localhost and 127.0.0.1 origins in deploy-preview and staging contexts', async () => {
+      process.env.CONTEXT = 'deploy-preview';
+
+      expect(isDevelopmentEnvironment()).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:4321' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+    });
+
+    it('allows localhost and 127.0.0.1 origins when NETLIFY_DEV=true', async () => {
+      process.env.NETLIFY_DEV = 'true';
+
+      expect(isDevelopmentEnvironment()).toBe(true);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:3000' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:3000');
+
+      const reqLoopback = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://127.0.0.1:8080' },
+      });
+      const resLoopback = await wrapped(reqLoopback, {});
+      expect(resLoopback.headers.get('Access-Control-Allow-Origin')).toBe('http://127.0.0.1:8080');
+    });
+
+    it('allows localhost and 127.0.0.1 origins when NODE_ENV=development', async () => {
+      process.env.NODE_ENV = 'development';
+
+      expect(isDevelopmentEnvironment()).toBe(true);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:5173' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:5173');
+    });
+
+    it('defaults securely to production origin filtering when environment variables are unset or ambiguous', async () => {
+      expect(isDevelopmentEnvironment()).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:3000' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
     });
   });
 });

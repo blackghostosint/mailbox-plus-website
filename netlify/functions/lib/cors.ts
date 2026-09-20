@@ -16,13 +16,73 @@ export interface CorsOptions {
   rateLimit?: RateLimitOptions | boolean;
 }
 
-export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = [
-  process.env.SITE_URL || 'https://mailboxplusohio.com',
-  'https://mailboxplusohio.com',
-  /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
-  /localhost(:\d+)?$/,
-  /127\.0\.0\.1(:\d+)?$/,
-];
+export function isDevelopmentEnvironment(): boolean {
+  const netlifyDev = process.env.NETLIFY_DEV?.toLowerCase();
+  const context = process.env.CONTEXT?.toLowerCase();
+  const nodeEnv = process.env.NODE_ENV?.toLowerCase();
+
+  // NETLIFY_DEV='true' explicitly indicates local Netlify dev server execution
+  if (netlifyDev === 'true' || netlifyDev === '1') {
+    return true;
+  }
+
+  // Remote Netlify execution contexts (production, deploy-preview, branch-deploy, staging, etc.) are non-development
+  if (context && context !== 'development') {
+    return false;
+  }
+
+  // NODE_ENV='development' indicates local dev environment
+  if (nodeEnv === 'development') {
+    return true;
+  }
+
+  // Non-development or ambiguous execution contexts default securely to production origin filtering
+  return false;
+}
+
+export function getDefaultAllowedOrigins(): (string | RegExp)[] {
+  const baseOrigins: (string | RegExp)[] = [
+    process.env.SITE_URL || 'https://mailboxplusohio.com',
+    'https://mailboxplusohio.com',
+    /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
+  ];
+
+  if (isDevelopmentEnvironment()) {
+    return [...baseOrigins, /localhost(:\d+)?$/, /127\.0\.0\.1(:\d+)?$/];
+  }
+
+  return baseOrigins;
+}
+
+export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (string | RegExp)[], {
+  get(target, prop, receiver) {
+    const currentOrigins = getDefaultAllowedOrigins();
+    if (prop === Symbol.iterator) {
+      return currentOrigins[Symbol.iterator].bind(currentOrigins);
+    }
+    const value = Reflect.get(currentOrigins, prop);
+    if (typeof value === 'function') {
+      return value.bind(currentOrigins);
+    }
+    return value;
+  },
+  has(target, prop) {
+    const currentOrigins = getDefaultAllowedOrigins();
+    return Reflect.has(currentOrigins, prop);
+  },
+  ownKeys(target) {
+    const currentOrigins = getDefaultAllowedOrigins();
+    return Reflect.ownKeys(currentOrigins);
+  },
+  getOwnPropertyDescriptor(target, prop) {
+    const currentOrigins = getDefaultAllowedOrigins();
+    const descriptor = Reflect.getOwnPropertyDescriptor(currentOrigins, prop);
+    if (descriptor) {
+      descriptor.configurable = true;
+    }
+    return descriptor;
+  },
+});
 
 function hasHeader(headers: Record<string, any>, name: string): boolean {
   const lowerName = name.toLowerCase();
