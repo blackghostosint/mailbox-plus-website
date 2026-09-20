@@ -5,7 +5,7 @@
 ## Getting Started
 
 1. Clone the repository
-2. Run `npm install` (installs root and `astro` workspace dependencies via npm workspaces)
+2. Run `npm install` (installs root and `astro` workspace dependencies via npm workspaces with unified `package-lock.json`)
 3. Copy `.env.example` to `.env` and fill in required variables
 4. Run `npm run verify:doctor` to verify repository environment sanity
 5. Run `npm run dev` to start the Astro development server
