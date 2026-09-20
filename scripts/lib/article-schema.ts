@@ -37,6 +37,7 @@ export const articleFrontmatterSchema = z
     eventDate: dateOrStringSchema.optional(),
     source: z.string().optional(),
     sourceLabel: z.string().optional(),
+    faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
   })
   .passthrough();
 
