@@ -34,8 +34,8 @@ describe('generate-api-spec', () => {
     );
   });
 
-  it('passes check mode when docs/openapi.json is synchronized', () => {
-    const success = runGenerateApiSpec({ check: true });
+  it('passes check mode when docs/openapi.json is synchronized', async () => {
+    const success = await runGenerateApiSpec({ check: true });
     expect(success).toBe(true);
   });
 });

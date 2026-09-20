@@ -11,6 +11,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import prettier from 'prettier';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -226,7 +227,10 @@ export function printDiffSummary(filename: string, existing: string, expected: s
   console.error(`--------------------------------------\n`);
 }
 
-export function runGenerateApiSpec(options?: { write?: boolean; check?: boolean }): boolean {
+export async function runGenerateApiSpec(options?: {
+  write?: boolean;
+  check?: boolean;
+}): Promise<boolean> {
   const write = options?.write ?? true;
   const check = options?.check ?? false;
 
@@ -252,7 +256,8 @@ export function runGenerateApiSpec(options?: { write?: boolean; check?: boolean 
     return false;
   }
 
-  const expectedJson = JSON.stringify(spec, null, 2) + '\n';
+  const rawJson = JSON.stringify(spec, null, 2);
+  const expectedJson = await prettier.format(rawJson, { parser: 'json' });
   const existingJson = fs.existsSync(OPENAPI_PATH) ? fs.readFileSync(OPENAPI_PATH, 'utf8') : '';
 
   if (check) {
@@ -286,6 +291,7 @@ export function runGenerateApiSpec(options?: { write?: boolean; check?: boolean 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const check = process.argv.includes('--check');
   const write = process.argv.includes('--write') || !check;
-  const success = runGenerateApiSpec({ write, check });
-  process.exit(success ? 0 : 1);
+  runGenerateApiSpec({ write, check }).then((success) => {
+    process.exit(success ? 0 : 1);
+  });
 }
