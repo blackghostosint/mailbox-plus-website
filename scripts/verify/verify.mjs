@@ -409,9 +409,12 @@ function cmdDoctor() {
   const workspaceLinkPath = path.join(ROOT, 'node_modules', 'mailbox-plus-astro');
   let hasWorkspaceSymlink = false;
   try {
-    hasWorkspaceSymlink =
-      fs.lstatSync(workspaceLinkPath).isSymbolicLink() && fs.existsSync(workspaceLinkPath);
-  } catch {
+    const stat = fs.lstatSync(workspaceLinkPath);
+    hasWorkspaceSymlink = stat.isSymbolicLink();
+  } catch (err) {
+    if (err && err.code !== 'ENOENT') {
+      throw err;
+    }
     hasWorkspaceSymlink = false;
   }
   const hasLegacyModules = fs.existsSync(path.join(ROOT, 'astro', 'node_modules'));
