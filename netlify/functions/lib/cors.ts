@@ -57,6 +57,9 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
 export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (string | RegExp)[], {
   get(target, prop, receiver) {
     const currentOrigins = getDefaultAllowedOrigins();
+    if (prop === 'length') {
+      return currentOrigins.length;
+    }
     if (prop === Symbol.iterator) {
       return currentOrigins[Symbol.iterator].bind(currentOrigins);
     }
@@ -76,11 +79,22 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
   },
   getOwnPropertyDescriptor(target, prop) {
     const currentOrigins = getDefaultAllowedOrigins();
+    if (prop === 'length') {
+      return {
+        value: currentOrigins.length,
+        writable: true,
+        enumerable: false,
+        configurable: false,
+      };
+    }
     const descriptor = Reflect.getOwnPropertyDescriptor(currentOrigins, prop);
     if (descriptor) {
-      descriptor.configurable = true;
+      return {
+        ...descriptor,
+        configurable: true,
+      };
     }
-    return descriptor;
+    return undefined;
   },
 });
 

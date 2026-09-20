@@ -275,4 +275,84 @@ describe('CORS Middleware Utility', () => {
       );
     });
   });
+
+  describe('Proxy Array Signature & Downstream Introspection Compatibility', () => {
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      delete process.env.NETLIFY_DEV;
+      delete process.env.CONTEXT;
+      delete process.env.NODE_ENV;
+    });
+
+    afterEach(() => {
+      process.env = { ...originalEnv };
+    });
+
+    it('supports Object.keys without throwing TypeError and returns array index keys', () => {
+      expect(() => Object.keys(DEFAULT_ALLOWED_ORIGINS)).not.toThrow();
+      const keys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      const expectedKeys = getDefaultAllowedOrigins().map((_, i) => String(i));
+      expect(keys).toEqual(expectedKeys);
+    });
+
+    it('supports array spread operator [...DEFAULT_ALLOWED_ORIGINS]', () => {
+      const spreadArray = [...DEFAULT_ALLOWED_ORIGINS];
+      expect(spreadArray).toEqual(getDefaultAllowedOrigins());
+    });
+
+    it('supports Object.values and Object.entries', () => {
+      const values = Object.values(DEFAULT_ALLOWED_ORIGINS);
+      expect(values).toEqual(getDefaultAllowedOrigins());
+
+      const entries = Object.entries(DEFAULT_ALLOWED_ORIGINS);
+      expect(entries).toEqual(getDefaultAllowedOrigins().map((val, idx) => [String(idx), val]));
+    });
+
+    it('provides correct property descriptors for length and index properties', () => {
+      const descriptors = Object.getOwnPropertyDescriptors(DEFAULT_ALLOWED_ORIGINS);
+      expect(descriptors.length).toBeDefined();
+      expect(descriptors.length.configurable).toBe(false);
+      expect(descriptors.length.enumerable).toBe(false);
+      expect(descriptors.length.writable).toBe(true);
+      expect(descriptors.length.value).toBe(getDefaultAllowedOrigins().length);
+
+      expect(descriptors['0']).toBeDefined();
+      expect(descriptors['0'].configurable).toBe(true);
+      expect(descriptors['0'].enumerable).toBe(true);
+    });
+
+    it('identifies as an array via Array.isArray and supports JSON serialization', () => {
+      expect(Array.isArray(DEFAULT_ALLOWED_ORIGINS)).toBe(true);
+      expect(() => JSON.stringify(DEFAULT_ALLOWED_ORIGINS)).not.toThrow();
+    });
+
+    it('supports standard Array prototype methods (.slice, .concat, .map, .filter, .reduce)', () => {
+      expect(DEFAULT_ALLOWED_ORIGINS.slice()).toEqual(getDefaultAllowedOrigins());
+      expect(DEFAULT_ALLOWED_ORIGINS.concat(['https://extra.com'])).toEqual([
+        ...getDefaultAllowedOrigins(),
+        'https://extra.com',
+      ]);
+      const mapped = DEFAULT_ALLOWED_ORIGINS.map((item) => typeof item);
+      expect(mapped).toEqual(getDefaultAllowedOrigins().map((item) => typeof item));
+      const filtered = DEFAULT_ALLOWED_ORIGINS.filter((item) => typeof item === 'string');
+      expect(filtered).toEqual(
+        getDefaultAllowedOrigins().filter((item) => typeof item === 'string')
+      );
+    });
+
+    it('dynamically reflects environment context changes across introspection calls', () => {
+      process.env.CONTEXT = 'production';
+      const prodOrigins = [...DEFAULT_ALLOWED_ORIGINS];
+      const prodKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      expect(prodOrigins.length).toBe(3);
+      expect(prodKeys).toEqual(['0', '1', '2']);
+
+      process.env.NETLIFY_DEV = 'true';
+      const devOrigins = [...DEFAULT_ALLOWED_ORIGINS];
+      const devKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      expect(devOrigins.length).toBe(5);
+      expect(devKeys).toEqual(['0', '1', '2', '3', '4']);
+    });
+  });
 });
