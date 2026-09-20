@@ -54,14 +54,109 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   return baseOrigins;
 }
 
+let customAdditions: (string | RegExp)[] = [];
+let mutatedStore: (string | RegExp)[] | null = null;
+
+export function resetDefaultAllowedOriginsState(): void {
+  customAdditions = [];
+  mutatedStore = null;
+}
+
+function getCurrentOrigins(): (string | RegExp)[] {
+  if (mutatedStore !== null) {
+    return mutatedStore;
+  }
+  return [...getDefaultAllowedOrigins(), ...customAdditions];
+}
+
 export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (string | RegExp)[], {
   get(target, prop, receiver) {
-    const currentOrigins = getDefaultAllowedOrigins();
+    const currentOrigins = getCurrentOrigins();
     if (prop === 'length') {
       return currentOrigins.length;
     }
     if (prop === Symbol.iterator) {
       return currentOrigins[Symbol.iterator].bind(currentOrigins);
+    }
+    if (prop === 'push') {
+      return (...items: (string | RegExp)[]) => {
+        if (mutatedStore !== null) {
+          mutatedStore.push(...items);
+          return mutatedStore.length;
+        }
+        customAdditions.push(...items);
+        return getCurrentOrigins().length;
+      };
+    }
+    if (prop === 'unshift') {
+      return (...items: (string | RegExp)[]) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.unshift(...items);
+      };
+    }
+    if (prop === 'pop') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.pop();
+      };
+    }
+    if (prop === 'shift') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.shift();
+      };
+    }
+    if (prop === 'splice') {
+      return (start: number, deleteCount?: number, ...items: (string | RegExp)[]) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return deleteCount !== undefined
+          ? mutatedStore.splice(start, deleteCount, ...items)
+          : mutatedStore.splice(start);
+      };
+    }
+    if (prop === 'sort') {
+      return (compareFn?: (a: string | RegExp, b: string | RegExp) => number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.sort(compareFn);
+        return receiver;
+      };
+    }
+    if (prop === 'reverse') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.reverse();
+        return receiver;
+      };
+    }
+    if (prop === 'fill') {
+      return (value: string | RegExp, start?: number, end?: number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.fill(value, start, end);
+        return receiver;
+      };
+    }
+    if (prop === 'copyWithin') {
+      return (targetIdx: number, start: number, end?: number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.copyWithin(targetIdx, start, end);
+        return receiver;
+      };
     }
     const value = Reflect.get(currentOrigins, prop);
     if (typeof value === 'function') {
@@ -69,16 +164,28 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
     }
     return value;
   },
+  set(target, prop, value, receiver) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.set(mutatedStore, prop, value);
+  },
+  deleteProperty(target, prop) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.deleteProperty(mutatedStore, prop);
+  },
   has(target, prop) {
-    const currentOrigins = getDefaultAllowedOrigins();
+    const currentOrigins = getCurrentOrigins();
     return Reflect.has(currentOrigins, prop);
   },
   ownKeys(target) {
-    const currentOrigins = getDefaultAllowedOrigins();
+    const currentOrigins = getCurrentOrigins();
     return Reflect.ownKeys(currentOrigins);
   },
   getOwnPropertyDescriptor(target, prop) {
-    const currentOrigins = getDefaultAllowedOrigins();
+    const currentOrigins = getCurrentOrigins();
     if (prop === 'length') {
       return {
         value: currentOrigins.length,

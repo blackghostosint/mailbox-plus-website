@@ -6,6 +6,7 @@ import {
   DEFAULT_ALLOWED_ORIGINS,
   isDevelopmentEnvironment,
   getDefaultAllowedOrigins,
+  resetDefaultAllowedOriginsState,
 } from './cors';
 
 describe('CORS Middleware Utility', () => {
@@ -158,6 +159,7 @@ describe('CORS Middleware Utility', () => {
     const originalEnv = { ...process.env };
 
     beforeEach(() => {
+      resetDefaultAllowedOriginsState();
       delete process.env.NETLIFY_DEV;
       delete process.env.CONTEXT;
       delete process.env.NODE_ENV;
@@ -280,6 +282,7 @@ describe('CORS Middleware Utility', () => {
     const originalEnv = { ...process.env };
 
     beforeEach(() => {
+      resetDefaultAllowedOriginsState();
       delete process.env.NETLIFY_DEV;
       delete process.env.CONTEXT;
       delete process.env.NODE_ENV;
@@ -353,6 +356,34 @@ describe('CORS Middleware Utility', () => {
       const devKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
       expect(devOrigins.length).toBe(5);
       expect(devKeys).toEqual(['0', '1', '2', '3', '4']);
+    });
+
+    it('preserves mutable-array semantics when mutators like .push(), [i]=val, .unshift(), .splice(), .pop() are called', () => {
+      const initialLen = DEFAULT_ALLOWED_ORIGINS.length;
+
+      // Test .push()
+      const newLen = DEFAULT_ALLOWED_ORIGINS.push('https://pushed-origin.com');
+      expect(newLen).toBe(initialLen + 1);
+      expect(DEFAULT_ALLOWED_ORIGINS.length).toBe(initialLen + 1);
+      expect(DEFAULT_ALLOWED_ORIGINS[initialLen]).toBe('https://pushed-origin.com');
+      expect([...DEFAULT_ALLOWED_ORIGINS]).toContain('https://pushed-origin.com');
+
+      // Test direct index assignment
+      DEFAULT_ALLOWED_ORIGINS[0] = 'https://custom-override.com';
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://custom-override.com');
+
+      // Test .unshift()
+      DEFAULT_ALLOWED_ORIGINS.unshift('https://prepended-origin.com');
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://prepended-origin.com');
+
+      // Test .splice()
+      const removed = DEFAULT_ALLOWED_ORIGINS.splice(0, 1);
+      expect(removed).toEqual(['https://prepended-origin.com']);
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://custom-override.com');
+
+      // Test .pop()
+      const popped = DEFAULT_ALLOWED_ORIGINS.pop();
+      expect(popped).toBe('https://pushed-origin.com');
     });
   });
 });
