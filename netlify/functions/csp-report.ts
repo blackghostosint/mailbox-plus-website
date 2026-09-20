@@ -4,7 +4,7 @@
  * Logs them for monitoring (in production, forward to Sentry or a logging service)
  */
 
-import type { Context } from 'https://edge.netlify.com/';
+import type { Context } from '@netlify/functions';
 import { withCors, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 

@@ -9,7 +9,7 @@ import {
   MINIMUM_SIMILARITY,
   KBEntry,
   EmbeddingCache,
-} from '../../../knowledge/retrieval-core.ts';
+} from '../../../knowledge/retrieval-core.js';
 
 describe('Retrieval Core Module', () => {
   describe('Constants & Cache Key Builder', () => {

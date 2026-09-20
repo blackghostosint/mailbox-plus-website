@@ -4,19 +4,23 @@
  * Used for uptime monitoring and load balancer health checks
  */
 
-import type { Context } from 'https://edge.netlify.com/';
+import type { Context } from '@netlify/functions';
 import { withCors, jsonResponse, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 
 export default withCors(
   async (request: Request, context: Context) => {
     const startTime = Date.now();
 
+    const netlifyGlobal = (
+      globalThis as unknown as { Netlify?: { env?: { get: (key: string) => string | undefined } } }
+    ).Netlify;
+
     // Basic health checks
     const healthData = {
       status: 'healthy',
       timestamp: new Date().toISOString(),
       environment:
-        (typeof Netlify !== 'undefined' && Netlify.env?.get('CONTEXT')) ||
+        (typeof netlifyGlobal !== 'undefined' && netlifyGlobal.env?.get('CONTEXT')) ||
         process.env.CONTEXT ||
         'unknown',
       checks: {
