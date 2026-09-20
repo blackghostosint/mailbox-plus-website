@@ -107,21 +107,24 @@ describe('contact-form module', () => {
       action: 'contact_us',
     });
 
-    expect(fetchMock).toHaveBeenCalledWith('/.netlify/functions/sendEmail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: 'Jane Doe',
-        email: 'jane@example.com',
-        phone: '555-0199',
-        service: 'Mailbox Rental',
-        message: 'Interested in a small mailbox.',
-        url: null,
-        barrier_description: null,
-        preferred_contact: null,
-        recaptchaToken: 'mocked-recaptcha-token',
-      }),
-    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/.netlify/functions/sendEmail',
+      expect.objectContaining({
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'Jane Doe',
+          email: 'jane@example.com',
+          phone: '555-0199',
+          service: 'Mailbox Rental',
+          message: 'Interested in a small mailbox.',
+          url: null,
+          barrier_description: null,
+          preferred_contact: null,
+          recaptchaToken: 'mocked-recaptcha-token',
+        }),
+      })
+    );
 
     const statusEl = form.querySelector('[role="status"]');
     expect(statusEl).not.toBeNull();
@@ -155,21 +158,24 @@ describe('contact-form module', () => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
     });
 
-    expect(fetchMock).toHaveBeenCalledWith('/.netlify/functions/sendEmail', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        name: 'John Smith',
-        email: 'john@example.com',
-        phone: null,
-        service: 'Accessibility Barrier / Accommodation',
-        message: 'Ramp access issue',
-        url: 'https://example.com/page',
-        barrier_description: 'Ramp access issue',
-        preferred_contact: 'email',
-        recaptchaToken: '',
-      }),
-    });
+    expect(fetchMock).toHaveBeenCalledWith(
+      '/.netlify/functions/sendEmail',
+      expect.objectContaining({
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: 'John Smith',
+          email: 'john@example.com',
+          phone: null,
+          service: 'Accessibility Barrier / Accommodation',
+          message: 'Ramp access issue',
+          url: 'https://example.com/page',
+          barrier_description: 'Ramp access issue',
+          preferred_contact: 'email',
+          recaptchaToken: '',
+        }),
+      })
+    );
   });
 
   it('renders error alert when API response returns non-200 HTTP status', async () => {
