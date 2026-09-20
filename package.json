@@ -46,6 +46,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
     "@netlify/blobs": "^10.7.9",
+    "@netlify/functions": "^2.8.2",
     "dotenv": "^17.2.3",
     "gray-matter": "^4.0.3",
     "resend": "^6.16.0",
