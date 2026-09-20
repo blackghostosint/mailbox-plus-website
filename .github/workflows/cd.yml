@@ -1,0 +1,182 @@
+name: Continuous Deployment - Netlify
+
+on:
+  push:
+    branches: [main, staging]
+  pull_request:
+    branches: [main, staging]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  build-and-test:
+    name: Build & Verify
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Astro dependencies
+        run: cd astro && npm ci
+
+      - name: Run verification doctor
+        run: npm run verify:doctor
+
+      - name: Run quality audits
+        run: npm run audit:quality
+
+      - name: TypeScript type check (Astro)
+        run: cd astro && npm run check
+
+      - name: Run Astro unit tests
+        run: cd astro && npm test
+
+      - name: Build site
+        run: npm run build
+        env:
+          VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-dist
+          path: dist/
+          retention-days: 1
+
+  deploy-preview:
+    name: Deploy Preview (Pull Request / Staging)
+    needs: build-and-test
+    if: github.event_name == 'pull_request' || (github.event_name == 'push' && github.ref == 'refs/heads/staging')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: dist
+
+      - name: Deploy Preview to Netlify
+        id: netlify-deploy
+        run: |
+          set -e
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::warning::Skipping Netlify preview deployment: NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID secret is missing or empty."
+            echo "PREVIEW_URL=" >> $GITHUB_ENV
+            exit 0
+          fi
+          echo "Executing Netlify CLI preview deployment..."
+          DEPLOY_OUTPUT=$(npx netlify-cli deploy --dir=dist --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --json)
+          PREVIEW_URL=$(echo "$DEPLOY_OUTPUT" | jq -r '.deploy_url // .url // empty' 2>/dev/null)
+          if [ -z "$PREVIEW_URL" ]; then
+            PREVIEW_URL=$(echo "$DEPLOY_OUTPUT" | grep -oE 'https://[a-zA-Z0-9.-]+\.netlify\.app' | head -n 1)
+          fi
+          echo "PREVIEW_URL=$PREVIEW_URL" >> $GITHUB_ENV
+          echo "Deploy preview successful. Preview URL: $PREVIEW_URL"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+
+      - name: Comment Preview URL on PR
+        if: github.event_name == 'pull_request' && env.PREVIEW_URL != ''
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const previewUrl = process.env.PREVIEW_URL;
+            const issue_number = context.issue.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+            const header = '### 🚀 Netlify Deployment Preview';
+            const body = `${header}\n\n**Preview URL:** ${previewUrl}\n\n*Deployed from commit ${context.sha}*`;
+
+            const { data: comments } = await github.rest.issues.listComments({
+              owner,
+              repo,
+              issue_number,
+            });
+
+            const botComment = comments.find(comment => 
+              comment.user.type === 'Bot' && comment.body.includes(header)
+            );
+
+            if (botComment) {
+              await github.rest.issues.updateComment({
+                owner,
+                repo,
+                comment_id: botComment.id,
+                body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner,
+                repo,
+                issue_number,
+                body,
+              });
+            }
+
+  deploy-production:
+    name: Deploy Production (Main Branch)
+    needs: build-and-test
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.x
+          cache: 'npm'
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build-dist
+          path: dist
+
+      - name: Deploy Production to Netlify
+        run: |
+          set -e
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::warning::Skipping Netlify production deployment: NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID secret is missing or empty."
+            exit 0
+          fi
+          echo "Executing Netlify CLI production deployment..."
+          npx netlify-cli deploy --dir=dist --prod --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
