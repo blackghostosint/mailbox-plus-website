@@ -26,6 +26,7 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 
 - **BaseLayout Frontmatter**: `astro/src/layouts/BaseLayout.astro` uses standard Astro frontmatter delimiters (`---`). Correcting the `|---` typo at line 1 is a mandatory prerequisite for `npm run check` (`astro check`) and `npm run build` (`astro build`) to pass cleanly.
 - **Transitive Dependency Drift**: Lockfile unification under npm workspaces (`astro/package-lock.json` removal and root `package-lock.json` regeneration) includes authorized patch-level transitive updates (such as `tinyglobby` `0.2.16` -> `0.2.17`).
+- **PR Body Documentation Rules**: All PRs involving lockfile unification or prerequisite fixes must document both the prerequisite justification and transitive dependency drift directly in the PR body description.
 
 ## Project Structure
 
