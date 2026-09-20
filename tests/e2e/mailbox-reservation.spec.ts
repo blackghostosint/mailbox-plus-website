@@ -21,7 +21,9 @@ test.describe('Private Mailbox Reservation Flow', () => {
 
       await page.goto('/private-mailbox-rental/');
 
-      const btn = page.locator(`.checkout-btn[data-tier="${tier}"]`);
+      // Scope to the canonical pricing grid: the page intentionally has two
+      // buy buttons per tier (above-the-fold strip + full grid).
+      const btn = page.locator(`#pricing .checkout-btn[data-tier="${tier}"]`);
       await expect(btn).toBeVisible();
 
       const responsePromise = page.waitForResponse('**/.netlify/functions/create-checkout');
