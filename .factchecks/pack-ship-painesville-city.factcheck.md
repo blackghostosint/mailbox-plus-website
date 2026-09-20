@@ -16,3 +16,9 @@ pubDate preserved; lastModified 2026-09-20.
 
 No new numeric claims introduced in this rewrite. Removed claims: none needed (original had no
 unverified statistics — its problem was missing intent coverage, not bad facts).
+
+**L3 review follow-up (2026-09-20):** two unsupported operational promises flagged and SOFTENED —
+"guaranteed acceptance timestamps" + "scheduled daily carrier pickups" → "immediate physical counter
+receipt with active tracking numbers … next scheduled carrier pickup" (counter-scoped; no owner-
+verified pickup schedule or timestamp guarantee exists in facts.json); "back in your car in five
+minutes" → "back in your car in minutes" (narrative texture kept, timed promise removed).
