@@ -13,7 +13,6 @@
  *             type: object
  *             required:
  *               - email
- *               - recaptchaToken
  *             properties:
  *               name:
  *                 type: string
@@ -35,6 +34,10 @@
  *               preferred_contact:
  *                 type: string
  *               recaptchaToken:
+ *                 type: string
+ *               token:
+ *                 type: string
+ *               g-recaptcha-response:
  *                 type: string
  *     responses:
  *       '200':
