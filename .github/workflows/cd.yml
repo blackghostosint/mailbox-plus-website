@@ -92,7 +92,7 @@ jobs:
         run: |
           set -e
           echo "Executing Netlify CLI preview deployment..."
-          DEPLOY_OUTPUT=$(npx netlify-cli deploy --dir=dist --json)
+          DEPLOY_OUTPUT=$(npx netlify-cli deploy --dir=dist --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --json)
           PREVIEW_URL=$(echo "$DEPLOY_OUTPUT" | jq -r '.deploy_url // .url // empty' 2>/dev/null)
           if [ -z "$PREVIEW_URL" ]; then
             PREVIEW_URL=$(echo "$DEPLOY_OUTPUT" | grep -oE 'https://[a-zA-Z0-9.-]+\.netlify\.app' | head -n 1)
@@ -167,7 +167,7 @@ jobs:
         run: |
           set -e
           echo "Executing Netlify CLI production deployment..."
-          npx netlify-cli deploy --dir=dist --prod
+          npx netlify-cli deploy --dir=dist --prod --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
