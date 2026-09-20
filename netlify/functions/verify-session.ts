@@ -11,6 +11,51 @@
 //   amount, currency). Never returns customer PII (email, address, phone).
 // - Payment status must be "paid" (or the subscription's initial invoice paid).
 
+/**
+ * @openapi
+ * /.netlify/functions/verify-session:
+ *   get:
+ *     summary: Verify Stripe checkout session
+ *     description: Server-side retrieval of a completed Stripe Checkout Session for conversion tracking pixel verification
+ *     operationId: verifySession
+ *     parameters:
+ *       - name: session_id
+ *         in: query
+ *         required: true
+ *         description: Stripe Checkout session ID (cs_test_... or cs_live_...)
+ *         schema:
+ *           type: string
+ *     responses:
+ *       '200':
+ *         description: Session verified successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 ok:
+ *                   type: boolean
+ *                   example: true
+ *                 tier:
+ *                   type: string
+ *                 product:
+ *                   type: string
+ *                 amount:
+ *                   type: number
+ *                 currency:
+ *                   type: string
+ *       '400':
+ *         description: Invalid session_id format
+ *       '402':
+ *         description: Session not paid
+ *       '404':
+ *         description: Session not found
+ *       '405':
+ *         description: Method not allowed
+ *       '500':
+ *         description: Stripe configuration error
+ */
+
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';

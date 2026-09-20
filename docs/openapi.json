@@ -1,0 +1,364 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Mailbox Plus Serverless API",
+    "version": "1.0.0",
+    "description": "OpenAPI 3.0 specification for Mailbox Plus Netlify serverless functions"
+  },
+  "servers": [
+    {
+      "url": "https://mailboxplusohio.com",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/.netlify/functions/create-checkout": {
+      "post": {
+        "summary": "Create Stripe Checkout Session",
+        "description": "Creates a Stripe Checkout Session for a private mailbox rental tier",
+        "operationId": "createCheckout",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["tier"],
+                "properties": {
+                  "tier": {
+                    "type": "string",
+                    "enum": [
+                      "small_mail_only",
+                      "small_packages10",
+                      "large_mail_only",
+                      "large_packages10",
+                      "business_small",
+                      "business_large"
+                    ],
+                    "description": "Subscription tier selected by customer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Checkout session created successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string",
+                      "description": "Stripe checkout redirect URL"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid tier specified"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "500": {
+            "description": "Stripe configuration or price lookup failure"
+          }
+        }
+      }
+    },
+    "/.netlify/functions/csp-report": {
+      "post": {
+        "summary": "Collect CSP violation reports",
+        "description": "Receives Content-Security-Policy violation reports from browsers and logs them",
+        "operationId": "cspReport",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "csp-report": {
+                    "type": "object",
+                    "properties": {
+                      "document-uri": {
+                        "type": "string"
+                      },
+                      "violated-directive": {
+                        "type": "string"
+                      },
+                      "blocked-uri": {
+                        "type": "string"
+                      },
+                      "source-file": {
+                        "type": "string"
+                      },
+                      "line-number": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Violation report logged successfully"
+          },
+          "400": {
+            "description": "Bad request"
+          },
+          "405": {
+            "description": "Method not allowed"
+          }
+        }
+      }
+    },
+    "/.netlify/functions/health": {
+      "get": {
+        "summary": "Health check endpoint",
+        "description": "Returns 200 OK with timestamp, environment status, and response time",
+        "operationId": "healthCheck",
+        "responses": {
+          "200": {
+            "description": "System health status",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "string",
+                      "example": "healthy"
+                    },
+                    "timestamp": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "environment": {
+                      "type": "string"
+                    },
+                    "checks": {
+                      "type": "object"
+                    },
+                    "responseTime": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/.netlify/functions/sendEmail": {
+      "post": {
+        "summary": "Submit contact form email",
+        "description": "Validates reCAPTCHA token and contact form fields, sending notification email via Resend API",
+        "operationId": "sendEmail",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["email"],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "format": "email"
+                  },
+                  "phone": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "plan": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "barrier_description": {
+                    "type": "string"
+                  },
+                  "recaptchaToken": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Email sent successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean",
+                      "example": true
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid email address or reCAPTCHA verification failure"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "500": {
+            "description": "Email service configuration or delivery failure"
+          }
+        }
+      }
+    },
+    "/.netlify/functions/verify-session": {
+      "get": {
+        "summary": "Verify Stripe checkout session",
+        "description": "Server-side retrieval of a completed Stripe Checkout Session for conversion tracking pixel verification",
+        "operationId": "verifySession",
+        "parameters": [
+          {
+            "name": "session_id",
+            "in": "query",
+            "required": true,
+            "description": "Stripe Checkout session ID (cs_test_... or cs_live_...)",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Session verified successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean",
+                      "example": true
+                    },
+                    "tier": {
+                      "type": "string"
+                    },
+                    "product": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid session_id format"
+          },
+          "402": {
+            "description": "Session not paid"
+          },
+          "404": {
+            "description": "Session not found"
+          },
+          "405": {
+            "description": "Method not allowed"
+          },
+          "500": {
+            "description": "Stripe configuration error"
+          }
+        }
+      }
+    },
+    "/api/reviews": {
+      "get": {
+        "summary": "Fetch Google Places reviews",
+        "description": "Returns live Google reviews and aggregate rating for Mailbox Plus with function-level Netlify Blobs caching",
+        "operationId": "getReviews",
+        "responses": {
+          "200": {
+            "description": "Google Places reviews payload",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "rating": {
+                      "type": "number",
+                      "example": 5
+                    },
+                    "userRatingCount": {
+                      "type": "integer",
+                      "example": 42
+                    },
+                    "reviews": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "author": {
+                            "type": "string"
+                          },
+                          "authorUri": {
+                            "type": "string"
+                          },
+                          "rating": {
+                            "type": "number"
+                          },
+                          "text": {
+                            "type": "string"
+                          },
+                          "relativeTime": {
+                            "type": "string"
+                          },
+                          "publishTime": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "fetchedAt": {
+                      "type": "string",
+                      "format": "date-time"
+                    },
+                    "source": {
+                      "type": "string",
+                      "enum": ["live", "cache", "stale"]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "502": {
+            "description": "Reviews service temporarily unavailable"
+          }
+        }
+      }
+    }
+  }
+}

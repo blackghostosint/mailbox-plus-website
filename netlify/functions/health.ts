@@ -2,6 +2,33 @@
  * Health Check Netlify Function
  * Returns 200 OK with timestamp and basic system status
  * Used for uptime monitoring and load balancer health checks
+ *
+ * @openapi
+ * /.netlify/functions/health:
+ *   get:
+ *     summary: Health check endpoint
+ *     description: Returns 200 OK with timestamp, environment status, and response time
+ *     operationId: healthCheck
+ *     responses:
+ *       '200':
+ *         description: System health status
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: healthy
+ *                 timestamp:
+ *                   type: string
+ *                   format: date-time
+ *                 environment:
+ *                   type: string
+ *                 checks:
+ *                   type: object
+ *                 responseTime:
+ *                   type: number
  */
 
 import type { Context } from 'https://edge.netlify.com/';

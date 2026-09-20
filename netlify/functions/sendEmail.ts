@@ -1,3 +1,54 @@
+/**
+ * @openapi
+ * /.netlify/functions/sendEmail:
+ *   post:
+ *     summary: Submit contact form email
+ *     description: Validates reCAPTCHA token and contact form fields, sending notification email via Resend API
+ *     operationId: sendEmail
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - email
+ *             properties:
+ *               name:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *                 format: email
+ *               phone:
+ *                 type: string
+ *               service:
+ *                 type: string
+ *               plan:
+ *                 type: string
+ *               message:
+ *                 type: string
+ *               barrier_description:
+ *                 type: string
+ *               recaptchaToken:
+ *                 type: string
+ *     responses:
+ *       '200':
+ *         description: Email sent successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *       '400':
+ *         description: Invalid email address or reCAPTCHA verification failure
+ *       '405':
+ *         description: Method not allowed
+ *       '500':
+ *         description: Email service configuration or delivery failure
+ */
 import { Resend } from 'resend';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
@@ -113,7 +164,7 @@ export default withCors(
 
       await resend.emails.send({
         from: 'Mailbox Plus <no-reply@mailboxplusohio.com>',
-        to: 'help@mailboxplusohio.com', // your Workspace inbox
+        to: process.env.CONTACT_EMAIL || 'help@mailboxplusohio.com', // destination workspace inbox
         reply_to: data.email, // so replies go back to the sender
         subject: `New Contact Form Submission from ${safeSubjectName}`,
         html: htmlBody,

@@ -24,6 +24,55 @@
  * issue affecting the rewards functions too).
  *
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
+ *
+ * @openapi
+ * /api/reviews:
+ *   get:
+ *     summary: Fetch Google Places reviews
+ *     description: Returns live Google reviews and aggregate rating for Mailbox Plus with function-level Netlify Blobs caching
+ *     operationId: getReviews
+ *     responses:
+ *       '200':
+ *         description: Google Places reviews payload
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 rating:
+ *                   type: number
+ *                   example: 5
+ *                 userRatingCount:
+ *                   type: integer
+ *                   example: 42
+ *                 reviews:
+ *                   type: array
+ *                   items:
+ *                     type: object
+ *                     properties:
+ *                       author:
+ *                         type: string
+ *                       authorUri:
+ *                         type: string
+ *                       rating:
+ *                         type: number
+ *                       text:
+ *                         type: string
+ *                       relativeTime:
+ *                         type: string
+ *                       publishTime:
+ *                         type: string
+ *                 fetchedAt:
+ *                   type: string
+ *                   format: date-time
+ *                 source:
+ *                   type: string
+ *                   enum:
+ *                     - live
+ *                     - cache
+ *                     - stale
+ *       '502':
+ *         description: Reviews service temporarily unavailable
  */
 
 import { getStore } from '@netlify/blobs';

@@ -4,6 +4,51 @@
 // Stripe Checkout captures email + current address + phone (per the locked capture split).
 // Centralized config: tier → lookup key (matches vault _config/PRICING-AND-FEES.md).
 
+/**
+ * @openapi
+ * /.netlify/functions/create-checkout:
+ *   post:
+ *     summary: Create Stripe Checkout Session
+ *     description: Creates a Stripe Checkout Session for a private mailbox rental tier
+ *     operationId: createCheckout
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - tier
+ *             properties:
+ *               tier:
+ *                 type: string
+ *                 enum:
+ *                   - small_mail_only
+ *                   - small_packages10
+ *                   - large_mail_only
+ *                   - large_packages10
+ *                   - business_small
+ *                   - business_large
+ *                 description: Subscription tier selected by customer
+ *     responses:
+ *       '200':
+ *         description: Checkout session created successfully
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 url:
+ *                   type: string
+ *                   description: Stripe checkout redirect URL
+ *       '400':
+ *         description: Invalid tier specified
+ *       '405':
+ *         description: Method not allowed
+ *       '500':
+ *         description: Stripe configuration or price lookup failure
+ */
+
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';

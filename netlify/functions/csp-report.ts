@@ -2,6 +2,40 @@
  * CSP Report Collector Netlify Function
  * Receives Content-Security-Policy violation reports from browsers
  * Logs them for monitoring (in production, forward to Sentry or a logging service)
+ *
+ * @openapi
+ * /.netlify/functions/csp-report:
+ *   post:
+ *     summary: Collect CSP violation reports
+ *     description: Receives Content-Security-Policy violation reports from browsers and logs them
+ *     operationId: cspReport
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               csp-report:
+ *                 type: object
+ *                 properties:
+ *                   document-uri:
+ *                     type: string
+ *                   violated-directive:
+ *                     type: string
+ *                   blocked-uri:
+ *                     type: string
+ *                   source-file:
+ *                     type: string
+ *                   line-number:
+ *                     type: integer
+ *     responses:
+ *       '204':
+ *         description: Violation report logged successfully
+ *       '400':
+ *         description: Bad request
+ *       '405':
+ *         description: Method not allowed
  */
 
 import type { Context } from 'https://edge.netlify.com/';
