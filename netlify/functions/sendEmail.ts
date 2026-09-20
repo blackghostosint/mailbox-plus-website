@@ -1,3 +1,15 @@
+/**
+ * Contact Form Submission Netlify Function
+ * Endpoint: /.netlify/functions/sendEmail
+ *
+ * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
+ * - Auth: Public / Unauthenticated endpoint (no user login or bearer token required).
+ * - Identity & Anti-Abuse: Protected by Google reCAPTCHA v3 score verification.
+ *   Validates recaptchaToken against Google reCAPTCHA API using RECAPTCHA_SECRET_KEY.
+ * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
+ *   Enforces sliding-window IP rate limiting via @netlify/blobs (5 requests / 10 min).
+ */
+
 import { Resend } from 'resend';
 import { verifyRecaptchaToken } from './lib/recaptcha';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';

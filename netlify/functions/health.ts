@@ -1,7 +1,12 @@
 /**
  * Health Check Netlify Function
- * Returns 200 OK with timestamp and basic system status
- * Used for uptime monitoring and load balancer health checks
+ * Endpoint: /.netlify/functions/health
+ *
+ * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
+ * - Auth: Public / Unauthenticated uptime monitoring endpoint.
+ * - Identity: No authentication token or session required.
+ * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
+ *   Enforces sliding-window IP rate limiting via @netlify/blobs (60 requests / 1 min).
  */
 
 import type { Context } from '@netlify/functions';
