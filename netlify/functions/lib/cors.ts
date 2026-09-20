@@ -40,6 +40,33 @@ export function isDevelopmentEnvironment(): boolean {
   return false;
 }
 
+export function isLoopbackOrigin(origin: string | RegExp): boolean {
+  if (typeof origin === 'string') {
+    try {
+      const url = new URL(
+        origin.startsWith('http://') || origin.startsWith('https://') ? origin : `http://${origin}`
+      );
+      const hostname = url.hostname.toLowerCase();
+      return (
+        hostname === 'localhost' ||
+        hostname === '127.0.0.1' ||
+        hostname === '::1' ||
+        hostname === '0.0.0.0'
+      );
+    } catch {
+      return /localhost|127\.0\.0\.1|\[::1\]/i.test(origin);
+    }
+  }
+  if (origin instanceof RegExp) {
+    return (
+      origin.test('http://localhost') ||
+      origin.test('http://127.0.0.1') ||
+      origin.test('http://[::1]')
+    );
+  }
+  return false;
+}
+
 export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   const baseOrigins: (string | RegExp)[] = [
     process.env.SITE_URL || 'https://mailboxplusohio.com',
@@ -51,7 +78,7 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
     return [...baseOrigins, /localhost(:\d+)?$/, /127\.0\.0\.1(:\d+)?$/];
   }
 
-  return baseOrigins;
+  return baseOrigins.filter((origin) => !isLoopbackOrigin(origin));
 }
 
 let customAdditions: (string | RegExp)[] = [];
@@ -169,6 +196,12 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
       mutatedStore = [...getCurrentOrigins()];
     }
     return Reflect.set(mutatedStore, prop, value);
+  },
+  defineProperty(target, prop, descriptor) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.defineProperty(mutatedStore, prop, descriptor);
   },
   deleteProperty(target, prop) {
     if (mutatedStore === null) {

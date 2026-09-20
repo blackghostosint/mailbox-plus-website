@@ -169,15 +169,16 @@ describe('CORS Middleware Utility', () => {
       process.env = { ...originalEnv };
     });
 
-    it('rejects localhost and 127.0.0.1 origins when CONTEXT=production or NODE_ENV=production', async () => {
+    it('rejects localhost and 127.0.0.1 origins when CONTEXT=production or NODE_ENV=production, even if SITE_URL is configured as http://localhost:8888', async () => {
       process.env.CONTEXT = 'production';
       process.env.NODE_ENV = 'production';
+      process.env.SITE_URL = 'http://localhost:8888';
 
       expect(isDevelopmentEnvironment()).toBe(false);
       expect(
         getDefaultAllowedOrigins().some((pattern) =>
           typeof pattern === 'string'
-            ? pattern.includes('localhost')
+            ? pattern.includes('localhost') || pattern.includes('127.0.0.1')
             : pattern.test('http://localhost:3000')
         )
       ).toBe(false);
@@ -187,7 +188,7 @@ describe('CORS Middleware Utility', () => {
 
       const reqLocalhost = new Request('https://example.com/api/test', {
         method: 'POST',
-        headers: { origin: 'http://localhost:3000' },
+        headers: { origin: 'http://localhost:8888' },
       });
       const resLocalhost = await wrapped(reqLocalhost, {});
       expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
@@ -380,6 +381,15 @@ describe('CORS Middleware Utility', () => {
       const removed = DEFAULT_ALLOWED_ORIGINS.splice(0, 1);
       expect(removed).toEqual(['https://prepended-origin.com']);
       expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://custom-override.com');
+
+      // Test Object.defineProperty
+      Object.defineProperty(DEFAULT_ALLOWED_ORIGINS, '0', {
+        value: 'https://defined-property.com',
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      });
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://defined-property.com');
 
       // Test .pop()
       const popped = DEFAULT_ALLOWED_ORIGINS.pop();
