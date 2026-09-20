@@ -183,11 +183,19 @@ export function checkEnvDocs(): boolean {
 
   const usedVars = new Set(codeUsages.keys());
 
-  // 1. Check for missing environment variables (used in code, but not documented in docs/ENVIRONMENT.md)
-  const missingVars: { varName: string; files: string[] }[] = [];
+  // 1a. Check for missing environment variables (used in code, but not documented in docs/ENVIRONMENT.md)
+  const missingInDocs: { varName: string; files: string[] }[] = [];
   for (const [varName, filesSet] of codeUsages.entries()) {
     if (!documentedVars.has(varName)) {
-      missingVars.push({ varName, files: Array.from(filesSet) });
+      missingInDocs.push({ varName, files: Array.from(filesSet) });
+    }
+  }
+
+  // 1b. Check for missing environment variables in .env.example (used in code, but missing from .env.example)
+  const missingInExample: { varName: string; files: string[] }[] = [];
+  for (const [varName, filesSet] of codeUsages.entries()) {
+    if (!exampleVars.has(varName)) {
+      missingInExample.push({ varName, files: Array.from(filesSet) });
     }
   }
 
@@ -201,10 +209,19 @@ export function checkEnvDocs(): boolean {
 
   let hasError = false;
 
-  if (missingVars.length > 0) {
+  if (missingInDocs.length > 0) {
     hasError = true;
     console.error('\n❌ Missing environment variables in docs/ENVIRONMENT.md:');
-    for (const item of missingVars) {
+    for (const item of missingInDocs) {
+      console.error(`   - ${item.varName}`);
+      console.error(`     Referenced in: ${item.files.join(', ')}`);
+    }
+  }
+
+  if (missingInExample.length > 0) {
+    hasError = true;
+    console.error('\n❌ Missing environment variables in .env.example:');
+    for (const item of missingInExample) {
       console.error(`   - ${item.varName}`);
       console.error(`     Referenced in: ${item.files.join(', ')}`);
     }
@@ -222,7 +239,7 @@ export function checkEnvDocs(): boolean {
 
   if (hasError) {
     console.error(
-      '\n❌ Environment documentation verification failed! Please update docs/ENVIRONMENT.md.'
+      '\n❌ Environment documentation verification failed! Please update docs/ENVIRONMENT.md and/or .env.example.'
     );
     return false;
   }

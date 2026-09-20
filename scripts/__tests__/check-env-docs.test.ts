@@ -30,6 +30,9 @@ describe('check-env-docs', () => {
     expect(vars.has('VITE_R2_PUBLIC_BASE_URL')).toBe(true);
     expect(vars.has('STRIPE_SECRET_KEY')).toBe(true);
     expect(vars.has('RECAPTCHA_SECRET_KEY')).toBe(true);
+    expect(vars.has('GOOGLE_PLACES_API_KEY')).toBe(true);
+    expect(vars.has('NETLIFY_SITE_ID')).toBe(true);
+    expect(vars.has('NETLIFY_AUTH_TOKEN')).toBe(true);
   });
 
   it('scans codebase for environment variable usages', () => {

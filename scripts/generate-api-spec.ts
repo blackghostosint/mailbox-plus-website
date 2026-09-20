@@ -269,7 +269,7 @@ export async function runGenerateApiSpec(options?: {
       console.error(`❌ Drift detected in docs/openapi.json!`);
       printDiffSummary('docs/openapi.json', existingJson, expectedJson);
       console.error(
-        `Run "npm run check:api-spec" or "npx tsx scripts/generate-api-spec.ts --write" to update docs/openapi.json.`
+        `Run "npm run generate:api-spec" or "npx tsx scripts/generate-api-spec.ts --write" to update docs/openapi.json.`
       );
       return false;
     }
