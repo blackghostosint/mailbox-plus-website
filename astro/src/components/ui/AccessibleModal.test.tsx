@@ -179,7 +179,9 @@ describe('AccessibleModal Component', () => {
 
     // Click outer backdrop container
     const dialog = screen.getByRole('dialog');
-    const backdrop = dialog.parentElement as HTMLElement;
+    const backdrop = (dialog.parentElement?.querySelector('[aria-hidden="true"]') ||
+      dialog.parentElement) as HTMLElement;
+    expect(backdrop.getAttribute('aria-hidden')).toBe('true');
     fireEvent.click(backdrop);
 
     expect(handleClose).toHaveBeenCalledTimes(1);
