@@ -47,7 +47,7 @@ Miss the PMB tag and your mail bounces back to the sender. Here's the exact form
 
 A PMB number is your box number at the store. The Postal Service has hard rules about how it appears on mail, and they're worth knowing before you print a single label.
 
-Every private mailbox business registers with the USPS as a **Commercial Mail Receiving Agency (CMRA)** — that's the formal term for a business that accepts mail on behalf of other people. Because a CMRA receives mail for many different people at one street address, the Postal Service requires your mail to carry a designator that says which box is yours. Per the Domestic Mail Manual, that designator must be either **"PMB" or a # sign followed by your number**: PMB 123 or #123. Nothing else — "Box 123" or "Suite 123" will not do.
+When you rent a box from us, know this: we're registered with the USPS as a **Commercial Mail Receiving Agency (CMRA)** — that's the government's word for a shop allowed to receive your mail for you. And because one storefront receives mail for many different people, the Postal Service requires your mail to carry a designator that says which box is yours. Per the Domestic Mail Manual, that designator must be either **"PMB" or a # sign followed by your number**: PMB 123 or #123. Nothing else — "Box 123" or "Suite 123" will not do.
 
 Skip it, and the consequences are printed right in the rulebook: USPS may return the mail to the sender endorsed **"Undeliverable as Addressed, Missing PMB or # Sign."** Your envelopes don't sit in limbo. They go back.
 
@@ -55,7 +55,7 @@ So when you give out your address — to a bank, a supplier, your mother — giv
 
 ## What a PMB Address Actually Looks Like
 
-When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now. Three things about it are worth pausing on.
+When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now.
 
 **The address is a street address.** Not a box compartment in a post office lobby — an actual storefront on an actual road that any delivery driver can pull up to.
 
@@ -67,11 +67,11 @@ If your CMRA's street address already carries its own secondary element (a suite
 
 ## PMB vs PO Box: The Honest Comparison
 
-Straight verdict first: **if you receive anything from FedEx, UPS, or DHL — and most households and nearly every business eventually does — a PMB wins, because a PO Box physically cannot accept those deliveries.** A PO Box is a numbered compartment inside the post office, and USPS is the complete list of carriers that deliver to it.
+Look at your last week of deliveries. See a brown UPS truck on your street? Then a PO Box already fails you — it only takes USPS. **A PMB wins, because it takes all four carriers and a PO Box physically cannot take any of them.** A PO Box is a numbered compartment inside the post office, and USPS is the complete list of carriers that deliver to it.
 
 But here's the honest concession: **a PO Box is cheaper.** If your mail is letters only — bills, cards, magazines, forever — and it always will be, a PO Box does the job for less money, run by the Post Office itself. We won't pretend that's not true. The comparison only tilts hard the moment a package from a non-USPS carrier enters your life, and for most people that moment isn't hypothetical.
 
-Side by side:
+Here's the counter version, the one that matters: hand me your PO Box mail and your PMB mail and watch the brown truck — it turns away from the box and pulls up to our storefront. That's the whole difference in one picture. Now the full comparison:
 
 |                          | PO Box                          | Private Mailbox (PMB)                              |
 | ------------------------ | ------------------------------- | -------------------------------------------------- |
@@ -87,11 +87,11 @@ One more row that doesn't fit in a table: institutions. Some banks, agencies, an
 
 Look at your own front porch. If you've ever flinched at a stranger reading your home address off a shipping label, you already know why this list exists. The pattern is always the same: a street address that isn't your home, receiving everything you get sent.
 
-- **Home-based business owners** who don't want their home address on filings, invoices, and labels. A street address reads like a business; a box number reads like a hobby.
-- **Online sellers** who keep their home address off every shipping label a stranger can read.
-- **Package-heavy households** tired of porch pirates — at a PMB, deliveries are signed for and held behind a locked counter.
-- **Travelers, snowbirds, and RVers** who need a stable address that holds mail while they're gone — and can scan and forward it when they're farther away. That's the [digital mailbox option](/home-business/digital-mailbox-rental/).
-- **Anyone whose bank, DMV, or marketplace refused a PO Box** and needs an address that works everywhere.
+- **You run a business from your kitchen** and feel your home address on every invoice and filing — we give you a street address that reads like a firm, because a box number reads like a hobby.
+- **You sell online** and don't want your home address printed on a label any stranger on your porch can read.
+- **Your porch takes more deliveries than it can defend** — at a PMB, everything is signed for and held behind a locked counter.
+- **You travel, snowbird, or live on the road** and need a stable address that holds your mail while you're gone — and can scan and forward it when you're farther away. That's the [digital mailbox option](/home-business/digital-mailbox-rental/).
+- **Your bank, the DMV, or a marketplace refused a PO Box** — you need an address that works everywhere, and this is it.
 
 And the honest flip side: if none of those describe you — you get letters, you get them at home just fine, nobody ships you anything — spend your money on something else. A PMB is a tool, not a trophy.
 
