@@ -15,7 +15,7 @@
 Before opening a pull request, contributors must run local pre-flight checks to ensure CI pipelines pass on first attempt:
 
 1. **Environment Sanity (`npm run verify:doctor`):**
-   Confirms repo root resolution, root and `astro` workspace dependencies (including active `node_modules/mailbox-plus-astro` workspace symbolic link), branch hygiene, and CSP alignment.
+   Confirms repo root resolution, root and `astro` workspace dependencies (including active `node_modules/mailbox-plus-astro` workspace symbolic link and unified `package-lock.json` structure), branch hygiene, and CSP alignment.
 2. **Local Content Verification (`npm run verify`):**
    Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), image CDN availability, heading diversity, and fact-check receipt requirements.
 3. **Corpus & Strict Verification Options:**
