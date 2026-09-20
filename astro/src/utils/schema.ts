@@ -547,6 +547,7 @@ export interface SchemaPageMeta {
   dateModified?: string;
   breadcrumbItems?: { name: string; url: string }[];
   aboutLocalBusiness?: boolean;
+  routePath?: string;
 }
 
 export const getSchemaGraph = (

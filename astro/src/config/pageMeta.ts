@@ -97,3 +97,13 @@ export const pageMeta: Record<
     >
   ),
 };
+
+export function getPageMeta(pathname: string) {
+  if (!pathname) return undefined;
+  const cleanPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+  const withoutSlash =
+    cleanPath.length > 1 && cleanPath.endsWith('/') ? cleanPath.slice(0, -1) : cleanPath;
+  const withSlash = withoutSlash === '/' ? '/' : `${withoutSlash}/`;
+
+  return pageMeta[cleanPath] || pageMeta[withoutSlash] || pageMeta[withSlash];
+}
