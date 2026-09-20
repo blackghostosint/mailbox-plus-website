@@ -13786,16 +13786,16 @@ That is the entire comparison in one paragraph. The rest is what it costs, what 
 
 ## Side by Side
 
-| | PO Box | Private Mailbox |
-|---|---|---|
-| Address type | Box number, post office | Real street address |
-| USPS mail | ✅ | ✅ |
-| FedEx / UPS / DHL packages | ❌ undeliverable | ✅ accepted and signed for |
-| Package notifications | None | Yes — logged on arrival |
-| Carrier choice for your vendors | USPS only | Any carrier they use |
-| Works for business registrations | Limited | Yes — street address |
-| Home address stays off your labels | ✅ | ✅ |
-| Setup | Post office form | USPS Form 1583 + two IDs |
+|                                    | PO Box                  | Private Mailbox            |
+| ---------------------------------- | ----------------------- | -------------------------- |
+| Address type                       | Box number, post office | Real street address        |
+| USPS mail                          | ✅                      | ✅                         |
+| FedEx / UPS / DHL packages         | ❌ undeliverable        | ✅ accepted and signed for |
+| Package notifications              | None                    | Yes — logged on arrival    |
+| Carrier choice for your vendors    | USPS only               | Any carrier they use       |
+| Works for business registrations   | Limited                 | Yes — street address       |
+| Home address stays off your labels | ✅                      | ✅                         |
+| Setup                              | Post office form        | USPS Form 1583 + two IDs   |
 
 Read that middle row again, because it is the one people discover the expensive way. A vendor does not ask which mailbox you have. They ask for an address, then ship with whichever carrier is cheapest for them. If that carrier is not USPS, a PO Box turns your incoming shipment into a road trip.
 
@@ -13809,7 +13809,7 @@ The trap is not choosing a PO Box. The trap is choosing a PO Box for a business 
 
 ## What a Private Mailbox Actually Unlocks
 
-The street address is not just a package receiver. Because a private mailbox is a real street address backed by a registered CMRA, it changes what your address can *do*:
+The street address is not just a package receiver. Because a private mailbox is a real street address backed by a registered CMRA, it changes what your address can _do_:
 
 **It survives carrier diversity.** Vendors ship with whoever is cheapest. Customers return with whatever label the marketplace generates. Suppliers switch carriers mid-season. A street address absorbs all of it without you ever thinking about it.
 
@@ -13833,7 +13833,7 @@ You keep your PO Box until the switch is done, tell the important senders your n
 
 A PO Box is cheaper. We will not pretend otherwise, and anyone who does is selling you something.
 
-What you are comparing is not price against price. It is price against *what the price covers*: a PO Box covers USPS letters. A private mailbox covers every carrier, package logging, holds and forwarding, and an address you can put on public documents without publishing your home. When a single undeliverable package means a drive to a carrier facility across town — or a lost sale — the price difference stops being the deciding number.
+What you are comparing is not price against price. It is price against _what the price covers_: a PO Box covers USPS letters. A private mailbox covers every carrier, package logging, holds and forwarding, and an address you can put on public documents without publishing your home. When a single undeliverable package means a drive to a carrier facility across town — or a lost sale — the price difference stops being the deciding number.
 
 For the exact numbers on our plans and sizes, the [private mailbox rental page](/private-mailbox-rental/) has the current breakdown, or ask at the counter — we would rather you compare than guess.
 
