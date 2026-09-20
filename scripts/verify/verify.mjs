@@ -410,7 +410,7 @@ function cmdDoctor() {
   let hasWorkspaceSymlink = false;
   try {
     hasWorkspaceSymlink =
-      fs.existsSync(workspaceLinkPath) && fs.lstatSync(workspaceLinkPath).isSymbolicLink();
+      fs.lstatSync(workspaceLinkPath).isSymbolicLink() && fs.existsSync(workspaceLinkPath);
   } catch {
     hasWorkspaceSymlink = false;
   }
