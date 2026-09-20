@@ -39,7 +39,7 @@ A PO Box is a numbered compartment inside a post office lobby. The United States
 
 FedEx drivers do not have keys to the post office lobby. UPS does not route packages to box numbers. DHL does not sort by compartment. When a seller or supplier ships your order through any of those carriers and the label says "PO Box 47," the package is not delayed — it is undeliverable. It goes back to the carrier's facility, and you find out by chasing a tracking page that says "delivery exception."
 
-A private mailbox — what the postal system calls a CMRA address, a Commercial Mail Receiving Agency — is a counter with a real street address. Every carrier delivers to it because every carrier delivers to street addresses. One address covers the major carriers we handle daily — UPS, FedEx, USPS, and DHL — and if a carrier you use isn't on that list, ask us at the counter before you commit.
+A private mailbox — what the postal system calls a CMRA address, a Commercial Mail Receiving Agency — is a counter with a real street address. Every carrier delivers to it because every carrier delivers to street addresses. One address covers all four carriers — UPS, FedEx, USPS, and DHL — no exceptions. All four pick up and deliver to our counter, and we're an authorized shipper for each.
 
 That is the entire comparison in one paragraph. The rest is what it costs, what it unlocks, and the one case where the PO Box still makes sense.
 
@@ -112,6 +112,6 @@ It is also the thing that disappears the day you switch.
 
 You have read the comparison. The next step is smaller than you think: two forms of ID, one signature on Form 1583, and an address that works for every piece of mail you will ever be sent.
 
-Forget pre-taping parcels or apologizing for a missing label. Bring your ID to **Mailbox Plus, 7554 Fredle Drive, Concord Township** — just off Crile Road, easy from SR-44 and I-90. We sign Form 1583 together, and from that minute the counter absorbs every carrier rule and return exception for you. You walk out with a real street address that handles the carriers you ship with, and none of the mailbox anxiety you came in with.
+Forget pre-taping parcels or apologizing for a missing label. Bring your ID to **Mailbox Plus, 7554 Fredle Drive, Concord Township** — just off Crile Road, easy from SR-44 and I-90. We sign Form 1583 together, and from that minute the counter absorbs every carrier rule and return exception for you. You walk out with a real street address that all four major carriers deliver to, and none of the mailbox anxiety you came in with.
 
 Still deciding? See [what a private mailbox is](/articles/what-is-a-private-mailbox-pmb/) or the [mailbox rental cost breakdown](/articles/mailbox-rental-cost-comparison/) — or just [stop in and ask us](/contact-us/).

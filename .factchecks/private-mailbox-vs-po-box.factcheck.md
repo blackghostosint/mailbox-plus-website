@@ -38,3 +38,5 @@ Carrier set (UPS/FedEx/USPS/DHL) verified against the store's existing service p
 Business-registration acceptance remains an institution-by-institution question — deliberately
 counter-scoped, not asserted. The verdict-first structure and identity-stakes section are unchanged
 (review called both keepers).
+
+| 2026-09-20 | Carrier delivery / authorized-shipper claims (3a, 3c) | OWNER APPROVED — Frank (owner): UPS, FedEx, USPS, DHL pick up and deliver to the store; authorized shipper for all four; CMRA for USPS. Strong carrier claims scoped to these four are owner-certified. Business-registration acceptance (3b) stays hedged — not owner-certified. | Owner statement, PR #595 comment 5752478806 |
