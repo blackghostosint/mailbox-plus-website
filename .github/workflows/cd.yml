@@ -91,6 +91,11 @@ jobs:
         id: netlify-deploy
         run: |
           set -e
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::warning::Skipping Netlify preview deployment: NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID secret is missing or empty."
+            echo "PREVIEW_URL=" >> $GITHUB_ENV
+            exit 0
+          fi
           echo "Executing Netlify CLI preview deployment..."
           DEPLOY_OUTPUT=$(npx netlify-cli deploy --dir=dist --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN" --json)
           PREVIEW_URL=$(echo "$DEPLOY_OUTPUT" | jq -r '.deploy_url // .url // empty' 2>/dev/null)
@@ -166,6 +171,10 @@ jobs:
       - name: Deploy Production to Netlify
         run: |
           set -e
+          if [ -z "$NETLIFY_AUTH_TOKEN" ] || [ -z "$NETLIFY_SITE_ID" ]; then
+            echo "::warning::Skipping Netlify production deployment: NETLIFY_AUTH_TOKEN or NETLIFY_SITE_ID secret is missing or empty."
+            exit 0
+          fi
           echo "Executing Netlify CLI production deployment..."
           npx netlify-cli deploy --dir=dist --prod --no-build --site "$NETLIFY_SITE_ID" --auth "$NETLIFY_AUTH_TOKEN"
         env:
