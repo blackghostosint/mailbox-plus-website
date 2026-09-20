@@ -106,15 +106,12 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    /* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
-    <div
-      className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          onClose();
-        }
-      }}
-    >
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        onClick={onClose}
+      />
       <div
         ref={modalRef}
         role="dialog"
@@ -123,7 +120,7 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
         aria-labelledby={modalTitleId}
         aria-describedby={ariaDescribedBy}
         tabIndex={-1}
-        className={`bg-white rounded-2xl max-w-lg w-full border border-border-strong shadow-xl overflow-hidden focus:outline-none ${className}`}
+        className={`relative z-10 bg-white rounded-2xl max-w-lg w-full border border-border-strong shadow-xl overflow-hidden focus:outline-none ${className}`}
       >
         {children}
       </div>
