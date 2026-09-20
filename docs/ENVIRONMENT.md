@@ -37,27 +37,12 @@ Used by local and CI pre-flight verification scripts (`scripts/verify/verify.mjs
 
 These are set in the Netlify dashboard (Site settings > Environment variables) for production functions, or in local `.env` when executing functions locally:
 
-| Variable                | Description                                                                                 |
-| ----------------------- | ------------------------------------------------------------------------------------------- |
-| `RECAPTCHA_SECRET_KEY`  | reCAPTCHA v3 server-side secret key (used by `lib/recaptcha.ts` for token verification)     |
-| `RECAPTCHA_MIN_SCORE`   | Minimum allowable reCAPTCHA v3 score threshold (default: `0.5`)                             |
-| `RESEND_API_KEY`        | Resend API key for sending contact form emails (`sendEmail.ts`)                             |
-| `STRIPE_SECRET_KEY`     | Stripe secret key for mailbox checkout sessions (`create-checkout.ts`, `verify-session.ts`) |
-| `GOOGLE_PLACES_API_KEY` | Google Places API key for Google reviews sync (`reviews.ts`, `fetch-reviews.mjs`)           |
-| `SITE_URL`              | Primary site origin URL for CORS and checkout redirects (`create-checkout.ts`, `cors.ts`)   |
-| `NETLIFY_SITE_ID`       | Netlify Site ID for Netlify Blobs storage (`reviews.ts`, `rate-limiter.ts`)                 |
-| `NETLIFY_AUTH_TOKEN`    | Netlify Auth Token for Netlify Blobs storage (`reviews.ts`, `rate-limiter.ts`)              |
-
-### Script & Build Environment Variables (Optional)
-
-| Variable               | Description                                                                            | Default |
-| ---------------------- | -------------------------------------------------------------------------------------- | ------- |
-| `DIST_DIR`             | Compiled distribution output directory path (`scripts/lib/dist-path.mjs`)              | `dist`  |
-| `AUDIT_BASE_URL`       | Base URL override for accessibility auditing (`scripts/audit-a11y.mjs`)                | (none)  |
-| `BASE_URL`             | Alternative base URL override for accessibility auditing (`scripts/audit-a11y.mjs`)    | (none)  |
-| `MODEL_API_KEY`        | Model API key override for article copy review (`scripts/review-article-copy.ts`)      | (none)  |
-| `OPENROUTER_API_KEY`   | OpenRouter API key override for article copy review (`scripts/review-article-copy.ts`) | (none)  |
-| `VITE_NETLIFY_CONTEXT` | Netlify context tag (`astro/src/utils/articleLoader.ts`)                               | (none)  |
+| Variable               | Description                                                                                 |
+| ---------------------- | ------------------------------------------------------------------------------------------- |
+| `RECAPTCHA_SECRET_KEY` | reCAPTCHA v3 server-side secret key (used by `lib/recaptcha.ts` for token verification)     |
+| `RESEND_API_KEY`       | Resend API key for sending contact form emails (`sendEmail.ts`)                             |
+| `STRIPE_SECRET_KEY`    | Stripe secret key for mailbox checkout sessions (`create-checkout.ts`, `verify-session.ts`) |
+| `CONTACT_EMAIL`        | Destination email for contact form submissions                                              |
 
 ### reCAPTCHA Site Key vs. Secret Key
 

@@ -13,6 +13,7 @@
  *             type: object
  *             required:
  *               - email
+ *               - recaptchaToken
  *             properties:
  *               name:
  *                 type: string
@@ -28,6 +29,10 @@
  *               message:
  *                 type: string
  *               barrier_description:
+ *                 type: string
+ *               url:
+ *                 type: string
+ *               preferred_contact:
  *                 type: string
  *               recaptchaToken:
  *                 type: string
