@@ -38,4 +38,9 @@ describe('generate-api-spec', () => {
     const success = await runGenerateApiSpec({ check: true });
     expect(success).toBe(true);
   });
+
+  it('honors write: false and does not mutate disk in non-check mode', async () => {
+    const success = await runGenerateApiSpec({ write: false, check: false });
+    expect(success).toBe(true);
+  });
 });

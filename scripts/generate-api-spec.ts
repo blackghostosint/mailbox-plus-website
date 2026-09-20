@@ -279,12 +279,13 @@ export async function runGenerateApiSpec(options?: {
     return true;
   }
 
-  // Write mode
-  fs.mkdirSync(path.dirname(OPENAPI_PATH), { recursive: true });
-  fs.writeFileSync(OPENAPI_PATH, expectedJson, 'utf8');
-  console.log(
-    `✅ Successfully wrote updated OpenAPI 3.0 specification covering ${generatedPaths.length} endpoints to docs/openapi.json.`
-  );
+  if (write) {
+    fs.mkdirSync(path.dirname(OPENAPI_PATH), { recursive: true });
+    fs.writeFileSync(OPENAPI_PATH, expectedJson, 'utf8');
+    console.log(
+      `✅ Successfully wrote updated OpenAPI 3.0 specification covering ${generatedPaths.length} endpoints to docs/openapi.json.`
+    );
+  }
   return true;
 }
 
