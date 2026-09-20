@@ -20,3 +20,23 @@ pos 9.2 — comparison queries, old draft buried the verdict below 4 sections of
 No narrative prices or clock times in the new draft. All internal links verified live routes:
 /articles/why-po-boxes-get-rejected-street-address/, /private-mailbox-rental/,
 /articles/what-is-a-private-mailbox-pmb/, /articles/mailbox-rental-cost-comparison/, /contact-us/.
+
+# Fact-check follow-up — private-mailbox-vs-po-box (compliance pass 2026-09-20)
+
+L3 review on PR #593 flagged 4 items; all fixed in this pass:
+
+| #   | Item                                                      | Fix                                                                                                                                                                                 |
+| --- | --------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | Missing `status: 'published'` frontmatter                 | Restored                                                                                                                                                                            |
+| 2   | Scene opener replaced required direct lead                | Verdict is now the first line of the lead; the door-chime scene moved after the answer, reframed as "here is what we tell everyone"                                                 |
+| 3a  | "One address, all four carriers, no exceptions" (blanket) | Scoped: "One address covers the major carriers we handle daily — UPS, FedEx, USPS, and DHL — and if a carrier you use isn't on that list, ask us at the counter before you commit." |
+| 3b  | "Works for business registrations: Yes" (absolute)        | "Commonly accepted — a street address meets most banks' and registrars' requirements, but call ahead to confirm for your specific institution"                                      |
+| 3c  | "accepts everything" (blanket)                            | "a real street address that handles the carriers you ship with"                                                                                                                     |
+
+Carrier set (UPS/FedEx/USPS/DHL) verified against the store's existing service pages
+(/pack-ship/package-drop-offs/, /pack-ship/ups-authorized-shipper-outlet/, /pack-ship/dhl-express/).
+Business-registration acceptance remains an institution-by-institution question — deliberately
+counter-scoped, not asserted. The verdict-first structure and identity-stakes section are unchanged
+(review called both keepers).
+
+| 2026-09-20 | Carrier delivery / authorized-shipper claims (3a, 3c) | OWNER APPROVED — Frank (owner): UPS, FedEx, USPS, DHL pick up and deliver to the store; authorized shipper for all four; CMRA for USPS. Strong carrier claims scoped to these four are owner-certified. Business-registration acceptance (3b) stays hedged — not owner-certified. | Owner statement, PR #595 comment 5752478806 |
