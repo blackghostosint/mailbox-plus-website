@@ -1,3 +1,6 @@
+import { apiFetch, ApiClientError } from './api-client';
+import { renderFormError, clearFormError } from './dom-error';
+
 export function initContactForms(): void {
   const forms = document.querySelectorAll<HTMLFormElement>(
     'form[name="contact"], form[name="accessibility-barrier"]'
@@ -25,10 +28,7 @@ export function initContactForms(): void {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const existingError = form.querySelector('[role="alert"]');
-      if (existingError) {
-        existingError.remove();
-      }
+      clearFormError(form);
 
       const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
@@ -66,51 +66,30 @@ export function initContactForms(): void {
       };
 
       try {
-        const res = await fetch('/.netlify/functions/sendEmail', {
+        await apiFetch('/.netlify/functions/sendEmail', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(payload),
         });
 
-        if (res.ok) {
-          form.innerHTML =
-            '<div role="status" aria-live="polite" tabindex="-1" class="p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none">Thank you! Your message has been sent.</div>';
-          const statusElement = form.querySelector<HTMLElement>('[role="status"]');
-          if (statusElement) {
-            statusElement.focus();
-          }
-        } else {
-          const data = (await res.json().catch(() => ({}))) as { error?: string };
-          const errorMsg = data.error || 'Failed to send message. Please try again.';
-          showFormError(form, submitBtn, errorMsg);
+        form.innerHTML =
+          '<div role="status" aria-live="polite" tabindex="-1" class="p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none">Thank you! Your message has been sent.</div>';
+        const statusElement = form.querySelector<HTMLElement>('[role="status"]');
+        if (statusElement) {
+          statusElement.focus();
         }
       } catch (err: unknown) {
         console.error('Submission error:', err);
-        showFormError(form, submitBtn, 'Network error. Please try again.');
+        let errorMsg = 'Network error. Please try again.';
+        if (err instanceof ApiClientError) {
+          if (err.isTimeout) {
+            errorMsg = 'Request timed out. Please try again.';
+          } else if (err.status) {
+            errorMsg = err.message || 'Failed to send message. Please try again.';
+          }
+        }
+        renderFormError(form, errorMsg, { submitBtn, insertBefore: submitBtn });
       }
     });
   });
-}
-
-function showFormError(
-  form: HTMLFormElement,
-  submitBtn: HTMLButtonElement | null,
-  message: string
-): void {
-  const errorDiv = document.createElement('div');
-  errorDiv.setAttribute('role', 'alert');
-  errorDiv.setAttribute('aria-live', 'assertive');
-  errorDiv.setAttribute('tabindex', '-1');
-  errorDiv.className =
-    'p-4 mb-4 text-sm text-red-800 bg-red-50 rounded-xl border border-red-200 focus:outline-none';
-  errorDiv.textContent = message;
-
-  if (submitBtn && submitBtn.parentNode) {
-    submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
-  } else {
-    form.appendChild(errorDiv);
-  }
-
-  errorDiv.focus();
-  if (submitBtn) submitBtn.disabled = false;
 }
