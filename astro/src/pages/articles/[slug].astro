@@ -71,6 +71,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
   ],
 });
 const faqs = (frontmatter as { faqs?: { question: string; answer: string }[] }).faqs;
+const quickAnswer = (frontmatter as { quickAnswer?: string }).quickAnswer;
 const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : undefined;
 ---
 
@@ -140,6 +141,18 @@ const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : und
             loading="eager"
           />
         </div>
+      )}
+
+      {/* Quick Answer — AI Overview / featured-snippet extraction block */}
+      {quickAnswer && (
+        <aside class="mb-10 rounded-r-xl border-l-4 border-[var(--color-primary)] bg-[var(--color-bg-secondary)] p-5 sm:p-6">
+          <p class="mb-2 text-xs font-semibold uppercase tracking-widest" style="color: var(--color-primary-dark)">
+            Quick Answer
+          </p>
+          <p class="text-lg leading-relaxed" style="color: var(--color-text-primary)">
+            {quickAnswer}
+          </p>
+        </aside>
       )}
 
       <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[var(--color-primary-dark)] prose-a:text-[var(--color-primary)] prose-img:rounded-xl prose-img:shadow-lg">

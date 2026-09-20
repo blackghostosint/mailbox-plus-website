@@ -58,6 +58,15 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 - Pillar conventions: `location: 'concord-township'` unless the article is explicitly about another town; slug is query-targeted (2–5 hyphenated words, no location prefix); `intentKey` matches slug exactly; `relatedServices` up to 3, most relevant first.
 - **No trademarked software names** (POS systems, postage software). Refer to them generically: "the point-of-sale software," "what the clerk marks in the system."
 
+## Quick Answer Block (AI Overview / featured-snippet extraction)
+
+- **`quickAnswer` frontmatter is REQUIRED for pillar, comparison, and guide articles** (set `articleType: 'pillar' | 'comparison' | 'guide'`); optional for batch articles. Enforced by `content:quick-answer` in verify.
+- **40–80 words**, one paragraph. First sentence answers the `intentKey` query directly; the rest adds the load-bearing facts (carriers, prices, steps, addresses).
+- **Must contain at least one concrete number, price, or measurable fact** — a vague "it depends" summary is not extractable and fails verify.
+- Written for the skimmer and the machine, not the Direct Response ear — this is the one block allowed to be plain. Persuasion stays in the body.
+- Facts in the block follow the same fact-check gate as the body. Never invent a number to satisfy the "concrete" rule.
+- The layout renders it as a styled aside between the featured image and the body — do NOT also add a "Quick Answer" heading in the markdown body.
+
 ## Hard Gates — in order, before opening the PR
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."

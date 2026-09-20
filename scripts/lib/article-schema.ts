@@ -37,6 +37,12 @@ export const articleFrontmatterSchema = z
     eventDate: dateOrStringSchema.optional(),
     source: z.string().optional(),
     sourceLabel: z.string().optional(),
+    articleType: z
+      .enum(['pillar', 'comparison', 'guide', 'batch'], {
+        message: "Field 'articleType' must be one of: pillar, comparison, guide, batch",
+      })
+      .optional(),
+    quickAnswer: z.string().optional(),
     faqs: z.array(z.object({ question: z.string().min(1), answer: z.string().min(1) })).optional(),
   })
   .passthrough();

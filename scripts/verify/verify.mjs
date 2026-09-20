@@ -672,6 +672,61 @@ function cmdArticle(arg, isStrict = false) {
       'slug must be lowercase kebab-case'
     );
 
+    // 4b) Quick Answer block (AI Overview / featured-snippet extraction)
+    // Required for pillar/comparison/guide articles; optional (but validated) elsewhere.
+    const articleType = typeof data.articleType === 'string' ? data.articleType : undefined;
+    const quickAnswerRequired = ['pillar', 'comparison', 'guide'].includes(String(articleType));
+    const quickAnswer = typeof data.quickAnswer === 'string' ? data.quickAnswer.trim() : '';
+    const qaWords = quickAnswer ? quickAnswer.split(/\s+/).length : 0;
+    const qaIsNew = initNewArticles().has(relPath);
+    if (quickAnswerRequired && !quickAnswer) {
+      if (isStrict && qaIsNew) {
+        check(
+          'content:quick-answer',
+          false,
+          "missing 'quickAnswer' frontmatter (required for pillar/comparison/guide articles)",
+          "add a 40-80 word 'quickAnswer' that directly answers the intentKey query — see docs/ARTICLE-WORKFLOW.md"
+        );
+      } else {
+        check(
+          'content:quick-answer',
+          true,
+          'missing quickAnswer (advisory — legacy article)'
+        );
+      }
+    } else if (quickAnswer) {
+      if (qaWords < 40 || qaWords > 80) {
+        check(
+          'content:quick-answer',
+          false,
+          `${qaWords} words (must be 40-80 — long enough to be a complete answer, short enough to lift verbatim)`,
+          'rewrite the quickAnswer to a 40-80 word self-contained answer'
+        );
+      } else if (!/\d|[$]/.test(quickAnswer)) {
+        check(
+          'content:quick-answer',
+          false,
+          'no concrete number, price, or figure — vague answers are not extractable',
+          'include at least one specific number, price, or measurable fact'
+        );
+      } else {
+        check('content:quick-answer', true, `${qaWords} words, concrete`);
+      }
+      // Trailing-slash hygiene inside the quickAnswer
+      for (const href of extractInternalHrefs(quickAnswer)) {
+        if (!href.endsWith('/')) {
+          check(
+            'content:quick-answer',
+            false,
+            `internal link '${href}' in quickAnswer missing trailing slash`,
+            'add trailing slash: ' + href + '/'
+          );
+        }
+      }
+    } else {
+      check('content:quick-answer', true, 'not applicable (batch article, no quickAnswer)');
+    }
+
     // 5) IntentKey uniqueness across corpus
     const ik = String(data.intentKey || '');
     if (ik) {
