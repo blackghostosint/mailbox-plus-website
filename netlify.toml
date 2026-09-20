@@ -30,6 +30,49 @@
   to = "/.netlify/functions/:splat"
   status = 200
 
+# 2026-09-20 corpus prune: 4 zero-impression articles (90-day GSC), Frank-approved.
+# Evidence + verdicts: vault Mailbox Plus/SEO/Article Corpus Segmentation 2026-09-20.md
+[[redirects]]
+  from = "/articles/hambden-fragile-shipping"
+  to = "/pack-ship/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/hambden-fragile-shipping/"
+  to = "/pack-ship/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/pack-ship-aquilla-village"
+  to = "/pack-ship/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/pack-ship-aquilla-village/"
+  to = "/pack-ship/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/hambden-shredding"
+  to = "/home-business/shredding/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/hambden-shredding/"
+  to = "/home-business/shredding/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/hambden-copies"
+  to = "/copy-print/copies/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/articles/hambden-copies/"
+  to = "/copy-print/copies/"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/*"
   [headers.values]
