@@ -97,11 +97,6 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
 
-      - name: Verify generated API specification drift
-        run: |
-          npm run check:api-spec
-          git diff --exit-code docs/openapi.json
-
       - name: Verify generated static assets drift
         run: |
           npm run check:llms

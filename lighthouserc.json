@@ -4,7 +4,6 @@
       "numberOfRuns": 3,
       "staticDistDir": "./dist",
       "url": ["http://localhost/", "http://localhost/about-us/", "http://localhost/services/"],
-      "chromeFlags": "--no-sandbox --headless=new --disable-gpu --disable-dev-shm-usage",
       "settings": {
         "headless": "new",
         "preset": "desktop"
