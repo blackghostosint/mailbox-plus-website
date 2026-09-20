@@ -74,6 +74,13 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 - Article featured images should be ~400×225 WebP at 16:9 aspect ratio
 - Use `<SmartImage>` component with `priority` on LCP/hero images, lazy otherwise
 
+## Adding a New Static Page
+
+1. Define page metadata (title, description, optional schema, geo tags) in `astro/src/config/pageMeta.ts` with the route path as key (e.g., `'/about-us'`).
+2. Create the page component in `astro/src/pages/` wrapped with `<BaseLayout>`.
+3. `BaseLayout` automatically inspects the route path (`Astro.url.pathname`) and supplies `title`, `description`, geo metadata (`geo.region`, `geo.placename`, `geo.position`, `ICBM`), and JSON-LD schema from `pageMeta.ts` when explicit props are omitted.
+4. Run `npm run build` and `npm run seo:check-metadata` to verify.
+
 ## Adding a New Service Page
 
 1. Create a service config in `astro/src/config/services/`
