@@ -43,7 +43,6 @@ These are set in the Netlify dashboard (Site settings > Environment variables) f
 | `RECAPTCHA_MIN_SCORE`   | Minimum allowable reCAPTCHA v3 score threshold (default: `0.5`)                             |
 | `RESEND_API_KEY`        | Resend API key for sending contact form emails (`sendEmail.ts`)                             |
 | `STRIPE_SECRET_KEY`     | Stripe secret key for mailbox checkout sessions (`create-checkout.ts`, `verify-session.ts`) |
-| `CONTACT_EMAIL`         | Destination email for contact form submissions                                              |
 | `GOOGLE_PLACES_API_KEY` | Google Places API key for Google reviews sync (`reviews.ts`, `fetch-reviews.mjs`)           |
 | `SITE_URL`              | Primary site origin URL for CORS and checkout redirects (`create-checkout.ts`, `cors.ts`)   |
 | `NETLIFY_SITE_ID`       | Netlify Site ID for Netlify Blobs storage (`reviews.ts`, `rate-limiter.ts`)                 |
