@@ -406,7 +406,14 @@ function cmdDoctor() {
     `resolved ${ROOT}`,
     'run from scripts/verify/ inside the repo; never from ~/Projects clone (stale)'
   );
-  const hasWorkspaceSymlink = fs.existsSync(path.join(ROOT, 'node_modules', 'mailbox-plus-astro'));
+  const workspaceLinkPath = path.join(ROOT, 'node_modules', 'mailbox-plus-astro');
+  let hasWorkspaceSymlink = false;
+  try {
+    hasWorkspaceSymlink =
+      fs.existsSync(workspaceLinkPath) && fs.lstatSync(workspaceLinkPath).isSymbolicLink();
+  } catch {
+    hasWorkspaceSymlink = false;
+  }
   const hasLegacyModules = fs.existsSync(path.join(ROOT, 'astro', 'node_modules'));
   check(
     'node-modules',
