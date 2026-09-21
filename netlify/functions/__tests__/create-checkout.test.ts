@@ -263,7 +263,8 @@ describe('create-checkout function handler', () => {
       expect(res.status).toBe(200);
     }
 
-    // Stripe SDK create sessions should have been called 10 times
+    // Stripe SDK calls: 2 prices.list calls and 1 checkout.sessions.create call per valid request
+    expect(mockPricesList).toHaveBeenCalledTimes(20);
     expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
 
     // 11th request from same clientIp within 60s window should be throttled
@@ -278,7 +279,8 @@ describe('create-checkout function handler', () => {
     expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
     expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
 
-    // Ensure Stripe API was NOT invoked for the throttled request
+    // Ensure Stripe API methods (both prices.list and checkout.sessions.create) were NOT invoked for the throttled request
+    expect(mockPricesList).toHaveBeenCalledTimes(20);
     expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
   });
 
@@ -296,13 +298,19 @@ describe('create-checkout function handler', () => {
       const res = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip1));
       expect(res.status).toBe(200);
     }
+    expect(mockPricesList).toHaveBeenCalledTimes(20);
+    expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
 
-    // IP 1 is now rate limited
+    // IP 1 is now rate limited (Stripe calls should be skipped)
     const resIp1Throttled = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip1));
     expect(resIp1Throttled.status).toBe(429);
+    expect(mockPricesList).toHaveBeenCalledTimes(20);
+    expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
 
     // IP 2 is still allowed
     const resIp2 = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip2));
     expect(resIp2.status).toBe(200);
+    expect(mockPricesList).toHaveBeenCalledTimes(22);
+    expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(11);
   });
 });
