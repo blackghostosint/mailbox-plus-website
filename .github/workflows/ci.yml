@@ -102,6 +102,9 @@ jobs:
           npm run check:llms
           git diff --exit-code public/llms.txt public/llms-full.txt
 
+      - name: Run design token drift check
+        run: npm run check:tokens
+
       - name: Run SEO route registry check
         run: npm run seo:check-routes
 

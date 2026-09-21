@@ -30,10 +30,12 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 
 **Gold** — for dark navy backgrounds (heroes, CTA bands, dark sections)
 
-| Token                       | Value     | WCAG on deep navy | Usage                                                             |
-| --------------------------- | --------- | ----------------- | ----------------------------------------------------------------- |
-| `--color-accent-gold`       | `#f7c82a` | 8.95:1 ✅ AA      | Filled CTAs on dark, gold badges, decorative accents against navy |
-| `--color-accent-gold-light` | `#f7d46a` | —                 | Hover glow, lighter gold highlights on dark                       |
+| Token                       | Value                            | WCAG on deep navy | Usage                                                             |
+| --------------------------- | -------------------------------- | ----------------- | ----------------------------------------------------------------- |
+| `--color-accent-gold`       | `#f7c82a`                        | 8.95:1 ✅ AA      | Filled CTAs on dark, gold badges, decorative accents against navy |
+| `--color-accent-gold-light` | `#f7d46a`                        | —                 | Hover glow, lighter gold highlights on dark                       |
+| `--color-accent`            | `var(--color-accent-gold)`       | —                 | Accent alias pointing to gold                                     |
+| `--color-accent-light`      | `var(--color-accent-gold-light)` | —                 | Light accent alias pointing to light gold                         |
 
 > **In practical terms:** The gold is your "hero action" button. It lives on navy backgrounds — hero sections, "Get Started" bands, pricing tiers. It should never appear as text on a cream or white background (1.36:1 — invisible).
 
@@ -82,11 +84,21 @@ All text colors retain WCAG AA against all background variants.
 
 - `--color-border-blue` — replaced by warm border variants
 
+### Overlay & Base Tokens
+
+| Token                  | Value     | Usage                     |
+| ---------------------- | --------- | ------------------------- |
+| `--color-overlay`      | `#1f2933` | Dark overlay base         |
+| `--color-overlay-blue` | `#285a8e` | Primary navy overlay base |
+| `--color-shadow`       | `#1f2933` | Base shadow color         |
+
 ### Gradient Stops — Deep Navy (Heroes, CTA Bands)
 
-```
---color-gradient-start: #285a8e  →  --color-gradient-mid: #1f3f63  →  --color-gradient-end: #162c45
-```
+| Token                    | Value     | Usage                             |
+| ------------------------ | --------- | --------------------------------- |
+| `--color-gradient-start` | `#285a8e` | Hero and CTA gradient start stop  |
+| `--color-gradient-mid`   | `#1f3f63` | Hero and CTA gradient middle stop |
+| `--color-gradient-end`   | `#162c45` | Hero and CTA gradient end stop    |
 
 Standard gradient: `bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)]`
 
@@ -94,12 +106,12 @@ Standard gradient: `bg-gradient-to-br from-[var(--color-gradient-start)] via-[va
 
 ## Shadows & Depth
 
-| Token         | Value                             | Usage                       |
-| ------------- | --------------------------------- | --------------------------- |
-| `--shadow-sm` | `0 10px 30px rgba(31,41,51,0.04)` | Subtle card elevation       |
-| `--shadow-md` | `0 10px 30px rgba(31,41,51,0.08)` | Interactive elements, hover |
-| `--shadow-lg` | `0 18px 45px rgba(31,41,51,0.10)` | Panels, modals              |
-| `--shadow-xl` | `0 26px 65px rgba(31,41,51,0.25)` | CTA sections, hero overlays |
+| Token         | Value                                | Usage                       |
+| ------------- | ------------------------------------ | --------------------------- |
+| `--shadow-sm` | `0 10px 30px rgba(31, 41, 51, 0.04)` | Subtle card elevation       |
+| `--shadow-md` | `0 10px 30px rgba(31, 41, 51, 0.08)` | Interactive elements, hover |
+| `--shadow-lg` | `0 18px 45px rgba(31, 41, 51, 0.1)`  | Panels, modals              |
+| `--shadow-xl` | `0 26px 65px rgba(31, 41, 51, 0.25)` | CTA sections, hero overlays |
 
 Shadows use dark charcoal (`#1f2933`) at low opacity — warm and soft, not harsh black.
 
