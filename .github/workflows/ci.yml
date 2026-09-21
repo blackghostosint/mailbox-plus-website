@@ -151,6 +151,7 @@ jobs:
       - name: Upload Playwright test artifacts (on failure)
         if: failure()
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: playwright-artifacts
           path: |
@@ -161,6 +162,7 @@ jobs:
       - name: Upload build artifacts (on PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: build-output
           path: dist/

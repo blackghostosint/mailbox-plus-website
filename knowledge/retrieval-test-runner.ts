@@ -10,7 +10,7 @@
 // Load environment variables from .env files
 import dotenv from 'dotenv';
 import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { dirname, join, resolve } from 'path';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -30,11 +30,14 @@ import {
 } from './retrieval-test-suite.js';
 import {
   EMBEDDING_MODEL,
+  EMBEDDING_DIMENSION,
   MINIMUM_SIMILARITY,
   buildCacheKey,
   cosineSimilarity,
   calculateCandidateSimilarity,
   retrieveAnswerCore,
+  validateVector,
+  validateEmbeddingSnapshot,
   type KBEntry,
   type KnowledgeBase,
   type EmbeddingCache,
@@ -46,6 +49,10 @@ import {
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const isOfflineMode = !GEMINI_API_KEY;
+const allowSkip =
+  process.argv.includes('--allow-skip') ||
+  process.env.ALLOW_SKIP_RETRIEVAL_TESTS === 'true' ||
+  process.env.ALLOW_SKIP === '1';
 
 let genAI: GoogleGenerativeAI | null = null;
 let embeddingModel: any = null;
@@ -76,18 +83,26 @@ let embeddingCache: EmbeddingCache = {};
 function loadEmbeddingsFile(filePath: string): number {
   if (existsSync(filePath)) {
     try {
-      const parsed = JSON.parse(readFileSync(filePath, 'utf-8'));
-      const vectors: Record<string, number[]> = parsed.embeddings || parsed;
+      const fileContent = readFileSync(filePath, 'utf-8');
+      const parsed = JSON.parse(fileContent);
+      const validation = validateEmbeddingSnapshot(parsed, filePath);
+      if (!validation.valid) {
+        console.error(`❌ Embedding snapshot validation failed for ${filePath}:`);
+        validation.errors.forEach((err) => console.error(`   - ${err}`));
+        throw new Error(
+          `Embedding snapshot validation failed for ${filePath}:\n` +
+            validation.errors.map((err) => `  - ${err}`).join('\n')
+        );
+      }
       let count = 0;
-      for (const [key, val] of Object.entries(vectors)) {
-        if (Array.isArray(val)) {
-          embeddingCache[key] = val;
-          count++;
-        }
+      for (const [key, val] of Object.entries(validation.vectors)) {
+        embeddingCache[key] = val;
+        count++;
       }
       return count;
-    } catch (err) {
-      console.warn(`⚠ Could not load embedding file ${filePath}:`, err);
+    } catch (err: any) {
+      console.error(`❌ Failed to load or validate embedding file ${filePath}: ${err.message}`);
+      throw err;
     }
   }
   return 0;
@@ -135,6 +150,11 @@ async function generateEmbedding(
     }
 
     const values = result.embedding.values;
+    const check = validateVector(values, buildCacheKey(taskType, text), 'Gemini API Response');
+    if (!check.valid) {
+      throw new Error(`Invalid embedding vector returned from Gemini API: ${check.error}`);
+    }
+
     embeddingCache[buildCacheKey(taskType, text)] = values;
     return values;
   } catch (error) {
@@ -144,24 +164,115 @@ async function generateEmbedding(
 }
 
 /**
+ * Verify 100% vector embedding coverage across all KB entries and test queries in offline mode
+ */
+function verifyVectorCoverage(): { valid: boolean; missing: string[] } {
+  const missing: string[] = [];
+
+  const checkKeys = (cacheKeys: string[], label: string) => {
+    const foundKey = cacheKeys.find((k) => embeddingCache[k] !== undefined);
+    if (!foundKey) {
+      missing.push(label);
+      return;
+    }
+    const vec = embeddingCache[foundKey];
+    const check = validateVector(vec, foundKey);
+    if (!check.valid) {
+      missing.push(`${label} (invalid vector: ${check.error})`);
+    }
+  };
+
+  for (const entry of kb.entries) {
+    for (const variant of entry.questionVariants) {
+      const cacheKey1 = buildCacheKey(entry.id, variant);
+      const cacheKey2 = buildCacheKey('RETRIEVAL_QUERY', variant);
+      checkKeys(
+        [cacheKey1, cacheKey2, variant],
+        `Entry [${entry.id}] missing questionVariant embedding: "${variant}"`
+      );
+    }
+
+    const documentTexts = [entry.searchText, entry.title].filter(Boolean);
+    for (const text of documentTexts) {
+      const cacheKey1 = buildCacheKey(entry.id, text);
+      const cacheKey2 = buildCacheKey('RETRIEVAL_DOCUMENT', text);
+      checkKeys(
+        [cacheKey1, cacheKey2, text],
+        `Entry [${entry.id}] missing document embedding for: "${text.substring(0, 40)}..."`
+      );
+    }
+  }
+
+  for (const testCase of retrievalTests) {
+    const cacheKey1 = buildCacheKey('RETRIEVAL_QUERY', testCase.query);
+    checkKeys(
+      [cacheKey1, testCase.query],
+      `Benchmark test query missing embedding: "${testCase.query}"`
+    );
+  }
+
+  return {
+    valid: missing.length === 0,
+    missing,
+  };
+}
+
+/**
  * Pre-compute and cache embeddings for all KB entries
  */
 async function buildEmbeddingCache(): Promise<void> {
   if (isOfflineMode) {
     if (Object.keys(embeddingCache).length === 0) {
-      console.log(
-        'ℹ GEMINI_API_KEY not set and no cached vector embeddings found in .embedding-cache.json.'
+      console.error(
+        '❌ GEMINI_API_KEY is not set and no precomputed vector embeddings snapshot was found in embeddings.json or .embedding-cache.json.'
       );
-      console.log('ℹ Skipping retrieval evaluation tests in offline mode.\n');
-      const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
-      const skippedReport =
-        `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
-        `**Generated:** ${new Date().toISOString()}\n\n` +
-        `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file (.embedding-cache.json) was found.\n`;
-      writeFileSync(reportPath, skippedReport, 'utf-8');
-      process.exit(0);
+      if (allowSkip) {
+        console.warn(
+          '⚠ --allow-skip flag detected. Skipping retrieval evaluation tests in offline mode.\n'
+        );
+        const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+        const skippedReport =
+          `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
+          `**Generated:** ${new Date().toISOString()}\n\n` +
+          `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file was found.\n`;
+        writeFileSync(reportPath, skippedReport, 'utf-8');
+        process.exit(0);
+      } else {
+        console.error(
+          '❌ Skipping retrieval tests is NOT allowed without --allow-skip or ALLOW_SKIP_RETRIEVAL_TESTS=true.'
+        );
+        console.error('❌ Exiting with status 1.\n');
+        process.exit(1);
+      }
     }
-    console.log('✓ Using precomputed vector embedding cache (offline mode)');
+
+    console.log('🔍 Verifying offline vector embedding coverage...');
+    const coverage = verifyVectorCoverage();
+
+    if (!coverage.valid) {
+      console.error(
+        `❌ Vector Embedding Drift / Incomplete Coverage Detected! (${coverage.missing.length} missing embeddings)`
+      );
+      coverage.missing.forEach((msg) => console.error(`   ${msg}`));
+
+      if (allowSkip) {
+        console.warn(
+          '⚠ --allow-skip flag detected. Skipping retrieval evaluation tests due to incomplete vector coverage.\n'
+        );
+        process.exit(0);
+      } else {
+        console.error('\n❌ Vector coverage check failed in offline mode. Exiting with status 1.');
+        console.error(
+          "   Run 'npm run build:embeddings' with GEMINI_API_KEY set to generate missing embeddings.\n"
+        );
+        process.exit(1);
+      }
+    }
+
+    console.log(
+      `✓ 100% vector embedding coverage verified for all ${kb.entries.length} KB entries in offline mode.`
+    );
+    console.log('✓ Using precomputed vector embedding cache (offline mode)\n');
     return;
   }
 
@@ -476,7 +587,18 @@ async function main() {
   }
 }
 
-main().catch((err) => {
-  console.error('Error running tests:', err);
-  process.exit(1);
-});
+export {
+  loadEmbeddingsFile,
+  verifyVectorCoverage,
+  embeddingCache,
+  generateEmbedding,
+  executeTest,
+  main,
+};
+
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch((err) => {
+    console.error('Error running tests:', err);
+    process.exit(1);
+  });
+}
