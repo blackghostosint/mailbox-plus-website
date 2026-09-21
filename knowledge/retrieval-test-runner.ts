@@ -46,6 +46,10 @@ import {
 // ========================================
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const isOfflineMode = !GEMINI_API_KEY;
+const allowSkip =
+  process.argv.includes('--allow-skip') ||
+  process.env.ALLOW_SKIP_RETRIEVAL_TESTS === 'true' ||
+  process.env.ALLOW_SKIP === '1';
 
 let genAI: GoogleGenerativeAI | null = null;
 let embeddingModel: any = null;
@@ -144,24 +148,101 @@ async function generateEmbedding(
 }
 
 /**
+ * Verify 100% vector embedding coverage across all KB entries and test queries in offline mode
+ */
+function verifyVectorCoverage(): { valid: boolean; missing: string[] } {
+  const missing: string[] = [];
+
+  for (const entry of kb.entries) {
+    for (const variant of entry.questionVariants) {
+      const cacheKey1 = buildCacheKey(entry.id, variant);
+      const cacheKey2 = buildCacheKey('RETRIEVAL_QUERY', variant);
+      if (!embeddingCache[cacheKey1] && !embeddingCache[cacheKey2] && !embeddingCache[variant]) {
+        missing.push(`Entry [${entry.id}] missing questionVariant embedding: "${variant}"`);
+      }
+    }
+
+    const documentTexts = [entry.searchText, entry.title].filter(Boolean);
+    for (const text of documentTexts) {
+      const cacheKey1 = buildCacheKey(entry.id, text);
+      const cacheKey2 = buildCacheKey('RETRIEVAL_DOCUMENT', text);
+      if (!embeddingCache[cacheKey1] && !embeddingCache[cacheKey2] && !embeddingCache[text]) {
+        missing.push(
+          `Entry [${entry.id}] missing document embedding for: "${text.substring(0, 40)}..."`
+        );
+      }
+    }
+  }
+
+  for (const testCase of retrievalTests) {
+    const cacheKey1 = buildCacheKey('RETRIEVAL_QUERY', testCase.query);
+    if (!embeddingCache[cacheKey1] && !embeddingCache[testCase.query]) {
+      missing.push(`Benchmark test query missing embedding: "${testCase.query}"`);
+    }
+  }
+
+  return {
+    valid: missing.length === 0,
+    missing,
+  };
+}
+
+/**
  * Pre-compute and cache embeddings for all KB entries
  */
 async function buildEmbeddingCache(): Promise<void> {
   if (isOfflineMode) {
     if (Object.keys(embeddingCache).length === 0) {
-      console.log(
-        'ℹ GEMINI_API_KEY not set and no cached vector embeddings found in .embedding-cache.json.'
+      console.error(
+        '❌ GEMINI_API_KEY is not set and no precomputed vector embeddings snapshot was found in embeddings.json or .embedding-cache.json.'
       );
-      console.log('ℹ Skipping retrieval evaluation tests in offline mode.\n');
-      const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
-      const skippedReport =
-        `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
-        `**Generated:** ${new Date().toISOString()}\n\n` +
-        `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file (.embedding-cache.json) was found.\n`;
-      writeFileSync(reportPath, skippedReport, 'utf-8');
-      process.exit(0);
+      if (allowSkip) {
+        console.warn(
+          '⚠ --allow-skip flag detected. Skipping retrieval evaluation tests in offline mode.\n'
+        );
+        const reportPath = join(__dirname, 'RETRIEVAL_TEST_REPORT.md');
+        const skippedReport =
+          `# Retrieval Test Report (Skipped - Offline Mode)\n\n` +
+          `**Generated:** ${new Date().toISOString()}\n\n` +
+          `ℹ Retrieval test suite skipped because GEMINI_API_KEY was not set and no cached vector embeddings file was found.\n`;
+        writeFileSync(reportPath, skippedReport, 'utf-8');
+        process.exit(0);
+      } else {
+        console.error(
+          '❌ Skipping retrieval tests is NOT allowed without --allow-skip or ALLOW_SKIP_RETRIEVAL_TESTS=true.'
+        );
+        console.error('❌ Exiting with status 1.\n');
+        process.exit(1);
+      }
     }
-    console.log('✓ Using precomputed vector embedding cache (offline mode)');
+
+    console.log('🔍 Verifying offline vector embedding coverage...');
+    const coverage = verifyVectorCoverage();
+
+    if (!coverage.valid) {
+      console.error(
+        `❌ Vector Embedding Drift / Incomplete Coverage Detected! (${coverage.missing.length} missing embeddings)`
+      );
+      coverage.missing.forEach((msg) => console.error(`   ${msg}`));
+
+      if (allowSkip) {
+        console.warn(
+          '⚠ --allow-skip flag detected. Skipping retrieval evaluation tests due to incomplete vector coverage.\n'
+        );
+        process.exit(0);
+      } else {
+        console.error('\n❌ Vector coverage check failed in offline mode. Exiting with status 1.');
+        console.error(
+          "   Run 'npm run build:embeddings' with GEMINI_API_KEY set to generate missing embeddings.\n"
+        );
+        process.exit(1);
+      }
+    }
+
+    console.log(
+      `✓ 100% vector embedding coverage verified for all ${kb.entries.length} KB entries in offline mode.`
+    );
+    console.log('✓ Using precomputed vector embedding cache (offline mode)\n');
     return;
   }
 
