@@ -41,3 +41,12 @@ appear in the table above with sources. Internal links verified live routes:
 
 FAQPage JSON-LD added via frontmatter `faqs` + article [slug].astro getFAQSchema (pattern mirrors
 ServiceLayout); same four Q&As rendered visibly as H3 text in the "PMB Quick Answers" section.
+
+## Addendum (2026-09-20, pricing-coverage fix)
+
+| #   | claim                                                                     | verdict | source URL                                                                                                                                                             |
+| --- | ------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 901 | "Mail-only plans start at $15/month"                                      | ✅      | https://mailboxplusohio.com/private-mailbox-rental/ — tier "Small · Mail Only" $15/mo (verified in repo astro/src/pages/private-mailbox-rental.astro, source of truth) |
+| 902 | "$25 plan includes 10 packages a month with carrier delivery and signing" | ✅      | https://mailboxplusohio.com/private-mailbox-rental/ — tier "Small · +10 Packages" $25/mo; vault Pricing.md: $15 is mail-only WITHOUT sign-for — copy rule respected    |
+| 903 | "larger boxes run $30 and $40"                                            | ✅      | https://mailboxplusohio.com/private-mailbox-rental/ — "Large · Mail Only" $30/mo, "Large · +10 Packages" $40/mo                                                        |
+| 904 | "Month-to-month, cancel anytime — no 12-month lock-in"                    | ✅      | https://mailboxplusohio.com/private-mailbox-rental/ ("$15/month. Month-to-month, cancel anytime. Completely risk-free.")                                               |

@@ -48,6 +48,8 @@ Your job is to ADVERSARIALLY grade the provided article draft for true emotional
 
 DO NOT be polite. DO NOT reward corporate melodrama or adjective stacking.
 
+QUICK ANSWER BLOCK (frontmatter "quickAnswer", rendered above the body): if present, audit it as part of the draft. It must directly answer the article's core query, be self-contained (readable with zero article context), and state ONLY facts the body supports. If it asserts something the body never says, drifts from the body's numbers, or is vague filler, flag it in flagged_passages and score honestly — it is the article's most-read 80 words, not decoration.
+
 Grade the draft strictly across these 5 dimensions (0 to 20 points each, 100 total):
 
 1. SENSORY & PHYSICAL GROUNDING (0-20):
