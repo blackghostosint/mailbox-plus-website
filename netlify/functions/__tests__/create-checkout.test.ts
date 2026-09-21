@@ -21,23 +21,25 @@ vi.mock('stripe', () => {
 });
 
 import handler from '../create-checkout';
+import { resetRateLimitMemory } from '../lib/rate-limiter';
 
 describe('create-checkout function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
 
-  const createRequest = (method: string, body?: any) => {
+  const createRequest = (method: string, body?: any, ip?: string) => {
     return new Request('https://example.com/.netlify/functions/create-checkout', {
       method,
       headers: {
         'Content-Type': 'application/json',
-        'x-nf-client-connection-ip': `10.1.0.${ipCounter++}`,
+        'x-nf-client-connection-ip': ip || `10.1.0.${ipCounter++}`,
       },
       ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
     });
   };
 
   beforeEach(() => {
+    resetRateLimitMemory();
     vi.resetModules();
     vi.clearAllMocks();
     process.env = {
@@ -245,4 +247,62 @@ describe('create-checkout function handler', () => {
       });
     }
   );
+
+  it('enforces rate limit of 10 requests per 60 seconds and rejects the 11th request with HTTP 429', async () => {
+    mockPricesList.mockResolvedValue({ data: [{ id: 'price_small_mail_only' }] });
+    mockCheckoutSessionsCreate.mockResolvedValue({
+      url: 'https://checkout.stripe.com/c/pay/cs_test_123',
+    });
+
+    const clientIp = '203.0.113.88';
+
+    // Make 10 valid POST requests from clientIp within quota
+    for (let i = 0; i < 10; i++) {
+      const req = createRequest('POST', { tier: 'small_mail_only' }, clientIp);
+      const res = await handler(req);
+      expect(res.status).toBe(200);
+    }
+
+    // Stripe SDK create sessions should have been called 10 times
+    expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
+
+    // 11th request from same clientIp within 60s window should be throttled
+    const req11 = createRequest('POST', { tier: 'small_mail_only' }, clientIp);
+    const res11 = await handler(req11);
+
+    expect(res11.status).toBe(429);
+    expect(res11.headers.get('Content-Type')).toBe('application/json');
+    expect(res11.headers.get('Retry-After')).toBeTruthy();
+    expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
+    expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
+    expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
+    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+
+    // Ensure Stripe API was NOT invoked for the throttled request
+    expect(mockCheckoutSessionsCreate).toHaveBeenCalledTimes(10);
+  });
+
+  it('tracks rate limits independently per client IP address', async () => {
+    mockPricesList.mockResolvedValue({ data: [{ id: 'price_small_mail_only' }] });
+    mockCheckoutSessionsCreate.mockResolvedValue({
+      url: 'https://checkout.stripe.com/c/pay/cs_test_123',
+    });
+
+    const ip1 = '203.0.113.90';
+    const ip2 = '203.0.113.91';
+
+    // Exhaust quota for IP 1
+    for (let i = 0; i < 10; i++) {
+      const res = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip1));
+      expect(res.status).toBe(200);
+    }
+
+    // IP 1 is now rate limited
+    const resIp1Throttled = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip1));
+    expect(resIp1Throttled.status).toBe(429);
+
+    // IP 2 is still allowed
+    const resIp2 = await handler(createRequest('POST', { tier: 'small_mail_only' }, ip2));
+    expect(resIp2.status).toBe(200);
+  });
 });
