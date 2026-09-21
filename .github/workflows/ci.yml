@@ -64,6 +64,12 @@ jobs:
       - name: TypeScript type check (Astro)
         run: cd astro && npm run check
 
+      - name: TypeScript type check (Netlify functions)
+        run: tsc --noEmit --project netlify/functions/tsconfig.json
+
+      - name: TypeScript type check (Root & scripts)
+        run: tsc --noEmit --project tsconfig.json
+
       - name: Run Astro unit tests
         run: cd astro && npm test
 
