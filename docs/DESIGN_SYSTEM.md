@@ -71,7 +71,7 @@ All text colors retain WCAG AA against all background variants.
 | ------------------------ | --------- | --------------------------- | ---------------------- |
 | `--color-text-primary`   | `#1f2933` | Headings, body text         | 14.2:1 ✅              |
 | `--color-text-secondary` | `#4a5568` | Subheadings, secondary text | 7.1:1 ✅               |
-| `--color-text-muted`     | `#667085` | Muted labels, captions      | 4.8:1 ✅               |
+| `--color-text-muted`     | `#545e6f` | Muted labels, captions      | 5.6:1 ✅               |
 
 ### Surface / Borders — Gentle Warm Gray
 
