@@ -3,11 +3,14 @@
  * Endpoint: /.netlify/functions/sendEmail
  *
  * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
- * - Auth: Public / Unauthenticated endpoint (no user login or bearer token required).
- * - Identity & Anti-Abuse: Protected by Google reCAPTCHA v3 score verification.
- *   Validates recaptchaToken against Google reCAPTCHA API using RECAPTCHA_SECRET_KEY.
+ * - Auth: Public / Unauthenticated endpoint for contact submissions (no user login session required).
+ * - Identity & Verification: Anti-abuse and caller verification are enforced via Google reCAPTCHA v3 verification token
+ *   (`recaptchaToken`, `token`, or `g-recaptcha-response`) verified server-side against Google reCAPTCHA API using RECAPTCHA_SECRET_KEY.
  * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
  *   Enforces sliding-window IP rate limiting via @netlify/blobs (5 requests / 10 min).
+ *
+ * Dependencies (AGENTS.md Rule 2):
+ * - Relies on @netlify/functions (root package.json dependency) for Handler types and @types/node for Node.js runtime types.
  */
 
 import { Resend } from 'resend';

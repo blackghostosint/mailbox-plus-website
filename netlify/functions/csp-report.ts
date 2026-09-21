@@ -4,9 +4,12 @@
  *
  * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
  * - Auth: Public / Unauthenticated endpoint (no user login or token required).
- * - Identity: Receives anonymous browser Content-Security-Policy violation reports.
+ * - Identity & Verification: Receives anonymous browser Content-Security-Policy violation reports.
  * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
  *   Enforces sliding-window IP rate limiting via @netlify/blobs (10 requests / 1 min).
+ *
+ * Dependencies (AGENTS.md Rule 2):
+ * - Relies on @netlify/functions for Context types and @types/node for Node.js runtime types.
  */
 
 import type { Context } from '@netlify/functions';
