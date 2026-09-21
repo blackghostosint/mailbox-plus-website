@@ -129,6 +129,12 @@ describe('contact-form module', () => {
     const statusEl = form.querySelector('[role="status"]');
     expect(statusEl).not.toBeNull();
     expect(statusEl?.textContent).toBe('Thank you! Your message has been sent.');
+    expect(statusEl?.getAttribute('aria-live')).toBe('polite');
+    expect(statusEl?.getAttribute('tabindex')).toBe('-1');
+    expect(statusEl?.className).toBe(
+      'p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none'
+    );
+    expect(document.activeElement).toBe(statusEl);
   });
 
   it('handles accessibility-barrier form default service fallback and message mapping', async () => {
