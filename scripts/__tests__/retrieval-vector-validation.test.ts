@@ -129,6 +129,20 @@ describe('Retrieval Vector Validation & Snapshot Gate', () => {
       });
     }
 
+    it('rejects an invalid value under embeddings.metadata (no bypass key)', () => {
+      const snapshot = {
+        metadata: { model: EMBEDDING_MODEL },
+        embeddings: {
+          'test::valid': createValidVector(768, 0.05),
+          metadata: 'not-a-vector',
+        },
+      };
+      const result = validateEmbeddingSnapshot(snapshot, 'test-file.json');
+      expect(result.valid).toBe(false);
+      expect(result.errors.join(' ')).toMatch(/metadata/);
+      expect(result.vectors).not.toHaveProperty('metadata');
+    });
+
     it('fails closed when snapshot metadata model is incorrect', () => {
       const wrongModelSnapshot = {
         metadata: {

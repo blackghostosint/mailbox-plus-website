@@ -154,7 +154,6 @@ export function validateEmbeddingSnapshot(
   const validatedVectors: Record<string, number[]> = {};
 
   for (const [key, val] of Object.entries(rawVectors)) {
-    if (key === 'metadata') continue;
     const check = validateVector(val, key, ctx);
     if (!check.valid && check.error) {
       errors.push(check.error);
