@@ -36,6 +36,7 @@ jobs:
       - name: Upload Lighthouse Report
         if: always()
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: lighthouse-report
           path: .lighthouseci/
