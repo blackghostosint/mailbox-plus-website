@@ -22,22 +22,22 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 
 These are set in the Netlify dashboard (Site settings > Environment variables) for production functions, or in local `.env` when executing functions locally:
 
-| Variable                | Description                                                                                   | Default / Fallback            |
-| ----------------------- | --------------------------------------------------------------------------------------------- | ----------------------------- |
-| `NETLIFY_SITE_ID`       | Netlify Site ID for `@netlify/blobs` storage (rate limiting & response caching)               | (none)                        |
-| `NETLIFY_AUTH_TOKEN`    | Netlify Auth Token for `@netlify/blobs` API access                                            | (none)                        |
-| `GOOGLE_PLACES_API_KEY` | Google Places API key for fetching live Google business reviews (`reviews.ts`)                | (none)                        |
-| `RECAPTCHA_SECRET_KEY`  | reCAPTCHA v3 server-side secret key (used by `lib/recaptcha.ts` for token verification)       | (none)                        |
-| `RECAPTCHA_MIN_SCORE`   | Minimum score threshold for reCAPTCHA v3 verification                                         | `0.5`                         |
-| `RESEND_API_KEY`        | Resend API key for sending contact form emails (`sendEmail.ts`)                               | (none)                        |
-| `STRIPE_SECRET_KEY`     | Stripe secret key for mailbox checkout sessions (`create-checkout.ts`, `verify-session.ts`)   | `dummy_stripe_secret_key`     |
-| `CONTACT_EMAIL`         | Destination email for contact form submissions                                                | `help@mailboxplusohio.com`    |
-| `SITE_URL`              | Site base URL for CORS origin checks and checkout redirect resolution                         | `https://mailboxplusohio.com` |
-| `CONTEXT`               | Netlify deployment context (`production`, `deploy-preview`, `branch-deploy`) in health checks | `development`                 |
+| Variable                | Description                                                                                                                     | Default / Fallback            |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `NETLIFY_SITE_ID`       | Netlify Site ID for `@netlify/blobs` storage (rate limiting & response caching)                                                 | (none)                        |
+| `NETLIFY_AUTH_TOKEN`    | Netlify Auth Token for `@netlify/blobs` API access                                                                              | (none)                        |
+| `GOOGLE_PLACES_API_KEY` | Google Places API key for fetching live Google business reviews (`netlify/functions/reviews.ts`)                                | (none)                        |
+| `RECAPTCHA_SECRET_KEY`  | reCAPTCHA v3 server-side secret key (used by `netlify/functions/lib/recaptcha.ts` for token verification)                       | (none)                        |
+| `RECAPTCHA_MIN_SCORE`   | Minimum score threshold for reCAPTCHA v3 verification                                                                           | `0.5`                         |
+| `RESEND_API_KEY`        | Resend API key for sending contact form emails (`netlify/functions/sendEmail.ts`)                                               | (none)                        |
+| `STRIPE_SECRET_KEY`     | Stripe secret key for mailbox checkout sessions (`netlify/functions/create-checkout.ts`, `netlify/functions/verify-session.ts`) | `dummy_stripe_secret_key`     |
+| `CONTACT_EMAIL`         | Destination email for contact form submissions                                                                                  | `help@mailboxplusohio.com`    |
+| `SITE_URL`              | Site base URL for CORS origin checks and checkout redirect resolution                                                           | `https://mailboxplusohio.com` |
+| `CONTEXT`               | Netlify deployment context (`production`, `deploy-preview`, `branch-deploy`) in health checks                                   | `development`                 |
 
 ### reCAPTCHA Site Key vs. Secret Key
 
-- **`VITE_RECAPTCHA_SITE_KEY` / `RECAPTCHA_SITE_KEY` (Public Site Key):** Loaded by front-end pages (`contact-us.astro`, `accessibility.astro`) to render the Google reCAPTCHA v3 client token generator. Safe for client bundles.
+- **`VITE_RECAPTCHA_SITE_KEY` / `RECAPTCHA_SITE_KEY` (Public Site Key):** Loaded by front-end pages (`astro/src/pages/contact-us.astro`, `astro/src/pages/accessibility.astro`) to render the Google reCAPTCHA v3 client token generator. Safe for client bundles.
 - **`RECAPTCHA_SECRET_KEY` (Server Secret Key):** Kept strictly on the server/Netlify function runtime to verify user reCAPTCHA tokens against Google's verification endpoint. **Never** prefix with `VITE_` or expose to the client.
 
 ## Tooling & Pre-Flight Verification Variables

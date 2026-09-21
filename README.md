@@ -55,7 +55,7 @@ Service pages are defined as configuration objects in `astro/src/config/services
 
 ### Routing
 
-Astro file-based routing — every `.astro` file in `astro/src/pages/` is a route. Dynamic routes use `[slug].astro`.
+Astro file-based routing — every `.astro` file in `astro/src/pages/` is a route. Dynamic routes use `astro/src/pages/[slug].astro`.
 
 ### Design System
 

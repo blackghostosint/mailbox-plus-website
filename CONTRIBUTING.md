@@ -78,7 +78,7 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 
 1. Define page metadata (title, description, optional schema, geo tags) in `astro/src/config/pageMeta.ts` with the route path as key (e.g., `'/about-us'`).
 2. Create the page component in `astro/src/pages/` wrapped with `<BaseLayout>`.
-3. `BaseLayout` automatically inspects the route path (`Astro.url.pathname`) and supplies `title`, `description`, geo metadata (`geo.region`, `geo.placename`, `geo.position`, `ICBM`), and JSON-LD schema from `pageMeta.ts` when explicit props are omitted.
+3. `BaseLayout` automatically inspects the route path (`Astro.url.pathname`) and supplies `title`, `description`, geo metadata (`geo.region`, `geo.placename`, `geo.position`, `ICBM`), and JSON-LD schema from `astro/src/config/pageMeta.ts` when explicit props are omitted.
 4. Run `npm run build` and `npm run seo:check-metadata` to verify.
 
 ## Adding a New Service Page
@@ -90,10 +90,10 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 
 ## Adding a New Article
 
-1. Create a markdown file in `content/articles/{category}/` with frontmatter
+1. Create a markdown file in `content/articles/` under its category subfolder with frontmatter
 2. Frontmatter must include: `title`, `description`, `slug`, `pubDate`, `category`, `status`
 3. Set `status: draft` for preview, `status: published` for live
-4. Articles are auto-discovered by `articleLoader.ts`
+4. Articles are auto-discovered by `astro/src/utils/articleLoader.ts`
 5. Run `npm run audit:articles` to validate links/frontmatter against the sitemap
 
 ## Commit Convention

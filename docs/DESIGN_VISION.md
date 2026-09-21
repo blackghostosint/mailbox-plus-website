@@ -53,7 +53,7 @@ As the user scrolls, each major section fades in with a gentle upward slide.
 | Trigger       | Intersection Observer at 85% viewport |
 | Stagger delay | 100ms between child elements          |
 
-**Implementation:** Use the existing `useInView` hook (already in `Services.tsx`) and the existing `animate-fade-in-up` CSS animation class (already in `src/index.css`). Extend to all pages — every `<section>` gets `animate-fade-in-up` on scroll entry.
+**Implementation:** Use the existing `useInView` hook (already in `astro/src/pages/services.astro`) and the existing `animate-fade-in-up` CSS animation class (already in `astro/src/styles/global.css`). Extend to all pages — every `<section>` gets `animate-fade-in-up` on scroll entry.
 
 ### Card Grid Stagger
 
@@ -89,7 +89,7 @@ A subtle crossfade between route changes.
 | Duration  | 0.3s                 |
 | Timing    | `ease-in-out`        |
 
-Can be done via a CSS transition on the `<main>` wrapper in `Layout.tsx` with React Router's `useLocation` key to trigger. This is low priority — leave for last.
+Can be done via a CSS transition on the `<main>` wrapper in `astro/src/layouts/BaseLayout.astro` with location key to trigger. This is low priority — leave for last.
 
 ## 2.2 Hover / Interaction Animations
 
@@ -180,16 +180,16 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 
 ## 2.4 Priority: Motion Work
 
-| Priority | Item                        | Effort | Notes                                                   |
-| -------- | --------------------------- | ------ | ------------------------------------------------------- |
-| P0       | Section reveal (fade-in-up) | Small  | CSS + useInView hook already exist, just wire site-wide |
-| P0       | CTA button hover effects    | Small  | Update `Button.tsx` with new hover CSS                  |
-| P0       | Card hover effects          | Small  | Add to card components                                  |
-| P1       | Stagger card reveal         | Small  | CSS + JS toggle class on stagger-group parent           |
-| P1       | Header scroll transition    | Medium | Requires scroll listener + state in Header.tsx          |
-| P2       | Gold hero CTA pulse         | Tiny   | One-time CSS animation                                  |
-| P2       | Skeleton loading states     | Small  | For async-loaded sections only                          |
-| P3       | Page transition fade        | Medium | Requires Layout wrapper update                          |
+| Priority | Item                        | Effort | Notes                                                             |
+| -------- | --------------------------- | ------ | ----------------------------------------------------------------- |
+| P0       | Section reveal (fade-in-up) | Small  | CSS + useInView hook already exist, just wire site-wide           |
+| P0       | CTA button hover effects    | Small  | Update `astro/src/components/` button elements with new hover CSS |
+| P0       | Card hover effects          | Small  | Add to card components                                            |
+| P1       | Stagger card reveal         | Small  | CSS + JS toggle class on stagger-group parent                     |
+| P1       | Header scroll transition    | Medium | Requires scroll listener + state in Header.tsx                    |
+| P2       | Gold hero CTA pulse         | Tiny   | One-time CSS animation                                            |
+| P2       | Skeleton loading states     | Small  | For async-loaded sections only                                    |
+| P3       | Page transition fade        | Medium | Requires Layout wrapper update                                    |
 
 ---
 
@@ -209,7 +209,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 
 ## Phase A: Token Swap + Global Components
 
-### `src/index.css`
+### `astro/src/styles/global.css`
 
 - [ ] Update `--color-bg-primary` to `#f2ede4`
 - [ ] Update `--color-bg-secondary` to `#ebe4d8`
@@ -224,7 +224,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Add `@keyframes cta-pulse` and `.animate-cta-pulse` utility
 - [ ] Add `@keyframes shimmer` and `.animate-shimmer` utility
 
-### `tailwind.config.js`
+### `astro/tailwind.config.mjs`
 
 - [ ] Swap `fontFamily.sans` to `['DM Sans', 'DM Sans Fallback', ...]`
 - [ ] Swap `fontFamily.heading` to same DM Sans stack (or remove heading font entirely)
@@ -233,7 +233,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Remove `border-blue` from border colors
 - [ ] Add `border-warm` to border colors
 
-### `Button.tsx`
+### `astro/src/components/ui/FormField.tsx`
 
 - [ ] `variant="primary"` — maps to **terracotta** filled (CTA on light backgrounds)
 - [ ] `variant="secondary"` — outline style with terracotta border
@@ -242,12 +242,12 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Add hover scale + shadow CSS classes
 - [ ] Remove old blue color references
 
-### `Layout.tsx`
+### `astro/src/layouts/BaseLayout.astro`
 
 - [ ] Ensure `<main>` wrapper has `bg-[var(--color-bg-primary)]` (likely already does)
 - [ ] Optional: page transition fade wrapper
 
-### `Header.tsx`
+### `astro/src/components/Header.astro`
 
 - [ ] Swap nav background to `--color-primary` (navy) — may already be correct
 - [ ] Update nav link hover/active indicators to gold accent
@@ -255,7 +255,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Mobile hamburger menu — use terracotta or gold accents
 - [ ] Remove any references to old blue accent colors
 
-### `Footer.tsx`
+### `astro/src/components/Footer.astro`
 
 - [ ] Swap to warm paper background (`--color-bg-secondary` or `--color-bg-primary`)
 - [ ] Update link colors to nav-style or muted warm
@@ -265,7 +265,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 
 ## Phase B: High-Traffic Pages
 
-### `Home.tsx` — HIGHEST priority
+### `astro/src/pages/index.astro` — HIGHEST priority
 
 **SB7 Face:** All (A–E, R1–R2, S1–S2) — front door orients all visitors
 
@@ -282,7 +282,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Add stagger to service area chips/tags
 - [ ] Review overall content density — does it feel sparse or crowded?
 
-### `Services.tsx`
+### `astro/src/pages/services.astro`
 
 **SB7 Face:** All (S2, S1, B, R1–R2) — service catalog for every visitor type
 
@@ -297,7 +297,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Each card CTA: terracotta text or terracotta outline button
 - [ ] Remove old blue tint backgrounds
 
-### `ContactUs.tsx`
+### `astro/src/pages/contact-us.astro`
 
 **SB7 Face:** B (Small Business), All — walk-in visitors and business inquiries
 
@@ -311,7 +311,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Info section — terracotta accent icons
 - [ ] Remove blue tint backgrounds
 
-### `AboutUs.tsx`
+### `astro/src/pages/about-us.astro`
 
 **SB7 Face:** All — brand trust speaks to every segment
 
@@ -327,7 +327,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 
 ## Phase C: Service Page Template
 
-### `ServicePageV2.tsx`
+### `astro/src/layouts/ServiceLayout.astro`
 
 **This is critical** — it's the template for ~40+ service pages (UPS, FedEx, Notary, Printing, etc.). Every change here cascades to dozens of pages.
 
@@ -346,7 +346,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Carrier logos (UPS, FedEx, etc.) — add `aspect-ratio` containers (CLS mitigation)
 - [ ] Headings: DM Sans, navy or warm tone
 
-### Individual service pages (40+ files in `src/pages/`)
+### Individual service pages (40+ files in `astro/src/pages/`)
 
 Most share the ServicePageV2 template — they'll update automatically when the template changes. Any with hardcoded inline styles need individual review.
 
@@ -354,7 +354,7 @@ Most share the ServicePageV2 template — they'll update automatically when the 
 
 ## Phase D: Low-Traffic / Utility Pages
 
-### `Tracking.tsx`
+### `astro/src/pages/tracking.astro`
 
 **SB7 Face:** S2 (Rate Shopper), R1 (Multi-Carrier Returner) — transactional, just want to know where the package is
 
@@ -363,19 +363,19 @@ Most share the ServicePageV2 template — they'll update automatically when the 
 - [ ] Track button → terracotta filled
 - [ ] Remove blue accents
 
-### `StoreHours.tsx` / `PickupHours.tsx`
+### `astro/src/pages/pickup-hours.astro`
 
 - [ ] Background → warm paper
 - [ ] Accent highlights → terracotta or gold depending on section bg
 - [ ] Remove cyan-tint references
 
-### `Privacy.tsx` / `Terms.tsx`
+### `astro/src/pages/privacy.astro` / `astro/src/pages/terms.astro`
 
 - [ ] Content body → warm paper
 - [ ] Section headers → navy or text-primary
 - [ ] Remove blue references
 
-### `NotFound.tsx`
+### `astro/src/pages/404.astro`
 
 - [ ] Background → warm paper
 - [ ] CTA → terracotta

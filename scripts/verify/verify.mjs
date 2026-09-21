@@ -1332,6 +1332,273 @@ function cmdSeoGates() {
   }
 }
 
+// ---------- Documentation Verification ----------
+const KNOWN_DOC_EXTS = [
+  '.md',
+  '.ts',
+  '.tsx',
+  '.js',
+  '.mjs',
+  '.cjs',
+  '.jsx',
+  '.json',
+  '.css',
+  '.astro',
+  '.sh',
+  '.py',
+  '.toml',
+  '.yml',
+  '.yaml',
+  '.txt',
+  '.png',
+  '.jpg',
+  '.svg',
+  '.html',
+  '.woff2',
+];
+
+const IGNORED_DOC_PACKAGES = new Set([
+  '@netlify/blobs',
+  '@tailwindcss/typography',
+  'gray-matter',
+  'vitest',
+  'react',
+  'zod',
+  'stripe',
+  'resend',
+  '@google/generative-ai',
+  'eslint',
+  'prettier',
+  'tsx',
+]);
+
+function resolveDocCandidatePath(p, docDir) {
+  let clean = p.trim();
+  clean = clean.replace(/[.,;)]+$/, '');
+  clean = clean.replace(/^["'\u2018\u2019\u201c\u201d]+|["'\u2018\u2019\u201c\u201d]+$/g, '');
+  clean = clean.replace(/:\d+(?:-\d+|:\d+)?$/, '');
+  if (clean.startsWith('/') && !clean.startsWith('//')) {
+    clean = clean.slice(1);
+  }
+
+  if (!clean) return { found: true };
+
+  let testPath = clean;
+  if (testPath.includes('{')) {
+    testPath = testPath.split('{')[0];
+    if (testPath.endsWith('/')) testPath = testPath.slice(0, -1);
+  }
+
+  if (!testPath) return { found: true };
+
+  // 1) ROOT
+  const absRoot = path.resolve(ROOT, testPath);
+  if (fs.existsSync(absRoot)) return { found: true, path: absRoot };
+
+  // 2) docDir
+  const absDoc = path.resolve(docDir, testPath);
+  if (fs.existsSync(absDoc)) return { found: true, path: absDoc };
+
+  // 3) src/ -> astro/src/
+  if (testPath.startsWith('src/')) {
+    const astroSrc = path.resolve(ROOT, 'astro', testPath);
+    if (fs.existsSync(astroSrc)) return { found: true, path: astroSrc };
+  }
+
+  // 4) Build output directory (e.g. dist, astro/dist)
+  if (testPath === 'dist' || testPath === 'astro/dist') {
+    const parent = path.dirname(path.resolve(ROOT, testPath));
+    if (fs.existsSync(parent)) return { found: true };
+  }
+
+  return { found: false, clean };
+}
+
+function verifyDocFile(arg) {
+  const abs = path.isAbsolute(arg) ? arg : path.join(ROOT, arg);
+  const relPath = path.relative(ROOT, abs);
+  const prevFile = currentFile;
+  currentFile = relPath;
+
+  if (!fs.existsSync(abs)) {
+    check('file-exists', false, `${arg} not found`, 'check file path', relPath);
+    currentFile = prevFile;
+    return;
+  }
+
+  const docDir = path.dirname(abs);
+  const content = fs.readFileSync(abs, 'utf8');
+  const lines = content.split('\n');
+
+  let inCodeFence = false;
+  let fileCheckCount = 0;
+
+  lines.forEach((lineText, idx) => {
+    const lineNum = idx + 1;
+
+    if (lineText.trim().startsWith('```')) {
+      inCodeFence = !inCodeFence;
+      return;
+    }
+    if (inCodeFence) return;
+
+    // 1) Markdown Links: [label](target)
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g;
+    let m;
+    while ((m = linkRegex.exec(lineText)) !== null) {
+      const target = m[2].trim();
+      if (
+        target.startsWith('http://') ||
+        target.startsWith('https://') ||
+        target.startsWith('mailto:') ||
+        target.startsWith('tel:') ||
+        target.startsWith('#')
+      ) {
+        continue;
+      }
+      const cleanTarget = target.split('#')[0].split('?')[0];
+      if (!cleanTarget) continue;
+
+      fileCheckCount++;
+      const res = resolveDocCandidatePath(cleanTarget, docDir);
+      if (!res.found) {
+        check(
+          'doc:link',
+          false,
+          `Line ${lineNum}: link target "${target}" does not exist on disk`,
+          `Fix link target in ${relPath}:${lineNum}`,
+          relPath
+        );
+      }
+    }
+
+    // 2) Backticks
+    const codeRegex = /`([^`]+)`/g;
+    while ((m = codeRegex.exec(lineText)) !== null) {
+      let rawCode = m[1].trim();
+      if (!rawCode) continue;
+
+      // Strip outer quotes e.g. '/about-us'
+      rawCode = rawCode.replace(
+        /^["'\u2018\u2019\u201c\u201d]+|["'\u2018\u2019\u201c\u201d]+$/g,
+        ''
+      );
+
+      // Check for script invocation command
+      const cmdMatch = rawCode.match(
+        /^(?:node|tsx|python3|python|bash|sh|npx tsx|npx|npm run)\s+([^\s]+)/
+      );
+      if (cmdMatch) {
+        const scriptToken = cmdMatch[1];
+        if (scriptToken.includes('/') || KNOWN_DOC_EXTS.some((ext) => scriptToken.endsWith(ext))) {
+          fileCheckCount++;
+          const res = resolveDocCandidatePath(scriptToken, docDir);
+          if (!res.found) {
+            check(
+              'doc:script-ref',
+              false,
+              `Line ${lineNum}: script command target "${scriptToken}" in \`${m[1]}\` does not exist on disk`,
+              `Update script path in ${relPath}:${lineNum}`,
+              relPath
+            );
+          }
+        }
+        continue;
+      }
+
+      if (
+        rawCode.startsWith('http://') ||
+        rawCode.startsWith('https://') ||
+        rawCode.startsWith('curl ') ||
+        IGNORED_DOC_PACKAGES.has(rawCode)
+      ) {
+        continue;
+      }
+      if (KNOWN_DOC_EXTS.includes(rawCode) || (rawCode.startsWith('.') && rawCode.length <= 5)) {
+        continue;
+      }
+      if (
+        rawCode.startsWith('/api') ||
+        rawCode.startsWith('/.netlify') ||
+        rawCode === '/' ||
+        (rawCode.startsWith('/') && !rawCode.includes('.'))
+      ) {
+        continue;
+      }
+      if (
+        rawCode.includes(' ') &&
+        !rawCode.match(/^[^\s]+\.(?:ts|js|mjs|py|sh|css|astro|md|json)/)
+      ) {
+        continue;
+      }
+
+      let candidate = null;
+      if (
+        rawCode.includes('/') ||
+        KNOWN_DOC_EXTS.some((ext) => rawCode.endsWith(ext) || rawCode.includes(ext + ':')) ||
+        rawCode.startsWith('src/') ||
+        rawCode.startsWith('docs/') ||
+        rawCode.startsWith('knowledge/') ||
+        rawCode.startsWith('astro/') ||
+        rawCode.startsWith('scripts/') ||
+        rawCode.startsWith('netlify/') ||
+        rawCode.startsWith('public/') ||
+        rawCode.startsWith('content/')
+      ) {
+        candidate = rawCode;
+      }
+
+      if (candidate) {
+        fileCheckCount++;
+        const res = resolveDocCandidatePath(candidate, docDir);
+        if (!res.found) {
+          check(
+            'doc:path-ref',
+            false,
+            `Line ${lineNum}: path reference "${candidate}" does not exist on disk`,
+            `Correct file/directory path in ${relPath}:${lineNum}`,
+            relPath
+          );
+        }
+      }
+    }
+  });
+
+  check('doc:valid', true, `verified ${fileCheckCount} path/link reference(s)`, null, relPath);
+  currentFile = prevFile;
+}
+
+function getDocFiles() {
+  const targets = [];
+
+  for (const dirName of ['docs', 'knowledge']) {
+    const absDir = path.join(ROOT, dirName);
+    if (fs.existsSync(absDir)) {
+      walkDir(absDir, (filePath) => {
+        if (path.extname(filePath) === '.md') {
+          targets.push(filePath);
+        }
+      });
+    }
+  }
+
+  for (const rootFile of ['AGENTS.md', 'CONTRIBUTING.md', 'README.md', 'SECURITY.md']) {
+    const absRootFile = path.join(ROOT, rootFile);
+    if (fs.existsSync(absRootFile)) {
+      targets.push(absRootFile);
+    }
+  }
+
+  return targets;
+}
+
+function cmdDocs() {
+  const docTargets = getDocFiles();
+  for (const target of docTargets) {
+    verifyDocFile(target);
+  }
+}
+
 // ---------- CLI dispatch ----------
 const rawArgs = process.argv.slice(2);
 let cmd = rawArgs[0];
@@ -1380,6 +1647,21 @@ if (cmd === 'doctor') {
   }
 } else if (cmd === 'articles') {
   cmdArticles(isStrict);
+} else if (cmd === 'docs') {
+  cmdDocs();
+} else if (cmd === 'doc') {
+  if (fileArgs.length === 0) {
+    check(
+      'doc:args',
+      false,
+      'no doc path provided',
+      'provide path to markdown guide or documentation file'
+    );
+  } else {
+    for (const f of fileArgs) {
+      verifyDocFile(f);
+    }
+  }
 } else if (cmd === 'build') {
   cmdBuild();
 } else if (cmd === 'sitemap') {
@@ -1392,7 +1674,7 @@ if (cmd === 'doctor') {
   cmdSeoGates();
 } else {
   console.log(
-    'usage: node scripts/verify/verify.mjs <doctor|changed [--strict]|article <path...> [--strict]|articles [--strict]|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
+    'usage: node scripts/verify/verify.mjs <doctor|changed [--strict]|article <path...> [--strict]|articles [--strict]|docs|doc <path...>|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
   );
   process.exit(2);
 }
