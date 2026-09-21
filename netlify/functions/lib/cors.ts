@@ -16,13 +16,227 @@ export interface CorsOptions {
   rateLimit?: RateLimitOptions | boolean;
 }
 
-export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = [
-  process.env.SITE_URL || 'https://mailboxplusohio.com',
-  'https://mailboxplusohio.com',
-  /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
-  /localhost(:\d+)?$/,
-  /127\.0\.0\.1(:\d+)?$/,
-];
+export function isDevelopmentEnvironment(): boolean {
+  const netlifyDev = process.env.NETLIFY_DEV?.toLowerCase();
+  const context = process.env.CONTEXT?.toLowerCase();
+  const nodeEnv = process.env.NODE_ENV?.toLowerCase();
+
+  // NETLIFY_DEV='true' explicitly indicates local Netlify dev server execution
+  if (netlifyDev === 'true' || netlifyDev === '1') {
+    return true;
+  }
+
+  // Remote Netlify execution contexts (production, deploy-preview, branch-deploy, staging, etc.) are non-development
+  if (context && context !== 'development') {
+    return false;
+  }
+
+  // NODE_ENV='development' indicates local dev environment
+  if (nodeEnv === 'development') {
+    return true;
+  }
+
+  // Non-development or ambiguous execution contexts default securely to production origin filtering
+  return false;
+}
+
+export function isLoopbackOrigin(origin: string | RegExp): boolean {
+  if (typeof origin === 'string') {
+    try {
+      const url = new URL(
+        origin.startsWith('http://') || origin.startsWith('https://') ? origin : `http://${origin}`
+      );
+      const hostname = url.hostname.toLowerCase();
+      return (
+        hostname === 'localhost' ||
+        hostname === '127.0.0.1' ||
+        hostname === '::1' ||
+        hostname === '0.0.0.0'
+      );
+    } catch {
+      return /localhost|127\.0\.0\.1|\[::1\]/i.test(origin);
+    }
+  }
+  if (origin instanceof RegExp) {
+    return (
+      origin.test('http://localhost') ||
+      origin.test('http://127.0.0.1') ||
+      origin.test('http://[::1]')
+    );
+  }
+  return false;
+}
+
+export function getDefaultAllowedOrigins(): (string | RegExp)[] {
+  const baseOrigins: (string | RegExp)[] = [
+    process.env.SITE_URL || 'https://mailboxplusohio.com',
+    'https://mailboxplusohio.com',
+    /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
+  ];
+
+  if (isDevelopmentEnvironment()) {
+    return [...baseOrigins, /localhost(:\d+)?$/, /127\.0\.0\.1(:\d+)?$/];
+  }
+
+  return baseOrigins.filter((origin) => !isLoopbackOrigin(origin));
+}
+
+let customAdditions: (string | RegExp)[] = [];
+let mutatedStore: (string | RegExp)[] | null = null;
+
+export function resetDefaultAllowedOriginsState(): void {
+  customAdditions = [];
+  mutatedStore = null;
+}
+
+function getCurrentOrigins(): (string | RegExp)[] {
+  if (mutatedStore !== null) {
+    return mutatedStore;
+  }
+  return [...getDefaultAllowedOrigins(), ...customAdditions];
+}
+
+export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (string | RegExp)[], {
+  get(target, prop, receiver) {
+    const currentOrigins = getCurrentOrigins();
+    if (prop === 'length') {
+      return currentOrigins.length;
+    }
+    if (prop === Symbol.iterator) {
+      return currentOrigins[Symbol.iterator].bind(currentOrigins);
+    }
+    if (prop === 'push') {
+      return (...items: (string | RegExp)[]) => {
+        if (mutatedStore !== null) {
+          mutatedStore.push(...items);
+          return mutatedStore.length;
+        }
+        customAdditions.push(...items);
+        return getCurrentOrigins().length;
+      };
+    }
+    if (prop === 'unshift') {
+      return (...items: (string | RegExp)[]) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.unshift(...items);
+      };
+    }
+    if (prop === 'pop') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.pop();
+      };
+    }
+    if (prop === 'shift') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return mutatedStore.shift();
+      };
+    }
+    if (prop === 'splice') {
+      return (start: number, deleteCount?: number, ...items: (string | RegExp)[]) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        return deleteCount !== undefined
+          ? mutatedStore.splice(start, deleteCount, ...items)
+          : mutatedStore.splice(start);
+      };
+    }
+    if (prop === 'sort') {
+      return (compareFn?: (a: string | RegExp, b: string | RegExp) => number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.sort(compareFn);
+        return receiver;
+      };
+    }
+    if (prop === 'reverse') {
+      return () => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.reverse();
+        return receiver;
+      };
+    }
+    if (prop === 'fill') {
+      return (value: string | RegExp, start?: number, end?: number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.fill(value, start, end);
+        return receiver;
+      };
+    }
+    if (prop === 'copyWithin') {
+      return (targetIdx: number, start: number, end?: number) => {
+        if (mutatedStore === null) {
+          mutatedStore = [...getCurrentOrigins()];
+        }
+        mutatedStore.copyWithin(targetIdx, start, end);
+        return receiver;
+      };
+    }
+    const value = Reflect.get(currentOrigins, prop);
+    if (typeof value === 'function') {
+      return value.bind(currentOrigins);
+    }
+    return value;
+  },
+  set(target, prop, value, receiver) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.set(mutatedStore, prop, value);
+  },
+  defineProperty(target, prop, descriptor) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.defineProperty(mutatedStore, prop, descriptor);
+  },
+  deleteProperty(target, prop) {
+    if (mutatedStore === null) {
+      mutatedStore = [...getCurrentOrigins()];
+    }
+    return Reflect.deleteProperty(mutatedStore, prop);
+  },
+  has(target, prop) {
+    const currentOrigins = getCurrentOrigins();
+    return Reflect.has(currentOrigins, prop);
+  },
+  ownKeys(target) {
+    const currentOrigins = getCurrentOrigins();
+    return Reflect.ownKeys(currentOrigins);
+  },
+  getOwnPropertyDescriptor(target, prop) {
+    const currentOrigins = getCurrentOrigins();
+    if (prop === 'length') {
+      return {
+        value: currentOrigins.length,
+        writable: true,
+        enumerable: false,
+        configurable: false,
+      };
+    }
+    const descriptor = Reflect.getOwnPropertyDescriptor(currentOrigins, prop);
+    if (descriptor) {
+      return {
+        ...descriptor,
+        configurable: true,
+      };
+    }
+    return undefined;
+  },
+});
 
 function hasHeader(headers: Record<string, any>, name: string): boolean {
   const lowerName = name.toLowerCase();

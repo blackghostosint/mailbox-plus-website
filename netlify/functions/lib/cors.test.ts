@@ -1,5 +1,13 @@
-import { describe, it, expect, vi } from 'vitest';
-import { withCors, jsonResponse, DEFAULT_CORS_HEADERS, DEFAULT_ALLOWED_ORIGINS } from './cors';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import {
+  withCors,
+  jsonResponse,
+  DEFAULT_CORS_HEADERS,
+  DEFAULT_ALLOWED_ORIGINS,
+  isDevelopmentEnvironment,
+  getDefaultAllowedOrigins,
+  resetDefaultAllowedOriginsState,
+} from './cors';
 
 describe('CORS Middleware Utility', () => {
   describe('withCors (Web Standard Handler)', () => {
@@ -144,6 +152,248 @@ describe('CORS Middleware Utility', () => {
       expect(res3.headers.get('X-RateLimit-Limit')).toBe('2');
       const body = await res3.json();
       expect(body).toEqual({ error: 'Too many requests. Please try again later.' });
+    });
+  });
+
+  describe('Dynamic Environment Origin Filtering', () => {
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      resetDefaultAllowedOriginsState();
+      delete process.env.NETLIFY_DEV;
+      delete process.env.CONTEXT;
+      delete process.env.NODE_ENV;
+    });
+
+    afterEach(() => {
+      process.env = { ...originalEnv };
+    });
+
+    it('rejects localhost and 127.0.0.1 origins when CONTEXT=production or NODE_ENV=production, even if SITE_URL is configured as http://localhost:8888', async () => {
+      process.env.CONTEXT = 'production';
+      process.env.NODE_ENV = 'production';
+      process.env.SITE_URL = 'http://localhost:8888';
+
+      expect(isDevelopmentEnvironment()).toBe(false);
+      expect(
+        getDefaultAllowedOrigins().some((pattern) =>
+          typeof pattern === 'string'
+            ? pattern.includes('localhost') || pattern.includes('127.0.0.1')
+            : pattern.test('http://localhost:3000')
+        )
+      ).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:8888' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+
+      const reqLoopback = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://127.0.0.1:8080' },
+      });
+      const resLoopback = await wrapped(reqLoopback, {});
+      expect(resLoopback.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+    });
+
+    it('rejects localhost and 127.0.0.1 origins in deploy-preview and staging contexts', async () => {
+      process.env.CONTEXT = 'deploy-preview';
+
+      expect(isDevelopmentEnvironment()).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:4321' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+    });
+
+    it('allows localhost and 127.0.0.1 origins when NETLIFY_DEV=true', async () => {
+      process.env.NETLIFY_DEV = 'true';
+
+      expect(isDevelopmentEnvironment()).toBe(true);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:3000' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:3000');
+
+      const reqLoopback = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://127.0.0.1:8080' },
+      });
+      const resLoopback = await wrapped(reqLoopback, {});
+      expect(resLoopback.headers.get('Access-Control-Allow-Origin')).toBe('http://127.0.0.1:8080');
+    });
+
+    it('allows localhost and 127.0.0.1 origins when NODE_ENV=development', async () => {
+      process.env.NODE_ENV = 'development';
+
+      expect(isDevelopmentEnvironment()).toBe(true);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:5173' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:5173');
+    });
+
+    it('defaults securely to production origin filtering when environment variables are unset or ambiguous', async () => {
+      expect(isDevelopmentEnvironment()).toBe(false);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const reqLocalhost = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'http://localhost:3000' },
+      });
+      const resLocalhost = await wrapped(reqLocalhost, {});
+      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
+    });
+  });
+
+  describe('Proxy Array Signature & Downstream Introspection Compatibility', () => {
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      resetDefaultAllowedOriginsState();
+      delete process.env.NETLIFY_DEV;
+      delete process.env.CONTEXT;
+      delete process.env.NODE_ENV;
+    });
+
+    afterEach(() => {
+      process.env = { ...originalEnv };
+    });
+
+    it('supports Object.keys without throwing TypeError and returns array index keys', () => {
+      expect(() => Object.keys(DEFAULT_ALLOWED_ORIGINS)).not.toThrow();
+      const keys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      const expectedKeys = getDefaultAllowedOrigins().map((_, i) => String(i));
+      expect(keys).toEqual(expectedKeys);
+    });
+
+    it('supports array spread operator [...DEFAULT_ALLOWED_ORIGINS]', () => {
+      const spreadArray = [...DEFAULT_ALLOWED_ORIGINS];
+      expect(spreadArray).toEqual(getDefaultAllowedOrigins());
+    });
+
+    it('supports Object.values and Object.entries', () => {
+      const values = Object.values(DEFAULT_ALLOWED_ORIGINS);
+      expect(values).toEqual(getDefaultAllowedOrigins());
+
+      const entries = Object.entries(DEFAULT_ALLOWED_ORIGINS);
+      expect(entries).toEqual(getDefaultAllowedOrigins().map((val, idx) => [String(idx), val]));
+    });
+
+    it('provides correct property descriptors for length and index properties', () => {
+      const descriptors = Object.getOwnPropertyDescriptors(DEFAULT_ALLOWED_ORIGINS);
+      expect(descriptors.length).toBeDefined();
+      expect(descriptors.length.configurable).toBe(false);
+      expect(descriptors.length.enumerable).toBe(false);
+      expect(descriptors.length.writable).toBe(true);
+      expect(descriptors.length.value).toBe(getDefaultAllowedOrigins().length);
+
+      expect(descriptors['0']).toBeDefined();
+      expect(descriptors['0'].configurable).toBe(true);
+      expect(descriptors['0'].enumerable).toBe(true);
+    });
+
+    it('identifies as an array via Array.isArray and supports JSON serialization', () => {
+      expect(Array.isArray(DEFAULT_ALLOWED_ORIGINS)).toBe(true);
+      expect(() => JSON.stringify(DEFAULT_ALLOWED_ORIGINS)).not.toThrow();
+    });
+
+    it('supports standard Array prototype methods (.slice, .concat, .map, .filter, .reduce)', () => {
+      expect(DEFAULT_ALLOWED_ORIGINS.slice()).toEqual(getDefaultAllowedOrigins());
+      expect(DEFAULT_ALLOWED_ORIGINS.concat(['https://extra.com'])).toEqual([
+        ...getDefaultAllowedOrigins(),
+        'https://extra.com',
+      ]);
+      const mapped = DEFAULT_ALLOWED_ORIGINS.map((item) => typeof item);
+      expect(mapped).toEqual(getDefaultAllowedOrigins().map((item) => typeof item));
+      const filtered = DEFAULT_ALLOWED_ORIGINS.filter((item) => typeof item === 'string');
+      expect(filtered).toEqual(
+        getDefaultAllowedOrigins().filter((item) => typeof item === 'string')
+      );
+    });
+
+    it('dynamically reflects environment context changes across introspection calls', () => {
+      process.env.CONTEXT = 'production';
+      const prodOrigins = [...DEFAULT_ALLOWED_ORIGINS];
+      const prodKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      expect(prodOrigins.length).toBe(3);
+      expect(prodKeys).toEqual(['0', '1', '2']);
+
+      process.env.NETLIFY_DEV = 'true';
+      const devOrigins = [...DEFAULT_ALLOWED_ORIGINS];
+      const devKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
+      expect(devOrigins.length).toBe(5);
+      expect(devKeys).toEqual(['0', '1', '2', '3', '4']);
+    });
+
+    it('preserves mutable-array semantics when mutators like .push(), [i]=val, .unshift(), .splice(), .pop() are called', () => {
+      const initialLen = DEFAULT_ALLOWED_ORIGINS.length;
+
+      // Test .push()
+      const newLen = DEFAULT_ALLOWED_ORIGINS.push('https://pushed-origin.com');
+      expect(newLen).toBe(initialLen + 1);
+      expect(DEFAULT_ALLOWED_ORIGINS.length).toBe(initialLen + 1);
+      expect(DEFAULT_ALLOWED_ORIGINS[initialLen]).toBe('https://pushed-origin.com');
+      expect([...DEFAULT_ALLOWED_ORIGINS]).toContain('https://pushed-origin.com');
+
+      // Test direct index assignment
+      DEFAULT_ALLOWED_ORIGINS[0] = 'https://custom-override.com';
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://custom-override.com');
+
+      // Test .unshift()
+      DEFAULT_ALLOWED_ORIGINS.unshift('https://prepended-origin.com');
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://prepended-origin.com');
+
+      // Test .splice()
+      const removed = DEFAULT_ALLOWED_ORIGINS.splice(0, 1);
+      expect(removed).toEqual(['https://prepended-origin.com']);
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://custom-override.com');
+
+      // Test Object.defineProperty
+      Object.defineProperty(DEFAULT_ALLOWED_ORIGINS, '0', {
+        value: 'https://defined-property.com',
+        writable: true,
+        enumerable: true,
+        configurable: true,
+      });
+      expect(DEFAULT_ALLOWED_ORIGINS[0]).toBe('https://defined-property.com');
+
+      // Test .pop()
+      const popped = DEFAULT_ALLOWED_ORIGINS.pop();
+      expect(popped).toBe('https://pushed-origin.com');
     });
   });
 });
