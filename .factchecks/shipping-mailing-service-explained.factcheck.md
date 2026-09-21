@@ -2,23 +2,23 @@
 
 Date: 2026-09-21 | Category: pack-ship | Type: guide
 
-| # | Claim | Verdict | Source URL |
-| --- | --- | --- | --- |
-| 1 | First-Class letter stamp $0.82 (1 oz, standard envelope) | ✅ | https://www.usps.com/business/prices.htm |
-| 2 | USPS Ground Advantage retail from $7.90 | ✅ | https://www.usps.com/business/prices.htm |
-| 3 | Priority Mail retail from $11.00 | ✅ | https://www.usps.com/business/prices.htm |
-| 4 | Priority Mail Flat Rate Envelope retail $12.90, commercial $11.12 | ✅ | https://www.usps.com/business/prices.htm |
-| 5 | Priority Mail Express retail from $35.65 | ✅ | https://www.usps.com/business/prices.htm |
-| 6 | USPS Certified Mail service fee $5.55 (rates effective July 12, 2026) | ✅ | https://www.simplecertifiedmail.com/usps-postal-rates/ (per USPS Notice 123 rate change) |
-| 7 | Return Receipt Electronic $2.91 | ✅ | https://www.simplecertifiedmail.com/usps-postal-rates/ |
-| 8 | UPS/FedEx prices quoted by weight/zone/service, not a posted flat list | ✅ (framed as process description, no figure) | https://www.ups.com/ship/estimate, https://www.fedex.com/ratefinder/ |
-| 9 | Online/commercial rates usually lower than retail counter | ✅ | https://www.usps.com/business/prices.htm ("get lower Commercial Rates… with Click-N-Ship") |
-| 10 | USPS Ground Advantage vs Priority Mail price comparison is weight/size/zone dependent | ✅ (framed as "depends", no figure) | https://pe.usps.com/text/dmm300/Notice123.htm |
-| 11 | Store address 7554 Fredle Drive, Concord Township, OH 44077 | ✅ | astro/src/config/siteConfig.ts (repo) |
-| 12 | Store hours M–F 9–6, Sat 9–2, Sun closed; phone 440-709-1946 | ✅ | astro/src/config/siteConfig.ts (repo) |
-| 13 | Mailbox Plus ships USPS, UPS, FedEx; independent (not carrier-owned) | ✅ | siteConfig.ts description ("FedEx, UPS, USPS shipping"); services pages |
-| 14 | Certified Mail, mailbox rentals, printing/copying, fax, fingerprinting offered | ✅ | siteConfig.ts + repo service pages |
-| 15 | Dimensional weight pricing bills large light boxes by size | ✅ | https://www.ups.com/us/en/support/shipping-support/calculate-time-and-cost/dim-weight.page |
-| 16 | Packaging adequacy determines whether damage claim is honored | ✅ | https://www.ups.com/us/en/support/shipping-support/claims-support/claim-how-to.page (shipper responsibility for adequate packing) |
+| #   | Claim                                                                                 | Verdict                                       | Source URL                                                                                                                        |
+| --- | ------------------------------------------------------------------------------------- | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | First-Class letter stamp $0.82 (1 oz, standard envelope)                              | ✅                                            | https://www.usps.com/business/prices.htm                                                                                          |
+| 2   | USPS Ground Advantage retail from $7.90                                               | ✅                                            | https://www.usps.com/business/prices.htm                                                                                          |
+| 3   | Priority Mail retail from $11.00                                                      | ✅                                            | https://www.usps.com/business/prices.htm                                                                                          |
+| 4   | Priority Mail Flat Rate Envelope retail $12.90, commercial $11.12                     | ✅                                            | https://www.usps.com/business/prices.htm                                                                                          |
+| 5   | Priority Mail Express retail from $35.65                                              | ✅                                            | https://www.usps.com/business/prices.htm                                                                                          |
+| 6   | USPS Certified Mail service fee $5.55 (rates effective July 12, 2026)                 | ✅                                            | https://www.simplecertifiedmail.com/usps-postal-rates/ (per USPS Notice 123 rate change)                                          |
+| 7   | Return Receipt Electronic $2.91                                                       | ✅                                            | https://www.simplecertifiedmail.com/usps-postal-rates/                                                                            |
+| 8   | UPS/FedEx prices quoted by weight/zone/service, not a posted flat list                | ✅ (framed as process description, no figure) | https://www.ups.com/ship/estimate, https://www.fedex.com/ratefinder/                                                              |
+| 9   | Online/commercial rates usually lower than retail counter                             | ✅                                            | https://www.usps.com/business/prices.htm ("get lower Commercial Rates… with Click-N-Ship")                                        |
+| 10  | USPS Ground Advantage vs Priority Mail price comparison is weight/size/zone dependent | ✅ (framed as "depends", no figure)           | https://pe.usps.com/text/dmm300/Notice123.htm                                                                                     |
+| 11  | Store address 7554 Fredle Drive, Concord Township, OH 44077                           | ✅                                            | astro/src/config/siteConfig.ts (repo)                                                                                             |
+| 12  | Store hours M–F 9–6, Sat 9–2, Sun closed; phone 440-709-1946                          | ✅                                            | astro/src/config/siteConfig.ts (repo)                                                                                             |
+| 13  | Mailbox Plus ships USPS, UPS, FedEx; independent (not carrier-owned)                  | ✅                                            | siteConfig.ts description ("FedEx, UPS, USPS shipping"); services pages                                                           |
+| 14  | Certified Mail, mailbox rentals, printing/copying, fax, fingerprinting offered        | ✅                                            | siteConfig.ts + repo service pages                                                                                                |
+| 15  | Dimensional weight pricing bills large light boxes by size                            | ✅                                            | https://www.ups.com/us/en/support/shipping-support/calculate-time-and-cost/dim-weight.page                                        |
+| 16  | Packaging adequacy determines whether damage claim is honored                         | ✅                                            | https://www.ups.com/us/en/support/shipping-support/claims-support/claim-how-to.page (shipper responsibility for adequate packing) |
 
 Notes: No invented drive times or distances (article mentions none). No specific competitor pricing claimed beyond USPS published retail. Certiﬁed Mail figures cited to USPS July 12, 2026 rate change as reported by SimpleCertifiedMail (authorized USPS EVS provider); softened in body as "as of the July 2026 rate change."
