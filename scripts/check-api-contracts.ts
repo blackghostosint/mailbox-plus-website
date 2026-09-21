@@ -48,6 +48,59 @@ async function checkApiContracts() {
 
   // Set safe dummy env vars for contract verification if not provided
   process.env.STRIPE_SECRET_KEY = process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key';
+  process.env.GOOGLE_PLACES_API_KEY =
+    process.env.GOOGLE_PLACES_API_KEY || 'dummy_google_places_api_key';
+  process.env.RECAPTCHA_SECRET_KEY =
+    process.env.RECAPTCHA_SECRET_KEY || 'dummy_recaptcha_secret_key';
+  process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || 'dummy_resend_api_key';
+
+  // Intercept global fetch to guarantee deterministic, offline execution with zero external network traffic
+  globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
+    const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+
+    // Mock Google Places API
+    if (url.includes('places.googleapis.com')) {
+      return new Response(
+        JSON.stringify({
+          rating: 4.9,
+          userRatingCount: 128,
+          reviews: [
+            {
+              authorAttribution: {
+                displayName: 'Jane Doe',
+                uri: 'https://maps.google.com/user/123',
+              },
+              rating: 5,
+              text: { text: 'Great shipping and packing store!' },
+              relativePublishTimeDescription: '2 weeks ago',
+              publishTime: '2026-08-15T12:00:00Z',
+            },
+          ],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } }
+      );
+    }
+
+    // Mock Google reCAPTCHA Verification API
+    if (url.includes('recaptcha/api/siteverify')) {
+      return new Response(JSON.stringify({ success: true, score: 0.9 }), {
+        status: 200,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Mock Netlify Blobs API requests
+    if (url.includes('api.netlify.com') || url.includes('blobs')) {
+      return new Response(JSON.stringify({}), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    throw new Error(
+      `Unexpected external network request during offline contract verification: ${url}`
+    );
+  }) as typeof fetch;
 
   const requiredFunctions = [
     { file: 'health.ts', endpoint: '/.netlify/functions/health' },
@@ -273,13 +326,30 @@ async function checkApiContracts() {
         const getReq = new Request('http://localhost/api/reviews', { method: 'GET' });
         const getRes: Response = await handler(getReq);
 
-        // Without GOOGLE_PLACES_API_KEY / blobs, returns either 200 (if cached) or 502 (if fetch fails & no cache)
-        if (getRes.status !== 200 && getRes.status !== 502) {
+        if (getRes.status !== 200) {
           addViolation(
             relPath,
             fn.endpoint,
             'Status Code (GET)',
-            `Expected status 200 or 502, got ${getRes.status}.`
+            `Expected status 200, got ${getRes.status}.`
+          );
+        }
+
+        const json = await getRes
+          .clone()
+          .json()
+          .catch(() => null);
+        if (
+          !json ||
+          typeof json.rating !== 'number' ||
+          typeof json.userRatingCount !== 'number' ||
+          !Array.isArray(json.reviews)
+        ) {
+          addViolation(
+            relPath,
+            fn.endpoint,
+            'Response Schema',
+            'Reviews response missing rating, userRatingCount, or reviews array.'
           );
         }
 
