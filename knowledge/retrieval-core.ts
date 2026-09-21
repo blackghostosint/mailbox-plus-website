@@ -11,6 +11,7 @@
 // ========================================
 
 export const EMBEDDING_MODEL = 'text-embedding-004';
+export const EMBEDDING_DIMENSION = 768;
 export const MODEL_NAME = EMBEDDING_MODEL;
 export const MINIMUM_SIMILARITY = 0.78;
 export const MAX_QUESTION_LENGTH = 500;
@@ -58,6 +59,103 @@ export interface RetrievalResult {
   effectiveMin?: number;
   gap?: number;
   refusalReason?: string;
+}
+
+export interface SnapshotValidationResult {
+  valid: boolean;
+  errors: string[];
+  vectors: Record<string, number[]>;
+}
+
+/**
+ * Validates a single vector embedding: must be an array of exactly EMBEDDING_DIMENSION (768) finite numbers.
+ */
+export function validateVector(
+  vector: unknown,
+  key: string,
+  fileContext?: string
+): { valid: boolean; error?: string } {
+  const ctx = fileContext ? ` in ${fileContext}` : '';
+  if (!Array.isArray(vector)) {
+    return {
+      valid: false,
+      error: `Invalid vector for key "${key}"${ctx}: expected Array, got ${typeof vector}`,
+    };
+  }
+  if (vector.length !== EMBEDDING_DIMENSION) {
+    return {
+      valid: false,
+      error: `Invalid vector dimension for key "${key}"${ctx}: expected ${EMBEDDING_DIMENSION}, got ${vector.length}`,
+    };
+  }
+  for (let i = 0; i < vector.length; i++) {
+    const val = vector[i];
+    if (typeof val !== 'number' || !Number.isFinite(val)) {
+      const displayVal = typeof val === 'string' ? `"${val}"` : String(val);
+      return {
+        valid: false,
+        error: `Invalid vector element for key "${key}" at index ${i}${ctx}: expected finite number, got ${displayVal}`,
+      };
+    }
+  }
+  return { valid: true };
+}
+
+/**
+ * Validates snapshot JSON structure, metadata model, and every vector embedding.
+ */
+export function validateEmbeddingSnapshot(
+  parsed: unknown,
+  fileContext?: string
+): SnapshotValidationResult {
+  const errors: string[] = [];
+  const ctx = fileContext || 'embedding snapshot';
+
+  if (!parsed || typeof parsed !== 'object') {
+    return {
+      valid: false,
+      errors: [`Invalid snapshot JSON structure in ${ctx}: expected object`],
+      vectors: {},
+    };
+  }
+
+  const obj = parsed as Record<string, any>;
+
+  if (obj.metadata !== undefined) {
+    if (!obj.metadata || typeof obj.metadata !== 'object') {
+      errors.push(`Invalid metadata in ${ctx}: expected object`);
+    } else if (obj.metadata.model !== EMBEDDING_MODEL) {
+      errors.push(
+        `Invalid embedding model in ${ctx}: expected "${EMBEDDING_MODEL}", got "${obj.metadata.model}"`
+      );
+    }
+  } else if ('embeddings' in obj) {
+    errors.push(`Missing metadata in ${ctx}: expected metadata.model === "${EMBEDDING_MODEL}"`);
+  }
+
+  const rawVectors = obj.embeddings || ('metadata' in obj ? {} : obj);
+  if (!rawVectors || typeof rawVectors !== 'object') {
+    errors.push(`Invalid embeddings container in ${ctx}: expected object`);
+    return { valid: false, errors, vectors: {} };
+  }
+
+  const validatedVectors: Record<string, number[]> = {};
+
+  for (const [key, val] of Object.entries(rawVectors)) {
+    if (key === 'metadata') continue;
+    const check = validateVector(val, key, ctx);
+    if (!check.valid && check.error) {
+      errors.push(check.error);
+    } else if (check.valid) {
+      validatedVectors[key] = val as number[];
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    vectors: validatedVectors,
+  };
 }
 
 // ========================================
