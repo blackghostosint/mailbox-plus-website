@@ -9,7 +9,7 @@
     "build": "cd astro && npm run build",
     "preview": "cd astro && npm run preview",
     "check": "npm run typecheck",
-    "typecheck": "cd astro && npm run check && cd .. && tsc --noEmit --project netlify/functions/tsconfig.json && tsc --noEmit --project tsconfig.json",
+    "typecheck": "cd astro && npm run check && cd .. && npx tsc --noEmit --project netlify/functions/tsconfig.json && npx tsc --noEmit --project tsconfig.json",
     "test": "cd astro && npm test",
     "test:watch": "cd astro && npm run test:watch",
     "test:e2e": "playwright test",
