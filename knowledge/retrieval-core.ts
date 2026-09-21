@@ -133,9 +133,21 @@ export function validateEmbeddingSnapshot(
     errors.push(`Missing metadata in ${ctx}: expected metadata.model === "${EMBEDDING_MODEL}"`);
   }
 
-  const rawVectors = obj.embeddings || ('metadata' in obj ? {} : obj);
-  if (!rawVectors || typeof rawVectors !== 'object') {
-    errors.push(`Invalid embeddings container in ${ctx}: expected object`);
+  if (
+    typeof obj.embeddings !== 'object' ||
+    obj.embeddings === null ||
+    Array.isArray(obj.embeddings)
+  ) {
+    errors.push(
+      `Invalid embeddings container in ${ctx}: expected a non-empty object record keyed by document id`
+    );
+    return { valid: false, errors, vectors: {} };
+  }
+  const rawVectors = obj.embeddings;
+  if (Object.keys(rawVectors).length === 0) {
+    errors.push(
+      `Invalid embeddings container in ${ctx}: expected a non-empty object record keyed by document id`
+    );
     return { valid: false, errors, vectors: {} };
   }
 

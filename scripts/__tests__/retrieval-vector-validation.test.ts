@@ -113,6 +113,22 @@ describe('Retrieval Vector Validation & Snapshot Gate', () => {
       expect(Object.keys(result.vectors).length).toBe(2);
     });
 
+    const invalidEmbeddingsCases: Array<[string, unknown]> = [
+      ['missing embeddings', { metadata: { model: EMBEDDING_MODEL } }],
+      ['null embeddings', { metadata: { model: EMBEDDING_MODEL }, embeddings: null }],
+      ['array embeddings', { metadata: { model: EMBEDDING_MODEL }, embeddings: [1, 2, 3] }],
+      ['empty embeddings', { metadata: { model: EMBEDDING_MODEL }, embeddings: {} }],
+    ];
+
+    for (const [label, snapshot] of invalidEmbeddingsCases) {
+      it(`rejects snapshot with ${label}`, () => {
+        const result = validateEmbeddingSnapshot(snapshot, 'test-file.json');
+        expect(result.valid).toBe(false);
+        expect(result.errors.join(' ')).toMatch(/Invalid embeddings container/);
+        expect(result.vectors).toEqual({});
+      });
+    }
+
     it('fails closed when snapshot metadata model is incorrect', () => {
       const wrongModelSnapshot = {
         metadata: {
