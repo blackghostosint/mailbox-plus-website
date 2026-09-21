@@ -71,7 +71,9 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   const baseOrigins: (string | RegExp)[] = [
     process.env.SITE_URL || 'https://mailboxplusohio.com',
     'https://mailboxplusohio.com',
-    /[.-]?mailboxplus[a-z0-9-]*\.netlify\.app$/,
+    'https://mailboxplus.netlify.app',
+    'https://mailboxplusohio.netlify.app',
+    /^https:\/\/deploy-preview-\d+--mailboxplus(?:ohio)?\.netlify\.app$/,
   ];
 
   if (isDevelopmentEnvironment()) {

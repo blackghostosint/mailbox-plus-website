@@ -116,14 +116,46 @@ describe('CORS Middleware Utility', () => {
         'https://deploy-preview-513--mailboxplus.netlify.app'
       );
 
-      const reqDisallowed = new Request('https://example.com/api/test', {
+      // Official Netlify production subdomains are explicitly allowlisted
+      const reqOfficialNetlify = new Request('https://example.com/api/test', {
         method: 'POST',
-        headers: { origin: 'https://malicious-site.com' },
+        headers: { origin: 'https://mailboxplus.netlify.app' },
       });
-      const resDisallowed = await wrapped(reqDisallowed, {});
-      expect(resDisallowed.headers.get('Access-Control-Allow-Origin')).toBe(
-        'https://mailboxplusohio.com'
+      const resOfficialNetlify = await wrapped(reqOfficialNetlify, {});
+      expect(resOfficialNetlify.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplus.netlify.app'
       );
+
+      const reqOfficialNetlifyOhio = new Request('https://example.com/api/test', {
+        method: 'POST',
+        headers: { origin: 'https://mailboxplusohio.netlify.app' },
+      });
+      const resOfficialNetlifyOhio = await wrapped(reqOfficialNetlifyOhio, {});
+      expect(resOfficialNetlifyOhio.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.netlify.app'
+      );
+
+      // Malicious or unanchored subdomains must NOT receive reflected headers
+      const maliciousOrigins = [
+        'https://evil--mailboxplus.netlify.app',
+        'https://evil--mailboxplusohio.netlify.app',
+        'https://mailboxplus-attacker.netlify.app',
+        'https://attacker-mailboxplus.netlify.app',
+        'http://mailboxplus.netlify.app',
+        'http://deploy-preview-12--mailboxplus.netlify.app',
+        'https://mailboxplus.netlify.app.attacker.com',
+      ];
+
+      for (const origin of maliciousOrigins) {
+        const reqDisallowed = new Request('https://example.com/api/test', {
+          method: 'POST',
+          headers: { origin },
+        });
+        const resDisallowed = await wrapped(reqDisallowed, {});
+        expect(resDisallowed.headers.get('Access-Control-Allow-Origin')).toBe(
+          'https://mailboxplusohio.com'
+        );
+      }
     });
 
     it('enforces rate limiting in withCors when rateLimit option is configured', async () => {
@@ -350,14 +382,14 @@ describe('CORS Middleware Utility', () => {
       process.env.CONTEXT = 'production';
       const prodOrigins = [...DEFAULT_ALLOWED_ORIGINS];
       const prodKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
-      expect(prodOrigins.length).toBe(3);
-      expect(prodKeys).toEqual(['0', '1', '2']);
+      expect(prodOrigins.length).toBe(5);
+      expect(prodKeys).toEqual(['0', '1', '2', '3', '4']);
 
       process.env.NETLIFY_DEV = 'true';
       const devOrigins = [...DEFAULT_ALLOWED_ORIGINS];
       const devKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
-      expect(devOrigins.length).toBe(5);
-      expect(devKeys).toEqual(['0', '1', '2', '3', '4']);
+      expect(devOrigins.length).toBe(7);
+      expect(devKeys).toEqual(['0', '1', '2', '3', '4', '5', '6']);
     });
 
     it('preserves mutable-array semantics when mutators like .push(), [i]=val, .unshift(), .splice(), .pop() are called', () => {
