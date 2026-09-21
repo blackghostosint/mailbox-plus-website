@@ -163,5 +163,5 @@ export default withCors(
       return jsonError('Failed to create checkout session', 500);
     }
   },
-  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }
+  { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60000 } }
 );
