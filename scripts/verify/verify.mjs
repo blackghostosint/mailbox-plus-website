@@ -399,6 +399,46 @@ function cmdHeadings() {
   for (const [h, c] of top) console.log(`  ${String(c).padStart(4)}  ${h}`);
 }
 
+const EXPECTED_ENV_MANIFEST = [
+  'VITE_R2_PUBLIC_BASE_URL',
+  'VITE_GOOGLE_MAPS_KEY',
+  'VITE_RECAPTCHA_SITE_KEY',
+  'RECAPTCHA_SITE_KEY',
+  'VITE_NETLIFY_CONTEXT',
+  'VITE_SENTRY_DSN',
+  'VITE_SENTRY_ENVIRONMENT',
+  'NETLIFY_SITE_ID',
+  'NETLIFY_AUTH_TOKEN',
+  'GOOGLE_PLACES_API_KEY',
+  'RECAPTCHA_SECRET_KEY',
+  'RECAPTCHA_MIN_SCORE',
+  'RESEND_API_KEY',
+  'CONTACT_EMAIL',
+  'STRIPE_SECRET_KEY',
+  'SITE_URL',
+  'CONTEXT',
+  'GEMINI_API_KEY',
+  'GEMINI_TIMEOUT_SECONDS',
+  'OPENROUTER_API_KEY',
+  'MODEL_API_KEY',
+  'AUDIT_BASE_URL',
+  'BASE_URL',
+  'DIST_DIR',
+  'R2_PUBLIC_BASE',
+  'ARTICLE_DRAFTS_DIR',
+  'HEADING_OVERLAP_MAX',
+];
+
+function extractEnvKeys(content) {
+  const keys = new Set();
+  const re = /^(?:#\s*)?([A-Za-z_][A-Za-z0-9_]*)=/gm;
+  let match;
+  while ((match = re.exec(content)) !== null) {
+    keys.add(match[1]);
+  }
+  return keys;
+}
+
 function cmdDoctor() {
   check(
     'repo-root',
@@ -542,6 +582,57 @@ function cmdDoctor() {
       'netlify.toml not found',
       'ensure netlify.toml exists in repository root'
     );
+  }
+
+  // Environment completeness check (.env / .env.example verification)
+  const envExamplePath = path.join(ROOT, '.env.example');
+  const envPath = path.join(ROOT, '.env');
+
+  if (!fs.existsSync(envExamplePath)) {
+    check(
+      'env:completeness',
+      false,
+      '.env.example missing from repository root',
+      'create .env.example with expected environment variable manifest'
+    );
+  } else {
+    const exampleContent = fs.readFileSync(envExamplePath, 'utf8');
+    const exampleKeys = extractEnvKeys(exampleContent);
+    const missingInExample = EXPECTED_ENV_MANIFEST.filter((k) => !exampleKeys.has(k));
+
+    if (missingInExample.length > 0) {
+      check(
+        'env:completeness',
+        false,
+        `.env.example missing ${missingInExample.length} key(s): ${missingInExample.join(', ')}`,
+        'add missing environment variables to .env.example'
+      );
+    } else if (fs.existsSync(envPath)) {
+      const dotEnvContent = fs.readFileSync(envPath, 'utf8');
+      const dotEnvKeys = extractEnvKeys(dotEnvContent);
+      const missingInDotEnv = EXPECTED_ENV_MANIFEST.filter((k) => !dotEnvKeys.has(k));
+
+      if (missingInDotEnv.length > 0) {
+        check(
+          'env:completeness',
+          false,
+          `.env missing ${missingInDotEnv.length} key(s): ${missingInDotEnv.join(', ')}`,
+          'copy missing variable definitions from .env.example to .env'
+        );
+      } else {
+        check(
+          'env:completeness',
+          true,
+          `.env and .env.example verified complete (${EXPECTED_ENV_MANIFEST.length} keys mapped)`
+        );
+      }
+    } else {
+      check(
+        'env:completeness',
+        true,
+        `.env.example verified complete (${EXPECTED_ENV_MANIFEST.length} keys mapped); .env absent (copy .env.example to .env for local development)`
+      );
+    }
   }
 }
 
