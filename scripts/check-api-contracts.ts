@@ -56,10 +56,21 @@ async function checkApiContracts() {
 
   // Intercept global fetch to guarantee deterministic, offline execution with zero external network traffic
   globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
-    const url = typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+    const urlString =
+      typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+
+    let parsedUrl: URL | null = null;
+    try {
+      parsedUrl = new URL(urlString, 'http://localhost');
+    } catch {
+      // Fallback for relative or invalid URLs
+    }
+
+    const hostname = parsedUrl ? parsedUrl.hostname : '';
+    const pathname = parsedUrl ? parsedUrl.pathname : '';
 
     // Mock Google Places API
-    if (url.includes('places.googleapis.com')) {
+    if (hostname === 'places.googleapis.com') {
       return new Response(
         JSON.stringify({
           rating: 4.9,
@@ -82,7 +93,10 @@ async function checkApiContracts() {
     }
 
     // Mock Google reCAPTCHA Verification API
-    if (url.includes('recaptcha/api/siteverify')) {
+    if (
+      (hostname === 'www.google.com' || hostname === 'google.com') &&
+      pathname === '/recaptcha/api/siteverify'
+    ) {
       return new Response(JSON.stringify({ success: true, score: 0.9 }), {
         status: 200,
         headers: { 'Content-Type': 'application/json' },
@@ -90,7 +104,12 @@ async function checkApiContracts() {
     }
 
     // Mock Netlify Blobs API requests
-    if (url.includes('api.netlify.com') || url.includes('blobs')) {
+    if (
+      hostname === 'api.netlify.com' ||
+      hostname === 'blobs.netlify.com' ||
+      pathname.startsWith('/api/v1/blobs') ||
+      pathname.includes('/blobs/')
+    ) {
       return new Response(JSON.stringify({}), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
@@ -98,7 +117,7 @@ async function checkApiContracts() {
     }
 
     throw new Error(
-      `Unexpected external network request during offline contract verification: ${url}`
+      `Unexpected external network request during offline contract verification: ${urlString}`
     );
   }) as typeof fetch;
 
