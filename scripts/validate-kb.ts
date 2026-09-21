@@ -9,13 +9,13 @@ const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const KB_PATH = path.resolve(ROOT, 'knowledge/kb.entries.json');
 
-export const SourceSchema = z.object({
+export const SourceSchema = z.strictObject({
   type: z.string().min(1, 'Source type is required'),
   url: z.string().url('Source URL must be a valid URL'),
   lastVerified: z.string().min(1, 'Source lastVerified date is required'),
 });
 
-export const ConfidenceSchema = z.object({
+export const ConfidenceSchema = z.strictObject({
   minimumSimilarity: z
     .number()
     .min(0, 'minimumSimilarity must be >= 0')
@@ -23,17 +23,17 @@ export const ConfidenceSchema = z.object({
   requiresExactMatch: z.boolean(),
 });
 
-export const ConstraintsSchema = z.object({
+export const ConstraintsSchema = z.strictObject({
   requiresHuman: z.boolean(),
   disallowedFollowups: z.array(z.string()),
 });
 
-export const EscalationSchema = z.object({
+export const EscalationSchema = z.strictObject({
   enabled: z.boolean(),
   message: z.string(),
 });
 
-export const KBEntrySchema = z.object({
+export const KBEntrySchema = z.strictObject({
   id: z.string().min(1, 'Entry ID is required'),
   intent: z.string().min(1, 'Intent is required'),
   title: z.string().min(1, 'Title is required'),
@@ -49,7 +49,7 @@ export const KBEntrySchema = z.object({
   searchText: z.string().min(1, 'SearchText is required'),
 });
 
-export const KBSchema = z.object({
+export const KBSchema = z.strictObject({
   entries: z.array(KBEntrySchema).min(1, 'Knowledge base must contain at least one entry'),
 });
 
