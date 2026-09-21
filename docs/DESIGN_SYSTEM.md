@@ -149,7 +149,7 @@ text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-
 
 ### CLS Mitigation
 
-DM Sans is self-hosted as a variable font in `/public/fonts/dmsans-regular.woff2`. A fallback `@font-face` in `src/index.css` prevents layout shift:
+DM Sans is self-hosted as a variable font in `public/fonts/dmsans-regular.woff2`. A fallback `@font-face` in `astro/src/styles/global.css` prevents layout shift:
 
 ```css
 @font-face {
@@ -293,7 +293,7 @@ The warm/gold design system intentionally supports SB7 depth layers through visu
 
 ## Token Cleanup Checklist
 
-These CSS tokens exist in `src/index.css` but are remnants of the old blue design system. They are currently aliased to warm equivalents for backward compatibility:
+These CSS tokens exist in `astro/src/styles/global.css` but are remnants of the old blue design system. They are currently aliased to warm equivalents for backward compatibility:
 
 | Token                          | Current state                       | Status                             |
 | ------------------------------ | ----------------------------------- | ---------------------------------- |
@@ -306,9 +306,10 @@ These CSS tokens exist in `src/index.css` but are remnants of the old blue desig
 
 The following docs are superseded by this document and have been archived out of the repo (preserved in git history):
 
-- `docs/plans/design-tokens.md` — mapped the old blue system
-- `docs/plans/phase-5-design-system.md` — implementation plan for the old system
-- `archive/` (directory) — pre-redesign planning documents
-- `STRATEGIC_ROADMAP.md` — aspirational plan, not current direction
-- `AUDIT_REPORT_2026-05-30.md` — month-old audit, out of date
-- `PERFORMANCE_STRATEGY_DRAFT.md` — draft status, not current
+- docs/decisions/legacy-migration-learnings.md — mapped design migration strategy
+- docs/plans/design-tokens.md (archived) — mapped the old blue system
+- docs/plans/phase-5-design-system.md (archived) — implementation plan for the old system
+- archive/ (archived) — pre-redesign planning documents
+- STRATEGIC_ROADMAP.md (archived) — aspirational plan, not current direction
+- AUDIT_REPORT_2026-05-30.md (archived) — month-old audit, out of date
+- PERFORMANCE_STRATEGY_DRAFT.md (archived) — draft status, not current

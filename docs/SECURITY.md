@@ -10,20 +10,20 @@
 
 ### What's already protected ✅
 
-| Control                | Implementation                                 | Location                     |
-| ---------------------- | ---------------------------------------------- | ---------------------------- |
-| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`         |
-| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`            |
-| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`            |
-| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`            |
-| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`            |
-| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`            |
-| Error tracking         | Sentry with PII scrubbing                      | `src/sentry.config.ts`       |
-| Input sanitization     | reCAPTCHA on forms                             | `src/pages/ContactUs.tsx`    |
-| Dependency scanning    | `npm audit` in CI                              | GitHub Actions               |
-| Branch protection      | Required reviews, CI checks                    | GitHub settings              |
-| No PII in logs         | Sentry PII scrubbing                           | `src/sentry.config.ts:38-52` |
-| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`               |
+| Control                | Implementation                                 | Location                           |
+| ---------------------- | ---------------------------------------------- | ---------------------------------- |
+| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`               |
+| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`                  |
+| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`                  |
+| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`                  |
+| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`                  |
+| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`                  |
+| Error tracking         | Sentry with PII scrubbing                      | `astro/src/lib/dom-error.ts`       |
+| Input sanitization     | reCAPTCHA on forms                             | `astro/src/pages/contact-us.astro` |
+| Dependency scanning    | `npm audit` in CI                              | GitHub Actions                     |
+| Branch protection      | Required reviews, CI checks                    | GitHub settings                    |
+| No PII in logs         | Sanitizing logger with PII redaction           | `netlify/functions/lib/logger.ts`  |
+| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`                     |
 
 ### Known gaps ⚠️
 

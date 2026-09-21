@@ -45,7 +45,7 @@ Every PR that adds or modifies a Netlify function (or any API endpoint) must sta
 
 ## 8. Netlify functions are TypeScript only
 
-Every file in `netlify/functions/` must use the `.ts` extension. Plain `.js` functions are not bundled by Netlify's build — their relative imports (e.g. `./lib/recaptcha`, `./lib/db`) fail at runtime with `Runtime.ImportModuleError`, returning 502 to users while CI stays green (CI does not exercise deployed function bundles). This broke the contact form in production on 2026-09-16; do not reintroduce it. When creating a function, write it as `.ts` from the start — never `.js`.
+Every file in `netlify/functions/` must use the `.ts` extension. Plain `.js` functions are not bundled by Netlify's build — their relative imports (e.g. `netlify/functions/lib/recaptcha.ts`) fail at runtime with `Runtime.ImportModuleError`, returning 502 to users while CI stays green (CI does not exercise deployed function bundles). This broke the contact form in production on 2026-09-16; do not reintroduce it. When creating a function, write it as `.ts` from the start — never `.js`.
 
 ## 9. Bots: rebase and check merge state before opening a PR
 

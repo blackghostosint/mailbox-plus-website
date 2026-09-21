@@ -236,17 +236,17 @@ This will:
 
 1. Load all 24 test cases
 2. Execute retrieval logic against `kb.entries.json`
-3. Generate `RETRIEVAL_TEST_REPORT.md` with results
+3. Generate test results report in console output
 4. Exit with code 0 (success) or 1 (failure)
 
 ---
 
 ## Test Report Location
 
-After running tests, view the detailed report at:
+After running tests, view the detailed output in console or generated report at:
 
 ```
-knowledge/RETRIEVAL_TEST_REPORT.md
+knowledge/RETRIEVAL_TEST_SPEC.md
 ```
 
 The report includes:

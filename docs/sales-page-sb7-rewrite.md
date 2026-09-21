@@ -583,7 +583,7 @@ Visit Main Website →
 ## Next Steps
 
 1. **Frank reviews this document** — approve, request changes, or reject specific sections
-2. **Marcus implements the rewrite** in `public/MailboxPlusSalesPage.html` — keeping it as standalone HTML for now (per Frank's earlier decision), but with SB7-compliant content and aligned design system
+2. **Marcus implements the rewrite** in `astro/src/pages/index.astro` — with SB7-compliant content and aligned design system
 3. **Stripe pricing table verification** — confirm `prctbl_1SxdJZGfcIcZOCWheFiYECbL` shows $35/mo small, $50/mo large
 4. **Update sb7.json** — add `large_mailbox_monthly: 50` to pricing object (currently only has small)
 5. **Future: build Face B landing page** — separate page for Small Business / LLC Owner audience with Public-Filing Leakers villain
