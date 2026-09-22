@@ -1,6 +1,9 @@
 # Gitleaks Configuration for Netlify Secret Scanning and CI Security Audits
 title = "Gitleaks secret scanning configuration"
 
+[extend]
+useDefault = true
+
 [allowlist]
 description = "Global allowlist for verified non-secret false positives"
 regexes = [
