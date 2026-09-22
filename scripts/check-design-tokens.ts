@@ -2,8 +2,12 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-const DOCS_PATH = path.join(process.cwd(), 'docs/DESIGN_SYSTEM.md');
-const CSS_PATH = path.join(process.cwd(), 'astro/src/styles/global.css');
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const REPO_ROOT = path.resolve(__dirname, '..');
+
+const DOCS_PATH = path.join(REPO_ROOT, 'docs/DESIGN_SYSTEM.md');
+const CSS_PATH = path.join(REPO_ROOT, 'astro/src/styles/global.css');
 
 export function normalizeValue(value: string): string {
   let normalized = value.trim();
