@@ -67,6 +67,8 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 - Facts in the block follow the same fact-check gate as the body. Never invent a number to satisfy the "concrete" rule.
 - The layout renders it as a styled aside between the featured image and the body — do NOT also add a "Quick Answer" heading in the markdown body.
 
+**FAQ + cluster gates (all new/changed articles, `--strict`):** every article carries a `faqs:` frontmatter array (4–6 genuine customer questions — PAA/voice coverage, renders visibly + FAQPage schema), ≥2 links to other `/articles/{slug}/` pages (topic-cluster authority), and owner attribution (Frank Schwarz, COO — rendered as "Reviewed by" byline + `reviewedBy` Person schema). `dateModified` is automatic: the loader stamps the file's last git-commit date when frontmatter `lastModified` is absent — never hand-set it, just merge prose edits.
+
 ## Hard Gates — in order, before opening the PR
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."

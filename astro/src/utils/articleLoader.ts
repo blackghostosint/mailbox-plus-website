@@ -4,6 +4,7 @@ import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
+import { execSync } from 'node:child_process';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.
@@ -83,6 +84,31 @@ export function parseArticleFrontmatter(
   if (!Array.isArray(data.relatedServices)) fallbackData.relatedServices = [];
   if (!(typeof data.author === 'string' && data.author.trim()))
     fallbackData.author = 'Mailbox Plus';
+
+  // Auto dateModified (freshness signal): frontmatter lastModified wins; otherwise
+  // the file's last git-commit date. Never filesystem mtime — checkout times churn
+  // every deploy. Git exists in CI (Netlify) and locally; failures fall back to
+  // [slug].astro's pubDate fallback.
+  if (typeof data.lastModified !== 'string' || !data.lastModified.trim()) {
+    if (filePath) {
+      try {
+        const baseDir =
+          typeof import.meta !== 'undefined' && import.meta.dirname
+            ? import.meta.dirname
+            : process.cwd();
+        const absolutePath = path.resolve(baseDir, filePath);
+        const relFromRoot = path.relative(path.resolve(baseDir, '../../..'), absolutePath);
+        const gitDate = execSync(`git log -1 --format=%cI -- "${relFromRoot}"`, {
+          cwd: path.resolve(baseDir, '../../..'),
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        }).trim();
+        if (gitDate) fallbackData.lastModified = gitDate;
+      } catch {
+        // No git context — fall back to pubDate downstream
+      }
+    }
+  }
 
   const secondaryParse = articleFrontmatterSchema.passthrough().safeParse(fallbackData);
   if (secondaryParse.success) {
