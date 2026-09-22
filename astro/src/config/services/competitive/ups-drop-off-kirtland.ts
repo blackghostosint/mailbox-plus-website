@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Kirtland',
     serviceName: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
     slug: '/ups-drop-off-kirtland',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-kirtland',
+    canonicalUrl: '/ups-drop-off-kirtland/',
     pageTitle: 'UPS Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
     metaDescription:
       'Need a UPS drop-off near Kirtland, OH? Mailbox Plus is just 4 miles away on Fredle Drive — drop UPS, FedEx, USPS, and DHL.',

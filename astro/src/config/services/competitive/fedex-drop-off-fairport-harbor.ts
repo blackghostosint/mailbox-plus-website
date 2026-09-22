@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Fairport Harbor',
     serviceName: 'FedEx Drop-Off in Fairport Harbor | Mailbox Plus',
     slug: '/fedex-drop-off-fairport-harbor',
-    canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-fairport-harbor',
+    canonicalUrl: '/fedex-drop-off-fairport-harbor/',
     pageTitle: 'FedEx Drop-Off in Fairport Harbor | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx drop-off near Fairport Harbor, OH? Mailbox Plus handles FedEx, UPS, USPS, and DHL — all at one counter.',

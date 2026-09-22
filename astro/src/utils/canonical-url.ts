@@ -1,4 +1,4 @@
-const DEFAULT_DOMAIN = 'https://mailboxplusohio.com';
+import { siteConfig } from '../config/siteConfig';
 
 /**
  * Normalizes a pathname to always start with a leading slash and,
@@ -71,7 +71,7 @@ export function toCanonicalUrl(pathOrUrl: string, origin?: string): string {
     pathOrUrl = '/';
   }
 
-  const baseOrigin = (origin || DEFAULT_DOMAIN).replace(/\/+$/, '');
+  const baseOrigin = (origin || siteConfig.domain).replace(/\/+$/, '');
   const siteHost = new URL(baseOrigin).host;
 
   // 1. Check if it's an external URL

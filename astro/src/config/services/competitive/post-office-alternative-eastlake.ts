@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'Post Office Alternative --- Eastlake',
     slug: '/post-office-alternative-eastlake',
-    canonicalUrl: 'https://mailboxplusohio.com/post-office-alternative-eastlake',
+    canonicalUrl: '/post-office-alternative-eastlake/',
     pageTitle: 'Post Office Alternative in Eastlake, OH | Mailbox Plus',
     metaDescription:
       'Eastlake has no UPS Store or FedEx. Mailbox Plus is your Post Office Alternative with all 4 carriers, just 10 minutes away. Walk-in notary available.',

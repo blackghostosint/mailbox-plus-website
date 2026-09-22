@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Chardon',
     serviceName: 'DHL Drop-Off Near Chardon — Easy Drop | Mailbox Plus',
     slug: '/dhl-drop-off-chardon',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-chardon',
+    canonicalUrl: '/dhl-drop-off-chardon/',
     pageTitle: 'DHL Drop-Off Near Chardon — Easy Drop | Mailbox Plus',
     metaDescription:
       'Looking for a DHL drop-off near Chardon, OH? Mailbox Plus handles DHL Express — just off SR 44 in Concord Township.',

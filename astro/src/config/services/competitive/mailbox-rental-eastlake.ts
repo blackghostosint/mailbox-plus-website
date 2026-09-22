@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'Mailbox Rental in Eastlake — Private Mailbox Near Eastlake, OH | Mailbox Plus',
     slug: '/mailbox-rental-eastlake',
-    canonicalUrl: 'https://mailboxplusohio.com/mailbox-rental-eastlake',
+    canonicalUrl: '/mailbox-rental-eastlake/',
     pageTitle: 'Mailbox Rental in Eastlake — Private Mailbox Near Eastlake, OH | Mailbox Plus',
     metaDescription:
       'Private mailbox rental near Eastlake, OH. Get a real street address, package acceptance from all carriers, and secure mail handling at Mailbox Plus.',

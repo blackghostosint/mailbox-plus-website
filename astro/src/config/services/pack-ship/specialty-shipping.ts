@@ -18,7 +18,7 @@ export const specialtyShippingServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Artwork Shipping',
     slug: '/pack-ship/artwork-shipping',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-ship/artwork-shipping',
+    canonicalUrl: '/pack-ship/artwork-shipping/',
     pageTitle: 'Artwork Shipping in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Professional artwork shipping in Concord Township. Custom crating for paintings, sculptures, and fine art. White-glove handling, insured worldwide delivery.',
@@ -145,7 +145,7 @@ export const specialtyShippingServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Bicycle Shipping',
     slug: '/pack-ship/bicycle-shipping',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-ship/bicycle-shipping',
+    canonicalUrl: '/pack-ship/bicycle-shipping/',
     pageTitle: 'Bicycle Shipping in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Safe bicycle shipping in Concord Township. We pack and ship road bikes, mountain bikes, and e-bikes. Reinforced boxes with frame protection and axle guards.',
@@ -272,7 +272,7 @@ export const specialtyShippingServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Golf Club Shipping',
     slug: '/pack-ship/golf-club-shipping',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-ship/golf-club-shipping',
+    canonicalUrl: '/pack-ship/golf-club-shipping/',
     pageTitle: 'Golf Club Shipping in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Ship your golf clubs from Concord Township. Secure packing for golf bags and sets. Travel light and insured \u2014 your clubs arrive ready to play.',

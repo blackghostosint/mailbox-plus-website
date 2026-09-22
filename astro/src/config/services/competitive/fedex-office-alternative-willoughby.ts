@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'FedEx Office Alternative in Willoughby | Mailbox Plus',
     slug: '/fedex-office-alternative-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/fedex-office-alternative-willoughby',
+    canonicalUrl: '/fedex-office-alternative-willoughby/',
     pageTitle: 'FedEx Office Alternative in Willoughby | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx Office alternative near Willoughby, OH? Mailbox Plus offers FedEx, UPS, USPS, and DHL — plus printing, notary, and mailbox rentals.',

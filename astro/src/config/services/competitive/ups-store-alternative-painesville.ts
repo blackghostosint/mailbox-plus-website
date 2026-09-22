@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Painesville',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-painesville',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-store-alternative-painesville',
+    canonicalUrl: '/ups-store-alternative-painesville/',
     pageTitle: 'UPS Store Alternative in Painesville, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Painesville, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

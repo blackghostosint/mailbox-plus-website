@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     serviceName:
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off in Willoughby — Fast & Easy | Mailbox Plus',
     slug: '/happy-returns-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/happy-returns-willoughby',
+    canonicalUrl: '/happy-returns-willoughby/',
     pageTitle: 'Happy Returns Drop-Off in Willoughby | Mailbox Plus',
     metaDescription:
       'Need a Happy Returns drop-off location near Willoughby, OH? Mailbox Plus accepts Happy Returns, FedEx Easy Returns, and pre-labeled returns for all carriers.',

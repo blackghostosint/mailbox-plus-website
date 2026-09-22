@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'Post Office Alternative --- Willoughby',
     slug: '/post-office-alternative-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/post-office-alternative-willoughby',
+    canonicalUrl: '/post-office-alternative-willoughby/',
     pageTitle: 'Post Office Alternative in Willoughby, OH | Mailbox Plus',
     metaDescription:
       'Skip the Willoughby Post Office line! Mailbox Plus is your Post Office Alternative with USPS, UPS, FedEx, and DHL — plus notary, printing, and mailbox rentals.',

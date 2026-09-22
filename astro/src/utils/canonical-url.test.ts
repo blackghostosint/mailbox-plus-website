@@ -1,3 +1,4 @@
+/* global process */
 import { describe, it, expect } from 'vitest';
 import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from './canonical-url';
 
@@ -60,6 +61,69 @@ describe('toCanonicalUrl', () => {
     expect(toCanonicalUrl('https://mailboxplusohio.com/pack-ship#webpage')).toBe(
       'https://mailboxplusohio.com/pack-ship/#webpage'
     );
+  });
+
+  it('should resolve canonical URL using provided origin in staging/preview environments', () => {
+    expect(
+      toCanonicalUrl('/happy-returns-fairport-harbor', 'https://staging.mailboxplusohio.com')
+    ).toBe('https://staging.mailboxplusohio.com/happy-returns-fairport-harbor/');
+  });
+
+  it('should automatically resolve canonical URL from environment variables without explicit origin argument', () => {
+    const originalSiteUrl = process.env.SITE_URL;
+    const originalDeployPrimeUrl = process.env.DEPLOY_PRIME_URL;
+    const originalUrl = process.env.URL;
+    const originalContext = process.env.CONTEXT;
+
+    try {
+      // 1. Explicit SITE_URL override
+      process.env.SITE_URL = 'https://staging.mailboxplusohio.com';
+      expect(toCanonicalUrl('/happy-returns-fairport-harbor/')).toBe(
+        'https://staging.mailboxplusohio.com/happy-returns-fairport-harbor/'
+      );
+
+      delete process.env.SITE_URL;
+
+      // 2. Production context with generic URL set: mailboxplusohio.com wins
+      process.env.CONTEXT = 'production';
+      process.env.URL = 'https://mailboxplus.netlify.app';
+      expect(toCanonicalUrl('/dhl-drop-off-chardon/')).toBe(
+        'https://mailboxplusohio.com/dhl-drop-off-chardon/'
+      );
+
+      // 3. Default context (unset) with generic URL set: mailboxplusohio.com wins
+      delete process.env.CONTEXT;
+      process.env.URL = 'https://mailboxplus.netlify.app';
+      expect(toCanonicalUrl('/dhl-drop-off-chardon/')).toBe(
+        'https://mailboxplusohio.com/dhl-drop-off-chardon/'
+      );
+
+      // 4. Preview context with DEPLOY_PRIME_URL / URL set
+      process.env.CONTEXT = 'deploy-preview';
+      process.env.DEPLOY_PRIME_URL = 'https://deploy-preview-123--mailboxplus.netlify.app';
+      expect(toCanonicalUrl('/dhl-drop-off-chardon/')).toBe(
+        'https://deploy-preview-123--mailboxplus.netlify.app/dhl-drop-off-chardon/'
+      );
+
+      delete process.env.DEPLOY_PRIME_URL;
+      process.env.URL = 'https://deploy-preview-123--mailboxplus.netlify.app';
+      expect(toCanonicalUrl('/dhl-drop-off-chardon/')).toBe(
+        'https://deploy-preview-123--mailboxplus.netlify.app/dhl-drop-off-chardon/'
+      );
+    } finally {
+      if (originalSiteUrl !== undefined) process.env.SITE_URL = originalSiteUrl;
+      else delete process.env.SITE_URL;
+
+      if (originalDeployPrimeUrl !== undefined)
+        process.env.DEPLOY_PRIME_URL = originalDeployPrimeUrl;
+      else delete process.env.DEPLOY_PRIME_URL;
+
+      if (originalUrl !== undefined) process.env.URL = originalUrl;
+      else delete process.env.URL;
+
+      if (originalContext !== undefined) process.env.CONTEXT = originalContext;
+      else delete process.env.CONTEXT;
+    }
   });
 });
 

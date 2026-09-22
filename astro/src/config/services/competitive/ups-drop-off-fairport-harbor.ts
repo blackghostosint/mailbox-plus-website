@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Fairport Harbor',
     serviceName: 'UPS Drop-Off Near Fairport Harbor — Easy & Fast | Mailbox Plus',
     slug: '/ups-drop-off-fairport-harbor',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-fairport-harbor',
+    canonicalUrl: '/ups-drop-off-fairport-harbor/',
     pageTitle: 'UPS Drop-Off Near Fairport Harbor — Easy & Fast | Mailbox Plus',
     metaDescription:
       'UPS drop-off near Fairport Harbor, OH. Drop your pre-labeled UPS package at Mailbox Plus — also handles FedEx, USPS, and DHL returns.',

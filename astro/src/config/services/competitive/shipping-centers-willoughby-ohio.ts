@@ -10,7 +10,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'Shipping Centers in Willoughby, OH --- 4 Carriers, 1 Counter | Mailbox Plus',
     slug: '/shipping-centers-willoughby-ohio',
-    canonicalUrl: 'https://mailboxplusohio.com/shipping-centers-willoughby-ohio',
+    canonicalUrl: '/shipping-centers-willoughby-ohio/',
     pageTitle: 'Shipping Centers in Willoughby, OH --- 4 Carriers, 1 Counter | Mailbox Plus',
     metaDescription:
       'Tired of waiting in line at shipping centers in Willoughby? Mailbox Plus offers 4 carriers at one counter — fast, locally owned service, just minutes away.',

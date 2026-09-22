@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'FedEx Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     slug: '/fedex-drop-off-madison',
-    canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-madison',
+    canonicalUrl: '/fedex-drop-off-madison/',
     pageTitle: 'FedEx Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     metaDescription:
       'FedEx drop-off near Madison, OH. Mailbox Plus in Concord Township offers authorized FedEx shipping with friendly local service — 18 miles, worth it.',

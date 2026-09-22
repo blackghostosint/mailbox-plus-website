@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Mentor',
     serviceName: 'DHL Drop-Off in Mentor — In & Out Fast | Mailbox Plus',
     slug: '/dhl-drop-off-mentor',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-mentor',
+    canonicalUrl: '/dhl-drop-off-mentor/',
     pageTitle: 'DHL Drop-Off in Mentor — In & Out Fast | Mailbox Plus',
     metaDescription:
       'Looking for a DHL drop-off near Mentor, OH? Drop DHL Express packages at Mailbox Plus — all carriers accepted, no franchise wait.',

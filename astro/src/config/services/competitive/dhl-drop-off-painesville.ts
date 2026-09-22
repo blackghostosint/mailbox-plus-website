@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Painesville',
     serviceName: 'DHL Drop-Off in Painesville — Local & Fast | Mailbox Plus',
     slug: '/dhl-drop-off-painesville',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-painesville',
+    canonicalUrl: '/dhl-drop-off-painesville/',
     pageTitle: 'DHL Drop-Off in Painesville — Local & Fast | Mailbox Plus',
     metaDescription:
       'Need a DHL drop-off near Painesville, OH? Mailbox Plus handles DHL Express — and FedEx, UPS, USPS — all at one counter.',

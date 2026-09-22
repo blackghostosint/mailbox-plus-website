@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'FedEx Drop-Off Near Eastlake — Quick & Easy | Mailbox Plus',
     slug: '/fedex-drop-off-eastlake',
-    canonicalUrl: 'https://mailboxplusohio.com/fedex-drop-off-eastlake',
+    canonicalUrl: '/fedex-drop-off-eastlake/',
     pageTitle: 'FedEx Drop-Off Near Eastlake — Quick & Easy | Mailbox Plus',
     metaDescription:
       'Need a FedEx drop-off near Eastlake, OH? Mailbox Plus in Concord Township is your authorized FedEx ShipCenter — fast, local, reliable.',

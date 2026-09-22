@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     serviceName:
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off Near Fairport Harbor — Easy Returns | Mailbox Plus',
     slug: '/happy-returns-fairport-harbor',
-    canonicalUrl: 'https://mailboxplusohio.com/happy-returns-fairport-harbor',
+    canonicalUrl: '/happy-returns-fairport-harbor/',
     pageTitle: 'Happy Returns Drop-Off in Fairport Harbor | Mailbox Plus',
     metaDescription:
       'Looking for a Happy Returns drop-off near Fairport Harbor, OH? Mailbox Plus handles returns for all carriers at one counter.',
