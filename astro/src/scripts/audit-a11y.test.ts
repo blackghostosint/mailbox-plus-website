@@ -50,6 +50,7 @@ describe('audit-a11y script', () => {
       expect(categorizeRoute('/service-area/concord/')).toBe(CATEGORIES.LOCAL_LANDING);
       expect(categorizeRoute('/privacy/')).toBe(CATEGORIES.UTILITY_LEGAL);
       expect(categorizeRoute('/tracking/')).toBe(CATEGORIES.INTERACTIVE);
+      expect(categorizeRoute('/research/shipping-label-osint/')).toBe(CATEGORIES.INTERACTIVE);
     });
   });
 
@@ -66,6 +67,30 @@ describe('audit-a11y script', () => {
       expect(selected).toContain('/articles/concord-township-shipping-insurance/');
       expect(selected).toContain('/guide/shipping-wine/');
       expect(selected.length).toBe(2);
+    });
+
+    it('mandates full coverage for interactive and utility categories while sampling others', () => {
+      const categorized = {
+        [CATEGORIES.INTERACTIVE]: [
+          '/tracking/',
+          '/ask-mailbox-plus/',
+          '/amazon-counter/',
+          '/research/shipping-label-osint/',
+        ],
+        [CATEGORIES.UTILITY_LEGAL]: ['/contact-us/', '/after-signup/', '/accessibility/'],
+        [CATEGORIES.ARTICLES]: ['/articles/one/', '/articles/two/'],
+      };
+      const selected = selectRepresentativeRoutes(categorized);
+      expect(selected).toContain('/tracking/');
+      expect(selected).toContain('/ask-mailbox-plus/');
+      expect(selected).toContain('/amazon-counter/');
+      expect(selected).toContain('/research/shipping-label-osint/');
+      expect(selected).toContain('/contact-us/');
+      expect(selected).toContain('/after-signup/');
+      expect(selected).toContain('/accessibility/');
+      expect(selected).toContain('/articles/one/');
+      expect(selected).not.toContain('/articles/two/');
+      expect(selected.length).toBe(8);
     });
   });
 
