@@ -140,7 +140,7 @@ export async function checkRateLimit(
   try {
     store = getRateLimitStore(storeName);
     if (store) {
-      const raw = await store.get(key);
+      const raw = await store.get(key, { type: 'text' });
       if (raw) {
         timestamps = JSON.parse(raw);
       }

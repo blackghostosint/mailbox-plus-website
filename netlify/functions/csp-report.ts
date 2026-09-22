@@ -1,10 +1,18 @@
 /**
  * CSP Report Collector Netlify Function
- * Receives Content-Security-Policy violation reports from browsers
- * Logs them for monitoring (in production, forward to Sentry or a logging service)
+ * Endpoint: /.netlify/functions/csp-report
+ *
+ * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
+ * - Auth: Public / Unauthenticated endpoint (no user login or token required).
+ * - Identity & Verification: Receives anonymous browser Content-Security-Policy violation reports.
+ * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
+ *   Enforces sliding-window IP rate limiting via @netlify/blobs (10 requests / 1 min).
+ *
+ * Dependencies (AGENTS.md Rule 2):
+ * - Relies on @netlify/functions for Context types and @types/node for Node.js runtime types.
  */
 
-import type { Context } from 'https://edge.netlify.com/';
+import type { Context } from '@netlify/functions';
 import { withCors, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 
