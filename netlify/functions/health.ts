@@ -14,6 +14,7 @@
 
 import type { Context } from '@netlify/functions';
 import { withCors, jsonResponse, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { HealthSuccessSchema } from './lib/contracts';
 
 export default withCors(
   async (request: Request, context: Context) => {
@@ -46,7 +47,9 @@ export default withCors(
     const responseTime = Date.now() - startTime;
     healthData.responseTime = responseTime;
 
-    return jsonResponse(healthData, {
+    const validatedPayload = HealthSuccessSchema.parse(healthData);
+
+    return jsonResponse(validatedPayload, {
       status: 200,
       headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',

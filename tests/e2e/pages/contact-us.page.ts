@@ -48,7 +48,7 @@ export class ContactUsPage {
     } = {}
   ) {
     const status = options.status ?? 200;
-    const responseBody = options.body ?? { ok: true, message: 'Email sent successfully' };
+    const responseBody = options.body ?? { success: true };
 
     let capturedPayload: Record<string, unknown> | null = null;
 
