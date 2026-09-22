@@ -188,16 +188,8 @@ const storeHours = [
   </section>
 
   <script>
-    import { apiFetch } from '../lib/api-client';
     import { trackPurchase } from '../lib/analytics';
-
-    interface VerifySessionResponse {
-      ok?: boolean;
-      amount?: number;
-      currency?: string;
-      product?: string;
-      tier?: string;
-    }
+    import { verifyCheckoutSession } from '../lib/verify-session';
 
     (() => {
       const params = new URLSearchParams(window.location.search);
@@ -211,7 +203,7 @@ const storeHours = [
         /* ignore storage errors */
       }
 
-      apiFetch<VerifySessionResponse>('/.netlify/functions/verify-session?session_id=' + encodeURIComponent(sessionId))
+      verifyCheckoutSession(sessionId)
         .then((data) => {
           if (!data || !data.ok) return;
           try {
@@ -229,7 +221,7 @@ const storeHours = [
             value,
             currency,
             contentName,
-            tier: data.tier,
+            tier: data.tier ?? undefined,
           });
         })
         .catch((err: unknown) => {
