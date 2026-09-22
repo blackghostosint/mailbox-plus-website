@@ -73,13 +73,9 @@ if (!m)
 const section = body.slice(m.index + m[0].length);
 // stop at the next heading of same-or-higher level
 const next = section.match(/\n#{1,3}\s/);
-// COMPLETE sanitization: strip every angle bracket from body-derived text, so no
-// `<!--` or HTML fragment can survive into any echoed string (CodeQL: no partial
-// comment-stripping — full < > removal is the only accepted barrier).
-const content = (next ? section.slice(0, next.index) : section)
-  .replace(/<!--[\s\S]*?-->/g, '')
-  .replace(/[<>]/g, '')
-  .trim();
+// COMPLETE sanitization: strip every angle bracket from body-derived text in a
+// single pass, so no HTML fragment of any kind can survive into echoed strings.
+const content = (next ? section.slice(0, next.index) : section).replace(/[<>]/g, '').trim();
 
 // sanitize anything we echo: never let PR-supplied text carry HTML into log output.
 // CodeQL taint-tracks body-derived strings, so we never echo them at all — only lengths.
