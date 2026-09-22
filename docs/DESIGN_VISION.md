@@ -218,7 +218,7 @@ Warm-toned skeleton placeholders for content that loads asynchronously (chat wid
 - [ ] Add `--color-accent-warm-light: #b8734d`
 - [ ] Remove `--color-bg-blue-tint`, `--color-bg-cyan-tint`
 - [ ] Remove `--color-border-blue`, add `--color-border-warm: #d4c9b8`
-- [ ] Update `--color-accent-light` to `--color-accent-gold-light: #f7d46a`
+- [x] Update `--color-accent-light` to `--color-accent-gold-light: #f7d46a` _(done via #606; owner-approved 2026-09-21)_
 - [ ] Add DM Sans `@font-face` fallback override
 - [ ] Remove Poppins / Open Sans fallback overrides
 - [ ] Add `@keyframes cta-pulse` and `.animate-cta-pulse` utility
