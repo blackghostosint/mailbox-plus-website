@@ -70,7 +70,9 @@ describe('health function handler', () => {
 
   describe('environment context resolution', () => {
     it('uses globalThis.Netlify.env.get("CONTEXT") when present', async () => {
-      (globalThis as unknown as { Netlify: { env: { get: (key: string) => string | undefined } } }).Netlify = {
+      (
+        globalThis as unknown as { Netlify: { env: { get: (key: string) => string | undefined } } }
+      ).Netlify = {
         env: {
           get: (key: string) => (key === 'CONTEXT' ? 'production' : undefined),
         },
