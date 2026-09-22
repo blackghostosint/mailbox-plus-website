@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'DHL Drop-Off Near Eastlake — No Hassle | Mailbox Plus',
     slug: '/dhl-drop-off-eastlake',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-eastlake',
+    canonicalUrl: '/dhl-drop-off-eastlake',
     pageTitle: 'DHL Drop-Off Near Eastlake — No Hassle | Mailbox Plus',
     metaDescription:
       'DHL drop-off near Eastlake, OH. Bring your pre-labeled DHL package to Mailbox Plus — in and out fast, near SR 2.',

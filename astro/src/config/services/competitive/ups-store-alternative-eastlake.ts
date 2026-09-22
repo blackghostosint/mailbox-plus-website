@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-eastlake',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-store-alternative-eastlake',
+    canonicalUrl: '/ups-store-alternative-eastlake',
     pageTitle: 'UPS Store Alternative in Eastlake, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Eastlake, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

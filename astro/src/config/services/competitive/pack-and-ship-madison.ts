@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',
     slug: '/pack-and-ship-madison',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-and-ship-madison',
+    canonicalUrl: '/pack-and-ship-madison',
     pageTitle: 'Pack & Ship in Madison — Drop Off or Ship From Madison, OH | Mailbox Plus',
     metaDescription:
       'Need pack and ship services near Madison, OH 44057? Mailbox Plus is your authorized FedEx, UPS, USPS, and DHL drop-off and shipping center.',

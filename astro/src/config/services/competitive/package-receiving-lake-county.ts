@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Package Receiving Service in Lake County, OH — Secure Drop-Offs | Mailbox Plus',
     slug: '/package-receiving-lake-county',
-    canonicalUrl: 'https://mailboxplusohio.com/package-receiving-lake-county',
+    canonicalUrl: '/package-receiving-lake-county',
     pageTitle: 'Package Receiving Service in Lake County, OH — Secure Drop-Offs | Mailbox Plus',
     metaDescription:
       'Secure package receiving service serving all of Lake County, OH. Mailbox Plus accepts FedEx, UPS, USPS, and DHL deliveries — keep your packages safe.',

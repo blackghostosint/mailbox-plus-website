@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'DHL Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     slug: '/dhl-drop-off-madison',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-madison',
+    canonicalUrl: '/dhl-drop-off-madison',
     pageTitle: 'DHL Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     metaDescription:
       'Need a DHL drop-off near Madison, OH? Mailbox Plus accepts DHL Express packages — just off I-90, 18 miles from Madison.',

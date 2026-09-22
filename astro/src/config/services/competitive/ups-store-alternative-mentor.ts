@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Mentor',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-mentor',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-store-alternative-mentor',
+    canonicalUrl: '/ups-store-alternative-mentor',
     pageTitle: 'UPS Store Alternative in Mentor, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Mentor, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

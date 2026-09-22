@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Kirtland',
     serviceName: 'Pack & Ship in Kirtland — Drop Off or Ship From Kirtland, OH | Mailbox Plus',
     slug: '/pack-and-ship-kirtland',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-and-ship-kirtland',
+    canonicalUrl: '/pack-and-ship-kirtland',
     pageTitle: 'Pack & Ship in Kirtland — Drop Off or Ship From Kirtland, OH | Mailbox Plus',
     metaDescription:
       'Need pack and ship services near Kirtland, OH? Mailbox Plus is your authorized FedEx, UPS, USPS, and DHL drop-off and shipping center.',

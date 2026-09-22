@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'DHL Drop-Off in Willoughby — Quick & Easy | Mailbox Plus',
     slug: '/dhl-drop-off-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/dhl-drop-off-willoughby',
+    canonicalUrl: '/dhl-drop-off-willoughby',
     pageTitle: 'DHL Drop-Off in Willoughby — Quick & Easy | Mailbox Plus',
     metaDescription:
       'Need a DHL drop-off near Willoughby, OH? Mailbox Plus accepts DHL Express packages — also FedEx, UPS, and USPS at one counter.',

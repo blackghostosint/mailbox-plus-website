@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Chardon',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-chardon',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-store-alternative-chardon',
+    canonicalUrl: '/ups-store-alternative-chardon',
     pageTitle: 'UPS Store Alternative in Chardon, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Chardon, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

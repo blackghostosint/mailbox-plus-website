@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Mentor',
     serviceName: 'UPS Drop-Off in Mentor — Quick & Easy | Mailbox Plus',
     slug: '/ups-drop-off-mentor',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-mentor',
+    canonicalUrl: '/ups-drop-off-mentor',
     pageTitle: 'UPS Drop-Off in Mentor — Quick & Easy | Mailbox Plus',
     metaDescription:
       'Looking for a UPS drop-off near Mentor, OH? Mailbox Plus accepts pre-labeled UPS packages at one counter — also FedEx, USPS, and DHL.',

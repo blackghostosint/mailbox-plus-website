@@ -1,4 +1,6 @@
-const DEFAULT_DOMAIN = 'https://mailboxplusohio.com';
+import { siteConfig } from '../config/siteConfig';
+
+const DEFAULT_DOMAIN = siteConfig.domain;
 
 /**
  * Normalizes a pathname to always start with a leading slash and,

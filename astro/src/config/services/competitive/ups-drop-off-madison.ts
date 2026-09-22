@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'UPS Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     slug: '/ups-drop-off-madison',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-madison',
+    canonicalUrl: '/ups-drop-off-madison',
     pageTitle: 'UPS Drop-Off Near Madison — Worth the Drive | Mailbox Plus',
     metaDescription:
       'Need a UPS drop-off near Madison, OH? Mailbox Plus in Concord Township accepts UPS packages — just off I-90, 18 miles from Madison.',

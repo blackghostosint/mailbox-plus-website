@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     serviceName:
       '<a href="/happy-returns" class="text-[var(--color-primary)] hover:underline">Happy Returns</a> Drop-Off in Mentor — One Stop | Mailbox Plus',
     slug: '/happy-returns-mentor',
-    canonicalUrl: 'https://mailboxplusohio.com/happy-returns-mentor',
+    canonicalUrl: '/happy-returns-mentor',
     pageTitle: 'Happy Returns Drop-Off in Mentor — One Stop | Mailbox Plus',
     metaDescription:
       'Happy Returns drop-off near Mentor, OH. Mailbox Plus handles Happy Returns, FedEx Easy Returns, and all carrier returns at one counter.',

@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'UPS Drop-Off in Willoughby — In & Out Fast | Mailbox Plus',
     slug: '/ups-drop-off-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-drop-off-willoughby',
+    canonicalUrl: '/ups-drop-off-willoughby',
     pageTitle: 'UPS Drop-Off in Willoughby — In & Out Fast | Mailbox Plus',
     metaDescription:
       'Need a UPS drop-off near Willoughby, OH? Drop pre-labeled UPS packages at Mailbox Plus on Fredle Drive — no waiting in franchise lines.',

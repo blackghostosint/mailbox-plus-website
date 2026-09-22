@@ -61,6 +61,12 @@ describe('toCanonicalUrl', () => {
       'https://mailboxplusohio.com/pack-ship/#webpage'
     );
   });
+
+  it('should resolve canonical URL using provided origin in staging/preview environments', () => {
+    expect(
+      toCanonicalUrl('/happy-returns-fairport-harbor', 'https://staging.mailboxplusohio.com')
+    ).toBe('https://staging.mailboxplusohio.com/happy-returns-fairport-harbor/');
+  });
 });
 
 describe('normalizeContentHrefs', () => {

@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/ups-store-alternative-willoughby',
+    canonicalUrl: '/ups-store-alternative-willoughby',
     pageTitle: 'UPS Store Alternative in Willoughby, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Willoughby, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

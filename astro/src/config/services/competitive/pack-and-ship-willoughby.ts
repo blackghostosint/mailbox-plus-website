@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'Pack & Ship in Willoughby — Drop Off or Ship From Willoughby, OH | Mailbox Plus',
     slug: '/pack-and-ship-willoughby',
-    canonicalUrl: 'https://mailboxplusohio.com/pack-and-ship-willoughby',
+    canonicalUrl: '/pack-and-ship-willoughby',
     pageTitle: 'Pack & Ship in Willoughby — Drop Off or Ship From Willoughby, OH | Mailbox Plus',
     metaDescription:
       'Need pack and ship services near Willoughby, OH? Mailbox Plus is your authorized FedEx, UPS, USPS, and DHL drop-off and shipping center.',

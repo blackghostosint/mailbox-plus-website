@@ -10,7 +10,7 @@ export const competePages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Ship a Return With Strict Size or Weight Limits | Mailbox Plus',
     slug: '/ship-a-return-with-strict-size-or-weight-limits',
-    canonicalUrl: 'https://mailboxplusohio.com/ship-a-return-with-strict-size-or-weight-limits',
+    canonicalUrl: '/ship-a-return-with-strict-size-or-weight-limits',
     pageTitle: 'Ship a Return With Strict Size or Weight Limits | Mailbox Plus',
     metaDescription:
       'Shipping a return with strict size or weight limits? We pack it right and ship via the best carrier so your return is accepted the first time, every time.',
