@@ -19,7 +19,6 @@ Notes: no pricing, carrier policy, or legal-statute claims beyond #8. No interna
 - "Most jobs are done same-day" — operational duration claim for in-store service, BANNED by article-claims-gate rule 2; removed 2026-09-22.
 - "while you wait" (description) — same ban; removed 2026-09-22.
 
-
 ## L3 review follow-up (2026-09-22) — 4 blockers addressed
 
 1. **Deploy preview:** re-push on this branch triggers a fresh Netlify deploy; preview URL verified before re-review request.
