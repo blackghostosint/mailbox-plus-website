@@ -1,4 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import handler from '../sendEmail';
+import { verifyRecaptchaToken } from '../lib/recaptcha';
+import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 // Mock dependencies before importing handler
 vi.mock('@netlify/blobs', () => ({
@@ -22,11 +25,9 @@ vi.mock('resend', () => {
   };
 });
 
-import handler from '../sendEmail';
-import { verifyRecaptchaToken } from '../lib/recaptcha';
-
 describe('sendEmail function handler', () => {
   const originalEnv = process.env;
+  let ipCounter = 1;
 
   beforeEach(() => {
     vi.resetModules();
@@ -38,23 +39,52 @@ describe('sendEmail function handler', () => {
     process.env = originalEnv;
   });
 
+  it('handles OPTIONS preflight request and returns status 204 with CORS headers', async () => {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
+      method: 'OPTIONS',
+      headers: {
+        Origin: 'https://mailboxplusohio.com',
+      },
+    });
+    const ctx = createMockNetlifyContext();
+
+    const res = await handler(req, ctx);
+    expect(res.status).toBe(204);
+    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+    expect(res.headers.get('Access-Control-Allow-Methods')).toBeTruthy();
+    expect(res.headers.get('Access-Control-Allow-Headers')).toBeTruthy();
+  });
+
+  it('returns status 405 for non-POST HTTP methods', async () => {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
+      method: 'GET',
+      clientIp: `10.0.0.${ipCounter++}`,
+    });
+    const ctx = createMockNetlifyContext();
+
+    const res = await handler(req, ctx);
+    expect(res.status).toBe(405);
+    expect(await res.json()).toEqual({ error: 'Method not allowed' });
+  });
+
   it('returns 400 if reCAPTCHA verification fails', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(false);
 
-    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.1',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: {
         name: 'John Doe',
         email: 'john@example.com',
         recaptchaToken: 'invalid_token',
-      }),
+      },
     });
+    const ctx = createMockNetlifyContext();
 
-    const response = await handler(req);
+    const response = await handler(req, ctx);
     expect(response.status).toBe(400);
     expect(await response.json()).toEqual({ error: 'reCAPTCHA verification failed' });
     expect(mockSend).not.toHaveBeenCalled();
@@ -62,32 +92,29 @@ describe('sendEmail function handler', () => {
 
   it('returns 400 if email is missing or malformed', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    const ctx = createMockNetlifyContext();
 
-    const reqMissingEmail = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const reqMissingEmail = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.2',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ name: 'John Doe', recaptchaToken: 'valid_token' }),
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: { name: 'John Doe', recaptchaToken: 'valid_token' },
     });
-    const res1 = await handler(reqMissingEmail);
+    const res1 = await handler(reqMissingEmail, ctx);
     expect(res1.status).toBe(400);
     expect(await res1.json()).toEqual({ error: 'Invalid email address' });
 
-    const reqMalformedEmail = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const reqMalformedEmail = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.3',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: {
         name: 'John Doe',
         email: 'not-an-email',
         recaptchaToken: 'valid_token',
-      }),
+      },
     });
-    const res2 = await handler(reqMalformedEmail);
+    const res2 = await handler(reqMalformedEmail, ctx);
     expect(res2.status).toBe(400);
     expect(await res2.json()).toEqual({ error: 'Invalid email address' });
     expect(mockSend).not.toHaveBeenCalled();
@@ -95,20 +122,19 @@ describe('sendEmail function handler', () => {
 
   it('returns 400 if field type is non-string', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    const ctx = createMockNetlifyContext();
 
-    const reqNonStringField = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const reqNonStringField = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.4',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: {
         recaptchaToken: 'valid_token',
         name: 12345,
         email: 'john@example.com',
-      }),
+      },
     });
-    const res = await handler(reqNonStringField);
+    const res = await handler(reqNonStringField, ctx);
     expect(res.status).toBe(400);
     expect(await res.json()).toEqual({ error: 'Invalid name: must be a string' });
     expect(mockSend).not.toHaveBeenCalled();
@@ -117,21 +143,20 @@ describe('sendEmail function handler', () => {
   it('returns 500 if RESEND_API_KEY is missing', async () => {
     delete process.env.RESEND_API_KEY;
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    const ctx = createMockNetlifyContext();
 
-    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.5',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: {
         name: 'John Doe',
         email: 'john@example.com',
         recaptchaToken: 'valid_token',
-      }),
+      },
     });
 
-    const response = await handler(req);
+    const response = await handler(req, ctx);
     expect(response.status).toBe(500);
     expect(await response.json()).toEqual({ error: 'Failed to send message' });
     expect(mockSend).not.toHaveBeenCalled();
@@ -140,14 +165,13 @@ describe('sendEmail function handler', () => {
   it('escapes user inputs in HTML email body and sends email successfully', async () => {
     vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
     mockSend.mockResolvedValue({ id: 'msg_123' });
+    const ctx = createMockNetlifyContext();
 
-    const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': '10.0.0.6',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp: `10.0.0.${ipCounter++}`,
+      body: {
         recaptchaToken: 'valid_token',
         name: 'Jane <Script> & "Quote"',
         email: 'jane@example.com',
@@ -155,10 +179,10 @@ describe('sendEmail function handler', () => {
         service: 'pack & ship',
         plan: 'gold <tier>',
         message: 'Hello <script>alert("XSS")</script> & world!',
-      }),
+      },
     });
 
-    const response = await handler(req);
+    const response = await handler(req, ctx);
     expect(response.status).toBe(200);
     expect(await response.json()).toEqual({ success: true });
 
@@ -189,41 +213,42 @@ describe('sendEmail function handler', () => {
 
     // Make 5 successful requests
     for (let i = 0; i < 5; i++) {
-      const req = new Request('https://example.com/.netlify/functions/sendEmail', {
+      const req = createMockNetlifyRequest({
+        url: 'https://example.com/.netlify/functions/sendEmail',
         method: 'POST',
-        headers: {
-          'x-nf-client-connection-ip': clientIp,
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
+        clientIp,
+        body: {
           recaptchaToken: 'valid_token',
           name: 'Jane Doe',
           email: 'jane@example.com',
           message: 'Hello',
-        }),
+        },
       });
-      const res = await handler(req);
+      const ctx = createMockNetlifyContext({ ip: clientIp });
+      const res = await handler(req, ctx);
       expect(res.status).toBe(200);
     }
 
     // 6th request should be rate limited with status 429
-    const req6 = new Request('https://example.com/.netlify/functions/sendEmail', {
+    const req6 = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/sendEmail',
       method: 'POST',
-      headers: {
-        'x-nf-client-connection-ip': clientIp,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
+      clientIp,
+      body: {
         recaptchaToken: 'valid_token',
         name: 'Jane Doe',
         email: 'jane@example.com',
         message: 'Hello',
-      }),
+      },
     });
-    const res6 = await handler(req6);
+    const ctx6 = createMockNetlifyContext({ ip: clientIp });
+    const res6 = await handler(req6, ctx6);
+
     expect(res6.status).toBe(429);
     expect(res6.headers.get('Retry-After')).toBeTruthy();
     expect(res6.headers.get('X-RateLimit-Limit')).toBe('5');
+    expect(res6.headers.get('X-RateLimit-Remaining')).toBe('0');
+    expect(res6.headers.get('X-RateLimit-Reset')).toBeTruthy();
     expect(await res6.json()).toEqual({ error: 'Too many requests. Please try again later.' });
   });
 });

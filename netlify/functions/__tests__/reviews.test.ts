@@ -1,8 +1,11 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import handler from '../reviews';
+import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
-const { mockGetStore, mockStoreGet, mockStoreSetJSON } = vi.hoisted(() => ({
+const { mockGetStore, mockStoreGet, mockStoreSet, mockStoreSetJSON } = vi.hoisted(() => ({
   mockGetStore: vi.fn(),
   mockStoreGet: vi.fn(),
+  mockStoreSet: vi.fn(),
   mockStoreSetJSON: vi.fn(),
 }));
 
@@ -10,19 +13,16 @@ vi.mock('@netlify/blobs', () => ({
   getStore: mockGetStore,
 }));
 
-import handler from '../reviews';
-
 describe('reviews function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
   const mockFetch = vi.fn();
 
-  const createRequest = () => {
-    return new Request('https://example.com/api/reviews', {
+  const createRequest = (clientIp?: string) => {
+    return createMockNetlifyRequest({
+      url: 'https://example.com/api/reviews',
       method: 'GET',
-      headers: {
-        'x-nf-client-connection-ip': `10.3.0.${ipCounter++}`,
-      },
+      clientIp: clientIp || `10.3.0.${ipCounter++}`,
     });
   };
 
@@ -36,12 +36,17 @@ describe('reviews function handler', () => {
       GOOGLE_PLACES_API_KEY: 'mock_google_places_key',
     };
 
+    const blobStorage = new Map<string, any>();
+
+    mockStoreGet.mockImplementation(async (key: string) => blobStorage.get(key) || null);
+    mockStoreSet.mockImplementation(async (key: string, val: any) => blobStorage.set(key, val));
+    mockStoreSetJSON.mockImplementation(async (key: string, val: any) => blobStorage.set(key, val));
+
     mockGetStore.mockReturnValue({
       get: mockStoreGet,
+      set: mockStoreSet,
       setJSON: mockStoreSetJSON,
     });
-
-    mockStoreGet.mockResolvedValue(null);
   });
 
   afterEach(() => {
@@ -49,10 +54,51 @@ describe('reviews function handler', () => {
     process.env = originalEnv;
   });
 
+  it('handles OPTIONS preflight request and returns status 204 with CORS headers', async () => {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/api/reviews',
+      method: 'OPTIONS',
+      headers: {
+        Origin: 'https://mailboxplusohio.com',
+      },
+    });
+    const ctx = createMockNetlifyContext();
+
+    const res = await handler(req, ctx);
+    expect(res.status).toBe(204);
+    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+    expect(res.headers.get('Access-Control-Allow-Methods')).toBeTruthy();
+    expect(res.headers.get('Access-Control-Allow-Headers')).toBeTruthy();
+  });
+
+  it('enforces rate limiting of 10 requests per minute and returns status 429 on 11th attempt', async () => {
+    delete process.env.GOOGLE_PLACES_API_KEY;
+    const clientIp = '203.0.113.103';
+
+    for (let i = 0; i < 10; i++) {
+      const req = createRequest(clientIp);
+      const ctx = createMockNetlifyContext({ ip: clientIp });
+      const res = await handler(req, ctx);
+      expect(res.status).toBe(502);
+    }
+
+    const req11 = createRequest(clientIp);
+    const ctx11 = createMockNetlifyContext({ ip: clientIp });
+    const res11 = await handler(req11, ctx11);
+
+    expect(res11.status).toBe(429);
+    expect(res11.headers.get('Retry-After')).toBeTruthy();
+    expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
+    expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
+    expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
+    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+  });
+
   it('returns 502 when GOOGLE_PLACES_API_KEY is missing and no cached payload exists', async () => {
     delete process.env.GOOGLE_PLACES_API_KEY;
 
-    const res = await handler(createRequest());
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(502);
     expect(await res.json()).toEqual({ error: 'Reviews temporarily unavailable' });
     expect(mockFetch).not.toHaveBeenCalled();
@@ -65,7 +111,8 @@ describe('reviews function handler', () => {
       text: vi.fn().mockResolvedValue('Internal Server Error'),
     });
 
-    const res = await handler(createRequest());
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(502);
     expect(await res.json()).toEqual({ error: 'Reviews temporarily unavailable' });
     expect(mockFetch).toHaveBeenCalledTimes(1);
@@ -102,7 +149,8 @@ describe('reviews function handler', () => {
       json: vi.fn().mockResolvedValue(samplePlacesData),
     });
 
-    const res = await handler(createRequest());
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(200);
 
     const headers = res.headers;
@@ -150,9 +198,13 @@ describe('reviews function handler', () => {
       fetchedAt: new Date(Date.now() - 60 * 1000).toISOString(), // 1 minute old
     };
 
-    mockStoreGet.mockResolvedValue(freshCache);
+    mockStoreGet.mockImplementation(async (key: string) => {
+      if (key === 'gmb-reviews') return freshCache;
+      return null;
+    });
 
-    const res = await handler(createRequest());
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(200);
 
     const body = await res.json();
@@ -172,14 +224,18 @@ describe('reviews function handler', () => {
       fetchedAt: new Date(Date.now() - 10 * 60 * 60 * 1000).toISOString(), // 10 hours old (>6h TTL)
     };
 
-    mockStoreGet.mockResolvedValue(staleCache);
+    mockStoreGet.mockImplementation(async (key: string) => {
+      if (key === 'gmb-reviews') return staleCache;
+      return null;
+    });
     mockFetch.mockResolvedValueOnce({
       ok: false,
       status: 503,
       text: vi.fn().mockResolvedValue('Service Unavailable'),
     });
 
-    const res = await handler(createRequest());
+    const ctx = createMockNetlifyContext();
+    const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(200);
 
     const body = await res.json();
