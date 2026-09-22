@@ -11,6 +11,19 @@ interface ContractViolation {
   details: string;
 }
 
+interface EndpointTestCase {
+  name: string;
+  makeRequest: (endpointPath: string) => Request;
+  expectedStatus: number;
+  validate?: (res: Response, json: any) => string | null;
+}
+
+interface EndpointSpec {
+  fnName: string;
+  allowedMethods: string[];
+  testCases: EndpointTestCase[];
+}
+
 const ROOT_DIR = path.resolve(process.cwd());
 const FUNCTIONS_DIR = path.join(ROOT_DIR, 'netlify', 'functions');
 
@@ -42,6 +55,167 @@ function findLineNumber(fileContent: string, pattern: RegExp | string): number |
   return undefined;
 }
 
+// Single Endpoint Registry: One source of truth for all endpoint contract specifications
+const ENDPOINT_REGISTRY: Record<string, EndpointSpec> = {
+  health: {
+    fnName: 'health',
+    allowedMethods: ['GET'],
+    testCases: [
+      {
+        name: 'GET health check status and schema',
+        makeRequest: (endpoint) => new Request(`http://localhost${endpoint}`, { method: 'GET' }),
+        expectedStatus: 200,
+        validate: (res, json) => {
+          if (!json || json.status !== 'healthy' || !json.timestamp || !json.checks) {
+            return 'Health response schema missing status, timestamp, or checks.';
+          }
+          if (!res.headers.get('x-health-check') || !res.headers.get('cache-control')) {
+            return 'Health response missing X-Health-Check or Cache-Control header.';
+          }
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'Health response missing Access-Control-Allow-Origin header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+  'csp-report': {
+    fnName: 'csp-report',
+    allowedMethods: ['POST'],
+    testCases: [
+      {
+        name: 'POST malformed JSON payload validation',
+        makeRequest: (endpoint) =>
+          new Request(`http://localhost${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: 'invalid-json{',
+          }),
+        expectedStatus: 400,
+      },
+      {
+        name: 'POST valid CSP report payload',
+        makeRequest: (endpoint) =>
+          new Request(`http://localhost${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              'csp-report': {
+                'document-uri': 'http://example.com',
+                'violated-directive': 'script-src',
+              },
+            }),
+          }),
+        expectedStatus: 204,
+        validate: (res) => {
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'CSP report response missing Access-Control-Allow-Origin header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+  'create-checkout': {
+    fnName: 'create-checkout',
+    allowedMethods: ['POST'],
+    testCases: [
+      {
+        name: 'POST invalid tier payload validation',
+        makeRequest: (endpoint) =>
+          new Request(`http://localhost${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ tier: 'invalid_tier_name' }),
+          }),
+        expectedStatus: 400,
+        validate: (res) => {
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'Create checkout response missing Access-Control-Allow-Origin header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+  reviews: {
+    fnName: 'reviews',
+    allowedMethods: ['GET'],
+    testCases: [
+      {
+        name: 'GET reviews status and schema',
+        makeRequest: (endpoint) => new Request(`http://localhost${endpoint}`, { method: 'GET' }),
+        expectedStatus: 200,
+        validate: (res, json) => {
+          if (
+            !json ||
+            typeof json.rating !== 'number' ||
+            typeof json.userRatingCount !== 'number' ||
+            !Array.isArray(json.reviews)
+          ) {
+            return 'Reviews response missing rating, userRatingCount, or reviews array.';
+          }
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'Reviews response missing Access-Control-Allow-Origin header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+  sendEmail: {
+    fnName: 'sendEmail',
+    allowedMethods: ['POST'],
+    testCases: [
+      {
+        name: 'POST invalid email payload validation',
+        makeRequest: (endpoint) =>
+          new Request(`http://localhost${endpoint}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ recaptchaToken: 'dummy', email: 'not-an-email' }),
+          }),
+        expectedStatus: 400,
+        validate: (res) => {
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'Send email response missing Access-Control-Allow-Origin header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+  'verify-session': {
+    fnName: 'verify-session',
+    allowedMethods: ['GET'],
+    testCases: [
+      {
+        name: 'GET missing session_id query parameter',
+        makeRequest: (endpoint) => new Request(`http://localhost${endpoint}`, { method: 'GET' }),
+        expectedStatus: 400,
+      },
+      {
+        name: 'GET malformed session_id query parameter',
+        makeRequest: (endpoint) =>
+          new Request(`http://localhost${endpoint}?session_id=invalid_id_format`, {
+            method: 'GET',
+          }),
+        expectedStatus: 400,
+        validate: (res) => {
+          if (!res.headers.get('access-control-allow-origin')) {
+            return 'Verify session response missing Access-Control-Allow-Origin header.';
+          }
+          if (!res.headers.get('cache-control')?.includes('no-store')) {
+            return 'Verify session response missing Cache-Control: no-store header.';
+          }
+          return null;
+        },
+      },
+    ],
+  },
+};
+
 async function checkApiContracts() {
   const startTime = Date.now();
   console.log('🔍 Starting Serverless API Endpoint Contract Verification...\n');
@@ -54,10 +228,11 @@ async function checkApiContracts() {
     process.env.RECAPTCHA_SECRET_KEY || 'dummy_recaptcha_secret_key';
   process.env.RESEND_API_KEY = process.env.RESEND_API_KEY || 'dummy_resend_api_key';
 
-  // Intercept global fetch to guarantee deterministic, offline execution with zero external network traffic
+  // Intercept global fetch with exact-host and exact-path allowlisting
   globalThis.fetch = (async (input: RequestInfo | URL, init?: RequestInit): Promise<Response> => {
     const urlString =
       typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
+    const method = (init?.method || 'GET').toUpperCase();
 
     let parsedUrl: URL | null = null;
     try {
@@ -69,8 +244,8 @@ async function checkApiContracts() {
     const hostname = parsedUrl ? parsedUrl.hostname : '';
     const pathname = parsedUrl ? parsedUrl.pathname : '';
 
-    // Mock Google Places API
-    if (hostname === 'places.googleapis.com') {
+    // Mock Google Places API Details endpoint
+    if (hostname === 'places.googleapis.com' && pathname.startsWith('/v1/places/')) {
       return new Response(
         JSON.stringify({
           rating: 4.9,
@@ -95,7 +270,8 @@ async function checkApiContracts() {
     // Mock Google reCAPTCHA Verification API
     if (
       (hostname === 'www.google.com' || hostname === 'google.com') &&
-      pathname === '/recaptcha/api/siteverify'
+      pathname === '/recaptcha/api/siteverify' &&
+      method === 'POST'
     ) {
       return new Response(JSON.stringify({ success: true, score: 0.9 }), {
         status: 200,
@@ -103,11 +279,11 @@ async function checkApiContracts() {
       });
     }
 
-    // Allowlist exact Netlify Blobs hosts only
+    // Allowlist exact Netlify Blobs storage requests
     const isNetlifyBlobsHost =
-      hostname === 'api.netlify.com' ||
-      hostname === 'blobs.netlify.com' ||
-      hostname.endsWith('.blobs.netlify.com');
+      (hostname === 'api.netlify.com' && pathname.startsWith('/api/v1/blobs/')) ||
+      ((hostname === 'blobs.netlify.com' || hostname.endsWith('.blobs.netlify.com')) &&
+        pathname.startsWith('/'));
 
     if (isNetlifyBlobsHost) {
       return new Response(JSON.stringify({}), {
@@ -117,7 +293,7 @@ async function checkApiContracts() {
     }
 
     throw new Error(
-      `Unexpected external network request during offline contract verification: ${urlString}`
+      `Unexpected external network request during offline contract verification: ${method} ${urlString}`
     );
   }) as typeof fetch;
 
@@ -147,35 +323,48 @@ async function checkApiContracts() {
     const expectedPath = configPathMatch ? configPathMatch[1] : undefined;
     const endpoint = expectedPath || `/.netlify/functions/${fnName}`;
 
-    // Infer allowed HTTP methods from code checks
-    const allowedMethods: string[] = [];
-    if (
-      content.includes("request.method !== 'POST'") ||
-      content.includes('request.method !== "POST"')
-    ) {
-      allowedMethods.push('POST');
-    } else if (
-      content.includes("request.method !== 'GET'") ||
-      content.includes('request.method !== "GET"')
-    ) {
-      allowedMethods.push('GET');
-    } else {
-      allowedMethods.push('GET');
-    }
-
     return {
       file,
       fnName,
       filePath,
       endpoint,
       expectedPath,
-      allowedMethods,
       content,
     };
   });
 
+  // 2. Parity check between disk files and ENDPOINT_REGISTRY (one source of truth)
+  const discoveredFnNames = new Set(discoveredFunctions.map((f) => f.fnName));
+  const registeredFnNames = new Set(Object.keys(ENDPOINT_REGISTRY));
+
+  for (const registeredName of registeredFnNames) {
+    if (!discoveredFnNames.has(registeredName)) {
+      addViolation(
+        'netlify/functions',
+        registeredName,
+        'Endpoint Registry Parity',
+        `Registered endpoint '${registeredName}' in ENDPOINT_REGISTRY was not found on disk in netlify/functions/.`
+      );
+    }
+  }
+
+  for (const fn of discoveredFunctions) {
+    if (!registeredFnNames.has(fn.fnName)) {
+      const relPath = path.relative(ROOT_DIR, fn.filePath);
+      addViolation(
+        relPath,
+        fn.endpoint,
+        'Endpoint Registry Parity',
+        `Discovered serverless endpoint '${fn.fnName}' is missing from ENDPOINT_REGISTRY.`
+      );
+    }
+  }
+
+  // 3. Perform contract verification across discovered endpoints using ENDPOINT_REGISTRY
   for (const fn of discoveredFunctions) {
     const relPath = path.relative(ROOT_DIR, fn.filePath);
+    const spec = ENDPOINT_REGISTRY[fn.fnName];
+    if (!spec) continue;
 
     // Static Contract Checks
     if (!fn.content.includes('withCors')) {
@@ -223,9 +412,51 @@ async function checkApiContracts() {
         continue;
       }
 
+      // CORS Preflight (OPTIONS) Contract Check
+      const optionsReq = new Request(`http://localhost${fn.endpoint}`, {
+        method: 'OPTIONS',
+      });
+      const optionsRes: Response = await handler(optionsReq);
+
+      if (optionsRes.status !== 204) {
+        addViolation(
+          relPath,
+          fn.endpoint,
+          'CORS Preflight (OPTIONS)',
+          `OPTIONS preflight request should return status 204 No Content, got ${optionsRes.status}.`
+        );
+      }
+
+      if (!optionsRes.headers.get('access-control-allow-origin')) {
+        addViolation(
+          relPath,
+          fn.endpoint,
+          'CORS Preflight Headers',
+          'OPTIONS preflight response missing Access-Control-Allow-Origin header.'
+        );
+      }
+
+      if (!optionsRes.headers.get('access-control-allow-methods')) {
+        addViolation(
+          relPath,
+          fn.endpoint,
+          'CORS Preflight Headers',
+          'OPTIONS preflight response missing Access-Control-Allow-Methods header.'
+        );
+      }
+
+      if (!optionsRes.headers.get('access-control-allow-headers')) {
+        addViolation(
+          relPath,
+          fn.endpoint,
+          'CORS Preflight Headers',
+          'OPTIONS preflight response missing Access-Control-Allow-Headers header.'
+        );
+      }
+
       // Probe non-allowed methods to enforce rejection contract (405 Method Not Allowed)
       const allHttpMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
-      const unallowedMethods = allHttpMethods.filter((m) => !fn.allowedMethods.includes(m));
+      const unallowedMethods = allHttpMethods.filter((m) => !spec.allowedMethods.includes(m));
 
       for (const unallowedMethod of unallowedMethods) {
         const unallowedReq = new Request(`http://localhost${fn.endpoint}`, {
@@ -252,223 +483,34 @@ async function checkApiContracts() {
         }
       }
 
-      // Specific endpoint assertions for allowed methods
-      if (fn.file === 'health.ts') {
-        const req = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
+      // Execute Registry Test Cases for Status and Schema Validation
+      for (const testCase of spec.testCases) {
+        const req = testCase.makeRequest(fn.endpoint);
         const res: Response = await handler(req);
 
-        if (res.status !== 200) {
+        if (res.status !== testCase.expectedStatus) {
           addViolation(
             relPath,
             fn.endpoint,
-            'Status Code (GET)',
-            `Expected status 200, got ${res.status}.`
+            `Registry Assertion (${testCase.name})`,
+            `Expected status ${testCase.expectedStatus}, got ${res.status}.`
           );
         }
 
-        const json = await res
-          .clone()
-          .json()
-          .catch(() => null);
-        if (!json || json.status !== 'healthy' || !json.timestamp || !json.checks) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Response Schema',
-            'Health response schema missing status, timestamp, or checks.'
-          );
-        }
-
-        if (!res.headers.get('x-health-check') || !res.headers.get('cache-control')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Mandatory Headers',
-            'Health response missing X-Health-Check or Cache-Control header.'
-          );
-        }
-
-        if (!res.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'Health response missing Access-Control-Allow-Origin header.'
-          );
-        }
-      } else if (fn.file === 'csp-report.ts') {
-        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: 'invalid-json{',
-        });
-        const badPostRes: Response = await handler(badPostReq);
-        if (badPostRes.status !== 400) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Request Body Validation',
-            `Malformed POST body should return status 400, got ${badPostRes.status}.`
-          );
-        }
-
-        const validPostReq = new Request(`http://localhost${fn.endpoint}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            'csp-report': {
-              'document-uri': 'http://example.com',
-              'violated-directive': 'script-src',
-            },
-          }),
-        });
-        const validPostRes: Response = await handler(validPostReq);
-        if (validPostRes.status !== 204) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Status Code (POST)',
-            `Valid CSP report POST should return status 204, got ${validPostRes.status}.`
-          );
-        }
-
-        if (!validPostRes.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'CSP report response missing Access-Control-Allow-Origin header.'
-          );
-        }
-      } else if (fn.file === 'create-checkout.ts') {
-        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tier: 'invalid_tier_name' }),
-        });
-        const badPostRes: Response = await handler(badPostReq);
-        if (badPostRes.status !== 400) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Request Body Validation',
-            `Invalid tier name in POST should return status 400, got ${badPostRes.status}.`
-          );
-        }
-
-        if (!badPostRes.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'Create checkout response missing Access-Control-Allow-Origin header.'
-          );
-        }
-      } else if (fn.file === 'reviews.ts') {
-        const getReq = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
-        const getRes: Response = await handler(getReq);
-
-        if (getRes.status !== 200) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Status Code (GET)',
-            `Expected status 200, got ${getRes.status}.`
-          );
-        }
-
-        const json = await getRes
-          .clone()
-          .json()
-          .catch(() => null);
-        if (
-          !json ||
-          typeof json.rating !== 'number' ||
-          typeof json.userRatingCount !== 'number' ||
-          !Array.isArray(json.reviews)
-        ) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Response Schema',
-            'Reviews response missing rating, userRatingCount, or reviews array.'
-          );
-        }
-
-        if (!getRes.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'Reviews response missing Access-Control-Allow-Origin header.'
-          );
-        }
-      } else if (fn.file === 'sendEmail.ts') {
-        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ recaptchaToken: 'dummy', email: 'not-an-email' }),
-        });
-        const badPostRes: Response = await handler(badPostReq);
-        if (badPostRes.status !== 400) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Request Body Validation',
-            `Invalid email payload should return status 400, got ${badPostRes.status}.`
-          );
-        }
-
-        if (!badPostRes.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'Send email response missing Access-Control-Allow-Origin header.'
-          );
-        }
-      } else if (fn.file === 'verify-session.ts') {
-        const noSessionReq = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
-        const noSessionRes: Response = await handler(noSessionReq);
-        if (noSessionRes.status !== 400) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Query Parameter Validation',
-            `Missing session_id query param should return status 400, got ${noSessionRes.status}.`
-          );
-        }
-
-        const badSessionReq = new Request(
-          `http://localhost${fn.endpoint}?session_id=invalid_id_format`,
-          { method: 'GET' }
-        );
-        const badSessionRes: Response = await handler(badSessionReq);
-        if (badSessionRes.status !== 400) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Query Parameter Validation',
-            `Malformed session_id query param should return status 400, got ${badSessionRes.status}.`
-          );
-        }
-
-        if (!badSessionRes.headers.get('access-control-allow-origin')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'CORS Header',
-            'Verify session response missing Access-Control-Allow-Origin header.'
-          );
-        }
-
-        if (!badSessionRes.headers.get('cache-control')?.includes('no-store')) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'Cache Control Header',
-            'Verify session response missing Cache-Control: no-store header.'
-          );
+        if (testCase.validate) {
+          const json = await res
+            .clone()
+            .json()
+            .catch(() => null);
+          const validationError = testCase.validate(res, json);
+          if (validationError) {
+            addViolation(
+              relPath,
+              fn.endpoint,
+              `Registry Assertion (${testCase.name})`,
+              validationError
+            );
+          }
         }
       }
     } catch (err: any) {
