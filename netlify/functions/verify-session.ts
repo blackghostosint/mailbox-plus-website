@@ -16,22 +16,11 @@ import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 import { VerifySessionQuerySchema, VerifySessionSuccessSchema } from './lib/contracts';
+import { getPmbTier } from './lib/pmb-tiers';
 
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
-
-// Tier metadata → human name + monthly display price (for pixel value).
-// Amount is NOT trusted from here for revenue reporting — Stripe is the source
-// of truth at webhook time; this is the client-side pixel value only.
-const TIER_LABELS: Record<string, { name: string; monthly: number }> = {
-  small_mail_only: { name: 'Small Mail Only', monthly: 15 },
-  small_packages10: { name: 'Small +10 Packages', monthly: 25 },
-  large_mail_only: { name: 'Large Mail Only', monthly: 30 },
-  large_packages10: { name: 'Large +10 Packages', monthly: 40 },
-  business_small: { name: 'Business Small', monthly: 35 },
-  business_large: { name: 'Business Large', monthly: 50 },
-};
 
 const NO_CACHE_HEADERS = { 'Cache-Control': 'no-store' };
 
@@ -63,10 +52,10 @@ export default withCors(
       }
 
       const tier = (session.metadata?.tier || '').trim();
-      const tierInfo = TIER_LABELS[tier];
+      const tierInfo = getPmbTier(tier);
 
       // Prefer the actual amount from Stripe; fall back to the tier table.
-      let amount = tierInfo?.monthly ?? 0;
+      let amount = tierInfo?.monthlyPrice ?? 0;
       if (typeof session.amount_total === 'number' && session.amount_total > 0) {
         // amount_total includes the key deposit line on first invoice — that's
         // what the customer actually paid, so it's the honest pixel value.
