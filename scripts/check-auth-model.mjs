@@ -77,9 +77,12 @@ const content = (next ? section.slice(0, next.index) : section)
   .replace(/<!--[\s\S]*?-->/g, '')
   .trim();
 
+// sanitize anything we echo: never let PR-supplied text carry HTML into log output
+const sanitize = (s) => s.replace(/</g, '\u2039').replace(/>/g, '\u203a').slice(0, 80);
+
 if (content.length < MIN_SECTION_CHARS) {
   fail(
-    `"Endpoint Authentication Models" section exists but is hollow (${content.length} chars, need ${MIN_SECTION_CHARS}).`
+    `"Endpoint Authentication Models" section exists but is hollow (${content.length} chars, need ${MIN_SECTION_CHARS}). Starts with: "${sanitize(content)}"`
   );
 }
 
