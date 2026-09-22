@@ -38,6 +38,7 @@ const IGNORED_VARS = new Set([
   'GITHUB_TOKEN',
   'GITHUB_REF',
   'GITHUB_SHA',
+  'CHANGED_FILES',
   'PWD',
   'URL',
   'DEPLOY_PRIME_URL',
