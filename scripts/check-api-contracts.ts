@@ -103,13 +103,13 @@ async function checkApiContracts() {
       });
     }
 
-    // Mock Netlify Blobs API requests
-    if (
+    // Allowlist exact Netlify Blobs hosts only
+    const isNetlifyBlobsHost =
       hostname === 'api.netlify.com' ||
       hostname === 'blobs.netlify.com' ||
-      pathname.startsWith('/api/v1/blobs') ||
-      pathname.includes('/blobs/')
-    ) {
+      hostname.endsWith('.blobs.netlify.com');
+
+    if (isNetlifyBlobsHost) {
       return new Response(JSON.stringify({}), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
@@ -121,38 +121,65 @@ async function checkApiContracts() {
     );
   }) as typeof fetch;
 
-  const requiredFunctions = [
-    { file: 'health.ts', endpoint: '/.netlify/functions/health' },
-    {
-      file: 'csp-report.ts',
-      endpoint: '/.netlify/functions/csp-report',
-      expectedPath: '/.netlify/functions/csp-report',
-    },
-    { file: 'create-checkout.ts', endpoint: '/.netlify/functions/create-checkout' },
-    { file: 'reviews.ts', endpoint: '/api/reviews', expectedPath: '/api/reviews' },
-    { file: 'sendEmail.ts', endpoint: '/.netlify/functions/sendEmail' },
-    { file: 'verify-session.ts', endpoint: '/.netlify/functions/verify-session' },
-  ];
+  // 1. Runtime discovery of serverless endpoints in netlify/functions/*.ts
+  const functionFiles = fs
+    .readdirSync(FUNCTIONS_DIR)
+    .filter((file) => file.endsWith('.ts') && fs.statSync(path.join(FUNCTIONS_DIR, file)).isFile());
 
-  for (const fn of requiredFunctions) {
-    const filePath = path.join(FUNCTIONS_DIR, fn.file);
-    const relPath = path.relative(ROOT_DIR, filePath);
+  if (functionFiles.length === 0) {
+    addViolation(
+      'netlify/functions',
+      '*',
+      'Function Discovery',
+      'No serverless function files found in netlify/functions/.'
+    );
+  }
 
-    if (!fs.existsSync(filePath)) {
-      addViolation(
-        relPath,
-        fn.endpoint,
-        'File Existence',
-        `Serverless function file ${fn.file} does not exist.`
-      );
-      continue;
-    }
-
+  const discoveredFunctions = functionFiles.map((file) => {
+    const fnName = file.replace(/\.ts$/, '');
+    const filePath = path.join(FUNCTIONS_DIR, file);
     const content = fs.readFileSync(filePath, 'utf8');
 
-    // 1. Static Contract Checks
-    if (!content.includes('withCors')) {
-      const line = findLineNumber(content, 'export default');
+    // Extract expected route path from export const config = { path: '...' }
+    const configPathMatch = content.match(
+      /export\s+const\s+config\s*=\s*\{[^}]*path:\s*['"]([^'"]+)['"]/
+    );
+    const expectedPath = configPathMatch ? configPathMatch[1] : undefined;
+    const endpoint = expectedPath || `/.netlify/functions/${fnName}`;
+
+    // Infer allowed HTTP methods from code checks
+    const allowedMethods: string[] = [];
+    if (
+      content.includes("request.method !== 'POST'") ||
+      content.includes('request.method !== "POST"')
+    ) {
+      allowedMethods.push('POST');
+    } else if (
+      content.includes("request.method !== 'GET'") ||
+      content.includes('request.method !== "GET"')
+    ) {
+      allowedMethods.push('GET');
+    } else {
+      allowedMethods.push('GET');
+    }
+
+    return {
+      file,
+      fnName,
+      filePath,
+      endpoint,
+      expectedPath,
+      allowedMethods,
+      content,
+    };
+  });
+
+  for (const fn of discoveredFunctions) {
+    const relPath = path.relative(ROOT_DIR, fn.filePath);
+
+    // Static Contract Checks
+    if (!fn.content.includes('withCors')) {
+      const line = findLineNumber(fn.content, 'export default');
       addViolation(
         relPath,
         fn.endpoint,
@@ -164,10 +191,10 @@ async function checkApiContracts() {
 
     if (fn.expectedPath) {
       if (
-        !content.includes(`path: '${fn.expectedPath}'`) &&
-        !content.includes(`path: "${fn.expectedPath}"`)
+        !fn.content.includes(`path: '${fn.expectedPath}'`) &&
+        !fn.content.includes(`path: "${fn.expectedPath}"`)
       ) {
-        const line = findLineNumber(content, 'export const config');
+        const line = findLineNumber(fn.content, 'export const config');
         addViolation(
           relPath,
           fn.endpoint,
@@ -178,14 +205,14 @@ async function checkApiContracts() {
       }
     }
 
-    // 2. Dynamic Contract Checks against exported handler
+    // Dynamic Contract Checks against exported handler
     try {
-      const fileUrl = pathToFileURL(filePath).href;
+      const fileUrl = pathToFileURL(fn.filePath).href;
       const mod = await import(fileUrl);
       const handler = mod.default;
 
       if (typeof handler !== 'function') {
-        const line = findLineNumber(content, 'export default');
+        const line = findLineNumber(fn.content, 'export default');
         addViolation(
           relPath,
           fn.endpoint,
@@ -196,10 +223,38 @@ async function checkApiContracts() {
         continue;
       }
 
-      // Check specific endpoint behaviors
+      // Probe non-allowed methods to enforce rejection contract (405 Method Not Allowed)
+      const allHttpMethods = ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'];
+      const unallowedMethods = allHttpMethods.filter((m) => !fn.allowedMethods.includes(m));
+
+      for (const unallowedMethod of unallowedMethods) {
+        const unallowedReq = new Request(`http://localhost${fn.endpoint}`, {
+          method: unallowedMethod,
+        });
+        const unallowedRes: Response = await handler(unallowedReq);
+
+        if (unallowedRes.status !== 405) {
+          addViolation(
+            relPath,
+            fn.endpoint,
+            'HTTP Method Enforcement',
+            `Unsupported method ${unallowedMethod} should return status 405 Method Not Allowed, got ${unallowedRes.status}.`
+          );
+        }
+
+        if (!unallowedRes.headers.get('access-control-allow-origin')) {
+          addViolation(
+            relPath,
+            fn.endpoint,
+            'CORS Header on Method Rejection',
+            `Response for unsupported method ${unallowedMethod} missing Access-Control-Allow-Origin header.`
+          );
+        }
+      }
+
+      // Specific endpoint assertions for allowed methods
       if (fn.file === 'health.ts') {
-        // GET request
-        const req = new Request('http://localhost/.netlify/functions/health', { method: 'GET' });
+        const req = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
         const res: Response = await handler(req);
 
         if (res.status !== 200) {
@@ -242,22 +297,7 @@ async function checkApiContracts() {
           );
         }
       } else if (fn.file === 'csp-report.ts') {
-        // GET request should be rejected (405 Method Not Allowed)
-        const getReq = new Request('http://localhost/.netlify/functions/csp-report', {
-          method: 'GET',
-        });
-        const getRes: Response = await handler(getReq);
-        if (getRes.status !== 405) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'HTTP Method Enforcement',
-            `GET request should return status 405, got ${getRes.status}.`
-          );
-        }
-
-        // Invalid POST request body should return 400 Bad Request
-        const badPostReq = new Request('http://localhost/.netlify/functions/csp-report', {
+        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: 'invalid-json{',
@@ -272,8 +312,7 @@ async function checkApiContracts() {
           );
         }
 
-        // Valid POST request should return 204 No Content
-        const validPostReq = new Request('http://localhost/.netlify/functions/csp-report', {
+        const validPostReq = new Request(`http://localhost${fn.endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
@@ -302,22 +341,7 @@ async function checkApiContracts() {
           );
         }
       } else if (fn.file === 'create-checkout.ts') {
-        // GET request should be rejected (405 Method Not Allowed)
-        const getReq = new Request('http://localhost/.netlify/functions/create-checkout', {
-          method: 'GET',
-        });
-        const getRes: Response = await handler(getReq);
-        if (getRes.status !== 405) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'HTTP Method Enforcement',
-            `GET request should return status 405, got ${getRes.status}.`
-          );
-        }
-
-        // POST request with missing or invalid tier should return 400 Bad Request
-        const badPostReq = new Request('http://localhost/.netlify/functions/create-checkout', {
+        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ tier: 'invalid_tier_name' }),
@@ -341,8 +365,7 @@ async function checkApiContracts() {
           );
         }
       } else if (fn.file === 'reviews.ts') {
-        // GET request
-        const getReq = new Request('http://localhost/api/reviews', { method: 'GET' });
+        const getReq = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
         const getRes: Response = await handler(getReq);
 
         if (getRes.status !== 200) {
@@ -381,22 +404,7 @@ async function checkApiContracts() {
           );
         }
       } else if (fn.file === 'sendEmail.ts') {
-        // GET request should return 405
-        const getReq = new Request('http://localhost/.netlify/functions/sendEmail', {
-          method: 'GET',
-        });
-        const getRes: Response = await handler(getReq);
-        if (getRes.status !== 405) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'HTTP Method Enforcement',
-            `GET request should return status 405, got ${getRes.status}.`
-          );
-        }
-
-        // Invalid reCAPTCHA / missing email should return 400
-        const badPostReq = new Request('http://localhost/.netlify/functions/sendEmail', {
+        const badPostReq = new Request(`http://localhost${fn.endpoint}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ recaptchaToken: 'dummy', email: 'not-an-email' }),
@@ -420,24 +428,7 @@ async function checkApiContracts() {
           );
         }
       } else if (fn.file === 'verify-session.ts') {
-        // POST request should return 405
-        const postReq = new Request('http://localhost/.netlify/functions/verify-session', {
-          method: 'POST',
-        });
-        const postRes: Response = await handler(postReq);
-        if (postRes.status !== 405) {
-          addViolation(
-            relPath,
-            fn.endpoint,
-            'HTTP Method Enforcement',
-            `POST request should return status 405, got ${postRes.status}.`
-          );
-        }
-
-        // Missing session_id query parameter should return 400
-        const noSessionReq = new Request('http://localhost/.netlify/functions/verify-session', {
-          method: 'GET',
-        });
+        const noSessionReq = new Request(`http://localhost${fn.endpoint}`, { method: 'GET' });
         const noSessionRes: Response = await handler(noSessionReq);
         if (noSessionRes.status !== 400) {
           addViolation(
@@ -448,9 +439,8 @@ async function checkApiContracts() {
           );
         }
 
-        // Malformed session_id should return 400
         const badSessionReq = new Request(
-          'http://localhost/.netlify/functions/verify-session?session_id=invalid_id_format',
+          `http://localhost${fn.endpoint}?session_id=invalid_id_format`,
           { method: 'GET' }
         );
         const badSessionRes: Response = await handler(badSessionReq);
@@ -506,7 +496,7 @@ async function checkApiContracts() {
     process.exit(1);
   } else {
     console.log(
-      `✅ API Contract Validation Passed: All ${requiredFunctions.length} endpoints satisfy contracts (${duration}s).\n`
+      `✅ API Contract Validation Passed: All ${discoveredFunctions.length} endpoints satisfy contracts (${duration}s).\n`
     );
     process.exit(0);
   }
