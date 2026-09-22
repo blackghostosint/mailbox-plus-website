@@ -1,4 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import handler from '../create-checkout';
+import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 const { mockPricesList, mockCheckoutSessionsCreate } = vi.hoisted(() => ({
   mockPricesList: vi.fn(),
@@ -20,20 +22,16 @@ vi.mock('stripe', () => {
   };
 });
 
-import handler from '../create-checkout';
-
 describe('create-checkout function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
 
-  const createRequest = (method: string, body?: any) => {
-    return new Request('https://example.com/.netlify/functions/create-checkout', {
+  const createRequest = (method: string, body?: any, ip?: string) => {
+    return createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/create-checkout',
       method,
-      headers: {
-        'Content-Type': 'application/json',
-        'x-nf-client-connection-ip': `10.1.0.${ipCounter++}`,
-      },
-      ...(body !== undefined ? { body: JSON.stringify(body) } : {}),
+      clientIp: ip || `10.1.0.${ipCounter++}`,
+      ...(body !== undefined ? { body } : {}),
     });
   };
 
@@ -51,29 +49,72 @@ describe('create-checkout function handler', () => {
     process.env = originalEnv;
   });
 
+  it('handles OPTIONS preflight request and returns status 204 with CORS headers', async () => {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/create-checkout',
+      method: 'OPTIONS',
+      headers: {
+        Origin: 'https://mailboxplusohio.com',
+      },
+    });
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
+
+    expect(res.status).toBe(204);
+    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+    expect(res.headers.get('Access-Control-Allow-Methods')).toBeTruthy();
+    expect(res.headers.get('Access-Control-Allow-Headers')).toBeTruthy();
+  });
+
   it('returns 405 if HTTP method is not POST', async () => {
     const req = createRequest('GET');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(405);
     expect(await res.json()).toEqual({ error: 'Method not allowed' });
+  });
+
+  it('enforces rate limit of 10 requests per minute and returns status 429 on 11th attempt', async () => {
+    const clientIp = '203.0.113.99';
+
+    for (let i = 0; i < 10; i++) {
+      const req = createRequest('POST', { tier: 'invalid_tier_name' }, clientIp);
+      const ctx = createMockNetlifyContext({ ip: clientIp });
+      const res = await handler(req, ctx);
+      expect(res.status).toBe(400);
+    }
+
+    const req11 = createRequest('POST', { tier: 'invalid_tier_name' }, clientIp);
+    const ctx11 = createMockNetlifyContext({ ip: clientIp });
+    const res11 = await handler(req11, ctx11);
+
+    expect(res11.status).toBe(429);
+    expect(res11.headers.get('Retry-After')).toBeTruthy();
+    expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
+    expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
+    expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
+    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
   });
 
   it('returns 500 if STRIPE_SECRET_KEY is missing', async () => {
     delete process.env.STRIPE_SECRET_KEY;
     const req = createRequest('POST', { tier: 'small_mail_only' });
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Stripe is not configured on the server' });
   });
 
   it('returns 400 if tier is missing or invalid', async () => {
+    const ctx = createMockNetlifyContext();
+
     const reqMissing = createRequest('POST', {});
-    const resMissing = await handler(reqMissing);
+    const resMissing = await handler(reqMissing, ctx);
     expect(resMissing.status).toBe(400);
     expect(await resMissing.json()).toHaveProperty('error');
 
     const reqInvalid = createRequest('POST', { tier: 'invalid_tier_name' });
-    const resInvalid = await handler(reqInvalid);
+    const resInvalid = await handler(reqInvalid, ctx);
     expect(resInvalid.status).toBe(400);
     const body = await resInvalid.json();
     expect(body.error).toContain('Invalid tier. Must be one of:');
@@ -83,7 +124,8 @@ describe('create-checkout function handler', () => {
     mockPricesList.mockResolvedValueOnce({ data: [] });
 
     const req = createRequest('POST', { tier: 'small_mail_only' });
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Price not found for tier: small_mail_only' });
     expect(mockPricesList).toHaveBeenCalledWith({
@@ -98,7 +140,8 @@ describe('create-checkout function handler', () => {
     mockPricesList.mockResolvedValueOnce({ data: [] });
 
     const req = createRequest('POST', { tier: 'small_mail_only' });
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Price not found for: pmb_fee_key_deposit' });
     expect(mockPricesList).toHaveBeenCalledTimes(2);
@@ -112,7 +155,8 @@ describe('create-checkout function handler', () => {
     mockPricesList.mockRejectedValueOnce(new Error('Stripe API Connection Error'));
 
     const req = createRequest('POST', { tier: 'small_mail_only' });
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
 
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Failed to create checkout session' });
@@ -188,7 +232,8 @@ describe('create-checkout function handler', () => {
       });
 
       const req = createRequest('POST', { tier });
-      const res = await handler(req);
+      const ctx = createMockNetlifyContext();
+      const res = await handler(req, ctx);
 
       expect(res.status).toBe(200);
       expect(await res.json()).toEqual({
