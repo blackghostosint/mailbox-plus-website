@@ -310,6 +310,75 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       ).resolves.toBeUndefined();
     });
 
+    it('handles valid flat CSP report request via client helper', async () => {
+      await expect(
+        sendCspReport({
+          'document-uri': 'https://mailboxplusohio.com/services/',
+          'violated-directive': 'script-src',
+        })
+      ).resolves.toBeUndefined();
+    });
+
+    it('rejects empty object {} and returns 400 Bad Request', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await apiFetch('/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({}),
+        });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
+
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
+      expect(parsed.success).toBe(true);
+    });
+
+    it('rejects garbage object with unknown keys and returns 400 Bad Request', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await apiFetch('/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ foo: 'bar', garbage: 123 }),
+        });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
+
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
+      expect(parsed.success).toBe(true);
+    });
+
+    it('rejects { "csp-report": {} } and returns 400 Bad Request', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await apiFetch('/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ 'csp-report': {} }),
+        });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
+
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
+      expect(parsed.success).toBe(true);
+    });
+
     it('returns ErrorResponseSchema on malformed JSON payload', async () => {
       let thrownError: ApiClientError | undefined;
       try {

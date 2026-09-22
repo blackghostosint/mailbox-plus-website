@@ -128,11 +128,26 @@ export const CspReportBodySchema = z
     sourceFile: z.string().optional(),
     'line-number': z.union([z.number(), z.string()]).optional(),
     lineNumber: z.union([z.number(), z.string()]).optional(),
+    'column-number': z.union([z.number(), z.string()]).optional(),
+    columnNumber: z.union([z.number(), z.string()]).optional(),
+    'effective-directive': z.string().optional(),
+    effectiveDirective: z.string().optional(),
+    'original-policy': z.string().optional(),
+    originalPolicy: z.string().optional(),
+    disposition: z.string().optional(),
+    referrer: z.string().optional(),
+    'status-code': z.union([z.number(), z.string()]).optional(),
+    statusCode: z.union([z.number(), z.string()]).optional(),
+    'script-sample': z.string().optional(),
+    scriptSample: z.string().optional(),
   })
-  .passthrough();
+  .strict()
+  .refine((data) => Object.values(data).some((val) => val !== undefined), {
+    message: 'CSP report body must contain at least one valid CSP field',
+  });
 
 export const CspReportRequestSchema = z.union([
-  z.object({ 'csp-report': CspReportBodySchema }),
+  z.object({ 'csp-report': CspReportBodySchema }).strict(),
   CspReportBodySchema,
 ]);
 export type CspReportRequest = z.infer<typeof CspReportRequestSchema>;
