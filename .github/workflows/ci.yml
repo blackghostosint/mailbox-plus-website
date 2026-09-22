@@ -61,8 +61,8 @@ jobs:
       - name: Dependency Security Audit (Astro)
         run: cd astro && npm audit --audit-level=high
 
-      - name: TypeScript type check (Astro)
-        run: cd astro && npm run check
+      - name: TypeScript type check
+        run: npm run typecheck
 
       - name: Run Astro unit tests
         run: cd astro && npm test
