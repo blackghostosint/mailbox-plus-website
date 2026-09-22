@@ -38,7 +38,7 @@ Here's what nobody at any counter will tell you when you pick a shipping store: 
 
 **The franchise ship-and-copy store.** It looks like a multi-carrier counter because it carries more than one brand. But it's a franchise on a royalty structure, and its income leans on retail packing materials and upsells. Some franchises are good stores run by good owners. Some charge a premium for a box and packing that a trained counter does in the same two minutes. You can't tell which one you've walked into until you've paid.
 
-**The independent multi-carrier store.** No franchise royalties, no single-carrier mandate. The store prices your package across USPS, UPS, and FedEx and hands you the comparison. The incentive is the shipment — not the carrier, not the box on the shelf.
+**The independent multi-carrier store.** Not a franchise, not tied to one carrier. The store prices your package across USPS, UPS, and FedEx and hands you the comparison. The incentive is the shipment — not the carrier, not the box on the shelf.
 
 Here is the part almost nobody knows before their first denied claim: **the packaging decision is the claim decision.** The UPS terms of service state plainly that UPS is not liable for loss or damage resulting from improper, inadequate, or unsafe packaging that fails to meet its published standards. The FedEx rules tariff likewise excludes coverage for items not properly packaged or labeled by the shipper. USPS holds the mailer responsible for packaging under its own manuals. In other words: when a box arrives broken, the first question the carrier asks is who packed it — and a claim on an amateur-packed box is a coin flip you don't control.
 
