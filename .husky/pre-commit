@@ -1,1 +1,9 @@
+if command -v gitleaks >/dev/null 2>&1; then
+  gitleaks protect --staged --no-banner --redact || exit 1
+else
+  echo "Warning: gitleaks is not installed. Secret scanning skipped locally."
+  echo "To install gitleaks, visit: https://github.com/gitleaks/gitleaks"
+  echo "Note: Secret scanning will still be enforced in CI."
+fi
+
 npx lint-staged
