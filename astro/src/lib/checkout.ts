@@ -1,6 +1,17 @@
 import { apiFetch } from './api-client';
 import { renderFormError, clearFormError } from './dom-error';
 import { siteConfig } from '../config/siteConfig';
+import { CreateCheckoutSuccessSchema, type CreateCheckoutSuccess } from './contracts';
+
+export async function createCheckoutSession(tier: string): Promise<CreateCheckoutSuccess> {
+  const data = await apiFetch<unknown>('/.netlify/functions/create-checkout', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ tier }),
+    timeout: 20000,
+  });
+  return CreateCheckoutSuccessSchema.parse(data);
+}
 
 export function initCheckoutButtons(): void {
   document.querySelectorAll<HTMLButtonElement>('.checkout-btn').forEach((btn) => {
@@ -18,12 +29,7 @@ export function initCheckoutButtons(): void {
       btn.disabled = true;
 
       try {
-        const data = await apiFetch<{ url?: string }>('/.netlify/functions/create-checkout', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ tier }),
-          timeout: 20000,
-        });
+        const data = await createCheckoutSession(tier);
 
         if (data && data.url) {
           window.location.href = data.url;

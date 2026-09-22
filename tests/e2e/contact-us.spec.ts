@@ -13,7 +13,7 @@ test.describe('Contact Us Conversion Pathway', () => {
 
     const mockApi = await contactPage.mockSendEmailApi({
       status: 200,
-      body: { ok: true, message: 'Email sent successfully' },
+      body: { success: true },
     });
 
     await contactPage.goto();

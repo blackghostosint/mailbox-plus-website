@@ -1,5 +1,15 @@
 import { apiFetch, ApiClientError } from './api-client';
 import { renderFormError, clearFormError } from './dom-error';
+import { SendEmailSuccessSchema, type SendEmailSuccess } from './contracts';
+
+export async function submitContactForm(payload: unknown): Promise<SendEmailSuccess> {
+  const data = await apiFetch<unknown>('/.netlify/functions/sendEmail', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  });
+  return SendEmailSuccessSchema.parse(data);
+}
 
 export function initContactForms(): void {
   const forms = document.querySelectorAll<HTMLFormElement>(
@@ -66,11 +76,7 @@ export function initContactForms(): void {
       };
 
       try {
-        await apiFetch('/.netlify/functions/sendEmail', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload),
-        });
+        await submitContactForm(payload);
 
         const statusDiv = document.createElement('div');
         statusDiv.setAttribute('role', 'status');
