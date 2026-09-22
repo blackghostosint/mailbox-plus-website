@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig, phoneFormatted, fullAddressSingleLine } from '../config/siteConfig';
 import { getWebPageSchema, getServiceSchema } from '../utils/schema';
 const pageUrl = 'https://mailboxplusohio.com/amazon-counter/';
 const encodedPageUrl = encodeURIComponent(pageUrl);
@@ -11,10 +11,10 @@ const shareUrls = {
   x: `https://twitter.com/intent/tweet?text=${xText}&url=${encodedPageUrl}`,
   facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedPageUrl}`,
   linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedPageUrl}`,
-  nextdoor: `https://nextdoor.com/sharekit/?source=mailboxplus&body=${encodedPageUrl}%0A%0A${encodeURIComponent('Concord Twp — tired of driving 20 minutes to return an Amazon box? I\'m supporting Mailbox Plus (7554 Fredle Drive) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home.')}&hash_tag=AmazonCounterMailboxPlus`,
+  nextdoor: `https://nextdoor.com/sharekit/?source=mailboxplus&body=${encodedPageUrl}%0A%0A${encodeURIComponent(`Concord Twp — tired of driving 20 minutes to return an Amazon box? I'm supporting Mailbox Plus (${siteConfig.contact.address.street}) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home.`)}&hash_tag=AmazonCounterMailboxPlus`,
 };
 const captionText =
-  'Concord Twp — tired of driving 20 minutes to return an Amazon box? I\'m supporting Mailbox Plus (7554 Fredle Drive) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home. #AmazonCounterMailboxPlus';
+  `Concord Twp — tired of driving 20 minutes to return an Amazon box? I'm supporting Mailbox Plus (${siteConfig.contact.address.street}) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home. #AmazonCounterMailboxPlus`;
 
 const webPageSchema = getWebPageSchema(siteConfig, {
   name: 'Amazon Returns Counter for Concord Twp (44077) — Help Us Bring It Home',
@@ -194,7 +194,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
         We live here too. We know the drive.
       </p>
       <p class="text-xl text-[var(--color-text-primary)] leading-relaxed mb-5">
-        We've shipped thousands of packages since 2024 and handle returns for all four carriers every day at 7554 Fredle Drive. We're ready to be an official Amazon Hub Counter — box-free, label-free, QR-scan returns. Walk in, show the code, hand over the item, walk out.
+        We've shipped thousands of packages since 2024 and handle returns for all four carriers every day at {siteConfig.contact.address.street}. We're ready to be an official Amazon Hub Counter — box-free, label-free, QR-scan returns. Walk in, show the code, hand over the item, walk out.
       </p>
       <div class="flex flex-wrap items-center gap-2 mb-5">
         <span class="text-sm font-semibold text-[var(--color-text-muted)] uppercase tracking-wider">Trusted by:</span>
@@ -377,7 +377,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
   <section class="py-8 bg-[var(--color-primary-deeper)]">
     <div class="max-w-[720px] mx-auto px-4 sm:px-6 text-center">
       <p class="text-white/80 text-sm sm:text-base">
-        📍 7554 Fredle Drive, Concord Township, OH 44077 · (440) 709-1946
+        📍 {fullAddressSingleLine} · {phoneFormatted}
       </p>
       <p class="text-[var(--color-accent-gold)] font-bold text-xl sm:text-xl mt-2">
         #AmazonCounterMailboxPlus

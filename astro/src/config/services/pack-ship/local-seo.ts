@@ -8,6 +8,7 @@ import Shield from '~icons/lucide/shield';
 import Box from '~icons/lucide/box';
 import type { Service } from '../../../types/services';
 import { getServiceImageUrl } from '../../../lib/storage';
+import { phoneFormatted } from '../../siteConfig';
 
 export const localSeoServices: Service[] = [
   {
@@ -514,8 +515,7 @@ export const localSeoServices: Service[] = [
     serviceName: 'Shipping Center',
     slug: '/shipping-center-concord-township',
     pageTitle: 'Shipping Store Near Me in Concord Township, OH | Mailbox Plus',
-    metaDescription:
-      'Full-service shipping store in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, packing, printing, mailbox rentals. Rated 5.0★ on Google. Open Mon-Sat. Call (440) 709-1946.',
+    metaDescription: `Full-service shipping store in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, packing, printing, mailbox rentals. Rated 5.0★ on Google. Open Mon-Sat. Call ${phoneFormatted}.`,
     keywords: 'shipping center, Concord Township, Lake County',
     heroTitle: 'Local Shipping Center in Concord Township',
     heroSubtitle: 'Complete shipping, packing, and business services. Four carriers, one location.',
@@ -775,8 +775,7 @@ export const localSeoServices: Service[] = [
     serviceName: 'Shipping, Mailing & Pack and Ship Services',
     slug: '/pack-and-ship-services-concord-township',
     pageTitle: 'Shipping & Mailing in Concord Township | Mailbox Plus',
-    metaDescription:
-      'Shipping, mailing, and pack & ship services in Concord Township (44077). UPS, FedEx, USPS, DHL, mailbox rentals, notary, printing. Rated 5.0★ on Google. Call (440) 709-1946.',
+    metaDescription: `Shipping, mailing, and pack & ship services in Concord Township (44077). UPS, FedEx, USPS, DHL, mailbox rentals, notary, printing. Rated 5.0★ on Google. Call ${phoneFormatted}.`,
     keywords: 'pack and ship services, Concord Township, Mailbox Plus, shipping, packing',
     heroTitle: 'Pack and Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
     heroSubtitle:

@@ -57,4 +57,11 @@ export interface SiteConfig {
   }; // ✅ added for LocalBusiness schema
   foundingYear?: number; // ✅ Source of Truth founding year
   openingDate?: string; // ✅ Source of Truth official opening date (ISO format)
+  phoneFormatted?: string;
+  phoneTelLink?: string;
+  fullAddressSingleLine?: string;
+  fullAddressMultiLine?: string;
+  storeHoursList?: string[];
+  formattedHoursList?: string[];
+  hoursSummary?: string;
 }

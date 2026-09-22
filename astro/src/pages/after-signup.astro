@@ -45,7 +45,7 @@ const videoSchema = {
   uploadDate: '2026-06-29',
   duration: 'PT1M10S',
   transcript:
-    "After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away. An activation email goes to your inbox. Open it. Click the link. Your mailbox opens. Your mailing address is 7554 Fredle Drive, PMB 456, Concord Township. A welcome email follows. It confirms your address. It lists office hours. It reminds you to bring ID. Print it or save it. Mail arrives. Packages arrive. We sign for carriers. We note each item. Everything stays secure until you arrive. Stop by during open hours. Show your ID. Collect your mail. Use the address now. Put it on bills. List it for online orders. Forward old mail here. That's the process. Shipping shouldn't cost you an hour.",
+    `After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away. An activation email goes to your inbox. Open it. Click the link. Your mailbox opens. Your mailing address is ${siteConfig.contact.address.street}, PMB 456, Concord Township. A welcome email follows. It confirms your address. It lists office hours. It reminds you to bring ID. Print it or save it. Mail arrives. Packages arrive. We sign for carriers. We note each item. Everything stays secure until you arrive. Stop by during open hours. Show your ID. Collect your mail. Use the address now. Put it on bills. List it for online orders. Forward old mail here. That's the process. Shipping shouldn't cost you an hour.`,
   hasPart: [
     {
       '@type': 'WebPage',
@@ -95,7 +95,7 @@ const steps = [
   {
     stepNum: '3',
     title: 'Address Assigned',
-    desc: 'Your official mailing address becomes: 7554 Fredle Drive, PMB [Your Number], Concord Township, OH 44077.',
+    desc: `Your official mailing address becomes: ${siteConfig.contact.address.street}, PMB [Your Number], ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}.`,
   },
   {
     stepNum: '4',
