@@ -346,7 +346,8 @@ describe('CORS Middleware Utility', () => {
     });
 
     it('provides correct property descriptors for length and index properties', () => {
-      const descriptors = Object.getOwnPropertyDescriptors(DEFAULT_ALLOWED_ORIGINS);
+      const descriptors: Record<string, PropertyDescriptor> =
+        Object.getOwnPropertyDescriptors(DEFAULT_ALLOWED_ORIGINS);
       expect(descriptors.length).toBeDefined();
       expect(descriptors.length.configurable).toBe(false);
       expect(descriptors.length.enumerable).toBe(false);
