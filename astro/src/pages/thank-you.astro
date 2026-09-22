@@ -221,7 +221,7 @@ const storeHours = [
             value,
             currency,
             contentName,
-            tier: data.tier,
+            tier: data.tier ?? undefined,
           });
         })
         .catch((err: unknown) => {
