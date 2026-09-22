@@ -18,3 +18,11 @@ Notes: no pricing, carrier policy, or legal-statute claims beyond #8. No interna
 
 - "Most jobs are done same-day" — operational duration claim for in-store service, BANNED by article-claims-gate rule 2; removed 2026-09-22.
 - "while you wait" (description) — same ban; removed 2026-09-22.
+
+
+## L3 review follow-up (2026-09-22) — 4 blockers addressed
+
+1. **Deploy preview:** re-push on this branch triggers a fresh Netlify deploy; preview URL verified before re-review request.
+2. **Unsupported operational promises softened:** "originals returned intact" → originals-stay-yours framing; "No Sorting Weekend"/"no sorting required" absolutes → "bring the box as it is and we'll work through it with you at the counter" (process, not capability promise); "USB drive or another delivery method" + "straight answer on scope and timing" → counter-scoped "we'll settle scope, timing, and delivery together before anything starts".
+3. **Scanning-capability ⚠️ items** (previously reliant on sibling articles): now counter-scoped — no capability is asserted beyond what the customer experiences at the counter.
+4. **IRS wording matched to cited guidance:** "The IRS expects you to produce records…" / "standing audit window" → "IRS record-retention guidance is to keep tax records for at least three years after filing, and longer in some situations." Matches IRS Topic 305 / Recordkeeping page language; no audit-window framing.
