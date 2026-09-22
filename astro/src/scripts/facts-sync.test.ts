@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { siteConfig, phoneFormatted } from '../config/siteConfig';
+import { privateMailboxRentalFaqs } from '../config/faqs/home-business/privateMailboxRentalFaqs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,5 +24,14 @@ describe('facts.json synchronization with siteConfig.ts', () => {
     expect(facts.phone_alt).toBe(siteConfig.contact.phone);
     expect(facts.phone).toBe(phoneFormatted);
     expect(facts.email).toBe(siteConfig.contact.email);
+  });
+
+  it('privateMailboxRentalFaqs formats address without duplicate street suffixes', () => {
+    const addressFaq = privateMailboxRentalFaqs.find((faq) =>
+      faq.question.includes('address look like')
+    );
+    expect(addressFaq).toBeDefined();
+    expect(addressFaq?.answer).not.toContain('Drive Dr');
+    expect(addressFaq?.answer).toContain('7554 Fredle Drive #234');
   });
 });

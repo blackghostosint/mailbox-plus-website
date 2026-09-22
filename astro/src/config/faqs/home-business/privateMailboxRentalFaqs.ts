@@ -24,7 +24,7 @@ export const privateMailboxRentalFaqs: FAQ[] = [
   },
   {
     question: "What's your address look like on a label?",
-    answer: `Your address is our street address plus your box number — e.g., ${siteConfig.contact.address.street} Dr #234, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}. It's a legitimate street address, not a PO Box number.`,
+    answer: `Your address is our street address plus your box number — e.g., ${siteConfig.contact.address.street} #234, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}. It's a legitimate street address, not a PO Box number.`,
   },
   {
     question: 'Can businesses use this service?',
