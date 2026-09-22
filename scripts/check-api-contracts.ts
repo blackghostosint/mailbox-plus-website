@@ -244,8 +244,12 @@ async function checkApiContracts() {
     const hostname = parsedUrl ? parsedUrl.hostname : '';
     const pathname = parsedUrl ? parsedUrl.pathname : '';
 
-    // Mock Google Places API Details endpoint
-    if (hostname === 'places.googleapis.com' && pathname.startsWith('/v1/places/')) {
+    // Mock Google Places API Details endpoint (exact GET method and /v1/places/:placeId path)
+    if (
+      hostname === 'places.googleapis.com' &&
+      method === 'GET' &&
+      /^\/v1\/places\/[a-zA-Z0-9_-]+$/.test(pathname)
+    ) {
       return new Response(
         JSON.stringify({
           rating: 4.9,
@@ -267,11 +271,11 @@ async function checkApiContracts() {
       );
     }
 
-    // Mock Google reCAPTCHA Verification API
+    // Mock Google reCAPTCHA Verification API (exact POST method and /recaptcha/api/siteverify path)
     if (
       (hostname === 'www.google.com' || hostname === 'google.com') &&
-      pathname === '/recaptcha/api/siteverify' &&
-      method === 'POST'
+      method === 'POST' &&
+      pathname === '/recaptcha/api/siteverify'
     ) {
       return new Response(JSON.stringify({ success: true, score: 0.9 }), {
         status: 200,
@@ -279,13 +283,17 @@ async function checkApiContracts() {
       });
     }
 
-    // Allowlist exact Netlify Blobs storage requests
-    const isNetlifyBlobsHost =
-      (hostname === 'api.netlify.com' && pathname.startsWith('/api/v1/blobs/')) ||
-      ((hostname === 'blobs.netlify.com' || hostname.endsWith('.blobs.netlify.com')) &&
-        pathname.startsWith('/'));
+    // Allowlist exact Netlify Blobs storage requests (strict method and store/key path matching)
+    const ALLOWED_BLOBS_METHODS = ['GET', 'PUT', 'DELETE', 'HEAD', 'POST'];
+    const isAllowedNetlifyBlobs =
+      ALLOWED_BLOBS_METHODS.includes(method) &&
+      ((hostname === 'api.netlify.com' && /^\/api\/v1\/(blobs|sites)\//.test(pathname)) ||
+        ((hostname === 'blobs.netlify.com' ||
+          /^[a-zA-Z0-9_-]+\.blobs\.netlify\.com$/.test(hostname)) &&
+          (/^\/(uncached\/)?[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+(\/.*)?$/.test(pathname) ||
+            /^\/api\/v1\/blobs\//.test(pathname))));
 
-    if (isNetlifyBlobsHost) {
+    if (isAllowedNetlifyBlobs) {
       return new Response(JSON.stringify({}), {
         status: 404,
         headers: { 'Content-Type': 'application/json' },
