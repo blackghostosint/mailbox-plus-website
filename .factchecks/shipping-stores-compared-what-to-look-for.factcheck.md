@@ -18,3 +18,21 @@ Date: 2026-09-22 | Checker: article-writer cron run
 | 12  | Two-inch cushioning rule / box-in-box packing standard                                                                    | ⚠️ framed as staff practice knowledge, no specific dollar/policy figure asserted; industry-standard guidance | https://pe.usps.com/text/pub52/pub52apxc_011.htm (cushioning requirement)                                                                                  |
 
 No ❌ claims. All dollar figures sourced to official USPS pages; carrier liability language quoted from UPS/FedEx official terms documents.
+
+## L3 pre-merge follow-up — round 2 (2026-09-22, head 0156917)
+
+| #   | claim                                                                                                                  | verdict                                          | action                                                                                                                                         |
+| --- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | "packed thousands of them" (line 53 volume)                                                                            | ❌ invented figure                               | → "someone who does this every day"                                                                                                            |
+| 2   | "no franchise royalties" (line 81)                                                                                     | ⚠️ business-structure claim without owner source | → "not a franchise, not tied to one carrier" (definitional framing)                                                                            |
+| 3   | "cheapest honest way/option" (lines 81, 88 pricing promise)                                                            | ⚠️ unverifiable                                  | → "cheapest way that still gets your package there in one piece" / "walk you through the cheapest option that still protects what's inside"    |
+| 4   | staff mastery: "packed everything in Lake County", "know the two-inch cushioning rule and box-in-box method" (line 83) | ⚠️ unverifiable credential                       | → method attributed to documented carrier standard (box-in-box, cushioning on all six sides per UPS/FedEx guidance) instead of staff biography |
+
+## Round 1 (2026-09-22, head 0ecb1621)
+
+| #   | claim                                            | verdict            | action                                   |
+| --- | ------------------------------------------------ | ------------------ | ---------------------------------------- |
+| 1   | "someone who does this two hundred times a week" | ❌ invented        | → "every day the store is open"          |
+| 2   | "under five minutes"                             | ❌ banned duration | → "minutes, not an afternoon"            |
+| 3   | "trained to the carrier's standard"              | ⚠️ unverifiable    | → observable box-building at the counter |
+| 4   | "package in trusted custody"                     | ⚠️ unverifiable    | → "handed over the counter"              |

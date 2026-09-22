@@ -50,7 +50,7 @@ At the self-pack counter, you're crouched in an aisle pulling a box that may or 
 
 At the franchise register, you get quoted a price that reads like a phone number. You ask what the box costs and the answer includes packing materials, a handling fee, and a fee whose name doesn't match anything on the shelf. You pay it because you're already late, and you walk out not knowing whether that box was packed well or just packed expensively.
 
-At a staffed multi-carrier counter, the whole thing is a conversation that fits in the time it takes to find your keys: you set the item down, someone who has packed thousands of them sizes it, cushions it to the carrier's standard, prices it across three carriers, and slides a receipt with a tracking number across the counter. Same errand. One of these versions ends with confidence, and two end with a receipt and a held breath.
+At a staffed multi-carrier counter, the whole thing is a conversation that fits in the time it takes to find your keys: you set the item down, someone who does this every day sizes it, cushions it to the carrier's standard, prices it across three carriers, and slides a receipt with a tracking number across the counter. Same errand. One of these versions ends with confidence, and two end with a receipt and a held breath.
 
 ## Who the System Was Built For
 
@@ -78,14 +78,14 @@ And the one criterion that outranks all the others: **who packed the box, and di
 
 ## The Counter Engineered for Zero Friction
 
-That combination is what Mailbox Plus was built around. We're independent — no franchise royalties, no single-carrier mandate — which means when you set your item on our counter at 7554 Fredle Drive in Concord Township, the next words you hear are the prices, all three carriers, and the cheapest honest way to get your package where it's going. USPS Ground Advantage starts at $7.90 at the post office retail rate; sometimes that's your answer, sometimes UPS Ground is, and you'll see both on the same receipt.
+That combination is what Mailbox Plus was built around. We're independent — not a franchise, not tied to one carrier — which means when you set your item on our counter at 7554 Fredle Drive in Concord Township, the next words you hear are the prices, all three carriers, and the cheapest way that still gets your package there in one piece. USPS Ground Advantage starts at $7.90 at the post office retail rate; sometimes that's your answer, sometimes UPS Ground is, and you'll see both on the same receipt.
 
-The people behind that counter have packed everything that gets packed in Lake County — grandmother's china, a seller's hundredth eBay box, a laptop that has to survive a plane hold. They know the two-inch cushioning rule and the box-in-box method not because a manual says so but because they've seen what happens to boxes that skipped it. When you leave our counter with a tracking number, you leave without the held breath.
+Grandmother's china, a seller's hundredth eBay box, a laptop that has to survive a plane hold — the carriers document the box-in-box method and cushioning on all six sides because boxes that skip it fail, and that's the standard a good counter builds to. When you leave our counter with a tracking number, you leave without the held breath.
 
 ## Three Steps, Start to Finish
 
 1. **Walk in with what you have.** Item in a grocery bag, in the original box, in nothing at all — it doesn't matter. No homework, no pre-packing, no printer labels.
-2. **Set it on the counter.** We size it, pack it to the carrier's standard, price it across USPS, UPS, and FedEx, and tell you the cheapest honest option. If you need Certified Mail for a notice — the fee is $5.55 on top of postage — we handle the green card there too.
+2. **Set it on the counter.** We size it, pack it to the carrier's standard, price it across USPS, UPS, and FedEx, and walk you through the cheapest option that still protects what's inside. If you need Certified Mail for a notice — the fee is $5.55 on top of postage — we handle the green card there too.
 3. **Walk out with the receipt.** Tracking number in your hand, package handed over the counter, total elapsed time measured in minutes. You'll be back in the car before you'd have found a parking spot at the big-box plaza.
 
 ## What Waiting Actually Costs You
