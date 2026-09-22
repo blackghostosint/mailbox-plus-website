@@ -436,6 +436,8 @@ export const getArticleSchema = (
     articleSection,
     keywords,
     url,
+    reviewedByName,
+    reviewedByTitle,
   }: {
     headline: string;
     description: string;
@@ -446,6 +448,8 @@ export const getArticleSchema = (
     articleSection?: string;
     keywords?: string[];
     url: string;
+    reviewedByName?: string;
+    reviewedByTitle?: string;
   }
 ): WithContext<Article> => {
   const canonicalUrl = toCanonicalUrl(url);
@@ -464,6 +468,14 @@ export const getArticleSchema = (
       '@type': 'Person',
       name: authorName || config.name,
     },
+    ...(reviewedByName && {
+      reviewedBy: {
+        '@type': 'Person',
+        name: reviewedByName,
+        ...(reviewedByTitle && { jobTitle: reviewedByTitle }),
+        worksFor: { '@type': 'Organization', name: config.name },
+      },
+    }),
     publisher: {
       '@type': 'Organization',
       '@id': toCanonicalUrl(`${getOrigin(config)}#localbusiness`),

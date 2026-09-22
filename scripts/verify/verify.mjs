@@ -814,6 +814,81 @@ function cmdArticle(arg, isStrict = false) {
       check('content:quick-answer', true, 'not applicable (batch article, no quickAnswer)');
     }
 
+    // 4c) FAQ block (FAQPage rich results / People-Also-Ask coverage)
+    // Required: >= 4 Q&As on new/changed articles under --strict; validated for all.
+    const faqsArr = Array.isArray(data.faqs) ? data.faqs : [];
+    const faqIsNew = initNewArticles().has(relPath);
+    if (faqsArr.length >= 4) {
+      let faqBad = '';
+      for (const f of faqsArr) {
+        const q = typeof f?.question === 'string' ? f.question.trim() : '';
+        const a = typeof f?.answer === 'string' ? f.answer.trim() : '';
+        if (!q || !a) {
+          faqBad = 'a FAQ entry is missing question or answer text';
+          break;
+        }
+        for (const href of extractInternalHrefs(a)) {
+          if (!href.endsWith('/')) {
+            faqBad = `internal link '${href}' in a FAQ answer missing trailing slash`;
+          }
+        }
+        if (faqBad) break;
+      }
+      if (faqBad) {
+        check(
+          'content:faqs',
+          false,
+          faqBad,
+          'give every FAQ a real question and a substantive answer'
+        );
+      } else {
+        check('content:faqs', true, `${faqsArr.length} Q&As present`);
+      }
+    } else if (isStrict && faqIsNew) {
+      check(
+        'content:faqs',
+        false,
+        `only ${faqsArr.length} FAQ entries (need >= 4)`,
+        "add a 'faqs:' frontmatter array with 4-6 genuine customer questions (PAA / voice-query coverage) — see docs/ARTICLE-WORKFLOW.md"
+      );
+    } else {
+      check('content:faqs', true, `missing/faqs light (advisory — legacy article)`);
+    }
+
+    // 4d) Article-to-article linking (topic-cluster authority)
+    const articleLinks = extractInternalHrefs(content).filter((h) =>
+      /^\/articles\/[^/]+\/$/.test(h)
+    );
+    const linkIsNew = initNewArticles().has(relPath);
+    if (articleLinks.length >= 2) {
+      check('content:article-links', true, `${articleLinks.length} article-to-article links`);
+    } else if (isStrict && linkIsNew) {
+      check(
+        'content:article-links',
+        false,
+        `only ${articleLinks.length} links to other articles (need >= 2)`,
+        'link to at least 2 related /articles/{slug}/ pages (topic-cluster authority) with trailing slashes'
+      );
+    } else {
+      check('content:article-links', true, 'advisory — legacy article');
+    }
+
+    // 4e) Reviewer attribution (E-E-A-T: named human who stands behind the content)
+    const authorStr = typeof data.author === 'string' ? data.author : '';
+    const authIsNew = initNewArticles().has(relPath);
+    if (/Frank Schwarz/i.test(authorStr) || /frank schwarz/i.test(content.slice(0, 2000))) {
+      check('content:reviewer-entity', true, 'owner attribution present');
+    } else if (isStrict && authIsNew) {
+      check(
+        'content:reviewer-entity',
+        false,
+        'no owner attribution — E-E-A-T requires a named human reviewer',
+        "set author: 'Reviewed by Frank Schwarz, COO' (or reference the reviewer in the lead); the page template adds the review byline and Person schema"
+      );
+    } else {
+      check('content:reviewer-entity', true, 'advisory — legacy article');
+    }
+
     // 5) IntentKey uniqueness across corpus
     const ik = String(data.intentKey || '');
     if (ik) {

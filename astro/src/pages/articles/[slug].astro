@@ -56,6 +56,8 @@ const articleSchema = getArticleSchema(siteConfig, {
   datePublished: pubDate,
   dateModified: lastModified ?? pubDate,
   authorName: author,
+  reviewedByName: 'Frank Schwarz',
+  reviewedByTitle: 'COO',
   articleSection: category,
   keywords: keywords ?? [],
   url: articleUrl,
@@ -120,7 +122,7 @@ const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : und
             <svg aria-hidden="true" focusable="false" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
             </svg>
-            <span>By {author}</span>
+            <span>By {author} · Reviewed by Frank Schwarz, COO</span>
           </div>
         )}
       </div>
@@ -158,6 +160,27 @@ const faqSchema = faqs && faqs.length > 0 ? getFAQSchema(siteConfig, faqs) : und
       <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:tracking-tight prose-headings:text-[var(--color-primary-dark)] prose-a:text-[var(--color-primary)] prose-img:rounded-xl prose-img:shadow-lg">
         <div set:html={renderedContent} />
       </div>
+
+      {/* FAQ — visible + FAQPage schema (see getFAQSchema) */}
+      {faqs && faqs.length > 0 && (
+        <div class="mt-16 pt-10" style="border-top: 1px solid var(--color-border)">
+          <h2 class="text-2xl font-bold mb-6" style="color: var(--color-text-primary)">
+            Frequently Asked Questions
+          </h2>
+          <div class="space-y-6">
+            {faqs.map((faq: { question: string; answer: string }) => (
+              <div>
+                <h3 class="text-lg font-semibold mb-2" style="color: var(--color-primary-dark)">
+                  {faq.question}
+                </h3>
+                <p class="leading-relaxed" style="color: var(--color-text-secondary)">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {/* Related Services */}
       {relatedServices && relatedServices.length > 0 && (
