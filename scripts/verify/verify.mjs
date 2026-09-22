@@ -1282,28 +1282,70 @@ function cmdReview(targetPath) {
   const providerIdx = rest.indexOf('--provider');
   const provider = providerIdx !== -1 ? rest[providerIdx + 1] : 'nous';
   const modelIdx = rest.indexOf('--model');
-  const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'tencent/hy3';
+  const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'x-ai/grok-4.7';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '80';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '70';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
   );
-  try {
+  // Grok 4.7 gate (calibrated 2026-09-22 against 8 published anchors: recent
+  // work scores 69-77, older catalog 39-64 — pass bar 70 = "beat the best
+  // published work"). API calls are slow and occasionally return empty, so
+  // retry API-style failures up to 3 attempts, then FAIL CLOSED (no fallback
+  // pass on reviewer outage). Genuine score failures are not retried.
+  const MAX_ATTEMPTS = 3;
+  const apiErrorRe =
+    /ValueError|not found in environment|ECONNRESET|ETIMEDOUT|fetch failed|socket hang up|rate.?limit|50[023]|empty|SyntaxError: Unexpected end/i;
+  let lastOutput = '';
+  let attempt = 0;
+  let success = false;
+  for (attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
     const jsonFlag = asJson ? ' --json' : '';
-    execSync(
-      `npx tsx "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
-      {
-        stdio: 'inherit',
-        cwd: ROOT,
-      }
+    try {
+      lastOutput = execSync(
+        `npx tsx "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
+        {
+          stdio: 'pipe',
+          cwd: ROOT,
+          timeout: 600000,
+          encoding: 'utf8',
+        }
+      );
+      process.stdout.write(lastOutput);
+      success = true;
+      break;
+    } catch (e) {
+      const out = ((e && e.stdout) || '') + ((e && e.stderr) || '');
+      lastOutput = out;
+      const isApiError = apiErrorRe.test(out) && !/EVALUATION/.test(out);
+      if (!isApiError || attempt === MAX_ATTEMPTS) break;
+      console.log(
+        `⚠️  review attempt ${attempt} hit an API error — retrying (${attempt}/${MAX_ATTEMPTS - 1} retries)...\n`
+      );
+    }
+  }
+  if (!success) {
+    process.stdout.write(lastOutput);
+  }
+  if (success) {
+    check(
+      'review:rubric-score',
+      true,
+      `passed review matrix (score >= ${minScore}, model=${model})`
     );
-    check('review:rubric-score', true, 'passed review matrix (score >= 80)');
-  } catch (e) {
+  } else if (apiErrorRe.test(lastOutput) && !/EVALUATION/.test(lastOutput)) {
     check(
       'review:rubric-score',
       false,
-      'failed review matrix (score < 80 or error)',
+      'reviewer API unavailable after retries',
+      'reviewer API down — retry later; do NOT pass without a completed review'
+    );
+  } else {
+    check(
+      'review:rubric-score',
+      false,
+      `failed review matrix (score < ${minScore} or error)`,
       'review feedback above and revise draft'
     );
   }
