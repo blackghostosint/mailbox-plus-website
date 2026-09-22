@@ -2,25 +2,54 @@
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
+function getNetlifyContext(): string | undefined {
+  if (typeof import.meta !== 'undefined' && import.meta.env) {
+    if (import.meta.env.VITE_NETLIFY_CONTEXT) return import.meta.env.VITE_NETLIFY_CONTEXT;
+    if (import.meta.env.CONTEXT) return import.meta.env.CONTEXT;
+  }
+  if (typeof process !== 'undefined' && process.env) {
+    if (process.env.VITE_NETLIFY_CONTEXT) return process.env.VITE_NETLIFY_CONTEXT;
+    if (process.env.CONTEXT) return process.env.CONTEXT;
+  }
+  return undefined;
+}
+
 function getSiteDomain(): string {
-  const envUrl =
+  const explicitSiteUrl =
     (typeof import.meta !== 'undefined' && import.meta.env
-      ? import.meta.env.VITE_SITE_URL ||
-        import.meta.env.SITE_URL ||
-        import.meta.env.URL ||
-        import.meta.env.DEPLOY_PRIME_URL
+      ? import.meta.env.VITE_SITE_URL || import.meta.env.SITE_URL
       : undefined) ||
     (typeof process !== 'undefined' && process.env
-      ? process.env.VITE_SITE_URL ||
-        process.env.SITE_URL ||
-        process.env.URL ||
-        process.env.DEPLOY_PRIME_URL
+      ? process.env.VITE_SITE_URL || process.env.SITE_URL
       : undefined);
 
-  if (envUrl) {
+  if (explicitSiteUrl) {
     const url =
-      envUrl.startsWith('http://') || envUrl.startsWith('https://') ? envUrl : `https://${envUrl}`;
+      explicitSiteUrl.startsWith('http://') || explicitSiteUrl.startsWith('https://')
+        ? explicitSiteUrl
+        : `https://${explicitSiteUrl}`;
     return url.replace(/\/+$/, '');
+  }
+
+  const context = getNetlifyContext();
+  const isPreview = context === 'deploy-preview' || context === 'branch-deploy';
+
+  if (isPreview) {
+    const previewUrl =
+      (typeof import.meta !== 'undefined' && import.meta.env
+        ? import.meta.env.DEPLOY_PRIME_URL || import.meta.env.URL
+        : undefined) ||
+      (typeof process !== 'undefined' && process.env
+        ? process.env.DEPLOY_PRIME_URL || process.env.URL
+        : undefined);
+
+    if (previewUrl) {
+      const url =
+        previewUrl.startsWith('http://') || previewUrl.startsWith('https://')
+          ? previewUrl
+          : `https://${previewUrl}`;
+      return url.replace(/\/+$/, '');
+    }
   }
 
   return 'https://mailboxplusohio.com';
