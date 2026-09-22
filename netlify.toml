@@ -3,7 +3,7 @@
   publish = "dist"
   functions = "netlify/functions"
   # Allow deploy previews for feature branches + production on main
-  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*", "jules/*", "jules/*/*"]
+  allowed_branches = ["main", "main/*", "feature/*", "fix/*", "hotfix/*", "release/*", "dev/*", "test/*", "chore/*", "article/*", "jules/*", "jules/*/*"]
 
 [build.environment]
   # Secret scanning is enforced in GitHub Actions CI via Gitleaks (.gitleaks.toml); disabled in Netlify build environment to prevent false positive deploy preview failures on public CDN assets and sales pages
