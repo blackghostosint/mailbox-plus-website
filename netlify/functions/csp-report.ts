@@ -31,20 +31,38 @@ export default withCors(
         return jsonError('Bad Request', 400);
       }
       const body = parsed.data;
-      const report: Record<string, any> =
-        body && typeof body === 'object' && 'csp-report' in body && body['csp-report']
-          ? (body['csp-report'] as Record<string, any>)
-          : (body as Record<string, any>);
+      const reports = Array.isArray(body) ? body : [body];
 
-      // Log the violation with automatic parameter / URL redaction
-      logger.warn('[CSP Violation]', {
-        documentUri: report['document-uri'] || report.documentUri,
-        violatedDirective: report['violated-directive'] || report.violatedDirective,
-        blockedUri: report['blocked-uri'] || report.blockedUri,
-        sourceFile: report['source-file'] || report.sourceFile,
-        lineNumber: report['line-number'] || report.lineNumber,
-        userAgent: request.headers.get('user-agent') || 'unknown',
-      });
+      for (const item of reports) {
+        const details: Record<string, any> =
+          item && typeof item === 'object' && 'csp-report' in item && item['csp-report']
+            ? (item['csp-report'] as Record<string, any>)
+            : item && typeof item === 'object' && 'body' in item && item.body
+              ? (item.body as Record<string, any>)
+              : (item as Record<string, any>);
+
+        const topUrl =
+          item && typeof item === 'object' && 'url' in item ? (item.url as string) : undefined;
+        const topUa =
+          item && typeof item === 'object'
+            ? 'user_agent' in item
+              ? (item.user_agent as string)
+              : 'userAgent' in item
+                ? (item.userAgent as string)
+                : undefined
+            : undefined;
+
+        // Log the violation with automatic parameter / URL redaction
+        logger.warn('[CSP Violation]', {
+          documentUri:
+            details['document-uri'] || details.documentUri || details.documentURL || topUrl,
+          violatedDirective: details['violated-directive'] || details.violatedDirective,
+          blockedUri: details['blocked-uri'] || details.blockedUri || details.blockedURL,
+          sourceFile: details['source-file'] || details.sourceFile,
+          lineNumber: details['line-number'] || details.lineNumber,
+          userAgent: topUa || request.headers.get('user-agent') || 'unknown',
+        });
+      }
 
       return new Response(null, {
         status: 204,

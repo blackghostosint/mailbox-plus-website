@@ -319,6 +319,59 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       ).resolves.toBeUndefined();
     });
 
+    it('handles valid modern report-to array payload via client helper', async () => {
+      await expect(
+        sendCspReport([
+          {
+            type: 'csp-violation',
+            age: 10,
+            url: 'https://mailboxplusohio.com/services/',
+            user_agent: 'Mozilla/5.0',
+            body: {
+              documentURL: 'https://mailboxplusohio.com/services/',
+              violatedDirective: 'script-src',
+              blockedURL: 'https://evil.example.com/script.js',
+            },
+          },
+        ])
+      ).resolves.toBeUndefined();
+    });
+
+    it('handles valid modern report-to single item payload via client helper', async () => {
+      await expect(
+        sendCspReport({
+          type: 'csp-violation',
+          age: 5,
+          url: 'https://mailboxplusohio.com/services/',
+          body: {
+            documentURL: 'https://mailboxplusohio.com/services/',
+            violatedDirective: 'img-src',
+            blockedURL: 'http://insecure.example.com/image.png',
+          },
+        })
+      ).resolves.toBeUndefined();
+    });
+
+    it('rejects empty array [] and returns 400 Bad Request', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await apiFetch('/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify([]),
+        });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
+
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
+      expect(parsed.success).toBe(true);
+    });
+
     it('rejects empty object {} and returns 400 Bad Request', async () => {
       let thrownError: ApiClientError | undefined;
       try {

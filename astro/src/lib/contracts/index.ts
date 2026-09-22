@@ -120,10 +120,12 @@ export const CspReportBodySchema = z
   .object({
     'document-uri': z.string().optional(),
     documentUri: z.string().optional(),
+    documentURL: z.string().optional(),
     'violated-directive': z.string().optional(),
     violatedDirective: z.string().optional(),
     'blocked-uri': z.string().optional(),
     blockedUri: z.string().optional(),
+    blockedURL: z.string().optional(),
     'source-file': z.string().optional(),
     sourceFile: z.string().optional(),
     'line-number': z.union([z.number(), z.string()]).optional(),
@@ -138,6 +140,7 @@ export const CspReportBodySchema = z
     referrer: z.string().optional(),
     'status-code': z.union([z.number(), z.string()]).optional(),
     statusCode: z.union([z.number(), z.string()]).optional(),
+    sample: z.string().optional(),
     'script-sample': z.string().optional(),
     scriptSample: z.string().optional(),
   })
@@ -146,7 +149,20 @@ export const CspReportBodySchema = z
     message: 'CSP report body must contain at least one valid CSP field',
   });
 
+export const ModernCspReportItemSchema = z
+  .object({
+    type: z.string().optional(),
+    age: z.number().optional(),
+    url: z.string().optional(),
+    user_agent: z.string().optional(),
+    userAgent: z.string().optional(),
+    body: CspReportBodySchema,
+  })
+  .strict();
+
 export const CspReportRequestSchema = z.union([
+  z.array(ModernCspReportItemSchema).min(1),
+  ModernCspReportItemSchema,
   z.object({ 'csp-report': CspReportBodySchema }).strict(),
   CspReportBodySchema,
 ]);
