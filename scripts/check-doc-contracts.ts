@@ -39,6 +39,8 @@ const IGNORED_VARS = new Set([
   'GITHUB_REF',
   'GITHUB_SHA',
   'PWD',
+  'URL',
+  'DEPLOY_PRIME_URL',
   'MODEL_API_KEY',
   'OPENROUTER_API_KEY',
 ]);

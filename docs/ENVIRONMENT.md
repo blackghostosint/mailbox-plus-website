@@ -15,6 +15,7 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 | Variable                  | Description                                                                             | Default       |
 | ------------------------- | --------------------------------------------------------------------------------------- | ------------- |
 | `VITE_NETLIFY_CONTEXT`    | Netlify deployment context passed to Vite client (`production`, `deploy-preview`, etc.) | `development` |
+| `VITE_SITE_URL`           | Explicit site base URL override for client build (fallback to `SITE_URL`)               | (none)        |
 | `VITE_SENTRY_DSN`         | Sentry DSN for error tracking                                                           | (none)        |
 | `VITE_SENTRY_ENVIRONMENT` | Sentry environment tag                                                                  | `production`  |
 
