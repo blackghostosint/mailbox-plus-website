@@ -283,15 +283,21 @@ async function checkApiContracts() {
       });
     }
 
-    // Allowlist exact Netlify Blobs storage requests (strict method and store/key path matching)
+    // Allowlist exact Netlify Blobs storage requests (strict method, host, store, and key path matching)
     const ALLOWED_BLOBS_METHODS = ['GET', 'PUT', 'DELETE', 'HEAD', 'POST'];
     const isAllowedNetlifyBlobs =
       ALLOWED_BLOBS_METHODS.includes(method) &&
-      ((hostname === 'api.netlify.com' && /^\/api\/v1\/(blobs|sites)\//.test(pathname)) ||
+      ((hostname === 'api.netlify.com' &&
+        (/^\/api\/v1\/sites\/[a-zA-Z0-9_-]+\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(
+          pathname
+        ) ||
+          /^\/api\/v1\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(pathname))) ||
         ((hostname === 'blobs.netlify.com' ||
           /^[a-zA-Z0-9_-]+\.blobs\.netlify\.com$/.test(hostname)) &&
-          (/^\/(uncached\/)?[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+(\/.*)?$/.test(pathname) ||
-            /^\/api\/v1\/blobs\//.test(pathname))));
+          (/^\/(uncached\/)?[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(pathname) ||
+            /^\/api\/v1\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(
+              pathname
+            ))));
 
     if (isAllowedNetlifyBlobs) {
       return new Response(JSON.stringify({}), {
