@@ -1,5 +1,87 @@
 import { initAnalyticsStubs } from '../utils/hydration-helpers';
 
+export interface PurchaseParams {
+  transactionId?: string;
+  transaction_id?: string;
+  value?: number;
+  currency?: string;
+  contentName?: string;
+  content_name?: string;
+  contentType?: string;
+  content_type?: string;
+  tier?: string;
+  items?: Array<{ item_name?: string; item_id?: string; [key: string]: unknown }>;
+  [key: string]: unknown;
+}
+
+/**
+ * Dispatches a Google Analytics 4 event via window.gtag.
+ * Initializes queue stubs synchronously before pushing to dataLayer.
+ */
+export function trackEvent(eventName: string, params?: Record<string, unknown>): void {
+  if (typeof window === 'undefined') return;
+  initAnalyticsStubs(window);
+  if (params) {
+    window.gtag?.('event', eventName, params);
+  } else {
+    window.gtag?.('event', eventName);
+  }
+}
+
+/**
+ * Dispatches a Meta Pixel event via window.fbq.
+ * Initializes queue stubs synchronously before queuing in fbq.queue.
+ */
+export function trackPixelEvent(eventName: string, params?: Record<string, unknown>): void {
+  if (typeof window === 'undefined') return;
+  initAnalyticsStubs(window);
+  if (params) {
+    window.fbq?.('track', eventName, params);
+  } else {
+    window.fbq?.('track', eventName);
+  }
+}
+
+/**
+ * Dispatches formatted purchase conversions to both GA4 (gtag) and Meta Pixel (fbq) simultaneously.
+ */
+export function trackPurchase(params: PurchaseParams = {}): void {
+  if (typeof window === 'undefined') return;
+
+  const transactionId = params.transactionId || params.transaction_id;
+  const value = typeof params.value === 'number' ? params.value : 0;
+  const currency = params.currency || 'USD';
+  const contentName = params.contentName || params.content_name || 'Mailbox Rental';
+  const contentType = params.contentType || params.content_type || 'product';
+  const tier = params.tier;
+
+  const items = params.items || [
+    {
+      item_name: contentName,
+      item_id: tier || contentName,
+    },
+  ];
+
+  trackPixelEvent('Purchase', {
+    value,
+    currency,
+    content_name: contentName,
+    content_type: contentType,
+  });
+
+  const gtagPayload: Record<string, unknown> = {
+    value,
+    currency,
+    items,
+  };
+
+  if (transactionId) {
+    gtagPayload.transaction_id = transactionId;
+  }
+
+  trackEvent('purchase', gtagPayload);
+}
+
 export function initAnalytics(): void {
   if (typeof window === 'undefined') return;
 
@@ -17,7 +99,7 @@ export function initAnalytics(): void {
 
   if (typeof window.fbq === 'function') {
     window.fbq('init', '1684128789653811');
-    window.fbq('track', 'PageView');
+    trackPixelEvent('PageView');
   }
 
   // Lazy-load function
@@ -87,7 +169,7 @@ export function initAnalytics(): void {
         href.indexOf('maps.google') === -1 &&
         href.indexOf('google.com/maps') === -1;
 
-      window.gtag?.('event', 'element_click', {
+      trackEvent('element_click', {
         element_type: el.tagName.toLowerCase(),
         element_label: label,
         element_destination: href.slice(0, 120),
@@ -96,7 +178,7 @@ export function initAnalytics(): void {
       });
 
       if (el.matches('a.btn, .checkout-btn, a[href^="tel:"], a[href^="mailto:"]')) {
-        window.gtag?.('event', 'cta_click', {
+        trackEvent('cta_click', {
           cta_label: label,
           cta_tier: el.getAttribute('data-tier') || null,
           cta_destination: href.indexOf('#') === 0 ? 'pricing_section' : href,
@@ -105,7 +187,7 @@ export function initAnalytics(): void {
       }
 
       if (el.classList.contains('checkout-btn')) {
-        window.fbq?.('track', 'InitiateCheckout', {
+        trackPixelEvent('InitiateCheckout', {
           content_name: el.getAttribute('data-tier') || label,
         });
       }
@@ -129,7 +211,7 @@ export function initAnalytics(): void {
           const t = Number(key);
           if (!scrollThresholds[t] && pct >= t) {
             scrollThresholds[t] = true;
-            window.gtag?.('event', 'scroll_depth', {
+            trackEvent('scroll_depth', {
               percent_scrolled: t,
               page_path: window.location.pathname,
             });
@@ -151,7 +233,7 @@ export function initAnalytics(): void {
           if (en.isIntersecting && !pricingSeen) {
             pricingSeen = true;
             obs.disconnect();
-            window.gtag?.('event', 'pricing_view', { page_path: window.location.pathname });
+            trackEvent('pricing_view', { page_path: window.location.pathname });
           }
         });
       },
@@ -193,7 +275,7 @@ export function initAnalytics(): void {
       }
       if (!isProvider) return;
       const label = (a.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 60);
-      window.gtag?.('event', 'provider_signup_click', {
+      trackEvent('provider_signup_click', {
         provider:
           host.indexOf('ipostal1') !== -1
             ? 'ipostal1'

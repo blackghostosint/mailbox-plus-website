@@ -189,6 +189,7 @@ const storeHours = [
 
   <script>
     import { apiFetch } from '../lib/api-client';
+    import { trackPurchase } from '../lib/analytics';
 
     interface VerifySessionResponse {
       ok?: boolean;
@@ -223,23 +224,13 @@ const storeHours = [
           const currency = data.currency || 'USD';
           const contentName = data.product || 'Mailbox Rental';
 
-          if (typeof window.fbq === 'function') {
-            window.fbq('track', 'Purchase', {
-              value: value,
-              currency: currency,
-              content_name: contentName,
-              content_type: 'product',
-            });
-          }
-
-          if (typeof window.gtag === 'function') {
-            window.gtag('event', 'purchase', {
-              transaction_id: sessionId,
-              value: value,
-              currency: currency,
-              items: [{ item_name: contentName, item_id: data.tier || contentName }],
-            });
-          }
+          trackPurchase({
+            transactionId: sessionId,
+            value,
+            currency,
+            contentName,
+            tier: data.tier,
+          });
         })
         .catch((err: unknown) => {
           console.warn('Purchase verification tracking failed:', err);
