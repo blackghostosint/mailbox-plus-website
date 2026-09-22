@@ -19,6 +19,7 @@ import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './li
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
 import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
+import { SendEmailRequestSchema, SendEmailSuccessSchema } from './lib/contracts';
 
 export { getClientIp };
 
@@ -45,37 +46,38 @@ export default withCors(
     try {
       const clientIp = getClientIp(request.headers);
 
-      const data = await request.json().catch(() => ({}));
+      const rawData = await request.json().catch(() => ({}));
+      const parsed = SendEmailRequestSchema.safeParse(rawData);
+      if (!parsed.success) {
+        const issues = parsed.error.issues;
+        const emailIssue = issues.find((i) => i.path.includes('email'));
+        if (emailIssue) {
+          return jsonError('Invalid email address', 400);
+        }
+        const stringFieldIssue = issues.find((i) =>
+          [
+            'name',
+            'phone',
+            'service',
+            'plan',
+            'message',
+            'barrier_description',
+            'url',
+            'preferred_contact',
+          ].some((f) => i.path.includes(f))
+        );
+        if (stringFieldIssue && stringFieldIssue.path.length > 0) {
+          return jsonError(`Invalid ${String(stringFieldIssue.path[0])}: must be a string`, 400);
+        }
+        return jsonError('Invalid form payload', 400);
+      }
 
-      const token = data.recaptchaToken || data.token || data['g-recaptcha-response'];
+      const data = parsed.data;
+
+      const token = data.recaptchaToken || data.token || data['g-recaptcha-response'] || undefined;
       const isValid = await verifyRecaptchaToken(token, clientIp);
       if (!isValid) {
         return jsonError('reCAPTCHA verification failed', 400);
-      }
-
-      if (
-        !data.email ||
-        typeof data.email !== 'string' ||
-        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email.trim())
-      ) {
-        return jsonError('Invalid email address', 400);
-      }
-
-      const stringFields = [
-        'name',
-        'phone',
-        'service',
-        'plan',
-        'message',
-        'barrier_description',
-        'url',
-        'preferred_contact',
-      ];
-      for (const field of stringFields) {
-        const val = data[field];
-        if (val !== undefined && val !== null && typeof val !== 'string') {
-          return jsonError(`Invalid ${field}: must be a string`, 400);
-        }
       }
 
       if (!process.env.RESEND_API_KEY) {
@@ -135,7 +137,8 @@ export default withCors(
         text: textBody,
       });
 
-      return jsonResponse({ success: true }, 200);
+      const responsePayload = SendEmailSuccessSchema.parse({ success: true });
+      return jsonResponse(responsePayload, 200);
     } catch (error) {
       logger.error('Email sending error', error);
       return jsonError('Failed to send message', 500);

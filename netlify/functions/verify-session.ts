@@ -15,6 +15,7 @@ import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { VerifySessionQuerySchema, VerifySessionSuccessSchema } from './lib/contracts';
 
 dotenv.config();
 
@@ -44,11 +45,12 @@ export default withCors(
     }
 
     const url = new URL(request.url);
-    const sessionId = (url.searchParams.get('session_id') || '').trim();
-    // Stripe session IDs: cs_test_... / cs_live_..., alphanumeric + underscore
-    if (!/^cs_(test|live)_[A-Za-z0-9]+$/.test(sessionId)) {
+    const rawSessionId = (url.searchParams.get('session_id') || '').trim();
+    const queryParsed = VerifySessionQuerySchema.safeParse({ session_id: rawSessionId });
+    if (!queryParsed.success) {
       return jsonError('Invalid session_id', { status: 400, headers: NO_CACHE_HEADERS });
     }
+    const sessionId = queryParsed.data.session_id;
 
     try {
       const session = await stripe.checkout.sessions.retrieve(sessionId, {
@@ -71,16 +73,15 @@ export default withCors(
         amount = session.amount_total / 100;
       }
 
-      return jsonResponse(
-        {
-          ok: true,
-          tier: tier || null,
-          product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
-          amount,
-          currency: (session.currency || 'usd').toUpperCase(),
-        },
-        { status: 200, headers: NO_CACHE_HEADERS }
-      );
+      const responsePayload = VerifySessionSuccessSchema.parse({
+        ok: true as const,
+        tier: tier || null,
+        product: session.metadata?.product || tierInfo?.name || 'Mailbox Rental',
+        amount,
+        currency: (session.currency || 'usd').toUpperCase(),
+      });
+
+      return jsonResponse(responsePayload, { status: 200, headers: NO_CACHE_HEADERS });
     } catch (err: any) {
       // Invalid/unknown session → 404 without detail (don't leak error strings)
       logger.error('verify-session error', { sessionId }, err);

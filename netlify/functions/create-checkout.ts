@@ -8,6 +8,7 @@ import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { CreateCheckoutRequestSchema, CreateCheckoutSuccessSchema } from './lib/contracts';
 
 dotenv.config();
 
@@ -79,14 +80,15 @@ export default withCors(
 
     try {
       const body = await request.json().catch(() => ({}));
-      const { tier } = body;
+      const parsed = CreateCheckoutRequestSchema.safeParse(body);
 
-      if (!tier || !TIER_LOOKUP_KEYS[tier]) {
+      if (!parsed.success) {
         return jsonError(
           `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
           400
         );
       }
+      const { tier } = parsed.data;
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
       const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
@@ -157,7 +159,8 @@ export default withCors(
         cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
       });
 
-      return jsonResponse({ url: session.url }, 200);
+      const responsePayload = CreateCheckoutSuccessSchema.parse({ url: session.url || '' });
+      return jsonResponse(responsePayload, 200);
     } catch (err: any) {
       logger.error('create-checkout error', err);
       return jsonError('Failed to create checkout session', 500);
