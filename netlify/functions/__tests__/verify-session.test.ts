@@ -1,4 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import handler from '../verify-session';
+import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 const { mockCheckoutSessionsRetrieve } = vi.hoisted(() => ({
   mockCheckoutSessionsRetrieve: vi.fn(),
@@ -16,22 +18,20 @@ vi.mock('stripe', () => {
   };
 });
 
-import handler from '../verify-session';
-
 describe('verify-session function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
 
-  const createRequest = (method: string, sessionId?: string) => {
-    const url = new URL('https://example.com/.netlify/functions/verify-session');
+  const createRequest = (method: string, sessionId?: string, clientIp?: string) => {
+    const queryParams: Record<string, string> = {};
     if (sessionId !== undefined) {
-      url.searchParams.set('session_id', sessionId);
+      queryParams['session_id'] = sessionId;
     }
-    return new Request(url.toString(), {
+    return createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/verify-session',
       method,
-      headers: {
-        'x-nf-client-connection-ip': `10.2.0.${ipCounter++}`,
-      },
+      clientIp: clientIp || `10.2.0.${ipCounter++}`,
+      queryParams,
     });
   };
 
@@ -48,22 +48,64 @@ describe('verify-session function handler', () => {
     process.env = originalEnv;
   });
 
+  it('handles OPTIONS preflight request and returns status 204 with CORS headers', async () => {
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/verify-session',
+      method: 'OPTIONS',
+      headers: {
+        Origin: 'https://mailboxplusohio.com',
+      },
+    });
+    const ctx = createMockNetlifyContext();
+
+    const res = await handler(req, ctx);
+    expect(res.status).toBe(204);
+    expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+    expect(res.headers.get('Access-Control-Allow-Methods')).toBeTruthy();
+    expect(res.headers.get('Access-Control-Allow-Headers')).toBeTruthy();
+  });
+
   it('returns 405 if HTTP method is not GET', async () => {
     const req = createRequest('POST', 'cs_test_12345');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(405);
     expect(await res.json()).toEqual({ error: 'Method not allowed' });
+  });
+
+  it('enforces rate limiting of 10 requests per minute and returns status 429 on 11th attempt', async () => {
+    const clientIp = '203.0.113.102';
+
+    for (let i = 0; i < 10; i++) {
+      const req = createRequest('GET', 'invalid_session_id', clientIp);
+      const ctx = createMockNetlifyContext({ ip: clientIp });
+      const res = await handler(req, ctx);
+      expect(res.status).toBe(400);
+    }
+
+    const req11 = createRequest('GET', 'invalid_session_id', clientIp);
+    const ctx11 = createMockNetlifyContext({ ip: clientIp });
+    const res11 = await handler(req11, ctx11);
+
+    expect(res11.status).toBe(429);
+    expect(res11.headers.get('Retry-After')).toBeTruthy();
+    expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
+    expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
+    expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
+    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
   });
 
   it('returns 500 if STRIPE_SECRET_KEY is missing', async () => {
     delete process.env.STRIPE_SECRET_KEY;
     const req = createRequest('GET', 'cs_test_12345');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Stripe is not configured' });
   });
 
   it('returns 400 for missing or invalid session_id format', async () => {
+    const ctx = createMockNetlifyContext();
     const invalidSessionIds = [
       '',
       'invalid_session_id',
@@ -74,13 +116,13 @@ describe('verify-session function handler', () => {
     ];
 
     const reqMissing = createRequest('GET');
-    const resMissing = await handler(reqMissing);
+    const resMissing = await handler(reqMissing, ctx);
     expect(resMissing.status).toBe(400);
     expect(await resMissing.json()).toEqual({ error: 'Invalid session_id' });
 
     for (const badId of invalidSessionIds) {
       const req = createRequest('GET', badId);
-      const res = await handler(req);
+      const res = await handler(req, ctx);
       expect(res.status).toBe(400);
       expect(await res.json()).toEqual({ error: 'Invalid session_id' });
     }
@@ -93,7 +135,8 @@ describe('verify-session function handler', () => {
     });
 
     const req = createRequest('GET', 'cs_test_a1b2c3d4e5');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(402);
     expect(await res.json()).toEqual({ error: 'Session not paid' });
   });
@@ -102,7 +145,8 @@ describe('verify-session function handler', () => {
     mockCheckoutSessionsRetrieve.mockRejectedValueOnce(new Error('No such checkout session'));
 
     const req = createRequest('GET', 'cs_test_nonexistent123');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
     expect(res.status).toBe(404);
     expect(await res.json()).toEqual({ error: 'Session not found' });
   });
@@ -120,7 +164,8 @@ describe('verify-session function handler', () => {
     });
 
     const req = createRequest('GET', 'cs_test_a1b2c3d4e5f6g7');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
 
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({
@@ -157,7 +202,8 @@ describe('verify-session function handler', () => {
       });
 
       const req = createRequest('GET', 'cs_live_a9b8c7d6e5f4');
-      const res = await handler(req);
+      const ctx = createMockNetlifyContext();
+      const res = await handler(req, ctx);
 
       expect(res.status).toBe(200);
       expect(await res.json()).toEqual({
@@ -179,7 +225,8 @@ describe('verify-session function handler', () => {
     });
 
     const req = createRequest('GET', 'cs_live_z1y2x3w4v5u6');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
 
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({
@@ -192,7 +239,6 @@ describe('verify-session function handler', () => {
   });
 
   it('suppresses customer PII and returns strictly non-sensitive fields', async () => {
-    // Session payload populated with extensive customer PII from Stripe
     mockCheckoutSessionsRetrieve.mockResolvedValueOnce({
       payment_status: 'paid',
       status: 'complete',
@@ -219,12 +265,12 @@ describe('verify-session function handler', () => {
     });
 
     const req = createRequest('GET', 'cs_test_piicheck123');
-    const res = await handler(req);
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
 
     expect(res.status).toBe(200);
     const body: Record<string, any> = await res.json();
 
-    // Verify strict response structure - only allowed public conversion pixel fields
     expect(Object.keys(body).sort()).toEqual(['amount', 'currency', 'ok', 'product', 'tier']);
     expect(body).toEqual({
       ok: true,
@@ -234,7 +280,6 @@ describe('verify-session function handler', () => {
       currency: 'USD',
     });
 
-    // Explicitly verify customer PII fields are absent / undefined
     expect(body.email).toBeUndefined();
     expect(body.customer_email).toBeUndefined();
     expect(body.customer_details).toBeUndefined();

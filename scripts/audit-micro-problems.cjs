@@ -39,81 +39,8 @@ const CONFIG_DIR = path.join(__dirname, '../astro/src/config/micro-problems');
 });
 
 // ============================================================================
-// PARSE ARGUMENTS
+// PARSE ARGUMENTS & MAIN EXECUTION
 // ============================================================================
-
-const args = process.argv.slice(2);
-let searchConsoleFile = null;
-let dryRun = false;
-let showHelp = false;
-
-args.forEach((arg) => {
-  if (arg.startsWith('--search-console=')) {
-    searchConsoleFile = arg.split('=')[1];
-  }
-  if (arg === '--dry-run') {
-    dryRun = true;
-  }
-  if (arg === '--help' || arg === '-h') {
-    showHelp = true;
-  }
-});
-
-if (showHelp) {
-  console.log(`
-Micro-Problem Governance Audit Script
-
-Usage:
-  node scripts/audit-micro-problems.cjs --search-console=path/to/search-console.csv
-  node scripts/audit-micro-problems.cjs --dry-run
-
-Options:
-  --search-console=<path>  Path to Google Search Console CSV export
-  --dry-run                Run with mock data for testing
-  --help, -h               Show this help message
-
-CSV Format:
-  The CSV must have the following columns: Page, Clicks, Impressions, CTR, Position
-  (CTR and Position are optional but recommended)
-
-Output:
-  - Console summary with recommended actions
-  - Markdown report in scripts/audits/reports/
-
-Actions:
-  DELETE  - Page has no search visibility or intent overlap
-  MERGE   - Duplicate intentKey detected
-  REWRITE - Has impressions but no clicks (title/meta mismatch)
-  KEEP    - Passes all automated signals
-`);
-  process.exit(0);
-}
-
-if (!searchConsoleFile && !dryRun) {
-  console.error('❌ Error: --search-console argument is required');
-  console.error(
-    'Usage: node scripts/audit-micro-problems.cjs --search-console=path/to/search-console.csv'
-  );
-  console.error('   Or: node scripts/audit-micro-problems.cjs --dry-run (for testing without CSV)');
-
-  if (fs.existsSync(SEARCH_CONSOLE_DIR)) {
-    const csvFiles = fs.readdirSync(SEARCH_CONSOLE_DIR).filter((f) => f.endsWith('.csv'));
-    if (csvFiles.length > 0) {
-      console.error('\nAvailable CSV datasets in scripts/audits/search-console-data/:');
-      csvFiles.forEach((file) => {
-        const relPath = path.join('scripts/audits/search-console-data', file);
-        console.error(`  - ${relPath}`);
-      });
-    }
-  }
-
-  process.exit(1);
-}
-
-if (searchConsoleFile && !fs.existsSync(searchConsoleFile)) {
-  console.error(`❌ Error: Search Console file not found: ${searchConsoleFile}`);
-  process.exit(1);
-}
 
 // ============================================================================
 // CSV PARSING FOR GOOGLE SEARCH CONSOLE
@@ -912,7 +839,81 @@ function createMockCSV() {
 // MAIN EXECUTION
 // ============================================================================
 
-function main() {
+function main(rawArgs = process.argv.slice(2)) {
+  let searchConsoleFile = null;
+  let dryRun = false;
+  let showHelp = false;
+
+  rawArgs.forEach((arg) => {
+    if (arg.startsWith('--search-console=')) {
+      searchConsoleFile = arg.split('=')[1];
+    }
+    if (arg === '--dry-run') {
+      dryRun = true;
+    }
+    if (arg === '--help' || arg === '-h') {
+      showHelp = true;
+    }
+  });
+
+  if (showHelp) {
+    console.log(`
+Micro-Problem Governance Audit Script
+
+Usage:
+  node scripts/audit-micro-problems.cjs --search-console=path/to/search-console.csv
+  node scripts/audit-micro-problems.cjs --dry-run
+
+Options:
+  --search-console=<path>  Path to Google Search Console CSV export
+  --dry-run                Run with mock data for testing
+  --help, -h               Show this help message
+
+CSV Format:
+  The CSV must have the following columns: Page, Clicks, Impressions, CTR, Position
+  (CTR and Position are optional but recommended)
+
+Output:
+  - Console summary with recommended actions
+  - Markdown report in scripts/audits/reports/
+
+Actions:
+  DELETE  - Page has no search visibility or intent overlap
+  MERGE   - Duplicate intentKey detected
+  REWRITE - Has impressions but no clicks (title/meta mismatch)
+  KEEP    - Passes all automated signals
+`);
+    process.exit(0);
+  }
+
+  if (!searchConsoleFile && !dryRun) {
+    console.error('❌ Error: --search-console argument is required');
+    console.error(
+      'Usage: node scripts/audit-micro-problems.cjs --search-console=path/to/search-console.csv'
+    );
+    console.error(
+      '   Or: node scripts/audit-micro-problems.cjs --dry-run (for testing without CSV)'
+    );
+
+    if (fs.existsSync(SEARCH_CONSOLE_DIR)) {
+      const csvFiles = fs.readdirSync(SEARCH_CONSOLE_DIR).filter((f) => f.endsWith('.csv'));
+      if (csvFiles.length > 0) {
+        console.error('\nAvailable CSV datasets in scripts/audits/search-console-data/:');
+        csvFiles.forEach((file) => {
+          const relPath = path.join('scripts/audits/search-console-data', file);
+          console.error(`  - ${relPath}`);
+        });
+      }
+    }
+
+    process.exit(1);
+  }
+
+  if (searchConsoleFile && !fs.existsSync(searchConsoleFile)) {
+    console.error(`❌ Error: Search Console file not found: ${searchConsoleFile}`);
+    process.exit(1);
+  }
+
   console.log('🚀 Starting Micro-Problem Governance Audit\n');
   console.log('='.repeat(60) + '\n');
 
@@ -975,4 +976,6 @@ module.exports = {
   generateAuditReport,
   parseSearchConsoleCSV,
   loadMicroProblemsConfig,
+  parseCSVLine,
+  main,
 };
