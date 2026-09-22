@@ -71,10 +71,11 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."
 2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose.
-3. **Copy review ≥ 80/100.**
+3. **Copy review — Grok 4.7, score ≥ 70/100 with every flagged objection resolved.**
    ```bash
-   npx tsx scripts/review-article-copy.ts content/articles/{category}/{slug}.md
+   node scripts/verify/verify.mjs review content/articles/{category}/{slug}.md
    ```
+   Reviewer: Grok 4.7 (model id "x-ai/grok-4.7" via Nous Portal; model-agnostic script; Grok is the gate model since 2026-09-22, calibrated against 8 published anchors — pass bar 70 = "beat the best published work," recent merges score 69–77, older catalog 39–64). Every objection in the review output gets fixed before the PR opens — the reviewer supplies concrete replacement text; apply it or improve on it. Score failures are not retried; API outages fail closed after 3 attempts.
    Five rubric dimensions (sensory grounding, one-person ear, identity stakes & anxiety dissolution, villain legitimacy, fluff density). The success scene and CTA must dissolve the reader's dread (burden transfer), not pitch like a flyer.
 4. **Deterministic verification (strict mode).**
    ```bash
