@@ -300,7 +300,7 @@ function printReport(filePath: string, result: any, minScore = 80) {
   console.log('\n' + '='.repeat(80) + '\n');
 }
 
-function matchWildcardSegment(text: string, pattern: string): boolean {
+export function matchWildcardSegment(text: string, pattern: string): boolean {
   if (pattern === '*') return true;
   const parts = pattern.split('*');
   if (parts.length === 1) return text === pattern;
@@ -319,7 +319,7 @@ function matchWildcardSegment(text: string, pattern: string): boolean {
   return pos <= text.length - parts[parts.length - 1].length;
 }
 
-function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
+export function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
   let fIndex = 0;
   let pIndex = 0;
 
@@ -350,7 +350,7 @@ function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
   return fIndex === fileSegs.length && pIndex === patSegs.length;
 }
 
-function globMatch(filePath: string, pattern: string): boolean {
+export function globMatch(filePath: string, pattern: string): boolean {
   const fileSegs = filePath
     .replace(/\\/g, '/')
     .split('/')
@@ -362,7 +362,7 @@ function globMatch(filePath: string, pattern: string): boolean {
   return matchPathSegments(fileSegs, patSegs);
 }
 
-function resolveFiles(target: string): string[] {
+export function resolveFiles(target: string): string[] {
   if (fs.existsSync(target) && fs.statSync(target).isFile()) {
     return [target];
   }
