@@ -64,7 +64,7 @@ Walk into the post office with your box, and you're alone with a roll of tape. W
 
 **Carriers.** Post office: USPS only, no other option in the building. Franchise: several brands, but which one gets recommended varies by franchise. Independent counter: USPS, UPS, and FedEx priced side by side while you watch.
 
-**Packing.** Post office: you arrive with the box already taped or you're improvising in the lobby. Franchise: staff packs it, at retail material prices. Independent counter: staff packs it, trained to the carrier's standard.
+**Packing.** Post office: you arrive with the box already taped or you're improvising in the lobby. Franchise: staff packs it, at retail material prices. Independent counter: staff packs it for you, and you can watch how they build the box before you commit.
 
 **Price transparency.** Post office: published rates, one carrier. Franchise: markup on boxes, materials, and fees that don't match anything on the shelf. Independent counter: cross-carrier comparison on one receipt.
 
@@ -86,7 +86,7 @@ The people behind that counter have packed everything that gets packed in Lake C
 
 1. **Walk in with what you have.** Item in a grocery bag, in the original box, in nothing at all — it doesn't matter. No homework, no pre-packing, no printer labels.
 2. **Set it on the counter.** We size it, pack it to the carrier's standard, price it across USPS, UPS, and FedEx, and tell you the cheapest honest option. If you need Certified Mail for a notice — the fee is $5.55 on top of postage — we handle the green card there too.
-3. **Walk out with the receipt.** Tracking number in your hand, package in trusted custody, total elapsed time measured in minutes. You'll be back in the car before you'd have found a parking spot at the big-box plaza.
+3. **Walk out with the receipt.** Tracking number in your hand, package handed over the counter, total elapsed time measured in minutes. You'll be back in the car before you'd have found a parking spot at the big-box plaza.
 
 ## What Waiting Actually Costs You
 
@@ -100,7 +100,7 @@ Choose the wrong counter and the cost isn't the errand — it's the exposure.
 
 ## Zero Mental Overhead
 
-Here is Saturday after you've made the switch. You grab the box off the dining table — still half-taped from the last attempt, stuffing sticking out one corner — drop it in the car, and take the short drive to Fredle Drive. You park. You carry it in. You set it down, say where it's going, and the counter takes it from there: sized, cushioned, priced across three carriers, taped by someone who does this two hundred times a week. The receipt is warm off the printer. Total elapsed time: under five minutes, and none of them spent worrying.
+Here is Saturday after you've made the switch. You grab the box off the dining table — still half-taped from the last attempt, stuffing sticking out one corner — drop it in the car, and take the short drive to Fredle Drive. You park. You carry it in. You set it down, say where it's going, and the counter takes it from there: sized, cushioned, priced across three carriers, taped by someone who does this every day the store is open. The receipt is warm off the printer. Total elapsed time: minutes, not an afternoon, and none of them spent worrying.
 
 Notice what's missing — the mental replay of whether the tape held, whether the address was right, whether the box will make it. That replay is gone because someone competent took custody. You walk out with the tracking number and your whole Saturday back, and the errand that used to loom is now just a stop on the way somewhere else. It's the same counter behind our [pack and ship services](/pack-ship/), and if you ship often enough to get tired of repeating your address on every label, a [private mailbox rental in Concord](/mailbox-rental-concord-ohio/) pairs with it naturally.
 
