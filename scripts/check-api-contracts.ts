@@ -285,19 +285,22 @@ async function checkApiContracts() {
 
     // Allowlist exact Netlify Blobs storage requests (strict method, host, store, and key path matching)
     const ALLOWED_BLOBS_METHODS = ['GET', 'PUT', 'DELETE', 'HEAD', 'POST'];
+    const ALLOWED_STORES = '(reviews-cache|rate-limits|sendEmail-rate-limits|query-embeddings)';
+    const apiSiteBlobsRegex = new RegExp(
+      `^\\/api\\/v1\\/sites\\/[a-zA-Z0-9_-]+\\/blobs\\/${ALLOWED_STORES}\\/[a-zA-Z0-9_%.-]+$`
+    );
+    const apiBlobsRegex = new RegExp(
+      `^\\/api\\/v1\\/blobs\\/[a-zA-Z0-9_-]+\\/${ALLOWED_STORES}\\/[a-zA-Z0-9_%.-]+$`
+    );
+    const directBlobsRegex = new RegExp(`^\\/(uncached\\/)?${ALLOWED_STORES}\\/[a-zA-Z0-9_%.-]+$`);
+
     const isAllowedNetlifyBlobs =
       ALLOWED_BLOBS_METHODS.includes(method) &&
       ((hostname === 'api.netlify.com' &&
-        (/^\/api\/v1\/sites\/[a-zA-Z0-9_-]+\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(
-          pathname
-        ) ||
-          /^\/api\/v1\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(pathname))) ||
+        (apiSiteBlobsRegex.test(pathname) || apiBlobsRegex.test(pathname))) ||
         ((hostname === 'blobs.netlify.com' ||
           /^[a-zA-Z0-9_-]+\.blobs\.netlify\.com$/.test(hostname)) &&
-          (/^\/(uncached\/)?[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(pathname) ||
-            /^\/api\/v1\/blobs\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9_%.-]+$/.test(
-              pathname
-            ))));
+          (directBlobsRegex.test(pathname) || apiBlobsRegex.test(pathname))));
 
     if (isAllowedNetlifyBlobs) {
       return new Response(JSON.stringify({}), {
