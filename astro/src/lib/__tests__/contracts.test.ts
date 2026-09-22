@@ -1,4 +1,4 @@
-/* global process */
+/* global process, RequestInfo, RequestInit */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import type { Context } from '@netlify/functions';
 
@@ -56,6 +56,13 @@ import verifySessionHandler from '../../../../netlify/functions/verify-session';
 import cspReportHandler from '../../../../netlify/functions/csp-report';
 import healthHandler from '../../../../netlify/functions/health';
 
+import { createCheckoutSession } from '../checkout';
+import { submitContactForm } from '../contact-form';
+import { fetchReviews } from '../reviews';
+import { verifyCheckoutSession } from '../verify-session';
+import { sendCspReport } from '../csp-report';
+import { apiFetch, ApiClientError } from '../api-client';
+
 import {
   CreateCheckoutSuccessSchema,
   SendEmailSuccessSchema,
@@ -69,6 +76,23 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   const dummyContext = {} as Context;
   const originalEnv = process.env;
 
+  const mockPlacesResponse = {
+    rating: 4.9,
+    userRatingCount: 120,
+    reviews: [
+      {
+        authorAttribution: {
+          displayName: 'John Smith',
+          uri: 'https://maps.google.com/contrib/123',
+        },
+        rating: 5,
+        text: { text: 'Outstanding service!' },
+        relativePublishTimeDescription: 'a week ago',
+        publishTime: '2026-09-01T00:00:00Z',
+      },
+    ],
+  };
+
   beforeEach(() => {
     vi.resetModules();
     vi.clearAllMocks();
@@ -79,14 +103,59 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       GOOGLE_PLACES_API_KEY: 'AIzaMockKey',
       SITE_URL: 'https://mailboxplusohio.com',
     };
+
+    vi.stubGlobal('fetch', async (input: RequestInfo | URL, init?: RequestInit) => {
+      let req: Request;
+      if (input instanceof Request) {
+        req = input;
+      } else {
+        const urlStr = input.toString();
+        const fullUrl = urlStr.startsWith('/') ? 'https://mailboxplusohio.com' + urlStr : urlStr;
+        req = new Request(fullUrl, init);
+      }
+
+      const url = new URL(req.url, 'https://mailboxplusohio.com');
+
+      if (url.origin === 'https://places.googleapis.com') {
+        return new Response(JSON.stringify(mockPlacesResponse), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+
+      if (url.pathname === '/.netlify/functions/create-checkout') {
+        return createCheckoutHandler(req, dummyContext);
+      }
+      if (url.pathname === '/.netlify/functions/sendEmail') {
+        return sendEmailHandler(req, dummyContext);
+      }
+      if (url.pathname === '/api/reviews') {
+        return reviewsHandler(req, dummyContext);
+      }
+      if (url.pathname === '/.netlify/functions/verify-session') {
+        return verifySessionHandler(req, dummyContext);
+      }
+      if (url.pathname === '/.netlify/functions/csp-report') {
+        return cspReportHandler(req, dummyContext);
+      }
+      if (url.pathname === '/.netlify/functions/health') {
+        return healthHandler(req, dummyContext);
+      }
+
+      return new Response(JSON.stringify({ error: 'Not found' }), {
+        status: 404,
+        headers: { 'Content-Type': 'application/json' },
+      });
+    });
   });
 
   afterEach(() => {
     process.env = originalEnv;
+    vi.unstubAllGlobals();
   });
 
   describe('create-checkout contract', () => {
-    it('returns a response conforming to CreateCheckoutSuccessSchema when given valid input', async () => {
+    it('returns a response conforming to CreateCheckoutSuccessSchema when called via client helper', async () => {
       mockPricesList
         .mockResolvedValueOnce({ data: [{ id: 'price_small_mail_only' }] })
         .mockResolvedValueOnce({ data: [{ id: 'price_key_deposit' }] });
@@ -95,35 +164,23 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
         url: 'https://checkout.stripe.com/c/pay/cs_test_123',
       });
 
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/create-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tier: 'small_mail_only' }),
-      });
-
-      const res = await createCheckoutHandler(req, dummyContext);
-      expect(res.status).toBe(200);
-
-      const json = await res.json();
-      const parsed = CreateCheckoutSuccessSchema.safeParse(json);
-      expect(parsed.success).toBe(true);
-      if (parsed.success) {
-        expect(parsed.data.url).toBe('https://checkout.stripe.com/c/pay/cs_test_123');
-      }
+      const result = await createCheckoutSession('small_mail_only');
+      expect(result.url).toBe('https://checkout.stripe.com/c/pay/cs_test_123');
     });
 
-    it('returns backward-compatible ErrorResponseSchema on invalid request body', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/create-checkout', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ tier: 'invalid_tier_name' }),
-      });
+    it('returns backward-compatible ErrorResponseSchema on invalid request body via client helper', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await createCheckoutSession('invalid_tier_name');
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
 
-      const res = await createCheckoutHandler(req, dummyContext);
-      expect(res.status).toBe(400);
-
-      const json = await res.json();
-      const parsed = ErrorResponseSchema.safeParse(json);
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
       expect(parsed.success).toBe(true);
     });
 
@@ -137,43 +194,30 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   });
 
   describe('sendEmail contract', () => {
-    it('returns a response conforming to SendEmailSuccessSchema when given valid input', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/sendEmail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: 'Jane Doe',
-          email: 'jane@example.com',
-          message: 'I would like to rent a mailbox.',
-          recaptchaToken: 'mock_token',
-        }),
+    it('returns a response conforming to SendEmailSuccessSchema when called via client helper', async () => {
+      const result = await submitContactForm({
+        name: 'Jane Doe',
+        email: 'jane@example.com',
+        message: 'I would like to rent a mailbox.',
+        recaptchaToken: 'mock_token',
       });
 
-      const res = await sendEmailHandler(req, dummyContext);
-      expect(res.status).toBe(200);
-
-      const json = await res.json();
-      const parsed = SendEmailSuccessSchema.safeParse(json);
-      expect(parsed.success).toBe(true);
-      if (parsed.success) {
-        expect(parsed.data.success).toBe(true);
-      }
+      expect(result.success).toBe(true);
     });
 
-    it('returns ErrorResponseSchema on invalid email input', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/sendEmail', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: 'not-an-email',
-        }),
-      });
+    it('returns ErrorResponseSchema on invalid email input via client helper', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await submitContactForm({ email: 'not-an-email' });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
 
-      const res = await sendEmailHandler(req, dummyContext);
-      expect(res.status).toBe(400);
-
-      const json = await res.json();
-      const parsed = ErrorResponseSchema.safeParse(json);
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
       expect(parsed.success).toBe(true);
     });
 
@@ -185,45 +229,12 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   });
 
   describe('reviews contract', () => {
-    it('returns a response conforming to ReviewsSuccessSchema', async () => {
-      const mockPlacesResponse = {
-        rating: 4.9,
-        userRatingCount: 120,
-        reviews: [
-          {
-            authorAttribution: {
-              displayName: 'John Smith',
-              uri: 'https://maps.google.com/contrib/123',
-            },
-            rating: 5,
-            text: { text: 'Outstanding service!' },
-            relativePublishTimeDescription: 'a week ago',
-            publishTime: '2026-09-01T00:00:00Z',
-          },
-        ],
-      };
-
-      vi.stubGlobal(
-        'fetch',
-        vi.fn().mockResolvedValue({
-          ok: true,
-          json: async () => mockPlacesResponse,
-        })
-      );
-
-      const req = new Request('https://mailboxplusohio.com/api/reviews', { method: 'GET' });
-      const res = await reviewsHandler(req, dummyContext);
-      expect(res.status).toBe(200);
-
-      const json = await res.json();
-      const parsed = ReviewsSuccessSchema.safeParse(json);
-      expect(parsed.success).toBe(true);
-      if (parsed.success) {
-        expect(parsed.data.rating).toBe(4.9);
-        expect(parsed.data.userRatingCount).toBe(120);
-        expect(parsed.data.reviews.length).toBe(1);
-        expect(parsed.data.reviews[0].author).toBe('John Smith');
-      }
+    it('returns a response conforming to ReviewsSuccessSchema via client helper', async () => {
+      const result = await fetchReviews();
+      expect(result.rating).toBe(4.9);
+      expect(result.userRatingCount).toBe(120);
+      expect(result.reviews.length).toBe(1);
+      expect(result.reviews[0].author).toBe('John Smith');
     });
 
     it('detects schema drift if reviews array property name is modified', () => {
@@ -238,7 +249,7 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   });
 
   describe('verify-session contract', () => {
-    it('returns a response conforming to VerifySessionSuccessSchema when session is valid', async () => {
+    it('returns a response conforming to VerifySessionSuccessSchema when called via client helper', async () => {
       mockSessionsRetrieve.mockResolvedValueOnce({
         payment_status: 'paid',
         status: 'complete',
@@ -250,36 +261,26 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
         },
       });
 
-      const req = new Request(
-        'https://mailboxplusohio.com/.netlify/functions/verify-session?session_id=cs_test_a1b2c3d4',
-        { method: 'GET' }
-      );
-
-      const res = await verifySessionHandler(req, dummyContext);
-      expect(res.status).toBe(200);
-
-      const json = await res.json();
-      const parsed = VerifySessionSuccessSchema.safeParse(json);
-      expect(parsed.success).toBe(true);
-      if (parsed.success) {
-        expect(parsed.data.ok).toBe(true);
-        expect(parsed.data.tier).toBe('small_packages10');
-        expect(parsed.data.amount).toBe(25);
-        expect(parsed.data.currency).toBe('USD');
-      }
+      const result = await verifyCheckoutSession('cs_test_a1b2c3d4');
+      expect(result.ok).toBe(true);
+      expect(result.tier).toBe('small_packages10');
+      expect(result.amount).toBe(25);
+      expect(result.currency).toBe('USD');
     });
 
-    it('returns ErrorResponseSchema on invalid session_id query param', async () => {
-      const req = new Request(
-        'https://mailboxplusohio.com/.netlify/functions/verify-session?session_id=invalid_id',
-        { method: 'GET' }
-      );
+    it('returns ErrorResponseSchema on invalid session_id query param via client helper', async () => {
+      let thrownError: ApiClientError | undefined;
+      try {
+        await verifyCheckoutSession('invalid_id');
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
 
-      const res = await verifySessionHandler(req, dummyContext);
-      expect(res.status).toBe(400);
-
-      const json = await res.json();
-      const parsed = ErrorResponseSchema.safeParse(json);
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
       expect(parsed.success).toBe(true);
     });
 
@@ -297,50 +298,43 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   });
 
   describe('csp-report contract', () => {
-    it('handles valid CSP report request with HTTP 204 response', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/csp-report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
+    it('handles valid CSP report request via client helper', async () => {
+      await expect(
+        sendCspReport({
           'csp-report': {
             'document-uri': 'https://mailboxplusohio.com/services/',
             'violated-directive': 'script-src',
             'blocked-uri': 'https://evil.example.com/script.js',
           },
-        }),
-      });
-
-      const res = await cspReportHandler(req, dummyContext);
-      expect(res.status).toBe(204);
+        })
+      ).resolves.toBeUndefined();
     });
 
     it('returns ErrorResponseSchema on malformed JSON payload', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/csp-report', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: 'invalid-json',
-      });
+      let thrownError: ApiClientError | undefined;
+      try {
+        await apiFetch('/.netlify/functions/csp-report', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: 'invalid-json',
+        });
+      } catch (err) {
+        if (err instanceof ApiClientError) {
+          thrownError = err;
+        }
+      }
 
-      const res = await cspReportHandler(req, dummyContext);
-      expect(res.status).toBe(400);
-
-      const json = await res.json();
-      const parsed = ErrorResponseSchema.safeParse(json);
+      expect(thrownError).toBeDefined();
+      expect(thrownError?.status).toBe(400);
+      const parsed = ErrorResponseSchema.safeParse(thrownError?.data);
       expect(parsed.success).toBe(true);
     });
   });
 
   describe('health contract', () => {
     it('returns a response conforming to HealthSuccessSchema', async () => {
-      const req = new Request('https://mailboxplusohio.com/.netlify/functions/health', {
-        method: 'GET',
-      });
-
-      const res = await healthHandler(req, dummyContext);
-      expect(res.status).toBe(200);
-
-      const json = await res.json();
-      const parsed = HealthSuccessSchema.safeParse(json);
+      const data = await apiFetch<unknown>('/.netlify/functions/health');
+      const parsed = HealthSuccessSchema.safeParse(data);
       expect(parsed.success).toBe(true);
       if (parsed.success) {
         expect(parsed.data.status).toBe('healthy');
