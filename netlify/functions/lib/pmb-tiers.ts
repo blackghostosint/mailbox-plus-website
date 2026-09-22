@@ -1,5 +1,9 @@
 // netlify/functions/lib/pmb-tiers.ts — Centralized Private Mailbox (PMB) subscription tier catalog
 // Single authoritative source of truth for tier metadata, lookup keys, pricing, and features.
+//
+// Endpoint Authorization Context (AGENTS.md rule 7):
+// - `create-checkout` & `verify-session` endpoints consuming this module operate as public unauthenticated
+//   APIs guarded by Zod schema validation, backend Stripe credential authorization, and sliding-window rate limits.
 
 import { ValidCheckoutTiers, type ValidCheckoutTier } from './contracts';
 
