@@ -10,7 +10,7 @@ export const competePages: Service[] = [
     city: 'Willoughby',
     serviceName: 'Mailbox Rental in Willoughby | Mailbox Plus',
     slug: '/mailbox-rental-willoughby',
-    canonicalUrl: '/mailbox-rental-willoughby',
+    canonicalUrl: '/mailbox-rental-willoughby/',
     pageTitle: 'Mailbox Rental in Willoughby | Mailbox Plus',
     metaDescription:
       'Searching for mailbox rental near me in Willoughby? Get a real street address, secure mail, and package receiving — from $35/month at Mailbox Plus.',

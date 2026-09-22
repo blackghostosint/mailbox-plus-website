@@ -23,7 +23,7 @@ export const competePages: Service[] = [
     serviceName:
       'Mailbox Rental in Mentor, OH --- Real Street Address | From $35/mo --- Mailbox Plus',
     slug: '/mailbox-rental-mentor',
-    canonicalUrl: '/mailbox-rental-mentor',
+    canonicalUrl: '/mailbox-rental-mentor/',
     pageTitle:
       'Mailbox Rental in Mentor, OH --- Real Street Address | From $35/mo --- Mailbox Plus',
     metaDescription:

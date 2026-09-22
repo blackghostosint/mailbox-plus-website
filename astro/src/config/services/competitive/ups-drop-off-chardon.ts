@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Chardon',
     serviceName: 'UPS Drop-Off Near Chardon — Local & Fast | Mailbox Plus',
     slug: '/ups-drop-off-chardon',
-    canonicalUrl: '/ups-drop-off-chardon',
+    canonicalUrl: '/ups-drop-off-chardon/',
     pageTitle: 'UPS Drop-Off Near Chardon — Local & Fast | Mailbox Plus',
     metaDescription:
       'Looking for a UPS drop-off near Chardon, OH? Mailbox Plus handles UPS, FedEx, USPS, and DHL — just off SR 44 near Concord Township.',

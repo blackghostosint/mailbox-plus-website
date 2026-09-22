@@ -1,3 +1,4 @@
+/* global process */
 import { describe, it, expect } from 'vitest';
 import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from './canonical-url';
 
@@ -66,6 +67,31 @@ describe('toCanonicalUrl', () => {
     expect(
       toCanonicalUrl('/happy-returns-fairport-harbor', 'https://staging.mailboxplusohio.com')
     ).toBe('https://staging.mailboxplusohio.com/happy-returns-fairport-harbor/');
+  });
+
+  it('should automatically resolve canonical URL from environment variables without explicit origin argument in staging/preview', () => {
+    const originalSiteUrl = process.env.SITE_URL;
+    const originalDeployPrimeUrl = process.env.DEPLOY_PRIME_URL;
+
+    try {
+      process.env.SITE_URL = 'https://staging.mailboxplusohio.com';
+      expect(toCanonicalUrl('/happy-returns-fairport-harbor/')).toBe(
+        'https://staging.mailboxplusohio.com/happy-returns-fairport-harbor/'
+      );
+
+      delete process.env.SITE_URL;
+      process.env.DEPLOY_PRIME_URL = 'https://deploy-preview-123--mailboxplus.netlify.app';
+      expect(toCanonicalUrl('/dhl-drop-off-chardon/')).toBe(
+        'https://deploy-preview-123--mailboxplus.netlify.app/dhl-drop-off-chardon/'
+      );
+    } finally {
+      if (originalSiteUrl !== undefined) process.env.SITE_URL = originalSiteUrl;
+      else delete process.env.SITE_URL;
+
+      if (originalDeployPrimeUrl !== undefined)
+        process.env.DEPLOY_PRIME_URL = originalDeployPrimeUrl;
+      else delete process.env.DEPLOY_PRIME_URL;
+    }
   });
 });
 

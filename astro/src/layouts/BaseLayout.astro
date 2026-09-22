@@ -18,7 +18,7 @@ export interface Props {
 }
 
 const { title, description, canonical, noindex, ogImage, schema } = Astro.props;
-const siteUrl = 'https://mailboxplusohio.com';
+const siteUrl = siteConfig.domain;
 
 const pathname = Astro.url.pathname;
 const routeMeta = getPageMeta(pathname);

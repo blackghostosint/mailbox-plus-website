@@ -24,7 +24,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Notary Services',
     slug: '/home-business/notary-services',
-    canonicalUrl: '/home-business/notary-services',
+    canonicalUrl: '/home-business/notary-services/',
     pageTitle: 'Notary Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Walk-in notary in Concord Township. No appointment needed. The Notary Runaround ends here \u2014 $5 per signature, certified notary on staff during all business hours.',
@@ -118,7 +118,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'FedEx Easy Returns',
     slug: '/fedex-easy-returns',
-    canonicalUrl: '/fedex-easy-returns',
+    canonicalUrl: '/fedex-easy-returns/',
     pageTitle: 'FedEx Easy Returns in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Convenient FedEx Easy Returns in Concord Township. Drop off your pre-labeled or QR code returns quickly. We pack and ship for you.',
@@ -137,7 +137,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Business Services',
     slug: '/business-services-concord-township',
-    canonicalUrl: '/business-services-concord-township',
+    canonicalUrl: '/business-services-concord-township/',
     pageTitle: 'Business Services in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Essential business services in Concord Township: shipping, printing, mailbox rentals, notary, and more. Your local office away from the office.',
@@ -203,7 +203,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Ship Your Amazon Return',
     slug: '/amazon-returns-drop-off-concord-township',
-    canonicalUrl: '/amazon-returns-drop-off-concord-township',
+    canonicalUrl: '/amazon-returns-drop-off-concord-township/',
     pageTitle: 'Ship Your Amazon Return in Concord Township, OH | Mailbox Plus',
     metaDescription:
       'Have an Amazon return with a pre-paid shipping label? Bring it to Mailbox Plus in Concord Township — we scan the label and ship it out. Label printing available. We do not process Amazon QR codes.',
@@ -262,7 +262,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Nuuly Returns',
     slug: '/nuuly-returns',
-    canonicalUrl: '/nuuly-returns',
+    canonicalUrl: '/nuuly-returns/',
     pageTitle: 'Nuuly Returns in Concord Township, Ohio | Mailbox Plus',
     metaDescription:
       'Easy Nuuly clothing rental returns in Concord Township. Drop off your Nuuly bag at Mailbox Plus - authorized UPS drop-off location. Fast, convenient service.',
@@ -651,7 +651,7 @@ export const additionalServices: Service[] = [
     city: 'Concord Township',
     serviceName: 'Happy Returns Return Bar',
     slug: '/happy-returns',
-    canonicalUrl: '/happy-returns',
+    canonicalUrl: '/happy-returns/',
     pageTitle: 'Happy Returns Return Bar in Concord Township | Mailbox Plus',
     metaDescription:
       'Mailbox Plus is a Happy Returns Return Bar in Concord Township. Bring your QR code — no box, no label, no printer needed. We scan, bag, and receipt you in under 60 seconds. Free, fast, and friendly.',

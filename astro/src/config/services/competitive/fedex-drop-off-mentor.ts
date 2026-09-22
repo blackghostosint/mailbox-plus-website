@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Mentor',
     serviceName: 'FedEx Drop-Off in Mentor | Mailbox Plus',
     slug: '/fedex-drop-off-mentor',
-    canonicalUrl: '/fedex-drop-off-mentor',
+    canonicalUrl: '/fedex-drop-off-mentor/',
     pageTitle: 'FedEx Drop-Off in Mentor | Mailbox Plus',
     metaDescription:
       'FedEx drop-off near Mentor, OH without the corporate lines. Mailbox Plus in Concord Township is your authorized FedEx ShipCenter.',

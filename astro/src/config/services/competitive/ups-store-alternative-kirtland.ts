@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Kirtland',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-kirtland',
-    canonicalUrl: '/ups-store-alternative-kirtland',
+    canonicalUrl: '/ups-store-alternative-kirtland/',
     pageTitle: 'UPS Store Alternative in Kirtland, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Kirtland, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

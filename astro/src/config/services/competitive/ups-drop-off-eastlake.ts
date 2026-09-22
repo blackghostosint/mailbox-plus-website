@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Eastlake',
     serviceName: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',
     slug: '/ups-drop-off-eastlake',
-    canonicalUrl: '/ups-drop-off-eastlake',
+    canonicalUrl: '/ups-drop-off-eastlake/',
     pageTitle: 'UPS Drop-Off Near Eastlake — No Waiting | Mailbox Plus',
     metaDescription:
       'UPS drop-off near Eastlake, OH. Bring your pre-labeled UPS package to Mailbox Plus — in and out fast, just off SR 2.',

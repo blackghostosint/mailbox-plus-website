@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Kirtland',
     serviceName: 'FedEx Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
     slug: '/fedex-drop-off-kirtland',
-    canonicalUrl: '/fedex-drop-off-kirtland',
+    canonicalUrl: '/fedex-drop-off-kirtland/',
     pageTitle: 'FedEx Drop-Off Near Kirtland — Minutes Away | Mailbox Plus',
     metaDescription:
       'Looking for a FedEx drop-off near Kirtland, OH? Mailbox Plus is just 4 miles away on Fredle Drive in Concord Township.',

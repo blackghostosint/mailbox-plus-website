@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'Post Office Alternative --- Madison',
     slug: '/post-office-alternative-madison',
-    canonicalUrl: '/post-office-alternative-madison',
+    canonicalUrl: '/post-office-alternative-madison/',
     pageTitle: 'Post Office Alternative in Madison, OH | Mailbox Plus',
     metaDescription:
       'Madison has no shipping store. Mailbox Plus is your Post Office Alternative with all 4 carriers and mailbox rentals — just 15 minutes away in Concord.',

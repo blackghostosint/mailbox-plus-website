@@ -11,7 +11,7 @@ export const amazonReturnsService: Service = {
   city: 'Concord Township',
   serviceName: 'Amazon Return Guide',
   slug: '/amazon-returns',
-  canonicalUrl: '/amazon-returns',
+  canonicalUrl: '/amazon-returns/',
   pageTitle: 'Amazon Return Guide | Easy Returns in Concord Township, Ohio',
   metaDescription:
     'Learn how to easily return items to Amazon at Mailbox Plus. We help with packing, labeling, and shipping for all Lake County, Ohio residents.',

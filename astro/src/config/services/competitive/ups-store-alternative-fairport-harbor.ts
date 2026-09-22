@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Fairport Harbor',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-fairport-harbor',
-    canonicalUrl: '/ups-store-alternative-fairport-harbor',
+    canonicalUrl: '/ups-store-alternative-fairport-harbor/',
     pageTitle: 'UPS Store Alternative in Fairport Harbor | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Fairport Harbor, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',

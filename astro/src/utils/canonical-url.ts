@@ -1,7 +1,5 @@
 import { siteConfig } from '../config/siteConfig';
 
-const DEFAULT_DOMAIN = siteConfig.domain;
-
 /**
  * Normalizes a pathname to always start with a leading slash and,
  * if it's not the root path ('/'), always end with a trailing slash.
@@ -73,7 +71,7 @@ export function toCanonicalUrl(pathOrUrl: string, origin?: string): string {
     pathOrUrl = '/';
   }
 
-  const baseOrigin = (origin || DEFAULT_DOMAIN).replace(/\/+$/, '');
+  const baseOrigin = (origin || siteConfig.domain).replace(/\/+$/, '');
   const siteHost = new URL(baseOrigin).host;
 
   // 1. Check if it's an external URL

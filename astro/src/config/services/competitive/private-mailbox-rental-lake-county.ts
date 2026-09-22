@@ -10,7 +10,7 @@ export const competePages: Service[] = [
     city: 'Concord Township',
     serviceName: 'Private Mailbox Rental in Lake County | Mailbox Plus',
     slug: '/private-mailbox-rental-lake-county',
-    canonicalUrl: '/private-mailbox-rental-lake-county',
+    canonicalUrl: '/private-mailbox-rental-lake-county/',
     pageTitle: 'Private Mailbox Rental in Lake County | Mailbox Plus',
     metaDescription:
       'Private mailbox rental serving all of Lake County, OH. Real street address, secure mail, package receiving — from $35/month at Mailbox Plus in Concord.',

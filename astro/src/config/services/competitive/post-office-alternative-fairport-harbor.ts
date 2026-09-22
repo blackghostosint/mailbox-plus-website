@@ -20,7 +20,7 @@ export const competePages: Service[] = [
     city: 'Fairport Harbor',
     serviceName: 'Post Office Alternative \u2014 Fairport Harbor',
     slug: '/post-office-alternative-fairport-harbor',
-    canonicalUrl: '/post-office-alternative-fairport-harbor',
+    canonicalUrl: '/post-office-alternative-fairport-harbor/',
     pageTitle: 'Post Office Alternative in Fairport Harbor, OH | Mailbox Plus',
     metaDescription:
       'Fairport Harbor Post Office closes at 4:30PM. Mailbox Plus is your Post Office Alternative with all 4 carriers — open later, walk-in notary, faster service.',

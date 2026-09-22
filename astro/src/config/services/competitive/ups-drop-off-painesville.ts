@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Painesville',
     serviceName: 'UPS Drop-Off in Painesville — Skip the Lines | Mailbox Plus',
     slug: '/ups-drop-off-painesville',
-    canonicalUrl: '/ups-drop-off-painesville',
+    canonicalUrl: '/ups-drop-off-painesville/',
     pageTitle: 'UPS Drop-Off in Painesville — Skip the Lines | Mailbox Plus',
     metaDescription:
       'Need a UPS drop-off near Painesville, OH? Mailbox Plus accepts UPS, FedEx, USPS, and DHL — all at one counter near SR 2 and SR 44.',

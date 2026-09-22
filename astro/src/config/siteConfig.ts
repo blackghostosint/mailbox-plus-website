@@ -2,13 +2,39 @@
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
+function getSiteDomain(): string {
+  const envUrl =
+    (typeof import.meta !== 'undefined' && import.meta.env
+      ? import.meta.env.VITE_SITE_URL ||
+        import.meta.env.SITE_URL ||
+        import.meta.env.URL ||
+        import.meta.env.DEPLOY_PRIME_URL
+      : undefined) ||
+    (typeof process !== 'undefined' && process.env
+      ? process.env.VITE_SITE_URL ||
+        process.env.SITE_URL ||
+        process.env.URL ||
+        process.env.DEPLOY_PRIME_URL
+      : undefined);
+
+  if (envUrl) {
+    const url =
+      envUrl.startsWith('http://') || envUrl.startsWith('https://') ? envUrl : `https://${envUrl}`;
+    return url.replace(/\/+$/, '');
+  }
+
+  return 'https://mailboxplusohio.com';
+}
+
 export const siteConfig: SiteConfig = {
   name: 'Mailbox Plus',
   legalName: 'Mailbox Plus of Ohio, LLC',
   tagline: "Shipping shouldn't cost you an hour.",
   description:
     'Community-focused pack & ship retail store in Concord Township, Ohio. FedEx, UPS, USPS shipping, mailbox rentals, printing, and fingerprinting services.',
-  domain: 'https://mailboxplusohio.com',
+  get domain(): string {
+    return getSiteDomain();
+  },
   logo: '/mailbox_plus_logo.webp',
   favicon: {
     default: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-32x32.png`,

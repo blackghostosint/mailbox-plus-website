@@ -19,7 +19,7 @@ export const competePages: Service[] = [
     city: 'Madison',
     serviceName: 'UPS Store Alternative',
     slug: '/ups-store-alternative-madison',
-    canonicalUrl: '/ups-store-alternative-madison',
+    canonicalUrl: '/ups-store-alternative-madison/',
     pageTitle: 'UPS Store Alternative in Madison, Ohio | Mailbox Plus',
     metaDescription:
       'Looking for a UPS Store Alternative in Madison, OH? We offer UPS, FedEx, USPS, and DHL at one counter — mailbox rentals, printing, notary, locally owned.',
