@@ -57,3 +57,14 @@ Before opening any PR, agents must:
 4. One concern per PR: split validation / codegen / type-sharing / docs work into separate PRs.
 
 PRs opened from stale branches or bundling unrequested refactors will be rejected on sight.
+
+## 10. Label mutations use the REST API
+
+`gh pr edit --add-label` / `--remove-label` is broken repo-wide (GitHub's GraphQL `projectCards` deprecation errors before the label operation runs). Never use it. Set or clear labels with the REST issues API:
+
+```
+gh api -X POST   repos/$REPO/issues/<n>/labels  -f 'labels[]=status: green'
+gh api -X DELETE repos/$REPO/issues/<n>/labels/status%3A%20red
+```
+
+Status labels (`status: green` / `status: wait-ci` / `status: red` / `status: hold`) are maintained automatically by the owner-side watcher every 15 minutes — if a label looks stale, it will correct itself within one cycle. Do not fight the automation.
