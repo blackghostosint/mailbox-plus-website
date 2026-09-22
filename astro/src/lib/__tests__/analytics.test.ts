@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { initAnalytics } from '../analytics';
+import { initAnalytics, trackEvent, trackPixelEvent, trackPurchase } from '../analytics';
 
 // eslint-disable-next-line no-unused-vars
 type ObserverCb = (...args: unknown[]) => void;
@@ -316,5 +316,113 @@ describe('analytics module', () => {
     expect((providerEvents[0][2] as { provider?: string }).provider).toBe('ipostal1');
     expect((providerEvents[1][2] as { provider?: string }).provider).toBe('anytime_mailbox');
     expect((providerEvents[2][2] as { provider?: string }).provider).toBe('postscan_mail');
+  });
+
+  describe('exported modular analytics helpers', () => {
+    it('trackEvent initializes stubs and pushes event to dataLayer', () => {
+      trackEvent('article_cta_view', { cta_category: 'mailbox-rentals', cta_slug: 'test' });
+
+      expect(window.dataLayer).toBeDefined();
+      const gtagCalls = window.dataLayer as unknown[][];
+      expect(
+        gtagCalls.some(
+          (call) =>
+            call[0] === 'event' &&
+            call[1] === 'article_cta_view' &&
+            (call[2] as { cta_category?: string })?.cta_category === 'mailbox-rentals'
+        )
+      ).toBe(true);
+    });
+
+    it('trackEvent works without params', () => {
+      trackEvent('simple_event');
+
+      const gtagCalls = window.dataLayer as unknown[][];
+      expect(gtagCalls.some((call) => call[0] === 'event' && call[1] === 'simple_event')).toBe(
+        true
+      );
+    });
+
+    it('trackPixelEvent initializes stubs and queues event in fbq.queue', () => {
+      trackPixelEvent('Lead', { content_name: 'Contact Form' });
+
+      expect(window.fbq).toBeDefined();
+      const fbqQueue = (window.fbq as unknown as { queue?: unknown[][] }).queue;
+      expect(
+        fbqQueue?.some(
+          (call) =>
+            call[0] === 'track' &&
+            call[1] === 'Lead' &&
+            (call[2] as { content_name?: string })?.content_name === 'Contact Form'
+        )
+      ).toBe(true);
+    });
+
+    it('trackPixelEvent works without params', () => {
+      trackPixelEvent('PageView');
+
+      const fbqQueue = (window.fbq as unknown as { queue?: unknown[][] }).queue;
+      expect(fbqQueue?.some((call) => call[0] === 'track' && call[1] === 'PageView')).toBe(true);
+    });
+
+    it('trackPurchase dispatches formatted conversions to GA4 and Meta Pixel simultaneously', () => {
+      trackPurchase({
+        transactionId: 'sess_999',
+        value: 15,
+        currency: 'USD',
+        contentName: 'Personal Mailbox',
+        tier: 'personal',
+      });
+
+      // Verify GA4 purchase event
+      const gtagCalls = window.dataLayer as unknown[][];
+      const gaPurchase = gtagCalls.find(
+        (call) => call[0] === 'event' && call[1] === 'purchase'
+      ) as unknown[];
+
+      expect(gaPurchase).toBeDefined();
+      const gaPayload = gaPurchase[2] as {
+        transaction_id?: string;
+        value?: number;
+        currency?: string;
+        items?: Array<{ item_name?: string; item_id?: string }>;
+      };
+
+      expect(gaPayload.transaction_id).toBe('sess_999');
+      expect(gaPayload.value).toBe(15);
+      expect(gaPayload.currency).toBe('USD');
+      expect(gaPayload.items).toEqual([{ item_name: 'Personal Mailbox', item_id: 'personal' }]);
+
+      // Verify Meta Pixel Purchase event
+      const fbqQueue = (window.fbq as unknown as { queue?: unknown[][] }).queue;
+      const fbPurchase = fbqQueue?.find(
+        (call) => call[0] === 'track' && call[1] === 'Purchase'
+      ) as unknown[];
+
+      expect(fbPurchase).toBeDefined();
+      const fbPayload = fbPurchase[2] as {
+        value?: number;
+        currency?: string;
+        content_name?: string;
+        content_type?: string;
+      };
+
+      expect(fbPayload.value).toBe(15);
+      expect(fbPayload.currency).toBe('USD');
+      expect(fbPayload.content_name).toBe('Personal Mailbox');
+      expect(fbPayload.content_type).toBe('product');
+    });
+
+    it('handles SSR environment gracefully without throwing errors', () => {
+      const originalWindow = globalThis.window;
+      // @ts-expect-error simulating SSR
+      delete globalThis.window;
+
+      expect(() => trackEvent('test_ssr')).not.toThrow();
+      expect(() => trackPixelEvent('test_ssr')).not.toThrow();
+      expect(() => trackPurchase({ value: 10 })).not.toThrow();
+
+      globalThis.window = originalWindow;
+    });
   });
 });
