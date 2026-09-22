@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig, phoneFormatted, phoneTelLink } from '../config/siteConfig';
 ---
 
 <BaseLayout
@@ -88,7 +89,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p>By completing checkout, you acknowledge that you have read, understood, and agreed to this Mailbox Service Agreement, including the fee schedule above, and you agree to complete PS Form 1583 in person with approved identification at the time of service. A copy of this Agreement is available at our counter at any time.</p>
 
       <h2>Contact</h2>
-      <p>Questions about this Agreement? Contact us at <a href="mailto:help@mailboxplusohio.com">help@mailboxplusohio.com</a> or call (440) 709-1946. Also see our <a href="/terms/">Terms of Service</a> for website use.</p>
+      <p>Questions about this Agreement? Contact us at <a href={`mailto:${siteConfig.contact.email}`}>{siteConfig.contact.email}</a> or call <a href={phoneTelLink}>{phoneFormatted}</a>. Also see our <a href="/terms/">Terms of Service</a> for website use.</p>
     </div>
   </section>
 </BaseLayout>

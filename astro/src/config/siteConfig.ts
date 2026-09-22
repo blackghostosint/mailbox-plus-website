@@ -199,6 +199,32 @@ export const siteConfig: SiteConfig = {
   },
 };
 
+export const fullAddressSingleLine = `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
+
+export const fullAddressMultiLine = `${siteConfig.contact.address.street}\n${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
+
+export const phoneFormatted = `(${siteConfig.contact.phone.slice(0, 3)}) ${siteConfig.contact.phone.slice(4)}`;
+
+export const phoneTelLink = `tel:${siteConfig.contact.phone.replace(/[^0-9]/g, '')}`;
+
+export const storeHoursList = [
+  `Monday - Friday: ${siteConfig.hours.monday}`,
+  `Saturday: ${siteConfig.hours.saturday}`,
+  `Sunday: ${siteConfig.hours.sunday}`,
+];
+
+export const formattedHoursList = storeHoursList;
+
+export const hoursSummary = `Mon-Fri: ${siteConfig.hours.monday}, Sat: ${siteConfig.hours.saturday}, Sun: ${siteConfig.hours.sunday}`;
+
+siteConfig.phoneFormatted = phoneFormatted;
+siteConfig.phoneTelLink = phoneTelLink;
+siteConfig.fullAddressSingleLine = fullAddressSingleLine;
+siteConfig.fullAddressMultiLine = fullAddressMultiLine;
+siteConfig.storeHoursList = storeHoursList;
+siteConfig.formattedHoursList = formattedHoursList;
+siteConfig.hoursSummary = hoursSummary;
+
 export const defaultCTA: CTA = {
   title: 'Ready to get started?',
   subtitle: 'Stop in today or message us—let us handle your package!',

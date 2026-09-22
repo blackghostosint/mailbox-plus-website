@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig, phoneFormatted, phoneTelLink, fullAddressSingleLine } from '../config/siteConfig';
 import { getServiceSchema } from '../utils/schema';
 
 const serviceSchema = getServiceSchema(siteConfig, {
@@ -12,7 +12,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
 ---
 <BaseLayout
   title="Mailbox Rental in Concord Township | Mailbox Plus"
-  description="Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site. Rated 5.0★ on Google. Call (440) 709-1946."
+  description={`Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site. Rated 5.0★ on Google. Call ${phoneFormatted}.`}
   canonical="/mailbox-rental-concord-ohio/"
   schema={[serviceSchema]}
 >
@@ -72,7 +72,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
       <div class="space-y-4">
         <div class="border rounded-lg p-4">
           <h3 class="font-semibold mb-2">Is this a real street address or a PO Box?</h3>
-          <p class="text-[var(--color-text-secondary)]">This is a real street address at 7554 Fredle Drive, Concord Township, OH 44077. You can use it for business registration, banking, and as your company's official address.</p>
+          <p class="text-[var(--color-text-secondary)]">This is a real street address at {fullAddressSingleLine}. You can use it for business registration, banking, and as your company's official address.</p>
         </div>
         <div class="border rounded-lg p-4">
           <h3 class="font-semibold mb-2">What hours can I access my mailbox?</h3>
@@ -90,9 +90,9 @@ const serviceSchema = getServiceSchema(siteConfig, {
     </div>
 
     <div class="mt-16 text-center">
-      <a href="tel:4407091946" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
+      <a href={phoneTelLink} class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
         <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-        Check Availability & Pricing: (440) 709-1946
+        Check Availability & Pricing: {phoneFormatted}
       </a>
     </div>
   </div>
