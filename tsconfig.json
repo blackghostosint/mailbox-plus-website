@@ -1,15 +1,20 @@
 {
   "compilerOptions": {
     "target": "ES2022",
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
     "baseUrl": ".",
     "paths": {
-      "~icons/*": ["astro/src/lib/icon-stub.ts"]
+      "~icons/*": ["astro/src/lib/icon-stub.ts"],
+      "vitest": ["./astro/node_modules/vitest"]
     },
+    "typeRoots": ["./node_modules/@types", "./astro/node_modules"],
+    "types": ["node", "astro/client"],
     "esModuleInterop": true,
     "skipLibCheck": true,
     "strict": true
   },
-  "include": ["scripts/**/*", "astro/src/**/*"]
+  "include": ["scripts/**/*", "knowledge/**/*"]
 }

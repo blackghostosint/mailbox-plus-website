@@ -165,7 +165,7 @@ describe('sendEmail function handler', () => {
     expect(mockSend).toHaveBeenCalledTimes(1);
     const sendArgs = mockSend.mock.calls[0][0];
 
-    expect(sendArgs.reply_to).toBe('jane@example.com');
+    expect(sendArgs.replyTo).toBe('jane@example.com');
     expect(sendArgs.subject).toBe('New Contact Form Submission from Jane <Script> & "Quote"');
 
     // Verify HTML content has escaped HTML entities
