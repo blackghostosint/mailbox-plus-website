@@ -29,6 +29,7 @@
 import { getStore } from '@netlify/blobs';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { ReviewsSuccessSchema } from './lib/contracts';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -137,45 +138,36 @@ export default withCors(
 
     // Fresh cache: serve it, do not touch the Places API.
     if (cached && isFresh(cached)) {
-      return jsonResponse(
-        { ...cached, source: 'cache' },
-        {
-          status: 200,
-          headers: {
-            'Cache-Control': 'public, max-age=0, must-revalidate',
-            'Netlify-CDN-Cache-Control': CDN_CACHE,
-          },
-        }
-      );
+      return jsonResponse(ReviewsSuccessSchema.parse({ ...cached, source: 'cache' }), {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, max-age=0, must-revalidate',
+          'Netlify-CDN-Cache-Control': CDN_CACHE,
+        },
+      });
     }
 
     try {
       const fresh = await fetchFromPlaces();
       await writeCached(fresh);
-      return jsonResponse(
-        { ...fresh, source: 'live' },
-        {
+      return jsonResponse(ReviewsSuccessSchema.parse({ ...fresh, source: 'live' }), {
+        status: 200,
+        headers: {
+          'Cache-Control': 'public, max-age=0, must-revalidate',
+          'Netlify-CDN-Cache-Control': CDN_CACHE,
+        },
+      });
+    } catch (error) {
+      logger.error('Reviews function error', error);
+      // Serve stale data rather than erroring if we have any cached payload.
+      if (cached) {
+        return jsonResponse(ReviewsSuccessSchema.parse({ ...cached, source: 'stale' }), {
           status: 200,
           headers: {
             'Cache-Control': 'public, max-age=0, must-revalidate',
             'Netlify-CDN-Cache-Control': CDN_CACHE,
           },
-        }
-      );
-    } catch (error) {
-      logger.error('Reviews function error', error);
-      // Serve stale data rather than erroring if we have any cached payload.
-      if (cached) {
-        return jsonResponse(
-          { ...cached, source: 'stale' },
-          {
-            status: 200,
-            headers: {
-              'Cache-Control': 'public, max-age=0, must-revalidate',
-              'Netlify-CDN-Cache-Control': CDN_CACHE,
-            },
-          }
-        );
+        });
       }
       return jsonError('Reviews temporarily unavailable', 502);
     }
