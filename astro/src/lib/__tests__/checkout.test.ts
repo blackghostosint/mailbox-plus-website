@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { initCheckoutButtons } from '../checkout';
+import { siteConfig } from '../../config/siteConfig';
 
 describe('checkout module', () => {
   beforeEach(() => {
@@ -118,7 +119,7 @@ describe('checkout module', () => {
     const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
     expect(errorEl).not.toBeNull();
     expect(errorEl?.textContent).toBe(
-      'Sorry, we couldn’t open checkout. Please call us at 440-709-1946.'
+      `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`
     );
 
     consoleErrorSpy.mockRestore();
@@ -151,7 +152,7 @@ describe('checkout module', () => {
     const errorEls = btn.parentElement?.querySelectorAll('[role="alert"].checkout-error');
     expect(errorEls?.length).toBe(1);
     expect(errorEls?.[0].textContent).toBe(
-      'Sorry, we couldn’t open checkout. Please call us at 440-709-1946.'
+      `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`
     );
 
     consoleErrorSpy.mockRestore();
@@ -182,7 +183,7 @@ describe('checkout module', () => {
     const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
     expect(errorEl).not.toBeNull();
     expect(errorEl?.textContent).toBe(
-      'Sorry, we couldn’t open checkout. Please call us at 440-709-1946.'
+      `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`
     );
 
     consoleErrorSpy.mockRestore();

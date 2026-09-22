@@ -6,7 +6,7 @@
 // NOTE: local build only (feat/thank-you-page-local branch) — not deployed yet.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { siteConfig } from '../config/siteConfig';
+import { siteConfig, phoneFormatted, phoneTelLink, fullAddressSingleLine } from '../config/siteConfig';
 
 const pageTitle = "You're All Set — Your Mailbox Is Reserved | Mailbox Plus";
 const metaDescription =
@@ -14,13 +14,14 @@ const metaDescription =
 const canonical = '/thank-you/';
 
 // Canonical store facts (single source: siteConfig)
-const storePhone = siteConfig.contact.phone;
-const storeAddress = `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
+const storePhone = phoneFormatted;
+const storePhoneLink = phoneTelLink;
+const storeAddress = fullAddressSingleLine;
 const storeMapUrl = siteConfig.mapUrl;
 const storeHours = [
-  { day: 'Monday – Friday', hours: '9:00 AM – 6:00 PM' },
-  { day: 'Saturday', hours: '9:00 AM – 2:00 PM' },
-  { day: 'Sunday', hours: 'Closed' },
+  { day: 'Monday – Friday', hours: siteConfig.hours.monday },
+  { day: 'Saturday', hours: siteConfig.hours.saturday },
+  { day: 'Sunday', hours: siteConfig.hours.sunday },
 ];
 ---
 
@@ -169,9 +170,9 @@ const storeHours = [
         <div class="card visit-card">
           <div class="icon">📞</div>
           <h3>Questions?</h3>
-          <p class="visit-addr"><a href={`tel:${storePhone}`}>{storePhone}</a></p>
+          <p class="visit-addr"><a href={storePhoneLink}>{storePhone}</a></p>
           <p class="visit-sub">Call us before you head over — we're happy to help.</p>
-          <a class="btn btn-gold" href={`tel:${storePhone}`}>Call {storePhone} →</a>
+          <a class="btn btn-gold" href={storePhoneLink}>Call {storePhone} →</a>
         </div>
       </div>
     </div>

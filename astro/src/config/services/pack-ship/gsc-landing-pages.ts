@@ -1,4 +1,5 @@
 import type { Service } from '../../../types/services';
+import { phoneFormatted } from '../../siteConfig';
 
 export const gscLandingPages: Service[] = [
   {
@@ -8,8 +9,7 @@ export const gscLandingPages: Service[] = [
     serviceName: 'Pack & Ship Services',
     slug: '/pack-and-ship-concord-ohio',
     pageTitle: 'Pack & Ship in Concord | UPS, FedEx, DHL | Mailbox Plus',
-    metaDescription:
-      'Pack and ship near me in Concord Township (44077). Full-service packing and shipping with UPS, FedEx, DHL, and USPS. Expert packing, same-day processing, freight. Rated 5.0★ on Google. Call (440) 709-1946.',
+    metaDescription: `Pack and ship near me in Concord Township (44077). Full-service packing and shipping with UPS, FedEx, DHL, and USPS. Expert packing, same-day processing, freight. Rated 5.0★ on Google. Call ${phoneFormatted}.`,
     keywords: 'pack and ship, Concord Township, shipping, packing, UPS, FedEx',
     heroTitle: 'Pack & Ship Services in Concord Township: We Pack It Right So It Arrives Safe',
     heroSubtitle:
@@ -85,8 +85,7 @@ export const gscLandingPages: Service[] = [
     serviceName: 'Domestic Package Shipping',
     slug: '/domestic-package-shipping-company-concord-ohio',
     pageTitle: 'Domestic Shipping in Concord Township | Mailbox Plus',
-    metaDescription:
-      'Domestic package shipping company near me in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, business accounts, volume discounts, and professional packing. Rated 5.0★ on Google. Call (440) 709-1946.',
+    metaDescription: `Domestic package shipping company near me in Concord Township (44077). UPS, FedEx, USPS & DHL shipping, business accounts, volume discounts, and professional packing. Rated 5.0★ on Google. Call ${phoneFormatted}.`,
     keywords: 'domestic package shipping, Concord Township, business shipping',
     heroTitle: 'Domestic Package Shipping for Your Business',
     heroSubtitle:
@@ -164,8 +163,7 @@ export const gscLandingPages: Service[] = [
     serviceName: 'Mailing Services',
     slug: '/mailing-services-concord-ohio',
     pageTitle: 'Mailing Services in Concord Township | Mailbox Plus',
-    metaDescription:
-      'Full mailing services in Concord Township (44077): USPS stamps, package shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call (440) 709-1946.',
+    metaDescription: `Full mailing services in Concord Township (44077): USPS stamps, package shipping, <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a>, digital mail scanning, and document mailing. Open Mon-Fri 9-6, Sat 9-2. Call ${phoneFormatted}.`,
     keywords: 'mailing services, Concord Township, stamps, mail forwarding, digital mail',
     heroTitle: 'Complete Mailing Services in Concord Township',
     heroSubtitle:
@@ -230,7 +228,7 @@ export const gscLandingPages: Service[] = [
     cta: {
       title: 'Need Mailing Services?',
       subtitle: 'Stamps, shipping, mailbox rentals, and digital mail — all at one counter.',
-      buttonText: 'Call (440) 709-1946',
+      buttonText: `Call ${phoneFormatted}`,
       buttonLink: '/contact-us',
       variant: 'brand',
       align: 'center',

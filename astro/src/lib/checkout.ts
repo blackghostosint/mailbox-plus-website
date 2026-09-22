@@ -1,5 +1,6 @@
 import { apiFetch } from './api-client';
 import { renderFormError, clearFormError } from './dom-error';
+import { siteConfig } from '../config/siteConfig';
 
 export function initCheckoutButtons(): void {
   document.querySelectorAll<HTMLButtonElement>('.checkout-btn').forEach((btn) => {
@@ -35,7 +36,7 @@ export function initCheckoutButtons(): void {
         btn.disabled = false;
         renderFormError(
           btn.parentElement || btn,
-          'Sorry, we couldn’t open checkout. Please call us at 440-709-1946.',
+          `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`,
           {
             button: btn,
             className:

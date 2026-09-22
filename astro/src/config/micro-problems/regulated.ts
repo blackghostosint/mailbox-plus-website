@@ -1,4 +1,5 @@
 import type { Service } from '../../types/services';
+import { siteConfig } from '../siteConfig';
 
 export const regulatedMicroProblems: Service[] = [
   {
@@ -81,7 +82,7 @@ export const regulatedMicroProblems: Service[] = [
 <li><a href="/pack-ship/professional-packing">Professional packing</a> for fragile, odd-shaped, and valuable items</li>
 <li><a href="/pack-ship/package-receiving">Package receiving</a> — never miss a delivery again</li>
 </ul>
-<p>Come see us at <strong>7554 Fredle Drive, Concord Township</strong> — no appointment needed.</p>`,
+<p>Come see us at <strong>${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}</strong> — no appointment needed.</p>`,
       },
     ],
     faqs: [
@@ -203,7 +204,7 @@ export const regulatedMicroProblems: Service[] = [
 <li>Process shipments with the correct labeling</li>
 <li>Choose the right carrier based on what you are shipping</li>
 </ul>
-<p><strong>Stop by Mailbox Plus at 7554 Fredle Drive, Concord Township</strong> — we will walk you through it.</p>
+<p><strong>Stop by Mailbox Plus at ${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}</strong> — we will walk you through it.</p>
 <div class="text-xs text-[var(--color-text-muted)] mt-4">
   Reference: <a href="https://www.fedex.com/en-us/shipping/how-to-ship-batteries.html" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">
     View FedEx official battery shipping policy →
@@ -395,7 +396,7 @@ export const regulatedMicroProblems: Service[] = [
 <ul>
 <li><strong>UPS Ground</strong> from a UPS Customer Center — you pack it per hazmat rules, label it, and drop it at a UPS hub (not a retail store)</li>
 <li><strong>No retail store (including us) can accept ammunition</strong> for drop-off or shipping</li>
-<li>If you need help with <strong>non-hazmat items</strong> — boxes, fragile goods, documents — we are here for that. Stop by Mailbox Plus at 7554 Fredle Drive, Concord Township.</li>
+<li>If you need help with <strong>non-hazmat items</strong> — boxes, fragile goods, documents — we are here for that. Stop by Mailbox Plus at ${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}.</li>
 </ul>
 <div class="text-xs text-[var(--color-text-muted)] mt-4">
   Reference: <a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-ammunition" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">
@@ -586,7 +587,7 @@ export const regulatedMicroProblems: Service[] = [
 <li>Package receiving — we sign for all 4 carriers</li>
 <li>Advice on how to handle regulated items the right way</li>
 </ul>
-<p>Stop by <strong>7554 Fredle Drive, Concord Township</strong> — no appointment needed.</p>`,
+<p>Stop by <strong>${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}</strong> — no appointment needed.</p>`,
       },
     ],
     faqs: [
@@ -772,8 +773,7 @@ export const regulatedMicroProblems: Service[] = [
       },
     ],
     cta: {
-      title:
-        'Need to ship something that is not alcohol? We do that. Stop by Mailbox Plus at 7554 Fredle Drive.',
+      title: `Need to ship something that is not alcohol? We do that. Stop by Mailbox Plus at ${siteConfig.contact.address.street}.`,
       buttonText: 'Get Directions',
       buttonLink: '/contact-us',
     },
