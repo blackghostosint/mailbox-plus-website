@@ -39,7 +39,12 @@ const UTILITY_ROUTES = new Set([
   '/after-signup/',
 ]);
 
-const INTERACTIVE_ROUTES = new Set(['/tracking/', '/ask-mailbox-plus/', '/amazon-counter/']);
+const INTERACTIVE_ROUTES = new Set([
+  '/tracking/',
+  '/ask-mailbox-plus/',
+  '/amazon-counter/',
+  '/research/shipping-label-osint/',
+]);
 
 const SERVICE_PILLAR_INDEXES = new Set([
   '/pack-ship/',
@@ -196,24 +201,31 @@ function findCategoryMatch(categoryInput, categorizedRoutes) {
 }
 
 function selectRepresentativeRoutes(categorizedRoutes) {
-  const selected = [];
+  const selected = new Set();
   for (const [catName, routes] of Object.entries(categorizedRoutes)) {
     if (!routes || routes.length === 0) continue;
+
+    if (catName === CATEGORIES.INTERACTIVE || catName === CATEGORIES.UTILITY_LEGAL) {
+      for (const r of routes) {
+        selected.add(r);
+      }
+      continue;
+    }
 
     const preferredList = PREFERRED_REPRESENTATIVES[catName] || [];
     let added = false;
     for (const pref of preferredList) {
       if (routes.includes(pref)) {
-        selected.push(pref);
+        selected.add(pref);
         added = true;
         break;
       }
     }
     if (!added && routes.length > 0) {
-      selected.push(routes[0]);
+      selected.add(routes[0]);
     }
   }
-  return selected;
+  return Array.from(selected);
 }
 
 function selectSampledRoutes(allRoutes) {
@@ -223,6 +235,12 @@ function selectSampledRoutes(allRoutes) {
   for (const utilPath of UTILITY_ROUTES) {
     if (routeSet.has(utilPath)) {
       selected.add(utilPath);
+    }
+  }
+
+  for (const interactivePath of INTERACTIVE_ROUTES) {
+    if (routeSet.has(interactivePath)) {
+      selected.add(interactivePath);
     }
   }
 
