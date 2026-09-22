@@ -72,12 +72,16 @@ export function initContactForms(): void {
           body: JSON.stringify(payload),
         });
 
-        form.innerHTML =
-          '<div role="status" aria-live="polite" tabindex="-1" class="p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none">Thank you! Your message has been sent.</div>';
-        const statusElement = form.querySelector<HTMLElement>('[role="status"]');
-        if (statusElement) {
-          statusElement.focus();
-        }
+        const statusDiv = document.createElement('div');
+        statusDiv.setAttribute('role', 'status');
+        statusDiv.setAttribute('aria-live', 'polite');
+        statusDiv.setAttribute('tabindex', '-1');
+        statusDiv.className =
+          'p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none';
+        statusDiv.textContent = 'Thank you! Your message has been sent.';
+
+        form.replaceChildren(statusDiv);
+        statusDiv.focus();
       } catch (err: unknown) {
         console.error('Submission error:', err);
         let errorMsg = 'Network error. Please try again.';
