@@ -22,7 +22,7 @@
 
     /* Two-Tone Accent System */
     --color-accent-gold: #f7c82a;
-    --color-accent-gold-light: #ffe875;
+    --color-accent-gold-light: #f7d46a;
     --color-accent: var(--color-accent-gold);
     --color-accent-light: var(--color-accent-gold-light);
     --color-accent-warm: #984b2e;
