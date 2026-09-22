@@ -15,6 +15,7 @@
 import type { Context } from '@netlify/functions';
 import { withCors, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
+import { CspReportRequestSchema } from './lib/contracts';
 
 export default withCors(
   async (request: Request, context: Context) => {
@@ -24,8 +25,16 @@ export default withCors(
     }
 
     try {
-      const body = await request.json();
-      const report = body['csp-report'] || body;
+      const rawBody = await request.json();
+      const parsed = CspReportRequestSchema.safeParse(rawBody);
+      if (!parsed.success) {
+        return jsonError('Bad Request', 400);
+      }
+      const body = parsed.data;
+      const report: Record<string, any> =
+        body && typeof body === 'object' && 'csp-report' in body && body['csp-report']
+          ? (body['csp-report'] as Record<string, any>)
+          : (body as Record<string, any>);
 
       // Log the violation with automatic parameter / URL redaction
       logger.warn('[CSP Violation]', {
