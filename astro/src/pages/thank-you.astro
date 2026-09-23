@@ -6,6 +6,7 @@
 // NOTE: local build only (feat/thank-you-page-local branch) — not deployed yet.
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
 import { siteConfig, phoneFormatted, phoneTelLink, fullAddressSingleLine } from '../config/siteConfig';
 
 const pageTitle = "You're All Set — Your Mailbox Is Reserved | Mailbox Plus";
@@ -156,7 +157,7 @@ const storeHours = [
           <h3>Our Location</h3>
           <p class="visit-addr">{storeAddress}</p>
           <p class="visit-sub">Fredle Square retail center — parking right at the door.</p>
-          <a class="btn btn-outline" href={storeMapUrl} target="_blank" rel="noopener">Get Directions →</a>
+          <OutboundLink class="btn btn-outline" href={storeMapUrl}>Get Directions →</OutboundLink>
         </div>
         <div class="card visit-card">
           <div class="icon">🕐</div>
