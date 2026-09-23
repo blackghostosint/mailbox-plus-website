@@ -5,7 +5,7 @@
  * Authorization & Anti-Abuse Model (AGENTS.md Rule 7):
  * - Auth: Public / Unauthenticated endpoint for contact submissions (no user login session required).
  * - Identity & Verification: Anti-abuse and caller verification are enforced via Google reCAPTCHA v3 verification token
- *   (`recaptchaToken`, `token`, or `g-recaptcha-response`) verified server-side against Google reCAPTCHA API using RECAPTCHA_SECRET_KEY.
+ *   (`recaptchaToken`) verified server-side against Google reCAPTCHA API using RECAPTCHA_SECRET_KEY.
  * - Rate Limiting & CORS: Restricted to DEFAULT_ALLOWED_ORIGINS.
  *   Enforces sliding-window IP rate limiting via @netlify/blobs (5 requests / 10 min).
  *
@@ -74,7 +74,7 @@ export default withCors(
 
       const data = parsed.data;
 
-      const token = data.recaptchaToken || data.token || data['g-recaptcha-response'] || undefined;
+      const token = data.recaptchaToken ?? undefined;
       const isValid = await verifyRecaptchaToken(token, clientIp);
       if (!isValid) {
         return jsonError('reCAPTCHA verification failed', 400);

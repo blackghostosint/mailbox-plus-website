@@ -53,8 +53,6 @@ export const SendEmailRequestSchema = z.object({
   barrier_description: z.string().nullable().optional(),
   preferred_contact: z.string().nullable().optional(),
   recaptchaToken: z.string().nullable().optional(),
-  token: z.string().nullable().optional(),
-  'g-recaptcha-response': z.string().nullable().optional(),
 });
 export type SendEmailRequest = z.infer<typeof SendEmailRequestSchema>;
 
