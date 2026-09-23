@@ -11,9 +11,66 @@
  * Exit 0 = compliant / not applicable. Exit 1 = missing or hollow section.
  */
 import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 
 const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models/i;
 const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
+
+/**
+ * Validates PR body for Endpoint Authentication Models section when netlify/functions/ are changed.
+ * @param {Object} [params]
+ * @param {string} [params.body]
+ * @param {string[]} [params.changedFiles]
+ */
+export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
+  const functionsTouched = changedFiles.some((f) => f.startsWith('netlify/functions/'));
+  if (!functionsTouched) {
+    return {
+      success: true,
+      functionsTouched: false,
+      message: `check-auth-model: no netlify/functions/ changes (${changedFiles.length} files) — OK`,
+    };
+  }
+
+  const m = body.match(HEADING);
+  if (!m) {
+    return {
+      success: false,
+      functionsTouched: true,
+      reason: 'missing_section',
+      message:
+        'PR touches netlify/functions/ but the body has no "Endpoint Authentication Models" section.',
+    };
+  }
+
+  const section = body.slice(m.index + m[0].length);
+  // stop at the next heading of same-or-higher level
+  const next = section.match(/\n#{1,3}\s/);
+  const rawContent = next ? section.slice(0, next.index) : section;
+  // COMPLETE sanitization: strip every angle bracket from body-derived text in a
+  // single pass, so no HTML fragment of any kind can survive into echoed strings.
+  const content = rawContent.replace(/[<>]/g, '').trim();
+
+  if (content.length < MIN_SECTION_CHARS) {
+    return {
+      success: false,
+      functionsTouched: true,
+      reason: 'hollow_section',
+      contentLength: content.length,
+      sanitizedContent: content,
+      message: `"Endpoint Authentication Models" section exists but is hollow (${content.length} chars, need ${MIN_SECTION_CHARS}). Open the PR body and fill the section with real content.`,
+    };
+  }
+
+  return {
+    success: true,
+    functionsTouched: true,
+    contentLength: content.length,
+    sanitizedContent: content,
+    message: `check-auth-model: auth model section present (${content.length} chars) — OK`,
+  };
+}
 
 function fail(msg) {
   console.error(`\u274c ${msg}`);
@@ -44,45 +101,27 @@ function load() {
   process.exit(2);
 }
 
-const { body } = load();
-let changed;
-const changedSrc = process.argv[3];
-if (changedSrc) {
-  changed = (changedSrc === '-' ? readFileSync(0, 'utf8') : readFileSync(changedSrc, 'utf8'))
-    .split('\n')
-    .filter(Boolean);
-} else if (process.env.GITHUB_EVENT_PATH) {
-  // changed files come from the API in CI; accept via env-provided file list
-  changed = (process.env.CHANGED_FILES ?? '').split('\n').filter(Boolean);
-} else {
-  changed = [];
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMain) {
+  const { body } = load();
+  let changed;
+  const changedSrc = process.argv[3];
+  if (changedSrc) {
+    changed = (changedSrc === '-' ? readFileSync(0, 'utf8') : readFileSync(changedSrc, 'utf8'))
+      .split('\n')
+      .filter(Boolean);
+  } else if (process.env.GITHUB_EVENT_PATH) {
+    changed = (process.env.CHANGED_FILES ?? '').split('\n').filter(Boolean);
+  } else {
+    changed = [];
+  }
+
+  const result = checkAuthModel({ body, changedFiles: changed });
+  if (!result.success) {
+    fail(result.message);
+  } else {
+    console.log(result.message);
+    process.exit(0);
+  }
 }
-
-const functionsTouched = changed.some((f) => f.startsWith('netlify/functions/'));
-if (!functionsTouched) {
-  console.log(`check-auth-model: no netlify/functions/ changes (${changed.length} files) — OK`);
-  process.exit(0);
-}
-
-const m = body.match(HEADING);
-if (!m)
-  fail(
-    'PR touches netlify/functions/ but the body has no "Endpoint Authentication Models" section.'
-  );
-
-const section = body.slice(m.index + m[0].length);
-// stop at the next heading of same-or-higher level
-const next = section.match(/\n#{1,3}\s/);
-// COMPLETE sanitization: strip every angle bracket from body-derived text in a
-// single pass, so no HTML fragment of any kind can survive into echoed strings.
-const content = (next ? section.slice(0, next.index) : section).replace(/[<>]/g, '').trim();
-
-// sanitize anything we echo: never let PR-supplied text carry HTML into log output.
-// CodeQL taint-tracks body-derived strings, so we never echo them at all — only lengths.
-if (content.length < MIN_SECTION_CHARS) {
-  fail(
-    `"Endpoint Authentication Models" section exists but is hollow (${content.length} chars, need ${MIN_SECTION_CHARS}). Open the PR body and fill the section with real content.`
-  );
-}
-
-console.log(`check-auth-model: auth model section present (${content.length} chars) — OK`);
