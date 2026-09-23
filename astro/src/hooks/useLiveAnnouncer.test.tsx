@@ -175,4 +175,55 @@ describe('useLiveAnnouncer Hook', () => {
       });
     }).not.toThrow();
   });
+
+  it('maintains DOM element reference equality (===) after announcements', () => {
+    const TestComponent = () => {
+      const { announcePolite, announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
+      return (
+        <div>
+          <button
+            onClick={() => {
+              announcePolite('Polite test');
+              announceAssertive('Assertive test');
+            }}
+          >
+            Trigger
+          </button>
+          <LiveAnnouncer />
+        </div>
+      );
+    };
+
+    render(<TestComponent />);
+
+    const initialStatusRegion = screen.getByRole('status');
+    const initialAlertRegion = screen.getByRole('alert');
+
+    const button = screen.getByRole('button');
+    act(() => {
+      fireEvent.click(button);
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
+
+    const statusRegionAfter = screen.getByRole('status');
+    const alertRegionAfter = screen.getByRole('alert');
+
+    expect(statusRegionAfter).toBe(initialStatusRegion);
+    expect(alertRegionAfter).toBe(initialAlertRegion);
+    expect(statusRegionAfter.textContent).toBe('Polite test');
+    expect(alertRegionAfter.textContent).toBe('Assertive test');
+  });
+
+  it('maintains stable LiveAnnouncer component reference across re-renders', () => {
+    const { result, rerender } = renderHook(() => useLiveAnnouncer());
+
+    const initialLiveAnnouncer = result.current.LiveAnnouncer;
+
+    rerender();
+
+    expect(result.current.LiveAnnouncer).toBe(initialLiveAnnouncer);
+  });
 });
