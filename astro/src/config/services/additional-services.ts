@@ -386,7 +386,7 @@ export const additionalServices: Service[] = [
       {
         heading: 'Fast Digital Fingerprinting \u2014 Schedule Online, We Handle It',
         body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              At Mailbox Plus, we offer <strong>digital fingerprinting services</strong> \u2014 schedule your appointment online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Our digital system captures your prints electronically (no ink, no mess) and produces clean, submission-ready results.
+              At Mailbox Plus, we offer <strong>digital fingerprinting services</strong> \u2014 schedule your appointment online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com<span class="sr-only">(opens in a new tab)</span></a>. Our digital system captures your prints electronically (no ink, no mess) and produces clean, submission-ready results.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
               We handle fingerprinting for <strong>BCI background checks, FBI background checks, professional licensing, employment screening, and volunteer organizations</strong>. Just bring your valid government-issued ID and any forms or instructions you received from the requesting agency.
@@ -401,7 +401,7 @@ export const additionalServices: Service[] = [
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">1</div>
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2 text-lg">Schedule Your Appointment</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Book online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Bring your valid driver's license or state ID, plus any forms from the requesting agency.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Book online at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com<span class="sr-only">(opens in a new tab)</span></a>. Bring your valid driver's license or state ID, plus any forms from the requesting agency.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-primary)] rounded-2xl border border-[var(--color-border)] shadow-sm">
                 <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[var(--color-primary)] text-white font-bold text-lg mb-4">2</div>
@@ -451,7 +451,7 @@ export const additionalServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Appointments Are Required</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">All fingerprinting services require an appointment scheduled at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>. Book your time slot online.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">All fingerprinting services require an appointment scheduled at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com<span class="sr-only">(opens in a new tab)</span></a>. Book your time slot online.</p>
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">More Than One Errand</h4>
@@ -469,7 +469,7 @@ export const additionalServices: Service[] = [
               Whether you're starting a new job, renewing a license, or volunteering in your community, we make the fingerprinting part the easiest step in your process.
             </p>
             <p class="text-lg text-[var(--color-text-primary)] leading-relaxed">
-              <strong>Book your appointment at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com</a>.</strong> Bring your ID and any forms. We'll take care of the rest.
+              <strong>Book your appointment at <a href="https://register.fastfingerprints.com" class="text-[var(--color-primary)] hover:underline" target="_blank" rel="nofollow">FastFingerprints.com<span class="sr-only">(opens in a new tab)</span></a>.</strong> Bring your ID and any forms. We'll take care of the rest.
             </p>`,
       },
     ],

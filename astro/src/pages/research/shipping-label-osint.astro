@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import OutboundLink from '../../components/ui/OutboundLink.astro';
 
 const title = 'Shipping Label OSINT | Mailbox Plus';
 const description =
@@ -103,57 +104,45 @@ const description =
                   </p>
                   <ul>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://www.truepeoplesearch.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >TruePeopleSearch</a
+                        >TruePeopleSearch</OutboundLink
                       >
                     </li>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://www.fastpeoplesearch.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >FastPeopleSearch</a
+                        >FastPeopleSearch</OutboundLink
                       >
                     </li>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://www.familytreenow.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >FamilyTreeNow</a
+                        >FamilyTreeNow</OutboundLink
                       >
                     </li>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://www.whitepages.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Whitepages</a
+                        >Whitepages</OutboundLink
                       >
                     </li>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://radaris.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Radaris</a
+                        >Radaris</OutboundLink
                       >
                     </li>
                     <li>
-                      <a
+                      <OutboundLink
                         class="tool"
                         href="https://www.spokeo.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        >Spokeo</a
+                        >Spokeo</OutboundLink
                       >
                     </li>
                   </ul>
@@ -197,33 +186,27 @@ const description =
                   <h3>Phase Three. Phone Number Analysis</h3>
                   <p>The stranger has a phone number from Phase One. They enter it into new tools.</p>
                   <p>
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://github.com/sundowndev/phoneinfoga"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >PhoneInfoga</a
+                      >PhoneInfoga</OutboundLink
                     >
                     shows the carrier. It shows whether the line is mobile or landline. It shows the
                     country.
                   </p>
                   <p>
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://www.truecaller.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Truecaller</a
+                      >Truecaller</OutboundLink
                     >
                     shows the name linked to the number. It shows the location.
                   </p>
                   <p>
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://www.spydialer.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Spy Dialer</a
+                      >Spy Dialer</OutboundLink
                     >
                     plays the voicemail greeting if one exists. A voice confirms the identity.
                   </p>
@@ -246,12 +229,10 @@ const description =
                   <p>The stranger has an email from Phase One. This is the most powerful key.</p>
                   <p>
                     They enter the email into
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://epieos.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Epieos</a
+                      >Epieos</OutboundLink
                     >. The tool returns the Google account linked to it. It shows a profile picture.
                     It shows Google Maps reviews written by that person. It shows a Skype account. It
                     shows a Gravatar image.
@@ -262,12 +243,10 @@ const description =
                   </p>
                   <p>
                     They enter the email into
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://haveibeenpwned.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >HaveIBeenPwned</a
+                      >HaveIBeenPwned</OutboundLink
                     >. The site tells them if the email appeared in a data breach. It lists which
                     breach. It lists what was stolen. Passwords. Names. Addresses. Phone numbers.
                   </p>
@@ -299,12 +278,10 @@ const description =
                   </p>
                   <p>GitHub: Email or name. Code commits show the author's email.</p>
                   <p>
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://github.com/sherlock-project/sherlock"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Sherlock</a
+                      >Sherlock</OutboundLink
                     >
                     takes a username and hunts for it across four hundred sites. If the person uses
                     the same handle everywhere, the stranger sees them all.
@@ -319,29 +296,23 @@ const description =
                   <p>
                     The stranger has a face from a profile photo. They upload it to Google Images.
                     Yandex.
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://tineye.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >TinEye</a
+                      >TinEye</OutboundLink
                     >. Baidu.
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://pimeyes.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >Pimeyes</a
+                      >Pimeyes</OutboundLink
                     >. The search finds the same face on other sites. It finds other photos.
                   </p>
                   <p>
                     They search
-                    <a
+                    <OutboundLink
                       class="tool"
                       href="https://informeddelivery.usps.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      >USPS Informed Delivery</a
+                      >USPS Informed Delivery</OutboundLink
                     >. The stranger signs up for the target's address using knowledge-based
                     authentication questions. The answers came from the people-search sites. No alert
                     goes to the target. The stranger now receives scanned images of the target's
@@ -403,84 +374,66 @@ const description =
             <h2><span class="sec-num">06</span> Other Defenses</h2>
             <p>
               Remove your data from people-search sites. The
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://privacyrights.org"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Privacy Rights Clearinghouse</a
+                >Privacy Rights Clearinghouse</OutboundLink
               >
               lists the sites. The
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://github.com/beetlebugorg/badbool"
-                target="_blank"
-                rel="noopener noreferrer"
-                >BADBOOL</a
+                >BADBOOL</OutboundLink
               >
               list gives the opt-out links. Work through them. It takes time. It works.
             </p>
             <p>
               Freeze your credit with
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://www.equifax.com/personal/credit-freeze/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Equifax</a
+                >Equifax</OutboundLink
               >.
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://www.experian.com/freeze/center.html"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Experian</a
+                >Experian</OutboundLink
               >.
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://www.innovis.com/securityFreeze/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Innovis</a
+                >Innovis</OutboundLink
               >.
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://www.transunion.com/credit-freeze"
-                target="_blank"
-                rel="noopener noreferrer"
-                >TransUnion</a
+                >TransUnion</OutboundLink
               >. This blocks knowledge-based authentication. It blocks the Informed Delivery trick.
             </p>
             <p>
               Register for
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://informeddelivery.usps.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                >USPS Informed Delivery</a
+                >USPS Informed Delivery</OutboundLink
               >
               at your own address. Do it before a stranger does.
             </p>
             <p>
               Use unique usernames on every site. Never reuse a handle.
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://github.com/sherlock-project/sherlock"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Sherlock</a
+                >Sherlock</OutboundLink
               >
               cannot connect accounts if the names differ.
             </p>
             <p>
               Check
-              <a
+              <OutboundLink
                 class="tool"
                 href="https://haveibeenpwned.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                >HaveIBeenPwned</a
+                >HaveIBeenPwned</OutboundLink
               >. See if your email appeared in a breach. Change passwords on affected accounts.
             </p>
           </section>

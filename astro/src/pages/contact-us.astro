@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
 import { FormField } from '../components/ui/FormField';
 import { IconWrapper } from '../components/ui/IconWrapper';
 import { siteConfig, phoneFormatted, phoneTelLink, fullAddressSingleLine } from '../config/siteConfig';
@@ -58,7 +59,7 @@ const recaptchaSiteKey =
         </div>
         <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-2">Address</h3>
         <p class="text-[var(--color-text-secondary)] mb-6 leading-relaxed flex-grow">{fullAddressSingleLine}</p>
-        <a href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" target="_blank" rel="noopener noreferrer" class="text-[var(--color-accent-warm)] font-bold text-base hover:text-[var(--color-accent-warm-light)] transition-colors">Get Directions →</a>
+        <OutboundLink href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" class="text-[var(--color-accent-warm)] font-bold text-base hover:text-[var(--color-accent-warm-light)] transition-colors">Get Directions →</OutboundLink>
       </div>
     </div>
 
@@ -142,7 +143,7 @@ const recaptchaSiteKey =
             <p class="text-base font-bold text-[var(--color-text-primary)]">Based on {siteConfig.aggregateRating?.reviewCount || 32} Google Reviews</p>
             <p class="text-sm text-[var(--color-text-secondary)] mt-1">100% of our customers rate us 5 stars for retail packing & shipping!</p>
           </div>
-          <a href="https://g.page/r/CYyNUX4atT3PEBM/review" target="_blank" rel="noopener noreferrer" class="w-full inline-block bg-[var(--color-accent-warm)] text-white text-sm font-bold py-3 px-6 rounded-xl hover:bg-[var(--color-accent-warm-light)] active:scale-95 transition-all shadow-sm">Write a Google Review</a>
+          <OutboundLink href="https://g.page/r/CYyNUX4atT3PEBM/review" class="w-full inline-block bg-[var(--color-accent-warm)] text-white text-sm font-bold py-3 px-6 rounded-xl hover:bg-[var(--color-accent-warm-light)] active:scale-95 transition-all shadow-sm">Write a Google Review</OutboundLink>
         </div>
 
         <!-- Directions Tip -->
