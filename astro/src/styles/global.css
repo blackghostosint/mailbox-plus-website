@@ -179,7 +179,8 @@
     .animate-fade-in,
     .animate-fade-in-up,
     .animate-fade-out-down,
-    .animate-cta-pulse {
+    .animate-cta-pulse,
+    .stagger-group > * {
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
