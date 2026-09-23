@@ -87,7 +87,7 @@ jobs:
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Run Astro unit tests
-        run: cd astro && npm test
+        run: npm run test:coverage
 
       - name: Run vault sync dry-run
         run: npm run vault:sync

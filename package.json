@@ -11,6 +11,7 @@
     "check": "cd astro && npm run check",
     "typecheck": "(cd astro && npm run check) && tsc --noEmit --project netlify/functions/tsconfig.json && tsc --noEmit --project tsconfig.json",
     "test": "cd astro && npm test",
+    "test:coverage": "cd astro && npm run test:coverage",
     "test:watch": "cd astro && npm run test:watch",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test",
