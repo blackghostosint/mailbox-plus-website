@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import handler from '../create-checkout';
 import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
+import { KEY_DEPOSIT_LOOKUP_KEY } from '../lib/pmb-tiers';
 
 const { mockPricesList, mockCheckoutSessionsCreate } = vi.hoisted(() => ({
   mockPricesList: vi.fn(),
@@ -143,10 +144,10 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Price not found for: pmb_fee_key_deposit' });
+    expect(await res.json()).toEqual({ error: `Price not found for: ${KEY_DEPOSIT_LOOKUP_KEY}` });
     expect(mockPricesList).toHaveBeenCalledTimes(2);
     expect(mockPricesList).toHaveBeenLastCalledWith({
-      lookup_keys: ['pmb_fee_key_deposit'],
+      lookup_keys: [KEY_DEPOSIT_LOOKUP_KEY],
       limit: 1,
     });
   });
@@ -247,7 +248,7 @@ describe('create-checkout function handler', () => {
       });
 
       expect(mockPricesList).toHaveBeenNthCalledWith(2, {
-        lookup_keys: ['pmb_fee_key_deposit'],
+        lookup_keys: [KEY_DEPOSIT_LOOKUP_KEY],
         limit: 1,
       });
 

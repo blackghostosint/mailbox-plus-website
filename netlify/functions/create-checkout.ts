@@ -9,64 +9,11 @@ import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 import { CreateCheckoutRequestSchema, CreateCheckoutSuccessSchema } from './lib/contracts';
+import { getPmbTier, getPmbTierKeys, KEY_DEPOSIT_LOOKUP_KEY } from './lib/pmb-tiers';
 
 dotenv.config();
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || 'dummy_stripe_secret_key');
-
-// Tier → Stripe Price lookup key (single source: vault _config/PRICING-AND-FEES.md)
-const TIER_LOOKUP_KEYS: Record<string, string> = {
-  small_mail_only: 'pmb_small_mail_only_monthly',
-  small_packages10: 'pmb_small_packages10_monthly',
-  large_mail_only: 'pmb_large_mail_only_monthly',
-  large_packages10: 'pmb_large_packages10_monthly',
-  // Business tiers (2026-08-25) — prices live in Stripe: pmb_biz_small_monthly / pmb_biz_large_monthly
-  business_small: 'pmb_biz_small_monthly',
-  business_large: 'pmb_biz_large_monthly',
-};
-
-const TIER_NAMES: Record<string, string> = {
-  small_mail_only: 'Small · Mail Only',
-  small_packages10: 'Small · +10 Packages',
-  large_mail_only: 'Large · Mail Only',
-  large_packages10: 'Large · +10 Packages',
-  business_small: 'Business Small',
-  business_large: 'Business Large',
-};
-
-// Where the checkout came from — distinguishes consumer vs business signups in Stripe
-const TIER_SOURCES: Record<string, string> = {
-  small_mail_only: 'private-mailbox-rental',
-  small_packages10: 'private-mailbox-rental',
-  large_mail_only: 'private-mailbox-rental',
-  large_packages10: 'private-mailbox-rental',
-  business_small: 'home-business-mailbox-rental',
-  business_large: 'home-business-mailbox-rental',
-};
-
-// Cancel URL per tier — business checkouts return to the business page
-const TIER_CANCEL_URLS: Record<string, string> = {
-  small_mail_only: '/private-mailbox-rental/',
-  small_packages10: '/private-mailbox-rental/',
-  large_mail_only: '/private-mailbox-rental/',
-  large_packages10: '/private-mailbox-rental/',
-  business_small: '/home-business/mailbox-rental/',
-  business_large: '/home-business/mailbox-rental/',
-};
-
-// One-time key deposit, charged on the FIRST invoice at account creation (2026-08-25).
-// Lookup key lives on the one-time price under the "Mailbox Plus Fees" product.
-const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
-
-// Tiers that include "Text + email alerts on every item" (per PRICING-AND-FEES.md).
-// Only these require the A2P 10DLC SMS consent affirmation at checkout (Clause 13).
-// Mail-only tiers never send SMS and do NOT show the consent field.
-const TIER_HAS_SMS: Record<string, boolean> = {
-  small_packages10: true,
-  large_packages10: true,
-  business_small: true,
-  business_large: true,
-};
 
 export default withCors(
   async (request: Request) => {
@@ -83,19 +30,20 @@ export default withCors(
       const parsed = CreateCheckoutRequestSchema.safeParse(body);
 
       if (!parsed.success) {
-        return jsonError(
-          `Invalid tier. Must be one of: ${Object.keys(TIER_LOOKUP_KEYS).join(', ')}`,
-          400
-        );
+        return jsonError(`Invalid tier. Must be one of: ${getPmbTierKeys().join(', ')}`, 400);
       }
       const { tier } = parsed.data;
+      const tierConfig = getPmbTier(tier);
+      if (!tierConfig) {
+        return jsonError(`Invalid tier. Must be one of: ${getPmbTierKeys().join(', ')}`, 400);
+      }
 
       // Success/cancel URLs — use SITE_URL (set by Netlify context) or default to production
       const siteUrl = process.env.SITE_URL || 'https://mailboxplusohio.com';
 
       // Resolve the tier's lookup key to a Price ID (Checkout line_items.price needs the ID)
       const prices = await stripe.prices.list({
-        lookup_keys: [TIER_LOOKUP_KEYS[tier]],
+        lookup_keys: [tierConfig.lookupKey],
         limit: 1,
         expand: ['data'],
       });
@@ -131,7 +79,7 @@ export default withCors(
         consent_collection: { terms_of_service: 'required' },
         // A2P 10DLC SMS consent (Clause 13) — required ONLY on tiers that include text alerts.
         // Records an affirmative typed consent + phone + timestamp on the session for Twilio.
-        custom_fields: TIER_HAS_SMS[tier]
+        custom_fields: tierConfig.hasSmsConsent
           ? [
               {
                 key: 'sms_consent',
@@ -146,17 +94,17 @@ export default withCors(
         subscription_data: {
           metadata: {
             tier,
-            product: TIER_NAMES[tier],
-            source: TIER_SOURCES[tier],
+            product: tierConfig.name,
+            source: tierConfig.source,
           },
         },
         metadata: {
           tier,
-          product: TIER_NAMES[tier],
-          source: TIER_SOURCES[tier],
+          product: tierConfig.name,
+          source: tierConfig.source,
         },
         success_url: `${siteUrl}/thank-you/?session_id={CHECKOUT_SESSION_ID}`,
-        cancel_url: `${siteUrl}${TIER_CANCEL_URLS[tier]}`,
+        cancel_url: `${siteUrl}${tierConfig.cancelUrl}`,
       });
 
       const responsePayload = CreateCheckoutSuccessSchema.parse({ url: session.url || '' });
