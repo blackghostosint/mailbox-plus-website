@@ -175,10 +175,16 @@ describe('audit-micro-problems', () => {
       ];
 
       const reportPath = generateAuditReport(auditResults);
-      expect(fs.existsSync(reportPath)).toBe(true);
-      const content = fs.readFileSync(reportPath, 'utf8');
-      expect(content).toContain('Micro-Problem Page Governance Audit');
-      expect(content).toContain('test-srv');
+      try {
+        expect(fs.existsSync(reportPath)).toBe(true);
+        const content = fs.readFileSync(reportPath, 'utf8');
+        expect(content).toContain('Micro-Problem Page Governance Audit');
+        expect(content).toContain('test-srv');
+      } finally {
+        if (fs.existsSync(reportPath)) {
+          fs.unlinkSync(reportPath);
+        }
+      }
     });
   });
 });

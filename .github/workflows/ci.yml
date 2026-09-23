@@ -51,6 +51,12 @@ jobs:
       - name: Run quality audits
         run: npm run audit:quality
 
+      - name: Run API contract checks
+        run: npm run check:api
+
+      - name: Run documentation contract checks
+        run: npm run check:doc-contracts
+
       - name: Run PR content verification (strict, offline)
         if: github.event_name == 'pull_request'
         run: npm run verify -- --strict --offline
