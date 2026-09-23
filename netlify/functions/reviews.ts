@@ -133,7 +133,11 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
 }
 
 export default withCors(
-  async () => {
+  async (request: Request) => {
+    if (request.method !== 'GET') {
+      return jsonError('Method not allowed', 405);
+    }
+
     const cached = await readCached();
 
     // Fresh cache: serve it, do not touch the Places API.
