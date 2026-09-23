@@ -20,57 +20,83 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const OUT_FILE = path.resolve(__dirname, '../astro/src/data/reviews.json');
-const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
-const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
-const FIELD_MASK =
+export const OUT_FILE = path.resolve(__dirname, '../astro/src/data/reviews.json');
+export const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
+export const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
+export const FIELD_MASK =
   'rating,userRatingCount,reviews(authorAttribution,text,rating,publishTime,relativePublishTimeDescription)';
 
-async function main() {
-  const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-  if (!apiKey) {
-    console.warn('[fetch-reviews] GOOGLE_PLACES_API_KEY not set — keeping existing reviews.json');
-    process.exit(0);
-  }
-
-  const res = await fetch(API_URL, {
-    headers: {
-      'Content-Type': 'application/json',
-      'X-Goog-Api-Key': apiKey,
-      'X-Goog-FieldMask': FIELD_MASK,
-    },
-  });
-
-  if (!res.ok) {
-    console.warn(`[fetch-reviews] Places API error ${res.status} — keeping existing reviews.json`);
-    process.exit(0);
-  }
-
-  const data = await res.json();
-  const reviews = (data.reviews || []).map((r) => ({
-    author: r.authorAttribution?.displayName || 'Google User',
-    authorUri: r.authorAttribution?.uri || '',
-    rating: r.rating || 5,
-    text: r.text?.text || '',
-    relativeTime: r.relativePublishTimeDescription || '',
-    publishTime: r.publishTime || '',
+export function transformPlacesData(data = {}) {
+  const reviews = (data?.reviews || []).map((r) => ({
+    author: r?.authorAttribution?.displayName || 'Google User',
+    authorUri: r?.authorAttribution?.uri || '',
+    rating: r?.rating ?? 5,
+    text: r?.text?.text || '',
+    relativeTime: r?.relativePublishTimeDescription || '',
+    publishTime: r?.publishTime || '',
   }));
 
-  const payload = {
-    rating: data.rating,
-    userRatingCount: data.userRatingCount,
+  return {
+    rating: data?.rating,
+    userRatingCount: data?.userRatingCount,
     reviews,
     fetchedAt: new Date().toISOString(),
     note: 'Refreshed at build time by scripts/fetch-reviews.mjs',
   };
-
-  writeFileSync(OUT_FILE, JSON.stringify(payload, null, 2) + '\n');
-  console.log(
-    `[fetch-reviews] Wrote ${reviews.length} reviews, rating ${data.rating}, count ${data.userRatingCount} → astro/src/data/reviews.json`
-  );
 }
 
-main().catch((err) => {
-  console.warn('[fetch-reviews] fetch failed — keeping existing reviews.json:', err.message);
-  process.exit(0);
-});
+export async function fetchAndSaveReviews(options = {}) {
+  const apiKey = options.apiKey ?? process.env.GOOGLE_PLACES_API_KEY;
+  const placeId = options.placeId || PLACE_ID;
+  const outFile = options.outFile || OUT_FILE;
+  const fetchFn = options.fetchFn || globalThis.fetch;
+
+  if (!apiKey) {
+    console.warn('[fetch-reviews] GOOGLE_PLACES_API_KEY not set — keeping existing reviews.json');
+    return { success: false, skipped: true, reason: 'missing_api_key' };
+  }
+
+  const apiUrl = `https://places.googleapis.com/v1/places/${placeId}`;
+  try {
+    const res = await fetchFn(apiUrl, {
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Goog-Api-Key': apiKey,
+        'X-Goog-FieldMask': FIELD_MASK,
+      },
+    });
+
+    if (!res.ok) {
+      console.warn(
+        `[fetch-reviews] Places API error ${res.status} — keeping existing reviews.json`
+      );
+      return { success: false, skipped: true, status: res.status };
+    }
+
+    const data = await res.json();
+    const payload = transformPlacesData(data);
+
+    writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
+    console.log(
+      `[fetch-reviews] Wrote ${payload.reviews.length} reviews, rating ${payload.rating}, count ${payload.userRatingCount} → ${outFile}`
+    );
+
+    return { success: true, payload };
+  } catch (err) {
+    console.warn('[fetch-reviews] fetch failed — keeping existing reviews.json:', err.message);
+    return { success: false, skipped: true, error: err.message };
+  }
+}
+
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMain) {
+  fetchAndSaveReviews()
+    .then(() => {
+      process.exit(0);
+    })
+    .catch((err) => {
+      console.warn('[fetch-reviews] fetch failed — keeping existing reviews.json:', err.message);
+      process.exit(0);
+    });
+}
