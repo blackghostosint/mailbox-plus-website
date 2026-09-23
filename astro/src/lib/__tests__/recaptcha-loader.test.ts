@@ -1,0 +1,123 @@
+// @vitest-environment happy-dom
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { loadRecaptchaScript, executeRecaptcha, resetRecaptchaLoader } from '../recaptcha-loader';
+
+describe('recaptcha-loader module', () => {
+  beforeEach(() => {
+    document.body.innerHTML = '';
+    document.head.innerHTML = '';
+    delete (window as unknown as { grecaptcha?: unknown }).grecaptcha;
+    resetRecaptchaLoader();
+    vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    resetRecaptchaLoader();
+    vi.restoreAllMocks();
+  });
+
+  describe('loadRecaptchaScript', () => {
+    it('returns immediately if siteKey is empty', async () => {
+      await loadRecaptchaScript('');
+      expect(document.getElementById('recaptcha-v3-script')).toBeNull();
+    });
+
+    it('returns immediately if window.grecaptcha is already loaded', async () => {
+      window.grecaptcha = {
+        ready: (cb) => cb(),
+        execute: vi.fn().mockResolvedValue('token'),
+      };
+
+      await loadRecaptchaScript('test-site-key');
+      expect(document.getElementById('recaptcha-v3-script')).toBeNull();
+    });
+
+    it('creates script element and appends it to document head', async () => {
+      const originalAppendChild = document.head.appendChild.bind(document.head);
+      vi.spyOn(document.head, 'appendChild').mockImplementation((node) => {
+        if (node instanceof HTMLElement && node.tagName === 'SCRIPT') {
+          const script = node as HTMLScriptElement;
+          if (script.src) {
+            script.dataset.src = script.src;
+            script.removeAttribute('src');
+          }
+        }
+        return originalAppendChild(node);
+      });
+
+      const promise = loadRecaptchaScript('my-site-key');
+      const script = document.getElementById('recaptcha-v3-script') as HTMLScriptElement | null;
+
+      expect(script).not.toBeNull();
+      expect(script?.dataset.src || script?.src).toContain('render=my-site-key');
+      expect(script?.async).toBe(true);
+
+      // Simulate script onload
+      script?.dispatchEvent(new Event('load'));
+      await promise;
+    });
+
+    it('deduplicates script loading for concurrent and sequential calls', async () => {
+      const appendSpy = vi.spyOn(document.head, 'appendChild');
+
+      const p1 = loadRecaptchaScript('site-key-1');
+      const p2 = loadRecaptchaScript('site-key-1');
+
+      expect(appendSpy).toHaveBeenCalledTimes(1);
+      expect(document.querySelectorAll('#recaptcha-v3-script').length).toBe(1);
+
+      const script = document.getElementById('recaptcha-v3-script');
+      script?.dispatchEvent(new Event('load'));
+
+      await Promise.all([p1, p2]);
+
+      // Call again after load
+      await loadRecaptchaScript('site-key-1');
+      expect(document.querySelectorAll('#recaptcha-v3-script').length).toBe(1);
+    });
+  });
+
+  describe('executeRecaptcha', () => {
+    it('returns empty string if siteKey is empty', async () => {
+      const token = await executeRecaptcha('');
+      expect(token).toBe('');
+    });
+
+    it('executes grecaptcha and resolves with token', async () => {
+      const executeMock = vi.fn().mockResolvedValue('valid-token-123');
+      window.grecaptcha = {
+        ready: (cb: () => void) => cb(),
+        execute: executeMock,
+      };
+
+      const token = await executeRecaptcha('my-site-key', 'contact_form');
+      expect(executeMock).toHaveBeenCalledWith('my-site-key', { action: 'contact_form' });
+      expect(token).toBe('valid-token-123');
+    });
+
+    it('returns empty string when grecaptcha execution rejects', async () => {
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+      window.grecaptcha = {
+        ready: (cb: () => void) => cb(),
+        execute: vi.fn().mockRejectedValue(new Error('reCAPTCHA network error')),
+      };
+
+      const token = await executeRecaptcha('my-site-key');
+      expect(token).toBe('');
+      consoleSpy.mockRestore();
+    });
+
+    it('returns empty string when grecaptcha is missing after loading script', async () => {
+      const consoleSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+      // Simulate script load with no window.grecaptcha set
+      const executePromise = executeRecaptcha('my-site-key');
+      const script = document.getElementById('recaptcha-v3-script');
+      script?.dispatchEvent(new Event('load'));
+
+      const token = await executePromise;
+      expect(token).toBe('');
+      consoleSpy.mockRestore();
+    });
+  });
+});
