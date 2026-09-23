@@ -74,14 +74,6 @@ jobs:
       - name: TypeScript type check
         run: npm run typecheck
 
-      - name: Run Astro unit tests
-        run: cd astro && npm test
-
-      - name: Run vault sync dry-run
-        run: npm run vault:sync
-        env:
-          DRY_RUN: '1'
-
       - name: Build project
         shell: bash
         run: |
@@ -93,6 +85,14 @@ jobs:
           VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
+      - name: Run Astro unit tests
+        run: cd astro && npm test
+
+      - name: Run vault sync dry-run
+        run: npm run vault:sync
+        env:
+          DRY_RUN: '1'
 
       - name: Cache embedding vectors
         uses: actions/cache@v4
