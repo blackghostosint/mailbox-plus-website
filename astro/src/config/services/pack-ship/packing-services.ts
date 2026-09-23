@@ -215,7 +215,7 @@ export const packingServices: Service[] = [
               </div>
               <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
                 <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Online Design Tool</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Design your own box layout at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">boxsize.cc</a> and bring it in for professional assembly.</p>
+                <p class="text-sm text-[var(--color-text-secondary)]">Design your own box layout at <a href="https://boxsize.cc/" target="_blank" rel="noopener noreferrer" class="text-[var(--color-primary)] hover:underline">boxsize.cc<span class="sr-only">(opens in a new tab)</span></a> and bring it in for professional assembly.</p>
               </div>
             </div>`,
         isFullWidth: true,

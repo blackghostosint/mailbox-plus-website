@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+import OutboundLink from '../components/ui/OutboundLink.astro'
 import { siteConfig } from '../config/siteConfig'
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '')
 const localAreas = ['Concord Township','Mentor','Painesville','Eastlake','Willoughby','Wickliffe','Madison','Perry','Kirtland','Chardon','Fairport Harbor','Geneva']
@@ -78,10 +79,10 @@ const star = '<svg class="w-4 h-4 fill-yellow-400 text-yellow-400" aria-hidden="
       <p class="text-lg text-[var(--color-text-muted)] mb-12 max-w-2xl mx-auto">Stop by Mailbox Plus for all your shipping, printing, and business service needs. We are ready to help you.</p>
 
       <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
+        <OutboundLink href="https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164" class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all">
           <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
           Get Directions
-        </a>
+        </OutboundLink>
         <a href={`tel:${phoneDigits}`} class="inline-flex items-center gap-2 text-[var(--color-accent-warm)] font-semibold px-6 py-3 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all border-2 border-transparent">
           <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
           Call {siteConfig.contact.phone}

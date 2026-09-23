@@ -5,6 +5,7 @@
 
 import BaseLayout from './BaseLayout.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
 import type { Service, CTA } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
 import reviewsData from '../data/reviews.json';
@@ -175,7 +176,7 @@ const carriers = [
             <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{service.disclaimer}</p>
             {service.refLink && (
               <p class="text-xs text-[var(--color-text-muted)] mt-2">
-                Reference: <a href={service.refLink.url} rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">{service.refLink.label} →</a>
+                Reference: <OutboundLink href={service.refLink.url} rel="nofollow" class="underline hover:text-[var(--color-primary)]">{service.refLink.label} →</OutboundLink>
               </p>
             )}
           </div>
@@ -231,9 +232,9 @@ const carriers = [
               {service.cta.subtitle && <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">{service.cta.subtitle}</p>}
               <div class="flex flex-wrap justify-center gap-3">
                 {service.cta.buttonLink.startsWith('http') ? (
-                  <a href={service.cta.buttonLink} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
+                  <OutboundLink href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
                     {service.cta.buttonText} →
-                  </a>
+                  </OutboundLink>
                 ) : (
                   <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
                     {service.cta.buttonText} →
@@ -241,9 +242,9 @@ const carriers = [
                 )}
                 {service.cta.extraButtons?.map((btn) =>
                   btn.external || btn.link.startsWith('http') ? (
-                    <a href={btn.link} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
+                    <OutboundLink href={btn.link} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
                       {btn.text} →
-                    </a>
+                    </OutboundLink>
                   ) : (
                     <a href={normalizePathname(btn.link)} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
                       {btn.text} →
@@ -289,9 +290,9 @@ const carriers = [
   {!service.hideCarrierLogos && (
     <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4">
       {carriers.map((carrier) => (
-        <a href={carrier.url} target="_blank" rel="noopener noreferrer" class="transition-transform duration-200 hover:scale-105">
+        <OutboundLink href={carrier.url} class="transition-transform duration-200 hover:scale-105">
           <img src={carrier.src} alt={carrier.name} class="h-12 sm:h-16 w-auto object-contain drop-shadow-md" width="200" height="64" loading="lazy" />
-        </a>
+        </OutboundLink>
       ))}
     </div>
   )}

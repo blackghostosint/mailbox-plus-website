@@ -44,7 +44,7 @@ renderer.link = ({ href, text }) => {
   if (isInternal) {
     return `<a href="${href}" class="${cls}">${text}</a>`;
   }
-  return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${cls}">${text}</a>`;
+  return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${cls}">${text}<span class="sr-only">(opens in a new tab)</span></a>`;
 };
 
 const renderedContent = marked.parse(content, { renderer });

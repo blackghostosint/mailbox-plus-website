@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
 import { getServiceImageUrl } from '../lib/storage';
 
 const services = [
@@ -96,12 +97,12 @@ const iconPaths: Record<string, string> = {
         <p class="text-[var(--color-text-secondary)] leading-relaxed mb-6">
           Frank brings years of experience in customer service, operations, and business management, operations, logistics, and shipping. Known for his friendly approach and attention to detail, he ensures every customer leaves with a great experience.
         </p>
-        <a href="https://www.linkedin.com/in/frank-schwarz/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
+        <OutboundLink href="https://www.linkedin.com/in/frank-schwarz/" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
           View LinkedIn
           <svg aria-hidden="true" focusable="false" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-        </a>
+        </OutboundLink>
       </div>
 
       {/* Diana */}
@@ -114,12 +115,12 @@ const iconPaths: Record<string, string> = {
         <p class="text-[var(--color-text-secondary)] leading-relaxed mb-6">
           With a strong background in operations, logistics, and customer care, Diana leads Mailbox Plus with a commitment to excellence and community-minded service. Her leadership ensures we continue to grow while maintaining a welcoming, family-run atmosphere.
         </p>
-        <a href="https://www.linkedin.com/in/diana-goebelt-schwarz-94090737/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
+        <OutboundLink href="https://www.linkedin.com/in/diana-goebelt-schwarz-94090737/" class="inline-flex items-center text-[var(--color-accent-warm)] hover:text-[var(--color-accent-warm-light)] font-semibold">
           View LinkedIn
           <svg aria-hidden="true" focusable="false" class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
           </svg>
-        </a>
+        </OutboundLink>
       </div>
     </div>
   </section>
@@ -165,13 +166,13 @@ const iconPaths: Record<string, string> = {
         <a href="/contact-us/" class="inline-flex items-center justify-center bg-[var(--color-accent-warm)] text-white font-bold px-8 py-3.5 rounded-md shadow-lg hover:brightness-110 transition-all min-h-12">
           Get in Touch
         </a>
-        <a href="https://www.google.com/maps/dir//Mailbox+Plus+Concord+Township" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all min-h-12">
+        <OutboundLink href="https://www.google.com/maps/dir//Mailbox+Plus+Concord+Township" class="inline-flex items-center justify-center gap-2 border-2 border-[var(--color-accent-warm)] text-[var(--color-accent-warm)] font-bold px-8 py-3.5 rounded-md hover:bg-[var(--color-accent-warm)]/10 transition-all min-h-12">
           <svg aria-hidden="true" focusable="false" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
             <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
           </svg>
           Get Directions
-        </a>
+        </OutboundLink>
       </div>
     </div>
   </section>
