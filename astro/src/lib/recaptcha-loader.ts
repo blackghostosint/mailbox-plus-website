@@ -25,10 +25,6 @@ export function loadRecaptchaScript(siteKey: string): Promise<void> {
 
   if (existingScript) {
     scriptLoadPromise = new Promise<void>((resolve) => {
-      if (window.grecaptcha) {
-        resolve();
-        return;
-      }
       const handleLoad = () => resolve();
       const handleError = () => resolve();
       existingScript.addEventListener('load', handleLoad, { once: true });
