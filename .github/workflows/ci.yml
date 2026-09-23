@@ -45,7 +45,7 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
           CHANGED=$(gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename')
-          PR_BODY_FILE=$(mktemp); gh pr view "$PR_NUMBER" --json body --jq .body > "$PR_BODY_FILE"
+          PR_BODY_FILE=$(mktemp); gh pr view "$PR_NUMBER" --json body,comments --jq '.body + "\n" + (if .comments then [.comments[].body] | join("\n") else "" end)' > "$PR_BODY_FILE"
           echo "$CHANGED" | node scripts/check-auth-model.mjs "$PR_BODY_FILE" -
 
       - name: Run quality audits
