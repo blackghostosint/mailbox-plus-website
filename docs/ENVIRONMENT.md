@@ -12,11 +12,12 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 
 ## Client Build & Runtime Context Variables
 
-| Variable                  | Description                                                                             | Default       |
-| ------------------------- | --------------------------------------------------------------------------------------- | ------------- |
-| `VITE_NETLIFY_CONTEXT`    | Netlify deployment context passed to Vite client (`production`, `deploy-preview`, etc.) | `development` |
-| `VITE_SENTRY_DSN`         | Sentry DSN for error tracking                                                           | (none)        |
-| `VITE_SENTRY_ENVIRONMENT` | Sentry environment tag                                                                  | `production`  |
+| Variable                  | Description                                                                             | Default                       |
+| ------------------------- | --------------------------------------------------------------------------------------- | ----------------------------- |
+| `VITE_NETLIFY_CONTEXT`    | Netlify deployment context passed to Vite client (`production`, `deploy-preview`, etc.) | `development`                 |
+| `VITE_SITE_URL`           | Optional client site base URL override                                                  | `https://mailboxplusohio.com` |
+| `VITE_SENTRY_DSN`         | Sentry DSN for error tracking                                                           | (none)                        |
+| `VITE_SENTRY_ENVIRONMENT` | Sentry environment tag                                                                  | `production`                  |
 
 ## Netlify Function Variables
 
@@ -34,6 +35,7 @@ These are set in the Netlify dashboard (Site settings > Environment variables) f
 | `CONTACT_EMAIL`         | Destination email for contact form submissions                                                                                  | `help@mailboxplusohio.com`    |
 | `SITE_URL`              | Site base URL for CORS origin checks and checkout redirect resolution                                                           | `https://mailboxplusohio.com` |
 | `CONTEXT`               | Netlify deployment context (`production`, `deploy-preview`, `branch-deploy`) in health checks                                   | `development`                 |
+| `NETLIFY_DEV`           | Flag indicating local Netlify dev CLI environment execution (`true` or `false`)                                                 | `false`                       |
 
 ### reCAPTCHA Site Key vs. Secret Key
 

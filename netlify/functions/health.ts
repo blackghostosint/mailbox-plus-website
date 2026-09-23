@@ -13,11 +13,15 @@
  */
 
 import type { Context } from '@netlify/functions';
-import { withCors, jsonResponse, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { HealthSuccessSchema } from './lib/contracts';
 
 export default withCors(
   async (request: Request, context: Context) => {
+    if (request.method && request.method.toUpperCase() !== 'GET') {
+      return jsonError('Method Not Allowed', 405);
+    }
+
     const startTime = Date.now();
 
     const netlifyGlobal = (
