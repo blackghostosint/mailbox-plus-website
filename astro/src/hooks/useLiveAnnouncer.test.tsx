@@ -2,7 +2,7 @@
 import React from 'react';
 import { render, screen, act, renderHook, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { useLiveAnnouncer } from './useLiveAnnouncer';
+import { useLiveAnnouncer, type UseLiveAnnouncerReturn } from './useLiveAnnouncer';
 
 describe('useLiveAnnouncer Hook', () => {
   beforeEach(() => {
@@ -269,30 +269,56 @@ describe('useLiveAnnouncer Hook', () => {
     expect(screen.getByRole('alert').textContent).toBe('Second alert');
   });
 
-  it('safely handles announcement calls when LiveAnnouncer component is not rendered', () => {
+  it('retains announcements made before LiveAnnouncer is rendered and populates them on mount', () => {
     const { result } = renderHook(() => useLiveAnnouncer());
 
-    expect(() => {
-      act(() => {
-        result.current.announcePolite('Unmounted polite');
-        result.current.announceAssertive('Unmounted assertive');
-      });
+    act(() => {
+      result.current.announcePolite('Pre-mount polite');
+      result.current.announceAssertive('Pre-mount assertive');
+    });
 
-      act(() => {
-        vi.advanceTimersByTime(100);
-      });
-    }).not.toThrow();
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
+
+    const { LiveAnnouncer } = result.current;
+    render(<LiveAnnouncer />);
+
+    expect(screen.getByRole('status').textContent).toBe('Pre-mount polite');
+    expect(screen.getByRole('alert').textContent).toBe('Pre-mount assertive');
   });
 
-  it('safely handles announcement timer completion if LiveAnnouncer unmounts before timer runs', () => {
+  it('retains announcements made before mount when timer expires after mount', () => {
+    const { result } = renderHook(() => useLiveAnnouncer());
+
+    act(() => {
+      result.current.announcePolite('Pending polite');
+      result.current.announceAssertive('Pending assertive');
+    });
+
+    const { LiveAnnouncer } = result.current;
+    render(<LiveAnnouncer />);
+
+    expect(screen.getByRole('status').textContent).toBe('');
+    expect(screen.getByRole('alert').textContent).toBe('');
+
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
+
+    expect(screen.getByRole('status').textContent).toBe('Pending polite');
+    expect(screen.getByRole('alert').textContent).toBe('Pending assertive');
+  });
+
+  it('retains active announcements across unmount and remount of LiveAnnouncer', () => {
     const TestComponent = ({ showAnnouncer }: { showAnnouncer: boolean }) => {
       const { announcePolite, announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
       return (
         <div>
           <button
             onClick={() => {
-              announcePolite('Pending polite');
-              announceAssertive('Pending assertive');
+              announcePolite('Retained polite');
+              announceAssertive('Retained assertive');
             }}
           >
             Trigger
@@ -309,13 +335,47 @@ describe('useLiveAnnouncer Hook', () => {
       fireEvent.click(button);
     });
 
-    // Unmount LiveAnnouncer before timer triggers
-    rerender(<TestComponent showAnnouncer={false} />);
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
 
-    expect(() => {
-      act(() => {
-        vi.advanceTimersByTime(100);
-      });
-    }).not.toThrow();
+    expect(screen.getByRole('status').textContent).toBe('Retained polite');
+    expect(screen.getByRole('alert').textContent).toBe('Retained assertive');
+
+    rerender(<TestComponent showAnnouncer={false} />);
+    expect(screen.queryByRole('status')).toBeNull();
+    expect(screen.queryByRole('alert')).toBeNull();
+
+    rerender(<TestComponent showAnnouncer={true} />);
+    expect(screen.getByRole('status').textContent).toBe('Retained polite');
+    expect(screen.getByRole('alert').textContent).toBe('Retained assertive');
+  });
+
+  it('retains announcements triggered while LiveAnnouncer is unmounted and displays on remount', () => {
+    let announcePoliteFn: UseLiveAnnouncerReturn['announcePolite'] = () => {};
+    let announceAssertiveFn: UseLiveAnnouncerReturn['announceAssertive'] = () => {};
+
+    const TestComponent = ({ showAnnouncer }: { showAnnouncer: boolean }) => {
+      const { announcePolite, announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
+      announcePoliteFn = announcePolite;
+      announceAssertiveFn = announceAssertive;
+      return <div>{showAnnouncer && <LiveAnnouncer />}</div>;
+    };
+
+    const { rerender } = render(<TestComponent showAnnouncer={false} />);
+
+    act(() => {
+      announcePoliteFn('Unmounted polite message');
+      announceAssertiveFn('Unmounted assertive message');
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
+
+    rerender(<TestComponent showAnnouncer={true} />);
+
+    expect(screen.getByRole('status').textContent).toBe('Unmounted polite message');
+    expect(screen.getByRole('alert').textContent).toBe('Unmounted assertive message');
   });
 });
