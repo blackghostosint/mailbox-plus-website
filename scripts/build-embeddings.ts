@@ -1,15 +1,10 @@
 import { readFileSync, writeFileSync } from 'fs';
-import { join } from 'path';
+import { join, resolve } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
-import {
-  buildCacheKey,
-  EMBEDDING_MODEL,
-  type KBEntry,
-  type KnowledgeBase,
-} from '../knowledge/retrieval-core.js';
+import { buildCacheKey, EMBEDDING_MODEL, type KnowledgeBase } from '../knowledge/retrieval-core.js';
 import { retrievalTests } from '../knowledge/retrieval-test-suite.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -23,7 +18,7 @@ const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
 const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
 const CACHE_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
 
-interface EmbeddingResult {
+export interface EmbeddingResult {
   metadata: {
     model: string;
     generatedAt: string;
@@ -33,45 +28,87 @@ interface EmbeddingResult {
   };
 }
 
-async function buildEmbeddings() {
-  console.log('--- Starting Build-Time Embedding Generation ---');
+export interface TaskItem {
+  taskType: 'RETRIEVAL_DOCUMENT' | 'RETRIEVAL_QUERY';
+  entryId?: string;
+}
 
-  const apiKey = process.env.GEMINI_API_KEY;
-  if (!apiKey) {
-    console.error('Error: GEMINI_API_KEY environment variable is not set.');
-    process.exit(1);
-  }
+export function extractUniqueTexts(
+  kbData: KnowledgeBase,
+  testCases: Array<{ query: string }> = retrievalTests
+): Map<string, TaskItem> {
+  const taskMap = new Map<string, TaskItem>();
 
-  const genAI = new GoogleGenerativeAI(apiKey);
-  const model = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
-
-  // Load KB
-  console.log(`Loading Knowledge Base from: ${KB_PATH}`);
-  const kb: KnowledgeBase = JSON.parse(readFileSync(KB_PATH, 'utf-8'));
-
-  const taskMap = new Map<string, { taskType: string; entryId?: string }>(); // text -> { taskType, entryId }
-
-  // Extract strings and assign task types
-  for (const entry of kb.entries) {
-    // RETRIEVAL_DOCUMENT for title + searchText
-    taskMap.set(entry.title, { taskType: 'RETRIEVAL_DOCUMENT', entryId: entry.id });
-    taskMap.set(entry.searchText, { taskType: 'RETRIEVAL_DOCUMENT', entryId: entry.id });
-
-    // RETRIEVAL_QUERY for questionVariants
-    for (const variant of entry.questionVariants) {
-      taskMap.set(variant, { taskType: 'RETRIEVAL_QUERY', entryId: entry.id });
+  if (kbData?.entries) {
+    for (const entry of kbData.entries) {
+      if (entry.title) {
+        taskMap.set(entry.title, { taskType: 'RETRIEVAL_DOCUMENT', entryId: entry.id });
+      }
+      if (entry.searchText) {
+        taskMap.set(entry.searchText, { taskType: 'RETRIEVAL_DOCUMENT', entryId: entry.id });
+      }
+      if (entry.questionVariants) {
+        for (const variant of entry.questionVariants) {
+          taskMap.set(variant, { taskType: 'RETRIEVAL_QUERY', entryId: entry.id });
+        }
+      }
     }
   }
 
-  // Also include benchmark test queries
-  for (const testCase of retrievalTests) {
-    if (!taskMap.has(testCase.query)) {
-      taskMap.set(testCase.query, { taskType: 'RETRIEVAL_QUERY' });
+  if (testCases) {
+    for (const testCase of testCases) {
+      if (testCase?.query && !taskMap.has(testCase.query)) {
+        taskMap.set(testCase.query, { taskType: 'RETRIEVAL_QUERY' });
+      }
     }
   }
 
+  return taskMap;
+}
+
+export interface GenerateEmbeddingsOptions {
+  kb?: KnowledgeBase;
+  testCases?: Array<{ query: string }>;
+  genAIClient?: any;
+  apiKey?: string;
+  outputPath?: string;
+  cachePath?: string;
+  writeToDisk?: boolean;
+  delayMs?: number;
+}
+
+export async function generateEmbeddings(
+  options: GenerateEmbeddingsOptions = {}
+): Promise<EmbeddingResult> {
+  const {
+    kb,
+    testCases = retrievalTests,
+    genAIClient,
+    apiKey = process.env.GEMINI_API_KEY,
+    outputPath,
+    cachePath,
+    writeToDisk = false,
+    delayMs = 0,
+  } = options;
+
+  if (!genAIClient && !apiKey) {
+    throw new Error('GEMINI_API_KEY environment variable is not set.');
+  }
+
+  let model: any;
+  if (genAIClient) {
+    model =
+      typeof genAIClient.getGenerativeModel === 'function'
+        ? genAIClient.getGenerativeModel({ model: EMBEDDING_MODEL })
+        : genAIClient;
+  } else {
+    const genAI = new GoogleGenerativeAI(apiKey!);
+    model = genAI.getGenerativeModel({ model: EMBEDDING_MODEL });
+  }
+
+  const kbData: KnowledgeBase = kb || JSON.parse(readFileSync(KB_PATH, 'utf-8'));
+  const taskMap = extractUniqueTexts(kbData, testCases);
   const uniqueTexts = Array.from(taskMap.keys());
-  console.log(`Found ${uniqueTexts.length} unique strings to embed (KB entries + test cases).`);
 
   const result: EmbeddingResult = {
     metadata: {
@@ -81,8 +118,6 @@ async function buildEmbeddings() {
     embeddings: {},
   };
 
-  // Batching or sequential processing to avoid rate limits
-  // Sequential for safety since it's a build-time script
   let count = 0;
   for (const text of uniqueTexts) {
     count++;
@@ -90,41 +125,48 @@ async function buildEmbeddings() {
     const taskKey = buildCacheKey(taskType, text);
 
     try {
-      process.stdout.write(
-        `[${count}/${uniqueTexts.length}] Embedding: ${text.substring(0, 30)}... `
-      );
       const embeddingResponse = await model.embedContent({
         content: { role: 'user', parts: [{ text }] },
         taskType: taskType as any,
       });
 
-      if (embeddingResponse.embedding && embeddingResponse.embedding.values) {
+      if (embeddingResponse && embeddingResponse.embedding && embeddingResponse.embedding.values) {
         const values = embeddingResponse.embedding.values;
         result.embeddings[taskKey] = values;
         result.embeddings[text] = values;
         if (entryId) {
           result.embeddings[buildCacheKey(entryId, text)] = values;
         }
-        console.log('✅');
-      } else {
-        console.log('❌ (No values)');
       }
     } catch (error) {
-      console.log(`❌ (${(error as Error).message})`);
+      console.error(`Error embedding text: ${(error as Error).message}`);
     }
 
-    // Delay to avoid rate limiting
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    if (delayMs > 0) {
+      await new Promise((r) => setTimeout(r, delayMs));
+    }
   }
 
-  console.log(`Saving results to: ${OUTPUT_PATH} and ${CACHE_PATH}`);
-  const jsonContent = JSON.stringify(result, null, 2);
-  writeFileSync(OUTPUT_PATH, jsonContent);
-  writeFileSync(CACHE_PATH, jsonContent);
-  console.log('--- Done! ---');
+  if (writeToDisk) {
+    const out = outputPath || OUTPUT_PATH;
+    const cache = cachePath || CACHE_PATH;
+    const jsonContent = JSON.stringify(result, null, 2);
+    writeFileSync(out, jsonContent);
+    writeFileSync(cache, jsonContent);
+  }
+
+  return result;
 }
 
-buildEmbeddings().catch((err) => {
-  console.error('Fatal Error:', err);
-  process.exit(1);
-});
+const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+
+if (isMain) {
+  generateEmbeddings({ writeToDisk: true, delayMs: 100 })
+    .then(() => {
+      console.log('--- Done! ---');
+    })
+    .catch((err) => {
+      console.error('Fatal Error:', err);
+      process.exit(1);
+    });
+}
