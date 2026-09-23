@@ -15,6 +15,7 @@ All environment variables are loaded from `.env` at build time via Vite's `impor
 | Variable                  | Description                                                                             | Default       |
 | ------------------------- | --------------------------------------------------------------------------------------- | ------------- |
 | `VITE_NETLIFY_CONTEXT`    | Netlify deployment context passed to Vite client (`production`, `deploy-preview`, etc.) | `development` |
+| `VITE_SITE_URL`           | Explicit site base URL override for client build (fallback to `SITE_URL`)               | (none)        |
 | `VITE_SENTRY_DSN`         | Sentry DSN for error tracking                                                           | (none)        |
 | `VITE_SENTRY_ENVIRONMENT` | Sentry environment tag                                                                  | `production`  |
 
@@ -34,6 +35,7 @@ These are set in the Netlify dashboard (Site settings > Environment variables) f
 | `CONTACT_EMAIL`         | Destination email for contact form submissions                                                                                  | `help@mailboxplusohio.com`    |
 | `SITE_URL`              | Site base URL for CORS origin checks and checkout redirect resolution                                                           | `https://mailboxplusohio.com` |
 | `CONTEXT`               | Netlify deployment context (`production`, `deploy-preview`, `branch-deploy`) in health checks                                   | `development`                 |
+| `NETLIFY_DEV`           | Netlify CLI environment variable indicating local dev server execution (`true`)                                                 | (none)                        |
 
 ### reCAPTCHA Site Key vs. Secret Key
 
