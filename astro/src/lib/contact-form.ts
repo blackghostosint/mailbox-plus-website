@@ -1,6 +1,7 @@
 import { apiFetch, ApiClientError } from './api-client';
 import { renderFormError, clearFormError } from './dom-error';
 import { SendEmailSuccessSchema, type SendEmailSuccess } from './contracts';
+import { loadRecaptchaScript, executeRecaptcha } from './recaptcha-loader';
 
 export async function submitContactForm(payload: unknown): Promise<SendEmailSuccess> {
   const data = await apiFetch<unknown>('/.netlify/functions/sendEmail', {
@@ -23,16 +24,8 @@ export function initContactForms(): void {
 
     const recaptchaSiteKey = form.getAttribute('data-recaptcha-site-key') || '';
 
-    if (
-      recaptchaSiteKey &&
-      typeof document !== 'undefined' &&
-      !document.getElementById('recaptcha-v3-script')
-    ) {
-      const s = document.createElement('script');
-      s.id = 'recaptcha-v3-script';
-      s.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(recaptchaSiteKey)}`;
-      s.async = true;
-      document.head.appendChild(s);
+    if (recaptchaSiteKey) {
+      loadRecaptchaScript(recaptchaSiteKey);
     }
 
     form.addEventListener('submit', async (e) => {
@@ -43,21 +36,9 @@ export function initContactForms(): void {
       const submitBtn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
       if (submitBtn) submitBtn.disabled = true;
 
-      let recaptchaToken = '';
-      if (recaptchaSiteKey && window.grecaptcha) {
-        try {
-          recaptchaToken = await new Promise<string>((resolve) => {
-            window.grecaptcha?.ready(() => {
-              window.grecaptcha
-                ?.execute(recaptchaSiteKey, { action: 'contact_us' })
-                .then(resolve)
-                .catch(() => resolve(''));
-            });
-          });
-        } catch (err: unknown) {
-          console.error('reCAPTCHA execution error:', err);
-        }
-      }
+      const recaptchaToken = recaptchaSiteKey
+        ? await executeRecaptcha(recaptchaSiteKey, 'contact_us')
+        : '';
 
       const formData = new FormData(form);
       const formName = form.getAttribute('name') || '';
