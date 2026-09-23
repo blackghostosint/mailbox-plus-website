@@ -206,9 +206,7 @@ export const regulatedMicroProblems: Service[] = [
 </ul>
 <p><strong>Stop by Mailbox Plus at ${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}</strong> — we will walk you through it.</p>
 <div class="text-xs text-[var(--color-text-muted)] mt-4">
-  Reference: <a href="https://www.fedex.com/en-us/shipping/how-to-ship-batteries.html" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">
-    View FedEx official battery shipping policy →<span class="sr-only">(opens in a new tab)</span>
-  </a>
+  Reference: <a href="https://www.fedex.com/en-us/shipping/how-to-ship-batteries.html" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">View FedEx official battery shipping policy →<span class="sr-only">(opens in a new tab)</span></a>
 </div>`,
       },
     ],
@@ -399,9 +397,7 @@ export const regulatedMicroProblems: Service[] = [
 <li>If you need help with <strong>non-hazmat items</strong> — boxes, fragile goods, documents — we are here for that. Stop by Mailbox Plus at ${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}.</li>
 </ul>
 <div class="text-xs text-[var(--color-text-muted)] mt-4">
-  Reference: <a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-ammunition" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">
-    View UPS official ammunition shipping policy →<span class="sr-only">(opens in a new tab)</span>
-  </a>
+  Reference: <a href="https://www.ups.com/us/en/support/shipping-support/shipping-special-care-regulated-items/hazardous-materials-guide/how-to-ship-ammunition" rel="nofollow" target="_blank" class="underline hover:text-[var(--color-primary)]">View UPS official ammunition shipping policy →<span class="sr-only">(opens in a new tab)</span></a>
 </div>`,
       },
     ],
