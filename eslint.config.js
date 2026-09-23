@@ -20,6 +20,8 @@ export default [
       'scripts/',
       'knowledge/',
       'archive/',
+      'coverage/',
+      '**/coverage/**',
       'astro/.astro/',
       'convert-images.cjs',
       'replace-framer.py',
