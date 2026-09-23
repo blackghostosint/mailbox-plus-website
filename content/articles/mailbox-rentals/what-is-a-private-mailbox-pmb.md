@@ -27,7 +27,7 @@ keywords:
     'what is a pmb',
   ]
 relatedServices: ['/private-mailbox-rental/', '/home-business/digital-mailbox-rental/']
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'What does PMB stand for?'
     answer: 'PMB stands for Private Mailbox — a mailbox you rent from a private business registered with the USPS as a Commercial Mail Receiving Agency (CMRA). It gives you a real street address, not a box number at the post office.'
@@ -62,6 +62,8 @@ Skip it, and the consequences are printed right in the rulebook: USPS may return
 So when you give out your address — to a bank, a supplier, your mother — give it exactly as issued: street address, then PMB and your number. That one line tells the entire mail system where your mail actually lives.
 
 ## What a PMB Address Actually Looks Like
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot](articles/mailbox-rentals/what-is-a-private-mailbox-pmb-body-1.webp)
 
 When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now.
 
@@ -132,3 +134,5 @@ A seller on Etsy rents a mailbox on a Tuesday. The bell chirps when she pushes t
 Wednesday, a supplier ships her inventory to "7554 Fredle Drive PMB \_\_\_." The box lands on our counter with a thud — we sign for it and slide it behind the locked glass. She grabs it on the way home: no missed-delivery slip taped to a door her customers will never see, no home address printed on a label a stranger could read. Every carrier — USPS, FedEx, UPS, DHL — delivers to the same line, so nothing bounces the way it would to a PO Box. That's a private mailbox doing its whole job in one week, and it never touches her house.
 
 That seller walked out in ten minutes, and her address was live before she got back to her car. You will too — same counter, same form, zero prep. [Rent a private mailbox](/private-mailbox-rental/), or come see the counter at 7554 Fredle Drive first and we'll show you exactly what your address would look like before you spend a dollar.
+
+If you are weighing the decision on price alone, see [what a mailbox rental actually costs](/articles/mailbox-rental-cost-comparison/) — and if a virtual mailbox is on your list too, read [virtual vs real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/) before you commit.
