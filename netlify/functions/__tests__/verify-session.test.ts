@@ -182,10 +182,10 @@ describe('verify-session function handler', () => {
   });
 
   const tierFallbackCases = [
-    { tier: 'small_mail_only', expectedName: 'Small Mail Only', expectedMonthly: 15 },
-    { tier: 'small_packages10', expectedName: 'Small +10 Packages', expectedMonthly: 25 },
-    { tier: 'large_mail_only', expectedName: 'Large Mail Only', expectedMonthly: 30 },
-    { tier: 'large_packages10', expectedName: 'Large +10 Packages', expectedMonthly: 40 },
+    { tier: 'small_mail_only', expectedName: 'Small · Mail Only', expectedMonthly: 15 },
+    { tier: 'small_packages10', expectedName: 'Small · +10 Packages', expectedMonthly: 25 },
+    { tier: 'large_mail_only', expectedName: 'Large · Mail Only', expectedMonthly: 30 },
+    { tier: 'large_packages10', expectedName: 'Large · +10 Packages', expectedMonthly: 40 },
     { tier: 'business_small', expectedName: 'Business Small', expectedMonthly: 35 },
     { tier: 'business_large', expectedName: 'Business Large', expectedMonthly: 50 },
   ];
