@@ -69,6 +69,11 @@ convert-images.cjs
 test-results/
 playwright-report/
 
+# Vitest coverage output
+coverage/
+astro/coverage/
+scripts/audits/reports/
+
 # Astro generated directory
 astro/.astro/
 
