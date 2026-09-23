@@ -63,6 +63,8 @@ So when you give out your address — to a bank, a supplier, your mother — giv
 
 ## What a PMB Address Actually Looks Like
 
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot](articles/mailbox-rentals/what-is-a-private-mailbox-pmb-body-1.webp)
+
 When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now.
 
 **The address is a street address.** Not a box compartment in a post office lobby — an actual storefront on an actual road that any delivery driver can pull up to.

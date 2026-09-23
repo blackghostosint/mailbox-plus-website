@@ -40,6 +40,8 @@ The sticker is not maliciously ignored. It is simply not part of how modern parc
 
 ## What It Actually Feels Like
 
+![A cardboard box packed with crumpled kraft paper on the packing bench at Mailbox Plus](articles/pack-ship/does-fragile-sticker-work-body-1.webp)
+
 You know the feeling. You shipped a ceramic vase to your sister, wrapped in bubble wrap, marked FRAGILE on two sides. For three days you check the tracking. The package moves through hubs in the middle of the night.
 
 It arrives. She opens the box. You get a text: "It broke. The top of the vase is cracked."

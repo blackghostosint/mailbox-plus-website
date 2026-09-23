@@ -72,6 +72,8 @@ The question is not whether the UPS Store is a good store. It is whether having 
 
 ## What We See Every Day
 
+![The multi-carrier counter at Mailbox Plus — FedEx, UPS, and USPS supplies side by side with inbound packages on the counter](articles/pack-ship/ups-store-vs-mailbox-plus-comparison-body-1.webp)
+
 At Mailbox Plus, we see customers who walked out of the UPS Store and came straight to us with the same package. They wanted to know if there was a cheaper option. Usually, there is.
 
 We also see customers who use both stores. They go to the UPS Store for UPS-specific services like third-party billing or UPS Hundredweight. They come to us for everything else — especially when they want to compare rates, ship via FedEx or USPS, or get a real street address for their business.

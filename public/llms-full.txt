@@ -5359,6 +5359,8 @@ The sticker is not maliciously ignored. It is simply not part of how modern parc
 
 ## What It Actually Feels Like
 
+![A cardboard box packed with crumpled kraft paper on the packing bench at Mailbox Plus](articles/pack-ship/does-fragile-sticker-work-body-1.webp)
+
 You know the feeling. You shipped a ceramic vase to your sister, wrapped in bubble wrap, marked FRAGILE on two sides. For three days you check the tracking. The package moves through hubs in the middle of the night.
 
 It arrives. She opens the box. You get a text: "It broke. The top of the vase is cracked."
@@ -15445,6 +15447,8 @@ The question is not whether the UPS Store is a good store. It is whether having 
 
 ## What We See Every Day
 
+![The multi-carrier counter at Mailbox Plus — FedEx, UPS, and USPS supplies side by side with inbound packages on the counter](articles/pack-ship/ups-store-vs-mailbox-plus-comparison-body-1.webp)
+
 At Mailbox Plus, we see customers who walked out of the UPS Store and came straight to us with the same package. They wanted to know if there was a cheaper option. Usually, there is.
 
 We also see customers who use both stores. They go to the UPS Store for UPS-specific services like third-party billing or UPS Hundredweight. They come to us for everything else — especially when they want to compare rates, ship via FedEx or USPS, or get a real street address for their business.
@@ -16652,6 +16656,8 @@ Skip it, and the consequences are printed right in the rulebook: USPS may return
 So when you give out your address — to a bank, a supplier, your mother — give it exactly as issued: street address, then PMB and your number. That one line tells the entire mail system where your mail actually lives.
 
 ## What a PMB Address Actually Looks Like
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot](articles/mailbox-rentals/what-is-a-private-mailbox-pmb-body-1.webp)
 
 When Jane rents her box, she walks out with a card that reads like this: her name up top, then **7554 Fredle Drive PMB 123** — the store's street address with her box number riding the same line — then Concord Township, OH 44077. That's her real address now.
 
