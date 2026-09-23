@@ -228,6 +228,7 @@ Current header values (from `netlify.toml`):
 
 ```
 Content-Security-Policy: default-src 'self';
+  base-uri 'self';
   script-src 'self' https://www.googletagmanager.com https://connect.facebook.net https://www.google.com https://www.gstatic.com https://news.google.com;
   style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
   font-src 'self' https://fonts.gstatic.com;
