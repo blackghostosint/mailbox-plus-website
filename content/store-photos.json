@@ -1,0 +1,29 @@
+{
+  "$schema": "store-photos v1",
+  "photos": [
+    {
+      "key": "articles/store-library/mailbox-wall/wall-01.webp",
+      "topics": ["mailbox-rentals", "pmb", "store-interior"],
+      "alt": "Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot",
+      "immich_asset": "726a7f58-3190-48e0-82a9-83bf3f (counter session, full-res PII check passed 2026-09-22)",
+      "vetted": "2026-09-22",
+      "source_article": "what-is-a-private-mailbox-pmb"
+    },
+    {
+      "key": "articles/store-library/counter/counter-01.webp",
+      "topics": ["pack-ship", "counter", "multi-carrier"],
+      "alt": "Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup",
+      "immich_asset": "counter session, full-res PII check passed 2026-09-22",
+      "vetted": "2026-09-22",
+      "source_article": "ups-store-vs-mailbox-plus-comparison"
+    },
+    {
+      "key": "articles/store-library/packing/kraft-bench-01.webp",
+      "topics": ["pack-ship", "packing", "fragile"],
+      "alt": "Box being packed with kraft paper on the packing bench at Mailbox Plus in Concord Township",
+      "immich_asset": "packing session, PII check passed 2026-09-22",
+      "vetted": "2026-09-22",
+      "source_article": "does-fragile-sticker-work"
+    }
+  ]
+}

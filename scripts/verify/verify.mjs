@@ -330,6 +330,17 @@ function initNewArticles() {
   return newArticleCache;
 }
 
+function loadStorePhotoManifest() {
+  const manifestPath = path.join(ROOT, 'content', 'store-photos.json');
+  if (!fs.existsSync(manifestPath)) return [];
+  try {
+    const parsed = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    return Array.isArray(parsed) ? parsed : parsed.photos || [];
+  } catch {
+    return [];
+  }
+}
+
 function getChangedArticleFiles() {
   const allChanged = initNewArticles();
   const changedArticles = [];
@@ -1039,6 +1050,62 @@ function cmdArticle(arg, isStrict = false) {
         } else {
           check('image:exists', true, `HTTP ${code} (advisory in non-strict) ${url}`);
         }
+      }
+    }
+
+    // 9c) Real-store body image (PR #636 pattern → gate, 2026-09-23). New/changed articles must
+    // reference at least one in-body photo: a per-article body-N file OR a vetted store-library
+    // asset listed in content/store-photos.json. Library photos are pre-vetted by the owner's
+    // Immich pipeline: tag 'Mailbox Plus/Captioned' + store-GPS geofence, no readable labels/PII.
+    const bodyImgRefs = [
+      ...content.matchAll(/!\[[^\]]*\]\((\/?[^)\s]+(?:body-\d+|store-library\/[^)\s]+)\.webp)\)/g),
+    ].map((m) => m[1]);
+    if (bodyImgRefs.length > 0) {
+      let allOk = true;
+      const details = [];
+      for (const ref of bodyImgRefs) {
+        const r2Key = ref
+          .replace(/^https?:\/\/[^/]+\//, '')
+          .replace(/^pub-[a-z0-9]+\.r2\.dev\//, '');
+        if (r2Key.includes('store-library/')) {
+          const manifest = loadStorePhotoManifest();
+          const entry = manifest.find((e) => e.key === `articles/${r2Key}` || e.key === r2Key);
+          if (!entry) {
+            allOk = false;
+            details.push(`${r2Key} not in content/store-photos.json (unvetted store-library ref)`);
+            continue;
+          }
+        }
+        if (SKIP_NETWORK) {
+          details.push(`${r2Key} (HTTP check skipped --offline)`);
+          continue;
+        }
+        const url = r2Key.startsWith('http') ? r2Key : `${R2_PUBLIC_BASE}/${r2Key}`;
+        const code = headStatus(url);
+        if (code !== '200') {
+          allOk = false;
+          details.push(`HTTP ${code} ${url}`);
+        } else {
+          details.push(`HTTP 200 ${r2Key}`);
+        }
+      }
+      check(
+        'image:body',
+        allOk,
+        details.join('; '),
+        'fix or replace the broken/unvetted body image reference(s)'
+      );
+    } else {
+      const isNew = initNewArticles().has(relPath);
+      if (isStrict && isNew) {
+        check(
+          'image:body',
+          false,
+          'no in-body real-store photo',
+          'add one: pick a vetted asset from content/store-photos.json (store-library/ on R2) or upload a per-article body-1.webp — see the Real-Store Photo Gate. If no privacy-clean photo fits the topic, remove this gate failure by noting the gap to the owner; a generated image never fills the body slot.'
+        );
+      } else {
+        check('image:body', true, 'no body image (advisory — legacy article)');
       }
     }
 
