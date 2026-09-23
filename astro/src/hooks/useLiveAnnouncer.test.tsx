@@ -226,4 +226,96 @@ describe('useLiveAnnouncer Hook', () => {
 
     expect(result.current.LiveAnnouncer).toBe(initialLiveAnnouncer);
   });
+
+  it('resets timeout when a new assertive message is announced before timer expires', () => {
+    const TestComponent = () => {
+      const { announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
+      return (
+        <div>
+          <button onClick={() => announceAssertive('First alert')}>Msg 1</button>
+          <button onClick={() => announceAssertive('Second alert')}>Msg 2</button>
+          <LiveAnnouncer />
+        </div>
+      );
+    };
+
+    render(<TestComponent />);
+
+    const btn1 = screen.getByRole('button', { name: 'Msg 1' });
+    const btn2 = screen.getByRole('button', { name: 'Msg 2' });
+
+    act(() => {
+      fireEvent.click(btn1);
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(30);
+    });
+
+    act(() => {
+      fireEvent.click(btn2);
+    });
+
+    act(() => {
+      vi.advanceTimersByTime(30);
+    });
+
+    expect(screen.getByRole('alert').textContent).toBe('');
+
+    act(() => {
+      vi.advanceTimersByTime(20);
+    });
+
+    expect(screen.getByRole('alert').textContent).toBe('Second alert');
+  });
+
+  it('safely handles announcement calls when LiveAnnouncer component is not rendered', () => {
+    const { result } = renderHook(() => useLiveAnnouncer());
+
+    expect(() => {
+      act(() => {
+        result.current.announcePolite('Unmounted polite');
+        result.current.announceAssertive('Unmounted assertive');
+      });
+
+      act(() => {
+        vi.advanceTimersByTime(100);
+      });
+    }).not.toThrow();
+  });
+
+  it('safely handles announcement timer completion if LiveAnnouncer unmounts before timer runs', () => {
+    const TestComponent = ({ showAnnouncer }: { showAnnouncer: boolean }) => {
+      const { announcePolite, announceAssertive, LiveAnnouncer } = useLiveAnnouncer();
+      return (
+        <div>
+          <button
+            onClick={() => {
+              announcePolite('Pending polite');
+              announceAssertive('Pending assertive');
+            }}
+          >
+            Trigger
+          </button>
+          {showAnnouncer && <LiveAnnouncer />}
+        </div>
+      );
+    };
+
+    const { rerender } = render(<TestComponent showAnnouncer={true} />);
+
+    const button = screen.getByRole('button');
+    act(() => {
+      fireEvent.click(button);
+    });
+
+    // Unmount LiveAnnouncer before timer triggers
+    rerender(<TestComponent showAnnouncer={false} />);
+
+    expect(() => {
+      act(() => {
+        vi.advanceTimersByTime(100);
+      });
+    }).not.toThrow();
+  });
 });
