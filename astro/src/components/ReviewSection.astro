@@ -12,6 +12,7 @@
 // Google display policy: reviews must link back to the Google listing, which
 // the "See all reviews on Google" button + per-review author links satisfy.
 import reviewsData from '../data/reviews.json';
+import OutboundLink from './ui/OutboundLink.astro';
 
 const { rating, userRatingCount, reviews } = reviewsData;
 const GPLACE_URL = 'https://www.google.com/maps/search/?api=1&query=Mailbox+Plus&query_place_id=ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
@@ -40,15 +41,13 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
       <p class="text-[var(--color-text-secondary)] mb-6">
         <span id="reviews-count">{userRatingCount}</span> verified Google reviews
       </p>
-      <a
+      <OutboundLink
         href={GPLACE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
         class="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] text-white px-6 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
       >
         See all reviews on Google
         <svg aria-hidden="true" focusable="false" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-      </a>
+      </OutboundLink>
     </div>
 
     <!-- Review cards -->
@@ -68,9 +67,9 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
           </blockquote>
           <footer class="mt-4 pt-4 border-t border-[var(--color-border)]">
             {review.authorUri ? (
-              <a href={review.authorUri} target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-[var(--color-accent-warm)] hover:underline">
+              <OutboundLink href={review.authorUri} class="text-sm font-semibold text-[var(--color-accent-warm)] hover:underline">
                 {review.author}
-              </a>
+              </OutboundLink>
             ) : (
               <p class="text-sm font-semibold text-[var(--color-accent-warm)]">{review.author}</p>
             )}

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import OutboundLink from '../components/ui/OutboundLink.astro';
 ---
 
 <BaseLayout
@@ -17,26 +18,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
   <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
     <div class="grid md:grid-cols-2 gap-6">
-      <a href="https://www.fedex.com/fedextrack" target="_blank" rel="noopener noreferrer"
+      <OutboundLink href="https://www.fedex.com/fedextrack"
         class="block p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] shadow-sm hover:shadow-md transition-all">
         <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">FedEx Tracking</h2>
         <p class="text-sm text-[var(--color-text-secondary)]">Track FedEx Express, Ground, and Home Delivery shipments.</p>
-      </a>
-      <a href="https://www.ups.com/track" target="_blank" rel="noopener noreferrer"
+      </OutboundLink>
+      <OutboundLink href="https://www.ups.com/track"
         class="block p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] shadow-sm hover:shadow-md transition-all">
         <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">UPS Tracking</h2>
         <p class="text-sm text-[var(--color-text-secondary)]">Track UPS Ground, Air, and SurePost shipments.</p>
-      </a>
-      <a href="https://tools.usps.com/go/TrackConfirmAction_input" target="_blank" rel="noopener noreferrer"
+      </OutboundLink>
+      <OutboundLink href="https://tools.usps.com/go/TrackConfirmAction_input"
         class="block p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] shadow-sm hover:shadow-md transition-all">
         <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">USPS Tracking</h2>
         <p class="text-sm text-[var(--color-text-secondary)]">Track USPS Priority Mail, First-Class, and Parcel Select shipments.</p>
-      </a>
-      <a href="https://www.dhl.com/us-en/home/tracking.html" target="_blank" rel="noopener noreferrer"
+      </OutboundLink>
+      <OutboundLink href="https://www.dhl.com/us-en/home/tracking.html"
         class="block p-6 rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-secondary)] shadow-sm hover:shadow-md transition-all">
         <h2 class="text-xl font-bold text-[var(--color-primary)] mb-2">DHL Tracking</h2>
         <p class="text-sm text-[var(--color-text-secondary)]">Track DHL Express and eCommerce shipments.</p>
-      </a>
+      </OutboundLink>
     </div>
     <div class="mt-12 p-6 rounded-2xl bg-[var(--color-bg-secondary)]/80 border border-[var(--color-border)] text-center">
       <h2 class="text-lg font-bold text-[var(--color-text-primary)] mb-2">Need Help Tracking?</h2>

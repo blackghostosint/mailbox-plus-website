@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+export interface Props extends HTMLAttributes<'a'> {
+  href?: string;
+  class?: string;
+  target?: string;
+  rel?: string;
+}
+
+const {
+  href,
+  class: className,
+  target = '_blank',
+  rel,
+  ...rest
+} = Astro.props;
+
+const isExternal = target === '_blank';
+
+let computedRel = rel;
+if (isExternal) {
+  if (!rel) {
+    computedRel = 'noopener noreferrer';
+  } else {
+    const tokens = rel.split(/\s+/);
+    if (!tokens.includes('noopener')) tokens.push('noopener');
+    if (!tokens.includes('noreferrer')) tokens.push('noreferrer');
+    computedRel = tokens.join(' ');
+  }
+}
+---
+
+<a href={href} class={className} target={target} rel={computedRel} {...rest}>
+  <slot />
+  {isExternal && <span class="sr-only">(opens in a new tab)</span>}
+</a>

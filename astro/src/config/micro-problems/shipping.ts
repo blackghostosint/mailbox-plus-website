@@ -751,7 +751,7 @@ export const shippingMicroProblems: Service[] = [
         body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/chewy-prescription-mail-in-featured.webp" alt="Pet prescription being sealed in a FedEx envelope at a shipping counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1024" height="576" />
 <p>When you order prescription medication for your pet on <strong>Chewy Pharmacy</strong>, you may need to mail in the original paper prescription before your order can ship. This is required by pharmacy regulations — Chewy cannot accept copies, scans, or photos.</p>
 <p>If you select <strong>"Mail in prescription"</strong> at checkout, Chewy generates a FedEx QR code or printable label for you. That's where we come in.</p>
-<p><a href="https://www.chewy.com/customer-care/prescriptions-and-veterinary-diets/filling-prescriptions-or-veterinary-diets/mailing-in-a-prescription" rel="nofollow" target="_blank">View Chewy's official mail-in prescription instructions →</a></p>`,
+<p><a href="https://www.chewy.com/customer-care/prescriptions-and-veterinary-diets/filling-prescriptions-or-veterinary-diets/mailing-in-a-prescription" rel="nofollow" target="_blank">View Chewy's official mail-in prescription instructions →<span class="sr-only">(opens in a new tab)</span></a></p>`,
       },
       {
         heading: 'What We Do',
@@ -778,11 +778,11 @@ export const shippingMicroProblems: Service[] = [
         heading: 'Local Veterinarians in the Area',
         body: `<p>Looking for a veterinarian in Lake County to get a prescription for your pet? Here are some local veterinary clinics near Concord Township. <strong>We do not endorse or vouch for any of these providers</strong> — this information is shared as a community tip. Always do your own research and choose a vet that's right for your pet.</p>
 <ul>
-<li><a href="https://bigcreekvet.com/" rel="nofollow" target="_blank">Big Creek Veterinary Hospital</a> — Concord Township, full-service small animal clinic</li>
-<li><a href="https://www.brightwoodanimalhospital.com/" rel="nofollow" target="_blank">Brightwood Animal Hospital</a> — Mentor, serving Concord Township and surrounding communities for 30+ years</li>
-<li><a href="https://crossroadsvet-painesville.com/" rel="nofollow" target="_blank">Crossroads Veterinary Hospital</a> — Painesville, full-service veterinary care</li>
-<li><a href="https://lakeanimal.com/" rel="nofollow" target="_blank">Lake Animal Hospital</a> — Painesville, 1777 Mentor Ave, (440) 352-0606</li>
-<li><a href="https://tyleranimalclinic.com/" rel="nofollow" target="_blank">Tyler Animal Clinic</a> — Mentor, (440) 953-1730</li>
+<li><a href="https://bigcreekvet.com/" rel="nofollow" target="_blank">Big Creek Veterinary Hospital<span class="sr-only">(opens in a new tab)</span></a> — Concord Township, full-service small animal clinic</li>
+<li><a href="https://www.brightwoodanimalhospital.com/" rel="nofollow" target="_blank">Brightwood Animal Hospital<span class="sr-only">(opens in a new tab)</span></a> — Mentor, serving Concord Township and surrounding communities for 30+ years</li>
+<li><a href="https://crossroadsvet-painesville.com/" rel="nofollow" target="_blank">Crossroads Veterinary Hospital<span class="sr-only">(opens in a new tab)</span></a> — Painesville, full-service veterinary care</li>
+<li><a href="https://lakeanimal.com/" rel="nofollow" target="_blank">Lake Animal Hospital<span class="sr-only">(opens in a new tab)</span></a> — Painesville, 1777 Mentor Ave, (440) 352-0606</li>
+<li><a href="https://tyleranimalclinic.com/" rel="nofollow" target="_blank">Tyler Animal Clinic<span class="sr-only">(opens in a new tab)</span></a> — Mentor, (440) 953-1730</li>
 </ul>
 <p><em>Disclaimer: This list is provided as a community resource and is not an endorsement. We recommend contacting clinics directly to confirm services, hours, and availability. Mailbox Plus is a shipping and business service center — we are not a veterinary practice and do not provide medical advice.</em></p>`,
       },
