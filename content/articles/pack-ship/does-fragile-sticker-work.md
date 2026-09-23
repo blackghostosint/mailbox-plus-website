@@ -16,11 +16,22 @@ keywords:
     'how to ship fragile items Ohio',
     'fragile package protection Concord Township',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/professional-packing', '/specialty/insurance']
-author: 'Mailbox Plus Team'
+relatedServices: ['/pack-ship/', '/pack-ship/professional-packing/', '/specialty/insurance/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Does a fragile sticker change how carriers handle a package?'
+    answer: 'No. Automated sortation systems read barcodes, not labels. Instrumented-package studies — including the DHL single-parcel study — found that pictorial markings like FRAGILE do not improve handling or reduce drop severity.'
+  - question: 'Why did USPS discontinue Special Handling - Fragile?'
+    answer: 'USPS ended the paid service in 2022. In its Federal Register notice the Postal Service said an investigation revealed that operational procedures do not support the preferential handling of Special Handling - Fragile items.'
+  - question: 'What actually protects fragile items in transit?'
+    answer: 'Packaging: a double-wall box for anything heavy, two to three inches of cushioning on all six sides, double-boxing for high-value items, zero movement when the box is shaken, and H-taped seams.'
+  - question: 'Will a carrier pay a claim if a fragile-labeled box breaks?'
+    answer: 'Only if the packaging meets the carrier published standards. FedEx states outright that improperly packed shipments are not deemed at fault - the sticker is not considered.'
+  - question: 'Is it still worth putting a fragile sticker on the box?'
+    answer: 'It costs nothing and a THIS SIDE UP arrow can help the driver on the final mile, where a human actually handles the box. Just treat it as a label, never as protection.'
 ---
 
-## The Scene That Starts Everything
+## The Red Sticker Reflex
 
 The box is packed, the label is printed, and the tape is on. One last thing — you reach for a bright red FRAGILE sticker and press it onto the side of the box. You feel a little better. You did something. Now the carrier will know to be careful.
 
@@ -38,7 +49,7 @@ The only times a human handler sees your label are pickup, loading the truck, an
 
 The sticker is not maliciously ignored. It is simply not part of how modern parcel networks work.
 
-## What It Actually Feels Like
+## The Vase That Did Not Survive
 
 ![A cardboard box packed with crumpled kraft paper on the packing bench at Mailbox Plus](articles/pack-ship/does-fragile-sticker-work-body-1.webp)
 
@@ -50,7 +61,7 @@ You did everything you knew to do. The sticker was right there on the box, brigh
 
 That is the gap between what we _believe_ the sticker does and what it _actually_ does. And the carriers themselves have been saying this for years.
 
-## Why It Should Not Be This Way
+## What the Carriers Themselves Admit
 
 No carrier has ever promised that a fragile sticker means gentler handling. Ask them directly and they tell you the same thing.
 
@@ -73,7 +84,7 @@ One caveat on that last one — a dozen trips is a small sample, not a statistic
 
 So the research is consistent: **labels do not change handling. Packaging does.**
 
-## What We See Every Day
+## What the Packing Bench Shows Us
 
 At Mailbox Plus on Fredle Drive in Concord Township, we pack fragile items every week — artwork, glassware, ceramics, electronics, instruments, antiques. And we see the same pattern over and over: the packages that arrive broken are almost never the ones with great packaging. They are the ones whose only protection was a sticker.
 
@@ -87,13 +98,13 @@ When you bring a breakable item to our counter, here is what actually protects i
 
 This is the same guidance the carriers publish. It is free. It is tested. And it is the thing the sticker was never able to do.
 
-## How It Works
+## Your Two Options for the Next Breakable
 
 So what do you do the next time you need to ship something breakable?
 
 **Option one — bring it to a counter that packs it right.** That is what professional packing services are for. You hand over the item, and someone who packs fragile goods daily handles the box selection, the cushioning, the double-boxing, and the sealing. If something goes wrong after that, you have a service that stands behind the pack.
 
-**Option two — pack it yourself, but follow the real rules.** Use the right box, cushion 2–3 inches on all sides, fill every gap, tape the seams, and place the label on the largest surface. If you want a deep step-by-step guide, we wrote one: [How to Ship Fragile Items Safely](/articles/ship-fragile-items-safely-artwork-electronics-glass/).
+**Option two — pack it yourself, but follow the real rules.** Use the right box, cushion 2–3 inches on all sides, fill every gap, tape the seams, and place the label on the largest surface. If you want a deep step-by-step guide, we wrote one: [How to Ship Fragile Items Safely](/articles/ship-fragile-items-safely-artwork-electronics-glass/). And if the item is worth real money, pair the packing with coverage — see our guide to [shipping insurance in Concord Township](/articles/concord-township-shipping-insurance/), plus [when a poly mailer beats a box](/articles/poly-mailer-vs-box/) for the soft-goods cases where fragility is not the issue.
 
 **And the sticker?** Put it on if you want. It costs nothing, it does not hurt, and a "THIS SIDE UP" arrow can genuinely help the driver during the last mile — the one leg of the trip where a human is actually handling your box. Just do not treat it as protection.
 
@@ -107,7 +118,7 @@ So the sticker does not just fail to prevent damage — it also does nothing to 
 
 Skip the sticker-only approach. If the item is worth more than about a hundred dollars, insure it — and pack it so the insurance never has to pay out.
 
-## Your Afternoon After the Change
+## The Box That Arrives Whole
 
 You bring the vase to Mailbox Plus. The attendant measures it, picks a double-wall box from the rack, and wraps the vase in cushioning — two inches on every side, every gap filled, nothing shifting when the box is gently shaken. They seal it with an H-tape pattern, attach the label, and offer declared value for the full amount.
 
@@ -115,7 +126,7 @@ You walk out. The box is quiet, solid, and done right.
 
 Three days later your sister texts you a photo. The vase is on her shelf, in one piece, and it looks beautiful.
 
-## Bring It In
+## Pack It Like It Matters
 
 If you are shipping something breakable — a painting, electronics, glassware, an heirloom — do not rely on a sticker. Bring it to Mailbox Plus at 7554 Fredle Drive in Concord Township, and let us pack it the way the research says it should be packed: cushion on every side, no movement, sealed to survive.
 
