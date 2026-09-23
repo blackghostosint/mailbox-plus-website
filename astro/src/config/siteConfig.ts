@@ -103,6 +103,7 @@ export const siteConfig: SiteConfig = {
     instagram: 'https://www.instagram.com/mailboxplusohio',
     nextdoor: 'https://nextdoor.com/pages/mailbox-plus-concord-township-oh',
     yelp: 'https://www.yelp.com/biz/mailbox-plus-concord-township',
+    bbb: 'https://www.bbb.org/us/oh/concord-township/profile/mail-box-rental/mailbox-plus-0312-92062023',
     linkedin: 'https://www.linkedin.com/company/mailboxplusohio',
     googleBusiness: 'https://maps.google.com/?cid=14933291064823483788',
   },
