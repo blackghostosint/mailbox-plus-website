@@ -92,4 +92,4 @@ Blu is doing her job: reminding everyone that a shipping store is more than ship
 
 So when the ads work and the errand comes up, come see the store the character cannot show you. Mailbox Plus, 7554 Fredle Drive, Concord Township. All four carriers, one counter, prices side by side. The portal is optional; the comparison is not.
 
-_Source: <a href="https://www.marketingdive.com/news/the-ups-store-enlists-first-brand-character-to-support-franchisees/829215/" rel="nofollow noopener" target="_blank">Marketing Dive<span class="sr-only">(opens in a new tab)</span></a>, "The UPS Store enlists first brand character to support franchisees," September 1, 2026._
+_Source: <a href="https://www.marketingdive.com/news/the-ups-store-enlists-first-brand-character-to-support-franchisees/829215/" rel="nofollow noopener" target="_blank">Marketing Dive</a>, "The UPS Store enlists first brand character to support franchisees," September 1, 2026._
