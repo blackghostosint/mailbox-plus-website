@@ -41,8 +41,6 @@ But here is what the UPS Store cannot tell you: whether FedEx would have been ch
 
 At Mailbox Plus, two miles down the road on Fredle Drive, you put the exact same box on the counter and see prices from all four major carriers. The UPS price is one of them. It might be the cheapest. It might not be. The point is you get to see all of them before you decide.
 
-This is the core difference between a franchise shipping store and an independent shipping center. And it affects everything — price, convenience, service, and flexibility.
-
 ## The Franchise Model vs the Independent Model
 
 Here's the part nobody at the UPS Store will tell you, because their contract forbids it: they're a franchise. The owner pays UPS for the brand and signs away the right to offer anything else. You walked in for a decision, maybe worried you'd ask something dumb — and the counter can only give you one answer to every question, including the ones you didn't know to ask.
@@ -51,11 +49,9 @@ But the exclusivity clause means they cannot offer FedEx, USPS, or DHL as altern
 
 Mailbox Plus is an independent shipping center. We are not a franchise of any carrier. We have agreements with UPS, FedEx, USPS, and DHL — all four. We can sell you any of them. We can show you the price difference in real time. And because we make the same margin regardless of which carrier you choose, we have no incentive to steer you toward any one option.
 
-This is not a theoretical difference. It changes the transaction fundamentally. At the franchise store, the carriers are competitors and you can only buy from one. At an independent store, the carriers are options and you can pick the best one.
-
 ## What Each Store Does Well
 
-**The UPS Store:** if you already trust UPS for your prints and your mailbox rental, the store up Mentor Avenue will treat you fine — I'm not here to steal that from them. But everything behind that counter answers to one brand.
+**The UPS Store:** if you're already committed to UPS for prints or a mailbox rental, the Mentor Avenue store serves that need. But everything behind that counter answers to one brand.
 
 **Mailbox Plus:** you come to us when you want all four prices side by side. Need a real street address instead of a PO Box? That's here. Fingerprints for BCI? We roll them right at the counter. No franchise rulebook telling us what we can't stock.
 
@@ -74,8 +70,6 @@ Now multiply that difference over every package you ship this year. If you ship 
 ## Why the Franchise Exists
 
 Picture the UPS clerk's screen locked to one carrier logo while your box sits on the counter. That lock isn't their choice — it's the franchise paper they signed. But it means you'll get one price and one network, and you'll never know what the other three would have cost.
-
-That trust is earned. UPS has been shipping packages for over a century. Their service is consistent. Their tracking is reliable. Their insurance pays out when claims are legitimate.
 
 The question isn't whether the UPS Store is a good store. It is whether having more than one option at the same counter is better. And for most people, it is.
 
@@ -116,8 +110,6 @@ But over time, the invisible costs accumulate:
 - **Higher shipping costs** — because you never compared
 - **Fewer options** — because the franchise cannot offer alternatives
 - **Less convenience** — because if the franchise is busy, you wait with no alternative inside the same building
-
-These are small costs on any single transaction. Over a year of shipping, they add up.
 
 ## The Receipt You Check on the Drive Home
 
