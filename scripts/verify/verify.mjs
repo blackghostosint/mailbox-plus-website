@@ -1426,14 +1426,15 @@ function cmdReview(targetPath) {
   const modelIdx = rest.indexOf('--model');
   const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'x-ai/grok-4.7';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '70';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '80';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
   );
-  // Grok 4.7 gate (calibrated 2026-09-22 against 8 published anchors: recent
-  // work scores 69-77, older catalog 39-64 — pass bar 70 = "beat the best
-  // published work"). API calls are slow and occasionally return empty, so
+  // Grok 4.7 gate (recalibrated 2026-09-23, owner decision: pass bar 80 —
+  // one revision round above the best published anchor score of 77, matching
+  // the AGENTS.md "copy review >= 80" merge rule that 70 had drifted from).
+  // API calls are slow and occasionally return empty, so
   // retry API-style failures up to 3 attempts, then FAIL CLOSED (no fallback
   // pass on reviewer outage). Genuine score failures are not retried.
   const MAX_ATTEMPTS = 3;
