@@ -1,0 +1,19 @@
+# Fact-Check Receipt — virtual-po-box-vs-private-mailbox (2026-09-25)
+
+| # | Claim | Verdict | Source URL |
+|---|-------|---------|-----------|
+| 1 | USPS PO Box service is premium, rented in 3/6/12-month increments, priced by size and fee group | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics |
+| 2 | Small PO Boxes in lower-cost fee groups start around $7/month ($21/3mo, Fee Group 7 Size 1); large metro boxes can run $90+/mo ($553/6mo, Fee Group 1 Size 5) | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics (Market Dominant PO Box Prices as of 7/12/26) |
+| 3 | USPS is the only carrier delivering to a PO Box; UPS does not deliver to PO Boxes; FedEx ground generally cannot | ✅ | https://www.ups.com/worldshiphelp/WSA/ENG/AppHelp/mergedProjects/CORE/SHIPMENT/Country_Territory_Postal_Code_and_State_Prov_Guidelines_Popup.htm ; https://faq.usps.com/s/article/PO-Box-The-Basics |
+| 4 | USPS "Street Addressing" (post office street address + box number) is available at select Post Offices only | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics ("Additional services available at some Post Office locations include Street Addressing") |
+| 5 | PO Box application uses PS Form 1093 with two forms of acceptable ID (one primary, one secondary) | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics |
+| 6 | A private mailbox store operates as a Commercial Mail Receiving Agency (CMRA); customer authorizes via PS Form 1583 with two forms of ID, one with a photo | ✅ | https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA ; https://about.usps.com/forms/ps1583.pdf |
+| 7 | A real street address (CMRA) accepts deliveries from UPS, FedEx, DHL, Amazon and USPS | ✅ | https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA (USPS delivers all CMRA customer mail there; no carrier restriction since it is a street address) |
+| 8 | Mail can be forwarded TO a CMRA but not FROM a CMRA; USPS cannot process a change-of-address from a CMRA | ✅ | https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA |
+| 9 | CMRA is responsible for forwarding customers' mail for 6 months after PMB termination | ✅ | https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA |
+| 10 | Virtual mailbox platform plans start around $9.99/month | ✅ | https://ipostal1.com/virtual-mailing-address-plans-pricing.php ("from $9.99/month") |
+| 11 | Higher-tier virtual plans bundle a local phone/fax number from $39.99/mo | ✅ (softened in body to "higher tiers bundle extras like a local phone and fax number") | https://ipostal1.com/virtual-office.php |
+| 12 | Store address 7554 Fredle Drive, Concord Township, OH 44077 | ✅ | astro/src/config/siteConfig.ts (website repo, verified this run) |
+| 13 | Store hours / specific claim-count details | ⚠️ softened — no hours quoted in body; "ten minutes"/"ninety seconds" are narrative scene texture, not factual claims | n/a |
+
+No ❌ claims. All load-bearing policy/pricing claims carry official (usps.com, ups.com) or vendor-published (ipostal1.com) sources.
