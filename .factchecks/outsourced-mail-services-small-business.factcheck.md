@@ -10,3 +10,18 @@
 | 6   | Staffed street address accepts USPS, UPS, FedEx, DHL, Amazon deliveries                                        | ✅      | Same-website consistent practice (multi-carrier receiving at a real street address); UPS mailbox page confirms street-address PMBs accept packages from any carrier: https://www.ups.com/us/en/the-ups-store/mailboxes ("You can receive packages from any carrier")                                                                                                      |
 | 7   | Store address 7554 Fredle Drive, Concord Township; staffed counter; mailbox setup ~5 minutes                   | ✅      | astro/src/config/siteConfig.ts and established copy across published site articles (e.g. virtual-po-box-vs-private-mailbox)                                                                                                                                                                                                                                               |
 | 8   | Envelope scans to phone / digital mailbox add-on at staffed stores                                             | ✅      | Site service page /home-business/digital-mailbox-rental/ and digital-mailbox-explained article                                                                                                                                                                                                                                                                            |
+
+
+## L3 follow-up (2026-09-24/25) — 2 blockers addressed
+
+| # | claim | verdict | action |
+|---|-------|---------|--------|
+| 1 | CMRA address "handed to the Secretary of State" / used on LLC filings / removes home address from public record | ⚠️ overstates — Ohio SOS Form 521: PO Box & CMRA addresses not acceptable as statutory agent address | SOS removed from the hand-to list + caveat added ("check what the form accepts — Ohio won't take a CMRA address as your statutory agent's address"); "public record" promise softened to packages/correspondence; the reader-side public-record sentence (their CURRENT exposure) kept as-is |
+| 2 | "14-day clock on your LLC" statutory deadline | ❌ invented legal deadline, no source | → "whatever response window that notice carried" (generalized, no number) |
+
+
+### Score history (Grok 4.7 rubric, successive revisions)
+
+Original submitted text: 80 → post-L3-fixes: 76 → 79 → 76 → 73 (final). The two L3 rule-3 blockers (invented 14-day statutory deadline; SOS/LLC-filing overstatement) are fixed and stay fixed — content correctness outranks the score, and the score dropped as the fixes deleted vivid but overclaiming material.
+
+**DHL note:** the reviewer twice claimed "the body never names DHL" and demanded its removal from the quick answer. Declined: all four carriers (UPS, FedEx, USPS, DHL) delivering to the store is an owner-verified fact (Frank, 2026-09-20) and the body lists DHL in the carrier line. The reviewer's assertion is factually wrong; the fact stands.
