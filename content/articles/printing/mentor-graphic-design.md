@@ -25,7 +25,7 @@ faqs:
   - question: 'Do I need print-ready files to order business cards?'
     answer: 'No. Bring the old cards, a sketch, or just a description — setting up the file for print, including bleed and color, is our half of the job.'
   - question: 'How long does design and printing take for Mentor businesses?'
-    answer: 'You approve a printed proof at the counter, then small runs are often ready fast and larger orders get a clear pickup timeline before you leave. Everything prints in our own building in Concord Township.'
+    answer: 'You approve a printed proof at the counter, then small runs are often ready fast and larger orders get a clear pickup timeline before you leave. Copies and everyday printing happen in our own building in Concord Township; business cards, posters, and custom prints go through our print partner.'
   - question: 'Is there a print shop in Mentor that also handles shipping and mail?'
     answer: 'Mailbox Plus on Fredle Drive in Concord Township is about a 13-minute drive from Mentor via Mentor Avenue or Center Street toward SR-44, and it handles design, printing, shipping, and mail in one place.'
 author: 'Reviewed by Frank Schwarz, COO'
@@ -59,9 +59,9 @@ Most weeks, somebody from Mentor is at our counter telling a version of that sto
 
 ## The Whole Process, Nothing Hidden
 
-Here's the whole conversation, so there are no surprises. She'll ask three things: who the customer is, what the piece has to do, and which of the old cards you liked best — even the DIY one had something right about it. Then she takes the logo off your phone and rebuilds it as a clean vector file, the kind that stays sharp at any size, so the same mark works on your card, your truck door, and the banner — or on the [EDDM mailers](/articles/chardon-eddm/) that put your flyer on every doorknob in a neighborhood. You approve a [printed proof](/copy-print/graphic-design/) at the counter, not a thumbnail on a screen, and if the color is off you say so and it gets run again. Everything prints here on our own equipment — nothing ships in from a warehouse two states away. You leave with a pickup time instead of a login, and when you come back, the finished pieces are sitting at the counter waiting.
+Here's the whole conversation, so there are no surprises. She'll ask three things: who the customer is, what the piece has to do, and which of the old cards you liked best — even the DIY one had something right about it. Then she takes the logo off your phone and rebuilds it as a clean vector file, the kind that stays sharp at any size, so the same mark works on your card, your truck door, and the banner — or on the [EDDM mailers](/articles/chardon-eddm/) that put your flyer on every doorknob in a neighborhood. You approve a [printed proof](/copy-print/graphic-design/) at the counter, not a thumbnail on a screen — you hold it, you say what's off, and that corrected proof is the version that runs. Copies and everyday printing run on our own machines here; business cards, posters, and custom prints are handled through our print partner, so you're never the one chasing a vendor. You leave with a pickup time instead of a login, and when you come back, the finished pieces are sitting at the counter waiting.
 
-![The counter at Mailbox Plus in Concord Township — the design workstation and shipping counter where Mentor business owners' cards, flyers, and banners get printed](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/al-packa-mascot.webp)
+![The counter at Mailbox Plus in Concord Township — the design workstation and shipping counter where Mentor business owners get copies, proofs, and everyday printing done](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/al-packa-mascot.webp)
 
 ## What Keeps Slipping Away
 
