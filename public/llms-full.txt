@@ -6057,9 +6057,9 @@ The sheriff's office window closes at 3:30, and you got there at 3:41 with the F
 
 ## Not Your Fault: The Tuesday-Only Fingerprint Window
 
-Name it the Capture-Fee Gap: the state's fee for the check itself is fixed, but the capture fee each WebCheck site charges on top is the site's to set — and they post it on the door. The sheriff window advertising $30 for the BCI check is the one locked at 3:30; the counter still open after your 6 p.m. shift posts $45 for the identical check, $58 for FBI-only, or $80 for both together. The spread is what you are buying: a live scanner, a person who reads the reason code with you before anything is submitted, and hours that match a working week. The closed $30 window cannot sell you that.
+Name it the Capture-Fee Gap: the state's fee for the check itself is fixed, but the capture fee each WebCheck site charges on top is the site's to set — and they post it on the door. The $30 BCI listing you find on some sites' pages comes with windows that lock mid-afternoon; the counter that posts $45 for the identical check, $58 for FBI-only, or $80 for both together stays open to 6:00 p.m. on weekdays. That is the trap: the state fixes the check fee and lets every site invent the capture fee and the hours on top of it, so the $30 listing you found is a door that locks mid-afternoon while you are still on the clock. The fee was never the expensive part — the missing window was.
 
-There are hundreds of WebCheck sites — the Attorney General's electronic fingerprint system — across the state. Most of them are shut while you are still on the clock: sheriff's offices with daytime hours, nonprofits open a few afternoons a week. The Attorney General's own listing tells you to contact a location before you visit to make sure its equipment is current — a maintenance reality the state felt the need to print at the top of its own directory. Add it up: the nearest location is often the least available one, and the errand competes with your job for the same hours.
+The Attorney General's WebCheck system has hundreds of sites across the state, and most of the listings come with one instruction: call first, because hours and equipment change without notice. The Attorney General's own listing tells you to contact a location before you visit to make sure its equipment is current — a maintenance reality the state felt the need to print at the top of its own directory. Add it up: the nearest location is often the least available one, and the errand competes with your job for the same hours.
 
 Then there is the card rule. Some requesting agencies still accept — or require — rolled-ink prints on an FD-258 card, and ink is where rejections live. The fix is capturing the prints electronically first and printing them onto the card the agency wants — $35, no ink pad — instead of rolling your finger across a pad and hoping the loop survives the mail. It is the same digital capture behind [Ohio's digital fingerprinting background checks](/articles/ohio-digital-fingerprinting-background-checks/), just pointed at paper when the board insists on it.
 
@@ -6075,13 +6075,13 @@ A scan that finishes in seconds should not cost you a vacation day, a second cap
 
 ## What We Hear From Cleveland Every Week
 
-You come off I-90 with the instruction sheet crushed in the cupholder — the sheet the licensing board emailed you two weeks ago that you still have not handled, because there was nowhere open to hand it to. Your shift ends at 6. Their windows close at 4. Our counter in Gristmill Village, just off Crile Road in Concord Township, is the exception: electronic fingerprinting by appointment, on hours that include your evening — so you book the time that fits your week instead of rearranging your week around a window.
+You come off I-90 with the instruction sheet crushed in the cupholder — the sheet the licensing board emailed you two weeks ago that you still have not handled, because there was nowhere open to hand it to. Your shift ends at 5:30 and their windows closed at 4, if they opened past noon at all. Our counter in Gristmill Village, just off Crile Road in Concord Township, runs weekdays to 6:00 p.m. and Saturdays to 2:00 — electronic fingerprinting by appointment, so the capture fits the edge of your workday instead of costing you a morning.
 
 One honest note before you book anywhere, including here: the thing that matters most is submitting under the correct reason code for your employer or licensing board. So bring the paperwork — the email printout, even a photo of the instruction sheet on your phone. The reason code is one of those details that gets sorted with you at the counter, against the paperwork you brought, before anything is submitted. That is the one mistake that costs a repeat visit — the same avoidable-runaround trap behind [the notary runaround](/articles/the-notary-runaround/) — and it is exactly the kind of thing a staffed counter exists to catch.
 
 ## What Happens After You Walk In
 
-![The service counter at Mailbox Plus in Concord Township with shipments staged for processing](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
+![The counter at Mailbox Plus in Concord Township where a fingerprinting appointment is checked in — the same counter that runs the store's daily shipping and copying work](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 **1. Book your slot online.** Book it from the parking lot if you have to, at register.fastfingerprints.com — BCI, FBI, or both, then put the phone down. No plastic chair by a shuttered window. No sticky note sliding back across the counter.
 
@@ -6091,7 +6091,7 @@ One honest note before you book anywhere, including here: the thing that matters
 
 And I will be straight with you about the clock: I cannot name the day your report lands. BCI and the FBI own that timeline, not the counter that took your prints — anyone who gives you a date is guessing. Book the slot before that board email goes stale — BCI does not move your start date because you were polite about waiting.
 
-## What Another Year of This Looks Like
+## The Thursday It Happens Twice
 
 Do nothing and you are the one who has to email the new job and say the prints are not done — not because you forgot, but because every window that could take them was shut while you were on the clock. So you buy the same-day add-on because the deadline does not move — and the receipt is the only thing that changed. The card comes back on a Thursday, you pay the capture fee a second time, and the date slips anyway.
 
@@ -6103,11 +6103,9 @@ Now the other version. You get the requirement, you book the slot the same day f
 
 And the part that actually changes your week is not the scan. You put the crumpled sheet on the counter and you do not have to perform the reason code — it gets matched against the paperwork before anything is sent. You walk out without rehearsing an apology in the car, without re-checking the requirement at 11 p.m. The background check went from the loose end you live around to the thing you simply already did.
 
-## Let Us Carry the Complicated Part
+## One Handoff
 
-Put the sheet down. You do not sort the code, and you do not apologize for the mess. It gets matched against your paperwork before anything is sent. Then you leave.
-
-Bring it to 7554 Fredle Drive in Concord Township — the ID, the crumpled instruction sheet, all of it. Book the slot at register.fastfingerprints.com, and the complicated part stops being yours to carry.
+Bring the ID and the crumpled instruction sheet to 7554 Fredle Drive in Concord Township. Book the slot at register.fastfingerprints.com first if the drive is tight — either way, the reason code, the match, and the submit are the counter's problem from the moment you hand them over.
 
 ---
 
