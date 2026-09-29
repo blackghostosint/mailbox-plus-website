@@ -1,6 +1,6 @@
 ---
-title: 'PMB Meaning: What PMB in an Address Stands For'
-description: 'PMB stands for Private Mailbox — a real street address at a CMRA, not a PO Box. What the PMB on your address means, why USPS requires it, and how it compares to a PO Box.'
+title: 'PMB Meaning: What PMB on Your Address Means (and What It Costs)'
+description: 'PMB stands for Private Mailbox — a real street address at a CMRA, not a PO Box number. What the PMB on your address means, why USPS requires it, and what a private mailbox costs per month.'
 slug: 'what-is-a-private-mailbox-pmb'
 category: 'mailbox-rentals'
 intentKey: 'what-is-a-private-mailbox-pmb'
