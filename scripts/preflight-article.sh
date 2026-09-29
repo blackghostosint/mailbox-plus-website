@@ -34,6 +34,14 @@ for f in ${MAP}; do
   else
     echo "✅ factcheck: $base"
   fi
+  # 3b. dedupe: drafts/ copy is a leftover that breaks claims-gate resolution (#663)
+  if [ -f "content/drafts/${base}.factcheck.md" ] && [ -f ".factchecks/${base}.factcheck.md" ]; then
+    echo "⚠️ factcheck: duplicate receipt in content/drafts/${base}.factcheck.md — removing (canonical: .factchecks/)"
+    git rm -q "content/drafts/${base}.factcheck.md"
+  fi
+  # 3c. verdict column sanity (#664 — claims gate needs ✅/⚠️/owner-verified in the
+  # VERDICT column (3rd) of each receipt table row; a marker in any other column fails CI)
+  node scripts/preflight-verify-verdicts.mjs ".factchecks/${base}.factcheck.md" || FAIL=1
 done
 
 # 4. trailing slashes on internal links (rule 1, CI enforces — check early)

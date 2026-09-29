@@ -16,6 +16,10 @@ external agents. Owner-side (Hermes) writes, fixes, and merges them.
 | 2026-09-22 | #620            | Missing/underspecified fact-check receipt                          | ✅ preflight step 3 checks `.factchecks/`                   |
 | 2026-09-24 | #657            | ✅ Clean submission — feeds included, no CI round-trip             | proof the workflow works when preflight habits are followed |
 
+| 2026-09-29 | #664 | Fact-check receipt verdict marker missing / placed in wrong column (claims gate needs ✅/⚠️/owner-verified in the VERDICT column) | ✅ preflight step 3c (scripts/preflight-verify-verdicts.mjs) — column-aware scan |
+| 2026-09-29 | #663 | Duplicate fact-check receipt in `content/drafts/` + `.factchecks/` confuses gate resolution | ✅ preflight step 3b auto-removes the drafts copy |
+| 2026-09-29 | (audit) | 4 legacy receipts on main lack verdict markers (`private-mailbox-vs-po-box`, `pack-ship-painesville-city`, `ship-fragile-items-safely-*`, `what-is-a-private-mailbox-pmb`) — predate the claims gate | ⚠️ open: do NOT batch-mark ✅ (rule 3). Next edit to any of these articles must include a real verdict pass; preflight now blocks it until then |
+
 ## Process
 
 1. **Before opening** an article PR: run `npm run preflight:article` on the branch. Fix everything it flags. CI failure on an article PR should be considered a preflight miss, not bad luck.
