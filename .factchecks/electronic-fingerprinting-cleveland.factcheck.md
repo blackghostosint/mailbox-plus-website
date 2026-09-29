@@ -32,11 +32,10 @@ Verified 2026-09-29 by independent subagent (fresh context, hy3) + writer. Sourc
 - QuickAnswer: removed implied duration "scheduled in minutes" (article-claims-gate: no in-store service durations).
 - No ❌ incorrect claims found by the independent verifier.
 
-
 ### L3 follow-up (2026-09-29)
 
-| #   | Claim                                                                                              | Verdict | Source URL                                        |
-| --- | -------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------- |
-| 20  | Weekday hours to 6:00 p.m., Saturday to 2:00 (evening-hours claim reconciled to facts.json)         | ✅      | content/facts.json hours block; astro siteConfig  |
-| 21  | $30 BCI listing attributed to "some sites' pages" (was misattributed to a sheriff window) — matches receipt's Holding Hands row | ✅ corrected | .factchecks receipt row (Holding Hands $30 BCI) |
+| #   | Claim                                                                                                                                                     | Verdict      | Source URL                                                          |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------------------- |
+| 20  | Weekday hours to 6:00 p.m., Saturday to 2:00 (evening-hours claim reconciled to facts.json)                                                               | ✅           | content/facts.json hours block; astro siteConfig                    |
+| 21  | $30 BCI listing attributed to "some sites' pages" (was misattributed to a sheriff window) — matches receipt's Holding Hands row                           | ✅ corrected | .factchecks receipt row (Holding Hands $30 BCI)                     |
 | 22  | Hours/equipment generalization removed entirely; replaced with the AG webcheck listing guidance to call first (hours and equipment change without notice) | ✅ corrected | AGENTS.md no-invented-facts rule; USPS/AG WebCheck listing practice |
