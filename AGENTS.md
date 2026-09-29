@@ -37,7 +37,9 @@ The visual system is token-driven — see `docs/DESIGN_SYSTEM.md`. Do not change
 
 ## Articles
 
-Writing or editing anything in `content/articles/`? Follow `docs/ARTICLE-WORKFLOW.md` — style standard, structure, and the hard gates (fact-check, copy review ≥ 80, strict verification). All apply before you open the PR.
+**Content/articles are owner-side. External agents (Jules, third-party bots) must not create, edit, or fix article PRs** — PRs authored by external agents that touch `content/articles/` are rejected on sight and the underlying task considered misrouted. Article writing, fixing, and verification are handled in-house by the owner-side agent (Hermes) + owner, who are the ONLY agents authorized for `content/articles/` and `.factchecks/`.
+
+Writing or editing anything in `content/articles/`? Follow `docs/ARTICLE-WORKFLOW.md` — style standard, structure, and the hard gates (fact-check, copy review ≥ 80, strict verification). All apply before you open the PR. Repeated article-PR failures are tracked in `docs/ARTICLE-ERROR-LOG.md` and become mechanical preflight checks — run `npm run preflight:article` before opening any article PR.
 
 ## 7. State the auth model for every API change
 
