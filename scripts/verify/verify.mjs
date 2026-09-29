@@ -1424,17 +1424,20 @@ function cmdReview(targetPath) {
   const providerIdx = rest.indexOf('--provider');
   const provider = providerIdx !== -1 ? rest[providerIdx + 1] : 'nous';
   const modelIdx = rest.indexOf('--model');
-  const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'x-ai/grok-4.7';
+  const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'deepseek/deepseek-v4.1-flash';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '80';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '90';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
   );
-  // Grok 4.7 gate (recalibrated 2026-09-23, owner decision: pass bar 80 —
-  // one revision round above the best published anchor score of 77, matching
-  // the AGENTS.md "copy review >= 80" merge rule that 70 had drifted from).
-  // API calls are slow and occasionally return empty, so
+  // Gate model: DeepSeek V4.1 Flash (switched 2026-09-24 after xAI doubled
+  // Grok pricing; 5-6x faster, ~1/15 the cost). Calibrated against the same
+  // 8 published anchors — DS scores run ~10-12 pts above Grok's scale, so the
+  // pass bar is 90: the best published anchors score 90-93, deliberately
+  // degraded drafts fall to 85 (light fluff) and 69 (heavy fluff), so 90 sits
+  // exactly at "match the best published" and rejects the fluff-tolerant zone.
+  // API calls occasionally return empty, so
   // retry API-style failures up to 3 attempts, then FAIL CLOSED (no fallback
   // pass on reviewer outage). Genuine score failures are not retried.
   const MAX_ATTEMPTS = 3;
