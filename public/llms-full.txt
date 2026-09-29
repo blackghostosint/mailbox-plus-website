@@ -16203,7 +16203,7 @@ Bring the box, the item, or nothing but the question — "will this arrive by Sa
 
 ---
 
-*Source: [Supply Chain Dive — USPS warns of Indianapolis, Louisville delays due to facility upgrades](https://www.supplychaindive.com/news/usps-warns-of-indianapolis-louisville-delays-due-to-facility-upgrades/831390/) (Sept. 25, 2026), citing USPS facility notices of Sept. 21–22, 2026. Facility statuses can change quickly; check current conditions before shipping time-critical packages.*
+_Source: [Supply Chain Dive — USPS warns of Indianapolis, Louisville delays due to facility upgrades](https://www.supplychaindive.com/news/usps-warns-of-indianapolis-louisville-delays-due-to-facility-upgrades/831390/) (Sept. 25, 2026), citing USPS facility notices of Sept. 21–22, 2026. Facility statuses can change quickly; check current conditions before shipping time-critical packages._
 
 ![Shipping counter at Mailbox Plus with multiple carriers' shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
