@@ -73,7 +73,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."
 2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose.
-3. **Copy review — Grok 4.7, score ≥ 80/100 with every flagged objection resolved.**
+3. **Copy review — DeepSeek V4.1 Flash, score ≥ 90/100 with every flagged objection resolved.**
    ```bash
    node scripts/verify/verify.mjs review content/articles/{category}/{slug}.md
    ```
