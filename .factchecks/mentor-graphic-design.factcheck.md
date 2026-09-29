@@ -12,11 +12,10 @@
 
 No pricing figures asserted in body — nothing to verify against rate sheets. All ⚠️ items softened to general statements.
 
-
 ### Follow-up (2026-09-28, owner correction)
 
-| #   | Claim                                                                     | Verdict | Source URL                                                                              |
-| --- | ------------------------------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
-| 8   | In-house = B/W and color copies and printing (corrected from "everything prints here on our own equipment") | ✅      | Owner correction, Frank Schwarz, 2026-09-28 (PR #663 comment); aligns with astro/src/config/services/copy-print.ts |
-| 9   | Business cards, posters, custom prints are outsourced to a third-party print partner | ✅      | astro/src/config/services/copy-print.ts ("a trusted print partner") + owner confirmation, 2026-09-28 |
-| 10  | "Gets run again" reprint guarantee — REMOVED (no owner-approved reprint mechanism) | ✅ removed | Owner correction, 2026-09-28 |
+| #   | Claim                                                                                                       | Verdict    | Source URL                                                                                                         |
+| --- | ----------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| 8   | In-house = B/W and color copies and printing (corrected from "everything prints here on our own equipment") | ✅         | Owner correction, Frank Schwarz, 2026-09-28 (PR #663 comment); aligns with astro/src/config/services/copy-print.ts |
+| 9   | Business cards, posters, custom prints are outsourced to a third-party print partner                        | ✅         | astro/src/config/services/copy-print.ts ("a trusted print partner") + owner confirmation, 2026-09-28               |
+| 10  | "Gets run again" reprint guarantee — REMOVED (no owner-approved reprint mechanism)                          | ✅ removed | Owner correction, 2026-09-28                                                                                       |
