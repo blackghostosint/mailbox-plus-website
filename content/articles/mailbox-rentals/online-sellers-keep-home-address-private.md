@@ -19,14 +19,25 @@ keywords:
   ]
 relatedServices:
   [
-    '/home-business/mailbox-rental',
-    '/private-mailbox-rental',
-    '/articles/chardon-online-seller-mailbox',
-    '/articles/usps-rate-increase-online-sellers',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/porch-theft-lake-county-protect-packages',
+    '/home-business/mailbox-rental/',
+    '/private-mailbox-rental/',
+    '/articles/chardon-online-seller-mailbox/',
+    '/articles/usps-rate-increase-online-sellers/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/porch-theft-lake-county-protect-packages/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Address On Every Box You Ship
@@ -38,6 +49,8 @@ Now ask yourself the question sellers on r/Etsy and r/Flipping have been asking 
 A buyer with a grudge. A stranger who wants to know where their package came from — and how close that is to them. Someone who reverse-searches an address the way people reverse-search phone numbers. The r/Etsy threads about buyers who "looked them up" are real, and they never end with "and it turned out fine."
 
 Your home is your business's shipping department. That is the problem. And it is a fixable one — but the fix has gotten more urgent, and more specific, because the platforms changed the rules.
+
+![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## eBay Now Displays Seller Addresses (Thanks to a Federal Law)
 
@@ -103,7 +116,7 @@ At Mailbox Plus, on **7554 Fredle Drive in Concord Township, Ohio 44077**, the p
 2. **Get your street address.** Your address is a real street address at our store — Suite/box number and all — that all four carriers (USPS, UPS, FedEx, and DHL) can deliver to. We sign for packages, which matters when a customer's return arrives while you're at work.
 3. **Update your platforms.** Change your eBay registered and return address, your Etsy shop address, and your Amazon Seller Central business address to your new PMB. That's it. You're done.
 
-Rates start around **$35/month** — a price point that looks even better once you count what you're not paying: no office rent, no UPS Store markup, no anxiety.
+Business mailbox rates start at **$35/month** (personal tiers from $15) — a price point that looks even better once you count what you're not paying: no office rent, no UPS Store markup, no anxiety.
 
 And because we're a staffed store, not a kiosk, your mail and packages are handled by people who will text you when something lands. If you sell in the area, you can even pick up and drop off at the same counter where you ship — our [pack-and-ship services](/pack-ship/) cover all four carriers under one roof.
 

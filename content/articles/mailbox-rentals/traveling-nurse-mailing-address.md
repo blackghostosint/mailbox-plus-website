@@ -19,12 +19,23 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/virtual-mailbox-concord-township',
-    '/pickup-hours',
+    '/private-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/virtual-mailbox-concord-township/',
+    '/pickup-hours/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The 13-Week Problem Nobody Warns You About
@@ -42,6 +53,8 @@ You are not alone in this. Every travel nurse eventually asks the same three que
 3. **How do I get packages without trusting a temp-housing front desk?**
 
 The answer that keeps working — assignment after assignment — is a stable, real street address that does not change when you do. Here is how travel nurses make that happen, and why a private mailbox at a local store beats every other option you will find on a travel nurse forum.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## What Travel Nurses Actually Deal With
 
@@ -71,7 +84,7 @@ A private mailbox at a local mailbox store solves the travel nurse problem at th
 
 Here is how it works, step by step:
 
-**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Small boxes start at $35 a month, month-to-month, no annual contract, with a 30-day risk-free period.
+**Step 1 — Rent the mailbox once.** You fill out USPS Form 1583 at the counter with two forms of ID, and you walk out with a real street address — not a box number. At Mailbox Plus in Concord Township, that address is **7554 Fredle Drive, Concord Township, OH 44077**. Personal tiers start at $15 a month, month-to-month, no annual contract, with a 30-day risk-free period.
 
 **Step 2 — Give everyone the one address.** Your agency, your bank, your licensing board, your insurance — they all get the same address. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter, so nothing is left on a doorstep or in a hotel lobby.
 
@@ -110,3 +123,5 @@ Stop by **7554 Fredle Drive in Concord Township**, or call ahead and we will wal
 One address. Every contract. That is the whole job.
 
 _This article is for general information only and is not legal, tax, or licensing advice. Address-of-record and renewal rules vary by state board and change periodically — verify current requirements with your state board of nursing and consult a tax professional for guidance on tax-home rules._
+
+Related reading: [What a private mailbox is](/articles/what-is-a-private-mailbox-pmb/).

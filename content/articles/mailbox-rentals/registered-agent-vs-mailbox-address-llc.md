@@ -19,12 +19,23 @@ keywords:
   ]
 relatedServices:
   [
-    '/home-business/mailbox-rental',
-    '/home-business/digital-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/concord-township-business-real-street-address',
+    '/home-business/mailbox-rental/',
+    '/home-business/digital-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/concord-township-business-real-street-address/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Two Addresses on Every LLC Checklist
@@ -34,6 +45,8 @@ You're forming your LLC and the checklist keeps asking for two things: a **regis
 It's confusing because everyone talks about them as if they're the same thing. They are not. They are two separate jobs, filled by two separate addresses, and — this is the part nobody explains — the LLC needs **both**.
 
 This article clears it up: what a registered agent actually does, what a business address actually does, what Ohio requires for each, and the one thing a private mailbox **cannot** do for your LLC.
+
+![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## What a Registered Agent (Statutory Agent) Actually Is
 
@@ -107,7 +120,7 @@ At Mailbox Plus in Concord Township, the process is simple and the paperwork is 
 3. **Use it everywhere a business address is required.** The bank's business-address line. The vendor form's physical-address field. Your licenses. Your website footer. Your invoices. Your shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
 
-Rates for a small mailbox start around **$35/month** — a fraction of an office lease, month to month, no annual contract. For a new LLC, that's the cheapest "real street address" you'll find.
+Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, month to month, no annual contract. For a new LLC, that's the cheapest "real street address" you'll find.
 
 ## The Honest Boundary (Read This Before You Sign Up)
 

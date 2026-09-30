@@ -18,8 +18,19 @@ keywords:
     'rv mail service geneva on the lake',
   ]
 relatedServices:
-  ['/home-business/mailbox-rental', '/home-business/digital-mailbox-rental', '/pack-ship']
-author: 'Mailbox Plus Team'
+  ['/home-business/mailbox-rental/', '/home-business/digital-mailbox-rental/', '/pack-ship/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Mail Problem Nobody Warns You About on the Strip
@@ -27,6 +38,8 @@ author: 'Mailbox Plus Team'
 You moved your business, your family, or your summers to Geneva-on-the-Lake. The town gives you a lake, a Strip that hums from May through September, and a ZIP code of 44041 that puts you square in Ohio's wine country. What it does not give you is a single place to rent a mailbox. Not a private mailbox store, not a packing counter with mail service — a search of the town turns up nothing that rents boxes at all. Your choices collapse down to a post office box in Geneva, a fifteen-mile drive south, or letting your mail pile up at a house you may not live at year-round.
 
 Here is what it should be: you rent one real street address, all of your mail and every carrier's packages land there, and you check it on your schedule instead of the post office's. That is exactly what we built at Mailbox Plus in Concord Township — a straight shot down Route 534 and west on I-90 from the Strip, about half an hour door to door. Here's what stands between you and that setup, and how we take it down.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## The PO Box Wall
 
@@ -38,29 +51,29 @@ Second, the form wall. Banks, the DMV, and a pile of business filings ask for a 
 
 Third, the season wall. Geneva-on-the-Lake swells and empties with the calendar — the Strip is a different town in July than in January. A PO Box holds letters, but it is not built to take custody of a summer's worth of packages while you are back at your other address. Nothing at the post office signs for your deliveries, calls you when something important lands, or forwards the piece you actually need this week.
 
-None of this is the post office staff's fault. It is what a PO Box is — a nineteenth-century solution holding the line against a package-shaped century.
+None of this is the post office staff's fault. It is what a PO Box is — a nineteenth-century service holding the line against a package-shaped century.
 
-## What It Actually Feels Like
+## The Weight of a Hundred Small Errands
 
 It feels like rerouting your life through a town you don't live in. You give every online order a delivery instruction instead of an address. You drive to Geneva for the mail that fits and figure out the rest — the UPS tag on the door of your rental, the FedEx notice that says your package went back to a facility you now have to find. You put off opening the credit card because the application asks for a street address and you are tired of explaining yours. If you run the shop, the kayak rental, or the food stand on the Strip, you feel it commercially too: a business card with "P.O. Box" on it reads small, and vendors who ship freight don't ship to boxes at all.
 
 And there's the background hum every box renter knows — the feeling that your mail is somebody else's errand, on somebody else's hours, in somebody else's building.
 
-## Why It Should Not Be This Way
+## A Two-Minute Signature Shouldn't Need a Scavenger Hunt
 
 A person who lives — even part-time — in a real town with a real ZIP code should be able to get a real address for their mail. Not a workaround, not a relative's spare slot in their mailbox: an address with their name on it, that receives everything, and that works in February exactly the way it works in July.
 
 The market solved this decades ago in every city that kept its mailbox stores. The private mailbox, or commercial mail receiving agency in the postal code's language, is a plain idea: a staffed counter registers you with USPS on the standard Form 1583, and you get a box number at a physical street address — 7554 Fredle Drive #123, not P.O. Box 47. Letters come the same way they always did, and because the address is a street address, UPS, FedEx, and DHL deliveries land on the counter instead of bouncing. The service exists. It just never made it to a resort village whose year-round census count is 916 people.
 
-## What We See Every Day
+## What We Hear From {location} Every Week
 
 At Mailbox Plus we run that counter at 7554 Fredle Drive in Concord Township, and Lake Erie residents from Geneva, Madison, and Perry have been renting from us since we opened our doors. We're independent — not a national franchise kiosk — and the mailbox business comes with the whole counter behind it: UPS, FedEx, USPS, and DHL all stop here.
 
-Three things matter for someone coming down from Geneva-on-the-Lake. One: your address is a real street address that says "Mailbox Plus" and Fredle Drive, usable on bank forms, LLC paperwork, and every shipping checkout on the internet. Two: we sign for packages. All of them, from all four carriers, held behind the counter — and we'll text or email you when something arrives, so you don't drive down for empty air. Three: it's month-to-month. A seasonal operator can run a mailbox twelve months a year for pocket change compared to what one lost shipment costs, and cancel anytime. Rental starts at $35 a month, the plans include package receiving (ten packages on the base plan, five dollars a package beyond that), and you can add up to three authorized recipients — useful when your spouse, your property manager, or your business partner needs access too.
+Three things matter for someone coming down from Geneva-on-the-Lake. One: your address is a real street address that says "Mailbox Plus" and Fredle Drive, usable on bank forms, LLC paperwork, and every shipping checkout on the internet. Two: we sign for packages. All of them, from all four carriers, held behind the counter — and we'll text or email you when something arrives, so you don't drive down for empty air. Three: it's month-to-month. A seasonal operator can run a mailbox twelve months a year for pocket change compared to what one lost shipment costs, and cancel anytime. Rental starts at $15 a month (personal mail-only; tiers go up to $40, business plans $35/$50), the plans include package receiving (ten packages on the base plan, five dollars a package beyond that), and you can add up to three authorized recipients — useful when your spouse, your property manager, or your business partner needs access too.
 
 If you'd rather read your mail from the lake without driving at all, that's what our [digital mailbox](/home-business/digital-mailbox-rental/) is for — we scan the outside of every envelope, you decide what gets opened, forwarded, or shredded, and you never make the trip.
 
-## How It Works
+## What Happens After You Walk In
 
 Three steps, one visit.
 
@@ -76,14 +89,18 @@ Three steps, one visit.
 
 **Your season.** This is the one that stings in a town like Geneva-on-the-Lake. Your good months are too short to spend any of them driving to Geneva for mail that should have followed you. A mailbox that receives everything, notifies you, and holds packages until you show up is the difference between running your business from the Strip and running errands for it.
 
-## Your First Week With a Real Address
+## The Drive Home After
 
 Picture it: Monday morning you walk into the shop on the Strip, and before the day starts you check your mail on your phone — two envelopes scanned, one is junk, one is the bank. The package with your inventory, signed for last Thursday, is waiting behind our counter whenever you come down Route 534. Nobody left a tag on a door. Nothing went back to a distribution center. Nothing needs a delivery instruction.
 
 Mail becomes a thing you have, not a thing you chase. That's the whole product.
 
-## Bring It In
+## Bring What You Have and Walk Away Clean
 
 Come see us at Mailbox Plus, 7554 Fredle Drive in Concord Township — about half an hour from the Strip down Route 534 and west on I-90 — or start at our [mailbox rental](/home-business/mailbox-rental/) page to see plans and pricing. One visit, two forms of ID, ten minutes of paperwork, and you have a real street address that every carrier on the road can find.
 
 Your town finally has a real street address for everything you order. It's just down the road.
+
+Related reading: [What a private mailbox is](/articles/what-is-a-private-mailbox-pmb/).
+
+Related reading: [Mailbox cost comparison](/articles/mailbox-rental-cost-comparison/).

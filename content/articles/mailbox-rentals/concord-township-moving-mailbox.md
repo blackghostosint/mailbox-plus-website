@@ -17,7 +17,18 @@ keywords:
     'mailbox rental concord township',
   ]
 relatedServices: ['/private-mailbox-rental/', '/mailbox-rental-concord-ohio/', '/pack-ship/']
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## Two Weeks of Mail You Were Never Promised
@@ -25,6 +36,8 @@ author: 'Mailbox Plus Team'
 You filed the change of address. You paid the fee, you verified your identity, you did everything the Post Office asked. But nobody told you the part that matters: forwarding does not start the day you move. USPS says it best to allow up to two weeks for forwarding to begin — and during that gap, your mail keeps landing in the old mailbox. Then, once it starts, the rerouting only lasts twelve months before it shuts off.
 
 That is the deal you actually signed up for, and almost nobody reads the fine print until something important goes missing. Here is what the forwarding system really does, where it quietly drops your mail, and how a private mailbox at Mailbox Plus on Fredle Drive bridges the whole gap — so your address works from the day the truck pulls away. Here is how it works.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## The Forwarding Clock
 
@@ -76,7 +89,7 @@ And if you want the whole picture, ask at the counter and we will walk you throu
 
 Three steps, and none of them involve waiting two weeks.
 
-1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $35 a month.
+1. **Get the box before you move.** Come to 7554 Fredle Drive with two forms of ID — one photo ID like a driver's license, and one proof of address. We complete the paperwork, hand you your keys, and you have a working address that day. Mailbox rentals start at $15 a month (personal mail-only tier).
 2. **Use it as your landing address.** Give the Fredle Drive address to your bank, your employer, your subscriptions, and as the shipping address on your online orders during the move. Packages from every carrier arrive behind our counter. You never route anything through the forwarding lag.
 3. **Pick up when you're ready.** Stop in on your way past — we are minutes off Route 44 — or check the box whenever it suits you. If you want everything in one place, we can receive and hold it all; package receiving runs $10 per package, or $30 a month for unlimited packages.
 
@@ -86,7 +99,7 @@ File the USPS change of address too, if you want the old-address mail rerouted �
 
 **Time.** The two-week startup lag is two weeks of driving back to the old address, knocking on doors, and calling senders to ask them to re-mail things. The premium services add enrollment forms and seven-to-ten-day waits of their own.
 
-**Money.** Premium forwarding runs $29.70 a week plus a non-refundable enrollment fee, and paid forwarding extensions cannot be canceled or refunded. One lapsed insurance notice or re-issued document can cost more than a year of a mailbox rental, which starts at $35 a month.
+**Money.** Premium forwarding runs $29.70 a week plus a non-refundable enrollment fee, and paid forwarding extensions cannot be canceled or refunded. One lapsed insurance notice or re-issued document can cost more than a year of a mailbox rental, which starts at $15 a month.
 
 **Privacy and security.** During the lag, mail with your name, your accounts, and your new plans sits at a house where you no longer live, in a mailbox you no longer control. Packages on an empty porch at the old address are the most predictable theft target there is. A staffed counter eliminates the porch and the stranger's mailbox in one move.
 
@@ -98,6 +111,6 @@ The move was a big change. Your address was not one of the things that broke.
 
 ## Set It Up Before the Truck Leaves
 
-The best day to get the box is the week before the move, so the address is live on day one. But come as you are — unpacked, frazzled, mid-chaos, no apology needed. You do not have to have the forwarding rules figured out; that is our job. Walk in or call Mailbox Plus at 440-709-1946, hand us two forms of ID, and ten minutes later you walk out with keys and a real street address that follows you through this move and every one after it. You are done carrying the mail problem. Mailbox rentals start at $35 a month — less than one week of premium forwarding.
+The best day to get the box is the week before the move, so the address is live on day one. But come as you are — unpacked, frazzled, mid-chaos, no apology needed. You do not have to have the forwarding rules figured out; that is our job. Walk in or call Mailbox Plus at 440-709-1946, hand us two forms of ID, and ten minutes later you walk out with keys and a real street address that follows you through this move and every one after it. You are done carrying the mail problem. Mailbox rentals start at $15 a month — less than one week of premium forwarding.
 
 Your old mailbox is staying behind. Your mail does not have to.
