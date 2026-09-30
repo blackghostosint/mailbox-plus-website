@@ -664,6 +664,11 @@ const REQUIRED_FRONTMATTER = [
 ];
 const BANNED_TERMS_RE = /\b(PostalMate|Stamps\.com|Endicia)\b/i;
 
+// Ogilvy memo rule 4 (adopted 2026-09-24): abstraction jargon is a "hallmark of a
+// pretentious ass" — plain words only. See the Ogilvy section of the article workflow.
+const JARGON_RE =
+  /\b(leverag(?:e|ing)|utiliz(?:e|ation|ing)|solutions?|seamless(?:ly)?|state-of-the-art|cutting-edge|next-generation|streamlin(?:e|ed|ing)|empower(?:ing|ment)?|robust(?:ness)?|ecosystem|synerg(?:y|ies|istic)|best-in-class|world-class|unparalleled|unrivaled|game-changer|holistic(?:ally)?|innovative|turnkey|mission-critical|enterprise-grade|optimiz(?:e|ation|ing)|facilitat(?:e|ion|ing)|commenc(?:e|ing)|reconceptualiz(?:e|ation)|demassification|attitudinally|judgmentally)\b/i;
+
 function extractInternalHrefs(content) {
   const hrefs = [];
   const re = /\[([^\]]*)\]\((\/[^)\s]*)\)/g;
@@ -1161,6 +1166,28 @@ function cmdArticle(arg, isStrict = false) {
       );
     } else {
       check('content:no-banned-terms', true, 'clean (no banned vendor terms)');
+
+      // 11b) Ogilvy jargon gate (strict-fails new/changed articles; advisory for legacy)
+      const isNewForJargon = initNewArticles().has(relPath);
+      const jargonMatch = content.match(JARGON_RE);
+      if (jargonMatch) {
+        if (isStrict && isNewForJargon) {
+          check(
+            'content:no-jargon',
+            false,
+            `Ogilvy jargon: "${jargonMatch[0]}"`,
+            'replace with the plain word (use, new, help, smooth...) — abstraction jargon is banned per the Ogilvy memo rules'
+          );
+        } else {
+          check(
+            'content:no-jargon',
+            true,
+            `"${jargonMatch[0]}" (advisory — ${isNewForJargon ? 'non-strict' : 'legacy article'})`
+          );
+        }
+      } else {
+        check('content:no-jargon', true, 'clean (no abstraction jargon)');
+      }
     }
 
     // 12) Word count guardrails
