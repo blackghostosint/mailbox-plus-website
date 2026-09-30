@@ -15805,7 +15805,7 @@ Published: 2026-09-30
 
 You searched "ups private mailbox cost" for a reason: you want a number before you drive anywhere, and the big-brand mailbox pages will not give you one. Every UPS Store is an independently owned franchise, the national site does not post a rate chart, and the Mentor-area store's own mailbox page answers the pricing question with "pricing for mailbox services will be dependent on a number of factors." So you are left calling stores, one at a time, just to learn whether the box fits your budget.
 
-Here are the two numbers, side by side: Mailbox Plus at $35 and $50 a month versus the Mentor UPS Store 7.5 miles up the road.
+Here is the only number either side will put on paper: Mailbox Plus at $35 and $50 a month. The Mentor UPS Store will not publish one — what you get instead is a fee stack you hear on the phone.
 
 ## The Unquoted Quote
 
@@ -15819,22 +15819,22 @@ It feels like being on hold with the third store of the afternoon, pen hovering 
 
 ## Why Nobody Shows You the Number First
 
-Franchise owners set rates by zip code, so you get a sales conversation before a shelf tag — backwards for a subscription with a key. You should be able to see the number before you drive, before you call, before you sign anything — then decide if the box is worth it.
+Franchise owners set rates by zip code, so the price is a sales conversation, not a shelf tag — backwards for a subscription with a key.
 
 ## What We See Every Day at the Counter
 
-We're the store on Fredle Drive in Concord Township — you'll see the counter as soon as you walk in. Last week a guy came in holding a phone screenshot of three UPS Store listings and a sticky note that said "call back after 2." Same question every week: what does a real street address cost, and why is the number so hard to get. So we put ours out: our two private mailbox tiers are $35 and $50 a month — the tier price covers the box and package acceptance, and any other line item gets read to you before you pay a cent. Before your box goes live, we put USPS Form 1583 on file — two forms of ID, one with a photo — the same requirement every commercial mail receiving agency works under. If the Mentor store is closer to your door, use it — just ask them to show you the full fee stack before you sign.
+We're the store on Fredle Drive in Concord Township — you'll see the counter as soon as you walk in. A guy last week pushed his phone across the counter — three UPS Store tabs open — and asked, "Why won't any of them just say the price?" So we put ours out: our two private mailbox tiers are $35 and $50 a month — the tier price covers the box and package acceptance, and any other line item gets read to you before you pay a cent. Before your box goes live, we put USPS Form 1583 on file — two forms of ID, one with a photo — the same requirement every commercial mail receiving agency works under. If the Mentor store is closer to your door, use it — just ask them to show you the full fee stack before you sign.
 
 ## Side by Side: The Numbers We Could Verify
 
-| | UPS Store (Mentor, 9401 Mentor Ave) | Mailbox Plus (Concord Township) |
-|---|---|---|
-| Published monthly price | Not published — "dependent on a number of factors" | $35 / $50 tiers |
-| Typical range at published franchise rate sheets | ~$22–$50/month (small→large) | $35 / $50 |
-| Fee lines around the box rate | Setup ~$20 (published packet), key deposits, $1/day storage, late fees | The tier price covers the box and package acceptance; every other line is read to you before you pay |
-| Package acceptance | All carriers | All carriers |
-| ID requirement | USPS Form 1583, two IDs, one photo | USPS Form 1583, two IDs, one photo |
-| Who sets the price | Each franchise owner | Us — posted, one owner |
+|                                                  | UPS Store (Mentor, 9401 Mentor Ave)                                    | Mailbox Plus (Concord Township)                                                                      |
+| ------------------------------------------------ | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| Published monthly price                          | Not published — "dependent on a number of factors"                     | $35 / $50 tiers                                                                                      |
+| Typical range at published franchise rate sheets | ~$22–$50/month (small→large)                                           | $35 / $50                                                                                            |
+| Fee lines around the box rate                    | Setup ~$20 (published packet), key deposits, $1/day storage, late fees | The tier price covers the box and package acceptance; every other line is read to you before you pay |
+| Package acceptance                               | All carriers                                                           | All carriers                                                                                         |
+| ID requirement                                   | USPS Form 1583, two IDs, one photo                                     | USPS Form 1583, two IDs, one photo                                                                   |
+| Who sets the price                               | Each franchise owner                                                   | Us — posted, one owner                                                                               |
 
 Look at Elk Grove's published packet: extra package allowance $5–$10/month, $1/day storage, $5 forwarding, $20 late fee. One store. Not a chain price. A published Austin store packet shows a $20 initial setup charge including a $5 key deposit, a $5 late fee, and a three-month minimum. These are single stores, not the chain — that is exactly the point. The brand gives you a range and a fee menu; you find out your store's version at the signing.
 
@@ -15850,7 +15850,7 @@ USPS-only? A PO Box is cheaper — the two smallest sizes run $21 to $72 per thr
 
 ## What the Wrong Box Costs You
 
-Last Tuesday a package sat on your porch in the rain while you were at work, and your LLC filing still listed your home address. Every week you keep the residential address on public things, the leak keeps running: deliveries left at the door, seller platforms holding an address anyone can find, and a commute to a store whose price you will not learn until you are standing in it signing an agreement. Then the fee stack lands on the agreement: you sign up for a $30 box and the first invoice shows a $20 setup, a $5 key deposit, and a week of $1-per-day storage while you were on vacation — $32 of paperwork before the box has earned a dollar. None of it is negotiable after the fact, and all of it was discovered instead of compared. A $20 setup fee and $1-a-day storage sound harmless until they are attached to a box you agreed to without ever seeing a price first.
+Last Tuesday a package sat on your porch in the rain while you were at work, and your LLC filing still listed your home address. Every week you keep the residential address on public things, the leak keeps running: deliveries left at the door, seller platforms holding an address anyone can find, and a commute to a store whose price you will not learn until you are standing in it signing an agreement. Then the fee stack lands on the agreement: you sign up for a $30 box and the first invoice shows a $20 setup, a $5 key deposit, and a week of $1-per-day storage while you were on vacation — $32 of paperwork before the box has earned a dollar. None of it is negotiable after the fact, and all of it was discovered instead of compared. Your first invoice: $30 box + $20 setup + $5 key + $7 storage — $62 before the box held a single letter.
 
 ## Your Mail After the Change
 
@@ -15858,7 +15858,7 @@ Two IDs, ten minutes, one month's rent. You drive out of the Fredle Drive lot wi
 
 ## Bring Your Questions to the Counter
 
-You do not need to know which tier fits you, what a PMB designator is, or how Form 1583 gets filed. Bring the two IDs and the situation — an Etsy shop, an LLC, an RV address, a privacy problem you do not fully know how to describe yet — and the person across the counter will tell you which box it needs and what it costs before anything gets signed. No negotiation, no surprise line items — the number you hear is the number you pay. Stop at 7554 Fredle Drive in Concord Township, or call 440-709-1946 first if you would rather hear the number from the parking lot.
+You do not need to know which tier fits you, what a PMB designator is, or how Form 1583 gets filed. Bring the two IDs and the situation — an Etsy shop, an LLC, an RV address, a privacy problem you do not fully know how to describe yet — and the person across the counter will tell you which box it needs and what it costs before anything gets signed. If the tier sheet says $35, the first invoice says $35 — no counter math, no surprise line after you have already handed over your ID. Stop at 7554 Fredle Drive in Concord Township, or call 440-709-1946 first if you would rather hear the number from the parking lot.
 
 ---
 
