@@ -16,11 +16,22 @@ keywords:
     'why is USPS so expensive',
     'shipping rate increase Lake County Ohio',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/usps-services', '/home-business/mailbox-rental']
-author: 'Mailbox Plus Team'
+relatedServices: ['/pack-ship/', '/pack-ship/usps-services/', '/home-business/mailbox-rental/']
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
-## The Scene That Starts Everything
+## What You Learn After the Tenth Trip
 
 You are standing at the counter with a box in your hands, watching the clerk type. The rate comes up on the screen and you blink. It is more than it was last month. You ask why, and the clerk shrugs — rates go up, that is what they do.
 
@@ -31,6 +42,8 @@ Your package is not just paying for fuel and labor. Part of what you are paying 
 The Postal Service's own numbers, released August 7, show the consequences. Air transportation costs between USPS facilities jumped 4.7% year over year to **$509 million** in the quarter ending June 30. The agency's explanation, buried in the earnings report, is that it is "shifting certain package volume from highway transportation back to air to meet our service standards and contract requirements."
 
 Translation: your mail is flying because a contract says it has to.
+
+![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## The UPS Air Cargo Contract
 
@@ -44,7 +57,7 @@ Think about that for a second. A letter that costs pennies to haul down the high
 
 So the Postal Service is doing the expensive thing on purpose — to satisfy a contract it signed with a competitor-turned-partner.
 
-## What It Actually Feels Like
+## The Feeling Every Regular Recognizes
 
 For you, this is not a line item on a federal balance sheet. It is the number on the screen at the counter.
 
@@ -54,7 +67,7 @@ The frustration is that it feels random. Rates drift up and nobody tells you the
 
 And it is not just you. The Postal Service raised prices an extra **8% in April** on package services like USPS Ground Advantage and Priority Mail — a temporary hike scheduled to last until January 17, 2027 — to offset exactly these cost pressures. Revenue from package shipping went up 7.7% even though the number of packages _dropped_ 3.4%. That is the whole story in two numbers: fewer packages, more money, because the agency has to close a hole.
 
-## Why It Should Not Be This Way
+## The Assumption Nobody Questions
 
 A postal system exists for a simple reason: to move things from here to there, reliably and affordably. Every decision the agency makes should serve that purpose.
 
@@ -62,7 +75,7 @@ Moving letters by jet so a contract's volume floor is met serves no postal purpo
 
 Here is the principle: when an institution's internal contracts start dictating how your mail travels — and therefore what you pay — the system has stopped serving the customer. The customer became a revenue source for someone else's agreement. You should not be paying jet-fuel premiums for mail that should be on a truck.
 
-## What We See Every Day
+## Behind the Counter: Why We Shield You
 
 At [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township, we watch this play out on the counter every week.
 
@@ -72,7 +85,7 @@ Here is what we can do that a single-carrier counter cannot: we quote **all four
 
 We also see the other side of the story: the online seller who needs a [mailbox rental](/home-business/mailbox-rental/) so their home address stays off public registries, and the small business that just needs someone to say "this will cost you X, not Y, and here is why."
 
-## How It Works
+## Zero Homework: Three Steps at the Counter
 
 It is three steps, and none of them require you to track a federal contract:
 
@@ -82,7 +95,7 @@ It is three steps, and none of them require you to track a federal contract:
 
 Most packages are done in under three minutes. That includes the packing.
 
-## What You Lose by Not Acting
+## The Bill That Never Shows Up
 
 The rising tide of carrier costs is real, but the damage is not inevitable. Here is what staying in the old pattern costs you:
 
@@ -90,9 +103,9 @@ The rising tide of carrier costs is real, but the damage is not inevitable. Here
 
 **Time.** Standing in line at the post office to be told a rate you cannot compare is time you do not get back. The counter at [Mailbox Plus](/pack-ship/) compares the carriers for you in the time it takes to hand over a box.
 
-**Privacy.** The more you rely on a single carrier out of habit, the less control you have over your own shipping — and the more likely you are to put your home address on a public registry just to receive packages. A private [mailbox rental](/home-business/mailbox-rental/) from $35 a month keeps your home address off those lists entirely.
+**Privacy.** The more you rely on a single carrier out of habit, the less control you have over your own shipping — and the more likely you are to put your home address on a public registry just to receive packages. A private [mailbox rental](/home-business/mailbox-rental/) — personal tiers start at $15 a month, business at $35 — keeps your home address off those lists entirely.
 
-## Your Afternoon After the Change
+## The Trip That Clears Your Head
 
 It is a Tuesday afternoon. You have three boxes in the back of the car and a stack of orders to get out.
 
@@ -100,10 +113,14 @@ You drive to Mailbox Plus — Crile Road, turn onto Fredle Drive, park. You walk
 
 That is the feeling. Not just cheaper shipping — though usually it is. It is knowing that somebody compares the rates so you do not have to. It is shipping your packages without the background hum of wondering which contract is raising your costs this quarter.
 
-## Bring It In
+## We're Right Off State Route 44
 
 You cannot fix the Postal Service's contract with UPS. You do not have to live with its consequences.
 
 Bring your next box to [Mailbox Plus](/pack-ship/) at 7554 Fredle Drive in Concord Township. We will weigh it, quote it across all four carriers, and send it out for less than you expected — with the tracking number in your hand before you leave.
 
 No contract drama. No shrugs. Just the cheapest honest rate, every time.
+
+Related reading: [Mailbox cost comparison](/articles/mailbox-rental-cost-comparison/).
+
+Related reading: [Virtual vs real local mailbox](/articles/virtual-mailbox-vs-real-local-mailbox/).

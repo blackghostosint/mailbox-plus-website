@@ -19,12 +19,23 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/pickup-hours',
-    '/articles/private-mailbox-vs-po-box',
-    '/home-business/mailbox-rental',
+    '/private-mailbox-rental/',
+    '/pickup-hours/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/home-business/mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The 2 AM Shift and the 9-to-5 Mailbox
@@ -36,6 +47,8 @@ Or you commute an hour each way, leave before the post office opens, and get hom
 So you search. "24 hour mailing service." "24 hour mail service." "Mailbox access hours."
 
 Here is the honest answer, from a local mailbox provider that gets this question every week: **no mailbox is truly staffed 24/7** — and pretending otherwise is how people end up with a PO Box that only kind of works. This article explains what "24-hour mail access" really means, what actually fits a shift worker's schedule, and how to get the mail setup that stops making you miss things.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## What "24/7 Mail Access" Actually Means
 
@@ -65,7 +78,7 @@ For most shift workers and long commuters, that combination — call ahead, same
 
 ## The Reality Check: PO Boxes, "Street Addressing," and the Fine Print
 
-If you are weighing a PO Box against a private mailbox, there is one more thing worth knowing. USPS offers what it calls Street Addressing on some PO Boxes, which lets packages from private carriers like UPS, FedEx, and DHL be delivered to the post office's street address — **subject to availability and restrictions**. That sounds like a 24-hour solution until you read the conditions: not every location offers it, and when a package needs a signature or does not fit the box, it still lands behind the counter during business hours.
+If you are weighing a PO Box against a private mailbox, there is one more thing worth knowing. USPS offers what it calls Street Addressing on some PO Boxes, which lets packages from private carriers like UPS, FedEx, and DHL be delivered to the post office's street address — **subject to availability and restrictions**. That sounds like a 24-hour service until you read the conditions: not every location offers it, and when a package needs a signature or does not fit the box, it still lands behind the counter during business hours.
 
 The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbered box at a counter, with business-hours pickup for anything important" vs. "a real street address where staff sign for everything, notify you, and hold it behind a locked counter until you walk in." Same human-hours reality — one of them simply does more with them. Our guide on [private mailboxes vs. PO boxes](/articles/private-mailbox-vs-po-box/) lays out the full difference side by side.
 
@@ -73,7 +86,7 @@ The honest comparison, then, is not "PO Box vs. private mailbox." It is "a numbe
 
 Here is a plan that fits a schedule like yours, in three steps:
 
-1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental/) has the sizes, the pricing (from $35 a month, no annual contract), and the details.
+1. **Rent the mailbox once.** Bring two forms of ID, fill out USPS Form 1583 at the counter — the staff handles the paperwork — and you leave with a real street address in about ten minutes. From then on, every carrier knows where to find you. The [private mailbox page](/private-mailbox-rental/) has the sizes, the pricing (personal tiers from $15 a month, business $35/$50; no annual contract), and the details.
 2. **Use call-ahead.** Before you leave work, call us. We pull your mail and packages and have them waiting. You are in and out on your schedule, not ours.
 3. **Check your phone, not your porch.** Mail is scanned and you get notified within four hours of arrival. If you are traveling or on a stretch of double shifts, you can see what is waiting without driving anywhere — and if you need mail opened, forwarded, or handled remotely, the [digital mailbox option](/virtual-mailbox-concord-township/) adds that layer on top.
 
@@ -88,3 +101,5 @@ If your schedule never touches 9-to-5, the fix is not a lobby that never closes.
 Stop by 7554 Fredle Drive in Concord Township, or call ahead and we will have your mail waiting. And if you are starting a business at the same time, the [business mailbox option](/home-business/mailbox-rental/) keeps work mail separate from everything else — with the same street address and the same staffed pickup.
 
 _This article is for general information only. USPS PO Box policies, Street Addressing availability, and pickup procedures change periodically; verify current details at usps.com before relying on them for your mail._
+
+Related reading: [What a private mailbox is](/articles/what-is-a-private-mailbox-pmb/).

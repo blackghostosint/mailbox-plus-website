@@ -19,13 +19,24 @@ keywords:
   ]
 relatedServices:
   [
-    '/home-business/mailbox-rental',
-    '/home-business/digital-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/concord-township-business-real-street-address',
-    '/articles/chardon-small-business-mailbox',
+    '/home-business/mailbox-rental/',
+    '/home-business/digital-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/concord-township-business-real-street-address/',
+    '/articles/chardon-small-business-mailbox/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Address Field That Stops Every Application Cold
@@ -37,6 +48,8 @@ Then it happens again with the vendor form for the supplier you want to carry. *
 Your business is real. It has a name, a logo, a website, paying customers. But it lives at your kitchen table — and the only street address you have to give anyone is your home.
 
 This article is the honest version of what "a real street address" means for a home business, why so many forms demand one, and the option that sits between a PO box and an office lease you do not want to pay for.
+
+![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## Why Every Form Wants a Street Address
 
@@ -82,7 +95,7 @@ Here is how it works at Mailbox Plus:
 3. **Use it everywhere a street address is required.** The bank account's business address. The vendor form's physical-address line. The contact page on your website. Your business cards. Your invoices. Your shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds scanning — we scan envelopes within four hours and you manage, forward, or shred everything from your phone. Same street address, plus remote control for the weeks you're not in town.
 
-Rates for a small mailbox start around **$35/month** — a fraction of an office lease, and usually less than the per-box fees at the big national mailbox middlemen. Month to month, no annual contract.
+Rates for a business mailbox start at **$35/month** (personal tiers start at $15) — a fraction of an office lease, and usually less than the per-box fees at the big national mailbox middlemen. Month to month, no annual contract.
 
 ## The Honest Boundaries (Read This Before You Switch)
 

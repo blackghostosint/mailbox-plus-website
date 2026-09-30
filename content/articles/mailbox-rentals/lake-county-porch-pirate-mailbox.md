@@ -19,12 +19,23 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/articles/porch-theft-lake-county-protect-packages',
-    '/articles/private-mailbox-vs-po-box',
-    '/home-business/mailbox-rental',
+    '/private-mailbox-rental/',
+    '/articles/porch-theft-lake-county-protect-packages/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/home-business/mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Video You Have Probably Watched
@@ -34,6 +45,8 @@ There is a clip that goes around every holiday season in Lake County. A Ring cam
 Eleven seconds. That is how long your package — the one you tracked all day, the one the driver photographed sitting on your step — can last.
 
 The comments are always the same. "Same thing happened to me in Willoughby." "They got my daughter's birthday gift in Madison." "I just use an Amazon locker now, but they can't hold everything." And underneath it all, the same exhausted question: what do you actually do about it?
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## Why the Porch Is a Sitting Target
 
@@ -105,7 +118,7 @@ That is the mailbox that fights back. It is not a gadget or a subscription to a 
 
 If you have been hit by a porch pirate — or you are tired of flinching at every delivery notification — the fix is simple: stop using the porch.
 
-Start with our [private mailbox rental page](/private-mailbox-rental/) for the details, pricing from around $35 a month, and how to set up your address in about ten minutes. If you are comparing options first, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) lays out the differences in plain terms, and our [porch theft protection guide for Lake County](/articles/porch-theft-lake-county-protect-packages/) covers the full list of package-security options beyond the mailbox itself.
+Start with our [private mailbox rental page](/private-mailbox-rental/) for the details, pricing from $15 a month (personal tiers $15-$40, business $35/$50), and how to set up your address in about ten minutes. If you are comparing options first, our [Private Mailbox vs. PO Box guide](/articles/private-mailbox-vs-po-box/) lays out the differences in plain terms, and our [porch theft protection guide for Lake County](/articles/porch-theft-lake-county-protect-packages/) covers the full list of package-security options beyond the mailbox itself.
 
 Porch pirates pick the easiest target on the block. Do not be it. Give your packages an address where a human signs for them, holds them securely, and never leaves them on a doorstep.
 

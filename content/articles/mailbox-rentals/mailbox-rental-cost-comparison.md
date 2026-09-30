@@ -19,21 +19,34 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/mailbox-rental-concord-ohio',
-    '/virtual-mailbox-concord-township',
-    '/home-business/digital-mailbox-rental',
+    '/private-mailbox-rental/',
+    '/mailbox-rental-concord-ohio/',
+    '/virtual-mailbox-concord-township/',
+    '/home-business/digital-mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Price You See Is Not the Price You Pay
 
-You're comparing mailbox costs tonight — tabs open, coffee gone cold, and every website telling you a different number. One says "$9.99 a month." Another says "$25." The post office says "$21 for three months." What does a mailbox actually cost?
+You're comparing mailbox costs tonight — tabs open, coffee gone cold, and every website telling you a different number. One says "$9.99 a month." Another says "$15." The post office says "$21 for three months." What does a mailbox actually cost?
 
 Here's the honest answer: **the advertised price is almost never the price you pay.** Every mailbox option hides part of its real cost in fees, size limits, and contracts that only show up after you've signed. This article is the straight version — what each option costs per month, what's included, and what quietly isn't.
 
 We're Mailbox Plus, a local mailbox store in Concord Township, Ohio. We rent private mailboxes for a living, so we know exactly how the comparison works — including the ways our own option can disappoint if it's not what you need. No marketing spin. Just the numbers.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## The Four Ways to Rent a Mailbox
 
@@ -96,8 +109,8 @@ A private mailbox (PMB) is the same product category as the store mailbox and th
 
 At Mailbox Plus, the current rates are simple:
 
-- **Small box: $25 a month**
-- **Large box: $35 a month**
+- **Personal tiers: $15 (mail-only small) · $25 (small + 10 packages) · $30 (large mail-only) · $40 (large + 10 packages) a month**
+- **Business plans: $35 or $50 a month**
 
 That's the monthly price. No per-piece scan fees, no per-item storage fees, no activation fee, no mandatory contract term. (Rate increases are planned in the future, so if you're reading this later, confirm the current price — but the structure stays flat.)
 
@@ -116,12 +129,12 @@ The honest trade-off: a private mailbox costs more per month than the _advertise
 
 Here's the whole landscape in one table, with the numbers that matter:
 
-| Option                               | Advertised monthly price               | What's really included                                      | What it costs you in practice                                                     |
-| ------------------------------------ | -------------------------------------- | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| **PO Box**                           | ~$7–$25 depending on size and location | USPS letters only                                           | FedEx/UPS packages don't come; small boxes fill up fast                           |
-| **Store mailbox**                    | $15–$30+, set by each franchise        | Street address, but carrier coverage and fees vary by store | Activation fees, 6–12 month contracts, forwarding billed in advance               |
-| **Virtual mailbox**                  | $9.99–$15 entry plans                  | Remote scans, but per-item fees on everything               | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast |
-| **Private mailbox at a local store** | $25 small / $35 large (flat)           | Street address, all 4 carriers, notification, secure hold   | One flat bill. No per-piece fees. Month-to-month.                                 |
+| Option                               | Advertised monthly price                   | What's really included                                      | What it costs you in practice                                                     |
+| ------------------------------------ | ------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **PO Box**                           | ~$7–$25 depending on size and location     | USPS letters only                                           | FedEx/UPS packages don't come; small boxes fill up fast                           |
+| **Store mailbox**                    | $15–$30+, set by each franchise            | Street address, but carrier coverage and fees vary by store | Activation fees, 6–12 month contracts, forwarding billed in advance               |
+| **Virtual mailbox**                  | $9.99–$15 entry plans                      | Remote scans, but per-item fees on everything               | $0.35 over-limit, $2.25 scans, $1.10 storage, $4.95 check deposits — adds up fast |
+| **Private mailbox at a local store** | Personal $15-$40 · Business $35/$50 (flat) | Street address, all 4 carriers, notification, secure hold   | One flat bill. No per-piece fees. Month-to-month.                                 |
 
 The question isn't "which has the lowest advertised price?" It's "what will this mailbox cost me in a normal month, with my mail volume, my packages, and my travel?" That's the only honest way to compare.
 
@@ -145,6 +158,6 @@ If you want to see the numbers in person, we're at **7554 Fredle Drive in Concor
 
 The mailbox that's cheapest on paper is rarely the cheapest in December, when the packages are coming and the per-item fees are stacking.
 
-A real private mailbox costs $25 or $35 a month — flat. You can see the whole picture on our [private mailbox rental page](/private-mailbox-rental/) or check [mailbox rental in Concord, Ohio](/mailbox-rental-concord-ohio/) for the local details. Or just come in with your mail volume and your questions, and we'll tell you honestly whether a mailbox is even the right answer for you — and if it is, we'll have you set up in about ten minutes.
+A real private mailbox runs $15-$40 a month personal, $35/$50 business — flat. You can see the whole picture on our [private mailbox rental page](/private-mailbox-rental/) or check [mailbox rental in Concord, Ohio](/mailbox-rental-concord-ohio/) for the local details. Or just come in with your mail volume and your questions, and we'll tell you honestly whether a mailbox is even the right answer for you — and if it is, we'll have you set up in about ten minutes.
 
 Your mail is going to land somewhere every month. The only question is what the bill looks like when it does.

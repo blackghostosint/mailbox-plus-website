@@ -19,12 +19,23 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/virtual-mailbox-concord-township',
-    '/pickup-hours',
+    '/private-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/virtual-mailbox-concord-township/',
+    '/pickup-hours/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The 30-Second Answer
@@ -34,6 +45,8 @@ You searched "mailbox not a PO Box," so here it is, fast:
 **A private mailbox. It is a real street address — your name plus a unit number — at a staffed local mailbox store. Every carrier delivers to it: USPS, UPS, FedEx, and DHL. Packages are signed for the moment they arrive and held behind a locked counter until you walk in. No porch. No lobby. No "sorry, we only take USPS."**
 
 That is the whole answer. The rest of this page is the fine print you actually want before you hand over your ID — because there are two kinds of "not a PO Box" and they are not the same thing.
+
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
 
 ## What "Not a PO Box" Actually Means
 
@@ -76,7 +89,7 @@ At Mailbox Plus, switching from a PO Box — or from a home address you are tire
 
 **Step 1 — Walk in with two forms of ID.** A driver's license plus a credit card, passport, or second government ID works. You fill out USPS Form 1583 at the counter, which is the standard form every mailbox service uses to verify who you are.
 
-**Step 2 — Pick your size.** Small boxes start at **$35 a month**, month-to-month, no annual contract, with a 30-day risk-free period. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
+**Step 2 — Pick your size.** Personal tiers start at **$15 a month**, month-to-month (business plans $35/$50), no annual contract, with a 30-day risk-free period. If you receive inventory boxes or larger shipments, there are bigger options, and you can upgrade later.
 
 **Step 3 — Give out your new address.** Update your bank, your employer, your vendors, your seller accounts, your license and registration — anywhere you need a street address. From that day forward, every carrier delivers to one place: Mailbox Plus, 7554 Fredle Drive in Concord Township.
 
@@ -103,3 +116,5 @@ If you want the full comparison first, our guide on [private mailboxes vs. PO bo
 Or skip the reading: stop by **7554 Fredle Drive in Concord Township** with your ID, and walk out with an address that works for every carrier. Ten minutes, and you are done.
 
 _This article is for general information only. USPS PO Box policies, Street Addressing availability, and carrier delivery rules change periodically — verify current terms with USPS and the carriers before relying on them._
+
+Related reading: [What a PMB is](/articles/what-is-a-private-mailbox-pmb/).
