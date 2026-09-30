@@ -1,0 +1,19 @@
+# Fact-Check Receipt — ups-store-mailbox-cost-comparison
+
+| # | Claim | Verdict | Source |
+|---|-------|---------|--------|
+| 1 | UPS Store publishes no national mailbox price sheet; stores are independently owned franchises | ✅ | https://www.theupsstore.com/mailboxes/index ; https://www.theupsstore.com/File%20Library/theupsstore/cws/0233/Mailbox-Services-Packet.pdf ("Services, prices... may vary by location") |
+| 2 | Mentor UPS Store (9401 Mentor Ave) mailbox page answers pricing with "dependent on a number of factors" | ✅ | https://locations.theupsstore.com/oh/mentor/9401-mentor-ave/mailbox-services (FAQ: "How much do mailbox services cost?") |
+| 3 | Published UPS Store franchise rate sheets run ~$22–$50/month small→large | ✅ | Elk Grove CA published rates: small $28/3mo→$22/12mo, large $48/3mo→$42/12mo per month (https://locations.theupsstore.com/ca/elk-grove/8698-elk-grove-blvd/mailbox-services); Austin packet: small $90/quarter, medium $120, large $150 (≈$30–$50/mo) https://www.theupsstore.com/File%20Library/theupsstore/cws/0233/Mailbox-Services-Packet.pdf |
+| 4 | Published packet shows ~$20 one-time setup charge incl. $5 key deposit, $5 late fee, 3-month minimum | ✅ | Austin packet (source 3, PDF) |
+| 5 | Elk Grove store lists package tiers +$5–$10/mo, $1/day package storage, $5 forwarding, $20 late fee | ✅ | https://locations.theupsstore.com/ca/elk-grove/8698-elk-grove-blvd/mailbox-services |
+| 6 | Small USPS PO Box $21–$72 per 3 months by fee group (sizes 1–2, groups 1–7) | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics (price tables as of 7/12/26: size1 g7=$21, size2 g1=$72) |
+| 7 | USPS PO Box Street Addressing available at participating locations; other-carrier packages subject to USPS standards | ✅ | https://www.usps.com/manage/po-boxes.htm (Street Addressing FAQ) |
+| 8 | USPS Form 1583 required; two IDs, one photo; required for every name on the box | ✅ | https://faq.usps.com/s/article/PO-Box-The-Basics (ID rules); UPS Store Mentor page ("mandatory PS Form 1583", "two valid forms of identification, one of which must include a photograph") |
+| 9 | Private mailbox = real street address; UPS, FedEx, DHL, Amazon, USPS all deliver | ✅ | UPS Store Mentor page ("Package acceptance from all carriers") |
+| 10 | Mailbox Plus tiers $35 / $50 per month | ✅ (owner-verified, inventory brief 2026-09-29) | Owner-supplied; no external source exists — phrased as our posted tiers, confirm-at-counter fallback in FAQ |
+| 11 | Drive distance Mailbox Plus → 9401 Mentor Ave ≈ 7.5 miles | ✅ | OSRM route 2026-09-30: 11,987 m ≈ 7.5 mi, ~18 min |
+| 12 | PMB designator usage on CMRA addresses | ✅ | UPS Store Mentor FAQ (address format "PMB XXX or # XXX") |
+| 13 | PO Box most lobbies 24-hour access | ✅ | https://www.usps.com/manage/po-boxes.htm ("24/7 PO Box access at most Post Offices") |
+
+Notes: Our own store's setup-fee/extra-name policy intentionally left as "ask at the counter" (not externally verifiable; per skill rule, operator is source of truth — Frank reviews before merge). All competitor figures cited from that store's own published materials or the chain's published documents, with the single-store caveat stated in the body.
