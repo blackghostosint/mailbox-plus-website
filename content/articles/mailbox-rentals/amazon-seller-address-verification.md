@@ -19,13 +19,24 @@ keywords:
   ]
 relatedServices:
   [
-    '/home-business/mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/concord-township-business-real-street-address',
-    '/articles/chardon-online-seller-mailbox',
-    '/home-business/digital-mailbox-rental',
+    '/home-business/mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/concord-township-business-real-street-address/',
+    '/articles/chardon-online-seller-mailbox/',
+    '/home-business/digital-mailbox-rental/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'How much does a private mailbox cost at Mailbox Plus?'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
+  - question: 'What do I need to rent a private mailbox?'
+    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+  - question: 'Can UPS and FedEx deliver to my mailbox?'
+    answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
+  - question: 'Where is Mailbox Plus located?'
+    answer: '7554 Fredle Drive, Concord Township, OH 44077 — in the Gristmill Village plaza, minutes from SR-44 and I-90.'
+  - question: 'What are your hours?'
+    answer: 'Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM. Closed Sunday.'
 ---
 
 ## The Postcard That Lands on Your Doorstep
@@ -37,6 +48,8 @@ For most sellers, that postcard is a five-minute inconvenience. For a growing nu
 The address you registered with Seller Central isn't just a field in a form. It's the address Amazon verifies. It's the address that gets printed on that postcard. And in many cases, it's the address any customer can see on your public seller profile. That's the part nobody reads until the postcard arrives.
 
 This article is the honest version of what passes Amazon's address verification, what fails it, and how to make sure your home address is never the thing being verified.
+
+![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
 ## Why Amazon Verifies Seller Addresses at All
 
@@ -83,7 +96,7 @@ Now the part most sellers learn the hard way: **a PO box doesn't pass.**
 
 Amazon's own address-entry guidelines in the verification flow flag PO boxes and remote locations as not acceptable for the business address. And even setting the guidelines aside, look at the document list — the proof of address has to be a utility bill, a bank statement, or a lease showing your name and a complete address. A PO box doesn't receive utility bills. Your bank doesn't mail statements to a PO box in most cases. There's no lease on a PO box. The documents that pass Amazon's verification simply don't exist for a PO box.
 
-The seller forums are full of the aftermath. Long-time sellers who registered their business at a PO box — sometimes for a decade or more, with the IRS and their EIN tied to it — hit the INFORM re-verification wave and found themselves staring at deactivation banners, chasing bank statements that matched, and hoping a postcard sent to a PO box would clear the queue. One thread sums up the feeling: "I would prefer to not utilize my home address as my business address." It's the same panic, over and over: the address that passes isn't the address they want public.
+The seller forums are full of the aftermath. Long-time sellers who registered their business at a PO box — sometimes for a decade or more, with the IRS and their EIN tied to it — hit the INFORM re-verification wave and found themselves staring at deactivation banners, chasing bank statements that matched, and hoping a postcard sent to a PO box would clear the queue. One thread sums up the feeling: "I would prefer to not use my home address as my business address." It's the same panic, over and over: the address that passes isn't the address they want public.
 
 Here's what fails Amazon's verification, in one list:
 
@@ -123,7 +136,7 @@ At Mailbox Plus, on **7554 Fredle Drive in Concord Township, Ohio 44077**, that'
 2. **Get your street address.** Your address is a real street address at our store — Suite/box number included — that all four carriers (USPS, UPS, FedEx, and DHL) deliver to. We sign for packages, which matters when the verification postcard or a returned FBA shipment arrives while you're at work.
 3. **Update Seller Central.** Change your business address to your new PMB, then use the lease agreement from your mailbox as your proof-of-address document. It's issued within 180 days, it shows your business name, and it shows the complete address. It passes.
 
-Rates start around **$35/month** — cheaper than an office, cheaper than most virtual-mailbox middlemen, and it comes with a real counter staffed by people who know your name.
+Business mailbox rates start at **$35/month** (personal tiers from $15) — cheaper than an office, cheaper than most virtual-mailbox middlemen, and it comes with a real counter staffed by people who know your name.
 
 ## What It Looks Like When You Switch
 
