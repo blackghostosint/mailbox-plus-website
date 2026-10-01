@@ -113,5 +113,16 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /articles/hambden-shredding* /home-business/shredding/ 301!
 /articles/hambden-copies* /copy-print/copies/ 301!
 
+# Oct 2026 dead-sweep: pack-and-ship geo consolidation -> single Lake County hub
+/articles/pack-and-ship-painesville-township* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-chardon-city* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-44024* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-claridon-township* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-aquilla* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-perry-ohio* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-grand-river* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-hambden* /articles/pack-ship-lake-county/ 301!
+/articles/pack-ship-north-lake-county* /articles/pack-ship-lake-county/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404
