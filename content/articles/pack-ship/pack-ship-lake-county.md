@@ -19,12 +19,31 @@ keywords:
   ]
 relatedServices:
   [
-    '/pack-ship',
-    '/pack-ship/fedex-shipping',
-    '/pack-ship/ups-authorized-shipper-outlet',
-    '/pack-ship/professional-packing',
+    '/pack-ship/',
+    '/pack-ship/fedex-shipping/',
+    '/pack-ship/ups-authorized-shipper-outlet/',
+    '/pack-ship/professional-packing/',
   ]
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  [
+    {
+      question: 'Where can I pack and ship a package in Lake County?',
+      answer: 'Mailbox Plus at 7554 Fredle Drive in Concord Township (Route 44 & Crile Road) is a full-service multi-carrier shipping center serving Painesville, Mentor, Chardon, and the rest of Lake County — open Monday–Friday 9–6 and Saturday 9–2.',
+    },
+    {
+      question: 'Can I compare FedEx, UPS, and USPS rates at one place?',
+      answer: 'Yes. A multi-carrier center like Mailbox Plus quotes FedEx, UPS, USPS, and DHL side by side for your specific box and destination, so you ship with the cheapest carrier that meets your deadline instead of guessing.',
+    },
+    {
+      question: 'Do you pack items for me, or just ship them?',
+      answer: 'Both. Professional packing — bubble wrap, foam, and custom-sized boxes built to carrier guidelines — is available at the counter, and packages packed to those published guidelines are the ones whose damage claims actually hold.',
+    },
+    {
+      question: 'Can I drop off a pre-labeled package without packing help?',
+      answer: 'Yes — Mailbox Plus is a staffed drop-off for UPS, FedEx, USPS, and DHL. Your pre-labeled package is scanned into custody with a receipt, unlike unstaffed retail kiosks.',
+    },
+  ]
 ---
 
 ## The Pack-and-Ship Problem in Lake County
@@ -45,7 +64,9 @@ Lake County is well-served by the major carriers — mostly through unstaffed "A
 
 ## When a Drop-Off Bin Is Enough
 
-Some shipments don't need help. If the item is sturdy, the box is right-sized, the label is printed, and the contents can survive whatever handling comes next — the nearest partner counter is the fastest path. An [Amazon return](/amazon-returns/) with a pre-printed label is the classic case: scan, bag, receipt, done.
+![A cardboard box packed with crumpled kraft paper on the packing bench at Mailbox Plus](articles/pack-ship/does-fragile-sticker-work-body-1.webp)
+
+Some shipments don't need help. If the item is sturdy, the box is right-sized, the label is printed, and the contents can survive whatever handling comes next — the nearest partner counter is the fastest path. An [Amazon return](/amazon-returns/) with a pre-printed label is the classic case: scan, bag, receipt, done. (Curious whether that fragile sticker is doing anything? [We tested it](/articles/does-fragile-sticker-work/).)
 
 ## When You Need a Professional Shipping Center
 
@@ -80,4 +101,4 @@ Still unsure where your box goes?
 2. **Fragile, valuable, oversized, or international?** Pack-and-ship center. The packing and the paperwork are the product.
 3. **Don't know the best carrier for this route?** Pack-and-ship center. Side-by-side rates exist precisely so you never guess.
 
-For most Lake County shipments past the pre-labeled stage, that's [Mailbox Plus](/pack-ship/) in Concord Township. Bring the item; the comparison, the box, and the paperwork happen at one counter, and you leave with a receipt instead of a maybe.
+For most Lake County shipments past the pre-labeled stage, that's [Mailbox Plus](/pack-ship/) in Concord Township. Bring the item; the comparison, the box, and the paperwork happen at one counter, and you leave with a receipt instead of a maybe. Want the numbers first? [We compared UPS Store private mailbox pricing against ours](/articles/ups-store-mailbox-cost-comparison/), line by line.
