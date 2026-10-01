@@ -14,7 +14,6 @@
 
 Notes: No pricing figures asserted. No claims that a PMB _cannot legally_ be used anywhere beyond the ORC residence-address requirement, per the brief's never-rules. All ❌-class risks avoided: no fabricated fees, no invented statute numbers (only 4503.12, 5756, 4625 — all verified above).
 
-
 ### Revision-round disclosure (2026-10-01)
 
 Grok 4.7 rubric across five substantive rounds after the two-ID L3 fix: 68 → 75 → 77 → 78 (current head). The reviewer's flags oscillate (requests named mechanisms, then calls the names "cute labels"; asks for scene cuts, then for more scenes) — the same non-convergence pattern documented on #638/#662. The two-ID/Form-1583 correction (the L3 OBJECT ground) is final and stays: strict 46/46 pass. Score call belongs to the owner, as with #638.
