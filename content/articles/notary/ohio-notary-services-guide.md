@@ -1,6 +1,6 @@
 ---
-title: 'The Complete Guide to Notary Services in Ohio'
-description: 'Everything you need to know about getting a document notarized in Ohio: what to bring, what it costs, how to find a notary, and how to avoid the runaround.'
+title: 'Ohio Notary Services Near Concord Township — Walk-Ins Welcome'
+description: 'Need a document notarized in Lake County? Walk in — no appointment. $5 per signature, 6 days a week. What to bring, what it costs, and where to go.'
 slug: 'ohio-notary-services-guide'
 category: 'notary'
 intentKey: 'ohio-notary-services-guide'
