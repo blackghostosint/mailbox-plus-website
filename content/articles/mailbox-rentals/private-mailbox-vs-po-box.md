@@ -92,7 +92,7 @@ One honest caveat: because a CMRA address is not your residential address, a few
 
 If you already have a PO Box, the switch is not a migration. It is a form.
 
-Federal law requires a signed USPS Form 1583 to authorize a CMRA to receive your mail — that is the one piece of paperwork, and it exists to protect you: no one can start receiving your mail without proving identity. Bring two forms of ID (a driver's license plus a second document works), sign the form at our counter, and the address is live.
+Federal law requires a signed USPS Form 1583 to authorize a CMRA to receive your mail — that is the one piece of paperwork, and it exists to protect you: no one can start receiving your mail without proving identity. Bring two forms of ID (a driver's license plus a second document confirming your current address works — both must be current, not expired), sign the form at our counter, and the address is live.
 
 You keep your PO Box until the switch is done, tell the important senders your new street address — and since the new address accepts every carrier, this is the last time you will ever do it.
 
