@@ -14,10 +14,9 @@
 
 Notes: No pricing figures asserted. No claims that a PMB _cannot legally_ be used anywhere beyond the ORC residence-address requirement, per the brief's never-rules. All ❌-class risks avoided: no fabricated fees, no invented statute numbers (only 4503.12, 5756, 4625 — all verified above).
 
-
 ### L3 follow-up (2026-10-01, two-ID correction)
 
-| #   | Claim                                                                                              | Verdict | Source URL                                        |
-| --- | -------------------------------------------------------------------------------------------------- | ------- | ------------------------------------------------- |
-| 7   | Two approved IDs required at signup, in person (was "a driver license or state ID is enough")       | ✅ corrected | astro/src/pages/private-mailbox-rental.astro (Form 1583 two-ID policy); USPS Form 1583 |
-| 8   | Mailbox opens in one in-person visit INCLUDING Form 1583 signing (was "one visit, no prep")          | ✅ corrected | astro/src/pages/rental-agreement.astro; owner operational policy |
+| #   | Claim                                                                                         | Verdict      | Source URL                                                                             |
+| --- | --------------------------------------------------------------------------------------------- | ------------ | -------------------------------------------------------------------------------------- |
+| 7   | Two approved IDs required at signup, in person (was "a driver license or state ID is enough") | ✅ corrected | astro/src/pages/private-mailbox-rental.astro (Form 1583 two-ID policy); USPS Form 1583 |
+| 8   | Mailbox opens in one in-person visit INCLUDING Form 1583 signing (was "one visit, no prep")   | ✅ corrected | astro/src/pages/rental-agreement.astro; owner operational policy                       |
