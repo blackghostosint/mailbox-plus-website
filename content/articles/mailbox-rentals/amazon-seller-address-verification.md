@@ -30,7 +30,7 @@ faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
     answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
   - question: 'What do I need to rent a private mailbox?'
-    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+    answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
     answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
   - question: 'Where is Mailbox Plus located?'
@@ -132,7 +132,7 @@ That's the exact definition of a **private mailbox (PMB)** at a licensed mailbox
 
 At Mailbox Plus, on **7554 Fredle Drive in Concord Township, Ohio 44077**, that's the whole business. Here's what the setup looks like:
 
-1. **Walk in with two forms of ID** — one primary photo ID (driver's license or passport) and one secondary ID showing your current address (a lease or utility bill). Like every licensed mailbox service, we're a registered Commercial Mail Receiving Agency (CMRA), so we keep a USPS Form 1583 on file for every mailbox holder. This is the legal, above-board version of what the big national services do — minus the middleman.
+1. **Walk in with two forms of ID** — one primary photo ID (driver's license or passport) and one secondary ID confirming the address on the form — a current lease, mortgage or deed, voter or vehicle registration card, or a home or vehicle insurance policy (a utility bill does not qualify under USPS rules). Like every licensed mailbox service, we're a registered Commercial Mail Receiving Agency (CMRA), so we keep a USPS Form 1583 on file for every mailbox holder — bring IDs that are current (not expired), since USPS rejects expired documents. This is the legal, above-board version of what the big national services do — minus the middleman.
 2. **Get your street address.** Your address is a real street address at our store — Suite/box number included — that all four carriers (USPS, UPS, FedEx, and DHL) deliver to. We sign for packages, which matters when the verification postcard or a returned FBA shipment arrives while you're at work.
 3. **Update Seller Central.** Change your business address to your new PMB, then use the lease agreement from your mailbox as your proof-of-address document. It's issued within 180 days, it shows your business name, and it shows the complete address. It passes.
 

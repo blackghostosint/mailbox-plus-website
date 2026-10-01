@@ -60,7 +60,7 @@ Neither failure is your fault. Both are built into the product.
 
 ## Nobody Agreed to This
 
-Nobody sat down and decided your mail should live split between two half-solutions: an address with a box number that UPS and FedEx may refuse, and a scan queue where nobody knows the county envelope is the one with a Friday deadline. Both halves are perfectly legal. UPS's delivery policy simply bars PO Boxes. The virtual platform's terms make its scanning clerk a processor, not your agent. Neither rule was written to hurt you — but both leave the county deadline sitting on your shoulders alone.
+Nobody sat down and decided your mail should live split between two half-service: an address with a box number that UPS and FedEx may refuse, and a scan queue where nobody knows the county envelope is the one with a Friday deadline. Both halves are perfectly legal. UPS's delivery policy simply bars PO Boxes. The virtual platform's terms make its scanning clerk a processor, not your agent. Neither rule was written to hurt you — but both leave the county deadline sitting on your shoulders alone.
 
 A mailbox is not a data feed. It is custody. When the county mails you something that matters, what protects you is not the scan speed — it is that the envelope was signed for, logged, and set behind the counter by a person who would notice if something looked wrong. Visibility without custody is just a prettier notification that your problem exists.
 
@@ -86,7 +86,7 @@ Be honest about both, because straw-manning the app helps nobody.
 
 ## One Visit, Start to Finish
 
-1. **Walk in with two IDs.** One photo ID, one more — that is everything PS Form 1583 needs. No pre-paperwork, nothing to print.
+1. **Walk in with two IDs.** One photo ID, one confirming your current address — that is everything PS Form 1583 needs (both must be current, not expired). No pre-paperwork, nothing to print.
 2. **Pick your box and your settings.** Box size, whether you want envelope scans, forwarding, or both, who is allowed to receive mail besides you.
 3. **Walk out with a working street address.** The form takes about five minutes, and the address works the same visit — hand it to UPS, FedEx, the DMV, your bank, your Etsy store.
 

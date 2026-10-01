@@ -693,7 +693,7 @@ That's the exact definition of a **private mailbox (PMB)** at a licensed mailbox
 
 At Mailbox Plus, on **7554 Fredle Drive in Concord Township, Ohio 44077**, that's the whole business. Here's what the setup looks like:
 
-1. **Walk in with two forms of ID** — one primary photo ID (driver's license or passport) and one secondary ID showing your current address (a lease or utility bill). Like every licensed mailbox service, we're a registered Commercial Mail Receiving Agency (CMRA), so we keep a USPS Form 1583 on file for every mailbox holder. This is the legal, above-board version of what the big national services do — minus the middleman.
+1. **Walk in with two forms of ID** — one primary photo ID (driver's license or passport) and one secondary ID confirming the address on the form — a current lease, mortgage or deed, voter or vehicle registration card, or a home or vehicle insurance policy (a utility bill does not qualify under USPS rules). Like every licensed mailbox service, we're a registered Commercial Mail Receiving Agency (CMRA), so we keep a USPS Form 1583 on file for every mailbox holder — bring IDs that are current (not expired), since USPS rejects expired documents. This is the legal, above-board version of what the big national services do — minus the middleman.
 2. **Get your street address.** Your address is a real street address at our store — Suite/box number included — that all four carriers (USPS, UPS, FedEx, and DHL) deliver to. We sign for packages, which matters when the verification postcard or a returned FBA shipment arrives while you're at work.
 3. **Update Seller Central.** Change your business address to your new PMB, then use the lease agreement from your mailbox as your proof-of-address document. It's issued within 180 days, it shows your business name, and it shows the complete address. It passes.
 
@@ -6594,7 +6594,7 @@ If you'd rather read your mail from the lake without driving at all, that's what
 
 Three steps, one visit.
 
-1. **Bring two forms of ID** — a driver's license as your primary photo ID, plus a second ID showing your current address, like a lease, mortgage statement, or insurance policy — and fill out the standard USPS Form 1583 at our counter. About ten minutes, once.
+1. **Bring two forms of ID** — a driver's license as your primary photo ID, plus a second ID confirming the address on the form, like a current lease, mortgage or deed, or insurance policy — both IDs must be current (not expired) — and fill out the standard USPS Form 1583 at our counter. About ten minutes, once.
 2. **Get your street address on the spot.** Your name, 7554 Fredle Drive with your box number, Concord Township, Ohio 44077. It works the same day — give it to the bank, the IRS, the checkout page, your LLC filing.
 3. **Stop thinking about mail.** Packages get signed for and held. You get notified when items arrive. Come in when it's convenient, or read envelopes digitally from anywhere.
 
@@ -14314,6 +14314,8 @@ The bell over the Mailbox Plus door chimes as you step up to the counter, still 
 
 That single fact drives almost every difference in this article. Everything else — cost, credibility, setup — flows from it.
 
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
+
 ## The One Fact That Decides Everything
 
 A PO Box is a numbered compartment inside a post office lobby. The United States Postal Service delivers to it. That is the complete list of who delivers to it.
@@ -14365,7 +14367,7 @@ One honest caveat: because a CMRA address is not your residential address, a few
 
 If you already have a PO Box, the switch is not a migration. It is a form.
 
-Federal law requires a signed USPS Form 1583 to authorize a CMRA to receive your mail — that is the one piece of paperwork, and it exists to protect you: no one can start receiving your mail without proving identity. Bring two forms of ID (a driver's license plus a second document works), sign the form at our counter, and the address is live.
+Federal law requires a signed USPS Form 1583 to authorize a CMRA to receive your mail — that is the one piece of paperwork, and it exists to protect you: no one can start receiving your mail without proving identity. Bring two forms of ID (a driver's license plus a second document confirming your current address works — both must be current, not expired), sign the form at our counter, and the address is live.
 
 You keep your PO Box until the switch is done, tell the important senders your new street address — and since the new address accepts every carrier, this is the last time you will ever do it.
 
@@ -17164,7 +17166,7 @@ Neither failure is your fault. Both are built into the product.
 
 ## Nobody Agreed to This
 
-Nobody sat down and decided your mail should live split between two half-solutions: an address with a box number that UPS and FedEx may refuse, and a scan queue where nobody knows the county envelope is the one with a Friday deadline. Both halves are perfectly legal. UPS's delivery policy simply bars PO Boxes. The virtual platform's terms make its scanning clerk a processor, not your agent. Neither rule was written to hurt you — but both leave the county deadline sitting on your shoulders alone.
+Nobody sat down and decided your mail should live split between two half-service: an address with a box number that UPS and FedEx may refuse, and a scan queue where nobody knows the county envelope is the one with a Friday deadline. Both halves are perfectly legal. UPS's delivery policy simply bars PO Boxes. The virtual platform's terms make its scanning clerk a processor, not your agent. Neither rule was written to hurt you — but both leave the county deadline sitting on your shoulders alone.
 
 A mailbox is not a data feed. It is custody. When the county mails you something that matters, what protects you is not the scan speed — it is that the envelope was signed for, logged, and set behind the counter by a person who would notice if something looked wrong. Visibility without custody is just a prettier notification that your problem exists.
 
@@ -17190,7 +17192,7 @@ Be honest about both, because straw-manning the app helps nobody.
 
 ## One Visit, Start to Finish
 
-1. **Walk in with two IDs.** One photo ID, one more — that is everything PS Form 1583 needs. No pre-paperwork, nothing to print.
+1. **Walk in with two IDs.** One photo ID, one confirming your current address — that is everything PS Form 1583 needs (both must be current, not expired). No pre-paperwork, nothing to print.
 2. **Pick your box and your settings.** Box size, whether you want envelope scans, forwarding, or both, who is allowed to receive mail besides you.
 3. **Walk out with a working street address.** The form takes about five minutes, and the address works the same visit — hand it to UPS, FedEx, the DMV, your bank, your Etsy store.
 

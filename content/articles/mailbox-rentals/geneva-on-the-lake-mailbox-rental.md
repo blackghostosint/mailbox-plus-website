@@ -24,7 +24,7 @@ faqs:
   - question: 'How much does a private mailbox cost at Mailbox Plus?'
     answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. Month-to-month, no annual contract.'
   - question: 'What do I need to rent a private mailbox?'
-    answer: 'USPS Form 1583 plus two forms of ID, one with a photo. We keep the forms at the counter and walk you through them.'
+    answer: 'USPS Form 1583 plus two current forms of ID — one with a photo, one confirming the address on the form. We keep the forms at the counter and walk you through them.'
   - question: 'Can UPS and FedEx deliver to my mailbox?'
     answer: 'Yes. A private mailbox at a street address accepts deliveries from USPS, UPS, FedEx, and DHL — a PO Box cannot.'
   - question: 'Where is Mailbox Plus located?'
@@ -77,7 +77,7 @@ If you'd rather read your mail from the lake without driving at all, that's what
 
 Three steps, one visit.
 
-1. **Bring two forms of ID** — a driver's license as your primary photo ID, plus a second ID showing your current address, like a lease, mortgage statement, or insurance policy — and fill out the standard USPS Form 1583 at our counter. About ten minutes, once.
+1. **Bring two forms of ID** — a driver's license as your primary photo ID, plus a second ID confirming the address on the form, like a current lease, mortgage or deed, or insurance policy — both IDs must be current (not expired) — and fill out the standard USPS Form 1583 at our counter. About ten minutes, once.
 2. **Get your street address on the spot.** Your name, 7554 Fredle Drive with your box number, Concord Township, Ohio 44077. It works the same day — give it to the bank, the IRS, the checkout page, your LLC filing.
 3. **Stop thinking about mail.** Packages get signed for and held. You get notified when items arrive. Come in when it's convenient, or read envelopes digitally from anywhere.
 
