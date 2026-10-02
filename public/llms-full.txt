@@ -14051,16 +14051,16 @@ Every one of those is the PO Box Barrier doing what it was built to do. Picture 
 
 Be honest about both, because the PO Box genuinely wins in some situations:
 
-| | PO Box | Private Mailbox (PMB) |
-| --- | --- | --- |
-| **Address type** | Box number at a post office — not a street address | Real street address plus your box number (7554 Fredle Dr #___) |
-| **USPS mail** | Yes | Yes |
-| **UPS / FedEx / DHL packages** | No — carriers deliver to street addresses, not PO Box numbers | Yes — all four carriers deliver to a PMB street address |
-| **Terms** | 3, 6, or 12-month prepaid, billed up front | Month-to-month, no prepayment |
-| **Typical cost** | Size-2 box: $41–$118 per 6 months by fee group (USPS, July 2026) | $15/month mail-only; $25/month with package receiving and alerts (full math in [our mailbox rental cost comparison](/articles/mailbox-rental-cost-comparison/)) |
-| **Forms** | PS Form 1093 + two IDs | PS Form 1583 + two IDs, filled with you at the counter |
-| **Pickup hours** | Post office lobby hours | Store hours: Mon–Fri 9–6, Sat 9–2 |
-| **Best for** | Pure letter mail, low volume, someone who rarely orders online | Anyone who gets packages, runs a business, or wants a street address on forms |
+|                                | PO Box                                                           | Private Mailbox (PMB)                                                                                                                                           |
+| ------------------------------ | ---------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Address type**               | Box number at a post office — not a street address               | Real street address plus your box number (7554 Fredle Dr #\_\_\_)                                                                                               |
+| **USPS mail**                  | Yes                                                              | Yes                                                                                                                                                             |
+| **UPS / FedEx / DHL packages** | No — carriers deliver to street addresses, not PO Box numbers    | Yes — all four carriers deliver to a PMB street address                                                                                                         |
+| **Terms**                      | 3, 6, or 12-month prepaid, billed up front                       | Month-to-month, no prepayment                                                                                                                                   |
+| **Typical cost**               | Size-2 box: $41–$118 per 6 months by fee group (USPS, July 2026) | $15/month mail-only; $25/month with package receiving and alerts (full math in [our mailbox rental cost comparison](/articles/mailbox-rental-cost-comparison/)) |
+| **Forms**                      | PS Form 1093 + two IDs                                           | PS Form 1583 + two IDs, filled with you at the counter                                                                                                          |
+| **Pickup hours**               | Post office lobby hours                                          | Store hours: Mon–Fri 9–6, Sat 9–2                                                                                                                               |
+| **Best for**                   | Pure letter mail, low volume, someone who rarely orders online   | Anyone who gets packages, runs a business, or wants a street address on forms                                                                                   |
 
 Where the PO Box wins: if your mail is truly letters-only — bills, cards, statements — and you already pass the post office regularly, a small box is a perfectly good, inexpensive slot. If that's you, take the small box and don't apologize for it.
 
