@@ -9,10 +9,9 @@ quickAnswer: >-
   FedEx has announced its 2027 general rate increase: a 5.9% average rise on
   U.S. package rates effective January 4, 2027 — with Ground rates up about
   6.1% and the FedEx Ground minimum charge climbing from $11.99 to $12.70.
-  UPS is expected to announce its own increase in October 2026, following its
-  5.9% pattern. Add fuel surcharges near 30% on ground service and new
-  paper-document fees of $25 and $5, and most small shippers will pay above
-  the 5.9% headline.
+  UPS has not
+  announced its 2027 numbers yet (its last cycle was 5.9% effective December
+  22, 2025). Fuel runs near 30% on ground service right now.
 pubDate: '2026-10-02T09:00:00-04:00'
 lastModified: '2026-10-02T09:00:00-04:00'
 status: 'published'
@@ -55,7 +54,7 @@ You do not have to compare 28,000 rate cells. The handful that hit your invoice 
 
 ## The Sigh You Make at the Counter
 
-It feels like January 5th, the first Tuesday of the new year — the first shipping day after the Monday holiday effects settle. The store is still warm from the holiday rush — leftover shipping labels curling on the counter, tape gun empty, your breath fogging on the drive over. You print a label for the same 3-pound box you shipped every week in December, and the number on the screen is eleven dollars and some change — not the nine you budgeted.
+It feels like January 5th, the first Tuesday of the new year — the first shipping day after the Monday holiday effects settle. The store is still warm from the holiday rush — leftover shipping labels curling on the counter, tape gun empty, your breath fogging on the drive over. You print a label for the same 3-pound box you shipped every week in December, and the number on the screen is eleven dollars and some change before fuel and the residential fee stack on top — the floor itself is about to move to $12.70, and it will not move alone.
 
 You stand there holding the box with both hands, the label half peeled, doing the math in your head while the clerk waits. You did this math in December, on the couch, with the December tables open in one browser tab and your spreadsheet in the other. Base rate, plus fuel, plus a little padding. What you did not have was the minimum charge — the floor FedEx charges no matter how light the box is. In 2026 that floor was $11.99. In 2027 it is $12.70. On a package that never actually costs $12.70 to ship, that floor is not a floor. It is the price. And your padding, which was sized off a 5.9% assumption, does not cover it — because the minimum rose 5.92% while your particular rate cells rose 6.49%, and the residential fee on top of it rose 7%, and the fuel percentage never went down.
 
@@ -94,7 +93,7 @@ UPS has not published its 2027 general rate increase as of early October 2026. U
 - **Last cycle, UPS raised rates 5.9% effective December 22, 2025** — its increase landed before the new year, not in January like FedEx's.
 - **UPS has matched FedEx's 5.9% headline for several years running.** What UPS does for 2027 is not announced yet — this article will say so plainly until the numbers are official.
 - **The 2026–27 peak surcharge schedule is already published and runs into 2027:** additional handling surcharges of $8.75, rising to $11.90 from November 22 through December 26; large package surcharges of $96.25 rising to $117.50 in the same window; and per-package demand fees of $0.50 on Ground Residential rising to $0.75 at peak ($2.50 on air). All of it runs through **January 16, 2027** — so the first two weeks of your 2027 shipping year carry 2026's peak fees on top of the new base rates.
-- **Fuel surcharges are near 30% on ground service right now.** The week of October 5, 2026, UPS's domestic ground fuel surcharge is 29.75% and FedEx Ground's is 29.75% — both set weekly, both riding on top of everything above. We track [the fuel surcharge separately](/articles/fuel-surcharge-shipping-costs/); for budgeting, assume it does not fall much in the first half of 2027.
+- **Fuel surcharges are near 30% on ground service right now.** The week of October 5, 2026, UPS's domestic ground fuel surcharge is 29.75% and FedEx Ground's is 29.75% — both set weekly, both riding on top of everything above. We track [the fuel surcharge separately](/articles/fuel-surcharge-shipping-costs/); budget on the number you see this week, and re-check it monthly — the tables reset every Monday.
 
 When UPS drops its number, you do not have to decode it alone. Bring your box in — we will show you which line changed and what it means for your shipping, the way we broke out [UPS's 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/).
 
