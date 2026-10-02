@@ -232,7 +232,7 @@ Published: 2026-10-02 | Updated: 2026-10-02
 
 You budget your shipping like you budget everything else — same boxes, same routes, a number you can carry into January. Then the carriers start publishing their 2027 rate tables, and the number you budgeted quietly stops being the number you pay.
 
-FedEx says 5.9%. Your January invoice will say something else — and UPS will follow later this month. The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
+FedEx says 5.9%. Your January invoice will say something else — and UPS has not announced its 2027 numbers yet. The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
 
 ## The Two-Number Trick
 
@@ -242,7 +242,7 @@ You do not have to compare 28,000 rate cells. The handful that hit your invoice 
 
 ## The Sigh You Make at the Counter
 
-It feels like January 5th, the first shipping Monday of the new year. The store is still warm from the holiday rush — leftover shipping labels curling on the counter, tape gun empty, your breath fogging on the drive over. You print a label for the same 3-pound box you shipped every week in December, and the number on the screen is eleven dollars and some change — not the nine you budgeted.
+It feels like January 5th, the first Tuesday of the new year — the first shipping day after the Monday holiday effects settle. The store is still warm from the holiday rush — leftover shipping labels curling on the counter, tape gun empty, your breath fogging on the drive over. You print a label for the same 3-pound box you shipped every week in December, and the number on the screen is eleven dollars and some change — not the nine you budgeted.
 
 You stand there holding the box with both hands, the label half peeled, doing the math in your head while the clerk waits. You did this math in December, on the couch, with the December tables open in one browser tab and your spreadsheet in the other. Base rate, plus fuel, plus a little padding. What you did not have was the minimum charge — the floor FedEx charges no matter how light the box is. In 2026 that floor was $11.99. In 2027 it is $12.70. On a package that never actually costs $12.70 to ship, that floor is not a floor. It is the price. And your padding, which was sized off a 5.9% assumption, does not cover it — because the minimum rose 5.92% while your particular rate cells rose 6.49%, and the residential fee on top of it rose 7%, and the fuel percentage never went down.
 
@@ -278,8 +278,8 @@ If you ship light, residential, non-metro — the way most online sellers ship �
 
 UPS has not published its 2027 general rate increase as of early October 2026. UPS usually follows FedEx by two or three weeks — so expect the announcement late October. What we can say with confidence, from UPS's own published record:
 
-- **Last cycle, UPS raised rates 5.9% effective December 22, 2025** — its increase lands before the new year, not in January like FedEx's. Plan on a similar late-December effective date for 2027.
-- **UPS has matched FedEx's 5.9% headline for several years running.** Expect 5.9% again — and expect the same fine-print pattern FedEx just demonstrated, because UPS runs the same playbook.
+- **Last cycle, UPS raised rates 5.9% effective December 22, 2025** — its increase landed before the new year, not in January like FedEx's.
+- **UPS has matched FedEx's 5.9% headline for several years running.** What UPS does for 2027 is not announced yet — this article will say so plainly until the numbers are official.
 - **The 2026–27 peak surcharge schedule is already published and runs into 2027:** additional handling surcharges of $8.75, rising to $11.90 from November 22 through December 26; large package surcharges of $96.25 rising to $117.50 in the same window; and per-package demand fees of $0.50 on Ground Residential rising to $0.75 at peak ($2.50 on air). All of it runs through **January 16, 2027** — so the first two weeks of your 2027 shipping year carry 2026's peak fees on top of the new base rates.
 - **Fuel surcharges are near 30% on ground service right now.** The week of October 5, 2026, UPS's domestic ground fuel surcharge is 29.75% and FedEx Ground's is 29.75% — both set weekly, both riding on top of everything above. We track [the fuel surcharge separately](/articles/fuel-surcharge-shipping-costs/); for budgeting, assume it does not fall much in the first half of 2027.
 
