@@ -40,6 +40,14 @@
       "immich_asset": "f3227680-5199-4798-b0c5-76d0152494b9",
       "vetted": "2026-09-24",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/counter/surcharge-counter.webp",
+      "topics": ["counter"],
+      "alt": "The pack-and-ship counter at Mailbox Plus in Concord Township, with the point-of-sale terminal, computer, and carrier rate sheets where every surcharge gets explained line by line.",
+      "immich_asset": "10b1b418-71cc-4201-82ed-6e7555e4c1f7",
+      "vetted": "2026-10-02",
+      "source_article": null
     }
   ]
 }
