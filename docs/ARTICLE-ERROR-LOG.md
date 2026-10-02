@@ -19,6 +19,7 @@ external agents. Owner-side (Hermes) writes, fixes, and merges them.
 | 2026-09-29 | #664 | Fact-check receipt verdict marker missing / placed in wrong column (claims gate needs ✅/⚠️/owner-verified in the VERDICT column) | ✅ preflight step 3c (scripts/preflight-verify-verdicts.mjs) — column-aware scan |
 | 2026-09-29 | #663 | Duplicate fact-check receipt in `content/drafts/` + `.factchecks/` confuses gate resolution | ✅ preflight step 3b auto-removes the drafts copy |
 | 2026-09-29 | (audit) | 4 legacy receipts on main lack verdict markers (`private-mailbox-vs-po-box`, `pack-ship-painesville-city`, `ship-fragile-items-safely-*`, `what-is-a-private-mailbox-pmb`) — predate the claims gate | ⚠️ open: do NOT batch-mark ✅ (rule 3). Next edit to any of these articles must include a real verdict pass; preflight now blocks it until then |
+| 2026-10-02 | #683 + #684 | Body store photo on CDN but missing from `content/store-photos.json` manifest (bot hand-rolled rclone upload, skipped `process_store_photos.py publish`) — CI `image:body` hard-fail twice in two days | ✅ 2-strike rule enforced: writer SOUL.md step 6b + workflow skill + nightly cron prompt — publish command is the ONLY body-photo path; hand uploads forbidden |
 
 ## Process
 
