@@ -36,7 +36,7 @@
     {
       "key": "articles/store-library/mailbox-wall/digital-mailbox-counter-01.webp",
       "topics": ["mailbox-wall"],
-      "alt": "The counter at Mailbox Plus in Concord Township, Ohio \u2014 the mailbox wall and copy center window where your postal mail gets sorted and scanned for your digital mailbox.",
+      "alt": "The counter at Mailbox Plus in Concord Township, Ohio — the mailbox wall and copy center window where your postal mail gets sorted and scanned for your digital mailbox.",
       "immich_asset": "f3227680-5199-4798-b0c5-76d0152494b9",
       "vetted": "2026-09-24",
       "source_article": null
@@ -48,6 +48,14 @@
       "immich_asset": "10b1b418-71cc-4201-82ed-6e7555e4c1f7",
       "vetted": "2026-10-02",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/mailbox-rentals/pmb-counter-01.webp",
+      "topics": ["mailbox-rentals", "pmb", "counter", "store-interior"],
+      "alt": "The Mailbox Plus counter in Concord Township, with PRIVATE MAILBOX on the storefront glass behind it",
+      "immich_asset": "unlogged (bot-generated pipeline asset; CDN 200 image/webp verified 2026-10-02)",
+      "vetted": "2026-10-02",
+      "source_article": "pmb-vs-po-box-comparison"
     }
   ]
 }
