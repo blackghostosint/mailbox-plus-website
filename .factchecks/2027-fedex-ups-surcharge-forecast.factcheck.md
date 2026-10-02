@@ -1,0 +1,30 @@
+# Fact-Check Receipt: 2027-fedex-ups-surcharge-forecast
+
+Checked 2026-10-02 against official/primary sources. All ⚠️ resolved or softened before PR.
+
+| # | Claim | Verdict | Source |
+|---|-------|---------|--------|
+| 1 | FedEx 2027 GRI: 5.9% average increase on U.S./export/import package standard list rates, effective Jan 4, 2027 <br>_Source note: — updated Sept 18, 2026 (annotation moved: bare URL required by claims gate)_ | ✅ | https://www.fedex.com/en-us/shipping/rate-changes.html |
+| 2 | Fourth consecutive year at 5.9% headline | ✅ | https://parcelindustry.com/article-6714-Beyond-the-59-What-Is-New-in-the-2027-FedEx-General-Rate-Increase-(GRI).html |
+| 3 | Ground rates rise ~6.1% avg, nearly uniform across zones (6.08–6.15%, zones 2–8) | ✅ | parcelindustry.com (Zone 2: 6.08%, Zone 5: 6.09%, Zone 7: 6.15%, Zone 8: 6.11%) + reveelgroup.com (6.1% avg) |
+| 4 | 1–5 lb Ground steepest at 6.49% | ✅ | parcelindustry.com ("1 to 5 lb Ground taking the steepest increase at 6.49%") |
+| 5 | Express Saver ~3.1% (3.09%) | ✅ | parcelindustry.com ("Express Saver lands all the way down at 3.09%") |
+| 6 | FedEx Ground minimum $11.99 → $12.70 (+5.92%); floor $11.32→$12.70 = +12.2% in two years | ✅ | parcelindustry.com minimum-charge table ("from $11.99 to $12.70"; "takes the Ground floor from $11.32 to $12.70 in two years, a compounded 12.2%") |
+| 7 | Four of five service minimums rise faster than their base rates | ✅ | parcelindustry.com ("four of five service minimums are climbing faster than their own base rates") |
+| 8 | $25 Paper Document Fee + $5 Paper Air Waybill Fee, effective Jan 18, 2027 <br>_Source note: (Effective Jan 18, 2027 section)_ | ✅ | https://www.fedex.com/en-us/shipping/rate-changes.html |
+| 9 | Residential Delivery Charge (Ground/Home Delivery) +7.0% to $6.90; Residential Pickup +9.2% to $6.50; Extended Residential DAS +9.1% $8.80→$9.60 | ✅ | https://reveelgroup.com/resources/fedex-2027-general-rate-increase/ |
+| 10 | 2,533 ZIP codes move Extended→Remote for 2027; residential DAS on those $8.80→$17.75; commercial $5.55→$17.75 | ✅ | reveelgroup.com ("2,533 contiguous-U.S. ZIP codes from the Extended DAS tier to Remote"; "residential... from $8.80 to $17.75"; "Commercial DAS... from $5.55 to $17.75") |
+| 11 | Zone reclassification for select origin-destination pairs effective Feb 1, 2027 | ✅ | fedex.com rate-changes.html ("Effective Feb.1, 2027") |
+| 12 | Analysts compared ~28,000 matched rate cells (2026 vs 2027) | ✅ | reveelgroup.com ("compared more than 28,000 matched rate cells") |
+| 13 | UPS 2027 GRI NOT announced as of early Oct 2026; expected later in October, historically 2–3 weeks after FedEx <br>_Source note: ("UPS is expected to announce its own 2027 GRI later in October")_ | ✅ | https://transportationinsight.com/resources/transportation-industry-trends-september-28-october-2-2026/ |
+| 14 | UPS 2026 GRI: 5.9% effective Dec 22, 2025 | ✅ | news-event-articles reference bank (carrier-fuel-surcharges-2026.md, verified during PR #272) |
+| 15 | UPS peak surcharges through Jan 16, 2027: Additional Handling $8.75→$11.90 (Nov 22–Dec 26); Large Package $96.25→$117.50; per-package demand $0.50 Ground Residential →$0.75 peak, $2.50 air | ✅ | content/articles/pack-ship/ups-holiday-surcharges-2026.md (PR-verified against UPS published tables) + UPS Aug 26 2026 demand-surcharge update (newsbreak/financial-wire summaries of UPS table: $8.75→$11.90, $96.25→$117.50, $0.50→$0.75 ground, $2.50 air, through Jan 16, 2027) |
+| 16 | USPS 8% time-limited price increase on Priority Mail Express, Priority Mail, Ground Advantage, Parcel Select through Jan 17, 2027 <br>_Source note: (verified PR #272)_ | ✅ | https://about.usps.com/newsroom/national-releases/2026/0325-usps-announces-transportation-related-time-limited-price-change.htm |
+| 17 | Fuel surcharges week of Oct 5, 2026: UPS domestic ground 29.75%, domestic air 32.25%; FedEx Ground 29.75% (week Sept 28–Oct 4); set weekly <br>_Source note: (10/05/2026 row: 29.75%/32.25%) and https://www.fedex.com/en-us/shipping/fuel-surcharge.html (Sept 28–Oct 4, 2026: 29.75%), fetched 2026-10-02_ | ✅ | https://www.ups.com/us/en/support/shipping-support/shipping-costs-rates/fuel-surcharges |
+| 18 | FedEx 2026 GRI 5.9% effective Jan 5, 2026 | ✅ | reference bank carrier-fuel-surcharges-2026.md (verified #272) — used only as context, softened in body to "several years"/announced dates per carrier |
+| 19 | Store details: 7554 Fredle Drive, Concord Township; multi-carrier (UPS/FedEx/USPS/DHL); ~3 min counter comparison | ✅ | astro/src/config/siteConfig.ts + existing published articles; comparison time consistent with prior verified articles |
+| 20 | "50 light ground packages a week" money example | ⚠️→✅ narrative device — framed as illustrative ("is looking at a gap"), no specific dollar figure claimed | narrative, not a factual claim |
+| 21 | "$25 if any paperwork goes on paper" budgeting step | ✅ | matches claim 8 ($25 Paper Document Fee); "if" conditional as in source |
+| 22 | "1,2027" mid-January stack reset: FedEx begins Jan 4, UPS peak ends Jan 16, USPS ends Jan 17 | ✅ | claims 8, 15, 16 combined; arithmetic consistent |
+
+Notes: All dollar figures traced to published carrier tables or PR-verified prior articles. UPS 2027 figures deliberately NOT forecast beyond the announcement timing — the article explicitly labels UPS's 2027 GRI as not yet announced. No invented prices. Fuel percentages are point-in-time (Oct 5, 2026) and the article says so.
