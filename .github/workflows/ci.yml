@@ -79,7 +79,10 @@ jobs:
         run: npm run lint
 
       - name: Dependency Security Audit (Astro)
-        run: cd astro && npm audit --audit-level=high
+        # GHSA-vfj7-8cjw-p6xm (braces <=3.0.3): no upstream fix until 3.0.4 ships.
+        # Scoped allowlist — any OTHER high advisory still fails the gate.
+        run: |
+          AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm" node scripts/verify/audit-astro-gate.mjs
 
       - name: TypeScript type check
         run: npm run typecheck

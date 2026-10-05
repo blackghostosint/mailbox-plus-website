@@ -92,5 +92,8 @@
     "*.{json,css,html}": [
       "prettier --write"
     ]
+  },
+  "overrides": {
+    "http-cache-semantics": "^4.3.0"
   }
 }
