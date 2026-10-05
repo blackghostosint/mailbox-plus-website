@@ -32,7 +32,7 @@ faqs:
   - question: 'What are Mailbox Plus fax hours?'
     answer: 'Monday through Friday 9:00 AM to 6:00 PM, Saturday 9:00 AM to 2:00 PM, closed Sunday. Bring the document and the fax number; we dial, watch the handshake complete, and hand you a printed confirmation sheet.'
   - question: 'Can I drop off a fax to send later?'
-    answer: 'Yes. Bring the document with the fax number written on it (or email it to us), pay for the send at the counter, and it goes out first thing the next business morning. You get the same confirmation sheet as a walk-in send.'
+    answer: 'The counter confirms what it can do when you call — the store's published services are sending and receiving with a confirmation sheet for every send, during posted hours.'
   - question: 'Do online fax apps count as a 24-hour fax service?'
     answer: 'They run around the clock, but they are not a fax machine: you still need a way to turn paper into a PDF (a printer-scanner most people do not own), a subscription or per-page card charge, and no one watches the handshake — delivery depends on the machine at the other end answering.'
 ---
@@ -41,7 +41,7 @@ faqs:
 
 Your deadline is 5 p.m. Your workday ends at 5 p.m. And the document — a signed agreement, an insurance claim, a records request — can only travel by fax, because the office on the other end says so. That is the whole bind, and you already know it: the page is ready, the number is written down, and there is no machine between you and the deadline.
 
-It should work like any other errand: hand over a page, dial, walk out with proof it went through. At Mailbox Plus in Concord Township that is exactly what it takes — and when the deadline lands after our doors close, there is a drop-off that puts your fax first in line the next business morning.
+It should work like any other errand: hand over a page, dial, walk out with proof it went through. At Mailbox Plus in Concord Township that is exactly what it takes — and when the deadline lands after our doors close, calling ahead is the honest next stepur fax first in line the next business morning.
 
 ## Say It Plainly: The Nine-to-Five Fax Trap
 
@@ -73,11 +73,11 @@ The fax is rarely your only stop. If the document also needs [a notary stamp bef
 
 ## Walk In. Set It Down. Walk Out.
 
-1. **Bring or email the document.** Walk in with the paper and the fax number written on it, or email the file ahead of time and we print it here. Pay for the send when you drop it off.
+1. **Bring the document.** Walk in with the paper and the fax number written on it. Pay for the send at the counter.
 2. **We dial at the counter.** A person sends it, watches the transmission complete, and re-dials on failure — no kiosk, no unattended out-tray.
 3. **You get the confirmation sheet.** Printed proof with the date, time, and result. For incoming faxes we hold the pages securely until you pick them up.
 
-For after-hours deadlines: drop the document and number off before we close — or email it in — and it is the first send the next business morning. The deadline you missed at 5:01 p.m. is met at 9:01 a.m. instead of Friday.
+For after-hours deadlines: call the store and confirm what the counter can do that day — hours are on this page, and the clerk will tell you straight whether a drop-off arrangement works for your deadline.
 
 ## What You Give Up by Defaulting
 
@@ -89,7 +89,7 @@ For after-hours deadlines: drop the document and number off before we close — 
 
 ## What a Normal Thursday Looks Like Now
 
-The same phone call at 4:40 p.m. — "you will need to fax that over." You email the document to us before you leave work, or you swing by on Friday morning on the way in: seven or eight minutes from Mentor, straight down Route 44, and you are parked at our door on Fredle Drive. You hand over one page and read the number off the form. The machine chirps through the handshake, the confirmation sheet prints, and it is in your hand before you are back in the car. The errand took less time than the phone call. Nothing about your lunch hour was involved.
+The same phone call at 4:40 p.m. — "you will need to fax that over." You swing by on Friday morning on the way in: seven or eight minutes from Mentor, straight down Route 44, and you are parked at our door on Fredle Drive. You hand over one page and read the number off the form. The machine chirps through the handshake, the confirmation sheet prints, and it is in your hand before you are back in the car. The errand took less time than the phone call. Nothing about your lunch hour was involved.
 
 ## No Prep, No Apologies: Just Hand It Over
 
