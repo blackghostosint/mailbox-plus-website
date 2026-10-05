@@ -41,5 +41,8 @@
     "happy-dom": "^20.14.5",
     "typescript": "^5.9.3",
     "vitest": "^4.1.7"
+  },
+  "overrides": {
+    "http-cache-semantics": "^4.3.0"
   }
 }
