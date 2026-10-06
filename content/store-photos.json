@@ -64,6 +64,14 @@
       "immich_asset": "db44bb10-8fc7-4988-9bee-d5db800cba92",
       "vetted": "2026-10-05",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/packing/box-on-scale-01.webp",
+      "topics": ["packing"],
+      "alt": "A sealed cardboard box on the parcel scale at the Mailbox Plus counter, ready for a carrier pickup",
+      "immich_asset": "56566ecc-4cad-40d1-8d00-b0f9cb8dd5e5",
+      "vetted": "2026-10-06",
+      "source_article": null
     }
   ]
 }
