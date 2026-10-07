@@ -70,7 +70,12 @@ export const ReviewsQuerySchema = z.object({}).optional();
 
 export const ReviewDtoSchema = z.object({
   author: z.string().optional(),
-  authorUri: z.string().optional(),
+  authorUri: z
+    .string()
+    .refine((val) => !val || /^https?:\/\//i.test(val.trim()), {
+      message: 'authorUri must start with http:// or https://',
+    })
+    .optional(),
   rating: z.number().optional(),
   text: z.string().optional(),
   relativeTime: z.string().optional(),
