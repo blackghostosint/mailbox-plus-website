@@ -175,6 +175,30 @@ describe('BrowserStorage Utility Module', () => {
       expect(isStorageAvailable('local')).toBe(true);
     });
 
+    it('is non-destructive and preserves pre-existing storage keys and values', () => {
+      sessionStorage.setItem('mbp:user_session', 'active-session-token');
+      const initialLength = sessionStorage.length;
+
+      expect(isStorageAvailable('session')).toBe(true);
+
+      expect(sessionStorage.length).toBe(initialLength);
+      expect(sessionStorage.getItem('mbp:user_session')).toBe('active-session-token');
+    });
+
+    it('restores pre-existing value if probe key already exists in storage', () => {
+      const mockRandom = vi.spyOn(Math, 'random').mockReturnValue(0.123456789);
+      const mockDate = vi.spyOn(Date, 'now').mockReturnValue(1000000);
+      const expectedKey = '__mbp_storage_test_4fzzzxg_1000000__';
+
+      sessionStorage.setItem(expectedKey, 'original-value');
+
+      expect(isStorageAvailable('session')).toBe(true);
+      expect(sessionStorage.getItem(expectedKey)).toBe('original-value');
+
+      mockRandom.mockRestore();
+      mockDate.mockRestore();
+    });
+
     it('returns false when storage throws an exception', () => {
       const spy = vi.spyOn(window.sessionStorage, 'setItem').mockImplementation(() => {
         throw new DOMException('Denied', 'SecurityError');

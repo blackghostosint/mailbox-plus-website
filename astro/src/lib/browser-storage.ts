@@ -78,10 +78,16 @@ export function isStorageAvailable(type: StorageType = 'session'): boolean {
   try {
     const storage = type === 'local' ? window.localStorage : window.sessionStorage;
     if (!storage) return false;
-    const testKey = '__mbp_storage_test__';
+    const testKey = `__mbp_storage_test_${Math.random().toString(36).slice(2)}_${Date.now()}__`;
+    const existingValue = storage.getItem(testKey);
     storage.setItem(testKey, testKey);
-    storage.removeItem(testKey);
-    return true;
+    const readValue = storage.getItem(testKey);
+    if (existingValue !== null) {
+      storage.setItem(testKey, existingValue);
+    } else {
+      storage.removeItem(testKey);
+    }
+    return readValue === testKey;
   } catch {
     return false;
   }
