@@ -20,18 +20,38 @@ try {
   raw = e.stdout || '';
 }
 
+if (!raw || typeof raw !== 'string' || !raw.trim()) {
+  console.error('❌ astro audit gate failed: empty stdout from npm audit');
+  process.exit(1);
+}
+
 let data;
 try {
   data = JSON.parse(raw);
-} catch {
-  data = { vulnerabilities: {} };
+} catch (err) {
+  console.error('❌ astro audit gate failed: unable to parse JSON output from npm audit');
+  process.exit(1);
+}
+
+if (!data || typeof data !== 'object' || data.error) {
+  console.error(
+    '❌ astro audit gate failed: invalid audit payload or npm audit error (' +
+      (data?.error?.summary || data?.error?.code || 'unknown') +
+      ')'
+  );
+  process.exit(1);
+}
+
+if (!data.vulnerabilities || typeof data.vulnerabilities !== 'object') {
+  console.error('❌ astro audit gate failed: missing vulnerabilities object');
+  process.exit(1);
 }
 
 const offenders = [];
-for (const [name, v] of Object.entries(data.vulnerabilities || {})) {
-  if (v.severity !== 'high') continue;
+for (const [name, v] of Object.entries(data.vulnerabilities)) {
+  if (v.severity !== 'high' && v.severity !== 'critical') continue;
   for (const a of v.via || []) {
-    if (typeof a === 'object' && a.url) {
+    if (typeof a === 'object' && a?.url) {
       const id = a.url.split('/').pop();
       if (!ALLOW.includes(id)) offenders.push(`${id} (${name})`);
     }
