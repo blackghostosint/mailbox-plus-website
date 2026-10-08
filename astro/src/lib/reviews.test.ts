@@ -189,6 +189,58 @@ describe('reviews module', () => {
       const authorP = card.querySelector('footer p');
       expect(authorP?.textContent).toBe('Google User');
     });
+
+    it('renders an anchor link for valid http:// authorUri', () => {
+      const review: ReviewItem = {
+        rating: 5,
+        text: 'Great experience!',
+        author: 'John Smith',
+        authorUri: 'http://maps.google.com/contrib/456',
+      };
+
+      const card = buildReviewCard(review);
+
+      const authorLink = card.querySelector('footer a') as HTMLAnchorElement | null;
+      expect(authorLink).not.toBeNull();
+      expect(authorLink?.textContent).toBe('John Smith');
+      expect(authorLink?.href).toBe('http://maps.google.com/contrib/456');
+    });
+
+    it('renders a static text paragraph and no anchor element for unsafe javascript: authorUri', () => {
+      const review: ReviewItem = {
+        rating: 5,
+        text: 'Malicious review attempt',
+        author: 'Hacker',
+        authorUri: 'javascript:alert(1)',
+      };
+
+      const card = buildReviewCard(review);
+
+      const authorLink = card.querySelector('footer a');
+      expect(authorLink).toBeNull();
+
+      const authorP = card.querySelector('footer p');
+      expect(authorP).not.toBeNull();
+      expect(authorP?.textContent).toBe('Hacker');
+    });
+
+    it('renders a static text paragraph and no anchor element for unsafe data: authorUri', () => {
+      const review: ReviewItem = {
+        rating: 5,
+        text: 'Data URI attempt',
+        author: 'Attacker',
+        authorUri: 'data:text/html,<script>alert("xss")</script>',
+      };
+
+      const card = buildReviewCard(review);
+
+      const authorLink = card.querySelector('footer a');
+      expect(authorLink).toBeNull();
+
+      const authorP = card.querySelector('footer p');
+      expect(authorP).not.toBeNull();
+      expect(authorP?.textContent).toBe('Attacker');
+    });
   });
 
   describe('initReviewSection', () => {
