@@ -84,6 +84,9 @@ jobs:
         run: |
           AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm" node scripts/verify/audit-astro-gate.mjs
 
+      - name: Dependency Security Audit (Netlify Functions)
+        run: npm run audit:functions
+
       - name: TypeScript type check
         run: npm run typecheck
 
