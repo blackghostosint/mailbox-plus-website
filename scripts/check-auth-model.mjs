@@ -16,6 +16,10 @@ import path from 'node:path';
 
 const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models/i;
 const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
+const IGNORED_FUNCTIONS_PATTERNS = [
+  /^netlify\/functions\/package(-lock)?\.json$/,
+  /^netlify\/functions\/tsconfig\.json$/,
+];
 
 /**
  * Validates PR body for Endpoint Authentication Models section when netlify/functions/ are changed.
@@ -24,7 +28,12 @@ const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
  * @param {string[]} [params.changedFiles]
  */
 export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
-  const functionsTouched = changedFiles.some((f) => f.startsWith('netlify/functions/'));
+  const functionFiles = changedFiles.filter(
+    (f) =>
+      f.startsWith('netlify/functions/') &&
+      !IGNORED_FUNCTIONS_PATTERNS.some((pattern) => pattern.test(f))
+  );
+  const functionsTouched = functionFiles.length > 0;
   if (!functionsTouched) {
     return {
       success: true,
