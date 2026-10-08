@@ -111,17 +111,17 @@ const recaptchaSiteKey =
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField id="acc-name" label="Full Name" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="text" id="acc-name" name="name" required aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your full name" />
+            <input type="text" id="acc-name" name="name" autocomplete="name" required aria-label="Full name" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your full name" />
           </FormField>
 
           <FormField id="acc-email" label="Email Address" required labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="email" id="acc-email" name="email" required aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your email address" />
+            <input type="email" id="acc-email" name="email" autocomplete="email" required aria-label="Email address" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="Enter your email address" />
           </FormField>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField id="acc-phone" label="Phone Number" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
-            <input type="tel" id="acc-phone" name="phone" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="(440) 555-0123" />
+            <input type="tel" id="acc-phone" name="phone" autocomplete="tel" aria-label="Phone number" class="w-full px-4 py-3 rounded-xl bg-white border border-[var(--color-border)] focus:border-[var(--color-accent-warm)] focus:ring-2 focus:ring-[var(--color-border-strong)] focus:outline-none transition-all shadow-sm" placeholder="(440) 555-0123" />
           </FormField>
 
           <FormField id="acc-url" label="Webpage URL / Feature Location" labelClassName="text-sm font-semibold text-[var(--color-text-primary)]">
