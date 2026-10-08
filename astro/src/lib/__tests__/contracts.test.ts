@@ -67,6 +67,7 @@ import {
   CreateCheckoutSuccessSchema,
   SendEmailSuccessSchema,
   ReviewsSuccessSchema,
+  ReviewDtoSchema,
   VerifySessionSuccessSchema,
   HealthSuccessSchema,
   ErrorResponseSchema,
@@ -245,6 +246,23 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       };
       const parsed = ReviewsSuccessSchema.safeParse(mutatedBackendOutput);
       expect(parsed.success).toBe(false);
+    });
+
+    it('accepts valid http and https schemes and empty authorUri in ReviewDtoSchema', () => {
+      expect(ReviewDtoSchema.safeParse({ authorUri: 'https://maps.google.com/123' }).success).toBe(
+        true
+      );
+      expect(ReviewDtoSchema.safeParse({ authorUri: 'http://maps.google.com/123' }).success).toBe(
+        true
+      );
+      expect(ReviewDtoSchema.safeParse({ authorUri: '' }).success).toBe(true);
+      expect(ReviewDtoSchema.safeParse({}).success).toBe(true);
+    });
+
+    it('rejects unsafe URI schemes in ReviewDtoSchema', () => {
+      expect(ReviewDtoSchema.safeParse({ authorUri: 'javascript:alert(1)' }).success).toBe(false);
+      expect(ReviewDtoSchema.safeParse({ authorUri: 'data:text/html,test' }).success).toBe(false);
+      expect(ReviewDtoSchema.safeParse({ authorUri: 'ftp://example.com' }).success).toBe(false);
     });
   });
 
