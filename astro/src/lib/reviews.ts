@@ -55,7 +55,8 @@ export function buildReviewCard(r: ReviewItem): HTMLElement {
   // Footer / author
   const footer = document.createElement('footer');
   footer.className = 'mt-4 pt-4 border-t border-[var(--color-border)]';
-  if (r.authorUri) {
+  const isSafeUri = Boolean(r.authorUri && /^https?:\/\//i.test(r.authorUri.trim()));
+  if (isSafeUri && r.authorUri) {
     const a = document.createElement('a');
     a.href = r.authorUri;
     a.target = '_blank';
