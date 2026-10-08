@@ -64,13 +64,13 @@ You shipped the box on a Tuesday and texted her "should be there by the weekend.
 
 Your label was already paid for when USPS erased the promise. You're thumb-typing "still in Memphis, I think" at the kitchen table, her unopened birthday card under your coffee mug.
 
-Don't reflexively upgrade. On these lanes, Priority often buys you one day while your box still rides the same truck and boat. If you don't compare the real dates, you're paying extra for a maybe.
+Don't reflexively upgrade. The receipt here verifies only what USPS published: Ground Advantage to these lanes now carries a 10-days-plus standard, Priority Mail 2-4 days (2-6 to the Pacific territories). Whether Priority's days saved are worth the upcharge depends on your lane and your deadline — compare the two quoted dates before you pay.
 
 ## Before You Pay, Ask For the Real Date
 
 Hand us the box and we'll read the numbers back to you: Ground Advantage, UPS, FedEx — what each costs and which one actually gets there. If Ground Advantage's price is worth a slower clock for your situation, we'll say that too. If your daughter's birthday does not bend, we will get you a faster option instead.
 
-When you walk in, we tell you the real date before you pay — not the old 2-5 day promise. If USPS moves the goalposts, we call you with the new date before your box gets scanned — so you're not the one explaining the delay.
+When you walk in, we tell you the real date before you pay — not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices will reach you — the clerk can walk you through reading the new service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
 
 ## How to Hand It Off Without Guessing
 
@@ -82,7 +82,7 @@ When you walk in, we tell you the real date before you pay — not the old 2-5 d
 
 Leave it alone and the box lands the 22nd. The candles are already out — you're texting a photo of the gift instead of watching your daughter open it.
 
-And the 2026 hub consolidation that added a day to some rural lanes earlier this year shows this will happen again without a press release. We read the bulletins every morning, so you hear it from us before your box moves.
+And the 2026 hub consolidation that added a day to some rural lanes earlier this year shows this will happen again without a press release. The bulletins are public — PostalPro publishes every service-standard change, and the change that matters here took effect October 1 with no press release. Checking one before you quote a date beats explaining a late box after the fact.
 
 ## No Prep, No Apologies: Just Hand It Over
 
