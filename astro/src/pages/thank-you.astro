@@ -191,27 +191,20 @@ const storeHours = [
   <script>
     import { trackPurchase } from '../lib/analytics';
     import { verifyCheckoutSession } from '../lib/verify-session';
+    import { getStorageItem, setStorageItem } from '../lib/browser-storage';
 
     (() => {
       const params = new URLSearchParams(window.location.search);
       const sessionId = params.get('session_id');
       if (!sessionId) return;
 
-      const flag = 'purchase_fired_' + sessionId;
-      try {
-        if (sessionStorage.getItem(flag)) return;
-      } catch {
-        /* ignore storage errors */
-      }
+      const flag = `purchase_fired_${sessionId}`;
+      if (getStorageItem(flag)) return;
 
       verifyCheckoutSession(sessionId)
         .then((data) => {
           if (!data || !data.ok) return;
-          try {
-            sessionStorage.setItem(flag, '1');
-          } catch {
-            /* ignore storage errors */
-          }
+          setStorageItem(flag, '1');
 
           const value = typeof data.amount === 'number' ? data.amount : 0;
           const currency = data.currency || 'USD';

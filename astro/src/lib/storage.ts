@@ -1,4 +1,6 @@
 /* global process */
+export * from './browser-storage';
+
 export const getServiceImageUrl = (imagePath: string): string => {
   if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
     return imagePath;
