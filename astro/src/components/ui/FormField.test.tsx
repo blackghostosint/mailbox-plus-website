@@ -150,4 +150,34 @@ describe('FormField Component', () => {
     expect(screen.getByText('Text Only')).not.toBeNull();
     expect(screen.getByText('Plain string content')).not.toBeNull();
   });
+
+  it('preserves autocomplete attribute on child input elements', () => {
+    render(
+      <FormField id="name-field" label="Full Name">
+        <input type="text" aria-label="Full Name" autoComplete="name" />
+      </FormField>
+    );
+
+    const input = screen.getByRole('textbox');
+    expect(input.getAttribute('autocomplete')).toBe('name');
+  });
+
+  it('preserves email and tel autocomplete attributes on child controls', () => {
+    render(
+      <>
+        <FormField id="email-field" label="Email Address">
+          <input type="email" aria-label="Email Address" autoComplete="email" />
+        </FormField>
+        <FormField id="phone-field" label="Phone Number">
+          <input type="tel" aria-label="Phone Number" autoComplete="tel" />
+        </FormField>
+      </>
+    );
+
+    const emailInput = screen.getByRole('textbox', { name: /email address/i });
+    expect(emailInput.getAttribute('autocomplete')).toBe('email');
+
+    const phoneInput = document.querySelector('input[type="tel"]') as HTMLInputElement;
+    expect(phoneInput.getAttribute('autocomplete')).toBe('tel');
+  });
 });
