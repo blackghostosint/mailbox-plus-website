@@ -1,6 +1,15 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { articleLoader, invalidateArticleCache, parseArticleFrontmatter } from './articleLoader';
 import matter from 'gray-matter';
+import { execFileSync } from 'node:child_process';
+
+vi.mock('node:child_process', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('node:child_process')>();
+  return {
+    ...actual,
+    execFileSync: vi.fn(actual.execFileSync),
+  };
+});
 
 vi.mock('gray-matter', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
@@ -355,6 +364,75 @@ describe('articleLoader', () => {
       );
       expect(result.pubDate).not.toBe('');
       expect(isNaN(Date.parse(result.pubDate))).toBe(false);
+    });
+
+    it('uses execFileSync to query git log for lastModified metadata when not provided in frontmatter', () => {
+      vi.mocked(execFileSync).mockReturnValue('2026-10-01T12:00:00.000Z\n' as unknown as string);
+
+      const sparseData = {
+        title: 'Sparse Article',
+      };
+
+      const result = parseArticleFrontmatter(
+        sparseData,
+        '../../../content/articles/notary/concord-township-notary.md',
+        false
+      );
+
+      expect(execFileSync).toHaveBeenCalledWith(
+        'git',
+        ['log', '-1', '--format=%cI', '--', expect.any(String)],
+        expect.objectContaining({
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        })
+      );
+      expect(result.lastModified).toBe('2026-10-01T12:00:00.000Z');
+    });
+
+    it('safely passes paths with shell metacharacters as array elements to execFileSync without shell invocation', () => {
+      vi.mocked(execFileSync).mockReturnValue('2026-10-02T15:30:00.000Z\n' as unknown as string);
+
+      const sparseData = {
+        title: 'Article with complex path',
+      };
+      const complexPath = 'content/articles/test; $(rm -rf /) "$VAR" & file.md';
+
+      const result = parseArticleFrontmatter(sparseData, complexPath, false);
+
+      expect(execFileSync).toHaveBeenCalledWith(
+        'git',
+        [
+          'log',
+          '-1',
+          '--format=%cI',
+          '--',
+          expect.stringContaining('test; $(rm -rf /) "$VAR" & file.md'),
+        ],
+        expect.objectContaining({
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        })
+      );
+      expect(result.lastModified).toBe('2026-10-02T15:30:00.000Z');
+    });
+
+    it('handles git execFileSync errors gracefully without failing', () => {
+      vi.mocked(execFileSync).mockImplementation(() => {
+        throw new Error('git not found or not a git repository');
+      });
+
+      const sparseData = {
+        title: 'Sparse Article',
+      };
+
+      const result = parseArticleFrontmatter(
+        sparseData,
+        '../../../content/articles/notary/concord-township-notary.md',
+        false
+      );
+
+      expect(result.lastModified).toBeUndefined();
     });
   });
 });
