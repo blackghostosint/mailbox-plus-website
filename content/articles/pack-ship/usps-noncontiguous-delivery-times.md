@@ -33,7 +33,7 @@ faqs:
   - question: 'Did Priority Mail delivery times change too?'
     answer: 'Yes. Effective Oct. 1, 2026, Priority Mail service expectations to or from Alaska, Hawaii, American Samoa, Puerto Rico, and the U.S. Virgin Islands moved from the typical 2-3 days to 2-4 days. For Guam, the Northern Mariana Islands, Micronesia, the Marshall Islands, and Palau, the expectation is now 2-6 days.'
   - question: 'Did the price of shipping change?'
-    answer: 'No. The September 2026 USPS notice changed published service expectations, not prices. Priority Mail Express expectations were left unchanged, and USPS said Priority Mail transportation modes and timing should not be affected by the adjustment.'
+    answer: 'No. The October 1 notice USPS published covers service standards — how long delivery takes — not prices; the notice does not state a price change. Watch for a separate announcement if rates move. Priority Mail Express expectations were left unchanged, and USPS said Priority Mail transportation modes and timing should not be affected by the adjustment.'
   - question: 'Why did USPS make this change?'
     answer: 'USPS calls it matching the promise to reality. Translation: the old promise never matched the distance, time zones, and trucks and boats they actually use. Sub-pound Ground Advantage packages to noncontiguous destinations also now move by surface transportation instead of a mix of air and surface.'
   - question: 'Can I use UPS or FedEx instead for faster delivery to Alaska or Hawaii?'
@@ -44,7 +44,7 @@ faqs:
 
 Your daughter's box for Anchorage is on the counter. It is due Friday — her birthday is the following week, and you promised. The clerk's screen says what it has said for years: a few days, five at most. You pay and you leave.
 
-Except the Postal Service changed the fine print on October 1, and the number for a box like yours is no longer a few days. It is "10 days or more." Some lanes even longer. The only notice was a PostalPro bulletin most shippers never open.
+Except the Postal Service changed the fine print on October 1, and the number for a box like yours is no longer a few days. It is "10 days or more." Some lanes even longer. The notice that carried it was a PostalPro bulletin most shippers never open.
 
 ## Here's the Number That Changed Under You
 
@@ -54,7 +54,7 @@ You paid under the old promise. USPS had already filed the new one on September 
 
 **Priority Mail** — long quoted as 2-3 days — is now **2-4 days** to or from Alaska, Hawaii, American Samoa, Puerto Rico, and the U.S. Virgin Islands, and **2-6 days** to or from the Pacific territories.
 
-And here's the buried kicker: if your box is under a pound, it now rides a truck and a boat — the same lane heavier packages already used. Nobody told you when you paid. That is not you misreading a label. That is USPS republishing the standard after your money cleared.
+And here's the buried kicker: if your box is under a pound, USPS says it will "primarily" move by surface transportation — the same slower lane heavier packages already used. Nobody told you when you paid. That is not you misreading a label. That is USPS republishing the standard after your money cleared.
 
 ## The Weekend That Passed Without the Box
 
@@ -68,21 +68,21 @@ Don't reflexively upgrade. The receipt here verifies only what USPS published: G
 
 ## Before You Pay, Ask For the Real Date
 
-Hand us the box and we'll read the numbers back to you: Ground Advantage, UPS, FedEx — what each costs and which one actually gets there. If Ground Advantage's price is worth a slower clock for your situation, we'll say that too. If your daughter's birthday does not bend, we will get you a faster option instead.
+Hand us the box and the counter can show you the published service standards side by side — Ground Advantage, UPS, FedEx — so the choice is yours with the dates in front of you. get you a faster option instead.
 
-When you walk in, we tell you the real date before you pay — not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices will reach you — the clerk can walk you through reading the new service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
+When you walk in, the printed service standard for your lane is on the receipt before you pay — not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices will reach you — the clerk can walk you through reading the new service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
 
 ## How to Hand It Off Without Guessing
 
 1. **Walk in with what you have.** Bring it however it is — packed, half-packed, or just a pile of stuff. We'll tape and cushion it at the counter, or you can [drop off a labeled box](/pack-ship/package-drop-offs/) if that's easier.
-2. **Tell us the destination and the deadline.** "Anchorage by the 14th" is a complete sentence. We hand you the real date for each carrier.
+2. **Tell us the destination and the deadline.** "Anchorage by the 14th" is a complete sentence. The published standard for each carrier is right there to compare.
 3. **Pay for the timeline that fits.** Not the cheapest option that will quietly miss the date, and not the fastest option when the cheap one genuinely gets there in time. Then you walk out with a tracking number that means what it says.
 
 ## The Cost of Leaving It Alone
 
 Leave it alone and the box lands the 22nd. The candles are already out — you're texting a photo of the gift instead of watching your daughter open it.
 
-And the 2026 hub consolidation that added a day to some rural lanes earlier this year shows this will happen again without a press release. The bulletins are public — PostalPro publishes every service-standard change, and the change that matters here took effect October 1 with no press release. Checking one before you quote a date beats explaining a late box after the fact.
+And the 2026 hub consolidation that added a day to some rural lanes earlier this year shows these changes can land quietly. The bulletins are public — PostalPro publishes every service-standard change, and the change that matters here took effect October 1. Checking one before you quote a date beats explaining a late box after the fact.
 
 ## No Prep, No Apologies: Just Hand It Over
 
