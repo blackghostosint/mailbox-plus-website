@@ -64,6 +64,14 @@
       "immich_asset": "db44bb10-8fc7-4988-9bee-d5db800cba92",
       "vetted": "2026-10-05",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/packing/jewelry-watch-01.webp",
+      "topics": ["packing"],
+      "alt": "A high-value wristwatch being prepared for secure shipment on the packing counter at Mailbox Plus in Concord Township, OH.",
+      "immich_asset": "7b8546e9-3a02-4209-baea-eb72f7bbea52",
+      "vetted": "2026-10-08",
+      "source_article": null
     }
   ]
 }
