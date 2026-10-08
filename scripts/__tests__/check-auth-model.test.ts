@@ -12,6 +12,22 @@ describe('check-auth-model', () => {
     expect(result.functionsTouched).toBe(false);
   });
 
+  it('passes when only package/config files under netlify/functions/ are changed', () => {
+    const result = checkAuthModel({
+      body: 'Lockfile update PR description',
+      changedFiles: [
+        'package.json',
+        'package-lock.json',
+        'netlify/functions/package-lock.json',
+        'netlify/functions/package.json',
+        'netlify/functions/tsconfig.json',
+      ],
+    });
+
+    expect(result.success).toBe(true);
+    expect(result.functionsTouched).toBe(false);
+  });
+
   it('rejects when netlify/functions/ files are changed but Endpoint Authentication Models section is missing', () => {
     const result = checkAuthModel({
       body: 'This PR fixes a bug in the endpoint.\n\n## Summary\nUpdated function logic.',
