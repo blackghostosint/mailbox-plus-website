@@ -4,7 +4,7 @@ import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.
@@ -98,7 +98,7 @@ export function parseArticleFrontmatter(
             : process.cwd();
         const absolutePath = path.resolve(baseDir, filePath);
         const relFromRoot = path.relative(path.resolve(baseDir, '../../..'), absolutePath);
-        const gitDate = execSync(`git log -1 --format=%cI -- "${relFromRoot}"`, {
+        const gitDate = execFileSync('git', ['log', '-1', '--format=%cI', '--', relFromRoot], {
           cwd: path.resolve(baseDir, '../../..'),
           encoding: 'utf8',
           stdio: ['ignore', 'pipe', 'ignore'],
