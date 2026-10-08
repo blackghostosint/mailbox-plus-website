@@ -33,7 +33,7 @@ faqs:
   - question: 'Did Priority Mail delivery times change too?'
     answer: 'Yes. Effective Oct. 1, 2026, Priority Mail service expectations to or from Alaska, Hawaii, American Samoa, Puerto Rico, and the U.S. Virgin Islands moved from the typical 2-3 days to 2-4 days. For Guam, the Northern Mariana Islands, Micronesia, the Marshall Islands, and Palau, the expectation is now 2-6 days.'
   - question: 'Did the price of shipping change?'
-    answer: 'No. The October 1 notice USPS published covers service standards — how long delivery takes — not prices; the notice does not state a price change. Watch for a separate announcement if rates move. Priority Mail Express expectations were left unchanged, and USPS said Priority Mail transportation modes and timing should not be affected by the adjustment.'
+    answer: 'The October 1 notice USPS published covers service standards — how long delivery takes — not prices; it does not state a price change either way. Watch for a separate announcement if rates move. Priority Mail Express expectations were left unchanged, and USPS said Priority Mail transportation modes and timing should not be affected by the adjustment.'
   - question: 'Why did USPS make this change?'
     answer: 'USPS calls it matching the promise to reality. Translation: the old promise never matched the distance, time zones, and trucks and boats they actually use. Sub-pound Ground Advantage packages to noncontiguous destinations also now move by surface transportation instead of a mix of air and surface.'
   - question: 'Can I use UPS or FedEx instead for faster delivery to Alaska or Hawaii?'
@@ -68,9 +68,9 @@ Don't reflexively upgrade. The receipt here verifies only what USPS published: G
 
 ## Before You Pay, Ask For the Real Date
 
-Hand us the box and the counter can show you the published service standards side by side — Ground Advantage, UPS, FedEx — so the choice is yours with the dates in front of you. get you a faster option instead.
+Hand us the box and the counter can show you the published service standards side by side — Ground Advantage, UPS, FedEx — so the choice is yours with the dates in front of you.
 
-When you walk in, the printed service standard for your lane is on the receipt before you pay — not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices will reach you — the clerk can walk you through reading the new service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
+When you walk in, ask for the service standard for your lane before you pay — the published number, not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices reach you directly — check the service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
 
 ## How to Hand It Off Without Guessing
 
