@@ -40,6 +40,45 @@ describe('audit-functions-gate.mjs', () => {
       expect(offenders).toEqual([]);
     });
 
+    it('does NOT permit package names in allowlist to pass advisories', () => {
+      const offenders = evaluateAuditData(sampleAuditWithVuln, ['@fastify/busboy']);
+      expect(offenders).toEqual(['GHSA-xjh9-v7x6-24jw (@fastify/busboy)']);
+    });
+
+    it('flags a second non-allowlisted advisory for an allowlisted package', () => {
+      const sampleWithTwoAdvisories = {
+        auditReportVersion: 2,
+        vulnerabilities: {
+          '@fastify/busboy': {
+            name: '@fastify/busboy',
+            severity: 'high',
+            isDirect: true,
+            via: [
+              {
+                source: 1098234,
+                name: '@fastify/busboy',
+                dependency: '@fastify/busboy',
+                title: 'Denial of Service in @fastify/busboy',
+                url: 'https://github.com/advisories/GHSA-xjh9-v7x6-24jw',
+                severity: 'high',
+              },
+              {
+                source: 1098235,
+                name: '@fastify/busboy',
+                dependency: '@fastify/busboy',
+                title: 'Prototype Pollution in @fastify/busboy',
+                url: 'https://github.com/advisories/GHSA-second-advisory-id',
+                severity: 'high',
+              },
+            ],
+          },
+        },
+      };
+
+      const offenders = evaluateAuditData(sampleWithTwoAdvisories, ['GHSA-xjh9-v7x6-24jw']);
+      expect(offenders).toEqual(['GHSA-second-advisory-id (@fastify/busboy)']);
+    });
+
     it('fails closed on missing, malformed, or error audit data payloads', () => {
       expect(() => evaluateAuditData(null as any, [])).toThrow('Audit payload is invalid or empty');
       expect(() => evaluateAuditData({ error: { code: 'ENOTFOUND' } }, [])).toThrow(

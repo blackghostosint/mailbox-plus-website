@@ -9,8 +9,8 @@ import { fileURLToPath } from 'node:url';
  * Evaluates parsed npm audit JSON data against an allowlist.
  * Throws an error if data is missing, malformed, or indicates an audit execution error.
  * @param {object} data - Parsed npm audit JSON payload.
- * @param {string[]} allowList - Array of allowed GHSA IDs or package names.
- * @returns {string[]} Array of unhandled offender strings formatted as "ID (pkg)" or "pkg".
+ * @param {string[]} allowList - Array of allowed GHSA IDs.
+ * @returns {string[]} Array of unhandled offender strings formatted as "ID (pkg)".
  */
 export function evaluateAuditData(data, allowList = []) {
   if (!data || typeof data !== 'object') {
@@ -28,18 +28,13 @@ export function evaluateAuditData(data, allowList = []) {
   const offenders = [];
   for (const [name, v] of Object.entries(data.vulnerabilities)) {
     if (v.severity !== 'high' && v.severity !== 'critical') continue;
-    let hasAdvisoryUrl = false;
     for (const a of v.via || []) {
       if (typeof a === 'object' && a?.url) {
-        hasAdvisoryUrl = true;
         const id = a.url.split('/').pop();
-        if (!allowList.includes(id) && !allowList.includes(name)) {
+        if (!allowList.includes(id)) {
           offenders.push(`${id} (${name})`);
         }
       }
-    }
-    if (!hasAdvisoryUrl && !allowList.includes(name)) {
-      offenders.push(`${name}`);
     }
   }
 
