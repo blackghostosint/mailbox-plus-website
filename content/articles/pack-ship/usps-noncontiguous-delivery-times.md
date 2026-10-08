@@ -37,7 +37,7 @@ faqs:
   - question: 'Why did USPS make this change?'
     answer: 'USPS calls it matching the promise to reality. Translation: the old promise never matched the distance, time zones, and trucks and boats they actually use. Sub-pound Ground Advantage packages to noncontiguous destinations also now move by surface transportation instead of a mix of air and surface.'
   - question: 'Can I use UPS or FedEx instead for faster delivery to Alaska or Hawaii?'
-    answer: 'Sometimes, for a price — private carriers can be faster on some lanes but charge more or add remote-area fees, and they may exclude some remote locations that USPS is required to serve. Bring the box and the deadline, and compare USPS, UPS, and FedEx side by side before you pay.'
+    answer: 'Sometimes, for a price — private carriers can be faster on some lanes but charge more or add remote-area fees, and they may exclude some remote locations that USPS serves anyway — check the carrier coverage list before you promise a date. Bring the box and the deadline, and compare USPS, UPS, and FedEx side by side before you pay.'
 ---
 
 ## Your Daughter's Box Is Due Friday. USPS Just Moved the Goalposts.
@@ -54,7 +54,7 @@ You paid under the old promise. USPS had already filed the new one on September 
 
 **Priority Mail** — long quoted as 2-3 days — is now **2-4 days** to or from Alaska, Hawaii, American Samoa, Puerto Rico, and the U.S. Virgin Islands, and **2-6 days** to or from the Pacific territories.
 
-And here's the buried kicker: if your box is under a pound, USPS says it will "primarily" move by surface transportation — the same slower lane heavier packages already used. Nobody told you when you paid. That is not you misreading a label. That is USPS republishing the standard after your money cleared.
+And here's the buried kicker: if your box is under a pound, USPS says it will "primarily" move by surface transportation — the same slower lane heavier packages already used. You paid before the new standard was published — you did not misread a label.
 
 ## The Weekend That Passed Without the Box
 
@@ -62,7 +62,7 @@ And here's the buried kicker: if your box is under a pound, USPS says it will "p
 
 You shipped the box on a Tuesday and texted her "should be there by the weekend." Then the weekend passes. Then the next one. The tracking screen shows the box crisscrossing the map — Memphis one day, then a distribution center you have never heard of — and you are the one fielding the "did it get lost?" texts at your own birthday dinner.
 
-Your label was already paid for when USPS erased the promise. You're thumb-typing "still in Memphis, I think" at the kitchen table, her unopened birthday card under your coffee mug.
+Your label was paid for under the old standard. You're thumb-typing "still in Memphis, I think" at the kitchen table, her unopened birthday card under your coffee mug.
 
 Don't reflexively upgrade. The receipt here verifies only what USPS published: Ground Advantage to these lanes now carries a 10-days-plus standard, Priority Mail 2-4 days (2-6 to the Pacific territories). Whether Priority's days saved are worth the upcharge depends on your lane and your deadline — compare the two quoted dates before you pay.
 
@@ -70,7 +70,7 @@ Don't reflexively upgrade. The receipt here verifies only what USPS published: G
 
 Hand us the box and the counter can show you the published service standards side by side — Ground Advantage, UPS, FedEx — so the choice is yours with the dates in front of you.
 
-When you walk in, ask for the service standard for your lane before you pay — the published number, not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices reach you directly — check the service standard on your receipt before you pay, so the delay never arrives as a surprise you have to explain to your customer.
+When you walk in, ask for the service standard for your lane before you pay — the published number, not the old 2-5 day promise. If USPS moves the goalposts again, the tracking page and the Post Office's own notices reach you directly. Ask what the current standard is for your lane before you pay, so the delay never arrives as a surprise you have to explain to your customer.
 
 ## How to Hand It Off Without Guessing
 
