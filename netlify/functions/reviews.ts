@@ -30,6 +30,7 @@ import { getStore } from '@netlify/blobs';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 import { ReviewsSuccessSchema } from './lib/contracts';
+import { getFallbackReviewAuthor, getFallbackReviewRating } from './lib/fallbacks';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -116,9 +117,9 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
 
   const data = await res.json();
   const reviews: ReviewDto[] = (data.reviews || []).map((r: any) => ({
-    author: r.authorAttribution?.displayName || 'Google User',
+    author: getFallbackReviewAuthor(r.authorAttribution?.displayName),
     authorUri: r.authorAttribution?.uri || '',
-    rating: r.rating || 5,
+    rating: getFallbackReviewRating(r.rating),
     text: r.text?.text || '',
     relativeTime: r.relativePublishTimeDescription || '',
     publishTime: r.publishTime || '',
