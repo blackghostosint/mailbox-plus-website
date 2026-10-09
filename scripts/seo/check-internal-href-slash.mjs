@@ -23,27 +23,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { resolveDistDir } from '../lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
 const DIST_DIR = resolveDistDir();
 
 const HREF_RE = /href="(\/(?:[a-z0-9][a-z0-9\-/]*?))"/gi;
-
-function getHtmlFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const full = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      getHtmlFiles(full, fileList);
-    } else if (entry.name.endsWith('.html')) {
-      fileList.push(full);
-    }
-  }
-  return fileList;
-}
 
 function isBadInternal(u) {
   if (!u.startsWith('/') || u.startsWith('//') || u === '/') return false;

@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
-import { resolveDistDir } from './lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from './lib/dist-path.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -119,20 +119,7 @@ function discoverRoutes(distDir = DIST_DIR) {
     process.exit(1);
   }
 
-  const htmlFiles = [];
-  function walk(dir) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        walk(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith('.html')) {
-        htmlFiles.push(fullPath);
-      }
-    }
-  }
-
-  walk(distDir);
+  const htmlFiles = getHtmlFiles(distDir);
 
   if (htmlFiles.length === 0) {
     console.error(`❌ Error: No HTML files found in "${distDir}". Please build the site first.\n`);
