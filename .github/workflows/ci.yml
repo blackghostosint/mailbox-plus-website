@@ -38,6 +38,9 @@ jobs:
       - name: Run verification doctor
         run: npm run verify:doctor
 
+      - name: Run verification script unit tests
+        run: npm run test:verify
+
       - name: Fetch PR metadata
         if: github.event_name == 'pull_request'
         env:

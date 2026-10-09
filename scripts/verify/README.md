@@ -12,6 +12,9 @@ pattern (lauren/@poteto).
     npm run verify:doctor
       Environment sanity: repo root, deps, gray-matter, branch hygiene.
 
+    npm run test:verify
+      Runs unit test suite for verification scripts & shared gate utilities (scripts/verify/__tests__/).
+
     npm run verify:articles [-- --strict] [--offline]
       Batch verification across all articles in content/articles/.
 
