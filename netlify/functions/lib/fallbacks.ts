@@ -154,7 +154,11 @@ export function getFallbackAmount(
   amountInDollars?: number | null,
   tierConfig?: TierConfig | null
 ): number {
-  if (typeof amountInDollars === 'number' && Number.isFinite(amountInDollars) && amountInDollars >= 0) {
+  if (
+    typeof amountInDollars === 'number' &&
+    Number.isFinite(amountInDollars) &&
+    amountInDollars >= 0
+  ) {
     return amountInDollars;
   }
   if (typeof tierConfig?.monthlyPrice === 'number' && Number.isFinite(tierConfig.monthlyPrice)) {
