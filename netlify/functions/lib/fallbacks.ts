@@ -125,7 +125,9 @@ export function getEnvironmentContext(): string {
  */
 export function getTierConfig(tierKey?: string | null): TierConfig | null {
   if (!tierKey || typeof tierKey !== 'string') return null;
-  return TIER_CONFIG[tierKey.trim()] || null;
+  const key = tierKey.trim();
+  if (!Object.hasOwn(TIER_CONFIG, key)) return null;
+  return TIER_CONFIG[key] || null;
 }
 
 /**

@@ -98,6 +98,14 @@ describe('Centralized Fallbacks & Utility Functions', () => {
       expect(getTierConfig('  ')).toBeNull();
       expect(getTierConfig('invalid_tier')).toBeNull();
     });
+
+    it('rejects inherited Object prototype keys and returns null', () => {
+      expect(getTierConfig('constructor')).toBeNull();
+      expect(getTierConfig('toString')).toBeNull();
+      expect(getTierConfig('__proto__')).toBeNull();
+      expect(getTierConfig('valueOf')).toBeNull();
+      expect(getTierConfig('hasOwnProperty')).toBeNull();
+    });
   });
 
   describe('getFallbackProductName', () => {
