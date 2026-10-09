@@ -30,6 +30,15 @@ export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
     return GetHtmlFilesOutputSchema.parse(fileList);
   }
 
+  try {
+    const dirStat = fs.statSync(dir);
+    if (!dirStat.isDirectory()) {
+      return GetHtmlFilesOutputSchema.parse(fileList);
+    }
+  } catch {
+    return GetHtmlFilesOutputSchema.parse(fileList);
+  }
+
   let canonicalDir;
   try {
     canonicalDir = fs.realpathSync(dir);
@@ -44,7 +53,13 @@ export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
   const nextVisited = new Set(visited);
   nextVisited.add(canonicalDir);
 
-  const entries = fs.readdirSync(dir);
+  let entries;
+  try {
+    entries = fs.readdirSync(dir);
+  } catch {
+    return GetHtmlFilesOutputSchema.parse(fileList);
+  }
+
   for (const entry of entries) {
     const fullPath = path.join(dir, entry);
     let stat;

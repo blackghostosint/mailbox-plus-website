@@ -51,10 +51,15 @@ describe('dist-path module', () => {
       expect(results).not.toContain(file5);
     });
 
-    it('returns empty array when target directory does not exist', () => {
+    it('returns empty array when target directory does not exist or is a regular file', () => {
       const nonExistentDir = path.join(tmpDir, 'does-not-exist');
-      const results = getHtmlFiles(nonExistentDir);
-      expect(results).toEqual([]);
+      const results1 = getHtmlFiles(nonExistentDir);
+      expect(results1).toEqual([]);
+
+      const regularFile = path.join(tmpDir, 'some-file.html');
+      fs.writeFileSync(regularFile, '<html>Hello</html>');
+      const results2 = getHtmlFiles(regularFile);
+      expect(results2).toEqual([]);
     });
 
     it('traverses symlinks to directories and handles symlink html files, broken symlinks, and cycles', () => {
