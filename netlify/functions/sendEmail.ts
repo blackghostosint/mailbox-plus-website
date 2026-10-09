@@ -20,6 +20,7 @@ import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
 import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
 import { SendEmailRequestSchema, SendEmailSuccessSchema } from './lib/contracts';
+import { getFallbackCustomerName } from './lib/fallbacks';
 
 export { getClientIp };
 
@@ -96,7 +97,7 @@ export default withCors(
       const url = escapeHtml(data.url || '');
       const preferredContact = escapeHtml(data.preferred_contact || '');
 
-      const safeSubjectName = String(data.name || 'Customer').replace(/[\r\n]/g, ' ');
+      const safeSubjectName = String(getFallbackCustomerName(data.name)).replace(/[\r\n]/g, ' ');
 
       let htmlBody = `
           <h2>New Contact Form Submission</h2>

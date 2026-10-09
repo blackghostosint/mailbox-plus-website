@@ -1,5 +1,6 @@
 import { logger } from './logger';
 import { checkRateLimit, getClientIp, type RateLimitOptions } from './rate-limiter';
+import { getSiteUrl, DEFAULT_SITE_URL } from './fallbacks';
 
 export const DEFAULT_CORS_HEADERS: Record<string, string> = {
   'Access-Control-Allow-Origin': '*',
@@ -69,8 +70,8 @@ export function isLoopbackOrigin(origin: string | RegExp): boolean {
 
 export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   const baseOrigins: (string | RegExp)[] = [
-    process.env.SITE_URL || 'https://mailboxplusohio.com',
-    'https://mailboxplusohio.com',
+    getSiteUrl(),
+    DEFAULT_SITE_URL,
     'https://mailboxplus.netlify.app',
     'https://mailboxplusohio.netlify.app',
     /^https:\/\/deploy-preview-\d+--mailboxplus(?:ohio)?\.netlify\.app$/,
@@ -277,7 +278,7 @@ export function resolveAllowedOrigin(
     }
     return typeof DEFAULT_ALLOWED_ORIGINS[0] === 'string'
       ? DEFAULT_ALLOWED_ORIGINS[0]
-      : 'https://mailboxplusohio.com';
+      : DEFAULT_SITE_URL;
   }
 
   if (Array.isArray(option)) {
@@ -296,7 +297,7 @@ export function resolveAllowedOrigin(
       }
     }
     const firstStr = option.find((item): item is string => typeof item === 'string');
-    return firstStr || 'https://mailboxplusohio.com';
+    return firstStr || DEFAULT_SITE_URL;
   }
 
   return '*';
