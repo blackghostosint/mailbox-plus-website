@@ -57,6 +57,44 @@ describe('dist-path module', () => {
       expect(results).toEqual([]);
     });
 
+    it('traverses symlinks to directories and handles symlink html files, broken symlinks, and cycles', () => {
+      const realDir = path.join(tmpDir, 'real-folder');
+      fs.mkdirSync(realDir, { recursive: true });
+
+      const htmlFileInReal = path.join(realDir, 'inside.html');
+      fs.writeFileSync(htmlFileInReal, '<html>Real Folder</html>');
+
+      // 1. Symlink pointing to realDir, even if named with .html suffix
+      const symlinkDir = path.join(tmpDir, 'symlink-dir.html');
+      try {
+        fs.symlinkSync(realDir, symlinkDir, 'dir');
+      } catch {
+        // Skip symlink test if environment lacks symlink privileges
+        return;
+      }
+
+      // 2. Symlink pointing to file
+      const symlinkFile = path.join(tmpDir, 'alias.html');
+      fs.symlinkSync(htmlFileInReal, symlinkFile, 'file');
+
+      // 3. Broken symlink
+      const brokenSymlink = path.join(tmpDir, 'broken.html');
+      fs.symlinkSync(path.join(tmpDir, 'nonexistent.html'), brokenSymlink, 'file');
+
+      // 4. Circular symlink inside realDir pointing to realDir itself
+      const cycleSymlink = path.join(realDir, 'cycle');
+      fs.symlinkSync(realDir, cycleSymlink, 'dir');
+
+      const results = getHtmlFiles(tmpDir);
+
+      // Must find htmlFileInReal, inside.html via symlinkDir, and alias.html via symlinkFile
+      expect(results).toContain(htmlFileInReal);
+      expect(results).toContain(path.join(symlinkDir, 'inside.html'));
+      expect(results).toContain(symlinkFile);
+      expect(results).not.toContain(brokenSymlink);
+      expect(results).not.toContain(symlinkDir); // Should NOT treat directory symlink as a file
+    });
+
     it('enforces input Zod schema validation on non-string inputs', () => {
       expect(() => {
         // @ts-expect-error - Testing runtime schema validation with invalid type

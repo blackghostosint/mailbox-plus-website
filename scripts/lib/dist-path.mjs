@@ -15,26 +15,48 @@ export const GetHtmlFilesOutputSchema = z.array(z.string());
 /**
  * Recursively walks directory to find all .html files.
  * Enforces Zod runtime validation schema for inputs and outputs.
+ * Preserves symlink-to-directory traversal and uses statSync().isFile()
+ * to filter valid files.
  *
  * @param {string} dir Directory path to scan.
  * @param {string[]} [fileList=[]] Optional array accumulator for html file paths.
+ * @param {Set<string>} [visited=new Set()] Set of visited canonical directory paths.
  * @returns {string[]} Array of absolute html file paths.
  */
-export function getHtmlFiles(dir, fileList = []) {
+export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
   GetHtmlFilesInputSchema.parse(dir);
 
   if (!fs.existsSync(dir)) {
     return GetHtmlFilesOutputSchema.parse(fileList);
   }
 
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  let canonicalDir;
+  try {
+    canonicalDir = fs.realpathSync(dir);
+  } catch {
+    canonicalDir = path.resolve(dir);
+  }
+
+  if (visited.has(canonicalDir)) {
+    return GetHtmlFilesOutputSchema.parse(fileList);
+  }
+
+  const nextVisited = new Set(visited);
+  nextVisited.add(canonicalDir);
+
+  const entries = fs.readdirSync(dir);
   for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      getHtmlFiles(fullPath, fileList);
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      fileList.push(fullPath);
-    } else if (!entry.isDirectory() && entry.name.endsWith('.html')) {
+    const fullPath = path.join(dir, entry);
+    let stat;
+    try {
+      stat = fs.statSync(fullPath);
+    } catch {
+      continue;
+    }
+
+    if (stat.isDirectory()) {
+      getHtmlFiles(fullPath, fileList, nextVisited);
+    } else if (stat.isFile() && entry.endsWith('.html')) {
       fileList.push(fullPath);
     }
   }
