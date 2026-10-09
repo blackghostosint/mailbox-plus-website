@@ -6,9 +6,9 @@
 // Stamp (exact line, machine-parsed): `authorship: article-writer-bot (in-house)`
 // Repairs are handled in-session (Hermes/owner) — never reassigned to external agents.
 
-import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { getPRContext, parsePRCliArgs } from './pr-utils.mjs';
 
 export const DEFAULT_AUTHORIZED_AUTHORS = [
   'article-writer-bot',
@@ -110,95 +110,28 @@ export function checkArticleOwnership({
   };
 }
 
-function parseCliArgs(args) {
-  let author = '';
-  let isLocalBypass = false;
-  const positional = [];
-
-  for (let i = 2; i < args.length; i++) {
-    const arg = args[i];
-    if (arg.startsWith('--author=')) {
-      author = arg.split('=').slice(1).join('=');
-    } else if (arg === '--author') {
-      author = args[++i] || '';
-    } else if (arg === '--bypass-local' || arg === '--local') {
-      isLocalBypass = true;
-    } else {
-      positional.push(arg);
-    }
-  }
-
-  return { author, isLocalBypass, positional };
-}
-
-function resolveAuthor(cliAuthor) {
-  if (cliAuthor) return cliAuthor;
-  if (process.env.PR_AUTHOR) return process.env.PR_AUTHOR;
-  if (process.env.GITHUB_EVENT_PATH) {
-    try {
-      const ev = JSON.parse(readFileSync(process.env.GITHUB_EVENT_PATH, 'utf8'));
-      if (ev?.pull_request?.user?.login) {
-        return ev.pull_request.user.login;
-      }
-    } catch {
-      // ignore read/parse errors
-    }
-  }
-  return '';
-}
-
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const { author: cliAuthor, isLocalBypass, positional } = parseCliArgs(process.argv);
-  const bodyFile = positional[0];
-  const filesFile = positional[1];
-
-  if (!bodyFile || !filesFile) {
+  const { positional } = parsePRCliArgs(process.argv);
+  if (positional.length < 2 && !process.env.PR_BODY_FILE && !process.env.GITHUB_EVENT_PATH) {
     console.error(
       'usage: node scripts/verify/check-article-ownership.mjs <pr-body-file> <changed-files-file-or-minus> [--author=<login>] [--local]'
     );
     process.exit(2);
   }
 
-  let body = '';
-  try {
-    body = readFileSync(bodyFile, 'utf8');
-  } catch {
-    body = '';
-  }
-
-  let changedRaw = '';
-  if (filesFile === '-') {
-    changedRaw = readFileSync(0, 'utf8');
-  } else {
-    try {
-      changedRaw = readFileSync(filesFile, 'utf8');
-    } catch {
-      changedRaw = '';
-    }
-  }
-
-  const changedFiles = changedRaw
-    .split(/\r?\n/)
-    .map((f) => f.trim())
-    .filter(Boolean);
-
-  const author = resolveAuthor(cliAuthor);
-  const isCi = Boolean(
-    process.env.CI || process.env.GITHUB_ACTIONS || process.env.GITHUB_EVENT_PATH
-  );
-  const isLocal = isLocalBypass || (!author && !isCi);
+  const ctx = getPRContext();
 
   const customAuthors = process.env.AUTHORIZED_AUTHORS
     ? process.env.AUTHORIZED_AUTHORS.split(',')
     : DEFAULT_AUTHORIZED_AUTHORS;
 
   const result = checkArticleOwnership({
-    body,
-    changedFiles,
-    author,
-    isLocal,
+    body: ctx.body,
+    changedFiles: ctx.changedFiles,
+    author: ctx.author,
+    isLocal: ctx.isLocal,
     authorizedAuthors: customAuthors,
   });
 
