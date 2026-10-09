@@ -22,7 +22,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { resolveDistDir } from '../lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -114,16 +114,7 @@ export function auditInternalLinkStrategy(options = {}) {
 
   // Built routes from dist/
   const builtRoutes = new Set();
-  function walkHtml(dir, list = []) {
-    if (!fs.existsSync(dir)) return list;
-    for (const entry of fs.readdirSync(dir)) {
-      const full = path.join(dir, entry);
-      if (fs.statSync(full).isDirectory()) walkHtml(full, list);
-      else if (entry.endsWith('.html')) list.push(full);
-    }
-    return list;
-  }
-  for (const f of walkHtml(distDir)) {
+  for (const f of getHtmlFiles(distDir)) {
     const rel = path.relative(distDir, f).replace(/\\/g, '/');
     let urlPath =
       rel === 'index.html' ? '/' : '/' + rel.replace(/\/index\.html$/, '').replace(/\.html$/, '');
