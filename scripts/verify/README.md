@@ -12,6 +12,9 @@ pattern (lauren/@poteto).
     npm run verify:doctor
       Environment sanity: repo root, deps, gray-matter, branch hygiene.
 
+    npm run test:verify
+      Runs unit test suite for verification scripts & shared gate utilities (scripts/verify/__tests__/).
+
     npm run verify:articles [-- --strict] [--offline]
       Batch verification across all articles in content/articles/.
 
@@ -105,6 +108,20 @@ so copying the old template into a new article still fails.
   3. `node scripts/verify/verify.mjs build`
   4. `node scripts/verify/verify.mjs sitemap <slug>`
   5. `node scripts/verify/verify.mjs seo-gates`
+
+## PR & Audit Verification Gates
+
+Verification gate scripts in `scripts/verify/`:
+
+- `check-auth-model.mjs` — Enforces AGENTS.md rule 7 ("Endpoint Authentication Models" section in PR body when `netlify/functions/` are modified).
+- `check-article-ownership.mjs` — Enforces internal-only ownership rule for `content/articles/`.
+- `audit-astro-gate.mjs` — Dependency security audit gate for Astro packages with scoped allowlist.
+- `audit-functions-gate.mjs` — Dependency security audit gate for Netlify Functions packages.
+
+Shared utilities:
+
+- `pr-utils.mjs` — Handles event extraction, PR body reading, author resolution, and changed file parsing.
+- `audit-utils.mjs` — Handles npm audit payload parsing, severity filtering, and allowlist evaluation.
 
 ## Coverage contract
 
