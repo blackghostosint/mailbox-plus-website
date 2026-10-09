@@ -15,15 +15,16 @@ export const GetHtmlFilesOutputSchema = z.array(z.string());
 /**
  * Recursively walks directory to find all .html files.
  * Enforces Zod runtime validation schema for inputs and outputs.
- * Preserves symlink-to-directory traversal and uses statSync().isFile()
- * to filter valid files.
+ * Preserves symlink-to-directory alias traversal (like prior walkers) while
+ * using active recursion stack tracking (ancestors Set) to prevent infinite loops.
+ * Uses statSync().isFile() to strictly filter valid regular files.
  *
  * @param {string} dir Directory path to scan.
  * @param {string[]} [fileList=[]] Optional array accumulator for html file paths.
- * @param {Set<string>} [visited=new Set()] Set of visited canonical directory paths.
+ * @param {Set<string>} [ancestors=new Set()] Set of ancestor canonical directory paths on active recursion stack.
  * @returns {string[]} Array of absolute html file paths.
  */
-export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
+export function getHtmlFiles(dir, fileList = [], ancestors = new Set()) {
   GetHtmlFilesInputSchema.parse(dir);
 
   if (!fs.existsSync(dir)) {
@@ -46,12 +47,13 @@ export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
     canonicalDir = path.resolve(dir);
   }
 
-  if (visited.has(canonicalDir)) {
+  // Prevent infinite loops on circular symlinks pointing to an ancestor on the current recursion stack
+  if (ancestors.has(canonicalDir)) {
     return GetHtmlFilesOutputSchema.parse(fileList);
   }
 
-  const nextVisited = new Set(visited);
-  nextVisited.add(canonicalDir);
+  const nextAncestors = new Set(ancestors);
+  nextAncestors.add(canonicalDir);
 
   let entries;
   try {
@@ -70,7 +72,7 @@ export function getHtmlFiles(dir, fileList = [], visited = new Set()) {
     }
 
     if (stat.isDirectory()) {
-      getHtmlFiles(fullPath, fileList, nextVisited);
+      getHtmlFiles(fullPath, fileList, nextAncestors);
     } else if (stat.isFile() && entry.endsWith('.html')) {
       fileList.push(fullPath);
     }
