@@ -1,10 +1,46 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { z } from 'zod';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '../..');
+
+export const GetHtmlFilesInputSchema = z.string({
+  invalid_type_error: 'Directory path must be a string',
+});
+export const GetHtmlFilesOutputSchema = z.array(z.string());
+
+/**
+ * Recursively walks directory to find all .html files.
+ * Enforces Zod runtime validation schema for inputs and outputs.
+ *
+ * @param {string} dir Directory path to scan.
+ * @param {string[]} [fileList=[]] Optional array accumulator for html file paths.
+ * @returns {string[]} Array of absolute html file paths.
+ */
+export function getHtmlFiles(dir, fileList = []) {
+  GetHtmlFilesInputSchema.parse(dir);
+
+  if (!fs.existsSync(dir)) {
+    return GetHtmlFilesOutputSchema.parse(fileList);
+  }
+
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      getHtmlFiles(fullPath, fileList);
+    } else if (entry.isFile() && entry.name.endsWith('.html')) {
+      fileList.push(fullPath);
+    } else if (!entry.isDirectory() && entry.name.endsWith('.html')) {
+      fileList.push(fullPath);
+    }
+  }
+
+  return GetHtmlFilesOutputSchema.parse(fileList);
+}
 
 /**
  * Resolves the build output directory (dist).
