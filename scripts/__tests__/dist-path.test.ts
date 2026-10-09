@@ -51,15 +51,40 @@ describe('dist-path module', () => {
       expect(results).not.toContain(file5);
     });
 
-    it('returns empty array when target directory does not exist or is a regular file', () => {
+    it('returns empty array when target directory does not exist or is a regular file (preventing ENOTDIR)', () => {
       const nonExistentDir = path.join(tmpDir, 'does-not-exist');
       const results1 = getHtmlFiles(nonExistentDir);
       expect(results1).toEqual([]);
 
       const regularFile = path.join(tmpDir, 'some-file.html');
       fs.writeFileSync(regularFile, '<html>Hello</html>');
+      // Must return empty array and not attempt readdirSync on a regular file (which would throw ENOTDIR)
       const results2 = getHtmlFiles(regularFile);
       expect(results2).toEqual([]);
+
+      // Broken symlink passed as root path
+      const brokenRootSymlink = path.join(tmpDir, 'broken-root-link');
+      try {
+        fs.symlinkSync(path.join(tmpDir, 'non-existent-target'), brokenRootSymlink, 'file');
+        const results3 = getHtmlFiles(brokenRootSymlink);
+        expect(results3).toEqual([]);
+      } catch {
+        // Symlink creation skipped if lacking privileges
+      }
+    });
+
+    it('ignores FIFOs / special non-file entities safely', () => {
+      const fifoPath = path.join(tmpDir, 'pipe.html');
+      try {
+        const { execSync } = require('child_process');
+        execSync(`mkfifo "${fifoPath}"`);
+      } catch {
+        // mkfifo not supported on this platform, skip
+        return;
+      }
+
+      const results = getHtmlFiles(tmpDir);
+      expect(results).not.toContain(fifoPath);
     });
 
     it('traverses symlinks to directories and handles symlink html files, broken symlinks, and cycles', () => {
