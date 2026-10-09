@@ -1,4 +1,5 @@
 import { getStore } from '@netlify/blobs';
+import { DEFAULT_CLIENT_IP } from './fallbacks';
 
 const WINDOW_MS = 60 * 1000; // 60 seconds
 const MAX_REQUESTS = 10;
@@ -130,7 +131,7 @@ export async function checkRateLimit(
   const maxMemoryEntries = options?.maxMemoryEntries ?? DEFAULT_MAX_MEMORY_ENTRIES;
 
   const now = Date.now();
-  const safeIp = clientIp || '127.0.0.1';
+  const safeIp = clientIp || DEFAULT_CLIENT_IP;
   const key = `${prefix}ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
 
   let timestamps: number[] = [];
