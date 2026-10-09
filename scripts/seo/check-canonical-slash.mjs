@@ -1,28 +1,12 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { resolveDistDir } from '../lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT_DIR = path.resolve(__dirname, '../..');
 const DIST_DIR = resolveDistDir();
 const TARGET_HOST = 'mailboxplusohio.com';
-
-// Recursively walks directory to find all .html files
-function getHtmlFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (stat.isDirectory()) {
-      getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html')) {
-      fileList.push(filePath);
-    }
-  }
-  return fileList;
-}
 
 function main() {
   console.log('==================================================');

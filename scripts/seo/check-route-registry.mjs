@@ -1,7 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { resolveDistDir } from '../lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
+
+export { getHtmlFiles };
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -34,22 +36,6 @@ export function normalizePath(p) {
     cleaned = cleaned.slice(0, -1);
   }
   return cleaned;
-}
-
-// Recursively walks directory to find all .html files
-export function getHtmlFiles(dir, fileList = []) {
-  if (!fs.existsSync(dir)) return fileList;
-  const files = fs.readdirSync(dir);
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    const stat = fs.statSync(filePath);
-    if (stat.isDirectory()) {
-      getHtmlFiles(filePath, fileList);
-    } else if (file.endsWith('.html')) {
-      fileList.push(filePath);
-    }
-  }
-  return fileList;
 }
 
 // Default static allowlist of utility/section pages
