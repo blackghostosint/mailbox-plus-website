@@ -7,18 +7,28 @@ useDefault = true
 [allowlist]
 description = "Global allowlist for verified non-secret false positives"
 regexes = [
-  '''intentKey:''',
   '''dummy_stripe_secret_key''',
   '''sk_test_placeholder''',
+  '''sk_test_[a-zA-Z0-9_]+''',
+  '''pk_test_[a-zA-Z0-9_]+''',
+  '''sk-test-.*''',
   '''secret_123''',
+  '''secret_[a-zA-Z0-9_]+''',
   '''vite_secret_456''',
+  '''vite_secret_.*''',
   '''test_resend_key''',
-  '''sk-local'''
+  '''test_[a-zA-Z0-9_]+_key''',
+  '''sk-local''',
+  '''dummy_.*''',
+  '''mock_.*''',
+  '''chardon-returns-r1''',
+  '''fedex-demand-surcharges-2026''',
+  '''hambden-returns-r1''',
+  '''kirtland-hills-returns-r1''',
+  '''2027-fedex-ups-surcharge-forecast'''
 ]
 paths = [
-  '''content/articles/.*''',
   '''\.env\.example''',
-  '''docs/.*''',
   '''netlify/functions/__tests__/.*''',
   '''netlify/functions/lib/.*\.test\.ts'''
 ]

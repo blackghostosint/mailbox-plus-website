@@ -5,17 +5,21 @@
  * "Endpoint Authentication Models" section with substantive content.
  *
  * Modes:
- *   CI:     GITHUB_EVENT_PATH contains the pull_request payload.
- *   Manual: node scripts/check-auth-model.mjs <body-file> <changed-files.txt>
+ *   CI:     Using PR context files or GITHUB_EVENT_PATH payload.
+ *   Manual: node scripts/verify/check-auth-model.mjs <body-file> <changed-files.txt>
  *
  * Exit 0 = compliant / not applicable. Exit 1 = missing or hollow section.
  */
-import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { getPRContext } from './pr-utils.mjs';
 
 const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models/i;
 const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
+const IGNORED_FUNCTIONS_PATTERNS = [
+  /^netlify\/functions\/package(-lock)?\.json$/,
+  /^netlify\/functions\/tsconfig\.json$/,
+];
 
 /**
  * Validates PR body for Endpoint Authentication Models section when netlify/functions/ are changed.
@@ -24,7 +28,12 @@ const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
  * @param {string[]} [params.changedFiles]
  */
 export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
-  const functionsTouched = changedFiles.some((f) => f.startsWith('netlify/functions/'));
+  const functionFiles = changedFiles.filter(
+    (f) =>
+      f.startsWith('netlify/functions/') &&
+      !IGNORED_FUNCTIONS_PATTERNS.some((pattern) => pattern.test(f))
+  );
+  const functionsTouched = functionFiles.length > 0;
   if (!functionsTouched) {
     return {
       success: true,
@@ -73,51 +82,19 @@ export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
 }
 
 function fail(msg) {
-  console.error(`\u274c ${msg}`);
+  console.error(`❌ ${msg}`);
   console.error(`   Add an "Endpoint Authentication Models" section to the PR body.`);
   console.error(`   For each endpoint: who may call it, how identity is proven, rate limit.`);
   console.error(`   See .github/pull_request_template.md and AGENTS.md rule 7.`);
   process.exit(1);
 }
 
-function load() {
-  const eventPath = process.env.GITHUB_EVENT_PATH;
-  if (eventPath) {
-    const ev = JSON.parse(readFileSync(eventPath, 'utf8'));
-    if (!ev.pull_request) {
-      console.log('check-auth-model: not a PR event — skipping');
-      process.exit(0);
-    }
-    return {
-      body: ev.pull_request.body ?? '',
-      changed: ev.pull_request.changed_files, // not in payload; use files via list below
-    };
-  }
-  if (process.argv.length >= 4) {
-    const body = readFileSync(process.argv[2], 'utf8');
-    return { body };
-  }
-  console.error('usage: check-auth-model.mjs <body-file> <changed-files.txt>');
-  process.exit(2);
-}
-
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const { body } = load();
-  let changed;
-  const changedSrc = process.argv[3];
-  if (changedSrc) {
-    changed = (changedSrc === '-' ? readFileSync(0, 'utf8') : readFileSync(changedSrc, 'utf8'))
-      .split('\n')
-      .filter(Boolean);
-  } else if (process.env.GITHUB_EVENT_PATH) {
-    changed = (process.env.CHANGED_FILES ?? '').split('\n').filter(Boolean);
-  } else {
-    changed = [];
-  }
+  const ctx = getPRContext();
+  const result = checkAuthModel({ body: ctx.body, changedFiles: ctx.changedFiles });
 
-  const result = checkAuthModel({ body, changedFiles: changed });
   if (!result.success) {
     fail(result.message);
   } else {

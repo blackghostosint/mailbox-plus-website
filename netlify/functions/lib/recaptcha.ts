@@ -1,4 +1,5 @@
 import { logger } from './logger';
+import { getRecaptchaMinScore } from './fallbacks';
 
 export async function verifyRecaptchaToken(token?: string, remoteip?: string): Promise<boolean> {
   if (!token || typeof token !== 'string' || token.trim() === '') {
@@ -41,7 +42,7 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
       return false;
     }
 
-    const minScore = parseFloat(process.env.RECAPTCHA_MIN_SCORE || '0.5');
+    const minScore = getRecaptchaMinScore();
     if (typeof data.score === 'number' && data.score < minScore) {
       logger.warn('reCAPTCHA score below minimum threshold', { score: data.score, minScore });
       return false;

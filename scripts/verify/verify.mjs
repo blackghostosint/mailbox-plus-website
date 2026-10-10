@@ -464,6 +464,18 @@ function cmdDoctor() {
     'root + astro node_modules present',
     'npm ci (root) && cd astro && npm ci'
   );
+
+  try {
+    execSync('node scripts/verify/audit-functions-gate.mjs', { cwd: ROOT, stdio: 'pipe' });
+    check('audit:functions', true, 'netlify/functions dependency security audit clean');
+  } catch {
+    check(
+      'audit:functions',
+      false,
+      'unhandled high-severity dependency advisory in netlify/functions',
+      'run npm audit in netlify/functions or update AUDIT_ALLOW'
+    );
+  }
   check(
     'gray-matter',
     !!gray,

@@ -1,23 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolveDistDir } from './lib/dist-path.mjs';
+import { resolveDistDir, getHtmlFiles } from './lib/dist-path.mjs';
 
-export function getHtmlFiles(dir, files = []) {
-  if (!fs.existsSync(dir)) {
-    return files;
-  }
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      getHtmlFiles(fullPath, files);
-    } else if (entry.isFile() && entry.name.endsWith('.html')) {
-      files.push(fullPath);
-    }
-  }
-  return files;
-}
+export { getHtmlFiles };
 
 export function findInlineScripts(content) {
   const violations = [];

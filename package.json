@@ -13,6 +13,7 @@
     "test": "cd astro && npm test",
     "test:coverage": "cd astro && npm run test:coverage",
     "test:watch": "cd astro && npm run test:watch",
+    "test:verify": "cd astro && npx vitest run ../scripts/verify/__tests__",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test",
     "lint": "eslint .",
@@ -22,11 +23,12 @@
     "build:embeddings": "tsx scripts/build-embeddings.ts",
     "audit:articles": "tsx scripts/validate-articles.ts",
     "audit:copy": "tsx scripts/review-article-copy.ts",
+    "audit:functions": "node scripts/verify/audit-functions-gate.mjs",
     "check:llms": "tsx scripts/generate-llms-articles.ts --check",
     "check:docs": "tsx scripts/verify/verify.mjs docs",
     "check:kb": "tsx scripts/validate-kb.ts",
     "check:tokens": "tsx scripts/check-design-tokens.ts",
-    "audit:quality": "npm run format:check && npm run check:kb && npm run check:tokens && npm run audit:articles && npm run check:llms && npm run check:docs && npm run seo:check-links",
+    "audit:quality": "npm run format:check && npm run test:verify && npm run check:kb && npm run check:tokens && npm run audit:articles && npm run check:llms && npm run check:docs && npm run seo:check-links && npm run audit:functions",
     "verify": "tsx scripts/verify/verify.mjs changed",
     "verify:doctor": "tsx scripts/verify/verify.mjs doctor",
     "verify:articles": "tsx scripts/verify/verify.mjs articles",
@@ -94,6 +96,7 @@
     ]
   },
   "overrides": {
-    "http-cache-semantics": "^4.3.0"
+    "http-cache-semantics": "^4.3.0",
+    "basic-ftp": "^6.2.2"
   }
 }

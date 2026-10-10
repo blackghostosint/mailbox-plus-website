@@ -38,25 +38,33 @@ jobs:
       - name: Run verification doctor
         run: npm run verify:doctor
 
-      - name: Check Auth Model section (rule 7)
+      - name: Run verification script unit tests
+        run: npm run test:verify
+
+      - name: Fetch PR metadata
         if: github.event_name == 'pull_request'
         env:
           GH_TOKEN: ${{ github.token }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
         run: |
-          CHANGED=$(gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename')
-          PR_BODY_FILE=$(mktemp); gh pr view "$PR_NUMBER" --json body --jq .body > "$PR_BODY_FILE"
-          echo "$CHANGED" | node scripts/check-auth-model.mjs "$PR_BODY_FILE" -
+          PR_BODY_FILE="${RUNNER_TEMP}/pr_body.txt"
+          PR_FILES_FILE="${RUNNER_TEMP}/pr_changed_files.txt"
+          gh pr view "$PR_NUMBER" --json body --jq .body > "$PR_BODY_FILE"
+          gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename' > "$PR_FILES_FILE"
+          echo "PR_BODY_FILE=${PR_BODY_FILE}" >> $GITHUB_ENV
+          echo "PR_FILES_FILE=${PR_FILES_FILE}" >> $GITHUB_ENV
+
+      - name: Check Auth Model section (rule 7)
+        if: github.event_name == 'pull_request'
+        run: |
+          node scripts/verify/check-auth-model.mjs "$PR_BODY_FILE" "$PR_FILES_FILE"
 
       - name: Check article ownership (internal-only rule)
         if: github.event_name == 'pull_request'
         env:
-          GH_TOKEN: ${{ github.token }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
         run: |
-          CHANGED=$(gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename')
-          PR_BODY_FILE=$(mktemp); gh pr view "$PR_NUMBER" --json body --jq .body > "$PR_BODY_FILE"
-          node scripts/verify/check-article-ownership.mjs "$PR_BODY_FILE" -
+          node scripts/verify/check-article-ownership.mjs "$PR_BODY_FILE" "$PR_FILES_FILE"
 
       - name: Run quality audits
         run: npm run audit:quality
@@ -83,6 +91,9 @@ jobs:
         # Scoped allowlist — any OTHER high advisory still fails the gate.
         run: |
           AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm" node scripts/verify/audit-astro-gate.mjs
+
+      - name: Dependency Security Audit (Netlify Functions)
+        run: npm run audit:functions
 
       - name: TypeScript type check
         run: npm run typecheck
