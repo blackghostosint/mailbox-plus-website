@@ -243,9 +243,15 @@ if (process.argv[1] && process.argv[1].endsWith('claims-gate.js')) {
 
   const { runClaimsGate } = makeClaimsGate(fs, path);
   const content = fs.readFileSync(articlePath, 'utf8');
+  // Receipt lookup is tolerant of location (mirrors verify.mjs 12b): canonical store is
+  // .factchecks/ (CI's ARTICLE_DRAFTS_DIR), but a receipt written to content/drafts/ still
+  // satisfies the gate. content/drafts/ is the last-resort fallback so a drifted-bot or
+  // stale-branch PR cannot fail claims:receipt-coverage on a file-location technicality.
+  const repoDraftsFallback = path.resolve(ROOT, 'content', 'drafts');
   const fcCandidates = [
     path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
     path.join(path.dirname(articlePath), `${slug}.factcheck.md`),
+    path.join(repoDraftsFallback, `${slug}.factcheck.md`),
   ];
   const fc = fcCandidates.find((f) => fs.existsSync(f));
   runClaimsGate(
