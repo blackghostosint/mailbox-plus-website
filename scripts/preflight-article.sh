@@ -42,6 +42,17 @@ for f in ${MAP}; do
   # 3c. verdict column sanity (#664 — claims gate needs ✅/⚠️/owner-verified in the
   # VERDICT column (3rd) of each receipt table row; a marker in any other column fails CI)
   node scripts/preflight-verify-verdicts.mjs ".factchecks/${base}.factcheck.md" || FAIL=1
+  # 3d. body-photo manifest membership (failed: #683/#684 — hand-rolled rclone uploads
+  # shipped CDN URLs missing from content/store-photos.json; CI image:body hard-failed
+  # AFTER the bot's own gate run). Reuses verify.mjs's exact gate logic offline so the
+  # check can't drift from CI; asserts on the gate output line, not the exit code.
+  IMG_OUT=$(node --import tsx scripts/verify/verify.mjs article "$f" --strict --offline 2>&1 | grep 'image:body' || true)
+  if echo "$IMG_OUT" | grep -q '✅'; then
+    echo "✅ image:body manifest: $f"
+  else
+    echo "❌ image:body: ${IMG_OUT:-no image:body output from verify.mjs} — body photos MUST go through process_store_photos.py publish (manifest append), never hand-rolled rclone"
+    FAIL=1
+  fi
 done
 
 # 4. trailing slashes on internal links (rule 1, CI enforces — check early)
