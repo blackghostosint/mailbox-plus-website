@@ -14717,7 +14717,7 @@ What you actually want is simpler: your billing software produces the PDF, and t
 
 ## The Breakroom Printer, Explained
 
-The villain here has a name: the Volume Penalty. The USPS rate card prices First-Class mail for presort volume you do not have — so a business sending a few dozen letters a month pays retail postage _and_ the hidden surcharge of doing a mailroom's work by hand. It is not a scam and it is not illegal. It is the assumption that because you send only a few dozen letters a month, mailing them should cost you nothing but a stamp.
+The systemic mechanism here has a name: the Volume Penalty. The USPS rate card prices First-Class mail for presort volume you do not have — so a business sending a few dozen letters a month pays retail postage _and_ the hidden surcharge of doing a mailroom's work by hand. It is not a scam and it is not illegal. It is the assumption that because you send only a few dozen letters a month, mailing them should cost you nothing but a stamp.
 
 Run the real count on doing it by hand. A one-page invoice mailed First-Class costs about $0.91 all-in — the $0.82 stamp (the 1-ounce letter rate effective July 12, 2026) plus roughly 5 cents for a #10 envelope, under a cent for paper, and a few cents of toner. Cheap. But the handling is the tax: printing, folding, stuffing, addressing, and stamping one letter runs 3 to 7 minutes by most estimates, before the trip to the mailbox. Thirty invoices a month is one and a half to three and a half hours of your life, every month, standing over a printer that jams precisely when the batch is due.
 
