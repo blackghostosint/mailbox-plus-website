@@ -71,10 +71,9 @@ jobs:
 
       - name: Run PR content verification (strict, offline)
         if: github.event_name == 'pull_request'
+        # No ARTICLE_DRAFTS_DIR override: verify.mjs defaults to .factchecks/ (the canonical
+        # receipt store), so local runs and CI read the same path. Local-green == CI-green.
         run: npm run verify -- --strict --offline
-        env:
-          # Fact-check receipts live in the repo (.factchecks/) so CI can gate on them
-          ARTICLE_DRAFTS_DIR: ${{ github.workspace }}/.factchecks
 
       - name: Run corpus-wide content verification (target branches)
         if: github.event_name == 'push'
