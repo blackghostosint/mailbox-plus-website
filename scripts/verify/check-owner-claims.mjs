@@ -30,7 +30,10 @@ import { getPRContext } from './pr-utils.mjs';
 const HEADING = /#{2,4}\s*business\s+claims/i;
 const MIN_SECTION_CHARS = 120; // heading + real ledger content, not a bare word
 // Status markers that prove the section is a live ledger, not filler prose.
-const STATUS_MARKERS = /[⏳✅⚠️]/g;
+// Base codepoints only (no U+FE0F variation selector in the class): '⚠️' is
+// U+26A0 U+FE0F and counting the selector as a separate match inflates coverage
+// (Runa OBJECT on #714).
+const STATUS_MARKERS = /[⏳✅⚠]/g;
 
 // Rule-3 claim classes (truth lives with the owner — no public source can verify these).
 // Conservative on purpose: false negatives are caught by Runa/the owner review; false
@@ -140,7 +143,13 @@ export function checkOwnerClaims({
     };
   }
 
-  const section = body.slice(m.index + m[0].length);
+  // Strip HTML comments BEFORE analyzing the section: the PR template ships the
+  // Business Claims heading live but its worked examples inside <!-- -->; counting
+  // commented guidance would let an untouched template satisfy the gate (Runa
+  // OBJECT on #714). Only uncommented, author-written text counts as a ledger.
+  const uncommented = body.replace(/<!--[\s\S]*?-->/g, '');
+  const m2 = uncommented.match(HEADING);
+  const section = uncommented.slice((m2 || m).index + (m2 || m)[0].length);
   const next = section.match(/\n#{1,3}\s/);
   const rawContent = next ? section.slice(0, next.index) : section;
   // COMPLETE sanitization: strip every angle bracket in one pass so no HTML fragment

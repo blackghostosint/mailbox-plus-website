@@ -122,4 +122,57 @@ describe('check-owner-claims', () => {
       expect(d.match).not.toContain('>');
     }
   });
+
+  it('does NOT count commented-out template guidance as a ledger (Runa OBJECT #714)', () => {
+    const files = { 'content/articles/pack-ship/claims.md': CLAIMED };
+    // Heading live, but ALL content inside an HTML comment — the untouched template shape.
+    const body = `## Business Claims — Rule 3 (owner sign-off required)
+
+<!-- Required when the changed article copy contains Rule-3 claims. Example:
+
+- "the best pack and ship counter" [superlative] — ⏳ awaiting Frank
+- "packed thousands of shipments" [experience-figure] — ⚠️ softened
+- "Unlike the UPS Store" [third-party-categorical] — ✅ approved 2026-10-09
+- "We pack fragile items" [packing-guidance] — ✅ approved 2026-10-09
+
+Statuses: ⏳ awaiting Frank | ✅ approved | ⚠️ softened/cut. -->`;
+    const r = checkOwnerClaims({
+      body,
+      changedFiles: ['content/articles/pack-ship/claims.md'],
+      readFile: mkReader(files),
+    });
+    expect(r.success).toBe(false);
+    expect(r.reason).toBe('hollow_section');
+  });
+
+  it('counts ⚠️ as ONE status marker, not two (variation selector excluded)', () => {
+    const files = {
+      'content/articles/pack-ship/warn.md': `${FM}The best counter. Unlike the UPS Store, we check every box.`,
+    };
+    // Two detected claims (superlative + third-party); exactly two markers, both ⚠️.
+    // If FE0F counted separately, markerCount would be 4 and the under_marked
+    // threshold test would silently pass even with one marker short.
+    const body = `## Business Claims — Rule 3
+
+- "the best counter" [superlative] — ⚠️ softened to "the neighborhood counter"
+- "Unlike the UPS Store" [third-party-categorical] — ⚠️ cut entirely from the final copy`;
+    const r = checkOwnerClaims({
+      body,
+      changedFiles: ['content/articles/pack-ship/warn.md'],
+      readFile: mkReader(files),
+    });
+    expect(r.success).toBe(true);
+    expect(r.markerCount).toBe(2); // NOT 4
+    expect(r.detectedCount).toBe(2);
+    // And one marker short => under_marked (proves the count is tight)
+    const r2 = checkOwnerClaims({
+      body: `## Business Claims — Rule 3
+
+- "the best counter" [superlative] — ⚠️ softened to "the neighborhood counter", padded out with enough text to clear the one-hundred-twenty character hollow-section threshold easily.`,
+      changedFiles: ['content/articles/pack-ship/warn.md'],
+      readFile: mkReader(files),
+    });
+    expect(r2.success).toBe(false);
+    expect(r2.reason).toBe('under_marked');
+  });
 });
