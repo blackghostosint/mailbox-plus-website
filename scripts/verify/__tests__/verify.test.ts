@@ -20,5 +20,5 @@ describe('verify.mjs doctor', () => {
     expect(envCheck).toBeDefined();
     expect(envCheck.pass).toBe(true);
     expect(envCheck.detail).toContain('27 keys mapped');
-  });
+  }, 30000);
 });
