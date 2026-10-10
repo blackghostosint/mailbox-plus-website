@@ -132,21 +132,13 @@ export function checkOwnerClaims({
     };
   }
 
-  const m = body.match(HEADING);
-  if (!m) {
-    return {
-      success: false,
-      applicable: true,
-      reason: 'missing_section',
-      detected,
-      message: `PR touches article copy containing ${detected.length} Rule-3 business claim(s) but the body has no "Business Claims" section.`,
-    };
-  }
-
-  // Strip HTML comments BEFORE analyzing the section: the PR template ships the
+  // Strip HTML comments BEFORE any section analysis: the PR template ships the
   // Business Claims heading live but its worked examples inside <!-- -->; counting
   // commented guidance would let an untouched template satisfy the gate (Runa
-  // OBJECT on #714). Only uncommented, author-written text counts as a ledger.
+  // OBJECT on #714). Only uncommented, author-written text counts as a ledger —
+  // including the heading itself: a heading that exists ONLY inside a comment is
+  // NOT a section (Runa OBJECT on #716 — the pre-sanitization match fallback let
+  // commented-heading + uncommented ledger text pass).
   // SINGLE-PASS sanitizer (CodeQL incomplete-sanitization, js/html-injection):
   // one replace whose alternation consumes paired comments, an unclosed comment
   // opener through end-of-string, AND every bare angle bracket — so no '<!--' or
@@ -154,8 +146,18 @@ export function checkOwnerClaims({
   // satisfy the query: its model flags the first replace whose output can still
   // carry an unclosed opener.
   const uncommented = body.replace(/<!--[\s\S]*?(?:-->|$)|[<>]/g, '');
-  const m2 = uncommented.match(HEADING);
-  const section = uncommented.slice((m2 || m).index + (m2 || m)[0].length);
+  const m = uncommented.match(HEADING);
+  if (!m) {
+    return {
+      success: false,
+      applicable: true,
+      reason: 'missing_section',
+      detected,
+      message: `PR touches article copy containing ${detected.length} Rule-3 business claim(s) but the body has no live "Business Claims" section (a heading inside an HTML comment does not count).`,
+    };
+  }
+
+  const section = uncommented.slice(m.index + m[0].length);
   const next = section.match(/\n#{1,3}\s/);
   const rawContent = next ? section.slice(0, next.index) : section;
   // COMPLETE sanitization: strip every angle bracket in one pass so no HTML fragment

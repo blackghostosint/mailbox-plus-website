@@ -175,4 +175,26 @@ Statuses: ⏳ awaiting Frank | ✅ approved | ⚠️ softened/cut. -->`;
     expect(r2.success).toBe(false);
     expect(r2.reason).toBe('under_marked');
   });
+
+  it('rejects a heading that exists ONLY inside an HTML comment (Runa OBJECT #716)', () => {
+    const files = { 'content/articles/pack-ship/claims.md': CLAIMED };
+    // Commented heading + real uncommented ledger-looking text after it:
+    // pre-sanitization heading match must NOT be honored — missing_section.
+    const body = `## Summary
+New article.
+
+<!-- ## Business Claims — Rule 3 (owner sign-off required) -->
+
+- "the best pack and ship counter" [superlative] — ⏳ awaiting Frank
+- "packed thousands of shipments" [experience-figure] — ⚠️ softened
+- "Unlike the UPS Store" [third-party-categorical] — ✅ approved 2026-10-09
+- "We pack fragile items" [packing-guidance] — ✅ approved 2026-10-09`;
+    const r = checkOwnerClaims({
+      body,
+      changedFiles: ['content/articles/pack-ship/claims.md'],
+      readFile: mkReader(files),
+    });
+    expect(r.success).toBe(false);
+    expect(r.reason).toBe('missing_section');
+  });
 });
