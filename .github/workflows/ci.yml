@@ -59,6 +59,11 @@ jobs:
         run: |
           node scripts/verify/check-auth-model.mjs "$PR_BODY_FILE" "$PR_FILES_FILE"
 
+      - name: Check Business Claims ledger (rule 3 owner sign-off)
+        if: github.event_name == 'pull_request'
+        run: |
+          node scripts/verify/check-owner-claims.mjs "$PR_BODY_FILE" "$PR_FILES_FILE"
+
       - name: Check article ownership (internal-only rule)
         if: github.event_name == 'pull_request'
         env:
