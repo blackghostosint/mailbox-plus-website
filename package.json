@@ -96,6 +96,7 @@
     ]
   },
   "overrides": {
+    "argparse": "^2.0.1",
     "http-cache-semantics": "^4.3.0",
     "basic-ftp": "^6.2.2"
   }
