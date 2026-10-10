@@ -21,13 +21,13 @@ relatedServices: ['/home-business/document-scanning/', '/home-business/shredding
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'Where can I scan and email documents near Willoughby, Ohio?'
-    answer: 'Mailbox Plus in Concord Township — 7554 Fredle Drive, about 19 minutes from Willoughby via SR-2 and Route 44 — scans documents to clean digital files you can email, print, or save. No appointment needed; walk in with your papers and the counter handles the rest.'
+    answer: 'Mailbox Plus in Concord Township — 7554 Fredle Drive, about 19 minutes from Willoughby via SR-2 and Route 44 — scans documents to clean digital files you can email, print, or save. Walk in with your papers and the counter handles the rest.'
   - question: 'How long should I keep tax records before shredding them?'
     answer: 'IRS guidance is to keep tax records at least three years after filing, and up to seven years in some situations. Scan the records you are keeping so a search box replaces the filing cabinet, then shred the rest securely. For the full walkthrough, see our guide to [scanning and emailing documents without buying a scanner](/articles/scan-and-email-documents-where/).'
   - question: 'Can I drop off a whole box of records, or just a few pages?'
-    answer: "Either. We handle everything from a single page you need scanned and emailed to full banker's boxes of records. We quote based on volume at the counter before anything starts, so you know the scope and timing up front. See our guide to [where to scan and email documents](/articles/scan-and-email-documents-where/) for the small-job details."
+    answer: "Either. We handle everything from a single page you need scanned and emailed to full banker's boxes of records. The counter prices by volume — scope gets settled with you before anything starts. See our guide to [where to scan and email documents](/articles/scan-and-email-documents-where/) for the small-job details."
   - question: 'Do I have to sort my papers before bringing them in to be scanned?'
-    answer: 'No. Bring the box or folder as it is. We ask a few quick questions at the counter — searchable PDF or standard, organized by year or type, and how you want the files delivered — and handle the sorting, scanning, and file naming here.'
+    answer: 'No. Bring the box or folder as it is. We ask a few quick questions at the counter — searchable PDF or standard, organized by year or type, and how you want the files delivered — and the scanning work happens here.'
 ---
 
 ## The Trip You Keep Dreading
@@ -60,21 +60,21 @@ Owning your records should mean you can pull them up, not dig for them. If the c
 
 And there is a stakes question nobody likes to sit with: paper burns. Paper floods. Basements take on water, water heaters leak, and a single afternoon can erase records the IRS expects you to be able to produce for at least three years after filing — and up to seven in some situations. Your copy is the only copy — and it is sitting on a shelf in a basement that has flooded before. A filing cabinet is not a backup. It never was.
 
-A record you can't retrieve is just a keepsake. Your records deserve the same standard as the rest of your digital life: searchable, backed up, retrievable in seconds.
+A record you can't retrieve is just a keepsake. Your records deserve the same standard as the rest of your digital life: searchable and backed up.
 
 ## What We Hear From Willoughby Every Week
 
-People set that folder on our counter every day. Banker's boxes of tax records, accordion folders of medical bills, the whole file drawer from a home office becoming a nursery. Folks make the run out from Willoughby along SR-2 because it is one straight shot, and most of them mutter some version of "I know this is a mess" as they set it down.
+That folder ends up on a counter like ours eventually — the question is what happens to it. Banker's boxes of tax records, accordion folders of medical bills, the whole file drawer from a home office becoming a nursery. Folks make the run out from Willoughby along SR-2 because it is one straight shot, and most of them mutter some version of "I know this is a mess" as they set it down.
 
 It isn't a mess. It's a project that was bigger than the equipment in your closet.
 
-Your papers never leave this counter — the same person who takes your folder scans it, on professional equipment, and hands you back your originals. If you would rather take the closet space back than carry the paper home again, our secure [shredding service](/home-business/shredding/) is in the same building — same trip, no extra errand, the same way we compared [walk-in shredding and the retail drop consoles](/articles/walk-in-document-shredding-vs-drop-consoles/). You talk to a person, you get a straight answer, and the whole thing ends.
+Your originals come back to you with the digital files. If you would rather take the closet space back than carry the paper home again, our secure [shredding service](/home-business/shredding/) is in the same building — same trip, no extra errand, the same way we compared [walk-in shredding and the retail drop consoles](/articles/walk-in-document-shredding-vs-drop-consoles/). You talk to a person, you get a straight answer, and the whole thing ends.
 
-## Three Minutes, Start to Finish
+## The Counter, Start to Finish
 
 1. **Box it up and drive out.** No sorting, no labeling, no alphabetizing first. Bring the box as it is — take SR-2 west to Route 44, then onto Fredle Drive. There is parking right out front.
 2. **Put it on the counter.** We ask a few quick questions — searchable PDF or standard, organized by year or by type, and how you want the files delivered — and settle scope and timing with you before anything starts. No surprises, no homework.
-3. **Walk out lighter.** We scan, organize, and deliver your digital files, and your paper originals stay yours — or get shredded securely on the spot if you would rather take the shelf space back. From that day forward, everything is searchable from your phone.
+3. **Walk out lighter.** We scan, organize, and deliver your digital files, and your paper originals stay yours — or hand it to the shredding service if you would rather take the shelf space back. From that day forward, everything is searchable from your phone.
 
 ## The Quiet Price of Doing Nothing
 
