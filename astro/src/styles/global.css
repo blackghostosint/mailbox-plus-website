@@ -130,6 +130,39 @@
     }
   }
 
+  @keyframes toastFadeInOut {
+    0% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+    15% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    85% {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-50%) translateY(10px);
+    }
+  }
+
+  .copy-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #10b981;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    z-index: 50;
+    animation: toastFadeInOut 2s ease;
+  }
+
   .animate-fade-in {
     animation: fade-in 0.8s ease-out forwards;
   }
@@ -184,6 +217,12 @@
       animation: none !important;
       opacity: 1 !important;
       transform: none !important;
+    }
+
+    .copy-toast {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: translateX(-50%) !important;
     }
   }
 }
