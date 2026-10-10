@@ -1212,10 +1212,16 @@ function cmdArticle(arg, isStrict = false) {
     );
 
     // 12b) Fact-check receipt — the gate that would have caught the $3-vs-$5 notary fee error. Strict-only, new articles.
+    // Receipt lookup is tolerant of location: the canonical store is .factchecks/ (what CI
+    // sets ARTICLE_DRAFTS_DIR to), but a bot that wrote the receipt to content/drafts/ still
+    // satisfies the gate — the file exists in-repo, so a stale-branch or drifted-bot PR cannot
+    // fail on a pure file-location technicality. content/drafts/ is the fallback of last resort.
+    const repoDraftsFallback = path.resolve(ROOT, 'content', 'drafts');
     const fcCandidates = [
       path.join(DRAFTS_DIR, `${slug}.factcheck.md`),
       path.join(DRAFTS_DIR, `${slug}.factcheck`),
       path.join(path.dirname(abs), `${slug}.factcheck.md`),
+      path.join(repoDraftsFallback, `${slug}.factcheck.md`),
     ];
     const fcFound = fcCandidates.find((f) => fs.existsSync(f));
     if (fcFound) {
