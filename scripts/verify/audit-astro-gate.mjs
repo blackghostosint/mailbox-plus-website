@@ -6,7 +6,9 @@
 // advisory NOT in the allowlist fails the gate.
 // TODO(2026-10): remove allowlist once braces 3.0.4 is published.
 import { fileURLToPath } from 'node:url';
-import { runAuditGate } from './audit-utils.mjs';
+import { evaluateAuditData, runAuditGate } from './audit-utils.mjs';
+
+export { evaluateAuditData };
 
 export function runAuditAstroGate(options = {}) {
   const cwd = new URL('../../astro/', import.meta.url).pathname;

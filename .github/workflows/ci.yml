@@ -91,10 +91,7 @@ jobs:
         run: npm run lint
 
       - name: Dependency Security Audit (Astro)
-        # GHSA-vfj7-8cjw-p6xm (braces <=3.0.3): no upstream fix until 3.0.4 ships.
-        # Scoped allowlist — any OTHER high advisory still fails the gate.
-        run: |
-          AUDIT_ALLOW="GHSA-vfj7-8cjw-p6xm" node scripts/verify/audit-astro-gate.mjs
+        run: node scripts/verify/audit-astro-gate.mjs
 
       - name: Dependency Security Audit (Netlify Functions)
         run: npm run audit:functions
