@@ -73,7 +73,12 @@ function stripFrontmatter(text) {
  *        (injectable for tests). Defaults to reading from disk relative to params.root.
  * @param {string} [params.root] repo root for the default reader.
  */
-export function checkOwnerClaims({ body = '', changedFiles = [], readFile, root = process.cwd() } = {}) {
+export function checkOwnerClaims({
+  body = '',
+  changedFiles = [],
+  readFile,
+  root = process.cwd(),
+} = {}) {
   const reader =
     readFile ||
     ((rel) => {
@@ -183,8 +188,12 @@ function fail(result) {
   for (const d of result.detected || []) {
     console.error(`   - [${d.category}] "${d.match}" in ${d.file}`);
   }
-  console.error(`   Add a "Business Claims — Rule 3 (owner sign-off required)" section to the PR body:`);
-  console.error(`   one line per claim — quote, class, and status ⏳ awaiting Frank / ✅ approved <date> / ⚠️ softened-cut.`);
+  console.error(
+    `   Add a "Business Claims — Rule 3 (owner sign-off required)" section to the PR body:`
+  );
+  console.error(
+    `   one line per claim — quote, class, and status ⏳ awaiting Frank / ✅ approved <date> / ⚠️ softened-cut.`
+  );
   console.error(`   See .github/pull_request_template.md and AGENTS.md rule 3.`);
   process.exit(1);
 }

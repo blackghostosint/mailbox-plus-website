@@ -44,4 +44,3 @@ without this section are rejected on sight (AGENTS.md rule 7).
 
 Statuses: ⏳ awaiting Frank | ✅ approved <date> | ⚠️ softened/cut. If the article
 uses NO Rule-3 claims, write: "No Rule-3 business claims in this article." -->
-
