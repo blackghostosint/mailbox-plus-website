@@ -25,9 +25,9 @@ faqs:
   - question: 'How long should I keep tax records before shredding them?'
     answer: 'IRS guidance is to keep tax records at least three years after filing, and up to seven years in some situations. Scan the records you are keeping so a search box replaces the filing cabinet, then shred the rest securely. For the full walkthrough, see our guide to [scanning and emailing documents without buying a scanner](/articles/scan-and-email-documents-where/).'
   - question: 'Can I drop off a whole box of records, or just a few pages?'
-    answer: "Either. We handle everything from a single page you need scanned and emailed to full banker's boxes of records. The counter prices by volume — scope gets settled with you before anything starts. See our guide to [where to scan and email documents](/articles/scan-and-email-documents-where/) for the small-job details."
+    answer: "Either. We handle everything from a single page you need scanned and emailed to full banker's boxes of records. Scope and pricing are worked out at the counter before anything starts. See our guide to [where to scan and email documents](/articles/scan-and-email-documents-where/) for the small-job details."
   - question: 'Do I have to sort my papers before bringing them in to be scanned?'
-    answer: 'No. Bring the box or folder as it is. We ask a few quick questions at the counter — searchable PDF or standard, organized by year or type, and how you want the files delivered — and the scanning work happens here.'
+    answer: 'No. Bring the box or folder as it is. The counter takes the box as it is and scans it to the format you choose, delivered how you want it.'
 ---
 
 ## The Trip You Keep Dreading
@@ -72,13 +72,13 @@ Your originals come back to you with the digital files. If you would rather take
 
 ## The Counter, Start to Finish
 
-1. **Box it up and drive out.** No sorting, no labeling, no alphabetizing first. Bring the box as it is — take SR-2 west to Route 44, then onto Fredle Drive. There is parking right out front.
-2. **Put it on the counter.** We ask a few quick questions — searchable PDF or standard, organized by year or by type, and how you want the files delivered — and settle scope and timing with you before anything starts. No surprises, no homework.
+1. **Box it up and drive out.** Bring the box as it is — take SR-2 west to Route 44, then onto Fredle Drive.
+2. **Put it on the counter.** The format and delivery questions get answered there, and scope is agreed before anything starts. No homework.
 3. **Walk out lighter.** We scan, organize, and deliver your digital files, and your paper originals stay yours — or hand it to the shredding service if you would rather take the shelf space back. From that day forward, everything is searchable from your phone.
 
 ## The Quiet Price of Doing Nothing
 
-**Time, on repeat — with a deadline attached.** IRS record-retention guidance is to keep tax records at least three years after filing, and longer in some situations, so the box is not a one-time question — it is a standing audit window that rolls forward every year. Every search inside that window is another evening on your knees in front of the filing cabinet, pulling folders you will put back in the wrong order. Scan the folder once, and every search after that is a filename in a search bar. The full picture of what a scanning counter does — and what it costs — is in [what a scanning and email service actually is](/articles/scan-and-email-documents-where/).
+**Time, on repeat — with a deadline attached.** IRS record-retention guidance is to keep tax records at least three years after filing, and longer in some situations, so the box is not a one-time question — it is a standing audit window that rolls forward every year. Every search inside that window is another evening on your knees in front of the filing cabinet, pulling folders you will put back in the wrong order. Scan the folder once, and every search after that happens on your computer. The full picture of what a scanning counter does — and what it costs — is in [what a scanning and email service actually is](/articles/scan-and-email-documents-where/).
 
 **The originals themselves.** Paper has one life. Fire, water, mice, a bad move — these are the ordinary ways twenty years of records disappear on an unremarkable Tuesday. A digital copy is the only backup paper can have. While the box sits unscanned, it is a single point of failure, and no cabinet or plastic bin changes that.
 
@@ -86,7 +86,7 @@ Your originals come back to you with the digital files. If you would rather take
 
 ## The Weight You Didn't Realize You Were Carrying
 
-The letter from the auditor's office arrives on a Wednesday. Instead of clearing your evening, you open the folder on your computer, type "settlement," and the file surfaces in two seconds. You email it before your coffee is warm, and dinner starts on time.
+The letter from the auditor's office arrives on a Wednesday. Instead of clearing your evening, you open the folder on your computer, type "settlement," and the file is there. You email it before your coffee is warm, and dinner starts on time.
 
 And something else is gone — the low hum of that box in the back of your mind. The vague, chronic guilt of a job you keep meaning to finish. The closet shelf where the box lived has room now, or nothing at all, which is its own kind of luxury. Nothing about your paperwork changed except the direction it works: for you, instead of against you.
 
