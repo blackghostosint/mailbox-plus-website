@@ -1,4 +1,7 @@
-npm run lint && npm run format:check && npm run check
+# Baseline checks — their failure must fail the hook (last-command status is not enough
+# once the article block below exists; Runa OBJECT on #711: non-article push with failing
+# lint/format/check would exit 0 and be allowed through).
+npm run lint && npm run format:check && npm run check || exit 1
 
 # Article preflight — enforces the receipt path + gates that have failed on article PRs.
 # Skips fast when the branch touches no article content (non-article pushes unaffected).
