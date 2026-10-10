@@ -1,1 +1,20 @@
-npm run lint && npm run format:check && npm run check
+# Baseline checks — their failure must fail the hook (last-command status is not enough
+# once the article block below exists; Runa OBJECT on #711: non-article push with failing
+# lint/format/check would exit 0 and be allowed through).
+npm run lint && npm run format:check && npm run check || exit 1
+
+# Article preflight — enforces the receipt path + gates that have failed on article PRs.
+# Skips fast when the branch touches no article content (non-article pushes unaffected).
+ARTICLES_CHANGED=$(git diff --name-only origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null | head -1)
+if [ -n "$ARTICLES_CHANGED" ]; then
+  echo "pre-push: article changes detected — running npm run preflight:article"
+  npm run preflight:article || {
+    echo "pre-push: article preflight FAILED — fix the receipts/gates above before pushing."
+    exit 1
+  }
+  # Preflight may have committed regenerated feeds / removed duplicate receipts — surface it.
+  if [ -n "$(git status --porcelain)" ]; then
+    echo "pre-push: preflight left uncommitted changes (feed regen / receipt dedupe) — commit them, then push again."
+    exit 1
+  fi
+fi
