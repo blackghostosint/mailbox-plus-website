@@ -19,10 +19,14 @@ const PROTECTED = [
   /^scripts\/verify\/audit-/,
 ];
 
-function fail(msg) { console.error('❌ ' + msg); process.exit(1); }
+function fail(msg) {
+  console.error('❌ ' + msg);
+  process.exit(1);
+}
 
 const [filesFile, authorArg] = process.argv.slice(2);
-if (!filesFile || !authorArg) fail('usage: check-supply-chain-actor.mjs <pr_files_file> <pr_author>');
+if (!filesFile || !authorArg)
+  fail('usage: check-supply-chain-actor.mjs <pr_files_file> <pr_author>');
 
 const files = readFileSync(filesFile, 'utf8').trim().split('\n').filter(Boolean);
 const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
@@ -37,6 +41,8 @@ if (authorArg === OWNER) {
   process.exit(0);
 }
 
-fail(`PR by "${authorArg}" touches protected supply-chain files: ${touched.join(', ')}. ` +
-  'Dependency overrides and CI workflow changes require a PR from the repo owner. ' +
-  'Owner reviews and applies dependency changes in-house (see PR #720 incident).');
+fail(
+  `PR by "${authorArg}" touches protected supply-chain files: ${touched.join(', ')}. ` +
+    'Dependency overrides and CI workflow changes require a PR from the repo owner. ' +
+    'Owner reviews and applies dependency changes in-house (see PR #720 incident).'
+);
