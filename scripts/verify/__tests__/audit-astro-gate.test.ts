@@ -7,18 +7,41 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..', '..');
 
 describe('audit-astro-gate.mjs', () => {
-  it('passes audit check for astro with exit code 0 when dependencies have no unhandled advisories', () => {
+  it('passes audit check for astro with exit code 0 when AUDIT_ALLOW permits GHSA-vfj7-8cjw-p6xm', () => {
     const stdout = execSync('node scripts/verify/audit-astro-gate.mjs', {
       cwd: ROOT,
       encoding: 'utf8',
       env: {
         ...process.env,
-        AUDIT_ALLOW: '',
+        AUDIT_ALLOW: 'GHSA-vfj7-8cjw-p6xm',
       },
     });
 
-    expect(stdout).toContain('✅ astro audit: high advisories present are all in allowlist');
+    expect(stdout).toContain(
+      '✅ astro audit: high advisories present are all in allowlist (GHSA-vfj7-8cjw-p6xm)'
+    );
   }, 15000);
+
+  it('fails closed (exit status 1) when AUDIT_ALLOW is empty and unhandled high advisory exists', () => {
+    let threw = false;
+    try {
+      execSync('node scripts/verify/audit-astro-gate.mjs', {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          AUDIT_ALLOW: '',
+        },
+      });
+    } catch (e: any) {
+      threw = true;
+      expect(e.status).not.toBe(0);
+      expect(e.stderr || e.stdout).toContain(
+        '❌ high/critical advisories NOT in allowlist: GHSA-vfj7-8cjw-p6xm (braces)'
+      );
+    }
+    expect(threw).toBe(true);
+  });
 
   it('fails closed (exit status 1) when unhandled high advisory is in AUDIT_MOCK_RAW without AUDIT_ALLOW', () => {
     const mockAuditWithNewVuln = {
