@@ -60,7 +60,7 @@ You know this feeling already, even if you've never named it.
 
 You hand off a box on a Thursday afternoon, convinced you're ahead of it. The tracking page says "label created" — and nothing else, all weekend. Monday it shows an origin scan from a state you didn't expect. By Wednesday it has sat in the same regional facility long enough that you know the name of a town you'll never visit. You refresh at a red light. You refresh before bed. The box isn't lost; the page just stopped pretending it can tell you anything.
 
-Now multiply that box by every other one in the trailer it's riding in. That's December. Nobody at the sorting facility is being lazy — the seasonal crew is there, working, more than 100,000 strong, exactly as UPS promised. They're standing in a building where twice as many boxes came in overnight as the trucks can carry out. The tracking page goes quiet not because your box stopped moving but because there are more boxes than scans, more trailers than doors, more packages than hours in the shift.
+Now multiply that box by every other one in the trailer it's riding in. That's December. Nobody at the sorting facility is being lazy — the seasonal crew is there, working — UPS says it is hiring more than 100,000 people for exactly this. They're standing in a building where twice as many boxes came in overnight as the trucks can carry out. The tracking page goes quiet not because your box stopped moving but because there are more boxes than scans, more trailers than doors, more packages than hours in the shift.
 
 And if you shipped late — after the surge starts — the fix you reach for is the expensive one: pay for faster service to buy back the days the calendar took. It works, at premium prices — and it's almost always optional.
 
