@@ -35,14 +35,14 @@ faqs:
   - question: 'Is it cheaper to ship holiday packages before peak season starts?'
     answer: "Generally yes, for two reasons. First, the steepest surcharge window runs Nov. 22 through Dec. 26, when UPS's additional handling fee tops out at $11.90 and large-package fees reach $117.50; earlier shipments dodge those weeks. Second, shipping late pushes people into expedited services to make a date — the most expensive way to buy back days the calendar already took. Either way, see the actual price for your box before choosing: the four carriers' peak fees don't move together."
   - question: 'Does hiring more workers stop holiday shipping delays?'
-    answer: "It helps; it doesn't erase the math. Seasonal hiring adds hands to a network whose daily volumes roughly double at peak — and 2026's announced seasonal hiring of more than 100,000 comes on a network that closed 24 facilities this year and runs about 25,000 fewer seasonal workers than 2024. Packages still queue. Shipping early, choosing the right carrier for the route, and packing for rough handling protect your delivery far more than hoping a fully staffed network stays fast."
+    answer: "It helps; it doesn't erase the math. Seasonal hiring adds hands to a network whose daily volumes roughly double at peak — and 2026's announced seasonal hiring of more than 100,000 comes on a network where UPS announced 24 facility closures for 2026 and that runs about 25,000 fewer seasonal workers than 2024. Packages still queue. Shipping early, choosing the right carrier for the route, and packing for rough handling protect your delivery far more than hoping a fully staffed network stays fast."
 ---
 
 ## The Headline Is Real. So Is the Math.
 
 You probably saw the headline: UPS is hiring more than 100,000 seasonal workers for the holidays. It sounds like good news: more hands on the sort floor, more drivers on the road, your December covered.
 
-Here is the part the headline doesn't tell you: that number is not a promise to you. It's a confession about the calendar. UPS hires that many people because, every year between late November and early January, the package volume in this country roughly doubles, and no standing workforce on earth absorbs that quietly. Here is what that math does to your December — and how to get your boxes out before it does.
+Here is the part the headline doesn't tell you: that number is not a promise to you. It's a confession about the calendar. UPS hires that many people because, every year between late November and early January, the volume moving through its network roughly doubles, and no standing workforce on earth absorbs that quietly. Here is what that math does to your December — and how to get your boxes out before it does.
 
 ## The Peak Season Squeeze
 
