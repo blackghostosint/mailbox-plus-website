@@ -8,6 +8,7 @@
 
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { readFileSync } from 'node:fs';
 import { getPRContext, parsePRCliArgs } from './pr-utils.mjs';
 
 export const DEFAULT_AUTHORIZED_AUTHORS = [
@@ -28,6 +29,11 @@ export const IN_HOUSE_STAMP = 'authorship: article-writer-bot (in-house)';
  * @param {string} [options.author] - Author username/login
  * @param {boolean} [options.isLocal] - Whether execution is local without author context
  * @param {string[]} [options.authorizedAuthors] - List of authorized internal author logins
+ * @param {Record<string,string>} [options.fileStatuses] - Optional map of changed-file path
+ *   -> GitHub API status ('added' | 'modified' | 'removed' | 'renamed' | ...). When provided,
+ *   deleted ('removed') article files are excluded from the stamp requirement: the ownership
+ *   rule governs AUTHORED content, and a removal adds none. When absent, every touched
+ *   article file is treated as authored (previous behavior).
  */
 export function checkArticleOwnership({
   body = '',
@@ -35,8 +41,10 @@ export function checkArticleOwnership({
   author = '',
   isLocal = false,
   authorizedAuthors = DEFAULT_AUTHORIZED_AUTHORS,
+  fileStatuses = null,
 } = {}) {
-  const touchesArticles = changedFiles.some((f) => f.trim().startsWith('content/articles/'));
+  const touchedArticles = changedFiles.filter((f) => f.trim().startsWith('content/articles/'));
+  const touchesArticles = touchedArticles.length > 0;
 
   if (!touchesArticles) {
     return {
@@ -45,6 +53,18 @@ export function checkArticleOwnership({
       reason: 'not_applicable',
       message: '✅ article-ownership: PR does not touch content/articles/ — not applicable',
     };
+  }
+
+  // Deletion-only PRs (e.g. GSC sitemap-cleanup branches that `git rm` stale
+  // articles) add no article content, so the in-house authorship stamp does not
+  // apply — but the author identity check ALWAYS runs (an external actor must
+  // not be able to delete articles unchecked). Only enforced when per-file
+  // statuses are supplied (CI); without them the previous behavior is preserved.
+  let authoredArticles = touchedArticles;
+  let deletionsOnly = false;
+  if (fileStatuses) {
+    authoredArticles = touchedArticles.filter((f) => fileStatuses[f.trim()] !== 'removed');
+    deletionsOnly = authoredArticles.length === 0;
   }
 
   const normalizedAuthor = author ? author.trim().toLowerCase() : '';
@@ -83,6 +103,16 @@ export function checkArticleOwnership({
         `❌ article-ownership: PR touches content/articles/ but author '${author}' is not an authorized internal author login.\n` +
         '   Articles are produced by internal author accounts ONLY.\n' +
         '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
+    };
+  }
+
+  if (deletionsOnly) {
+    return {
+      success: true,
+      touchesArticles: true,
+      reason: 'deletions_only',
+      message:
+        '✅ article-ownership: PR only deletes content/articles/ files — no authored content, stamp not required',
     };
   }
 
@@ -127,12 +157,24 @@ if (isMain) {
     ? process.env.AUTHORIZED_AUTHORS.split(',')
     : DEFAULT_AUTHORIZED_AUTHORS;
 
+  // Optional per-file status map (path -> added/modified/removed) written by CI.
+  // When present, deleted article files don't require the authorship stamp.
+  let fileStatuses = null;
+  if (process.env.PR_FILE_STATUS_FILE) {
+    try {
+      fileStatuses = JSON.parse(readFileSync(process.env.PR_FILE_STATUS_FILE, 'utf8'));
+    } catch {
+      fileStatuses = null; // malformed/absent → previous behavior (all touched = authored)
+    }
+  }
+
   const result = checkArticleOwnership({
     body: ctx.body,
     changedFiles: ctx.changedFiles,
     author: ctx.author,
     isLocal: ctx.isLocal,
     authorizedAuthors: customAuthors,
+    fileStatuses,
   });
 
   if (!result.success) {

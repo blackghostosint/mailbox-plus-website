@@ -18,8 +18,11 @@ else
 fi
 
 # 2. copy review >= 80 on each changed article (failed: #636/#638 chain)
-MAP=$(git diff --name-only origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
-[ -z "${MAP}" ] && MAP=$(git diff --name-only HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
+# NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
+# review and no receipt to check; running the gates on it fails spuriously
+# (deletion branches like the GSC sitemap-cleanup PR).
+MAP=$(git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
+[ -z "${MAP}" ] && MAP=$(git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
 for f in ${MAP}; do
   echo "-- audit:copy $f"
   npm run audit:copy -- "$f" 2>&1 | grep -E "Score|FAIL" || { echo "❌ copy review failed for $f"; FAIL=1; }
