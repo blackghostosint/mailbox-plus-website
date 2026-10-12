@@ -4,6 +4,7 @@ import {
   parseHtmlAttributes,
   serializeHtmlAttributes,
   hasNewTabDisclosure,
+  extractAccessibleTextsFromInnerHtml,
   DEFAULT_ARTICLE_LINK_CLASS,
 } from './articleHtmlLinks';
 
@@ -80,12 +81,23 @@ describe('normalizeArticleHtmlLinks', () => {
     expect(result).toContain('rel="noopener noreferrer"');
   });
 
-  it('does not append duplicate screen reader text if aria-labelledby target contains explicit new tab disclosure', () => {
+  it('appends screen reader disclosure when aria-labelledby points to an ID without explicit new tab text', () => {
     const input =
       '<a href="https://example.com" target="_blank" aria-labelledby="new-tab-desc">Link</a>';
     const result = normalizeArticleHtmlLinks(input);
 
-    expect(result).not.toContain('<span class="sr-only">');
+    expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    expect(result).toContain('aria-labelledby="new-tab-desc"');
+    expect(result).toContain('rel="noopener noreferrer"');
+  });
+
+  it('does not append duplicate screen reader disclosure if aria-labelledby target element inside innerHtml contains explicit new tab disclosure', () => {
+    const input =
+      '<a href="https://example.com" target="_blank" aria-labelledby="new-tab-desc">Link<span id="new-tab-desc" class="sr-only">(opens in a new tab)</span></a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    const matches = result.match(/\(opens in a new tab\)/g);
+    expect(matches).toHaveLength(1);
     expect(result).toContain('aria-labelledby="new-tab-desc"');
     expect(result).toContain('rel="noopener noreferrer"');
   });
@@ -387,7 +399,7 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(matches).toHaveLength(1);
     });
 
-    it('directly validates hasNewTabDisclosure for existing disclosure text vs unrelated sr-only content', () => {
+    it('directly validates hasNewTabDisclosure for existing disclosure text vs unrelated content and attributes', () => {
       const parsedClassNotSrOnly = parseHtmlAttributes('class="not-sr-only"');
       expect(
         hasNewTabDisclosure(parsedClassNotSrOnly, '<span class="sr-only">Download icon</span>Link')
@@ -396,6 +408,9 @@ describe('normalizeArticleHtmlLinks', () => {
 
       const parsedAriaLabelUnrelated = parseHtmlAttributes('aria-label="Example website"');
       expect(hasNewTabDisclosure(parsedAriaLabelUnrelated, 'Link')).toBe(false);
+
+      const parsedAriaLabelledBy = parseHtmlAttributes('aria-labelledby="new-tab-desc"');
+      expect(hasNewTabDisclosure(parsedAriaLabelledBy, 'Link')).toBe(false);
 
       const parsedBoolAria = parseHtmlAttributes('aria-label');
       expect(hasNewTabDisclosure(parsedBoolAria, 'Link')).toBe(false);
@@ -409,6 +424,95 @@ describe('normalizeArticleHtmlLinks', () => {
         true
       );
       expect(hasNewTabDisclosure([], 'Open in new window')).toBe(true);
+
+      // Inner alt attribute on img tag
+      expect(hasNewTabDisclosure([], 'Link <img src="/icon.png" alt="opens in a new tab" />')).toBe(
+        true
+      );
+
+      // Inner aria-label attribute on svg tag
+      expect(
+        hasNewTabDisclosure([], 'Link <svg aria-label="opens in a new tab"><path d=""/></svg>')
+      ).toBe(true);
+
+      // Inner title attribute on span tag
+      expect(hasNewTabDisclosure([], 'Link <span title="opens in a new tab">Icon</span>')).toBe(
+        true
+      );
+
+      // False-positive suppressions: data-note, class, id, src, HTML comments must not trigger disclosure
+      expect(hasNewTabDisclosure([], '<span data-note="new tab">Link</span>')).toBe(false);
+      expect(hasNewTabDisclosure([], '<span class="new-tab-link">Link</span>')).toBe(false);
+      expect(hasNewTabDisclosure([], '<span id="new-tab">Link</span>')).toBe(false);
+      expect(hasNewTabDisclosure([], '<img src="/images/new-tab.png" alt="icon" />Link')).toBe(
+        false
+      );
+      expect(hasNewTabDisclosure([], 'Link <!-- opens in a new tab -->')).toBe(false);
+    });
+
+    it('does not suppress screen reader disclosure for data-note="new tab" on inner element', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span data-note="new tab">Link</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toBe(
+        `<a target="_blank" href="https://example.com" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer"><span data-note="new tab">Link</span><span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('does not suppress screen reader disclosure for HTML comments containing "new tab"', () => {
+      const input =
+        '<a target="_blank" href="https://example.com">Link <!-- opens in a new tab --></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    });
+
+    it('does not suppress screen reader disclosure for class="new-tab" or id="new-tab" on inner element', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span id="new-tab" class="new-tab">Link</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    });
+  });
+
+  describe('extractAccessibleTextsFromInnerHtml unit tests', () => {
+    it('returns empty array when innerHtml is empty or whitespace', () => {
+      expect(extractAccessibleTextsFromInnerHtml('')).toEqual([]);
+      expect(extractAccessibleTextsFromInnerHtml('   ')).toEqual([]);
+    });
+
+    it('extracts plain text and accessible attributes (aria-label, alt, title) while ignoring HTML comments and non-accessible attributes', () => {
+      const innerHtml = `
+        <!-- HTML Comment: opens in a new tab -->
+        <span class="new-tab-class" data-note="new tab">Visible Text</span>
+        <img src="/img.png" alt="opens in a new tab" />
+        <svg aria-label="opens in a new window"><path d="M0 0" /></svg>
+        <span title="opens in new tab">Title Text</span>
+      `;
+
+      const extracted = extractAccessibleTextsFromInnerHtml(innerHtml);
+
+      expect(extracted).toContain('Visible Text');
+      expect(extracted).toContain('opens in a new tab');
+      expect(extracted).toContain('opens in a new window');
+      expect(extracted).toContain('opens in new tab');
+      expect(extracted).toContain('Title Text');
+      expect(extracted).not.toContain('HTML Comment');
+      expect(extracted).not.toContain('new-tab-class');
+      expect(extracted).not.toContain('data-note');
+    });
+
+    it('handles unclosed tag gracefully', () => {
+      const innerHtml = 'Text before <span data-attr="test"';
+      expect(extractAccessibleTextsFromInnerHtml(innerHtml)).toEqual(['Text before ']);
+    });
+
+    it('handles inner tags with boolean or empty accessible attributes', () => {
+      const innerHtml = 'Text <span aria-label alt="" title="   ">Label</span>';
+      expect(extractAccessibleTextsFromInnerHtml(innerHtml)).toEqual(['Text ', 'Label']);
     });
   });
 });

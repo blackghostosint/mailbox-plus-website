@@ -267,30 +267,103 @@ export function normalizeArticleHtmlLinks(html: string): string {
 }
 
 /**
+ * Extracts accessible text strings and accessible attribute values (aria-label, alt, title)
+ * from an inner HTML string. Ignores HTML comments, tag markup, and non-accessible attribute
+ * names/values (such as data-*, class, id, src, href, etc.).
+ */
+export function extractAccessibleTextsFromInnerHtml(innerHtml: string): string[] {
+  if (!innerHtml) return [];
+
+  // Strip HTML comments <!-- ... -->
+  const cleanHtml = innerHtml.replace(/<!--[\s\S]*?-->/g, '');
+  const accessibleTexts: string[] = [];
+
+  let currentIndex = 0;
+  while (currentIndex < cleanHtml.length) {
+    const nextTagIndex = cleanHtml.indexOf('<', currentIndex);
+    if (nextTagIndex === -1) {
+      const text = cleanHtml.substring(currentIndex);
+      if (text.trim()) accessibleTexts.push(text);
+      break;
+    }
+
+    if (nextTagIndex > currentIndex) {
+      const text = cleanHtml.substring(currentIndex, nextTagIndex);
+      if (text.trim()) accessibleTexts.push(text);
+    }
+
+    let inQuote: string | null = null;
+    let tagEndIndex = -1;
+
+    for (let j = nextTagIndex + 1; j < cleanHtml.length; j++) {
+      const char = cleanHtml[j];
+      if (inQuote) {
+        if (char === inQuote) {
+          inQuote = null;
+        }
+      } else {
+        if (char === '"' || char === "'") {
+          inQuote = char;
+        } else if (char === '>') {
+          tagEndIndex = j;
+          break;
+        }
+      }
+    }
+
+    if (tagEndIndex === -1) {
+      break;
+    }
+
+    const tagContent = cleanHtml.substring(nextTagIndex + 1, tagEndIndex);
+    if (!tagContent.startsWith('/')) {
+      const spaceMatch = /^[^\s/]+(?:\s+([\s\S]*))?$/.exec(tagContent);
+      if (spaceMatch && spaceMatch[1]) {
+        const parsedAttrs = parseHtmlAttributes(spaceMatch[1]);
+        for (const attr of parsedAttrs) {
+          if (
+            (attr.name === 'aria-label' || attr.name === 'alt' || attr.name === 'title') &&
+            attr.value !== null
+          ) {
+            if (attr.value.trim()) {
+              accessibleTexts.push(attr.value);
+            }
+          }
+        }
+      }
+    }
+
+    currentIndex = tagEndIndex + 1;
+  }
+
+  return accessibleTexts;
+}
+
+/**
  * Checks whether an anchor tag already contains an accessible disclosure
  * announcing that it opens in a new tab or new window.
  *
  * This includes:
- * 1. `aria-label` or `aria-labelledby` attributes containing explicit new-tab/window wording.
- * 2. Inner HTML or text containing an existing new-tab or new-window disclosure phrase
- *    such as "(opens in a new tab)", "opens in new tab", "opens in a new window", "new tab", etc.
+ * 1. `aria-label` attribute on the anchor tag containing explicit new-tab/window wording.
+ * 2. Inner HTML accessible text content or accessible attributes (aria-label, alt, title)
+ *    containing an existing new-tab or new-window disclosure phrase (e.g., "(opens in a new tab)").
  */
 export function hasNewTabDisclosure(attributes: ParsedAttr[], innerHtml: string): boolean {
   const disclosureRegex =
     /(?:opens[-_\s]+(?:in[-_\s]+)?(?:a[-_\s]+)?|(?:\(|\[)\s*)new[-_\s]+(?:tab|window)|\bnew[-_\s]+(?:tab|window)\b/i;
 
-  // 1. Check if aria-label or aria-labelledby on the anchor tag explicitly announces new tab or window behavior
-  const hasAriaDisclosure = attributes.some(
-    (a) =>
-      (a.name === 'aria-label' || a.name === 'aria-labelledby') &&
-      a.value !== null &&
-      disclosureRegex.test(a.value)
+  // 1. Check if aria-label on the anchor tag explicitly announces new tab or window behavior
+  const hasAriaLabelDisclosure = attributes.some(
+    (a) => a.name === 'aria-label' && a.value !== null && disclosureRegex.test(a.value)
   );
-  if (hasAriaDisclosure) return true;
+  if (hasAriaLabelDisclosure) return true;
 
-  // 2. Check if innerHtml contains an accessible disclosure phrase announcing new tab or window behavior
-  if (innerHtml && disclosureRegex.test(innerHtml)) {
-    return true;
+  // 2. Check extracted accessible texts from innerHtml (text nodes and accessible attributes)
+  if (innerHtml) {
+    const accessibleTexts = extractAccessibleTextsFromInnerHtml(innerHtml);
+    if (accessibleTexts.some((text) => disclosureRegex.test(text))) {
+      return true;
+    }
   }
 
   return false;
