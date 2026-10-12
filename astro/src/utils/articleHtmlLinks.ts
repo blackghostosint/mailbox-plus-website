@@ -244,12 +244,8 @@ export function normalizeArticleHtmlLinks(html: string): string {
         if (!relAttr.quote) relAttr.quote = '"';
       }
 
-      // Check for screen reader disclosure or aria label on exact attribute names
-      const hasSrOnlyInClass = attributes
-        .find((a) => a.name === 'class')
-        ?.value?.toLowerCase()
-        .includes('sr-only');
-      const hasSrOnly = /sr-only/i.test(innerHtml) || Boolean(hasSrOnlyInClass);
+      // Check for screen reader disclosure or aria label on exact attribute names / class tokens
+      const hasSrOnly = hasSrOnlyClassToken(attributes, innerHtml);
       const hasAriaLabel = attributes.some(
         (a) => a.name === 'aria-label' || a.name === 'aria-labelledby'
       );
@@ -266,4 +262,79 @@ export function normalizeArticleHtmlLinks(html: string): string {
   }
 
   return result;
+}
+
+/**
+ * Checks whether the anchor tag's class attribute or any inner HTML tag's class attribute
+ * contains 'sr-only' as an exact CSS class token (not as a substring like 'not-sr-only'
+ * or inside attribute names/values like data-note="sr-only" or visible text).
+ */
+export function hasSrOnlyClassToken(attributes: ParsedAttr[], innerHtml: string): boolean {
+  // 1. Check anchor tag's own class attribute
+  const anchorClassAttr = attributes.find((a) => a.name === 'class');
+  if (anchorClassAttr?.value) {
+    const tokens = anchorClassAttr.value.toLowerCase().split(/\s+/).filter(Boolean);
+    if (tokens.includes('sr-only')) {
+      return true;
+    }
+  }
+
+  // 2. Scan innerHtml for any HTML tag whose class attribute contains 'sr-only' class token
+  if (!innerHtml) return false;
+
+  let inComment = false;
+  for (let i = 0; i < innerHtml.length; i++) {
+    if (inComment) {
+      if (innerHtml.substring(i, i + 3) === '-->') {
+        inComment = false;
+        i += 2;
+      }
+      continue;
+    }
+
+    if (innerHtml.substring(i, i + 4) === '<!--') {
+      inComment = true;
+      i += 3;
+      continue;
+    }
+
+    if (innerHtml[i] === '<') {
+      const matchTag = /^<([a-zA-Z][a-zA-Z0-9-]*)\b/.exec(innerHtml.substring(i));
+      if (matchTag) {
+        let inQuote: string | null = null;
+        let tagEndIndex = -1;
+
+        for (let j = i + matchTag[0].length; j < innerHtml.length; j++) {
+          const char = innerHtml[j];
+          if (inQuote) {
+            if (char === inQuote) {
+              inQuote = null;
+            }
+          } else {
+            if (char === '"' || char === "'") {
+              inQuote = char;
+            } else if (char === '>') {
+              tagEndIndex = j;
+              break;
+            }
+          }
+        }
+
+        if (tagEndIndex !== -1) {
+          const attrsStr = innerHtml.substring(i + matchTag[0].length, tagEndIndex);
+          const innerAttrs = parseHtmlAttributes(attrsStr);
+          const classAttr = innerAttrs.find((a) => a.name === 'class');
+          if (classAttr?.value) {
+            const tokens = classAttr.value.toLowerCase().split(/\s+/).filter(Boolean);
+            if (tokens.includes('sr-only')) {
+              return true;
+            }
+          }
+          i = tagEndIndex;
+        }
+      }
+    }
+  }
+
+  return false;
 }

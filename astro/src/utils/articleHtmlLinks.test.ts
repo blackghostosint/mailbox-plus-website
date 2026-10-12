@@ -3,6 +3,7 @@ import {
   normalizeArticleHtmlLinks,
   parseHtmlAttributes,
   serializeHtmlAttributes,
+  hasSrOnlyClassToken,
   DEFAULT_ARTICLE_LINK_CLASS,
 } from './articleHtmlLinks';
 
@@ -295,6 +296,64 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(result).toBe(
         `<a href="https://example.com" target="_blank" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer">Link <!-- </a> --> content<span class="sr-only">(opens in a new tab)</span></a>`
       );
+    });
+  });
+
+  describe('sr-only false positive regression tests and token precision', () => {
+    it('does not suppress screen reader disclosure for data-note="sr-only" on inner element', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span data-note="sr-only">Link</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toBe(
+        `<a target="_blank" href="https://example.com" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer"><span data-note="sr-only">Link</span><span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('does not suppress screen reader disclosure when anchor class is "not-sr-only"', () => {
+      const input = '<a target="_blank" href="https://example.com" class="not-sr-only">Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toContain('class="not-sr-only ' + DEFAULT_ARTICLE_LINK_CLASS + '"');
+    });
+
+    it('does not suppress screen reader disclosure when inner element class is "not-sr-only"', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span class="not-sr-only">Link</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    });
+
+    it('does not suppress screen reader disclosure when visible inner text contains "sr-only"', () => {
+      const input =
+        '<a target="_blank" href="https://example.com">Read our sr-only accessibility guide</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    });
+
+    it('suppresses duplicate screen reader disclosure when inner element has exact sr-only class token', () => {
+      const input =
+        '<a target="_blank" href="https://example.com">Link<span class="badge sr-only text-xs">(opens in a new tab)</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      const matches = result.match(/sr-only/g);
+      expect(matches).toHaveLength(1);
+    });
+
+    it('directly validates hasSrOnlyClassToken for class tokens vs false positive substrings', () => {
+      const parsedClassNotSrOnly = parseHtmlAttributes('class="not-sr-only"');
+      expect(
+        hasSrOnlyClassToken(parsedClassNotSrOnly, '<span data-note="sr-only">Link</span>')
+      ).toBe(false);
+      expect(hasSrOnlyClassToken([], 'Link with sr-only text')).toBe(false);
+
+      const parsedClassSrOnly = parseHtmlAttributes('class="sr-only"');
+      expect(hasSrOnlyClassToken(parsedClassSrOnly, 'Link')).toBe(true);
+      expect(hasSrOnlyClassToken([], '<span class="px-2 sr-only">Link</span>')).toBe(true);
     });
   });
 });
