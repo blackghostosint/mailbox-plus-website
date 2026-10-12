@@ -361,7 +361,7 @@ export function extractAccessibleTextsFromInnerHtml(innerHtml: string): string[]
  */
 export function hasNewTabDisclosure(attributes: ParsedAttr[], innerHtml: string): boolean {
   const disclosureRegex =
-    /(?:opens[-_\s]+(?:in[-_\s]+)?(?:a[-_\s]+)?|(?:\(|\[)\s*)new[-_\s]+(?:tab|window)|\bnew[-_\s]+(?:tab|window)\b/i;
+    /(?:(?:opens?|opening|will\s+open)[-_\s]+(?:in[-_\s]+)?(?:a[-_\s]+)?new[-_\s]+(?:tab|window)|[([]\s*(?:(?:opens?|opening)[-_\s]+(?:in[-_\s]+)?(?:a[-_\s]+)?)?new[-_\s]+(?:tab|window)\s*[)\]])/i;
 
   // 1. Check if aria-label on the anchor tag explicitly announces new tab or window behavior
   const hasAriaLabelDisclosure = attributes.some(

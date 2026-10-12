@@ -429,6 +429,7 @@ describe('normalizeArticleHtmlLinks', () => {
 
       const parsedBoolAria = parseHtmlAttributes('aria-label');
       expect(hasNewTabDisclosure(parsedBoolAria, 'Link')).toBe(false);
+      expect(hasNewTabDisclosure([], '')).toBe(false);
 
       const parsedAriaLabelWithDisclosure = parseHtmlAttributes(
         'aria-label="Example website (opens in a new tab)"'
@@ -455,7 +456,7 @@ describe('normalizeArticleHtmlLinks', () => {
         true
       );
 
-      // False-positive suppressions: data-note, class, id, src, HTML comments must not trigger disclosure
+      // False-positive suppressions: data-note, class, id, src, HTML comments, and unrelated bare "new tab" / "new window" text must not trigger disclosure
       expect(hasNewTabDisclosure([], '<span data-note="new tab">Link</span>')).toBe(false);
       expect(hasNewTabDisclosure([], '<span class="new-tab-link">Link</span>')).toBe(false);
       expect(hasNewTabDisclosure([], '<span id="new-tab">Link</span>')).toBe(false);
@@ -463,6 +464,30 @@ describe('normalizeArticleHtmlLinks', () => {
         false
       );
       expect(hasNewTabDisclosure([], 'Link <!-- opens in a new tab -->')).toBe(false);
+      expect(hasNewTabDisclosure([], 'Read our new tab guide')).toBe(false);
+      expect(hasNewTabDisclosure([], 'Overview of new window management')).toBe(false);
+      expect(
+        hasNewTabDisclosure(parseHtmlAttributes('aria-label="Read our new tab guide"'), 'Link')
+      ).toBe(false);
+    });
+
+    it('appends screen reader disclosure when link contains unrelated "new tab" or "new window" text', () => {
+      const input = '<a target="_blank" href="https://example.com">Read our new tab guide</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toBe(
+        `<a target="_blank" href="https://example.com" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer">Read our new tab guide<span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('updates aria-label and appends screen reader disclosure when aria-label contains unrelated "new tab" text', () => {
+      const input =
+        '<a target="_blank" href="https://example.com" aria-label="Read our new tab guide">Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('aria-label="Read our new tab guide (opens in a new tab)"');
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     });
 
     it('does not suppress screen reader disclosure for data-note="new tab" on inner element', () => {
