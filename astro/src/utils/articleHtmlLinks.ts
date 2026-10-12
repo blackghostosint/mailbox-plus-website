@@ -49,41 +49,113 @@ export function serializeHtmlAttributes(attributes: ParsedAttr[]): string {
 
 /**
  * Locates the next opening <a ...> tag starting at or after startIndex in html.
- * Respects single and double quotes so that '>' characters inside quoted attribute values
- * do not prematurely close the opening tag.
+ * Respects single and double quotes and HTML comments so that '>' characters inside
+ * quoted attribute values do not prematurely close the opening tag.
  */
 function findOpeningAnchorTag(
   html: string,
   startIndex: number
 ): { tagStartIndex: number; openTagEndIndex: number; attrsStr: string } | null {
-  const tagRegex = /<a\b/gi;
-  tagRegex.lastIndex = startIndex;
+  let inComment = false;
 
-  let match: RegExpExecArray | null;
-  while ((match = tagRegex.exec(html)) !== null) {
-    const tagStartIndex = match.index;
-    let inQuote: string | null = null;
-    let openTagEndIndex = -1;
+  for (let i = startIndex; i < html.length; i++) {
+    if (inComment) {
+      if (html.substring(i, i + 3) === '-->') {
+        inComment = false;
+        i += 2;
+      }
+      continue;
+    }
 
-    for (let i = tagStartIndex + 2; i < html.length; i++) {
-      const char = html[i];
+    if (html.substring(i, i + 4) === '<!--') {
+      inComment = true;
+      i += 3;
+      continue;
+    }
+
+    if (html[i] === '<' && /^<a\b/i.test(html.substring(i))) {
+      const tagStartIndex = i;
+      let inQuote: string | null = null;
+      let openTagEndIndex = -1;
+
+      for (let j = tagStartIndex + 2; j < html.length; j++) {
+        const char = html[j];
+        if (inQuote) {
+          if (char === inQuote) {
+            inQuote = null;
+          }
+        } else {
+          if (char === '"' || char === "'") {
+            inQuote = char;
+          } else if (char === '>') {
+            openTagEndIndex = j;
+            break;
+          }
+        }
+      }
+
+      if (openTagEndIndex !== -1) {
+        const attrsStr = html.substring(tagStartIndex + 2, openTagEndIndex);
+        return { tagStartIndex, openTagEndIndex, attrsStr };
+      }
+    }
+  }
+
+  return null;
+}
+
+/**
+ * Locates the matching closing anchor tag (e.g. </a> or </a >) starting at startIndex in html.
+ * Tracks HTML context (tags, quotes, comments) so that literal </a> substrings inside quoted
+ * attribute values or HTML comments (e.g. <span data-note="</a>">) are ignored.
+ */
+function findClosingAnchorTag(
+  html: string,
+  startIndex: number
+): { closeTagStartIndex: number; closeTagEndIndex: number } | null {
+  let inQuote: string | null = null;
+  let inTag = false;
+  let inComment = false;
+
+  for (let i = startIndex; i < html.length; i++) {
+    if (inComment) {
+      if (html.substring(i, i + 3) === '-->') {
+        inComment = false;
+        i += 2;
+      }
+      continue;
+    }
+
+    if (inTag) {
       if (inQuote) {
-        if (char === inQuote) {
+        if (html[i] === inQuote) {
           inQuote = null;
         }
       } else {
-        if (char === '"' || char === "'") {
-          inQuote = char;
-        } else if (char === '>') {
-          openTagEndIndex = i;
-          break;
+        if (html[i] === '"' || html[i] === "'") {
+          inQuote = html[i];
+        } else if (html[i] === '>') {
+          inTag = false;
         }
       }
+      continue;
     }
 
-    if (openTagEndIndex !== -1) {
-      const attrsStr = html.substring(tagStartIndex + 2, openTagEndIndex);
-      return { tagStartIndex, openTagEndIndex, attrsStr };
+    if (html.substring(i, i + 4) === '<!--') {
+      inComment = true;
+      i += 3;
+      continue;
+    }
+
+    if (html[i] === '<') {
+      const closingMatch = /^<\/a\s*>/i.exec(html.substring(i));
+      if (closingMatch) {
+        return {
+          closeTagStartIndex: i,
+          closeTagEndIndex: i + closingMatch[0].length,
+        };
+      }
+      inTag = true;
     }
   }
 
@@ -111,20 +183,17 @@ export function normalizeArticleHtmlLinks(html: string): string {
     // Append everything preceding this opening tag
     result += html.substring(currentIndex, openingTag.tagStartIndex);
 
-    // Search for the closing </a> tag following openingTag.openTagEndIndex
-    const closeTagRegex = /<\/a>/gi;
-    closeTagRegex.lastIndex = openingTag.openTagEndIndex + 1;
-    const closeMatch = closeTagRegex.exec(html);
+    // Search for the matching closing anchor tag following openingTag.openTagEndIndex
+    const closingTag = findClosingAnchorTag(html, openingTag.openTagEndIndex + 1);
 
-    if (!closeMatch) {
+    if (!closingTag) {
       // If no matching </a> tag is found, append opening tag as-is and continue
       result += html.substring(openingTag.tagStartIndex, openingTag.openTagEndIndex + 1);
       currentIndex = openingTag.openTagEndIndex + 1;
       continue;
     }
 
-    const closeTagStartIndex = closeMatch.index;
-    const closeTagEndIndex = closeTagStartIndex + closeMatch[0].length;
+    const { closeTagStartIndex, closeTagEndIndex } = closingTag;
     let innerHtml = html.substring(openingTag.openTagEndIndex + 1, closeTagStartIndex);
 
     const attributes = parseHtmlAttributes(openingTag.attrsStr);

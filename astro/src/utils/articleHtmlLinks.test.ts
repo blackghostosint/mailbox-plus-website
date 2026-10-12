@@ -179,4 +179,51 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     });
   });
+
+  describe('closing tag parsing and quoted value context regression tests', () => {
+    it('handles </a> inside quoted attribute of an inner HTML element without truncating markup', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span data-note="</a>">Link</span></a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toBe(
+        `<a target="_blank" href="https://example.com" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer"><span data-note="</a>">Link</span><span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('handles </a> inside single-quoted attribute of an inner HTML element', () => {
+      const input =
+        "<a target='_blank' href='https://example.com'><span data-note='</a>'>Link</span></a>";
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toBe(
+        `<a target='_blank' href='https://example.com' class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer"><span data-note='</a>'>Link</span><span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('recognizes closing-tag whitespace such as </a > and normalizes link', () => {
+      const input = '<a href="https://example.com" target="_blank">Link</a >';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toBe(
+        `<a href="https://example.com" target="_blank" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer">Link<span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('recognizes multiline/extra whitespace in closing tag </a   \\n>', () => {
+      const input = '<a href="/page">Link</a   \n>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toBe(`<a href="/page" class="${DEFAULT_ARTICLE_LINK_CLASS}">Link</a>`);
+    });
+
+    it('ignores </a> inside HTML comments within the anchor element', () => {
+      const input = '<a href="https://example.com" target="_blank">Link <!-- </a> --> content</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toBe(
+        `<a href="https://example.com" target="_blank" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer">Link <!-- </a> --> content<span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+  });
 });
