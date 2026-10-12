@@ -274,66 +274,77 @@ export function normalizeArticleHtmlLinks(html: string): string {
 export function extractAccessibleTextsFromInnerHtml(innerHtml: string): string[] {
   if (!innerHtml) return [];
 
-  // Strip HTML comments <!-- ... -->
-  const cleanHtml = innerHtml.replace(/<!--[\s\S]*?-->/g, '');
   const accessibleTexts: string[] = [];
+  let inComment = false;
+  let inTag = false;
+  let inQuote: string | null = null;
+  let currentText = '';
+  let tagStartIndex = -1;
 
-  let currentIndex = 0;
-  while (currentIndex < cleanHtml.length) {
-    const nextTagIndex = cleanHtml.indexOf('<', currentIndex);
-    if (nextTagIndex === -1) {
-      const text = cleanHtml.substring(currentIndex);
-      if (text.trim()) accessibleTexts.push(text);
-      break;
+  for (let i = 0; i < innerHtml.length; i++) {
+    if (inComment) {
+      if (innerHtml.substring(i, i + 3) === '-->') {
+        inComment = false;
+        i += 2;
+      }
+      continue;
     }
 
-    if (nextTagIndex > currentIndex) {
-      const text = cleanHtml.substring(currentIndex, nextTagIndex);
-      if (text.trim()) accessibleTexts.push(text);
+    if (innerHtml.substring(i, i + 4) === '<!--') {
+      if (currentText.trim()) {
+        accessibleTexts.push(currentText);
+      }
+      currentText = '';
+      inComment = true;
+      i += 3;
+      continue;
     }
 
-    let inQuote: string | null = null;
-    let tagEndIndex = -1;
-
-    for (let j = nextTagIndex + 1; j < cleanHtml.length; j++) {
-      const char = cleanHtml[j];
+    if (!inTag) {
+      if (innerHtml[i] === '<') {
+        if (currentText.trim()) {
+          accessibleTexts.push(currentText);
+        }
+        currentText = '';
+        inTag = true;
+        tagStartIndex = i;
+      } else {
+        currentText += innerHtml[i];
+      }
+    } else {
       if (inQuote) {
-        if (char === inQuote) {
+        if (innerHtml[i] === inQuote) {
           inQuote = null;
         }
       } else {
-        if (char === '"' || char === "'") {
-          inQuote = char;
-        } else if (char === '>') {
-          tagEndIndex = j;
-          break;
-        }
-      }
-    }
-
-    if (tagEndIndex === -1) {
-      break;
-    }
-
-    const tagContent = cleanHtml.substring(nextTagIndex + 1, tagEndIndex);
-    if (!tagContent.startsWith('/')) {
-      const spaceMatch = /^[^\s/]+(?:\s+([\s\S]*))?$/.exec(tagContent);
-      if (spaceMatch && spaceMatch[1]) {
-        const parsedAttrs = parseHtmlAttributes(spaceMatch[1]);
-        for (const attr of parsedAttrs) {
-          if (
-            (attr.name === 'aria-label' || attr.name === 'alt' || attr.name === 'title') &&
-            attr.value !== null
-          ) {
-            if (attr.value.trim()) {
-              accessibleTexts.push(attr.value);
+        if (innerHtml[i] === '"' || innerHtml[i] === "'") {
+          inQuote = innerHtml[i];
+        } else if (innerHtml[i] === '>') {
+          const tagContent = innerHtml.substring(tagStartIndex + 1, i);
+          if (!tagContent.startsWith('/')) {
+            const spaceMatch = /^[^\s/]+(?:\s+([\s\S]*))?$/.exec(tagContent);
+            if (spaceMatch && spaceMatch[1]) {
+              const parsedAttrs = parseHtmlAttributes(spaceMatch[1]);
+              for (const attr of parsedAttrs) {
+                if (
+                  (attr.name === 'aria-label' || attr.name === 'alt' || attr.name === 'title') &&
+                  attr.value !== null
+                ) {
+                  if (attr.value.trim()) {
+                    accessibleTexts.push(attr.value);
+                  }
+                }
+              }
             }
           }
+          inTag = false;
         }
       }
     }
+  }
 
-    currentIndex = tagEndIndex + 1;
+  if (!inComment && !inTag && currentText.trim()) {
+    accessibleTexts.push(currentText);
   }
 
   return accessibleTexts;
