@@ -100,10 +100,9 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Sitemap redirect (Astro generates sitemap-index.xml instead of sitemap.xml)
 /sitemap.xml /sitemap-index.xml 301
 
-# Archived article: kirtland-hills-graphic-design removed (thin duplicate, 0
-# clicks/90d, archived in #335). 301 to the strongest same-service article so
-# link equity + any residual indexation consolidate on a live page.
-/articles/kirtland-hills-graphic-design* /articles/chardon-graphic-design/ 301!
+# NOTE: /articles/kirtland-hills-graphic-design* rule lives in the GSC cleanup
+# block further down — it now points straight at /copy-print/graphic-design/
+# (single hop) instead of chaining through /articles/chardon-graphic-design/.
 
 # 2026-09-20 corpus prune: 4 zero-impression articles removed (90-day GSC,
 # owner-approved per article). Evidence + verdicts: vault Mailbox Plus/SEO/
@@ -189,17 +188,48 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /articles/hambden-mover-mailbox* /private-mailbox-rental-lake-county/ 301!
 /articles/hambden-shipping-insurance* /specialty/insurance/ 301!
 
+# -----------------------------------
+# OCT 2026 GSC INDEXING CLEANUP
+# -----------------------------------
+# GSC Page Indexing audit (2026-10-12): 8 confirmed 404s from old-URL backlinks
+# (all verified live: no content sources, no internal links). Map each to its
+# closest live equivalent so the crawl lands on a real page instead of 404.
+# NOTE: these MUST sit above the "/* -> /404.html" catch-all — Netlify matches
+# first-rule-wins, so anything below the catch-all is dead code.
+
+# /rewards/join/ — legacy rewards program signup (never a built page)
+/rewards/join/ /home-business/mailbox-rental/ 301!
+/rewards/join /home-business/mailbox-rental/ 301!
+
+# /small-business-shipping-concord-township — old geo landing, consolidate to hub
+/small-business-shipping-concord-township/ /pack-ship/ 301!
+/small-business-shipping-concord-township /pack-ship/ 301!
+
+# /usps-package-help-concord-township — old geo landing -> USPS services page
+/usps-package-help-concord-township/ /pack-ship/usps-services/ 301!
+/usps-package-help-concord-township /pack-ship/usps-services/ 301!
+
+# /ups-fedex-usps-dhl-shipping-concord-township — carrier-comparison geo page
+/ups-fedex-usps-dhl-shipping-concord-township/ /pack-ship/ 301!
+/ups-fedex-usps-dhl-shipping-concord-township /pack-ship/ 301!
+
+# /mail-boxes-etc-alternative-painesville — GSC row is stale (live URL 301s to
+# the trailing-slash form and serves 200); rule covers the no-slash variant
+/mail-boxes-etc-alternative-painesville/ /ups-store-alternative-painesville/ 301!
+
+# /pack-ship/packing-services — pre-rename slug for professional packing
+/pack-ship/packing-services /pack-ship/professional-packing/ 301!
+/pack-ship/packing-services/ /pack-ship/professional-packing/ 301!
+
+# /articles/hambden-passport-photos — removed article, no live equivalent;
+# point at the services index
+/articles/hambden-passport-photos /services/ 301!
+/articles/hambden-passport-photos/ /services/ 301!
+
+# Redirect-chain fix: /articles/kirtland-hills-graphic-design previously chained
+# (article -> chardon-graphic-design -> copy-print/graphic-design). Point the
+# wildcard straight at the final target so Google follows a single hop.
+/articles/kirtland-hills-graphic-design* /copy-print/graphic-design/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404
-
-# Oct 2026 dead-sweep: pack-and-ship geo consolidation -> single Lake County hub
-/articles/pack-and-ship-painesville-township/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-chardon-city/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-44024/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-claridon-township/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-aquilla/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-perry-ohio/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-grand-river/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-hambden-ohio/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-hambden-township/ /articles/pack-ship-lake-county/ 301!
-/articles/pack-ship-north-lake-county/ /articles/pack-ship-lake-county/ 301!
