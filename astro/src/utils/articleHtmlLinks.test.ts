@@ -138,4 +138,45 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     });
   });
+
+  describe('quoted attribute values containing ">" character regression tests', () => {
+    it('correctly parses href containing ">" inside double quotes on new-tab link', () => {
+      const input = '<a href="https://example.com/?q=>x" target="_blank">Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('href="https://example.com/?q=>x"');
+      expect(result).toContain('target="_blank"');
+      expect(result).toContain('rel="noopener noreferrer"');
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toContain(`class="${DEFAULT_ARTICLE_LINK_CLASS}"`);
+      expect(result).toBe(
+        `<a href="https://example.com/?q=>x" target="_blank" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer">Link<span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('correctly parses title containing ">" inside double quotes on internal link', () => {
+      const input = '<a title="Go > Next" href="/page">Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('title="Go > Next"');
+      expect(result).toContain('href="/page"');
+      expect(result).toContain(`class="${DEFAULT_ARTICLE_LINK_CLASS}"`);
+      expect(result).not.toContain('rel="noopener noreferrer"');
+      expect(result).not.toContain('<span class="sr-only">');
+      expect(result).toBe(
+        `<a title="Go > Next" href="/page" class="${DEFAULT_ARTICLE_LINK_CLASS}">Link</a>`
+      );
+    });
+
+    it('correctly parses single-quoted attributes containing ">"', () => {
+      const input = "<a href='https://example.com/?q=>x' title='a>b' target='_blank'>Link</a>";
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain("href='https://example.com/?q=>x'");
+      expect(result).toContain("title='a>b'");
+      expect(result).toContain("target='_blank'");
+      expect(result).toContain('rel="noopener noreferrer"');
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    });
+  });
 });
