@@ -126,6 +126,82 @@ authorship: article-writer-bot (in-house)
     });
   });
 
+  describe('Deletion-only pull requests (GSC cleanup etc.)', () => {
+    const stamplessBody = 'seo: GSC indexing cleanup';
+
+    it('passes when all touched article files are removed and no stamp is present', () => {
+      const changedFiles = [
+        'content/articles/pack-ship/hambden-stamps.md',
+        'content/articles/pack-ship/pack-ship-chardon-city.md',
+      ];
+      const fileStatuses = {
+        'content/articles/pack-ship/hambden-stamps.md': 'removed',
+        'content/articles/pack-ship/pack-ship-chardon-city.md': 'removed',
+      };
+
+      const result = checkArticleOwnership({
+        body: stamplessBody,
+        changedFiles,
+        author: 'blackghostosint',
+        fileStatuses,
+      });
+
+      expect(result.success).toBe(true);
+      expect(result.touchesArticles).toBe(true);
+      expect(result.reason).toBe('deletions_only');
+    });
+
+    it('still fails a mixed PR (deleted + added) without the stamp', () => {
+      const changedFiles = [
+        'content/articles/pack-ship/hambden-stamps.md',
+        'content/articles/pack-ship/brand-new-article.md',
+      ];
+      const fileStatuses = {
+        'content/articles/pack-ship/hambden-stamps.md': 'removed',
+        'content/articles/pack-ship/brand-new-article.md': 'added',
+      };
+
+      const result = checkArticleOwnership({
+        body: stamplessBody,
+        changedFiles,
+        author: 'blackghostosint',
+        fileStatuses,
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.reason).toBe('missing_stamp');
+    });
+
+    it('still fails deletions from an unauthorized author', () => {
+      const changedFiles = ['content/articles/pack-ship/hambden-stamps.md'];
+      const fileStatuses = { 'content/articles/pack-ship/hambden-stamps.md': 'removed' };
+
+      const result = checkArticleOwnership({
+        body: stamplessBody,
+        changedFiles,
+        author: 'external-hacker',
+        fileStatuses,
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.reason).toBe('unauthorized_author');
+    });
+
+    it('requires the stamp when statuses are unavailable (previous behavior)', () => {
+      const changedFiles = ['content/articles/pack-ship/hambden-stamps.md'];
+
+      const result = checkArticleOwnership({
+        body: stamplessBody,
+        changedFiles,
+        author: 'blackghostosint',
+        // no fileStatuses
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.reason).toBe('missing_stamp');
+    });
+  });
+
   describe('Local execution and edge cases', () => {
     it('bypasses author check safely when running locally without author context', () => {
       const changedFiles = ['content/articles/local-test.md'];

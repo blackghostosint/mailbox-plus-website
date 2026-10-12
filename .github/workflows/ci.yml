@@ -49,10 +49,17 @@ jobs:
         run: |
           PR_BODY_FILE="${RUNNER_TEMP}/pr_body.txt"
           PR_FILES_FILE="${RUNNER_TEMP}/pr_changed_files.txt"
+          PR_FILE_STATUS_FILE="${RUNNER_TEMP}/pr_changed_files_status.json"
           gh pr view "$PR_NUMBER" --json body --jq .body > "$PR_BODY_FILE"
           gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate --jq '.[].filename' > "$PR_FILES_FILE"
+          # Per-file status map (added/modified/removed/...) — consumed by the
+          # article-ownership gate so deletion-only PRs don't require the
+          # in-house authorship stamp (the rule governs authored content).
+          gh api "repos/${{ github.repository }}/pulls/${PR_NUMBER}/files?per_page=100" --paginate \
+            --jq '[.[] | {key: .filename, value: .status}] | from_entries' > "$PR_FILE_STATUS_FILE"
           echo "PR_BODY_FILE=${PR_BODY_FILE}" >> $GITHUB_ENV
           echo "PR_FILES_FILE=${PR_FILES_FILE}" >> $GITHUB_ENV
+          echo "PR_FILE_STATUS_FILE=${PR_FILE_STATUS_FILE}" >> $GITHUB_ENV
 
       - name: Check Auth Model section (rule 7)
         if: github.event_name == 'pull_request'
