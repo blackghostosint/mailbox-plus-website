@@ -73,7 +73,7 @@ function findOpeningAnchorTag(
       continue;
     }
 
-    if (html[i] === '<' && /^<a\b/i.test(html.substring(i))) {
+    if (html[i] === '<' && /^<a(?=\s|\/?>)/i.test(html.substring(i))) {
       const tagStartIndex = i;
       let inQuote: string | null = null;
       let openTagEndIndex = -1;

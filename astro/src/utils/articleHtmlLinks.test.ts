@@ -168,6 +168,21 @@ describe('normalizeArticleHtmlLinks', () => {
     );
   });
 
+  it('does not misidentify valid non-anchor custom elements like <a-foo> or tags starting with a', () => {
+    const inputCustom = '<a-foo href="/x">X</a-foo> tail';
+    expect(normalizeArticleHtmlLinks(inputCustom)).toBe('<a-foo href="/x">X</a-foo> tail');
+
+    const inputAbbr = '<abbr title="As soon as possible">ASAP</abbr>';
+    expect(normalizeArticleHtmlLinks(inputAbbr)).toBe(
+      '<abbr title="As soon as possible">ASAP</abbr>'
+    );
+
+    const inputArticle = '<article class="post">Article content <a href="/page">Link</a></article>';
+    expect(normalizeArticleHtmlLinks(inputArticle)).toBe(
+      `<article class="post">Article content <a href="/page" class="${DEFAULT_ARTICLE_LINK_CLASS}">Link</a></article>`
+    );
+  });
+
   describe('parseHtmlAttributes and serializeHtmlAttributes edge cases', () => {
     it('returns empty array when parsing empty or whitespace attributes', () => {
       expect(parseHtmlAttributes('')).toEqual([]);
