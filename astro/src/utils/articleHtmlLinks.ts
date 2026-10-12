@@ -248,6 +248,11 @@ export function normalizeArticleHtmlLinks(html: string): string {
       const hasDisclosure = hasNewTabDisclosure(attributes, innerHtml);
 
       if (!hasDisclosure) {
+        const ariaLabelAttr = attributes.find((a) => a.name === 'aria-label');
+        if (ariaLabelAttr) {
+          const val = ariaLabelAttr.value ?? '';
+          ariaLabelAttr.value = val ? `${val} (opens in a new tab)` : '(opens in a new tab)';
+        }
         innerHtml += '<span class="sr-only">(opens in a new tab)</span>';
       }
     }
@@ -266,22 +271,27 @@ export function normalizeArticleHtmlLinks(html: string): string {
  * announcing that it opens in a new tab or new window.
  *
  * This includes:
- * 1. Exact `aria-label` or `aria-labelledby` attributes on the anchor tag.
+ * 1. `aria-label` or `aria-labelledby` attributes containing explicit new-tab/window wording.
  * 2. Inner HTML or text containing an existing new-tab or new-window disclosure phrase
  *    such as "(opens in a new tab)", "opens in new tab", "opens in a new window", "new tab", etc.
  */
 export function hasNewTabDisclosure(attributes: ParsedAttr[], innerHtml: string): boolean {
-  // 1. Check for aria-label or aria-labelledby on the anchor tag
-  const hasAriaLabel = attributes.some(
-    (a) => a.name === 'aria-label' || a.name === 'aria-labelledby'
+  const disclosureRegex =
+    /(?:opens[-_\s]+(?:in[-_\s]+)?(?:a[-_\s]+)?|(?:\(|\[)\s*)new[-_\s]+(?:tab|window)|\bnew[-_\s]+(?:tab|window)\b/i;
+
+  // 1. Check if aria-label or aria-labelledby on the anchor tag explicitly announces new tab or window behavior
+  const hasAriaDisclosure = attributes.some(
+    (a) =>
+      (a.name === 'aria-label' || a.name === 'aria-labelledby') &&
+      a.value !== null &&
+      disclosureRegex.test(a.value)
   );
-  if (hasAriaLabel) return true;
+  if (hasAriaDisclosure) return true;
 
   // 2. Check if innerHtml contains an accessible disclosure phrase announcing new tab or window behavior
-  if (!innerHtml) return false;
+  if (innerHtml && disclosureRegex.test(innerHtml)) {
+    return true;
+  }
 
-  const disclosureRegex =
-    /(?:opens\s+(?:in\s+)?(?:a\s+)?|(?:\(|\[)\s*)new\s+(?:tab|window)|\bnew\s+(?:tab|window)\b/i;
-
-  return disclosureRegex.test(innerHtml);
+  return false;
 }

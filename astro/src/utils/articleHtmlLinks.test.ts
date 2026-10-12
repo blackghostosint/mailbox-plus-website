@@ -50,21 +50,43 @@ describe('normalizeArticleHtmlLinks', () => {
     expect(result.match(/opens in a new tab/g)).toHaveLength(1);
   });
 
-  it('does not append screen reader text if aria-label is present', () => {
+  it('appends screen reader disclosure when aria-label lacks explicit new tab disclosure', () => {
     const input =
       '<a href="https://example.com" target="_blank" aria-label="Example website">Link</a>';
     const result = normalizeArticleHtmlLinks(input);
 
-    expect(result).not.toContain('<span class="sr-only">');
+    expect(result).toContain('aria-label="Example website (opens in a new tab)"');
+    expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     expect(result).toContain('rel="noopener noreferrer"');
   });
 
-  it('does not append screen reader text if aria-labelledby is present', () => {
+  it('does not append duplicate screen reader disclosure if aria-label already contains new tab disclosure', () => {
+    const input =
+      '<a href="https://example.com" target="_blank" aria-label="Example website (opens in a new tab)">Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    expect(result).not.toContain('<span class="sr-only">');
+    expect(result).toContain('aria-label="Example website (opens in a new tab)"');
+    expect(result).toContain('rel="noopener noreferrer"');
+  });
+
+  it('appends screen reader text when aria-labelledby lacks explicit new tab disclosure', () => {
     const input =
       '<a href="https://example.com" target="_blank" aria-labelledby="link-desc">Link</a>';
     const result = normalizeArticleHtmlLinks(input);
 
+    expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+    expect(result).toContain('aria-labelledby="link-desc"');
+    expect(result).toContain('rel="noopener noreferrer"');
+  });
+
+  it('does not append duplicate screen reader text if aria-labelledby target contains explicit new tab disclosure', () => {
+    const input =
+      '<a href="https://example.com" target="_blank" aria-labelledby="new-tab-desc">Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
     expect(result).not.toContain('<span class="sr-only">');
+    expect(result).toContain('aria-labelledby="new-tab-desc"');
     expect(result).toContain('rel="noopener noreferrer"');
   });
 
@@ -189,6 +211,16 @@ describe('normalizeArticleHtmlLinks', () => {
 
       expect(result).toContain('data-class="custom-data-class"');
       expect(result).toContain(`class="${DEFAULT_ARTICLE_LINK_CLASS}"`);
+    });
+
+    it('handles unvalued class, rel, and aria-label attributes on target="_blank" link', () => {
+      const input = '<a href="https://example.com" target="_blank" class rel aria-label>Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('aria-label="(opens in a new tab)"');
+      expect(result).toContain('rel="noopener noreferrer"');
+      expect(result).toContain(`class="${DEFAULT_ARTICLE_LINK_CLASS}"`);
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     });
 
     it('does not suppress screen reader disclosure for data-aria-label', () => {
@@ -362,8 +394,16 @@ describe('normalizeArticleHtmlLinks', () => {
       ).toBe(false);
       expect(hasNewTabDisclosure([], 'Link with sr-only text')).toBe(false);
 
-      const parsedAriaLabel = parseHtmlAttributes('aria-label="Example website"');
-      expect(hasNewTabDisclosure(parsedAriaLabel, 'Link')).toBe(true);
+      const parsedAriaLabelUnrelated = parseHtmlAttributes('aria-label="Example website"');
+      expect(hasNewTabDisclosure(parsedAriaLabelUnrelated, 'Link')).toBe(false);
+
+      const parsedBoolAria = parseHtmlAttributes('aria-label');
+      expect(hasNewTabDisclosure(parsedBoolAria, 'Link')).toBe(false);
+
+      const parsedAriaLabelWithDisclosure = parseHtmlAttributes(
+        'aria-label="Example website (opens in a new tab)"'
+      );
+      expect(hasNewTabDisclosure(parsedAriaLabelWithDisclosure, 'Link')).toBe(true);
 
       expect(hasNewTabDisclosure([], '<span class="sr-only">(opens in a new tab)</span>')).toBe(
         true
