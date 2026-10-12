@@ -7,6 +7,9 @@ import { getArticleSchema, getWebPageSchema, getFAQSchema } from '../../utils/sc
 import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
 import { getServiceImageUrl } from '../../lib/storage';
+import { normalizeArticleHtmlLinks } from '../../utils/articleHtmlLinks';
+
+export { normalizeArticleHtmlLinks };
 
 export async function getStaticPaths() {
   const allArticles = await articleLoader.getAllArticles();
@@ -47,7 +50,7 @@ renderer.link = ({ href, text }) => {
   return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${cls}">${text}<span class="sr-only">(opens in a new tab)</span></a>`;
 };
 
-const renderedContent = marked.parse(content, { renderer });
+const renderedContent = normalizeArticleHtmlLinks(marked.parse(content, { renderer }) as string);
 
 const articleSchema = getArticleSchema(siteConfig, {
   headline: title,

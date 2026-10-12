@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { articleLoader, invalidateArticleCache, parseArticleFrontmatter } from './articleLoader';
+import { normalizeArticleHtmlLinks } from './articleHtmlLinks';
 import matter from 'gray-matter';
 import { execFileSync } from 'node:child_process';
 
@@ -433,6 +434,27 @@ describe('articleLoader', () => {
       );
 
       expect(result.lastModified).toBeUndefined();
+    });
+  });
+
+  describe('normalizeArticleHtmlLinks', () => {
+    it('appends screen reader text and security attributes to raw HTML new-tab links', () => {
+      const rawHtml =
+        '<p>Source: <a href="https://www.marketingdive.com/news/" rel="nofollow noopener" target="_blank">Marketing Dive</a></p>';
+      const transformed = normalizeArticleHtmlLinks(rawHtml);
+
+      expect(transformed).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(transformed).toContain('rel="nofollow noopener noreferrer"');
+      expect(transformed).toContain('class="text-[var(--color-primary)]');
+    });
+
+    it('prevents duplicate sr-only spans on raw HTML links that already have screen reader text', () => {
+      const rawHtml =
+        '<a href="https://example.com" target="_blank" rel="noopener noreferrer">Link<span class="sr-only">(opens in a new tab)</span></a>';
+      const transformed = normalizeArticleHtmlLinks(rawHtml);
+
+      const matches = transformed.match(/sr-only/g);
+      expect(matches).toHaveLength(1);
     });
   });
 });
