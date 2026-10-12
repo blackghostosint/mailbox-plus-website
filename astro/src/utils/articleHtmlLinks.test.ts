@@ -3,7 +3,7 @@ import {
   normalizeArticleHtmlLinks,
   parseHtmlAttributes,
   serializeHtmlAttributes,
-  hasSrOnlyClassToken,
+  hasNewTabDisclosure,
   DEFAULT_ARTICLE_LINK_CLASS,
 } from './articleHtmlLinks';
 
@@ -42,12 +42,12 @@ describe('normalizeArticleHtmlLinks', () => {
     expect(matches).toHaveLength(1);
   });
 
-  it('does not append screen reader text if class contains sr-only', () => {
+  it('does not append duplicate screen reader text if link already includes new tab disclosure in text', () => {
     const input =
-      '<a href="https://example.com" target="_blank" class="sr-only custom-link">Hidden Link</a>';
+      '<a href="https://example.com" target="_blank" class="sr-only custom-link">Hidden Link (opens in a new tab)</a>';
     const result = normalizeArticleHtmlLinks(input);
 
-    expect(result).not.toContain('<span class="sr-only">(opens in a new tab)</span>');
+    expect(result.match(/opens in a new tab/g)).toHaveLength(1);
   });
 
   it('does not append screen reader text if aria-label is present', () => {
@@ -335,7 +335,18 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     });
 
-    it('suppresses duplicate screen reader disclosure when inner element has exact sr-only class token', () => {
+    it('does not suppress screen reader disclosure when sr-only element contains unrelated text (e.g. Download icon)', () => {
+      const input =
+        '<a target="_blank" href="https://example.com"><span class="sr-only">Download icon</span>Link</a>';
+      const result = normalizeArticleHtmlLinks(input);
+
+      expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
+      expect(result).toBe(
+        `<a target="_blank" href="https://example.com" class="${DEFAULT_ARTICLE_LINK_CLASS}" rel="noopener noreferrer"><span class="sr-only">Download icon</span>Link<span class="sr-only">(opens in a new tab)</span></a>`
+      );
+    });
+
+    it('suppresses duplicate screen reader disclosure when inner element contains existing new tab disclosure text', () => {
       const input =
         '<a target="_blank" href="https://example.com">Link<span class="badge sr-only text-xs">(opens in a new tab)</span></a>';
       const result = normalizeArticleHtmlLinks(input);
@@ -344,16 +355,20 @@ describe('normalizeArticleHtmlLinks', () => {
       expect(matches).toHaveLength(1);
     });
 
-    it('directly validates hasSrOnlyClassToken for class tokens vs false positive substrings', () => {
+    it('directly validates hasNewTabDisclosure for existing disclosure text vs unrelated sr-only content', () => {
       const parsedClassNotSrOnly = parseHtmlAttributes('class="not-sr-only"');
       expect(
-        hasSrOnlyClassToken(parsedClassNotSrOnly, '<span data-note="sr-only">Link</span>')
+        hasNewTabDisclosure(parsedClassNotSrOnly, '<span class="sr-only">Download icon</span>Link')
       ).toBe(false);
-      expect(hasSrOnlyClassToken([], 'Link with sr-only text')).toBe(false);
+      expect(hasNewTabDisclosure([], 'Link with sr-only text')).toBe(false);
 
-      const parsedClassSrOnly = parseHtmlAttributes('class="sr-only"');
-      expect(hasSrOnlyClassToken(parsedClassSrOnly, 'Link')).toBe(true);
-      expect(hasSrOnlyClassToken([], '<span class="px-2 sr-only">Link</span>')).toBe(true);
+      const parsedAriaLabel = parseHtmlAttributes('aria-label="Example website"');
+      expect(hasNewTabDisclosure(parsedAriaLabel, 'Link')).toBe(true);
+
+      expect(hasNewTabDisclosure([], '<span class="sr-only">(opens in a new tab)</span>')).toBe(
+        true
+      );
+      expect(hasNewTabDisclosure([], 'Open in new window')).toBe(true);
     });
   });
 });

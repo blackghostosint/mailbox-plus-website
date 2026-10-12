@@ -244,13 +244,10 @@ export function normalizeArticleHtmlLinks(html: string): string {
         if (!relAttr.quote) relAttr.quote = '"';
       }
 
-      // Check for screen reader disclosure or aria label on exact attribute names / class tokens
-      const hasSrOnly = hasSrOnlyClassToken(attributes, innerHtml);
-      const hasAriaLabel = attributes.some(
-        (a) => a.name === 'aria-label' || a.name === 'aria-labelledby'
-      );
+      // Check for existing screen reader disclosure or aria-label announcing new tab / window
+      const hasDisclosure = hasNewTabDisclosure(attributes, innerHtml);
 
-      if (!hasSrOnly && !hasAriaLabel) {
+      if (!hasDisclosure) {
         innerHtml += '<span class="sr-only">(opens in a new tab)</span>';
       }
     }
@@ -265,76 +262,26 @@ export function normalizeArticleHtmlLinks(html: string): string {
 }
 
 /**
- * Checks whether the anchor tag's class attribute or any inner HTML tag's class attribute
- * contains 'sr-only' as an exact CSS class token (not as a substring like 'not-sr-only'
- * or inside attribute names/values like data-note="sr-only" or visible text).
+ * Checks whether an anchor tag already contains an accessible disclosure
+ * announcing that it opens in a new tab or new window.
+ *
+ * This includes:
+ * 1. Exact `aria-label` or `aria-labelledby` attributes on the anchor tag.
+ * 2. Inner HTML or text containing an existing new-tab or new-window disclosure phrase
+ *    such as "(opens in a new tab)", "opens in new tab", "opens in a new window", "new tab", etc.
  */
-export function hasSrOnlyClassToken(attributes: ParsedAttr[], innerHtml: string): boolean {
-  // 1. Check anchor tag's own class attribute
-  const anchorClassAttr = attributes.find((a) => a.name === 'class');
-  if (anchorClassAttr?.value) {
-    const tokens = anchorClassAttr.value.toLowerCase().split(/\s+/).filter(Boolean);
-    if (tokens.includes('sr-only')) {
-      return true;
-    }
-  }
+export function hasNewTabDisclosure(attributes: ParsedAttr[], innerHtml: string): boolean {
+  // 1. Check for aria-label or aria-labelledby on the anchor tag
+  const hasAriaLabel = attributes.some(
+    (a) => a.name === 'aria-label' || a.name === 'aria-labelledby'
+  );
+  if (hasAriaLabel) return true;
 
-  // 2. Scan innerHtml for any HTML tag whose class attribute contains 'sr-only' class token
+  // 2. Check if innerHtml contains an accessible disclosure phrase announcing new tab or window behavior
   if (!innerHtml) return false;
 
-  let inComment = false;
-  for (let i = 0; i < innerHtml.length; i++) {
-    if (inComment) {
-      if (innerHtml.substring(i, i + 3) === '-->') {
-        inComment = false;
-        i += 2;
-      }
-      continue;
-    }
+  const disclosureRegex =
+    /(?:opens\s+(?:in\s+)?(?:a\s+)?|(?:\(|\[)\s*)new\s+(?:tab|window)|\bnew\s+(?:tab|window)\b/i;
 
-    if (innerHtml.substring(i, i + 4) === '<!--') {
-      inComment = true;
-      i += 3;
-      continue;
-    }
-
-    if (innerHtml[i] === '<') {
-      const matchTag = /^<([a-zA-Z][a-zA-Z0-9-]*)\b/.exec(innerHtml.substring(i));
-      if (matchTag) {
-        let inQuote: string | null = null;
-        let tagEndIndex = -1;
-
-        for (let j = i + matchTag[0].length; j < innerHtml.length; j++) {
-          const char = innerHtml[j];
-          if (inQuote) {
-            if (char === inQuote) {
-              inQuote = null;
-            }
-          } else {
-            if (char === '"' || char === "'") {
-              inQuote = char;
-            } else if (char === '>') {
-              tagEndIndex = j;
-              break;
-            }
-          }
-        }
-
-        if (tagEndIndex !== -1) {
-          const attrsStr = innerHtml.substring(i + matchTag[0].length, tagEndIndex);
-          const innerAttrs = parseHtmlAttributes(attrsStr);
-          const classAttr = innerAttrs.find((a) => a.name === 'class');
-          if (classAttr?.value) {
-            const tokens = classAttr.value.toLowerCase().split(/\s+/).filter(Boolean);
-            if (tokens.includes('sr-only')) {
-              return true;
-            }
-          }
-          i = tagEndIndex;
-        }
-      }
-    }
-  }
-
-  return false;
+  return disclosureRegex.test(innerHtml);
 }
