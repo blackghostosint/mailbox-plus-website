@@ -1,5 +1,10 @@
 import { describe, it, expect } from 'vitest';
-import { normalizeArticleHtmlLinks, DEFAULT_ARTICLE_LINK_CLASS } from './articleHtmlLinks';
+import {
+  normalizeArticleHtmlLinks,
+  parseHtmlAttributes,
+  serializeHtmlAttributes,
+  DEFAULT_ARTICLE_LINK_CLASS,
+} from './articleHtmlLinks';
 
 describe('normalizeArticleHtmlLinks', () => {
   it('returns empty string or original html when input is empty', () => {
@@ -34,6 +39,14 @@ describe('normalizeArticleHtmlLinks', () => {
 
     const matches = result.match(/sr-only/g);
     expect(matches).toHaveLength(1);
+  });
+
+  it('does not append screen reader text if class contains sr-only', () => {
+    const input =
+      '<a href="https://example.com" target="_blank" class="sr-only custom-link">Hidden Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    expect(result).not.toContain('<span class="sr-only">(opens in a new tab)</span>');
   });
 
   it('does not append screen reader text if aria-label is present', () => {
@@ -71,6 +84,24 @@ describe('normalizeArticleHtmlLinks', () => {
     expect(result).not.toContain('target="_blank"');
   });
 
+  it('does not duplicate default classes when class already includes custom text-[ class', () => {
+    const input = '<a href="/pack-ship/" class="custom-class text-[var(--color-primary)]">Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    expect(result).toBe(
+      '<a href="/pack-ship/" class="custom-class text-[var(--color-primary)]">Link</a>'
+    );
+  });
+
+  it('handles unquoted attribute values and populates default quotes', () => {
+    const input =
+      '<a href="https://example.com" target="_blank" class=my-link rel=nofollow>Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    expect(result).toContain('class="my-link ' + DEFAULT_ARTICLE_LINK_CLASS + '"');
+    expect(result).toContain('rel="nofollow noopener noreferrer"');
+  });
+
   it('handles multiline anchor content and nested HTML elements inside link', () => {
     const input = `<a href="https://example.com" target="_blank">
       <span>Nested Content</span>
@@ -80,6 +111,46 @@ describe('normalizeArticleHtmlLinks', () => {
     expect(result).toContain('<span>Nested Content</span>');
     expect(result).toContain('<span class="sr-only">(opens in a new tab)</span>');
     expect(result).toContain('rel="noopener noreferrer"');
+  });
+
+  it('handles HTML comments containing opening tag candidates correctly', () => {
+    const input =
+      '<!-- <a href="https://example.com">Comment</a> --> <a href="/real">Real Link</a>';
+    const result = normalizeArticleHtmlLinks(input);
+
+    expect(result).toBe(
+      `<!-- <a href="https://example.com">Comment</a> --> <a href="/real" class="${DEFAULT_ARTICLE_LINK_CLASS}">Real Link</a>`
+    );
+  });
+
+  it('handles unclosed opening tag or unclosed closing tag without error', () => {
+    const unclosedOpen = 'Text <a href="/test" no closing bracket';
+    expect(normalizeArticleHtmlLinks(unclosedOpen)).toBe('Text <a href="/test" no closing bracket');
+
+    const unclosedClose = 'Text <a href="/test">Link without end tag';
+    expect(normalizeArticleHtmlLinks(unclosedClose)).toBe(
+      'Text <a href="/test">Link without end tag'
+    );
+  });
+
+  describe('parseHtmlAttributes and serializeHtmlAttributes edge cases', () => {
+    it('returns empty array when parsing empty or whitespace attributes', () => {
+      expect(parseHtmlAttributes('')).toEqual([]);
+      expect(parseHtmlAttributes('   ')).toEqual([]);
+    });
+
+    it('parses boolean attributes with null value and serializes them correctly', () => {
+      const parsed = parseHtmlAttributes('download href="file.pdf"');
+      expect(parsed).toEqual([
+        { rawName: 'download', name: 'download', value: null, quote: '' },
+        { rawName: 'href', name: 'href', value: 'file.pdf', quote: '"' },
+      ]);
+      expect(serializeHtmlAttributes(parsed)).toBe(' download href="file.pdf"');
+    });
+
+    it('returns empty string when serializing empty attributes array', () => {
+      expect(serializeHtmlAttributes([])).toBe('');
+    });
   });
 
   describe('data-* attribute precision and regression tests', () => {
