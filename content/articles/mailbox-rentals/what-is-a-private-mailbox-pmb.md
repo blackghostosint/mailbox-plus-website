@@ -38,7 +38,7 @@ faqs:
   - question: 'What does PMB mean in an address?'
     answer: 'In an address, PMB marks your private mailbox number at a commercial mail receiving agency. USPS may return mail without a proper PMB or # designator, endorsed "Undeliverable as Addressed, Missing PMB or # Sign."'
   - question: 'What is PMB in an address?'
-    answer: 'PMB in an address is the designator that identifies your numbered mailbox at a private mailbox store registered with USPS as a Commercial Mail Receiving Agency (CMRA). It rides on the same line as the store street address — for example, 7554 Fredle Drive PMB 123 — and tells every carrier which box is yours.'
+    answer: "PMB in an address is the designator that identifies your numbered mailbox at a private mailbox store registered with USPS as a Commercial Mail Receiving Agency (CMRA). USPS prefers it on its own line above the street address — for example, PMB 123 / 7554 Fredle Drive — and the combined form (7554 Fredle Drive PMB 123) is also accepted. If the store's street address already carries a suite or box number, the PMB must go on its own line."
   - question: 'What does PMB stand for in an address?'
     answer: 'PMB stands for Private Mailbox. On an address it marks your numbered box at a private mailbox store — a real street address instead of a PO Box number — and USPS, FedEx, UPS, and DHL all deliver to it.'
 ---
