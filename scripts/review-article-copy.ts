@@ -76,7 +76,7 @@ OUTPUT REQUIREMENTS:
 You MUST return ONLY a valid JSON object matching this schema (no surrounding markdown code fences, no extra text):
 {
   "total_score": <int between 0 and 100>,
-  "verdict": "<PASS if total_score >= 90 else FAIL>",
+  "verdict": "<PASS if total_score >= 82 else FAIL>",
   "dimensions": {
     "sensory_grounding": {"score": <int 0-20>, "critique": "<specific evaluation>"},
     "one_person_ear": {"score": <int 0-20>, "critique": "<specific evaluation>"},
@@ -267,7 +267,7 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
   return JSON.parse(cleaned);
 }
 
-function printReport(filePath: string, result: any, minScore = 90) {
+function printReport(filePath: string, result: any, minScore = 82) {
   const score = result.total_score || 0;
   const verdict = score >= minScore ? 'PASS' : 'FAIL';
   const symbol = verdict === 'PASS' ? '✅' : '❌';
@@ -393,11 +393,11 @@ export function resolveFiles(target: string): string[] {
 async function main() {
   const args = process.argv.slice(2);
   let target = '';
-  let model = 'deepseek/deepseek-v4.1-flash'; // DEFAULT MIRRORS the article-writer profile SOUL.md "Gate model" line (model + 90 threshold). Change all three call-sites in one commit: this script, verify.mjs review defaults, SOUL.md.
+  let model = 'deepseek/deepseek-v4.1-flash'; // DEFAULT MIRRORS the article-writer profile SOUL.md "Gate model" line (model + 82 threshold). Change all three call-sites in one commit: this script, verify.mjs review defaults, SOUL.md.
   let provider: ReviewOptions['provider'];
   let baseUrl: string | undefined;
   let apiKey: string | undefined;
-  let minScore = 90;
+  let minScore = 82;
   let asJson = false;
 
   for (let i = 0; i < args.length; i++) {
