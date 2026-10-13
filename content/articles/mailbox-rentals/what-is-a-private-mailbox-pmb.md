@@ -13,7 +13,7 @@ quickAnswer: >-
   undeliverable. Unlike a PO Box, a PMB accepts all four carriers — USPS, FedEx,
   UPS, and DHL. Mail-only plans start at $15/month.
 pubDate: '2026-08-05T12:00:00-05:00'
-lastModified: '2026-09-20T12:00:00-04:00'
+lastModified: '2026-10-13T12:00:00-04:00'
 status: 'published'
 image: 'articles/mailbox-rentals/what-is-a-private-mailbox-pmb-featured.webp'
 imageAlt: 'A clean private mailbox address card showing PMB 123 on the address line, next to a stack of envelopes and a small package at a local mailbox store counter — Mailbox Plus mailbox rentals in Concord Township, OH.'
@@ -37,6 +37,10 @@ faqs:
     answer: 'No. A PO Box is a compartment you rent from the post office, and only USPS delivers to it. A PMB is a mailbox at a private business with a real street address, and FedEx, UPS, DHL, and USPS all deliver to it.'
   - question: 'What does PMB mean in an address?'
     answer: 'In an address, PMB marks your private mailbox number at a commercial mail receiving agency. USPS may return mail without a proper PMB or # designator, endorsed "Undeliverable as Addressed, Missing PMB or # Sign."'
+  - question: 'What is PMB in an address?'
+    answer: 'PMB in an address is the designator that identifies your numbered mailbox at a private mailbox store registered with USPS as a Commercial Mail Receiving Agency (CMRA). It rides on the same line as the store street address — for example, 7554 Fredle Drive PMB 123 — and tells every carrier which box is yours.'
+  - question: 'What does PMB stand for in an address?'
+    answer: 'PMB stands for Private Mailbox. On an address it marks your numbered box at a private mailbox store — a real street address instead of a PO Box number — and USPS, FedEx, UPS, and DHL all deliver to it.'
 ---
 
 ## What Does PMB Stand for in an Address?
