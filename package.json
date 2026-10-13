@@ -47,7 +47,8 @@
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preflight:article": "bash scripts/preflight-article.sh"
+    "preflight:article": "bash scripts/preflight-article.sh",
+    "preflight:pr-body": "node scripts/verify/preflight-pr-body.mjs"
   },
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
