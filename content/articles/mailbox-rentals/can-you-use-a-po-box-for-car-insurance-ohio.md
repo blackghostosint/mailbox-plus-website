@@ -55,13 +55,13 @@ Here is the mechanism, without the insurance jargon. When a company prices your 
 
 A PO box cannot be a garaging address for the same reason a car cannot park in one. It is a mailbox slot, not a place a vehicle is kept. Insurance companies ask for a garaging and a mailing address when they sell you a policy, and the garaging line must be a physical location — no insurer's rating model has an entry for " aisle 14 of the post office lobby." The same rule holds if your box is in another state: you still list the garaging address where the car actually is, and the mail goes wherever you want it.
 
-| Address type | What it is | What it does on the policy |
-| --- | --- | --- |
-| Garaging address | Where the car is parked most of the time, usually overnight | Drives the rate — must be a physical location |
-| Mailing address | Where documents get sent | PO box generally fine — bills, ID cards, renewal notices |
-| Residence address | Where you live | Drives the residence line on BMV forms and credentials |
+| Address type      | What it is                                                  | What it does on the policy                               |
+| ----------------- | ----------------------------------------------------------- | -------------------------------------------------------- |
+| Garaging address  | Where the car is parked most of the time, usually overnight | Drives the rate — must be a physical location            |
+| Mailing address   | Where documents get sent                                    | PO box generally fine — bills, ID cards, renewal notices |
+| Residence address | Where you live                                              | Drives the residence line on BMV forms and credentials   |
 
-So the answer to the question in the headline is a split decision. A PO box for the *mailing* line? Generally yes — most insurers will send your written documents, ID cards, and billing statements to a box for years without a complaint. A PO box for the *garaging* line? No. That line needs the street where the car actually sleeps, and putting anything else there is a misstatement on the policy — the kind of discrepancy that turns into rate problems or a contested claim if it ever surfaces.
+So the answer to the question in the headline is a split decision. A PO box for the _mailing_ line? Generally yes — most insurers will send your written documents, ID cards, and billing statements to a box for years without a complaint. A PO box for the _garaging_ line? No. That line needs the street where the car actually sleeps, and putting anything else there is a misstatement on the policy — the kind of discrepancy that turns into rate problems or a contested claim if it ever surfaces.
 
 ## How It Feels, Honestly
 
