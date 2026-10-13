@@ -40,7 +40,7 @@ faqs:
   - question: 'What happens if my insurance company mails me and I never see the letter?'
     answer: 'Missed mail matters on the state side too: Ohio law requires continuous proof of financial responsibility on every registered vehicle, and the BMV randomly mails verification notices — state bid documents put the program at about 5,400 notices a week. Fail to respond to a notice you never received and your registration and license privileges can be suspended. Keep your mailing address current so nothing state-issued chases a dead mailbox.'
   - question: 'Does a private mailbox work as the mailing address on a car insurance policy?'
-    answer: 'Yes — it is a real street address with a suite number, not a locker number, and it accepts USPS mail plus UPS and FedEx deliveries. It works as the mailing address on insurance policies and Ohio BMV Form 5756, which explicitly allows a street address or P.O. box on its mailing line.'
+    answer: 'A private mailbox gives you a real commercial street address with your box number (using PMB or # per USPS standards). Many auto insurers accept a PMB on their mailing line for billing statements and policy cards (always confirm with your specific carrier), and Ohio BMV Form 5756 explicitly permits a street address or P.O. box on its mailing line.'
 ---
 
 ## The Errand That Should Be Simple
@@ -75,16 +75,16 @@ The state cares about your mailing address too — and that is where this stops 
 
 ## What We Actually Offer
 
-Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township — just off Crile Road, minutes from SR-44 and I-90 — and ask this exact question, and you will get a straight answer, because it comes up at the counter all the time. Here is what you get at the counter: a private mailbox that is a real street address with a suite number, not a locker number. It accepts USPS mail and UPS and FedEx deliveries. It holds everything behind a lock that only your key opens, starting at $15/month with a $5 refundable key deposit, month to month.
+Walk into Mailbox Plus at 7554 Fredle Drive in Concord Township — just off Crile Road, minutes from SR-44 and I-90 — and ask this exact question, and you will get a straight answer, because it comes up at the counter all the time. Here is what you get at the counter: a private mailbox that is a real street address with a PMB or # box number, not a locker number. It accepts USPS mail and UPS and FedEx deliveries. It holds everything behind a lock that only your key opens, starting at $15/month with a $5 refundable key deposit, month to month.
 
-That is what makes it stronger than a PO box on the mailing line: it is a street address, and a street-address PMB is accepted on forms that reject plain boxes. If you have read [why PO boxes get rejected when a street address is required](/articles/why-po-boxes-get-rejected-street-address/) or [what a private mailbox actually is](/articles/what-is-a-private-mailbox-pmb/), you know the distinction — a box number is not a street address, but a PMB suite at a staffed counter is both. And for the question this article started with: your insurance company gets your garaging address from you, honestly, because your car sleeps at your house — and every document they send about it lands in a lockbox that never changes, never forwards, and never lapsed.
+That is what makes it stronger than a PO box on the mailing line: it is a street address, and a street-address PMB is accepted on forms that reject plain boxes. If you have read [why PO boxes get rejected when a street address is required](/articles/why-po-boxes-get-rejected-street-address/) or [what a private mailbox actually is](/articles/what-is-a-private-mailbox-pmb/), you know the distinction — a box number is not a street address, but a PMB number at a staffed counter gives you both a physical street address and a secure delivery point. And for the question this article started with: your insurance company gets your garaging address from you, honestly, because your car sleeps at your house — and every document they send about it lands in a lockbox that never changes, never forwards, and never lapsed.
 
 ![The Mailbox Plus counter in Concord Township, with PRIVATE MAILBOX on the storefront glass behind it](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-rentals/pmb-counter-01.webp)
 
 ## Bring What You Have: Three Steps
 
 1. **Come in with two approved IDs.** Federal rules — USPS Form 1583 — require two forms of identification: one valid government photo ID and one proof of address (such as a vehicle registration, lease, or voter card per USPS guidelines). You sign the form at the counter; that is the entire prep.
-2. **Pick the box and the term.** We walk you through sizes and terms at the counter, you choose what fits, and you walk out with a street address and suite number in hand.
+2. **Pick the box and the term.** We walk you through sizes and terms at the counter, you choose what fits, and you walk out with a real street address and box number in hand.
 3. **Update the mailing line everywhere it counts.** Your insurer's mailing address, your bank, and Ohio BMV Form 5756 — the change-of-address form — which prints "street or P.O. box" on its mailing line and lets you mark the address permanent. One address, updated once, keeping your mail organized and off your front porch.
 
 ## What You Give Up by Defaulting
