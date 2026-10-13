@@ -76,7 +76,7 @@ OUTPUT REQUIREMENTS:
 You MUST return ONLY a valid JSON object matching this schema (no surrounding markdown code fences, no extra text):
 {
   "total_score": <int between 0 and 100>,
-  "verdict": "<PASS if total_score >= 80 else FAIL>",
+  "verdict": "<PASS if total_score >= 90 else FAIL>",
   "dimensions": {
     "sensory_grounding": {"score": <int 0-20>, "critique": "<specific evaluation>"},
     "one_person_ear": {"score": <int 0-20>, "critique": "<specific evaluation>"},
@@ -188,7 +188,7 @@ export interface ReviewOptions {
 
 export async function evaluateArticle(content: string, options: ReviewOptions = {}): Promise<any> {
   const envKeys = loadEnvKeys();
-  const model = options.model || 'gemini-2.5-flash';
+  const model = options.model || 'deepseek/deepseek-v4.1-flash';
   let provider = options.provider;
 
   if (!provider) {
@@ -198,12 +198,15 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
       provider = 'gemini';
     } else if (model.toLowerCase().includes('tencent') || model.toLowerCase().includes('claude')) {
       provider = 'openrouter';
-    } else if (model.toLowerCase().includes('glm')) {
+    } else if (model.toLowerCase().includes('glm') || model.toLowerCase().includes('deepseek')) {
       provider = 'nous';
     } else {
       provider = 'gemini';
     }
   }
+
+  // Print the resolved reviewer endpoint so a wrong-model gate can never run silently again.
+  console.log(`🤖 reviewer: provider=${provider} model=${model}`);
 
   let rawResponse = '';
   if (provider === 'gemini') {
@@ -264,7 +267,7 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
   return JSON.parse(cleaned);
 }
 
-function printReport(filePath: string, result: any, minScore = 80) {
+function printReport(filePath: string, result: any, minScore = 90) {
   const score = result.total_score || 0;
   const verdict = score >= minScore ? 'PASS' : 'FAIL';
   const symbol = verdict === 'PASS' ? '✅' : '❌';
@@ -390,11 +393,11 @@ export function resolveFiles(target: string): string[] {
 async function main() {
   const args = process.argv.slice(2);
   let target = '';
-  let model = 'gemini-2.5-flash';
+  let model = 'deepseek/deepseek-v4.1-flash'; // DEFAULT MIRRORS the article-writer profile SOUL.md "Gate model" line (model + 90 threshold). Change all three call-sites in one commit: this script, verify.mjs review defaults, SOUL.md.
   let provider: ReviewOptions['provider'];
   let baseUrl: string | undefined;
   let apiKey: string | undefined;
-  let minScore = 80;
+  let minScore = 90;
   let asJson = false;
 
   for (let i = 0; i < args.length; i++) {

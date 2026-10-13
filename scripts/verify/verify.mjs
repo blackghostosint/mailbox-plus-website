@@ -15,7 +15,7 @@
  *   articles [--strict]          run verification across all articles in content/articles/
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
- *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 80/100)
+ *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 90/100)
  *   headings [--json]            heading-variation report across the whole corpus
  *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
