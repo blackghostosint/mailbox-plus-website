@@ -40,14 +40,14 @@ faqs:
   - question: 'What happens if my insurance company mails me and I never see the letter?'
     answer: 'Missed mail matters on the state side too: Ohio law requires continuous proof of financial responsibility on every registered vehicle, and the BMV randomly mails verification notices — state bid documents put the program at about 5,400 notices a week. Fail to respond to a notice you never received and your registration and license privileges can be suspended. Keep your mailing address current so nothing state-issued chases a dead mailbox.'
   - question: 'Does a private mailbox work as the mailing address on a car insurance policy?'
-    answer: 'Yes — it is a real street address with a suite number, not a locker number, and it accepts USPS mail plus UPS and FedEx deliveries. It works on any form that asks for a mailing address, including insurance policies and Ohio BMV Form 5756, which prints "street or P.O. box" on its mailing line.'
+    answer: 'Yes — it is a real street address with a suite number, not a locker number, and it accepts USPS mail plus UPS and FedEx deliveries. It works as the mailing address on insurance policies and Ohio BMV Form 5756, which explicitly allows a street address or P.O. box on its mailing line.'
 ---
 
 ## The Errand That Should Be Simple
 
 You are on the phone with your insurance company — renewing, moving, or starting a policy — and the rep asks for your address. You give them your PO box, the one you have used for years. There is a pause, some clicking, and then the line you were not ready for: "I can't use a box. What's your street address?"
 
-You are not trying to hide anything. You have a house, you have a driveway, and your car sleeps there every night. But nobody ever told you that your insurance and BMV records use separate address slots — garaging, mailing, residence — and only one of them is allowed to be a box. By the end of this article you will know exactly which line is which — and how to get a mailing address that no form will ever kick back.
+You are not trying to hide anything. You have a house, you have a driveway, and your car sleeps there every night. But nobody ever told you that your insurance and BMV records use separate address slots — garaging, mailing, residence — and only one of them is allowed to be a box. By the end of this article you will know exactly which line is which — and how to set up a dedicated street-address mailing line that handles your insurance paperwork and state notices.
 
 ## Say It Plainly: The Garaging Address
 
@@ -83,9 +83,9 @@ That is what makes it stronger than a PO box on the mailing line: it is a street
 
 ## Bring What You Have: Three Steps
 
-1. **Come in with two approved IDs.** Federal rules — USPS Form 1583 — ask for two forms of identification before anyone hands you a box key: a photo ID plus one more from the approved list. You sign the form at the counter; that is the entire prep.
+1. **Come in with two approved IDs.** Federal rules — USPS Form 1583 — require two forms of identification: one valid government photo ID and one proof of address (such as a vehicle registration, lease, or voter card per USPS guidelines). You sign the form at the counter; that is the entire prep.
 2. **Pick the box and the term.** We walk you through sizes and terms at the counter, you choose what fits, and you walk out with a street address and suite number in hand.
-3. **Update the mailing line everywhere it counts.** Your insurer's mailing address, your bank, and Ohio BMV Form 5756 — the change-of-address form — which prints "street or P.O. box" on its mailing line and lets you mark the address permanent. One address, updated once, working on every form that asks.
+3. **Update the mailing line everywhere it counts.** Your insurer's mailing address, your bank, and Ohio BMV Form 5756 — the change-of-address form — which prints "street or P.O. box" on its mailing line and lets you mark the address permanent. One address, updated once, keeping your mail organized and off your front porch.
 
 ## What You Give Up by Defaulting
 
@@ -101,4 +101,4 @@ Your renewal statement arrives on schedule. Your ID cards arrive on schedule. Th
 
 ## Bring the Mess to Us
 
-You do not need to know which line is which before you walk in. Bring the form, the renewal notice, or just the question — sorting out which slot the address belongs in is literally what the counter is for. We will show you the box wall, take your two IDs, and hand you a street address that works on every form that ever rejected the box. Garaging address stays yours, honestly stated. The mail is ours to hold.
+You do not need to know which line is which before you walk in. Bring the form, the renewal notice, or just the question — sorting out which slot the address belongs in is literally what the counter is for. We will show you the box wall, verify your two IDs, and hand you a real street address for your mailing line so your statements, cards, and state letters land safely. Garaging address stays yours, honestly stated. The mail is ours to hold.
