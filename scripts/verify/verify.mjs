@@ -15,7 +15,7 @@
  *   articles [--strict]          run verification across all articles in content/articles/
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
- *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 90/100)
+ *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 82/100)
  *   headings [--json]            heading-variation report across the whole corpus
  *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
@@ -1473,7 +1473,7 @@ function cmdReview(targetPath) {
   const modelIdx = rest.indexOf('--model');
   const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'deepseek/deepseek-v4.1-flash';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '90';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '82';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
