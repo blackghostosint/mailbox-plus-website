@@ -12,9 +12,9 @@ if [ -n "$ARTICLES_CHANGED" ]; then
     echo "pre-push: article preflight FAILED — fix the receipts/gates above before pushing."
     exit 1
   }
-  # Preflight may have committed regenerated feeds / removed duplicate receipts — surface it.
+  # Ensure working tree is clean before pushing.
   if [ -n "$(git status --porcelain)" ]; then
-    echo "pre-push: preflight left uncommitted changes (feed regen / receipt dedupe) — commit them, then push again."
+    echo "pre-push: uncommitted changes detected — commit or stash them before pushing."
     exit 1
   fi
 fi
