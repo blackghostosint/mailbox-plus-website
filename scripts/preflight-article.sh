@@ -10,25 +10,25 @@ echo "== article preflight =="
 # 1. LLM feeds in sync (failed: #620, #638)
 npm run prebuild >/dev/null 2>&1
 if ! git diff --quiet -- public/llms.txt public/llms-full.txt; then
-  echo "❌ feeds: llms.txt/llms-full.txt out of sync — committing regenerated feeds"
-  git add public/llms.txt public/llms-full.txt
-  git commit -m "chore(feeds): regenerate LLM feeds (preflight)" --quiet || FAIL=1
+  echo "❌ feeds: llms.txt/llms-full.txt out of sync — run npm run prebuild, commit, and push again."
+  FAIL=1
 else
   echo "✅ feeds: in sync"
 fi
 
-# 2. copy review >= 90 on each changed article (gate mirrors SOUL.md "Gate model" line; failed: #636/#638 chain)
+# 2. copy review: DECOUPLED FROM PRE-PUSH.
+# audit:copy evaluates copy via an external LLM with variable latency and stochastic scoring.
+# Pre-push hooks must be fast and deterministic. Run copy evaluation during drafting via:
+#   npm run audit:copy -- <file>
+# or
+#   node scripts/verify/verify.mjs review <file>
+
+# 3. fact-check receipt present per changed article (receipts in .factchecks/)
 # NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
 # review and no receipt to check; running the gates on it fails spuriously
 # (deletion branches like the GSC sitemap-cleanup PR).
 MAP=$(git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
 [ -z "${MAP}" ] && MAP=$(git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
-for f in ${MAP}; do
-  echo "-- audit:copy $f"
-  npm run audit:copy -- "$f" 2>&1 | grep -E "Score|FAIL" || { echo "❌ copy review failed for $f"; FAIL=1; }
-done
-
-# 3. fact-check receipt present per changed article (receipts in .factchecks/)
 for f in ${MAP}; do
   base=$(basename "$f" .md)
   if ! ls .factchecks/"${base}".factcheck.* >/dev/null 2>&1; then
@@ -39,8 +39,8 @@ for f in ${MAP}; do
   fi
   # 3b. dedupe: drafts/ copy is a leftover that breaks claims-gate resolution (#663)
   if [ -f "content/drafts/${base}.factcheck.md" ] && [ -f ".factchecks/${base}.factcheck.md" ]; then
-    echo "⚠️ factcheck: duplicate receipt in content/drafts/${base}.factcheck.md — removing (canonical: .factchecks/)"
-    git rm -q "content/drafts/${base}.factcheck.md"
+    echo "❌ factcheck: duplicate receipt in content/drafts/${base}.factcheck.md — delete it before pushing (canonical: .factchecks/)"
+    FAIL=1
   fi
   # 3c. verdict column sanity (#664 — claims gate needs ✅/⚠️/owner-verified in the
   # VERDICT column (3rd) of each receipt table row; a marker in any other column fails CI)
