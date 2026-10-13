@@ -17,7 +17,7 @@ else
   echo "✅ feeds: in sync"
 fi
 
-# 2. copy review >= 80 on each changed article (failed: #636/#638 chain)
+# 2. copy review >= 90 on each changed article (gate mirrors SOUL.md "Gate model" line; failed: #636/#638 chain)
 # NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
 # review and no receipt to check; running the gates on it fails spuriously
 # (deletion branches like the GSC sitemap-cleanup PR).
