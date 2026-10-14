@@ -17,22 +17,22 @@
 // Thresholds worth alerting on (loop signatures from the error log):
 //   pushes >= 4 | review_rounds >= 3 | failed_ci_runs >= 3  → investigate.
 
-import { execFileSync } from "node:child_process";
-import { writeFileSync } from "node:fs";
+import { execFileSync } from 'node:child_process';
+import { writeFileSync } from 'node:fs';
 
 const args = process.argv.slice(2);
 const arg = (name, fallback) => {
   const i = args.indexOf(name);
   return i !== -1 && args[i + 1] ? args[i + 1] : fallback;
 };
-const LIMIT = parseInt(arg("--limit", "0"), 10) || Infinity; // 0/absent = all
-const OUT = arg("--out", "docs/loop-ledger.csv");
+const LIMIT = parseInt(arg('--limit', '0'), 10) || Infinity; // 0/absent = all
+const OUT = arg('--out', 'docs/loop-ledger.csv');
 
 function gh(path, jq) {
-  const cmdArgs = ["api", path];
-  if (jq) cmdArgs.push("--jq", jq);
-  const out = execFileSync("gh", cmdArgs, {
-    encoding: "utf8",
+  const cmdArgs = ['api', path];
+  if (jq) cmdArgs.push('--jq', jq);
+  const out = execFileSync('gh', cmdArgs, {
+    encoding: 'utf8',
     maxBuffer: 64 * 1024 * 1024,
   });
   const text = out.trim();
@@ -42,15 +42,15 @@ function gh(path, jq) {
   } catch {
     // gh --jq emits one JSON object per line across pages (NDJSON).
     return text
-      .split("\n")
+      .split('\n')
       .filter((l) => l.trim())
       .map((l) => JSON.parse(l));
   }
 }
 
 const repo = (() => {
-  const url = execFileSync("git", ["remote", "get-url", "origin"], {
-    encoding: "utf8",
+  const url = execFileSync('git', ['remote', 'get-url', 'origin'], {
+    encoding: 'utf8',
   }).trim();
   const m = url.match(/github\.com[:/](.+?\/.+?)(?:\.git)?$/);
   if (!m) throw new Error(`cannot parse origin remote: ${url}`);
@@ -72,16 +72,10 @@ const ARTICLE_RE = /\b(article|content)\b/i;
 const rows = [];
 for (const [i, pr] of prs.entries()) {
   // 2. Pushes: commits on the PR.
-  const commits = gh(
-    `repos/${repo}/pulls/${pr.number}/commits?per_page=100`,
-    "length"
-  );
+  const commits = gh(`repos/${repo}/pulls/${pr.number}/commits?per_page=100`, 'length');
 
   // 3. Review rounds: review submissions on the PR.
-  const reviews = gh(
-    `repos/${repo}/pulls/${pr.number}/reviews?per_page=100`,
-    "length"
-  );
+  const reviews = gh(`repos/${repo}/pulls/${pr.number}/reviews?per_page=100`, 'length');
 
   // 4. Failure classes: failed check runs on the PR head SHA.
   let failed = [];
@@ -93,17 +87,17 @@ for (const [i, pr] of prs.entries()) {
   } catch {
     // head SHA may be pruned; leave failures empty rather than crash the ledger.
   }
-  const failureClasses = [...new Set(failed)].sort().join("; ");
+  const failureClasses = [...new Set(failed)].sort().join('; ');
 
   rows.push({
     pr: pr.number,
     title: pr.title.replace(/"/g, '""'),
-    is_article: ARTICLE_RE.test(pr.title) ? "yes" : "no",
+    is_article: ARTICLE_RE.test(pr.title) ? 'yes' : 'no',
     pushes: commits,
     review_rounds: reviews,
     failed_ci_runs: failed.length,
     failure_classes: failureClasses.replace(/"/g, '""'),
-    merged_at: pr.merged_at ?? "",
+    merged_at: pr.merged_at ?? '',
     created_at: pr.created_at,
     url: pr.url,
   });
@@ -112,7 +106,7 @@ for (const [i, pr] of prs.entries()) {
 
 // 5. Write CSV.
 const header =
-  "pr,title,is_article,pushes,review_rounds,failed_ci_runs,failure_classes,merged_at,created_at,url";
+  'pr,title,is_article,pushes,review_rounds,failed_ci_runs,failure_classes,merged_at,created_at,url';
 const csv = [
   header,
   ...rows.map((r) =>
@@ -127,15 +121,14 @@ const csv = [
       r.merged_at,
       r.created_at,
       r.url,
-    ].join(",")
+    ].join(',')
   ),
-].join("\n");
-writeFileSync(OUT, csv + "\n");
+].join('\n');
+writeFileSync(OUT, csv + '\n');
 
 // 6. Loop summary — same evidence shape as the error log, but numeric.
-const articleRows = rows.filter((r) => r.is_article === "yes");
-const avg = (xs) =>
-  xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : "0";
+const articleRows = rows.filter((r) => r.is_article === 'yes');
+const avg = (xs) => (xs.length ? (xs.reduce((a, b) => a + b, 0) / xs.length).toFixed(1) : '0');
 const over = (pred) => rows.filter(pred).length;
 
 console.log(`\nWrote ${rows.length} rows → ${OUT}`);
