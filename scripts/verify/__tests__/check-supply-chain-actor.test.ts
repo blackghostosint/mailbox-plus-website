@@ -157,6 +157,18 @@ describe('check-supply-chain-actor', () => {
       expect(result.success).toBe(true);
     });
 
+    it('allows authorized bot logins (google-labs-stitch[bot]) touching protected files', () => {
+      const result = checkSupplyChainActor({
+        changedFiles: ['scripts/verify/check-supply-chain-actor.mjs'],
+        author: 'google-labs-stitch[bot]',
+      });
+
+      expect(result.success).toBe(true);
+      expect(result.message).toContain(
+        'protected files touched by repo owner (google-labs-stitch[bot])'
+      );
+    });
+
     it('allows external PRs touching only non-protected files', () => {
       const result = checkSupplyChainActor({
         changedFiles: [

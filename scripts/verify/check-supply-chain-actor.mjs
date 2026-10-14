@@ -14,6 +14,8 @@ import { readFilesList } from './pr-utils.mjs';
 
 export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
 
+export const DEFAULT_AUTHORIZED_BOTS = ['google-labs-stitch[bot]', 'google-labs-stitch'];
+
 export const PROTECTED = [
   /^\.github\/workflows\//,
   /^(astro\/)?package\.json$/,
@@ -24,18 +26,20 @@ export const PROTECTED = [
 ];
 
 /**
- * Validates that protected supply-chain files are only modified by the repository owner.
+ * Validates that protected supply-chain files are only modified by the repository owner or authorized bot.
  *
  * @param {Object} [options]
  * @param {string[]} [options.changedFiles] - List of changed file paths
  * @param {string} [options.author] - Username/login of the PR author
- * @param {string} [options.owner] - Repository owner username/login
+ * @param {string|string[]} [options.owner] - Repository owner username/login or list of allowed owners
+ * @param {string[]} [options.authorizedBots] - List of authorized bot logins on behalf of owner
  * @returns {{ success: boolean, touched: string[], message: string }}
  */
 export function checkSupplyChainActor({
   changedFiles = [],
   author = '',
   owner = DEFAULT_OWNER,
+  authorizedBots = DEFAULT_AUTHORIZED_BOTS,
 } = {}) {
   const files = Array.isArray(changedFiles) ? changedFiles : [];
   const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
@@ -48,18 +52,24 @@ export function checkSupplyChainActor({
     };
   }
 
-  const normalizedAuthor = (author || '').trim();
-  const normalizedOwner = (owner || '').trim();
+  const normalizedAuthor = (author || '').trim().toLowerCase();
+  const rawOwners = Array.isArray(owner) ? owner : [owner];
+  const normalizedOwners = rawOwners.filter(Boolean).map((o) => String(o).trim().toLowerCase());
 
-  if (
-    normalizedAuthor &&
-    normalizedOwner &&
-    normalizedAuthor.toLowerCase() === normalizedOwner.toLowerCase()
-  ) {
+  const isDefaultOwnerIncluded = normalizedOwners.some((o) => o === DEFAULT_OWNER.toLowerCase());
+
+  const allowedLogins = new Set(normalizedOwners);
+  if (isDefaultOwnerIncluded) {
+    for (const bot of authorizedBots || []) {
+      if (bot) allowedLogins.add(String(bot).trim().toLowerCase());
+    }
+  }
+
+  if (normalizedAuthor && allowedLogins.has(normalizedAuthor)) {
     return {
       success: true,
       touched,
-      message: `✅ protected files touched by repo owner (${normalizedAuthor}): ${touched.join(', ')}`,
+      message: `✅ protected files touched by repo owner (${author}): ${touched.join(', ')}`,
     };
   }
 
@@ -67,7 +77,7 @@ export function checkSupplyChainActor({
     success: false,
     touched,
     message:
-      `PR by "${normalizedAuthor}" touches protected supply-chain files: ${touched.join(', ')}. ` +
+      `PR by "${author}" touches protected supply-chain files: ${touched.join(', ')}. ` +
       'Dependency overrides and CI workflow changes require a PR from the repo owner. ' +
       'Owner reviews and applies dependency changes in-house (see PR #720 incident).',
   };
