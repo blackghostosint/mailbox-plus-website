@@ -1,3 +1,7 @@
+# Loop gate — refuse push #4+ / 3-review-round PRs (loop-ledger.csv signatures).
+# Fail-closed; owner override: LOOP_LEDGER_ALLOW="<reason>" git push ...
+node scripts/loop-gate.mjs || exit 1
+
 # Baseline checks — their failure must fail the hook (last-command status is not enough
 # once the article block below exists; Runa OBJECT on #711: non-article push with failing
 # lint/format/check would exit 0 and be allowed through).

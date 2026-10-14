@@ -24,6 +24,8 @@ external agents. Owner-side (Hermes) writes, fixes, and merges them.
 | 2026-10-02 | #683 + #684 | (mechanized 2026-10-10) body-photo manifest class struck twice → preflight step 3d now runs verify.mjs's `image:body` gate offline per changed article and blocks the push | ✅ `scripts/preflight-article.sh` step 3d (both directions verified: manifest hit passes, orphaned ref fails) |
 | 2026-10-10 | #691/#693/#706 class | (mechanized) receipt location + feed drift + copy score: local/CI path drift eliminated (PR 711 — one canonical `.factchecks/` default), preflight wired into `.husky/pre-push` for article branches (PR 711+712); #706 repaired end-to-end by the new machinery (merge-main + dedupe + green CI) | ✅ PRs 711/712; writer SOUL.md now writes receipts in-repo and gates on preflight + fetch-before-push |
 
+| 2026-10-14 | repo-wide | Loop signatures (PRs running in circles: #655=38 pushes, #693/#653=20, article avg 5.3 pushes — see `docs/loop-ledger.csv`, regenerate with `node scripts/loop-ledger.mjs`) | ✅ fail-closed `scripts/loop-gate.mjs` in `.husky/pre-push`: blocks push #4+ and 3+-review-round PRs with escalation instructions; owner override `LOOP_LEDGER_ALLOW="<reason>"` |
+
 ## Process
 
 1. **Before opening** an article PR: run `npm run preflight:article` on the branch. Fix everything it flags. CI failure on an article PR should be considered a preflight miss, not bad luck.
