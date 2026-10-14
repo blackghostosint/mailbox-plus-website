@@ -104,8 +104,8 @@ You do not need to memorize any of the rules above. Here's what happens when you
 
 ## Run the Numbers on Standing Still
 
-- **The returned shipment penalty:** shipping a box with mismatched packaging that gets kicked back wastes the postage you already paid, burns three to five days in transit limbo, and forces you to repack and buy a second label.
-- **The address correction fee:** UPS and FedEx charge an address correction fee (often $19.50 to $21.00 per package) if their driver has to resolve an incomplete street address because a PO Box was provided.
+- **The returned shipment penalty:** shipping a box with mismatched packaging that gets kicked back wastes the postage you already paid, burns days in transit limbo, and forces you to repack and buy a second label.
+- **The address correction fee:** UPS and FedEx charge an address correction fee if their driver has to resolve an incomplete street address because a PO Box was provided.
 - **The wasted counter trip:** driving to a franchise store, waiting in line, and being turned away because of the box in your hands costs part of a Saturday you do not get back.
 
 ## Zero Mental Overhead
