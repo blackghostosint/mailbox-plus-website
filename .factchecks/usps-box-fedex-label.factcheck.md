@@ -1,4 +1,4 @@
-# Fact-Check Receipt: can-you-use-usps-boxes-for-fedex-or-ups
+# Fact-Check Receipt: usps-box-fedex-label
 
 Verified 2026-10-13 by article-writer-bot + independent verification subagent (fresh-context, all claims re-fetched from official pages).
 
