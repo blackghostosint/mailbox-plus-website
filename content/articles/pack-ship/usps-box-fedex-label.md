@@ -52,11 +52,11 @@ The box seems like free cardboard. It is not. USPS Priority Mail and Priority Ma
 
 The fine print on every box says it in plain English: "This packaging is the property of the U.S. Postal Service and is provided solely for use in sending Priority Mail. Misuse may be a violation of federal law."
 
-When you drop a USPS box with a FedEx or UPS label on it:
+When a USPS Priority box carries a private carrier label:
 
-- **At a carrier counter** (UPS Store, FedEx Office, or a retail counter), the clerk will refuse it. They cannot accept competitor-branded government packaging with their carrier's label.
-- **In an unattended drop box**, the driver picks it up, but the sorting facility flags it. The package may be returned to your return address, held for payment of full USPS Priority Mail postage, or handed over to USPS as contraband packaging with postage due charged to the recipient.
-- **Inside out or covered in brown tape?** Turning the box inside out or wrapping it entirely in kraft paper or tape does not solve the problem. If the postal markings bleed through or show at the seams, inspectors and automated sort lines treat it as compromised packaging. If the structural integrity was weakened by reversing the folds, your claim for shipping damage is immediately denied.
+- **At a retail counter**, the clerk will typically stop the shipment and ask you to repack into a plain or carrier-branded box before accepting it.
+- **In an unattended drop box**, the package risks transit delays or being returned to the sender. If postal inspectors or carriers flag the packaging, the item can be held for proper postage or rerouted.
+- **Inside out or covered in tape?** Turning the box inside out or wrapping it in brown paper creates a separate hazard: automated conveyor systems can tear wrapped paper, and reversing corrugated folds weakens the box's structural integrity, increasing the risk of damage during shipping.
 
 ## The PO Box Barrier
 
