@@ -7,42 +7,96 @@
 //
 // Usage: node scripts/verify/check-supply-chain-actor.mjs <pr_files_file> <pr_author>
 // Protected: .github/workflows/*, package.json + package-lock.json (root + astro/),
-// scripts/verify/audit-*.
-import { readFileSync } from 'node:fs';
+// scripts/verify/*, netlify.toml, .gitleaks*
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import { readFilesList } from './pr-utils.mjs';
 
-const OWNER = process.env.REPO_OWNER || 'blackghostosint';
+export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
 
-const PROTECTED = [
+export const PROTECTED = [
   /^\.github\/workflows\//,
   /^(astro\/)?package\.json$/,
   /^(astro\/)?package-lock\.json$/,
-  /^scripts\/verify\/audit-/,
+  /^scripts\/verify\//,
+  /^netlify\.toml$/,
+  /^\.gitleaks/,
 ];
 
+/**
+ * Validates that protected supply-chain files are only modified by the repository owner.
+ *
+ * @param {Object} [options]
+ * @param {string[]} [options.changedFiles] - List of changed file paths
+ * @param {string} [options.author] - Username/login of the PR author
+ * @param {string} [options.owner] - Repository owner username/login
+ * @returns {{ success: boolean, touched: string[], message: string }}
+ */
+export function checkSupplyChainActor({
+  changedFiles = [],
+  author = '',
+  owner = DEFAULT_OWNER,
+} = {}) {
+  const files = Array.isArray(changedFiles) ? changedFiles : [];
+  const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
+
+  if (!touched.length) {
+    return {
+      success: true,
+      touched: [],
+      message: '✅ no protected supply-chain files touched',
+    };
+  }
+
+  const normalizedAuthor = (author || '').trim();
+  const normalizedOwner = (owner || '').trim();
+
+  if (
+    normalizedAuthor &&
+    normalizedOwner &&
+    normalizedAuthor.toLowerCase() === normalizedOwner.toLowerCase()
+  ) {
+    return {
+      success: true,
+      touched,
+      message: `✅ protected files touched by repo owner (${normalizedAuthor}): ${touched.join(', ')}`,
+    };
+  }
+
+  return {
+    success: false,
+    touched,
+    message:
+      `PR by "${normalizedAuthor}" touches protected supply-chain files: ${touched.join(', ')}. ` +
+      'Dependency overrides and CI workflow changes require a PR from the repo owner. ' +
+      'Owner reviews and applies dependency changes in-house (see PR #720 incident).',
+  };
+}
+
 function fail(msg) {
-  console.error('❌ ' + msg);
+  const formatted = msg.startsWith('❌') ? msg : '❌ ' + msg;
+  console.error(formatted);
   process.exit(1);
 }
 
-const [filesFile, authorArg] = process.argv.slice(2);
-if (!filesFile || !authorArg)
-  fail('usage: check-supply-chain-actor.mjs <pr_files_file> <pr_author>');
+const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
-const files = readFileSync(filesFile, 'utf8').trim().split('\n').filter(Boolean);
-const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
+if (isMain) {
+  const [filesFile, authorArg] = process.argv.slice(2);
+  if (!filesFile || authorArg === undefined) {
+    fail('usage: check-supply-chain-actor.mjs <pr_files_file> <pr_author>');
+  }
 
-if (!touched.length) {
-  console.log('✅ no protected supply-chain files touched');
-  process.exit(0);
+  const files = readFilesList(filesFile);
+  const result = checkSupplyChainActor({
+    changedFiles: files,
+    author: authorArg,
+  });
+
+  if (result.success) {
+    console.log(result.message);
+    process.exit(0);
+  } else {
+    fail(result.message);
+  }
 }
-
-if (authorArg === OWNER) {
-  console.log(`✅ protected files touched by repo owner (${authorArg}): ${touched.join(', ')}`);
-  process.exit(0);
-}
-
-fail(
-  `PR by "${authorArg}" touches protected supply-chain files: ${touched.join(', ')}. ` +
-    'Dependency overrides and CI workflow changes require a PR from the repo owner. ' +
-    'Owner reviews and applies dependency changes in-house (see PR #720 incident).'
-);
