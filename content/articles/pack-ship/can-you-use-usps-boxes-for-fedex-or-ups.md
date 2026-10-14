@@ -8,10 +8,10 @@ articleType: 'guide'
 quickAnswer: >-
   No — USPS-branded Priority Mail packaging can only be used with the USPS
   service printed on the box; misuse may be a violation of federal law. The
-  reverse fails too: UPS cannot deliver to a PO Box at all, and only 1 FedEx
-  service of all its services reaches domestic PO Boxes. The fix:
-  ship in a plain or carrier-brand box, or rent a private mailbox with a street
-  address every carrier delivers to.
+  reverse fails too: per UPS's own guidelines, UPS cannot deliver to a PO Box,
+  and only 1 FedEx service of all its services reaches domestic PO Boxes.
+  The fix: ship in a plain or carrier-brand box, or rent a private mailbox
+  with a street address the carriers' rules accept.
 pubDate: '2026-10-13T09:00:00-04:00'
 lastModified: '2026-10-13T09:00:00-04:00'
 status: 'published'
@@ -33,7 +33,7 @@ faqs:
   - question: 'Can I put a FedEx or UPS label on a USPS Priority Mail box?'
     answer: "No. USPS states that Priority Mail and Priority Mail Express packaging provided by the Postal Service can only be used for the class of mail specified on the box, and misuse may be a violation of federal law. Use any plain, unbranded box — or the carrier's own packaging — and the FedEx or UPS label works fine."
   - question: 'Does UPS or FedEx deliver to a USPS PO Box?'
-    answer: 'UPS cannot deliver to a PO Box — shipments addressed to one face delays, lose the service guarantee, and get hit with an address-correction surcharge. FedEx reaches domestic PO Boxes only through FedEx Ground Economy, a contract-only service where USPS makes the final delivery. Standard UPS and FedEx Express services will not deliver to your box.'
+    answer: "Per UPS's published guidelines, they cannot deliver to a PO Box — shipments addressed to one face delays, lose the service guarantee, and get hit with an address-correction surcharge. FedEx reaches domestic PO Boxes only through FedEx Ground Economy, a contract-only service where USPS makes the final delivery. Standard UPS and FedEx Express services will not deliver to your box."
   - question: 'Can I reuse a USPS Priority Mail box that is already broken down, inside-out?'
     answer: 'Only if the branding is fully covered and you use it as a plain box — a reused Priority Mail box with visible USPS branding still counts as USPS packaging, so a FedEx or UPS label on it can be refused. The safe route is an unbranded box; we keep plain sizes at the counter.'
   - question: 'What is the cheapest way to get a street address that accepts all carriers?'
