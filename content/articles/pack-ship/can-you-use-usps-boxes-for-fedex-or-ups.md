@@ -1,6 +1,6 @@
 ---
 title: 'Can You Use a USPS Box for FedEx or UPS? The Short Answer and the Workarounds'
-description: 'A USPS box and a FedEx label do not mix — and a PO Box rejects most UPS and FedEx deliveries outright. Here is what actually happens, the three legal exceptions, and the fix that takes two minutes at our counter.'
+description: 'A USPS box and a FedEx label do not mix — and a PO Box rejects most UPS and FedEx deliveries outright. Here is what actually happens, the three legal exceptions, and the quick fix at our counter.'
 slug: 'can-you-use-usps-boxes-for-fedex-or-ups'
 category: 'pack-ship'
 intentKey: 'can-you-use-usps-boxes-for-fedex-or-ups'
@@ -44,7 +44,7 @@ faqs:
 
 You have a box to ship, and the free USPS Priority Mail box in your closet is exactly the right size. But the price you were quoted came from UPS or FedEx, and you have a nagging feeling the label and the box belong to two different companies.
 
-They do. Slap a FedEx or UPS label on a USPS-branded Priority Mail box and you are misusing federal packaging — USPS says so in writing, and misuse may be a violation of federal law. Ship FedEx or UPS to your own PO Box and the outcome is worse: UPS's own guidelines rule out PO Box delivery entirely, and FedEx only reaches them through one obscure contract service. Here is exactly where the rules bite, the three exceptions most people never hear about, and the two-minute fix at our counter in Concord Township.
+They do. Slap a FedEx or UPS label on a USPS-branded Priority Mail box and you are misusing federal packaging — USPS says so in writing, and misuse may be a violation of federal law. Ship FedEx or UPS to your own PO Box and the outcome is worse: UPS's own guidelines rule out PO Box delivery entirely, and FedEx only reaches them through one obscure contract service. Here is exactly where the rules bite, the three exceptions most people never hear about, and the fix at our counter in Concord Township.
 
 ## The Wrong Box, Explained
 
@@ -70,7 +70,7 @@ PO Boxes are similar. The Postal Service staffs and secures the box section; UPS
 
 - **UPS Mail Innovations** — UPS handles pickup and processing, then inducts the piece into the USPS network, and the Postal Service makes final delivery. That is UPS's own description of the service. It is a contract service for business volume, so your eBay purchase with a "UPS" tracking number that ends in a mailbox made its last mile by mail truck.
 - **FedEx Ground Economy** — FedEx's FAQ says this is the only service that reaches domestic PO Boxes, also contract-only, also with USPS delivering the final mile.
-- **USPS itself** — if the package moves entirely inside the postal system, the box and the address both work, which is why Priority Mail to a PO Box is the one combination that never fails.
+- **USPS itself** — if the package moves entirely inside the postal system, the box and the address both work, which is why Priority Mail to a PO Box is the one combination the system was built to handle.
 
 For everyday retail shipping, none of the exceptions apply. You cannot walk into a store and buy Ground Economy or Mail Innovations for one box.
 
@@ -82,15 +82,15 @@ In practice, the fix takes one of two forms, and we handle both:
 
 **The right box.** If your contents fit a plain, unbranded corrugated box, any carrier takes it. We keep plain boxes in every common size, and if you brought that Priority Mail box because it fits perfectly, we will match it with an unbranded one in the same dimensions and pay a few cents more in packaging instead of gambling the shipment.
 
-**The right address.** If you ship or receive often and a PO Box keeps rejecting your packages, a private mailbox is the structural fix. It comes with a real street address — not a box number — so UPS, FedEx, and USPS all deliver to it, every time, no surcharges and no refusals. Your mail sits behind your own lock until you come get it. That is the difference people mean when they ask why a private mailbox costs more than a PO Box: the street address is what makes it work with every carrier ([the full comparison is here](/articles/private-mailbox-vs-po-box/)).
+**The right address.** If you ship or receive often and a PO Box keeps rejecting your packages, a private mailbox is the structural fix. It comes with a real street address — not a box number — so UPS, FedEx, and USPS each have a physical door to deliver to, which is exactly what their rules require. Your mail sits behind your own lock until you come get it. That is the difference people mean when they ask why a private mailbox costs more than a PO Box: the street address is what makes it work with every carrier ([the full comparison is here](/articles/private-mailbox-vs-po-box/)).
 
-## Under Three Minutes, Every Time
+## What Happens at the Counter
 
 You do not need to memorize any of the rules above. Here's what happens when you walk in:
 
 1. **Walk in with what you have** — the Priority Mail box, the plain box, or just the item and a shipping address. No pre-sorting, no homework.
 2. **Put it on the counter.** We check the packaging against the label, the address against the carrier's rules, and quote all three carriers so you see the price side by side — the same comparison-shopping we do for [every package that crosses this counter](/articles/compare-shipping-rates-ups-fedex-usps-dhl/).
-3. **Walk out** with the right label on the right box, going to an address that will actually accept it. Usually in under three minutes.
+3. **Walk out** with the right label on the right box, going to an address that will actually accept it. No appointment, no second trip.
 
 ## Run the Numbers on Standing Still
 
