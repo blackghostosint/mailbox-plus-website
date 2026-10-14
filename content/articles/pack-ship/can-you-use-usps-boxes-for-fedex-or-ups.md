@@ -108,6 +108,6 @@ You drop the box on the counter, and the label-box-address puzzle is our job ins
 
 Bring the mess — the wrong box, the PO Box address, the label you are not sure about. You do not need to have anything figured out, printed, or organized. Absorbing exactly this kind of packaging-and-rules headache is why the counter exists.
 
-Mailbox Plus is at 7554 Fredle Drive in Concord Township, just off Crile Road, minutes from SR-44 and I-90. Set the box down and tell us where it needs to go. We will match the box, the label, and the address so they all agree — and you will be back in your car before the coffee gets cold.
+Mailbox Plus is at 7554 Fredle Drive in Concord Township, just off Crile Road, minutes from SR-44 and I-90. Set the box down and tell us where it needs to go. We will match the box, the label, and the address so they all agree — and you can get right back to your day.
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
