@@ -1312,8 +1312,6 @@ None of this is your fault. You did the reasonable thing — used a free box tha
 
 ## Follow the Incentives
 
-The rules are not arbitrary — they follow the money, and once you see it, every edge case makes sense.
-
 USPS gives away Priority Mail packaging because the postage pays for it. Letting a competitor's label ride on that packaging means the other carrier collects the revenue while USPS eats the box. Hence the class restriction, stated in federal terms.
 
 PO Boxes are similar. The Postal Service staffs and secures the box section; UPS and FedEx have no keys, no access, and no agreement to deliver inside it. Their drivers deliver to doors and loading docks, not to a wall of brass slots. The exceptions only exist where the carriers quietly bought their way into the postal system:
@@ -1326,7 +1324,7 @@ For everyday retail shipping, none of the exceptions apply. You cannot walk into
 
 ## What Changes When Nobody Owns Us
 
-This is where an independent counter changes the math. We don't work for any of the carriers. So when you set your box down, nobody here is trying to sell you the one label they're paid to push.
+At our counter, we don't work for any of the carriers. You set the box down, and nobody is trying to sell you the one label they're paid to push.
 
 In practice, the fix takes one of two forms, and we handle both:
 
@@ -1336,7 +1334,7 @@ In practice, the fix takes one of two forms, and we handle both:
 
 ## Under Three Minutes, Every Time
 
-You do not need to memorize any of the rules above. The counter version of this article is three steps:
+You do not need to memorize any of the rules above. Here's what happens when you walk in:
 
 1. **Walk in with what you have** — the Priority Mail box, the plain box, or just the item and a shipping address. No pre-sorting, no homework.
 2. **Put it on the counter.** We check the packaging against the label, the address against the carrier's rules, and quote all three carriers so you see the price side by side — the same comparison-shopping we do for [every package that crosses this counter](/articles/compare-shipping-rates-ups-fedex-usps-dhl/).
