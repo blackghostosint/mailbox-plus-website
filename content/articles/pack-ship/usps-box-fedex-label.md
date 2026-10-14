@@ -90,7 +90,7 @@ At our counter, we don't work for any of the carriers. You set the box down, and
 
 In practice, the fix takes one of two forms, and we handle both:
 
-**The right box.** If your contents fit a plain, unbranded corrugated box, any carrier takes it. We keep plain boxes in every common size, and if you brought that Priority Mail box because it fits perfectly, we will match it with an unbranded one in the same dimensions and pay a few cents more in packaging instead of gambling the shipment.
+**The right box.** If your contents fit a plain, unbranded corrugated box, any carrier takes it. We keep plain boxes in every common size, and if you brought that Priority Mail box because it fits perfectly, we will match it with an unbranded one in the same dimensions so your shipment moves without packaging friction.
 
 **The right address.** If you ship or receive often and a PO Box keeps rejecting your packages, a private mailbox is the structural fix. It comes with a real street address — not a box number — so UPS, FedEx, and USPS each have a physical door to deliver to, which is exactly what their rules require. Your mail sits behind your own lock until you come get it. That is the difference people mean when they ask why a private mailbox costs more than a PO Box: the street address is what makes it work with every carrier ([the full comparison is here](/articles/private-mailbox-vs-po-box/)).
 
