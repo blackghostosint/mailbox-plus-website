@@ -1,8 +1,8 @@
 {
   "site": "mailboxplusohio.com",
-  "lastBuiltAt": "PLACEHOLDER_ISO_8601",
-  "contentVersion": "PLACEHOLDER_VERSION",
-  "embeddingModel": "PLACEHOLDER_MODEL",
+  "lastBuiltAt": "2026-10-15T14:18:53.000Z",
+  "contentVersion": "0.0.0",
+  "embeddingModel": "text-embedding-004",
   "allowedIntents": ["faq", "service_info", "micro_problem", "hours_location", "policies"],
-  "fallbackResponse": "PLACEHOLDER_FALLBACK_MESSAGE"
+  "fallbackResponse": "I don't have that information. Please contact the store directly or visit us in person."
 }
