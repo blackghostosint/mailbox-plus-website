@@ -18,12 +18,21 @@ keywords:
   ]
 relatedServices:
   [
-    '/private-mailbox-rental',
-    '/articles/private-mailbox-vs-po-box',
-    '/articles/concord-township-business-real-street-address',
-    '/articles/chardon-mover-mailbox',
+    '/private-mailbox-rental/',
+    '/articles/private-mailbox-vs-po-box/',
+    '/articles/concord-township-business-real-street-address/',
+    '/articles/concord-township-mover-mailbox/',
   ]
-author: 'Mailbox Plus Team'
+faqs:
+  - question: 'What forms of ID do I need to rent a private mailbox for my college student?'
+    answer: "Two forms, same as any Form 1583 rental: one government-issued photo ID (a driver's license works) plus a second ID that shows a physical address — a current lease, a utility bill, a vehicle registration, or a voter card. A credit card is not on the acceptable list. The whole thing takes about ten minutes, once."
+  - question: 'Can my student receive FedEx, UPS, and DHL packages at a private mailbox?'
+    answer: 'Yes. A private mailbox is a real street address, so all four carriers — USPS, UPS, FedEx, and DHL — deliver to it, and staff sign for packages and hold them in a locked building. A PO box cannot receive FedEx, UPS, or DHL packages at all; the drivers cannot deliver to a post office locker.'
+  - question: "Is a private mailbox my student's residence address for voter registration or the DMV?"
+    answer: "No — a private mailbox is a mailing address, not a residence. Ohio's voter registration form requires your residence address where you actually live, but it has a separate optional mailing-address field, and that is where the mailbox belongs: registrations, sample ballots, and notices all arrive at the one address that never changes. The DMV works the same way — the license needs a residence address, but the paperwork that proves residency can be mailed to the mailbox."
+  - question: 'How far is Mailbox Plus from Lakeland Community College and Lake Erie College?'
+    answer: 'Lakeland Community College in Kirtland is about nine miles away — roughly a fifteen-minute drive. Lake Erie College in Painesville is about 4.5 miles — roughly eleven minutes. Students at either campus can stop by between classes without a trip across the county.'
+author: 'Reviewed by Frank Schwarz, COO'
 ---
 
 ## The Dorm Move-Out
@@ -66,9 +75,11 @@ That's not a parenting failure. It's a system failure — and it has a fix.
 
 A private mailbox (PMB) is a real street address you rent — not from the post office, but from a licensed mail receiving business like Mailbox Plus. It is not a PO box. It's a specific, registered thing: when you rent one, you fill out the standard USPS **Form 1583** (two forms of ID, a signature, about ten minutes), and your mail is addressed to the store's street address plus your box number.
 
+![Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-wall/wall-01.webp)
+
 For a college student, that means one address that doesn't change when the dorm closes, the apartment lease ends, or the first job starts:
 
-**7554 Fredle Drive, Suite (or PMB) #\_\_\_\_, Concord Township, OH 44077**
+**7554 Fredle Drive, PMB or #**\_\_\_**, Concord Township, OH 44077**
 
 That address works for all four years. And beyond.
 
@@ -107,7 +118,7 @@ A student at either campus can stop by between classes, on the way home, or on a
 
 ## How It Works
 
-1. **The parent (or the student) walks in** with two forms of ID — a driver's license and a credit card, for example.
+1. **The parent (or the student) walks in** with two forms of ID — a driver's license and a current lease or utility bill, for example (the second ID needs to show a physical address).
 2. **Fill out the standard Form 1583** — the same USPS form every licensed mailbox service uses. Ten minutes, once.
 3. **Start using the address the same day.** Mail arrives, staff notifies, packages get signed for and held in a locked building.
 
