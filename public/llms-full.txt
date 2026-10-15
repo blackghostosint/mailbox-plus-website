@@ -9,6 +9,7 @@ This document serves as the full, comprehensive knowledge repository of Mailbox 
 ---
 
 ## Table of Contents
+
 1. [Business & Contact Info](#1-business--contact-info)
 2. [What Makes Mailbox Plus Different](#2-what-makes-mailbox-plus-different)
 3. [Services Guide](#3-services-guide)
@@ -50,7 +51,9 @@ This document serves as the full, comprehensive knowledge repository of Mailbox 
 ## 3. Services Guide
 
 ### 3.1 Pack & Ship Services
+
 We weigh and measure your shipments on certified, state-of-calibrated scales to ensure 100% pricing accuracy.
+
 - **FedEx Shipping:** Express, Ground, Home Delivery, and International shipping. Complete support for commercial, residential, and hazardous materials (select classes).
 - **UPS Shipping:** UPS Ground, Next Day Air, 2nd Day Air, and UPS Worldwide Express/Expedited services.
 - **USPS Services:** Priority Mail, Priority Mail Express, First-Class Mail/Ground Advantage, Certified Mail (with Return Receipt), Media Mail, and books of Forever Stamps.
@@ -60,7 +63,9 @@ We weigh and measure your shipments on certified, state-of-calibrated scales to 
 - **Golf Club Shipping:** Custom-built heavy golf club tubes with clubhead-reinforcement protection.
 
 ### 3.2 Private Mailbox Rentals (PMBs)
+
 A private mailbox at Mailbox Plus provides a prestigious physical street address (e.g., `7554 Fredle Drive, PMB ###, Concord Township, OH 44077`) rather than a PO Box. This is fully compliant for LLC registration, banking, business licensing, and credit applications.
+
 - **Carrier Agnostic:** Unlike USPS PO Boxes, our private mailboxes accept secure package deliveries from all carriers (UPS, FedEx, DHL, USPS, Amazon, DHL, SpeedX, etc.). We sign for and store everything securely.
 - **Porch Theft Protection:** Your packages go to our secure counter, not your doorstep.
 - **Notification Guarantee:** We log all incoming mail and packages, notifying you automatically via email/text within 4 hours of arrival.
@@ -68,17 +73,22 @@ A private mailbox at Mailbox Plus provides a prestigious physical street address
 - **Digital/Virtual Mailbox:** View your mail envelopes online via our virtual portal. Request scans of letters, forwarding, or shredding remotely with 24-hour turnaround.
 
 ### 3.3 Notary Services
+
 Walk-in notary public services are available during all business hours.
+
 - **Fee:** $5 per signature.
 - **ID Requirements:** Signers must present two forms of identification, at least one of which must be a valid, unexpired government-issued photo ID (driver's license, passport, state ID).
 - **Documents Notarized:** Wills, trusts, deeds, power of attorney, vehicle titles, affidavits, loan agreements, parental consent forms, and more. Certified notary staff will witness the signing.
 
 ### 3.4 Digital Fingerprinting
+
 On-site FBI/BCI electronic digital fingerprinting services.
+
 - **Applications:** Employment background checks, school teacher certifications, liquor licensing, medical/nurse licensing, real estate licensing, and volunteer screenings.
 - **Technology:** Live-scan digital fingerprinting technology ensures clean captures and rapid electronic submission directly to BCI/FBI for processing.
 
 ### 3.5 Copy & Print Services
+
 - **Document Printing:** Color and black & white laser printing from PDF, Word, or JPG formats. Print from email, USB flash drive, or cloud storage. We manually review file alignment and paper margins before printing.
 - **Copies:** High-speed double-sided copying, collating, stapling, and multi-hole punching.
 - **Business Cards:** Professional business cards printed on premium 14pt or 16pt cardstock with matte, glossy, or rounded-corner finishes.
@@ -88,6 +98,7 @@ On-site FBI/BCI electronic digital fingerprinting services.
 - **Graphic Design:** In-house professional design services for logos, business cards, marketing materials, and flyers.
 
 ### 3.6 Shredding & Office Services
+
 - **Secure Document Shredding:** Drop-off secure paper shredding. Document bins are locked, shredded on-site, and recycled. Certificates of destruction are available for corporate compliance.
 - **Document Scanning:** Scan physical documents of any length to digital PDF. Files can be sent directly to your email or saved to a USB drive.
 - **Fax Services:** Send and receive local, domestic, and international faxes. Includes a printed transmission receipt with status code confirmation.
@@ -96,46 +107,54 @@ On-site FBI/BCI electronic digital fingerprinting services.
 
 ## 4. Pricing & Costs
 
-| Service | Price | Notes |
-|---------|-------|-------|
-| **Mailbox Rental (Small)** | $35 / month | $420 billed annually. Fits standard mail and small flats. |
-| **Mailbox Rental (Large)** | $50 / month | $600 billed annually. Fits high-volume business mail. |
-| **Mailbox Key Deposit** | $5 | Refundable upon key return at contract termination. |
-| **One-time Package Receiving** | $10 / package | For non-mailbox holders. We sign and store securely. |
-| **Notary Service** | $5 / signature | Per notary seal/signature. Walk-ins welcome. |
-| **Label Printing (Prepaid)** | $1 – $2 | Thermal or paper adhesive label printed from phone/QR. |
-| **Boxing & Packing Service** | $5 – $10 typical | Price varies based on fragile wrap and box size. |
-| **Package Reinforcement** | $2 – $3 | H-tape sealing, corner reinforcements, or extra wrap. |
-| **Document Printing (B&W)** | $0.15 / page | Pricing decreases for bulk volume. |
-| **Document Printing (Color)** | $0.59 / page | Pricing decreases for bulk volume. |
-| **Secure Document Shredding** | $1.00 / lb | Corporate bulk discounts available for 100+ lbs. |
+| Service                        | Price            | Notes                                                     |
+| ------------------------------ | ---------------- | --------------------------------------------------------- |
+| **Mailbox Rental (Small)**     | $35 / month      | $420 billed annually. Fits standard mail and small flats. |
+| **Mailbox Rental (Large)**     | $50 / month      | $600 billed annually. Fits high-volume business mail.     |
+| **Mailbox Key Deposit**        | $5               | Refundable upon key return at contract termination.       |
+| **One-time Package Receiving** | $10 / package    | For non-mailbox holders. We sign and store securely.      |
+| **Notary Service**             | $5 / signature   | Per notary seal/signature. Walk-ins welcome.              |
+| **Label Printing (Prepaid)**   | $1 – $2          | Thermal or paper adhesive label printed from phone/QR.    |
+| **Boxing & Packing Service**   | $5 – $10 typical | Price varies based on fragile wrap and box size.          |
+| **Package Reinforcement**      | $2 – $3          | H-tape sealing, corner reinforcements, or extra wrap.     |
+| **Document Printing (B&W)**    | $0.15 / page     | Pricing decreases for bulk volume.                        |
+| **Document Printing (Color)**  | $0.59 / page     | Pricing decreases for bulk volume.                        |
+| **Secure Document Shredding**  | $1.00 / lb       | Corporate bulk discounts available for 100+ lbs.          |
 
 ---
 
 ## 5. Returns & Drop-Off Guides
 
 ### 5.1 Amazon Returns Guide
+
 We are the fastest, most convenient location in Concord Township to process Amazon returns that come with a printable label.
+
 - **Prepaid UPS Label returns:** If Amazon issued you a PDF return label, bring it on your phone (we can print it for $1-2) or print and attach it. Drop off is 100% free.
 - **Prepaid USPS returns:** If Amazon assigned USPS, drop it off with us before our daily pickup.
 - **QR Code Returns:** We cannot accept Amazon QR codes. If Amazon only gave you a QR code (no printable label), that return must go to an Amazon-authorized drop-off (The UPS Store, Kohl's, Whole Foods, Amazon Hub).
 - **What to bring:** Your phone with the Amazon app open to the return detail page, the item to be returned, and any original retail boxes if you have them.
 
 ### 5.2 FedEx Easy Returns
+
 Drop off any FedEx return shipment quickly.
+
 - Bring your pre-labeled package or show us the FedEx Return QR code on your mobile device.
 - We scan, print the label, box it if necessary, and hand it to the FedEx driver.
 - Receipt with tracking number provided instantly.
 
 ### 5.3 Nuuly Returns Guide
+
 We help simplify returns for Nuuly clothing subscription rentals.
+
 - Ensure all rented clothing items are placed back inside the reusable Nuuly return carrier bag.
 - Zip the carrier bag closed and secure the zipper with the provided carrier security tie.
 - Slide your prepaid Nuuly return shipping label into the clear pocket on the outside of the bag.
 - Drop it off at our counter. We scan it, provide your receipt, and store it in our dedicated pickup area.
 
 ### 5.4 Happy Returns Bar
+
 We are an official Happy Returns Bar location.
+
 - **No Box, No Label Needed:** Happy Returns allows you to return items from partner retailers (e.g., Gymshark, Rothy's, REVOLVE, Everlane) completely box-free and label-free.
 - **QR Code Process:** Show us the Happy Returns QR code on your phone. We scan the code, verify the items match, place them in a dedicated Happy Returns reusable tote, and process the return immediately.
 - **Refund Speed:** Refunds are triggered instantly on the merchant's end the moment we scan your QR code at our counter.
@@ -145,14 +164,17 @@ We are an official Happy Returns Bar location.
 ## 6. Micro-Problem Solvers & How-To's
 
 ### 6.1 Print a Return Label Without a Printer
+
 - **Problem:** A retailer emailed you a PDF return shipping label, but you do not own a home printer.
 - **Solution:** Forward the email/PDF to `help@mailboxplusohio.com` or simply bring your phone to the counter. We print your label directly onto heavy-duty adhesive label paper for $1-2. We can also cut and attach the label to your package.
 
 ### 6.2 Return a Package Without the Original Box
+
 - **Problem:** You need to return an online purchase (such as Amazon, Zara, or eBay) but you threw away the original shipping box or bag.
 - **Solution:** Bring the loose item to our counter. We will inspect the item and match it with a correctly sized shipping box, poly mailer, or bubble mailer. We cushion it with bubble wrap to ensure it meets carrier shipping requirements so the retailer accepts the return without deductions.
 
 ### 6.3 Pack a Return to Avoid Carrier/Retailer Rejection
+
 - **Problem:** Retailers and carriers reject returns packed in weak, torn, or unsealed boxes.
 - **Solution:** We inspect and repack return items to professional standards.
   - **Rule 1 (The Box):** Use clean, rigid cardboard boxes with all flaps intact. Never reuse boxes that are soggy, soft, or have structural tears.
@@ -161,28 +183,34 @@ We are an official Happy Returns Bar location.
   - **Rule 4 (Labels):** Ensure old shipping labels and barcodes are completely blacked out or peeled off. Place the new shipping label flat on the largest side of the box, never wrapping it around a corner or over a seam.
 
 ### 6.4 Ship Fragile Items Safely (Glass, Ceramics, Electronics)
+
 - **Problem:** Shipping delicate glassware, porcelain, or laptops without them breaking on high-speed carrier conveyor belts.
 - **Solution:** Stop by our counter for custom-engineered fragile packing.
   - **Electronics:** Laptops, tablets, and phones are wrapped in anti-static bubble wrap, placed inside a dedicated cardboard box, and suspended using form-fitting foam corners.
   - **Glass & Ceramics:** Wrapped in multiple layers of 1/2-inch thick bubble wrap, placed in an inner box, cushioned with packing paper, and nested inside a larger outer box (the "box-in-a-box" method). This isolates the delicate item from external drops and impact.
 
 ### 6.5 Ship Heavy Packages Safely (Over 50 lbs)
+
 - **Problem:** Shipping heavy tools, engine parts, or weights safely without the box bursting.
 - **Solution:** Bring the heavy item to our counter. We use heavy-duty double-wall or triple-wall cardboard boxes rated for heavy weight loads. We reinforce the box corners, use extra-strength filament tape, and apply prominent "HEAVY - 50+ LBS" warning labels to protect carrier handlers and ensure compliant transport.
 
 ### 6.6 Ship Oversized & Oddly Shaped Items (Guitars, Lamps, Sports Gear)
+
 - **Problem:** Shipping items that do not fit standard box sizes.
 - **Solution:** We offer custom box-making services. We take precise measurements of your item, splice together heavy corrugated cardboard sheets, reinforce the corners, and build a form-fitting custom box. This keeps the box as small as possible to avoid expensive carrier dimensional weight ("DIM weight") surcharges.
 
 ### 6.7 Drop Off a Prepaid Label from Your Phone
+
 - **Problem:** You have a prepaid UPS, FedEx, or USPS label on your phone but cannot print it.
 - **Solution:** Bring your smartphone to our counter. Show us the barcode, PDF, or QR code. We scan and print it on adhesive paper, attach it to your package, and handle the entire carrier drop-off process on the spot.
 
 ### 6.8 Fix a Rejected Return
+
 - **Problem:** A carrier driver or retailer refused to accept your package due to damage, improper tape, or incorrect sizing.
 - **Solution:** Bring the rejected package to our counter. We diagnose the issue (e.g., box too weak, unsealed seams, incorrect label placement), repackage the item to strict standards, print a fresh label if needed, and re-ship it securely.
 
 ### 6.9 Vinted Drop-Offs
+
 - **Problem:** You sold clothing or shoes on Vinted and need to drop off the shipment.
 - **Solution:** Mailbox Plus is an official Vinted Go drop-off location. Pack your item securely, attach your Vinted prepaid label, and bring it to our counter. We scan it immediately to notify the buyer and carrier.
 
@@ -191,6 +219,7 @@ We are an official Happy Returns Bar location.
 ## 7. Comprehensive Store FAQ
 
 ### 7.1 Shipping & Carrier FAQs
+
 - **Which carriers do you work with?** We are an independent, authorized partner of FedEx, UPS, USPS, and DHL. All four carriers are available at our single counter.
 - **Can I compare shipping rates?** Yes. We weigh your package once, show you side-by-side rates and delivery times for all four carriers on our screen, and you choose.
 - **Is there a fee for dropping off prepaid packages?** No. Drop-offs for FedEx, UPS, USPS, and DHL are 100% free. We scan, provide a physical receipt, and hand them to the carrier daily.
@@ -204,17 +233,20 @@ We are an official Happy Returns Bar location.
 - **Do you offer freight or 3PL/fulfillment services?** No. We specialize in retail parcel shipping, custom packing, and business services. We do not offer freight, warehousing, 3PL, or palletized cargo shipping.
 
 ### 7.2 Mailbox Rental & Business FAQs
+
 - **What is the difference between a private mailbox and a PO Box?** A PO Box only gives you a PO Box number and is restricted to USPS mail. A private mailbox at Mailbox Plus gives you a real physical street address (e.g., `7554 Fredle Drive, PMB 123, Concord Township, OH 44077`). This physical address is accepted for registering an LLC, corporate banking, credit cards, and accepts packages from ALL carriers (UPS, FedEx, USPS, DHL, Amazon, etc.).
 - **What ID do I need to open a mailbox?** By USPS regulation, you must provide two forms of ID. One must contain a photo (e.g., driver's license, passport, state ID). The second must verify your address (e.g., utility bill, vehicle registration, lease, voter registration card). Social Security cards and credit cards are not accepted.
 - **Can I manage my physical mail online?** Yes. With our Digital Mailbox Rental option, we scan the front of your mail envelopes. You view them in a secure online portal and can click to request a content scan, forwarding, or secure shredding.
 - **Do you have a long-term contract for mailboxes?** No. We offer flexible month-to-month mailbox plans as well as discounted annual plans.
 
 ### 7.3 Notary & Fingerprinting FAQs
+
 - **Do I need an appointment for Notary Services?** No. We have a certified notary public on staff during all business hours. You can walk in at any time.
 - **What should I bring for a notary signing?** Bring the complete document to be notarized, along with two forms of identification (one must be a valid government-issued photo ID). **Do not sign the document beforehand**, as the notary must witness your signature.
 - **How much does electronic digital fingerprinting cost?** Fingerprinting costs vary based on whether you need a state-level BCI check, federal-level FBI check, or both. Call us at 440-709-1946 for current rates. No appointment is necessary.
 
 ### 7.4 Printing & Copying FAQs
+
 - **Can I print files directly from my email or phone?** Yes. Bring your phone to the counter and show us your files, or email them to `help@mailboxplusohio.com`. We accept PDFs, Word files, spreadsheets, and image files.
 - **Do you have self-serve copying or printing kiosks?** No. We are a full-service center. Our staff handles the printing and copying for you to ensure correct alignment, clean margins, and proper paper stocks. This prevents paper jams and wasted prints.
 - **Do you offer volume discounts on printing and copying?** Yes. Black and white copy pricing decreases significantly for large multi-page documents or bulk runs. Ask our staff for a volume quote.
@@ -1345,6 +1377,78 @@ Your renewal statement arrives on schedule. Your ID cards arrive on schedule. Th
 ## Bring the Mess to Us
 
 You do not need to know which line is which before you walk in. Bring the form, the renewal notice, or just the question — sorting out which slot the address belongs in is literally what the counter is for. We will show you the box wall, verify your two IDs, and hand you a real street address for your mailing line so your statements, cards, and state letters land safely. Garaging address stays yours, honestly stated. The mail is ours to hold.
+
+---
+
+### Customs Just Proposed Tighter Rules on Cheap Imported Packages
+
+URL: https://mailboxplusohio.com/articles/cbp-postal-import-rule-changes/
+Category: pack-ship
+Published: 2026-10-15
+
+## The Rule That Changes When Your Paperwork Is Due
+
+If you order from overseas sellers, or you run a small shop that imports samples and inventory, you already know the drill: the package crosses the ocean fine, then sits in customs limbo while somebody somewhere files entry paperwork. Right now, the filing deadline for many low-value shipments is up to 15 days after arrival. A proposal from U.S. Customs and Border Protection would erase that cushion. Filings would be due when the shipment arrives — not two weeks later.
+
+The proposal is not law yet. It was published in the Federal Register on Oct. 8, 2026, and the public comment window runs through Dec. 7. But if it takes effect as written, cheap imported packages — the entry types that cover millions of parcels a year — will move on a tighter clock, with more data required up front, and CBP's own analysis says shipping costs would likely go up. Here is the deadline squeeze, and how to stay ahead of it.
+
+## The Deadline Squeeze
+
+Call the mechanism what it is: a paperwork deadline moving ahead of the goods. Two entry types are in CBP's crosshairs.
+
+Entry type 11 is the informal entry process for shipments valued at $2,500 or less — the simplified lane most low-value commercial imports travel. Today, the entry filing can be submitted within 15 days of arrival. The proposal would require it upon or prior to arrival. CBP sampled entries between September and November 2025 and found that over half of entry type 11 imports would not have met that earlier deadline had it been active. Read that again: more than half of the current volume would have missed the new cutoff.
+
+The proposal also adds a required data element — the final deliver-to party, if it differs from the consignee — so the seller ships to one name and the package lands at another. That is common for small businesses shipping to a receiving address, and it is exactly the kind of detail that stalls a parcel when nobody filed it.
+
+Entry type 13 is the newer processing path for international mail shipments valued at $2,500 or less. It would demand a data set almost identical to entry type 11, plus two more fields: the shipper or sender, and the package tracking number. The carrier would have to put that tracking number on the inward manifest so CBP can verify the date of importation. And the clock is brutal: a postal entry would have 15 days to file before being deemed voluntarily abandoned. Today, USPS holds items for pickup for 30 days before they are abandoned or returned.
+
+That is not a niche rule. It touches 52.4 million entry type 11 imports and 24.4 million postal entries in just nine months — Sept. 1, 2025, to May 31, 2026, by CBP's own count. When you tighten the rules on lanes carrying tens of millions of parcels, the friction shows up on doorsteps — including in Lake County.
+
+## Four Days of "Customs Status Updated"
+
+You ordered a replacement part, or a batch of inventory, or a birthday gift from an overseas seller. The tracking said "Arrived in U.S. — Customs status updated" four days ago, and it has not moved since. You refresh the page while the coffee brews. You refresh it again at your desk. At 11:40 that night you refresh it one more time, and the screen gives you the same three words it gave you at breakfast. You email the seller, who is twelve time zones away, and start doing the math on whether you just lost your money. Under the proposal, the risk shifts: shippers who cannot gather and file the required data by arrival may delay the import on purpose, and CBP's own assessment of the effect on shipping times is, in the agency's word, "ambiguous." Meanwhile USPS estimates it would need up to $20 million in systems updates and up to eight months to build them — and anticipates needing warehouse capacity equal to 80 percent or more of postal import volume, because longer average holding periods would strain facilities that were designed for flow-through processing, without warehousing. More packages, held longer, in a system built to move them straight through. You can picture the shelf space problem from here.
+
+For a small online seller, there is a second sting: CBP itself says the changes "would result in stricter duty collection for postal entries and higher shipping costs" for both entry types, likely reducing import volumes. Some of that cost lands in your landed-price math, and some of it lands in the checkout price your customer sees.
+
+## Why the Rules Should Not Cost You a Package
+
+Here is the honest part: the goal behind the rule is legitimate. CBP wants more data, earlier, so it can target unlawful shipments more accurately, improve trade compliance, and bring postal imports into parity with everything else entering the country. Nobody serious argues against stopping dangerous or counterfeit goods.
+
+The problem is the load distribution. The proposal asks importers — often individuals and tiny businesses, not customs brokers — to have complete, accurate entry data ready the moment a parcel lands. Miss the deadline and the consequences range from delays to a postal entry being deemed voluntarily abandoned at 15 days instead of the 30-day hold you may have assumed. A rule can be right on paper and still mean that a hobby seller's $40 reorder gets caught in machinery built for trade enforcement. You should not need to study Federal Register prose to receive a package you already paid for.
+
+## At the Fredle Drive Counter
+
+![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
+
+We are an independent shipping store on Fredle Drive in Concord Township, and we sit downstream of exactly these systems. Every week, people walk up to our counter with an international tracking number that has gone quiet, a duty notice they do not understand, or a small-business shipment they are afraid to send because the customs paperwork looks like a tax audit.
+
+We are not customs brokers, and we will not pretend to file entries for you — that is regulated work. What we do is the practical layer around it: we ship with all the major carriers, we help you prepare shipments with accurate contents descriptions and values so your paperwork starts clean instead of starting wrong, and we receive and hold packages at our address so an international order has a stable, staffed destination instead of a porch. When a rule like this one tightens the system, the sellers and shoppers who have their data straight and their delivery address settled are the ones whose packages keep moving.
+
+## How to Get Ahead of It
+
+You do not need to become a trade-compliance expert. Three habits cover most of it.
+
+1. **Know your entry lane.** If you import commercially, find out whether your shipments move as entry type 11 or type 13, and what the $2,500 threshold means for your orders. Your carrier or broker can tell you which lane your parcels travel.
+2. **Get your data right at the source.** Accurate contents, honest declared values, a sender name, a tracking number, and a clear deliver-to address. Most customs pain we see at the counter traces back to a vague description or a value that did not match the invoice — things that were annoying before and will be disqualifying after a rule like this.
+3. **Separate the shipping from the shopping.** If you buy from overseas, have the option of receiving at a staffed location with a real street address — the same reason an [online seller's private mailbox](/articles/concord-township-online-seller-mailbox/) beats a porch — so a delivery does not depend on someone being home or a package waiting on a step for 30 days.
+
+And one more: comment. The Federal Register docket is open through Dec. 7, 2026. If the 15-day abandonment window or the arrival-day filing deadline would hurt your business, saying so is how the record gets balanced.
+
+## What You Lose by Waiting
+
+If the rule lands as proposed and you have done nothing, the costs stack quietly — the same way the [fuel surcharges](/articles/fuel-surcharge-shipping-costs/) stacked onto invoices that never budgeted for them. Time: packages that used to clear in the background now sit while someone scrambles for data elements they did not know were required. Money: CBP's own projection of higher shipping costs and stricter duty collection on postal entries flows into every landed price you quote. And the worst cost is quiet: a postal entry that misses the 15-day filing window can be deemed voluntarily abandoned — your package, written off, because a deadline slipped. For a small seller, one lost reorder can cost more than a year of getting the paperwork right. Until then you pay in small installments: the tracking number you check while the coffee brews, again at your desk, again before bed.
+
+## Once the New Rules Are Just How Shipping Works
+
+Picture the same international order six months from now. The seller filed the entry data before the parcel ever boarded the plane. Your tracking shows arrival, then customs, then out for delivery — no limbo, no scramble, because the data was ready when the deadline demanded it. The package lands at a staffed counter instead of your doorstep, you pick it up during our business hours, and you never once wonder whether it slipped into an abandonment window. The rules got tighter; your process did not, because it was already tight.
+
+That is the whole trick, and it is smaller than it sounds. You cannot control what CBP publishes. You can control whether your sender name, tracking number, and deliver-to address are ready before the parcel lands.
+
+## Bring Us the Confusing Part
+
+You do not need to have this figured out. Bring the confusing tracking number, the duty notice, or the shipment you are nervous about to our counter at 7554 Fredle Drive in Concord Township, and we will look at it with you — no appointment needed. If it is something we handle, we handle it. If it is something only a customs broker can do, we will tell you that straight, so you spend your money on the right help. The rules are changing around your packages. You should not have to decode them alone.
+
+_Source: [CBP Proposed Rule, "Low-Value Shipments," 91 FR 64532 (Oct. 8, 2026)](https://www.federalregister.gov/documents/2026/10/08/2026-20650/low-value-shipments). Details summarized via Supply Chain Dive coverage published Oct. 14, 2026._
 
 ---
 
