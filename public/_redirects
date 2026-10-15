@@ -65,14 +65,14 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # CASE NORMALIZATION & LEGACY CLEANUP
 # -----------------------------------
 
+# Optional but recommended for hierarchy cleanup
+/Pack-Ship/Shipping/* /pack-ship/:splat 301!
+/Pack-Ship/Packaging/* /pack-ship/:splat 301!
+
 /Pack-Ship/* /pack-ship/:splat 301!
 /Copy-Print/* /copy-print/:splat 301!
 /Home-Business/* /home-business/:splat 301!
 /Store-Services /services 301!
-
-# Optional but recommended for hierarchy cleanup
-/Pack-Ship/Shipping/* /pack-ship/:splat 301!
-/Pack-Ship/Packaging/* /pack-ship/:splat 301!
 
 
 # -----------------------------------
@@ -163,7 +163,6 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /articles/willoughby-rate-shipping* /pack-ship/ 301!
 /articles/chardon-privacy-mailbox* /private-mailbox-rental-lake-county/ 301!
 /articles/concord-township-fax* /home-business/fax-services/ 301!
-/articles/hambden-copies* /copy-print/copies/ 301!
 /articles/hambden-eddm* /home-business/every-door-direct-mail/ 301!
 /articles/hambden-notary* /home-business/notary-services/ 301!
 /articles/hambden-online-seller-mailbox* /private-mailbox-rental-lake-county/ 301!
