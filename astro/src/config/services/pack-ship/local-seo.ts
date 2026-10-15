@@ -7,7 +7,7 @@ import Star from '~icons/lucide/star';
 import Shield from '~icons/lucide/shield';
 import Box from '~icons/lucide/box';
 import type { Service } from '../../../types/services';
-import { getServiceImageUrl } from '../../../lib/storage';
+import { getServiceImageUrl } from '../../../lib/media';
 import { phoneFormatted } from '../../siteConfig';
 
 export const localSeoServices: Service[] = [

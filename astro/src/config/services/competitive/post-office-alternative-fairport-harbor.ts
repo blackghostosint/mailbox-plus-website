@@ -1,6 +1,6 @@
 import type { Service } from '../../../types/services';
 import { getImageObjectSchema } from '../../../utils/schema';
-import { getServiceImageUrl } from '../../../lib/storage';
+import { getServiceImageUrl } from '../../../lib/media';
 import Clock from '~icons/lucide/clock';
 import Truck from '~icons/lucide/truck';
 import Users from '~icons/lucide/users';

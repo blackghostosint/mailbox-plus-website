@@ -3,7 +3,7 @@ import Shield from '~icons/lucide/shield';
 import Globe from '~icons/lucide/globe';
 import Truck from '~icons/lucide/truck';
 import type { Service } from '../../../types/services';
-import { getServiceImageUrl } from '../../../lib/storage';
+import { getServiceImageUrl } from '../../../lib/media';
 import {
   generalShippingFaqs,
   artworkShippingFaqs,

@@ -32,7 +32,7 @@ function evaluateServiceFile(file) {
     'function getImageObjectSchema(opts) { return { "@context": "https://schema.org", "@type": "ImageObject", ...opts }; }'
   );
   content = content.replace(/import\s+type\s+.*from\s+['"].*['"];?/g, '');
-  content = content.replace(/import\s+.*from\s+['"].*\/lib\/storage['"];?/g, '');
+  content = content.replace(/import\s+.*from\s+['"].*\/lib\/(storage|media)['"];?/g, '');
 
   // Handle named imports (e.g. import { x, y } from './foo')
   content = content.replace(/import\s+\{([^}]+)\}\s+from\s+['"].*['"];?/g, (m, p1) =>

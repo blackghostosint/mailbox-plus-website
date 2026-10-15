@@ -6,7 +6,7 @@ import FileText from '~icons/lucide/file-text';
 import Palette from '~icons/lucide/palette';
 import Star from '~icons/lucide/star';
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import { packShipFaqs, generalCopyPrintFaqs } from '../faqs';
 
 export const coreServices: Service[] = [

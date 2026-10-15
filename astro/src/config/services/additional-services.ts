@@ -9,7 +9,7 @@ import Printer from '~icons/lucide/printer';
 import Fingerprint from '~icons/lucide/fingerprint';
 import Scan from '~icons/lucide/scan';
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import { generalHomeBusinessFaqs, notaryServicesFaqs } from '../faqs';
 
 export const additionalServices: Service[] = [
