@@ -4,7 +4,7 @@ import MapPin from '~icons/lucide/map-pin';
 import Shield from '~icons/lucide/shield';
 import Clock from '~icons/lucide/clock';
 import type { Service } from '../../../types/services';
-import { getServiceImageUrl } from '../../../lib/storage';
+import { getServiceImageUrl } from '../../../lib/media';
 import { generalShippingFaqs, packageDropOffsFaqs, packageReceivingFaqs } from '../../faqs';
 
 export const receivingDropOffServices: Service[] = [

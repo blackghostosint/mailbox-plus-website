@@ -6,7 +6,7 @@ import Globe from '~icons/lucide/globe';
 import Star from '~icons/lucide/star';
 import Truck from '~icons/lucide/truck';
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import { generalHomeBusinessFaqs, mailboxRentalFaqs, digitalMailboxRentalFaqs } from '../faqs';
 
 export const mailboxRentalServices: Service[] = [
