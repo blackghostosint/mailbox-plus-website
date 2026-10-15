@@ -96,6 +96,6 @@ That is the whole trick, and it is smaller than it sounds. You cannot control wh
 
 ## Bring Us the Confusing Part
 
-You do not need to have this figured out. Bring the confusing tracking number, the duty notice, or the shipment you are nervous about to our counter at 7554 Fredle Drive in Concord Township, and we will look at it with you — no appointment, no forms to prepare first. If it is something we handle, we handle it. If it is something only a customs broker can do, we will tell you that straight, so you spend your money on the right help. The rules are changing around your packages. You should not have to decode them alone.
+You do not need to have this figured out. Bring the confusing tracking number, the duty notice, or the shipment you are nervous about to our counter at 7554 Fredle Drive in Concord Township, and we will look at it with you — no appointment needed. If it is something we handle, we handle it. If it is something only a customs broker can do, we will tell you that straight, so you spend your money on the right help. The rules are changing around your packages. You should not have to decode them alone.
 
 _Source: [CBP Proposed Rule, "Low-Value Shipments," 91 FR 64532 (Oct. 8, 2026)](https://www.federalregister.gov/documents/2026/10/08/2026-20650/low-value-shipments). Details summarized via Supply Chain Dive coverage published Oct. 14, 2026._
