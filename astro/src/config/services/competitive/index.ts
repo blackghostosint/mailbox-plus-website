@@ -17,12 +17,10 @@ import { competePages as happyReturnsMadison } from './happy-returns-madison';
 import { competePages as happyReturnsFairportHarbor } from './happy-returns-fairport-harbor';
 import { competePages as upsDropOffWilloughby } from './ups-drop-off-willoughby';
 import { competePages as upsDropOffMentor } from './ups-drop-off-mentor';
-import { competePages as upsDropOffPainesville } from './ups-drop-off-painesville';
 import { competePages as upsDropOffEastlake } from './ups-drop-off-eastlake';
 import { competePages as upsDropOffKirtland } from './ups-drop-off-kirtland';
 import { competePages as upsDropOffChardon } from './ups-drop-off-chardon';
 import { competePages as upsDropOffMadison } from './ups-drop-off-madison';
-import { competePages as upsDropOffFairportHarbor } from './ups-drop-off-fairport-harbor';
 import { competePages as dhlDropOffWilloughby } from './dhl-drop-off-willoughby';
 import { competePages as dhlDropOffMentor } from './dhl-drop-off-mentor';
 import { competePages as dhlDropOffPainesville } from './dhl-drop-off-painesville';
@@ -86,12 +84,10 @@ export const competitivePages: Service[] = [
   ...happyReturnsFairportHarbor,
   ...upsDropOffWilloughby,
   ...upsDropOffMentor,
-  ...upsDropOffPainesville,
   ...upsDropOffEastlake,
   ...upsDropOffKirtland,
   ...upsDropOffChardon,
   ...upsDropOffMadison,
-  ...upsDropOffFairportHarbor,
   ...dhlDropOffWilloughby,
   ...dhlDropOffMentor,
   ...dhlDropOffPainesville,
