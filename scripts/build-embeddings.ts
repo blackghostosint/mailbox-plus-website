@@ -1,10 +1,15 @@
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
-import { buildCacheKey, EMBEDDING_MODEL, type KnowledgeBase } from '../knowledge/retrieval-core.js';
+import {
+  buildCacheKey,
+  EMBEDDING_MODEL,
+  FALLBACK_RESPONSE,
+  type KnowledgeBase,
+} from '../knowledge/retrieval-core.js';
 import { retrievalTests } from '../knowledge/retrieval-test-suite.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -17,6 +22,7 @@ dotenv.config({ path: join(__dirname, '..', '.env.local') });
 const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
 const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
 const CACHE_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
+const META_PATH = join(__dirname, '..', 'knowledge', 'kb.meta.json');
 
 export interface EmbeddingResult {
   metadata: {
@@ -73,6 +79,7 @@ export interface GenerateEmbeddingsOptions {
   apiKey?: string;
   outputPath?: string;
   cachePath?: string;
+  metaPath?: string;
   writeToDisk?: boolean;
   delayMs?: number;
 }
@@ -87,6 +94,7 @@ export async function generateEmbeddings(
     apiKey = process.env.GEMINI_API_KEY,
     outputPath,
     cachePath,
+    metaPath,
     writeToDisk = false,
     delayMs = 0,
   } = options;
@@ -150,9 +158,49 @@ export async function generateEmbeddings(
   if (writeToDisk) {
     const out = outputPath || OUTPUT_PATH;
     const cache = cachePath || CACHE_PATH;
+    const meta = metaPath || META_PATH;
     const jsonContent = JSON.stringify(result, null, 2);
     writeFileSync(out, jsonContent);
     writeFileSync(cache, jsonContent);
+
+    let existingMeta: Record<string, any> = {};
+    if (existsSync(meta)) {
+      try {
+        existingMeta = JSON.parse(readFileSync(meta, 'utf-8'));
+      } catch {
+        // Fall back to empty object on JSON parse error
+      }
+    }
+
+    let pkgVersion = '0.0.0';
+    const pkgPath = join(__dirname, '..', 'package.json');
+    if (existsSync(pkgPath)) {
+      try {
+        const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
+        if (pkg.version) {
+          pkgVersion = pkg.version;
+        }
+      } catch {
+        // Fall back to 0.0.0 on error
+      }
+    }
+
+    const updatedMeta = {
+      site: existingMeta.site || 'mailboxplusohio.com',
+      lastBuiltAt: new Date().toISOString(),
+      contentVersion: pkgVersion,
+      embeddingModel: EMBEDDING_MODEL,
+      allowedIntents: existingMeta.allowedIntents || [
+        'faq',
+        'service_info',
+        'micro_problem',
+        'hours_location',
+        'policies',
+      ],
+      fallbackResponse: FALLBACK_RESPONSE,
+    };
+
+    writeFileSync(meta, JSON.stringify(updatedMeta, null, 2) + '\n');
   }
 
   return result;

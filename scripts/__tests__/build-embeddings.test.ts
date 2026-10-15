@@ -1,5 +1,9 @@
+import fs from 'fs';
+import path from 'path';
+import os from 'os';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { extractUniqueTexts, generateEmbeddings } from '../build-embeddings.ts';
+import { validateKb } from '../validate-kb.ts';
 import type { KnowledgeBase } from '../../knowledge/retrieval-core.js';
 
 describe('build-embeddings', () => {
@@ -12,7 +16,22 @@ describe('build-embeddings', () => {
         questionVariants: ['Question Variant One', 'Question Variant Two'],
         answer: 'Test Answer',
         confidence: { minimumSimilarity: 0.8, requiresExactMatch: false },
-        sources: [],
+        sources: [
+          {
+            type: 'documentation',
+            url: 'https://mailboxplusohio.com/test',
+            lastVerified: '2026-01-01',
+          },
+        ],
+        constraints: {
+          requiresHuman: false,
+          disallowedFollowups: [],
+        },
+        escalation: {
+          enabled: false,
+          message: 'Escalation disabled',
+        },
+        tags: ['test'],
         searchText: 'Search Text One',
       },
     ],
@@ -111,6 +130,59 @@ describe('build-embeddings', () => {
         0.1, 0.2, 0.3, 0.4,
       ]);
       expect(result.embeddings['kb-test-01::Document Title One']).toEqual([0.1, 0.2, 0.3, 0.4]);
+    });
+
+    it('writes populated kb.meta.json manifest when writeToDisk is true', async () => {
+      const tempOut = path.join(os.tmpdir(), `test-emb-out-${Date.now()}.json`);
+      const tempCache = path.join(os.tmpdir(), `test-emb-cache-${Date.now()}.json`);
+      const tempMeta = path.join(os.tmpdir(), `test-kb-meta-${Date.now()}.json`);
+
+      const mockModel = {
+        embedContent: vi.fn().mockResolvedValue({
+          embedding: { values: [0.1, 0.2, 0.3, 0.4] },
+        }),
+      };
+
+      const mockGenAIClient = {
+        getGenerativeModel: vi.fn().mockReturnValue(mockModel),
+      };
+
+      try {
+        await generateEmbeddings({
+          kb: mockKb,
+          testCases: [],
+          genAIClient: mockGenAIClient,
+          writeToDisk: true,
+          outputPath: tempOut,
+          cachePath: tempCache,
+          metaPath: tempMeta,
+          delayMs: 0,
+        });
+
+        expect(fs.existsSync(tempMeta)).toBe(true);
+        const writtenMeta = JSON.parse(fs.readFileSync(tempMeta, 'utf-8'));
+
+        expect(writtenMeta.site).toBe('mailboxplusohio.com');
+        expect(writtenMeta.contentVersion).toBeDefined();
+        expect(writtenMeta.embeddingModel).toBe('text-embedding-004');
+        expect(writtenMeta.fallbackResponse).toBe(
+          "I don't have that information. Please contact the store directly or visit us in person."
+        );
+        expect(writtenMeta.lastBuiltAt).toBeDefined();
+        expect(isNaN(Date.parse(writtenMeta.lastBuiltAt))).toBe(false);
+        expect(JSON.stringify(writtenMeta)).not.toContain('PLACEHOLDER');
+
+        // Verify written meta passes validateKb
+        const tempKb = path.join(os.tmpdir(), `test-kb-${Date.now()}.json`);
+        fs.writeFileSync(tempKb, JSON.stringify(mockKb), 'utf-8');
+        const validation = validateKb(tempKb, tempMeta);
+        expect(validation.success).toBe(true);
+        if (fs.existsSync(tempKb)) fs.unlinkSync(tempKb);
+      } finally {
+        if (fs.existsSync(tempOut)) fs.unlinkSync(tempOut);
+        if (fs.existsSync(tempCache)) fs.unlinkSync(tempCache);
+        if (fs.existsSync(tempMeta)) fs.unlinkSync(tempMeta);
+      }
     });
   });
 });

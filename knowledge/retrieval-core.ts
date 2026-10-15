@@ -40,6 +40,15 @@ export interface KBEntry {
     url: string;
     lastVerified: string;
   }>;
+  constraints?: {
+    requiresHuman?: boolean;
+    disallowedFollowups?: string[];
+  };
+  escalation?: {
+    enabled?: boolean;
+    message?: string;
+  };
+  tags?: string[];
 }
 
 export interface KnowledgeBase {
