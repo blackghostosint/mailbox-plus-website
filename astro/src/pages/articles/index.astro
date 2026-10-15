@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleLoader } from '../../utils/articleLoader';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 
 const allArticles = await articleLoader.getAllArticles();
 const published = allArticles.filter(a => a.frontmatter.status !== 'draft' && a.frontmatter.status !== 'archived');
