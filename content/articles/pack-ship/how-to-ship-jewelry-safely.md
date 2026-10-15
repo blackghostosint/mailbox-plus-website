@@ -97,7 +97,7 @@ If you are packing it yourself, this is the standard, in order:
 4. **Hand it to a staffed counter and keep the receipt.** The scan starts the tracking record with a person present. The dated receipt is your evidence of custody.
 5. **Photograph the packed piece before sealing.** A photo of the item inside its cushioning — with the piece visible — is the evidence that ends most "it arrived damaged / it was never in the box" disputes in minutes. Take thirty seconds to take it.
 
-For the packing physics in more depth — box-in-box, cushioning thickness, why claims get denied on packaging — see our guide on [how to ship fragile glass and ceramics](/articles/how-to-ship-fragile-glass-and-ceramics/). And if you are also a seller who ships from home, our article on the [online seller shipping address privacy shield](/articles/online-seller-shipping-address-privacy-shield/) covers keeping your home address off every return label.
+For the packing physics in more depth — box-in-box, cushioning thickness, why claims get denied on packaging — see our guide on [how to ship fragile glass and ceramics](/articles/how-to-ship-fragile-glass-and-ceramics/). And if you are also a seller who ships from home, our article on the [online seller address privacy shield](/articles/online-sellers-keep-home-address-private/) covers keeping your home address off every return label.
 
 ## What Nobody Tells You You're Paying
 
