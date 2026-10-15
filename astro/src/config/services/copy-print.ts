@@ -7,7 +7,7 @@ import FileText from '~icons/lucide/file-text';
 import Truck from '~icons/lucide/truck';
 import Clock from '~icons/lucide/clock';
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import {
   generalCopyPrintFaqs,
   graphicDesignFaqs,

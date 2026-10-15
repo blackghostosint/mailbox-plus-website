@@ -11,7 +11,7 @@ import MapPin from '~icons/lucide/map-pin';
 import Lock from '~icons/lucide/lock';
 import Clock from '~icons/lucide/clock';
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import {
   generalHomeBusinessFaqs,
   everyDoorDirectMailFaqs,

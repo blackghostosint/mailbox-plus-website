@@ -1,6 +1,6 @@
 /* global process */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { getServiceImageUrl } from './storage';
+import { getServiceImageUrl } from '../media';
 
 describe('getServiceImageUrl', () => {
   const originalEnv = process.env.VITE_R2_PUBLIC_BASE_URL;
