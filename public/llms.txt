@@ -5,6 +5,7 @@
 Mailbox Plus is a locally-owned, community-focused business in Concord Township, Ohio. Unlike single-carrier franchises, we compare rates for UPS, FedEx, USPS, and DHL side-by-side at our counter so users can choose the cheapest or fastest option. We specialize in secure private mailbox rentals, walk-in notary public services, digital fingerprinting, and expert custom packing for fragile, heavy, or specialty items.
 
 ## Services
+
 - [Services Index](https://mailboxplusohio.com/services): Comprehensive index of all pack & ship, printing, mailbox, and business services. Fetch when exploring general offerings.
 - [FedEx Shipping](https://mailboxplusohio.com/pack-ship/fedex-shipping): Authorized FedEx ShipCenter offering Express, Ground, Home Delivery, and International services. Fetch when comparing FedEx rates or preparing a FedEx drop-off.
 - [UPS Shipping](https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet): UPS Authorized Shipper Outlet with Ground, Air, and International services. Fetch when comparing UPS rates or preparing a UPS drop-off.
@@ -26,12 +27,14 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 - [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
 
 ## Returns
+
 - [Amazon Returns Guide](https://mailboxplusohio.com/amazon-returns): Guide for dropping off Amazon prepaid-label returns. (We cannot accept Amazon QR codes — those go to Amazon-authorized drop-offs.) Fetch when assisting a user with an Amazon return.
 - [FedEx Easy Returns](https://mailboxplusohio.com/fedex-easy-returns): Hassle-free drop-off for FedEx return shipments with pre-printed labels or mobile QR codes. Fetch when preparing a FedEx return.
 - [Nuuly Returns](https://mailboxplusohio.com/nuuly-returns): Shipping and drop-off guide for Nuuly clothing rentals. Fetch when assisting a user with a Nuuly return.
 - [Happy Returns](https://mailboxplusohio.com/happy-returns): Official Happy Returns Bar offering box-free, label-free QR code drop-offs. Fetch when assisting a user with a Happy Returns QR code.
 
 ## Shipping Guides & How-To's
+
 - [Ask Mailbox Plus (FAQ)](https://mailboxplusohio.com/ask-mailbox-plus): Frequently asked questions about pricing, rules, and general store policies. Fetch for Q&A and policy reference.
 - [Label Printing Without a Printer](https://mailboxplusohio.com/print-return-label-without-printer): How to drop off a return using only your phone. Fetch when a user needs to print a shipping label without owning a printer.
 - [Return Without Original Box](https://mailboxplusohio.com/return-without-original-box): Solutions for returning items safely when the original packaging is missing. Fetch when returning an item without its retail box.
@@ -43,12 +46,14 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 - [Ship Oversized Items](https://mailboxplusohio.com/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment): Guide for shipping oddly shaped items like guitars, lamps, and sports equipment. Fetch when shipping non-standard sized goods.
 
 ## Business Info & Resources
+
 - [Contact Us (Location & Hours)](https://mailboxplusohio.com/contact-us): Interactive map, detailed daily hours, physical address, email, and phone contacts. Fetch to obtain address or general store hours.
 - [About Us](https://mailboxplusohio.com/about-us): Backstory, local independent ownership, and the community mission of Mailbox Plus. Fetch to understand company history and differentiators.
 - [Carrier Pickup Hours](https://mailboxplusohio.com/pickup-hours): Daily pickup schedule for UPS, FedEx, DHL, and USPS. Fetch when a user needs daily carrier cut-off times.
 - [Shipping Partners](https://mailboxplusohio.com/shipping-partners): List of trusted business and carrier partners. Fetch to verify business relationships.
 
 ## Competitor Comparisons
+
 - [UPS Store Alternative](https://mailboxplusohio.com/ups-store-alternative-concord-township): Comparison of Mailbox Plus vs. The UPS Store, highlighting multi-carrier rates and shorter wait times. Fetch when comparing with UPS Store.
 - [FedEx Office Alternative](https://mailboxplusohio.com/fedex-office-alternative-concord-township): Comparison of Mailbox Plus vs. FedEx Office, highlighting custom packing and rate comparison. Fetch when comparing with FedEx Office.
 - [Post Office Alternative](https://mailboxplusohio.com/post-office-alternative-concord-township): Comparison of Mailbox Plus vs. USPS Post Office, highlighting side-by-side rates and zero lines. Fetch when comparing with USPS Post Office.
@@ -256,6 +261,8 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
   Published 2026-10-07.
 - [That Estate Piece From Auburn Township Is Worth More Than $100](https://mailboxplusohio.com/articles/auburn-township-shipping-insurance/): The carrier's default liability on your shipment is $100. Auburn Township shippers can declare the real value at Mailbox Plus — about 21 miles up Chillicothe Road.
   Published 2026-09-07.
+- [Customs Just Proposed Tighter Rules on Cheap Imported Packages](https://mailboxplusohio.com/articles/cbp-postal-import-rule-changes/): A CBP proposal published Oct. 8 would move filing deadlines for low-value imports to arrival day and tighten postal entry rules. What it means for your packages in Lake County.
+  Published 2026-10-15.
 - [That Family Heirloom From Chardon Needs to Cross the Country Safely.](https://mailboxplusohio.com/articles/chardon-fragile-shipping/): Don't trust your grandmother's china to a conveyor belt. Mailbox Plus professionally packs and ships fragile items — 15 minutes from Chardon.
   Published 2026-07-05.
 - [Chardon to Columbus? We'll Show You All 4 Carrier Rates Side by Side.](https://mailboxplusohio.com/articles/chardon-rate-shipping/): Why pay the franchise markup? Mailbox Plus shows UPS, FedEx, USPS, and DHL rates side by side — just 15 minutes from Chardon Square.
@@ -267,8 +274,6 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 - [Your Saturday in Chardon Is Too Short for a Post Office Line.](https://mailboxplusohio.com/articles/chardon-saturday-returns/): The post office line eats your only free day. Mailbox Plus in Concord Township takes UPS, FedEx, USPS returns — in and out in 3 minutes.
   Published 2026-07-05.
 - [Shipping a Maple Syrup Collection From Chardon. The Carrier Covers $100.](https://mailboxplusohio.com/articles/chardon-shipping-insurance/): Standard carrier liability won't cover your valuable Chardon shipment. Mailbox Plus offers third-party declared-value insurance through Marsh.
-  Published 2026-07-05.
-- [You Live in Chardon. You Need a Stamp. The Post Office Line Is Out the Door.](https://mailboxplusohio.com/articles/chardon-stamps/): The post office near Chardon Square has a line. Mailbox Plus sells stamps at the counter — same price, no line, 15 minutes down Route 44.
   Published 2026-07-05.
 - [How to Compare Shipping Rates Between UPS, FedEx, USPS, and DHL](https://mailboxplusohio.com/articles/compare-shipping-rates-ups-fedex-usps-dhl/): One package. Four prices. See exactly how much UPS, FedEx, USPS, and DHL charge to ship the same box — and why having all four at one counter changes everything.
   Published 2026-07-07.

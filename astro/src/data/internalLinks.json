@@ -920,11 +920,9 @@
       "package-drop-offs",
       "ups-drop-off-chardon",
       "ups-drop-off-eastlake",
-      "ups-drop-off-fairport-harbor",
       "ups-drop-off-kirtland",
       "ups-drop-off-madison",
       "ups-drop-off-mentor",
-      "ups-drop-off-painesville",
       "ups-drop-off-willoughby",
       "ups-drop-off-alternative-concord-township"
     ],
@@ -1077,11 +1075,6 @@
     "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false
   },
-  "ups-drop-off-painesville": {
-    "parent": "pack-ship",
-    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
-    "priority": false
-  },
   "ups-drop-off-eastlake": {
     "parent": "pack-ship",
     "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
@@ -1098,11 +1091,6 @@
     "priority": false
   },
   "ups-drop-off-madison": {
-    "parent": "pack-ship",
-    "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
-    "priority": false
-  },
-  "ups-drop-off-fairport-harbor": {
     "parent": "pack-ship",
     "related": ["ups-shipping", "package-drop-offs", "shipping-partners", "fedex-shipping"],
     "priority": false

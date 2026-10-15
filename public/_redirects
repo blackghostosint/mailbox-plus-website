@@ -231,5 +231,18 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # wildcard straight at the final target so Google follows a single hop.
 /articles/kirtland-hills-graphic-design* /copy-print/graphic-design/ 301!
 
+# GSC Page Indexing audit (2026-10-15): 3 crawled-but-refused pages (thin
+# content, Google declines to index despite crawl). Consolidate each onto its
+# strongest PASS-indexed sibling instead of maintaining pages that earn nothing:
+#   /articles/chardon-stamps            -> /pack-ship/postage-stamps/ (topic pillar)
+#   /ups-drop-off-fairport-harbor       -> /ups-drop-off-alternative-concord-township/
+#   /ups-drop-off-painesville           -> /ups-drop-off-alternative-concord-township/
+# (7 of 8 sibling ups-drop-off city pages are indexed; these two were the thin
+# outliers. Config .ts files deleted so the pages stop building; rules keep
+# external backlinks working.)
+/articles/chardon-stamps* /pack-ship/postage-stamps/ 301!
+/ups-drop-off-fairport-harbor* /ups-drop-off-alternative-concord-township/ 301!
+/ups-drop-off-painesville* /ups-drop-off-alternative-concord-township/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404
