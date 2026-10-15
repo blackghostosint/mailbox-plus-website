@@ -1546,6 +1546,7 @@ function cmdReview(targetPath) {
 
 function cmdSeoGates() {
   for (const script of [
+    'seo:check-redirects',
     'seo:check-href-slash',
     'seo:check-canonical',
     'seo:check-jsonld',

@@ -160,6 +160,9 @@ jobs:
       - name: Run SEO route registry check
         run: npm run seo:check-routes
 
+      - name: Run SEO static redirects check
+        run: npm run seo:check-redirects
+
       - name: Run SEO internal link strategy check
         run: npm run seo:check-links
 
