@@ -1,5 +1,5 @@
 import type { Service } from '../types/services';
-import { getServiceImageUrl } from '../lib/storage';
+import { getServiceImageUrl } from '../lib/media';
 
 export const serviceAreas: Service[] = [
   {

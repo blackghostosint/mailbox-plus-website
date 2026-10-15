@@ -1,5 +1,5 @@
 import type { Service } from '../../types/services';
-import { getServiceImageUrl } from '../../lib/storage';
+import { getServiceImageUrl } from '../../lib/media';
 import { siteConfig } from '../siteConfig';
 
 export const returnMicroProblems: Service[] = [
