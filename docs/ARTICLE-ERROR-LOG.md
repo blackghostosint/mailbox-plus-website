@@ -25,6 +25,7 @@ external agents. Owner-side (Hermes) writes, fixes, and merges them.
 | 2026-10-10 | #691/#693/#706 class | (mechanized) receipt location + feed drift + copy score: local/CI path drift eliminated (PR 711 — one canonical `.factchecks/` default), preflight wired into `.husky/pre-push` for article branches (PR 711+712); #706 repaired end-to-end by the new machinery (merge-main + dedupe + green CI) | ✅ PRs 711/712; writer SOUL.md now writes receipts in-repo and gates on preflight + fetch-before-push |
 
 | 2026-10-14 | repo-wide | Loop signatures (PRs running in circles: #655=38 pushes, #693/#653=20, article avg 5.3 pushes — see `docs/loop-ledger.csv`, regenerate with `node scripts/loop-ledger.mjs`) | ✅ fail-closed `scripts/loop-gate.mjs` in `.husky/pre-push`: blocks push #4+ and 3+-review-round PRs with escalation instructions; owner override `LOOP_LEDGER_ALLOW="<reason>"` |
+| 2026-10-15 | #745/#748/#750 | `mpo-pr-autoupdate` merged `main` into held PRs, stripping `status: hold` and minting new merge SHAs that invalidated `OBJECT` marks and re-triggered Runa on unfixed code; `⏳ awaiting Frank` claims also burned Runa cycles before owner sign-off | ✅ watcher + autoupdate crons now park `⏳ awaiting Frank` in `status: hold` pre-Runa, skip held PRs until a new 1-parent `AUTHOR_SHA` lands, key marks on `N|HEAD_SHA|VERDICT|AUTHOR_SHA`, and detect owner `DIRECTIVE` comments |
 
 ## Process
 
