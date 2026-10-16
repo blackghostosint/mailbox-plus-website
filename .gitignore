@@ -73,6 +73,7 @@ playwright-report/
 coverage/
 astro/coverage/
 scripts/audits/reports/
+scripts/audits/search-console-data/mock-search-console.csv
 
 # Astro generated directory
 astro/.astro/
