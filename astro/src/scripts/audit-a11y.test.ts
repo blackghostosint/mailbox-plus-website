@@ -1,3 +1,6 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import process from 'node:process';
 import { describe, it, expect } from 'vitest';
 import {
   evaluateBatchResult,
@@ -5,6 +8,7 @@ import {
   categorizeRoute,
   selectRepresentativeRoutes,
   parseArgs,
+  saveAuditReport,
   CATEGORIES,
 } from '../../../scripts/audit-a11y.mjs';
 
@@ -32,11 +36,20 @@ describe('audit-a11y script', () => {
       expect(options.baseUrl).toBe('http://127.0.0.1:4173');
     });
 
+    it('parses --output-dir and --dir flags', () => {
+      const options1 = parseArgs(['--output-dir=/tmp/custom-a11y']);
+      expect(options1.outputDir).toBe('/tmp/custom-a11y');
+
+      const options2 = parseArgs(['--dir', '/tmp/custom-dir']);
+      expect(options2.outputDir).toBe('/tmp/custom-dir');
+    });
+
     it('defaults options when no arguments are provided', () => {
       const options = parseArgs([]);
       expect(options.all).toBe(false);
       expect(options.limit).toBeNull();
       expect(options.category).toBeNull();
+      expect(options.outputDir).toBe('a11y-reports');
     });
   });
 
@@ -190,6 +203,37 @@ Testing http://127.0.0.1:4173/ ...
       expect(sampled).toContain('/service-area/');
       expect(sampled).toContain('/service-area/mentor/');
       expect(sampled.length).toBeLessThan(routes.length);
+    });
+  });
+
+  describe('saveAuditReport', () => {
+    it('writes structured json audit report to specified output directory', () => {
+      const targetDir = path.join(process.cwd(), 'node_modules', '.tmp-a11y-test-report');
+      if (fs.existsSync(targetDir)) {
+        fs.rmSync(targetDir, { recursive: true, force: true });
+      }
+
+      const sampleData = {
+        timestamp: '2026-10-16T12:00:00.000Z',
+        mode: 'sampled',
+        summary: {
+          totalAudited: 5,
+          hasA11yViolations: false,
+          hasCliErrors: false,
+          status: 'PASSED',
+        },
+      };
+
+      saveAuditReport(sampleData, targetDir);
+
+      const reportFilePath = path.join(targetDir, 'a11y-audit-report.json');
+      expect(fs.existsSync(reportFilePath)).toBe(true);
+
+      const savedContent = JSON.parse(fs.readFileSync(reportFilePath, 'utf8'));
+      expect(savedContent.summary.status).toBe('PASSED');
+      expect(savedContent.summary.totalAudited).toBe(5);
+
+      fs.rmSync(targetDir, { recursive: true, force: true });
     });
   });
 });
