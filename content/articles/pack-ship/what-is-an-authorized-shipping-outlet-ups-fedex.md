@@ -79,7 +79,7 @@ A shipping decision made without that fact isn't really a decision. It's a guess
 
 Mailbox Plus runs at 7554 Fredle Drive in Concord Township, and we operate as an authorized shipping center for UPS, FedEx, and USPS — one counter, all the networks, no single-carrier arrangement deciding what we're allowed to quote.
 
-That last part is the difference. Because no one carrier owns our sign, we can put live rates from all four carriers — UPS, FedEx, USPS, and DHL — side by side on the same package, including the surcharges and dimensional-weight rules most people find out about after the price prints. Sometimes the answer is the carrier you expected. Sometimes the package you've been overpaying on prices lower on a different network. Sometimes nothing changes, and we tell you that too.
+That last part is the difference. Because no one carrier owns our sign, we pull live rates from all four carriers — UPS, FedEx, USPS, and DHL — side by side on the same package, including the surcharges and dimensional-weight rules most people find out about after the price prints. Sometimes the answer is the carrier you expected. Sometimes the package you've been overpaying on prices lower on a different network. Sometimes nothing changes, and we tell you that too.
 
 And because we're independent, the packaging advice follows the package, not the contract. If your box is packed wrong for what it is, we say so — because our job is the shipment arriving intact, not protecting one carrier's claims experience.
 
