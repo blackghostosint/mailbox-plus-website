@@ -17019,8 +17019,8 @@ And because we're independent, the packaging advice follows the package, not the
 No homework, no research, nothing to figure out before you come in.
 
 1. **Walk in with what you have.** The box can be packed, half-packed, or still a pile of items and a roll of tape. Bring it as it is.
-2. **Put it on the counter.** We measure it, price it on all four carriers, and put the options in front of you — total cost, transit time, included coverage. You pick with the numbers in your hand, not a guess.
-3. **Walk out.** We handle the label, the carrier, and the pickup. If the box needs repacking to survive the network, we do that before it goes, not after.
+2. **Put it on the counter.** We measure it, price it on all four carriers, and put the options in front of you — total cost and transit time. You pick with the numbers in your hand, not a guess.
+3. **Walk out.** We handle the label, the carrier, and the pickup. If the box needs packing to survive the network, we do that before it goes, not after.
 
 That's the whole process. The comparison work that used to be your problem — driving between stores to price the same box — happens on our counter in front of you.
 
