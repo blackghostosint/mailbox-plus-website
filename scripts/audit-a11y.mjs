@@ -84,6 +84,7 @@ function parseArgs(args) {
     limit: null,
     category: null,
     baseUrl: process.env.AUDIT_BASE_URL || process.env.BASE_URL || null,
+    outputDir: process.env.AUDIT_OUTPUT_DIR || 'a11y-reports',
   };
 
   for (let i = 0; i < args.length; i++) {
@@ -106,6 +107,14 @@ function parseArgs(args) {
       options.baseUrl = arg.split('=')[1];
     } else if (arg === '--base-url' && i + 1 < args.length) {
       options.baseUrl = args[++i];
+    } else if (arg.startsWith('--output-dir=')) {
+      options.outputDir = arg.split('=')[1];
+    } else if (arg === '--output-dir' && i + 1 < args.length) {
+      options.outputDir = args[++i];
+    } else if (arg.startsWith('--dir=')) {
+      options.outputDir = arg.split('=')[1];
+    } else if (arg === '--dir' && i + 1 < args.length) {
+      options.outputDir = args[++i];
     }
   }
 
@@ -387,7 +396,7 @@ function chunkArray(array, size) {
   return chunks;
 }
 
-async function runAxeCliBatch(urls, { chromePath, chromedriverPath }) {
+async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir }) {
   return new Promise((resolve) => {
     const args = [
       '--yes',
@@ -405,6 +414,9 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath }) {
     }
     if (chromedriverPath && fs.existsSync(chromedriverPath)) {
       args.push('--chromedriver-path', chromedriverPath);
+    }
+    if (outputDir) {
+      args.push('--save', '--dir', outputDir);
     }
 
     const child = spawn('npx', args, {
@@ -435,6 +447,19 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath }) {
       resolve({ code: 1, stdout, stderr: stderr + '\n' + err.message });
     });
   });
+}
+
+function saveAuditReport(reportData, outputDir) {
+  try {
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
+    const reportPath = path.join(outputDir, 'a11y-audit-report.json');
+    fs.writeFileSync(reportPath, JSON.stringify(reportData, null, 2), 'utf8');
+    console.log(`\n📁 Accessibility audit report saved to ${reportPath}`);
+  } catch (err) {
+    console.error(`\n❌ Failed to save audit report: ${err.message}`);
+  }
 }
 
 function evaluateBatchResult(result, expectedUrlCount) {
@@ -491,12 +516,24 @@ function evaluateBatchResult(result, expectedUrlCount) {
 async function main() {
   let hasA11yViolations = false;
   let hasCliErrors = false;
+  let options;
+  let outputDir;
+  let selectedRoutes = [];
+  let allRoutes = [];
+  let categorized = {};
+  let modeDescription = '';
+  let baseUrl = null;
+  const batchResults = [];
+
   try {
-    const options = parseArgs(process.argv.slice(2));
+    options = parseArgs(process.argv.slice(2));
+    outputDir = path.resolve(process.cwd(), options.outputDir || 'a11y-reports');
+    if (!fs.existsSync(outputDir)) {
+      fs.mkdirSync(outputDir, { recursive: true });
+    }
 
-    const allRoutes = discoverRoutes(DIST_DIR);
+    allRoutes = discoverRoutes(DIST_DIR);
 
-    const categorized = {};
     for (const catVal of Object.values(CATEGORIES)) {
       categorized[catVal] = [];
     }
@@ -525,9 +562,6 @@ async function main() {
       }
       targetCategories = { [matchedCategory]: categorized[matchedCategory] };
     }
-
-    let selectedRoutes = [];
-    let modeDescription = '';
 
     if (options.all) {
       for (const routes of Object.values(targetCategories)) {
@@ -559,6 +593,7 @@ async function main() {
       console.log(`  - ${catName}: ${routes.length} route(s)`);
     }
     console.log(`\nMode: ${modeDescription}`);
+    console.log(`Output Directory: ${outputDir}`);
     console.log(`Auditing ${selectedRoutes.length} selected URL(s):`);
     for (let i = 0; i < selectedRoutes.length; i++) {
       console.log(`  ${i + 1}. ${selectedRoutes[i]}`);
@@ -567,10 +602,31 @@ async function main() {
 
     if (selectedRoutes.length === 0) {
       console.log('ℹ️ No URLs selected for audit. Exiting successfully.');
+      const reportData = {
+        timestamp: new Date().toISOString(),
+        mode: options.all ? 'full' : 'sampled',
+        modeDescription,
+        baseUrl: null,
+        outputDir: path.relative(process.cwd(), outputDir) || outputDir,
+        totalDiscoveredRoutes: allRoutes.length,
+        totalAuditedRoutes: 0,
+        categories: Object.fromEntries(
+          Object.entries(categorized).map(([cat, routes]) => [cat, routes.length])
+        ),
+        auditedRoutes: [],
+        summary: {
+          totalAudited: 0,
+          hasA11yViolations: false,
+          hasCliErrors: false,
+          status: 'PASSED',
+        },
+        batches: [],
+      };
+      saveAuditReport(reportData, outputDir);
       process.exit(0);
     }
 
-    let baseUrl = options.baseUrl;
+    baseUrl = options.baseUrl;
     if (!baseUrl) {
       console.log(`Starting background static server for ${DIST_DIR}...`);
       baseUrl = await startBackgroundServer(DIST_DIR, 4173);
@@ -620,14 +676,26 @@ async function main() {
           );
         }
 
-        const result = await runAxeCliBatch(batchUrls, { chromePath, chromedriverPath });
+        const result = await runAxeCliBatch(batchUrls, { chromePath, chromedriverPath, outputDir });
         const evaluation = evaluateBatchResult(result, batchUrls.length);
 
+        const batchOutcome = {
+          batchIndex: i + 1,
+          urls: batchUrls,
+          attempt,
+          status: evaluation.type,
+          message: evaluation.message,
+          stdout: result.stdout || '',
+          stderr: result.stderr || '',
+        };
+
         if (evaluation.type === 'SUCCESS') {
+          batchResults.push(batchOutcome);
           break;
         } else if (evaluation.type === 'WCAG_VIOLATIONS') {
           console.error(`❌ Batch ${i + 1} detected WCAG accessibility violations.`);
           hasA11yViolations = true;
+          batchResults.push(batchOutcome);
           break;
         } else if (evaluation.type === 'CLI_ERROR') {
           console.error(
@@ -640,10 +708,33 @@ async function main() {
               evaluation.message
             );
             hasCliErrors = true;
+            batchResults.push(batchOutcome);
           }
         }
       }
     }
+
+    const reportData = {
+      timestamp: new Date().toISOString(),
+      mode: options.all ? 'full' : 'sampled',
+      modeDescription,
+      baseUrl,
+      outputDir: path.relative(process.cwd(), outputDir) || outputDir,
+      totalDiscoveredRoutes: allRoutes.length,
+      totalAuditedRoutes: selectedRoutes.length,
+      categories: Object.fromEntries(
+        Object.entries(categorized).map(([cat, routes]) => [cat, routes.length])
+      ),
+      auditedRoutes: selectedRoutes,
+      summary: {
+        totalAudited: selectedRoutes.length,
+        hasA11yViolations,
+        hasCliErrors,
+        status: hasA11yViolations || hasCliErrors ? 'FAILED' : 'PASSED',
+      },
+      batches: batchResults,
+    };
+    saveAuditReport(reportData, outputDir);
 
     if (hasA11yViolations) {
       console.error('\n❌ Accessibility audit failed due to WCAG 2.1 AA violations.');
@@ -656,6 +747,27 @@ async function main() {
     }
   } catch (error) {
     console.error('Audit failed:', error.message || error);
+    if (outputDir) {
+      const reportData = {
+        timestamp: new Date().toISOString(),
+        mode: options?.all ? 'full' : 'sampled',
+        modeDescription: modeDescription || '',
+        baseUrl,
+        outputDir: path.relative(process.cwd(), outputDir) || outputDir,
+        totalDiscoveredRoutes: allRoutes ? allRoutes.length : 0,
+        totalAuditedRoutes: selectedRoutes ? selectedRoutes.length : 0,
+        auditedRoutes: selectedRoutes || [],
+        summary: {
+          totalAudited: selectedRoutes ? selectedRoutes.length : 0,
+          hasA11yViolations,
+          hasCliErrors: true,
+          status: 'FAILED',
+          error: error.message || String(error),
+        },
+        batches: batchResults,
+      };
+      saveAuditReport(reportData, outputDir);
+    }
     process.exit(1);
   } finally {
     cleanupServer();
@@ -670,6 +782,7 @@ export {
   categorizeRoute,
   selectRepresentativeRoutes,
   parseArgs,
+  saveAuditReport,
   CATEGORIES,
 };
 
