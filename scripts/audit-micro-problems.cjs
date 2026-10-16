@@ -17,6 +17,7 @@
  */
 
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const readline = require('readline');
 
@@ -794,14 +795,12 @@ function printConsoleSummary(auditResults) {
 // ============================================================================
 
 function createMockCSV() {
-  const mockDir = SEARCH_CONSOLE_DIR;
-  const mockFile = path.join(mockDir, 'mock-search-console.csv');
+  const mockFile = path.join(
+    os.tmpdir(),
+    `mock-search-console-${Date.now()}-${Math.random().toString(36).substring(2, 8)}.csv`
+  );
 
-  if (fs.existsSync(mockFile)) {
-    return mockFile;
-  }
-
-  console.log('📝 Creating mock Search Console CSV for testing...\n');
+  console.log('📝 Creating temporary mock Search Console CSV for dry run...\n');
 
   let csv = 'Page,Clicks,Impressions,CTR,Position\n';
 
@@ -830,8 +829,6 @@ function createMockCSV() {
   });
 
   fs.writeFileSync(mockFile, csv);
-  console.log(`  Created mock CSV at: ${mockFile}\n`);
-
   return mockFile;
 }
 
@@ -914,53 +911,66 @@ Actions:
     process.exit(1);
   }
 
-  console.log('🚀 Starting Micro-Problem Governance Audit\n');
-  console.log('='.repeat(60) + '\n');
+  let tempMockFile = null;
 
-  // Use mock data for dry run
-  if (dryRun) {
-    console.log('🧪 DRY RUN MODE - Using mock data\n');
-    searchConsoleFile = createMockCSV();
+  try {
+    console.log('🚀 Starting Micro-Problem Governance Audit\n');
+    console.log('='.repeat(60) + '\n');
+
+    // Use mock data for dry run
+    if (dryRun) {
+      console.log('🧪 DRY RUN MODE - Using mock data\n');
+      tempMockFile = createMockCSV();
+      searchConsoleFile = tempMockFile;
+    }
+
+    // Load Search Console data
+    const searchData = parseSearchConsoleCSV(searchConsoleFile);
+
+    // Load micro-problems config
+    const microProblems = loadMicroProblemsConfig();
+
+    if (microProblems.length === 0) {
+      console.error('❌ Error: No micro-problems found in config files');
+      process.exit(1);
+    }
+
+    // Load staff feedback
+    console.log('📋 Loading staff feedback...\n');
+    const staffFeedback = loadStaffFeedback();
+
+    // Evaluate all signals and make decisions
+    console.log('🔍 Evaluating signals and making decisions...\n');
+
+    const auditResults = microProblems.map((service) => {
+      const signals = [
+        evaluateSignalA(service, searchData),
+        evaluateSignalB(service, staffFeedback),
+        evaluateSignalC(service, microProblems),
+      ];
+
+      const decision = makeDecision(service, signals, microProblems);
+
+      return { service, signals, decision };
+    });
+
+    // Generate report
+    const reportPath = generateAuditReport(auditResults);
+
+    // Print console summary
+    printConsoleSummary(auditResults);
+
+    console.log(`📄 Full report available at: ${reportPath}`);
+    console.log('\n✅ Audit complete!\n');
+  } finally {
+    if (tempMockFile && fs.existsSync(tempMockFile)) {
+      try {
+        fs.unlinkSync(tempMockFile);
+      } catch (err) {
+        // Ignored
+      }
+    }
   }
-
-  // Load Search Console data
-  const searchData = parseSearchConsoleCSV(searchConsoleFile);
-
-  // Load micro-problems config
-  const microProblems = loadMicroProblemsConfig();
-
-  if (microProblems.length === 0) {
-    console.error('❌ Error: No micro-problems found in config files');
-    process.exit(1);
-  }
-
-  // Load staff feedback
-  console.log('📋 Loading staff feedback...\n');
-  const staffFeedback = loadStaffFeedback();
-
-  // Evaluate all signals and make decisions
-  console.log('🔍 Evaluating signals and making decisions...\n');
-
-  const auditResults = microProblems.map((service) => {
-    const signals = [
-      evaluateSignalA(service, searchData),
-      evaluateSignalB(service, staffFeedback),
-      evaluateSignalC(service, microProblems),
-    ];
-
-    const decision = makeDecision(service, signals, microProblems);
-
-    return { service, signals, decision };
-  });
-
-  // Generate report
-  const reportPath = generateAuditReport(auditResults);
-
-  // Print console summary
-  printConsoleSummary(auditResults);
-
-  console.log(`📄 Full report available at: ${reportPath}`);
-  console.log('\n✅ Audit complete!\n');
 }
 
 // Run if called directly
