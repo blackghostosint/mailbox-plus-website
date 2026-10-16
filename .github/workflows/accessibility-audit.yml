@@ -35,3 +35,12 @@ jobs:
 
       - name: Run axe-core accessibility audit (full site)
         run: npm run audit:a11y -- --mode=full
+
+      - name: Upload accessibility audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: accessibility-audit-report
+          path: a11y-reports/
+          retention-days: 7

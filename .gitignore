@@ -79,3 +79,6 @@ astro/.astro/
 
 # Lighthouse CI output
 .lighthouseci/
+
+# Accessibility audit output
+a11y-reports/
