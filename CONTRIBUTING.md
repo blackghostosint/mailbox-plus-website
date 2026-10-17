@@ -73,6 +73,7 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 - Use `getServiceImageUrl()` from `astro/src/lib/media.ts` for image paths
 - Article featured images should be ~400×225 WebP at 16:9 aspect ratio
 - Use `<SmartImage>` component with `priority` on LCP/hero images, lazy otherwise
+- Run `npm run images:convert` to convert root image assets (`logo.png`) into WebP (`public/logo.webp`) and AVIF (`public/logo.avif`) formats
 
 ### Real-Store Photo Processing
 
