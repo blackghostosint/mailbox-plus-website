@@ -44,10 +44,20 @@ describe('preflight-article.sh path with spaces handling', () => {
       const repoRoot = path.resolve(__dirname, '../..');
       const preflightScript = path.join(repoRoot, 'scripts/preflight-article.sh');
 
+      // Symlink node_modules into tmpDir so node --import tsx can resolve tsx
+      fs.symlinkSync(path.join(repoRoot, 'node_modules'), path.join(tmpDir, 'node_modules'));
+
       // Copy helper script preflight-verify-verdicts.mjs to tmpDir/scripts
       fs.copyFileSync(
         path.join(repoRoot, 'scripts/preflight-verify-verdicts.mjs'),
         path.join(tmpDir, 'scripts/preflight-verify-verdicts.mjs')
+      );
+
+      // Create mock scripts/verify/verify.mjs that returns successful image:body gate output
+      fs.mkdirSync(path.join(tmpDir, 'scripts/verify'), { recursive: true });
+      fs.writeFileSync(
+        path.join(tmpDir, 'scripts/verify/verify.mjs'),
+        'console.log("✅ image:body: mock pass");\n'
       );
 
       // Create package.json in tmpDir with dummy prebuild and seo:check-href-slash
@@ -62,18 +72,16 @@ describe('preflight-article.sh path with spaces handling', () => {
         })
       );
 
-      let output = '';
-      try {
-        output = execFileSync('bash', [preflightScript], {
-          cwd: tmpDir,
-          env: { ...process.env, PATH: process.env.PATH },
-          encoding: 'utf8',
-        });
-      } catch (err: any) {
-        output = (err.stdout || '') + (err.stderr || '');
-      }
+      const output = execFileSync('bash', [preflightScript], {
+        cwd: tmpDir,
+        env: { ...process.env, PATH: process.env.PATH },
+        encoding: 'utf8',
+      });
 
       expect(output).toContain('✅ factcheck: test space article');
+      expect(output).toContain(
+        '✅ image:body manifest: content/articles/folder/test space article.md'
+      );
       expect(output).not.toContain('no receipt for test');
       expect(output).not.toContain('no receipt for space');
       expect(output).not.toContain('no receipt for article');
