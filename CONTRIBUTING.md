@@ -74,6 +74,24 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 - Article featured images should be ~400×225 WebP at 16:9 aspect ratio
 - Use `<SmartImage>` component with `priority` on LCP/hero images, lazy otherwise
 
+### Real-Store Photo Processing
+
+All real-store photos referenced in article bodies (`/articles/store-library/`) must be processed using `scripts/process_store_photos.py` (accessible via `npm run store-photos`) and registered in `content/store-photos.json`. Directly uploading unvetted images bypasses privacy checks and manifest registration, which triggers `image:body` pre-flight verification failures.
+
+#### Workflow Commands
+
+1. **`npm run store-photos -- scan`**
+   Scans Immich over SSH for assets tagged `Mailbox Plus/Captioned` that fall within the store geofence.
+2. **`npm run store-photos -- preview <assetId>`**
+   Downloads the full-resolution original photo to `/tmp/immich_<assetId>` for mandatory visual PII verification. Inspect the image to ensure all readable labels, customer names, addresses, tracking numbers, and signatures are absent or fully redacted.
+3. **`npm run store-photos -- publish <assetId> --alt "Description" --topics topic1,topic2 [--name custom-name] --pii-checked`**
+   Converts the image (WebP 1600px q82, EXIF stripped), uploads it to R2 CDN (`/articles/store-library/{topic}/{name}` in WebP format), verifies HTTP 200 delivery, and appends a manifest entry to `content/store-photos.json`. The `--pii-checked` flag is mandatory as the operator's attestation that the full-resolution privacy check passed.
+
+#### Manifest Synchronization & Non-SSH Contributors
+
+- **Manifest Sync:** Whenever you publish a new store photo, commit the updated `content/store-photos.json` alongside your article changes.
+- **Contributors without SSH access:** Running `scan` and `preview` requires SSH access to the Immich server. Contributors without SSH access cannot run Immich commands; they must choose an existing vetted image entry from `content/store-photos.json` or ask the repository owner to process and publish the needed photo.
+
 ## Adding a New Static Page
 
 1. Define page metadata (title, description, optional schema, geo tags) in `astro/src/config/pageMeta.ts` with the route path as key (e.g., `'/about-us'`).

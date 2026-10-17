@@ -1091,7 +1091,9 @@ function cmdArticle(arg, isStrict = false) {
           const entry = manifest.find((e) => e.key === `articles/${r2Key}` || e.key === r2Key);
           if (!entry) {
             allOk = false;
-            details.push(`${r2Key} not in content/store-photos.json (unvetted store-library ref)`);
+            details.push(
+              `${r2Key} not in content/store-photos.json (unvetted store-library ref — publish via npm run store-photos -- publish)`
+            );
             continue;
           }
         }
@@ -1112,7 +1114,7 @@ function cmdArticle(arg, isStrict = false) {
         'image:body',
         allOk,
         details.join('; '),
-        'fix or replace the broken/unvetted body image reference(s)'
+        'fix or replace the broken/unvetted body image reference(s); publish store photos via npm run store-photos -- publish and register in content/store-photos.json'
       );
     } else {
       const isNew = initNewArticles().has(relPath);
@@ -1121,7 +1123,7 @@ function cmdArticle(arg, isStrict = false) {
           'image:body',
           false,
           'no in-body real-store photo',
-          'add one: pick a vetted asset from content/store-photos.json (store-library/ on R2) or upload a per-article body-1.webp — see the Real-Store Photo Gate. If no privacy-clean photo fits the topic, remove this gate failure by noting the gap to the owner; a generated image never fills the body slot.'
+          'add one: pick a vetted asset from content/store-photos.json (store-library/ on R2), publish a store photo via npm run store-photos -- publish, or upload a per-article body-1.webp — see the Real-Store Photo Gate in docs/ARTICLE-WORKFLOW.md. If no privacy-clean photo fits the topic, remove this gate failure by noting the gap to the owner; a generated image never fills the body slot.'
         );
       } else {
         check('image:body', true, 'no body image (advisory — legacy article)');

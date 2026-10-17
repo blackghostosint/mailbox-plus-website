@@ -52,6 +52,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 - **No H1 in the markdown body.** The layout renders the title from frontmatter.
 - **No featured image in the body.** The layout floats it from frontmatter.
 - **No image placeholders for files that don't exist** on the R2 CDN — broken images fail review.
+- **Store library photos must be registered in manifest.** Any in-body photo referencing `/articles/store-library/` must have a corresponding entry in `content/store-photos.json` (published via `npm run store-photos -- publish`) to pass pre-flight verification (`image:body`).
 - **Every internal URL ends with `/`** — in frontmatter (`relatedServices`) and in body links. Non-negotiable (see AGENTS.md).
 - `status: 'published'` from the start (use Netlify deploy previews for review — that's what they're for).
 - Frontmatter requirements: `title`, `description`, `slug`, `category`, `intentKey`, `pubDate`, `image`, `imageAlt`, `keywords`. `intentKey` must be unique repo-wide.
@@ -83,7 +84,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
    ```bash
    node scripts/verify/verify.mjs article content/articles/{category}/{slug}.md --strict
    ```
-   Covers route targets, trailing slashes, layout hygiene, intentKey uniqueness, word count, banned terms, image existence, heading diversity.
+   Covers route targets, trailing slashes, layout hygiene, intentKey uniqueness, word count, banned terms, image existence (including store photo manifest entries in `content/store-photos.json` via `npm run store-photos -- publish`), heading diversity.
 5. **Build.** `npm run build` — zero errors.
 6. **Blind-prediction ledger.** Before any article goes live, its predictions (position @ 30 days, clicks/day @ 30 days, one secondary signal — with reasons) are logged in the owner's Content-Ledger. If you (the writing agent) cannot access that ledger, state `ledger-entry: pending` in the PR body so the operator logs it before merge. An article must not publish with no ledger entry and no pending note.
 
