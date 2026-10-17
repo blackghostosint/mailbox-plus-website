@@ -116,7 +116,8 @@ export function checkArticleOwnership({
     };
   }
 
-  if (!body.includes(IN_HOUSE_STAMP)) {
+  const safeBody = body || '';
+  if (!safeBody.includes(IN_HOUSE_STAMP)) {
     return {
       success: false,
       touchesArticles: true,
