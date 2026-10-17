@@ -1,9 +1,17 @@
 import { describe, it, expect } from 'vitest';
+import { execSync } from 'node:child_process';
+import path from 'node:path';
+import fs from 'node:fs';
+import os from 'node:os';
+import { fileURLToPath } from 'node:url';
 import {
   checkArticleOwnership,
   DEFAULT_AUTHORIZED_AUTHORS,
   IN_HOUSE_STAMP,
 } from '../check-article-ownership.mjs';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '../../..');
 
 describe('check-article-ownership', () => {
   const validArticleBody = `
@@ -89,6 +97,56 @@ authorship: article-writer-bot (in-house)
       expect(result.reason).toBe('missing_stamp');
       expect(result.message).toContain('missing the in-house authorship stamp');
       expect(result.message).toContain(IN_HOUSE_STAMP);
+    });
+
+    it('fails when body is empty string or undefined and PR touches articles', () => {
+      const changedFiles = ['content/articles/new-post.md'];
+
+      const res1 = checkArticleOwnership({ body: '', changedFiles, author: 'article-writer-bot' });
+      expect(res1.success).toBe(false);
+      expect(res1.reason).toBe('missing_stamp');
+
+      const res2 = checkArticleOwnership({
+        body: undefined,
+        changedFiles,
+        author: 'article-writer-bot',
+      });
+      expect(res2.success).toBe(false);
+      expect(res2.reason).toBe('missing_stamp');
+    });
+
+    it('correctly trims whitespace from changed file paths', () => {
+      const changedFiles = ['   content/articles/whitespace-path.md   '];
+      const result = checkArticleOwnership({
+        body: validArticleBody,
+        changedFiles,
+        author: 'article-writer-bot',
+      });
+
+      expect(result.success).toBe(true);
+      expect(result.touchesArticles).toBe(true);
+      expect(result.reason).toBe('verified');
+    });
+
+    it('fails when authorship stamp string is invalid or slightly altered', () => {
+      const changedFiles = ['content/articles/test.md'];
+      const invalidStamps = [
+        'authorship: article-writer-bot (external)',
+        'authorship: article-writer-bot',
+        'authorship: someone-else (in-house)',
+        'author: article-writer-bot (in-house)',
+      ];
+
+      for (const stamp of invalidStamps) {
+        const result = checkArticleOwnership({
+          body: `Here is the article\n\n${stamp}`,
+          changedFiles,
+          author: 'article-writer-bot',
+        });
+
+        expect(result.success).toBe(false);
+        expect(result.reason).toBe('missing_stamp');
+      }
     });
   });
 
@@ -254,6 +312,88 @@ authorship: article-writer-bot (in-house)
 
       expect(rejectedResult.success).toBe(false);
       expect(rejectedResult.reason).toBe('unauthorized_author');
+    });
+  });
+
+  describe('CLI subprocess execution (execSync)', () => {
+    it('exits with code 0 when PR passes checks (valid stamp & authorized author)', () => {
+      const tempBodyFile = path.join(os.tmpdir(), `test-body-${Date.now()}-0.txt`);
+      const tempFilesFile = path.join(os.tmpdir(), `test-files-${Date.now()}-0.txt`);
+
+      fs.writeFileSync(tempBodyFile, validArticleBody);
+      fs.writeFileSync(tempFilesFile, 'content/articles/shipping.md');
+
+      try {
+        const stdout = execSync(
+          `node scripts/verify/check-article-ownership.mjs "${tempBodyFile}" "${tempFilesFile}" --author=article-writer-bot`,
+          { cwd: ROOT, encoding: 'utf8' }
+        );
+        expect(stdout).toContain('✅ article-ownership: verified in-house author');
+      } finally {
+        fs.rmSync(tempBodyFile, { force: true });
+        fs.rmSync(tempFilesFile, { force: true });
+      }
+    });
+
+    it('exits with code 0 for non-article PRs', () => {
+      const tempBodyFile = path.join(os.tmpdir(), `test-body-${Date.now()}-nonart.txt`);
+      const tempFilesFile = path.join(os.tmpdir(), `test-files-${Date.now()}-nonart.txt`);
+
+      fs.writeFileSync(tempBodyFile, 'Just updating README');
+      fs.writeFileSync(tempFilesFile, 'README.md');
+
+      try {
+        const stdout = execSync(
+          `node scripts/verify/check-article-ownership.mjs "${tempBodyFile}" "${tempFilesFile}" --author=random-user`,
+          { cwd: ROOT, encoding: 'utf8' }
+        );
+        expect(stdout).toContain('PR does not touch content/articles/');
+      } finally {
+        fs.rmSync(tempBodyFile, { force: true });
+        fs.rmSync(tempFilesFile, { force: true });
+      }
+    });
+
+    it('exits with code 1 when PR touches articles but misses the authorship stamp', () => {
+      const tempBodyFile = path.join(os.tmpdir(), `test-body-${Date.now()}-1.txt`);
+      const tempFilesFile = path.join(os.tmpdir(), `test-files-${Date.now()}-1.txt`);
+
+      fs.writeFileSync(tempBodyFile, 'Missing stamp PR body');
+      fs.writeFileSync(tempFilesFile, 'content/articles/shipping.md');
+
+      try {
+        execSync(
+          `node scripts/verify/check-article-ownership.mjs "${tempBodyFile}" "${tempFilesFile}" --author=article-writer-bot`,
+          { cwd: ROOT, encoding: 'utf8' }
+        );
+        expect.fail('Expected execSync to throw an error due to exit code 1');
+      } catch (error: any) {
+        expect(error.status).toBe(1);
+        expect(error.stderr || error.stdout).toContain('missing the in-house authorship stamp');
+      } finally {
+        fs.rmSync(tempBodyFile, { force: true });
+        fs.rmSync(tempFilesFile, { force: true });
+      }
+    });
+
+    it('exits with code 2 when missing required positional arguments', () => {
+      try {
+        execSync('node scripts/verify/check-article-ownership.mjs', {
+          cwd: ROOT,
+          encoding: 'utf8',
+          env: {
+            ...process.env,
+            PR_BODY_FILE: '',
+            GITHUB_EVENT_PATH: '',
+          },
+        });
+        expect.fail('Expected execSync to throw an error due to exit code 2');
+      } catch (error: any) {
+        expect(error.status).toBe(2);
+        expect(error.stderr || error.stdout).toContain(
+          'usage: node scripts/verify/check-article-ownership.mjs'
+        );
+      }
     });
   });
 });
