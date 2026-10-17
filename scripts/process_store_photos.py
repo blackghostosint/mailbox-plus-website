@@ -20,11 +20,11 @@ Commands:
 
 Immich is reached over SSH to 100.77.217.4 (API key lives server-side; never on this box).
 """
-import argparse, json, subprocess, sys, os
+import argparse, json, subprocess, sys, os, shlex
 
 IMMICH_SSH = "blackghost@100.77.217.4"
 IMMICH_URL = "http://127.0.0.1:2283"
-IMMICH_KEY_FILE = os.path.expanduser("~/immich-categorize/.api_key")
+IMMICH_KEY_FILE = "~/immich-categorize/.api_key"
 CAPTION_TAG = "Mailbox Plus/Captioned"
 STORE_LAT, STORE_LON, GEOFENCE_M = 41.66497, -81.24166, 200
 R2_REMOTE = "mailboxplus-r2"
@@ -35,7 +35,8 @@ MANIFEST = os.path.join(os.path.dirname(__file__), "..", "content", "store-photo
 
 def _ssh_immich(*curl_args):
     """Run an Immich API call server-side; the API key never leaves 100.77.217.4."""
-    key_expr = f"KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H \"x-api-key: $KEY\" " + " ".join(f"'{a}'" for a in curl_args)
+    cmd_args = " ".join(shlex.quote(a) for a in curl_args)
+    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H "x-api-key: $KEY" {cmd_args}'
     r = subprocess.run(["ssh", IMMICH_SSH, key_expr], capture_output=True, text=True, timeout=120)
     if r.returncode != 0:
         sys.exit(f"Immich SSH call failed: {r.stderr[:300]}")
@@ -107,13 +108,17 @@ def cmd_scan(_):
 
 
 def cmd_preview(args):
-    r = subprocess.run(["ssh", IMMICH_SSH,
-                        f"KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H 'x-api-key: $KEY' "
-                        f"'{IMMICH_URL}/api/assets/{args.asset_id}/original' -o /tmp/immich_{args.asset_id[:8]}"],
-                       capture_output=True, text=True, timeout=300)
+    out_path = f"/tmp/immich_{args.asset_id[:8]}"
+    url = f"{IMMICH_URL}/api/assets/{args.asset_id}/original"
+    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H "x-api-key: $KEY" {shlex.quote(url)}'
+    with open(out_path, "wb") as f:
+        r = subprocess.run(["ssh", IMMICH_SSH, key_expr], stdout=f, stderr=subprocess.PIPE, timeout=300)
     if r.returncode != 0:
-        sys.exit(f"download failed: {r.stderr[:300]}")
-    print(f"/tmp/immich_{args.asset_id[:8]} — run the full-res PII vision check on this file "
+        if os.path.exists(out_path):
+            os.remove(out_path)
+        err = r.stderr.decode("utf-8", errors="replace") if r.stderr else ""
+        sys.exit(f"download failed: {err[:300]}")
+    print(f"{out_path} — run the full-res PII vision check on this file "
           f"BEFORE publish (no readable labels, names, addresses, signatures).")
 
 
