@@ -36,7 +36,7 @@ MANIFEST = os.path.join(os.path.dirname(__file__), "..", "content", "store-photo
 def _ssh_immich(*curl_args):
     """Run an Immich API call server-side; the API key never leaves 100.77.217.4."""
     cmd_args = " ".join(shlex.quote(a) for a in curl_args)
-    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H "x-api-key: $KEY" {cmd_args}'
+    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s --fail -S -H "x-api-key: $KEY" {cmd_args}'
     r = subprocess.run(["ssh", IMMICH_SSH, key_expr], capture_output=True, text=True, timeout=120)
     if r.returncode != 0:
         sys.exit(f"Immich SSH call failed: {r.stderr[:300]}")
@@ -110,7 +110,7 @@ def cmd_scan(_):
 def cmd_preview(args):
     out_path = f"/tmp/immich_{args.asset_id[:8]}"
     url = f"{IMMICH_URL}/api/assets/{args.asset_id}/original"
-    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s -H "x-api-key: $KEY" {shlex.quote(url)}'
+    key_expr = f'KEY=$(cat {IMMICH_KEY_FILE}) && curl -s --fail -S -H "x-api-key: $KEY" {shlex.quote(url)}'
     with open(out_path, "wb") as f:
         r = subprocess.run(["ssh", IMMICH_SSH, key_expr], stdout=f, stderr=subprocess.PIPE, timeout=300)
     if r.returncode != 0:
