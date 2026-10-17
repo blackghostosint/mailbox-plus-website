@@ -27,9 +27,12 @@ fi
 # NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
 # review and no receipt to check; running the gates on it fails spuriously
 # (deletion branches like the GSC sitemap-cleanup PR).
-MAP=$(git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
-[ -z "${MAP}" ] && MAP=$(git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
-for f in ${MAP}; do
+mapfile -t ARTICLES < <(git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
+if [ ${#ARTICLES[@]} -eq 0 ] || [ -z "${ARTICLES[0]}" ]; then
+  mapfile -t ARTICLES < <(git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
+fi
+for f in "${ARTICLES[@]}"; do
+  [ -z "$f" ] && continue
   base=$(basename "$f" .md)
   if ! ls .factchecks/"${base}".factcheck.* >/dev/null 2>&1; then
     echo "❌ factcheck: no receipt for $base (.factchecks/${base}.factcheck.*)"
