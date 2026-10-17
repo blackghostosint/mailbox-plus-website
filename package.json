@@ -45,6 +45,7 @@
     "vault:extract": "cd astro && npx vitest run src/scripts/vault-extract.test.ts",
     "vault:generate": "python3 scripts/vault-sync/vault-generate.py",
     "vault:sync": "bash scripts/vault-sync/sync.sh",
+    "store-photos": "python3 scripts/process_store_photos.py",
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
