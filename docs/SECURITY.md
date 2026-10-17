@@ -10,20 +10,21 @@
 
 ### What's already protected ✅
 
-| Control                | Implementation                                 | Location                           |
-| ---------------------- | ---------------------------------------------- | ---------------------------------- |
-| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`               |
-| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`                  |
-| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`                  |
-| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`                  |
-| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`                  |
-| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`                  |
-| Error tracking         | Sentry with PII scrubbing                      | `astro/src/lib/dom-error.ts`       |
-| Input sanitization     | reCAPTCHA on forms                             | `astro/src/pages/contact-us.astro` |
-| Dependency scanning    | `npm audit` in CI                              | GitHub Actions                     |
-| Branch protection      | Required reviews, CI checks                    | GitHub settings                    |
-| No PII in logs         | Sanitizing logger with PII redaction           | `netlify/functions/lib/logger.ts`  |
-| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`                     |
+| Control                | Implementation                                 | Location                                                          |
+| ---------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
+| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`                                              |
+| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`                                                 |
+| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`                                                 |
+| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`                                                 |
+| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`                                                 |
+| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`                                                 |
+| Error tracking         | Sentry with PII scrubbing                      | `astro/src/lib/dom-error.ts`                                      |
+| Input sanitization     | reCAPTCHA on forms                             | `astro/src/pages/contact-us.astro`                                |
+| Dependency scanning    | `npm audit` in CI                              | GitHub Actions                                                    |
+| Secret Scanning        | Gitleaks local pre-commit hook & CI scanning   | `.gitleaks.toml`, `.husky/pre-commit`, `.github/workflows/ci.yml` |
+| Branch protection      | Required reviews, CI checks                    | GitHub settings                                                   |
+| No PII in logs         | Sanitizing logger with PII redaction           | `netlify/functions/lib/logger.ts`                                 |
+| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`                                                    |
 
 ### Known gaps ⚠️
 
@@ -31,7 +32,7 @@
 | ------------------------------------------------ | -------- | ----------------------------------- |
 | No rate limiting on `/api/*` (Netlify Functions) | Medium   | Add function-level rate limiting    |
 | No dependency auto-update (Dependabot)           | Low      | Enable in GitHub settings           |
-| No automated security scanning in CI             | Low      | Add `npm audit` + Snyk/Trivy step   |
+| No third-party SAST/container scanner            | Low      | Add Snyk/Trivy step                 |
 | R2 bucket is public (intentional for images)     | Low      | Monitor for unusual access patterns |
 | No WAF (Netlify doesn't offer one)               | Low      | CSP + headers provide baseline      |
 
@@ -95,6 +96,7 @@ for v in data.get('vulnerabilities', {}).values():
 
 - [ ] Run `npm audit` and review high/critical findings
 - [ ] Review `npm outdated` for stale dependencies
+- [ ] Audit Gitleaks rules and allowlists in `.gitleaks.toml` for stale or overly broad patterns
 - [ ] Verify no `.env` files are committed: `git status --ignored | grep .env`
 - [ ] Check for new GitHub security alerts on the repository
 
@@ -181,7 +183,58 @@ Common violations to watch for:
 
 ---
 
-## 6. Secure Development Practices
+## 6. Secret Scanning Guidance
+
+Secret scanning is enforced locally via pre-commit hooks and automatically in CI via Gitleaks to prevent credential exposure in git history.
+
+### 6.1 Configuration & Rule Definition (`.gitleaks.toml`)
+
+- **Default Rule Inheritance:** Inherits Gitleaks' default rule set (`[extend] useDefault = true`) to catch common API keys, tokens, SSH/RSA private keys, and passwords.
+- **Regex Allowlists (`regexes`):** Defines global exceptions for verified non-secret test strings, mock data, and placeholder keys:
+  - Stripe test keys (`dummy_stripe_secret_key`, `sk_test_placeholder`, `sk_test_[a-zA-Z0-9_]+`, `pk_test_[a-zA-Z0-9_]+`)
+  - Mock secret patterns (`sk-test-.*`, `secret_123`, `secret_[a-zA-Z0-9_]+`, `vite_secret_456`, `vite_secret_.*`, `dummy_.*`, `mock_.*`, `sk-local`)
+  - Resend test keys (`test_resend_key`, `test_[a-zA-Z0-9_]+_key`)
+  - Regional domain slug identifiers (`chardon-returns-r1`, `fedex-demand-surcharges-2026`, `hambden-returns-r1`, `kirtland-hills-returns-r1`, `2027-fedex-ups-surcharge-forecast`)
+- **Path Allowlists (`paths`):** Excludes mock env definitions and backend test directories:
+  - `\.env\.example`
+  - `netlify/functions/__tests__/`
+  - `netlify/functions/lib/` (matching backend test files)
+
+### 6.2 Pre-commit Triggers & Local Setup
+
+- **Pre-commit Hook:** Configured in `.husky/pre-commit` to execute `gitleaks protect --staged --no-banner --redact`.
+- **Local CLI Installation:**
+  - macOS: `brew install gitleaks`
+  - Linux/WSL: Download from [Gitleaks Releases](https://github.com/gitleaks/gitleaks/releases) or `go install github.com/gitleaks/gitleaks/v8@latest`
+- **Fallback Behavior:** If Gitleaks is not installed locally, the pre-commit hook logs a warning and allows the commit, relying on the mandatory `secret-scanning` job in `.github/workflows/ci.yml` (`gitleaks-action` v2) as a CI gate.
+- **Manual Scan Commands:**
+
+  ```bash
+  # Scan staged changes prior to commit
+  gitleaks protect --staged --verbose
+
+  # Scan repository history locally
+  gitleaks detect --source . --verbose
+  ```
+
+### 6.3 Remediation & False Positives
+
+When Gitleaks flags a potential match:
+
+1. **Verify Nature of Match:** Confirm whether the flagged string is a real credential or a harmless mock/test placeholder.
+2. **For False Positives / Test Fixtures:**
+   - Update `.gitleaks.toml` under `[allowlist]` with a specific regex entry in `regexes` or path pattern in `paths`.
+   - Run `gitleaks protect --staged --verbose` to verify the rule permits the commit.
+   - Commit the updated `.gitleaks.toml`.
+3. **For Real Credentials:**
+   - **Do NOT** add real secrets or credentials to `.gitleaks.toml` allowlists.
+   - Immediately rotate the leaked credential at the upstream provider following the [Secret Rotation Guide](#4-secret-rotation-guide).
+   - Unstage or remove the commit containing the secret (`git reset HEAD~1` or history purge).
+   - Distribute the replacement credentials securely via Netlify environment variables or local `.env`.
+
+---
+
+## 7. Secure Development Practices
 
 ### Before every deploy
 
@@ -196,6 +249,7 @@ npm run build          # Production build verification
 ### Code review security checklist
 
 - [ ] No hardcoded secrets or tokens
+- [ ] Secret scanning checks: verify no real credentials in diff and confirm any new mock/test tokens align with `.gitleaks.toml` allowlist rules
 - [ ] No `console.log` with sensitive data (stripped in prod by Vite)
 - [ ] All form inputs have validation
 - [ ] No `dangerouslySetInnerHTML` without sanitization
@@ -210,7 +264,7 @@ npm run build          # Production build verification
 
 ---
 
-## 7. Contact & Resources
+## 8. Contact & Resources
 
 | Resource               | URL                                                                |
 | ---------------------- | ------------------------------------------------------------------ |
