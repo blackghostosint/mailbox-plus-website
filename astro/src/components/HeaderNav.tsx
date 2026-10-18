@@ -8,9 +8,10 @@ export interface NavItem {
 
 export interface HeaderNavProps {
   navigation: NavItem[];
+  children?: React.ReactNode;
 }
 
-export const HeaderNav: React.FC<HeaderNavProps> = ({ navigation }) => {
+export const HeaderNav: React.FC<HeaderNavProps> = ({ navigation, children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -134,80 +135,95 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({ navigation }) => {
 
   return (
     <>
-      {/* Desktop Navigation */}
-      <nav
-        className="hidden md:flex items-center space-x-8 flex-1 justify-center"
-        aria-label="Main Navigation"
-      >
-        {navigation.map((item) =>
-          item.gold ? (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors"
-            >
-              {item.name}
-            </a>
-          ) : (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-[15px] font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors"
-            >
-              {item.name}
-            </a>
-          )
+      {/* Main Flex Row: Logo / Children, Desktop Navigation, and Mobile Toggle */}
+      <div className="flex items-center justify-between h-20">
+        {children || (
+          <a href="/" className="flex items-center space-x-2">
+            <img
+              src="/logo.webp"
+              alt="Mailbox Plus - Concord Township, OH"
+              width="256"
+              height="80"
+              className="h-12 w-auto object-contain brightness-0 invert"
+            />
+          </a>
         )}
-      </nav>
 
-      {/* Mobile Menu Toggle */}
-      <div className="md:hidden">
-        <button
-          ref={buttonRef}
-          type="button"
-          id="mobile-menu-btn"
-          className="p-2 rounded-lg text-white/90 hover:text-[var(--color-accent-gold-light)] hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen ? 'true' : 'false'}
-          aria-controls="mobile-menu"
-          onClick={toggleMenu}
+        {/* Desktop Navigation */}
+        <nav
+          className="hidden md:flex items-center space-x-8 flex-1 justify-center"
+          aria-label="Main Navigation"
         >
-          <svg
-            id="menu-icon-open"
-            className={`w-6 h-6 ${isOpen ? 'hidden' : ''}`}
-            aria-hidden="true"
-            focusable="false"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
+          {navigation.map((item) =>
+            item.gold ? (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-[15px] font-bold text-[var(--color-accent-gold)] hover:text-[var(--color-accent-gold-light)] transition-colors"
+              >
+                {item.name}
+              </a>
+            ) : (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-[15px] font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors"
+              >
+                {item.name}
+              </a>
+            )
+          )}
+        </nav>
+
+        {/* Mobile Menu Toggle */}
+        <div className="md:hidden">
+          <button
+            ref={buttonRef}
+            type="button"
+            id="mobile-menu-btn"
+            className="p-2 rounded-lg text-white/90 hover:text-[var(--color-accent-gold-light)] hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white"
+            aria-label={isOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={isOpen ? 'true' : 'false'}
+            aria-controls="mobile-menu"
+            onClick={toggleMenu}
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-          <svg
-            id="menu-icon-close"
-            className={`w-6 h-6 ${isOpen ? '' : 'hidden'}`}
-            aria-hidden="true"
-            focusable="false"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
-        </button>
+            <svg
+              id="menu-icon-open"
+              className={`w-6 h-6 ${isOpen ? 'hidden' : ''}`}
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              id="menu-icon-close"
+              className={`w-6 h-6 ${isOpen ? '' : 'hidden'}`}
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Dropdown */}
       <div
         ref={menuRef}
         id="mobile-menu"
