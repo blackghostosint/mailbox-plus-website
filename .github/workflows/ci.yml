@@ -157,6 +157,9 @@ jobs:
       - name: Run design token drift check
         run: npm run check:tokens
 
+      - name: Run font CDN drift check
+        run: npm run check:font-cdn
+
       - name: Run SEO route registry check
         run: npm run seo:check-routes
 
