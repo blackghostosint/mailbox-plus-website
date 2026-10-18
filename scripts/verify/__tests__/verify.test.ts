@@ -47,5 +47,6 @@ describe('verify.mjs docs', () => {
     );
     expect(headersCheck).toBeDefined();
     expect(headersCheck.pass).toBe(true);
+    expect(headersCheck.detail).toContain('header configurations');
   }, 15000);
 });

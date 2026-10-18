@@ -1897,27 +1897,73 @@ function verifySecurityDocs() {
   if (fs.existsSync(netlifyTomlAbs)) {
     const tomlContent = fs.readFileSync(netlifyTomlAbs, 'utf8');
     const lines = tomlContent.split('\n');
-    let startLine = -1;
-    let endLine = -1;
-    lines.forEach((l, idx) => {
-      if (l.trim() === '[[headers]]' && startLine === -1) {
-        startLine = idx + 1;
-      }
-      if (startLine !== -1 && l.includes('Report-To =')) {
-        endLine = idx + 1;
-      }
-    });
+    let headerStartLine = -1;
+    let headerEndLine = -1;
+    const expectedHeaderRefs = new Map();
 
-    const staleLinesFound = /netlify\.toml:(?:33-51|28|29|30|31|32)\b/.test(secContent);
+    for (let idx = 0; idx < lines.length; idx++) {
+      const line = lines[idx];
+      const lineNum = idx + 1;
+
+      if (line.trim() === '[[headers]]' && headerStartLine === -1) {
+        headerStartLine = lineNum;
+      }
+      if (headerStartLine !== -1 && line.includes('Report-To =')) {
+        headerEndLine = lineNum;
+      }
+
+      if (line.includes('X-Frame-Options =')) {
+        expectedHeaderRefs.set('X-Frame-Options', `netlify.toml:${lineNum}`);
+      } else if (line.includes('X-Content-Type-Options =')) {
+        expectedHeaderRefs.set('X-Content-Type-Options', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Referrer-Policy =')) {
+        expectedHeaderRefs.set('Referrer-Policy', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Permissions-Policy =')) {
+        expectedHeaderRefs.set('Permissions-Policy', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Strict-Transport-Security =')) {
+        expectedHeaderRefs.set('Strict-Transport-Security', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Content-Security-Policy =')) {
+        const cspStart = lineNum;
+        let cspEnd = lineNum;
+        if (line.includes('"""')) {
+          for (let j = idx + 1; j < lines.length; j++) {
+            if (lines[j].includes('"""')) {
+              cspEnd = j + 1;
+              break;
+            }
+          }
+        }
+        expectedHeaderRefs.set('Content-Security-Policy', `netlify.toml:${cspStart}-${cspEnd}`);
+      }
+    }
+
+    const docTomlRefs = secContent.match(/netlify\.toml:\d+(?:-\d+)?/g) || [];
+    const validRefs = new Set(expectedHeaderRefs.values());
+
+    const missingExpectedHeader = Array.from(expectedHeaderRefs.entries()).find(
+      ([_hdr, refStr]) => !secContent.includes(refStr)
+    );
+
+    const invalidDocRef = docTomlRefs.find((ref) => !validRefs.has(ref));
+
     const mentionsRateLimiter = secContent.includes('netlify/functions/lib/rate-limiter.ts');
     const mentionsKnownGapRateLimiting = /No rate limiting on `?\/api\/\*`?/i.test(secContent);
 
-    if (staleLinesFound) {
+    if (missingExpectedHeader) {
+      const [hdrName, expectedRef] = missingExpectedHeader;
       check(
         'doc:security-headers',
         false,
-        `outdated netlify.toml line numbers found in ${secDocRel}`,
-        `Update netlify.toml line references in ${secDocRel} to match lines ${startLine}-${endLine} (or active header lines)`,
+        `outdated or missing netlify.toml reference for ${hdrName} in ${secDocRel} (expected ${expectedRef})`,
+        `Update ${hdrName} reference in ${secDocRel} to match current line ${expectedRef}`,
+        secDocRel
+      );
+    } else if (invalidDocRef) {
+      check(
+        'doc:security-headers',
+        false,
+        `invalid netlify.toml reference ${invalidDocRef} found in ${secDocRel}`,
+        `Update or remove invalid reference ${invalidDocRef} in ${secDocRel} to match active netlify.toml header line numbers`,
         secDocRel
       );
     } else if (!mentionsRateLimiter) {
@@ -1940,7 +1986,7 @@ function verifySecurityDocs() {
       check(
         'doc:security-headers',
         true,
-        `header configurations (lines ${startLine}-${endLine}) and rate limiting control accurately referenced in ${secDocRel}`,
+        `header configurations (lines ${headerStartLine}-${headerEndLine}) and rate limiting control accurately referenced in ${secDocRel}`,
         null,
         secDocRel
       );
