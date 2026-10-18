@@ -30,8 +30,7 @@ DRY_RUN="${DRY_RUN:-0}"
 DEST_DIR="${DEST_DIR:-}"
 
 echo "==> [1/4] Extracting site configs (vitest)"
-cd "$REPO/astro"
-npx vitest run src/scripts/vault-extract.test.ts || {
+npm --prefix "$REPO/astro" run test -- src/scripts/vault-extract.test.ts || {
   echo "extract failed"; exit 1; }
 test -f "$TMP_DATA" || { echo "no data dump"; exit 1; }
 

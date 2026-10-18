@@ -461,10 +461,9 @@ function cmdDoctor() {
   );
   check(
     'node-modules',
-    fs.existsSync(path.join(ROOT, 'node_modules')) &&
-      fs.existsSync(path.join(ROOT, 'astro', 'node_modules')),
-    'root + astro node_modules present',
-    'npm ci (root) && cd astro && npm ci'
+    fs.existsSync(path.join(ROOT, 'node_modules')),
+    'node_modules present',
+    'npm ci'
   );
 
   try {
