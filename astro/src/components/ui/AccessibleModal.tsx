@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useId } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export interface AccessibleModalProps {
   isOpen: boolean;
@@ -21,8 +21,6 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
   children,
   className = '',
 }) => {
-  const generatedTitleId = useId();
-  const modalTitleId = titleId || `modal-title-${generatedTitleId.replace(/:/g, '')}`;
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
@@ -117,7 +115,7 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
         role="dialog"
         aria-modal="true"
         aria-label={title}
-        aria-labelledby={modalTitleId}
+        aria-labelledby={titleId}
         aria-describedby={ariaDescribedBy}
         tabIndex={-1}
         className={`relative z-10 bg-white rounded-2xl max-w-lg w-full border border-border-strong shadow-xl overflow-hidden focus:outline-none ${className}`}
