@@ -188,4 +188,56 @@ describe('checkout module', () => {
 
     consoleErrorSpy.mockRestore();
   });
+
+  it('fetches reCAPTCHA token using executeRecaptcha and includes it in request when site key is present', async () => {
+    vi.stubEnv('VITE_RECAPTCHA_SITE_KEY', 'test_site_key_123');
+
+    (window as unknown as Record<string, unknown>).grecaptcha = {
+      ready: (cb: () => void) => cb(),
+      execute: vi.fn().mockResolvedValue('mocked_checkout_recaptcha_token'),
+    };
+
+    document.body.innerHTML = `
+      <div>
+        <button class="checkout-btn" data-tier="small_mail_only">Subscribe</button>
+      </div>
+    `;
+
+    const checkoutUrl = 'https://checkout.stripe.com/c/pay/cs_test_999';
+    const mockLocation = { href: 'http://localhost:3000/' };
+    Object.defineProperty(window, 'location', {
+      get: () => mockLocation,
+      configurable: true,
+    });
+
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: checkoutUrl }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    initCheckoutButtons();
+
+    const btn = document.querySelector<HTMLButtonElement>('.checkout-btn')!;
+    btn.click();
+
+    await vi.waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
+
+    expect(fetchMock).toHaveBeenCalledWith('/.netlify/functions/create-checkout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Recaptcha-Token': 'mocked_checkout_recaptcha_token',
+      },
+      body: JSON.stringify({
+        tier: 'small_mail_only',
+        recaptchaToken: 'mocked_checkout_recaptcha_token',
+      }),
+      signal: expect.any(AbortSignal),
+    });
+
+    vi.unstubAllEnvs();
+  });
 });
