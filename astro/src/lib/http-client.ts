@@ -102,6 +102,41 @@ export function calculateBackoff(
 }
 
 /**
+ * Wraps body parsing in a Promise that rejects with an AbortError if the signal is aborted.
+ */
+function parseBodyWithSignal<T>(
+  parseFn: () => Promise<T>,
+  signal: AbortSignal,
+  getIsTimedOut: () => boolean
+): Promise<T> {
+  if (signal.aborted) {
+    const err = new Error(getIsTimedOut() ? 'Request timed out' : 'Request aborted');
+    err.name = 'AbortError';
+    return Promise.reject(err);
+  }
+
+  return new Promise<T>((resolve, reject) => {
+    const onAbort = () => {
+      const err = new Error(getIsTimedOut() ? 'Request timed out' : 'Request aborted');
+      err.name = 'AbortError';
+      reject(err);
+    };
+
+    signal.addEventListener('abort', onAbort, { once: true });
+
+    parseFn()
+      .then((res) => {
+        signal.removeEventListener('abort', onAbort);
+        resolve(res);
+      })
+      .catch((err) => {
+        signal.removeEventListener('abort', onAbort);
+        reject(err);
+      });
+  });
+}
+
+/**
  * Shared API fetch wrapper enforcing standard timeouts, structured error handling, and exponential backoff retries.
  */
 export async function httpClient<T = unknown>(
@@ -170,11 +205,53 @@ export async function httpClient<T = unknown>(
         signal: controller.signal,
       });
 
-      if (!response.ok) {
+      if (response.ok) {
+        if (response.status === 204) {
+          return null as T;
+        }
+
+        const parseSuccessBody = async (): Promise<T> => {
+          const contentType = response?.headers?.get('content-type') || '';
+          if (contentType.includes('application/json') || contentType.includes('+json')) {
+            return (await response!.json()) as T;
+          }
+
+          if (typeof response?.text === 'function') {
+            const text = await response.text();
+            if (!text) {
+              return null as T;
+            }
+            try {
+              return JSON.parse(text) as T;
+            } catch {
+              return text as unknown as T;
+            }
+          }
+
+          if (typeof response?.json === 'function') {
+            return (await response.json()) as T;
+          }
+
+          return null as T;
+        };
+
+        return await parseBodyWithSignal(
+          parseSuccessBody,
+          controller.signal,
+          () => isAttemptTimedOut
+        );
+      } else {
         let data: unknown = null;
         try {
-          data = await response.json();
-        } catch {
+          data = await parseBodyWithSignal(
+            () => response!.json(),
+            controller.signal,
+            () => isAttemptTimedOut
+          );
+        } catch (bodyErr) {
+          if (isAttemptTimedOut || controller.signal.aborted) {
+            throw bodyErr;
+          }
           // Response body was not JSON
         }
 
@@ -225,35 +302,6 @@ export async function httpClient<T = unknown>(
       if (customSignal) {
         customSignal.removeEventListener('abort', onCustomAbort);
       }
-    }
-
-    if (response && response.ok) {
-      if (response.status === 204) {
-        return null as T;
-      }
-
-      const contentType = response.headers?.get('content-type') || '';
-      if (contentType.includes('application/json') || contentType.includes('+json')) {
-        return (await response.json()) as T;
-      }
-
-      if (typeof response.text === 'function') {
-        const text = await response.text();
-        if (!text) {
-          return null as T;
-        }
-        try {
-          return JSON.parse(text) as T;
-        } catch {
-          return text as unknown as T;
-        }
-      }
-
-      if (typeof response.json === 'function') {
-        return (await response.json()) as T;
-      }
-
-      return null as T;
     }
 
     const isCustomAborted = customSignal?.aborted;

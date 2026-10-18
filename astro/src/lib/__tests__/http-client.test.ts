@@ -296,6 +296,108 @@ describe('http-client module', () => {
       expect(customShouldRetry).toHaveBeenCalled();
       expect(fetchMock).toHaveBeenCalledTimes(2);
     });
+
+    it('times out when response body parsing json() hangs past timeout budget', async () => {
+      const fetchMock = vi.fn().mockImplementation((_url, options?: { signal?: AbortSignal }) => {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          headers: new Headers({ 'content-type': 'application/json' }),
+          json: () =>
+            new Promise((_resolve, reject) => {
+              options?.signal?.addEventListener('abort', () => {
+                const err = new Error('Aborted');
+                err.name = 'AbortError';
+                reject(err);
+              });
+            }),
+        });
+      });
+
+      const promise = httpClient('/api/hanging-json', {
+        timeout: 100,
+        maxRetries: 0,
+        fetch: fetchMock,
+      });
+
+      promise.catch(() => {});
+      await vi.runAllTimersAsync();
+
+      await expect(promise).rejects.toThrow(ApiClientError);
+      await expect(promise).rejects.toMatchObject({
+        message: 'Request timed out',
+        status: 408,
+        isTimeout: true,
+      });
+    });
+
+    it('times out when response body parsing text() hangs past timeout budget', async () => {
+      const fetchMock = vi.fn().mockImplementation((_url, options?: { signal?: AbortSignal }) => {
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          headers: new Headers({ 'content-type': 'text/plain' }),
+          text: () =>
+            new Promise((_resolve, reject) => {
+              options?.signal?.addEventListener('abort', () => {
+                const err = new Error('Aborted');
+                err.name = 'AbortError';
+                reject(err);
+              });
+            }),
+        });
+      });
+
+      const promise = httpClient('/api/hanging-text', {
+        timeout: 100,
+        maxRetries: 0,
+        fetch: fetchMock,
+      });
+
+      promise.catch(() => {});
+      await vi.runAllTimersAsync();
+
+      await expect(promise).rejects.toThrow(ApiClientError);
+      await expect(promise).rejects.toMatchObject({
+        message: 'Request timed out',
+        status: 408,
+        isTimeout: true,
+      });
+    });
+
+    it('times out when error response body parsing json() hangs past timeout budget', async () => {
+      const fetchMock = vi.fn().mockImplementation((_url, options?: { signal?: AbortSignal }) => {
+        return Promise.resolve({
+          ok: false,
+          status: 500,
+          statusText: 'Internal Server Error',
+          json: () =>
+            new Promise((_resolve, reject) => {
+              options?.signal?.addEventListener('abort', () => {
+                const err = new Error('Aborted');
+                err.name = 'AbortError';
+                reject(err);
+              });
+            }),
+        });
+      });
+
+      const promise = httpClient('/api/hanging-error-json', {
+        timeout: 100,
+        maxRetries: 0,
+        fetch: fetchMock,
+      });
+
+      promise.catch(() => {});
+      await vi.runAllTimersAsync();
+
+      await expect(promise).rejects.toThrow(ApiClientError);
+      await expect(promise).rejects.toMatchObject({
+        message: 'Request timed out',
+        status: 408,
+        isTimeout: true,
+      });
+    });
   });
 
   describe('httpGet and httpPost helpers', () => {
