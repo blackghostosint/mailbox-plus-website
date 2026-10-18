@@ -74,6 +74,10 @@ astro/coverage/
 scripts/audits/reports/
 scripts/audits/search-console-data/mock-search-console.csv
 
+# Python cache
+__pycache__/
+*.pyc
+
 # Astro generated directory
 astro/.astro/
 

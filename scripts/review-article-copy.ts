@@ -19,6 +19,7 @@ import path from 'path';
 import os from 'os';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { walkMdFiles } from './lib/article-utils.ts';
+import { httpClient } from '../astro/src/lib/http-client.ts';
 
 function loadEnvKeys(): Record<string, string> {
   const keys: Record<string, string> = {};
@@ -144,18 +145,15 @@ async function callOpenAICompatible(
     temperature: 0.1,
   };
 
-  const resp = await fetch(url, {
+  const res: any = await httpClient(url, {
     method: 'POST',
     headers,
     body: JSON.stringify(payload),
+    timeout: 60000,
+    maxRetries: 3,
+    retryPost: true,
   });
 
-  if (!resp.ok) {
-    const errText = await resp.text();
-    throw new Error(`HTTP ${resp.status} ${resp.statusText}: ${errText}`);
-  }
-
-  const res: any = await resp.json();
   return res.choices[0].message.content;
 }
 
