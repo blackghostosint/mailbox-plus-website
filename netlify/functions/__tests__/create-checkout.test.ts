@@ -27,7 +27,12 @@ describe('create-checkout function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
 
-  const createRequest = (method: string, body?: any, ip?: string, headers?: Record<string, string>) => {
+  const createRequest = (
+    method: string,
+    body?: any,
+    ip?: string,
+    headers?: Record<string, string>
+  ) => {
     return createMockNetlifyRequest({
       url: 'https://example.com/.netlify/functions/create-checkout',
       method,

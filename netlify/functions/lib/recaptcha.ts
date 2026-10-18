@@ -110,4 +110,3 @@ export function withRecaptcha(handler: WebHandler, _options?: RecaptchaOptions):
     return handler(request, context);
   };
 }
-

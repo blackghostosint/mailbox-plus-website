@@ -102,7 +102,9 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
         json: async () => ({ success: true, score: 0.9 }),
       });
 
-      const innerHandler = vi.fn().mockResolvedValue(new Response(JSON.stringify({ success: true }), { status: 200 }));
+      const innerHandler = vi
+        .fn()
+        .mockResolvedValue(new Response(JSON.stringify({ success: true }), { status: 200 }));
       const wrapped = withRecaptcha(innerHandler);
 
       const req = createMockNetlifyRequest({
@@ -126,7 +128,9 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
         json: async () => ({ success: true, score: 0.9 }),
       });
 
-      const innerHandler = vi.fn().mockResolvedValue(new Response(JSON.stringify({ success: true }), { status: 200 }));
+      const innerHandler = vi
+        .fn()
+        .mockResolvedValue(new Response(JSON.stringify({ success: true }), { status: 200 }));
       const wrapped = withRecaptcha(innerHandler);
 
       const req = createMockNetlifyRequest({
@@ -179,8 +183,12 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
         json: async () => ({ success: true, score: 0.9 }),
       });
 
-      const innerHandler = vi.fn().mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
-      const composed = withCors(withRecaptcha(innerHandler), { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+      const innerHandler = vi
+        .fn()
+        .mockResolvedValue(new Response(JSON.stringify({ ok: true }), { status: 200 }));
+      const composed = withCors(withRecaptcha(innerHandler), {
+        allowOrigin: DEFAULT_ALLOWED_ORIGINS,
+      });
 
       const reqOptions = createMockNetlifyRequest({
         url: 'https://example.com/.netlify/functions/test',
@@ -191,7 +199,9 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
 
       const resOptions = await composed(reqOptions, ctx);
       expect(resOptions.status).toBe(204);
-      expect(resOptions.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+      expect(resOptions.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
 
       const reqPost = createMockNetlifyRequest({
         url: 'https://example.com/.netlify/functions/test',
@@ -202,7 +212,9 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
 
       const resPost = await composed(reqPost, ctx);
       expect(resPost.status).toBe(200);
-      expect(resPost.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+      expect(resPost.headers.get('Access-Control-Allow-Origin')).toBe(
+        'https://mailboxplusohio.com'
+      );
       expect(innerHandler).toHaveBeenCalledTimes(1);
     });
   });
