@@ -1,5 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import handler from '../create-checkout';
+import { verifyRecaptchaToken, recaptchaVerifier } from '../lib/recaptcha';
 import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 const { mockPricesList, mockCheckoutSessionsCreate } = vi.hoisted(() => ({
@@ -26,21 +27,31 @@ describe('create-checkout function handler', () => {
   const originalEnv = process.env;
   let ipCounter = 1;
 
-  const createRequest = (method: string, body?: any, ip?: string) => {
+  const createRequest = (
+    method: string,
+    body?: any,
+    ip?: string,
+    headers?: Record<string, string>
+  ) => {
     return createMockNetlifyRequest({
       url: 'https://example.com/.netlify/functions/create-checkout',
       method,
       clientIp: ip || `10.1.0.${ipCounter++}`,
+      headers: {
+        'X-Recaptcha-Token': 'valid_mock_token',
+        ...(headers || {}),
+      },
       ...(body !== undefined ? { body } : {}),
     });
   };
 
   beforeEach(() => {
-    vi.resetModules();
     vi.clearAllMocks();
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     process.env = {
       ...originalEnv,
       STRIPE_SECRET_KEY: 'sk_test_mock_secret_key',
+      RECAPTCHA_SECRET_KEY: 'test_recaptcha_secret_key',
       SITE_URL: 'https://mailboxplusohio.com',
     };
   });
@@ -72,6 +83,19 @@ describe('create-checkout function handler', () => {
     const res = await handler(req, ctx);
     expect(res.status).toBe(405);
     expect(await res.json()).toEqual({ error: 'Method not allowed' });
+  });
+
+  it('returns 400 if reCAPTCHA verification fails or token is missing', async () => {
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValueOnce(false);
+    const req = createMockNetlifyRequest({
+      url: 'https://example.com/.netlify/functions/create-checkout',
+      method: 'POST',
+      body: { tier: 'small_mail_only' },
+    });
+    const ctx = createMockNetlifyContext();
+    const res = await handler(req, ctx);
+    expect(res.status).toBe(400);
+    expect(await res.json()).toEqual({ error: 'reCAPTCHA verification failed' });
   });
 
   it('enforces rate limit of 10 requests per minute and returns status 429 on 11th attempt', async () => {

@@ -14,7 +14,7 @@
  */
 
 import { Resend } from 'resend';
-import { verifyRecaptchaToken } from './lib/recaptcha';
+import { withRecaptcha } from './lib/recaptcha';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
@@ -39,7 +39,7 @@ export async function checkRateLimit(
 }
 
 export default withCors(
-  async (request: Request) => {
+  withRecaptcha(async (request: Request) => {
     if (request.method !== 'POST') {
       return jsonError('Method not allowed', 405);
     }
@@ -74,12 +74,6 @@ export default withCors(
       }
 
       const data = parsed.data;
-
-      const token = data.recaptchaToken ?? undefined;
-      const isValid = await verifyRecaptchaToken(token, clientIp);
-      if (!isValid) {
-        return jsonError('reCAPTCHA verification failed', 400);
-      }
 
       if (!process.env.RESEND_API_KEY) {
         logger.error('RESEND_API_KEY is missing from environment');
@@ -144,7 +138,7 @@ export default withCors(
       logger.error('Email sending error', error);
       return jsonError('Failed to send message', 500);
     }
-  },
+  }),
   {
     allowOrigin: DEFAULT_ALLOWED_ORIGINS,
     rateLimit: {
