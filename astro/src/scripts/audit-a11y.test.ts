@@ -236,4 +236,20 @@ Testing http://127.0.0.1:4173/ ...
       fs.rmSync(targetDir, { recursive: true, force: true });
     });
   });
+
+  describe('Footer component accessibility requirements', () => {
+    it('ensures google-add-preferred-source-btn possesses aria-label and sr-only inner text', () => {
+      const footerPath = path.resolve(process.cwd(), 'src/components/Footer.astro');
+      const footerContent = fs.readFileSync(footerPath, 'utf8');
+
+      expect(footerContent).toContain('google-add-preferred-source-btn');
+      expect(footerContent).toMatch(
+        /aria-label="Add Mailbox Plus as a preferred source on Google"/
+      );
+      expect(footerContent).toMatch(/role="region"/);
+      expect(footerContent).toMatch(
+        /<span class="sr-only">\s*Add Mailbox Plus as a preferred source on Google\s*<\/span>/
+      );
+    });
+  });
 });

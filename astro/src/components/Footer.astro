@@ -107,7 +107,13 @@ const quickLinks = [
       <!-- Google Preferred Source Button -->
       <div class="mt-6 flex flex-col items-center gap-2">
         <p class="text-xs text-[var(--color-text-secondary)]">Add us as a preferred source on Google</p>
-        <div google-add-preferred-source-btn></div>
+        <div
+          google-add-preferred-source-btn
+          role="region"
+          aria-label="Add Mailbox Plus as a preferred source on Google"
+        >
+          <span class="sr-only">Add Mailbox Plus as a preferred source on Google</span>
+        </div>
       </div>
     </div>
   </div>
