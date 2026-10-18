@@ -10,31 +10,31 @@
 
 ### What's already protected ✅
 
-| Control                | Implementation                                 | Location                                                          |
-| ---------------------- | ---------------------------------------------- | ----------------------------------------------------------------- |
-| CSP Headers            | Strict policy without unsafe-inline script-src | `netlify.toml:33-51`                                              |
-| HSTS                   | 1 year, includeSubDomains                      | `netlify.toml:32`                                                 |
-| X-Frame-Options        | DENY (clickjacking)                            | `netlify.toml:28`                                                 |
-| X-Content-Type-Options | nosniff                                        | `netlify.toml:29`                                                 |
-| Referrer-Policy        | strict-origin-when-cross-origin                | `netlify.toml:30`                                                 |
-| Permissions-Policy     | camera/mic/geo disabled                        | `netlify.toml:31`                                                 |
-| Error tracking         | Sentry with PII scrubbing                      | `astro/src/lib/dom-error.ts`                                      |
-| Input sanitization     | reCAPTCHA on forms                             | `astro/src/pages/contact-us.astro`                                |
-| Dependency scanning    | `npm audit` in CI                              | GitHub Actions                                                    |
-| Secret Scanning        | Gitleaks local pre-commit hook & CI scanning   | `.gitleaks.toml`, `.husky/pre-commit`, `.github/workflows/ci.yml` |
-| Branch protection      | Required reviews, CI checks                    | GitHub settings                                                   |
-| No PII in logs         | Sanitizing logger with PII redaction           | `netlify/functions/lib/logger.ts`                                 |
-| Env var isolation      | `.env` gitignored, Netlify injected            | `.env.example`                                                    |
+| Control                | Implementation                                                                  | Location                                                          |
+| ---------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| CSP Headers            | Strict policy without unsafe-inline script-src                                  | `netlify.toml:84-95`                                              |
+| HSTS                   | 1 year, includeSubDomains                                                       | `netlify.toml:83`                                                 |
+| X-Frame-Options        | DENY (clickjacking)                                                             | `netlify.toml:79`                                                 |
+| X-Content-Type-Options | nosniff                                                                         | `netlify.toml:80`                                                 |
+| Referrer-Policy        | strict-origin-when-cross-origin                                                 | `netlify.toml:81`                                                 |
+| Permissions-Policy     | camera/mic/geo disabled                                                         | `netlify.toml:82`                                                 |
+| Rate Limiting          | Function-level sliding window rate limiting via Netlify Blobs & memory fallback | `netlify/functions/lib/rate-limiter.ts`                           |
+| Error tracking         | Sentry with PII scrubbing                                                       | `astro/src/lib/dom-error.ts`                                      |
+| Input sanitization     | reCAPTCHA on forms                                                              | `astro/src/pages/contact-us.astro`                                |
+| Dependency scanning    | `npm audit` in CI                                                               | GitHub Actions                                                    |
+| Secret Scanning        | Gitleaks local pre-commit hook & CI scanning                                    | `.gitleaks.toml`, `.husky/pre-commit`, `.github/workflows/ci.yml` |
+| Branch protection      | Required reviews, CI checks                                                     | GitHub settings                                                   |
+| No PII in logs         | Sanitizing logger with PII redaction                                            | `netlify/functions/lib/logger.ts`                                 |
+| Env var isolation      | `.env` gitignored, Netlify injected                                             | `.env.example`                                                    |
 
 ### Known gaps ⚠️
 
-| Risk                                             | Severity | Mitigation needed                   |
-| ------------------------------------------------ | -------- | ----------------------------------- |
-| No rate limiting on `/api/*` (Netlify Functions) | Medium   | Add function-level rate limiting    |
-| No dependency auto-update (Dependabot)           | Low      | Enable in GitHub settings           |
-| No third-party SAST/container scanner            | Low      | Add Snyk/Trivy step                 |
-| R2 bucket is public (intentional for images)     | Low      | Monitor for unusual access patterns |
-| No WAF (Netlify doesn't offer one)               | Low      | CSP + headers provide baseline      |
+| Risk                                         | Severity | Mitigation needed                   |
+| -------------------------------------------- | -------- | ----------------------------------- |
+| No dependency auto-update (Dependabot)       | Low      | Enable in GitHub settings           |
+| No third-party SAST/container scanner        | Low      | Add Snyk/Trivy step                 |
+| R2 bucket is public (intentional for images) | Low      | Monitor for unusual access patterns |
+| No WAF (Netlify doesn't offer one)           | Low      | CSP + headers provide baseline      |
 
 ---
 
@@ -130,15 +130,37 @@ curl -sI https://mailboxplusohio.com | grep -iE "content-security|x-frame|x-cont
 
 ### What to rotate
 
-| Secret                    | Where to update                           | Impact                          |
-| ------------------------- | ----------------------------------------- | ------------------------------- |
-| `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break                |
-| `GEMINI_API_KEY`          | Netlify + `.env` local                    | Test scripts & embeddings fail  |
-| `RECAPTCHA_SITE_KEY`      | Netlify dashboard                         | Contact form fails              |
-| `RECAPTCHA_SECRET_KEY`    | Netlify dashboard                         | Contact form verification fails |
-| `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops            |
-| Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks                    |
-| GitHub PAT                | GitHub → Settings → Tokens                | gh CLI breaks                   |
+| Secret / Variable         | Where to update                           | Impact                                              |
+| ------------------------- | ----------------------------------------- | --------------------------------------------------- |
+| `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break                                    |
+| `VITE_GOOGLE_MAPS_KEY`    | Netlify dashboard → Environment variables | Google Maps embed fails to render                   |
+| `VITE_RECAPTCHA_SITE_KEY` | Netlify dashboard → Environment variables | Contact form reCAPTCHA widget fails                 |
+| `RECAPTCHA_SITE_KEY`      | Netlify dashboard → Environment variables | Form reCAPTCHA widget fails                         |
+| `VITE_NETLIFY_CONTEXT`    | Netlify dashboard → Environment variables | Client build context mismatch                       |
+| `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops                                |
+| `VITE_SENTRY_ENVIRONMENT` | Netlify dashboard → Environment variables | Error tracking environment miscategorized           |
+| `NETLIFY_SITE_ID`         | Netlify dashboard → Environment variables | Netlify Blobs rate limiting & caching fail          |
+| `NETLIFY_AUTH_TOKEN`      | Netlify dashboard → Environment variables | Netlify Blobs API access fails                      |
+| `GOOGLE_PLACES_API_KEY`   | Netlify dashboard → Environment variables | Live Google business reviews sync fails             |
+| `RECAPTCHA_SECRET_KEY`    | Netlify dashboard → Environment variables | Contact form verification fails                     |
+| `RECAPTCHA_MIN_SCORE`     | Netlify dashboard → Environment variables | reCAPTCHA spam threshold misconfigured              |
+| `RESEND_API_KEY`          | Netlify dashboard → Environment variables | Contact form emails fail to send                    |
+| `CONTACT_EMAIL`           | Netlify dashboard → Environment variables | Contact form submissions route to wrong email       |
+| `STRIPE_SECRET_KEY`       | Netlify dashboard → Environment variables | Mailbox checkout sessions fail                      |
+| `SITE_URL`                | Netlify dashboard → Environment variables | Site redirects & CORS origin checks fail            |
+| `CONTEXT`                 | Netlify dashboard → Environment variables | Function context misconfigured                      |
+| `GEMINI_API_KEY`          | Netlify + `.env` local                    | Test scripts & embeddings generation fail           |
+| `GEMINI_TIMEOUT_SECONDS`  | Netlify + `.env` local                    | Gemini API request timeout threshold changes        |
+| `OPENROUTER_API_KEY`      | `.env` local / CI secrets                 | LLM article copy review checks fail                 |
+| `MODEL_API_KEY`           | `.env` local / CI secrets                 | LLM model copy review checks fail                   |
+| `AUDIT_BASE_URL`          | `.env` local                              | Accessibility audit target URL changes              |
+| `BASE_URL`                | `.env` local                              | Accessibility audit fallback URL changes            |
+| `DIST_DIR`                | `.env` local                              | Distribution output directory path resolution moves |
+| `R2_PUBLIC_BASE`          | `.env` local                              | CDN image verification checks fail                  |
+| `ARTICLE_DRAFTS_DIR`      | `.env` local                              | Fact-check receipt resolution path changes          |
+| `HEADING_OVERLAP_MAX`     | `.env` local                              | Heading overlap gate threshold changes              |
+| Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks                                        |
+| GitHub PAT                | GitHub → Settings → Tokens                | gh CLI breaks                                       |
 
 ### Rotation procedure
 

@@ -1803,6 +1803,9 @@ function verifyDocFile(arg) {
   });
 
   check('doc:valid', true, `verified ${fileCheckCount} path/link reference(s)`, null, relPath);
+  if (relPath === 'docs/SECURITY.md') {
+    verifySecurityDocs();
+  }
   currentFile = prevFile;
 }
 
@@ -1828,6 +1831,131 @@ function getDocFiles() {
   }
 
   return targets;
+}
+
+function verifySecurityDocs() {
+  const prevFile = currentFile;
+  const secDocRel = 'docs/SECURITY.md';
+  currentFile = secDocRel;
+  const secDocAbs = path.join(ROOT, secDocRel);
+  const envExampleAbs = path.join(ROOT, '.env.example');
+  const netlifyTomlAbs = path.join(ROOT, 'netlify.toml');
+
+  if (!fs.existsSync(secDocAbs)) {
+    check(
+      'doc:security-exists',
+      false,
+      `${secDocRel} not found on disk`,
+      'create docs/SECURITY.md',
+      secDocRel
+    );
+    currentFile = prevFile;
+    return;
+  }
+
+  const secContent = fs.readFileSync(secDocAbs, 'utf8');
+
+  // 1) Environment variable synchronization check
+  if (fs.existsSync(envExampleAbs)) {
+    const envContent = fs.readFileSync(envExampleAbs, 'utf8');
+    const envKeys = extractEnvKeys(envContent);
+    const missingEnvKeys = [];
+    for (const key of envKeys) {
+      if (!secContent.includes(key)) {
+        missingEnvKeys.push(key);
+      }
+    }
+
+    if (missingEnvKeys.length > 0) {
+      check(
+        'doc:security-env-vars',
+        false,
+        `${missingEnvKeys.length} environment variable(s) from .env.example missing in ${secDocRel}: ${missingEnvKeys.join(', ')}`,
+        `Add missing environment variables to ${secDocRel} Section 4 Secret Rotation Guide`,
+        secDocRel
+      );
+    } else {
+      check(
+        'doc:security-env-vars',
+        true,
+        `all ${envKeys.size} environment variable(s) from .env.example are documented in ${secDocRel}`,
+        null,
+        secDocRel
+      );
+    }
+  } else {
+    check(
+      'doc:security-env-vars',
+      false,
+      '.env.example missing on disk',
+      'ensure .env.example exists in repository root',
+      secDocRel
+    );
+  }
+
+  // 2) Header configuration and rate limiter reference check
+  if (fs.existsSync(netlifyTomlAbs)) {
+    const tomlContent = fs.readFileSync(netlifyTomlAbs, 'utf8');
+    const lines = tomlContent.split('\n');
+    let startLine = -1;
+    let endLine = -1;
+    lines.forEach((l, idx) => {
+      if (l.trim() === '[[headers]]' && startLine === -1) {
+        startLine = idx + 1;
+      }
+      if (startLine !== -1 && l.includes('Report-To =')) {
+        endLine = idx + 1;
+      }
+    });
+
+    const staleLinesFound = /netlify\.toml:(?:33-51|28|29|30|31|32)\b/.test(secContent);
+    const mentionsRateLimiter = secContent.includes('netlify/functions/lib/rate-limiter.ts');
+    const mentionsKnownGapRateLimiting = /No rate limiting on `?\/api\/\*`?/i.test(secContent);
+
+    if (staleLinesFound) {
+      check(
+        'doc:security-headers',
+        false,
+        `outdated netlify.toml line numbers found in ${secDocRel}`,
+        `Update netlify.toml line references in ${secDocRel} to match lines ${startLine}-${endLine} (or active header lines)`,
+        secDocRel
+      );
+    } else if (!mentionsRateLimiter) {
+      check(
+        'doc:security-headers',
+        false,
+        `rate-limiter control (netlify/functions/lib/rate-limiter.ts) missing in ${secDocRel}`,
+        `Add rate limiting to "What's already protected" in ${secDocRel}`,
+        secDocRel
+      );
+    } else if (mentionsKnownGapRateLimiting) {
+      check(
+        'doc:security-headers',
+        false,
+        `rate limiting is still listed as a known gap in ${secDocRel}`,
+        `Remove rate limiting from "Known gaps" in ${secDocRel}`,
+        secDocRel
+      );
+    } else {
+      check(
+        'doc:security-headers',
+        true,
+        `header configurations (lines ${startLine}-${endLine}) and rate limiting control accurately referenced in ${secDocRel}`,
+        null,
+        secDocRel
+      );
+    }
+  } else {
+    check(
+      'doc:security-headers',
+      false,
+      'netlify.toml missing on disk',
+      'ensure netlify.toml exists in repository root',
+      secDocRel
+    );
+  }
+
+  currentFile = prevFile;
 }
 
 function cmdDocs() {

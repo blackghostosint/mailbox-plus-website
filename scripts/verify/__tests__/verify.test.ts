@@ -22,3 +22,30 @@ describe('verify.mjs doctor', () => {
     expect(envCheck.detail).toContain('27 keys mapped');
   }, 15000);
 });
+
+describe('verify.mjs docs', () => {
+  it('runs docs command and passes security docs checks', () => {
+    const stdout = execSync('node scripts/verify/verify.mjs docs --json', {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+
+    const parsed = JSON.parse(stdout);
+    expect(parsed.ok).toBe(true);
+
+    const envVarsCheck = parsed.results.find(
+      (r: { name: string }) => r.name === 'doc:security-env-vars'
+    );
+    expect(envVarsCheck).toBeDefined();
+    expect(envVarsCheck.pass).toBe(true);
+    expect(envVarsCheck.detail).toContain(
+      'all 27 environment variable(s) from .env.example are documented'
+    );
+
+    const headersCheck = parsed.results.find(
+      (r: { name: string }) => r.name === 'doc:security-headers'
+    );
+    expect(headersCheck).toBeDefined();
+    expect(headersCheck.pass).toBe(true);
+  }, 15000);
+});
