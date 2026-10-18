@@ -428,9 +428,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
     });
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAmazonCounter);
-  } else {
-    initAmazonCounter();
-  }
+  import { onDOMReady } from '../lib/dom-utils';
+
+  onDOMReady(initAmazonCounter);
 </script>
