@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useRef, useCallback } from 'react';
 import { IconWrapper } from './ui/IconWrapper';
 
 export interface TranscriptCue {
@@ -140,12 +140,111 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
   descriptionsUrl = '/videos/mailbox-plus-explainer-descriptions.vtt',
   ariaLabel = 'Mailbox Plus explainer video — what happens after signing up for mailbox service',
   cues = DEFAULT_TRANSCRIPT_CUES,
+  descriptionCues = DEFAULT_DESCRIPTION_CUES,
 }) => {
+  const [audioDescriptionsEnabled, setAudioDescriptionsEnabled] = useState<boolean>(false);
+  const [activeCueIndex, setActiveCueIndex] = useState<number>(-1);
+  const [activeDescription, setActiveDescription] = useState<string | null>(null);
+  const [announcement, setAnnouncement] = useState<string>('');
+
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+  const lastSpokenDescRef = useRef<string | null>(null);
+  const lastAnnouncedCueIndexRef = useRef<number>(-1);
+
+  const announce = useCallback((msg: string) => {
+    setAnnouncement(msg);
+  }, []);
+
+  const handleTimeUpdate = useCallback(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const currentTime = video.currentTime;
+
+    // Synchronized active transcript cue
+    const newCueIndex = cues.findIndex((c) => currentTime >= c.start && currentTime < c.end);
+
+    if (newCueIndex !== activeCueIndex) {
+      setActiveCueIndex(newCueIndex);
+
+      if (newCueIndex !== -1 && newCueIndex !== lastAnnouncedCueIndexRef.current) {
+        lastAnnouncedCueIndexRef.current = newCueIndex;
+        announce(`Transcript line: ${cues[newCueIndex].text}`);
+      }
+    }
+
+    // Audio descriptions narration
+    if (audioDescriptionsEnabled) {
+      const descCue = descriptionCues.find((c) => currentTime >= c.start && currentTime < c.end);
+
+      if (descCue) {
+        setActiveDescription(descCue.text);
+        if (
+          descCue.id !== lastSpokenDescRef.current &&
+          typeof window !== 'undefined' &&
+          'speechSynthesis' in window
+        ) {
+          lastSpokenDescRef.current = descCue.id;
+          window.speechSynthesis.cancel();
+          const utterance = new SpeechSynthesisUtterance(descCue.text);
+          utterance.rate = 1.0;
+          window.speechSynthesis.speak(utterance);
+        }
+      } else {
+        setActiveDescription(null);
+      }
+    } else {
+      setActiveDescription(null);
+    }
+  }, [activeCueIndex, audioDescriptionsEnabled, cues, descriptionCues, announce]);
+
+  const handlePause = useCallback(() => {
+    if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+    }
+  }, []);
+
+  const toggleAudioDescriptions = useCallback(() => {
+    const nextState = !audioDescriptionsEnabled;
+    setAudioDescriptionsEnabled(nextState);
+
+    if (nextState) {
+      announce('Audio descriptions enabled');
+    } else {
+      announce('Audio descriptions disabled');
+      setActiveDescription(null);
+      if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+      }
+    }
+
+    const video = videoRef.current;
+    if (video && video.textTracks) {
+      const tracks = video.textTracks;
+      for (let i = 0; i < tracks.length; i++) {
+        if (tracks[i].kind === 'descriptions') {
+          tracks[i].mode = nextState ? 'showing' : 'disabled';
+        }
+      }
+    }
+  }, [audioDescriptionsEnabled, announce]);
+
+  const handleSeek = useCallback((startTime: number) => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.currentTime = startTime;
+    video.play().catch(() => {});
+  }, []);
+
   return (
     <div className="w-full max-w-4xl mx-auto">
       {/* Video Container */}
       <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-[var(--color-border-strong)] bg-[var(--color-primary-deep)] relative aspect-video mb-6">
         <video
+          ref={videoRef}
+          onTimeUpdate={handleTimeUpdate}
+          onSeeked={handleTimeUpdate}
+          onPause={handlePause}
           className="w-full h-full object-cover"
           controls
           preload="metadata"
@@ -193,8 +292,13 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
 
         <button
           type="button"
-          aria-pressed="false"
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]"
+          onClick={toggleAudioDescriptions}
+          aria-pressed={audioDescriptionsEnabled ? 'true' : 'false'}
+          className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 ${
+            audioDescriptionsEnabled
+              ? 'bg-[var(--color-primary)] text-white shadow-sm'
+              : 'bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] border border-[var(--color-border)] hover:border-[var(--color-primary)]'
+          }`}
         >
           <IconWrapper>
             <svg
@@ -213,14 +317,16 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
               />
             </svg>
           </IconWrapper>
-          <span>Audio Descriptions: OFF</span>
+          <span>{`Audio Descriptions: ${audioDescriptionsEnabled ? 'ON' : 'OFF'}`}</span>
         </button>
       </div>
 
-      {/* Audio Description Banner container when activated via JS */}
+      {/* Audio Description Banner */}
       <div
         id="audio-description-banner"
-        className="hidden mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] flex items-start gap-3"
+        className={`${
+          audioDescriptionsEnabled && activeDescription ? 'flex' : 'hidden'
+        } mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] items-start gap-3`}
       >
         <IconWrapper>
           <svg
@@ -243,7 +349,9 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
           <span className="font-bold block text-xs uppercase tracking-wider text-[var(--color-primary)] mb-1">
             Audio Description Narrating
           </span>
-          <p id="audio-description-text" className="text-sm font-medium leading-relaxed"></p>
+          <p id="audio-description-text" className="text-sm font-medium leading-relaxed">
+            {activeDescription}
+          </p>
         </div>
       </div>
 
@@ -278,14 +386,20 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
         </div>
 
         <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-1">
-          {cues.map((cue) => {
+          {cues.map((cue, index) => {
+            const isActive = index === activeCueIndex;
             return (
               <div
                 key={cue.id}
-                className="p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]"
+                className={`p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 ${
+                  isActive
+                    ? 'bg-[var(--color-bg-warm-tint)] border-[var(--color-accent-warm)] shadow-sm ring-1 ring-[var(--color-accent-warm)]/30'
+                    : 'bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]'
+                }`}
               >
                 <button
                   type="button"
+                  onClick={() => handleSeek(cue.start)}
                   aria-label={`Seek video to ${formatTimecode(cue.start)}`}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold font-mono text-[var(--color-primary)] bg-[var(--color-primary)]/10 hover:bg-[var(--color-primary)] hover:text-white transition-colors flex-shrink-0 focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)]"
                 >
@@ -311,9 +425,16 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
 
                 <button
                   type="button"
+                  onClick={() => handleSeek(cue.start)}
+                  aria-current={isActive ? 'true' : undefined}
                   className="text-left flex-1 text-base leading-relaxed text-[var(--color-text-primary)] font-medium hover:text-[var(--color-primary)] transition-colors focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 rounded-md p-1 -m-1"
                 >
                   <span>{cue.text}</span>
+                  {isActive && (
+                    <span className="active-badge ml-2.5 inline-flex items-center px-2 py-0.5 rounded text-xs font-bold bg-[var(--color-accent-warm)] text-white align-middle">
+                      Active
+                    </span>
+                  )}
                 </button>
               </div>
             );
@@ -328,7 +449,9 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
         aria-live="polite"
         aria-atomic="true"
         className="sr-only"
-      />
+      >
+        {announcement}
+      </div>
     </div>
   );
 };
