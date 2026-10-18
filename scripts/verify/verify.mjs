@@ -1940,22 +1940,70 @@ function verifySecurityDocs() {
     const docTomlRefs = secContent.match(/netlify\.toml:\d+(?:-\d+)?/g) || [];
     const validRefs = new Set(expectedHeaderRefs.values());
 
-    const missingExpectedHeader = Array.from(expectedHeaderRefs.entries()).find(
-      ([_hdr, refStr]) => !secContent.includes(refStr)
-    );
+    // Extract documented header-to-reference mapping from table rows in docs/SECURITY.md
+    const docHeaderRefs = new Map();
+    const secLines = secContent.split('\n');
+    for (const line of secLines) {
+      if (line.includes('|') && line.includes('netlify.toml:')) {
+        const parts = line.split('|').map((p) => p.trim());
+        if (parts.length >= 4) {
+          const controlText = parts[1];
+          const locText = parts[3];
+          const refMatch = locText.match(/netlify\.toml:\d+(?:-\d+)?/);
+          if (refMatch) {
+            const refStr = refMatch[0];
+            if (/CSP|Content-Security-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Content-Security-Policy', refStr);
+            } else if (/HSTS|Strict-Transport-Security/i.test(controlText)) {
+              docHeaderRefs.set('Strict-Transport-Security', refStr);
+            } else if (/X-Frame-Options/i.test(controlText)) {
+              docHeaderRefs.set('X-Frame-Options', refStr);
+            } else if (/X-Content-Type-Options/i.test(controlText)) {
+              docHeaderRefs.set('X-Content-Type-Options', refStr);
+            } else if (/Referrer-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Referrer-Policy', refStr);
+            } else if (/Permissions-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Permissions-Policy', refStr);
+            }
+          }
+        }
+      }
+    }
+
+    let headerMismatch = null;
+    for (const [hdrName, expectedRef] of expectedHeaderRefs.entries()) {
+      const docRef = docHeaderRefs.get(hdrName);
+      if (!docRef) {
+        headerMismatch = {
+          hdrName,
+          expectedRef,
+          docRef: null,
+          reason: `missing documented table row for ${hdrName} in ${secDocRel} (expected ${expectedRef})`,
+        };
+        break;
+      }
+      if (docRef !== expectedRef) {
+        headerMismatch = {
+          hdrName,
+          expectedRef,
+          docRef,
+          reason: `mismatched netlify.toml reference for ${hdrName} in ${secDocRel}: table row specifies ${docRef}, expected ${expectedRef}`,
+        };
+        break;
+      }
+    }
 
     const invalidDocRef = docTomlRefs.find((ref) => !validRefs.has(ref));
 
     const mentionsRateLimiter = secContent.includes('netlify/functions/lib/rate-limiter.ts');
     const mentionsKnownGapRateLimiting = /No rate limiting on `?\/api\/\*`?/i.test(secContent);
 
-    if (missingExpectedHeader) {
-      const [hdrName, expectedRef] = missingExpectedHeader;
+    if (headerMismatch) {
       check(
         'doc:security-headers',
         false,
-        `outdated or missing netlify.toml reference for ${hdrName} in ${secDocRel} (expected ${expectedRef})`,
-        `Update ${hdrName} reference in ${secDocRel} to match current line ${expectedRef}`,
+        headerMismatch.reason,
+        `Update ${headerMismatch.hdrName} reference in ${secDocRel} table row to match current line ${headerMismatch.expectedRef}`,
         secDocRel
       );
     } else if (invalidDocRef) {
