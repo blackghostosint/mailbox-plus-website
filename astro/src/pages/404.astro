@@ -51,7 +51,9 @@ import { getServiceImageUrl } from '../lib/media';
 </BaseLayout>
 
 <script>
-  window.addEventListener('DOMContentLoaded', () => {
+  import { onDOMReady } from '../lib/dom-utils';
+
+  onDOMReady(() => {
     // 🍪 Easter Egg — The Office cookie
     document.cookie = 'kevin_cookie=Oops! Kevin spilled this page; path=/; max-age=86400';
     console.log('🥣 Kevin’s Famous Chili: Too bad this page didn’t make it.');

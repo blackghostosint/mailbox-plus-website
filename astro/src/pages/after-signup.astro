@@ -175,7 +175,9 @@ const stepIcons = [
       <!-- Video & Synchronized Interactive Transcript Player Island -->
       <VideoTranscriptPlayer />
       <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        import { onDOMReady } from '../lib/dom-utils';
+
+        onDOMReady(() => {
           const video = document.querySelector('video');
           if (!video) return;
 

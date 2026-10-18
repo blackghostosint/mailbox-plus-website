@@ -49,23 +49,47 @@ describe('contact-form module', () => {
     expect(form.getAttribute('data-contact-initialized')).toBe('true');
   });
 
-  it('loads reCAPTCHA script tag when data-recaptcha-site-key is provided', () => {
+  it('loads reCAPTCHA script tag lazily on form submission when data-recaptcha-site-key is provided', async () => {
     document.body.innerHTML = `
       <form name="contact" data-recaptcha-site-key="test-site-key">
         <button type="submit">Submit</button>
       </form>
     `;
 
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ success: true }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
     initContactForms();
 
-    const script = document.getElementById('recaptcha-v3-script') as HTMLScriptElement | null;
-    expect(script).not.toBeNull();
+    // Verify script is NOT loaded upon setup (lazy execution)
+    let script = document.getElementById('recaptcha-v3-script') as HTMLScriptElement | null;
+    expect(script).toBeNull();
+
+    const form = document.querySelector<HTMLFormElement>('form')!;
+    form.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
+
+    // Script should now be appended lazily during submit flow
+    await vi.waitFor(() => {
+      script = document.getElementById('recaptcha-v3-script') as HTMLScriptElement | null;
+      expect(script).not.toBeNull();
+    });
+
     expect(script?.dataset.src || script?.src).toContain('render=test-site-key');
     expect(script?.async).toBe(true);
 
-    // Ensure script isn't appended twice
-    initContactForms();
-    expect(document.querySelectorAll('#recaptcha-v3-script').length).toBe(1);
+    // Trigger script load event so reCAPTCHA flow completes
+    window.grecaptcha = {
+      ready: (callback: () => void) => callback(),
+      execute: vi.fn().mockResolvedValue('mocked-recaptcha-token'),
+    };
+    script?.dispatchEvent(new Event('load'));
+
+    await vi.waitFor(() => {
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    });
   });
 
   it('handles successful contact form submission with reCAPTCHA token', async () => {
