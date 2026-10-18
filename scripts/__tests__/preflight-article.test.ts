@@ -165,7 +165,8 @@ describe('preflight-article.sh path with spaces handling', () => {
           name: 'test-pkg',
           scripts: {
             prebuild: 'echo prebuild-ok',
-            'seo:check-href-slash': 'echo "internal href slash validation failed detail" >&2 && exit 1',
+            'seo:check-href-slash':
+              'echo "internal href slash validation failed detail" >&2 && exit 1',
           },
         })
       );
