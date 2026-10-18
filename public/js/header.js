@@ -137,6 +137,8 @@ export function initHeader() {
   const menu = document.getElementById('mobile-menu');
   if (!btn || !menu) return;
 
+  btn.setAttribute('aria-controls', 'mobile-menu');
+
   if (!btn.dataset.headerInitialized) {
     btn.dataset.headerInitialized = 'true';
 
