@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import path from 'path';
 import fs from 'fs';
 import {
@@ -72,6 +72,46 @@ describe('review-article-copy', () => {
       await expect(
         evaluateArticle('Sample content', { provider: 'unknown' as any })
       ).rejects.toThrow('Unknown provider');
+    });
+
+    it('evaluates article via custom provider with retries on transient errors', async () => {
+      const mockResult = {
+        total_score: 85,
+        verdict: 'PASS',
+        dimensions: {},
+        executive_summary: 'Good draft.',
+      };
+
+      const mockFetch = vi
+        .fn()
+        .mockResolvedValueOnce({
+          ok: false,
+          status: 503,
+          json: async () => ({ error: 'Service Unavailable' }),
+        })
+        .mockResolvedValueOnce({
+          ok: true,
+          status: 200,
+          headers: new Headers({ 'content-type': 'application/json' }),
+          json: async () => ({
+            choices: [{ message: { content: JSON.stringify(mockResult) } }],
+          }),
+        });
+
+      vi.stubGlobal('fetch', mockFetch);
+
+      try {
+        const res = await evaluateArticle('Sample content for evaluation', {
+          provider: 'custom',
+          baseUrl: 'https://custom-ai.example.com',
+          apiKey: 'test-key',
+        });
+
+        expect(res).toEqual(mockResult);
+        expect(mockFetch).toHaveBeenCalledTimes(2);
+      } finally {
+        vi.unstubAllGlobals();
+      }
     });
   });
 });

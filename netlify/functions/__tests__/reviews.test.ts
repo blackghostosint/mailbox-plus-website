@@ -105,7 +105,7 @@ describe('reviews function handler', () => {
   });
 
   it('returns 502 when upstream Places API returns non-200 and no cached payload exists', async () => {
-    mockFetch.mockResolvedValueOnce({
+    mockFetch.mockResolvedValue({
       ok: false,
       status: 500,
       text: vi.fn().mockResolvedValue('Internal Server Error'),
@@ -115,7 +115,7 @@ describe('reviews function handler', () => {
     const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(502);
     expect(await res.json()).toEqual({ error: 'Reviews temporarily unavailable' });
-    expect(mockFetch).toHaveBeenCalledTimes(1);
+    expect(mockFetch).toHaveBeenCalledTimes(3);
   });
 
   it('successfully fetches, transforms raw Places API JSON into ReviewDto structures, and sets CDN cache headers', async () => {
@@ -228,7 +228,7 @@ describe('reviews function handler', () => {
       if (key === 'gmb-reviews') return staleCache;
       return null;
     });
-    mockFetch.mockResolvedValueOnce({
+    mockFetch.mockResolvedValue({
       ok: false,
       status: 503,
       text: vi.fn().mockResolvedValue('Service Unavailable'),

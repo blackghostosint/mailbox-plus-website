@@ -31,6 +31,7 @@ import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './li
 import { logger } from './lib/logger';
 import { ReviewsSuccessSchema } from './lib/contracts';
 import { getFallbackReviewAuthor, getFallbackReviewRating } from './lib/fallbacks';
+import { httpClient } from './lib/http-client';
 
 const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8'; // Mailbox Plus, 7554 Fredle Dr
 const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
@@ -103,20 +104,19 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
     throw new Error('GOOGLE_PLACES_API_KEY is not set');
   }
 
-  const res = await fetch(API_URL, {
+  const data = await httpClient<any>(API_URL, {
     headers: {
       'Content-Type': 'application/json',
       'X-Goog-Api-Key': apiKey,
       'X-Goog-FieldMask': FIELD_MASK,
     },
+    timeout: 3000,
+    maxRetries: 2,
+    initialDelayMs: 200,
+    maxDelayMs: 1000,
   });
 
-  if (!res.ok) {
-    throw new Error(`Places API error ${res.status}: ${await res.text()}`);
-  }
-
-  const data = await res.json();
-  const reviews: ReviewDto[] = (data.reviews || []).map((r: any) => ({
+  const reviews: ReviewDto[] = (data?.reviews || []).map((r: any) => ({
     author: getFallbackReviewAuthor(r.authorAttribution?.displayName),
     authorUri: r.authorAttribution?.uri || '',
     rating: getFallbackReviewRating(r.rating),
@@ -126,8 +126,8 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   }));
 
   return {
-    rating: data.rating,
-    userRatingCount: data.userRatingCount,
+    rating: data?.rating,
+    userRatingCount: data?.userRatingCount,
     reviews,
     fetchedAt: new Date().toISOString(),
   };

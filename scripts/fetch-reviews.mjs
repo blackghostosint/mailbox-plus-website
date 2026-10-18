@@ -18,6 +18,7 @@
 import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { httpClient } from '../astro/src/lib/http-client.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const OUT_FILE = path.resolve(__dirname, '../astro/src/data/reviews.json');
@@ -49,7 +50,7 @@ export async function fetchAndSaveReviews(options = {}) {
   const apiKey = options.apiKey ?? process.env.GOOGLE_PLACES_API_KEY;
   const placeId = options.placeId || PLACE_ID;
   const outFile = options.outFile || OUT_FILE;
-  const fetchFn = options.fetchFn || globalThis.fetch;
+  const fetchFn = options.fetchFn;
 
   if (!apiKey) {
     console.warn('[fetch-reviews] GOOGLE_PLACES_API_KEY not set — keeping existing reviews.json');
@@ -58,22 +59,17 @@ export async function fetchAndSaveReviews(options = {}) {
 
   const apiUrl = `https://places.googleapis.com/v1/places/${placeId}`;
   try {
-    const res = await fetchFn(apiUrl, {
+    const data = await httpClient(apiUrl, {
       headers: {
         'Content-Type': 'application/json',
         'X-Goog-Api-Key': apiKey,
         'X-Goog-FieldMask': FIELD_MASK,
       },
+      timeout: 10000,
+      maxRetries: 3,
+      fetch: fetchFn,
     });
 
-    if (!res.ok) {
-      console.warn(
-        `[fetch-reviews] Places API error ${res.status} — keeping existing reviews.json`
-      );
-      return { success: false, skipped: true, status: res.status };
-    }
-
-    const data = await res.json();
     const payload = transformPlacesData(data);
 
     writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
@@ -83,6 +79,12 @@ export async function fetchAndSaveReviews(options = {}) {
 
     return { success: true, payload };
   } catch (err) {
+    if (err.status) {
+      console.warn(
+        `[fetch-reviews] Places API error ${err.status} — keeping existing reviews.json`
+      );
+      return { success: false, skipped: true, status: err.status };
+    }
     console.warn('[fetch-reviews] fetch failed — keeping existing reviews.json:', err.message);
     return { success: false, skipped: true, error: err.message };
   }
