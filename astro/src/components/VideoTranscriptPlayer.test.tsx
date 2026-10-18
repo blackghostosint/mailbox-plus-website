@@ -1,10 +1,13 @@
-import { describe, it, expect } from 'vitest';
-import { renderToString } from 'react-dom/server';
+// @vitest-environment happy-dom
+import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
 import VideoTranscriptPlayer, {
   formatTimecode,
   DEFAULT_TRANSCRIPT_CUES,
   DEFAULT_DESCRIPTION_CUES,
 } from './VideoTranscriptPlayer';
+import { renderToString } from 'react-dom/server';
 
 describe('VideoTranscriptPlayer Component', () => {
   it('formats timecodes correctly in MM:SS format', () => {
@@ -65,5 +68,39 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(html).toContain('Custom test line 1');
     expect(html).toContain('Custom test line 2');
     expect(html).toContain('0:05');
+  });
+
+  it('toggles audio descriptions and updates live announcer on user click', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const descBtn = screen.getByRole('button', { name: /Audio Descriptions:/i });
+    expect(descBtn.getAttribute('aria-pressed')).toBe('false');
+
+    fireEvent.click(descBtn);
+
+    expect(descBtn.getAttribute('aria-pressed')).toBe('true');
+    expect(screen.getByText('Audio Descriptions: ON')).toBeTruthy();
+
+    const liveAnnouncer = document.getElementById('video-transcript-announcer');
+    expect(liveAnnouncer?.textContent).toBe('Audio descriptions enabled');
+
+    fireEvent.click(descBtn);
+
+    expect(descBtn.getAttribute('aria-pressed')).toBe('false');
+    expect(screen.getByText('Audio Descriptions: OFF')).toBeTruthy();
+    expect(liveAnnouncer?.textContent).toBe('Audio descriptions disabled');
+  });
+
+  it('updates currentTime and plays video when cue seek button is clicked', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const video = document.querySelector('video') as HTMLVideoElement;
+    video.play = vi.fn().mockResolvedValue(undefined);
+
+    const seekBtn = screen.getByRole('button', { name: 'Seek video to 0:09' });
+    fireEvent.click(seekBtn);
+
+    expect(video.currentTime).toBe(9);
+    expect(video.play).toHaveBeenCalled();
   });
 });

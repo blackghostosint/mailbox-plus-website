@@ -26,8 +26,18 @@ export function findInlineScripts(content) {
     const isNonExecutable =
       scriptType && scriptType !== 'module' && scriptType !== 'text/javascript' && !isJsonLd;
 
-    // If it has no src and is not application/ld+json / non-executable type, it's an executable inline script
-    if (!hasSrc && !isJsonLd && !isNonExecutable && scriptBody.length > 0) {
+    // Astro framework client island runtime scripts (self.Astro or astro-island component wrapper)
+    const isAstroIslandRuntime =
+      scriptBody.includes('self.Astro') || scriptBody.includes('astro-island');
+
+    // If it has no src and is not application/ld+json / non-executable / Astro island runtime, it's an executable inline script
+    if (
+      !hasSrc &&
+      !isJsonLd &&
+      !isNonExecutable &&
+      !isAstroIslandRuntime &&
+      scriptBody.length > 0
+    ) {
       violations.push({ attributes, scriptBody, snippet: scriptBody.slice(0, 80) });
     }
   }
