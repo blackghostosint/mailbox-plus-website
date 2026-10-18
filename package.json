@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "workspaces": [
+    "astro",
+    "netlify/functions"
+  ],
   "scripts": {
     "dev": "cd astro && npm run dev",
     "prebuild": "node scripts/fetch-reviews.mjs && tsx scripts/generate-route-registry.ts && tsx scripts/generate-llms-articles.ts --write",
@@ -43,7 +47,7 @@
     "seo:check-metadata": "tsx scripts/seo/check-seo-metadata.ts",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
     "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
-    "vault:extract": "cd astro && npx vitest run src/scripts/vault-extract.test.ts",
+    "vault:extract": "npm --prefix astro run test -- src/scripts/vault-extract.test.ts",
     "vault:generate": "python3 scripts/vault-sync/vault-generate.py",
     "vault:sync": "bash scripts/vault-sync/sync.sh",
     "store-photos": "python3 scripts/process_store_photos.py",
