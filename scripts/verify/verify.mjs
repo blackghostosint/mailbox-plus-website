@@ -2059,110 +2059,140 @@ function cmdDocs() {
 }
 
 // ---------- CLI dispatch ----------
-const rawArgs = process.argv.slice(2);
-let cmd = rawArgs[0];
+export function runCli() {
+  const rawArgs = process.argv.slice(2);
+  let cmd = rawArgs[0];
 
-// Default command if none provided or if first arg starts with --
-if (!cmd || cmd.startsWith('--')) {
-  cmd = 'changed';
-}
+  // Default command if none provided or if first arg starts with --
+  if (!cmd || cmd.startsWith('--')) {
+    cmd = 'changed';
+  }
 
-const rest = cmd === rawArgs[0] ? rawArgs.slice(1) : rawArgs;
-const asJson = rest.includes('--json');
-const isStrict = rest.includes('--strict');
-const fileArgs = rest.filter((r) => !r.startsWith('--'));
+  const rest = cmd === rawArgs[0] ? rawArgs.slice(1) : rawArgs;
+  const asJson = rest.includes('--json');
+  const isStrict = rest.includes('--strict');
+  const fileArgs = rest.filter((r) => !r.startsWith('--'));
 
-if (cmd === 'doctor') {
-  cmdDoctor();
-} else if (cmd === 'changed') {
-  cmdChanged(isStrict);
-} else if (cmd === 'article') {
-  if (fileArgs.length === 0) {
-    check(
-      'article:args',
-      false,
-      'no article path provided',
-      'provide path to article markdown file'
-    );
-  } else {
-    for (const f of fileArgs) {
-      const abs = path.isAbsolute(f) ? f : path.join(ROOT, f);
-      const relPath = path.relative(ROOT, abs);
-      if (!fs.existsSync(abs)) {
-        check('file-exists', false, `${f} not found`, 'check file path');
-      } else if (
-        !relPath.startsWith('content/articles/') ||
-        path.basename(relPath).toLowerCase() === 'readme.md'
-      ) {
-        check(
-          'article:skipped',
-          true,
-          `${relPath} is not an article in content/articles/ — skipping`
-        );
-      } else {
-        cmdArticle(abs, isStrict);
+  if (cmd === 'doctor') {
+    cmdDoctor();
+  } else if (cmd === 'changed') {
+    cmdChanged(isStrict);
+  } else if (cmd === 'article') {
+    if (fileArgs.length === 0) {
+      check(
+        'article:args',
+        false,
+        'no article path provided',
+        'provide path to article markdown file'
+      );
+    } else {
+      for (const f of fileArgs) {
+        const abs = path.isAbsolute(f) ? f : path.join(ROOT, f);
+        const relPath = path.relative(ROOT, abs);
+        if (!fs.existsSync(abs)) {
+          check('file-exists', false, `${f} not found`, 'check file path');
+        } else if (
+          !relPath.startsWith('content/articles/') ||
+          path.basename(relPath).toLowerCase() === 'readme.md'
+        ) {
+          check(
+            'article:skipped',
+            true,
+            `${relPath} is not an article in content/articles/ — skipping`
+          );
+        } else {
+          cmdArticle(abs, isStrict);
+        }
       }
     }
-  }
-} else if (cmd === 'articles') {
-  cmdArticles(isStrict);
-} else if (cmd === 'docs') {
-  cmdDocs();
-} else if (cmd === 'doc') {
-  if (fileArgs.length === 0) {
-    check(
-      'doc:args',
-      false,
-      'no doc path provided',
-      'provide path to markdown guide or documentation file'
-    );
-  } else {
-    for (const f of fileArgs) {
-      verifyDocFile(f);
+  } else if (cmd === 'articles') {
+    cmdArticles(isStrict);
+  } else if (cmd === 'docs') {
+    cmdDocs();
+  } else if (cmd === 'doc') {
+    if (fileArgs.length === 0) {
+      check(
+        'doc:args',
+        false,
+        'no doc path provided',
+        'provide path to markdown guide or documentation file'
+      );
+    } else {
+      for (const f of fileArgs) {
+        verifyDocFile(f);
+      }
     }
+  } else if (cmd === 'build') {
+    cmdBuild();
+  } else if (cmd === 'sitemap') {
+    cmdSitemap(fileArgs[0]);
+  } else if (cmd === 'review' && fileArgs[0]) {
+    cmdReview(fileArgs[0]);
+  } else if (cmd === 'headings') {
+    cmdHeadings();
+  } else if (cmd === 'seo-gates') {
+    cmdSeoGates();
+  } else {
+    console.log(
+      'usage: node scripts/verify/verify.mjs <doctor|changed [--strict]|article <path...> [--strict]|articles [--strict]|docs|doc <path...>|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
+    );
+    process.exit(2);
   }
-} else if (cmd === 'build') {
-  cmdBuild();
-} else if (cmd === 'sitemap') {
-  cmdSitemap(fileArgs[0]);
-} else if (cmd === 'review' && fileArgs[0]) {
-  cmdReview(fileArgs[0]);
-} else if (cmd === 'headings') {
-  cmdHeadings();
-} else if (cmd === 'seo-gates') {
-  cmdSeoGates();
-} else {
-  console.log(
-    'usage: node scripts/verify/verify.mjs <doctor|changed [--strict]|article <path...> [--strict]|articles [--strict]|docs|doc <path...>|review <path>|headings|build|sitemap [path]|seo-gates> [--json] [--offline]'
-  );
-  process.exit(2);
+
+  if (cmd !== 'articles') {
+    const failed = results.filter((r) => !r.pass);
+    if (asJson) {
+      console.log(
+        JSON.stringify(
+          {
+            ok: failed.length === 0,
+            passed: results.length - failed.length,
+            failed: failed.length,
+            results,
+          },
+          null,
+          2
+        )
+      );
+    } else {
+      for (const r of results) {
+        const icon = r.pass ? '✅' : '❌';
+        const filePrefix = r.file ? `[${r.file}] ` : '';
+        console.log(`${icon} ${filePrefix}${r.name}${r.detail ? ' — ' + r.detail : ''}`);
+        if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
+      }
+      console.log(
+        `\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`
+      );
+    }
+    process.exit(failed.length === 0 ? 0 : 1);
+  }
 }
 
-if (cmd !== 'articles') {
-  const failed = results.filter((r) => !r.pass);
-  if (asJson) {
-    console.log(
-      JSON.stringify(
-        {
-          ok: failed.length === 0,
-          passed: results.length - failed.length,
-          failed: failed.length,
-          results,
-        },
-        null,
-        2
-      )
-    );
-  } else {
-    for (const r of results) {
-      const icon = r.pass ? '✅' : '❌';
-      const filePrefix = r.file ? `[${r.file}] ` : '';
-      console.log(`${icon} ${filePrefix}${r.name}${r.detail ? ' — ' + r.detail : ''}`);
-      if (!r.pass && r.fix) console.log(`   fix: ${r.fix}`);
-    }
-    console.log(
-      `\n${failed.length === 0 ? 'ALL CHECKS PASSED' : `${failed.length} FAILURE(S)`} (${results.length} checks)`
-    );
-  }
-  process.exit(failed.length === 0 ? 0 : 1);
+export {
+  cmdDoctor,
+  cmdArticle,
+  cmdArticles,
+  cmdChanged,
+  cmdDocs,
+  cmdHeadings,
+  cmdBuild,
+  cmdSitemap,
+  cmdReview,
+  cmdSeoGates,
+  verifyDocFile,
+  check,
+  results,
+  isKnownRoute,
+  initRouteRegistry,
+  getChangedArticleFiles,
+  normalizeRoute,
+  extractH2s,
+};
+
+const isMain =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isMain) {
+  runCli();
 }

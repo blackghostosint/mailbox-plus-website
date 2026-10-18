@@ -784,6 +784,10 @@ export {
   parseArgs,
   saveAuditReport,
   CATEGORIES,
+  startBackgroundServer,
+  cleanupServer,
+  chunkArray,
+  main,
 };
 
 const isMain =

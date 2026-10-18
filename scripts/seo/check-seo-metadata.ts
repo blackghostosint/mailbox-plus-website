@@ -52,32 +52,17 @@ function discoverServiceMetadata() {
   return { ogImageChecks, imageObjectSchemaChecks };
 }
 
-function main() {
-  console.log('==================================================');
-  console.log('      SEO METADATA & SCHEMA VERIFICATION CHECK    ');
-  console.log('==================================================\n');
-
-  if (!fs.existsSync(DIST_DIR)) {
-    console.error(`❌ Error: Build output directory "${DIST_DIR}" does not exist.`);
-    process.exit(1);
+export function checkSeoMetadata(distDir = DIST_DIR) {
+  if (!fs.existsSync(distDir)) {
+    return { ok: false, error: `Build output directory "${distDir}" does not exist.`, errors: 0 };
   }
 
   const { ogImageChecks, imageObjectSchemaChecks } = discoverServiceMetadata();
-  console.log(
-    `Discovered ${ogImageChecks.length} og:image route requirement(s) from service configs.`
-  );
-  console.log(
-    `Discovered ${imageObjectSchemaChecks.length} ImageObject schema route requirement(s) from service configs.\n`
-  );
-
   let errors = 0;
 
   for (const item of ogImageChecks) {
-    const htmlFile = path.join(DIST_DIR, item.route, 'index.html');
+    const htmlFile = path.join(distDir, item.route, 'index.html');
     if (!fs.existsSync(htmlFile)) {
-      console.error(
-        `❌ FAIL: Expected build output page "${item.route}/index.html" does not exist.`
-      );
       errors++;
       continue;
     }
@@ -89,39 +74,62 @@ function main() {
     );
 
     if (!ogImageMetaPattern.test(html)) {
-      console.error(
-        `❌ FAIL: "${item.route}" HTML does not contain expected og:image meta tag matching "${item.expectedOgImage}"`
-      );
       errors++;
-    } else {
-      console.log(`✅ PASS: "${item.route}" contains correct og:image meta tag.`);
     }
   }
 
   for (const route of imageObjectSchemaChecks) {
-    const htmlFile = path.join(DIST_DIR, route, 'index.html');
+    const htmlFile = path.join(distDir, route, 'index.html');
     if (!fs.existsSync(htmlFile)) {
-      console.error(`❌ FAIL: Expected build output page "${route}/index.html" does not exist.`);
       errors++;
       continue;
     }
 
     const html = fs.readFileSync(htmlFile, 'utf8');
     if (!html.includes('"@type":"ImageObject"') && !html.includes('"@type": "ImageObject"')) {
-      console.error(`❌ FAIL: "${route}" HTML does not contain ImageObject JSON-LD schema block.`);
       errors++;
-    } else {
-      console.log(`✅ PASS: "${route}" contains ImageObject JSON-LD schema.`);
     }
   }
 
-  if (errors > 0) {
-    console.error(`\n❌ SEO metadata verification FAILED with ${errors} error(s).\n`);
+  return {
+    ok: errors === 0,
+    errors,
+    ogImageCount: ogImageChecks.length,
+    imageObjectCount: imageObjectSchemaChecks.length,
+  };
+}
+
+export function main() {
+  console.log('==================================================');
+  console.log('      SEO METADATA & SCHEMA VERIFICATION CHECK    ');
+  console.log('==================================================\n');
+
+  const res = checkSeoMetadata();
+  if (!res.ok) {
+    if (res.error) {
+      console.error(`❌ Error: ${res.error}`);
+    } else {
+      console.error(`\n❌ SEO metadata verification FAILED with ${res.errors} error(s).\n`);
+    }
     process.exit(1);
   } else {
-    console.log('\n🎉 SEO metadata verification PASSED successfully!\n');
+    console.log(
+      `Discovered ${res.ogImageCount} og:image route requirement(s) from service configs.`
+    );
+    console.log(
+      `Discovered ${res.imageObjectCount} ImageObject schema route requirement(s) from service configs.\n`
+    );
+    console.log('🎉 SEO metadata verification PASSED successfully!\n');
     process.exit(0);
   }
 }
 
-main();
+export { discoverServiceMetadata };
+
+const isMain =
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
+
+if (isMain) {
+  main();
+}

@@ -125,7 +125,7 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
-      - name: Run Astro unit tests
+      - name: Run Vitest unit tests & coverage
         run: npm run test:coverage
 
       - name: Run vault sync dry-run
