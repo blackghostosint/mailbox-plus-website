@@ -7,6 +7,7 @@
 import Stripe from 'stripe';
 import * as dotenv from 'dotenv';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
+import { withRecaptcha } from './lib/recaptcha';
 import { logger } from './lib/logger';
 import { CreateCheckoutRequestSchema, CreateCheckoutSuccessSchema } from './lib/contracts';
 import { getStripeSecretKey, getSiteUrl, getTierConfig, TIER_CONFIG } from './lib/fallbacks';
@@ -20,7 +21,7 @@ const stripe = new Stripe(getStripeSecretKey());
 const KEY_DEPOSIT_LOOKUP_KEY = 'pmb_fee_key_deposit';
 
 export default withCors(
-  async (request: Request) => {
+  withRecaptcha(async (request: Request) => {
     if (request.method !== 'POST') {
       return jsonError('Method not allowed', 405);
     }
@@ -124,6 +125,6 @@ export default withCors(
       logger.error('create-checkout error', err);
       return jsonError('Failed to create checkout session', 500);
     }
-  },
+  }),
   { allowOrigin: DEFAULT_ALLOWED_ORIGINS, rateLimit: { maxRequests: 10, windowMs: 60 * 1000 } }
 );

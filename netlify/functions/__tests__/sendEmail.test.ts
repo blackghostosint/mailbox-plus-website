@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import handler from '../sendEmail';
-import { verifyRecaptchaToken } from '../lib/recaptcha';
+import { verifyRecaptchaToken, recaptchaVerifier } from '../lib/recaptcha';
 import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 // Mock dependencies before importing handler
@@ -8,10 +8,6 @@ vi.mock('@netlify/blobs', () => ({
   getStore: vi.fn().mockImplementation(() => {
     throw new Error('Blobs store disabled in test environment');
   }),
-}));
-
-vi.mock('../lib/recaptcha', () => ({
-  verifyRecaptchaToken: vi.fn(),
 }));
 
 const mockSend = vi.fn();
@@ -30,9 +26,13 @@ describe('sendEmail function handler', () => {
   let ipCounter = 1;
 
   beforeEach(() => {
-    vi.resetModules();
     vi.clearAllMocks();
-    process.env = { ...originalEnv, RESEND_API_KEY: 'test_resend_key' };
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
+    process.env = {
+      ...originalEnv,
+      RESEND_API_KEY: 'test_resend_key',
+      RECAPTCHA_SECRET_KEY: 'test_recaptcha_secret_key',
+    };
   });
 
   afterEach(() => {
@@ -70,7 +70,7 @@ describe('sendEmail function handler', () => {
   });
 
   it('returns 400 if reCAPTCHA verification fails', async () => {
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(false);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(false);
 
     const req = createMockNetlifyRequest({
       url: 'https://example.com/.netlify/functions/sendEmail',
@@ -91,7 +91,7 @@ describe('sendEmail function handler', () => {
   });
 
   it('returns 400 if email is missing or malformed', async () => {
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     const ctx = createMockNetlifyContext();
 
     const reqMissingEmail = createMockNetlifyRequest({
@@ -121,7 +121,7 @@ describe('sendEmail function handler', () => {
   });
 
   it('returns 400 if field type is non-string', async () => {
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     const ctx = createMockNetlifyContext();
 
     const reqNonStringField = createMockNetlifyRequest({
@@ -142,7 +142,7 @@ describe('sendEmail function handler', () => {
 
   it('returns 500 if RESEND_API_KEY is missing', async () => {
     delete process.env.RESEND_API_KEY;
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     const ctx = createMockNetlifyContext();
 
     const req = createMockNetlifyRequest({
@@ -163,7 +163,7 @@ describe('sendEmail function handler', () => {
   });
 
   it('escapes user inputs in HTML email body and sends email successfully', async () => {
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     mockSend.mockResolvedValue({ id: 'msg_123' });
     const ctx = createMockNetlifyContext();
 
@@ -206,7 +206,7 @@ describe('sendEmail function handler', () => {
   });
 
   it('enforces rate limit of 5 requests per 10 minutes and returns 429 on 6th attempt', async () => {
-    vi.mocked(verifyRecaptchaToken).mockResolvedValue(true);
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     mockSend.mockResolvedValue({ id: 'msg_123' });
 
     const clientIp = '203.0.113.77';

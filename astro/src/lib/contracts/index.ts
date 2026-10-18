@@ -26,6 +26,7 @@ export const CreateCheckoutRequestSchema = z.object({
   tier: z.string().refine((val) => ValidCheckoutTiers.options.includes(val as ValidCheckoutTier), {
     message: `Invalid tier. Must be one of: ${ValidCheckoutTiers.options.join(', ')}`,
   }),
+  recaptchaToken: z.string().nullable().optional(),
 });
 export type CreateCheckoutRequest = z.infer<typeof CreateCheckoutRequestSchema>;
 

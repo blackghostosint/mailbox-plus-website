@@ -38,8 +38,18 @@ vi.mock('resend', () => {
   };
 });
 
-vi.mock('../../../../netlify/functions/lib/recaptcha', () => ({
-  verifyRecaptchaToken: vi.fn().mockResolvedValue(true),
+vi.mock('../../../../netlify/functions/lib/recaptcha', async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import('../../../../netlify/functions/lib/recaptcha')>();
+  return {
+    ...actual,
+    verifyRecaptchaToken: vi.fn().mockResolvedValue(true),
+  };
+});
+
+vi.mock('../recaptcha-loader', () => ({
+  loadRecaptchaScript: vi.fn().mockResolvedValue(undefined),
+  executeRecaptcha: vi.fn().mockResolvedValue('mock_recaptcha_token'),
 }));
 
 vi.mock('@netlify/blobs', () => ({
@@ -55,6 +65,7 @@ import reviewsHandler from '../../../../netlify/functions/reviews';
 import verifySessionHandler from '../../../../netlify/functions/verify-session';
 import cspReportHandler from '../../../../netlify/functions/csp-report';
 import healthHandler from '../../../../netlify/functions/health';
+import { recaptchaVerifier } from '../../../../netlify/functions/lib/recaptcha';
 
 import { createCheckoutSession } from '../checkout';
 import { submitContactForm } from '../contact-form';
@@ -97,12 +108,15 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   beforeEach(() => {
     vi.resetModules();
     vi.clearAllMocks();
+    vi.spyOn(recaptchaVerifier, 'verify').mockResolvedValue(true);
     process.env = {
       ...originalEnv,
       STRIPE_SECRET_KEY: 'sk_test_mock_secret',
       RESEND_API_KEY: 're_mock_api_key',
       GOOGLE_PLACES_API_KEY: 'AIzaMockKey',
       SITE_URL: 'https://mailboxplusohio.com',
+      RECAPTCHA_SECRET_KEY: 'mock_recaptcha_secret',
+      VITE_RECAPTCHA_SITE_KEY: 'mock_recaptcha_site_key',
     };
 
     vi.stubGlobal('fetch', async (input: RequestInfo | URL, init?: RequestInit) => {
