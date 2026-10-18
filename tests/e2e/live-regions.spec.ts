@@ -27,6 +27,38 @@ test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', ()
     await expect(copyBtn).toBeFocused();
   });
 
+  test('Amazon counter page fuel-math share button derives accessible name from inner image alt text and caption without aria-label override', async ({
+    page,
+    context,
+  }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write']).catch(() => {});
+
+    await page.goto('/amazon-counter/');
+
+    const fuelMathBtn = page.locator('#share-fuelmath-btn');
+    await expect(fuelMathBtn).toBeVisible();
+
+    // Verify aria-label override is absent
+    await expect(fuelMathBtn).not.toHaveAttribute('aria-label');
+
+    // Verify accessible name includes inner image alt text and caption
+    const accessibleName = await fuelMathBtn.ariaSnapshot();
+    expect(accessibleName).toContain(
+      "Whiteboard graphic comparing Amazon's current returns system"
+    );
+    expect(accessibleName).toContain('Tap to share this graphic');
+
+    await expect(fuelMathBtn).toHaveAccessibleName(
+      /Whiteboard graphic comparing Amazon's current returns system.*Tap to share this graphic/s
+    );
+
+    // Verify click handler triggers fallback clipboard copy or share
+    await fuelMathBtn.click();
+    const toast = page.locator('.copy-toast');
+    await expect(toast).toBeVisible();
+    await expect(toast).toHaveText('Copied!');
+  });
+
   test('404 error page #quote paragraph declares role="status", aria-live="polite", and aria-atomic="true"', async ({
     page,
   }) => {
