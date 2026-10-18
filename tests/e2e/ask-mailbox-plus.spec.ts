@@ -10,6 +10,9 @@ test.describe('Ask Mailbox Plus / FAQ Pathway', () => {
 
     const faqCount = await askPage.getFaqCount();
     expect(faqCount).toBeGreaterThan(0);
+
+    const firstSummaryHeading = page.locator('details summary h2').first();
+    await expect(firstSummaryHeading).toBeVisible();
   });
 
   test('toggles FAQ accordion disclosure items smoothly', async ({ page }) => {
