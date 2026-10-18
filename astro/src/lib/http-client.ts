@@ -308,8 +308,14 @@ export async function httpClient<T = unknown>(
     let shouldRetryThis = false;
 
     if (!isCustomAborted && attempt < effectiveMaxRetries) {
+      const isTimeoutError =
+        Boolean(errorToThrow?.isTimeout) || isAttemptTimedOut || errorToThrow?.status === 408;
+      const isNetworkError = !response || errorToThrow?.status === undefined;
+
       if (customShouldRetry) {
         shouldRetryThis = customShouldRetry(errorToThrow, response, attempt);
+      } else if (isTimeoutError || isNetworkError) {
+        shouldRetryThis = true;
       } else if (response) {
         shouldRetryThis = retryStatuses.includes(response.status);
       } else if (errorToThrow) {

@@ -398,6 +398,83 @@ describe('http-client module', () => {
         isTimeout: true,
       });
     });
+
+    it('retries and succeeds when response body parsing json() times out on 200 response', async () => {
+      let attempts = 0;
+      const fetchMock = vi.fn().mockImplementation((_url, options?: { signal?: AbortSignal }) => {
+        attempts++;
+        if (attempts === 1) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            headers: new Headers({ 'content-type': 'application/json' }),
+            json: () =>
+              new Promise((_resolve, reject) => {
+                options?.signal?.addEventListener('abort', () => {
+                  const err = new Error('Aborted');
+                  err.name = 'AbortError';
+                  reject(err);
+                });
+              }),
+          });
+        }
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          headers: new Headers({ 'content-type': 'application/json' }),
+          json: async () => ({ rating: 4.8 }),
+        });
+      });
+
+      const promise = httpClient('/api/hanging-json-then-ok', {
+        timeout: 100,
+        maxRetries: 2,
+        initialDelayMs: 50,
+        fetch: fetchMock,
+      });
+
+      await vi.runAllTimersAsync();
+      const result = await promise;
+
+      expect(result).toEqual({ rating: 4.8 });
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
+
+    it('retries when response body read throws network stream error on 200 response', async () => {
+      let attempts = 0;
+      const fetchMock = vi.fn().mockImplementation(() => {
+        attempts++;
+        if (attempts === 1) {
+          return Promise.resolve({
+            ok: true,
+            status: 200,
+            headers: new Headers({ 'content-type': 'application/json' }),
+            json: async () => {
+              throw new Error('socket hung up');
+            },
+          });
+        }
+        return Promise.resolve({
+          ok: true,
+          status: 200,
+          headers: new Headers({ 'content-type': 'application/json' }),
+          json: async () => ({ rating: 5.0 }),
+        });
+      });
+
+      const promise = httpClient('/api/network-error-body', {
+        timeout: 100,
+        maxRetries: 2,
+        initialDelayMs: 50,
+        fetch: fetchMock,
+      });
+
+      await vi.runAllTimersAsync();
+      const result = await promise;
+
+      expect(result).toEqual({ rating: 5.0 });
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    });
   });
 
   describe('httpGet and httpPost helpers', () => {
