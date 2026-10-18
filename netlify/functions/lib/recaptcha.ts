@@ -1,5 +1,11 @@
 import { logger } from './logger';
 import { getRecaptchaMinScore } from './fallbacks';
+import { jsonError, type WebHandler } from './cors';
+import { getClientIp } from './rate-limiter';
+
+export interface RecaptchaOptions {
+  action?: string;
+}
 
 export async function verifyRecaptchaToken(token?: string, remoteip?: string): Promise<boolean> {
   if (!token || typeof token !== 'string' || token.trim() === '') {
@@ -54,3 +60,54 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
     return false;
   }
 }
+
+export const recaptchaVerifier = {
+  verify: verifyRecaptchaToken,
+};
+
+/**
+ * Composable higher-order middleware function that wraps Netlify serverless handlers
+ * to enforce reCAPTCHA v3 token verification on state-changing requests (e.g. POST).
+ */
+export function withRecaptcha(handler: WebHandler, _options?: RecaptchaOptions): WebHandler {
+  return async (request: Request, context?: any) => {
+    const method = request.method ? request.method.toUpperCase() : 'GET';
+
+    // Bypass reCAPTCHA check for read-only / non-POST requests (GET, OPTIONS, etc.)
+    if (method !== 'POST') {
+      return handler(request, context);
+    }
+
+    const headerToken =
+      request.headers.get('x-recaptcha-token') ||
+      request.headers.get('recaptcha-token') ||
+      request.headers.get('recaptchaToken') ||
+      undefined;
+
+    let bodyToken: string | undefined;
+    if (!request.bodyUsed) {
+      try {
+        const clonedReq = request.clone();
+        const body = await clonedReq.json();
+        if (body && typeof body === 'object' && typeof body.recaptchaToken === 'string') {
+          bodyToken = body.recaptchaToken;
+        } else if (body && typeof body === 'object' && typeof body.recaptcha_token === 'string') {
+          bodyToken = body.recaptcha_token;
+        }
+      } catch {
+        // Body was not valid JSON or could not be cloned
+      }
+    }
+
+    const token = headerToken || bodyToken;
+    const clientIp = getClientIp(request.headers);
+
+    const isValid = await recaptchaVerifier.verify(token, clientIp);
+    if (!isValid) {
+      return jsonError('reCAPTCHA verification failed', 400);
+    }
+
+    return handler(request, context);
+  };
+}
+
