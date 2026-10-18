@@ -248,6 +248,9 @@ describe('reviews module', () => {
       document.body.innerHTML = `
         <span id="reviews-count">0</span>
         <span id="reviews-rating">0</span>
+        <div id="reviews-stars">
+          <span class="sr-only" id="reviews-rating-sr">0 out of 5 stars</span>
+        </div>
         <div id="reviews-list"></div>
       `;
 
@@ -282,6 +285,7 @@ describe('reviews module', () => {
 
       expect(document.getElementById('reviews-count')?.textContent).toBe('150');
       expect(document.getElementById('reviews-rating')?.textContent).toBe('4.9');
+      expect(document.getElementById('reviews-rating-sr')?.textContent).toBe('4.9 out of 5 stars');
 
       const listEl = document.getElementById('reviews-list');
       expect(listEl?.children.length).toBe(2);
@@ -295,6 +299,9 @@ describe('reviews module', () => {
       document.body.innerHTML = `
         <span id="reviews-count">100</span>
         <span id="reviews-rating">4.8</span>
+        <div id="reviews-stars">
+          <span class="sr-only" id="reviews-rating-sr">4.8 out of 5 stars</span>
+        </div>
         <div id="reviews-list"><div>Static</div></div>
       `;
 
@@ -310,6 +317,7 @@ describe('reviews module', () => {
       await initReviewSection();
 
       expect(document.getElementById('reviews-count')?.textContent).toBe('100');
+      expect(document.getElementById('reviews-rating-sr')?.textContent).toBe('4.8 out of 5 stars');
       expect(document.getElementById('reviews-list')?.children.length).toBe(1);
       warnSpy.mockRestore();
     });

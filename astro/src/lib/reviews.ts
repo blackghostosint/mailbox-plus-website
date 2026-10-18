@@ -87,12 +87,16 @@ export async function initReviewSection(): Promise<void> {
 
     const countEl = document.getElementById('reviews-count');
     const ratingEl = document.getElementById('reviews-rating');
+    const ratingSrEl = document.getElementById('reviews-rating-sr');
 
     if (countEl && typeof data.userRatingCount === 'number') {
       countEl.textContent = String(data.userRatingCount);
     }
     if (ratingEl && typeof data.rating === 'number') {
       ratingEl.textContent = String(data.rating);
+    }
+    if (ratingSrEl && typeof data.rating === 'number') {
+      ratingSrEl.textContent = `${data.rating} out of 5 stars`;
     }
 
     const listEl = document.getElementById('reviews-list');
