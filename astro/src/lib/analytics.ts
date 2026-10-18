@@ -1,4 +1,5 @@
 import { initAnalyticsStubs } from '../utils/hydration-helpers';
+import { onDOMReady } from './dom-utils';
 
 export interface PurchaseParams {
   transactionId?: string;
@@ -241,11 +242,7 @@ export function initAnalytics(): void {
     ).observe(el);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', watchPricing);
-  } else {
-    watchPricing();
-  }
+  onDOMReady(watchPricing);
 
   // --- 4. Outbound provider sign-up clicks ---
   const PROVIDER_HOSTS = ['ipostal1.com', 'anytimemailbox.com', 'postscanmail.com'];

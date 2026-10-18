@@ -173,10 +173,8 @@ const recaptchaSiteKey =
 
   <script>
   import { initContactForms } from '../lib/contact-form';
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initContactForms);
-  } else {
-    initContactForms();
-  }
+  import { onDOMReady } from '../lib/dom-utils';
+
+  onDOMReady(initContactForms);
 </script>
 </BaseLayout>
