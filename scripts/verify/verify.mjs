@@ -1803,6 +1803,9 @@ function verifyDocFile(arg) {
   });
 
   check('doc:valid', true, `verified ${fileCheckCount} path/link reference(s)`, null, relPath);
+  if (relPath === 'docs/SECURITY.md') {
+    verifySecurityDocs();
+  }
   currentFile = prevFile;
 }
 
@@ -1828,6 +1831,225 @@ function getDocFiles() {
   }
 
   return targets;
+}
+
+function verifySecurityDocs() {
+  const prevFile = currentFile;
+  const secDocRel = 'docs/SECURITY.md';
+  currentFile = secDocRel;
+  const secDocAbs = path.join(ROOT, secDocRel);
+  const envExampleAbs = path.join(ROOT, '.env.example');
+  const netlifyTomlAbs = path.join(ROOT, 'netlify.toml');
+
+  if (!fs.existsSync(secDocAbs)) {
+    check(
+      'doc:security-exists',
+      false,
+      `${secDocRel} not found on disk`,
+      'create docs/SECURITY.md',
+      secDocRel
+    );
+    currentFile = prevFile;
+    return;
+  }
+
+  const secContent = fs.readFileSync(secDocAbs, 'utf8');
+
+  // 1) Environment variable synchronization check
+  if (fs.existsSync(envExampleAbs)) {
+    const envContent = fs.readFileSync(envExampleAbs, 'utf8');
+    const envKeys = extractEnvKeys(envContent);
+    const missingEnvKeys = [];
+    for (const key of envKeys) {
+      if (!secContent.includes(key)) {
+        missingEnvKeys.push(key);
+      }
+    }
+
+    if (missingEnvKeys.length > 0) {
+      check(
+        'doc:security-env-vars',
+        false,
+        `${missingEnvKeys.length} environment variable(s) from .env.example missing in ${secDocRel}: ${missingEnvKeys.join(', ')}`,
+        `Add missing environment variables to ${secDocRel} Section 4 Secret Rotation Guide`,
+        secDocRel
+      );
+    } else {
+      check(
+        'doc:security-env-vars',
+        true,
+        `all ${envKeys.size} environment variable(s) from .env.example are documented in ${secDocRel}`,
+        null,
+        secDocRel
+      );
+    }
+  } else {
+    check(
+      'doc:security-env-vars',
+      false,
+      '.env.example missing on disk',
+      'ensure .env.example exists in repository root',
+      secDocRel
+    );
+  }
+
+  // 2) Header configuration and rate limiter reference check
+  if (fs.existsSync(netlifyTomlAbs)) {
+    const tomlContent = fs.readFileSync(netlifyTomlAbs, 'utf8');
+    const lines = tomlContent.split('\n');
+    let headerStartLine = -1;
+    let headerEndLine = -1;
+    const expectedHeaderRefs = new Map();
+
+    for (let idx = 0; idx < lines.length; idx++) {
+      const line = lines[idx];
+      const lineNum = idx + 1;
+
+      if (line.trim() === '[[headers]]' && headerStartLine === -1) {
+        headerStartLine = lineNum;
+      }
+      if (headerStartLine !== -1 && line.includes('Report-To =')) {
+        headerEndLine = lineNum;
+      }
+
+      if (line.includes('X-Frame-Options =')) {
+        expectedHeaderRefs.set('X-Frame-Options', `netlify.toml:${lineNum}`);
+      } else if (line.includes('X-Content-Type-Options =')) {
+        expectedHeaderRefs.set('X-Content-Type-Options', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Referrer-Policy =')) {
+        expectedHeaderRefs.set('Referrer-Policy', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Permissions-Policy =')) {
+        expectedHeaderRefs.set('Permissions-Policy', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Strict-Transport-Security =')) {
+        expectedHeaderRefs.set('Strict-Transport-Security', `netlify.toml:${lineNum}`);
+      } else if (line.includes('Content-Security-Policy =')) {
+        const cspStart = lineNum;
+        let cspEnd = lineNum;
+        if (line.includes('"""')) {
+          for (let j = idx + 1; j < lines.length; j++) {
+            if (lines[j].includes('"""')) {
+              cspEnd = j + 1;
+              break;
+            }
+          }
+        }
+        expectedHeaderRefs.set('Content-Security-Policy', `netlify.toml:${cspStart}-${cspEnd}`);
+      }
+    }
+
+    const docTomlRefs = secContent.match(/netlify\.toml:\d+(?:-\d+)?/g) || [];
+    const validRefs = new Set(expectedHeaderRefs.values());
+
+    // Extract documented header-to-reference mapping from table rows in docs/SECURITY.md
+    const docHeaderRefs = new Map();
+    const secLines = secContent.split('\n');
+    for (const line of secLines) {
+      if (line.includes('|') && line.includes('netlify.toml:')) {
+        const parts = line.split('|').map((p) => p.trim());
+        if (parts.length >= 4) {
+          const controlText = parts[1];
+          const locText = parts[3];
+          const refMatch = locText.match(/netlify\.toml:\d+(?:-\d+)?/);
+          if (refMatch) {
+            const refStr = refMatch[0];
+            if (/CSP|Content-Security-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Content-Security-Policy', refStr);
+            } else if (/HSTS|Strict-Transport-Security/i.test(controlText)) {
+              docHeaderRefs.set('Strict-Transport-Security', refStr);
+            } else if (/X-Frame-Options/i.test(controlText)) {
+              docHeaderRefs.set('X-Frame-Options', refStr);
+            } else if (/X-Content-Type-Options/i.test(controlText)) {
+              docHeaderRefs.set('X-Content-Type-Options', refStr);
+            } else if (/Referrer-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Referrer-Policy', refStr);
+            } else if (/Permissions-Policy/i.test(controlText)) {
+              docHeaderRefs.set('Permissions-Policy', refStr);
+            }
+          }
+        }
+      }
+    }
+
+    let headerMismatch = null;
+    for (const [hdrName, expectedRef] of expectedHeaderRefs.entries()) {
+      const docRef = docHeaderRefs.get(hdrName);
+      if (!docRef) {
+        headerMismatch = {
+          hdrName,
+          expectedRef,
+          docRef: null,
+          reason: `missing documented table row for ${hdrName} in ${secDocRel} (expected ${expectedRef})`,
+        };
+        break;
+      }
+      if (docRef !== expectedRef) {
+        headerMismatch = {
+          hdrName,
+          expectedRef,
+          docRef,
+          reason: `mismatched netlify.toml reference for ${hdrName} in ${secDocRel}: table row specifies ${docRef}, expected ${expectedRef}`,
+        };
+        break;
+      }
+    }
+
+    const invalidDocRef = docTomlRefs.find((ref) => !validRefs.has(ref));
+
+    const mentionsRateLimiter = secContent.includes('netlify/functions/lib/rate-limiter.ts');
+    const mentionsKnownGapRateLimiting = /No rate limiting on `?\/api\/\*`?/i.test(secContent);
+
+    if (headerMismatch) {
+      check(
+        'doc:security-headers',
+        false,
+        headerMismatch.reason,
+        `Update ${headerMismatch.hdrName} reference in ${secDocRel} table row to match current line ${headerMismatch.expectedRef}`,
+        secDocRel
+      );
+    } else if (invalidDocRef) {
+      check(
+        'doc:security-headers',
+        false,
+        `invalid netlify.toml reference ${invalidDocRef} found in ${secDocRel}`,
+        `Update or remove invalid reference ${invalidDocRef} in ${secDocRel} to match active netlify.toml header line numbers`,
+        secDocRel
+      );
+    } else if (!mentionsRateLimiter) {
+      check(
+        'doc:security-headers',
+        false,
+        `rate-limiter control (netlify/functions/lib/rate-limiter.ts) missing in ${secDocRel}`,
+        `Add rate limiting to "What's already protected" in ${secDocRel}`,
+        secDocRel
+      );
+    } else if (mentionsKnownGapRateLimiting) {
+      check(
+        'doc:security-headers',
+        false,
+        `rate limiting is still listed as a known gap in ${secDocRel}`,
+        `Remove rate limiting from "Known gaps" in ${secDocRel}`,
+        secDocRel
+      );
+    } else {
+      check(
+        'doc:security-headers',
+        true,
+        `header configurations (lines ${headerStartLine}-${headerEndLine}) and rate limiting control accurately referenced in ${secDocRel}`,
+        null,
+        secDocRel
+      );
+    }
+  } else {
+    check(
+      'doc:security-headers',
+      false,
+      'netlify.toml missing on disk',
+      'ensure netlify.toml exists in repository root',
+      secDocRel
+    );
+  }
+
+  currentFile = prevFile;
 }
 
 function cmdDocs() {
