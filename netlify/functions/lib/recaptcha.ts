@@ -1,5 +1,6 @@
 import { logger } from './logger';
 import { getRecaptchaMinScore } from './fallbacks';
+import { httpClient } from './http-client';
 import { jsonError, type WebHandler } from './cors';
 import { getClientIp } from './rate-limiter';
 
@@ -19,9 +20,6 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
   }
 
   try {
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 3000);
-
     const bodyParams = new URLSearchParams({
       secret,
       response: token,
@@ -30,21 +28,19 @@ export async function verifyRecaptchaToken(token?: string, remoteip?: string): P
       bodyParams.append('remoteip', remoteip);
     }
 
-    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: bodyParams.toString(),
-      signal: controller.signal,
-    });
+    const data = await httpClient<{ success?: boolean; score?: number }>(
+      'https://www.google.com/recaptcha/api/siteverify',
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: bodyParams.toString(),
+        timeout: 3000,
+        maxRetries: 2,
+        retryPost: true,
+      }
+    );
 
-    clearTimeout(timeoutId);
-
-    if (!response.ok) {
-      return false;
-    }
-
-    const data = (await response.json()) as { success?: boolean; score?: number };
-    if (!data.success) {
+    if (!data || !data.success) {
       return false;
     }
 
