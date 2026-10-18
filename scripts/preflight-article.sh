@@ -5,15 +5,23 @@
 set -uo pipefail
 FAIL=0
 
+LOG_FILE=$(mktemp)
+trap 'rm -f "$LOG_FILE"' EXIT INT TERM
+
 echo "== article preflight =="
 
 # 1. LLM feeds in sync (failed: #620, #638)
-npm run prebuild >/dev/null 2>&1
-if ! git diff --quiet -- public/llms.txt public/llms-full.txt; then
-  echo "❌ feeds: llms.txt/llms-full.txt out of sync — run npm run prebuild, commit, and push again."
+if ! npm run prebuild >"$LOG_FILE" 2>&1; then
+  echo "❌ feeds: prebuild failed"
+  cat "$LOG_FILE"
   FAIL=1
 else
-  echo "✅ feeds: in sync"
+  if ! git diff --quiet -- public/llms.txt public/llms-full.txt; then
+    echo "❌ feeds: llms.txt/llms-full.txt out of sync — run npm run prebuild, commit, and push again."
+    FAIL=1
+  else
+    echo "✅ feeds: in sync"
+  fi
 fi
 
 # 2. copy review: DECOUPLED FROM PRE-PUSH.
@@ -62,8 +70,9 @@ for f in "${ARTICLES[@]}"; do
 done
 
 # 4. trailing slashes on internal links (rule 1, CI enforces — check early)
-if ! npm run seo:check-href-slash >/dev/null 2>&1; then
+if ! npm run seo:check-href-slash >"$LOG_FILE" 2>&1; then
   echo "❌ seo: internal link missing trailing slash"
+  cat "$LOG_FILE"
   FAIL=1
 else
   echo "✅ seo: href slashes OK"

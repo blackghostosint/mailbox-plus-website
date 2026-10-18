@@ -420,7 +420,7 @@ async function main() {
   }
 
   if (!target) {
-    console.log(
+    console.error(
       'Usage: npx tsx scripts/review-article-copy.ts <target> [--model <model>] [--provider <provider>] [--base-url <url>] [--api-key <key>] [--min-score <score>] [--json]'
     );
     process.exit(1);
@@ -428,7 +428,7 @@ async function main() {
 
   const files = resolveFiles(target);
   if (files.length === 0) {
-    console.log(`No markdown files found matching: ${target}`);
+    console.error(`No markdown files found matching: ${target}`);
     process.exit(1);
   }
 
