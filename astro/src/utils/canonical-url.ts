@@ -141,3 +141,13 @@ export function normalizeContentHrefs(html: string): string {
     }
   );
 }
+
+/**
+ * Normalizes h4 elements in content strings to h3 elements to ensure sequential
+ * heading hierarchy (h2 -> h3) for WCAG 2.1 SC 1.3.1 compliance.
+ * Preserves all attributes, CSS classes, and inline styles on transformed tags.
+ */
+export function normalizeContentHeadings(html: string): string {
+  if (!html) return html;
+  return html.replace(/<(\/?)h4(\s|>|\/)/gi, '<$1h3$2');
+}
