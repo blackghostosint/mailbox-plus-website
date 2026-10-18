@@ -1,6 +1,6 @@
 // @vitest-environment happy-dom
 import React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import VideoTranscriptPlayer, {
   formatTimecode,
@@ -102,5 +102,103 @@ describe('VideoTranscriptPlayer Component', () => {
 
     expect(video.currentTime).toBe(9);
     expect(video.play).toHaveBeenCalled();
+  });
+
+  it('updates active transcript cue and live announcer when video timeupdate fires', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const video = document.querySelector('video') as HTMLVideoElement;
+    let currentVideoTime = 10;
+    Object.defineProperty(video, 'currentTime', {
+      get: () => currentVideoTime,
+      set: (val) => {
+        currentVideoTime = val;
+      },
+      configurable: true,
+    });
+
+    fireEvent.timeUpdate(video);
+
+    expect(screen.getByText('Active')).toBeTruthy();
+    const liveAnnouncer = document.getElementById('video-transcript-announcer');
+    expect(liveAnnouncer?.textContent).toContain('An activation email goes to your inbox');
+
+    // Clicking line text button seeks video to start of cue
+    video.play = vi.fn().mockResolvedValue(undefined);
+    const lineBtn = screen.getByText('After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away.');
+    fireEvent.click(lineBtn.closest('button')!);
+
+    expect(video.currentTime).toBe(0);
+    expect(video.play).toHaveBeenCalled();
+  });
+
+  it('handles audio descriptions narration via speech synthesis on timeupdate', () => {
+    const mockSpeak = vi.fn();
+    const mockCancel = vi.fn();
+
+    // Mock speechSynthesis and SpeechSynthesisUtterance before render
+    class MockUtterance {
+      text: string;
+      rate = 1;
+      constructor(text: string) {
+        this.text = text;
+      }
+    }
+
+    (window as unknown as Record<string, unknown>).speechSynthesis = {
+      speak: mockSpeak,
+      cancel: mockCancel,
+    };
+
+    (window as unknown as Record<string, unknown>).SpeechSynthesisUtterance = MockUtterance;
+
+    render(<VideoTranscriptPlayer />);
+
+    const descBtn = screen.getByRole('button', { name: /Audio Descriptions:/i });
+    fireEvent.click(descBtn);
+
+    const video = document.querySelector('video') as HTMLVideoElement;
+    let currentVideoTime = 2;
+    Object.defineProperty(video, 'currentTime', {
+      get: () => currentVideoTime,
+      set: (val) => {
+        currentVideoTime = val;
+      },
+      configurable: true,
+    });
+
+    act(() => {
+      fireEvent.timeUpdate(video);
+    });
+
+    expect(mockCancel).toHaveBeenCalled();
+    expect(mockSpeak).toHaveBeenCalled();
+    expect(screen.getByText('Audio Description Narrating')).toBeTruthy();
+    expect(screen.getByText(/Staff member reviewing incoming online mailbox registration/i)).toBeTruthy();
+
+    // Fire pause event to cancel speech synthesis
+    act(() => {
+      fireEvent.pause(video);
+    });
+    expect(mockCancel).toHaveBeenCalledTimes(2);
+  });
+
+  it('updates textTrack mode when audio descriptions toggled', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const video = document.querySelector('video') as HTMLVideoElement;
+    const mockTrack = { kind: 'descriptions', mode: 'disabled' };
+    Object.defineProperty(video, 'textTracks', {
+      value: [mockTrack],
+      writable: true,
+    });
+
+    const descBtn = screen.getByRole('button', { name: /Audio Descriptions:/i });
+    fireEvent.click(descBtn);
+
+    expect(mockTrack.mode).toBe('showing');
+
+    fireEvent.click(descBtn);
+    expect(mockTrack.mode).toBe('disabled');
   });
 });
