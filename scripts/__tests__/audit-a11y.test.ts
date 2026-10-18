@@ -40,11 +40,11 @@ describe('Accessibility Audit Suite (axe-core)', () => {
     expect(articleCat).toBe(CATEGORIES.ARTICLES);
   });
 
-  it('runs accessibility audit across sampled routes when dist/ exists', async () => {
-    if (!fs.existsSync(distDir)) {
-      console.warn('dist/ directory not found. Skipping live axe-core audit test.');
-      return;
-    }
+  it('runs accessibility audit across sampled routes in build output directory', async () => {
+    expect(
+      fs.existsSync(distDir),
+      `Build output directory "${distDir}" does not exist. Please run "npm run build" before running the accessibility audit.`
+    ).toBe(true);
 
     expect(baseUrl).toBeTruthy();
 

@@ -1,5 +1,4 @@
 import { describe, it, expect } from 'vitest';
-import fs from 'node:fs';
 import { resolveDistDir } from '../../lib/dist-path.mjs';
 import { checkInternalHrefSlash, isBadInternal } from '../check-internal-href-slash.mjs';
 
@@ -16,16 +15,9 @@ describe('SEO Internal Href Trailing Slash Check', () => {
     expect(isBadInternal('https://example.com')).toBe(false);
   });
 
-  it('runs internal href slash check on dist when present or handles missing dist', () => {
-    if (!fs.existsSync(distDir)) {
-      const res = checkInternalHrefSlash(distDir);
-      expect(res.ok).toBe(false);
-      expect(res.error).toContain('does not exist');
-      return;
-    }
-
+  it('runs internal href slash check on build output directory', () => {
     const res = checkInternalHrefSlash(distDir);
-    expect(res.ok).toBe(true);
+    expect(res.ok, res.error || 'SEO internal href slash check failed').toBe(true);
     expect(res.offenders.size).toBe(0);
   });
 });
