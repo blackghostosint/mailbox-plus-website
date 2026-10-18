@@ -306,8 +306,8 @@ Current header values (from `netlify.toml`):
 Content-Security-Policy: default-src 'self';
   base-uri 'self';
   script-src 'self' https://www.googletagmanager.com https://connect.facebook.net https://www.google.com https://www.gstatic.com https://news.google.com;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://fonts.gstatic.com;
-  font-src 'self' https://fonts.gstatic.com;
+  style-src 'self' 'unsafe-inline';
+  font-src 'self';
   img-src 'self' https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev https://*.netlify.app https://www.facebook.com https://www.google.com https://www.googletagmanager.com https://news.google.com data:;
   connect-src 'self' https://www.google.com https://news.google.com https://mailboxplusohio.com https://*.netlify.app https://ingesteer.services-prod.nsvcs.net https://www.googletagmanager.com https://www.google-analytics.com https://analytics.google.com;
   frame-src 'self' https://www.google.com https://news.google.com https://www.recaptcha.net https://app.netlify.com;
