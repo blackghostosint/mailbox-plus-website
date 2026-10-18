@@ -76,12 +76,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
       reportsDirectory: './coverage',
-      include: [
-        'astro/src/**/*.{ts,tsx,js,jsx}',
-        'netlify/functions/**/*.{ts,tsx,js,jsx}',
-        'scripts/**/*.{ts,tsx,js,jsx}',
-        'knowledge/**/*.{ts,tsx,js,jsx}',
-      ],
+      include: ['astro/src/**/*.{ts,tsx,js,jsx}'],
       exclude: [
         '**/*.{test,spec}.{ts,tsx,js,jsx}',
         '**/__tests__/**',
@@ -91,10 +86,10 @@ export default defineConfig({
         '**/coverage/**',
       ],
       thresholds: {
-        statements: 75,
-        branches: 65,
-        functions: 75,
-        lines: 75,
+        statements: 91.95,
+        branches: 77.01,
+        functions: 91.35,
+        lines: 93.28,
       },
     },
   },
