@@ -125,7 +125,9 @@ describe('VideoTranscriptPlayer Component', () => {
 
     // Clicking line text button seeks video to start of cue
     video.play = vi.fn().mockResolvedValue(undefined);
-    const lineBtn = screen.getByText('After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away.');
+    const lineBtn = screen.getByText(
+      'After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away.'
+    );
     fireEvent.click(lineBtn.closest('button')!);
 
     expect(video.currentTime).toBe(0);
@@ -174,7 +176,9 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(mockCancel).toHaveBeenCalled();
     expect(mockSpeak).toHaveBeenCalled();
     expect(screen.getByText('Audio Description Narrating')).toBeTruthy();
-    expect(screen.getByText(/Staff member reviewing incoming online mailbox registration/i)).toBeTruthy();
+    expect(
+      screen.getByText(/Staff member reviewing incoming online mailbox registration/i)
+    ).toBeTruthy();
 
     // Fire pause event to cancel speech synthesis
     act(() => {
