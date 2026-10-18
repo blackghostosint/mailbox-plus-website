@@ -27,9 +27,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Astro dependencies
-        run: cd astro && npm ci
-
       - name: Build static site
         run: npm run build
 

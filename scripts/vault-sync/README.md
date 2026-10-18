@@ -16,6 +16,14 @@ of hand-maintaining thin summary notes.
 - `verify-links.py` — checks every wikilink in the vault resolves (handles
   spaces in `[[link names]]`, which shell loops cannot).
 
+## Setup
+
+Install dependencies once at the repository root. Root npm workspaces automatically install and link dependencies for all subprojects (`astro` and `netlify/functions`):
+
+```bash
+npm install
+```
+
 ## Run
 
 ```bash
