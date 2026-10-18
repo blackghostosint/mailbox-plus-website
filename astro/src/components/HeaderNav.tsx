@@ -118,7 +118,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({ navigation, children }) =>
     const mediaQuery = window.matchMedia('(min-width: 768px)');
     const handleMediaChange = (e: MediaQueryListEvent) => {
       if (e.matches && isOpen) {
-        setIsOpen(false);
+        closeMenu();
       }
     };
 
@@ -129,7 +129,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({ navigation, children }) =>
       mediaQuery.addListener(handleMediaChange);
       return () => mediaQuery.removeListener(handleMediaChange);
     }
-  }, [isOpen]);
+  }, [isOpen, closeMenu]);
 
   const menuScrollHeight = menuRef.current?.scrollHeight || 200;
 

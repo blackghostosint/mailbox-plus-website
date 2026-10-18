@@ -163,7 +163,7 @@ describe('HeaderNav mobile drawer controller & keyboard state machine', () => {
     expect(document.activeElement).toBe(btn);
   });
 
-  it('automatically closes menu on screen resize to desktop (>= 768px)', () => {
+  it('automatically closes menu and restores focus to #mobile-menu-btn on screen resize to desktop (>= 768px)', () => {
     render(<HeaderNav navigation={sampleNavigation} />);
 
     const btn = screen.getByRole('button', { name: 'Open menu' });
@@ -171,10 +171,20 @@ describe('HeaderNav mobile drawer controller & keyboard state machine', () => {
 
     expect(btn.getAttribute('aria-expanded')).toBe('true');
 
+    const mobileNav = screen.getByRole('navigation', { name: 'Mobile Navigation' });
+    const links = Array.from(mobileNav.querySelectorAll('a'));
+    const secondLink = links[1];
+
+    act(() => {
+      secondLink.focus();
+    });
+    expect(document.activeElement).toBe(secondLink);
+
     act(() => {
       mediaQueryListeners.forEach((listener) => listener({ matches: true } as MediaQueryListEvent));
     });
 
     expect(btn.getAttribute('aria-expanded')).toBe('false');
+    expect(document.activeElement).toBe(btn);
   });
 });
