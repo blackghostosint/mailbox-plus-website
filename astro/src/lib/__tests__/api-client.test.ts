@@ -69,6 +69,7 @@ describe('api-client module', () => {
     promise.catch(() => {});
 
     vi.advanceTimersByTime(1001);
+    await vi.runAllTimersAsync();
 
     await expect(promise).rejects.toThrow(ApiClientError);
     await expect(promise).rejects.toMatchObject({
