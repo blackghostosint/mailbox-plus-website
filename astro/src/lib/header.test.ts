@@ -116,6 +116,7 @@ function setupMockEnvironment() {
   const btn = new MockElement('button', 'mobile-menu-btn');
   btn.setAttribute('aria-expanded', 'false');
   btn.setAttribute('aria-label', 'Open menu');
+  btn.setAttribute('aria-controls', 'mobile-menu');
 
   const iconOpen = new MockElement('svg', 'menu-icon-open');
   const iconClose = new MockElement('svg', 'menu-icon-close');
@@ -204,6 +205,7 @@ describe('header.js mobile drawer controller & keyboard state machine', () => {
 
     expect(getIsOpen()).toBe(false);
     expect(btn.getAttribute('aria-expanded')).toBe('false');
+    expect(btn.getAttribute('aria-controls')).toBe('mobile-menu');
 
     toggleMenu();
 
