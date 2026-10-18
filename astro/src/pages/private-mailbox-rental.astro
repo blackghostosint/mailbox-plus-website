@@ -531,11 +531,9 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
 
   <script>
     import { initCheckoutButtons } from '../lib/checkout';
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initCheckoutButtons);
-    } else {
-      initCheckoutButtons();
-    }
+    import { onDOMReady } from '../lib/dom-utils';
+
+    onDOMReady(initCheckoutButtons);
   </script>
 
 </BaseLayout>

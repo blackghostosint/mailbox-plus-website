@@ -63,11 +63,9 @@ const hasServices = (cat: string) => services.some(s => s.category === categoryM
       }
     }
 
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initBackToTop);
-    } else {
-      initBackToTop();
-    }
+    import { onDOMReady } from '../lib/dom-utils';
+
+    onDOMReady(initBackToTop);
   </script>
 
   <!-- HERO -->

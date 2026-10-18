@@ -1,9 +1,9 @@
 /* global process */
 import { apiFetch } from './api-client';
-import { renderFormError, clearFormError } from './dom-error';
 import { siteConfig } from '../config/siteConfig';
 import { CreateCheckoutSuccessSchema, type CreateCheckoutSuccess } from './contracts';
 import { loadRecaptchaScript, executeRecaptcha } from './recaptcha-loader';
+import { executeAction } from './action-controller';
 
 function getRecaptchaSiteKey(): string {
   if (typeof import.meta !== 'undefined' && import.meta.env) {
@@ -57,34 +57,29 @@ export function initCheckoutButtons(): void {
       const tier = btn.getAttribute('data-tier');
       if (!tier) return;
 
-      clearFormError(btn.parentElement || btn, '[role="alert"].checkout-error');
-
-      const originalText = btn.textContent || '';
-      btn.textContent = 'Opening secure checkout…';
-      btn.disabled = true;
-
       try {
-        const data = await createCheckoutSession(tier);
-
-        if (data && data.url) {
-          window.location.href = data.url;
-        } else {
-          throw new Error('Checkout failed');
-        }
-      } catch (err: unknown) {
-        console.error('Checkout error:', err);
-        btn.textContent = originalText;
-        btn.disabled = false;
-        renderFormError(
-          btn.parentElement || btn,
-          `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`,
+        await executeAction(
+          async () => {
+            const data = await createCheckoutSession(tier);
+            if (data && data.url) {
+              window.location.href = data.url;
+            } else {
+              throw new Error('Checkout failed');
+            }
+          },
           {
             button: btn,
-            className:
+            pendingText: 'Opening secure checkout…',
+            container: btn.parentElement || btn,
+            errorClassName:
               'checkout-error mt-2 p-3 text-xs text-red-800 bg-red-50 rounded-lg border border-red-200 focus:outline-none',
-            selector: '[role="alert"].checkout-error',
+            errorSelector: '[role="alert"].checkout-error',
+            getErrorMessage: () =>
+              `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`,
           }
         );
+      } catch (err) {
+        console.error('Checkout error:', err);
       }
     });
   });
