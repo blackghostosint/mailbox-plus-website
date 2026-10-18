@@ -43,12 +43,13 @@ describe('AccessibleModal Component', () => {
     expect(dialog).not.toBeNull();
     expect(dialog.getAttribute('aria-modal')).toBe('true');
     expect(dialog.getAttribute('aria-label')).toBe('Test Modal Title');
+    expect(dialog.getAttribute('aria-labelledby')).toBeNull();
     expect(dialog.getAttribute('aria-describedby')).toBe('modal-description');
     expect(dialog.className).toContain('custom-modal-class');
     expect(screen.getByText('Modal description text')).not.toBeNull();
   });
 
-  it('uses custom titleId when provided', () => {
+  it('uses titleId for aria-labelledby when provided', () => {
     render(
       <AccessibleModal
         isOpen={true}
@@ -56,12 +57,13 @@ describe('AccessibleModal Component', () => {
         title="Custom ID Modal"
         titleId="custom-title-id"
       >
-        <p>Modal content</p>
+        <p id="custom-title-id">Custom Title</p>
       </AccessibleModal>
     );
 
     const dialog = screen.getByRole('dialog');
     expect(dialog.getAttribute('aria-labelledby')).toBe('custom-title-id');
+    expect(dialog.getAttribute('aria-label')).toBe('Custom ID Modal');
   });
 
   it('automatically focuses first focusable element after 50ms when opened', () => {
