@@ -1,6 +1,11 @@
 /* global process */
 import { describe, it, expect } from 'vitest';
-import { normalizeContentHrefs, normalizePathname, toCanonicalUrl } from './canonical-url';
+import {
+  normalizeContentHeadings,
+  normalizeContentHrefs,
+  normalizePathname,
+  toCanonicalUrl,
+} from './canonical-url';
 
 describe('normalizePathname', () => {
   it('should normalize relative paths', () => {
@@ -150,5 +155,47 @@ describe('normalizeContentHrefs', () => {
     const html =
       '<a href="/images/logo.webp">Img</a> <a href="/guide?q=1">Q</a> <a href="/tracking#x">Hash</a>';
     expect(normalizeContentHrefs(html)).toBe(html);
+  });
+});
+
+describe('normalizeContentHeadings', () => {
+  it('replaces plain h4 tags with h3 tags', () => {
+    const input = '<h4>Section Title</h4>';
+    expect(normalizeContentHeadings(input)).toBe('<h3>Section Title</h3>');
+  });
+
+  it('preserves CSS classes, inline styles, and HTML attributes on h4 tags', () => {
+    const input =
+      '<h4 class="font-bold text-[var(--color-text-primary)] mb-2" style="color: red;" id="feature-1">Carriers Limit Liability</h4>';
+    const expected =
+      '<h3 class="font-bold text-[var(--color-text-primary)] mb-2" style="color: red;" id="feature-1">Carriers Limit Liability</h3>';
+    expect(normalizeContentHeadings(input)).toBe(expected);
+  });
+
+  it('handles uppercase tag names', () => {
+    const input = '<H4 CLASS="title">Uppercase Header</H4>';
+    expect(normalizeContentHeadings(input)).toBe('<h3 CLASS="title">Uppercase Header</h3>');
+  });
+
+  it('replaces multiple h4 elements within a single HTML string', () => {
+    const input = '<div><h4 class="a">First</h4><p>Text</p><h4 class="b">Second</h4></div>';
+    const expected = '<div><h3 class="a">First</h3><p>Text</p><h3 class="b">Second</h3></div>';
+    expect(normalizeContentHeadings(input)).toBe(expected);
+  });
+
+  it('leaves html without h4 tags untouched', () => {
+    const input = '<h2>Heading 2</h2><h3>Heading 3</h3><p>Paragraph</p>';
+    expect(normalizeContentHeadings(input)).toBe(input);
+  });
+
+  it('does not replace tag names that happen to start with h4 like h40', () => {
+    const input = '<h40>Not an H4 tag</h40>';
+    expect(normalizeContentHeadings(input)).toBe(input);
+  });
+
+  it('handles empty or falsy values gracefully', () => {
+    expect(normalizeContentHeadings('')).toBe('');
+    expect(normalizeContentHeadings(null as unknown as string)).toBe(null);
+    expect(normalizeContentHeadings(undefined as unknown as string)).toBe(undefined);
   });
 });
