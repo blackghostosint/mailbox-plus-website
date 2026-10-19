@@ -120,13 +120,19 @@ describe('create-checkout function handler', () => {
     expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
   });
 
-  it('returns 500 if STRIPE_SECRET_KEY is missing', async () => {
+  it('returns 500 if STRIPE_SECRET_KEY is missing or empty', async () => {
     delete process.env.STRIPE_SECRET_KEY;
     const req = createRequest('POST', { tier: 'small_mail_only' });
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Stripe is not configured on the server' });
+
+    process.env.STRIPE_SECRET_KEY = '';
+    const reqEmpty = createRequest('POST', { tier: 'small_mail_only' });
+    const resEmpty = await handler(reqEmpty, ctx);
+    expect(resEmpty.status).toBe(500);
+    expect(await resEmpty.json()).toEqual({ error: 'Stripe is not configured on the server' });
   });
 
   it('returns 400 if tier is missing or invalid', async () => {
