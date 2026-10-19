@@ -4,7 +4,6 @@
  */
 
 export const DEFAULT_SITE_URL = 'https://mailboxplusohio.com';
-export const DUMMY_STRIPE_SECRET_KEY = 'dummy_stripe_secret_key';
 export const DEFAULT_PRODUCT_NAME = 'Mailbox Rental';
 export const DEFAULT_CURRENCY = 'USD';
 export const DEFAULT_RECAPTCHA_MIN_SCORE = 0.5;
@@ -88,10 +87,14 @@ export function getSiteUrl(): string {
 }
 
 /**
- * Returns the Stripe secret key or dummy fallback.
+ * Returns the Stripe secret key or throws an Error if unconfigured.
  */
 export function getStripeSecretKey(): string {
-  return process.env.STRIPE_SECRET_KEY || DUMMY_STRIPE_SECRET_KEY;
+  const key = process.env.STRIPE_SECRET_KEY;
+  if (!key || !key.trim()) {
+    throw new Error('STRIPE_SECRET_KEY environment variable is missing or empty');
+  }
+  return key;
 }
 
 /**
