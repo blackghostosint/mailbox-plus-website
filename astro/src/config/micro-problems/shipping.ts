@@ -4,6 +4,21 @@ import { getServiceImageUrl } from '../../lib/media';
 export const shippingMicroProblems: Service[] = [
   {
     id: 'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'ship-a-package-when-youre-short-on-time-in-concord-township',
+        'drop-off-a-prepaid-label-from-your-phone',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship a Fragile Item Safely',
@@ -71,6 +86,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'print-and-attach-a-shipping-label-correctly-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship an Odd-Shaped or Oversized Item',
@@ -137,6 +167,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-package-when-youre-short-on-time-in-concord-township',
+        'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'concord-township',
     serviceName: "Ship a Heavy Package in Concord Township – Over 50 lbs, Won't Get Rejected",
@@ -203,6 +248,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-electronics-safely-in-concord-township-phones-laptops-tablets-computers',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'return-without-original-box',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName:
@@ -271,6 +331,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-artwork-framed-items-or-collectibles-safely-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'print-return-label-without-printer',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship Artwork, Framed Items, or Collectibles',
@@ -333,6 +408,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'repackage-a-damaged-or-torn-shipping-box-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName:
@@ -398,6 +488,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'ship-a-package-when-youre-short-on-time-in-concord-township',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship a Gift Without the Receipt or Invoice',
@@ -463,6 +568,19 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'unsure-of-carrier-rules',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'vinted-drop-off-concord-township',
+        'chewy-prescription-mail-in-concord-township',
+        'ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Shipping Help When Unsure of Carrier Rules',
@@ -529,6 +647,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'print-amazon-return-label',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship an Item That Needs Extra Protection or Padding',
@@ -595,6 +728,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-a-package-when-youre-short-on-time-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'package-a-return-so-its-accepted-by-the-carrier',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: "Ship a Package When You're Short on Time",
@@ -661,6 +809,21 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'ship-with-guaranteed-proof-and-tracking-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'ask-mailbox-plus',
+      ],
+      priority: false,
+    },
     intentKey: 'ship-with-guaranteed-proof',
     category: 'micro-problem',
     city: 'Concord Township',
@@ -735,6 +898,33 @@ export const shippingMicroProblems: Service[] = [
   },
   {
     id: 'chewy-prescription-mail-in-concord-township',
+    internalLink: {
+      parent: 'micro-problems',
+      related: [
+        'package-drop-offs',
+        'packaging-supplies',
+        'fedex-shipping',
+        'print-return-label-without-printer',
+        'vinted-drop-off-concord-township',
+        'package-multiple-items-into-one-shipment-in-concord-township',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Chewy Prescription Mail-In', 'Chewy Pharmacy Prescription Drop-Off'],
+      lsi: [
+        'mail pet prescription',
+        'Chewy Rx drop-off',
+        'ship prescription to Chewy',
+        'pet medication mail-in',
+      ],
+      geo: [
+        'Chewy prescription drop-off in Concord Township',
+        'mail pet prescription near Mentor',
+        'Chewy Pharmacy mail-in in Lake County',
+      ],
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Chewy Prescription Mail-In',
