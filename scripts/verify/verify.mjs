@@ -1648,6 +1648,7 @@ const KNOWN_DOC_EXTS = [
 ];
 
 const IGNORED_DOC_PACKAGES = new Set([
+  '@axe-core/cli',
   '@netlify/blobs',
   '@tailwindcss/typography',
   'gray-matter',
@@ -1660,6 +1661,10 @@ const IGNORED_DOC_PACKAGES = new Set([
   'eslint',
   'prettier',
   'tsx',
+  'dist',
+  'dist/',
+  'a11y-reports',
+  'a11y-reports/',
 ]);
 
 function resolveDocCandidatePath(p, docDir) {
