@@ -1568,6 +1568,17 @@ function resolveDocCandidatePath(p, docDir) {
 
   if (!testPath) return { found: true };
 
+  // Wildcard glob patterns (e.g. content/articles/**/*.md)
+  if (testPath.includes('*')) {
+    const baseDir = testPath.split('*')[0];
+    const cleanBase = baseDir.endsWith('/') ? baseDir.slice(0, -1) : baseDir;
+    if (!cleanBase) return { found: true };
+    const absBaseRoot = path.resolve(ROOT, cleanBase);
+    if (fs.existsSync(absBaseRoot)) return { found: true, path: absBaseRoot };
+    const absBaseDoc = path.resolve(docDir, cleanBase);
+    if (fs.existsSync(absBaseDoc)) return { found: true, path: absBaseDoc };
+  }
+
   // 1) ROOT
   const absRoot = path.resolve(ROOT, testPath);
   if (fs.existsSync(absRoot)) return { found: true, path: absRoot };
@@ -1582,9 +1593,9 @@ function resolveDocCandidatePath(p, docDir) {
     if (fs.existsSync(astroSrc)) return { found: true, path: astroSrc };
   }
 
-  // 4) Build output directory (e.g. dist, astro/dist)
-  const normPath = testPath.endsWith('/') ? testPath.slice(0, -1) : testPath;
-  if (normPath === 'dist' || normPath === 'astro/dist') {
+  // 4) Build output, test coverage, and archived directories
+  const normPath = testPath.replace(/\/+$/, '');
+  if (['dist', 'astro/dist', 'coverage', 'archive', 'node_modules', '.astro'].includes(normPath)) {
     const parent = path.dirname(path.resolve(ROOT, normPath));
     if (fs.existsSync(parent)) return { found: true };
   }
