@@ -17,7 +17,7 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 1. **Environment Sanity (`npm run verify:doctor`):**
    Confirms repo root resolution, root and `astro` dependencies, node modules, branch hygiene, and CSP alignment.
 2. **Local Content Verification (`npm run verify`):**
-   Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), image CDN availability, heading diversity, and fact-check receipt requirements.
+   Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), Ogilvy abstraction jargon gate rules (banning 28 pretentious marketing filler terms per [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate)), image CDN availability, heading diversity, and fact-check receipt requirements.
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
@@ -129,7 +129,8 @@ All real-store photos referenced in article bodies (`/articles/store-library/`) 
 2. Frontmatter must include: `title`, `description`, `slug`, `pubDate`, `category`, `status`
 3. Set `status: draft` for preview, `status: published` for live
 4. Articles are auto-discovered by `astro/src/utils/articleLoader.ts`
-5. Run `npm run audit:articles` to validate links/frontmatter against the sitemap
+5. Ensure prose uses plain, direct wording without Ogilvy abstraction jargon (see [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate))
+6. Run `npm run verify` and `npm run audit:articles` to validate content, links, and frontmatter
 
 ## Commit Convention
 
