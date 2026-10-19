@@ -57,10 +57,18 @@ export function checkCssContent(cssContent: string, fileName: string): string[] 
   }
 
   const interactiveSelectorPattern =
-    /(\ba\b|\bbutton\b|\.btn-primary|\.btn-secondary|\.btn-ghost|:hover|:active|:focus|:focus-within|:focus-visible)/i;
+    /(\ba\b|\bbutton\b|\.btn|\.card|a:hover|button:hover|\.btn-primary|\.btn-secondary|\.btn-ghost)/i;
   if (!interactiveSelectorPattern.test(block)) {
     errors.push(
       `❌ ${fileName} is missing interactive element hover/active/focus selectors in @media (prefers-reduced-motion: reduce) block.`
+    );
+  }
+
+  const unscopedPseudoPattern =
+    /(?:^|[\s,]):(?:hover|active|focus|focus-within|focus-visible)(?:\s|\*|,|\{)/i;
+  if (unscopedPseudoPattern.test(block)) {
+    errors.push(
+      `❌ ${fileName} contains un-scoped pseudo-classes (e.g. :hover, :hover *) in @media (prefers-reduced-motion: reduce) block, which breaks static element transforms on hover.`
     );
   }
 

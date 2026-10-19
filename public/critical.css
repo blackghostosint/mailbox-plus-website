@@ -272,6 +272,9 @@ header {
   [role='button']:hover,
   [role='button']:active,
   [role='button']:focus,
+  .btn:hover,
+  .btn:active,
+  .btn:focus,
   .btn-primary:hover,
   .btn-primary:active,
   .btn-primary:focus,
@@ -281,14 +284,7 @@ header {
   .btn-ghost:hover,
   .btn-ghost:active,
   .btn-ghost:focus,
-  :hover,
-  :active,
-  :focus,
-  :focus-within,
-  :focus-visible,
-  :hover *,
-  :active *,
-  :focus * {
+  .card:hover {
     transition-duration: 0.01ms !important;
     transform: none !important;
   }

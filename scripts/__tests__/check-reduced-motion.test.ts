@@ -70,6 +70,19 @@ describe('check-reduced-motion', () => {
       expect(errors.some((e) => e.includes('missing interactive element'))).toBe(true);
     });
 
+    it('returns error if un-scoped pseudo-classes are present', () => {
+      const css = `
+        @media (prefers-reduced-motion: reduce) {
+          a:hover, :hover, :focus * {
+            transition-duration: 0.01ms !important;
+            transform: none !important;
+          }
+        }
+      `;
+      const errors = checkCssContent(css, 'test.css');
+      expect(errors.some((e) => e.includes('un-scoped pseudo-classes'))).toBe(true);
+    });
+
     it('passes when valid reduced motion overrides are present', () => {
       const css = `
         @media (prefers-reduced-motion: reduce) {
