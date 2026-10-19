@@ -19,6 +19,8 @@
     "test:coverage": "cd astro && npm run test:coverage",
     "test:watch": "cd astro && npm run test:watch",
     "test:verify": "cd astro && npx vitest run ../scripts/verify/__tests__",
+    "pretest:e2e": "npm run build",
+    "pretest:e2e:ci": "npm run build",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test",
     "lint": "eslint .",
