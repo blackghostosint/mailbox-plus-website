@@ -2,8 +2,8 @@
 
 This directory contains all tooling and data for quarterly micro-problem page governance audits.
 
-**Authority**: `MICRO_PROBLEM_GOVERNANCE.md` (project root)  
-**Workflow**: `.agent/workflows/micro-problem-quarterly-audit.md`
+**Authority**: `astro/src/config/micro-problems/MICRO_PROBLEM_GOVERNANCE.md`  
+**Workflow**: `scripts/audits/README.md` (via `scripts/audit-micro-problems.cjs`)
 
 ## Directory Structure
 
