@@ -212,13 +212,9 @@ function main() {
     }
 
     // Verify WebPage JSON-LD schema name & description match pageMeta.ts
-    const jsonLdMatches =
-      html.match(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi) || [];
-    for (const jsonLdStr of jsonLdMatches) {
-      const rawJson = jsonLdStr
-        .replace(/<script\s+type=["']application\/ld\+json["']>/i, '')
-        .replace(/<\/script>/i, '')
-        .trim();
+    const jsonLdRegex = /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
+    for (const match of html.matchAll(jsonLdRegex)) {
+      const rawJson = match[1].trim();
       try {
         const parsed = JSON.parse(rawJson);
         const graph = parsed['@graph'] || (Array.isArray(parsed) ? parsed : [parsed]);
