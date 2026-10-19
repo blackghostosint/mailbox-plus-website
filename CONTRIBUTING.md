@@ -24,6 +24,22 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 4. **Serverless Authorization Verification (`npm run check:auth-model`):**
    Verifies that any PR modifying files under `netlify/functions/` contains a valid `## Endpoint Authentication Models` section in the PR description as required by [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change).
 
+## Accessibility Verification
+
+To maintain WCAG 2.1 AA standards across all pages, contributors must verify accessibility locally when introducing or modifying UI components, layouts, pages, or styling.
+
+### Prerequisites & Requirements
+
+- **Build Dependency:** Local accessibility auditing analyzes static HTML output in `dist/`. You must run `npm run build` prior to running `npm run audit:a11y`.
+- **Headless Chrome Requirement:** Running `scripts/audit-a11y.mjs` uses `@axe-core/cli` and requires Chrome installed on the system (managed via `browser-driver-manager`).
+
+### Execution Modes & CLI Flags
+
+- **`npm run audit:a11y`**: Runs sampled accessibility audits across representative route categories.
+- **`npm run audit:a11y -- --mode=full`**: Runs full WCAG audits across all site routes.
+- **`npm run audit:a11y -- --category=<category>`**: Audits routes within a specific category (e.g. `homepage`, `articles`, `service-pillars`, `service-details`, `guides`, `local-landing`, `utility-legal`, `interactive`).
+- **`npm run audit:a11y -- --limit=<N>`**: Limits the maximum number of audited pages.
+
 ## Project Structure
 
 ```
