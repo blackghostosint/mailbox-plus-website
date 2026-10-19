@@ -5,6 +5,8 @@ on:
     types: [opened, synchronize, reopened]
     branches: [main]
 
+permissions: read-all
+
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
