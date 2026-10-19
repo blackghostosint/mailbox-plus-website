@@ -6,6 +6,16 @@ import Lock from '~icons/lucide/lock';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-willoughby',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'private-mailbox-rental-concord-township',
+        'package-receiving',
+      ],
+      priority: false,
+    },
     category: 'mailbox-rentals',
     city: 'Willoughby',
     serviceName: 'Mailbox Rental in Willoughby | Mailbox Plus',
