@@ -48,7 +48,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
 const faqSchema = getFAQSchema(siteConfig, faqs);
 ---
 
-<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} ogImage="/og/private-mailbox-rental.png" schema={[webPageSchema, serviceSchema, faqSchema]}>
+<BaseLayout canonical={canonical} ogImage="/og/private-mailbox-rental.png" schema={[webPageSchema, serviceSchema, faqSchema]}>
 
   <!-- ============ HERO ============ -->
   <section class="hero">

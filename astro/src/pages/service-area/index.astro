@@ -5,10 +5,7 @@ import { serviceAreas } from '../../config/serviceAreas';
 const areas = serviceAreas.filter(a => !a.id.startsWith('faq-'));
 ---
 
-<BaseLayout
-  title="Service Area | Mailbox Plus — Concord Township, OH"
-  description="Serving Concord Township, Mentor, Painesville, Willoughby, Eastlake, and all of Lake County, Ohio with shipping, printing, mailbox rentals, and more."
->
+<BaseLayout>
   <section class="bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)] text-white py-16 lg:py-24 text-center">
     <div class="max-w-4xl mx-auto px-6">
       <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Service Area</h1>
