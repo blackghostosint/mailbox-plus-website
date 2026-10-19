@@ -6,6 +6,16 @@ import Lock from '~icons/lucide/lock';
 export const competePages: Service[] = [
   {
     id: 'private-mailbox-rental-lake-county',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'private-mailbox-rental-concord-township',
+        'package-receiving',
+      ],
+      priority: false,
+    },
     category: 'mailbox-rentals',
     city: 'Concord Township',
     serviceName: 'Private Mailbox Rental in Lake County | Mailbox Plus',

@@ -10,6 +10,29 @@ import { generalShippingFaqs, packageDropOffsFaqs, packageReceivingFaqs } from '
 export const receivingDropOffServices: Service[] = [
   {
     id: 'package-drop-offs',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'dhl-express',
+        'vinted-drop-off-concord-township',
+        'chewy-prescription-mail-in-concord-township',
+        'package-multiple-items-into-one-shipment-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Package Drop-Offs', 'Drop Off Packages'],
+      lsi: ['carrier drop-off', 'shipping drop-off', 'package acceptance', 'parcel drop location'],
+      geo: [
+        'package drop-off in Concord Township',
+        'drop off packages near Mentor',
+        'shipping drop-off in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Package Drop-Offs',
@@ -135,6 +158,35 @@ export const receivingDropOffServices: Service[] = [
   },
   {
     id: 'package-receiving',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'private-mailbox-rental-concord-township',
+        'mail-forwarding-concord-township',
+        'vinted-drop-off-concord-township',
+        'chewy-prescription-mail-in-concord-township',
+        'package-drop-offs',
+        'ship-an-item-that-needs-extra-protection-or-padding-in-concord-township',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Package Receiving', 'Parcel Receiving', 'Accept Packages'],
+      lsi: [
+        'receive packages',
+        'package holding',
+        'secure package acceptance',
+        'mail and package receiving',
+        'package notification',
+      ],
+      geo: [
+        'package receiving in Concord Township',
+        'receive packages near Mentor',
+        'package holding in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Package Receiving',
