@@ -26,6 +26,26 @@ export const documentServices: Service[] = [
   // ---------------------------
   {
     id: 'every-door-direct-mail',
+    internalLink: {
+      parent: 'home-business',
+      related: ['flyers-brochures', 'postcard-printing', 'graphic-design'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Every Door Direct Mail', 'EDDM', 'Direct Mail Services'],
+      lsi: [
+        'direct mail marketing',
+        'mail advertising',
+        'neighborhood mail',
+        'bulk mail service',
+        'targeted mail',
+      ],
+      geo: [
+        'EDDM in Concord Township',
+        'direct mail near Mentor',
+        'every door direct mail in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Every Door Direct Mail (EDDM)',
@@ -94,6 +114,26 @@ export const documentServices: Service[] = [
   },
   {
     id: 'shredding',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'notary-services', 'fax-services'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Shredding Services', 'Document Shredding', 'Paper Shredding'],
+      lsi: [
+        'secure shredding',
+        'confidential shredding',
+        'shredding service',
+        'document destruction',
+        'bulk shredding',
+      ],
+      geo: [
+        'shredding services in Concord Township',
+        'document shredding near Mentor',
+        'paper shredding in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Shredding Services',
@@ -214,6 +254,26 @@ export const documentServices: Service[] = [
   },
   {
     id: 'document-scanning',
+    internalLink: {
+      parent: 'home-business',
+      related: ['shredding', 'notary-services', 'fax-services', 'digital-mailbox-rental'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Document Scanning', 'Scanning Services', 'Digital Document Scanning'],
+      lsi: [
+        'document digitization',
+        'paper to digital',
+        'file scanning',
+        'bulk document scanning',
+        'scan documents',
+      ],
+      geo: [
+        'document scanning in Concord Township',
+        'scanning services near Mentor',
+        'digital scanning in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Document Scanning',
@@ -298,6 +358,16 @@ export const documentServices: Service[] = [
   },
   {
     id: 'fax-services',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'shredding', 'notary-services'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Fax Services', 'Send a Fax', 'Faxing Services'],
+      lsi: ['send fax', 'fax machine', 'online fax', 'document faxing', 'fax transmission'],
+      geo: ['fax services in Concord Township', 'send a fax near Mentor', 'faxing in Lake County'],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Fax Services',
@@ -376,6 +446,11 @@ export const documentServices: Service[] = [
   },
   {
     id: 'document-services-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'shredding', 'notary-services', 'fax-services'],
+      priority: true,
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Document Services',
