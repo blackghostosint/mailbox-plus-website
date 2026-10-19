@@ -7,6 +7,8 @@ import {
   readPRBody,
   resolveAuthor,
   parsePRCliArgs,
+  detectLocalBodyFile,
+  detectLocalChangedFiles,
   getPRContext,
 } from '../pr-utils.mjs';
 
@@ -116,6 +118,27 @@ describe('pr-utils.mjs', () => {
     });
   });
 
+  describe('detectLocalBodyFile', () => {
+    it('detects .pr-body.md in root directory', () => {
+      const prBodyPath = join(tempDir, '.pr-body.md');
+      writeFileSync(prBodyPath, '## Endpoint Authentication Models\nContent');
+      const found = detectLocalBodyFile(tempDir, {});
+      expect(found).toBe(prBodyPath);
+    });
+
+    it('returns null when no candidate body files exist', () => {
+      const found = detectLocalBodyFile(tempDir, {});
+      expect(found).toBeNull();
+    });
+  });
+
+  describe('detectLocalChangedFiles', () => {
+    it('returns array of changed files without throwing', () => {
+      const result = detectLocalChangedFiles(tempDir);
+      expect(Array.isArray(result)).toBe(true);
+    });
+  });
+
   describe('getPRContext', () => {
     it('returns unified PR context', () => {
       const bodyPath = join(tempDir, 'body.txt');
@@ -126,12 +149,30 @@ describe('pr-utils.mjs', () => {
       const ctx = getPRContext({
         args: ['node', 'script.mjs', bodyPath, filesPath, '--author=jules'],
         env: {},
+        root: tempDir,
       });
 
       expect(ctx.body).toBe('PR body content');
       expect(ctx.changedFiles).toEqual(['file1.ts', 'file2.ts']);
       expect(ctx.author).toBe('jules');
       expect(ctx.isLocal).toBe(false);
+    });
+
+    it('auto-detects local PR body file when no explicit body source is provided', () => {
+      const prBodyPath = join(tempDir, '.pr-body.md');
+      writeFileSync(prBodyPath, 'Auto-detected PR body content');
+
+      const filesPath = join(tempDir, 'files.txt');
+      writeFileSync(filesPath, 'netlify/functions/sendEmail.ts');
+
+      const ctx = getPRContext({
+        args: ['node', 'script.mjs'],
+        filesFile: filesPath,
+        env: {},
+        root: tempDir,
+      });
+
+      expect(ctx.body).toBe('Auto-detected PR body content');
     });
   });
 });

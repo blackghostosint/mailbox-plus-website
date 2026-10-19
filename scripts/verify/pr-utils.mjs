@@ -5,6 +5,93 @@
  * Uses Node.js core modules only.
  */
 import { readFileSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import path from 'node:path';
+
+/**
+ * Auto-detects changed files in the local git repository (branch diff and working tree).
+ * @param {string} [root=process.cwd()]
+ * @returns {string[]}
+ */
+export function detectLocalChangedFiles(root = process.cwd()) {
+  const filesSet = new Set();
+
+  const baseRefs = ['origin/main...HEAD', 'main...HEAD', 'HEAD~1'];
+  for (const ref of baseRefs) {
+    try {
+      const stdout = execFileSync('git', ['diff', '--name-only', ref], {
+        cwd: root,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'ignore'],
+      });
+      const files = stdout
+        .split(/\r?\n/)
+        .map((f) => f.trim())
+        .filter(Boolean);
+      for (const f of files) filesSet.add(f);
+      if (files.length > 0) break;
+    } catch {
+      // ignore
+    }
+  }
+
+  try {
+    const stdout = execFileSync('git', ['diff', '--name-only', 'HEAD'], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    const files = stdout
+      .split(/\r?\n/)
+      .map((f) => f.trim())
+      .filter(Boolean);
+    for (const f of files) filesSet.add(f);
+  } catch {
+    // ignore
+  }
+
+  try {
+    const stdout = execFileSync('git', ['status', '--porcelain'], {
+      cwd: root,
+      encoding: 'utf8',
+      stdio: ['pipe', 'pipe', 'ignore'],
+    });
+    const lines = stdout.split(/\r?\n/).filter(Boolean);
+    for (const line of lines) {
+      const filePart = line.slice(3).trim();
+      const p = filePart.includes('->') ? filePart.split('->').pop().trim() : filePart;
+      if (p) filesSet.add(p);
+    }
+  } catch {
+    // ignore
+  }
+
+  return Array.from(filesSet);
+}
+
+/**
+ * Auto-detects local PR description body file.
+ * @param {string} [root=process.cwd()]
+ * @param {object} [env=process.env]
+ * @returns {string|null}
+ */
+export function detectLocalBodyFile(root = process.cwd(), env = process.env) {
+  const candidates = [
+    env.PR_BODY_FILE,
+    path.join(root, '.pr-body.md'),
+    path.join(root, 'pr-body.md'),
+    path.join(root, '.github', 'PULL_REQUEST_BODY.md'),
+    path.join(root, '.github', 'pull_request_body.md'),
+    path.join(env.HOME || '', '.hermes', 'cache', 'scratch', 'pr-body.md'),
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    if (existsSync(candidate)) {
+      return candidate;
+    }
+  }
+  return null;
+}
 
 /**
  * Reads and parses a list of changed files from an array, file path, stdin ('-'), or multiline string.
@@ -127,6 +214,7 @@ export function parsePRCliArgs(args = process.argv) {
 
   for (let i = 2; i < args.length; i++) {
     const arg = args[i];
+    if (typeof arg !== 'string') continue;
     if (arg.startsWith('--author=')) {
       author = arg.split('=').slice(1).join('=');
     } else if (arg === '--author') {
@@ -146,19 +234,38 @@ export function parsePRCliArgs(args = process.argv) {
  * @param {object} [options]
  * @param {string[]} [options.args=process.argv]
  * @param {object} [options.env=process.env]
+ * @param {string} [options.root=process.cwd()]
+ * @param {string} [options.bodyFile]
+ * @param {string|string[]} [options.filesFile]
+ * @param {string} [options.author]
+ * @param {boolean} [options.isLocal]
  * @returns {{ body: string, changedFiles: string[], author: string, isLocal: boolean, isCi: boolean, prNumber: string|number|null }}
  */
 export function getPRContext(options = {}) {
   const args = options.args || process.argv;
   const env = options.env || process.env;
+  const root = options.root || process.cwd();
 
   const { author: cliAuthor, isLocalBypass, positional } = parsePRCliArgs(args);
 
-  const bodySource = options.bodyFile ?? positional[0] ?? env.PR_BODY_FILE;
-  const filesSource = options.filesFile ?? positional[1] ?? env.PR_FILES_FILE ?? env.CHANGED_FILES;
+  const rawBodySource = options.bodyFile ?? positional[0] ?? env.PR_BODY_FILE;
+  const rawFilesSource =
+    options.filesFile ?? positional[1] ?? env.PR_FILES_FILE ?? env.CHANGED_FILES;
+
+  let bodySource = rawBodySource;
+  if (!bodySource) {
+    const detectedBodyFile = detectLocalBodyFile(root, env);
+    if (detectedBodyFile) {
+      bodySource = detectedBodyFile;
+    }
+  }
+
+  let changedFiles = readFilesList(rawFilesSource);
+  if (changedFiles.length === 0 && !rawFilesSource) {
+    changedFiles = detectLocalChangedFiles(root);
+  }
 
   const body = readPRBody(bodySource, env);
-  const changedFiles = readFilesList(filesSource);
   const author = resolveAuthor(cliAuthor || options.author, env);
 
   const isCi = Boolean(env.CI || env.GITHUB_ACTIONS || env.GITHUB_EVENT_PATH);
