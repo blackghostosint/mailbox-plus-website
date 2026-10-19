@@ -82,7 +82,8 @@ export function buildReviewCard(r: ReviewItem): HTMLElement {
 
 export async function initReviewSection(): Promise<void> {
   try {
-    const data = await fetchReviews();
+    const res = await fetchReviews();
+    const data = res?.data;
     if (!data || !Array.isArray(data.reviews) || data.reviews.length === 0) return;
 
     const countEl = document.getElementById('reviews-count');
