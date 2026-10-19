@@ -82,7 +82,7 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(405);
-    expect(await res.json()).toEqual({ error: 'Method not allowed' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Method not allowed' });
   });
 
   it('returns 400 if reCAPTCHA verification fails or token is missing', async () => {
@@ -95,7 +95,7 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(400);
-    expect(await res.json()).toEqual({ error: 'reCAPTCHA verification failed' });
+    expect(await res.json()).toEqual({ ok: false, error: 'reCAPTCHA verification failed' });
   });
 
   it('enforces rate limit of 10 requests per minute and returns status 429 on 11th attempt', async () => {
@@ -117,7 +117,10 @@ describe('create-checkout function handler', () => {
     expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
     expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
-    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+    expect(await res11.json()).toEqual({
+      ok: false,
+      error: 'Too many requests. Please try again later.',
+    });
   });
 
   it('returns 500 if STRIPE_SECRET_KEY is missing or empty', async () => {
@@ -126,13 +129,19 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Stripe is not configured on the server' });
+    expect(await res.json()).toEqual({
+      ok: false,
+      error: 'Stripe is not configured on the server',
+    });
 
     process.env.STRIPE_SECRET_KEY = '';
     const reqEmpty = createRequest('POST', { tier: 'small_mail_only' });
     const resEmpty = await handler(reqEmpty, ctx);
     expect(resEmpty.status).toBe(500);
-    expect(await resEmpty.json()).toEqual({ error: 'Stripe is not configured on the server' });
+    expect(await resEmpty.json()).toEqual({
+      ok: false,
+      error: 'Stripe is not configured on the server',
+    });
   });
 
   it('returns 400 if tier is missing or invalid', async () => {
@@ -157,7 +166,10 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Price not found for tier: small_mail_only' });
+    expect(await res.json()).toEqual({
+      ok: false,
+      error: 'Price not found for tier: small_mail_only',
+    });
     expect(mockPricesList).toHaveBeenCalledWith({
       lookup_keys: ['pmb_small_mail_only_monthly'],
       limit: 1,
@@ -173,7 +185,10 @@ describe('create-checkout function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Price not found for: pmb_fee_key_deposit' });
+    expect(await res.json()).toEqual({
+      ok: false,
+      error: 'Price not found for: pmb_fee_key_deposit',
+    });
     expect(mockPricesList).toHaveBeenCalledTimes(2);
     expect(mockPricesList).toHaveBeenLastCalledWith({
       lookup_keys: ['pmb_fee_key_deposit'],
@@ -189,7 +204,7 @@ describe('create-checkout function handler', () => {
     const res = await handler(req, ctx);
 
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Failed to create checkout session' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Failed to create checkout session' });
   });
 
   const allTiers = [
@@ -267,7 +282,10 @@ describe('create-checkout function handler', () => {
 
       expect(res.status).toBe(200);
       expect(await res.json()).toEqual({
-        url: `https://checkout.stripe.com/c/pay/cs_test_${tier}`,
+        ok: true,
+        data: {
+          url: `https://checkout.stripe.com/c/pay/cs_test_${tier}`,
+        },
       });
 
       expect(mockPricesList).toHaveBeenNthCalledWith(1, {
