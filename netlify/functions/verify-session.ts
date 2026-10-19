@@ -73,10 +73,12 @@ export default withCors(
 
       const responsePayload = VerifySessionSuccessSchema.parse({
         ok: true as const,
-        tier: tier || null,
-        product: getFallbackProductName(session.metadata?.product, tierConfig),
-        amount,
-        currency: getFallbackCurrency(session.currency),
+        data: {
+          tier: tier || null,
+          product: getFallbackProductName(session.metadata?.product, tierConfig),
+          amount,
+          currency: getFallbackCurrency(session.currency),
+        },
       });
 
       return jsonResponse(responsePayload, { status: 200, headers: NO_CACHE_HEADERS });
