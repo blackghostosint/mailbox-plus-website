@@ -1,7 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import {
   DEFAULT_SITE_URL,
-  DUMMY_STRIPE_SECRET_KEY,
   DEFAULT_PRODUCT_NAME,
   DEFAULT_CURRENCY,
   DEFAULT_RECAPTCHA_MIN_SCORE,
@@ -51,9 +50,21 @@ describe('Centralized Fallbacks & Utility Functions', () => {
       expect(getStripeSecretKey()).toBe('sk_test_12345');
     });
 
-    it('falls back to DUMMY_STRIPE_SECRET_KEY when unset', () => {
+    it('throws an Error when STRIPE_SECRET_KEY is unset or empty', () => {
       delete process.env.STRIPE_SECRET_KEY;
-      expect(getStripeSecretKey()).toBe(DUMMY_STRIPE_SECRET_KEY);
+      expect(() => getStripeSecretKey()).toThrow(
+        'STRIPE_SECRET_KEY environment variable is missing or empty'
+      );
+
+      process.env.STRIPE_SECRET_KEY = '';
+      expect(() => getStripeSecretKey()).toThrow(
+        'STRIPE_SECRET_KEY environment variable is missing or empty'
+      );
+
+      process.env.STRIPE_SECRET_KEY = '   ';
+      expect(() => getStripeSecretKey()).toThrow(
+        'STRIPE_SECRET_KEY environment variable is missing or empty'
+      );
     });
   });
 
