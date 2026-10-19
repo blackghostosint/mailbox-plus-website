@@ -26,7 +26,9 @@ import {
 
 dotenv.config();
 
-const stripe = new Stripe(getStripeSecretKey());
+function getStripe(): Stripe {
+  return new Stripe(getStripeSecretKey());
+}
 
 const NO_CACHE_HEADERS = { 'Cache-Control': 'no-store' };
 
@@ -35,9 +37,11 @@ export default withCors(
     if (request.method !== 'GET') {
       return jsonError('Method not allowed', { status: 405, headers: NO_CACHE_HEADERS });
     }
-    if (!process.env.STRIPE_SECRET_KEY) {
+    if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_SECRET_KEY.trim()) {
       return jsonError('Stripe is not configured', { status: 500, headers: NO_CACHE_HEADERS });
     }
+
+    const stripe = getStripe();
 
     const url = new URL(request.url);
     const rawSessionId = (url.searchParams.get('session_id') || '').trim();
