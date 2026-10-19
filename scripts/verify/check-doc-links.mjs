@@ -150,104 +150,104 @@ export function isSiteRouteUrl(target) {
 }
 
 /**
- * Clean punctuation from raw backtick tokens
+ * Clean punctuation from raw backtick terms
  */
-export function cleanToken(rawToken) {
-  if (!rawToken) return '';
-  let token = rawToken.replace(/^[("']+|[)"',;:.]+$/g, '');
-  if (token.includes('=') && !token.startsWith('./') && !token.startsWith('/')) {
-    const parts = token.split('=');
-    token = parts[parts.length - 1].replace(/^[("']+|[)"',;:.]+$/g, '');
+export function cleanToken(rawTerm) {
+  if (!rawTerm) return '';
+  let term = rawTerm.replace(/^[("']+|[)"',;:.]+$/g, '');
+  if (term.includes('=') && !term.startsWith('./') && !term.startsWith('/')) {
+    const parts = term.split('=');
+    term = parts[parts.length - 1].replace(/^[("']+|[)"',;:.]+$/g, '');
   }
-  return token;
+  return term;
 }
 
 /**
- * Determines if a backtick token should be skipped
+ * Determines if a backtick term should be skipped
  */
-export function shouldSkipBacktickToken(token, codeSpan = '') {
-  if (!token) return true;
+export function shouldSkipBacktickToken(term, codeSpan = '') {
+  if (!term) return true;
 
   // External URLs, modules, or protocols
   if (
-    token.startsWith('http://') ||
-    token.startsWith('https://') ||
-    token.startsWith('//') ||
-    token.startsWith('mailto:') ||
-    token.startsWith('tel:') ||
-    token.startsWith('git@') ||
-    token.startsWith('github.com/') ||
-    token.startsWith('gitlab.com/')
+    term.startsWith('http://') ||
+    term.startsWith('https://') ||
+    term.startsWith('//') ||
+    term.startsWith('mailto:') ||
+    term.startsWith('tel:') ||
+    term.startsWith('git@') ||
+    term.startsWith('github.com/') ||
+    term.startsWith('gitlab.com/')
   ) {
     return true;
   }
 
   // CLI options/flags
-  if (token.startsWith('--') || token.startsWith('-')) return true;
+  if (term.startsWith('--') || term.startsWith('-')) return true;
 
   // Environment variables or code variables
   if (
-    token.startsWith('$') ||
-    token.startsWith('process.env') ||
-    token.startsWith('import.meta') ||
-    token.startsWith('VITE_') ||
-    token.startsWith('GEMINI_') ||
-    token.startsWith('STRIPE_') ||
-    token.startsWith('RECAPTCHA_')
+    term.startsWith('$') ||
+    term.startsWith('process.env') ||
+    term.startsWith('import.meta') ||
+    term.startsWith('VITE_') ||
+    term.startsWith('GEMINI_') ||
+    term.startsWith('STRIPE_') ||
+    term.startsWith('RECAPTCHA_')
   ) {
     return true;
   }
 
   // Pure extensions
-  if (/^\.(md|ts|tsx|js|mjs|cjs|astro|sh|py|css|json|toml|yaml|yml|txt|csv|html)$/i.test(token)) {
+  if (/^\.(md|ts|tsx|js|mjs|cjs|astro|sh|py|css|json|toml|yaml|yml|txt|csv|html)$/i.test(term)) {
     return true;
   }
 
   // Git branches or refs
-  if (token.startsWith('origin/') || token === 'main' || token === 'staging' || token === 'HEAD') {
+  if (term.startsWith('origin/') || term === 'main' || term === 'staging' || term === 'HEAD') {
     return true;
   }
 
   // Temporary paths
-  if (token.startsWith('/tmp/') || token.includes('os.tmpdir()')) return true;
+  if (term.startsWith('/tmp/') || term.includes('os.tmpdir()')) return true;
 
   // Website route URLs
-  if (isSiteRouteUrl(token)) return true;
+  if (isSiteRouteUrl(term)) return true;
 
   // Web domains
   if (
-    token.includes('mailboxplusohio.com') ||
-    token.includes('google.com') ||
-    token.includes('facebook.com')
+    term.includes('mailboxplusohio.com') ||
+    term.includes('google.com') ||
+    term.includes('facebook.com')
   ) {
     return true;
   }
 
   // Package imports / dependencies
   if (
-    token.startsWith('@') ||
-    token === 'zod' ||
-    token === 'gray-matter' ||
-    token === 'resend' ||
-    token === 'stripe' ||
-    token === 'dotenv' ||
-    token === 'vitest' ||
-    token === 'eslint' ||
-    token === 'prettier' ||
-    token === 'playwright'
+    term.startsWith('@') ||
+    term === 'zod' ||
+    term === 'gray-matter' ||
+    term === 'resend' ||
+    term === 'stripe' ||
+    term === 'dotenv' ||
+    term === 'vitest' ||
+    term === 'eslint' ||
+    term === 'prettier' ||
+    term === 'playwright'
   ) {
     return true;
   }
 
   // Tags or text strings containing slashes that are not paths
   if (
-    token === 'Mailbox Plus/Captioned' ||
-    token === 'Plus/Captioned' ||
+    term === 'Mailbox Plus/Captioned' ||
+    term === 'Plus/Captioned' ||
     codeSpan.includes('Mailbox Plus/Captioned') ||
-    token === 'DELETE' ||
-    token === 'MERGE' ||
-    token === 'REWRITE' ||
-    token === 'KEEP'
+    term === 'DELETE' ||
+    term === 'MERGE' ||
+    term === 'REWRITE' ||
+    term === 'KEEP'
   ) {
     return true;
   }
@@ -258,23 +258,23 @@ export function shouldSkipBacktickToken(token, codeSpan = '') {
 /**
  * Determines if a path contains dynamic placeholders or wildcards
  */
-export function isDynamicOrPlaceholderPath(token) {
-  if (!token) return false;
+export function isDynamicOrPlaceholderPath(term) {
+  if (!term) return false;
   return (
-    token.includes('<') ||
-    token.includes('>') ||
-    token.includes('{') ||
-    token.includes('}') ||
-    token.includes('*') ||
-    /\b(YYYY|MM|DD|QX)\b/.test(token)
+    term.includes('<') ||
+    term.includes('>') ||
+    term.includes('{') ||
+    term.includes('}') ||
+    term.includes('*') ||
+    /\b(YYYY|MM|DD|QX)\b/.test(term)
   );
 }
 
 /**
  * Checks if the static base directory of a dynamic path exists
  */
-export function checkDynamicPathBaseExists(token, dirOfDoc, rootDir = ROOT) {
-  const staticPrefix = token.split(/[\<\{\*\b(YYYY|MM|DD|QX)\b]/)[0];
+export function checkDynamicPathBaseExists(term, dirOfDoc, rootDir = ROOT) {
+  const staticPrefix = term.split(/[\<\{\*\b(YYYY|MM|DD|QX)\b]/)[0];
   if (!staticPrefix) return true;
 
   let baseDir = staticPrefix;
@@ -287,19 +287,19 @@ export function checkDynamicPathBaseExists(token, dirOfDoc, rootDir = ROOT) {
 }
 
 /**
- * Determines if a token is a candidate file or directory path
+ * Determines if a term is a candidate file or directory path
  */
-export function isPathCandidate(token) {
-  if (!token) return false;
+export function isPathCandidate(term) {
+  if (!term) return false;
 
   // Contains slashes
-  if (token.includes('/')) return true;
+  if (term.includes('/')) return true;
 
   // Has recognized file extension
-  if (FILE_EXTENSIONS_REGEX.test(token)) return true;
+  if (FILE_EXTENSIONS_REGEX.test(term)) return true;
 
   // Matches known repo root file
-  if (REPO_ROOT_FILES.has(token)) return true;
+  if (REPO_ROOT_FILES.has(term)) return true;
 
   return false;
 }
@@ -393,31 +393,31 @@ export function validateMarkdownContent(content, fileDir = ROOT, rootDir = ROOT)
     const backtickRegex = /`([^`]+)`/g;
     while ((match = backtickRegex.exec(line)) !== null) {
       const codeSpan = match[1].trim();
-      const tokens = codeSpan.split(/\s+/);
-      for (let rawToken of tokens) {
-        let token = cleanToken(rawToken);
+      const terms = codeSpan.split(/\s+/);
+      for (let rawTerm of terms) {
+        let term = cleanToken(rawTerm);
 
-        if (shouldSkipBacktickToken(token, codeSpan)) continue;
+        if (shouldSkipBacktickToken(term, codeSpan)) continue;
 
-        if (isDynamicOrPlaceholderPath(token)) {
-          if (!checkDynamicPathBaseExists(token, fileDir, rootDir)) {
+        if (isDynamicOrPlaceholderPath(term)) {
+          if (!checkDynamicPathBaseExists(term, fileDir, rootDir)) {
             errors.push({
               lineNum,
               type: 'BACKTICK',
-              target: token,
-              detail: `Base directory for dynamic path does not exist: "${token}"`,
+              target: term,
+              detail: `Base directory for dynamic path does not exist: "${term}"`,
             });
           }
           continue;
         }
 
-        if (isPathCandidate(token)) {
-          if (!checkPathExists(token, fileDir, rootDir)) {
+        if (isPathCandidate(term)) {
+          if (!checkPathExists(term, fileDir, rootDir)) {
             errors.push({
               lineNum,
               type: 'BACKTICK',
-              target: token,
-              detail: `Referenced path does not exist on disk: "${token}"`,
+              target: term,
+              detail: `Referenced path does not exist on disk: "${term}"`,
             });
           }
         }
