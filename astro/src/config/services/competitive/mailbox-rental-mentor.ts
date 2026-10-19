@@ -10,6 +10,16 @@ import Shield from '~icons/lucide/shield';
 export const competePages: Service[] = [
   {
     id: 'mailbox-rental-mentor',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'private-mailbox-rental-concord-township',
+        'package-receiving',
+      ],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({
