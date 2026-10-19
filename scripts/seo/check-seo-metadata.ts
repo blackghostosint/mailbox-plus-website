@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { resolveDistDir } from '../lib/dist-path.mjs';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
@@ -22,14 +23,17 @@ interface StaticPageInfo {
   filePath: string;
 }
 
-function decodeHtml(html: string): string {
-  return html
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&#x27;/g, "'");
+const HTML_ENTITIES: Record<string, string> = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'",
+  '&#x27;': "'",
+};
+
+export function decodeHtml(html: string): string {
+  return html.replace(/&(?:amp|lt|gt|quot|#39|#x27);/g, (match) => HTML_ENTITIES[match] ?? match);
 }
 
 function discoverServiceMetadata() {
@@ -265,4 +269,6 @@ function main() {
   }
 }
 
-main();
+if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main();
+}
