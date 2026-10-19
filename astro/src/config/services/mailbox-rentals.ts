@@ -115,12 +115,12 @@ export const mailboxRentalServices: Service[] = [
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$50.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
-                            <tr class="bg-[var(--color-bg-blue-tint)]/30">
+                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
                                 <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Small)</td>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$420.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
                             </tr>
-                            <tr class="bg-[var(--color-bg-blue-tint)]/30">
+                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
                                 <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Large)</td>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$600.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>

@@ -959,7 +959,7 @@ export const copyPrintServices: Service[] = [
                 </p>
                 <div class="grid md:grid-cols-2 gap-6 mt-8">
                     <div class="p-6 rounded-2xl bg-white shadow-sm border border-[var(--color-border)] flex gap-4 items-start">
-                        <div class="w-10 h-10 rounded-xl bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] flex items-center justify-center shrink-0">
                             <svg aria-hidden="true" focusable="false" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"></path></svg>
                         </div>
                         <div>
@@ -984,10 +984,10 @@ export const copyPrintServices: Service[] = [
         body: `<div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
-                            <tr class="bg-[var(--color-bg-blue-tint)]/50">
-                                <th class="p-4 border-b border-[var(--color-border-blue)] font-bold text-[var(--color-primary)]">Feature</th>
-                                <th class="p-4 border-b border-[var(--color-border-blue)] font-bold text-[var(--color-primary)]">Mailbox Plus</th>
-                                <th class="p-4 border-b border-[var(--color-border-blue)] font-bold text-[var(--color-primary)] text-opacity-60 italic">Staples</th>
+                            <tr class="bg-[var(--color-bg-warm-tint)]/50">
+                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Feature</th>
+                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)] text-opacity-60 italic">Staples</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
@@ -1073,11 +1073,11 @@ export const copyPrintServices: Service[] = [
                     <div class="p-6 bg-white rounded-2xl border border-[var(--color-border)] shadow-sm">
                         <h4 class="font-bold text-[var(--color-primary)] mb-3 text-center">Comprehensive Services</h4>
                         <div class="flex flex-wrap gap-2 justify-center">
-                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Printing</span>
-                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Copying</span>
-                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Mailbox</span>
-                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Notary</span>
-                            <span class="px-3 py-1 bg-[var(--color-bg-blue-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Shredding</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Printing</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Copying</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Mailbox</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Notary</span>
+                            <span class="px-3 py-1 bg-[var(--color-bg-warm-tint)] text-[var(--color-primary)] rounded-full text-xs font-semibold">Shredding</span>
                         </div>
                     </div>
                 </div>`,
@@ -1129,19 +1129,19 @@ export const copyPrintServices: Service[] = [
                     From student projects to large-scale business materials, we ensure your work looks sharp and standout.
                 </p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mt-8">
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="font-bold text-[var(--color-primary)] mb-2">Quality</h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Professional-grade equipment for crisp, clear results.</p>
                     </div>
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="font-bold text-[var(--color-primary)] mb-2">Speed</h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Same-day service available for many jobs.</p>
                     </div>
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="font-bold text-[var(--color-primary)] mb-2">Ease</h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Email us your files or bring them on a USB drive.</p>
                     </div>
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="font-bold text-[var(--color-primary)] mb-2">Value</h4>
                         <p class="text-sm text-[var(--color-text-secondary)]">Competitive pricing without big box hassle.</p>
                     </div>

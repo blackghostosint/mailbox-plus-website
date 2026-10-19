@@ -394,7 +394,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
                 className={`p-4 rounded-xl border transition-all duration-200 flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4 ${
                   isActive
                     ? 'bg-[var(--color-bg-warm-tint)] border-[var(--color-accent-warm)] shadow-sm ring-1 ring-[var(--color-accent-warm)]/30'
-                    : 'bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary-light)]'
+                    : 'bg-[var(--color-bg-primary)] border-[var(--color-border)] hover:border-[var(--color-primary)]'
                 }`}
               >
                 <button

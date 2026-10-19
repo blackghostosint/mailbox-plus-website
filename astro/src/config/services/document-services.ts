@@ -59,19 +59,19 @@ export const documentServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Design & Printing:</strong> Professional postcards and brochures.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
@@ -150,7 +150,7 @@ export const documentServices: Service[] = [
                     </p>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -159,7 +159,7 @@ export const documentServices: Service[] = [
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -168,7 +168,7 @@ export const documentServices: Service[] = [
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -398,7 +398,7 @@ export const documentServices: Service[] = [
                     with ease and confidentiality.
                 </p>
                 <div class="grid md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="text-xl font-bold text-[var(--color-primary-dark)] mb-4">Complete Document Solutions</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">
