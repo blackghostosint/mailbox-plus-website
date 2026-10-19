@@ -21,6 +21,8 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
+4. **Serverless Authorization Verification (`npm run check:auth-model`):**
+   Verifies that any PR modifying files under `netlify/functions/` contains a valid `## Endpoint Authentication Models` section in the PR description as required by [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change).
 
 ## Project Structure
 
@@ -114,6 +116,29 @@ All real-store photos referenced in article bodies (`/articles/store-library/`) 
 3. Set `status: draft` for preview, `status: published` for live
 4. Articles are auto-discovered by `astro/src/utils/articleLoader.ts`
 5. Run `npm run audit:articles` to validate links/frontmatter against the sitemap
+
+## Serverless API Authorization Disclosures (AGENTS.md Rule 7)
+
+As defined in [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change), every pull request that adds or modifies a serverless function or API endpoint under `netlify/functions/` must explicitly document the endpoint's authorization model in the PR description.
+
+### PR Description Formatting & Rules
+
+- **PR Template Section:** Use the `## Endpoint Authentication Models` section provided in [.github/pull_request_template.md](.github/pull_request_template.md).
+- **Substantive Content Limit:** The `## Endpoint Authentication Models` section must contain at least **120 characters** of substantive explanation (heading + content). Hollow placeholders or bare statements such as "The endpoint exists and validates its input" do not meet the authorization standard and will cause CI pre-flight checks to fail.
+- **Required Disclosure Details:** For each endpoint added or changed, specify:
+  1. **Caller Eligibility:** Who is authorized to invoke the endpoint (e.g., public unauthenticated visitors, verified sessions, administrative callers).
+  2. **Identity & Authorization Mechanism:** How caller identity or authorization is proven (e.g., reCAPTCHA v3 token verification, session cookies, signed request tokens, or public access).
+  3. **Rate Limiting & Protection:** Rate limiting rules enforced (e.g., Netlify Blobs sliding window or in-memory fallback limits via [netlify/functions/lib/rate-limiter.ts](netlify/functions/lib/rate-limiter.ts)).
+
+### Local Testing
+
+Contributors can run local pre-flight checks before opening a PR:
+
+```bash
+npm run check:auth-model
+```
+
+This script validates the PR body against changed files under `netlify/functions/` to catch authorization disclosure gaps before CI runs.
 
 ## Commit Convention
 

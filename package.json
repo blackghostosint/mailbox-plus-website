@@ -46,6 +46,7 @@
     "seo:check-href-slash": "node scripts/seo/check-internal-href-slash.mjs",
     "seo:check-metadata": "tsx scripts/seo/check-seo-metadata.ts",
     "check:public-data": "bash scripts/check-public-data-refs.sh",
+    "check:auth-model": "node scripts/check-auth-model.mjs",
     "check:inline-scripts": "node scripts/check-inline-scripts.mjs",
     "vault:extract": "npm --prefix astro run test -- src/scripts/vault-extract.test.ts",
     "vault:generate": "python3 scripts/vault-sync/vault-generate.py",
