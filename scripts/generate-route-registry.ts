@@ -18,6 +18,8 @@ if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
 const ROOT_DIR = process.cwd();
 const SITE_STRUCTURE_PATH = path.join(ROOT_DIR, 'astro/src/data/siteStructure.json');
 const LOCAL_PAGES_PATH = path.join(ROOT_DIR, 'astro/src/data/localPages.json');
+const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
+const ANCHOR_TEXT_PATH = path.join(ROOT_DIR, 'astro/src/data/anchorText.json');
 
 export const formatUrl = (url: string): string => url.replace(/\/$/, '');
 
@@ -105,6 +107,8 @@ export function buildSiteStructure(
       pillarChildrenMap['geo-dropoffs'].push(child);
     } else if (competitiveIds.has(s.id)) {
       seoLanding.push(child);
+    } else if (s.internalLink?.parent && pillarChildrenMap[s.internalLink.parent]) {
+      pillarChildrenMap[s.internalLink.parent].push(child);
     } else if (s.category === 'pack-ship') {
       pillarChildrenMap['pack-ship'].push(child);
     } else if (s.category === 'copy-print') {
@@ -157,18 +161,174 @@ export function buildSiteStructure(
   };
 }
 
+export function buildInternalLinks(
+  servicesList = services,
+  pillarConfigsList = pillarConfigs,
+  subSupportingList = subSupportingConfigs,
+  standaloneSeoList = standaloneSeoLandingConfigs,
+  siteStructureObj = buildSiteStructure(
+    servicesList,
+    competitivePages,
+    pillarConfigsList,
+    subSupportingList,
+    standaloneSeoList
+  )
+) {
+  const childToPillarMap = new Map<string, string>();
+  for (const pillar of siteStructureObj.pillars) {
+    for (const child of pillar.children) {
+      childToPillarMap.set(child.id, pillar.id);
+    }
+  }
+
+  const internalLinksMap: Record<
+    string,
+    { parent: string | null; related: string[]; priority: boolean }
+  > = {};
+
+  internalLinksMap['homepage'] = {
+    parent: null,
+    related: [
+      'pack-ship',
+      'copy-print',
+      'home-business',
+      'mailbox-rental',
+      'fedex-shipping',
+      'ups-shipping',
+      'notary-services',
+    ].map(getId),
+    priority: true,
+  };
+
+  for (const p of pillarConfigsList) {
+    internalLinksMap[getId(p.id)] = {
+      parent: p.internalLink?.parent ? getId(p.internalLink.parent) : null,
+      related: (p.internalLink?.related || []).map(getId),
+      priority: p.internalLink?.priority ?? true,
+    };
+  }
+
+  for (const sub of subSupportingList) {
+    internalLinksMap[getId(sub.id)] = {
+      parent: getId(sub.internalLink?.parent ?? 'pack-ship'),
+      related: (sub.internalLink?.related || []).map(getId),
+      priority: sub.internalLink?.priority ?? false,
+    };
+  }
+
+  for (const seo of standaloneSeoList) {
+    internalLinksMap[getId(seo.id)] = {
+      parent: getId(seo.internalLink?.parent ?? 'home-business'),
+      related: (seo.internalLink?.related || []).map(getId),
+      priority: seo.internalLink?.priority ?? false,
+    };
+  }
+
+  for (const s of servicesList) {
+    const id = getId(s.id);
+    const pillarParent = childToPillarMap.get(id);
+    const parent =
+      pillarParent !== undefined
+        ? pillarParent
+        : s.internalLink?.parent
+          ? getId(s.internalLink.parent)
+          : null;
+
+    internalLinksMap[id] = {
+      parent,
+      related: (s.internalLink?.related || []).map(getId),
+      priority: s.internalLink?.priority ?? false,
+    };
+  }
+
+  if (childToPillarMap.has('ask-mailbox-plus') && !internalLinksMap['ask-mailbox-plus']) {
+    internalLinksMap['ask-mailbox-plus'] = {
+      parent: getId(childToPillarMap.get('ask-mailbox-plus') || 'micro-problems'),
+      related: [
+        'mailbox-rental',
+        'notary-services',
+        'pack-ship',
+        'copy-print',
+        'drop-off-a-prepaid-label-from-your-phone',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        'ship-with-guaranteed-proof-and-tracking-concord-township',
+      ].map(getId),
+      priority: false,
+    };
+  }
+
+  return internalLinksMap;
+}
+
+export function buildAnchorText(
+  servicesList = services,
+  pillarConfigsList = pillarConfigs,
+  subSupportingList = subSupportingConfigs,
+  standaloneSeoList = standaloneSeoLandingConfigs
+) {
+  const anchorTextMap: Record<string, { exact?: string[]; lsi?: string[]; geo?: string[] }> = {};
+
+  const registerAnchorText = (
+    id: string,
+    anchorText?: { exact?: string[]; lsi?: string[]; geo?: string[] }
+  ) => {
+    if (
+      anchorText &&
+      (anchorText.exact?.length || anchorText.lsi?.length || anchorText.geo?.length)
+    ) {
+      anchorTextMap[id] = {
+        exact: anchorText.exact || [],
+        lsi: anchorText.lsi || [],
+        geo: anchorText.geo || [],
+      };
+    }
+  };
+
+  for (const p of pillarConfigsList) {
+    registerAnchorText(p.id, p.anchorText);
+  }
+
+  for (const sub of subSupportingList) {
+    registerAnchorText(sub.id, sub.anchorText);
+  }
+
+  for (const seo of standaloneSeoList) {
+    registerAnchorText(seo.id, seo.anchorText);
+  }
+
+  for (const s of servicesList) {
+    const id = getId(s.id);
+    registerAnchorText(id, s.anchorText);
+  }
+
+  return anchorTextMap;
+}
+
 export async function generateRouteRegistry(options?: {
   localPagesPath?: string;
   siteStructurePath?: string;
+  internalLinksPath?: string;
+  anchorTextPath?: string;
   write?: boolean;
 }) {
   const startTime = performance.now();
   const localPagesPath = options?.localPagesPath || LOCAL_PAGES_PATH;
   const siteStructurePath = options?.siteStructurePath || SITE_STRUCTURE_PATH;
+  const internalLinksPath = options?.internalLinksPath || INTERNAL_LINKS_PATH;
+  const anchorTextPath = options?.anchorTextPath || ANCHOR_TEXT_PATH;
   const shouldWrite = options?.write ?? true;
 
   const localPages = generateLocalPages();
   const siteStructure = buildSiteStructure();
+  const internalLinks = buildInternalLinks(
+    services,
+    pillarConfigs,
+    subSupportingConfigs,
+    standaloneSeoLandingConfigs,
+    siteStructure
+  );
+  const anchorText = buildAnchorText();
 
   if (shouldWrite) {
     const formattedLocalPages = await prettier.format(JSON.stringify(localPages), {
@@ -177,9 +337,17 @@ export async function generateRouteRegistry(options?: {
     const formattedSiteStructure = await prettier.format(JSON.stringify(siteStructure), {
       parser: 'json',
     });
+    const formattedInternalLinks = await prettier.format(JSON.stringify(internalLinks), {
+      parser: 'json',
+    });
+    const formattedAnchorText = await prettier.format(JSON.stringify(anchorText), {
+      parser: 'json',
+    });
 
     fs.writeFileSync(localPagesPath, formattedLocalPages);
     fs.writeFileSync(siteStructurePath, formattedSiteStructure);
+    fs.writeFileSync(internalLinksPath, formattedInternalLinks);
+    fs.writeFileSync(anchorTextPath, formattedAnchorText);
 
     const duration = (performance.now() - startTime).toFixed(2);
     console.log(`✅ Route registries emitted successfully in ${duration}ms!`);
@@ -187,9 +355,11 @@ export async function generateRouteRegistry(options?: {
     console.log(
       `   - ${siteStructurePath} (${siteStructure.pillars.reduce((acc, p) => acc + p.children.length, 0)} pillar items, ${siteStructure['seo-landing'].length} seo-landings)`
     );
+    console.log(`   - ${internalLinksPath} (${Object.keys(internalLinks).length} internal links)`);
+    console.log(`   - ${anchorTextPath} (${Object.keys(anchorText).length} anchor text entries)`);
   }
 
-  return { localPages, siteStructure };
+  return { localPages, siteStructure, internalLinks, anchorText };
 }
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
