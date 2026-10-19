@@ -27,7 +27,7 @@ test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', ()
     await expect(copyBtn).toBeFocused();
   });
 
-  test('Amazon counter page fuel-math share button derives accessible name from inner image alt text and caption without aria-label override', async ({
+  test('Amazon counter page fuel-math share button uses explicit aria-label starting with visible text label', async ({
     page,
     context,
   }) => {
@@ -38,10 +38,13 @@ test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', ()
     const fuelMathBtn = page.locator('#share-fuelmath-btn');
     await expect(fuelMathBtn).toBeVisible();
 
-    // Verify aria-label override is absent
-    await expect(fuelMathBtn).not.toHaveAttribute('aria-label');
+    // Verify explicit aria-label is present and starts with the visible text label
+    await expect(fuelMathBtn).toHaveAttribute(
+      'aria-label',
+      /^Tap to share this graphic — every share moves Amazon's needle/
+    );
 
-    // Verify accessible name includes inner image alt text and caption
+    // Verify accessible name includes both visible text label and graphic description
     const accessibleName = await fuelMathBtn.ariaSnapshot();
     expect(accessibleName).toContain(
       "Whiteboard graphic comparing Amazon's current returns system"
@@ -49,7 +52,7 @@ test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', ()
     expect(accessibleName).toContain('Tap to share this graphic');
 
     await expect(fuelMathBtn).toHaveAccessibleName(
-      /Whiteboard graphic comparing Amazon's current returns system.*Tap to share this graphic/s
+      /Tap to share this graphic.*Whiteboard graphic comparing Amazon's current returns system/s
     );
 
     // Verify click handler triggers fallback clipboard copy or share
