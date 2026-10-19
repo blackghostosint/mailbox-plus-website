@@ -247,14 +247,14 @@ const storeHours = [
 
   /* Check card visual */
   .check-wrap { position: relative; }
-  .check-card { background: #fff; border-radius: 20px; padding: 36px 30px; box-shadow: var(--shadow-xl); transform: rotate(1.5deg); max-width: 340px; color: var(--color-text-primary); }
+  .check-card { background: #fff; border-radius: var(--radius-md); padding: 36px 30px; box-shadow: var(--shadow-xl); transform: rotate(1.5deg); max-width: 340px; color: var(--color-text-primary); }
   .check-badge { width: 56px; height: 56px; border-radius: 50%; background: var(--color-accent-warm); color: #fff; font-size: 28px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
   .check-title { font-size: 22px; font-weight: 700; margin-bottom: 8px; }
   .check-line { font-size: 15px; color: var(--color-text-secondary); padding: 4px 0 4px 22px; position: relative; }
   .check-line::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
 
   /* Buttons */
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: 12px; padding: 12px 24px; font-size: 16px; cursor: pointer; transition: filter .15s ease, transform .15s ease; border: none; text-decoration: none; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-weight: 700; border-radius: var(--radius-sm); padding: 12px 24px; font-size: 16px; cursor: pointer; transition: filter .15s ease, transform .15s ease; border: none; text-decoration: none; }
   .btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
   .btn-gold { background: var(--color-accent-gold); color: var(--color-text-primary); }
   .btn-outline { background: transparent; border: 2px solid var(--color-border-strong); color: var(--color-text-primary); }
@@ -270,15 +270,15 @@ const storeHours = [
   .section-head p { color: var(--color-text-secondary); font-size: 17px; max-width: 620px; margin: 0 auto; }
 
   /* Why banner */
-  .why-banner { display: flex; gap: 24px; align-items: flex-start; background: #fff; border: 2px solid var(--color-accent-warm); border-radius: 30px; padding: 32px; box-shadow: var(--shadow-md); }
+  .why-banner { display: flex; gap: 24px; align-items: flex-start; background: #fff; border: 2px solid var(--color-accent-warm); border-radius: var(--radius-xl); padding: 32px; box-shadow: var(--shadow-md); }
   .why-emoji { font-size: 42px; flex-shrink: 0; }
   .why-body h2 { font-size: 24px; font-weight: 700; margin-bottom: 10px; }
   .why-body p { color: var(--color-text-secondary); font-size: 16.5px; line-height: 1.6; }
 
   /* Grids */
   .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
-  .card { background: #fff; border: 1px solid var(--color-border); border-radius: 26px; padding: 28px; box-shadow: var(--shadow-sm); }
-  .card .icon { width: 48px; height: 48px; border-radius: 12px; background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 24px; }
+  .card { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; box-shadow: var(--shadow-sm); }
+  .card .icon { width: 48px; height: 48px; border-radius: var(--radius-sm); background: var(--color-primary); color: #fff; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; font-size: 24px; }
   .card h3 { font-size: 19px; font-weight: 700; margin-bottom: 8px; }
 
   /* ID checklist */
@@ -287,11 +287,11 @@ const storeHours = [
   .id-list { list-style: none; margin: 0; }
   .id-list li { font-size: 15px; color: var(--color-text-secondary); padding: 5px 0 5px 24px; position: relative; }
   .id-list li::before { content: '✓'; position: absolute; left: 0; color: var(--color-accent-warm); font-weight: 700; }
-  .no-banner { margin-top: 24px; background: #fff; border: 2px solid var(--color-accent-warm); border-left: 6px solid var(--color-accent-warm); border-radius: 20px; padding: 18px 22px; color: var(--color-text-primary); font-size: 15.5px; }
+  .no-banner { margin-top: 24px; background: #fff; border: 2px solid var(--color-accent-warm); border-left: 6px solid var(--color-accent-warm); border-radius: var(--radius-md); padding: 18px 22px; color: var(--color-text-primary); font-size: 15.5px; }
 
   /* Steps */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .step { background: #fff; border: 1px solid var(--color-border); border-radius: 26px; padding: 28px; text-align: center; box-shadow: var(--shadow-sm); }
+  .step { background: #fff; border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: 28px; text-align: center; box-shadow: var(--shadow-sm); }
   .step-num { width: 44px; height: 44px; border-radius: 50%; background: var(--color-accent-warm); color: #fff; font-size: 20px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
   .step h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
   .step p { color: var(--color-text-secondary); font-size: 15px; }
