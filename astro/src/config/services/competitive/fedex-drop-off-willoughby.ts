@@ -7,6 +7,11 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'fedex-drop-off-willoughby',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['fedex-shipping', 'package-drop-offs', 'shipping-partners', 'happy-returns'],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-drop-off-willoughby-featured.webp',
     headJsonLd: getImageObjectSchema({
