@@ -69,6 +69,25 @@ try {
   validateArticleFrontmatter = null;
 }
 
+let parseValidDate, toISODateString;
+try {
+  const dateUtils = await import('../../astro/src/utils/dateUtils.ts');
+  parseValidDate = dateUtils.parseValidDate;
+  toISODateString = dateUtils.toISODateString;
+} catch {
+  parseValidDate = (input) => {
+    if (!input) return null;
+    const d = new Date(input);
+    return isNaN(d.getTime()) ? null : d;
+  };
+  toISODateString = (input, fallback = 'unknown', format = 'date') => {
+    const d = parseValidDate(input);
+    if (!d) return fallback;
+    const iso = d.toISOString();
+    return format === 'date' ? iso.slice(0, 10) : iso;
+  };
+}
+
 let currentFile = null;
 const results = [];
 function check(name, pass, detail, fix, file = currentFile) {
@@ -951,8 +970,8 @@ function cmdArticle(arg, isStrict = false) {
     }
 
     // 6) pubDate parses + is not in the future
-    const pd = new Date(String(data.pubDate || ''));
-    if (isNaN(pd.getTime())) {
+    const pd = parseValidDate(data.pubDate);
+    if (!pd) {
       check(
         'meta:pubDate',
         false,
@@ -963,7 +982,7 @@ function cmdArticle(arg, isStrict = false) {
       check(
         'meta:pubDate',
         pd.getTime() <= Date.now() + 86400000,
-        pd.toISOString(),
+        toISODateString(pd, 'unknown', 'iso'),
         'pubDate more than 1 day in the future'
       );
     }

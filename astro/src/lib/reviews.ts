@@ -1,6 +1,7 @@
 // Shared client-side Google reviews loader and card builder.
 import { apiFetch } from './api-client';
 import { ReviewsSuccessSchema, type ReviewsSuccess, type ReviewDto } from './contracts';
+import { compareDatesDesc } from '../utils/dateUtils';
 
 export type ReviewItem = ReviewDto;
 export type ReviewsApiData = ReviewsSuccess;
@@ -104,9 +105,7 @@ export async function initReviewSection(): Promise<void> {
 
     const newest = data.reviews
       .slice()
-      .sort(
-        (a, b) => new Date(b.publishTime || 0).getTime() - new Date(a.publishTime || 0).getTime()
-      )
+      .sort((a, b) => compareDatesDesc(a.publishTime, b.publishTime))
       .slice(0, 3);
 
     if (!newest.length) return;

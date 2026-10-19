@@ -12,6 +12,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadArticles } from './lib/article-utils.ts';
+import { toISODateString } from '../astro/src/utils/dateUtils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,14 +24,7 @@ const LLMS_FULL_PATH = path.join(ROOT, 'public', 'llms-full.txt');
 const BASE = 'https://mailboxplusohio.com';
 
 export function fmtDate(iso: string | null | undefined): string {
-  if (!iso) return 'unknown';
-  try {
-    const d = new Date(iso);
-    if (isNaN(d.getTime())) return 'unknown';
-    return d.toISOString().slice(0, 10);
-  } catch {
-    return 'unknown';
-  }
+  return toISODateString(iso, 'unknown');
 }
 
 export interface ArticleItem {
