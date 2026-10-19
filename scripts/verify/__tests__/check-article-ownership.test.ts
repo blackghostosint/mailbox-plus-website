@@ -275,6 +275,20 @@ authorship: article-writer-bot (in-house)
       expect(result.message).toContain('Local execution detected');
     });
 
+    it('fails in local execution mode if authorship stamp is missing from PR body', () => {
+      const changedFiles = ['content/articles/local-test.md'];
+      const result = checkArticleOwnership({
+        body: 'Local article change without stamp',
+        changedFiles,
+        author: '',
+        isLocal: true,
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.reason).toBe('missing_stamp');
+      expect(result.message).toContain('missing the in-house authorship stamp');
+    });
+
     it('fails when author context is missing in CI environment (isLocal = false)', () => {
       const changedFiles = ['content/articles/ci-test.md'];
       const result = checkArticleOwnership({
@@ -370,6 +384,48 @@ authorship: article-writer-bot (in-house)
       } catch (error: any) {
         expect(error.status).toBe(1);
         expect(error.stderr || error.stdout).toContain('missing the in-house authorship stamp');
+      } finally {
+        fs.rmSync(tempBodyFile, { force: true });
+        fs.rmSync(tempFilesFile, { force: true });
+      }
+    });
+
+    it('exits with code 1 in local mode (--local) when authorship stamp is missing', () => {
+      const tempBodyFile = path.join(os.tmpdir(), `test-body-${Date.now()}-local-fail.txt`);
+      const tempFilesFile = path.join(os.tmpdir(), `test-files-${Date.now()}-local-fail.txt`);
+
+      fs.writeFileSync(tempBodyFile, 'Local PR body without stamp');
+      fs.writeFileSync(tempFilesFile, 'content/articles/shipping.md');
+
+      try {
+        execSync(
+          `node scripts/verify/check-article-ownership.mjs "${tempBodyFile}" "${tempFilesFile}" --local`,
+          { cwd: ROOT, encoding: 'utf8' }
+        );
+        expect.fail('Expected execSync to throw an error due to exit code 1');
+      } catch (error: any) {
+        expect(error.status).toBe(1);
+        expect(error.stderr || error.stdout).toContain('missing the in-house authorship stamp');
+      } finally {
+        fs.rmSync(tempBodyFile, { force: true });
+        fs.rmSync(tempFilesFile, { force: true });
+      }
+    });
+
+    it('exits with code 0 in local mode (--local) when authorship stamp is present', () => {
+      const tempBodyFile = path.join(os.tmpdir(), `test-body-${Date.now()}-local-pass.txt`);
+      const tempFilesFile = path.join(os.tmpdir(), `test-files-${Date.now()}-local-pass.txt`);
+
+      fs.writeFileSync(tempBodyFile, validArticleBody);
+      fs.writeFileSync(tempFilesFile, 'content/articles/shipping.md');
+
+      try {
+        const stdout = execSync(
+          `node scripts/verify/check-article-ownership.mjs "${tempBodyFile}" "${tempFilesFile}" --local`,
+          { cwd: ROOT, encoding: 'utf8' }
+        );
+        expect(stdout).toContain('Local execution detected');
+        expect(stdout).toContain('verified authorship stamp present');
       } finally {
         fs.rmSync(tempBodyFile, { force: true });
         fs.rmSync(tempFilesFile, { force: true });

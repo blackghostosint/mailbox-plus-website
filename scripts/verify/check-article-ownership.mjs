@@ -72,38 +72,34 @@ export function checkArticleOwnership({
     a.trim().toLowerCase()
   );
 
+  let authorBypassedLocally = false;
+
   if (!normalizedAuthor) {
     if (isLocal) {
+      authorBypassedLocally = true;
+    } else {
       return {
-        success: true,
+        success: false,
         touchesArticles: true,
-        reason: 'local_bypass',
+        reason: 'missing_author',
         message:
-          '⚠️ article-ownership: Local execution detected without author context; bypassing author check for local dev',
+          '❌ article-ownership: PR touches content/articles/ but pull request author is unknown.\n' +
+          '   Pass --author or set PR_AUTHOR environment variable.',
       };
     }
-    return {
-      success: false,
-      touchesArticles: true,
-      reason: 'missing_author',
-      message:
-        '❌ article-ownership: PR touches content/articles/ but pull request author is unknown.\n' +
-        '   Pass --author or set PR_AUTHOR environment variable.',
-    };
-  }
-
-  const isAuthorizedAuthor = normalizedAuthorized.includes(normalizedAuthor);
-
-  if (!isAuthorizedAuthor) {
-    return {
-      success: false,
-      touchesArticles: true,
-      reason: 'unauthorized_author',
-      message:
-        `❌ article-ownership: PR touches content/articles/ but author '${author}' is not an authorized internal author login.\n` +
-        '   Articles are produced by internal author accounts ONLY.\n' +
-        '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
-    };
+  } else {
+    const isAuthorizedAuthor = normalizedAuthorized.includes(normalizedAuthor);
+    if (!isAuthorizedAuthor) {
+      return {
+        success: false,
+        touchesArticles: true,
+        reason: 'unauthorized_author',
+        message:
+          `❌ article-ownership: PR touches content/articles/ but author '${author}' is not an authorized internal author login.\n` +
+          '   Articles are produced by internal author accounts ONLY.\n' +
+          '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
+      };
+    }
   }
 
   if (deletionsOnly) {
@@ -130,6 +126,16 @@ export function checkArticleOwnership({
         IN_HOUSE_STAMP +
         '\n' +
         '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
+    };
+  }
+
+  if (authorBypassedLocally) {
+    return {
+      success: true,
+      touchesArticles: true,
+      reason: 'local_bypass',
+      message:
+        '⚠️ article-ownership: Local execution detected without author context; verified authorship stamp present',
     };
   }
 
