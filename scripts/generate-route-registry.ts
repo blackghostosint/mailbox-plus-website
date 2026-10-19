@@ -196,30 +196,30 @@ export function buildInternalLinks(
       'fedex-shipping',
       'ups-shipping',
       'notary-services',
-    ],
+    ].map(getId),
     priority: true,
   };
 
   for (const p of pillarConfigsList) {
-    internalLinksMap[p.id] = {
-      parent: null,
-      related: p.internalLink?.related || [],
+    internalLinksMap[getId(p.id)] = {
+      parent: p.internalLink?.parent ? getId(p.internalLink.parent) : null,
+      related: (p.internalLink?.related || []).map(getId),
       priority: p.internalLink?.priority ?? true,
     };
   }
 
   for (const sub of subSupportingList) {
-    internalLinksMap[sub.id] = {
-      parent: sub.internalLink?.parent ?? 'pack-ship',
-      related: sub.internalLink?.related || [],
+    internalLinksMap[getId(sub.id)] = {
+      parent: getId(sub.internalLink?.parent ?? 'pack-ship'),
+      related: (sub.internalLink?.related || []).map(getId),
       priority: sub.internalLink?.priority ?? false,
     };
   }
 
   for (const seo of standaloneSeoList) {
-    internalLinksMap[seo.id] = {
-      parent: seo.internalLink?.parent ?? 'home-business',
-      related: seo.internalLink?.related || [],
+    internalLinksMap[getId(seo.id)] = {
+      parent: getId(seo.internalLink?.parent ?? 'home-business'),
+      related: (seo.internalLink?.related || []).map(getId),
       priority: seo.internalLink?.priority ?? false,
     };
   }
@@ -227,18 +227,23 @@ export function buildInternalLinks(
   for (const s of servicesList) {
     const id = getId(s.id);
     const pillarParent = childToPillarMap.get(id);
-    const parent = pillarParent !== undefined ? pillarParent : (s.internalLink?.parent ?? null);
+    const parent =
+      pillarParent !== undefined
+        ? pillarParent
+        : s.internalLink?.parent
+          ? getId(s.internalLink.parent)
+          : null;
 
     internalLinksMap[id] = {
       parent,
-      related: s.internalLink?.related || [],
+      related: (s.internalLink?.related || []).map(getId),
       priority: s.internalLink?.priority ?? false,
     };
   }
 
   if (childToPillarMap.has('ask-mailbox-plus') && !internalLinksMap['ask-mailbox-plus']) {
     internalLinksMap['ask-mailbox-plus'] = {
-      parent: childToPillarMap.get('ask-mailbox-plus') || 'micro-problems',
+      parent: getId(childToPillarMap.get('ask-mailbox-plus') || 'micro-problems'),
       related: [
         'mailbox-rental',
         'notary-services',
@@ -248,7 +253,7 @@ export function buildInternalLinks(
         'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
         'get-help-choosing-the-right-box-for-shipping-in-concord-township',
         'ship-with-guaranteed-proof-and-tracking-concord-township',
-      ],
+      ].map(getId),
       priority: false,
     };
   }

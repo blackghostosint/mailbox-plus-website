@@ -212,6 +212,66 @@ describe('generate-route-registry', () => {
         priority: true,
       });
     });
+
+    it('canonicalizes non-canonical parent and related IDs via getId()', () => {
+      const mockServices = [
+        {
+          id: 'ship-a-return-with-strict-size-or-weight-limits',
+          category: 'pack-ship',
+          slug: '/ship-a-return-with-strict-size-or-weight-limits',
+          internalLink: {
+            parent: 'pack-ship',
+            related: ['ups-authorized-shipper-outlet'],
+            priority: false,
+          },
+        },
+      ];
+
+      const mockPillarConfigs = [
+        {
+          id: 'pack-ship',
+          title: 'Pack & Ship',
+          url: '/pack-ship',
+          description: 'Packing',
+          internalLink: {
+            parent: null,
+            related: ['ship-a-return-with-strict-size-or-weight-limits'],
+            priority: true,
+          },
+        },
+      ];
+
+      const links = buildInternalLinks(
+        mockServices as any,
+        mockPillarConfigs as any,
+        [],
+        [],
+        buildSiteStructure(mockServices as any, [], mockPillarConfigs as any, [], [])
+      );
+
+      expect(links['pack-ship'].related).toContain('ship-return-strict-size-weight-limits');
+      expect(links['ship-return-strict-size-weight-limits'].related).toContain('ups-shipping');
+    });
+
+    it('asserts every parent and related ID resolves to a generated registry node', () => {
+      const links = buildInternalLinks();
+      const nodeIds = new Set(Object.keys(links));
+
+      for (const [id, linkData] of Object.entries(links)) {
+        if (linkData.parent !== null) {
+          expect(
+            nodeIds.has(linkData.parent),
+            `Node '${id}' references non-existent parent '${linkData.parent}'`
+          ).toBe(true);
+        }
+        for (const relatedId of linkData.related) {
+          expect(
+            nodeIds.has(relatedId),
+            `Node '${id}' references non-existent related target '${relatedId}'`
+          ).toBe(true);
+        }
+      }
+    });
   });
 
   describe('buildAnchorText', () => {
