@@ -7,6 +7,16 @@ import MapPin from '~icons/lucide/map-pin';
 export const competePages: Service[] = [
   {
     id: 'ups-store-alternative-kirtland',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'ups-store-alternative-concord-township',
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+      ],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/ups-drop-off-mentor-featured.webp',
     headJsonLd: getImageObjectSchema({

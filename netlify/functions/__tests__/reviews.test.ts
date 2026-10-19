@@ -91,7 +91,10 @@ describe('reviews function handler', () => {
     expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
     expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
-    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+    expect(await res11.json()).toEqual({
+      ok: false,
+      error: 'Too many requests. Please try again later.',
+    });
   });
 
   it('returns 502 when GOOGLE_PLACES_API_KEY is missing and no cached payload exists', async () => {
@@ -100,7 +103,7 @@ describe('reviews function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(502);
-    expect(await res.json()).toEqual({ error: 'Reviews temporarily unavailable' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Reviews temporarily unavailable' });
     expect(mockFetch).not.toHaveBeenCalled();
   });
 
@@ -114,7 +117,7 @@ describe('reviews function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(createRequest(), ctx);
     expect(res.status).toBe(502);
-    expect(await res.json()).toEqual({ error: 'Reviews temporarily unavailable' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Reviews temporarily unavailable' });
     expect(mockFetch).toHaveBeenCalledTimes(3);
   });
 
@@ -159,12 +162,13 @@ describe('reviews function handler', () => {
     );
 
     const body = await res.json();
-    expect(body.source).toBe('live');
-    expect(body.rating).toBe(4.9);
-    expect(body.userRatingCount).toBe(120);
-    expect(body.reviews).toHaveLength(2);
+    expect(body.ok).toBe(true);
+    expect(body.data.source).toBe('live');
+    expect(body.data.rating).toBe(4.9);
+    expect(body.data.userRatingCount).toBe(120);
+    expect(body.data.reviews).toHaveLength(2);
 
-    expect(body.reviews[0]).toEqual({
+    expect(body.data.reviews[0]).toEqual({
       author: 'Jane Doe',
       authorUri: 'https://maps.google.com/jane',
       rating: 5,
@@ -173,7 +177,7 @@ describe('reviews function handler', () => {
       publishTime: '2026-09-10T12:00:00Z',
     });
 
-    expect(body.reviews[1]).toEqual({
+    expect(body.data.reviews[1]).toEqual({
       author: 'Google User',
       authorUri: '',
       rating: 4,
@@ -185,7 +189,7 @@ describe('reviews function handler', () => {
     expect(mockStoreSetJSON).toHaveBeenCalledWith('gmb-reviews', {
       rating: 4.9,
       userRatingCount: 120,
-      reviews: body.reviews,
+      reviews: body.data.reviews,
       fetchedAt: expect.any(String),
     });
   });
@@ -209,8 +213,11 @@ describe('reviews function handler', () => {
 
     const body = await res.json();
     expect(body).toEqual({
-      ...freshCache,
-      source: 'cache',
+      ok: true,
+      data: {
+        ...freshCache,
+        source: 'cache',
+      },
     });
 
     expect(mockFetch).not.toHaveBeenCalled();
@@ -240,8 +247,11 @@ describe('reviews function handler', () => {
 
     const body = await res.json();
     expect(body).toEqual({
-      ...staleCache,
-      source: 'stale',
+      ok: true,
+      data: {
+        ...staleCache,
+        source: 'stale',
+      },
     });
 
     expect(res.headers.get('Netlify-CDN-Cache-Control')).toBe(

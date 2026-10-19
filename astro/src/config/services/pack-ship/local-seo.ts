@@ -13,6 +13,16 @@ import { phoneFormatted } from '../../siteConfig';
 export const localSeoServices: Service[] = [
   {
     id: 'ups-drop-off-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'UPS Drop Off Alternative',
@@ -113,6 +123,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'ups-store-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'ups-store-alternative-chardon',
+        'ups-store-alternative-eastlake',
+        'ups-store-alternative-fairport-harbor',
+        'ups-store-alternative-kirtland',
+        'ups-store-alternative-madison',
+        'ups-store-alternative-mentor',
+        'ups-store-alternative-painesville',
+        'ups-store-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/ups-store-alternative-concord-township.png',
     city: 'Concord Township',
@@ -234,6 +262,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+        'mail-boxes-etc-alternative-chardon',
+        'mail-boxes-etc-alternative-eastlake',
+        'mail-boxes-etc-alternative-fairport-harbor',
+        'mail-boxes-etc-alternative-kirtland',
+        'mail-boxes-etc-alternative-madison',
+        'mail-boxes-etc-alternative-mentor',
+        'mail-boxes-etc-alternative-painesville',
+        'mail-boxes-etc-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -329,6 +375,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'fedex-office-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'fedex-office-alternative-chardon',
+        'fedex-office-alternative-eastlake',
+        'fedex-office-alternative-fairport-harbor',
+        'fedex-office-alternative-kirtland',
+        'fedex-office-alternative-madison',
+        'fedex-office-alternative-mentor',
+        'fedex-office-alternative-painesville',
+        'fedex-office-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'FedEx Office Alternative',
@@ -418,6 +482,20 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'post-office-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'post-office-alternative-eastlake',
+        'post-office-alternative-fairport-harbor',
+        'post-office-alternative-madison',
+        'post-office-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/post-office-alternative-concord-township.png',
     city: 'Concord Township',
@@ -509,6 +587,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'shipping-center-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'packaging-supplies',
+        'shipping-centers-willoughby-ohio',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/shipping-center-concord-township.png',
     city: 'Concord Township',
@@ -561,7 +650,168 @@ export const localSeoServices: Service[] = [
     },
   },
   {
+    id: 'staples-printing-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
+    category: 'copy-print',
+    city: 'Concord Township',
+    serviceName: 'Staples Printing Alternative',
+    slug: '/staples-printing-alternative-concord-township',
+    pageTitle: 'Staples Printing Alternative in Concord | Mailbox Plus',
+    metaDescription:
+      'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and laminating. Quick turnaround, friendly service.',
+    keywords: 'Staples printing alternative, Concord Township, Mailbox Plus, printing services',
+    heroTitle: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
+    heroSubtitle:
+      'Full-service printing and copying \u2014 color and B&W \u2014 without the big-box experience.',
+    heroImage: getServiceImageUrl('/images/copy-print.webp'),
+    content: [
+      {
+        heading: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Need <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing or copying</a> and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and laminating \u2014 without the big-box store experience.
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Walk in, hand us your documents, and we handle the rest. Quick turnaround, competitive pricing, and friendly service from your local business center.
+            </p>`,
+      },
+      {
+        heading: 'Why Choose Mailbox Plus Over Staples?',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster Service</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">No wandering aisles looking for the copy center. Walk in, hand us your documents, we handle the rest.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Print Services</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, posters, and laminating \u2014 same services as the big print shops.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Erand Ready</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred \u2014 all in one trip. Staples can't match that convenience.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Local &amp; Personalized</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers by name. No corporate runaround, just friendly local service.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+    ],
+    features: [
+      { title: 'Quick Turnaround', description: 'Same-day printing and copying', icon: Clock },
+      { title: 'Full Service', description: 'Color, B&W, laminating', icon: Star },
+      { title: 'Local Convenience', description: 'Concord Township', icon: MapPin },
+    ],
+    faqs: [
+      {
+        question: 'Can you print from a USB drive?',
+        answer:
+          'Yes, simply bring your files on a USB drive or email them to us for quick printing.',
+      },
+      {
+        question: 'Do you offer color printing?',
+        answer: 'Yes, we offer both color and black-and-white printing and copying services.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
+    id: 'office-depot-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
+    category: 'copy-print',
+    city: 'Concord Township',
+    serviceName: 'Office Depot Alternative',
+    slug: '/office-depot-alternative-concord-township',
+    pageTitle: 'Office Depot Alternative in Concord Township | Mailbox Plus',
+    metaDescription:
+      'Your local Office Depot Alternative in Concord Township. Printing, copying, shipping, and office services \u2014 all under one roof with personalized service.',
+    keywords: 'Office Depot alternative, Concord Township, Mailbox Plus, printing services',
+    heroTitle: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
+    heroSubtitle:
+      'Printing, copying, shipping, notary, and mailbox services \u2014 without the big-box trip.',
+    heroImage: getServiceImageUrl('/images/copy-print.webp'),
+    content: [
+      {
+        heading: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
+        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Sure, Office Depot has printing. But you also have to navigate a giant store, wait in line, and only get printing and shipping. What if you could do all of that \u2014 plus notarize, shred, and rent a mailbox \u2014 in one efficient trip?
+            </p>
+            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
+              Mailbox Plus is your <strong>Office Depot alternative in Concord Township, Ohio</strong>. We offer professional <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing and copying</a>, <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping with all 4 major carriers</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notary services</a>, <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shredding</a>, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a> \u2014 all under one roof. One stop for everything Office Depot offers, plus services they don't.
+            </p>`,
+      },
+      {
+        heading: 'Why Choose Mailbox Plus Over Office Depot?',
+        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop Convenience</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred, and mailbox services \u2014 all at one counter. No walking across a giant store.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Personalized Service</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers. No corporate runaround, just friendly local help.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Shipping</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL \u2014 compare rates at our counter. Office Depot only ships FedEx.</p>
+              </div>
+              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
+                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster In &amp; Out</h4>
+                <p class="text-sm text-[var(--color-text-secondary)]">In and out in minutes. No navigating aisles or waiting in long checkout lines.</p>
+              </div>
+            </div>`,
+        isFullWidth: true,
+      },
+    ],
+    features: [
+      {
+        title: 'One-Stop',
+        description: 'Printing, shipping, notary, shredding, mailboxes',
+        icon: Star,
+      },
+      { title: 'Carrier Choice', description: 'UPS, FedEx, USPS, DHL', icon: Truck },
+      { title: 'Local Service', description: 'Concord Township', icon: MapPin },
+    ],
+    faqs: [
+      {
+        question: 'Do you offer printing like Office Depot?',
+        answer:
+          'Yes! We offer color and B&W printing, copying, business cards, flyers, and laminating.',
+      },
+      {
+        question: 'Can I ship packages here?',
+        answer:
+          'Absolutely. We ship with all major carriers \u2014 UPS, FedEx, USPS, and DHL \u2014 and help you compare rates.',
+      },
+    ],
+    aggregateRating: {
+      ratingValue: 5.0,
+      reviewCount: 32,
+    },
+  },
+  {
     id: 'usps-drop-off-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'USPS Drop Off Alternative',
@@ -629,6 +879,19 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'pack-and-ship-services-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'dhl-express',
+        'professional-packing',
+        'packaging-supplies',
+        'shipping-center-concord-township',
+      ],
+      priority: true,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Shipping, Mailing & Pack and Ship Services',
@@ -763,6 +1026,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-painesville',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Painesville',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -850,6 +1124,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-chardon',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Chardon',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -933,6 +1218,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-kirtland',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Kirtland',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1016,6 +1312,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-mentor',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Mentor',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1095,6 +1402,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-eastlake',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1178,6 +1496,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-madison',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Madison',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1261,6 +1590,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-fairport-harbor',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1344,6 +1684,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-willoughby',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'Mail Boxes Etc. Alternative',
