@@ -95,13 +95,19 @@ describe('verify-session function handler', () => {
     expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
   });
 
-  it('returns 500 if STRIPE_SECRET_KEY is missing', async () => {
+  it('returns 500 if STRIPE_SECRET_KEY is missing or empty', async () => {
     delete process.env.STRIPE_SECRET_KEY;
     const req = createRequest('GET', 'cs_test_12345');
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
     expect(await res.json()).toEqual({ error: 'Stripe is not configured' });
+
+    process.env.STRIPE_SECRET_KEY = '';
+    const reqEmpty = createRequest('GET', 'cs_test_12345');
+    const resEmpty = await handler(reqEmpty, ctx);
+    expect(resEmpty.status).toBe(500);
+    expect(await resEmpty.json()).toEqual({ error: 'Stripe is not configured' });
   });
 
   it('returns 400 for missing or invalid session_id format', async () => {

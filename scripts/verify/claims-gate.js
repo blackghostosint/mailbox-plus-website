@@ -216,7 +216,7 @@ export function makeClaimsGate(fs, path) {
 // Prints a JSON array of { name, pass, detail, fix } to stdout.
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 if (process.argv[1] && process.argv[1].endsWith('claims-gate.js')) {
   const arg = (name) => {
@@ -233,7 +233,16 @@ if (process.argv[1] && process.argv[1].endsWith('claims-gate.js')) {
   const check = (name, pass, detail, fix) => results.push({ name, pass: !!pass, detail, fix });
   const headStatus = (url) => {
     try {
-      return execSync(`curl -sI -o /dev/null -w "%{http_code}" --max-time 10 "${url}"`)
+      return execFileSync('curl', [
+        '-sI',
+        '-o',
+        '/dev/null',
+        '-w',
+        '%{http_code}',
+        '--max-time',
+        '10',
+        url,
+      ])
         .toString()
         .trim();
     } catch {

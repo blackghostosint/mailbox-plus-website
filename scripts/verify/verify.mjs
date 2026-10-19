@@ -24,7 +24,7 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveDistDir } from '../lib/dist-path.mjs';
 
@@ -42,7 +42,11 @@ const SKIP_NETWORK = process.argv.includes('--offline');
 // HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
 function headStatus(url) {
   try {
-    return execSync(`curl -sI -o /dev/null -w "%{http_code}" --max-time 10 "${url}"`, { cwd: ROOT })
+    return execFileSync(
+      'curl',
+      ['-sI', '-o', '/dev/null', '-w', '%{http_code}', '--max-time', '10', url],
+      { cwd: ROOT }
+    )
       .toString()
       .trim();
   } catch {
@@ -275,12 +279,15 @@ function initNewArticles() {
   const baseRef = process.env.GITHUB_BASE_REF || 'main';
 
   try {
-    base = execSync(`git merge-base HEAD origin/${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+    base = execFileSync('git', ['merge-base', 'HEAD', `origin/${baseRef}`], {
+      cwd: ROOT,
+      stdio: 'pipe',
+    })
       .toString()
       .trim();
   } catch {
     try {
-      base = execSync(`git merge-base HEAD ${baseRef}`, { cwd: ROOT, stdio: 'pipe' })
+      base = execFileSync('git', ['merge-base', 'HEAD', baseRef], { cwd: ROOT, stdio: 'pipe' })
         .toString()
         .trim();
     } catch {
@@ -310,7 +317,7 @@ function initNewArticles() {
     );
   }
 
-  const committed = execSync(`git diff --name-only ${base} HEAD`, {
+  const committed = execFileSync('git', ['diff', '--name-only', base, 'HEAD'], {
     cwd: ROOT,
     stdio: 'pipe',
   }).toString();
@@ -319,7 +326,10 @@ function initNewArticles() {
     if (rel) newArticleCache.add(rel);
   }
 
-  const status = execSync('git status --porcelain', { cwd: ROOT, stdio: 'pipe' }).toString();
+  const status = execFileSync('git', ['status', '--porcelain'], {
+    cwd: ROOT,
+    stdio: 'pipe',
+  }).toString();
   for (const line of status.split('\n')) {
     if (!line.trim()) continue;
     const rel = line
@@ -467,7 +477,11 @@ function cmdDoctor() {
   );
 
   try {
-    execSync('node scripts/verify/audit-functions-gate.mjs', { cwd: ROOT, stdio: 'pipe' });
+    const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
+    execFileSync(nodeCmd, ['scripts/verify/audit-functions-gate.mjs'], {
+      cwd: ROOT,
+      stdio: 'pipe',
+    });
     check('audit:functions', true, 'netlify/functions dependency security audit clean');
   } catch {
     check(
@@ -487,9 +501,11 @@ function cmdDoctor() {
   let branch = '',
     ahead = 0;
   try {
-    branch = execSync('git branch --show-current', { cwd: ROOT }).toString().trim();
+    branch = execFileSync('git', ['branch', '--show-current'], { cwd: ROOT }).toString().trim();
     ahead = parseInt(
-      execSync('git rev-list --count origin/main..HEAD', { cwd: ROOT }).toString().trim() || '0',
+      execFileSync('git', ['rev-list', '--count', 'origin/main..HEAD'], { cwd: ROOT })
+        .toString()
+        .trim() || '0',
       10
     );
     check(
@@ -1252,10 +1268,24 @@ function cmdArticle(arg, isStrict = false) {
     if (isStrict) {
       try {
         const claimsGate = path.resolve(__dirname, 'claims-gate.js');
-        const out = execSync(
-          `node "${claimsGate}" --slug "${slug}" --article "${abs}" --root "${ROOT}" --drafts "${DRAFTS_DIR}"${SKIP_NETWORK ? ' --offline' : ''}`,
-          { cwd: ROOT, encoding: 'utf8', timeout: 120000 }
-        );
+        const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
+        const claimsGateArgs = [
+          claimsGate,
+          '--slug',
+          slug,
+          '--article',
+          abs,
+          '--root',
+          ROOT,
+          '--drafts',
+          DRAFTS_DIR,
+        ];
+        if (SKIP_NETWORK) claimsGateArgs.push('--offline');
+        const out = execFileSync(nodeCmd, claimsGateArgs, {
+          cwd: ROOT,
+          encoding: 'utf8',
+          timeout: 120000,
+        });
         for (const r of JSON.parse(out.trim())) {
           check(r.name, r.pass, r.detail, r.fix);
         }
@@ -1392,26 +1422,38 @@ function cmdArticles(isStrict = false) {
 }
 
 // ---------- build, sitemap, seo-gates ----------
-function cmdBuild() {
-  let before;
-  const targetDistBefore = resolveDistDir();
+function countHtmlFiles(dir) {
+  if (!fs.existsSync(dir)) return 0;
+  let count = 0;
   try {
-    before = execSync(`find "${targetDistBefore}" -name "*.html" | wc -l`, { cwd: ROOT })
-      .toString()
-      .trim();
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        count += countHtmlFiles(fullPath);
+      } else if (entry.isFile() && entry.name.endsWith('.html')) {
+        count++;
+      }
+    }
   } catch {
-    before = '0';
+    return 0;
   }
+  return count;
+}
+
+function cmdBuild() {
+  const targetDistBefore = resolveDistDir();
+  const before = countHtmlFiles(targetDistBefore);
+
+  const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
   try {
-    execSync('npm run build', { cwd: ROOT, stdio: 'inherit', timeout: 600000 });
+    execFileSync(npmCmd, ['run', 'build'], { cwd: ROOT, stdio: 'inherit', timeout: 600000 });
   } catch (e) {
     check('build', false, 'npm run build failed', 'fix build errors first');
     return;
   }
   const targetDistAfter = resolveDistDir();
-  const after = execSync(`find "${targetDistAfter}" -name "*.html" | wc -l`, { cwd: ROOT })
-    .toString()
-    .trim();
+  const after = countHtmlFiles(targetDistAfter);
   check('build', true, `page count: ${before} → ${after}`);
 }
 
@@ -1494,18 +1536,28 @@ function cmdReview(targetPath) {
   let lastOutput = '';
   let attempt = 0;
   let success = false;
+  const npxCmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
+  const reviewArgs = [
+    'tsx',
+    scriptPath,
+    abs,
+    '--provider',
+    provider,
+    '--model',
+    model,
+    '--min-score',
+    minScore,
+  ];
+  if (asJson) reviewArgs.push('--json');
+
   for (attempt = 1; attempt <= MAX_ATTEMPTS; attempt++) {
-    const jsonFlag = asJson ? ' --json' : '';
     try {
-      lastOutput = execSync(
-        `npx tsx "${scriptPath}" "${abs}" --provider "${provider}" --model "${model}" --min-score "${minScore}"${jsonFlag}`,
-        {
-          stdio: 'pipe',
-          cwd: ROOT,
-          timeout: 600000,
-          encoding: 'utf8',
-        }
-      );
+      lastOutput = execFileSync(npxCmd, reviewArgs, {
+        stdio: 'pipe',
+        cwd: ROOT,
+        timeout: 600000,
+        encoding: 'utf8',
+      });
       process.stdout.write(lastOutput);
       success = true;
       break;
@@ -1546,6 +1598,7 @@ function cmdReview(targetPath) {
 }
 
 function cmdSeoGates() {
+  const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
   for (const script of [
     'seo:check-redirects',
     'seo:check-href-slash',
@@ -1554,7 +1607,7 @@ function cmdSeoGates() {
     'seo:check-routes',
   ]) {
     try {
-      execSync(`npm run ${script}`, { cwd: ROOT, stdio: 'pipe', timeout: 300000 });
+      execFileSync(npmCmd, ['run', script], { cwd: ROOT, stdio: 'pipe', timeout: 300000 });
       check(script, true, 'pass');
     } catch (e) {
       const out = (e.stdout || e.stderr || '').toString();

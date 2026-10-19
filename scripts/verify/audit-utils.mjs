@@ -4,7 +4,7 @@
  * Handles npm audit JSON parsing, vulnerability evaluation, severity filtering, and allowlist checking.
  * Uses Node.js core modules only.
  */
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 /**
  * Parses and validates raw stdout string or object from npm audit --json.
@@ -95,7 +95,8 @@ export function runAuditGate(options = {}) {
     raw = process.env.AUDIT_MOCK_RAW;
   } else {
     try {
-      raw = execSync('npm audit --json --audit-level=high', {
+      const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
+      raw = execFileSync(npmCmd, ['audit', '--json', '--audit-level=high'], {
         cwd: options.cwd,
         encoding: 'utf8',
         maxBuffer: 1024 * 1024 * 64,

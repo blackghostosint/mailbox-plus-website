@@ -14,7 +14,9 @@ import { getStripeSecretKey, getSiteUrl, getTierConfig, TIER_CONFIG } from './li
 
 dotenv.config();
 
-const stripe = new Stripe(getStripeSecretKey());
+function getStripe(): Stripe {
+  return new Stripe(getStripeSecretKey());
+}
 
 // One-time key deposit, charged on the FIRST invoice at account creation (2026-08-25).
 // Lookup key lives on the one-time price under the "Mailbox Plus Fees" product.
@@ -26,9 +28,11 @@ export default withCors(
       return jsonError('Method not allowed', 405);
     }
 
-    if (!process.env.STRIPE_SECRET_KEY) {
+    if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_SECRET_KEY.trim()) {
       return jsonError('Stripe is not configured on the server', 500);
     }
+
+    const stripe = getStripe();
 
     try {
       const body = await request.json().catch(() => ({}));

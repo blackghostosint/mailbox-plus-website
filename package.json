@@ -18,6 +18,8 @@
     "test:coverage": "vitest run --coverage",
     "test:watch": "vitest",
     "test:verify": "vitest run --project unit scripts/verify/__tests__",
+    "pretest:e2e": "npm run build",
+    "pretest:e2e:ci": "npm run build",
     "test:e2e": "playwright test",
     "test:e2e:ci": "playwright test",
     "lint": "eslint .",
