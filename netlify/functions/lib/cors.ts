@@ -319,6 +319,7 @@ function getEffectiveCorsHeaders(
 
 /**
  * Creates a JSON Response object with explicit Content-Type: application/json header.
+ * Enforces top-level response envelope structure { ok: true, data: T }.
  */
 export function jsonResponse(data: unknown, init: number | ResponseInit = 200): Response {
   const options: ResponseInit = typeof init === 'number' ? { status: init } : { ...init };
@@ -326,18 +327,39 @@ export function jsonResponse(data: unknown, init: number | ResponseInit = 200): 
   if (!headers.has('Content-Type')) {
     headers.set('Content-Type', 'application/json');
   }
-  return new Response(JSON.stringify(data), {
+
+  let payload: unknown;
+  if (
+    data !== null &&
+    typeof data === 'object' &&
+    'ok' in data &&
+    (data as Record<string, unknown>).ok === true &&
+    'data' in data
+  ) {
+    payload = data;
+  } else {
+    payload = { ok: true, data };
+  }
+
+  return new Response(JSON.stringify(payload), {
     ...options,
     headers,
   });
 }
 
 /**
- * Creates a standardized JSON error Response object with { error: message } body.
+ * Creates a standardized JSON error Response object with { ok: false, error: message } body.
  */
 export function jsonError(message: string, init: number | ResponseInit = 400): Response {
   const options: ResponseInit = typeof init === 'number' ? { status: init } : { ...init };
-  return jsonResponse({ error: message }, options);
+  const headers = new Headers(options.headers);
+  if (!headers.has('Content-Type')) {
+    headers.set('Content-Type', 'application/json');
+  }
+  return new Response(JSON.stringify({ ok: false, error: message }), {
+    ...options,
+    headers,
+  });
 }
 
 export type WebHandler = (request: Request, context?: any) => Promise<Response> | Response;
@@ -387,7 +409,7 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
             limit: maxRequests,
           });
           return new Response(
-            JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+            JSON.stringify({ ok: false, error: 'Too many requests. Please try again later.' }),
             {
               status: 429,
               headers: {
@@ -438,7 +460,7 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
         },
         error
       );
-      return new Response(JSON.stringify({ error: 'Internal server error' }), {
+      return new Response(JSON.stringify({ ok: false, error: 'Internal server error' }), {
         status: 500,
         headers: {
           'Content-Type': 'application/json',
