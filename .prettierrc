@@ -5,14 +5,5 @@
   "semi": true,
   "printWidth": 100,
   "bracketSpacing": true,
-  "arrowParens": "always",
-  "plugins": ["prettier-plugin-astro"],
-  "overrides": [
-    {
-      "files": "*.astro",
-      "options": {
-        "parser": "astro"
-      }
-    }
-  ]
+  "arrowParens": "always"
 }

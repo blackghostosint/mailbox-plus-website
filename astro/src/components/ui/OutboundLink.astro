@@ -8,7 +8,13 @@ export interface Props extends HTMLAttributes<'a'> {
   rel?: string;
 }
 
-const { href, class: className, target = '_blank', rel, ...rest } = Astro.props;
+const {
+  href,
+  class: className,
+  target = '_blank',
+  rel,
+  ...rest
+} = Astro.props;
 
 const isExternal = target === '_blank';
 
