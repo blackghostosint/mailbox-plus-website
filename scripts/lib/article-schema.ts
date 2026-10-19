@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { isKnownRoute, type RouteRegistry } from './article-utils.ts';
 
 const isValidDateString = (val: string) => !isNaN(Date.parse(val));
 
@@ -49,24 +50,91 @@ export const articleFrontmatterSchema = z
 
 export type ArticleFrontmatter = z.infer<typeof articleFrontmatterSchema>;
 
+export interface ValidateFrontmatterOptions {
+  fileName?: string;
+  registry?: RouteRegistry;
+  intentKeys?: Map<string, any> | Set<string>;
+}
+
 /**
- * Validates frontmatter data against articleFrontmatterSchema.
+ * Validates frontmatter data against articleFrontmatterSchema, with optional
+ * contextual checks (route existence for relatedServices and intentKey uniqueness).
  * Returns { success: true, data } or { success: false, errors: string[] }.
  */
 export function validateArticleFrontmatter(
   data: unknown,
-  fileName?: string
+  fileNameOrOptions?: string | ValidateFrontmatterOptions,
+  optionsParam?: ValidateFrontmatterOptions
 ): { success: true; data: ArticleFrontmatter } | { success: false; errors: string[] } {
-  const result = articleFrontmatterSchema.safeParse(data);
-  if (result.success) {
-    return { success: true, data: result.data };
+  let opts: ValidateFrontmatterOptions = {};
+  if (typeof fileNameOrOptions === 'string') {
+    opts = { fileName: fileNameOrOptions, ...optionsParam };
+  } else if (fileNameOrOptions && typeof fileNameOrOptions === 'object') {
+    opts = fileNameOrOptions;
   }
 
-  const prefix = fileName ? `${fileName}: ` : '';
-  const errors = (result.error.issues || []).map((err) => {
-    const fieldPath = err.path.join('.');
-    return `❌ ${prefix}${fieldPath ? `Field '${fieldPath}': ` : ''}${err.message}`;
-  });
+  const result = articleFrontmatterSchema.safeParse(data);
+  const prefix = opts.fileName ? `${opts.fileName}: ` : '';
+  const errors: string[] = [];
 
-  return { success: false, errors };
+  if (!result.success) {
+    for (const err of result.error.issues || []) {
+      const fieldPath = err.path.join('.');
+      errors.push(`❌ ${prefix}${fieldPath ? `Field '${fieldPath}': ` : ''}${err.message}`);
+    }
+    return { success: false, errors };
+  }
+
+  const fm = result.data;
+
+  // Contextual check 1: intentKey uniqueness
+  if (fm.intentKey && opts.intentKeys) {
+    const ik = String(fm.intentKey);
+    const fileName = opts.fileName || '';
+    if (opts.intentKeys instanceof Map) {
+      const existing = opts.intentKeys.get(ik);
+      if (existing !== undefined) {
+        let otherFile = '';
+        if (Array.isArray(existing)) {
+          otherFile = existing.filter((f: string) => f !== fileName).join(', ');
+        } else if (typeof existing === 'string') {
+          if (existing !== fileName) otherFile = existing;
+        }
+        if (otherFile) {
+          errors.push(`❌ ${prefix}Duplicate intentKey '${ik}' (also in ${otherFile})`);
+        } else if (existing === fileName) {
+          // Same file checked twice or recorded earlier; no duplicate error for same file
+        } else {
+          errors.push(`❌ ${prefix}Duplicate intentKey '${ik}' (also in ${existing})`);
+        }
+      } else {
+        if (fileName) {
+          (opts.intentKeys as Map<string, string>).set(ik, fileName);
+        }
+      }
+    } else if (opts.intentKeys instanceof Set) {
+      if (opts.intentKeys.has(ik)) {
+        errors.push(`❌ ${prefix}Duplicate intentKey '${ik}'`);
+      } else {
+        opts.intentKeys.add(ik);
+      }
+    }
+  }
+
+  // Contextual check 2: relatedServices route validity
+  if (opts.registry && Array.isArray(fm.relatedServices)) {
+    for (const servicePath of fm.relatedServices) {
+      if (!isKnownRoute(servicePath, opts.registry)) {
+        errors.push(
+          `❌ ${prefix}relatedServices path '${servicePath}' does not match any known route`
+        );
+      }
+    }
+  }
+
+  if (errors.length > 0) {
+    return { success: false, errors };
+  }
+
+  return { success: true, data: fm };
 }
