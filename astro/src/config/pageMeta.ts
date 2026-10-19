@@ -131,7 +131,7 @@ export const pageMeta: Record<
   // Mailbox Rental Concord Ohio Landing
   '/mailbox-rental-concord-ohio': {
     title: 'Mailbox Rental in Concord Township | Mailbox Plus',
-    description: `Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site. Rated 5.0★ on Google. Call ${phoneFormatted}`,
+    description: `Rent a private mailbox in Concord Township (44077) for business or personal use. Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site. Rated 5.0★ on Google. Call ${phoneFormatted}.`,
     ...geoMeta,
   },
   // Carrier Pickup Hours
