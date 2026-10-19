@@ -8,17 +8,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import { siteConfig } from '../config/siteConfig';
+import { getPageMeta } from '../config/pageMeta';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
 import { privateMailboxRentalFaqs as faqs } from '../config/faqs';
 
-const pageTitle = 'Private Mailbox Rental in Concord Township | Mailbox Plus';
-const metaDescription =
-  'Stop checking your phone for missed deliveries. Get a real Concord Township street address. All 4 carriers, from $15/month. Month-to-month, cancel anytime. Completely risk-free.';
 const canonical = '/private-mailbox-rental/';
+const pageMeta = getPageMeta(canonical)!;
 
 const webPageSchema = getWebPageSchema(siteConfig, {
-  name: pageTitle,
-  description: metaDescription,
+  name: pageMeta.title,
+  description: pageMeta.description,
   url: canonical,
   breadcrumbItems: [
     { name: 'Home', url: '/' },

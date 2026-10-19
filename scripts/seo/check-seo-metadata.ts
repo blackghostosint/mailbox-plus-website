@@ -210,6 +210,44 @@ function main() {
         errors++;
       }
     }
+
+    // Verify WebPage JSON-LD schema name & description match pageMeta.ts
+    const jsonLdMatches =
+      html.match(/<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi) || [];
+    for (const jsonLdStr of jsonLdMatches) {
+      const rawJson = jsonLdStr
+        .replace(/<script\s+type=["']application\/ld\+json["']>/i, '')
+        .replace(/<\/script>/i, '')
+        .trim();
+      try {
+        const parsed = JSON.parse(rawJson);
+        const graph = parsed['@graph'] || (Array.isArray(parsed) ? parsed : [parsed]);
+        for (const node of graph) {
+          if (node && typeof node === 'object' && node['@type'] === 'WebPage') {
+            const wpName = node.name ? decodeHtml(String(node.name).trim()) : undefined;
+            const wpDesc = node.description
+              ? decodeHtml(String(node.description).trim())
+              : undefined;
+
+            if (wpName && wpName !== meta.title) {
+              console.error(
+                `❌ FAIL: "${page.routePath}" WebPage JSON-LD name mismatch.\n  Expected (pageMeta.ts): "${meta.title}"\n  WebPage.name (JSON-LD): "${wpName}"`
+              );
+              errors++;
+            }
+            if (wpDesc && wpDesc !== meta.description) {
+              console.error(
+                `❌ FAIL: "${page.routePath}" WebPage JSON-LD description mismatch.\n  Expected (pageMeta.ts):       "${meta.description}"\n  WebPage.description (JSON-LD): "${wpDesc}"`
+              );
+              errors++;
+            }
+          }
+        }
+      } catch (e) {
+        console.error(`❌ FAIL: "${page.routePath}" failed to parse JSON-LD script tag`);
+        errors++;
+      }
+    }
   }
 
   // 2. Service metadata ogImage and ImageObject checks

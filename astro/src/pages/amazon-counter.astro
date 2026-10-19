@@ -2,7 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OutboundLink from '../components/ui/OutboundLink.astro';
 import { siteConfig, phoneFormatted, fullAddressSingleLine } from '../config/siteConfig';
+import { getPageMeta } from '../config/pageMeta';
 import { getWebPageSchema, getServiceSchema } from '../utils/schema';
+
+const canonical = '/amazon-counter/';
+const pageMeta = getPageMeta(canonical)!;
 const pageUrl = 'https://mailboxplusohio.com/amazon-counter/';
 const encodedPageUrl = encodeURIComponent(pageUrl);
 const xText = encodeURIComponent(
@@ -18,9 +22,9 @@ const captionText =
   `Concord Twp — tired of driving 20 minutes to return an Amazon box? I'm supporting Mailbox Plus (${siteConfig.contact.address.street}) to become an official Amazon drop-off. If we show enough local demand, Amazon adds us. Tap the link, share this, tag @amazon, and tell them 44077 wants a returns counter closer to home. #AmazonCounterMailboxPlus`;
 
 const webPageSchema = getWebPageSchema(siteConfig, {
-  name: 'Amazon Returns Counter for Concord Twp (44077) — Help Us Bring It Home',
-  description: "Concord Twp, OH — we're pushing to become your official Amazon returns counter. No box, no label, just a QR scan. Here's how you help make it happen.",
-  url: '/amazon-counter/',
+  name: pageMeta.title,
+  description: pageMeta.description,
+  url: canonical,
   datePublished: '2026-07-19',
   dateModified: '2026-07-19',
 });

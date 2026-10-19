@@ -67,7 +67,7 @@ export const pageMeta: Record<
       'Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio.',
     schema: [
       getWebPageSchema(siteConfig, {
-        name: 'About Mailbox Plus',
+        name: 'About Mailbox Plus | Locally Owned Shipping & Business Services in Concord Township',
         description:
           'Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio.',
         url: `${siteConfig.domain}/about-us`,
@@ -128,13 +128,6 @@ export const pageMeta: Record<
       'Mailbox rentals, virtual mailbox, shredding, document scanning, fax, and notary services in Concord Township, Ohio.',
     ...geoMeta,
   },
-  // Home & Business Mailbox Rental Landing
-  '/home-business/mailbox-rental': {
-    title: 'Private Mailbox Rental in Concord Township | Mailbox Plus',
-    description:
-      'Rent a private mailbox in Concord Township (44077). Real street address, package acceptance from all carriers, 24/7 access, and notary services on-site.',
-    ...geoMeta,
-  },
   // Mailbox Rental Concord Ohio Landing
   '/mailbox-rental-concord-ohio': {
     title: 'Mailbox Rental in Concord Township | Mailbox Plus',
@@ -157,9 +150,9 @@ export const pageMeta: Record<
   },
   // Private Mailbox Rental Landing Page
   '/private-mailbox-rental': {
-    title: 'Private Mailbox Rental in Concord Township, OH | Mailbox Plus',
+    title: 'Private Mailbox Rental in Concord Township | Mailbox Plus',
     description:
-      'Four carriers, one counter, no runaround. Mailbox Plus in Concord Township handles UPS, FedEx, DHL & USPS — plus mailboxes, notary & printing. 5.0★. Call (440) 709-1946.',
+      'Stop checking your phone for missed deliveries. Get a real Concord Township street address. All 4 carriers, from $15/month. Month-to-month, cancel anytime. Completely risk-free.',
     ...geoMeta,
   },
   // Rental Agreement
