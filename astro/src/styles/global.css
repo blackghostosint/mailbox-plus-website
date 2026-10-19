@@ -226,6 +226,41 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    a:hover,
+    a:active,
+    a:focus,
+    button:hover,
+    button:active,
+    button:focus,
+    [role='button']:hover,
+    [role='button']:active,
+    [role='button']:focus,
+    .btn:hover,
+    .btn:active,
+    .btn:focus,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus,
+    .btn-secondary:hover,
+    .btn-secondary:active,
+    .btn-secondary:focus,
+    .btn-ghost:hover,
+    .btn-ghost:active,
+    .btn-ghost:focus,
+    .card:hover {
+      transition-duration: 0.01ms !important;
+      transform: none !important;
+    }
+
     .animate-fade-in,
     .animate-fade-in-up,
     .animate-fade-out-down,
