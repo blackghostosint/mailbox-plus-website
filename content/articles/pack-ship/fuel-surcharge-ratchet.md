@@ -109,6 +109,6 @@ That is the difference between a label you wince at and a total you already appr
 
 You do not need to know this week's surcharge percentages. You do not need to have read the carrier tables, measured anything, or figured out which carrier's peak fees are worst. Bring the box to the counter at 7554 Fredle Drive in Concord Township the way it is — tape half-done, address scribbled on a sticky note, no idea what it weighs.
 
-Sizing up the surcharge stack on your package is our job, and quoting it across every carrier before it ships is how we do that job. The ratchet only wins when you pay the first number you are shown. Bring the box in — we will show you all of them.
+The ratchet only wins when you pay the first number you are shown. Bring the box in — we will show you all of them.
 
 ![A sealed cardboard box on the parcel scale at the Mailbox Plus counter in Concord Township, where every carrier's surcharge stack gets quoted before it ships.](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/box-on-scale-01.webp)
