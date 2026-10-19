@@ -17,7 +17,7 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 1. **Environment Sanity (`npm run verify:doctor`):**
    Confirms repo root resolution, root and `astro` dependencies, node modules, branch hygiene, and CSP alignment.
 2. **Local Content Verification (`npm run verify`):**
-   Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), image CDN availability, heading diversity, and fact-check receipt requirements.
+   Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), Ogilvy abstraction jargon gate rules (banning 28 pretentious marketing filler terms per [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate)), image CDN availability, heading diversity, and fact-check receipt requirements.
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
@@ -52,6 +52,22 @@ On `git push`, the pre-push hook runs mandatory pre-flight checks before pushing
    Executes `npm run lint`, `npm run format:check`, and `npm run check`. Any check failure halts the push.
 3. **Article Preflight Checks:**
    When changes in `content/articles/**/*.md` are detected, executes `npm run preflight:article` and verifies that the working tree remains clean before pushing.
+
+## Accessibility Verification
+
+To maintain WCAG 2.1 AA standards across all pages, contributors must verify accessibility locally when introducing or modifying UI components, layouts, pages, or styling.
+
+### Prerequisites & Requirements
+
+- **Build Dependency:** Local accessibility auditing analyzes static HTML output in `dist/`. You must run `npm run build` prior to running `npm run audit:a11y`.
+- **Headless Chrome Requirement:** Running `scripts/audit-a11y.mjs` uses `@axe-core/cli` and requires Chrome installed on the system (managed via `browser-driver-manager`).
+
+### Execution Modes & CLI Flags
+
+- **`npm run audit:a11y`**: Runs sampled accessibility audits across representative route categories.
+- **`npm run audit:a11y -- --mode=full`**: Runs full WCAG audits across all site routes.
+- **`npm run audit:a11y -- --category=<category>`**: Audits routes within a specific category (e.g. `homepage`, `articles`, `service-pillars`, `service-details`, `guides`, `local-landing`, `utility-legal`, `interactive`).
+- **`npm run audit:a11y -- --limit=<N>`**: Limits the maximum number of audited pages.
 
 ## Project Structure
 
@@ -148,7 +164,8 @@ All real-store photos referenced in article bodies (`/articles/store-library/`) 
 2. Frontmatter must include: `title`, `description`, `slug`, `pubDate`, `category`, `status`
 3. Set `status: draft` for preview, `status: published` for live
 4. Articles are auto-discovered by `astro/src/utils/articleLoader.ts`
-5. Run `npm run audit:articles` to validate links/frontmatter against the sitemap
+5. Ensure prose uses plain, direct wording without Ogilvy abstraction jargon (see [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate))
+6. Run `npm run verify` and `npm run audit:articles` to validate content, links, and frontmatter
 
 ## Commit Convention
 
