@@ -6,6 +6,8 @@ import {
   isGeoDropoff,
   generateLocalPages,
   buildSiteStructure,
+  buildInternalLinks,
+  buildAnchorText,
 } from '../generate-route-registry.ts';
 
 describe('generate-route-registry', () => {
@@ -165,6 +167,70 @@ describe('generate-route-registry', () => {
         id: 'cheap-shipping',
         url: '/cheap-shipping',
         title: 'Cheap Shipping',
+      });
+    });
+  });
+
+  describe('buildInternalLinks', () => {
+    it('builds internal links map with strict parent alignment matching siteStructure', () => {
+      const mockServices = [
+        {
+          id: 'fedex-shipping',
+          category: 'pack-ship',
+          slug: '/pack-ship/fedex-shipping',
+          internalLink: { related: ['ups-shipping'], priority: true },
+        },
+      ];
+
+      const mockPillarConfigs = [
+        {
+          id: 'pack-ship',
+          title: 'Pack & Ship',
+          url: '/pack-ship',
+          description: 'Packing',
+          internalLink: { parent: null, related: ['fedex-shipping'], priority: true },
+        },
+      ];
+
+      const links = buildInternalLinks(
+        mockServices as any,
+        mockPillarConfigs as any,
+        [],
+        [],
+        buildSiteStructure(mockServices as any, [], mockPillarConfigs as any, [], [])
+      );
+
+      expect(links['homepage']).toBeDefined();
+      expect(links['pack-ship']).toEqual({
+        parent: null,
+        related: ['fedex-shipping'],
+        priority: true,
+      });
+      expect(links['fedex-shipping']).toEqual({
+        parent: 'pack-ship',
+        related: ['ups-shipping'],
+        priority: true,
+      });
+    });
+  });
+
+  describe('buildAnchorText', () => {
+    it('builds anchor text map from TypeScript configurations', () => {
+      const mockServices = [
+        {
+          id: 'fedex-shipping',
+          category: 'pack-ship',
+          slug: '/pack-ship/fedex-shipping',
+          anchorText: { exact: ['FedEx Shipping'], lsi: ['express shipping'] },
+        },
+      ];
+
+      const anchorMap = buildAnchorText(mockServices as any, [], [], []);
+
+      expect(anchorMap['fedex-shipping']).toEqual({
+        exact: ['FedEx Shipping'],
+        lsi: ['express shipping'],
+        geo: [],
       });
     });
   });
