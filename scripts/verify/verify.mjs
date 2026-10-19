@@ -1696,8 +1696,9 @@ function resolveDocCandidatePath(p, docDir) {
   }
 
   // 4) Build output directory (e.g. dist, astro/dist)
-  if (testPath === 'dist' || testPath === 'astro/dist') {
-    const parent = path.dirname(path.resolve(ROOT, testPath));
+  const normPath = testPath.endsWith('/') ? testPath.slice(0, -1) : testPath;
+  if (normPath === 'dist' || normPath === 'astro/dist') {
+    const parent = path.dirname(path.resolve(ROOT, normPath));
     if (fs.existsSync(parent)) return { found: true };
   }
 
