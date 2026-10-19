@@ -1,6 +1,47 @@
 export const DEFAULT_ARTICLE_LINK_CLASS =
   'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-blue)] underline-offset-2';
 
+/**
+ * Escapes special characters in a string to safe HTML entities to prevent HTML injection and attribute breakout.
+ * Preserves existing valid HTML entities (e.g. &amp;, &lt;, &gt;, &quot;, &#39;, &#x27;) to prevent double escaping.
+ */
+export function escapeHtml(str?: unknown): string {
+  if (str === null || str === undefined) {
+    return '';
+  }
+  const s = typeof str === 'string' ? str : String(str);
+  return s
+    .replace(/&(?!(?:[a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+/**
+ * Sanitizes URL / URI strings to block unsafe URI schemes (javascript:, data:, vbscript:) while preserving
+ * safe web protocols (http, https, mailto, tel) and relative / anchor link paths.
+ */
+export function sanitizeHref(href?: string | null): string {
+  if (!href) return '';
+  const trimmed = href.trim();
+  let sanitized = '';
+  for (let i = 0; i < trimmed.length; i++) {
+    const code = trimmed.charCodeAt(i);
+    if ((code > 32 && code < 127) || code > 159) {
+      sanitized += trimmed[i];
+    }
+  }
+  const schemeMatch = /^([a-zA-Z][a-zA-Z0-9+.-]*):/.exec(sanitized);
+  if (schemeMatch) {
+    const scheme = schemeMatch[1].toLowerCase();
+    if (!['http', 'https', 'mailto', 'tel'].includes(scheme)) {
+      return '#';
+    }
+  }
+  return trimmed;
+}
+
 interface ParsedAttr {
   rawName: string;
   name: string;

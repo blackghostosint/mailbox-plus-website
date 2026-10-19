@@ -5,6 +5,8 @@ import {
   serializeHtmlAttributes,
   hasNewTabDisclosure,
   extractAccessibleTextsFromInnerHtml,
+  escapeHtml,
+  sanitizeHref,
   DEFAULT_ARTICLE_LINK_CLASS,
 } from './articleHtmlLinks';
 
@@ -553,6 +555,80 @@ describe('normalizeArticleHtmlLinks', () => {
     it('handles inner tags with boolean or empty accessible attributes', () => {
       const innerHtml = 'Text <span aria-label alt="" title="   ">Label</span>';
       expect(extractAccessibleTextsFromInnerHtml(innerHtml)).toEqual(['Text ', 'Label']);
+    });
+  });
+
+  describe('escapeHtml', () => {
+    it('escapes special HTML characters (&, <, >, ", \') into corresponding HTML entities', () => {
+      expect(escapeHtml('Tom & Jerry')).toBe('Tom &amp; Jerry');
+      expect(escapeHtml('<script>alert("XSS")</script>')).toBe(
+        '&lt;script&gt;alert(&quot;XSS&quot;)&lt;/script&gt;'
+      );
+      expect(escapeHtml("It's a 'test'")).toBe('It&#39;s a &#39;test&#39;');
+    });
+
+    it('prevents HTML attribute breakout payloads', () => {
+      expect(escapeHtml('" onclick="alert(1)"')).toBe('&quot; onclick=&quot;alert(1)&quot;');
+      expect(escapeHtml("'><script>alert(1)</script>")).toBe(
+        '&#39;&gt;&lt;script&gt;alert(1)&lt;/script&gt;'
+      );
+      expect(escapeHtml('image.png" onerror="alert(1)')).toBe(
+        'image.png&quot; onerror=&quot;alert(1)'
+      );
+    });
+
+    it('does not double-escape existing valid HTML entities', () => {
+      expect(escapeHtml('Tom &amp; Jerry')).toBe('Tom &amp; Jerry');
+      expect(escapeHtml('5 &lt; 10 &gt; 2')).toBe('5 &lt; 10 &gt; 2');
+      expect(escapeHtml('&quot;quoted&quot; and &#39;single&#39;')).toBe(
+        '&quot;quoted&quot; and &#39;single&#39;'
+      );
+      expect(escapeHtml('Hex &#x27; and &#123; and &nbsp;')).toBe(
+        'Hex &#x27; and &#123; and &nbsp;'
+      );
+    });
+
+    it('handles empty, null, undefined, or non-string inputs gracefully', () => {
+      expect(escapeHtml('')).toBe('');
+      expect(escapeHtml(null)).toBe('');
+      expect(escapeHtml(undefined)).toBe('');
+      expect(escapeHtml(12345)).toBe('12345');
+      expect(escapeHtml(true)).toBe('true');
+    });
+  });
+
+  describe('sanitizeHref', () => {
+    it('allows safe URL schemes and relative/anchor paths', () => {
+      expect(sanitizeHref('/articles/shipping/')).toBe('/articles/shipping/');
+      expect(sanitizeHref('https://mailboxplusohio.com/contact-us/')).toBe(
+        'https://mailboxplusohio.com/contact-us/'
+      );
+      expect(sanitizeHref('http://example.com')).toBe('http://example.com');
+      expect(sanitizeHref('mailto:info@mailboxplusohio.com')).toBe(
+        'mailto:info@mailboxplusohio.com'
+      );
+      expect(sanitizeHref('tel:4403576245')).toBe('tel:4403576245');
+      expect(sanitizeHref('#main-content')).toBe('#main-content');
+      expect(sanitizeHref('./relative/path/')).toBe('./relative/path/');
+    });
+
+    it('blocks unsafe URI schemes (javascript:, data:, vbscript:) by returning "#"', () => {
+      expect(sanitizeHref('javascript:alert(1)')).toBe('#');
+      expect(sanitizeHref('JAVASCRIPT:alert(document.cookie)')).toBe('#');
+      expect(sanitizeHref('data:text/html,<script>alert(1)</script>')).toBe('#');
+      expect(sanitizeHref('vbscript:msgbox(1)')).toBe('#');
+    });
+
+    it('blocks evasive URI schemes with control characters or whitespace', () => {
+      expect(sanitizeHref(' java\nscript:alert(1) ')).toBe('#');
+      expect(sanitizeHref('java\x00script:alert(1)')).toBe('#');
+      expect(sanitizeHref('  javascript:void(0)  ')).toBe('#');
+    });
+
+    it('handles empty, null, or undefined href inputs', () => {
+      expect(sanitizeHref('')).toBe('');
+      expect(sanitizeHref(null)).toBe('');
+      expect(sanitizeHref(undefined)).toBe('');
     });
   });
 });
