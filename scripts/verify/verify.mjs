@@ -1081,20 +1081,21 @@ function cmdArticle(arg, isStrict = false) {
 
       // 11b) Ogilvy jargon gate (strict-fails new/changed articles; advisory for legacy)
       const isNewForJargon = initNewArticles().has(relPath);
-      const jargonMatch = content.match(JARGON_RE);
-      if (jargonMatch) {
+      const jargonMatches = [...new Set(content.match(new RegExp(JARGON_RE.source, 'gi')) || [])];
+      if (jargonMatches.length > 0) {
+        const detectedStr = jargonMatches.map((t) => `"${t}"`).join(', ');
         if (isStrict && isNewForJargon) {
           check(
             'content:no-jargon',
             false,
-            `Ogilvy jargon: "${jargonMatch[0]}"`,
-            'replace with the plain word (use, new, help, smooth...) — abstraction jargon is banned per the Ogilvy memo rules'
+            `Ogilvy jargon: ${detectedStr}`,
+            'replace with plain words (use, new, help, smooth...) — see docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate'
           );
         } else {
           check(
             'content:no-jargon',
             true,
-            `"${jargonMatch[0]}" (advisory — ${isNewForJargon ? 'non-strict' : 'legacy article'})`
+            `${detectedStr} (advisory — ${isNewForJargon ? 'non-strict' : 'legacy article'})`
           );
         }
       } else {
