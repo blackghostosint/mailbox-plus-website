@@ -14,7 +14,10 @@ test.describe('Private Mailbox Reservation Flow', () => {
           status: 200,
           contentType: 'application/json',
           body: JSON.stringify({
-            url: `https://checkout.stripe.com/c/pay/test_session_${tier}`,
+            ok: true,
+            data: {
+              url: `https://checkout.stripe.com/c/pay/test_session_${tier}`,
+            },
           }),
         });
       });
