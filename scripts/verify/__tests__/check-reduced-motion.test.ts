@@ -6,7 +6,7 @@ import {
   extractReducedMotionBlock,
   checkCssContent,
   checkReducedMotion,
-} from '../check-reduced-motion.ts';
+} from '../../check-reduced-motion.ts';
 
 describe('check-reduced-motion', () => {
   describe('extractReducedMotionBlock', () => {
