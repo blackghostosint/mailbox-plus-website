@@ -44,7 +44,7 @@ npm run dev             # Astro dev server
 npm run verify          # Verify local article/content changes before opening PR
 npm run build           # Production build (cd astro && npm run build)
 npm test                # Astro unit tests (vitest)
-npm run test:e2e        # Playwright E2E tests (runs preview server automatically)
+npm run test:e2e        # Playwright E2E tests (launches preview server serving dist/)
 npm run check           # Astro type check (astro check)
 npm run lint            # ESLint
 ```

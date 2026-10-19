@@ -176,7 +176,7 @@ npx netlify deploy --prod
 
 # 4. Verify
 curl -s https://mailboxplusohio.com | head -50  # Check site loads
-npm run test:e2e  # Verify all E2E tests pass
+npm run build && npm run test:e2e  # Verify all E2E tests pass (builds dist/ first for preview server)
 
 # 5. Revoke old secret at source (Google Cloud, Sentry, etc.)
 
@@ -264,8 +264,8 @@ When Gitleaks flags a potential match:
 npm run typecheck      # TypeScript validation
 npm run lint           # ESLint
 npm test               # Unit tests
-npm run test:e2e       # E2E tests (launches preview server automatically)
-npm run build          # Production build verification
+npm run build          # Production build (builds dist/ static artifacts required for preview server)
+npm run test:e2e       # E2E tests (launches preview server automatically serving dist/)
 ```
 
 ### Code review security checklist
