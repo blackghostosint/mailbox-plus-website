@@ -104,6 +104,9 @@ for (const [id, data] of Object.entries(
     const parentPillar = pillarByIdMap.get(data.parent);
     if (parentPillar) {
       parentPillarByServiceIdMap.set(id, parentPillar);
+      if (!parentPillarByChildIdMap.has(id)) {
+        parentPillarByChildIdMap.set(id, parentPillar);
+      }
     }
   }
 }
