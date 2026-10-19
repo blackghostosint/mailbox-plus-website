@@ -21,6 +21,8 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
+   - `npm run verify:ownership`: Verifies internal author authorization and checks for the mandatory in-house authorship stamp (`authorship: article-writer-bot (in-house)`) when `content/articles/` files are modified.
+   - `npm run preflight:article`: Runs the complete local preflight check suite (feeds, receipts, link slashes, and ownership verification) before opening an article pull request.
 4. **Serverless Authorization Verification (`npm run check:auth-model`):**
    Verifies that any PR modifying files under `netlify/functions/` contains a valid `## Endpoint Authentication Models` section in the PR description as required by [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change).
 5. **End-to-End (E2E) Browser Testing (`npm run test:e2e`):**
@@ -29,6 +31,37 @@ Before opening a pull request, contributors must run local pre-flight checks to 
    - **Local Preview Server Requirements:** Playwright automatically launches the preview server (`npm run preview` serving on `http://localhost:4321`). Run `npm run build` prior to running E2E tests so the preview server has up-to-date static build artifacts in `dist/`.
    - **UI Mode Debugging:** Run `npx playwright test --ui` for interactive test debugging and DOM inspection, or `npx playwright test --debug` to step through tests line-by-line.
    - **CI Parity:** Run `npm run test:e2e:ci` to execute the test suite in CI mode matching `.github/workflows/ci.yml`.
+
+## Local Git Hooks & Secret Scanning
+
+This repository uses Husky to manage Git hooks that enforce quality checks and secret scanning automatically during developer workflows.
+
+### Pre-Commit Hook (`.husky/pre-commit`)
+
+On `git commit`, the pre-commit hook executes two checks:
+
+1. **Gitleaks Secret Scanning:**
+   - Scans staged files for hardcoded secrets using `gitleaks protect --staged --no-banner --redact`.
+   - **Local Setup:** Install `gitleaks` locally via Homebrew (`brew install gitleaks`) or download a prebuilt binary from [Gitleaks GitHub Releases](https://github.com/gitleaks/gitleaks).
+   - **Fallback Enforcement:** If `gitleaks` is not installed locally, the hook displays a warning and skips local secret scanning. Secret scanning remains strictly enforced in CI workflows.
+
+2. **Lint-Staged Formatting & Validation:**
+   Applies formatting and verification rules to staged files based on the configuration in `package.json`:
+   - `*.{ts,tsx,js,jsx}`: Runs `eslint --fix` followed by `prettier --write`.
+   - `content/articles/**/*.md`: Runs `tsx scripts/verify/verify.mjs article` followed by `prettier --write`.
+   - `{docs,knowledge}/**/*.md`: Runs `tsx scripts/verify/verify.mjs doc` followed by `prettier --write`.
+   - `*.{json,css,html}`: Runs `prettier --write`.
+
+### Pre-Push Hook (`.husky/pre-push`)
+
+On `git push`, the pre-push hook runs mandatory pre-flight checks before pushing commits:
+
+1. **Loop Gate (`node scripts/loop-gate.mjs`):**
+   Prevents pushing on PRs exceeding maximum review iterations (4+ pushes or 3+ review rounds). Repositories owners can override this using `LOOP_LEDGER_ALLOW="<reason>" git push ...`.
+2. **Baseline Quality Verification:**
+   Executes `npm run lint`, `npm run format:check`, and `npm run check`. Any check failure halts the push.
+3. **Article Preflight Checks:**
+   When changes in `content/articles/**/*.md` are detected, executes `npm run preflight:article` and verifies that the working tree remains clean before pushing.
 
 ## Accessibility Verification
 
@@ -85,12 +118,16 @@ See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token r
 - **Responsive first** — use `sm:`, `md:`, `lg:` breakpoints consistently
 - **Accessibility** — all images must have alt text, interactive elements must have focus indicators
 
-## Code Style
+## Code Style & Linting Scope
 
-- TypeScript strict mode is enabled
-- ESLint + Prettier enforce code style (run `npm run lint`)
-- Astro components are server-rendered by default; use islands only for interactive behavior
-- Always prefer Tailwind `hover:`/`focus:`/`enabled:` variants over inline `onMouseEnter`/`onMouseLeave`
+- TypeScript strict mode is enabled.
+- ESLint + Prettier enforce code style across frontend application code (run `npm run lint`).
+- **ESLint Exclusion Scope:**
+  ESLint excludes non-application and serverless directories (`scripts/`, `netlify/`, `knowledge/`, `archive/`, `coverage/`, `dist/`):
+  - `netlify/`: Netlify serverless functions use an independent TypeScript configuration (`netlify/functions/tsconfig.json`) and backend runtime constraints. They are verified via `npm run typecheck` and `npm run audit:functions`.
+  - `scripts/`: Node.js build, SEO, and audit scripts use the root TypeScript configuration (`tsconfig.json`). They are validated via `npm run typecheck` and dedicated verification tooling (`npm run check:docs`, `npm run seo:check-routes`, etc.) rather than browser/Astro React ESLint rules.
+- Astro components are server-rendered by default; use islands only for interactive behavior.
+- Always prefer Tailwind `hover:`/`focus:`/`enabled:` variants over inline `onMouseEnter`/`onMouseLeave`.
 
 ## Images
 

@@ -173,6 +173,38 @@ export function readPRBody(source, env = process.env) {
     }
   }
 
+  // Fallback for local execution when no explicit source or env vars are provided
+  const localCandidates = [
+    '.prbody.md',
+    '.pr-body.md',
+    'pr-body.md',
+    'prbody.md',
+    '.github/PULL_REQUEST_BODY.md',
+    '.github/pull_request_body.md',
+  ];
+  for (const candidate of localCandidates) {
+    if (existsSync(candidate)) {
+      try {
+        const content = readFileSync(candidate, 'utf8');
+        if (content.trim()) return content;
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  try {
+    const gitLogBody = execSync('git log -1 --pretty=%B', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    if (gitLogBody && gitLogBody.trim()) {
+      return gitLogBody;
+    }
+  } catch {
+    // ignore
+  }
+
   return '';
 }
 
