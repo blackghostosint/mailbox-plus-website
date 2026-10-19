@@ -169,21 +169,6 @@
           "id": "mailing-services-concord-ohio",
           "url": "/mailing-services-concord-ohio",
           "title": "Mailing Services"
-        },
-        {
-          "id": "artwork-shipping",
-          "url": "/pack-ship/artwork-shipping",
-          "title": "Artwork Shipping"
-        },
-        {
-          "id": "bicycle-shipping",
-          "url": "/pack-ship/bicycle-shipping",
-          "title": "Bicycle Shipping"
-        },
-        {
-          "id": "golf-club-shipping",
-          "url": "/pack-ship/golf-club-shipping",
-          "title": "Golf Club Shipping"
         }
       ]
     },
@@ -193,16 +178,6 @@
       "url": "/copy-print",
       "description": "High-quality printing, copying, and graphic design services.",
       "children": [
-        {
-          "id": "staples-printing-alternative-concord-township",
-          "url": "/staples-printing-alternative-concord-township",
-          "title": "Staples Printing Alternative"
-        },
-        {
-          "id": "office-depot-alternative-concord-township",
-          "url": "/office-depot-alternative-concord-township",
-          "title": "Office Depot Alternative"
-        },
         {
           "id": "graphic-design",
           "url": "/copy-print/graphic-design",
@@ -399,6 +374,11 @@
           "id": "drop-off-a-prepaid-label-from-your-phone",
           "url": "/drop-off-a-prepaid-label-from-your-phone",
           "title": "Drop Off a Prepaid Label From Your Phone"
+        },
+        {
+          "id": "ship-return-strict-size-weight-limits",
+          "url": "/ship-return-strict-size-weight-limits",
+          "title": "Ship a Return With Strict Size or Weight Limits"
         },
         {
           "id": "fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township",
@@ -785,11 +765,6 @@
       "id": "private-mailbox-rental",
       "url": "/private-mailbox-rental",
       "title": "Private Mailbox Rental"
-    },
-    {
-      "id": "ship-return-strict-size-weight-limits",
-      "url": "/ship-return-strict-size-weight-limits",
-      "title": "Ship a Return With Strict Size or Weight Limits"
     },
     {
       "id": "fedex-office-alternative-willoughby",

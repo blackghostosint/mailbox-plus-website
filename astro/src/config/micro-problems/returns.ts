@@ -471,7 +471,7 @@ export const returnMicroProblems: Service[] = [
     robots: 'index, follow',
   },
   {
-    id: 'ship-a-return-with-strict-size-or-weight-limits',
+    id: 'ship-return-strict-size-weight-limits',
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship a Return With Strict Size or Weight Limits',
