@@ -20,6 +20,26 @@ export const additionalServices: Service[] = [
 
   {
     id: 'notary-services',
+    internalLink: {
+      parent: 'home-business',
+      related: ['digital-fingerprinting', 'document-scanning', 'shredding', 'copies'],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Notary Services', 'Notary Public', 'Mobile Notary'],
+      lsi: [
+        'notarization',
+        'document notarization',
+        'notary signing',
+        'loan signing agent',
+        'certified notary',
+      ],
+      geo: [
+        'notary services in Concord Township',
+        'notary public near Mentor',
+        'notary in Lake County',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Notary Services',
@@ -114,6 +134,31 @@ export const additionalServices: Service[] = [
   },
   {
     id: 'fedex-easy-returns',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'package-drop-offs',
+        'amazon-returns',
+        'happy-returns',
+        'nuuly-returns',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['FedEx Easy Returns', 'FedEx Returns', 'Return Via FedEx'],
+      lsi: [
+        'FedEx return service',
+        'print return label',
+        'FedEx drop-off return',
+        'easy return solutions',
+      ],
+      geo: [
+        'FedEx returns in Concord Township',
+        'FedEx return drop-off near Mentor',
+        'easy returns in Lake County',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'FedEx Easy Returns',
@@ -133,6 +178,17 @@ export const additionalServices: Service[] = [
   },
   {
     id: 'business-services-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'notary-services',
+        'shredding',
+        'pack-ship',
+        'amazon-returns-drop-off-concord-township',
+      ],
+      priority: true,
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Business Services',
@@ -199,6 +255,11 @@ export const additionalServices: Service[] = [
   },
   {
     id: 'amazon-returns-drop-off-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['amazon-returns', 'package-drop-offs', 'fedex-shipping', 'packaging-supplies'],
+      priority: false,
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Ship Your Amazon Return',
@@ -258,6 +319,25 @@ export const additionalServices: Service[] = [
   },
   {
     id: 'nuuly-returns',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['happy-returns', 'amazon-returns', 'fedex-easy-returns', 'package-drop-offs'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Nuuly Returns', 'Nuuly Return Drop-Off', 'Return Nuuly Rental'],
+      lsi: [
+        'Nuuly clothing return',
+        'Nuuly rental return',
+        'Nuuly drop-off',
+        'clothing rental return',
+      ],
+      geo: [
+        'Nuuly returns in Concord Township',
+        'Nuuly drop-off near Mentor',
+        'Nuuly return center in Lake County',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Nuuly Returns',
@@ -357,6 +437,25 @@ export const additionalServices: Service[] = [
   // ---------------------------
   {
     id: 'digital-fingerprinting',
+    internalLink: {
+      parent: 'specialty',
+      related: [
+        'notary-services',
+        'business-services-concord-township',
+        'document-services-concord-township',
+        'private-mailbox-rental-concord-township',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Digital Fingerprinting', 'Fingerprinting Services'],
+      lsi: ['background checks', 'BCI check', 'FBI background check', 'electronic fingerprinting'],
+      geo: [
+        'fingerprinting in Lake County',
+        'background checks in Concord Township',
+        'livescan fingerprinting near Mentor',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Digital Fingerprinting',
@@ -497,6 +596,33 @@ export const additionalServices: Service[] = [
   // ---------------------------
   {
     id: 'insurance',
+    internalLink: {
+      parent: 'specialty',
+      related: [
+        'pack-ship',
+        'professional-packing',
+        'artwork-shipping',
+        'bicycle-shipping',
+        'golf-club-shipping',
+        'fedex-shipping',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Shipping Insurance', 'Package Insurance', 'Shipment Coverage'],
+      lsi: [
+        'high value shipping',
+        'insured shipping',
+        'package protection',
+        'shipping coverage',
+        'cargo insurance',
+      ],
+      geo: [
+        'shipping insurance in Concord Township',
+        'package insurance near Mentor',
+        'insured shipping in Lake County',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Shipping Insurance',
@@ -647,6 +773,38 @@ export const additionalServices: Service[] = [
   // ---------------------------
   {
     id: 'happy-returns',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'nuuly-returns',
+        'amazon-returns',
+        'fedex-easy-returns',
+        'package-drop-offs',
+        'happy-returns-willoughby',
+        'happy-returns-mentor',
+        'happy-returns-painesville',
+        'happy-returns-eastlake',
+        'happy-returns-kirtland',
+        'happy-returns-chardon',
+        'happy-returns-madison',
+        'happy-returns-fairport-harbor',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Happy Returns', 'Happy Returns Return Bar', 'Happy Returns Drop-Off'],
+      lsi: [
+        'Happy Returns location',
+        'Happy Returns near me',
+        'QR code return drop-off',
+        'return bar in Lake County',
+      ],
+      geo: [
+        'Happy Returns in Concord Township',
+        'Happy Returns near Mentor',
+        'Happy Returns return bar in Lake County',
+      ],
+    },
     category: 'additional-services',
     city: 'Concord Township',
     serviceName: 'Happy Returns Return Bar',

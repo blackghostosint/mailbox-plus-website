@@ -31,7 +31,7 @@ test.describe('Contact and Accessibility Form Handlers - ARIA Live & Focus Manag
           await route.fulfill({
             status: 200,
             contentType: 'application/json',
-            body: JSON.stringify({ success: true }),
+            body: JSON.stringify({ ok: true, data: { success: true } }),
           });
         });
 
