@@ -239,7 +239,7 @@ export const amazonReturnsService: Service = {
             )
             .join('')}
         </div>
-        <div class="mt-8 bg-[var(--color-bg-blue-tint)] border-l-4 border-[var(--color-primary)] p-6 rounded-r-2xl flex items-start gap-4">
+        <div class="mt-8 bg-[var(--color-bg-warm-tint)] border-l-4 border-[var(--color-primary)] p-6 rounded-r-2xl flex items-start gap-4">
           <div class="w-6 h-6 text-[var(--color-primary)] shrink-0 mt-1">💡</div>
           <div>
             <p class="font-bold text-[var(--color-primary)] text-lg">Tip:</p>
@@ -263,7 +263,7 @@ export const amazonReturnsService: Service = {
               <li class="flex items-center gap-3"><span class="text-[var(--color-accent)]">●</span> Real person support for instructions</li>
             </ul>
           </div>
-          <div class="bg-[var(--color-bg-blue-tint)]/50 p-8 rounded-[28px] border border-[var(--color-border-blue)] flex flex-col justify-center">
+          <div class="bg-[var(--color-bg-warm-tint)]/50 p-8 rounded-[28px] border border-[var(--color-border-strong)] flex flex-col justify-center">
             <h3 class="text-2xl font-bold text-[var(--color-primary)] mb-6">Why Choose Us?</h3>
             <p class="text-[var(--color-text-primary)] text-lg leading-relaxed mb-6 italic">
               "At Mailbox Plus, we assist residents throughout Lake County. We’re a local, owner-operated pack-and-ship store—when Amazon’s instructions get confusing, you can talk to a real person."
@@ -347,7 +347,7 @@ export const amazonReturnsService: Service = {
           ]
             .map(
               (reason) => `
-            <div class="flex items-center gap-3 bg-white p-5 rounded-2xl shadow-sm border border-[var(--color-border-blue)]/50 hover:bg-[var(--color-bg-blue-tint)]/30 transition-colors">
+            <div class="flex items-center gap-3 bg-white p-5 rounded-2xl shadow-sm border border-[var(--color-border-strong)]/50 hover:bg-[var(--color-bg-warm-tint)]/30 transition-colors">
               <span class="text-[var(--color-primary)] font-bold">✓</span>
               <span class="text-[var(--color-text-primary)] font-semibold">${reason}</span>
             </div>
