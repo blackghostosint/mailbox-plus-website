@@ -313,22 +313,20 @@ export function getMdFiles(dir = ROOT) {
   const list = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of list) {
     const fullPath = path.join(dir, entry.name);
+    const rel = path.relative(ROOT, fullPath).replace(/\\/g, '/');
     if (entry.isDirectory()) {
       if (
         entry.name !== 'node_modules' &&
         entry.name !== '.git' &&
         entry.name !== 'dist' &&
         entry.name !== '.factchecks' &&
-        entry.name !== 'reports' // Generated audit reports folder
+        entry.name !== 'reports' && // Generated audit reports folder
+        rel !== 'content/articles' &&
+        !rel.startsWith('content/articles/')
       ) {
         results = results.concat(getMdFiles(fullPath));
       }
     } else if (entry.name.endsWith('.md')) {
-      // Exclude blog post articles in content/articles/ except README.md
-      const rel = path.relative(ROOT, fullPath);
-      if (rel.startsWith('content/articles/') && path.basename(rel).toLowerCase() !== 'readme.md') {
-        continue;
-      }
       results.push(fullPath);
     }
   }
