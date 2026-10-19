@@ -4,6 +4,20 @@ import { getServiceImageUrl } from '../../lib/media';
 export const packagingMicroProblems: Service[] = [
   {
     id: 'repackage-a-damaged-or-torn-shipping-box-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'drop-off-a-prepaid-label-from-your-phone',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        'ship-documents-securely-and-flat-in-concord-township-contracts-certificates-legal-papers',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Repackage a Damaged or Torn Shipping Box',
@@ -70,6 +84,19 @@ export const packagingMicroProblems: Service[] = [
   },
   {
     id: 'package-multiple-items-into-one-shipment-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'vinted-drop-off-concord-township',
+        'chewy-prescription-mail-in-concord-township',
+        'ship-a-package-when-youre-short-on-time-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Package Multiple Items Into One Shipment in Concord Township',
@@ -135,6 +162,21 @@ export const packagingMicroProblems: Service[] = [
   },
   {
     id: 'ship-something-with-no-original-packaging-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'packaging-supplies',
+        'insurance',
+        'custom-box-making',
+        'artwork-shipping',
+        'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
+        'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+        'ship-return-strict-size-weight-limits',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Ship Something With No Original Packaging',
@@ -199,6 +241,20 @@ export const packagingMicroProblems: Service[] = [
   },
   {
     id: 'print-and-attach-a-shipping-label-correctly-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'drop-off-a-prepaid-label-from-your-phone',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        'ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'Concord Township',
     serviceName: 'Print and Attach a Shipping Label Correctly in Concord Township',
@@ -265,6 +321,20 @@ export const packagingMicroProblems: Service[] = [
   },
   {
     id: 'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'drop-off-a-prepaid-label-from-your-phone',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        'package-a-return-so-its-accepted-by-the-carrier',
+        'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
+      ],
+      priority: false,
+    },
     category: 'micro-problem',
     city: 'concord-township',
     serviceName: 'Get Help Choosing the Right Box for Shipping',

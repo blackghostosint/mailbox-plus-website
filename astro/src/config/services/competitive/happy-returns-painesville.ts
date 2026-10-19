@@ -7,6 +7,11 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'happy-returns-painesville',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['happy-returns', 'fedex-easy-returns', 'package-drop-offs', 'shipping-partners'],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/happy-returns-painesville-featured.webp',
     headJsonLd: getImageObjectSchema({
