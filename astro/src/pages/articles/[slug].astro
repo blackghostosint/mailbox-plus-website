@@ -44,7 +44,7 @@ renderer.link = ({ href, text }) => {
   const sanitized = sanitizeHref(href);
   const safeHref = escapeHtml(sanitized);
   const isInternal = sanitized.startsWith('/');
-  const cls = 'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-blue)] underline-offset-2';
+  const cls = 'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-strong)] underline-offset-2';
   if (isInternal) {
     return `<a href="${safeHref}" class="${cls}">${text}</a>`;
   }
