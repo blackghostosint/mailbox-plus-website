@@ -27,6 +27,13 @@ import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolveDistDir } from '../lib/dist-path.mjs';
+import {
+  initRouteRegistry as initRouteRegistryUtil,
+  walkDir,
+  normalizeRoute,
+  isKnownRoute as isKnownRouteUtil,
+} from '../lib/article-utils.ts';
+import { validateArticleFrontmatter } from '../lib/article-schema.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -61,14 +68,6 @@ try {
   gray = null;
 }
 
-let validateArticleFrontmatter;
-try {
-  validateArticleFrontmatter = (await import('../lib/article-schema.ts'))
-    .validateArticleFrontmatter;
-} catch {
-  validateArticleFrontmatter = null;
-}
-
 let currentFile = null;
 const results = [];
 function check(name, pass, detail, fix, file = currentFile) {
@@ -76,136 +75,16 @@ function check(name, pass, detail, fix, file = currentFile) {
 }
 
 // ---------- Route Registry & Cache ----------
-let registryInitialized = false;
-const validRoutes = new Set();
-const dynamicPrefixes = [];
-const intentKeyMap = new Map(); // intentKey -> Array<relPath>
-
-function walkDir(dir, callback) {
-  if (!fs.existsSync(dir)) return;
-  fs.readdirSync(dir).forEach((f) => {
-    const dirPath = path.join(dir, f);
-    fs.statSync(dirPath).isDirectory() ? walkDir(dirPath, callback) : callback(dirPath);
-  });
-}
-
+let routeRegistry = null;
 function initRouteRegistry() {
-  if (registryInitialized) return;
-  registryInitialized = true;
-
-  // 1) Pages under astro/src/pages
-  walkDir(PAGES_DIR, (filePath) => {
-    if (path.extname(filePath) !== '.astro') return;
-    const rel = path
-      .relative(PAGES_DIR, filePath)
-      .replace(/\\/g, '/')
-      .replace(/\.astro$/, '');
-    const segments = rel.split('/');
-    const dynamicIdx = segments.findIndex((s) => s.startsWith('[') && s.endsWith(']'));
-    if (dynamicIdx !== -1) {
-      const prefix = '/' + segments.slice(0, dynamicIdx).join('/').replace(/\/$/, '');
-      dynamicPrefixes.push({
-        prefix: prefix === '' ? '/' : prefix,
-        catchAll: segments[dynamicIdx].startsWith('[...'),
-      });
-      return;
-    }
-    let route = rel.replace(/\.astro$/, '');
-    if (route.endsWith('/index')) route = route.slice(0, -6);
-    validRoutes.add('/' + route);
-  });
-
-  // 1b) Routes from siteStructure.json & route-registry-allowlist.json
-  const SITE_STRUCTURE_PATH = path.join(ROOT, 'astro', 'src', 'data', 'siteStructure.json');
-  if (!fs.existsSync(SITE_STRUCTURE_PATH)) {
-    throw new Error(`❌ Required siteStructure file missing at ${SITE_STRUCTURE_PATH}`);
+  if (!routeRegistry) {
+    routeRegistry = initRouteRegistryUtil(PAGES_DIR, CONTENT_DIR);
   }
-  try {
-    const siteStruct = JSON.parse(fs.readFileSync(SITE_STRUCTURE_PATH, 'utf8'));
-    const addUrl = (url) => {
-      if (!url) return;
-      let norm = url.trim();
-      if (norm.endsWith('.html')) norm = norm.slice(0, -5);
-      if (!norm.startsWith('/')) norm = '/' + norm;
-      if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
-      validRoutes.add(norm);
-    };
-    if (siteStruct.homepage?.url) addUrl(siteStruct.homepage.url);
-    if (Array.isArray(siteStruct.pillars)) {
-      for (const p of siteStruct.pillars) {
-        addUrl(p.url);
-        if (Array.isArray(p.children)) {
-          for (const c of p.children) addUrl(c.url);
-        }
-      }
-    }
-    if (Array.isArray(siteStruct.subSupporting)) {
-      for (const s of siteStruct.subSupporting) addUrl(s.url);
-    }
-    if (Array.isArray(siteStruct['seo-landing'])) {
-      for (const l of siteStruct['seo-landing']) addUrl(l.url);
-    }
-  } catch (e) {
-    console.error(`❌ Failed to read or parse siteStructure at ${SITE_STRUCTURE_PATH}:`, e);
-    throw e;
-  }
-
-  const ALLOWLIST_PATH = path.join(ROOT, 'scripts', 'seo', 'route-registry-allowlist.json');
-  if (!fs.existsSync(ALLOWLIST_PATH)) {
-    throw new Error(`❌ Required route registry allowlist missing at ${ALLOWLIST_PATH}`);
-  }
-  try {
-    const allowlist = JSON.parse(fs.readFileSync(ALLOWLIST_PATH, 'utf8'));
-    if (Array.isArray(allowlist.allowed_exact)) {
-      for (const url of allowlist.allowed_exact) {
-        let norm = url.trim();
-        if (!norm.startsWith('/')) norm = '/' + norm;
-        if (norm.length > 1 && norm.endsWith('/')) norm = norm.slice(0, -1);
-        validRoutes.add(norm);
-      }
-    }
-  } catch (e) {
-    console.error(`❌ Failed to read or parse route registry allowlist at ${ALLOWLIST_PATH}:`, e);
-    throw e;
-  }
-
-  // 2) Article routes & intentKeys from content/articles
-  if (gray && fs.existsSync(CONTENT_DIR)) {
-    walkDir(CONTENT_DIR, (filePath) => {
-      if (path.extname(filePath) !== '.md') return;
-      if (path.basename(filePath).toLowerCase() === 'readme.md') return;
-      try {
-        const raw = fs.readFileSync(filePath, 'utf8');
-        const { data } = gray(raw);
-        if (data.slug) validRoutes.add('/articles/' + data.slug);
-        if (data.intentKey) {
-          const ik = String(data.intentKey);
-          const rel = path.relative(ROOT, filePath);
-          if (!intentKeyMap.has(ik)) intentKeyMap.set(ik, []);
-          intentKeyMap.get(ik).push(rel);
-        }
-      } catch (e) {}
-    });
-  }
-}
-
-function normalizeRoute(p) {
-  if (!p) return p;
-  const clean = p.split('?')[0].split('#')[0];
-  return clean.length > 1 ? clean.replace(/\/+$/, '') : clean;
+  return routeRegistry;
 }
 
 function isKnownRoute(target) {
-  initRouteRegistry();
-  const norm = normalizeRoute(target);
-  if (validRoutes.has(norm)) return true;
-  for (const { prefix, catchAll } of dynamicPrefixes) {
-    if (norm === prefix) return true;
-    if (prefix === '/' || !norm.startsWith(prefix + '/')) continue;
-    const rest = norm.slice(prefix.length + 1);
-    if (catchAll || !rest.includes('/')) return true;
-  }
-  return false;
+  return isKnownRouteUtil(target, initRouteRegistry());
 }
 
 // ---------- heading diversity ----------
@@ -949,7 +828,9 @@ function cmdArticle(arg, isStrict = false) {
     // 5) IntentKey uniqueness across corpus
     const ik = String(data.intentKey || '');
     if (ik) {
-      const matchingFiles = (intentKeyMap.get(ik) || []).filter((p) => p !== relPath);
+      const matchingFiles = (initRouteRegistry().intentKeyMap.get(ik) || []).filter(
+        (p) => p !== relPath
+      );
       if (matchingFiles.length > 0) {
         check(
           'meta:intentKey-unique',
@@ -1219,20 +1100,21 @@ function cmdArticle(arg, isStrict = false) {
 
       // 11b) Ogilvy jargon gate (strict-fails new/changed articles; advisory for legacy)
       const isNewForJargon = initNewArticles().has(relPath);
-      const jargonMatch = content.match(JARGON_RE);
-      if (jargonMatch) {
+      const jargonMatches = [...new Set(content.match(new RegExp(JARGON_RE.source, 'gi')) || [])];
+      if (jargonMatches.length > 0) {
+        const detectedStr = jargonMatches.map((t) => `"${t}"`).join(', ');
         if (isStrict && isNewForJargon) {
           check(
             'content:no-jargon',
             false,
-            `Ogilvy jargon: "${jargonMatch[0]}"`,
-            'replace with the plain word (use, new, help, smooth...) — abstraction jargon is banned per the Ogilvy memo rules'
+            `Ogilvy jargon: ${detectedStr}`,
+            'replace with plain words (use, new, help, smooth...) — see docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate'
           );
         } else {
           check(
             'content:no-jargon',
             true,
-            `"${jargonMatch[0]}" (advisory — ${isNewForJargon ? 'non-strict' : 'legacy article'})`
+            `${detectedStr} (advisory — ${isNewForJargon ? 'non-strict' : 'legacy article'})`
           );
         }
       } else {
