@@ -163,7 +163,10 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
 
       const resMissing = await wrapped(reqMissing, ctx);
       expect(resMissing.status).toBe(400);
-      expect(await resMissing.json()).toEqual({ error: 'reCAPTCHA verification failed' });
+      expect(await resMissing.json()).toEqual({
+        ok: false,
+        error: 'reCAPTCHA verification failed',
+      });
       expect(innerHandler).not.toHaveBeenCalled();
 
       const reqInvalid = createMockNetlifyRequest({
@@ -173,7 +176,10 @@ describe('withRecaptcha middleware and verifyRecaptchaToken', () => {
       });
       const resInvalid = await wrapped(reqInvalid, ctx);
       expect(resInvalid.status).toBe(400);
-      expect(await resInvalid.json()).toEqual({ error: 'reCAPTCHA verification failed' });
+      expect(await resInvalid.json()).toEqual({
+        ok: false,
+        error: 'reCAPTCHA verification failed',
+      });
       expect(innerHandler).not.toHaveBeenCalled();
     });
 
