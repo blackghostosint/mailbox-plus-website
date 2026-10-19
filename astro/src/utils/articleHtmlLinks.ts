@@ -1,5 +1,5 @@
 export const DEFAULT_ARTICLE_LINK_CLASS =
-  'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-blue)] underline-offset-2';
+  'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-strong)] underline-offset-2';
 
 /**
  * Escapes special characters in a string to safe HTML entities to prevent HTML injection and attribute breakout.
