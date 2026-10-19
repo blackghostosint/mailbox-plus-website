@@ -34,11 +34,8 @@ export function validateBuildEnv(options = {}) {
       : env.NODE_ENV === 'production' ||
         env.CONTEXT === 'production' ||
         env.VITE_NETLIFY_CONTEXT === 'production' ||
-        env.CI === 'true' ||
         process.argv.includes('--production') ||
-        process.argv.includes('--prod') ||
-        process.env.npm_lifecycle_event === 'build' ||
-        process.env.npm_lifecycle_event === 'prebuild';
+        process.argv.includes('--prod');
 
   const errors = [];
   const warnings = [];

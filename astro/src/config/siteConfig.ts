@@ -70,19 +70,6 @@ function getR2BaseUrl(): string {
     return envUrl.trim().replace(/\/$/, '');
   }
 
-  const context = getNetlifyContext();
-  const isProd =
-    (typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.PROD) ||
-    (typeof process !== 'undefined' &&
-      process.env &&
-      (process.env.NODE_ENV === 'production' || context === 'production'));
-
-  if (isProd) {
-    throw new Error(
-      'Missing required environment variable VITE_R2_PUBLIC_BASE_URL in production build.'
-    );
-  }
-
   return CANONICAL_R2_BASE_URL;
 }
 
