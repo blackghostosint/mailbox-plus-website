@@ -80,7 +80,7 @@ describe('preflight-article.sh path with spaces handling', () => {
 
       expect(output).toContain('✅ factcheck: test space article');
       expect(output).toContain(
-        '✅ image:body manifest: content/articles/folder/test space article.md'
+        '✅ verification & store photo manifest: content/articles/folder/test space article.md'
       );
       expect(output).not.toContain('no receipt for test');
       expect(output).not.toContain('no receipt for space');
