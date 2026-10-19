@@ -7,7 +7,7 @@ import { getArticleSchema, getWebPageSchema, getFAQSchema } from '../../utils/sc
 import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
 import { getServiceImageUrl } from '../../lib/media';
-import { normalizeArticleHtmlLinks } from '../../utils/articleHtmlLinks';
+import { normalizeArticleHtmlLinks, escapeHtml, sanitizeHref } from '../../utils/articleHtmlLinks';
 
 export { normalizeArticleHtmlLinks };
 
@@ -34,20 +34,22 @@ const ogImage = getServiceImageUrl(image);
 // Configure marked to rewrite relative image paths to R2 URLs
 const renderer = new marked.Renderer();
 renderer.image = ({ href, title: imgTitle, text }) => {
-  const src = getServiceImageUrl(href || '');
-  const altText = text || imgTitle || '';
+  const src = escapeHtml(sanitizeHref(getServiceImageUrl(href || '')));
+  const altText = escapeHtml(text || imgTitle || '');
   return `<div class="my-8 rounded-xl overflow-hidden shadow-lg border border-[var(--color-bg-secondary)]">
     <img src="${src}" alt="${altText}" class="w-full h-auto object-cover" loading="lazy" />
     ${altText ? `<p class="text-sm text-center text-[var(--color-text-secondary)] mt-2 italic">${altText}</p>` : ''}
   </div>`;
 };
 renderer.link = ({ href, text }) => {
-  const isInternal = href?.startsWith('/');
+  const sanitized = sanitizeHref(href);
+  const safeHref = escapeHtml(sanitized);
+  const isInternal = sanitized.startsWith('/');
   const cls = 'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-blue)] underline-offset-2';
   if (isInternal) {
-    return `<a href="${href}" class="${cls}">${text}</a>`;
+    return `<a href="${safeHref}" class="${cls}">${text}</a>`;
   }
-  return `<a href="${href}" target="_blank" rel="noopener noreferrer" class="${cls}">${text}<span class="sr-only">(opens in a new tab)</span></a>`;
+  return `<a href="${safeHref}" target="_blank" rel="noopener noreferrer" class="${cls}">${text}<span class="sr-only">(opens in a new tab)</span></a>`;
 };
 
 const renderedContent = normalizeArticleHtmlLinks(marked.parse(content, { renderer }) as string);
