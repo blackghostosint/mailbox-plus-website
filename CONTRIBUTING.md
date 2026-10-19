@@ -21,6 +21,12 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
+4. **End-to-End (E2E) Browser Testing (`npm run test:e2e`):**
+   Executes Playwright tests against a local build to verify interactive workflows (contact forms, mailbox reservations, tracking lookups, live accessibility regions).
+   - **Browser Installation:** Run `npx playwright install` to install required browser binaries (Chromium, Firefox, WebKit).
+   - **Local Preview Server Requirements:** Playwright automatically launches the preview server (`npm run preview` serving on `http://localhost:4321`). Run `npm run build` prior to running E2E tests so the preview server has up-to-date static build artifacts in `dist/`.
+   - **UI Mode Debugging:** Run `npx playwright test --ui` for interactive test debugging and DOM inspection, or `npx playwright test --debug` to step through tests line-by-line.
+   - **CI Parity:** Run `npm run test:e2e:ci` to execute the test suite in CI mode matching `.github/workflows/ci.yml`.
 
 ## Local Git Hooks & Secret Scanning
 
@@ -92,6 +98,7 @@ content/articles/            # Article markdown (YAML frontmatter)
 public/                      # Static assets (served at /)
 scripts/                     # Article/sitemap/SEO audit tooling
 netlify/functions/           # Serverless functions
+tests/e2e/                   # Playwright end-to-end tests
 ```
 
 ## Design System
