@@ -7,21 +7,32 @@ import { flattenFaqs } from '../utils/faqUtils';
 
 const allFaqs: FAQ[] = flattenFaqs(faqs);
 ---
-<BaseLayout 
-  title="Ask Mailbox Plus | FAQ" 
+
+<BaseLayout
+  title="Ask Mailbox Plus | FAQ"
   description="Frequently asked questions about our shipping, printing, mailbox, and other services in Concord Township."
 >
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <h1 class="mb-6 text-3xl font-bold text-[var(--color-primary)] text-center">Ask Mailbox Plus</h1>
+    <h1 class="mb-6 text-3xl font-bold text-[var(--color-primary)] text-center">
+      Ask Mailbox Plus
+    </h1>
     <p class="mb-8 text-[var(--color-text-secondary)] text-center max-w-2xl mx-auto">
-      Find answers to common questions about our shipping, printing, mailbox, and other services. If you don't see your question here, please contact us.
+      Find answers to common questions about our shipping, printing, mailbox, and other services. If
+      you don't see your question here, please contact us.
     </p>
 
     <FaqAccordion faqs={allFaqs} headingLevel={2} />
 
     <div class="text-center mt-10">
       <p class="text-[var(--color-text-secondary)]">
-        Still have questions? <a href="/contact-us/" class="text-[var(--color-accent-warm)] hover:underline font-semibold">Contact us</a> and we'll help you out.
+        Still have questions?{' '}
+        <a
+          href="/contact-us/"
+          class="text-[var(--color-accent-warm)] hover:underline font-semibold"
+        >
+          Contact us
+        </a>{' '}
+        and we'll help you out.
       </p>
     </div>
   </div>

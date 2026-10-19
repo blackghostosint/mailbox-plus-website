@@ -12,8 +12,9 @@ const pageUrl = toCanonicalUrl(canonical);
 const domain = siteConfig.domain;
 
 // SEO Meta
-const metaTitle = "After Signing Up for Mailbox Service | Mailbox Plus Next Steps";
-const metaDescription = "See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.";
+const metaTitle = 'After Signing Up for Mailbox Service | Mailbox Plus Next Steps';
+const metaDescription =
+  'See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.';
 
 // Breadcrumbs
 const breadcrumbs = [
@@ -44,8 +45,7 @@ const videoSchema = {
   embedUrl: pageUrl,
   uploadDate: '2026-06-29',
   duration: 'PT1M10S',
-  transcript:
-    `After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away. An activation email goes to your inbox. Open it. Click the link. Your mailbox opens. Your mailing address is ${siteConfig.contact.address.street}, PMB 456, Concord Township. A welcome email follows. It confirms your address. It lists office hours. It reminds you to bring ID. Print it or save it. Mail arrives. Packages arrive. We sign for carriers. We note each item. Everything stays secure until you arrive. Stop by during open hours. Show your ID. Collect your mail. Use the address now. Put it on bills. List it for online orders. Forward old mail here. That's the process. Shipping shouldn't cost you an hour.`,
+  transcript: `After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away. An activation email goes to your inbox. Open it. Click the link. Your mailbox opens. Your mailing address is ${siteConfig.contact.address.street}, PMB 456, Concord Township. A welcome email follows. It confirms your address. It lists office hours. It reminds you to bring ID. Print it or save it. Mail arrives. Packages arrive. We sign for carriers. We note each item. Everything stays secure until you arrive. Stop by during open hours. Show your ID. Collect your mail. Use the address now. Put it on bills. List it for online orders. Forward old mail here. That's the process. Shipping shouldn't cost you an hour.`,
   hasPart: [
     {
       '@type': 'WebPage',
@@ -115,36 +115,46 @@ const steps = [
 ];
 
 const stepIcons = [
-  'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z',     // user-check
+  'M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z', // user-check
   'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z', // mail
   'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z', // map-pin
   'M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4', // inbox
   'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', // shield-check
-  'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z',         // clock
+  'M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z', // clock
 ];
 ---
 
-<BaseLayout
-  title={metaTitle}
-  description={metaDescription}
-  canonical={canonical}
-  schema={schemas}
->
-
+<BaseLayout title={metaTitle} description={metaDescription} canonical={canonical} schema={schemas}>
   <!-- Breadcrumbs -->
   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
     <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
       {breadcrumbs.map((item, i) => (
         <li class="flex items-center">
           {i > 0 && (
-            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            <svg
+              class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0"
+              aria-hidden="true"
+              focusable="false"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              />
             </svg>
           )}
           {i < breadcrumbs.length - 1 ? (
-            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">{item.name}</a>
+            <a href={item.url} class="hover:text-[var(--color-primary)] transition-colors">
+              {item.name}
+            </a>
           ) : (
-            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">After Signing Up</span>
+            <span class="font-semibold text-[var(--color-text-primary)]" aria-current="page">
+              After Signing Up
+            </span>
           )}
         </li>
       ))}
@@ -156,8 +166,20 @@ const stepIcons = [
     <div class="relative z-10 max-w-5xl mx-auto px-6">
       <!-- Welcome Badge -->
       <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-[var(--color-accent-gold-light)] font-bold mb-6">
-        <svg class="w-5 h-5" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        <svg
+          class="w-5 h-5"
+          aria-hidden="true"
+          focusable="false"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+          />
         </svg>
         <span>Welcome to Mailbox Plus</span>
       </div>
@@ -168,8 +190,8 @@ const stepIcons = [
       </h1>
 
       <p class="text-lg md:text-xl text-white/80 leading-relaxed font-medium max-w-3xl mx-auto mb-12">
-        Watch this 70-second video to see exactly how we receive, secure, and manage your mail
-        and packages after you sign up for mailbox service.
+        Watch this 70-second video to see exactly how we receive, secure, and manage your mail and
+        packages after you sign up for mailbox service.
       </p>
 
       <!-- Video & Synchronized Interactive Transcript Player Island -->
@@ -178,7 +200,10 @@ const stepIcons = [
     </div>
 
     <!-- Soft fade bottom -->
-    <div class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10" aria-hidden="true"></div>
+    <div
+      class="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-b from-transparent to-[var(--color-bg-primary)] z-10"
+      aria-hidden="true"
+    ></div>
   </section>
 
   <!-- ====================== EXPECTATIONS SECTION (Steps) ======================= -->
@@ -189,20 +214,35 @@ const stepIcons = [
           What Happens Next?
         </h2>
         <p class="text-[var(--color-text-primary)] text-lg max-w-2xl mx-auto">
-          Setting up your mailbox is quick and painless. Here is the step-by-step timeline of
-          what to expect after signing up for mailbox service at Mailbox Plus.
+          Setting up your mailbox is quick and painless. Here is the step-by-step timeline of what
+          to expect after signing up for mailbox service at Mailbox Plus.
         </p>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto stagger-group">
         {steps.map((step, index) => (
           <div class="bg-[var(--color-bg-secondary)] p-8 rounded-lg border border-[var(--color-border-strong)] hover:border-[var(--color-accent-warm)] transition-all duration-300 flex flex-col relative group hover:shadow-md">
-            <div class="absolute top-4 right-6 text-5xl font-black text-[var(--color-primary-dark)]/70 group-hover:text-[var(--color-accent-warm)] transition-colors pointer-events-none select-none" aria-hidden="true">
+            <div
+              class="absolute top-4 right-6 text-5xl font-black text-[var(--color-primary-dark)]/70 group-hover:text-[var(--color-accent-warm)] transition-colors pointer-events-none select-none"
+              aria-hidden="true"
+            >
               {step.stepNum}
             </div>
             <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-[var(--color-accent-warm)] mb-6 shadow-sm border border-[var(--color-border)]">
-              <svg class="w-6 h-6" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={stepIcons[index]} />
+              <svg
+                class="w-6 h-6"
+                aria-hidden="true"
+                focusable="false"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d={stepIcons[index]}
+                />
               </svg>
             </div>
             <h3 class="text-xl font-bold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
@@ -236,8 +276,8 @@ const stepIcons = [
         Ready to Secure Your Mail?
       </h2>
       <p class="text-[var(--color-text-primary)] text-lg mb-10 max-w-xl mx-auto">
-        If you have any questions, our local Concord Township team is standing by to help you
-        get completely set up after signing up for mailbox service.
+        If you have any questions, our local Concord Township team is standing by to help you get
+        completely set up after signing up for mailbox service.
       </p>
 
       <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -246,8 +286,20 @@ const stepIcons = [
           class="inline-flex items-center gap-2 bg-[var(--color-primary)] text-white font-semibold px-8 py-3 rounded-md hover:bg-[var(--color-primary-dark)] transition-all shadow-md hover:shadow-lg text-lg"
         >
           Start Using Your Mailbox
-          <svg class="w-5 h-5" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            focusable="false"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M17 8l4 4m0 0l-4 4m4-4H3"
+            />
           </svg>
         </a>
         <a

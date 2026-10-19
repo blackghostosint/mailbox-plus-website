@@ -15,25 +15,40 @@ import reviewsData from '../data/reviews.json';
 import OutboundLink from './ui/OutboundLink.astro';
 
 const { rating, userRatingCount, reviews } = reviewsData;
-const GPLACE_URL = 'https://www.google.com/maps/search/?api=1&query=Mailbox+Plus&query_place_id=ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
+const GPLACE_URL =
+  'https://www.google.com/maps/search/?api=1&query=Mailbox+Plus&query_place_id=ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
 const shownReviews = (reviews || []).slice(0, 3);
 const starColor = 'fill-yellow-400 text-yellow-400';
 const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
 ---
 
-<section id="reviews-section" class="bg-[var(--color-bg-secondary)] border-y border-[var(--color-border)] py-16 lg:py-20" aria-label="Google reviews">
+<section
+  id="reviews-section"
+  class="bg-[var(--color-bg-secondary)] border-y border-[var(--color-border)] py-16 lg:py-20"
+  aria-label="Google reviews"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header / aggregate -->
     <div class="text-center mb-12">
-      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-warm)] mb-2">Customer Reviews</p>
+      <p class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent-warm)] mb-2">
+        Customer Reviews
+      </p>
       <h2 class="text-3xl md:text-4xl font-bold text-[var(--color-text-primary)] mb-4">
         Rated <span id="reviews-rating">{rating}</span>★ by Your Lake County Neighbors
       </h2>
       <div class="flex items-center justify-center gap-2 mb-3">
         <div class="flex gap-0.5" id="reviews-stars">
-          <span class="sr-only" id="reviews-rating-sr">{rating} out of 5 stars</span>
+          <span class="sr-only" id="reviews-rating-sr">
+            {rating} out of 5 stars
+          </span>
           {[...Array(5)].map((_, i) => (
-            <svg class={`w-6 h-6 ${i < Math.round(rating) ? starColor : starDim}`} aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+            <svg
+              class={`w-6 h-6 ${i < Math.round(rating) ? starColor : starDim}`}
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+            >
               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
             </svg>
           ))}
@@ -47,7 +62,21 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
         class="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] text-white px-6 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
       >
         See all reviews on Google
-        <svg aria-hidden="true" focusable="false" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        <svg
+          aria-hidden="true"
+          focusable="false"
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          />
+        </svg>
       </OutboundLink>
     </div>
 
@@ -58,7 +87,13 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
           <div class="flex gap-0.5 mb-3">
             <span class="sr-only">{review.rating} out of 5 stars</span>
             {[...Array(5)].map((_, i) => (
-              <svg class={`w-4 h-4 ${i < review.rating ? starColor : starDim}`} aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
+              <svg
+                class={`w-4 h-4 ${i < review.rating ? starColor : starDim}`}
+                aria-hidden="true"
+                focusable="false"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+              >
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
@@ -68,7 +103,10 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
           </blockquote>
           <footer class="mt-4 pt-4 border-t border-[var(--color-border)]">
             {review.authorUri ? (
-              <OutboundLink href={review.authorUri} class="text-sm font-semibold text-[var(--color-accent-warm)] hover:underline">
+              <OutboundLink
+                href={review.authorUri}
+                class="text-sm font-semibold text-[var(--color-accent-warm)] hover:underline"
+              >
                 {review.author}
               </OutboundLink>
             ) : (

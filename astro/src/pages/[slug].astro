@@ -8,7 +8,13 @@ export async function getStaticPaths() {
   const staticPageFiles = import.meta.glob(['./*.astro', './*/index.astro', './*.ts', './*.js']);
   const EXCLUDED_SLUGS = new Set(
     Object.keys(staticPageFiles)
-      .map((file) => file.replace(/^\.\//, '').replace(/\.astro$/, '').replace(/\/index$/, '').replace(/\.(ts|js)$/, ''))
+      .map((file) =>
+        file
+          .replace(/^\.\//, '')
+          .replace(/\.astro$/, '')
+          .replace(/\/index$/, '')
+          .replace(/\.(ts|js)$/, '')
+      )
       .filter((slug) => slug !== '[slug]' && slug !== '')
   );
 
