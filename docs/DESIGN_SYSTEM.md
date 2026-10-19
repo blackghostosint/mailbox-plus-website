@@ -19,6 +19,7 @@ Dark, grounded, trustworthy. Used for navigation, section headers, and as the ca
 
 | Token                    | Value     | Usage                                              |
 | ------------------------ | --------- | -------------------------------------------------- |
+| `--color-primary-light`  | `#3871a8` | Lighter primary accent, subtle hover borders       |
 | `--color-primary`        | `#285a8e` | Nav background, brand anchor, dark section headers |
 | `--color-primary-dark`   | `#1f3f63` | Hover/active states on dark elements               |
 | `--color-primary-deeper` | `#1a3554` | Gradient middle stop                               |
@@ -128,14 +129,14 @@ Used for glass/overlay effects with `backdrop-blur`.
 
 ## Border Radius Scale
 
-| Token          | Value    | Usage                             |
-| -------------- | -------- | --------------------------------- |
-| `rounded-sm`   | `12px`   | Small elements, tags, badges      |
-| `rounded-md`   | `20px`   | Inputs, small cards               |
-| `rounded-lg`   | `26px`   | Standard cards (most common)      |
-| `rounded-xl`   | `30px`   | Large panels, CTA sections        |
-| `rounded-2xl`  | `40px`   | Section wrappers, hero containers |
-| `rounded-full` | `9999px` | Pills, circular elements          |
+| Token           | Value    | Usage                             |
+| --------------- | -------- | --------------------------------- |
+| `--radius-sm`   | `12px`   | Small elements, tags, badges      |
+| `--radius-md`   | `20px`   | Inputs, small cards               |
+| `--radius-lg`   | `26px`   | Standard cards (most common)      |
+| `--radius-xl`   | `30px`   | Large panels, CTA sections        |
+| `--radius-2xl`  | `40px`   | Section wrappers, hero containers |
+| `--radius-full` | `9999px` | Pills, circular elements          |
 
 ## Typography
 
