@@ -144,8 +144,13 @@ export function checkArticleOwnership({
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const { positional } = parsePRCliArgs(process.argv);
-  if (positional.length < 2 && !process.env.PR_BODY_FILE && !process.env.GITHUB_EVENT_PATH) {
+  const { positional, isLocalBypass } = parsePRCliArgs(process.argv);
+  if (
+    positional.length < 2 &&
+    !process.env.PR_BODY_FILE &&
+    !process.env.GITHUB_EVENT_PATH &&
+    !isLocalBypass
+  ) {
     console.error(
       'usage: node scripts/verify/check-article-ownership.mjs <pr-body-file> <changed-files-file-or-minus> [--author=<login>] [--local]'
     );

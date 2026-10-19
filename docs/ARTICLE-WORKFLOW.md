@@ -87,6 +87,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
    Covers route targets, trailing slashes, layout hygiene, intentKey uniqueness, word count, banned terms, image existence (including store photo manifest entries in `content/store-photos.json` via `npm run store-photos -- publish`), heading diversity.
 5. **Build.** `npm run build` — zero errors.
 6. **Blind-prediction ledger.** Before any article goes live, its predictions (position @ 30 days, clicks/day @ 30 days, one secondary signal — with reasons) are logged in the owner's Content-Ledger. If you (the writing agent) cannot access that ledger, state `ledger-entry: pending` in the PR body so the operator logs it before merge. An article must not publish with no ledger entry and no pending note.
+7. **Article Ownership Gate.** Articles are created and maintained exclusively by authorized internal author accounts. Every PR touching `content/articles/` must carry the exact in-house authorship stamp line in the PR description body: `authorship: article-writer-bot (in-house)`. Verify article ownership locally using `npm run verify:ownership` or `npm run preflight:article`.
 
 ## Never (quick list)
 
