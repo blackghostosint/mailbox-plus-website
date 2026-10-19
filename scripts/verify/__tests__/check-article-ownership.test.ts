@@ -275,12 +275,40 @@ authorship: article-writer-bot (in-house)
       expect(result.message).toContain('Local execution detected');
     });
 
+    it('bypasses author check in local mode even if an author login is set or auto-detected', () => {
+      const changedFiles = ['content/articles/local-test.md'];
+      const result = checkArticleOwnership({
+        body: validArticleBody,
+        changedFiles,
+        author: 'google-labs-stitch[bot]',
+        isLocal: true,
+      });
+
+      expect(result.success).toBe(true);
+      expect(result.reason).toBe('local_bypass');
+      expect(result.message).toContain('Local execution detected');
+    });
+
     it('fails in local execution mode if authorship stamp is missing from PR body', () => {
       const changedFiles = ['content/articles/local-test.md'];
       const result = checkArticleOwnership({
         body: 'Local article change without stamp',
         changedFiles,
         author: '',
+        isLocal: true,
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.reason).toBe('missing_stamp');
+      expect(result.message).toContain('missing the in-house authorship stamp');
+    });
+
+    it('fails in local execution mode if authorship stamp is missing even when author login is set', () => {
+      const changedFiles = ['content/articles/local-test.md'];
+      const result = checkArticleOwnership({
+        body: 'Local article change without stamp',
+        changedFiles,
+        author: 'google-labs-stitch[bot]',
         isLocal: true,
       });
 

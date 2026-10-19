@@ -74,19 +74,17 @@ export function checkArticleOwnership({
 
   let authorBypassedLocally = false;
 
-  if (!normalizedAuthor) {
-    if (isLocal) {
-      authorBypassedLocally = true;
-    } else {
-      return {
-        success: false,
-        touchesArticles: true,
-        reason: 'missing_author',
-        message:
-          '❌ article-ownership: PR touches content/articles/ but pull request author is unknown.\n' +
-          '   Pass --author or set PR_AUTHOR environment variable.',
-      };
-    }
+  if (isLocal) {
+    authorBypassedLocally = true;
+  } else if (!normalizedAuthor) {
+    return {
+      success: false,
+      touchesArticles: true,
+      reason: 'missing_author',
+      message:
+        '❌ article-ownership: PR touches content/articles/ but pull request author is unknown.\n' +
+        '   Pass --author or set PR_AUTHOR environment variable.',
+    };
   } else {
     const isAuthorizedAuthor = normalizedAuthorized.includes(normalizedAuthor);
     if (!isAuthorizedAuthor) {
