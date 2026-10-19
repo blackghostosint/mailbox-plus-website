@@ -26,6 +26,26 @@ export const documentServices: Service[] = [
   // ---------------------------
   {
     id: 'every-door-direct-mail',
+    internalLink: {
+      parent: 'home-business',
+      related: ['flyers-brochures', 'postcard-printing', 'graphic-design'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Every Door Direct Mail', 'EDDM', 'Direct Mail Services'],
+      lsi: [
+        'direct mail marketing',
+        'mail advertising',
+        'neighborhood mail',
+        'bulk mail service',
+        'targeted mail',
+      ],
+      geo: [
+        'EDDM in Concord Township',
+        'direct mail near Mentor',
+        'every door direct mail in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Every Door Direct Mail (EDDM)',
@@ -59,19 +79,19 @@ export const documentServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Design & Printing:</strong> Professional postcards and brochures.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Sorting & Bundling:</strong> USPS-compliant route delivery preparation.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Paperwork Assistance:</strong> Complete USPS program guidance.</div>
@@ -94,6 +114,26 @@ export const documentServices: Service[] = [
   },
   {
     id: 'shredding',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'notary-services', 'fax-services'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Shredding Services', 'Document Shredding', 'Paper Shredding'],
+      lsi: [
+        'secure shredding',
+        'confidential shredding',
+        'shredding service',
+        'document destruction',
+        'bulk shredding',
+      ],
+      geo: [
+        'shredding services in Concord Township',
+        'document shredding near Mentor',
+        'paper shredding in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Shredding Services',
@@ -150,7 +190,7 @@ export const documentServices: Service[] = [
                     </p>
                     <ul class="space-y-4 mb-8">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -159,7 +199,7 @@ export const documentServices: Service[] = [
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -168,7 +208,7 @@ export const documentServices: Service[] = [
                             </div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed">
@@ -214,6 +254,26 @@ export const documentServices: Service[] = [
   },
   {
     id: 'document-scanning',
+    internalLink: {
+      parent: 'home-business',
+      related: ['shredding', 'notary-services', 'fax-services', 'digital-mailbox-rental'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Document Scanning', 'Scanning Services', 'Digital Document Scanning'],
+      lsi: [
+        'document digitization',
+        'paper to digital',
+        'file scanning',
+        'bulk document scanning',
+        'scan documents',
+      ],
+      geo: [
+        'document scanning in Concord Township',
+        'scanning services near Mentor',
+        'digital scanning in Lake County',
+      ],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Document Scanning',
@@ -298,6 +358,16 @@ export const documentServices: Service[] = [
   },
   {
     id: 'fax-services',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'shredding', 'notary-services'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Fax Services', 'Send a Fax', 'Faxing Services'],
+      lsi: ['send fax', 'fax machine', 'online fax', 'document faxing', 'fax transmission'],
+      geo: ['fax services in Concord Township', 'send a fax near Mentor', 'faxing in Lake County'],
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Fax Services',
@@ -376,6 +446,11 @@ export const documentServices: Service[] = [
   },
   {
     id: 'document-services-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: ['document-scanning', 'shredding', 'notary-services', 'fax-services'],
+      priority: true,
+    },
     category: 'document-services',
     city: 'Concord Township',
     serviceName: 'Document Services',
@@ -398,7 +473,7 @@ export const documentServices: Service[] = [
                     with ease and confidentiality.
                 </p>
                 <div class="grid md:grid-cols-2 gap-8 mt-8">
-                    <div class="bg-[var(--color-bg-blue-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-blue)]">
+                    <div class="bg-[var(--color-bg-warm-tint)]/50 p-6 rounded-2xl border border-[var(--color-border-strong)]">
                         <h4 class="text-xl font-bold text-[var(--color-primary-dark)] mb-4">Complete Document Solutions</h4>
                         <ul class="space-y-3">
                             <li class="flex items-center gap-3">

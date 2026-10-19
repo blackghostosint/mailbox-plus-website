@@ -242,8 +242,14 @@ export function shouldSkipBacktickToken(term, codeSpan = '') {
     return true;
   }
 
-  // Temporary paths
-  if (term.startsWith('/tmp/') || term.includes('os.tmpdir()')) return true;
+  // Temporary paths and build output/transient directories
+  if (
+    term.startsWith('/tmp/') ||
+    term.includes('os.tmpdir()') ||
+    /^(dist|coverage|archive|\.astro|node_modules)(\/.*)?$/i.test(term)
+  ) {
+    return true;
+  }
 
   // Website route URLs
   if (isSiteRouteUrl(term)) return true;

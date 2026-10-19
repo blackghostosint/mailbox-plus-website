@@ -60,12 +60,13 @@ describe('health function handler', () => {
     expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
 
     const body = await res.json();
-    expect(body.status).toBe('healthy');
-    expect(body.environment).toBe('test');
-    expect(body.checks).toEqual({ server: 'ok' });
-    expect(typeof body.responseTime).toBe('number');
-    expect(body.responseTime).toBeGreaterThanOrEqual(0);
-    expect(new Date(body.timestamp).getTime()).not.toBeNaN();
+    expect(body.ok).toBe(true);
+    expect(body.data.status).toBe('healthy');
+    expect(body.data.environment).toBe('test');
+    expect(body.data.checks).toEqual({ server: 'ok' });
+    expect(typeof body.data.responseTime).toBe('number');
+    expect(body.data.responseTime).toBeGreaterThanOrEqual(0);
+    expect(new Date(body.data.timestamp).getTime()).not.toBeNaN();
   });
 
   describe('environment context resolution', () => {
@@ -89,7 +90,7 @@ describe('health function handler', () => {
       const res = await handler(req, ctx);
       expect(res.status).toBe(200);
       const body = await res.json();
-      expect(body.environment).toBe('production');
+      expect(body.data.environment).toBe('production');
     });
 
     it('uses process.env.CONTEXT when globalThis.Netlify is not set', async () => {
@@ -106,7 +107,7 @@ describe('health function handler', () => {
       const res = await handler(req, ctx);
       expect(res.status).toBe(200);
       const body = await res.json();
-      expect(body.environment).toBe('staging');
+      expect(body.data.environment).toBe('staging');
     });
 
     it('falls back to "unknown" when neither globalThis.Netlify nor process.env.CONTEXT is available', async () => {
@@ -123,7 +124,7 @@ describe('health function handler', () => {
       const res = await handler(req, ctx);
       expect(res.status).toBe(200);
       const body = await res.json();
-      expect(body.environment).toBe('unknown');
+      expect(body.data.environment).toBe('unknown');
     });
   });
 
@@ -157,6 +158,7 @@ describe('health function handler', () => {
     expect(res61.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res61.headers.get('X-RateLimit-Reset')).toBeTruthy();
     expect(await res61.json()).toEqual({
+      ok: false,
       error: 'Too many requests. Please try again later.',
     });
   });
