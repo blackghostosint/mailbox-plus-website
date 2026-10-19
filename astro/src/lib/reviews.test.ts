@@ -277,7 +277,7 @@ describe('reviews module', () => {
         'fetch',
         vi.fn().mockResolvedValue({
           ok: true,
-          json: async () => mockData,
+          json: async () => ({ ok: true, data: mockData }),
         })
       );
 
