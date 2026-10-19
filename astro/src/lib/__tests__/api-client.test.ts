@@ -102,7 +102,7 @@ describe('api-client module', () => {
     });
   });
 
-  it('extracts error message from JSON error response (data.message fallback)', async () => {
+  it('falls back to default HTTP error status message when JSON error body lacks error property', async () => {
     const errorResponse = { message: 'Resource not found' };
     const fetchMock = vi.fn().mockResolvedValue({
       ok: false,
@@ -118,7 +118,7 @@ describe('api-client module', () => {
 
     await expect(promise).rejects.toThrow(ApiClientError);
     await expect(promise).rejects.toMatchObject({
-      message: 'Resource not found',
+      message: 'HTTP error 404',
       status: 404,
       data: errorResponse,
     });

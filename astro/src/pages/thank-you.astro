@@ -202,10 +202,11 @@ const storeHours = [
       if (getStorageItem(flag)) return;
 
       verifyCheckoutSession(sessionId)
-        .then((data) => {
-          if (!data || !data.ok) return;
+        .then((res) => {
+          if (!res || !res.ok || !res.data) return;
           setStorageItem(flag, '1');
 
+          const data = res.data;
           const value = typeof data.amount === 'number' ? data.amount : 0;
           const currency = data.currency || 'USD';
           const contentName = data.product || 'Mailbox Rental';
