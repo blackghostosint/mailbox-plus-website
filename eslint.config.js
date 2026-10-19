@@ -9,19 +9,28 @@ import prettier from 'eslint-plugin-prettier';
 
 export default [
   {
+    // Directory and file exclusions for ESLint.
+    // Note: 'netlify/' and 'scripts/' are excluded from ESLint because they use independent
+    // TypeScript configurations (e.g., netlify/functions/tsconfig.json and root tsconfig.json)
+    // verified via `npm run typecheck` and dedicated audit scripts rather than frontend ESLint rules.
     ignores: [
+      // Build outputs and dependencies
       'dist',
       'node_modules',
+      // Configuration files
       '*.config.js',
       '*.config.ts',
       '.eslintrc.cjs',
       '.eslintrc.json',
+      // Serverless functions and build/SEO/audit tooling (checked via independent TypeScript configs)
       'netlify/',
       'scripts/',
+      // Knowledge base runners, archived code, and coverage reports
       'knowledge/',
       'archive/',
       'coverage/',
       '**/coverage/**',
+      // Astro build artifacts and standalone Python utilities
       'astro/.astro/',
       'replace-framer.py',
       'replace-framer-v2.py',
