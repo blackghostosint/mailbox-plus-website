@@ -27,8 +27,10 @@ jobs:
       - name: Build
         run: npm run build
         env:
+          VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GEMINI_TIMEOUT_SECONDS: ${{ secrets.GEMINI_TIMEOUT_SECONDS }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Run Lighthouse CI
         run: npx @lhci/cli@0.14.0 autorun --config=./lighthouserc.json
