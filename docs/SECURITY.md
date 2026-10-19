@@ -264,7 +264,7 @@ When Gitleaks flags a potential match:
 npm run typecheck      # TypeScript validation
 npm run lint           # ESLint
 npm test               # Unit tests
-npm run test:e2e       # E2E tests (requires dev server)
+npm run test:e2e       # E2E tests (launches preview server automatically)
 npm run build          # Production build verification
 ```
 
@@ -324,7 +324,7 @@ Permissions-Policy: camera=(), microphone=(), geolocation=()
 ## Appendix B: Security Test (add to E2E suite)
 
 ```typescript
-// e2e/security.spec.ts — add to Playwright tests
+// tests/e2e/security.spec.ts — add to Playwright tests
 import { test, expect } from '@playwright/test';
 
 test.describe('Security headers', () => {
