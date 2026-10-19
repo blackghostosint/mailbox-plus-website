@@ -103,6 +103,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(429);
       const body = await res.json();
       expect(body).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -148,7 +149,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(400);
       expect(res.headers.get('Content-Type')).toBe('application/json');
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
-      expect(await res.json()).toEqual({ error: 'reCAPTCHA verification failed' });
+      expect(await res.json()).toEqual({ ok: false, error: 'reCAPTCHA verification failed' });
     });
 
     it('returns status 429 when IP rate limit is exceeded', async () => {
@@ -187,6 +188,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       const res = await sendEmailHandler(blockedReq, mockContext);
       expect(res.status).toBe(429);
       expect(await res.json()).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -296,7 +298,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(400);
       expect(res.headers.get('Content-Type')).toBe('application/json');
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe(EXPECTED_ORIGIN);
-      expect(await res.json()).toEqual({ error: 'Invalid session_id' });
+      expect(await res.json()).toEqual({ ok: false, error: 'Invalid session_id' });
     });
 
     it('returns status 429 when rate limit is exceeded', async () => {
@@ -320,6 +322,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(429);
       const body = await res.json();
       expect(body).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -379,6 +382,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(429);
       const body = await res.json();
       expect(body).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -421,6 +425,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(429);
       const body = await res.json();
       expect(body).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
     });
@@ -465,6 +470,7 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
       expect(res.status).toBe(429);
       const body = await res.json();
       expect(body).toEqual({
+        ok: false,
         error: 'Too many requests. Please try again later.',
       });
 

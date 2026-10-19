@@ -14,10 +14,12 @@ test.describe('Post-Checkout Confirmation Flow', () => {
         contentType: 'application/json',
         body: JSON.stringify({
           ok: true,
-          amount: 2500,
-          currency: 'USD',
-          product: 'Small +10 Packages',
-          tier: 'small_packages10',
+          data: {
+            amount: 2500,
+            currency: 'USD',
+            product: 'Small +10 Packages',
+            tier: 'small_packages10',
+          },
         }),
       });
     });
