@@ -66,7 +66,7 @@ describe('checkout module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ url: checkoutUrl }),
+      json: async () => ({ ok: true, data: { url: checkoutUrl } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -101,7 +101,7 @@ describe('checkout module', () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchMock = vi.fn().mockResolvedValue({
       ok: false,
-      json: async () => ({ error: 'Invalid tier specified' }),
+      json: async () => ({ ok: false, error: 'Invalid tier specified' }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -136,7 +136,7 @@ describe('checkout module', () => {
     const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
     const fetchMock = vi.fn().mockResolvedValue({
       ok: false,
-      json: async () => ({ error: 'Failed' }),
+      json: async () => ({ ok: false, error: 'Failed' }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -212,7 +212,7 @@ describe('checkout module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ url: checkoutUrl }),
+      json: async () => ({ ok: true, data: { url: checkoutUrl } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 

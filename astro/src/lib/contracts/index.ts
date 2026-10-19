@@ -2,10 +2,10 @@
 import { z } from 'zod';
 
 /**
- * Standard Error Response Schema
- * Backward compatibility: { error: string }
+ * Standard Error Response Schema: { ok: false, error: string }
  */
 export const ErrorResponseSchema = z.object({
+  ok: z.literal(false),
   error: z.string(),
 });
 export type ErrorResponse = z.infer<typeof ErrorResponseSchema>;
@@ -85,13 +85,19 @@ export function isValidCheckoutUrl(urlStr: string): boolean {
   }
 }
 
-export const CreateCheckoutSuccessSchema = z.object({
+export const CreateCheckoutSuccessDataSchema = z.object({
   url: z
     .string()
     .url()
     .refine((url) => isValidCheckoutUrl(url), {
       message: 'Invalid or unapproved checkout redirect URL',
     }),
+});
+export type CreateCheckoutSuccessData = z.infer<typeof CreateCheckoutSuccessDataSchema>;
+
+export const CreateCheckoutSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: CreateCheckoutSuccessDataSchema,
 });
 export type CreateCheckoutSuccess = z.infer<typeof CreateCheckoutSuccessSchema>;
 
@@ -117,8 +123,14 @@ export const SendEmailRequestSchema = z.object({
 });
 export type SendEmailRequest = z.infer<typeof SendEmailRequestSchema>;
 
-export const SendEmailSuccessSchema = z.object({
+export const SendEmailSuccessDataSchema = z.object({
   success: z.literal(true),
+});
+export type SendEmailSuccessData = z.infer<typeof SendEmailSuccessDataSchema>;
+
+export const SendEmailSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: SendEmailSuccessDataSchema,
 });
 export type SendEmailSuccess = z.infer<typeof SendEmailSuccessSchema>;
 
@@ -144,12 +156,18 @@ export const ReviewDtoSchema = z.object({
 });
 export type ReviewDto = z.infer<typeof ReviewDtoSchema>;
 
-export const ReviewsSuccessSchema = z.object({
+export const ReviewsSuccessDataSchema = z.object({
   rating: z.number(),
   userRatingCount: z.number(),
   reviews: z.array(ReviewDtoSchema),
   fetchedAt: z.string().optional(),
   source: z.enum(['live', 'cache', 'stale']).optional(),
+});
+export type ReviewsSuccessData = z.infer<typeof ReviewsSuccessDataSchema>;
+
+export const ReviewsSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: ReviewsSuccessDataSchema,
 });
 export type ReviewsSuccess = z.infer<typeof ReviewsSuccessSchema>;
 
@@ -163,12 +181,17 @@ export const VerifySessionQuerySchema = z.object({
 });
 export type VerifySessionQuery = z.infer<typeof VerifySessionQuerySchema>;
 
-export const VerifySessionSuccessSchema = z.object({
-  ok: z.literal(true),
+export const VerifySessionSuccessDataSchema = z.object({
   tier: z.string().nullable(),
   product: z.string(),
   amount: z.number(),
   currency: z.string(),
+});
+export type VerifySessionSuccessData = z.infer<typeof VerifySessionSuccessDataSchema>;
+
+export const VerifySessionSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: VerifySessionSuccessDataSchema,
 });
 export type VerifySessionSuccess = z.infer<typeof VerifySessionSuccessSchema>;
 
@@ -240,12 +263,18 @@ export const CspReportResponseSchema = z.union([CspReportSuccessSchema, ErrorRes
 /**
  * 6. health Endpoint Contract
  */
-export const HealthSuccessSchema = z.object({
+export const HealthSuccessDataSchema = z.object({
   status: z.string(),
   timestamp: z.string(),
   environment: z.string(),
   checks: z.record(z.string(), z.string()),
   responseTime: z.number(),
+});
+export type HealthSuccessData = z.infer<typeof HealthSuccessDataSchema>;
+
+export const HealthSuccessSchema = z.object({
+  ok: z.literal(true),
+  data: HealthSuccessDataSchema,
 });
 export type HealthSuccess = z.infer<typeof HealthSuccessSchema>;
 

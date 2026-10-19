@@ -10,9 +10,29 @@ import {
   getSubSupportingByUrl,
   getSeoLandingByUrl,
   getParentPillarByServiceId,
+  parentPillarByChildIdMap,
+  parentPillarByServiceIdMap,
 } from './site-registry';
+import { services } from '../config/services';
 
 describe('site-registry', () => {
+  describe('parent maps parity', () => {
+    it('returns identical pillar objects for all service IDs in parentPillarByChildIdMap and parentPillarByServiceIdMap', () => {
+      for (const service of services) {
+        const id =
+          service.id === 'ups-authorized-shipper-outlet'
+            ? 'ups-shipping'
+            : service.id === 'ship-a-return-with-strict-size-or-weight-limits'
+              ? 'ship-return-strict-size-weight-limits'
+              : service.id;
+
+        const childMapPillar = parentPillarByChildIdMap.get(id);
+        const serviceMapPillar = parentPillarByServiceIdMap.get(id);
+
+        expect(childMapPillar).toEqual(serviceMapPillar);
+      }
+    });
+  });
   describe('getServiceById', () => {
     it('returns service when valid ID is passed', () => {
       const service = getServiceById('amazon-returns');

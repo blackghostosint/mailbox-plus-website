@@ -181,7 +181,8 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       });
 
       const result = await createCheckoutSession('small_mail_only');
-      expect(result.url).toBe('https://checkout.stripe.com/c/pay/cs_test_123');
+      expect(result.ok).toBe(true);
+      expect(result.data.url).toBe('https://checkout.stripe.com/c/pay/cs_test_123');
     });
 
     it('returns backward-compatible ErrorResponseSchema on invalid request body via client helper', async () => {
@@ -213,50 +214,71 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       expect(isValidCheckoutUrl('https://checkout.stripe.com/c/pay/cs_123')).toBe(true);
       expect(
         CreateCheckoutSuccessSchema.safeParse({
-          url: 'https://checkout.stripe.com/c/pay/cs_123',
+          ok: true,
+          data: { url: 'https://checkout.stripe.com/c/pay/cs_123' },
         }).success
       ).toBe(true);
       expect(isValidCheckoutUrl('https://pay.stripe.com/cs_123')).toBe(true);
       expect(
-        CreateCheckoutSuccessSchema.safeParse({ url: 'https://pay.stripe.com/cs_123' }).success
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://pay.stripe.com/cs_123' },
+        }).success
       ).toBe(true);
 
       // Approved local dev/test origins
       expect(isValidCheckoutUrl('http://localhost:3000/thank-you')).toBe(true);
       expect(
-        CreateCheckoutSuccessSchema.safeParse({ url: 'http://localhost:3000/thank-you' }).success
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'http://localhost:3000/thank-you' },
+        }).success
       ).toBe(true);
       expect(isValidCheckoutUrl('https://127.0.0.1:8080/thank-you')).toBe(true);
       expect(
-        CreateCheckoutSuccessSchema.safeParse({ url: 'https://127.0.0.1:8080/thank-you' }).success
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://127.0.0.1:8080/thank-you' },
+        }).success
       ).toBe(true);
 
       // Unapproved external origins
       expect(isValidCheckoutUrl('https://attacker.com/steal-data')).toBe(false);
       expect(
-        CreateCheckoutSuccessSchema.safeParse({ url: 'https://attacker.com/steal-data' }).success
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://attacker.com/steal-data' },
+        }).success
       ).toBe(false);
       expect(isValidCheckoutUrl('https://checkout.stripe.com.evil.com/pay')).toBe(false);
       expect(
         CreateCheckoutSuccessSchema.safeParse({
-          url: 'https://checkout.stripe.com.evil.com/pay',
+          ok: true,
+          data: { url: 'https://checkout.stripe.com.evil.com/pay' },
         }).success
       ).toBe(false);
 
       // Unsafe protocols
       expect(isValidCheckoutUrl('javascript:alert(1)')).toBe(false);
-      expect(CreateCheckoutSuccessSchema.safeParse({ url: 'javascript:alert(1)' }).success).toBe(
-        false
-      );
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'javascript:alert(1)' },
+        }).success
+      ).toBe(false);
       expect(isValidCheckoutUrl('data:text/html,<script>alert(1)</script>')).toBe(false);
       expect(
         CreateCheckoutSuccessSchema.safeParse({
-          url: 'data:text/html,<script>alert(1)</script>',
+          ok: true,
+          data: { url: 'data:text/html,<script>alert(1)</script>' },
         }).success
       ).toBe(false);
       expect(isValidCheckoutUrl('http://checkout.stripe.com/pay')).toBe(false);
       expect(
-        CreateCheckoutSuccessSchema.safeParse({ url: 'http://checkout.stripe.com/pay' }).success
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'http://checkout.stripe.com/pay' },
+        }).success
       ).toBe(false);
     });
   });
@@ -270,7 +292,8 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
         recaptchaToken: 'mock_token',
       });
 
-      expect(result.success).toBe(true);
+      expect(result.ok).toBe(true);
+      expect(result.data.success).toBe(true);
     });
 
     it('returns ErrorResponseSchema on invalid email input via client helper', async () => {
@@ -299,10 +322,11 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
   describe('reviews contract', () => {
     it('returns a response conforming to ReviewsSuccessSchema via client helper', async () => {
       const result = await fetchReviews();
-      expect(result.rating).toBe(4.9);
-      expect(result.userRatingCount).toBe(120);
-      expect(result.reviews.length).toBe(1);
-      expect(result.reviews[0].author).toBe('John Smith');
+      expect(result.ok).toBe(true);
+      expect(result.data.rating).toBe(4.9);
+      expect(result.data.userRatingCount).toBe(120);
+      expect(result.data.reviews.length).toBe(1);
+      expect(result.data.reviews[0].author).toBe('John Smith');
     });
 
     it('detects schema drift if reviews array property name is modified', () => {
@@ -348,9 +372,9 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
 
       const result = await verifyCheckoutSession('cs_test_a1b2c3d4');
       expect(result.ok).toBe(true);
-      expect(result.tier).toBe('small_packages10');
-      expect(result.amount).toBe(25);
-      expect(result.currency).toBe('USD');
+      expect(result.data.tier).toBe('small_packages10');
+      expect(result.data.amount).toBe(25);
+      expect(result.data.currency).toBe('USD');
     });
 
     it('returns ErrorResponseSchema on invalid session_id query param via client helper', async () => {
@@ -544,8 +568,9 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       const parsed = HealthSuccessSchema.safeParse(data);
       expect(parsed.success).toBe(true);
       if (parsed.success) {
-        expect(parsed.data.status).toBe('healthy');
-        expect(typeof parsed.data.responseTime).toBe('number');
+        expect(parsed.data.ok).toBe(true);
+        expect(parsed.data.data.status).toBe('healthy');
+        expect(typeof parsed.data.data.responseTime).toBe('number');
       }
     });
   });
