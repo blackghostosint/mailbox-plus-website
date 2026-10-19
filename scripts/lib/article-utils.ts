@@ -105,6 +105,16 @@ export interface Article {
   frontmatter: ArticleFrontmatter;
   content: string;
   raw: string;
+  links: string[];
+}
+
+export interface LoadArticlesOptions {
+  filterPublished?: boolean;
+  rootDir?: string;
+  registry?: RouteRegistry;
+  seenIntentKeys?: Map<string, any> | Set<string>;
+  validate?: boolean;
+  strict?: boolean;
 }
 
 /**
@@ -276,27 +286,123 @@ export function isKnownRoute(target: string, registry: RouteRegistry): boolean {
   return false;
 }
 
+export function matchWildcardSegment(text: string, pattern: string): boolean {
+  if (pattern === '*') return true;
+  const parts = pattern.split('*');
+  if (parts.length === 1) return text === pattern;
+
+  if (!text.startsWith(parts[0])) return false;
+  if (!text.endsWith(parts[parts.length - 1])) return false;
+
+  let pos = parts[0].length;
+  for (let i = 1; i < parts.length - 1; i++) {
+    const part = parts[i];
+    if (part === '') continue;
+    const found = text.indexOf(part, pos);
+    if (found === -1) return false;
+    pos = found + part.length;
+  }
+  return pos <= text.length - parts[parts.length - 1].length;
+}
+
+export function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
+  let fIndex = 0;
+  let pIndex = 0;
+
+  while (pIndex < patSegs.length && fIndex < fileSegs.length) {
+    const p = patSegs[pIndex];
+    if (p === '**') {
+      if (pIndex === patSegs.length - 1) return true;
+      for (let i = fIndex; i <= fileSegs.length; i++) {
+        if (matchPathSegments(fileSegs.slice(i), patSegs.slice(pIndex + 1))) {
+          return true;
+        }
+      }
+      return false;
+    }
+
+    if (!matchWildcardSegment(fileSegs[fIndex], p)) {
+      return false;
+    }
+
+    fIndex++;
+    pIndex++;
+  }
+
+  while (pIndex < patSegs.length && patSegs[pIndex] === '**') {
+    pIndex++;
+  }
+
+  return fIndex === fileSegs.length && pIndex === patSegs.length;
+}
+
+export function globMatch(filePath: string, pattern: string): boolean {
+  const fileSegs = filePath
+    .replace(/\\/g, '/')
+    .split('/')
+    .filter((s) => s && s !== '.');
+  const patSegs = pattern
+    .replace(/\\/g, '/')
+    .split('/')
+    .filter((s) => s && s !== '.');
+  return matchPathSegments(fileSegs, patSegs);
+}
+
+export function resolveFiles(target: string): string[] {
+  if (fs.existsSync(target) && fs.statSync(target).isFile()) {
+    return [target];
+  }
+
+  if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
+    return walkMdFiles(target);
+  }
+
+  if (target.includes('*')) {
+    const baseDir = target.split('*')[0] || '.';
+    const searchDir = fs.existsSync(baseDir)
+      ? fs.statSync(baseDir).isDirectory()
+        ? baseDir
+        : path.dirname(baseDir)
+      : '.';
+    const allMd = walkMdFiles(searchDir);
+
+    return allMd.filter((f) => globMatch(f, target));
+  }
+
+  return [];
+}
+
 /**
- * Loads and parses articles from contentDir.
+ * Loads and parses articles from contentDir or target path.
  */
-export function loadArticles(
-  contentDir: string,
-  options?: { filterPublished?: boolean; rootDir?: string }
-): Article[] {
-  const mdFiles = walkMdFiles(contentDir);
+export function loadArticles(dirOrFilePath: string, options?: LoadArticlesOptions): Article[] {
+  const mdFiles = resolveFiles(dirOrFilePath);
   const articles: Article[] = [];
-  const root = options?.rootDir || path.resolve(contentDir, '..', '..');
+  const root =
+    options?.rootDir ||
+    (fs.existsSync(dirOrFilePath) && fs.statSync(dirOrFilePath).isFile()
+      ? path.resolve(path.dirname(dirOrFilePath), '..', '..')
+      : path.resolve(dirOrFilePath, '..', '..'));
 
   for (const filePath of mdFiles) {
     const raw = fs.readFileSync(filePath, 'utf8');
     const { data, content } = matter(raw);
-    const validation = validateArticleFrontmatter(data, path.basename(filePath));
+    const validation = validateArticleFrontmatter(data, path.basename(filePath), {
+      registry: options?.registry,
+      intentKeys: options?.seenIntentKeys,
+    });
 
     if (!validation.success) {
-      console.warn(
-        `[loadArticles] Warning: Skipping '${path.relative(root, filePath)}' due to invalid frontmatter:\n  ${validation.errors.join('\n  ')}`
-      );
-      continue;
+      if (options?.strict) {
+        throw new Error(
+          `[loadArticles] Validation error in '${path.relative(root, filePath)}':\n  ${validation.errors.join('\n  ')}`
+        );
+      } else {
+        console.warn(
+          `[loadArticles] Warning: Skipping '${path.relative(root, filePath)}' due to invalid frontmatter:\n  ${validation.errors.join('\n  ')}`
+        );
+        continue;
+      }
     }
 
     const fm = validation.data;
@@ -304,12 +410,15 @@ export function loadArticles(
       continue;
     }
 
+    const links = extractInternalHrefs(content);
+
     articles.push({
       filePath,
       relPath: path.relative(root, filePath),
       frontmatter: fm,
       content,
       raw,
+      links,
     });
   }
 

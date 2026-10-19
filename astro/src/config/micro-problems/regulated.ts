@@ -37,7 +37,7 @@ export const regulatedMicroProblems: Service[] = [
       {
         heading: 'What FedEx and UPS Each Allow',
         body: `<table class="min-w-full border-collapse text-sm">
-<thead><tr class="bg-[var(--color-bg-tertiary)]">
+<thead><tr class="bg-[var(--color-bg-warm-tint)]">
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Carrier</th>
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Wine</th>
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Beer</th>
@@ -150,7 +150,7 @@ export const regulatedMicroProblems: Service[] = [
       {
         heading: 'Battery Types and Their Rules',
         body: `<table class="min-w-full border-collapse text-sm">
-<thead><tr class="bg-[var(--color-bg-tertiary)]">
+<thead><tr class="bg-[var(--color-bg-warm-tint)]">
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Battery Type</th>
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Regulated?</th>
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Can Individuals Ship?</th>
@@ -551,7 +551,7 @@ export const regulatedMicroProblems: Service[] = [
       {
         heading: 'Quick Reference by Item',
         body: `<table class="min-w-full border-collapse text-sm">
-<thead><tr class="bg-[var(--color-bg-tertiary)]">
+<thead><tr class="bg-[var(--color-bg-warm-tint)]">
 <th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Item</th>
 <th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">FedEx</th>
 <th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">UPS</th>

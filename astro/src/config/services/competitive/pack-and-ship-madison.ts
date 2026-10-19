@@ -7,6 +7,11 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'pack-and-ship-madison',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['pack-ship', 'fedex-shipping', 'ups-shipping', 'usps-services'],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({

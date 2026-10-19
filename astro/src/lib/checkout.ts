@@ -60,9 +60,9 @@ export function initCheckoutButtons(): void {
       try {
         await executeAction(
           async () => {
-            const data = await createCheckoutSession(tier);
-            if (data && data.url) {
-              window.location.href = data.url;
+            const res = await createCheckoutSession(tier);
+            if (res && res.data && res.data.url) {
+              window.location.href = res.data.url;
             } else {
               throw new Error('Checkout failed');
             }

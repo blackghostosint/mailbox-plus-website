@@ -23,6 +23,7 @@
 @layer base {
   :root {
     /* Primary Brand — deep navy */
+    --color-primary-light: #3871a8;
     --color-primary: #285a8e;
     --color-primary-dark: #1f3f63;
     --color-primary-deeper: #1a3554;
@@ -71,6 +72,14 @@
     --surface-medium: rgba(255, 255, 255, 0.6);
     --surface-strong: rgba(255, 255, 255, 0.7);
     --surface-heavy: rgba(255, 255, 255, 0.8);
+
+    /* Border radius tokens */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 26px;
+    --radius-xl: 30px;
+    --radius-2xl: 40px;
+    --radius-full: 9999px;
   }
 
   /* Baseline focus indicator fallback for WCAG 2.1 AA compliance */

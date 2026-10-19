@@ -14,6 +14,32 @@ import {
 export const packingServices: Service[] = [
   {
     id: 'professional-packing',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'custom-box-making',
+        'packaging-supplies',
+        'artwork-shipping',
+        'bicycle-shipping',
+        'golf-club-shipping',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Professional Packing', 'Expert Packing Services'],
+      lsi: [
+        'secure packing',
+        'fragile item packing',
+        'custom packing',
+        'packing service',
+        'protective packaging',
+      ],
+      geo: [
+        'professional packing in Concord Township',
+        'packing services near Mentor',
+        'expert packing in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Professional Packing',
@@ -139,6 +165,26 @@ export const packingServices: Service[] = [
   },
   {
     id: 'custom-box-making',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['packaging-supplies', 'professional-packing', 'artwork-shipping'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Custom Box Making', 'Custom Boxes', 'Custom Packaging'],
+      lsi: [
+        'custom sized boxes',
+        'specialty boxes',
+        'made to order boxes',
+        'custom shipping boxes',
+        'custom packaging solutions',
+      ],
+      geo: [
+        'custom boxes in Concord Township',
+        'custom box making near Mentor',
+        'custom packaging in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Custom Box Making',
@@ -264,6 +310,20 @@ export const packingServices: Service[] = [
   },
   {
     id: 'packaging-supplies',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['professional-packing', 'custom-box-making', 'fedex-shipping'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Packaging Supplies', 'Shipping Supplies', 'Packing Materials'],
+      lsi: ['boxes', 'bubble wrap', 'packing tape', 'shipping boxes', 'moving supplies'],
+      geo: [
+        'packaging supplies in Concord Township',
+        'shipping supplies near Mentor',
+        'packing materials in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Packaging Supplies',
