@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: ['22.x', '24.x']
 
     steps:
       - name: Checkout code
@@ -38,6 +38,6 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: accessibility-audit-report
+          name: accessibility-audit-report-${{ matrix.node-version }}
           path: a11y-reports/
           retention-days: 7

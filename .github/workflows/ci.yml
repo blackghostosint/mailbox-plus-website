@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: ['22.x', '24.x']
 
     steps:
       - name: Checkout code
@@ -192,11 +192,12 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: accessibility-audit-report-ci
+          name: accessibility-audit-report-ci-${{ matrix.node-version }}
           path: a11y-reports/
           retention-days: 7
 
       - name: Cache Playwright browser binaries
+        if: matrix.node-version == '22.x'
         id: playwright-cache
         uses: actions/cache@v4
         with:
@@ -206,17 +207,19 @@ jobs:
             playwright-${{ runner.os }}-
 
       - name: Install Playwright system dependencies
+        if: matrix.node-version == '22.x'
         run: npx playwright install-deps
 
       - name: Install Playwright browser binaries
-        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        if: matrix.node-version == '22.x' && steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install
 
       - name: Run Playwright E2E tests
+        if: matrix.node-version == '22.x'
         run: npm run test:e2e:ci
 
       - name: Upload Playwright test artifacts (on failure)
-        if: failure()
+        if: failure() && matrix.node-version == '22.x'
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
@@ -231,7 +234,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: build-output
+          name: build-output-${{ matrix.node-version }}
           path: dist/
           retention-days: 7
 
