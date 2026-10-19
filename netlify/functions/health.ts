@@ -41,7 +41,10 @@ export default withCors(
     const responseTime = Date.now() - startTime;
     healthData.responseTime = responseTime;
 
-    const validatedPayload = HealthSuccessSchema.parse(healthData);
+    const validatedPayload = HealthSuccessSchema.parse({
+      ok: true as const,
+      data: healthData,
+    });
 
     return jsonResponse(validatedPayload, {
       status: 200,

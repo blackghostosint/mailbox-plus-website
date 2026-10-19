@@ -132,7 +132,10 @@ export default withCors(
         text: textBody,
       });
 
-      const responsePayload = SendEmailSuccessSchema.parse({ success: true });
+      const responsePayload = SendEmailSuccessSchema.parse({
+        ok: true as const,
+        data: { success: true },
+      });
       return jsonResponse(responsePayload, 200);
     } catch (error) {
       logger.error('Email sending error', error);

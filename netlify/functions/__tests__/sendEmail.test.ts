@@ -66,7 +66,7 @@ describe('sendEmail function handler', () => {
 
     const res = await handler(req, ctx);
     expect(res.status).toBe(405);
-    expect(await res.json()).toEqual({ error: 'Method not allowed' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Method not allowed' });
   });
 
   it('returns 400 if reCAPTCHA verification fails', async () => {
@@ -86,7 +86,7 @@ describe('sendEmail function handler', () => {
 
     const response = await handler(req, ctx);
     expect(response.status).toBe(400);
-    expect(await response.json()).toEqual({ error: 'reCAPTCHA verification failed' });
+    expect(await response.json()).toEqual({ ok: false, error: 'reCAPTCHA verification failed' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -102,7 +102,7 @@ describe('sendEmail function handler', () => {
     });
     const res1 = await handler(reqMissingEmail, ctx);
     expect(res1.status).toBe(400);
-    expect(await res1.json()).toEqual({ error: 'Invalid email address' });
+    expect(await res1.json()).toEqual({ ok: false, error: 'Invalid email address' });
 
     const reqMalformedEmail = createMockNetlifyRequest({
       url: 'https://example.com/.netlify/functions/sendEmail',
@@ -116,7 +116,7 @@ describe('sendEmail function handler', () => {
     });
     const res2 = await handler(reqMalformedEmail, ctx);
     expect(res2.status).toBe(400);
-    expect(await res2.json()).toEqual({ error: 'Invalid email address' });
+    expect(await res2.json()).toEqual({ ok: false, error: 'Invalid email address' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -136,7 +136,7 @@ describe('sendEmail function handler', () => {
     });
     const res = await handler(reqNonStringField, ctx);
     expect(res.status).toBe(400);
-    expect(await res.json()).toEqual({ error: 'Invalid name: must be a string' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Invalid name: must be a string' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -158,7 +158,7 @@ describe('sendEmail function handler', () => {
 
     const response = await handler(req, ctx);
     expect(response.status).toBe(500);
-    expect(await response.json()).toEqual({ error: 'Failed to send message' });
+    expect(await response.json()).toEqual({ ok: false, error: 'Failed to send message' });
     expect(mockSend).not.toHaveBeenCalled();
   });
 
@@ -184,7 +184,7 @@ describe('sendEmail function handler', () => {
 
     const response = await handler(req, ctx);
     expect(response.status).toBe(200);
-    expect(await response.json()).toEqual({ success: true });
+    expect(await response.json()).toEqual({ ok: true, data: { success: true } });
 
     expect(mockSend).toHaveBeenCalledTimes(1);
     const sendArgs = mockSend.mock.calls[0][0];
@@ -249,6 +249,9 @@ describe('sendEmail function handler', () => {
     expect(res6.headers.get('X-RateLimit-Limit')).toBe('5');
     expect(res6.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res6.headers.get('X-RateLimit-Reset')).toBeTruthy();
-    expect(await res6.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+    expect(await res6.json()).toEqual({
+      ok: false,
+      error: 'Too many requests. Please try again later.',
+    });
   });
 });

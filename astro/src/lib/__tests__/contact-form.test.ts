@@ -58,7 +58,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true, data: { success: true } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -111,7 +111,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true, data: { success: true } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -175,7 +175,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true, data: { success: true } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -219,7 +219,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: false,
-      json: async () => ({ error: 'Invalid email address provided.' }),
+      json: async () => ({ ok: false, error: 'Invalid email address provided.' }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -278,7 +278,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true, data: { success: true } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 
@@ -309,7 +309,7 @@ describe('contact-form module', () => {
 
     const fetchMock = vi.fn().mockResolvedValue({
       ok: true,
-      json: async () => ({ success: true }),
+      json: async () => ({ ok: true, data: { success: true } }),
     });
     vi.stubGlobal('fetch', fetchMock);
 

@@ -14,6 +14,32 @@ import {
 export const specialtyShippingServices: Service[] = [
   {
     id: 'artwork-shipping',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'custom-box-making',
+        'packaging-supplies',
+        'bicycle-shipping',
+        'golf-club-shipping',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Artwork Shipping', 'Art Shipping Services', 'Fine Art Shipping'],
+      lsi: [
+        'art shipping',
+        'canvas shipping',
+        'painting shipping',
+        'artwork packing',
+        'art transport',
+      ],
+      geo: [
+        'artwork shipping in Concord Township',
+        'art shipping near Mentor',
+        'fine art shipping in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Artwork Shipping',
@@ -141,6 +167,31 @@ export const specialtyShippingServices: Service[] = [
   },
   {
     id: 'bicycle-shipping',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'custom-box-making',
+        'packaging-supplies',
+        'golf-club-shipping',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Bicycle Shipping', 'Bike Shipping', 'Ship a Bicycle'],
+      lsi: [
+        'bike shipping',
+        'bicycle transport',
+        'bike box shipping',
+        'bicycle packing',
+        'cycle shipping',
+      ],
+      geo: [
+        'bicycle shipping in Concord Township',
+        'bike shipping near Mentor',
+        'ship a bicycle in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Bicycle Shipping',
@@ -268,6 +319,30 @@ export const specialtyShippingServices: Service[] = [
   },
   {
     id: 'golf-club-shipping',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'professional-packing',
+        'custom-box-making',
+        'packaging-supplies',
+        'bicycle-shipping',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Golf Club Shipping', 'Ship Golf Clubs'],
+      lsi: [
+        'golf club packing',
+        'golf equipment shipping',
+        'golf club transport',
+        'club shipping service',
+      ],
+      geo: [
+        'golf club shipping in Concord Township',
+        'ship golf clubs near Mentor',
+        'golf club transport in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Golf Club Shipping',

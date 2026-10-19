@@ -11,6 +11,45 @@ How articles in `content/articles/` are written. These rules are enforced by CI 
 - **Position by awareness level** (Schwartz): problem-aware titles name the pain; solution-aware compare approaches; product-aware differentiate us.
 - **Target narrowly.** One article for one specific person beats one article for everyone.
 
+## Ogilvy Abstraction Jargon Gate
+
+Adopting David Ogilvy's rule from his classic writing memo: abstraction jargon is a hallmark of pretentious, evasive copy. In Direct Response writing, plain, concrete, conversational words move readers to action. Pretentious corporate filler causes friction and doubt.
+
+The `content:no-jargon` verification gate in `scripts/verify/verify.mjs` strictly enforces this rule across all articles. The table below lists all 28 banned terms/families alongside recommended plain-word alternatives:
+
+| Banned Term / Family                        | Recommended Plain-Word Alternatives         |
+| ------------------------------------------- | ------------------------------------------- |
+| **leverage** (leveraging)                   | use, take advantage of, build on            |
+| **utilize** (utilizing, utilization)        | use, usage, make use of                     |
+| **solution** (solutions)                    | service, system, fix, answer                |
+| **seamless** (seamlessly)                   | smooth, direct, simple, easily              |
+| **state-of-the-art**                        | modern, current, newest                     |
+| **cutting-edge**                            | modern, advanced, new                       |
+| **next-generation**                         | newer, modern                               |
+| **streamline** (streamlined, streamlining)  | simplify, speed up, clear                   |
+| **empower** (empowering, empowerment)       | allow, help, enable                         |
+| **robust** (robustness)                     | strong, dependable, solid                   |
+| **ecosystem**                               | network, system, setup                      |
+| **synergy** (synergies, synergistic)        | teamwork, combined effort, working together |
+| **best-in-class**                           | top, leading, excellent                     |
+| **world-class**                             | top, excellent, superior                    |
+| **unparalleled**                            | unmatched, exceptional                      |
+| **unrivaled**                               | unmatched, unequaled                        |
+| **game-changer**                            | breakthrough, major improvement             |
+| **holistic** (holistically)                 | complete, thorough, overall                 |
+| **innovative**                              | new, creative, modern                       |
+| **turnkey**                                 | ready-to-use, complete                      |
+| **mission-critical**                        | essential, vital, key                       |
+| **enterprise-grade**                        | business-quality, industrial-strength       |
+| **optimize** (optimization, optimizing)     | improve, fine-tune, polish                  |
+| **facilitate** (facilitation, facilitating) | help, assist, make easy                     |
+| **commence** (commencing)                   | start, begin                                |
+| **reconceptualize** (reconceptualization)   | rethink, redesign                           |
+| **demassification**                         | tailoring, segmenting, personalizing        |
+| **attitudinally / judgmentally**            | by attitude, by judgment                    |
+
+When `npm run verify` flags jargon, replace the detected term with one of these plain alternatives before requesting review.
+
 ## Length
 
 | Awareness level                        | Words       |
@@ -84,7 +123,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
    ```bash
    node scripts/verify/verify.mjs article content/articles/{category}/{slug}.md --strict
    ```
-   Covers route targets, trailing slashes, layout hygiene, intentKey uniqueness, word count, banned terms, image existence (including store photo manifest entries in `content/store-photos.json` via `npm run store-photos -- publish`), heading diversity.
+   Covers route targets, trailing slashes, layout hygiene, intentKey uniqueness, word count, banned vendor terms, Ogilvy abstraction jargon (`content:no-jargon`), image existence (including store photo manifest entries in `content/store-photos.json` via `npm run store-photos -- publish`), heading diversity.
 5. **Build.** `npm run build` — zero errors.
 6. **Blind-prediction ledger.** Before any article goes live, its predictions (position @ 30 days, clicks/day @ 30 days, one secondary signal — with reasons) are logged in the owner's Content-Ledger. If you (the writing agent) cannot access that ledger, state `ledger-entry: pending` in the PR body so the operator logs it before merge. An article must not publish with no ledger entry and no pending note.
 7. **Article Ownership Gate.** Articles are created and maintained exclusively by authorized internal author accounts. Every PR touching `content/articles/` must carry the exact in-house authorship stamp line in the PR description body: `authorship: article-writer-bot (in-house)`. Verify article ownership locally using `npm run verify:ownership` or `npm run preflight:article`.
@@ -98,5 +137,6 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 - Short posts (<1,200 words), crowd-voice, or retail-brochure CTAs.
 - Straw-manning competitors.
 - Trademarked software names.
+- Abstraction jargon (leveraging, utilization, seamless, solutions, robust, etc. — see Ogilvy Abstraction Jargon Gate).
 - Missing trailing slashes on internal links.
 - Meta-headings copied from instructions ("The Direct Opening That Names the Problem").
