@@ -167,25 +167,25 @@ describe('rate-limiter', () => {
       expect(getClientIp(headers)).toBe('5.5.5.5');
     });
 
-    it('extracts first IP from x-forwarded-for when edge connection headers are missing', () => {
+    it('extracts rightmost IP from x-forwarded-for when edge connection headers are missing', () => {
       const headers = {
         'x-forwarded-for': '10.0.0.1, 10.0.0.2, 203.0.113.50',
       };
-      expect(getClientIp(headers)).toBe('10.0.0.1');
+      expect(getClientIp(headers)).toBe('203.0.113.50');
     });
 
-    it('extracts first IP from multi-hop x-forwarded-for with whitespace using Fetch Headers', () => {
+    it('extracts rightmost IP from multi-hop x-forwarded-for with whitespace using Fetch Headers', () => {
       const headers = new Headers({
         'x-forwarded-for': ' 198.51.100.10 , 10.0.0.2, 10.0.0.3 ',
       });
-      expect(getClientIp(headers)).toBe('198.51.100.10');
+      expect(getClientIp(headers)).toBe('10.0.0.3');
     });
 
-    it('extracts first IP from multi-hop x-forwarded-for with whitespace using plain record', () => {
+    it('extracts rightmost IP from multi-hop x-forwarded-for with whitespace using plain record', () => {
       const headers = {
         'x-forwarded-for': ' 203.0.113.100 , 172.16.0.1, 192.168.1.1 ',
       };
-      expect(getClientIp(headers)).toBe('203.0.113.100');
+      expect(getClientIp(headers)).toBe('192.168.1.1');
     });
 
     it('returns unknown when no IP headers are present', () => {

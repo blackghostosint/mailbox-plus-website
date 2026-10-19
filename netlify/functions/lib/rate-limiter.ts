@@ -70,6 +70,7 @@ export interface RateLimitResult {
  * Case-insensitively extracts the true client IP address from Netlify function headers.
  * Prioritizes Netlify Edge trusted headers ('x-nf-client-connection-ip' and 'client-ip')
  * which are set/overwritten by Netlify Edge proxies and cannot be spoofed by incoming client HTTP headers.
+ * Falls back to the trusted/rightmost entry in X-Forwarded-For when Netlify edge headers are absent.
  * Supports both Fetch API Headers objects and plain Record<string, string | undefined> header maps.
  */
 export function getClientIp(headers: Record<string, string | undefined> | Headers = {}): string {
@@ -85,7 +86,7 @@ export function getClientIp(headers: Record<string, string | undefined> | Header
         .split(',')
         .map((p) => p.trim())
         .filter(Boolean);
-      if (parts.length > 0) return parts[0];
+      if (parts.length > 0) return parts[parts.length - 1];
     }
     return 'unknown';
   }
@@ -109,7 +110,7 @@ export function getClientIp(headers: Record<string, string | undefined> | Header
       .map((p) => p.trim())
       .filter(Boolean);
     if (parts.length > 0) {
-      return parts[0];
+      return parts[parts.length - 1];
     }
   }
 
