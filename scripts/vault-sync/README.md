@@ -18,7 +18,7 @@ of hand-maintaining thin summary notes.
 
 ## Setup
 
-Install dependencies once at the repository root. Root npm workspaces automatically install and link dependencies for all subprojects (`astro` and `netlify/functions`):
+Install dependencies once at the repository root. Root npm workspaces automatically install and link dependencies for all subprojects (`astro`):
 
 ```bash
 npm install
