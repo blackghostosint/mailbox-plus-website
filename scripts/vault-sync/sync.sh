@@ -23,7 +23,6 @@ fi
 SSH_HOST="${SSH_HOST:-${VAULT_SYNC_SERVER:-${SERVER:-server}}}"
 VAULT_REMOTE_PATH="${VAULT_REMOTE_PATH:-${VAULT_PATH:-${VAULT:-/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge}}}"
 REMOTE_PATH_TRIMMED="${VAULT_REMOTE_PATH%"${VAULT_REMOTE_PATH##*[!/]}"}"
-printf -v REMOTE_PATH_ESCAPED '%q' "${REMOTE_PATH_TRIMMED:-/}"
 GEN="${GEN:-$SCRIPT_DIR/vault-generate.py}"
 TMP_DATA="${TMP_DATA:-/tmp/vault-data.json}"
 STAGE="${STAGE:-/tmp/vault-stage/Knowledge}"
@@ -59,7 +58,7 @@ elif [ -n "$DEST_DIR" ]; then
   cp "$UPLOAD"/*.md "$DEST_DIR/"
 else
   echo "Uploading to server vault via scp"
-  scp "$UPLOAD"/*.md "$SSH_HOST:$REMOTE_PATH_ESCAPED/"
+  scp "$UPLOAD"/*.md "$SSH_HOST:${REMOTE_PATH_TRIMMED:-}/"
 fi
 
 echo "Done. Vault synced."

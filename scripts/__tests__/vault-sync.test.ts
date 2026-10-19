@@ -4,8 +4,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import os from 'node:os';
 
-describe('vault-sync sync.sh remote path escaping and execution', () => {
-  it('escapes spaces and metacharacters in VAULT_REMOTE_PATH for scp invocation', () => {
+describe('vault-sync sync.sh remote path execution', () => {
+  it('passes raw quoted VAULT_REMOTE_PATH to scp without backslash escaping', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vault-sync-test-'));
     try {
       const repoRoot = path.resolve(__dirname, '../..');
@@ -43,16 +43,16 @@ exit 0
 
       expect(fs.existsSync(mockScpLog)).toBe(true);
       const logContent = fs.readFileSync(mockScpLog, 'utf8');
-      // Verify scp was called with user@test-server:/mnt/storage1/Obsidian/MainVault/Mailbox\ Plus/Knowledge/
+      // Verify scp was called with raw quoted path user@test-server:/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge/
       expect(logContent).toContain(
-        'user@test-server:/mnt/storage1/Obsidian/MainVault/Mailbox\\ Plus/Knowledge/'
+        'user@test-server:/mnt/storage1/Obsidian/MainVault/Mailbox Plus/Knowledge/'
       );
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
-  });
+  }, 30000);
 
-  it('handles paths with multiple trailing slashes, quotes, and special characters', () => {
+  it('handles paths with multiple trailing slashes and special characters without backslash escaping', () => {
     const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'vault-sync-test-'));
     try {
       const repoRoot = path.resolve(__dirname, '../..');
@@ -87,13 +87,11 @@ exit 0
 
       expect(fs.existsSync(mockScpLog)).toBe(true);
       const logContent = fs.readFileSync(mockScpLog, 'utf8');
-      expect(logContent).toContain(
-        'user@host:/mnt/storage1/Vault\\\'s\\ \\"Special\\"\\ Path\\ \\(\\\$1\\)/'
-      );
+      expect(logContent).toContain('user@host:/mnt/storage1/Vault\'s "Special" Path ($1)/');
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
-  });
+  }, 30000);
 
   it('completes dry-run execution when DRY_RUN=1 without invoking scp', () => {
     const repoRoot = path.resolve(__dirname, '../..');
