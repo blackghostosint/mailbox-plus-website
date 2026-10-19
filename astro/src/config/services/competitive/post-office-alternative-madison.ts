@@ -8,6 +8,16 @@ import Users from '~icons/lucide/users';
 export const competePages: Service[] = [
   {
     id: 'post-office-alternative-madison',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'post-office-alternative-concord-township',
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+      ],
+      priority: false,
+    },
     ogImage:
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({

@@ -18,6 +18,36 @@ import {
 export const carrierServices: Service[] = [
   {
     id: 'fedex-shipping',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'packaging-supplies',
+        'insurance',
+        'package-drop-offs',
+        'ups-shipping',
+        'usps-services',
+        'dhl-express',
+        'fedex-office-alternative-concord-township',
+        'fedex-drop-off-chardon',
+        'fedex-drop-off-eastlake',
+        'fedex-drop-off-fairport-harbor',
+        'fedex-drop-off-kirtland',
+        'fedex-drop-off-madison',
+        'fedex-drop-off-mentor',
+        'fedex-drop-off-painesville',
+        'fedex-drop-off-willoughby',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['FedEx Shipping', 'Authorized FedEx ShipCenter'],
+      lsi: ['overnight shipping', 'FedEx drop-off', 'express shipping', 'international shipping'],
+      geo: [
+        'FedEx shipping near Concord Township',
+        'FedEx drop-off in Mentor',
+        'FedEx location in Painesville',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'FedEx Shipping',
@@ -147,6 +177,22 @@ export const carrierServices: Service[] = [
   },
   {
     id: 'ups-authorized-shipper-outlet',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'packaging-supplies',
+        'insurance',
+        'package-drop-offs',
+        'ups-drop-off-chardon',
+        'ups-drop-off-eastlake',
+        'ups-drop-off-kirtland',
+        'ups-drop-off-madison',
+        'ups-drop-off-mentor',
+        'ups-drop-off-willoughby',
+        'ups-drop-off-alternative-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'UPS Authorized Shipper Outlet',
@@ -278,6 +324,25 @@ export const carrierServices: Service[] = [
   },
   {
     id: 'usps-services',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'postage-stamps',
+        'packaging-supplies',
+        'package-drop-offs',
+        'usps-drop-off-in-concord-township-label-printing-and-packaging-help',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['USPS Services', 'United States Postal Service', 'USPS Shipping'],
+      lsi: ['postal services', 'priority mail', 'first class mail', 'media mail', 'USPS drop-off'],
+      geo: [
+        'USPS services in Concord Township',
+        'post office alternative near Mentor',
+        'USPS shipping in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'USPS Postal Services',
@@ -407,6 +472,38 @@ export const carrierServices: Service[] = [
   },
   {
     id: 'dhl-express',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'packaging-supplies',
+        'insurance',
+        'package-drop-offs',
+        'dhl-drop-off-chardon',
+        'dhl-drop-off-eastlake',
+        'dhl-drop-off-fairport-harbor',
+        'dhl-drop-off-kirtland',
+        'dhl-drop-off-madison',
+        'dhl-drop-off-mentor',
+        'dhl-drop-off-painesville',
+        'dhl-drop-off-willoughby',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['DHL Express', 'DHL Shipping', 'DHL International Shipping'],
+      lsi: [
+        'international shipping',
+        'express courier',
+        'global shipping',
+        'DHL drop-off',
+        'international parcel delivery',
+      ],
+      geo: [
+        'DHL shipping in Concord Township',
+        'international shipping near Mentor',
+        'DHL drop-off in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'DHL Express',
@@ -538,6 +635,31 @@ export const carrierServices: Service[] = [
   },
   {
     id: 'postage-stamps',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'usps-services',
+        'packaging-supplies',
+        'package-drop-offs',
+        'usps-drop-off-alternative-concord-township',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Postage Stamps', 'Stamps', 'Buy Stamps'],
+      lsi: [
+        'forever stamps',
+        'shipping postage',
+        'mail stamps',
+        'postage for packages',
+        'stamp sales',
+      ],
+      geo: [
+        'postage stamps in Concord Township',
+        'buy stamps near Mentor',
+        'stamp sales in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Postage Stamps',

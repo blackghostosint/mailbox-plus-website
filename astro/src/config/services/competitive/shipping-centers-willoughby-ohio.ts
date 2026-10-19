@@ -6,6 +6,18 @@ import Star from '~icons/lucide/star';
 export const competePages: Service[] = [
   {
     id: 'shipping-centers-willoughby-ohio',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'pack-and-ship-willoughby',
+        'fedex-drop-off-willoughby',
+        'ups-drop-off-willoughby',
+        'mailbox-rental',
+        'notary-services',
+        'copy-print',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'Shipping Centers in Willoughby, OH --- 4 Carriers, 1 Counter | Mailbox Plus',

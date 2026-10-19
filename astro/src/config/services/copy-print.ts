@@ -25,6 +25,20 @@ export const copyPrintServices: Service[] = [
   // ---------------------------
   {
     id: 'graphic-design',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['business-cards', 'flyers-brochures', 'posters-printing', 'postcard-printing'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Graphic Design', 'Graphic Design Services'],
+      lsi: ['logo design', 'print design', 'business card design', 'brand design', 'flyer design'],
+      geo: [
+        'graphic design in Concord Township',
+        'design services near Mentor',
+        'graphic designer in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Graphic Design',
@@ -184,6 +198,32 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'business-cards',
+    internalLink: {
+      parent: 'copy-print',
+      related: [
+        'graphic-design',
+        'document-printing',
+        'pack-ship',
+        'flyers-brochures',
+        'printing-services-concord-township',
+        'business-services-concord-township',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Business Cards', 'Business Card Printing'],
+      lsi: [
+        'custom business cards',
+        'professional cards',
+        'networking cards',
+        'print business cards',
+      ],
+      geo: [
+        'business cards in Concord Township',
+        'printing services near Mentor',
+        'custom cards in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Business Cards',
@@ -344,6 +384,26 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'flyers-brochures',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['graphic-design', 'posters-printing', 'every-door-direct-mail'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Flyers & Brochures', 'Flyer Printing', 'Brochure Printing'],
+      lsi: [
+        'marketing materials',
+        'promotional printing',
+        'tri-fold brochures',
+        'flyer design',
+        'advertising printing',
+      ],
+      geo: [
+        'flyer printing in Concord Township',
+        'brochure printing near Mentor',
+        'marketing materials in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Flyers & Brochures',
@@ -444,6 +504,22 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'document-printing',
+    internalLink: {
+      parent: 'copy-print',
+      related: [
+        'business-cards',
+        'flyers-brochures',
+        'posters-printing',
+        'graphic-design',
+        'copies',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Document Printing', 'Print Services'],
+      lsi: ['color printing', 'black and white copies', 'print documents', 'printing service'],
+      geo: ['document printing in Concord Township', 'print shop near Painesville'],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Document Printing',
@@ -609,6 +685,20 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'posters-printing',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['graphic-design', 'flyers-brochures', 'postcard-printing'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Posters Printing', 'Poster Printing', 'Large Format Printing'],
+      lsi: ['large posters', 'banner printing', 'sign printing', 'poster design', 'wall posters'],
+      geo: [
+        'poster printing in Concord Township',
+        'large format printing near Mentor',
+        'poster services in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Posters Printing',
@@ -709,6 +799,26 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'postcard-printing',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['flyers-brochures', 'posters-printing', 'graphic-design', 'every-door-direct-mail'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Postcard Printing', 'Postcards', 'Custom Postcards'],
+      lsi: [
+        'direct mail postcards',
+        'photo postcards',
+        'postcard marketing',
+        'jumbo postcards',
+        'postcard design',
+      ],
+      geo: [
+        'postcard printing in Concord Township',
+        'custom postcards near Mentor',
+        'postcard services in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Postcard Printing',
@@ -808,6 +918,32 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'copies',
+    internalLink: {
+      parent: 'copy-print',
+      related: [
+        'document-printing',
+        'business-cards',
+        'notary-services',
+        'document-scanning',
+        'fax-services',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Copies', 'Copying Services', 'Black and White Copies'],
+      lsi: [
+        'color copies',
+        'bulk copying',
+        'document copying',
+        'photocopy services',
+        'copy machine services',
+      ],
+      geo: [
+        'copy services in Concord Township',
+        'color copies near Mentor',
+        'copying service in Lake County',
+      ],
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Copies',
@@ -937,6 +1073,11 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'staples-printing-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Staples Printing Alternative',
@@ -1036,6 +1177,11 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'office-depot-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Office Depot Alternative',
@@ -1108,6 +1254,11 @@ export const copyPrintServices: Service[] = [
   },
   {
     id: 'printing-services-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'copies', 'graphic-design'],
+      priority: true,
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Printing Services',

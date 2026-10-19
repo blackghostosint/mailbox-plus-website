@@ -6,6 +6,31 @@ import { getServiceImageUrl } from '../../../lib/media';
 
 export const amazonReturnsService: Service = {
   id: 'amazon-returns',
+  internalLink: {
+    parent: 'pack-ship',
+    related: [
+      'package-drop-offs',
+      'packaging-supplies',
+      'fedex-easy-returns',
+      'happy-returns',
+      'fedex-shipping',
+    ],
+    priority: false,
+  },
+  anchorText: {
+    exact: ['Amazon Returns', 'Amazon Return Drop-Off', 'Return Amazon Package'],
+    lsi: [
+      'Amazon return center',
+      'return drop-off',
+      'Amazon return service',
+      'Amazon returns made easy',
+    ],
+    geo: [
+      'Amazon returns in Concord Township',
+      'Amazon drop-off near Mentor',
+      'Amazon return center in Lake County',
+    ],
+  },
   category: 'additional-services',
   ogImage: '/og/amazon-returns.png',
   city: 'Concord Township',

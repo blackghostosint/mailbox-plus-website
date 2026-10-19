@@ -13,6 +13,16 @@ import { phoneFormatted } from '../../siteConfig';
 export const localSeoServices: Service[] = [
   {
     id: 'ups-drop-off-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'UPS Drop Off Alternative',
@@ -113,6 +123,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'ups-store-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'ups-store-alternative-chardon',
+        'ups-store-alternative-eastlake',
+        'ups-store-alternative-fairport-harbor',
+        'ups-store-alternative-kirtland',
+        'ups-store-alternative-madison',
+        'ups-store-alternative-mentor',
+        'ups-store-alternative-painesville',
+        'ups-store-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/ups-store-alternative-concord-township.png',
     city: 'Concord Township',
@@ -234,6 +262,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+        'mail-boxes-etc-alternative-chardon',
+        'mail-boxes-etc-alternative-eastlake',
+        'mail-boxes-etc-alternative-fairport-harbor',
+        'mail-boxes-etc-alternative-kirtland',
+        'mail-boxes-etc-alternative-madison',
+        'mail-boxes-etc-alternative-mentor',
+        'mail-boxes-etc-alternative-painesville',
+        'mail-boxes-etc-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -329,6 +375,24 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'fedex-office-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'fedex-office-alternative-chardon',
+        'fedex-office-alternative-eastlake',
+        'fedex-office-alternative-fairport-harbor',
+        'fedex-office-alternative-kirtland',
+        'fedex-office-alternative-madison',
+        'fedex-office-alternative-mentor',
+        'fedex-office-alternative-painesville',
+        'fedex-office-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'FedEx Office Alternative',
@@ -418,6 +482,20 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'post-office-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+        'post-office-alternative-eastlake',
+        'post-office-alternative-fairport-harbor',
+        'post-office-alternative-madison',
+        'post-office-alternative-willoughby',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/post-office-alternative-concord-township.png',
     city: 'Concord Township',
@@ -509,6 +587,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'shipping-center-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'packaging-supplies',
+        'shipping-centers-willoughby-ohio',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     ogImage: '/og/shipping-center-concord-township.png',
     city: 'Concord Township',
@@ -562,6 +651,11 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'staples-printing-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Staples Printing Alternative',
@@ -630,6 +724,11 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'office-depot-alternative-concord-township',
+    internalLink: {
+      parent: 'copy-print',
+      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
+      priority: false,
+    },
     category: 'copy-print',
     city: 'Concord Township',
     serviceName: 'Office Depot Alternative',
@@ -703,6 +802,16 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'usps-drop-off-alternative-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'pack-and-ship-services-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'USPS Drop Off Alternative',
@@ -770,6 +879,19 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'pack-and-ship-services-concord-township',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'dhl-express',
+        'professional-packing',
+        'packaging-supplies',
+        'shipping-center-concord-township',
+      ],
+      priority: true,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Shipping, Mailing & Pack and Ship Services',
@@ -904,6 +1026,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-painesville',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Painesville',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -991,6 +1124,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-chardon',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Chardon',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1074,6 +1218,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-kirtland',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Kirtland',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1157,6 +1312,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-mentor',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Mentor',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1236,6 +1402,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-eastlake',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Eastlake',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1319,6 +1496,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-madison',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Madison',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1402,6 +1590,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-fairport-harbor',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Fairport Harbor',
     serviceName: 'Mail Boxes Etc. Alternative',
@@ -1485,6 +1684,17 @@ export const localSeoServices: Service[] = [
   },
   {
     id: 'mail-boxes-etc-alternative-willoughby',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mail-boxes-etc-alternative-concord-township',
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'notary-services',
+        'pack-ship',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Willoughby',
     serviceName: 'Mail Boxes Etc. Alternative',
