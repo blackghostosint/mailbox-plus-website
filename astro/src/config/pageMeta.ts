@@ -48,9 +48,9 @@ export const pageMeta: Record<
   },
   // 404 Error page
   '/404': {
-    title: 'Page Not Found | Mailbox Plus',
+    title: '404 - Page Not Found | Mailbox Plus',
     description:
-      'The page you are looking for does not exist or has been moved. Return to Mailbox Plus homepage or contact us for help.',
+      'Sorry, the page you are looking for does not exist. Please check the URL or return to the homepage.',
     ...geoMeta,
   },
   // Services page
@@ -88,9 +88,9 @@ export const pageMeta: Record<
   },
   // After Signup Guide
   '/after-signup': {
-    title: 'Mailbox Rental Next Steps & Setup Guide | Mailbox Plus',
+    title: 'After Signing Up for Mailbox Service | Mailbox Plus Next Steps',
     description:
-      'Complete your Mailbox Plus rental setup in Concord Township: USPS Form 1583 notarization, key pickup, ID verification, and package notification settings.',
+      'See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.',
     ...geoMeta,
   },
   // Amazon Counter Page
@@ -164,7 +164,7 @@ export const pageMeta: Record<
   },
   // OSINT Research Paper
   '/research/shipping-label-osint': {
-    title: 'Shipping Label OSINT: Turning a Package Label into a Full Identity Profile',
+    title: 'Shipping Label OSINT | Mailbox Plus',
     description:
       'A shipping label has your name and address. A bad actor uses OSINT to turn those two facts into your phone, email, social accounts, and more. See the attack path and how to defend against it.',
     ...geoMeta,
@@ -199,9 +199,9 @@ export const pageMeta: Record<
   },
   // Thank You Confirmation Page
   '/thank-you': {
-    title: 'Thank You | Mailbox Plus — Concord Township, OH',
+    title: "You're All Set — Your Mailbox Is Reserved | Mailbox Plus",
     description:
-      'Thank you for setting up your mailbox with Mailbox Plus in Concord Township, OH. Your subscription is confirmed and setup instructions are on the way.',
+      'Your Mailbox Plus mailbox is reserved. Here is exactly what to bring and what happens next — two IDs, a 10-minute in-store visit, and your key.',
     ...geoMeta,
   },
   // Track Package
