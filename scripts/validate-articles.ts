@@ -77,35 +77,14 @@ export function validateArticles(options?: ValidateArticlesOptions): ArticleVali
     try {
       const { data, content } = matter(article.content);
 
-      // Validate frontmatter schema
-      const validation = validateArticleFrontmatter(data, baseName);
+      if (Array.isArray(data.relatedServices)) {
+        linkCount += data.relatedServices.length;
+      }
+
+      // Validate frontmatter schema, intentKey uniqueness, and relatedServices via unified validator
+      const validation = validateArticleFrontmatter(data, baseName, { registry, intentKeys });
       if (!validation.success) {
         errors.push(...validation.errors);
-      } else {
-        const fm = validation.data;
-
-        // Check intentKey uniqueness
-        if (fm.intentKey) {
-          if (intentKeys.has(fm.intentKey)) {
-            errors.push(
-              `❌ ${baseName}: Duplicate intentKey '${fm.intentKey}' (also in ${intentKeys.get(fm.intentKey)})`
-            );
-          } else {
-            intentKeys.set(fm.intentKey, baseName);
-          }
-        }
-
-        // Validate relatedServices paths
-        if (Array.isArray(fm.relatedServices)) {
-          for (const servicePath of fm.relatedServices) {
-            linkCount++;
-            if (!isKnownRoute(servicePath, registry)) {
-              errors.push(
-                `❌ ${baseName}: relatedServices path '${servicePath}' does not match any known route`
-              );
-            }
-          }
-        }
       }
 
       // Basic content check
