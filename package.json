@@ -85,7 +85,6 @@
     "husky": "^9.1.7",
     "lint-staged": "^17.0.6",
     "prettier": "^3.8.3",
-    "prettier-plugin-astro": "^1.1.1",
     "sharp": "^0.33.5",
     "tsx": "^4.19.2",
     "typescript": "^5.5.3",
@@ -97,7 +96,6 @@
       "prettier --write"
     ],
     "*.astro": [
-      "prettier --write",
       "npm run check"
     ],
     "content/articles/**/*.md": [

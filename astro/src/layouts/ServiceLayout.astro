@@ -11,12 +11,7 @@ import { siteConfig } from '../config/siteConfig';
 import reviewsData from '../data/reviews.json';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
 import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
-import {
-  normalizeContentHeadings,
-  normalizeContentHrefs,
-  normalizePathname,
-  toCanonicalUrl,
-} from '../utils/canonical-url';
+import { normalizeContentHeadings, normalizeContentHrefs, normalizePathname, toCanonicalUrl } from '../utils/canonical-url';
 import { getServiceImageUrl } from '../lib/media';
 
 export interface Props {
@@ -28,41 +23,21 @@ export interface Props {
 
 // Core service → competitor alternative page mapping
 const competitorAlternatives: Record<string, { title: string; url: string }> = {
-  'fedex-shipping': {
-    title: 'FedEx Office Alternative',
-    url: '/fedex-office-alternative-concord-township/',
-  },
-  'ups-authorized-shipper-outlet': {
-    title: 'UPS Store Alternative',
-    url: '/ups-store-alternative-concord-township/',
-  },
-  'usps-services': {
-    title: 'Post Office Alternative',
-    url: '/post-office-alternative-concord-township/',
-  },
-  'printing-services-concord-township': {
-    title: 'Staples Printing Alternative',
-    url: '/staples-printing-alternative-concord-township/',
-  },
+  'fedex-shipping': { title: 'FedEx Office Alternative', url: '/fedex-office-alternative-concord-township/' },
+  'ups-authorized-shipper-outlet': { title: 'UPS Store Alternative', url: '/ups-store-alternative-concord-township/' },
+  'usps-services': { title: 'Post Office Alternative', url: '/post-office-alternative-concord-township/' },
+  'printing-services-concord-township': { title: 'Staples Printing Alternative', url: '/staples-printing-alternative-concord-township/' },
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel, ogImage: ogImageProp } = Astro.props;
 const ogImage = ogImageProp || service.ogImage;
 const canonicalUrl = toCanonicalUrl(service.canonicalUrl || service.slug);
-const breadcrumbs = getServiceBreadcrumbs(
-  service,
-  breadcrumbsBaseUrl || '',
-  breadcrumbsLabel || 'Services'
-);
+const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
 
 // Get related services
 const { getRelatedServices } = await import('../utils/internal-links');
-const relatedServices = (getRelatedServices(service.id as any) || []).filter(Boolean) as Array<{
-  id: string;
-  title: string;
-  url: string;
-}>;
+const relatedServices = (getRelatedServices(service.id as any) || []).filter(Boolean) as Array<{ id: string; title: string; url: string }>;
 
 const alt = service.id ? competitorAlternatives[service.id] : null;
 
@@ -74,11 +49,7 @@ const extraHeadSchemas = service.headJsonLd
 
 // Schema
 const schemas = [
-  getWebPageSchema(siteConfig, {
-    name: service.pageTitle,
-    description: service.metaDescription,
-    url: canonicalUrl,
-  }),
+  getWebPageSchema(siteConfig, { name: service.pageTitle, description: service.metaDescription, url: canonicalUrl }),
   getServiceSchema(siteConfig, { ...service, url: canonicalUrl }),
   ...(faqSchema ? [faqSchema] : []),
   {
@@ -102,34 +73,16 @@ const carriers = [
 ];
 ---
 
-<BaseLayout
-  title={service.pageTitle}
-  description={service.metaDescription}
-  canonical={service.canonicalUrl || service.slug}
-  noindex={service.robots === 'noindex, nofollow'}
-  ogImage={ogImage}
-  schema={schemas}
->
+<BaseLayout title={service.pageTitle} description={service.metaDescription} canonical={service.canonicalUrl || service.slug} noindex={service.robots === 'noindex, nofollow'} ogImage={ogImage} schema={schemas}>
+
   <!-- Breadcrumbs (semantic & accessible) -->
   <nav aria-label="Breadcrumb" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
     <ol class="flex items-center space-x-2 text-sm text-[var(--color-text-muted)] overflow-x-auto">
       {breadcrumbs.map((item, index) => (
         <li class="flex items-center">
           {index > 0 && (
-            <svg
-              class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0"
-              aria-hidden="true"
-              focusable="false"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
+            <svg class="w-4 h-4 mx-1 text-[var(--color-text-muted)] flex-shrink-0" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
           )}
           {index < breadcrumbs.length - 1 ? (
@@ -153,20 +106,13 @@ const carriers = [
         <div class="inline-flex items-center gap-3 rounded-full bg-white/10 backdrop-blur-xl border border-white/40 px-4 py-1.5 mb-4 shadow-sm">
           <div class="flex gap-0.5">
             {[...Array(5)].map((_, i) => (
-              <svg
-                class={`w-4 h-4 ${i < Math.floor(reviewsData?.rating ?? service.aggregateRating!.ratingValue) ? 'fill-yellow-400 text-yellow-400' : 'text-white/80'}`}
-                aria-hidden="true"
-                focusable="false"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-              >
+              <svg class={`w-4 h-4 ${i < Math.floor(reviewsData?.rating ?? service.aggregateRating!.ratingValue) ? 'fill-yellow-400 text-yellow-400' : 'text-white/80'}`} aria-hidden="true" focusable="false" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
               </svg>
             ))}
           </div>
           <span class="text-xs md:text-sm text-white/90 font-medium">
-            {reviewsData?.rating ?? service.aggregateRating.ratingValue} rating ·{' '}
-            {reviewsData?.userRatingCount ?? service.aggregateRating.reviewCount}+ reviews
+            {reviewsData?.rating ?? service.aggregateRating.ratingValue} rating · {reviewsData?.userRatingCount ?? service.aggregateRating.reviewCount}+ reviews
           </span>
         </div>
       )}
@@ -195,8 +141,7 @@ const carriers = [
                 {service.featuresTitle || 'Why customers choose this service'}
               </h2>
               <p class="text-[var(--color-text-secondary)] text-sm md:text-base max-w-xl leading-relaxed">
-                {service.featuresSubtitle ||
-                  'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
+                {service.featuresSubtitle || 'Clear benefits, protections, and options designed for your peace of mind and convenience.'}
               </p>
             </div>
             <div class="grid gap-6 md:grid-cols-3">
@@ -204,12 +149,8 @@ const carriers = [
                 <div class="group relative overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 hover:bg-[var(--color-bg-primary)] shadow-sm hover:-translate-y-1.5 hover:scale-[1.01] transition-all duration-200">
                   <div class="absolute inset-0 bg-gradient-to-br from-white/40 via-white/10 to-[var(--color-accent-warm)]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div class="relative p-6 flex flex-col gap-3">
-                    <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">
-                      {feature.title}
-                    </h3>
-                    <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
-                      {feature.description}
-                    </p>
+                    <h3 class="text-lg font-semibold text-[var(--color-text-primary)]">{feature.title}</h3>
+                    <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
               ))}
@@ -219,40 +160,23 @@ const carriers = [
       )}
 
       <!-- Content Sections -->
-      {service.content &&
-        service.content.map((block, idx) => (
-          <section class="max-w-5xl mx-auto">
-            <div
-              class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}
-            >
-              <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">
-                {block.heading}
-              </h2>
-              <div
-                class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed"
-                set:html={normalizeContentHeadings(normalizeContentHrefs(block.body))}
-              />
-            </div>
-          </section>
-        ))}
+      {service.content && service.content.map((block, idx) => (
+        <section class="max-w-5xl mx-auto">
+          <div class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}>
+            <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">{block.heading}</h2>
+            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={normalizeContentHeadings(normalizeContentHrefs(block.body))} />
+          </div>
+        </section>
+      ))}
 
       <!-- Disclaimer & Reference Link for regulated pages -->
       {service.disclaimer && (
         <section class="max-w-3xl mx-auto px-4">
           <div class="border-l-4 border-[var(--color-accent-warm)] pl-4 py-3 my-6 bg-[var(--color-bg-secondary)]/60 rounded-r-lg">
-            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">
-              {service.disclaimer}
-            </p>
+            <p class="text-sm text-[var(--color-text-muted)] leading-relaxed">{service.disclaimer}</p>
             {service.refLink && (
               <p class="text-xs text-[var(--color-text-muted)] mt-2">
-                Reference:{' '}
-                <OutboundLink
-                  href={service.refLink.url}
-                  rel="nofollow"
-                  class="underline hover:text-[var(--color-primary)]"
-                >
-                  {service.refLink.label} →
-                </OutboundLink>
+                Reference: <OutboundLink href={service.refLink.url} rel="nofollow" class="underline hover:text-[var(--color-primary)]">{service.refLink.label} →</OutboundLink>
               </p>
             )}
           </div>
@@ -269,8 +193,7 @@ const carriers = [
                   Frequently Asked Questions
                 </h2>
                 <p class="mt-2 text-sm md:text-base text-[var(--color-text-secondary)] max-w-xl mx-auto">
-                  Get quick answers to the most common questions about packaging, carriers, pricing,
-                  and what to expect.
+                  Get quick answers to the most common questions about packaging, carriers, pricing, and what to expect.
                 </p>
               </div>
               <FaqAccordion faqs={service.faqs} />
@@ -283,9 +206,7 @@ const carriers = [
       {relatedServices.length > 0 && (
         <section class="max-w-5xl mx-auto">
           <div class="relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]">
-            <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">
-              Related Services You Might Need
-            </h2>
+            <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-6">Related Services You Might Need</h2>
             <div class="grid md:grid-cols-3 gap-4">
               {relatedServices.map((rel, idx) => (
                 <a
@@ -308,40 +229,24 @@ const carriers = [
             <div class="absolute inset-[1px] rounded-[28px] bg-white/5 backdrop-blur-xl border border-white/40" />
             <div class="relative px-8 py-9 md:px-10 md:py-11 text-white text-center">
               <h2 class="text-2xl md:text-3xl font-bold mb-2">{service.cta.title}</h2>
-              {service.cta.subtitle && (
-                <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">
-                  {service.cta.subtitle}
-                </p>
-              )}
+              {service.cta.subtitle && <p class="text-base md:text-lg opacity-90 max-w-2xl mx-auto mb-6">{service.cta.subtitle}</p>}
               <div class="flex flex-wrap justify-center gap-3">
                 {service.cta.buttonLink.startsWith('http') ? (
-                  <OutboundLink
-                    href={service.cta.buttonLink}
-                    class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all"
-                  >
+                  <OutboundLink href={service.cta.buttonLink} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
                     {service.cta.buttonText} →
                   </OutboundLink>
                 ) : (
-                  <a
-                    href={normalizePathname(service.cta.buttonLink)}
-                    class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all"
-                  >
+                  <a href={normalizePathname(service.cta.buttonLink)} class="inline-flex items-center gap-2 bg-[var(--color-accent-gold)] text-[var(--color-text-primary)] font-semibold px-8 py-3 rounded-md hover:brightness-110 transition-all">
                     {service.cta.buttonText} →
                   </a>
                 )}
                 {service.cta.extraButtons?.map((btn) =>
                   btn.external || btn.link.startsWith('http') ? (
-                    <OutboundLink
-                      href={btn.link}
-                      class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all"
-                    >
+                    <OutboundLink href={btn.link} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
                       {btn.text} →
                     </OutboundLink>
                   ) : (
-                    <a
-                      href={normalizePathname(btn.link)}
-                      class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all"
-                    >
+                    <a href={normalizePathname(btn.link)} class="inline-flex items-center gap-2 bg-white/10 border border-white/30 text-white font-semibold px-6 py-3 rounded-md hover:bg-white/20 transition-all">
                       {btn.text} →
                     </a>
                   )
@@ -353,10 +258,7 @@ const carriers = [
                   {service.cta.finePrint.link && (
                     <>
                       {' '}
-                      <a
-                        href={normalizePathname(service.cta.finePrint.link)}
-                        class="underline font-semibold hover:opacity-100"
-                      >
+                      <a href={normalizePathname(service.cta.finePrint.link)} class="underline font-semibold hover:opacity-100">
                         {service.cta.finePrint.linkText ?? 'Contact us'}
                       </a>
                       .
@@ -375,15 +277,10 @@ const carriers = [
   {alt && (
     <section class="max-w-4xl mx-auto px-4 mt-8 mb-8">
       <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl rounded-lg border border-[var(--color-border)] p-6 shadow-sm text-center">
-        <h2 class="text-lg font-bold mb-2 text-[var(--color-text-primary)]">
-          Not What You're Looking For?
-        </h2>
+        <h2 class="text-lg font-bold mb-2 text-[var(--color-text-primary)]">Not What You're Looking For?</h2>
         <p class="text-sm text-[var(--color-text-secondary)]">
           See how we compare to{' '}
-          <a href={alt.url} class="text-[var(--color-accent-warm)] hover:underline font-semibold">
-            {alt.title}
-          </a>
-          .
+          <a href={alt.url} class="text-[var(--color-accent-warm)] hover:underline font-semibold">{alt.title}</a>.
         </p>
       </div>
     </section>
@@ -394,14 +291,7 @@ const carriers = [
     <div class="flex flex-wrap items-center justify-center gap-8 sm:gap-12 mt-10 mb-8 px-4">
       {carriers.map((carrier) => (
         <OutboundLink href={carrier.url} class="transition-transform duration-200 hover:scale-105">
-          <img
-            src={carrier.src}
-            alt={carrier.name}
-            class="h-12 sm:h-16 w-auto object-contain drop-shadow-md"
-            width="200"
-            height="64"
-            loading="lazy"
-          />
+          <img src={carrier.src} alt={carrier.name} class="h-12 sm:h-16 w-auto object-contain drop-shadow-md" width="200" height="64" loading="lazy" />
         </OutboundLink>
       ))}
     </div>
