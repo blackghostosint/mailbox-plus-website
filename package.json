@@ -40,6 +40,7 @@
     "verify": "tsx scripts/verify/verify.mjs changed",
     "verify:doctor": "tsx scripts/verify/verify.mjs doctor",
     "verify:articles": "tsx scripts/verify/verify.mjs articles",
+    "verify:ownership": "node scripts/verify/check-article-ownership.mjs --local",
     "audit:a11y": "node scripts/audit-a11y.mjs",
     "seo:check-redirects": "node scripts/seo/check-redirects.mjs",
     "seo:check-routes": "node scripts/seo/check-route-registry.mjs",
