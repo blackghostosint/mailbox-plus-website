@@ -6,6 +6,20 @@ import Truck from '~icons/lucide/truck';
 export const competePages: Service[] = [
   {
     id: 'ship-a-return-with-strict-size-or-weight-limits',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'amazon-returns',
+        'package-drop-offs',
+        'fedex-shipping',
+        'packaging-supplies',
+        'drop-off-a-prepaid-label-from-your-phone',
+        'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
+        'get-help-choosing-the-right-box-for-shipping-in-concord-township',
+        'ship-something-with-no-original-packaging-in-concord-township',
+      ],
+      priority: false,
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Ship a Return With Strict Size or Weight Limits | Mailbox Plus',

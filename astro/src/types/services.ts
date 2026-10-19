@@ -49,6 +49,18 @@ export interface Offer {
   availability?: string;
 }
 
+export interface InternalLinkConfig {
+  parent?: string | null;
+  related?: string[];
+  priority?: boolean;
+}
+
+export interface AnchorTextConfig {
+  exact?: string[];
+  lsi?: string[];
+  geo?: string[];
+}
+
 export interface Service {
   id: string;
   category: ServiceCategory;
@@ -68,6 +80,8 @@ export interface Service {
   introductoryContent?: string;
   intentKey?: string;
   indexable?: boolean;
+  internalLink?: InternalLinkConfig;
+  anchorText?: AnchorTextConfig;
 
   // 👇 NEW: long-form page content
   content?: Array<{
