@@ -115,6 +115,13 @@ jobs:
       - name: TypeScript type check
         run: npm run typecheck
 
+      - name: Pre-build environment validation
+        run: node scripts/verify-build-env.mjs
+        env:
+          VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+
       - name: Build project
         shell: bash
         run: |

@@ -31,6 +31,10 @@ jobs:
 
       - name: Build static site
         run: npm run build
+        env:
+          VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
 
       - name: Run axe-core accessibility audit (full site)
         run: npm run audit:a11y -- --mode=full
