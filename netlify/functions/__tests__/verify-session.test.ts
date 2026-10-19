@@ -70,7 +70,7 @@ describe('verify-session function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(405);
-    expect(await res.json()).toEqual({ error: 'Method not allowed' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Method not allowed' });
   });
 
   it('enforces rate limiting of 10 requests per minute and returns status 429 on 11th attempt', async () => {
@@ -92,7 +92,10 @@ describe('verify-session function handler', () => {
     expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
     expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
-    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+    expect(await res11.json()).toEqual({
+      ok: false,
+      error: 'Too many requests. Please try again later.',
+    });
   });
 
   it('returns 500 if STRIPE_SECRET_KEY is missing or empty', async () => {
@@ -101,13 +104,13 @@ describe('verify-session function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(500);
-    expect(await res.json()).toEqual({ error: 'Stripe is not configured' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Stripe is not configured' });
 
     process.env.STRIPE_SECRET_KEY = '';
     const reqEmpty = createRequest('GET', 'cs_test_12345');
     const resEmpty = await handler(reqEmpty, ctx);
     expect(resEmpty.status).toBe(500);
-    expect(await resEmpty.json()).toEqual({ error: 'Stripe is not configured' });
+    expect(await resEmpty.json()).toEqual({ ok: false, error: 'Stripe is not configured' });
   });
 
   it('returns 400 for missing or invalid session_id format', async () => {
@@ -124,13 +127,13 @@ describe('verify-session function handler', () => {
     const reqMissing = createRequest('GET');
     const resMissing = await handler(reqMissing, ctx);
     expect(resMissing.status).toBe(400);
-    expect(await resMissing.json()).toEqual({ error: 'Invalid session_id' });
+    expect(await resMissing.json()).toEqual({ ok: false, error: 'Invalid session_id' });
 
     for (const badId of invalidSessionIds) {
       const req = createRequest('GET', badId);
       const res = await handler(req, ctx);
       expect(res.status).toBe(400);
-      expect(await res.json()).toEqual({ error: 'Invalid session_id' });
+      expect(await res.json()).toEqual({ ok: false, error: 'Invalid session_id' });
     }
   });
 
@@ -144,7 +147,7 @@ describe('verify-session function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(402);
-    expect(await res.json()).toEqual({ error: 'Session not paid' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Session not paid' });
   });
 
   it('returns 404 if Stripe session retrieval throws', async () => {
@@ -154,7 +157,7 @@ describe('verify-session function handler', () => {
     const ctx = createMockNetlifyContext();
     const res = await handler(req, ctx);
     expect(res.status).toBe(404);
-    expect(await res.json()).toEqual({ error: 'Session not found' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Session not found' });
   });
 
   it('successfully verifies paid session using amount_total in cents', async () => {
@@ -176,10 +179,12 @@ describe('verify-session function handler', () => {
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({
       ok: true,
-      tier: 'small_packages10',
-      product: 'Small +10 Packages',
-      amount: 25,
-      currency: 'USD',
+      data: {
+        tier: 'small_packages10',
+        product: 'Small +10 Packages',
+        amount: 25,
+        currency: 'USD',
+      },
     });
 
     expect(mockCheckoutSessionsRetrieve).toHaveBeenCalledWith('cs_test_a1b2c3d4e5f6g7', {
@@ -214,10 +219,12 @@ describe('verify-session function handler', () => {
       expect(res.status).toBe(200);
       expect(await res.json()).toEqual({
         ok: true,
-        tier,
-        product: expectedName,
-        amount: expectedMonthly,
-        currency: 'USD',
+        data: {
+          tier,
+          product: expectedName,
+          amount: expectedMonthly,
+          currency: 'USD',
+        },
       });
     }
   );
@@ -237,10 +244,12 @@ describe('verify-session function handler', () => {
     expect(res.status).toBe(200);
     expect(await res.json()).toEqual({
       ok: true,
-      tier: null,
-      product: 'Mailbox Rental',
-      amount: 0,
-      currency: 'USD',
+      data: {
+        tier: null,
+        product: 'Mailbox Rental',
+        amount: 0,
+        currency: 'USD',
+      },
     });
   });
 
@@ -277,13 +286,15 @@ describe('verify-session function handler', () => {
     expect(res.status).toBe(200);
     const body: Record<string, any> = await res.json();
 
-    expect(Object.keys(body).sort()).toEqual(['amount', 'currency', 'ok', 'product', 'tier']);
+    expect(Object.keys(body.data).sort()).toEqual(['amount', 'currency', 'product', 'tier']);
     expect(body).toEqual({
       ok: true,
-      tier: 'business_small',
-      product: 'Business Small',
-      amount: 35,
-      currency: 'USD',
+      data: {
+        tier: 'business_small',
+        product: 'Business Small',
+        amount: 35,
+        currency: 'USD',
+      },
     });
 
     expect(body.email).toBeUndefined();
