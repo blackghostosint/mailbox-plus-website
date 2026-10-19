@@ -48,7 +48,7 @@ export class ContactUsPage {
     } = {}
   ) {
     const status = options.status ?? 200;
-    const responseBody = options.body ?? { success: true };
+    const responseBody = options.body ?? { ok: true, data: { success: true } };
 
     let capturedPayload: Record<string, unknown> | null = null;
 
