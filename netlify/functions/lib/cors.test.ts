@@ -84,7 +84,7 @@ describe('CORS Middleware Utility', () => {
       expect(res.headers.get('Access-Control-Allow-Origin')).toBe('*');
 
       const body = await res.json();
-      expect(body).toEqual({ error: 'Internal server error' });
+      expect(body).toEqual({ ok: false, error: 'Internal server error' });
 
       consoleErrorSpy.mockRestore();
     });
@@ -183,7 +183,7 @@ describe('CORS Middleware Utility', () => {
       expect(res3.headers.get('Retry-After')).toBeTruthy();
       expect(res3.headers.get('X-RateLimit-Limit')).toBe('2');
       const body = await res3.json();
-      expect(body).toEqual({ error: 'Too many requests. Please try again later.' });
+      expect(body).toEqual({ ok: false, error: 'Too many requests. Please try again later.' });
     });
   });
 

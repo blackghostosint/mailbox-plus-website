@@ -70,3 +70,11 @@ gh api -X DELETE repos/$REPO/issues/<n>/labels/status%3A%20red
 ```
 
 Status labels (`status: green` / `status: wait-ci` / `status: red` / `status: hold`) are maintained automatically by the owner-side watcher every 15 minutes — if a label looks stale, it will correct itself within one cycle. Do not fight the automation.
+
+## 11. Local accessibility verification for UI pull requests
+
+Any pull request that modifies UI components (`astro/src/components/`), layouts (`astro/src/layouts/`), pages (`astro/src/pages/`), or styling must undergo local accessibility verification before requesting code review. Agents must:
+
+1. Build the static site to populate `dist/`: `npm run build`
+2. Execute the local axe-core accessibility audit: `npm run audit:a11y` (or `npm run audit:a11y -- --mode=full` for site-wide layout changes)
+3. Resolve all WCAG 2.1 AA violations before opening or updating a pull request.

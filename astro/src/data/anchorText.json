@@ -1,59 +1,8 @@
 {
-  "mailbox-rental": {
-    "exact": ["Mailbox Rental", "Private Mailbox Rental", "Rent a Mailbox"],
-    "lsi": [
-      "secure mailbox",
-      "business address service",
-      "receive packages securely",
-      "street address mailbox"
-    ],
-    "geo": [
-      "mailbox rental in Concord Township",
-      "private mailbox near Mentor",
-      "business mailbox in Lake County"
-    ]
-  },
-  "fedex-shipping": {
-    "exact": ["FedEx Shipping", "Authorized FedEx ShipCenter"],
-    "lsi": ["overnight shipping", "FedEx drop-off", "express shipping", "international shipping"],
-    "geo": [
-      "FedEx shipping near Concord Township",
-      "FedEx drop-off in Mentor",
-      "FedEx location in Painesville"
-    ]
-  },
-  "digital-fingerprinting": {
-    "exact": ["Digital Fingerprinting", "Fingerprinting Services"],
-    "lsi": ["background checks", "BCI check", "FBI background check", "electronic fingerprinting"],
-    "geo": [
-      "fingerprinting in Lake County",
-      "background checks in Concord Township",
-      "livescan fingerprinting near Mentor"
-    ]
-  },
-  "business-cards": {
-    "exact": ["Business Cards", "Business Card Printing"],
-    "lsi": [
-      "custom business cards",
-      "professional cards",
-      "networking cards",
-      "print business cards"
-    ],
-    "geo": [
-      "business cards in Concord Township",
-      "printing services near Mentor",
-      "custom cards in Lake County"
-    ]
-  },
   "pack-ship": {
     "exact": ["Pack & Ship", "Packing and Shipping"],
     "lsi": ["shipping services", "parcel delivery", "shipping store", "send a package"],
     "geo": ["shipping store in Concord Township", "pack and ship near Mentor"]
-  },
-  "document-printing": {
-    "exact": ["Document Printing", "Print Services"],
-    "lsi": ["color printing", "black and white copies", "print documents", "printing service"],
-    "geo": ["document printing in Concord Township", "print shop near Painesville"]
   },
   "copy-print": {
     "exact": ["Copy & Print", "Copy and Print Services", "Printing Center"],
@@ -96,108 +45,6 @@
       "specialty services in Concord Township",
       "specialized services near Mentor",
       "business services in Lake County"
-    ]
-  },
-  "ups-authorized-shipper-outlet": {
-    "exact": ["UPS Authorized Shipper Outlet", "UPS Shipping", "UPS Authorized ShipCenter"],
-    "lsi": [
-      "UPS drop-off",
-      "UPS ground shipping",
-      "UPS express shipping",
-      "UPS package shipping",
-      "UPS pickup"
-    ],
-    "geo": [
-      "UPS shipping in Concord Township",
-      "UPS drop-off near Mentor",
-      "UPS authorized location in Lake County"
-    ]
-  },
-  "usps-services": {
-    "exact": ["USPS Services", "United States Postal Service", "USPS Shipping"],
-    "lsi": ["postal services", "priority mail", "first class mail", "media mail", "USPS drop-off"],
-    "geo": [
-      "USPS services in Concord Township",
-      "post office alternative near Mentor",
-      "USPS shipping in Lake County"
-    ]
-  },
-  "dhl-express": {
-    "exact": ["DHL Express", "DHL Shipping", "DHL International Shipping"],
-    "lsi": [
-      "international shipping",
-      "express courier",
-      "global shipping",
-      "DHL drop-off",
-      "international parcel delivery"
-    ],
-    "geo": [
-      "DHL shipping in Concord Township",
-      "international shipping near Mentor",
-      "DHL drop-off in Lake County"
-    ]
-  },
-  "package-drop-offs": {
-    "exact": ["Package Drop-Offs", "Drop Off Packages"],
-    "lsi": ["carrier drop-off", "shipping drop-off", "package acceptance", "parcel drop location"],
-    "geo": [
-      "package drop-off in Concord Township",
-      "drop off packages near Mentor",
-      "shipping drop-off in Lake County"
-    ]
-  },
-  "professional-packing": {
-    "exact": ["Professional Packing", "Expert Packing Services"],
-    "lsi": [
-      "secure packing",
-      "fragile item packing",
-      "custom packing",
-      "packing service",
-      "protective packaging"
-    ],
-    "geo": [
-      "professional packing in Concord Township",
-      "packing services near Mentor",
-      "expert packing in Lake County"
-    ]
-  },
-  "custom-box-making": {
-    "exact": ["Custom Box Making", "Custom Boxes", "Custom Packaging"],
-    "lsi": [
-      "custom sized boxes",
-      "specialty boxes",
-      "made to order boxes",
-      "custom shipping boxes",
-      "custom packaging solutions"
-    ],
-    "geo": [
-      "custom boxes in Concord Township",
-      "custom box making near Mentor",
-      "custom packaging in Lake County"
-    ]
-  },
-  "packaging-supplies": {
-    "exact": ["Packaging Supplies", "Shipping Supplies", "Packing Materials"],
-    "lsi": ["boxes", "bubble wrap", "packing tape", "shipping boxes", "moving supplies"],
-    "geo": [
-      "packaging supplies in Concord Township",
-      "shipping supplies near Mentor",
-      "packing materials in Lake County"
-    ]
-  },
-  "package-receiving": {
-    "exact": ["Package Receiving", "Parcel Receiving", "Accept Packages"],
-    "lsi": [
-      "receive packages",
-      "package holding",
-      "secure package acceptance",
-      "mail and package receiving",
-      "package notification"
-    ],
-    "geo": [
-      "package receiving in Concord Township",
-      "receive packages near Mentor",
-      "package holding in Lake County"
     ]
   },
   "artwork-shipping": {
@@ -244,6 +91,39 @@
       "golf club transport in Lake County"
     ]
   },
+  "fedex-shipping": {
+    "exact": ["FedEx Shipping", "Authorized FedEx ShipCenter"],
+    "lsi": ["overnight shipping", "FedEx drop-off", "express shipping", "international shipping"],
+    "geo": [
+      "FedEx shipping near Concord Township",
+      "FedEx drop-off in Mentor",
+      "FedEx location in Painesville"
+    ]
+  },
+  "usps-services": {
+    "exact": ["USPS Services", "United States Postal Service", "USPS Shipping"],
+    "lsi": ["postal services", "priority mail", "first class mail", "media mail", "USPS drop-off"],
+    "geo": [
+      "USPS services in Concord Township",
+      "post office alternative near Mentor",
+      "USPS shipping in Lake County"
+    ]
+  },
+  "dhl-express": {
+    "exact": ["DHL Express", "DHL Shipping", "DHL International Shipping"],
+    "lsi": [
+      "international shipping",
+      "express courier",
+      "global shipping",
+      "DHL drop-off",
+      "international parcel delivery"
+    ],
+    "geo": [
+      "DHL shipping in Concord Township",
+      "international shipping near Mentor",
+      "DHL drop-off in Lake County"
+    ]
+  },
   "postage-stamps": {
     "exact": ["Postage Stamps", "Stamps", "Buy Stamps"],
     "lsi": [
@@ -257,6 +137,152 @@
       "postage stamps in Concord Township",
       "buy stamps near Mentor",
       "stamp sales in Lake County"
+    ]
+  },
+  "package-drop-offs": {
+    "exact": ["Package Drop-Offs", "Drop Off Packages"],
+    "lsi": ["carrier drop-off", "shipping drop-off", "package acceptance", "parcel drop location"],
+    "geo": [
+      "package drop-off in Concord Township",
+      "drop off packages near Mentor",
+      "shipping drop-off in Lake County"
+    ]
+  },
+  "package-receiving": {
+    "exact": ["Package Receiving", "Parcel Receiving", "Accept Packages"],
+    "lsi": [
+      "receive packages",
+      "package holding",
+      "secure package acceptance",
+      "mail and package receiving",
+      "package notification"
+    ],
+    "geo": [
+      "package receiving in Concord Township",
+      "receive packages near Mentor",
+      "package holding in Lake County"
+    ]
+  },
+  "professional-packing": {
+    "exact": ["Professional Packing", "Expert Packing Services"],
+    "lsi": [
+      "secure packing",
+      "fragile item packing",
+      "custom packing",
+      "packing service",
+      "protective packaging"
+    ],
+    "geo": [
+      "professional packing in Concord Township",
+      "packing services near Mentor",
+      "expert packing in Lake County"
+    ]
+  },
+  "custom-box-making": {
+    "exact": ["Custom Box Making", "Custom Boxes", "Custom Packaging"],
+    "lsi": [
+      "custom sized boxes",
+      "specialty boxes",
+      "made to order boxes",
+      "custom shipping boxes",
+      "custom packaging solutions"
+    ],
+    "geo": [
+      "custom boxes in Concord Township",
+      "custom box making near Mentor",
+      "custom packaging in Lake County"
+    ]
+  },
+  "packaging-supplies": {
+    "exact": ["Packaging Supplies", "Shipping Supplies", "Packing Materials"],
+    "lsi": ["boxes", "bubble wrap", "packing tape", "shipping boxes", "moving supplies"],
+    "geo": [
+      "packaging supplies in Concord Township",
+      "shipping supplies near Mentor",
+      "packing materials in Lake County"
+    ]
+  },
+  "amazon-returns": {
+    "exact": ["Amazon Returns", "Amazon Return Drop-Off", "Return Amazon Package"],
+    "lsi": [
+      "Amazon return center",
+      "return drop-off",
+      "Amazon return service",
+      "Amazon returns made easy"
+    ],
+    "geo": [
+      "Amazon returns in Concord Township",
+      "Amazon drop-off near Mentor",
+      "Amazon return center in Lake County"
+    ]
+  },
+  "pack-and-ship-concord-ohio": {
+    "exact": ["Pack and Ship in Concord Ohio", "Packing and Shipping Concord"],
+    "lsi": [
+      "pack and ship Concord",
+      "packing services Concord Ohio",
+      "ship a package Concord",
+      "Concord shipping store"
+    ],
+    "geo": [
+      "pack and ship in Concord Ohio",
+      "packing services near Mentor",
+      "shipping store in Lake County"
+    ]
+  },
+  "domestic-package-shipping-company-concord-ohio": {
+    "exact": [
+      "Domestic Package Shipping",
+      "Package Shipping Company",
+      "Domestic Shipping Services"
+    ],
+    "lsi": [
+      "package shipping company",
+      "domestic parcel delivery",
+      "shipping services in Ohio",
+      "package shipping in Concord"
+    ],
+    "geo": [
+      "domestic package shipping in Concord Ohio",
+      "package shipping company near Mentor",
+      "domestic shipping in Lake County"
+    ]
+  },
+  "mailing-services-concord-ohio": {
+    "exact": ["Mailing Services in Concord Ohio", "Mail Services Concord"],
+    "lsi": [
+      "Concord mailing services",
+      "mail and parcel services",
+      "shipping and mailing",
+      "mailing solutions Concord"
+    ],
+    "geo": [
+      "mailing services in Concord Ohio",
+      "mail services near Mentor",
+      "mailing solutions in Lake County"
+    ]
+  },
+  "graphic-design": {
+    "exact": ["Graphic Design", "Graphic Design Services"],
+    "lsi": ["logo design", "print design", "business card design", "brand design", "flyer design"],
+    "geo": [
+      "graphic design in Concord Township",
+      "design services near Mentor",
+      "graphic designer in Lake County"
+    ]
+  },
+  "business-cards": {
+    "exact": ["Business Cards", "Business Card Printing"],
+    "lsi": [
+      "custom business cards",
+      "professional cards",
+      "networking cards",
+      "print business cards"
+    ],
+    "geo": [
+      "business cards in Concord Township",
+      "printing services near Mentor",
+      "custom cards in Lake County"
     ]
   },
   "flyers-brochures": {
@@ -273,6 +299,11 @@
       "brochure printing near Mentor",
       "marketing materials in Lake County"
     ]
+  },
+  "document-printing": {
+    "exact": ["Document Printing", "Print Services"],
+    "lsi": ["color printing", "black and white copies", "print documents", "printing service"],
+    "geo": ["document printing in Concord Township", "print shop near Painesville"]
   },
   "posters-printing": {
     "exact": ["Posters Printing", "Poster Printing", "Large Format Printing"],
@@ -298,15 +329,6 @@
       "postcard services in Lake County"
     ]
   },
-  "graphic-design": {
-    "exact": ["Graphic Design", "Graphic Design Services"],
-    "lsi": ["logo design", "print design", "business card design", "brand design", "flyer design"],
-    "geo": [
-      "graphic design in Concord Township",
-      "design services near Mentor",
-      "graphic designer in Lake County"
-    ]
-  },
   "copies": {
     "exact": ["Copies", "Copying Services", "Black and White Copies"],
     "lsi": [
@@ -320,6 +342,20 @@
       "copy services in Concord Township",
       "color copies near Mentor",
       "copying service in Lake County"
+    ]
+  },
+  "mailbox-rental": {
+    "exact": ["Mailbox Rental", "Private Mailbox Rental", "Rent a Mailbox"],
+    "lsi": [
+      "secure mailbox",
+      "business address service",
+      "receive packages securely",
+      "street address mailbox"
+    ],
+    "geo": [
+      "mailbox rental in Concord Township",
+      "private mailbox near Mentor",
+      "business mailbox in Lake County"
     ]
   },
   "digital-mailbox-rental": {
@@ -337,19 +373,19 @@
       "online mailbox in Lake County"
     ]
   },
-  "notary-services": {
-    "exact": ["Notary Services", "Notary Public", "Mobile Notary"],
+  "every-door-direct-mail": {
+    "exact": ["Every Door Direct Mail", "EDDM", "Direct Mail Services"],
     "lsi": [
-      "notarization",
-      "document notarization",
-      "notary signing",
-      "loan signing agent",
-      "certified notary"
+      "direct mail marketing",
+      "mail advertising",
+      "neighborhood mail",
+      "bulk mail service",
+      "targeted mail"
     ],
     "geo": [
-      "notary services in Concord Township",
-      "notary public near Mentor",
-      "notary in Lake County"
+      "EDDM in Concord Township",
+      "direct mail near Mentor",
+      "every door direct mail in Lake County"
     ]
   },
   "shredding": {
@@ -387,48 +423,19 @@
     "lsi": ["send fax", "fax machine", "online fax", "document faxing", "fax transmission"],
     "geo": ["fax services in Concord Township", "send a fax near Mentor", "faxing in Lake County"]
   },
-  "every-door-direct-mail": {
-    "exact": ["Every Door Direct Mail", "EDDM", "Direct Mail Services"],
+  "notary-services": {
+    "exact": ["Notary Services", "Notary Public", "Mobile Notary"],
     "lsi": [
-      "direct mail marketing",
-      "mail advertising",
-      "neighborhood mail",
-      "bulk mail service",
-      "targeted mail"
+      "notarization",
+      "document notarization",
+      "notary signing",
+      "loan signing agent",
+      "certified notary"
     ],
     "geo": [
-      "EDDM in Concord Township",
-      "direct mail near Mentor",
-      "every door direct mail in Lake County"
-    ]
-  },
-  "insurance": {
-    "exact": ["Shipping Insurance", "Package Insurance", "Shipment Coverage"],
-    "lsi": [
-      "high value shipping",
-      "insured shipping",
-      "package protection",
-      "shipping coverage",
-      "cargo insurance"
-    ],
-    "geo": [
-      "shipping insurance in Concord Township",
-      "package insurance near Mentor",
-      "insured shipping in Lake County"
-    ]
-  },
-  "amazon-returns": {
-    "exact": ["Amazon Returns", "Amazon Return Drop-Off", "Return Amazon Package"],
-    "lsi": [
-      "Amazon return center",
-      "return drop-off",
-      "Amazon return service",
-      "Amazon returns made easy"
-    ],
-    "geo": [
-      "Amazon returns in Concord Township",
-      "Amazon drop-off near Mentor",
-      "Amazon return center in Lake County"
+      "notary services in Concord Township",
+      "notary public near Mentor",
+      "notary in Lake County"
     ]
   },
   "fedex-easy-returns": {
@@ -459,6 +466,30 @@
       "Nuuly return center in Lake County"
     ]
   },
+  "digital-fingerprinting": {
+    "exact": ["Digital Fingerprinting", "Fingerprinting Services"],
+    "lsi": ["background checks", "BCI check", "FBI background check", "electronic fingerprinting"],
+    "geo": [
+      "fingerprinting in Lake County",
+      "background checks in Concord Township",
+      "livescan fingerprinting near Mentor"
+    ]
+  },
+  "insurance": {
+    "exact": ["Shipping Insurance", "Package Insurance", "Shipment Coverage"],
+    "lsi": [
+      "high value shipping",
+      "insured shipping",
+      "package protection",
+      "shipping coverage",
+      "cargo insurance"
+    ],
+    "geo": [
+      "shipping insurance in Concord Township",
+      "package insurance near Mentor",
+      "insured shipping in Lake County"
+    ]
+  },
   "happy-returns": {
     "exact": ["Happy Returns", "Happy Returns Return Bar", "Happy Returns Drop-Off"],
     "lsi": [
@@ -471,66 +502,6 @@
       "Happy Returns in Concord Township",
       "Happy Returns near Mentor",
       "Happy Returns return bar in Lake County"
-    ]
-  },
-  "domestic-package-shipping-company-concord-ohio": {
-    "exact": [
-      "Domestic Package Shipping",
-      "Package Shipping Company",
-      "Domestic Shipping Services"
-    ],
-    "lsi": [
-      "package shipping company",
-      "domestic parcel delivery",
-      "shipping services in Ohio",
-      "package shipping in Concord"
-    ],
-    "geo": [
-      "domestic package shipping in Concord Ohio",
-      "package shipping company near Mentor",
-      "domestic shipping in Lake County"
-    ]
-  },
-  "mailbox-rental-concord-ohio": {
-    "exact": ["Mailbox Rental in Concord Ohio", "Rent a Mailbox in Concord"],
-    "lsi": [
-      "Concord mailbox rental",
-      "private mailbox Concord Ohio",
-      "business address Concord",
-      "mailbox services Concord"
-    ],
-    "geo": [
-      "mailbox rental in Concord Ohio",
-      "private mailbox near Mentor",
-      "business mailbox in Lake County"
-    ]
-  },
-  "mailing-services-concord-ohio": {
-    "exact": ["Mailing Services in Concord Ohio", "Mail Services Concord"],
-    "lsi": [
-      "Concord mailing services",
-      "mail and parcel services",
-      "shipping and mailing",
-      "mailing solutions Concord"
-    ],
-    "geo": [
-      "mailing services in Concord Ohio",
-      "mail services near Mentor",
-      "mailing solutions in Lake County"
-    ]
-  },
-  "pack-and-ship-concord-ohio": {
-    "exact": ["Pack and Ship in Concord Ohio", "Packing and Shipping Concord"],
-    "lsi": [
-      "pack and ship Concord",
-      "packing services Concord Ohio",
-      "ship a package Concord",
-      "Concord shipping store"
-    ],
-    "geo": [
-      "pack and ship in Concord Ohio",
-      "packing services near Mentor",
-      "shipping store in Lake County"
     ]
   },
   "chewy-prescription-mail-in-concord-township": {

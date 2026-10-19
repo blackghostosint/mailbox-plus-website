@@ -18,7 +18,15 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { walkMdFiles } from './lib/article-utils.ts';
+import {
+  loadArticles,
+  matchWildcardSegment,
+  matchPathSegments,
+  globMatch,
+  resolveFiles,
+} from './lib/article-utils.ts';
+
+export { matchWildcardSegment, matchPathSegments, globMatch, resolveFiles };
 import { httpClient } from '../astro/src/lib/http-client.ts';
 
 function loadEnvKeys(): Record<string, string> {
@@ -301,93 +309,6 @@ function printReport(filePath: string, result: any, minScore = 82) {
   console.log('\n' + '='.repeat(80) + '\n');
 }
 
-export function matchWildcardSegment(text: string, pattern: string): boolean {
-  if (pattern === '*') return true;
-  const parts = pattern.split('*');
-  if (parts.length === 1) return text === pattern;
-
-  if (!text.startsWith(parts[0])) return false;
-  if (!text.endsWith(parts[parts.length - 1])) return false;
-
-  let pos = parts[0].length;
-  for (let i = 1; i < parts.length - 1; i++) {
-    const part = parts[i];
-    if (part === '') continue;
-    const found = text.indexOf(part, pos);
-    if (found === -1) return false;
-    pos = found + part.length;
-  }
-  return pos <= text.length - parts[parts.length - 1].length;
-}
-
-export function matchPathSegments(fileSegs: string[], patSegs: string[]): boolean {
-  let fIndex = 0;
-  let pIndex = 0;
-
-  while (pIndex < patSegs.length && fIndex < fileSegs.length) {
-    const p = patSegs[pIndex];
-    if (p === '**') {
-      if (pIndex === patSegs.length - 1) return true;
-      for (let i = fIndex; i <= fileSegs.length; i++) {
-        if (matchPathSegments(fileSegs.slice(i), patSegs.slice(pIndex + 1))) {
-          return true;
-        }
-      }
-      return false;
-    }
-
-    if (!matchWildcardSegment(fileSegs[fIndex], p)) {
-      return false;
-    }
-
-    fIndex++;
-    pIndex++;
-  }
-
-  while (pIndex < patSegs.length && patSegs[pIndex] === '**') {
-    pIndex++;
-  }
-
-  return fIndex === fileSegs.length && pIndex === patSegs.length;
-}
-
-export function globMatch(filePath: string, pattern: string): boolean {
-  const fileSegs = filePath
-    .replace(/\\/g, '/')
-    .split('/')
-    .filter((s) => s && s !== '.');
-  const patSegs = pattern
-    .replace(/\\/g, '/')
-    .split('/')
-    .filter((s) => s && s !== '.');
-  return matchPathSegments(fileSegs, patSegs);
-}
-
-export function resolveFiles(target: string): string[] {
-  if (fs.existsSync(target) && fs.statSync(target).isFile()) {
-    return [target];
-  }
-
-  if (fs.existsSync(target) && fs.statSync(target).isDirectory()) {
-    return walkMdFiles(target);
-  }
-
-  // Handle glob pattern matching or dir searching
-  if (target.includes('*')) {
-    const baseDir = target.split('*')[0] || '.';
-    const searchDir = fs.existsSync(baseDir)
-      ? fs.statSync(baseDir).isDirectory()
-        ? baseDir
-        : path.dirname(baseDir)
-      : '.';
-    const allMd = walkMdFiles(searchDir);
-
-    return allMd.filter((f) => globMatch(f, target));
-  }
-
-  return [];
-}
-
 async function main() {
   const args = process.argv.slice(2);
   let target = '';
@@ -424,15 +345,16 @@ async function main() {
     process.exit(1);
   }
 
-  const files = resolveFiles(target);
-  if (files.length === 0) {
+  const articles = loadArticles(target);
+  if (articles.length === 0) {
     console.error(`No markdown files found matching: ${target}`);
     process.exit(1);
   }
 
   let overallFailed = false;
-  for (const filePath of files) {
-    const content = fs.readFileSync(filePath, 'utf8');
+  for (const article of articles) {
+    const filePath = article.filePath;
+    const content = article.raw;
 
     try {
       const result = await evaluateArticle(content, {
