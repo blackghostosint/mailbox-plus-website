@@ -149,6 +149,40 @@ export function isSiteRouteUrl(target) {
   return false;
 }
 
+export const KNOWN_DOMAINS = new Set([
+  'mailboxplusohio.com',
+  'google.com',
+  'facebook.com',
+  'instagram.com',
+  'twitter.com',
+  'x.com',
+  'github.com',
+  'gitlab.com',
+  'netlify.app',
+  'netlify.com',
+]);
+
+/**
+ * Safely determines if a token is a web domain or hostname without incomplete substring matching.
+ */
+export function isWebDomain(term) {
+  if (!term) return false;
+  try {
+    const urlStr = term.includes('://') ? term : `https://${term}`;
+    const hostname = new URL(urlStr).hostname.toLowerCase();
+    const parts = hostname.split('.');
+    if (parts.length >= 2) {
+      const rootDomain = parts.slice(-2).join('.');
+      if (KNOWN_DOMAINS.has(rootDomain)) {
+        return true;
+      }
+    }
+  } catch {
+    // If URL parsing fails, return false
+  }
+  return false;
+}
+
 /**
  * Clean punctuation from raw backtick terms
  */
@@ -215,11 +249,7 @@ export function shouldSkipBacktickToken(term, codeSpan = '') {
   if (isSiteRouteUrl(term)) return true;
 
   // Web domains
-  if (
-    term.includes('mailboxplusohio.com') ||
-    term.includes('google.com') ||
-    term.includes('facebook.com')
-  ) {
+  if (isWebDomain(term)) {
     return true;
   }
 

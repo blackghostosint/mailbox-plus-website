@@ -5,6 +5,7 @@ import {
   checkPathExists,
   isSiteRouteUrl,
   isDynamicOrPlaceholderPath,
+  isWebDomain,
   ROOT,
 } from '../check-doc-links.mjs';
 
@@ -81,5 +82,17 @@ describe('check-doc-links', () => {
     expect(isDynamicOrPlaceholderPath('reports/*.md')).toBe(true);
     expect(isDynamicOrPlaceholderPath('node verify.mjs <path.md>')).toBe(true);
     expect(isDynamicOrPlaceholderPath('scripts/verify/check-doc-links.mjs')).toBe(false);
+  });
+
+  it('correctly identifies web domains and hostnames', () => {
+    expect(isWebDomain('mailboxplusohio.com')).toBe(true);
+    expect(isWebDomain('google.com')).toBe(true);
+    expect(isWebDomain('facebook.com')).toBe(true);
+    expect(isWebDomain('subdomain.google.com')).toBe(true);
+    expect(isWebDomain('https://mailboxplusohio.com/services/')).toBe(true);
+
+    expect(isWebDomain('scripts/verify/check-doc-links.mjs')).toBe(false);
+    expect(isWebDomain('package.json')).toBe(false);
+    expect(isWebDomain('google.com.attacker.com')).toBe(false);
   });
 });
