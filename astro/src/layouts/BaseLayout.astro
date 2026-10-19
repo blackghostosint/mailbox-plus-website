@@ -44,11 +44,7 @@ const canonicalUrl = canonical
 const fallbackUrl = toCanonicalUrl('/');
 
 const routeMetaSchema = routeMeta?.schema || [];
-const propsSchema = schema
-  ? Array.isArray(schema)
-    ? schema
-    : [schema]
-  : [];
+const propsSchema = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 
 const schemaNodes = [...routeMetaSchema, ...propsSchema];
 
@@ -76,9 +72,9 @@ const canonicalPath = (canonical || '')
   .replace(/\/$/, '')
   .replace(/\//g, '-');
 const ogPath = ogImage
-  ? (ogImage.startsWith('http') || ogImage.startsWith('/')
-      ? ogImage
-      : `/og/${canonicalPath || 'home'}.png`)
+  ? ogImage.startsWith('http') || ogImage.startsWith('/')
+    ? ogImage
+    : `/og/${canonicalPath || 'home'}.png`
   : DEFAULT_OG;
 const absoluteOgImage = ogPath.startsWith('http') ? ogPath : `${siteUrl}${ogPath}`;
 // Only declare 1200x630 for auto-generated /og/*.png cards. Pages that pass a
@@ -88,7 +84,7 @@ const ogImageWidth = ogImage ? undefined : '1200';
 const ogImageHeight = ogImage ? undefined : '630';
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full">
   <head>
     <meta charset="UTF-8" />
@@ -109,7 +105,13 @@ const ogImageHeight = ogImage ? undefined : '630';
     <link rel="llms-txt" href="/llms.txt" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
-    <link rel="preload" href="/fonts/dmsans-regular.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/dmsans-regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
     <meta name="format-detection" content="telephone=no" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={resolvedTitle} />
@@ -132,10 +134,15 @@ const ogImageHeight = ogImage ? undefined : '630';
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <!-- Meta Pixel Code (noscript) -->
-    <noscript><img height="1" width="1" style="display:none"
-      src="https://www.facebook.com/tr?id=1684128789653811&ev=PageView&noscript=1"
-      alt=""
-    /></noscript>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        src="https://www.facebook.com/tr?id=1684128789653811&ev=PageView&noscript=1"
+        alt=""
+      />
+    </noscript>
     <!-- End Meta Pixel Code -->
     <a
       href="#main-content"
