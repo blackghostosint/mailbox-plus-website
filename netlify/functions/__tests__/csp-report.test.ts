@@ -44,7 +44,7 @@ describe('csp-report function handler', () => {
 
     const res = await handler(req, ctx);
     expect(res.status).toBe(405);
-    expect(await res.json()).toEqual({ error: 'Method not allowed' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Method not allowed' });
   });
 
   it('handles nested csp-report payload and returns status 204', async () => {
@@ -116,7 +116,7 @@ describe('csp-report function handler', () => {
     const res = await handler(req, ctx);
 
     expect(res.status).toBe(400);
-    expect(await res.json()).toEqual({ error: 'Bad Request' });
+    expect(await res.json()).toEqual({ ok: false, error: 'Bad Request' });
   });
 
   it('enforces rate limiting of 10 requests per minute and returns status 429 on 11th attempt', async () => {
@@ -153,6 +153,9 @@ describe('csp-report function handler', () => {
     expect(res11.headers.get('X-RateLimit-Limit')).toBe('10');
     expect(res11.headers.get('X-RateLimit-Remaining')).toBe('0');
     expect(res11.headers.get('X-RateLimit-Reset')).toBeTruthy();
-    expect(await res11.json()).toEqual({ error: 'Too many requests. Please try again later.' });
+    expect(await res11.json()).toEqual({
+      ok: false,
+      error: 'Too many requests. Please try again later.',
+    });
   });
 });

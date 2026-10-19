@@ -260,8 +260,6 @@ export async function httpClient<T = unknown>(
           const errObj = data as Record<string, unknown>;
           if (typeof errObj.error === 'string' && errObj.error.trim()) {
             errorMessage = errObj.error;
-          } else if (typeof errObj.message === 'string' && errObj.message.trim()) {
-            errorMessage = errObj.message;
           }
         } else if (response.statusText) {
           errorMessage = response.statusText;

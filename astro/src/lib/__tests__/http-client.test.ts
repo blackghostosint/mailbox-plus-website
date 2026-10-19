@@ -117,7 +117,7 @@ describe('http-client module', () => {
         ok: false,
         status: 500,
         statusText: 'Internal Server Error',
-        json: async () => ({ message: 'Server down' }),
+        json: async () => ({ error: 'Server down' }),
       });
 
       const promise = httpClient('/api/broken', {
