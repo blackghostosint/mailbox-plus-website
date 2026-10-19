@@ -217,11 +217,11 @@ describe('Netlify Function Endpoints CORS and Header Consistency', () => {
         expect(getClientIp(headers)).toBe('198.51.100.42');
       });
 
-      it('extracts the last IP in x-forwarded-for when Edge connection headers are absent', () => {
+      it('extracts the first IP in x-forwarded-for when Edge connection headers are absent', () => {
         const headers = {
-          'x-forwarded-for': 'spoofed_ip_1, spoofed_ip_2, trusted_edge_ip',
+          'x-forwarded-for': 'originating_client_ip, proxy_ip_1, proxy_ip_2',
         };
-        expect(getClientIp(headers)).toBe('trusted_edge_ip');
+        expect(getClientIp(headers)).toBe('originating_client_ip');
       });
 
       it('prevents rate limit bypass via x-forwarded-for header spoofing', async () => {
