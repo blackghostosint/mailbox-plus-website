@@ -21,6 +21,8 @@ Before opening a pull request, contributors must run local pre-flight checks to 
 3. **Corpus & Strict Verification Options:**
    - `npm run verify -- --strict`: Runs strict pre-flight checks locally (matching CI PR enforcement).
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
+   - `npm run verify:ownership`: Verifies internal author authorization and checks for the mandatory in-house authorship stamp (`authorship: article-writer-bot (in-house)`) when `content/articles/` files are modified.
+   - `npm run preflight:article`: Runs the complete local preflight check suite (feeds, receipts, link slashes, and ownership verification) before opening an article pull request.
 4. **End-to-End (E2E) Browser Testing (`npm run test:e2e`):**
    Executes Playwright tests against a local build to verify interactive workflows (contact forms, mailbox reservations, tracking lookups, live accessibility regions).
    - **Browser Installation:** Run `npx playwright install` to install required browser binaries (Chromium, Firefox, WebKit).
