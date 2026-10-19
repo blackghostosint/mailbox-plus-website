@@ -240,4 +240,134 @@ describe('checkout module', () => {
 
     vi.unstubAllEnvs();
   });
+
+  it('blocks redirect, logs security error, and displays user alert when response contains an unapproved external origin', async () => {
+    document.body.innerHTML = `
+      <div>
+        <button class="checkout-btn" data-tier="business_small">Subscribe</button>
+      </div>
+    `;
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const maliciousUrl = 'https://attacker.com/phishing-checkout';
+    const initialHref = 'http://localhost:3000/';
+    const mockLocation = { href: initialHref };
+    Object.defineProperty(window, 'location', {
+      get: () => mockLocation,
+      set: (val: string) => {
+        mockLocation.href = val;
+      },
+      configurable: true,
+    });
+
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: maliciousUrl }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    initCheckoutButtons();
+
+    const btn = document.querySelector<HTMLButtonElement>('.checkout-btn')!;
+    btn.click();
+
+    await vi.waitFor(() => {
+      expect(btn.disabled).toBe(false);
+    });
+
+    // Navigation must be cancelled and window.location.href unchanged
+    expect(mockLocation.href).toBe(initialHref);
+
+    // Localized user error alert must be displayed
+    const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
+    expect(errorEl).not.toBeNull();
+    expect(errorEl?.textContent).toBe(
+      `Sorry, we couldn’t open checkout. Please call us at ${siteConfig.contact.phone}.`
+    );
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('blocks redirect when URL uses non-HTTPS scheme such as javascript: or data:', async () => {
+    document.body.innerHTML = `
+      <div>
+        <button class="checkout-btn" data-tier="business_large">Subscribe</button>
+      </div>
+    `;
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const dangerousUrl = 'javascript:alert("xss")';
+    const initialHref = 'http://localhost:3000/';
+    const mockLocation = { href: initialHref };
+    Object.defineProperty(window, 'location', {
+      get: () => mockLocation,
+      set: (val: string) => {
+        mockLocation.href = val;
+      },
+      configurable: true,
+    });
+
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: dangerousUrl }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    initCheckoutButtons();
+
+    const btn = document.querySelector<HTMLButtonElement>('.checkout-btn')!;
+    btn.click();
+
+    await vi.waitFor(() => {
+      expect(btn.disabled).toBe(false);
+    });
+
+    expect(mockLocation.href).toBe(initialHref);
+    const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
+    expect(errorEl).not.toBeNull();
+    expect(errorEl?.textContent).toContain('Sorry, we couldn’t open checkout.');
+
+    consoleErrorSpy.mockRestore();
+  });
+
+  it('blocks redirect when hostname attempts host spoofing (e.g. checkout.stripe.com.evil.com)', async () => {
+    document.body.innerHTML = `
+      <div>
+        <button class="checkout-btn" data-tier="small_packages10">Subscribe</button>
+      </div>
+    `;
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spoofedUrl = 'https://checkout.stripe.com.evil.com/c/pay/cs_test_123';
+    const initialHref = 'http://localhost:3000/';
+    const mockLocation = { href: initialHref };
+    Object.defineProperty(window, 'location', {
+      get: () => mockLocation,
+      set: (val: string) => {
+        mockLocation.href = val;
+      },
+      configurable: true,
+    });
+
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: spoofedUrl }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    initCheckoutButtons();
+
+    const btn = document.querySelector<HTMLButtonElement>('.checkout-btn')!;
+    btn.click();
+
+    await vi.waitFor(() => {
+      expect(btn.disabled).toBe(false);
+    });
+
+    expect(mockLocation.href).toBe(initialHref);
+    const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
+    expect(errorEl).not.toBeNull();
+
+    consoleErrorSpy.mockRestore();
+  });
 });

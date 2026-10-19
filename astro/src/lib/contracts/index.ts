@@ -1,3 +1,4 @@
+/* global process */
 import { z } from 'zod';
 
 /**
@@ -30,8 +31,67 @@ export const CreateCheckoutRequestSchema = z.object({
 });
 export type CreateCheckoutRequest = z.infer<typeof CreateCheckoutRequestSchema>;
 
+/**
+ * Origin validation helper for checkout redirect URLs.
+ * Rejects non-HTTPS protocols (except for local dev/test environment) and non-whitelisted external hosts.
+ */
+export function isValidCheckoutUrl(urlStr: string): boolean {
+  if (!urlStr || typeof urlStr !== 'string') return false;
+  try {
+    const parsed = new URL(urlStr);
+
+    const meta =
+      typeof import.meta !== 'undefined'
+        ? (import.meta as unknown as { env?: Record<string, string> })
+        : undefined;
+    const isDevOrTest =
+      (typeof process !== 'undefined' &&
+        (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development')) ||
+      Boolean(meta?.env?.DEV || meta?.env?.MODE === 'test');
+
+    if (parsed.protocol === 'https:') {
+      // Approved payment origins
+      if (
+        parsed.hostname === 'checkout.stripe.com' ||
+        parsed.hostname === 'pay.stripe.com' ||
+        parsed.hostname.endsWith('.stripe.com')
+      ) {
+        return true;
+      }
+      // Approved local dev/test origins over HTTPS
+      if (
+        isDevOrTest &&
+        (parsed.hostname === 'localhost' ||
+          parsed.hostname === '127.0.0.1' ||
+          parsed.hostname.endsWith('.localhost'))
+      ) {
+        return true;
+      }
+    } else if (parsed.protocol === 'http:') {
+      // HTTP scheme allowed ONLY for local dev/test hostnames
+      if (
+        isDevOrTest &&
+        (parsed.hostname === 'localhost' ||
+          parsed.hostname === '127.0.0.1' ||
+          parsed.hostname.endsWith('.localhost'))
+      ) {
+        return true;
+      }
+    }
+
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 export const CreateCheckoutSuccessSchema = z.object({
-  url: z.string().url(),
+  url: z
+    .string()
+    .url()
+    .refine((url) => isValidCheckoutUrl(url), {
+      message: 'Invalid or unapproved checkout redirect URL',
+    }),
 });
 export type CreateCheckoutSuccess = z.infer<typeof CreateCheckoutSuccessSchema>;
 
