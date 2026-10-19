@@ -42,7 +42,8 @@ npm run verify:doctor   # Run environment and setup sanity checks
 npx playwright install  # Install Playwright browser binaries
 npm run dev             # Astro dev server
 npm run verify          # Verify local article/content changes before opening PR
-npm run build           # Production build (cd astro && npm run build)
+npm run build           # Production build (cd astro && npm run build) - required before running a11y audits
+npm run audit:a11y      # Run local axe-core accessibility audit (requires dist/ build output from npm run build)
 npm test                # Astro unit tests (vitest)
 npm run test:e2e        # Playwright E2E tests (launches preview server serving dist/)
 npm run check           # Astro type check (astro check)
