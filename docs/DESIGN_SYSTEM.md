@@ -35,6 +35,7 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 | --------------------------- | -------------------------------- | ----------------- | ----------------------------------------------------------------- |
 | `--color-accent-gold`       | `#f7c82a`                        | 8.95:1 ✅ AA      | Filled CTAs on dark, gold badges, decorative accents against navy |
 | `--color-accent-gold-light` | `#f7d46a`                        | —                 | Hover glow, lighter gold highlights on dark                       |
+| `--color-accent-gold-dark`  | `#d4a820`                        | —                 | Dark gold gradient stop                                           |
 | `--color-accent`            | `var(--color-accent-gold)`       | —                 | Accent alias pointing to gold                                     |
 | `--color-accent-light`      | `var(--color-accent-gold-light)` | —                 | Light accent alias pointing to light gold                         |
 
@@ -46,6 +47,21 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 | --------------------------- | --------- | ------------------ | --------------------------------------------------------------- |
 | `--color-accent-warm`       | `#984b2e` | 4.76:1 ✅ AA       | Filled CTAs on light, links, active states, warm accent borders |
 | `--color-accent-warm-light` | `#b8734d` | 3.25:1 AA (lg)     | Hover states, softer accent on light                            |
+| `--color-accent-warm-dark`  | `#8b4a30` | —                  | Dark terracotta gradient stop                                   |
+
+### Brand & Carrier Colors
+
+| Token                               | Value     | Usage                                   |
+| ----------------------------------- | --------- | --------------------------------------- |
+| `--color-brand-facebook`            | `#0b5fcc` | Facebook social brand button background |
+| `--color-brand-linkedin`            | `#0a66c2` | LinkedIn social brand button background |
+| `--color-brand-nextdoor`            | `#157347` | Nextdoor social brand button background |
+| `--color-carrier-fedex`             | `#4d148c` | FedEx carrier brand color               |
+| `--color-carrier-happyreturns`      | `#00a3e0` | Happy Returns carrier brand color       |
+| `--color-carrier-happyreturns-dark` | `#00648c` | Happy Returns dark carrier text color   |
+| `--color-carrier-ups`               | `#ffb500` | UPS carrier brand color                 |
+| `--color-carrier-ups-dark`          | `#7a5600` | UPS dark carrier text color             |
+| `--color-carrier-dhl`               | `#003399` | DHL carrier brand color                 |
 
 > **In practical terms:** The terracotta is your everyday action color. It lives on the cream backgrounds — "Learn More" on a service card, "Drop Off a Return" button, "See All Services" links. It reads as warm, premium, and intentional.
 
@@ -93,13 +109,14 @@ All text colors retain WCAG AA against all background variants.
 | `--color-overlay-blue` | `#285a8e` | Primary navy overlay base |
 | `--color-shadow`       | `#1f2933` | Base shadow color         |
 
-### Gradient Stops — Deep Navy (Heroes, CTA Bands)
+### Gradient Stops — Deep Navy (Heroes, CTA Bands) & Social
 
-| Token                    | Value     | Usage                             |
-| ------------------------ | --------- | --------------------------------- |
-| `--color-gradient-start` | `#285a8e` | Hero and CTA gradient start stop  |
-| `--color-gradient-mid`   | `#1f3f63` | Hero and CTA gradient middle stop |
-| `--color-gradient-end`   | `#162c45` | Hero and CTA gradient end stop    |
+| Token                        | Value                                                    | Usage                             |
+| ---------------------------- | -------------------------------------------------------- | --------------------------------- |
+| `--color-gradient-start`     | `#285a8e`                                                | Hero and CTA gradient start stop  |
+| `--color-gradient-mid`       | `#1f3f63`                                                | Hero and CTA gradient middle stop |
+| `--color-gradient-end`       | `#162c45`                                                | Hero and CTA gradient end stop    |
+| `--color-gradient-instagram` | `linear-gradient(135deg, #833ab4, #fd1d1d 50%, #fcaf45)` | Instagram brand gradient          |
 
 Standard gradient: `bg-gradient-to-br from-[var(--color-gradient-start)] via-[var(--color-gradient-mid)] to-[var(--color-gradient-end)]`
 

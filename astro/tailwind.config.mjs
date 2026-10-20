@@ -23,6 +23,9 @@ export default {
         sans: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
         heading: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
       },
+      backgroundImage: {
+        'instagram-gradient': 'var(--color-gradient-instagram)',
+      },
       colors: {
         primary: {
           DEFAULT: 'var(--color-primary)',
@@ -35,8 +38,23 @@ export default {
           light: 'var(--color-accent-gold-light)',
           gold: 'var(--color-accent-gold)',
           goldLight: 'var(--color-accent-gold-light)',
+          goldDark: 'var(--color-accent-gold-dark)',
           warm: 'var(--color-accent-warm)',
           warmLight: 'var(--color-accent-warm-light)',
+          warmDark: 'var(--color-accent-warm-dark)',
+        },
+        brand: {
+          facebook: 'var(--color-brand-facebook)',
+          linkedin: 'var(--color-brand-linkedin)',
+          nextdoor: 'var(--color-brand-nextdoor)',
+        },
+        carrier: {
+          fedex: 'var(--color-carrier-fedex)',
+          happyreturns: 'var(--color-carrier-happyreturns)',
+          happyreturnsDark: 'var(--color-carrier-happyreturns-dark)',
+          ups: 'var(--color-carrier-ups)',
+          upsDark: 'var(--color-carrier-ups-dark)',
+          dhl: 'var(--color-carrier-dhl)',
         },
         bg: {
           primary: 'var(--color-bg-primary)',
