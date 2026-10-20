@@ -40,15 +40,24 @@
     --color-accent-warm-dark: #8b4a30;
 
     /* Brand & Carrier Colors */
-    --color-brand-facebook: #0b5fcc;
-    --color-brand-linkedin: #0a66c2;
-    --color-brand-nextdoor: #157347;
-    --color-carrier-fedex: #4d148c;
-    --color-carrier-happyreturns: #00a3e0;
-    --color-carrier-happyreturns-dark: #00648c;
-    --color-carrier-ups: #ffb500;
-    --color-carrier-ups-dark: #7a5600;
-    --color-carrier-dhl: #003399;
+    --color-brand-facebook-rgb: 11 95 204;
+    --color-brand-facebook: rgb(var(--color-brand-facebook-rgb));
+    --color-brand-linkedin-rgb: 10 102 194;
+    --color-brand-linkedin: rgb(var(--color-brand-linkedin-rgb));
+    --color-brand-nextdoor-rgb: 21 115 71;
+    --color-brand-nextdoor: rgb(var(--color-brand-nextdoor-rgb));
+    --color-carrier-fedex-rgb: 77 20 140;
+    --color-carrier-fedex: rgb(var(--color-carrier-fedex-rgb));
+    --color-carrier-happyreturns-rgb: 0 163 224;
+    --color-carrier-happyreturns: rgb(var(--color-carrier-happyreturns-rgb));
+    --color-carrier-happyreturns-dark-rgb: 0 100 140;
+    --color-carrier-happyreturns-dark: rgb(var(--color-carrier-happyreturns-dark-rgb));
+    --color-carrier-ups-rgb: 255 181 0;
+    --color-carrier-ups: rgb(var(--color-carrier-ups-rgb));
+    --color-carrier-ups-dark-rgb: 122 86 0;
+    --color-carrier-ups-dark: rgb(var(--color-carrier-ups-dark-rgb));
+    --color-carrier-dhl-rgb: 0 51 153;
+    --color-carrier-dhl: rgb(var(--color-carrier-dhl-rgb));
 
     /* Backgrounds — warm paper */
     --color-bg-primary: #f2ede4;

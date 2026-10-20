@@ -51,17 +51,26 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 
 ### Brand & Carrier Colors
 
-| Token                               | Value     | Usage                                   |
-| ----------------------------------- | --------- | --------------------------------------- |
-| `--color-brand-facebook`            | `#0b5fcc` | Facebook social brand button background |
-| `--color-brand-linkedin`            | `#0a66c2` | LinkedIn social brand button background |
-| `--color-brand-nextdoor`            | `#157347` | Nextdoor social brand button background |
-| `--color-carrier-fedex`             | `#4d148c` | FedEx carrier brand color               |
-| `--color-carrier-happyreturns`      | `#00a3e0` | Happy Returns carrier brand color       |
-| `--color-carrier-happyreturns-dark` | `#00648c` | Happy Returns dark carrier text color   |
-| `--color-carrier-ups`               | `#ffb500` | UPS carrier brand color                 |
-| `--color-carrier-ups-dark`          | `#7a5600` | UPS dark carrier text color             |
-| `--color-carrier-dhl`               | `#003399` | DHL carrier brand color                 |
+| Token                                   | Value                                             | Usage                                   |
+| --------------------------------------- | ------------------------------------------------- | --------------------------------------- |
+| `--color-brand-facebook-rgb`            | `11 95 204`                                       | Facebook social brand color (RGB tuple) |
+| `--color-brand-facebook`                | `rgb(var(--color-brand-facebook-rgb))`            | Facebook social brand button background |
+| `--color-brand-linkedin-rgb`            | `10 102 194`                                      | LinkedIn social brand color (RGB tuple) |
+| `--color-brand-linkedin`                | `rgb(var(--color-brand-linkedin-rgb))`            | LinkedIn social brand button background |
+| `--color-brand-nextdoor-rgb`            | `21 115 71`                                       | Nextdoor social brand color (RGB tuple) |
+| `--color-brand-nextdoor`                | `rgb(var(--color-brand-nextdoor-rgb))`            | Nextdoor social brand button background |
+| `--color-carrier-fedex-rgb`             | `77 20 140`                                       | FedEx carrier brand color (RGB tuple)   |
+| `--color-carrier-fedex`                 | `rgb(var(--color-carrier-fedex-rgb))`             | FedEx carrier brand color               |
+| `--color-carrier-happyreturns-rgb`      | `0 163 224`                                       | Happy Returns carrier brand color (RGB) |
+| `--color-carrier-happyreturns`          | `rgb(var(--color-carrier-happyreturns-rgb))`      | Happy Returns carrier brand color       |
+| `--color-carrier-happyreturns-dark-rgb` | `0 100 140`                                       | Happy Returns dark carrier color (RGB)  |
+| `--color-carrier-happyreturns-dark`     | `rgb(var(--color-carrier-happyreturns-dark-rgb))` | Happy Returns dark carrier text color   |
+| `--color-carrier-ups-rgb`               | `255 181 0`                                       | UPS carrier brand color (RGB tuple)     |
+| `--color-carrier-ups`                   | `rgb(var(--color-carrier-ups-rgb))`               | UPS carrier brand color                 |
+| `--color-carrier-ups-dark-rgb`          | `122 86 0`                                        | UPS dark carrier color (RGB tuple)      |
+| `--color-carrier-ups-dark`              | `rgb(var(--color-carrier-ups-dark-rgb))`          | UPS dark carrier text color             |
+| `--color-carrier-dhl-rgb`               | `0 51 153`                                        | DHL carrier brand color (RGB tuple)     |
+| `--color-carrier-dhl`                   | `rgb(var(--color-carrier-dhl-rgb))`               | DHL carrier brand color                 |
 
 > **In practical terms:** The terracotta is your everyday action color. It lives on the cream backgrounds — "Learn More" on a service card, "Drop Off a Return" button, "See All Services" links. It reads as warm, premium, and intentional.
 
