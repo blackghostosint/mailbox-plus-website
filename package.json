@@ -99,7 +99,7 @@
       "prettier --write"
     ],
     "*.astro": [
-      "npm run check"
+      "node scripts/check-astro-staged.mjs"
     ],
     "content/articles/**/*.md": [
       "tsx scripts/verify/verify.mjs article",
