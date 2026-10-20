@@ -14,6 +14,8 @@ import type {
   AggregateRating,
   ContactPoint,
   OpeningHoursSpecification,
+  BreadcrumbList,
+  VideoObject,
 } from 'schema-dts';
 
 import type { SiteConfig } from '../types/siteConfig';
@@ -550,6 +552,86 @@ export const getImageObjectSchema = ({
   },
 });
 
+/** ---------- BreadcrumbList ---------- */
+export const getBreadcrumbSchema = (
+  configOrItems: SiteConfig | Array<{ name?: string; label?: string; url: string }>,
+  itemsArg?: Array<{ name?: string; label?: string; url: string }>
+): WithContext<BreadcrumbList> => {
+  const items = Array.isArray(configOrItems) ? configOrItems : itemsArg || [];
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      name: item.name || item.label || '',
+      item: toCanonicalUrl(item.url),
+    })),
+  };
+};
+
+/** ---------- VideoObject ---------- */
+export interface VideoObjectSchemaOptions {
+  name: string;
+  description: string;
+  thumbnailUrl: string | string[];
+  contentUrl?: string;
+  embedUrl?: string;
+  uploadDate: string;
+  duration?: string;
+  transcript?: string;
+  hasPart?: Array<Record<string, unknown>>;
+  publisher?: Record<string, unknown>;
+  potentialAction?: Record<string, unknown>;
+  url?: string;
+  id?: string;
+}
+
+export const getVideoObjectSchema = (
+  configOrOptions: SiteConfig | VideoObjectSchemaOptions,
+  optionsArg?: VideoObjectSchemaOptions
+): WithContext<VideoObject> => {
+  const isConfig =
+    typeof configOrOptions === 'object' &&
+    configOrOptions !== null &&
+    'domain' in configOrOptions &&
+    'name' in configOrOptions &&
+    'contact' in configOrOptions;
+
+  const config = isConfig ? (configOrOptions as SiteConfig) : siteConfig;
+  const options = isConfig ? optionsArg! : (configOrOptions as VideoObjectSchemaOptions);
+
+  const origin = getOrigin(config);
+  const videoId =
+    options.id || (options.url ? `${toCanonicalUrl(options.url)}#video` : `${origin}#video`);
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    '@id': videoId,
+    name: options.name,
+    description: options.description,
+    thumbnailUrl: options.thumbnailUrl,
+    ...(options.contentUrl && { contentUrl: options.contentUrl }),
+    ...(options.embedUrl && { embedUrl: options.embedUrl }),
+    uploadDate: options.uploadDate,
+    ...(options.duration && { duration: options.duration }),
+    ...(options.transcript && { transcript: options.transcript }),
+    ...(options.hasPart?.length && {
+      hasPart: options.hasPart as unknown as WithContext<VideoObject>['hasPart'],
+    }),
+    publisher: (options.publisher as unknown as WithContext<VideoObject>['publisher']) || {
+      '@type': 'Organization',
+      '@id': toCanonicalUrl(`${origin}#localbusiness`),
+      name: config.name,
+    },
+    ...(options.potentialAction && {
+      potentialAction:
+        options.potentialAction as unknown as WithContext<VideoObject>['potentialAction'],
+    }),
+  } as WithContext<VideoObject>;
+};
+
 /** ---------- Unified Schema Graph Builder ---------- */
 export interface SchemaPageMeta {
   title?: string;
@@ -647,21 +729,35 @@ export const getSchemaGraph = (
     graphNodesList.push(node);
   }
 
+  function stripContext<T>(obj: T): T {
+    if (obj === null || typeof obj !== 'object') {
+      return obj;
+    }
+    if (Array.isArray(obj)) {
+      return obj.map(stripContext) as unknown as T;
+    }
+    const result: Record<string, unknown> = {};
+    for (const [key, value] of Object.entries(obj as Record<string, unknown>)) {
+      if (key === '@context') continue;
+      result[key] = stripContext(value);
+    }
+    return result as T;
+  }
+
   const seenIds = new Set<string>();
   const finalGraphNodes: Record<string, unknown>[] = [];
 
   for (const node of graphNodesList) {
-    const nodeCopy = { ...node };
-    delete nodeCopy['@context'];
+    const cleanNode = stripContext(node) as Record<string, unknown>;
 
-    const id = (nodeCopy['@id'] as string) || (nodeCopy['@type'] as string);
+    const id = (cleanNode['@id'] as string) || (cleanNode['@type'] as string);
     if (id && seenIds.has(id)) {
       continue;
     }
     if (id) {
       seenIds.add(id);
     }
-    finalGraphNodes.push(nodeCopy);
+    finalGraphNodes.push(cleanNode);
   }
 
   return {
