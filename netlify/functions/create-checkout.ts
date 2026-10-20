@@ -123,7 +123,10 @@ export default withCors(
         cancel_url: `${siteUrl}${tierConfig.cancelUrl}`,
       });
 
-      const responsePayload = CreateCheckoutSuccessSchema.parse({ url: session.url || '' });
+      const responsePayload = CreateCheckoutSuccessSchema.parse({
+        ok: true as const,
+        data: { url: session.url || '' },
+      });
       return jsonResponse(responsePayload, 200);
     } catch (err: any) {
       logger.error('create-checkout error', err);

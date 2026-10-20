@@ -9,8 +9,20 @@ const accessibility = siteConfig.accessibility || {
   contactEmail: siteConfig.contact.email,
   phone: siteConfig.contact.phone,
 };
+const rawRecaptchaKey =
+  (typeof import.meta !== 'undefined' && import.meta.env
+    ? import.meta.env.VITE_RECAPTCHA_SITE_KEY || import.meta.env.RECAPTCHA_SITE_KEY
+    : undefined) ||
+  (typeof process !== 'undefined' && process.env
+    ? process.env.VITE_RECAPTCHA_SITE_KEY || process.env.RECAPTCHA_SITE_KEY
+    : undefined);
+
 const recaptchaSiteKey =
-  import.meta.env.VITE_RECAPTCHA_SITE_KEY || import.meta.env.RECAPTCHA_SITE_KEY || '';
+  rawRecaptchaKey &&
+  rawRecaptchaKey.trim() !== '' &&
+  !rawRecaptchaKey.toLowerCase().includes('your_recaptcha_site_key_here')
+    ? rawRecaptchaKey.trim()
+    : undefined;
 ---
 
 <BaseLayout
