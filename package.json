@@ -98,6 +98,9 @@
       "eslint --fix",
       "prettier --write"
     ],
+    "*.astro": [
+      "node scripts/check-astro-staged.mjs"
+    ],
     "content/articles/**/*.md": [
       "tsx scripts/verify/verify.mjs article",
       "prettier --write"
