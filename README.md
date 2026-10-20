@@ -6,14 +6,14 @@ The official website for Mailbox Plus — a community-focused pack & ship retail
 
 ## Tech Stack
 
-| Layer     | Technology                                             |
-| --------- | ------------------------------------------------------ |
-| Framework | Astro 5 (SSG) + React islands                          |
-| Language  | TypeScript (strict)                                    |
-| Styling   | Tailwind CSS 3 + CSS custom properties (design tokens) |
-| Testing   | Vitest (unit, in `astro/`)                             |
-| CI/CD     | GitHub Actions → Netlify                               |
-| Analytics | Google Analytics 4, Meta Pixel                         |
+| Layer     | Technology                                                    |
+| --------- | ------------------------------------------------------------- |
+| Framework | Astro 5 (SSG) + React islands                                 |
+| Language  | TypeScript (strict)                                           |
+| Styling   | Tailwind CSS 3 + CSS custom properties (design tokens)        |
+| Testing   | Vitest (unit, in `astro/`), Playwright (E2E, in `tests/e2e/`) |
+| CI/CD     | GitHub Actions → Netlify                                      |
+| Analytics | Google Analytics 4, Meta Pixel                                |
 
 ## Project Layout
 
@@ -30,6 +30,7 @@ content/articles/          # Article markdown (YAML frontmatter)
 public/                    # Static assets (Astro publicDir)
 scripts/                   # Article/SEO audit tooling
 netlify/functions/         # Serverless functions
+tests/e2e/                 # Playwright end-to-end tests
 ```
 
 ## Quick Start
@@ -38,10 +39,13 @@ netlify/functions/         # Serverless functions
 npm install
 cp .env.example .env    # Fill in required variables
 npm run verify:doctor   # Run environment and setup sanity checks
+npx playwright install  # Install Playwright browser binaries
 npm run dev             # Astro dev server
 npm run verify          # Verify local article/content changes before opening PR
-npm run build           # Production build (cd astro && npm run build)
+npm run build           # Production build (cd astro && npm run build) - required before running a11y audits
+npm run audit:a11y      # Run local axe-core accessibility audit (requires dist/ build output from npm run build)
 npm test                # Astro unit tests (vitest)
+npm run test:e2e        # Playwright E2E tests (launches preview server serving dist/)
 npm run check           # Astro type check (astro check)
 npm run lint            # ESLint
 ```

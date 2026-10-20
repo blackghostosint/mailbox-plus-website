@@ -15,6 +15,36 @@ export const mailboxRentalServices: Service[] = [
   // ---------------------------
   {
     id: 'mailbox-rental',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'private-mailbox-rental',
+        'package-receiving',
+        'digital-mailbox-rental',
+        'shredding',
+        'private-mailbox-rental-concord-township',
+        'mailbox-rental-concord-ohio',
+        'mail-forwarding-concord-township',
+        'mailbox-rental-mentor',
+        'mailbox-rental-willoughby',
+        'private-mailbox-rental-lake-county',
+      ],
+      priority: true,
+    },
+    anchorText: {
+      exact: ['Mailbox Rental', 'Private Mailbox Rental', 'Rent a Mailbox'],
+      lsi: [
+        'secure mailbox',
+        'business address service',
+        'receive packages securely',
+        'street address mailbox',
+      ],
+      geo: [
+        'mailbox rental in Concord Township',
+        'private mailbox near Mentor',
+        'business mailbox in Lake County',
+      ],
+    },
     category: 'mailbox-rentals',
     city: 'Concord Township',
     serviceName: 'Mailbox Rental',
@@ -115,12 +145,12 @@ export const mailboxRentalServices: Service[] = [
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$50.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
-                            <tr class="bg-[var(--color-bg-blue-tint)]/30">
+                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
                                 <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Small)</td>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$420.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
                             </tr>
-                            <tr class="bg-[var(--color-bg-blue-tint)]/30">
+                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
                                 <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Large)</td>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$600.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
@@ -193,6 +223,32 @@ export const mailboxRentalServices: Service[] = [
   },
   {
     id: 'digital-mailbox-rental',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'package-receiving',
+        'virtual-mailbox-concord-township',
+        'mail-forwarding-concord-township',
+        'private-mailbox-rental-concord-township',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Digital Mailbox Rental', 'Virtual Mailbox', 'Online Mailbox'],
+      lsi: [
+        'digital mail',
+        'virtual mailing address',
+        'online mail management',
+        'mail scanning',
+        'digital mailbox service',
+      ],
+      geo: [
+        'digital mailbox in Concord Township',
+        'virtual mailbox near Mentor',
+        'online mailbox in Lake County',
+      ],
+    },
     category: 'mailbox-rentals',
     city: 'Concord Township',
     serviceName: 'Digital Mailbox Rental',
@@ -329,6 +385,17 @@ export const mailboxRentalServices: Service[] = [
   },
   {
     id: 'private-mailbox-rental-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: [
+        'mailbox-rental',
+        'digital-mailbox-rental',
+        'package-receiving',
+        'business-services-concord-township',
+        'document-services-concord-township',
+      ],
+      priority: true,
+    },
     category: 'mailbox-rentals',
     city: 'Concord Township',
     serviceName: 'Private Mailbox Rental',
@@ -419,6 +486,11 @@ export const mailboxRentalServices: Service[] = [
   },
   {
     id: 'virtual-mailbox-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: ['mailbox-rental', 'digital-mailbox-rental', 'mail-forwarding-concord-township'],
+      priority: false,
+    },
     category: 'mailbox-rentals',
     ogImage: '/og/virtual-mailbox-concord-township.png',
     city: 'Concord Township',
@@ -624,6 +696,11 @@ export const mailboxRentalServices: Service[] = [
   },
   {
     id: 'mail-forwarding-concord-township',
+    internalLink: {
+      parent: 'home-business',
+      related: ['mailbox-rental', 'digital-mailbox-rental', 'virtual-mailbox-concord-township'],
+      priority: false,
+    },
     category: 'mailbox-rentals',
     city: 'Concord Township',
     serviceName: 'Mail Forwarding',

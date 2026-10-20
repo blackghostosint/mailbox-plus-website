@@ -23,6 +23,7 @@
 @layer base {
   :root {
     /* Primary Brand — deep navy */
+    --color-primary-light: #3871a8;
     --color-primary: #285a8e;
     --color-primary-dark: #1f3f63;
     --color-primary-deeper: #1a3554;
@@ -31,10 +32,32 @@
     /* Two-Tone Accent System */
     --color-accent-gold: #f7c82a;
     --color-accent-gold-light: #f7d46a;
+    --color-accent-gold-dark: #d4a820;
     --color-accent: var(--color-accent-gold);
     --color-accent-light: var(--color-accent-gold-light);
     --color-accent-warm: #984b2e;
     --color-accent-warm-light: #b8734d;
+    --color-accent-warm-dark: #8b4a30;
+
+    /* Brand & Carrier Colors */
+    --color-brand-facebook-rgb: 11 95 204;
+    --color-brand-facebook: rgb(var(--color-brand-facebook-rgb));
+    --color-brand-linkedin-rgb: 10 102 194;
+    --color-brand-linkedin: rgb(var(--color-brand-linkedin-rgb));
+    --color-brand-nextdoor-rgb: 21 115 71;
+    --color-brand-nextdoor: rgb(var(--color-brand-nextdoor-rgb));
+    --color-carrier-fedex-rgb: 77 20 140;
+    --color-carrier-fedex: rgb(var(--color-carrier-fedex-rgb));
+    --color-carrier-happyreturns-rgb: 0 163 224;
+    --color-carrier-happyreturns: rgb(var(--color-carrier-happyreturns-rgb));
+    --color-carrier-happyreturns-dark-rgb: 0 100 140;
+    --color-carrier-happyreturns-dark: rgb(var(--color-carrier-happyreturns-dark-rgb));
+    --color-carrier-ups-rgb: 255 181 0;
+    --color-carrier-ups: rgb(var(--color-carrier-ups-rgb));
+    --color-carrier-ups-dark-rgb: 122 86 0;
+    --color-carrier-ups-dark: rgb(var(--color-carrier-ups-dark-rgb));
+    --color-carrier-dhl-rgb: 0 51 153;
+    --color-carrier-dhl: rgb(var(--color-carrier-dhl-rgb));
 
     /* Backgrounds — warm paper */
     --color-bg-primary: #f2ede4;
@@ -50,10 +73,11 @@
     --color-border: #e6e0d6;
     --color-border-strong: #d4c9b8;
 
-    /* Gradient Stops — deep navy */
+    /* Gradient Stops — deep navy & brand */
     --color-gradient-start: #285a8e;
     --color-gradient-mid: #1f3f63;
     --color-gradient-end: #162c45;
+    --color-gradient-instagram: linear-gradient(135deg, #833ab4, #fd1d1d 50%, #fcaf45);
 
     /* Overlay bases */
     --color-overlay: #1f2933;
@@ -71,6 +95,14 @@
     --surface-medium: rgba(255, 255, 255, 0.6);
     --surface-strong: rgba(255, 255, 255, 0.7);
     --surface-heavy: rgba(255, 255, 255, 0.8);
+
+    /* Border radius tokens */
+    --radius-sm: 12px;
+    --radius-md: 20px;
+    --radius-lg: 26px;
+    --radius-xl: 30px;
+    --radius-2xl: 40px;
+    --radius-full: 9999px;
   }
 
   /* Baseline focus indicator fallback for WCAG 2.1 AA compliance */
@@ -217,6 +249,41 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    a:hover,
+    a:active,
+    a:focus,
+    button:hover,
+    button:active,
+    button:focus,
+    [role='button']:hover,
+    [role='button']:active,
+    [role='button']:focus,
+    .btn:hover,
+    .btn:active,
+    .btn:focus,
+    .btn-primary:hover,
+    .btn-primary:active,
+    .btn-primary:focus,
+    .btn-secondary:hover,
+    .btn-secondary:active,
+    .btn-secondary:focus,
+    .btn-ghost:hover,
+    .btn-ghost:active,
+    .btn-ghost:focus,
+    .card:hover {
+      transition-duration: 0.01ms !important;
+      transform: none !important;
+    }
+
     .animate-fade-in,
     .animate-fade-in-up,
     .animate-fade-out-down,
