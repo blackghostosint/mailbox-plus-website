@@ -4,7 +4,7 @@ import VideoTranscriptPlayer from '../components/VideoTranscriptPlayer';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import { siteConfig } from '../config/siteConfig';
 import { toCanonicalUrl } from '../utils/canonical-url';
-import { getFAQSchema, getWebPageSchema } from '../utils/schema';
+import { getFAQSchema, getWebPageSchema, getBreadcrumbSchema, getVideoObjectSchema } from '../utils/schema';
 import { afterSignupFaqs as faqs } from '../config/faqs';
 
 const canonical = '/after-signup/';
@@ -20,22 +20,12 @@ const breadcrumbs = [
   { name: 'Home', url: toCanonicalUrl('/') },
   { name: 'After Signing Up', url: pageUrl },
 ];
-const breadcrumbSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'BreadcrumbList',
-  itemListElement: breadcrumbs.map((item, i) => ({
-    '@type': 'ListItem',
-    position: i + 1,
-    name: item.name,
-    item: item.url,
-  })),
-};
+const breadcrumbSchema = getBreadcrumbSchema(siteConfig, breadcrumbs);
 
 // VideoObject Schema for the explainer video
-const videoSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'VideoObject',
-  '@id': `${pageUrl}#video`,
+const videoSchema = getVideoObjectSchema(siteConfig, {
+  url: canonical,
+  id: `${pageUrl}#video`,
   name: 'Mailbox Plus — What Happens After You Sign Up for a Mailbox',
   description:
     'A 70-second walkthrough showing exactly how Mailbox Plus in Concord Township receives, secures, and manages your mail and packages after you sign up for a mailbox.',
@@ -65,7 +55,7 @@ const videoSchema = {
     '@type': 'WatchAction',
     target: pageUrl,
   },
-};
+});
 
 // FAQ Schema
 const faqSchema = getFAQSchema(siteConfig, faqs);
