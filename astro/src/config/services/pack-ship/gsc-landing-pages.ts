@@ -4,6 +4,30 @@ import { phoneFormatted } from '../../siteConfig';
 export const gscLandingPages: Service[] = [
   {
     id: 'pack-and-ship-concord-ohio',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'domestic-package-shipping-company-concord-ohio',
+        'professional-packing',
+        'packaging-supplies',
+        'pack-and-ship-services-concord-township',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Pack and Ship in Concord Ohio', 'Packing and Shipping Concord'],
+      lsi: [
+        'pack and ship Concord',
+        'packing services Concord Ohio',
+        'ship a package Concord',
+        'Concord shipping store',
+      ],
+      geo: [
+        'pack and ship in Concord Ohio',
+        'packing services near Mentor',
+        'shipping store in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Pack & Ship Services',
@@ -80,6 +104,35 @@ export const gscLandingPages: Service[] = [
   },
   {
     id: 'domestic-package-shipping-company-concord-ohio',
+    internalLink: {
+      parent: 'pack-ship',
+      related: [
+        'fedex-shipping',
+        'ups-shipping',
+        'usps-services',
+        'dhl-express',
+        'pack-and-ship-concord-ohio',
+      ],
+      priority: false,
+    },
+    anchorText: {
+      exact: [
+        'Domestic Package Shipping',
+        'Package Shipping Company',
+        'Domestic Shipping Services',
+      ],
+      lsi: [
+        'package shipping company',
+        'domestic parcel delivery',
+        'shipping services in Ohio',
+        'package shipping in Concord',
+      ],
+      geo: [
+        'domestic package shipping in Concord Ohio',
+        'package shipping company near Mentor',
+        'domestic shipping in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Domestic Package Shipping',
@@ -158,6 +211,25 @@ export const gscLandingPages: Service[] = [
   },
   {
     id: 'mailing-services-concord-ohio',
+    internalLink: {
+      parent: 'pack-ship',
+      related: ['fedex-shipping', 'ups-shipping', 'usps-services', 'dhl-express', 'postage-stamps'],
+      priority: false,
+    },
+    anchorText: {
+      exact: ['Mailing Services in Concord Ohio', 'Mail Services Concord'],
+      lsi: [
+        'Concord mailing services',
+        'mail and parcel services',
+        'shipping and mailing',
+        'mailing solutions Concord',
+      ],
+      geo: [
+        'mailing services in Concord Ohio',
+        'mail services near Mentor',
+        'mailing solutions in Lake County',
+      ],
+    },
     category: 'pack-ship',
     city: 'Concord Township',
     serviceName: 'Mailing Services',

@@ -9,6 +9,8 @@ import {
   getArticleSchema,
   getTrackingSchema,
   getImageObjectSchema,
+  getBreadcrumbSchema,
+  getVideoObjectSchema,
   getSchemaGraph,
 } from './schema';
 import type { SiteConfig } from '../types/siteConfig';
@@ -548,6 +550,94 @@ describe('getTrackingSchema', () => {
   });
 });
 
+describe('getBreadcrumbSchema', () => {
+  it('generates a valid BreadcrumbList schema with normalized canonical URLs and 1-based positions', () => {
+    const breadcrumbs = [
+      { name: 'Home', url: '/' },
+      { label: 'After Signing Up', url: '/after-signup' },
+    ];
+
+    const schema = getBreadcrumbSchema(mockSiteConfig, breadcrumbs);
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema['@type']).toBe('BreadcrumbList');
+    expect(schema.itemListElement).toEqual([
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://mailboxplusohio.com/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'After Signing Up',
+        item: 'https://mailboxplusohio.com/after-signup/',
+      },
+    ]);
+  });
+
+  it('works when passed only the items array directly', () => {
+    const breadcrumbs = [
+      { name: 'Home', url: '/' },
+      { name: 'Contact', url: '/contact-us/' },
+    ];
+
+    const schema = getBreadcrumbSchema(breadcrumbs);
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema['@type']).toBe('BreadcrumbList');
+    expect(schema.itemListElement).toHaveLength(2);
+    expect((schema.itemListElement as unknown as Array<{ item: string }>)[1].item).toBe(
+      'https://mailboxplusohio.com/contact-us/'
+    );
+  });
+});
+
+describe('getVideoObjectSchema', () => {
+  it('generates a complete VideoObject schema with default publisher and watch action', () => {
+    const schema = getVideoObjectSchema(mockSiteConfig, {
+      name: 'Mailbox Setup Explainer',
+      description: 'A 70-second walkthrough showing mail setup.',
+      thumbnailUrl: 'https://mailboxplusohio.com/videos/thumb.jpg',
+      contentUrl: 'https://mailboxplusohio.com/videos/video.mp4',
+      uploadDate: '2026-06-29',
+      duration: 'PT1M10S',
+      transcript: 'Full video transcript text...',
+      url: '/after-signup/',
+    });
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema['@type']).toBe('VideoObject');
+    expect(schema['@id']).toBe('https://mailboxplusohio.com/after-signup/#video');
+    expect(schema.name).toBe('Mailbox Setup Explainer');
+    expect(schema.description).toBe('A 70-second walkthrough showing mail setup.');
+    expect(schema.thumbnailUrl).toBe('https://mailboxplusohio.com/videos/thumb.jpg');
+    expect(schema.contentUrl).toBe('https://mailboxplusohio.com/videos/video.mp4');
+    expect(schema.uploadDate).toBe('2026-06-29');
+    expect(schema.duration).toBe('PT1M10S');
+    expect(schema.transcript).toBe('Full video transcript text...');
+    expect(schema.publisher).toEqual({
+      '@type': 'Organization',
+      '@id': 'https://mailboxplusohio.com#localbusiness',
+      name: 'Mailbox Plus',
+    });
+  });
+
+  it('accepts options object directly without siteConfig argument', () => {
+    const schema = getVideoObjectSchema({
+      name: 'Quick Overview',
+      description: 'Quick video overview.',
+      thumbnailUrl: 'https://example.com/thumb.jpg',
+      uploadDate: '2026-01-01',
+    });
+
+    expect(schema['@context']).toBe('https://schema.org');
+    expect(schema['@type']).toBe('VideoObject');
+    expect(schema.name).toBe('Quick Overview');
+  });
+});
+
 describe('getSchemaGraph', () => {
   it('returns a valid @graph envelope with default LocalBusiness, WebSite, and WebPage nodes', () => {
     const graph = getSchemaGraph(mockSiteConfig, [], {
@@ -655,5 +745,29 @@ describe('getSchemaGraph', () => {
       (originalWebPage as unknown as Record<string, unknown>).primaryImageOfPage
     ).toBeUndefined();
     expect((originalService as unknown as Record<string, unknown>).image).toBeUndefined();
+  });
+
+  it('recursively strips nested @context properties from complex nodes', () => {
+    const videoWithContext = {
+      '@context': 'https://schema.org',
+      '@type': 'VideoObject',
+      name: 'Nested Test Video',
+      publisher: {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        name: 'Nested Org',
+      },
+    };
+
+    const graph = getSchemaGraph(mockSiteConfig, [videoWithContext]);
+
+    expect(graph['@context']).toBe('https://schema.org');
+    const videoNode = graph['@graph'].find((n) => n['@type'] === 'VideoObject') as Record<
+      string,
+      Record<string, unknown>
+    >;
+    expect(videoNode).toBeDefined();
+    expect(videoNode['@context']).toBeUndefined();
+    expect(videoNode.publisher['@context']).toBeUndefined();
   });
 });

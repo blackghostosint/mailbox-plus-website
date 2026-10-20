@@ -139,36 +139,45 @@ export default withCors(
 
     // Fresh cache: serve it, do not touch the Places API.
     if (cached && isFresh(cached)) {
-      return jsonResponse(ReviewsSuccessSchema.parse({ ...cached, source: 'cache' }), {
-        status: 200,
-        headers: {
-          'Cache-Control': 'public, max-age=0, must-revalidate',
-          'Netlify-CDN-Cache-Control': CDN_CACHE,
-        },
-      });
-    }
-
-    try {
-      const fresh = await fetchFromPlaces();
-      await writeCached(fresh);
-      return jsonResponse(ReviewsSuccessSchema.parse({ ...fresh, source: 'live' }), {
-        status: 200,
-        headers: {
-          'Cache-Control': 'public, max-age=0, must-revalidate',
-          'Netlify-CDN-Cache-Control': CDN_CACHE,
-        },
-      });
-    } catch (error) {
-      logger.error('Reviews function error', error);
-      // Serve stale data rather than erroring if we have any cached payload.
-      if (cached) {
-        return jsonResponse(ReviewsSuccessSchema.parse({ ...cached, source: 'stale' }), {
+      return jsonResponse(
+        ReviewsSuccessSchema.parse({ ok: true, data: { ...cached, source: 'cache' } }),
+        {
           status: 200,
           headers: {
             'Cache-Control': 'public, max-age=0, must-revalidate',
             'Netlify-CDN-Cache-Control': CDN_CACHE,
           },
-        });
+        }
+      );
+    }
+
+    try {
+      const fresh = await fetchFromPlaces();
+      await writeCached(fresh);
+      return jsonResponse(
+        ReviewsSuccessSchema.parse({ ok: true, data: { ...fresh, source: 'live' } }),
+        {
+          status: 200,
+          headers: {
+            'Cache-Control': 'public, max-age=0, must-revalidate',
+            'Netlify-CDN-Cache-Control': CDN_CACHE,
+          },
+        }
+      );
+    } catch (error) {
+      logger.error('Reviews function error', error);
+      // Serve stale data rather than erroring if we have any cached payload.
+      if (cached) {
+        return jsonResponse(
+          ReviewsSuccessSchema.parse({ ok: true, data: { ...cached, source: 'stale' } }),
+          {
+            status: 200,
+            headers: {
+              'Cache-Control': 'public, max-age=0, must-revalidate',
+              'Netlify-CDN-Cache-Control': CDN_CACHE,
+            },
+          }
+        );
       }
       return jsonError('Reviews temporarily unavailable', 502);
     }
