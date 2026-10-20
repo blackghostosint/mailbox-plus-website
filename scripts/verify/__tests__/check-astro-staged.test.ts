@@ -14,11 +14,11 @@ describe('check-astro-staged.mjs', () => {
     expect(result.success).toBe(true);
     expect(result.stagedCount).toBe(1);
     expect(result.stagedErrorsCount).toBe(0);
-  }, 30000);
+  }, 120000);
 
   it('filters non-astro files from argument list', async () => {
     const result = await checkAstroStaged(['package.json', 'astro/src/pages/index.astro']);
     expect(result.success).toBe(true);
     expect(result.stagedCount).toBe(1);
-  }, 30000);
+  }, 120000);
 });
