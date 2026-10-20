@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import { toISODateString } from './src/utils/dateUtils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -25,9 +26,11 @@ function buildArticleDateMap() {
           if (!fm.slug || fm.status === 'draft') continue;
           const d = fm.lastModified || fm.pubDate;
           if (d) {
-            const iso = new Date(d).toISOString();
-            map.set(`/articles/${fm.slug}/`, iso);
-            map.set(`/articles/${fm.slug}`, iso);
+            const iso = toISODateString(d, '', 'iso');
+            if (iso) {
+              map.set(`/articles/${fm.slug}/`, iso);
+              map.set(`/articles/${fm.slug}`, iso);
+            }
           }
         } catch {
           /* skip unreadable file */

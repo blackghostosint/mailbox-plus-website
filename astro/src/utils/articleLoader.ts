@@ -1,6 +1,7 @@
 import type { Article, ArticleFrontmatter } from '../types/article.types';
 import matter from 'gray-matter';
 import { articleFrontmatterSchema } from '../../../scripts/lib/article-schema';
+import { compareDatesDesc, toISODateString } from './dateUtils';
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
@@ -63,11 +64,11 @@ export function parseArticleFrontmatter(
             : process.cwd();
         const absolutePath = path.resolve(baseDir, filePath);
         if (fs.existsSync(absolutePath)) {
-          mtimeIso = fs.statSync(absolutePath).mtime.toISOString();
+          mtimeIso = toISODateString(fs.statSync(absolutePath).mtime, '', 'iso');
         } else {
           const rootPath = path.resolve(process.cwd(), filePath.replace(/^(\.\.\/)+/, ''));
           if (fs.existsSync(rootPath)) {
-            mtimeIso = fs.statSync(rootPath).mtime.toISOString();
+            mtimeIso = toISODateString(fs.statSync(rootPath).mtime, '', 'iso');
           }
         }
       } catch {
@@ -171,9 +172,7 @@ async function loadAllArticles(): Promise<Article[]> {
   }
 
   // Sort by publication date (newest first)
-  return articles.sort(
-    (a, b) => new Date(b.frontmatter.pubDate).getTime() - new Date(a.frontmatter.pubDate).getTime()
-  );
+  return articles.sort((a, b) => compareDatesDesc(a.frontmatter.pubDate, b.frontmatter.pubDate));
 }
 
 export const articleLoader = {
