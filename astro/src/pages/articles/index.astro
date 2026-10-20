@@ -2,16 +2,11 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { articleLoader } from '../../utils/articleLoader';
 import { getServiceImageUrl } from '../../lib/media';
+import { formatDisplayDate } from '../../utils/dateUtils';
 
 const allArticles = await articleLoader.getAllArticles();
 const published = allArticles.filter(a => a.frontmatter.status !== 'draft' && a.frontmatter.status !== 'archived');
 const categories = [...new Set(published.map(a => a.frontmatter.category))];
-
-function formatDate(dateStr: string): string {
-  return new Date(dateStr).toLocaleDateString('en-US', {
-    year: 'numeric', month: 'long', day: 'numeric',
-  });
-}
 ---
 
 <BaseLayout
@@ -55,7 +50,7 @@ function formatDate(dateStr: string): string {
                 <div class="p-6">
                   {/* Date */}
                   <div class="flex items-center gap-2 text-sm mb-3" style="color: var(--color-text-muted)">
-                    <time datetime={pubDate}>{formatDate(pubDate)}</time>
+                    <time datetime={pubDate}>{formatDisplayDate(pubDate)}</time>
                   </div>
 
                   {/* Title */}

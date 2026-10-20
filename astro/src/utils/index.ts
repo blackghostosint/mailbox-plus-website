@@ -15,3 +15,4 @@ export {
 } from './site-registry';
 export * from './hydration-helpers';
 export * from './hash-helpers';
+export * from './dateUtils';

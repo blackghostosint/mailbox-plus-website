@@ -8,6 +8,7 @@ import { siteConfig } from '../../config/siteConfig';
 import { normalizePathname, toCanonicalUrl } from '../../utils/canonical-url';
 import { getServiceImageUrl } from '../../lib/media';
 import { normalizeArticleHtmlLinks, escapeHtml, sanitizeHref } from '../../utils/articleHtmlLinks';
+import { formatDisplayDate } from '../../utils/dateUtils';
 
 export { normalizeArticleHtmlLinks };
 
@@ -25,9 +26,7 @@ const { article } = Astro.props;
 const { frontmatter, content } = article;
 const { title, description, pubDate, author, category, image, imageAlt, relatedServices, lastModified, keywords, slug } = frontmatter;
 
-const formattedDate = new Date(pubDate).toLocaleDateString('en-US', {
-  year: 'numeric', month: 'long', day: 'numeric',
-});
+const formattedDate = formatDisplayDate(pubDate);
 const articleUrl = toCanonicalUrl(`/articles/${slug}`);
 const ogImage = getServiceImageUrl(image);
 
