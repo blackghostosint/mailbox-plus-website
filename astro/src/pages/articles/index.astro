@@ -49,17 +49,17 @@ const categories = [...new Set(published.map(a => a.frontmatter.category))];
                 {/* Content */}
                 <div class="p-6">
                   {/* Date */}
-                  <div class="flex items-center gap-2 text-sm mb-3" style="color: var(--color-text-muted)">
+                  <div class="flex items-center gap-2 text-sm mb-3 text-[var(--color-text-muted)]">
                     <time datetime={pubDate}>{formatDisplayDate(pubDate)}</time>
                   </div>
 
                   {/* Title */}
-                  <h3 class="text-xl font-bold mb-3 group-hover:text-[var(--color-accent-warm)] transition-colors line-clamp-2" style="color: var(--color-text-primary)">
+                  <h3 class="text-xl font-bold mb-3 text-[var(--color-text-primary)] group-hover:text-[var(--color-accent-warm)] transition-colors line-clamp-2">
                     {title}
                   </h3>
 
                   {/* Description */}
-                  <p class="mb-4 line-clamp-3 leading-relaxed" style="color: var(--color-text-secondary)">
+                  <p class="mb-4 line-clamp-3 leading-relaxed text-[var(--color-text-secondary)]">
                     {description}
                   </p>
 
