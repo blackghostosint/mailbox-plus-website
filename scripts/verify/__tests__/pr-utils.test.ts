@@ -76,6 +76,13 @@ describe('pr-utils.mjs', () => {
         'Body from event payload'
       );
     });
+
+    it('falls back to git log message when no explicit body file, env, or event is supplied', () => {
+      const body = readPRBody(undefined, {});
+      expect(typeof body).toBe('string');
+      // Should not throw ReferenceError and returns non-empty commit message in a git repo
+      expect(body.length).toBeGreaterThan(0);
+    });
   });
 
   describe('resolveAuthor', () => {

@@ -194,7 +194,7 @@ export function readPRBody(source, env = process.env) {
   }
 
   try {
-    const gitLogBody = execSync('git log -1 --pretty=%B', {
+    const gitLogBody = execFileSync('git', ['log', '-1', '--pretty=%B'], {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
     });
