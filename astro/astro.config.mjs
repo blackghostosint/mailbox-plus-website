@@ -55,6 +55,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [Icons({ compiler: 'jsx', jsx: 'react' })],
+    // Astro's default envPrefix is PUBLIC_ only; the checkout client reads
+    // import.meta.env.VITE_RECAPTCHA_SITE_KEY, which was silently inlined as an
+    // empty object — so the browser never sent a reCAPTCHA token and the
+    // fail-closed create-checkout function rejected every attempt (2026-10-21).
+    envPrefix: ['PUBLIC_', 'VITE_'],
     build: {
       assetsInlineLimit: 0,
     },
