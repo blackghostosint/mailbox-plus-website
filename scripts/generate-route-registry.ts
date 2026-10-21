@@ -333,15 +333,19 @@ export async function generateRouteRegistry(options?: {
   if (shouldWrite) {
     const formattedLocalPages = await prettier.format(JSON.stringify(localPages), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedSiteStructure = await prettier.format(JSON.stringify(siteStructure), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedInternalLinks = await prettier.format(JSON.stringify(internalLinks), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedAnchorText = await prettier.format(JSON.stringify(anchorText), {
       parser: 'json',
+      printWidth: 100,
     });
 
     fs.writeFileSync(localPagesPath, formattedLocalPages);
