@@ -19,7 +19,7 @@ describe('verify.mjs doctor', () => {
     const envCheck = parsed.results.find((r: { name: string }) => r.name === 'env:completeness');
     expect(envCheck).toBeDefined();
     expect(envCheck.pass).toBe(true);
-    expect(envCheck.detail).toContain('27 keys mapped');
+    expect(envCheck.detail).toContain('28 keys mapped');
   }, 15000);
 });
 
