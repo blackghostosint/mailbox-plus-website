@@ -39,7 +39,7 @@ describe('verify.mjs docs', () => {
     expect(envVarsCheck).toBeDefined();
     expect(envVarsCheck.pass).toBe(true);
     expect(envVarsCheck.detail).toContain(
-      'all 27 environment variable(s) from .env.example are documented'
+      'all 29 environment variable(s) from .env.example are documented'
     );
 
     const headersCheck = parsed.results.find(
