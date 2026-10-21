@@ -1,7 +1,12 @@
 {
   "pack-ship": {
     "exact": ["Pack & Ship", "Packing and Shipping"],
-    "lsi": ["shipping services", "parcel delivery", "shipping store", "send a package"],
+    "lsi": [
+      "shipping services",
+      "parcel delivery",
+      "shipping store",
+      "send a package"
+    ],
     "geo": ["shipping store in Concord Township", "pack and ship near Mentor"]
   },
   "copy-print": {
@@ -93,7 +98,12 @@
   },
   "fedex-shipping": {
     "exact": ["FedEx Shipping", "Authorized FedEx ShipCenter"],
-    "lsi": ["overnight shipping", "FedEx drop-off", "express shipping", "international shipping"],
+    "lsi": [
+      "overnight shipping",
+      "FedEx drop-off",
+      "express shipping",
+      "international shipping"
+    ],
     "geo": [
       "FedEx shipping near Concord Township",
       "FedEx drop-off in Mentor",
@@ -102,7 +112,13 @@
   },
   "usps-services": {
     "exact": ["USPS Services", "United States Postal Service", "USPS Shipping"],
-    "lsi": ["postal services", "priority mail", "first class mail", "media mail", "USPS drop-off"],
+    "lsi": [
+      "postal services",
+      "priority mail",
+      "first class mail",
+      "media mail",
+      "USPS drop-off"
+    ],
     "geo": [
       "USPS services in Concord Township",
       "post office alternative near Mentor",
@@ -141,7 +157,12 @@
   },
   "package-drop-offs": {
     "exact": ["Package Drop-Offs", "Drop Off Packages"],
-    "lsi": ["carrier drop-off", "shipping drop-off", "package acceptance", "parcel drop location"],
+    "lsi": [
+      "carrier drop-off",
+      "shipping drop-off",
+      "package acceptance",
+      "parcel drop location"
+    ],
     "geo": [
       "package drop-off in Concord Township",
       "drop off packages near Mentor",
@@ -195,7 +216,13 @@
   },
   "packaging-supplies": {
     "exact": ["Packaging Supplies", "Shipping Supplies", "Packing Materials"],
-    "lsi": ["boxes", "bubble wrap", "packing tape", "shipping boxes", "moving supplies"],
+    "lsi": [
+      "boxes",
+      "bubble wrap",
+      "packing tape",
+      "shipping boxes",
+      "moving supplies"
+    ],
     "geo": [
       "packaging supplies in Concord Township",
       "shipping supplies near Mentor",
@@ -203,7 +230,11 @@
     ]
   },
   "amazon-returns": {
-    "exact": ["Amazon Returns", "Amazon Return Drop-Off", "Return Amazon Package"],
+    "exact": [
+      "Amazon Returns",
+      "Amazon Return Drop-Off",
+      "Return Amazon Package"
+    ],
     "lsi": [
       "Amazon return center",
       "return drop-off",
@@ -264,7 +295,13 @@
   },
   "graphic-design": {
     "exact": ["Graphic Design", "Graphic Design Services"],
-    "lsi": ["logo design", "print design", "business card design", "brand design", "flyer design"],
+    "lsi": [
+      "logo design",
+      "print design",
+      "business card design",
+      "brand design",
+      "flyer design"
+    ],
     "geo": [
       "graphic design in Concord Township",
       "design services near Mentor",
@@ -302,12 +339,26 @@
   },
   "document-printing": {
     "exact": ["Document Printing", "Print Services"],
-    "lsi": ["color printing", "black and white copies", "print documents", "printing service"],
-    "geo": ["document printing in Concord Township", "print shop near Painesville"]
+    "lsi": [
+      "color printing",
+      "black and white copies",
+      "print documents",
+      "printing service"
+    ],
+    "geo": [
+      "document printing in Concord Township",
+      "print shop near Painesville"
+    ]
   },
   "posters-printing": {
     "exact": ["Posters Printing", "Poster Printing", "Large Format Printing"],
-    "lsi": ["large posters", "banner printing", "sign printing", "poster design", "wall posters"],
+    "lsi": [
+      "large posters",
+      "banner printing",
+      "sign printing",
+      "poster design",
+      "wall posters"
+    ],
     "geo": [
       "poster printing in Concord Township",
       "large format printing near Mentor",
@@ -404,7 +455,11 @@
     ]
   },
   "document-scanning": {
-    "exact": ["Document Scanning", "Scanning Services", "Digital Document Scanning"],
+    "exact": [
+      "Document Scanning",
+      "Scanning Services",
+      "Digital Document Scanning"
+    ],
     "lsi": [
       "document digitization",
       "paper to digital",
@@ -420,8 +475,18 @@
   },
   "fax-services": {
     "exact": ["Fax Services", "Send a Fax", "Faxing Services"],
-    "lsi": ["send fax", "fax machine", "online fax", "document faxing", "fax transmission"],
-    "geo": ["fax services in Concord Township", "send a fax near Mentor", "faxing in Lake County"]
+    "lsi": [
+      "send fax",
+      "fax machine",
+      "online fax",
+      "document faxing",
+      "fax transmission"
+    ],
+    "geo": [
+      "fax services in Concord Township",
+      "send a fax near Mentor",
+      "faxing in Lake County"
+    ]
   },
   "notary-services": {
     "exact": ["Notary Services", "Notary Public", "Mobile Notary"],
@@ -468,7 +533,12 @@
   },
   "digital-fingerprinting": {
     "exact": ["Digital Fingerprinting", "Fingerprinting Services"],
-    "lsi": ["background checks", "BCI check", "FBI background check", "electronic fingerprinting"],
+    "lsi": [
+      "background checks",
+      "BCI check",
+      "FBI background check",
+      "electronic fingerprinting"
+    ],
     "geo": [
       "fingerprinting in Lake County",
       "background checks in Concord Township",
@@ -491,7 +561,11 @@
     ]
   },
   "happy-returns": {
-    "exact": ["Happy Returns", "Happy Returns Return Bar", "Happy Returns Drop-Off"],
+    "exact": [
+      "Happy Returns",
+      "Happy Returns Return Bar",
+      "Happy Returns Drop-Off"
+    ],
     "lsi": [
       "Happy Returns location",
       "Happy Returns near me",
@@ -505,7 +579,10 @@
     ]
   },
   "chewy-prescription-mail-in-concord-township": {
-    "exact": ["Chewy Prescription Mail-In", "Chewy Pharmacy Prescription Drop-Off"],
+    "exact": [
+      "Chewy Prescription Mail-In",
+      "Chewy Pharmacy Prescription Drop-Off"
+    ],
     "lsi": [
       "mail pet prescription",
       "Chewy Rx drop-off",
