@@ -21,7 +21,18 @@ keywords:
   ]
 relatedServices:
   ['/pack-ship/', '/pack-ship/package-drop-offs/', '/articles/att-equipment-return-guide/']
-author: 'Mailbox Plus Team'
+author: 'Reviewed by Frank Schwarz, COO'
+faqs:
+  - question: 'Can I return AT&T equipment at any shipping store?'
+    answer: 'No. For the scan-and-pack track, AT&T names only a company-owned FedEx Office Pack & Ship or The UPS Store. With a prepaid UPS label, you can drop the packed box at any staffed UPS shipping location — never a drop box.'
+  - question: 'Can I return AT&T equipment at the post office?'
+    answer: "No. The post office is not part of AT&T's return program. Returns are credited when a store rep scans the equipment at a company-owned FedEx Office or The UPS Store, or when a prepaid-label package gets an acceptance scan at a UPS shipping location."
+  - question: 'Do I have to box up my AT&T equipment to return it?'
+    answer: 'No. AT&T says to bring the equipment unpacked with your account number to a FedEx Office or The UPS Store — the rep packs and ships it. If you use the prepaid-label track instead, you pack it yourself in a sturdy unmarked box.'
+  - question: 'What happens if I return AT&T equipment late?'
+    answer: 'AT&T charges a non-return fee after the 21-day window: $150 for a Wi-Fi or All-Fi Gateway, $200 for an All-Fi Hub, and $65 for a Wi-Fi Extender or All-Fi Booster included with Extended Wi-Fi Coverage.'
+  - question: 'How do I start an AT&T equipment return?'
+    answer: 'Call AT&T at 800.288.2020 with your account number to start the return before you drop anything off. Then take the unpacked equipment to a company-owned FedEx Office or The UPS Store and keep the tracking receipt.'
 ---
 
 ## You Have the Box on the Seat and a Deadline on the Bill
@@ -48,7 +59,7 @@ AT&T does not know you returned your equipment because a box arrived. It knows b
 
 A prepaid label, by contrast, is just postage. Drop the same box anywhere else that accepts UPS packages and the package may still physically reach AT&T's warehouse — but you are betting the timestamp on that journey against the fee clock. If the scan chain breaks, AT&T sees an account with equipment out and no clean return event, and the non-return charge appears on the bill. Now you are calling 800.288.2020 to argue a $150 charge with a tracking number as your only exhibit.
 
-And the fee is not hypothetical leverage — it is priced: $150 for a Wi-Fi or All-Fi Gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender or All-Fi booster that came with Extended Wi-Fi Coverage. That is per unit. An unplanned $200 line item is a worse outcome than a ten-minute drive to the right counter.
+And the fee is not a bluff — it is priced: $150 for a Wi-Fi or All-Fi Gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender or All-Fi booster that came with Extended Wi-Fi Coverage. That is per unit. An unplanned $200 line item is a worse outcome than a ten-minute drive to the right counter.
 
 ## You've Done This Math Before
 
@@ -80,7 +91,7 @@ The fee clock only stops when a scan hits AT&T's system. Twenty-one days, a $200
 
 ## What Regulars Do Instead
 
-Don't guess. Start the return on the phone, go to a counter that scans, and leave with the tracking number in your pocket. If you're holding a prepaid label instead, bring it packed to a staffed location — never a drop box — and confirm the acceptance scan before you drive off. Ten minutes of correctness instead of a month of phone calls.
+Don't guess. Start the return on the phone, go to a counter that scans, and leave with the tracking number in your pocket. If you're holding a prepaid label instead, bring it packed to a staffed location — never a drop box — and confirm the acceptance scan before you drive off. Ten minutes of correctness instead of a month of phone calls. The fee math is the same story we covered in [what happens to misplaced packages](/articles/can-you-drop-off-ups-at-fedex-or-post-office/) — the drop-off only counts where the system can see it.
 
 ## You Don't Have to Figure It Out First
 
