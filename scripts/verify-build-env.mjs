@@ -52,6 +52,28 @@ export function validateBuildEnv(options = {}) {
     );
   }
 
+  // Allowlist guard: with envPrefix widened to include VITE_ (PR #825), Vite
+  // inlines EVERY VITE_-prefixed var into the public client bundle. Any var
+  // outside this allowlist is treated as a potential secret and fails the
+  // build — add new client-safe vars here deliberately.
+  const CLIENT_SAFE_VITE_VARS = new Set([
+    'VITE_RECAPTCHA_SITE_KEY',
+    'VITE_SITE_URL',
+    'VITE_NETLIFY_CONTEXT',
+    'VITE_R2_PUBLIC_BASE_URL',
+    'VITE_SENTRY_DSN',
+    'VITE_SENTRY_ENVIRONMENT',
+    'VITE_SUPABASE_URL',
+    'VITE_SUPABASE_ANON_KEY',
+  ]);
+  for (const key of Object.keys(env)) {
+    if (key.startsWith('VITE_') && !CLIENT_SAFE_VITE_VARS.has(key)) {
+      errors.push(
+        `Secret hygiene violation: ${key} is VITE_-prefixed but not on the client-safe allowlist. Client bundles inline all VITE_ vars — move this value to an unprefixed name or add it to CLIENT_SAFE_VITE_VARS in scripts/verify-build-env.mjs if it is genuinely public.`
+      );
+    }
+  }
+
   // Validate VITE_R2_PUBLIC_BASE_URL
   const r2Url = env.VITE_R2_PUBLIC_BASE_URL;
   if (!r2Url || r2Url.trim() === '') {

@@ -137,6 +137,9 @@ jobs:
           VITE_R2_PUBLIC_BASE_URL: ${{ secrets.VITE_R2_PUBLIC_BASE_URL }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          # Client env inlining needs VITE_ prefix (envPrefix widened in #825);
+          # fallback dummy keeps the checkout-chunk regression test meaningful in CI.
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY || '6LfCI-PLACEHOLDER-KEY-0000000000000000000' }}
 
       - name: Run Astro unit tests
         run: npm run test:coverage
