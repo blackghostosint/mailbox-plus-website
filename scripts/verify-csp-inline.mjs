@@ -20,9 +20,7 @@ if (!cspMatch) {
   process.exit(1);
 }
 const scriptSrc = cspMatch[1].match(/script-src([^;]*);/)?.[1] ?? '';
-const allowed = new Set(
-  [...scriptSrc.matchAll(/'sha256-([^']+)'/g)].map((m) => m[1])
-);
+const allowed = new Set([...scriptSrc.matchAll(/'sha256-([^']+)'/g)].map((m) => m[1]));
 
 function* htmlFiles(dir) {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -44,7 +42,8 @@ for (const file of htmlFiles(distDir)) {
     const hash = crypto.createHash('sha256').update(body).digest('base64');
     if (!allowed.has(hash)) {
       const rel = path.relative(distDir, file);
-      if (!uncovered.has(hash)) uncovered.set(hash, { count: 0, head: body.trim().slice(0, 70), files: [] });
+      if (!uncovered.has(hash))
+        uncovered.set(hash, { count: 0, head: body.trim().slice(0, 70), files: [] });
       const u = uncovered.get(hash);
       u.count++;
       if (u.files.length < 3) u.files.push(rel);
@@ -53,13 +52,19 @@ for (const file of htmlFiles(distDir)) {
 }
 
 if (uncovered.size > 0) {
-  console.error('❌ CSP inline-script coverage FAILED — these inline scripts are NOT allowed by the netlify.toml CSP:');
+  console.error(
+    '❌ CSP inline-script coverage FAILED — these inline scripts are NOT allowed by the netlify.toml CSP:'
+  );
   for (const [hash, { count, head, files }] of uncovered) {
     console.error(`   sha256-${hash} (${count} page(s)) e.g. ${files.join(', ')}`);
     console.error(`     head: ${head}`);
   }
-  console.error('\n   Astro islands will NOT hydrate on blocked pages (mobile hamburger/nav dies silently).');
-  console.error('   Fix: compute sha256 of the new inline script(s) and add them to script-src in netlify.toml.');
+  console.error(
+    '\n   Astro islands will NOT hydrate on blocked pages (mobile hamburger/nav dies silently).'
+  );
+  console.error(
+    '   Fix: compute sha256 of the new inline script(s) and add them to script-src in netlify.toml.'
+  );
   process.exit(1);
 }
 
