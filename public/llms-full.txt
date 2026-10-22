@@ -1464,7 +1464,7 @@ You mailed the notice. You paid extra for a signature. You did everything the co
 
 It happens constantly, and it almost always comes down to the same confusion. Certified Mail with Return Receipt and a carrier "signature required" option look similar from the outside — both end with somebody signing for something. They are not the same evidence, they prove different things, and the statute or contract you are trying to satisfy usually names one of them specifically. Here is what each one actually delivers, what it costs this year, and how to choose before you spend money on proof that doesn't count.
 
-## The Villain: Two Different Records With the Same Name
+## The Systemic Problem: Two Different Records With the Same Name
 
 The mechanism working against you is simple: carriers sell "signature" as a generic feature, and the language sounds interchangeable. "Signature required," "return receipt," "proof of delivery," "signature confirmation" — for most people these blur into one idea of _someone signed, therefore I have proof._
 
