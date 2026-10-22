@@ -15,8 +15,8 @@ quickAnswer: >-
   location; its Walgreens and Dollar General counters only accept FedEx packages. UPS's
   official drop-off list names 4 kinds of places — The UPS Store, UPS Customer
   Centers, UPS Drop Boxes, and UPS Access Point retailers — no post offices. A box left
-  at the wrong counter gets no acceptance scan, so it can sit for days. Our counter is
-  authorized for all four carriers.
+  at the wrong counter gets no acceptance scan, so it can sit for days. Our counter
+  carries all four carriers.
 keywords:
   [
     'can you drop off UPS at FedEx',
@@ -35,7 +35,7 @@ faqs:
   - question: 'What happens to a package dropped off with the wrong carrier?'
     answer: "It never enters the carrier's movement network. Somebody has to notice it and physically move it to the right company, which costs days — and until the correct carrier scans it, tracking stays blank and you have no proof of handoff."
   - question: 'Can FedEx or UPS packages be dropped off at Mailbox Plus?'
-    answer: 'Yes. Mailbox Plus in Concord Township is an independent shipping center authorized as a drop-off for all four major carriers — UPS, FedEx, USPS, and DHL — so a labeled box is scanned into the correct network with a receipt, in one stop.'
+    answer: 'Yes. Mailbox Plus in Concord Township is an independent multi-carrier shipping center that holds agreements with all four major carriers — UPS, FedEx, USPS, and DHL — so a labeled box is scanned into the correct network with a receipt, in one stop.'
 ---
 
 ## What You Do Instead of Going
@@ -78,9 +78,9 @@ You deserve the straight answer before the box leaves your hands, not after it g
 
 At our counter at 7554 Fredle Drive in Concord Township, this question shows up almost daily — usually from someone holding a UPS label, halfway out the door, asking whether the post office on their route can take it.
 
-Here is the thing about us: we are not one of the closed networks. Mailbox Plus is an independent shipping center, which means we hold authorized drop-off relationships with all four major carriers — UPS, FedEx, USPS, and DHL. When you put a labeled box on our counter, the right network actually gets it: scanned, receipted, and moving the same day. We do not have to guess whose label it is, because we can accept all of them.
+Here is the thing about us: we are not one of the closed networks. Mailbox Plus is an independent multi-carrier shipping center, which means we hold agreements with all four major carriers — UPS, FedEx, USPS, and DHL. When you put a labeled box on our counter, the right network actually gets it: scanned, receipted, and moving the same day. We do not have to guess whose label it is, because we can accept all of them.
 
-And because we compare all four carriers at the counter, we can also tell you when the label in your hand is the wrong tool for the job — a question none of the single-carrier locations are positioned to answer.
+And because we quote all four carriers at the counter, we can also tell you when the label in your hand is the wrong tool for the job — a question none of the single-carrier locations are positioned to answer.
 
 ![Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
