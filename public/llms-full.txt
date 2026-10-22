@@ -1466,7 +1466,7 @@ It happens constantly, and it almost always comes down to the same confusion. Ce
 
 ## The Villain: Two Different Records With the Same Name
 
-The mechanism working against you is simple: carriers sell "signature" as a generic feature, and the language sounds interchangeable. "Signature required," "return receipt," "proof of delivery," "signature confirmation" — for most people these blur into one idea of *someone signed, therefore I have proof.*
+The mechanism working against you is simple: carriers sell "signature" as a generic feature, and the language sounds interchangeable. "Signature required," "return receipt," "proof of delivery," "signature confirmation" — for most people these blur into one idea of _someone signed, therefore I have proof._
 
 But the records are built differently, and that difference is the whole game.
 
@@ -1480,13 +1480,13 @@ The trap springs when someone guesses. They ship a legal letter as an overnight 
 
 Picture the moment it surfaces. You are in a hearing, or on a call with a property manager's attorney, or standing in front of a county clerk's window. Someone slides your delivery record back across the desk and asks, "was this sent certified, return receipt requested?"
 
-You had a signature. You have a tracking page that says *Delivered*. But the answer is no — and now the question isn't whether you mailed the notice, it's whether you can prove the *kind* of mailing the law asked for. Your stomach drops the same way it does when a check bounces: the money left, the job didn't get done, and you have to do the whole thing again while a deadline keeps running.
+You had a signature. You have a tracking page that says _Delivered_. But the answer is no — and now the question isn't whether you mailed the notice, it's whether you can prove the _kind_ of mailing the law asked for. Your stomach drops the same way it does when a check bounces: the money left, the job didn't get done, and you have to do the whole thing again while a deadline keeps running.
 
 People who hand us a notice before a big mailing don't haggle over the fee. They stand there holding the paper a little too flat, then ask the same question in different words: "will this one hold up if it ends up in front of a judge?" That's what they're paying the $4.65 to stop worrying about.
 
 ## Mailing a Notice Shouldn't Take a Law Degree
 
-Nobody should need a law degree to mail a document correctly. The carriers know "signature" reads like universal proof, the packaging stores rarely ask what the proof is *for*, and the fees are all small enough that nobody comparison-shops them. So people guess, pay, and hope.
+Nobody should need a law degree to mail a document correctly. The carriers know "signature" reads like universal proof, the packaging stores rarely ask what the proof is _for_, and the fees are all small enough that nobody comparison-shops them. So people guess, pay, and hope.
 
 It also shouldn't cost a fortune to do it right. Certified Mail in 2026 is $5.55 plus postage — the green card adds $4.65, the electronic return receipt $2.91. That's roughly the price of a fast-food lunch to produce the one record most courts and agencies recognize. The real cost is not the fee. The real cost is the redo, and the redo is where deadlines die.
 
@@ -1507,14 +1507,14 @@ Two things we check every time on a certified-mail piece:
 
 Both tools have real jobs. Here they are honestly.
 
-| | USPS Certified Mail + Return Receipt | Carrier Signature Required (UPS / FedEx) |
-|---|---|---|
-| **What it proves** | Recipient's signature, delivery date, time, and delivery address on a USPS form (PS Form 3811) | Someone at the address signed for the package on a date |
-| **2026 cost** | $5.55 Certified Mail fee + $4.65 green card (or $2.91 electronic) + postage | UPS: $4.75 Signature Required, $5.75 Adult. FedEx: $7.60 Indirect or Direct, $10 Adult |
-| **Speed** | Moves at the speed of the mail class it rides — typically 1–5 business days on First-Class Mail, not guaranteed | Next-day to a few days depending on the service you pay for |
-| **Named by statutes** | Yes — Ohio eviction notices (ORC 1923.04) require "certified mail, return receipt requested" | Rarely; statutes name certified mail, not courier signatures |
-| **Extra controls** | Restricted Delivery ($14.35) limits delivery to a specific person | Adult Signature verifies age 21+ with photo ID |
-| **Best for** | Legal notices, filings, demand letters, anything with a statute behind it | Packages: valuables, electronics, alcohol, anything you don't want left on a porch |
+|                       | USPS Certified Mail + Return Receipt                                                                            | Carrier Signature Required (UPS / FedEx)                                               |
+| --------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **What it proves**    | Recipient's signature, delivery date, time, and delivery address on a USPS form (PS Form 3811)                  | Someone at the address signed for the package on a date                                |
+| **2026 cost**         | $5.55 Certified Mail fee + $4.65 green card (or $2.91 electronic) + postage                                     | UPS: $4.75 Signature Required, $5.75 Adult. FedEx: $7.60 Indirect or Direct, $10 Adult |
+| **Speed**             | Moves at the speed of the mail class it rides — typically 1–5 business days on First-Class Mail, not guaranteed | Next-day to a few days depending on the service you pay for                            |
+| **Named by statutes** | Yes — Ohio eviction notices (ORC 1923.04) require "certified mail, return receipt requested"                    | Rarely; statutes name certified mail, not courier signatures                           |
+| **Extra controls**    | Restricted Delivery ($14.35) limits delivery to a specific person                                               | Adult Signature verifies age 21+ with photo ID                                         |
+| **Best for**          | Legal notices, filings, demand letters, anything with a statute behind it                                       | Packages: valuables, electronics, alcohol, anything you don't want left on a porch     |
 
 Say it plainly: if your document is a package, carrier signatures are the right tool — FedEx makes Direct Signature Required the default on any package with a declared value of $500 or more (you can swap it for its authenticated QR-code delivery if you prefer). If your document is a legal notice, certified mail with return receipt is very often the tool the rulebook names. When the deadline is short, some people send both — an overnight courier copy for speed and the certified original for the record. That costs more than either one alone; it costs less than arguing about service later. (We can't give legal advice on your specific case — the statute, court rule, or contract language is the authority. Bring it in and we'll match the mailing to the words.)
 
@@ -1534,7 +1534,7 @@ Say it plainly: if your document is a package, carrier signatures are the right 
 
 ## The Mailing You Won't Have to Redo
 
-The next time you have a document that *matters*, the whole experience takes a few minutes: you pull into our lot on Fredle Drive, walk in with the paper and the requirement, and hand it across the counter. You tell us what the rule says. We build the right record — certified, receipted, addressed correctly. You walk out holding the stamped receipt, and the quiet part is what you feel: no second-guessing on the drive home, no late-night search for whether "signature required" counts. You'll know it counts, because you matched the words.
+The next time you have a document that _matters_, the whole experience takes a few minutes: you pull into our lot on Fredle Drive, walk in with the paper and the requirement, and hand it across the counter. You tell us what the rule says. We build the right record — certified, receipted, addressed correctly. You walk out holding the stamped receipt, and the quiet part is what you feel: no second-guessing on the drive home, no late-night search for whether "signature required" counts. You'll know it counts, because you matched the words.
 
 ## Hand Us the Requirement, Not a Finished Package
 
