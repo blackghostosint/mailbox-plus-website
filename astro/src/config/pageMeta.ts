@@ -67,9 +67,9 @@ export const pageMeta: Record<
       'Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio.',
     schema: [
       getWebPageSchema(siteConfig, {
-        name: 'About Mailbox Plus | Locally Owned Shipping & Business Services in Concord Township',
+        name: 'About Mailbox Plus',
         description:
-          'Learn about Mailbox Plus — your trusted, locally owned partner for shipping, printing, mailbox rentals, and business services in Concord Township and Lake County, Ohio.',
+          'Learn about Mailbox Plus, your family-owned local pack-and-ship store in Concord Township, Ohio. Faith-guided and dedicated to serving our Lake County neighbors with care.',
         url: `${siteConfig.domain}/about-us`,
         breadcrumbItems: [
           { name: 'Home', url: siteConfig.domain },

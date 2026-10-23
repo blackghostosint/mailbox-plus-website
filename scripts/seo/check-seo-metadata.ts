@@ -212,6 +212,22 @@ function main() {
     }
 
     // Verify WebPage JSON-LD schema name & description match pageMeta.ts
+    let expectedWpName = meta.title;
+    let expectedWpDesc = meta.description;
+    if (meta.schema) {
+      for (const sNode of meta.schema) {
+        if (
+          sNode &&
+          typeof sNode === 'object' &&
+          (sNode as unknown as Record<string, unknown>)['@type'] === 'WebPage'
+        ) {
+          const sWp = sNode as unknown as Record<string, unknown>;
+          if (sWp.name) expectedWpName = String(sWp.name);
+          if (sWp.description) expectedWpDesc = String(sWp.description);
+        }
+      }
+    }
+
     const jsonLdRegex = /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
     for (const match of html.matchAll(jsonLdRegex)) {
       const rawJson = match[1].trim();
@@ -225,15 +241,15 @@ function main() {
               ? decodeHtml(String(node.description).trim())
               : undefined;
 
-            if (wpName && wpName !== meta.title) {
+            if (wpName && wpName !== expectedWpName) {
               console.error(
-                `❌ FAIL: "${page.routePath}" WebPage JSON-LD name mismatch.\n  Expected (pageMeta.ts): "${meta.title}"\n  WebPage.name (JSON-LD): "${wpName}"`
+                `❌ FAIL: "${page.routePath}" WebPage JSON-LD name mismatch.\n  Expected (pageMeta.ts): "${expectedWpName}"\n  WebPage.name (JSON-LD): "${wpName}"`
               );
               errors++;
             }
-            if (wpDesc && wpDesc !== meta.description) {
+            if (wpDesc && wpDesc !== expectedWpDesc) {
               console.error(
-                `❌ FAIL: "${page.routePath}" WebPage JSON-LD description mismatch.\n  Expected (pageMeta.ts):       "${meta.description}"\n  WebPage.description (JSON-LD): "${wpDesc}"`
+                `❌ FAIL: "${page.routePath}" WebPage JSON-LD description mismatch.\n  Expected (pageMeta.ts):       "${expectedWpDesc}"\n  WebPage.description (JSON-LD): "${wpDesc}"`
               );
               errors++;
             }
