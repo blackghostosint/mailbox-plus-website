@@ -19,7 +19,7 @@ describe('verify.mjs doctor', () => {
     const envCheck = parsed.results.find((r: { name: string }) => r.name === 'env:completeness');
     expect(envCheck).toBeDefined();
     expect(envCheck.pass).toBe(true);
-    expect(envCheck.detail).toContain('27 keys mapped');
+    expect(envCheck.detail).toContain('28 keys mapped');
   }, 15000);
 });
 
@@ -39,7 +39,7 @@ describe('verify.mjs docs', () => {
     expect(envVarsCheck).toBeDefined();
     expect(envVarsCheck.pass).toBe(true);
     expect(envVarsCheck.detail).toContain(
-      'all 27 environment variable(s) from .env.example are documented'
+      'all 29 environment variable(s) from .env.example are documented'
     );
 
     const headersCheck = parsed.results.find(
@@ -86,6 +86,68 @@ describe('verify.mjs docs', () => {
     } finally {
       const fs = require('node:fs');
       fs.writeFileSync(secPath, originalSec, 'utf8');
+    }
+  }, 15000);
+});
+
+describe('verify.mjs content:no-jargon', () => {
+  it('outputs detected terms and docs link on content with jargon', () => {
+    const fs = require('node:fs');
+    const testArticlePath = path.join(
+      ROOT,
+      'content',
+      'articles',
+      'pack-ship',
+      'test-jargon-sample.md'
+    );
+    const testArticleContent = `---
+title: Test Jargon Article
+slug: test-jargon-sample
+description: This is a test description that meets length requirements and has enough character content to pass the description length gate cleanly.
+intentKey: test-jargon-sample
+category: pack-ship
+pubDate: 2026-01-01T10:00:00-05:00
+status: published
+image: articles/pack-ship/test-jargon-sample-featured.webp
+imageAlt: Descriptive alt text for featured test image
+keywords: [test, jargon]
+relatedServices: [/services/shipping/]
+author: Mailbox Plus Team
+---
+
+We leverage state-of-the-art tools and utilize cutting-edge solutions to empower your business.
+`;
+
+    fs.mkdirSync(path.dirname(testArticlePath), { recursive: true });
+    fs.writeFileSync(testArticlePath, testArticleContent, 'utf8');
+
+    try {
+      let stdout = '';
+      try {
+        stdout = execSync(
+          `node scripts/verify/verify.mjs article content/articles/pack-ship/test-jargon-sample.md --strict --json --offline`,
+          {
+            cwd: ROOT,
+            encoding: 'utf8',
+          }
+        );
+      } catch (err: any) {
+        stdout = err.stdout;
+      }
+
+      const parsed = JSON.parse(stdout);
+      const jargonCheck = parsed.results.find(
+        (r: { name: string }) => r.name === 'content:no-jargon'
+      );
+      expect(jargonCheck).toBeDefined();
+      expect(jargonCheck.pass).toBe(false);
+      expect(jargonCheck.detail).toContain('leverage');
+      expect(jargonCheck.detail).toContain('utilize');
+      expect(jargonCheck.fix).toContain('docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate');
+    } finally {
+      if (fs.existsSync(testArticlePath)) {
+        fs.unlinkSync(testArticlePath);
+      }
     }
   }, 15000);
 });

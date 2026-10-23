@@ -1451,11 +1451,7 @@
     "related": ["mailbox-rental", "digital-mailbox-rental", "private-mailbox-rental"],
     "priority": false
   },
-  "package-receiving-lake-county": {
-    "parent": "geo-dropoffs",
-    "related": [],
-    "priority": false
-  },
+  "package-receiving-lake-county": { "parent": "geo-dropoffs", "related": [], "priority": false },
   "mailbox-rental-mentor": {
     "parent": "home-business",
     "related": [
