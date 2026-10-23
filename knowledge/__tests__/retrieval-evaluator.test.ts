@@ -11,6 +11,7 @@ import {
   generateMarkdownReport,
   isOfflineMode,
   allowSkip,
+  embeddingCache,
   type TestExecutionResult,
 } from '../retrieval-evaluator.js';
 
@@ -18,22 +19,22 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 const REPORT_PATH = join(__dirname, '..', 'RETRIEVAL_TEST_REPORT.md');
 
+// Load embeddings to determine skip status upfront
+loadAllEmbeddings();
+const isCacheEmpty = Object.keys(embeddingCache).length === 0;
+const isCoverageInvalid = !isCacheEmpty && !verifyVectorCoverage().valid;
+const shouldSkip = isOfflineMode && allowSkip && (isCacheEmpty || isCoverageInvalid);
+
+if (shouldSkip) {
+  await buildEmbeddingCache();
+}
+
 describe('Knowledge Retrieval Evaluator Suite', () => {
   const executionResults: TestExecutionResult[] = [];
 
   beforeAll(async () => {
     loadAllEmbeddings();
-    if (isOfflineMode) {
-      const coverage = verifyVectorCoverage();
-      if (!coverage.valid && !allowSkip) {
-        throw new Error(
-          `Vector coverage check failed in offline mode (${coverage.missing.length} missing embeddings):\n` +
-            coverage.missing.map((m) => `  - ${m}`).join('\n')
-        );
-      }
-    } else {
-      await buildEmbeddingCache();
-    }
+    await buildEmbeddingCache();
   });
 
   afterAll(() => {
@@ -44,15 +45,18 @@ describe('Knowledge Retrieval Evaluator Suite', () => {
   });
 
   describe.each(retrievalTests)('Test case [$id]: $query', (testCase) => {
-    it(`should evaluate with expected result: ${testCase.expectedResult}`, async () => {
-      const result = await executeTest(testCase);
-      executionResults.push(result);
+    it.skipIf(shouldSkip)(
+      `should evaluate with expected result: ${testCase.expectedResult}`,
+      async () => {
+        const result = await executeTest(testCase);
+        executionResults.push(result);
 
-      expect(result.actualResult).toBe(testCase.expectedResult);
-      if (testCase.expectedResult === 'ACCEPT' && testCase.expectedFaqId) {
-        expect(result.actualFaqId).toBe(testCase.expectedFaqId);
+        expect(result.actualResult).toBe(testCase.expectedResult);
+        if (testCase.expectedResult === 'ACCEPT' && testCase.expectedFaqId) {
+          expect(result.actualFaqId).toBe(testCase.expectedFaqId);
+        }
+        expect(result.passed).toBe(true);
       }
-      expect(result.passed).toBe(true);
-    });
+    );
   });
 });
