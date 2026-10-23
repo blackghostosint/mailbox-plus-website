@@ -129,29 +129,29 @@ export const mailboxRentalServices: Service[] = [
                     <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm">
                         <thead class="bg-[var(--color-bg-secondary)]/80">
                             <tr>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Mailbox Size</th>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Monthly Price</th>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Package Inclusion</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Mailbox Size</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Monthly Price</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Package Inclusion</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)]">Small Box</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small Box</th>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$35.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)]">Large Box</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large Box</th>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$50.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
                             </tr>
                             <tr class="bg-[var(--color-bg-warm-tint)]/30">
-                                <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Small)</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-semibold text-left">Annual Prepay (Small)</th>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$420.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
                             </tr>
                             <tr class="bg-[var(--color-bg-warm-tint)]/30">
-                                <td class="p-4 text-[var(--color-text-primary)] font-semibold">Annual Prepay (Large)</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-semibold text-left">Annual Prepay (Large)</th>
                                 <td class="p-4 font-bold text-[var(--color-primary)]">$600.00</td>
                                 <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
                             </tr>
@@ -420,29 +420,29 @@ export const mailboxRentalServices: Service[] = [
                     <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm bg-white/40">
                         <thead class="bg-[var(--color-bg-secondary)]/60">
                             <tr>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Standard P.O. Box</th>
-                                <th class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus Private</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Standard P.O. Box</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus Private</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Address Type</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Address Type</th>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Box Number Only</td>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Real Street Address</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Carrier Access</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Carrier Access</th>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">USPS Only</td>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">UPS, FedEx, DHL, USPS</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Package Security</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package Security</th>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Limited Sizes</td>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Standard Signing Incl.</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Privacy</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Privacy</th>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Standard</td>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Elite Protection</td>
                             </tr>
@@ -747,29 +747,29 @@ export const mailboxRentalServices: Service[] = [
                     <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm bg-white/40">
                         <thead class="bg-[var(--color-bg-secondary)]/60">
                             <tr>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th>
-                                <th class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus</th>
-                                <th class="p-4 font-semibold text-[var(--color-text-primary)]">USPS Forwarding</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Feature</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">USPS Forwarding</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Package Forwarding</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Package Forwarding</th>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Yes (All Carriers)</td>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Limited / Pricey</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Frequency Control</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Frequency Control</th>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Custom/On-Demand</td>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Automatic/Bulk</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Carrier Options</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Carrier Options</th>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">UPS, FedEx, DHL, USPS</td>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">USPS Only</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Local Reliability</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Local Reliability</th>
                                 <td class="p-4 text-[var(--color-text-primary)] font-bold">Lake County Staff</td>
                                 <td class="p-4 text-[var(--color-text-secondary)] italic">Automated System</td>
                             </tr>
