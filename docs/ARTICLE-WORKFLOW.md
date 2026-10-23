@@ -112,7 +112,7 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 ## Hard Gates — in order, before opening the PR
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."
-2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose.
+2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose. **Before re-verifying any claim, search `.factchecks/CONFIRMED.md` (the cross-article confirmed-facts ledger) first** — if the claim already has a row, cite its source and skip re-research; if new copy contradicts a row there, flag the conflict in the PR instead of silently overwriting. Reusable facts verified in a fact-check run are appended to that ledger in the same PR as the receipt.
 3. **Copy review — DeepSeek V4.1 Flash, score ≥ 90/100 with every flagged objection resolved.**
    ```bash
    node scripts/verify/verify.mjs review content/articles/{category}/{slug}.md
