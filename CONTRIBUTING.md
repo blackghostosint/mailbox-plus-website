@@ -157,10 +157,10 @@ All real-store photos referenced in article bodies (`/articles/store-library/`) 
 
 ## Adding a New Static Page
 
-1. Define page metadata (title, description, optional schema, geo tags) in `astro/src/config/pageMeta.ts` with the route path as key (e.g., `'/about-us'`).
-2. Create the page component in `astro/src/pages/` wrapped with `<BaseLayout>`.
-3. `BaseLayout` automatically inspects the route path (`Astro.url.pathname`) and supplies `title`, `description`, geo metadata (`geo.region`, `geo.placename`, `geo.position`, `ICBM`), and JSON-LD schema from `astro/src/config/pageMeta.ts` when explicit props are omitted.
-4. Run `npm run build` and `npm run seo:check-metadata` to verify.
+1. Register page metadata (`title`, `description`, optional `schema`, `geoMeta`) in `astro/src/config/pageMeta.ts` using the route path as key (e.g., `'/about-us'`).
+2. Create the page component in `astro/src/pages/` wrapped with `<BaseLayout>`. Static pages must not pass inline `title` or `description` props directly to `<BaseLayout>`.
+3. `<BaseLayout>` automatically inspects the route path (`Astro.url.pathname`) and supplies `title`, `description`, geo metadata (`geo.region`, `geo.placename`, `geo.position`, `ICBM`), and JSON-LD schema from `astro/src/config/pageMeta.ts`.
+4. Run `npm run build` and `npm run seo:check-metadata` to verify that all registered static routes pass metadata registration and rendered HTML output assertions.
 
 ## Adding a New Service Page
 
