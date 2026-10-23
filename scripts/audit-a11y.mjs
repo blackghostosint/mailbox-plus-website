@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
-const BATCH_SIZE = 1;
+const BATCH_SIZE = 5;
 
 const CATEGORIES = {
   HOMEPAGE: 'Homepage',
@@ -418,9 +418,9 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--tags',
           'wcag2a,wcag2aa,wcag21a,wcag21aa',
           '--load-delay',
-          '1000',
+          '1500',
           '--chrome-options',
-          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
         ]
       : [
           '--yes',
@@ -429,9 +429,9 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--tags',
           'wcag2a,wcag2aa,wcag21a,wcag21aa',
           '--load-delay',
-          '1000',
+          '1500',
           '--chrome-options',
-          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
         ];
 
     if (chromePath && fs.existsSync(chromePath)) {
@@ -660,12 +660,6 @@ async function main() {
       console.log(`Using provided base URL: ${baseUrl}`);
     }
 
-    console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
-    execSync('npx --yes browser-driver-manager install chrome', {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-    });
-
     const envPath = path.join(os.homedir(), '.browser-driver-manager', '.env');
     let chromePath = '';
     let chromedriverPath = '';
@@ -678,6 +672,36 @@ async function main() {
         const matchDriver = line.match(/^CHROMEDRIVER_TEST_PATH="([^"]+)"$/);
         if (matchDriver) chromedriverPath = matchDriver[1];
       }
+    }
+
+    if (
+      !chromePath ||
+      !chromedriverPath ||
+      !fs.existsSync(chromePath) ||
+      !fs.existsSync(chromedriverPath)
+    ) {
+      console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
+      try {
+        execSync('npx --yes browser-driver-manager install chrome', {
+          cwd: process.cwd(),
+          stdio: 'inherit',
+          timeout: 120000,
+        });
+      } catch (err) {
+        console.warn(`Warning: browser-driver-manager failed or timed out: ${err.message}`);
+      }
+
+      if (fs.existsSync(envPath)) {
+        const envContent = fs.readFileSync(envPath, 'utf8');
+        for (const line of envContent.split('\n')) {
+          const matchChrome = line.match(/^CHROME_TEST_PATH="([^"]+)"$/);
+          if (matchChrome) chromePath = matchChrome[1];
+          const matchDriver = line.match(/^CHROMEDRIVER_TEST_PATH="([^"]+)"$/);
+          if (matchDriver) chromedriverPath = matchDriver[1];
+        }
+      }
+    } else {
+      console.log(`Using existing Chrome binary: ${chromePath}`);
     }
 
     const targetUrls = selectedRoutes.map((r) => new URL(r, baseUrl).href);
