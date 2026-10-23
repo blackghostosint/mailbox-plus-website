@@ -583,7 +583,7 @@ export const returnMicroProblems: Service[] = [
     robots: 'index, follow',
   },
   {
-    id: 'ship-a-return-with-strict-size-or-weight-limits',
+    id: 'ship-return-strict-size-weight-limits',
     internalLink: {
       parent: 'pack-ship',
       related: [
