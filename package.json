@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "workspaces": [
-    "astro"
+    "astro",
+    "netlify/functions"
   ],
   "scripts": {
     "dev": "cd astro && npm run dev",
