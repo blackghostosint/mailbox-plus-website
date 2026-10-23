@@ -33,7 +33,7 @@ faqs:
   - question: 'Can I leave a UPS package at the post office?'
     answer: "No. UPS's official drop-off options are The UPS Store, UPS Customer Centers, UPS Drop Boxes, and participating UPS Access Point retailers. The post office is not a UPS drop-off point, so a UPS package left there gets no scan and no receipt."
   - question: 'What happens to a package dropped off with the wrong carrier?'
-    answer: "It never enters the carrier's movement network. Somebody has to notice it and physically move it to the right company, which costs days — and until the correct carrier scans it, tracking stays blank and you have no proof of handoff."
+    answer: "It never enters the carrier's movement network. Somebody has to notice it and physically move it to the right company, which costs days — and until the correct carrier scans it, tracking still shows label created, with no new scan and no proof of handoff."
   - question: 'Can FedEx or UPS packages be dropped off at Mailbox Plus?'
     answer: 'Yes. Mailbox Plus in Concord Township is an independent multi-carrier shipping center that holds agreements with all four major carriers — UPS, FedEx, USPS, and DHL — so a labeled box is scanned into the correct network with a receipt, in one stop.'
 ---
@@ -78,7 +78,7 @@ You deserve the straight answer before the box leaves your hands, not after it g
 
 At our counter at 7554 Fredle Drive in Concord Township, this question shows up almost daily — usually from someone holding a UPS label, halfway out the door, asking whether the post office on their route can take it.
 
-Here is the thing about us: we are not one of the closed networks. Mailbox Plus is an independent multi-carrier shipping center, which means we hold agreements with all four major carriers — UPS, FedEx, USPS, and DHL. When you put a labeled box on our counter, the right network actually gets it: scanned, receipted, and moving the same day. We do not have to guess whose label it is, because we can accept all of them.
+Here is the thing about us: we are not one of the closed networks. Mailbox Plus is an independent multi-carrier shipping center, which means we hold agreements with all four major carriers — UPS, FedEx, USPS, and DHL. When you put a labeled box on our counter, the right network actually gets it: scanned and receipted the same day, and typically moving that same day. We do not have to guess whose label it is, because we can accept all of them.
 
 And because we quote all four carriers at the counter, we can also tell you when the label in your hand is the wrong tool for the job — a question none of the single-carrier locations are positioned to answer.
 
@@ -90,7 +90,7 @@ There is no trick to doing this right. It comes down to one rule: match the coun
 
 1. **Bring the box as it is.** Labeled and sealed, or not — if the label is a QR code or the box still needs packing, that is normal counter work, not a special case.
 2. **Tell the counter who is shipping.** UPS, FedEx, USPS, DHL — a multi-carrier counter scans it into the correct network on the spot, with a receipt in your hand before you leave.
-3. **Keep the receipt.** That scan is the moment tracking starts and the moment responsibility transfers. From there, the carrier's own tracking takes over and you can watch the box the whole way.
+3. **Keep the receipt.** That scan is the moment tracking starts. From there, the carrier's own tracking takes over and you can watch the box the whole way — and the receipt is your proof of handoff if anything goes sideways later.
 
 That is it. No homework, no app, no studying network maps in a parking lot. And if you are weighing which carrier should carry the box in the first place, our [UPS, FedEx, USPS, and DHL rate comparison](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) breaks that down too.
 
@@ -98,13 +98,13 @@ That is it. No homework, no app, no studying network maps in a parking lot. And 
 
 Say you take the shortcut and leave the UPS box at the wrong counter anyway. Best case: an employee notices it, someone routes it back to the right carrier, and you lose a few days you did not have — while a return window or a delivery deadline keeps running.
 
-Worse cases stack up from there. No acceptance scan means no receipt, no claim, and no answer when the marketplace asks where its package is. And if the box sits unclaimed in a corner of a store that cannot legally process it, every day it waits is a day closer to lost-for-good — with no claim to file, because as far as the carrier's system shows, your package never entered their network.
+Worse cases stack up from there. No acceptance scan means no receipt, no scan record, and no documented handoff — so there is nothing to support a carrier claim if the box goes missing. And if the box sits unclaimed in a corner of a store with no way to scan it into the right network, every day it waits is a day closer to lost-for-good — because as far as the carrier's system shows, your package never entered their network.
 
 The shortcut saved you ten minutes of driving and bought you a week of not knowing. That trade is never worth it.
 
 ## The Weight You Didn't Realize You Were Carrying
 
-Now picture the same errand done right. You pull into Gristmill Village, box on the passenger seat, Fredle Drive just off Crile Road a minute away. Inside, the counter takes it, scans it, and hands you a receipt — and the tracking page that was empty all week lights up before you reach the car.
+Now picture the same errand done right. You pull into Gristmill Village, box on the passenger seat, Fredle Drive just off Crile Road a minute away. Inside, the counter takes it, scans it, and hands you a receipt — and the tracking page that was empty all week lights up the moment the scan posts, usually before you're back in the car.
 
 The part that lifts is the receipt in your hand and the tracking page already reading "Accepted" before you pull back out onto the road. No second-guessing whether the counter was the right one. No mental note to check tracking tonight and again tomorrow. The box is in the network it belongs to, and someone competent logged the exact minute it left your hands. That errand is closed, and your evening stays yours.
 

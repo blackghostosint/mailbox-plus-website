@@ -12,6 +12,9 @@
 | 8   | Store address 7554 Fredle Drive, Concord Township; located off Route 306                                                                                                                 | ✅          | content/facts.json approved phrasing; siteConfig                                                                                                                                                           |
 
 | 9 | FAQ rows (FedEx-only policy, UPS drop-off list, misdirected-package mechanism, four-carrier drop-off) restate claims 1-4 and 7 — same sources | ✅ | Same URLs as above |
+| 10 | Store counter "scanned, receipted, and moving the same day" (operational promise) | ⚠️ softened | Owner ruling 2026-10-23 (nico working per Frank): softened to "scanned and receipted the same day, and typically moving that same day" — scan/receipt same-day is verifiable counter practice; full same-day movement qualified. |
+| 11 | Scan is "the moment responsibility transfers" | ⚠️ softened | Owner ruling 2026-10-23: softened to "receipt is your proof of handoff" — avoids an unqualified legal responsibility-transfer assertion. |
+| 12 | "No claim to file" / a store "cannot legally process" a misdirected package (legal absolutes) | ⚠️ softened | Owner ruling 2026-10-23 (scrub-absolutes rule): rewritten to "nothing to support a carrier claim" / "a store with no way to scan it into the right network" — mechanism kept, legal absolute removed. |
 
 Note: live fedex.com URLs bot-wall automated fetches (ERR/503); archived snapshots of the same pages (retrieved and quoted 2026-10-20) are cited for machine resolution.
 
