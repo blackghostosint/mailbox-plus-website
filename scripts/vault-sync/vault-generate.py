@@ -365,10 +365,7 @@ def gen_articles():
     art_dir = REPO / 'content' / 'articles'
     if art_dir.exists():
         for md in sorted(art_dir.rglob('*.md')):
-            try:
-                txt = md.read_text(encoding='utf-8', errors='ignore')
-            except FileNotFoundError:
-                continue
+            txt = md.read_text(encoding='utf-8', errors='ignore')
             m = re.match(r'^---\n(.*?)\n---', txt, re.S)
             if not m:
                 continue
