@@ -5,6 +5,50 @@
  * Uses Node.js core modules only.
  */
 import { readFileSync, existsSync } from 'node:fs';
+import { execSync } from 'node:child_process';
+
+/**
+ * Detects local changed files via git diff when no explicit files source is provided.
+ * @returns {string[]}
+ */
+export function detectLocalChangedFiles() {
+  try {
+    const stdout = execSync('git diff --name-only origin/main...HEAD', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const files = stdout
+      .split(/\r?\n/)
+      .map((f) => f.trim())
+      .filter(Boolean);
+    if (files.length > 0) return files;
+  } catch {}
+
+  try {
+    const stdout = execSync('git diff --name-only HEAD~1', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    const files = stdout
+      .split(/\r?\n/)
+      .map((f) => f.trim())
+      .filter(Boolean);
+    if (files.length > 0) return files;
+  } catch {}
+
+  try {
+    const stdout = execSync('git diff --name-only', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    return stdout
+      .split(/\r?\n/)
+      .map((f) => f.trim())
+      .filter(Boolean);
+  } catch {
+    return [];
+  }
+}
 
 /**
  * Reads and parses a list of changed files from an array, file path, stdin ('-'), or multiline string.
@@ -86,6 +130,38 @@ export function readPRBody(source, env = process.env) {
     }
   }
 
+  // Fallback for local execution when no explicit source or env vars are provided
+  const localCandidates = [
+    '.prbody.md',
+    '.pr-body.md',
+    'pr-body.md',
+    'prbody.md',
+    '.github/PULL_REQUEST_BODY.md',
+    '.github/pull_request_body.md',
+  ];
+  for (const candidate of localCandidates) {
+    if (existsSync(candidate)) {
+      try {
+        const content = readFileSync(candidate, 'utf8');
+        if (content.trim()) return content;
+      } catch {
+        // ignore
+      }
+    }
+  }
+
+  try {
+    const gitLogBody = execSync('git log -1 --pretty=%B', {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    });
+    if (gitLogBody && gitLogBody.trim()) {
+      return gitLogBody;
+    }
+  } catch {
+    // ignore
+  }
+
   return '';
 }
 
@@ -158,7 +234,10 @@ export function getPRContext(options = {}) {
   const filesSource = options.filesFile ?? positional[1] ?? env.PR_FILES_FILE ?? env.CHANGED_FILES;
 
   const body = readPRBody(bodySource, env);
-  const changedFiles = readFilesList(filesSource);
+  let changedFiles = readFilesList(filesSource);
+  if (changedFiles.length === 0 && !filesSource && !env.PR_FILES_FILE && !env.CHANGED_FILES) {
+    changedFiles = detectLocalChangedFiles();
+  }
   const author = resolveAuthor(cliAuthor || options.author, env);
 
   const isCi = Boolean(env.CI || env.GITHUB_ACTIONS || env.GITHUB_EVENT_PATH);

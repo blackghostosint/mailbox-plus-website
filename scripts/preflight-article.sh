@@ -35,12 +35,18 @@ fi
 # NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
 # review and no receipt to check; running the gates on it fails spuriously
 # (deletion branches like the GSC sitemap-cleanup PR).
-mapfile -t ARTICLES < <(git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null)
-if [ ${#ARTICLES[@]} -eq 0 ] || [ -z "${ARTICLES[0]}" ]; then
-  mapfile -t ARTICLES < <(git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null)
-fi
+mapfile -t ARTICLES < <(
+  {
+    git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null
+    git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null
+    git diff --name-only --diff-filter=d HEAD -- 'content/articles/**/*.md' 2>/dev/null
+    git ls-files --others --exclude-standard -- 'content/articles/**/*.md' 2>/dev/null
+  } | sort -u
+)
+
 for f in "${ARTICLES[@]}"; do
   [ -z "$f" ] && continue
+  [ ! -f "$f" ] && continue
   base=$(basename "$f" .md)
   if ! ls .factchecks/"${base}".factcheck.* >/dev/null 2>&1; then
     echo "❌ factcheck: no receipt for $base (.factchecks/${base}.factcheck.*)"
@@ -56,17 +62,18 @@ for f in "${ARTICLES[@]}"; do
   # 3c. verdict column sanity (#664 — claims gate needs ✅/⚠️/owner-verified in the
   # VERDICT column (3rd) of each receipt table row; a marker in any other column fails CI)
   node scripts/preflight-verify-verdicts.mjs ".factchecks/${base}.factcheck.md" || FAIL=1
-  # 3d. body-photo manifest membership (failed: #683/#684 — hand-rolled rclone uploads
-  # shipped CDN URLs missing from content/store-photos.json; CI image:body hard-failed
-  # AFTER the bot's own gate run). Reuses verify.mjs's exact gate logic offline so the
-  # check can't drift from CI; asserts on the gate output line, not the exit code.
-  IMG_OUT=$(node --import tsx scripts/verify/verify.mjs article "$f" --strict --offline 2>&1 | grep 'image:body' || true)
-  if echo "$IMG_OUT" | grep -q '✅'; then
-    echo "✅ image:body manifest: $f"
-  else
-    echo "❌ image:body: ${IMG_OUT:-no image:body output from verify.mjs} — body photos MUST go through process_store_photos.py publish (manifest append), never hand-rolled rclone"
+  # 3d. strict offline verification parity gate (includes store photo manifest validation).
+  # Reuses verify.mjs in strict offline mode so local preflight maintains 1:1 parity with CI.
+  VERIFY_LOG=$(mktemp)
+  if ! node --import tsx scripts/verify/verify.mjs article "$f" --strict --offline >"$VERIFY_LOG" 2>&1; then
+    echo "❌ verification: strict offline check failed for $f"
+    cat "$VERIFY_LOG"
     FAIL=1
+  else
+    IMG_STATUS=$(grep 'image:body' "$VERIFY_LOG" || echo "image:body OK")
+    echo "✅ verification & store photo manifest: $f (${IMG_STATUS})"
   fi
+  rm -f "$VERIFY_LOG"
 done
 
 # 4. trailing slashes on internal links (rule 1, CI enforces — check early)
@@ -76,6 +83,17 @@ if ! npm run seo:check-href-slash >"$LOG_FILE" 2>&1; then
   FAIL=1
 else
   echo "✅ seo: href slashes OK"
+fi
+
+# 5. article ownership gate & authorship stamp (internal-only rule, CI enforces)
+if [ ${#ARTICLES[@]} -gt 0 ] && [ -n "${ARTICLES[0]}" ]; then
+  if ! npm run verify:ownership >"$LOG_FILE" 2>&1; then
+    echo "❌ ownership: article ownership check failed"
+    cat "$LOG_FILE"
+    FAIL=1
+  else
+    echo "✅ ownership: article ownership verified"
+  fi
 fi
 
 exit $FAIL

@@ -68,6 +68,24 @@ try {
   gray = null;
 }
 
+let parseValidDate, toISODateString;
+try {
+  const dateUtils = await import('../../astro/src/utils/dateUtils.ts');
+  parseValidDate = dateUtils.parseValidDate;
+  toISODateString = dateUtils.toISODateString;
+} catch {
+  parseValidDate = (input) => {
+    if (!input) return null;
+    const d = new Date(input);
+    return isNaN(d.getTime()) ? null : d;
+  };
+  toISODateString = (input, fallback = 'unknown', format = 'date') => {
+    const d = parseValidDate(input);
+    if (!d) return fallback;
+    const iso = d.toISOString();
+    return format === 'date' ? iso.slice(0, 10) : iso;
+  };
+}
 let currentFile = null;
 const results = [];
 function check(name, pass, detail, fix, file = currentFile) {
@@ -232,6 +250,18 @@ function loadStorePhotoManifest() {
   }
 }
 
+function normalizeStorePhotoKey(ref) {
+  let key = String(ref || '')
+    .trim()
+    .replace(/^https?:\/\/[^/]+\//, '')
+    .replace(/^pub-[a-z0-9]+\.r2\.dev\//, '')
+    .replace(/^\/+/, '');
+  if (key.startsWith('store-library/')) {
+    key = 'articles/' + key;
+  }
+  return key;
+}
+
 function getChangedArticleFiles() {
   const allChanged = initNewArticles();
   const changedArticles = [];
@@ -303,8 +333,9 @@ function cmdHeadings() {
 
 const EXPECTED_ENV_MANIFEST = [
   'VITE_R2_PUBLIC_BASE_URL',
-  'VITE_GOOGLE_MAPS_KEY',
   'VITE_RECAPTCHA_SITE_KEY',
+  'RECAPTCHA_ENTERPRISE_PROJECT',
+  'RECAPTCHA_ENTERPRISE_KEY_ID',
   'RECAPTCHA_SITE_KEY',
   'VITE_NETLIFY_CONTEXT',
   'VITE_SENTRY_DSN',
@@ -832,8 +863,8 @@ function cmdArticle(arg, isStrict = false) {
     }
 
     // 6) pubDate parses + is not in the future
-    const pd = new Date(String(data.pubDate || ''));
-    if (isNaN(pd.getTime())) {
+    const pd = parseValidDate(data.pubDate);
+    if (!pd) {
       check(
         'meta:pubDate',
         false,
@@ -844,7 +875,7 @@ function cmdArticle(arg, isStrict = false) {
       check(
         'meta:pubDate',
         pd.getTime() <= Date.now() + 86400000,
-        pd.toISOString(),
+        toISODateString(pd, 'unknown', 'iso'),
         'pubDate more than 1 day in the future'
       );
     }
@@ -972,38 +1003,45 @@ function cmdArticle(arg, isStrict = false) {
     // reference at least one in-body photo: a per-article body-N file OR a vetted store-library
     // asset listed in content/store-photos.json. Library photos are pre-vetted by the owner's
     // Immich pipeline: tag 'Mailbox Plus/Captioned' + store-GPS geofence, no readable labels/PII.
-    const bodyImgRefs = [
-      ...content.matchAll(/!\[[^\]]*\]\((\/?[^)\s]+(?:body-\d+|store-library\/[^)\s]+)\.webp)\)/g),
+    const markdownImgRefs = [
+      ...content.matchAll(
+        /!\[[^\]]*\]\((\/?[^)\s]+(?:body-\d+|store-library\/[^)\s]+)\.(webp|jpg|jpeg|png))\)/gi
+      ),
     ].map((m) => m[1]);
+    const storeLibRawRefs = [
+      ...content.matchAll(
+        /(?:https?:\/\/[^/]+\/|^\/+|\b)((?:articles\/)?store-library\/[^\s"')]+\.(webp|jpg|jpeg|png))/gi
+      ),
+    ].map((m) => m[1]);
+    const bodyImgRefs = Array.from(new Set([...markdownImgRefs, ...storeLibRawRefs]));
+
     if (bodyImgRefs.length > 0) {
       let allOk = true;
       const details = [];
       for (const ref of bodyImgRefs) {
-        const r2Key = ref
-          .replace(/^https?:\/\/[^/]+\//, '')
-          .replace(/^pub-[a-z0-9]+\.r2\.dev\//, '');
-        if (r2Key.includes('store-library/')) {
+        const normKey = normalizeStorePhotoKey(ref);
+        if (normKey.includes('store-library/')) {
           const manifest = loadStorePhotoManifest();
-          const entry = manifest.find((e) => e.key === `articles/${r2Key}` || e.key === r2Key);
+          const entry = manifest.find((e) => e.key === normKey);
           if (!entry) {
             allOk = false;
             details.push(
-              `${r2Key} not in content/store-photos.json (unvetted store-library ref — publish via npm run store-photos -- publish)`
+              `${normKey} not in content/store-photos.json (unvetted store-library ref — publish via npm run store-photos -- publish)`
             );
             continue;
           }
         }
         if (SKIP_NETWORK) {
-          details.push(`${r2Key} (HTTP check skipped --offline)`);
+          details.push(`${normKey} (HTTP check skipped --offline)`);
           continue;
         }
-        const url = r2Key.startsWith('http') ? r2Key : `${R2_PUBLIC_BASE}/${r2Key}`;
+        const url = normKey.startsWith('http') ? normKey : `${R2_PUBLIC_BASE}/${normKey}`;
         const code = headStatus(url);
         if (code !== '200') {
           allOk = false;
           details.push(`HTTP ${code} ${url}`);
         } else {
-          details.push(`HTTP 200 ${r2Key}`);
+          details.push(`HTTP 200 ${normKey}`);
         }
       }
       check(
@@ -1530,6 +1568,7 @@ const KNOWN_DOC_EXTS = [
 ];
 
 const IGNORED_DOC_PACKAGES = new Set([
+  '@axe-core/cli',
   '@netlify/blobs',
   '@tailwindcss/typography',
   'gray-matter',
@@ -1542,6 +1581,10 @@ const IGNORED_DOC_PACKAGES = new Set([
   'eslint',
   'prettier',
   'tsx',
+  'dist',
+  'dist/',
+  'a11y-reports',
+  'a11y-reports/',
 ]);
 
 function resolveDocCandidatePath(p, docDir) {
@@ -1563,6 +1606,17 @@ function resolveDocCandidatePath(p, docDir) {
 
   if (!testPath) return { found: true };
 
+  // Wildcard glob patterns (e.g. content/articles/**/*.md)
+  if (testPath.includes('*')) {
+    const baseDir = testPath.split('*')[0];
+    const cleanBase = baseDir.endsWith('/') ? baseDir.slice(0, -1) : baseDir;
+    if (!cleanBase) return { found: true };
+    const absBaseRoot = path.resolve(ROOT, cleanBase);
+    if (fs.existsSync(absBaseRoot)) return { found: true, path: absBaseRoot };
+    const absBaseDoc = path.resolve(docDir, cleanBase);
+    if (fs.existsSync(absBaseDoc)) return { found: true, path: absBaseDoc };
+  }
+
   // 1) ROOT
   const absRoot = path.resolve(ROOT, testPath);
   if (fs.existsSync(absRoot)) return { found: true, path: absRoot };
@@ -1577,9 +1631,10 @@ function resolveDocCandidatePath(p, docDir) {
     if (fs.existsSync(astroSrc)) return { found: true, path: astroSrc };
   }
 
-  // 4) Build output directory (e.g. dist, astro/dist)
-  if (testPath === 'dist' || testPath === 'astro/dist') {
-    const parent = path.dirname(path.resolve(ROOT, testPath));
+  // 4) Build output, test coverage, and archived directories
+  const normPath = testPath.replace(/\/+$/, '');
+  if (['dist', 'astro/dist', 'coverage', 'archive', 'node_modules', '.astro'].includes(normPath)) {
+    const parent = path.dirname(path.resolve(ROOT, normPath));
     if (fs.existsSync(parent)) return { found: true };
   }
 

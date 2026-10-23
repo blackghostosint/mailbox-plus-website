@@ -95,7 +95,7 @@ Mailbox Plus appears as a disciplined, hyper-local incumbent in Lake County, Ohi
 2.  **Staff-Dependent Packing:** Service fragility; exploitation by offering "Customer-Packed Insurance" options.
 3.  **Third-Party Digital Dependency:** Margin leakage to iPostal1/Anytime Mailbox. Exploit by owning the customer data and portal.
 4.  **Static Search Content:** Low engagement; exploit by launching interactive "Shipping Calculators" and "Live Notary" waits.
-5.  **Location Confusion:** `siteConfig.ts` vs `locations.ts` contains conflicting street addresses (7554 Fredle vs 7507 Auburn). Exploit by emphasizing "Always where you need us" with clear, single-point navigation.
+5.  **Location Confusion:** `astro/src/config/siteConfig.ts` vs `astro/src/config/locations.ts` contains conflicting street addresses (7554 Fredle vs 7507 Auburn). Exploit by emphasizing "Always where you need us" with clear, single-point navigation.
 
 ---
 

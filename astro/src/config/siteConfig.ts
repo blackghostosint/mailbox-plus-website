@@ -2,7 +2,7 @@
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
-function getNetlifyContext(): string | undefined {
+export function getNetlifyContext(): string | undefined {
   if (typeof import.meta !== 'undefined' && import.meta.env) {
     if (import.meta.env.VITE_NETLIFY_CONTEXT) return import.meta.env.VITE_NETLIFY_CONTEXT;
     if (import.meta.env.CONTEXT) return import.meta.env.CONTEXT;
@@ -14,7 +14,7 @@ function getNetlifyContext(): string | undefined {
   return undefined;
 }
 
-function getSiteDomain(): string {
+export function getSiteDomain(): string {
   const explicitSiteUrl =
     (typeof import.meta !== 'undefined' && import.meta.env
       ? import.meta.env.VITE_SITE_URL || import.meta.env.SITE_URL
@@ -55,6 +55,24 @@ function getSiteDomain(): string {
   return 'https://mailboxplusohio.com';
 }
 
+const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+
+function getR2BaseUrl(): string {
+  const envUrl =
+    (typeof import.meta !== 'undefined' && import.meta.env
+      ? import.meta.env.VITE_R2_PUBLIC_BASE_URL
+      : undefined) ||
+    (typeof process !== 'undefined' && process.env
+      ? process.env.VITE_R2_PUBLIC_BASE_URL
+      : undefined);
+
+  if (envUrl && envUrl.trim() !== '') {
+    return envUrl.trim().replace(/\/$/, '');
+  }
+
+  return CANONICAL_R2_BASE_URL;
+}
+
 export const siteConfig: SiteConfig = {
   name: 'Mailbox Plus',
   legalName: 'Mailbox Plus of Ohio, LLC',
@@ -66,12 +84,24 @@ export const siteConfig: SiteConfig = {
   },
   logo: '/mailbox_plus_logo.webp',
   favicon: {
-    default: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-32x32.png`,
-    appleTouch: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/apple-touch-icon.png`,
-    android192: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/android-chrome-192x192.png`,
-    android512: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/android-chrome-512x512.png`,
-    icon16: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-16x16.png`,
-    icon32: `${typeof import.meta !== 'undefined' && import.meta.env ? import.meta.env.VITE_R2_PUBLIC_BASE_URL : process.env.VITE_R2_PUBLIC_BASE_URL || ''}/favicon_io/favicon-32x32.png`,
+    get default(): string {
+      return `${getR2BaseUrl()}/favicon_io/favicon-32x32.png`;
+    },
+    get appleTouch(): string {
+      return `${getR2BaseUrl()}/favicon_io/apple-touch-icon.png`;
+    },
+    get android192(): string {
+      return `${getR2BaseUrl()}/favicon_io/android-chrome-192x192.png`;
+    },
+    get android512(): string {
+      return `${getR2BaseUrl()}/favicon_io/android-chrome-512x512.png`;
+    },
+    get icon16(): string {
+      return `${getR2BaseUrl()}/favicon_io/favicon-16x16.png`;
+    },
+    get icon32(): string {
+      return `${getR2BaseUrl()}/favicon_io/favicon-32x32.png`;
+    },
   },
   contact: {
     phone: '440-709-1946',

@@ -45,19 +45,19 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Speed:</strong> In and out fast so you can get back to your day.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">No Waiting:</strong> Avoid the crowds and long lines typical of franchise stores.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Receipts:</strong> We provide a drop-off receipt for tracking and peace of mind.</div>
@@ -70,13 +70,13 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier:</strong> We accept drop-offs for UPS, FedEx and USPS packages.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Packing Help:</strong> Professional supplies and expertise available on-site.</div>
@@ -306,19 +306,19 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We value your time and ensure a quick, efficient experience.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Options:</strong> Access to UPS, FedEx, USPS, and DHL in one place.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Local Ownership:</strong> Proud members of the Concord Township community.</div>
@@ -331,13 +331,13 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Mailbox Rentals:</strong> Secure private mailboxes with a real street address.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Printing & Notary:</strong> Full range of business support services on-site.</div>
@@ -520,13 +520,13 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Faster Service:</strong> We pride ourselves on quick, efficient transactions.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Multi-Carrier Choice:</strong> Access to UPS, FedEx, and DHL for when USPS isn't the best fit.</div>
@@ -539,13 +539,13 @@ export const localSeoServices: Service[] = [
         body: `
                     <ul class="space-y-4 my-6">
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">USPS Shipping:</strong> Priority Mail, Express, First Class, and International.</div>
                         </li>
                         <li class="flex items-start gap-4">
-                            <div class="mt-1 bg-[var(--color-bg-blue-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-blue)]">
+                            <div class="mt-1 bg-[var(--color-bg-warm-tint)] p-1.5 rounded-full text-[var(--color-primary)] shrink-0 border border-[var(--color-border-strong)]">
                                 <svg aria-hidden="true" focusable="false" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
                             </div>
                             <div class="text-[var(--color-text-primary)] leading-relaxed"><strong class="text-[var(--color-text-primary)]">Private Mailboxes:</strong> Secure mailboxes with real street addresses.</div>
@@ -642,157 +642,6 @@ export const localSeoServices: Service[] = [
       {
         question: 'Can I rent a mailbox?',
         answer: 'Yes, we offer private mailbox rentals with a real street address.',
-      },
-    ],
-    aggregateRating: {
-      ratingValue: 5.0,
-      reviewCount: 32,
-    },
-  },
-  {
-    id: 'staples-printing-alternative-concord-township',
-    internalLink: {
-      parent: 'copy-print',
-      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
-      priority: false,
-    },
-    category: 'copy-print',
-    city: 'Concord Township',
-    serviceName: 'Staples Printing Alternative',
-    slug: '/staples-printing-alternative-concord-township',
-    pageTitle: 'Staples Printing Alternative in Concord | Mailbox Plus',
-    metaDescription:
-      'Looking for a Staples Printing alternative in Concord Township? We offer color and B&W copies, business cards, flyers, and laminating. Quick turnaround, friendly service.',
-    keywords: 'Staples printing alternative, Concord Township, Mailbox Plus, printing services',
-    heroTitle: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
-    heroSubtitle:
-      'Full-service printing and copying \u2014 color and B&W \u2014 without the big-box experience.',
-    heroImage: getServiceImageUrl('/images/copy-print.webp'),
-    content: [
-      {
-        heading: 'The Best Staples Printing Alternative in Concord Township: Mailbox Plus',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Need <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing or copying</a> and don't want to trek to Staples? Mailbox Plus is your <strong>Staples Printing alternative in Concord Township, Ohio</strong>. We offer the same professional printing services \u2014 color and B&W copies, business cards, flyers, and laminating \u2014 without the big-box store experience.
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Walk in, hand us your documents, and we handle the rest. Quick turnaround, competitive pricing, and friendly service from your local business center.
-            </p>`,
-      },
-      {
-        heading: 'Why Choose Mailbox Plus Over Staples?',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">No wandering aisles looking for the copy center. Walk in, hand us your documents, we handle the rest.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Full Print Services</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Color and B&W copies, business cards, flyers, posters, and laminating \u2014 same services as the big print shops.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Erand Ready</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred \u2014 all in one trip. Staples can't match that convenience.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Local &amp; Personalized</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers by name. No corporate runaround, just friendly local service.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
-      },
-    ],
-    features: [
-      { title: 'Quick Turnaround', description: 'Same-day printing and copying', icon: Clock },
-      { title: 'Full Service', description: 'Color, B&W, laminating', icon: Star },
-      { title: 'Local Convenience', description: 'Concord Township', icon: MapPin },
-    ],
-    faqs: [
-      {
-        question: 'Can you print from a USB drive?',
-        answer:
-          'Yes, simply bring your files on a USB drive or email them to us for quick printing.',
-      },
-      {
-        question: 'Do you offer color printing?',
-        answer: 'Yes, we offer both color and black-and-white printing and copying services.',
-      },
-    ],
-    aggregateRating: {
-      ratingValue: 5.0,
-      reviewCount: 32,
-    },
-  },
-  {
-    id: 'office-depot-alternative-concord-township',
-    internalLink: {
-      parent: 'copy-print',
-      related: ['document-printing', 'business-cards', 'flyers-brochures', 'graphic-design'],
-      priority: false,
-    },
-    category: 'copy-print',
-    city: 'Concord Township',
-    serviceName: 'Office Depot Alternative',
-    slug: '/office-depot-alternative-concord-township',
-    pageTitle: 'Office Depot Alternative in Concord Township | Mailbox Plus',
-    metaDescription:
-      'Your local Office Depot Alternative in Concord Township. Printing, copying, shipping, and office services \u2014 all under one roof with personalized service.',
-    keywords: 'Office Depot alternative, Concord Township, Mailbox Plus, printing services',
-    heroTitle: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
-    heroSubtitle:
-      'Printing, copying, shipping, notary, and mailbox services \u2014 without the big-box trip.',
-    heroImage: getServiceImageUrl('/images/copy-print.webp'),
-    content: [
-      {
-        heading: 'The Best Office Depot Alternative in Concord Township: Mailbox Plus',
-        body: `<p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Sure, Office Depot has printing. But you also have to navigate a giant store, wait in line, and only get printing and shipping. What if you could do all of that \u2014 plus notarize, shred, and rent a mailbox \u2014 in one efficient trip?
-            </p>
-            <p class="text-lg text-[var(--color-text-primary)] leading-relaxed mb-6">
-              Mailbox Plus is your <strong>Office Depot alternative in Concord Township, Ohio</strong>. We offer professional <a href="/copy-print" class="text-[var(--color-primary)] hover:underline">printing and copying</a>, <a href="/pack-ship" class="text-[var(--color-primary)] hover:underline">shipping with all 4 major carriers</a>, <a href="/home-business/notary-services" class="text-[var(--color-primary)] hover:underline">notary services</a>, <a href="/home-business/shredding" class="text-[var(--color-primary)] hover:underline">shredding</a>, and <a href="/home-business/mailbox-rental" class="text-[var(--color-primary)] hover:underline">mailbox rentals</a> \u2014 all under one roof. One stop for everything Office Depot offers, plus services they don't.
-            </p>`,
-      },
-      {
-        heading: 'Why Choose Mailbox Plus Over Office Depot?',
-        body: `<div class="grid md:grid-cols-2 gap-6 mb-8">
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">One-Stop Convenience</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">Print, ship, notarize, shred, and mailbox services \u2014 all at one counter. No walking across a giant store.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Personalized Service</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">We know our customers. No corporate runaround, just friendly local help.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Multi-Carrier Shipping</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">UPS, FedEx, USPS, DHL \u2014 compare rates at our counter. Office Depot only ships FedEx.</p>
-              </div>
-              <div class="p-6 bg-[var(--color-bg-secondary)] rounded-2xl border border-[var(--color-border)]">
-                <h4 class="font-bold text-[var(--color-text-primary)] mb-2">Faster In &amp; Out</h4>
-                <p class="text-sm text-[var(--color-text-secondary)]">In and out in minutes. No navigating aisles or waiting in long checkout lines.</p>
-              </div>
-            </div>`,
-        isFullWidth: true,
-      },
-    ],
-    features: [
-      {
-        title: 'One-Stop',
-        description: 'Printing, shipping, notary, shredding, mailboxes',
-        icon: Star,
-      },
-      { title: 'Carrier Choice', description: 'UPS, FedEx, USPS, DHL', icon: Truck },
-      { title: 'Local Service', description: 'Concord Township', icon: MapPin },
-    ],
-    faqs: [
-      {
-        question: 'Do you offer printing like Office Depot?',
-        answer:
-          'Yes! We offer color and B&W printing, copying, business cards, flyers, and laminating.',
-      },
-      {
-        question: 'Can I ship packages here?',
-        answer:
-          'Absolutely. We ship with all major carriers \u2014 UPS, FedEx, USPS, and DHL \u2014 and help you compare rates.',
       },
     ],
     aggregateRating: {

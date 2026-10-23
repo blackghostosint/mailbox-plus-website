@@ -18,6 +18,9 @@ pattern (lauren/@poteto).
     npm run verify:articles [-- --strict] [--offline]
       Batch verification across all articles in content/articles/.
 
+    npm run verify:ownership
+      Verifies article ownership (internal-only rule) and in-house authorship stamp on PRs touching content/articles/.
+
     node scripts/verify/verify.mjs article <path.md> [--json] [--strict]
       Full article pre-flight:
         - required frontmatter (title, description, slug, category, intentKey,
@@ -81,9 +84,7 @@ New articles MUST be run with --strict in the PR flow.
 The batch rewrite prompts used to hardcode literal H2 strings, so 58% of every
 H2 on the site was one of 8 boilerplate headings (`Bring It In` alone appears
 129 times). Structure is frozen — the 9 SB7 slots never change — but the surface
-text must vary, so headings are now assigned per article from
-`content/heading_banks.json` via `scripts/assign_headings.py` (in the
-batch_articles pipeline).
+text must vary, so headings are verified across articles via `node scripts/verify/verify.mjs headings` and evaluated during preflight checks.
 
 Two checks enforce it:
 
@@ -114,7 +115,7 @@ so copying the old template into a new article still fails.
 Verification gate scripts in `scripts/verify/`:
 
 - `check-auth-model.mjs` — Enforces AGENTS.md rule 7 ("Endpoint Authentication Models" section in PR body when `netlify/functions/` are modified).
-- `check-article-ownership.mjs` — Enforces internal-only ownership rule for `content/articles/`.
+- `check-article-ownership.mjs` — Enforces internal-only ownership rule for `content/articles/` and verifies the required in-house authorship stamp (`authorship: article-writer-bot (in-house)`). Run via `npm run verify:ownership` or as part of `npm run preflight:article`.
 - `audit-astro-gate.mjs` — Dependency security audit gate for Astro packages with scoped allowlist.
 - `audit-functions-gate.mjs` — Dependency security audit gate for Netlify Functions packages.
 

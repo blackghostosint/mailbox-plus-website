@@ -10,7 +10,7 @@ import type { Service, CTA } from '../types/services';
 import { siteConfig } from '../config/siteConfig';
 import reviewsData from '../data/reviews.json';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
-import { getWebPageSchema, getServiceSchema, getFAQSchema } from '../utils/schema';
+import { getWebPageSchema, getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '../utils/schema';
 import { normalizeContentHeadings, normalizeContentHrefs, normalizePathname, toCanonicalUrl } from '../utils/canonical-url';
 import { getServiceImageUrl } from '../lib/media';
 
@@ -52,15 +52,7 @@ const schemas = [
   getWebPageSchema(siteConfig, { name: service.pageTitle, description: service.metaDescription, url: canonicalUrl }),
   getServiceSchema(siteConfig, { ...service, url: canonicalUrl }),
   ...(faqSchema ? [faqSchema] : []),
-  {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: breadcrumbs.map((item, index) => ({
-      '@type': 'ListItem',
-      position: index + 1,
-      item: { '@type': 'Thing', '@id': toCanonicalUrl(item.url), name: item.label || item.name },
-    })),
-  },
+  getBreadcrumbSchema(siteConfig, breadcrumbs),
   ...extraHeadSchemas,
 ];
 
