@@ -6,7 +6,7 @@ Mission Statement: To reduce real-world customer friction by providing highly sp
 
 Business Logic:
 
-- **Source of Truth**: The TypeScript configuration files in `src/config/micro-problems/` are the sole authority for page content.
+- **Source of Truth**: The TypeScript configuration files in `astro/src/config/micro-problems/` are the sole authority for page content.
 - **Intent-First**: Each page must solve a unique real-world problem. If a page does not reduce friction, it is slated for deletion.
 - **Data-Driven**: Page lifecycle decisions (KEEP, MERGE, REWRITE, DELETE) are dictated by Google Search Console data and staff feedback, not personal opinion.
 
@@ -25,9 +25,9 @@ Infrastructure: Node.js 18+ environment; local development via Vite dev server.
 
 **Folder Map**:
 
-- `/src/config/micro-problems`: Domain-specific configuration shards (returns.ts, shipping.ts, etc.).
-- `/src/components`: UI components including Radix UI accordions and Framer Motion animations.
-- `.agent/workflows`: Automated audit and maintenance protocols.
+- `/astro/src/config/micro-problems`: Domain-specific configuration shards (returns.ts, shipping.ts, etc.).
+- `/astro/src/components`: UI components including Radix UI accordions and Framer Motion animations.
+- `scripts/audits/`: Automated audit protocols and report storage.
 
 ## 3. Engineering Standards
 
@@ -56,7 +56,7 @@ Infrastructure: Node.js 18+ environment; local development via Vite dev server.
 3. **Act**: Execute the decision (DELETE config, MERGE copy, or REWRITE hero text).
 4. **Refine**: Run `npm run lint` and `npm run typecheck` to verify the modified config.
 
-**Documentation Mandate**: All changes must be logged in `PROJECT_UPDATES.md` with the specific Signal (A, B, or C) that triggered the change.
+**Documentation Mandate**: All changes must be logged in audit reports under `scripts/audits/reports/` with the specific Signal (A, B, or C) that triggered the change.
 
 **Verification**: Use `cat` or `grep` to verify that `intentKey` duplicates were removed after a MERGE or DELETE operation.
 
