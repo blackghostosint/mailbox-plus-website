@@ -130,37 +130,40 @@ curl -sI https://mailboxplusohio.com | grep -iE "content-security|x-frame|x-cont
 
 ### What to rotate
 
-| Secret / Variable         | Where to update                           | Impact                                              |
-| ------------------------- | ----------------------------------------- | --------------------------------------------------- |
-| `VITE_R2_PUBLIC_BASE_URL` | Netlify dashboard → Environment variables | Image URLs break                                    |
-| `VITE_GOOGLE_MAPS_KEY`    | Netlify dashboard → Environment variables | Google Maps embed fails to render                   |
-| `VITE_RECAPTCHA_SITE_KEY` | Netlify dashboard → Environment variables | Contact form reCAPTCHA widget fails                 |
-| `RECAPTCHA_SITE_KEY`      | Netlify dashboard → Environment variables | Form reCAPTCHA widget fails                         |
-| `VITE_NETLIFY_CONTEXT`    | Netlify dashboard → Environment variables | Client build context mismatch                       |
-| `VITE_SENTRY_DSN`         | Netlify + `.env` local                    | Error tracking stops                                |
-| `VITE_SENTRY_ENVIRONMENT` | Netlify dashboard → Environment variables | Error tracking environment miscategorized           |
-| `NETLIFY_SITE_ID`         | Netlify dashboard → Environment variables | Netlify Blobs rate limiting & caching fail          |
-| `NETLIFY_AUTH_TOKEN`      | Netlify dashboard → Environment variables | Netlify Blobs API access fails                      |
-| `GOOGLE_PLACES_API_KEY`   | Netlify dashboard → Environment variables | Live Google business reviews sync fails             |
-| `RECAPTCHA_SECRET_KEY`    | Netlify dashboard → Environment variables | Contact form verification fails                     |
-| `RECAPTCHA_MIN_SCORE`     | Netlify dashboard → Environment variables | reCAPTCHA spam threshold misconfigured              |
-| `RESEND_API_KEY`          | Netlify dashboard → Environment variables | Contact form emails fail to send                    |
-| `CONTACT_EMAIL`           | Netlify dashboard → Environment variables | Contact form submissions route to wrong email       |
-| `STRIPE_SECRET_KEY`       | Netlify dashboard → Environment variables | Mailbox checkout sessions fail                      |
-| `SITE_URL`                | Netlify dashboard → Environment variables | Site redirects & CORS origin checks fail            |
-| `CONTEXT`                 | Netlify dashboard → Environment variables | Function context misconfigured                      |
-| `GEMINI_API_KEY`          | Netlify + `.env` local                    | Test scripts & embeddings generation fail           |
-| `GEMINI_TIMEOUT_SECONDS`  | Netlify + `.env` local                    | Gemini API request timeout threshold changes        |
-| `OPENROUTER_API_KEY`      | `.env` local / CI secrets                 | LLM article copy review checks fail                 |
-| `MODEL_API_KEY`           | `.env` local / CI secrets                 | LLM model copy review checks fail                   |
-| `AUDIT_BASE_URL`          | `.env` local                              | Accessibility audit target URL changes              |
-| `BASE_URL`                | `.env` local                              | Accessibility audit fallback URL changes            |
-| `DIST_DIR`                | `.env` local                              | Distribution output directory path resolution moves |
-| `R2_PUBLIC_BASE`          | `.env` local                              | CDN image verification checks fail                  |
-| `ARTICLE_DRAFTS_DIR`      | `.env` local                              | Fact-check receipt resolution path changes          |
-| `HEADING_OVERLAP_MAX`     | `.env` local                              | Heading overlap gate threshold changes              |
-| Netlify deploy token      | GitHub → Settings → Secrets               | CI/CD breaks                                        |
-| GitHub PAT                | GitHub → Settings → Tokens                | gh CLI breaks                                       |
+| Secret / Variable              | Where to update                                                                     | Impact                                                         |
+| ------------------------------ | ----------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| `VITE_R2_PUBLIC_BASE_URL`      | Netlify dashboard → Environment variables                                           | Image URLs break                                               |
+| `VITE_GOOGLE_MAPS_KEY`         | Netlify dashboard → Environment variables                                           | Google Maps embed fails to render                              |
+| `VITE_RECAPTCHA_SITE_KEY`      | Netlify dashboard → Environment variables                                           | Contact form reCAPTCHA widget fails                            |
+| `RECAPTCHA_SITE_KEY`           | Netlify dashboard → Environment variables                                           | Form reCAPTCHA widget fails                                    |
+| `VITE_NETLIFY_CONTEXT`         | Netlify dashboard → Environment variables                                           | Client build context mismatch                                  |
+| `VITE_SENTRY_DSN`              | Netlify + `.env` local                                                              | Error tracking stops                                           |
+| `VITE_SENTRY_ENVIRONMENT`      | Netlify dashboard → Environment variables                                           | Error tracking environment miscategorized                      |
+| `NETLIFY_SITE_ID`              | Netlify dashboard → Environment variables                                           | Netlify Blobs rate limiting & caching fail                     |
+| `NETLIFY_AUTH_TOKEN`           | Netlify dashboard → Environment variables                                           | Netlify Blobs API access fails                                 |
+| `GOOGLE_PLACES_API_KEY`        | Netlify dashboard → Environment variables                                           | Live Google business reviews sync fails                        |
+| `RECAPTCHA_SECRET_KEY`         | Netlify dashboard → Environment variables                                           | Contact form verification fails                                |
+| `RECAPTCHA_ENTERPRISE_PROJECT` | Netlify dashboard → Environment variables                                           | Checkout/contact verification falls back to classic siteverify |
+| `RECAPTCHA_ENTERPRISE_KEY_ID`  | Netlify dashboard → Environment variables                                           | Checkout/contact verification falls back to classic siteverify |
+| `RECAPTCHA_SA_JSON_B64`        | Netlify dashboard → Environment variables (base64 SA JSON, production context only) | Checkout/contact verification falls back to classic siteverify |
+| `RECAPTCHA_MIN_SCORE`          | Netlify dashboard → Environment variables                                           | reCAPTCHA spam threshold misconfigured                         |
+| `RESEND_API_KEY`               | Netlify dashboard → Environment variables                                           | Contact form emails fail to send                               |
+| `CONTACT_EMAIL`                | Netlify dashboard → Environment variables                                           | Contact form submissions route to wrong email                  |
+| `STRIPE_SECRET_KEY`            | Netlify dashboard → Environment variables                                           | Mailbox checkout sessions fail                                 |
+| `SITE_URL`                     | Netlify dashboard → Environment variables                                           | Site redirects & CORS origin checks fail                       |
+| `CONTEXT`                      | Netlify dashboard → Environment variables                                           | Function context misconfigured                                 |
+| `GEMINI_API_KEY`               | Netlify + `.env` local                                                              | Test scripts & embeddings generation fail                      |
+| `GEMINI_TIMEOUT_SECONDS`       | Netlify + `.env` local                                                              | Gemini API request timeout threshold changes                   |
+| `OPENROUTER_API_KEY`           | `.env` local / CI secrets                                                           | LLM article copy review checks fail                            |
+| `MODEL_API_KEY`                | `.env` local / CI secrets                                                           | LLM model copy review checks fail                              |
+| `AUDIT_BASE_URL`               | `.env` local                                                                        | Accessibility audit target URL changes                         |
+| `BASE_URL`                     | `.env` local                                                                        | Accessibility audit fallback URL changes                       |
+| `DIST_DIR`                     | `.env` local                                                                        | Distribution output directory path resolution moves            |
+| `R2_PUBLIC_BASE`               | `.env` local                                                                        | CDN image verification checks fail                             |
+| `ARTICLE_DRAFTS_DIR`           | `.env` local                                                                        | Fact-check receipt resolution path changes                     |
+| `HEADING_OVERLAP_MAX`          | `.env` local                                                                        | Heading overlap gate threshold changes                         |
+| Netlify deploy token           | GitHub → Settings → Secrets                                                         | CI/CD breaks                                                   |
+| GitHub PAT                     | GitHub → Settings → Tokens                                                          | gh CLI breaks                                                  |
 
 ### Rotation procedure
 
