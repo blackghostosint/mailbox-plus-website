@@ -151,3 +151,121 @@ We leverage state-of-the-art tools and utilize cutting-edge solutions to empower
     }
   }, 15000);
 });
+
+describe('verify.mjs article store photo manifest gate', () => {
+  it('flags unmanifested store photo reference and fails verification', () => {
+    const fs = require('node:fs');
+    const testArticlePath = path.join(
+      ROOT,
+      'content',
+      'articles',
+      'document-services',
+      'temp-unmanifested-test.md'
+    );
+    const content = `---
+title: Test Article
+description: A test article description that satisfies the target character length requirement for metadata.
+slug: temp-unmanifested-test
+category: document-services
+intentKey: temp-unmanifested-test-key
+pubDate: 2026-10-19T00:00:00Z
+status: published
+image: articles/document-services/test-featured.webp
+imageAlt: A test featured image alternative text description
+keywords: test, article
+relatedServices:
+  - /home-business/document-scanning/
+author: Reviewed by Frank Schwarz, COO
+---
+
+![Unmanifested Store Photo](/articles/store-library/counter/unmanifested-test-photo.webp)
+`;
+
+    try {
+      fs.writeFileSync(testArticlePath, content, 'utf8');
+
+      let stdout = '';
+      try {
+        stdout = execSync(
+          `node scripts/verify/verify.mjs article content/articles/document-services/temp-unmanifested-test.md --strict --offline --json`,
+          {
+            cwd: ROOT,
+            encoding: 'utf8',
+          }
+        );
+      } catch (err: any) {
+        stdout = err.stdout;
+      }
+
+      const parsed = JSON.parse(stdout);
+      expect(parsed.ok).toBe(false);
+
+      const imageBodyCheck = parsed.results.find((r: { name: string }) => r.name === 'image:body');
+      expect(imageBodyCheck).toBeDefined();
+      expect(imageBodyCheck.pass).toBe(false);
+      expect(imageBodyCheck.detail).toContain(
+        'articles/store-library/counter/unmanifested-test-photo.webp not in content/store-photos.json'
+      );
+    } finally {
+      if (fs.existsSync(testArticlePath)) {
+        fs.unlinkSync(testArticlePath);
+      }
+    }
+  });
+
+  it('passes store photo manifest check for valid store photo present in store-photos.json', () => {
+    const fs = require('node:fs');
+    const testArticlePath = path.join(
+      ROOT,
+      'content',
+      'articles',
+      'document-services',
+      'temp-manifested-test.md'
+    );
+    const content = `---
+title: Test Article
+description: A test article description that satisfies the target character length requirement for metadata.
+slug: temp-manifested-test
+category: document-services
+intentKey: temp-manifested-test-key
+pubDate: 2026-10-19T00:00:00Z
+status: published
+image: articles/document-services/test-featured.webp
+imageAlt: A test featured image alternative text description
+keywords: test, article
+relatedServices:
+  - /home-business/document-scanning/
+author: Reviewed by Frank Schwarz, COO
+---
+
+![Valid Store Photo](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
+`;
+
+    try {
+      fs.writeFileSync(testArticlePath, content, 'utf8');
+
+      let stdout = '';
+      try {
+        stdout = execSync(
+          `node scripts/verify/verify.mjs article content/articles/document-services/temp-manifested-test.md --strict --offline --json`,
+          {
+            cwd: ROOT,
+            encoding: 'utf8',
+          }
+        );
+      } catch (err: any) {
+        stdout = err.stdout;
+      }
+
+      const parsed = JSON.parse(stdout);
+      const imageBodyCheck = parsed.results.find((r: { name: string }) => r.name === 'image:body');
+      expect(imageBodyCheck).toBeDefined();
+      expect(imageBodyCheck.pass).toBe(true);
+      expect(imageBodyCheck.detail).toContain('articles/store-library/counter/counter-01.webp');
+    } finally {
+      if (fs.existsSync(testArticlePath)) {
+        fs.unlinkSync(testArticlePath);
+      }
+    }
+  });
+});
