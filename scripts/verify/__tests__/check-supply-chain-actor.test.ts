@@ -102,11 +102,9 @@ describe('check-supply-chain-actor', () => {
       });
 
       expect(result.success).toBe(false);
-      expect(result.touched).toEqual([
-        '.github/workflows/ci.yml',
-        'package.json',
-        'astro/package-lock.json',
-      ]);
+      // Strict owner-only files are reported before the general protected set.
+      expect(result.touched).toEqual(['package.json', 'astro/package-lock.json']);
+      expect(result.message).toContain('owner-only');
     });
 
     it('rejects mixed PRs and reports all touched protected files', () => {
@@ -121,9 +119,29 @@ describe('check-supply-chain-actor', () => {
       });
 
       expect(result.success).toBe(false);
-      expect(result.touched).toEqual(['scripts/verify/pr-utils.mjs', 'netlify.toml']);
-      expect(result.message).toContain('scripts/verify/pr-utils.mjs');
+      // netlify.toml is strict owner-only and short-circuits the general report.
+      expect(result.touched).toEqual(['netlify.toml']);
       expect(result.message).toContain('netlify.toml');
+    });
+
+    it('rejects AUTHORIZED BOTS touching strict owner-only dependency/config files (PR #797 gap)', () => {
+      const result = checkSupplyChainActor({
+        changedFiles: ['package.json', 'package-lock.json'],
+        author: 'google-labs-stitch[bot]',
+      });
+
+      expect(result.success).toBe(false);
+      expect(result.touched).toEqual(['package.json', 'package-lock.json']);
+      expect(result.message).toContain('owner-only for EVERY author');
+    });
+
+    it('still allows authorized bots on non-strict protected files (CI/verify scripts)', () => {
+      const result = checkSupplyChainActor({
+        changedFiles: ['.github/workflows/ci.yml', 'scripts/verify/pr-utils.mjs'],
+        author: 'google-labs-stitch',
+      });
+
+      expect(result.success).toBe(true);
     });
   });
 
