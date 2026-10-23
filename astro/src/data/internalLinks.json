@@ -410,16 +410,6 @@
     ],
     "priority": false
   },
-  "staples-printing-alternative-concord-township": {
-    "parent": "copy-print",
-    "related": ["document-printing", "business-cards", "flyers-brochures", "graphic-design"],
-    "priority": false
-  },
-  "office-depot-alternative-concord-township": {
-    "parent": "copy-print",
-    "related": ["document-printing", "business-cards", "flyers-brochures", "graphic-design"],
-    "priority": false
-  },
   "usps-drop-off-alternative-concord-township": {
     "parent": "pack-ship",
     "related": [
@@ -609,6 +599,16 @@
       "document-scanning",
       "fax-services"
     ],
+    "priority": false
+  },
+  "staples-printing-alternative-concord-township": {
+    "parent": "copy-print",
+    "related": ["document-printing", "business-cards", "flyers-brochures", "graphic-design"],
+    "priority": false
+  },
+  "office-depot-alternative-concord-township": {
+    "parent": "copy-print",
+    "related": ["document-printing", "business-cards", "flyers-brochures", "graphic-design"],
     "priority": false
   },
   "printing-services-concord-township": {
