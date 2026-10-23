@@ -52,11 +52,6 @@ const serviceSchema = getServiceSchema(siteConfig, {
 });
 const faqSchema = getFAQSchema(siteConfig, faqs);
 
-// Store facts (single source: siteConfig)
-const storePhone = siteConfig.contact.phone;
-const storePhoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
-const storeAddress = `${siteConfig.contact.address.street}, ${siteConfig.contact.address.city}, ${siteConfig.contact.address.state} ${siteConfig.contact.address.zip}`;
-
 // New pricing matrix (month-to-month ONLY, new customers)
 const tiers = [
   {
@@ -95,7 +90,7 @@ const tiers = [
 ];
 ---
 
-<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} ogImage="/og/home-business-mailbox-rental.png" schema={[webPageSchema, serviceSchema, faqSchema]}>
+<BaseLayout canonical={canonical} ogImage="/og/home-business-mailbox-rental.png" schema={[webPageSchema, serviceSchema, faqSchema]}>
 
   <!-- ============ HERO ============ -->
   <section class="hero">
