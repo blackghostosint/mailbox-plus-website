@@ -23,7 +23,9 @@ Before opening a pull request, contributors must run local pre-flight checks to 
    - `npm run verify:articles`: Runs verification across all articles in `content/articles/`.
    - `npm run verify:ownership`: Verifies internal author authorization and checks for the mandatory in-house authorship stamp (`authorship: article-writer-bot (in-house)`) when `content/articles/` files are modified.
    - `npm run preflight:article`: Runs the complete local preflight check suite (feeds, receipts, link slashes, and ownership verification) before opening an article pull request.
-4. **End-to-End (E2E) Browser Testing (`npm run test:e2e`):**
+4. **Serverless Authorization Verification (`npm run check:auth-model`):**
+   Verifies that any PR modifying files under `netlify/functions/` contains a valid `## Endpoint Authentication Models` section in the PR description as required by [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change).
+5. **End-to-End (E2E) Browser Testing (`npm run test:e2e`):**
    Executes Playwright tests against a local build to verify interactive workflows (contact forms, mailbox reservations, tracking lookups, live accessibility regions).
    - **Browser Installation:** Run `npx playwright install` to install required browser binaries (Chromium, Firefox, WebKit).
    - **Local Preview Server Requirements:** Playwright automatically launches the preview server (`npm run preview` serving on `http://localhost:4321`). Run `npm run build` prior to running E2E tests so the preview server has up-to-date static build artifacts in `dist/`.
@@ -175,6 +177,29 @@ All real-store photos referenced in article bodies (`/articles/store-library/`) 
 4. Articles are auto-discovered by `astro/src/utils/articleLoader.ts`
 5. Ensure prose uses plain, direct wording without Ogilvy abstraction jargon (see [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate))
 6. Run `npm run verify` and `npm run audit:articles` to validate content, links, and frontmatter
+
+## Serverless API Authorization Disclosures (AGENTS.md Rule 7)
+
+As defined in [AGENTS.md Rule 7](AGENTS.md#7-state-the-auth-model-for-every-api-change), every pull request that adds or modifies a serverless function or API endpoint under `netlify/functions/` must explicitly document the endpoint's authorization model in the PR description.
+
+### PR Description Formatting & Rules
+
+- **PR Template Section:** Use the `## Endpoint Authentication Models` section provided in [.github/pull_request_template.md](.github/pull_request_template.md).
+- **Substantive Content Limit:** The `## Endpoint Authentication Models` section must contain at least **120 characters** of substantive explanation (heading + content). Hollow placeholders or bare statements such as "The endpoint exists and validates its input" do not meet the authorization standard and will cause CI pre-flight checks to fail.
+- **Required Disclosure Details:** For each endpoint added or changed, specify:
+  1. **Caller Eligibility:** Who is authorized to invoke the endpoint (e.g., public unauthenticated visitors, verified sessions, administrative callers).
+  2. **Identity & Authorization Mechanism:** How caller identity or authorization is proven (e.g., reCAPTCHA v3 token verification, session cookies, signed request tokens, or public access).
+  3. **Rate Limiting & Protection:** Rate limiting rules enforced (e.g., Netlify Blobs sliding window or in-memory fallback limits via [netlify/functions/lib/rate-limiter.ts](netlify/functions/lib/rate-limiter.ts)).
+
+### Local Testing
+
+Contributors can run local pre-flight checks before opening a PR:
+
+```bash
+npm run check:auth-model
+```
+
+This script validates the PR body against changed files under `netlify/functions/` to catch authorization disclosure gaps before CI runs.
 
 ## Commit Convention
 
