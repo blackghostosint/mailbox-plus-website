@@ -104,7 +104,7 @@ The shortcut saved you ten minutes of driving and bought you days of not knowing
 
 ## The Weight You Didn't Realize You Were Carrying
 
-Now picture the same errand done right. You pull into Gristmill Village, box on the passenger seat, Fredle Drive just off Crile Road a minute away. Inside, the counter takes it, scans it, and hands you a receipt — and the tracking page that was empty all week lights up the moment the scan posts, usually before you're back in the car.
+Now picture the same errand done right. You pull into Gristmill Village, box on the passenger seat, Fredle Drive just off Crile Road a minute away. Inside, the counter takes it, scans it, and hands you a receipt — and the tracking page that showed nothing for days lights up the moment the scan posts, usually before you're back in the car.
 
 The part that lifts is the receipt in your hand and the tracking page already reading "Accepted" before you pull back out onto the road. No second-guessing whether the counter was the right one. No mental note to check tracking tonight and again tomorrow. The box is in the network it belongs to, and someone competent logged the exact minute it left your hands. That errand is closed, and your evening stays yours.
 
@@ -112,4 +112,4 @@ The part that lifts is the receipt in your hand and the tracking page already re
 
 You do not need to know which carrier your label belongs to, and you do not need the box packed, measured, or figured out before you walk in. Bring it the way it is — labeled, half-labeled, or just taped shut — and put it on the counter at 7554 Fredle Drive in Concord Township. If it is a UPS package, it goes to UPS. FedEx, USPS, DHL, same answer. If something about the label or the timing needs a decision, you will hear the honest version at the counter, not a shrug.
 
-That is the whole job: one counter that speaks to every network, so your box starts moving today instead of hiding in the wrong building all week.
+That is the whole job: one counter that speaks to every network, so your box starts moving today instead of sitting in the wrong building for days.
