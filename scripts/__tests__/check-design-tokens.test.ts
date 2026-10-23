@@ -228,5 +228,89 @@ body {
         )
       ).toBe(true);
     });
+
+    it('reports error when a template contains arbitrary hex classes', () => {
+      tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'check-tokens-test-'));
+      const docsPath = path.join(tempDir, 'DESIGN_SYSTEM.md');
+      const cssPath = path.join(tempDir, 'global.css');
+      const srcDir = path.join(tempDir, 'src');
+      fs.mkdirSync(srcDir);
+
+      fs.writeFileSync(
+        docsPath,
+        '| Token | Value |\n| --- | --- |\n| `--color-primary` | `#285a8e` |'
+      );
+      fs.writeFileSync(cssPath, ':root { --color-primary: #285a8e; }');
+      fs.writeFileSync(
+        path.join(srcDir, 'HexClassComponent.astro'),
+        `<div class="bg-[#0B5FCC] text-white">Test</div>`
+      );
+
+      const result = checkDesignTokens(docsPath, cssPath, srcDir);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some((e) => e.includes('Hardcoded hex class') && e.includes('bg-[#0B5FCC]'))
+      ).toBe(true);
+    });
+
+    it('reports error when a template contains inline style color declarations or hex values', () => {
+      tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'check-tokens-test-'));
+      const docsPath = path.join(tempDir, 'DESIGN_SYSTEM.md');
+      const cssPath = path.join(tempDir, 'global.css');
+      const srcDir = path.join(tempDir, 'src');
+      fs.mkdirSync(srcDir);
+
+      fs.writeFileSync(
+        docsPath,
+        '| Token | Value |\n| --- | --- |\n| `--color-primary` | `#285a8e` |'
+      );
+      fs.writeFileSync(cssPath, ':root { --color-primary: #285a8e; }');
+      fs.writeFileSync(
+        path.join(srcDir, 'InlineStyleComponent.astro'),
+        `<p style="color: var(--color-primary)">Inline style</p>`
+      );
+
+      const result = checkDesignTokens(docsPath, cssPath, srcDir);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some(
+          (e) =>
+            e.includes('Static inline style attribute bypass') &&
+            e.includes('style="color: var(--color-primary)"')
+        )
+      ).toBe(true);
+    });
+
+    it('allows valid dynamic animation styles and third-party embeds', () => {
+      tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'check-tokens-test-'));
+      const docsPath = path.join(tempDir, 'DESIGN_SYSTEM.md');
+      const cssPath = path.join(tempDir, 'global.css');
+      const srcDir = path.join(tempDir, 'src');
+      fs.mkdirSync(srcDir);
+
+      fs.writeFileSync(
+        docsPath,
+        '| Token | Value |\n| --- | --- |\n| `--color-primary` | `#285a8e` |'
+      );
+      fs.writeFileSync(cssPath, ':root { --color-primary: #285a8e; }');
+      fs.writeFileSync(
+        path.join(srcDir, 'AllowlistComponent.astro'),
+        `
+<span class="pipeline-node" style="--i: 0">Name</span>
+<iframe src="https://example.com" style="border:0;"></iframe>
+<noscript><img src="/pixel.gif" style="display:none" /></noscript>
+`
+      );
+      fs.writeFileSync(
+        path.join(srcDir, 'AllowlistJsx.tsx'),
+        `export function Menu({ isOpen, h }: { isOpen: boolean; h: number }) {
+  return <div style={{ maxHeight: isOpen ? \`\${h}px\` : '0px', opacity: isOpen ? 1 : 0 }} />;
+}`
+      );
+
+      const result = checkDesignTokens(docsPath, cssPath, srcDir);
+      expect(result.errors).toEqual([]);
+      expect(result.success).toBe(true);
+    });
   });
 });

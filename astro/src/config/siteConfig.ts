@@ -2,7 +2,7 @@
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
 
-function getNetlifyContext(): string | undefined {
+export function getNetlifyContext(): string | undefined {
   if (typeof import.meta !== 'undefined' && import.meta.env) {
     if (import.meta.env.VITE_NETLIFY_CONTEXT) return import.meta.env.VITE_NETLIFY_CONTEXT;
     if (import.meta.env.CONTEXT) return import.meta.env.CONTEXT;
@@ -14,7 +14,7 @@ function getNetlifyContext(): string | undefined {
   return undefined;
 }
 
-function getSiteDomain(): string {
+export function getSiteDomain(): string {
   const explicitSiteUrl =
     (typeof import.meta !== 'undefined' && import.meta.env
       ? import.meta.env.VITE_SITE_URL || import.meta.env.SITE_URL

@@ -1,8 +1,5 @@
 {
-  "homepage": {
-    "url": "/",
-    "title": "Mailbox Plus - Shipping & Printing in Concord Township"
-  },
+  "homepage": { "url": "/", "title": "Mailbox Plus - Shipping & Printing in Concord Township" },
   "pillars": [
     {
       "id": "pack-ship",
@@ -25,31 +22,15 @@
           "url": "/pack-ship/golf-club-shipping",
           "title": "Golf Club Shipping"
         },
-        {
-          "id": "fedex-shipping",
-          "url": "/pack-ship/fedex-shipping",
-          "title": "FedEx Shipping"
-        },
+        { "id": "fedex-shipping", "url": "/pack-ship/fedex-shipping", "title": "FedEx Shipping" },
         {
           "id": "ups-shipping",
           "url": "/pack-ship/ups-authorized-shipper-outlet",
           "title": "UPS Shipping"
         },
-        {
-          "id": "usps-services",
-          "url": "/pack-ship/usps-services",
-          "title": "USPS Services"
-        },
-        {
-          "id": "dhl-express",
-          "url": "/pack-ship/dhl-express",
-          "title": "DHL Express"
-        },
-        {
-          "id": "postage-stamps",
-          "url": "/pack-ship/postage-stamps",
-          "title": "Postage Stamps"
-        },
+        { "id": "usps-services", "url": "/pack-ship/usps-services", "title": "USPS Services" },
+        { "id": "dhl-express", "url": "/pack-ship/dhl-express", "title": "DHL Express" },
+        { "id": "postage-stamps", "url": "/pack-ship/postage-stamps", "title": "Postage Stamps" },
         {
           "id": "package-drop-offs",
           "url": "/pack-ship/package-drop-offs",
@@ -110,11 +91,7 @@
           "url": "/pack-and-ship-services-concord-township",
           "title": "Shipping, Mailing & Pack and Ship Services"
         },
-        {
-          "id": "amazon-returns",
-          "url": "/amazon-returns",
-          "title": "Amazon Return Guide"
-        },
+        { "id": "amazon-returns", "url": "/amazon-returns", "title": "Amazon Return Guide" },
         {
           "id": "pack-and-ship-concord-ohio",
           "url": "/pack-and-ship-concord-ohio",
@@ -130,41 +107,14 @@
           "url": "/mailing-services-concord-ohio",
           "title": "Mailing Services"
         },
-        {
-          "id": "fedex-easy-returns",
-          "url": "/fedex-easy-returns",
-          "title": "FedEx Easy Returns"
-        },
+        { "id": "fedex-easy-returns", "url": "/fedex-easy-returns", "title": "FedEx Easy Returns" },
         {
           "id": "amazon-returns-drop-off-concord-township",
           "url": "/amazon-returns-drop-off-concord-township",
           "title": "Ship Your Amazon Return"
         },
-        {
-          "id": "nuuly-returns",
-          "url": "/nuuly-returns",
-          "title": "Nuuly Returns"
-        },
-        {
-          "id": "happy-returns",
-          "url": "/happy-returns",
-          "title": "Happy Returns Return Bar"
-        },
-        {
-          "id": "artwork-shipping",
-          "url": "/pack-ship/artwork-shipping",
-          "title": "Artwork Shipping"
-        },
-        {
-          "id": "bicycle-shipping",
-          "url": "/pack-ship/bicycle-shipping",
-          "title": "Bicycle Shipping"
-        },
-        {
-          "id": "golf-club-shipping",
-          "url": "/pack-ship/golf-club-shipping",
-          "title": "Golf Club Shipping"
-        },
+        { "id": "nuuly-returns", "url": "/nuuly-returns", "title": "Nuuly Returns" },
+        { "id": "happy-returns", "url": "/happy-returns", "title": "Happy Returns Return Bar" },
         {
           "id": "return-without-original-box",
           "url": "/return-without-original-box",
@@ -204,6 +154,11 @@
           "id": "drop-off-a-prepaid-label-from-your-phone",
           "url": "/drop-off-a-prepaid-label-from-your-phone",
           "title": "Drop Off a Prepaid Label From Your Phone"
+        },
+        {
+          "id": "ship-return-strict-size-weight-limits",
+          "url": "/ship-return-strict-size-weight-limits",
+          "title": "Ship a Return With Strict Size or Weight Limits"
         },
         {
           "id": "fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township",
@@ -298,26 +253,8 @@
       "url": "/copy-print",
       "description": "High-quality printing, copying, and graphic design services.",
       "children": [
-        {
-          "id": "staples-printing-alternative-concord-township",
-          "url": "/staples-printing-alternative-concord-township",
-          "title": "Staples Printing Alternative"
-        },
-        {
-          "id": "office-depot-alternative-concord-township",
-          "url": "/office-depot-alternative-concord-township",
-          "title": "Office Depot Alternative"
-        },
-        {
-          "id": "graphic-design",
-          "url": "/copy-print/graphic-design",
-          "title": "Graphic Design"
-        },
-        {
-          "id": "business-cards",
-          "url": "/copy-print/business-cards",
-          "title": "Business Cards"
-        },
+        { "id": "graphic-design", "url": "/copy-print/graphic-design", "title": "Graphic Design" },
+        { "id": "business-cards", "url": "/copy-print/business-cards", "title": "Business Cards" },
         {
           "id": "flyers-brochures",
           "url": "/copy-print/flyers-brochures",
@@ -437,21 +374,13 @@
           "url": "/home-business/every-door-direct-mail",
           "title": "Every Door Direct Mail (EDDM)"
         },
-        {
-          "id": "shredding",
-          "url": "/home-business/shredding",
-          "title": "Shredding Services"
-        },
+        { "id": "shredding", "url": "/home-business/shredding", "title": "Shredding Services" },
         {
           "id": "document-scanning",
           "url": "/home-business/document-scanning",
           "title": "Document Scanning"
         },
-        {
-          "id": "fax-services",
-          "url": "/home-business/fax-services",
-          "title": "Fax Services"
-        },
+        { "id": "fax-services", "url": "/home-business/fax-services", "title": "Fax Services" },
         {
           "id": "document-services-concord-township",
           "url": "/document-services-concord-township",
@@ -555,11 +484,7 @@
           "url": "/guide/shipping-jewelry",
           "title": "How to Ship Jewelry via FedEx"
         },
-        {
-          "id": "ask-mailbox-plus",
-          "url": "/ask-mailbox-plus",
-          "title": "Ask Mailbox Plus"
-        }
+        { "id": "ask-mailbox-plus", "url": "/ask-mailbox-plus", "title": "Ask Mailbox Plus" }
       ]
     },
     {
@@ -573,11 +498,7 @@
           "url": "/specialty/digital-fingerprinting",
           "title": "Digital Fingerprinting"
         },
-        {
-          "id": "insurance",
-          "url": "/specialty/insurance",
-          "title": "Shipping Insurance"
-        }
+        { "id": "insurance", "url": "/specialty/insurance", "title": "Shipping Insurance" }
       ]
     },
     {
@@ -745,36 +666,12 @@
     }
   ],
   "subSupporting": [
-    {
-      "id": "amazon-returns",
-      "url": "/amazon-returns",
-      "title": "Amazon Return Guide"
-    },
-    {
-      "id": "fedex-easy-returns",
-      "url": "/fedex-easy-returns",
-      "title": "FedEx Easy Returns"
-    },
-    {
-      "id": "nuuly-returns",
-      "url": "/nuuly-returns",
-      "title": "Nuuly Returns Guide"
-    },
-    {
-      "id": "happy-returns",
-      "url": "/happy-returns",
-      "title": "Happy Returns Bar"
-    },
-    {
-      "id": "pickup-hours",
-      "url": "/pickup-hours",
-      "title": "Carrier Pickup Hours"
-    },
-    {
-      "id": "shipping-partners",
-      "url": "/shipping-partners",
-      "title": "Shipping Partners"
-    }
+    { "id": "amazon-returns", "url": "/amazon-returns", "title": "Amazon Return Guide" },
+    { "id": "fedex-easy-returns", "url": "/fedex-easy-returns", "title": "FedEx Easy Returns" },
+    { "id": "nuuly-returns", "url": "/nuuly-returns", "title": "Nuuly Returns Guide" },
+    { "id": "happy-returns", "url": "/happy-returns", "title": "Happy Returns Bar" },
+    { "id": "pickup-hours", "url": "/pickup-hours", "title": "Carrier Pickup Hours" },
+    { "id": "shipping-partners", "url": "/shipping-partners", "title": "Shipping Partners" }
   ],
   "seo-landing": [
     {
@@ -786,11 +683,6 @@
       "id": "private-mailbox-rental",
       "url": "/private-mailbox-rental",
       "title": "Private Mailbox Rental"
-    },
-    {
-      "id": "ship-return-strict-size-weight-limits",
-      "url": "/ship-return-strict-size-weight-limits",
-      "title": "Ship a Return With Strict Size or Weight Limits"
     },
     {
       "id": "fedex-office-alternative-willoughby",
