@@ -68,8 +68,8 @@ export const competePages: Service[] = [
               <table class="w-full text-left border-collapse">
                 <thead>
                   <tr>
-                    <th class="border-b-2 border-[var(--color-border)] p-3 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] text-sm font-semibold">At other Willoughby shipping centers</th>
-                    <th class="border-b-2 border-[var(--color-primary)] p-3 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-semibold">At Mailbox Plus</th>
+                    <th scope="col" class="border-b-2 border-[var(--color-border)] p-3 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)] text-sm font-semibold">At other Willoughby shipping centers</th>
+                    <th scope="col" class="border-b-2 border-[var(--color-primary)] p-3 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-semibold">At Mailbox Plus</th>
                   </tr>
                 </thead>
                 <tbody>

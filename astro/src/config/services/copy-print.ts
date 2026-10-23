@@ -1126,24 +1126,24 @@ export const copyPrintServices: Service[] = [
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr class="bg-[var(--color-bg-warm-tint)]/50">
-                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Feature</th>
-                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Mailbox Plus</th>
-                                <th class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)] text-opacity-60 italic">Staples</th>
+                                <th scope="col" class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Feature</th>
+                                <th scope="col" class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th scope="col" class="p-4 border-b border-[var(--color-border-strong)] font-bold text-[var(--color-primary)] text-opacity-60 italic">Staples</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Customer Focus</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Customer Focus</th>
                                 <td class="p-4 text-[var(--color-primary)]">Personalized Local Service</td>
                                 <td class="p-4 text-[var(--color-text-muted)]">Big Box Retail</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Shipping Options</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Shipping Options</th>
                                 <td class="p-4 text-[var(--color-primary)]">UPS, FedEx, USPS, DHL</td>
                                 <td class="p-4 text-[var(--color-text-muted)]">Limited (Usually UPS only)</td>
                             </tr>
                             <tr>
-                                <td class="p-4 text-[var(--color-text-primary)] font-medium">Efficiency</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Efficiency</th>
                                 <td class="p-4 text-[var(--color-primary)]">Fast In & Out</td>
                                 <td class="p-4 text-[var(--color-text-muted)]">Often Busy / Long Waits</td>
                             </tr>
