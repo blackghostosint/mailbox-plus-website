@@ -1,7 +1,11 @@
 /* global process */
 import { apiFetch } from './api-client';
 import { siteConfig } from '../config/siteConfig';
-import { CreateCheckoutSuccessSchema, type CreateCheckoutSuccess } from './contracts';
+import {
+  CreateCheckoutSuccessSchema,
+  isValidCheckoutUrl,
+  type CreateCheckoutSuccess,
+} from './contracts';
 import { loadRecaptchaScript, executeRecaptcha } from './recaptcha-loader';
 import { executeAction } from './action-controller';
 
@@ -61,10 +65,14 @@ export function initCheckoutButtons(): void {
         await executeAction(
           async () => {
             const res = await createCheckoutSession(tier);
-            if (res && res.data && res.data.url) {
+            if (res && res.data && res.data.url && isValidCheckoutUrl(res.data.url)) {
               window.location.href = res.data.url;
             } else {
-              throw new Error('Checkout failed');
+              console.error(
+                'Security alert: Unapproved checkout redirect URL detected:',
+                res?.data?.url
+              );
+              throw new Error('Checkout failed: Unapproved redirect URL');
             }
           },
           {

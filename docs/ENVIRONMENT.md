@@ -52,7 +52,7 @@ Used by local and CI scripts (`scripts/verify/verify.mjs`, `scripts/audit-a11y.m
 | `MODEL_API_KEY`          | Model API key override for LLM article copy review checks                  | (none)                                                |
 | `AUDIT_BASE_URL`         | Target base URL for accessibility audits in `scripts/audit-a11y.mjs`       | `http://localhost:4173`                               |
 | `BASE_URL`               | Alternative base URL fallback for accessibility audits                     | `http://localhost:4173`                               |
-| `DIST_DIR`               | Compiled distribution output directory path override                       | `dist` / `astro/dist`                                 |
+| `DIST_DIR`               | Compiled distribution output directory path override                       | `dist`                                                |
 | `R2_PUBLIC_BASE`         | CDN base URL override for checking image asset availability                | `https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev` |
 | `ARTICLE_DRAFTS_DIR`     | Escape-hatch override for the fact-check receipt directory                 | `.factchecks` (same locally and in CI)                |
 | `HEADING_OVERLAP_MAX`    | Maximum allowable heading-variation overlap ratio for articles             | `0.6`                                                 |

@@ -4,7 +4,7 @@
 
 **AUTHORITY**: Defines lifecycle rules and `intentKey` usage for all micro-problem pages
 
-**EXECUTION**: Via quarterly audit workflow (`.agent/workflows/micro-problem-quarterly-audit.md`)
+**EXECUTION**: Via quarterly audit workflow (`scripts/audits/README.md`)
 
 ## 1. Non-Negotiable Principles
 
