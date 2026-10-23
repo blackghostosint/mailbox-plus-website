@@ -89,4 +89,67 @@ This PR updates the payment endpoint.
     expect(result.sanitizedContent).not.toContain('>');
     expect(result.sanitizedContent).toContain('scriptalert("xss")/script');
   });
+
+  it('rejects when Endpoint Authentication Models section contains only HTML template comments', () => {
+    const templateBody = `
+## Endpoint Authentication Models (rule 7 — required if functions touched)
+
+<!-- For EACH endpoint touched, state: who may call it, how identity is proven
+     (token / session / signed request / public), and rate limiting. Example:
+
+- **sendEmail** — caller must present a valid reCAPTCHA token, verified
+  server-side (\`verifyRecaptchaToken\`), plus per-IP rate limiting (5/min).
+- **csp-report** — public browser CSP sink; no caller identity; rate-limited 10/min.
+-->
+`;
+    const result = checkAuthModel({
+      body: templateBody,
+      changedFiles: ['netlify/functions/sendEmail.ts'],
+    });
+
+    expect(result.success).toBe(false);
+    expect(result.functionsTouched).toBe(true);
+    expect(result.reason).toBe('hollow_section');
+    expect(result.contentLength).toBe(0);
+  });
+
+  it('rejects when Endpoint Authentication Models heading is commented out in HTML comment', () => {
+    const commentedHeadingBody = `
+<!-- ## Endpoint Authentication Models
+- **sendEmail** — public endpoint with reCAPTCHA verification and rate limiting.
+-->
+`;
+    const result = checkAuthModel({
+      body: commentedHeadingBody,
+      changedFiles: ['netlify/functions/sendEmail.ts'],
+    });
+
+    expect(result.success).toBe(false);
+    expect(result.functionsTouched).toBe(true);
+    expect(result.reason).toBe('missing_section');
+  });
+
+  it('accepts PR body with template comments when substantive user text >= 120 chars is provided', () => {
+    const bodyWithTemplateAndUserText = `
+## Endpoint Authentication Models (rule 7 — required if functions touched)
+
+<!-- For EACH endpoint touched, state: who may call it, how identity is proven
+     (token / session / signed request / public), and rate limiting. Example:
+- **sendEmail** — caller must present a valid reCAPTCHA token
+-->
+
+- **verify-session** — caller must supply valid session token in Cookie, verified against DB. Rate limit 30 req/min.
+- **create-checkout** — caller must be authenticated customer session with valid cart item IDs. Rate limit 10 req/min.
+`;
+    const result = checkAuthModel({
+      body: bodyWithTemplateAndUserText,
+      changedFiles: ['netlify/functions/verify-session.ts'],
+    });
+
+    expect(result.success).toBe(true);
+    expect(result.functionsTouched).toBe(true);
+    expect(result.contentLength).toBeGreaterThanOrEqual(120);
+    expect(result.sanitizedContent).not.toContain('sendEmail');
+    expect(result.sanitizedContent).toContain('verify-session');
+  });
 });
