@@ -49,7 +49,7 @@ None of this is a scam. For a business purging a decade of files, a truck that c
 
 ## Waiting on a Callback That Sets the Price
 
-You fill out the quote form anyway, because you have nothing else. A representative calls back the next day. The number is per box, not per pound, and it comes with a service window: the truck can be at your house Tuesday, sometime between 8 AM and 5 PM. You take a day off work. The driver arrives, feeds your boxes into the truck's shredder while you watch through the cab's camera monitor — that part is genuinely good — and hands you a certificate. Then you do the math on the drive home. You paid a truck-dispatch price to destroy a pile that would have cost pocket change at a counter.
+You fill out the quote form anyway, because you have nothing else. A representative calls back the next day. The number is per box, not per pound, and it comes with a scheduled service window — a day you plan around, not a counter you walk up to. The driver arrives and feeds your boxes into the truck's shredder; most mobile providers let you watch the process, and you should ask for a certificate of destruction before the truck leaves. Then you do the math on the drive home. You paid a truck-dispatch price to destroy a pile that would have cost pocket change at a counter.
 
 Or you skip the truck and take the box to a retail chain. At a FedEx Office that offers shredding, a team member weighs your documents and the price is $1.49 per pound — but per FedEx's own page, the service is available "at select locations" only, and the papers go into "locked shred bins" for transport to a certified shredding provider. You get a fair per-pound rate and an off-site handoff you cannot watch. The price is visible; the destruction is not.
 
@@ -78,7 +78,7 @@ Same box of papers, three ways to pay.
 | **Pricing model**   | Per pound, weighed at the counter                     | Per pound, weighed at the counter         | Per box, quoted by phone                                         |
 | **Published rate**  | $1.00 per pound                                       | $1.49 per pound                           | Quote only; "minimum fees apply and vary by location" (Shred-it) |
 | **Minimum**         | None                                                  | None published; select locations only     | Minimum fees apply; bulk terms reference $250–$1,000 orders      |
-| **When it happens** | Same visit, while you watch                           | Later — off-site via locked bins          | Scheduled day, 8 AM–5 PM window                                  |
+| **When it happens** | Same visit, while you watch                           | Later — off-site via locked bins          | Scheduled day; service windows vary by provider                  |
 | **Proof**           | Hand-signed Certificate of Destruction at the counter | Vendor certification, not store-level     | Certificate from the provider                                    |
 | **Built for**       | Anyone, any size pile                                 | Drop-in customers at participating stores | Office purges, records-room clean-outs                           |
 
