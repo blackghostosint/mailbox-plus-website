@@ -25,7 +25,7 @@ quickAnswer: >-
   mailbox plans typically run $40–$60 in practice once per-item fees apply. For
   anyone receiving packages, a flat-rate private mailbox at a local store —
   $15–$40 a month personal, $35/$50 business, all four carriers, no per-piece
-  fees — is the cheapest option in practice.
+  fees — is often the better value in practice once per-piece fees are counted.
 relatedServices:
   [
     '/private-mailbox-rental/',
