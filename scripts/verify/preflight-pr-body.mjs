@@ -20,62 +20,22 @@
  */
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
-import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
 import { checkArticleOwnership, IN_HOUSE_STAMP } from './check-article-ownership.mjs';
-import { readPRBody, readFilesList, resolveAuthor } from './pr-utils.mjs';
+import {
+  readPRBody,
+  readFilesList,
+  resolveAuthor,
+  detectLocalChangedFiles,
+  detectLocalBodyFile,
+} from './pr-utils.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
 
-export function detectLocalChangedFiles() {
-  try {
-    const stdout = execFileSync('git', ['diff', '--name-only', 'origin/main...HEAD'], {
-      cwd: ROOT,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'ignore'],
-    });
-    const files = stdout
-      .split(/\r?\n/)
-      .map((f) => f.trim())
-      .filter(Boolean);
-    if (files.length > 0) return files;
-  } catch {}
-
-  try {
-    const stdout = execFileSync('git', ['diff', '--name-only', 'HEAD~1'], {
-      cwd: ROOT,
-      encoding: 'utf8',
-      stdio: ['pipe', 'pipe', 'ignore'],
-    });
-    return stdout
-      .split(/\r?\n/)
-      .map((f) => f.trim())
-      .filter(Boolean);
-  } catch {
-    return [];
-  }
-}
-
-export function detectLocalBodyFile() {
-  const candidates = [
-    process.env.PR_BODY_FILE,
-    path.join(ROOT, '.pr-body.md'),
-    path.join(ROOT, 'pr-body.md'),
-    path.join(ROOT, '.github', 'PULL_REQUEST_BODY.md'),
-    path.join(ROOT, '.github', 'pull_request_body.md'),
-    path.join(process.env.HOME || '', '.hermes', 'cache', 'scratch', 'pr-body.md'),
-  ].filter(Boolean);
-
-  for (const candidate of candidates) {
-    if (existsSync(candidate)) {
-      return candidate;
-    }
-  }
-  return null;
-}
+export { detectLocalChangedFiles, detectLocalBodyFile };
 
 /**
  * Validates PR body against the 3 deterministic PR gates.
