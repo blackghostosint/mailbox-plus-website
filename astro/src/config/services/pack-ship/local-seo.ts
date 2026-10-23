@@ -793,29 +793,29 @@ export const localSeoServices: Service[] = [
                     <table class="w-full text-left border-collapse">
                         <thead>
                             <tr>
-                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
-                                <th class="border-b-2 border-[var(--color-primary)] p-4 bg-[var(--color-primary)]/10 text-[var(--color-primary)]">Mailbox Plus</th>
-                                <th class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
+                                <th scope="col" class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">Feature</th>
+                                <th scope="col" class="border-b-2 border-[var(--color-primary)] p-4 bg-[var(--color-primary)]/10 text-[var(--color-primary)]">Mailbox Plus</th>
+                                <th scope="col" class="border-b-2 border-[var(--color-border)] p-4 bg-[var(--color-bg-secondary)] text-[var(--color-text-primary)]">DIY Packing</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Safety</td>
+                                <th scope="row" class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium text-left">Safety</th>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Professional Standards</td>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Risk of Damage</td>
                             </tr>
                             <tr>
-                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Materials</td>
+                                <th scope="row" class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium text-left">Materials</th>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Industrial Strength</td>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Consumer Grade</td>
                             </tr>
                             <tr>
-                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Insurance</td>
+                                <th scope="row" class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium text-left">Insurance</th>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">Guarantee Eligible</td>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">Claims often denied</td>
                             </tr>
                             <tr>
-                                <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium">Carrier Choice</td>
+                                <th scope="row" class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-primary)] font-medium text-left">Carrier Choice</th>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-primary)]">UPS, FedEx, USPS, DHL</td>
                                 <td class="border-b border-[var(--color-border)] p-4 text-[var(--color-text-secondary)]">One carrier, no choice</td>
                             </tr>
