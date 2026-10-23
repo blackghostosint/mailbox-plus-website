@@ -41,7 +41,7 @@ You canceled AT&T internet, the equipment is sitting there — gateway, power co
 
 The short version: AT&T runs its internet-equipment returns through a company-owned FedEx Office Pack & Ship or The UPS Store, where a rep scans the gear against your account number. That is the whole list. Here is how each option really works, which ones quietly fail, and what to do if you are holding a prepaid label instead.
 
-## The Fine Print You Never Got
+## The Rules AT&T Actually Enforces
 
 AT&T does not mail you a rules sheet with your cancellation. The real instructions live on a support page and in a PDF called "Equipment Return Instructions," and they split returns into two tracks.
 
@@ -71,7 +71,7 @@ One question comes up constantly at any shipping counter in Northeast Ohio, ours
 
 If you have AT&T's prepaid UPS return label and your equipment is already packed, yes — a staffed UPS shipping location can take that package, and a shipping counter that handles prepaid UPS drop-offs can take it too. Keep your tracking number and confirm the acceptance scan.
 
-If you have _unpackaged_ equipment and no label, the scan-and-pack program is AT&T's two-partner network: company-owned FedEx Office Pack & Ship or The UPS Store. That is who AT&T names on its own support page, and their systems are the ones wired to credit your account. We will always tell you which situation you are in before we take your box — that is the difference between a counter that wants your package and one that wants your return to actually clear.
+If you have _unpackaged_ equipment and no label, the scan-and-pack program is AT&T's two-partner network: company-owned FedEx Office Pack & Ship or The UPS Store. That is who AT&T names on its own support page, and their systems are the ones wired to credit your account. We will tell you which situation you are in before we take your box — that is the difference between a counter that wants your package and one that wants your return to actually clear.
 
 One more thing the counter knows: what _not_ to return. Wall-mounted gear — the fiber jack, the ONT, anything a technician screwed in — stays with the house. Don't unmount it, and leave the green cable where it is. Each device goes back with its own power supply; per AT&T, anything you own stays with you. (If you have a prepaid label for any carrier — not just AT&T — our [package drop-off service](/pack-ship/package-drop-offs/) covers the same staffed-counter acceptance.)
 
@@ -89,10 +89,10 @@ Whichever track you're on, the pattern is the same — turn the return into a pi
 
 The fee clock only stops when a scan hits AT&T's system. Twenty-one days, a $200 fee — and the receipt is the return. Everything else is just a box on a shelf.
 
-## What Regulars Do Instead
+## The Shortcut Regulars Use
 
 Don't guess. Start the return on the phone, go to a counter that scans, and leave with the tracking number in your pocket. If you're holding a prepaid label instead, bring it packed to a staffed location — never a drop box — and confirm the acceptance scan before you drive off. Ten minutes of correctness instead of a month of phone calls. The fee math is the same story we covered in [what happens to misplaced packages](/articles/can-you-drop-off-ups-at-fedex-or-post-office/) — the drop-off only counts where the system can see it.
 
-## You Don't Have to Figure It Out First
+## Walk In With the Box, Not a Plan
 
 If you're in Concord Township and you're not sure which track you're on — unpacked gear, a prepaid label, a replacement box you're not sure is right — bring the whole mess to the counter at Mailbox Plus in Gristmill Village, next to Pub Frato. We'll look at what you have, tell you honestly whether this is a scan-program return or a prepaid-label drop-off, and point you to the location that can take it. You don't need the equipment sorted, the label printed, or the account number memorized. Walk in with what you've got — sorting it out at the counter is exactly what we're here for.
