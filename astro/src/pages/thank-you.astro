@@ -9,9 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import OutboundLink from '../components/ui/OutboundLink.astro';
 import { siteConfig, phoneFormatted, phoneTelLink, fullAddressSingleLine } from '../config/siteConfig';
 
-const pageTitle = "You're All Set — Your Mailbox Is Reserved | Mailbox Plus";
-const metaDescription =
-  'Your Mailbox Plus mailbox is reserved. Here is exactly what to bring and what happens next — two IDs, a 10-minute in-store visit, and your key.';
 const canonical = '/thank-you/';
 
 // Canonical store facts (single source: siteConfig)
@@ -26,7 +23,7 @@ const storeHours = [
 ];
 ---
 
-<BaseLayout title={pageTitle} description={metaDescription} canonical={canonical} noindex>
+<BaseLayout canonical={canonical} noindex>
 
   <!-- ============ CONFIRMATION HERO ============ -->
   <section class="hero">
