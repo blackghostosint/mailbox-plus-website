@@ -201,6 +201,13 @@ function selectRepresentativeRoutes(categorizedRoutes) {
   for (const [catName, routes] of Object.entries(categorizedRoutes)) {
     if (!routes || routes.length === 0) continue;
 
+    if (catName === CATEGORIES.INTERACTIVE || catName === CATEGORIES.UTILITY_LEGAL) {
+      for (const r of routes) {
+        selected.add(r);
+      }
+      continue;
+    }
+
     const preferredList = PREFERRED_REPRESENTATIVES[catName] || [];
     let added = false;
     for (const pref of preferredList) {
