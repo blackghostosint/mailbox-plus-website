@@ -20,12 +20,12 @@ keywords:
   ]
 articleType: 'comparison'
 quickAnswer: >-
-  The cheapest mailbox rental for letter-only use is a USPS PO Box, from about
-  $21 per three months ($7/month) per USPS Notice 123. Advertised $9.99 virtual
-  mailbox plans typically run $40–$60 in practice once per-item fees apply. For
-  anyone receiving packages, a flat-rate private mailbox at a local store —
-  $15–$40 a month personal, $35/$50 business, all four carriers, no per-piece
-  fees — is often the better value in practice once per-piece fees are counted.
+  The cheapest mailbox rental for letter-only use is a USPS PO Box — about
+  $7/month per USPS Notice 123. Advertised $9.99 virtual mailbox plans
+  typically run $40–$60 once per-item fees apply. Receiving packages? A
+  flat-rate private mailbox is often the better value: package tiers run $25
+  or $40 a month personal ($15 and $30 are mail-only), $35/$50 business, all
+  four carriers, packages included rather than billed per piece.
 relatedServices:
   [
     '/private-mailbox-rental/',
