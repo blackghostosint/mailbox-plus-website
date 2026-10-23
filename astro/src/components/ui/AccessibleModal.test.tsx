@@ -63,7 +63,19 @@ describe('AccessibleModal Component', () => {
 
     const dialog = screen.getByRole('dialog');
     expect(dialog.getAttribute('aria-labelledby')).toBe('custom-title-id');
-    expect(dialog.getAttribute('aria-label')).toBe('Custom ID Modal');
+    expect(dialog.getAttribute('aria-label')).toBeNull();
+  });
+
+  it('falls back to aria-label when titleId is an empty string', () => {
+    render(
+      <AccessibleModal isOpen={true} onClose={() => {}} title="Fallback Modal Title" titleId="">
+        <p>Modal Body</p>
+      </AccessibleModal>
+    );
+
+    const dialog = screen.getByRole('dialog');
+    expect(dialog.getAttribute('aria-label')).toBe('Fallback Modal Title');
+    expect(dialog.getAttribute('aria-labelledby')).toBeNull();
   });
 
   it('automatically focuses first focusable element after 50ms when opened', () => {
