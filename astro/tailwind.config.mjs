@@ -23,6 +23,9 @@ export default {
         sans: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
         heading: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
       },
+      backgroundImage: {
+        'instagram-gradient': 'var(--color-gradient-instagram)',
+      },
       colors: {
         primary: {
           DEFAULT: 'var(--color-primary)',
@@ -35,8 +38,23 @@ export default {
           light: 'var(--color-accent-gold-light)',
           gold: 'var(--color-accent-gold)',
           goldLight: 'var(--color-accent-gold-light)',
+          goldDark: 'var(--color-accent-gold-dark)',
           warm: 'var(--color-accent-warm)',
           warmLight: 'var(--color-accent-warm-light)',
+          warmDark: 'var(--color-accent-warm-dark)',
+        },
+        brand: {
+          facebook: 'rgb(var(--color-brand-facebook-rgb) / <alpha-value>)',
+          linkedin: 'rgb(var(--color-brand-linkedin-rgb) / <alpha-value>)',
+          nextdoor: 'rgb(var(--color-brand-nextdoor-rgb) / <alpha-value>)',
+        },
+        carrier: {
+          fedex: 'rgb(var(--color-carrier-fedex-rgb) / <alpha-value>)',
+          happyreturns: 'rgb(var(--color-carrier-happyreturns-rgb) / <alpha-value>)',
+          happyreturnsDark: 'rgb(var(--color-carrier-happyreturns-dark-rgb) / <alpha-value>)',
+          ups: 'rgb(var(--color-carrier-ups-rgb) / <alpha-value>)',
+          upsDark: 'rgb(var(--color-carrier-ups-dark-rgb) / <alpha-value>)',
+          dhl: 'rgb(var(--color-carrier-dhl-rgb) / <alpha-value>)',
         },
         bg: {
           primary: 'var(--color-bg-primary)',

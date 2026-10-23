@@ -8,6 +8,7 @@ const REPO_ROOT = path.resolve(__dirname, '..');
 
 const DOCS_PATH = path.join(REPO_ROOT, 'docs/DESIGN_SYSTEM.md');
 const CSS_PATH = path.join(REPO_ROOT, 'astro/src/styles/global.css');
+const SRC_DIR = path.join(REPO_ROOT, 'astro/src');
 
 export function normalizeValue(value: string): string {
   let normalized = value.trim();
@@ -72,6 +73,44 @@ export function parseDocsTokens(docsContent: string): Map<string, string> {
   return tokens;
 }
 
+export function parseDeprecatedTokens(docsContent: string): Set<string> {
+  const deprecated = new Set<string>();
+  const lines = docsContent.split('\n');
+
+  let inRemovedSection = false;
+
+  for (const line of lines) {
+    const lower = line.toLowerCase();
+    if (lower.includes('removed tokens') || lower.includes('deprecated tokens')) {
+      inRemovedSection = true;
+    } else if (line.startsWith('#') || line.startsWith('---')) {
+      inRemovedSection = false;
+    }
+
+    if (inRemovedSection) {
+      const match = line.match(/-\s*`?(--[a-zA-Z0-9_-]+)`?/);
+      if (match) {
+        deprecated.add(match[1]);
+      }
+    }
+
+    if (
+      line.includes('|') &&
+      (lower.includes('aliased to') ||
+        lower.includes('migrate callers') ||
+        lower.includes('removed') ||
+        lower.includes('deprecated'))
+    ) {
+      const tokenMatch = line.match(/`?(--[a-zA-Z0-9_-]+)`?/);
+      if (tokenMatch) {
+        deprecated.add(tokenMatch[1]);
+      }
+    }
+  }
+
+  return deprecated;
+}
+
 export function parseCssTokens(cssContent: string): Map<string, string> {
   const tokens = new Map<string, string>();
   const rootMatch = cssContent.match(/:root\s*\{([^}]+)\}/s);
@@ -93,25 +132,208 @@ export function parseCssTokens(cssContent: string): Map<string, string> {
   return tokens;
 }
 
-export function checkDesignTokens(): { success: boolean; errors: string[] } {
-  if (!fs.existsSync(DOCS_PATH)) {
+export function scanTemplateTokens(
+  srcDir: string,
+  baseDir: string = REPO_ROOT
+): Map<string, Set<string>> {
+  const tokenMap = new Map<string, Set<string>>();
+
+  function walk(dir: string) {
+    if (!fs.existsSync(dir)) return;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === 'node_modules' || entry.name === '__tests__') {
+          continue;
+        }
+        walk(fullPath);
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name).toLowerCase();
+        if (['.astro', '.ts', '.tsx', '.js', '.jsx'].includes(ext)) {
+          if (entry.name.includes('.test.') || entry.name.includes('.spec.')) {
+            continue;
+          }
+          const content = fs.readFileSync(fullPath, 'utf8');
+          const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+
+          // Collect local variable declarations in this file
+          const localDecls = new Set<string>();
+          const declRegex = /(--[a-zA-Z0-9_-]+)\s*:/g;
+          let declMatch: RegExpExecArray | null;
+          while ((declMatch = declRegex.exec(content)) !== null) {
+            localDecls.add(declMatch[1]);
+          }
+
+          // Scan var(--token) expressions
+          const varRegex = /var\(\s*(--[a-zA-Z0-9_-]+)/g;
+          let varMatch: RegExpExecArray | null;
+          while ((varMatch = varRegex.exec(content)) !== null) {
+            const token = varMatch[1];
+            // Skip locally declared CSS variables
+            if (localDecls.has(token)) {
+              continue;
+            }
+            if (!tokenMap.has(token)) {
+              tokenMap.set(token, new Set());
+            }
+            tokenMap.get(token)!.add(relPath);
+          }
+        }
+      }
+    }
+  }
+
+  walk(srcDir);
+  return tokenMap;
+}
+
+export function scanStyleAttributesAndClasses(
+  srcDir: string,
+  baseDir: string = REPO_ROOT
+): string[] {
+  const errors: string[] = [];
+
+  function walk(dir: string) {
+    if (!fs.existsSync(dir)) return;
+    const entries = fs.readdirSync(dir, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const fullPath = path.join(dir, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name === 'node_modules' || entry.name === '__tests__') {
+          continue;
+        }
+        walk(fullPath);
+      } else if (entry.isFile()) {
+        const ext = path.extname(entry.name).toLowerCase();
+        if (['.astro', '.ts', '.tsx', '.js', '.jsx'].includes(ext)) {
+          if (entry.name.includes('.test.') || entry.name.includes('.spec.')) {
+            continue;
+          }
+          const content = fs.readFileSync(fullPath, 'utf8');
+          const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+          const lines = content.split('\n');
+
+          for (let i = 0; i < lines.length; i++) {
+            const lineNum = i + 1;
+            const line = lines[i];
+
+            // 1. Scan for arbitrary hex classes in Tailwind class strings
+            const hexTokenRegex =
+              /\b(?:bg|text|border|from|to|via|decoration|ring|shadow|fill|stroke|outline|accent|caret)-\[#(?:[0-9a-fA-F]{3,8})\]/g;
+            let hexMatch: RegExpExecArray | null;
+            while ((hexMatch = hexTokenRegex.exec(line)) !== null) {
+              const matchedClass = hexMatch[0];
+              errors.push(
+                `❌ Hardcoded hex class in ${relPath}:${lineNum} -> ${matchedClass}\n   Suggestion: Replace arbitrary hex class "${matchedClass}" with a design token utility class (e.g., bg-brand-facebook, text-carrier-fedex, to-accent-warmDark).`
+              );
+            }
+
+            // 2. Scan for HTML style attributes: style="..." or style='...'
+            const htmlStyleRegex = /style\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+            let styleMatch: RegExpExecArray | null;
+            while ((styleMatch = htmlStyleRegex.exec(line)) !== null) {
+              const styleVal = styleMatch[1] ?? styleMatch[2] ?? '';
+
+              // Allowlist 1: Keyframe animation / CSS variable index binding (e.g. style="--i: 0")
+              if (/^\s*--[a-zA-Z0-9_-]+\s*:\s*[^;]+;?\s*$/.test(styleVal)) {
+                continue;
+              }
+
+              // Allowlist 2: Third party embeds (e.g. map iframe with border:0 or tracking pixel noscript img display:none)
+              if (
+                (line.includes('<iframe') && styleVal.replace(/\s/g, '').includes('border:0')) ||
+                (line.includes('display:none') &&
+                  (line.includes('<img') || line.includes('<noscript')))
+              ) {
+                continue;
+              }
+
+              // Check if style attribute contains hardcoded hex values
+              if (/#([0-9a-fA-F]{3,8})/.test(styleVal)) {
+                errors.push(
+                  `❌ Hardcoded hex value in inline style attribute in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values in style attributes.`
+                );
+              } else if (
+                /\b(color|background|border|border-top|border-bottom|border-left|border-right|margin-top|margin-bottom|padding|font-size)\s*:/i.test(
+                  styleVal
+                )
+              ) {
+                errors.push(
+                  `❌ Static inline style attribute bypass in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Replace inline style attribute with standard Tailwind utility classes (e.g., text-[var(...)], border-t border-[var(...)]).`
+                );
+              }
+            }
+
+            // 3. Scan for JSX style={{ ... }} objects
+            const jsxStyleRegex = /style\s*=\s*\{\{\s*([^}]+)\s*\}\}/g;
+            let jsxMatch: RegExpExecArray | null;
+            while ((jsxMatch = jsxStyleRegex.exec(line)) !== null) {
+              const jsxStyleBody = jsxMatch[1];
+
+              // Allowlist 1: Keyframe animation / CSS custom variable index binding e.g. style={{ '--i': 0 }}
+              if (/['"]?--[a-zA-Z0-9_-]+['"]?\s*:/.test(jsxStyleBody)) {
+                continue;
+              }
+
+              // Allowlist 2: Dynamic runtime animation/layout calculation styles (e.g., maxHeight: isOpen ? ..., opacity: ...)
+              const isDynamicLayout =
+                /\b(maxHeight|height|width|opacity|transform|top|left|right|bottom)\b/.test(
+                  jsxStyleBody
+                ) &&
+                !/\b(color|background|backgroundColor|borderColor|border)\b/i.test(jsxStyleBody) &&
+                !/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody);
+
+              if (isDynamicLayout) {
+                continue;
+              }
+
+              if (/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody)) {
+                errors.push(
+                  `❌ Hardcoded hex value in JSX style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values.`
+                );
+              } else if (/\b(color|backgroundColor|border|borderColor)\s*:/i.test(jsxStyleBody)) {
+                errors.push(
+                  `❌ Static inline style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Replace inline style object with standard Tailwind utility classes.`
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  walk(srcDir);
+  return errors;
+}
+
+export function checkDesignTokens(
+  docsPath: string = DOCS_PATH,
+  cssPath: string = CSS_PATH,
+  srcDir: string = SRC_DIR
+): { success: boolean; errors: string[] } {
+  if (!fs.existsSync(docsPath)) {
     return {
       success: false,
-      errors: [`❌ Documentation file not found: ${DOCS_PATH}`],
+      errors: [`❌ Documentation file not found: ${docsPath}`],
     };
   }
-  if (!fs.existsSync(CSS_PATH)) {
+  if (!fs.existsSync(cssPath)) {
     return {
       success: false,
-      errors: [`❌ CSS file not found: ${CSS_PATH}`],
+      errors: [`❌ CSS file not found: ${cssPath}`],
     };
   }
 
-  const docsContent = fs.readFileSync(DOCS_PATH, 'utf8');
-  const cssContent = fs.readFileSync(CSS_PATH, 'utf8');
+  const docsContent = fs.readFileSync(docsPath, 'utf8');
+  const cssContent = fs.readFileSync(cssPath, 'utf8');
 
   const docsTokens = parseDocsTokens(docsContent);
   const cssTokens = parseCssTokens(cssContent);
+  const deprecatedTokens = parseDeprecatedTokens(docsContent);
 
   const errors: string[] = [];
 
@@ -140,6 +362,35 @@ export function checkDesignTokens(): { success: boolean; errors: string[] } {
     }
   }
 
+  // 3. Template scanning check
+  if (fs.existsSync(srcDir)) {
+    const templateTokens = scanTemplateTokens(srcDir);
+
+    for (const [token, fileSet] of templateTokens.entries()) {
+      const fileList = Array.from(fileSet).join(', ');
+
+      if (deprecatedTokens.has(token)) {
+        errors.push(
+          `❌ Token ${token} referenced in template file(s) [${fileList}] is marked as deprecated or removed in docs/DESIGN_SYSTEM.md`
+        );
+      } else if (!cssTokens.has(token)) {
+        errors.push(
+          `❌ Token ${token} referenced in template file(s) [${fileList}] is missing in astro/src/styles/global.css`
+        );
+      } else if (!docsTokens.has(token)) {
+        errors.push(
+          `❌ Token ${token} referenced in template file(s) [${fileList}] is missing in docs/DESIGN_SYSTEM.md`
+        );
+      }
+    }
+
+    const styleAndClassErrors = scanStyleAttributesAndClasses(
+      srcDir,
+      path.resolve(docsPath, '..', '..')
+    );
+    errors.push(...styleAndClassErrors);
+  }
+
   return {
     success: errors.length === 0,
     errors,
@@ -154,7 +405,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === currentFilePath) {
     process.exit(1);
   } else {
     console.log(
-      '✅ All design tokens in docs/DESIGN_SYSTEM.md and astro/src/styles/global.css are synchronized.'
+      '✅ All design tokens in templates, docs/DESIGN_SYSTEM.md, and astro/src/styles/global.css are valid and synchronized.'
     );
     process.exit(0);
   }

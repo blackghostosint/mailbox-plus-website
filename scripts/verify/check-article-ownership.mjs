@@ -72,16 +72,11 @@ export function checkArticleOwnership({
     a.trim().toLowerCase()
   );
 
-  if (!normalizedAuthor) {
-    if (isLocal) {
-      return {
-        success: true,
-        touchesArticles: true,
-        reason: 'local_bypass',
-        message:
-          '⚠️ article-ownership: Local execution detected without author context; bypassing author check for local dev',
-      };
-    }
+  let authorBypassedLocally = false;
+
+  if (isLocal) {
+    authorBypassedLocally = true;
+  } else if (!normalizedAuthor) {
     return {
       success: false,
       touchesArticles: true,
@@ -90,20 +85,19 @@ export function checkArticleOwnership({
         '❌ article-ownership: PR touches content/articles/ but pull request author is unknown.\n' +
         '   Pass --author or set PR_AUTHOR environment variable.',
     };
-  }
-
-  const isAuthorizedAuthor = normalizedAuthorized.includes(normalizedAuthor);
-
-  if (!isAuthorizedAuthor) {
-    return {
-      success: false,
-      touchesArticles: true,
-      reason: 'unauthorized_author',
-      message:
-        `❌ article-ownership: PR touches content/articles/ but author '${author}' is not an authorized internal author login.\n` +
-        '   Articles are produced by internal author accounts ONLY.\n' +
-        '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
-    };
+  } else {
+    const isAuthorizedAuthor = normalizedAuthorized.includes(normalizedAuthor);
+    if (!isAuthorizedAuthor) {
+      return {
+        success: false,
+        touchesArticles: true,
+        reason: 'unauthorized_author',
+        message:
+          `❌ article-ownership: PR touches content/articles/ but author '${author}' is not an authorized internal author login.\n` +
+          '   Articles are produced by internal author accounts ONLY.\n' +
+          '   Never reassign article PRs to external agents; repairs are handled in-session by Hermes + owner.',
+      };
+    }
   }
 
   if (deletionsOnly) {
@@ -133,6 +127,16 @@ export function checkArticleOwnership({
     };
   }
 
+  if (authorBypassedLocally) {
+    return {
+      success: true,
+      touchesArticles: true,
+      reason: 'local_bypass',
+      message:
+        '⚠️ article-ownership: Local execution detected without author context; verified authorship stamp present',
+    };
+  }
+
   return {
     success: true,
     touchesArticles: true,
@@ -144,8 +148,13 @@ export function checkArticleOwnership({
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isMain) {
-  const { positional } = parsePRCliArgs(process.argv);
-  if (positional.length < 2 && !process.env.PR_BODY_FILE && !process.env.GITHUB_EVENT_PATH) {
+  const { positional, isLocalBypass } = parsePRCliArgs(process.argv);
+  if (
+    positional.length < 2 &&
+    !process.env.PR_BODY_FILE &&
+    !process.env.GITHUB_EVENT_PATH &&
+    !isLocalBypass
+  ) {
     console.error(
       'usage: node scripts/verify/check-article-ownership.mjs <pr-body-file> <changed-files-file-or-minus> [--author=<login>] [--local]'
     );

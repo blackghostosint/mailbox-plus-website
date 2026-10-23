@@ -85,4 +85,15 @@ else
   echo "✅ seo: href slashes OK"
 fi
 
+# 5. article ownership gate & authorship stamp (internal-only rule, CI enforces)
+if [ ${#ARTICLES[@]} -gt 0 ] && [ -n "${ARTICLES[0]}" ]; then
+  if ! npm run verify:ownership >"$LOG_FILE" 2>&1; then
+    echo "❌ ownership: article ownership check failed"
+    cat "$LOG_FILE"
+    FAIL=1
+  else
+    echo "✅ ownership: article ownership verified"
+  fi
+fi
+
 exit $FAIL

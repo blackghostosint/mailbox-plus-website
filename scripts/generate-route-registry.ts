@@ -12,7 +12,7 @@ import {
 } from '../astro/src/config/pillars.js';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
-  process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-2e9fe7df089647ee93ea6fa1e7235212.r2.dev';
+  process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 }
 
 const ROOT_DIR = process.cwd();
@@ -333,15 +333,19 @@ export async function generateRouteRegistry(options?: {
   if (shouldWrite) {
     const formattedLocalPages = await prettier.format(JSON.stringify(localPages), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedSiteStructure = await prettier.format(JSON.stringify(siteStructure), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedInternalLinks = await prettier.format(JSON.stringify(internalLinks), {
       parser: 'json',
+      printWidth: 100,
     });
     const formattedAnchorText = await prettier.format(JSON.stringify(anchorText), {
       parser: 'json',
+      printWidth: 100,
     });
 
     fs.writeFileSync(localPagesPath, formattedLocalPages);

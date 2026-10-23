@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import matter from 'gray-matter';
+import { toISODateString } from './src/utils/dateUtils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -25,9 +26,11 @@ function buildArticleDateMap() {
           if (!fm.slug || fm.status === 'draft') continue;
           const d = fm.lastModified || fm.pubDate;
           if (d) {
-            const iso = new Date(d).toISOString();
-            map.set(`/articles/${fm.slug}/`, iso);
-            map.set(`/articles/${fm.slug}`, iso);
+            const iso = toISODateString(d, '', 'iso');
+            if (iso) {
+              map.set(`/articles/${fm.slug}/`, iso);
+              map.set(`/articles/${fm.slug}`, iso);
+            }
           }
         } catch {
           /* skip unreadable file */
@@ -52,6 +55,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [Icons({ compiler: 'jsx', jsx: 'react' })],
+    // Astro's default envPrefix is PUBLIC_ only; the checkout client reads
+    // import.meta.env.VITE_RECAPTCHA_SITE_KEY, which was silently inlined as an
+    // empty object — so the browser never sent a reCAPTCHA token and the
+    // fail-closed create-checkout function rejected every attempt (2026-10-21).
+    envPrefix: ['PUBLIC_', 'VITE_'],
     build: {
       assetsInlineLimit: 0,
     },
