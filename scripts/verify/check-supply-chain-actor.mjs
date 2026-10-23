@@ -16,6 +16,18 @@ export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
 
 export const DEFAULT_AUTHORIZED_BOTS = ['google-labs-stitch[bot]', 'google-labs-stitch'];
 
+// Strict owner-only files: automated agents (incl. authorized bots) may NEVER
+// touch these, because they alter the dependency/config surface where the
+// PR #720 typosquat lived. Bot-authored CI/a11y/code PRs remain allowed.
+// (2026-10-23, PR #797: an authorized bot removed netlify/functions from root
+// workspaces via package.json+lockfile — passed this gate, caught only by L3 review.)
+export const STRICT_OWNER_ONLY = [
+  /^(astro\/)?package\.json$/,
+  /^(astro\/)?package-lock\.json$/,
+  /^netlify\.toml$/,
+  /^\.gitleaks/,
+];
+
 export const PROTECTED = [
   /^\.github\/workflows\//,
   /^(astro\/)?package\.json$/,
@@ -55,6 +67,19 @@ export function checkSupplyChainActor({
   const normalizedAuthor = (author || '').trim().toLowerCase();
   const rawOwners = Array.isArray(owner) ? owner : [owner];
   const normalizedOwners = rawOwners.filter(Boolean).map((o) => String(o).trim().toLowerCase());
+
+  const strictTouched = files.filter((f) => STRICT_OWNER_ONLY.some((rx) => rx.test(f)));
+  const isOwner = normalizedAuthor && normalizedOwners.includes(normalizedAuthor);
+  if (strictTouched.length && !isOwner) {
+    return {
+      success: false,
+      touched: strictTouched,
+      message:
+        `❌ dependency/config files touched by "${author}": ${strictTouched.join(', ')}. ` +
+        'These files are owner-only for EVERY author including authorized bots (see PR #797). ' +
+        'Dependency and config changes must be applied by the repo owner.',
+    };
+  }
 
   const isDefaultOwnerIncluded = normalizedOwners.some((o) => o === DEFAULT_OWNER.toLowerCase());
 
