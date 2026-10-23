@@ -1,7 +1,7 @@
 # Micro-Problems Configuration Architecture
 
 > **🚨 GOVERNANCE POLICY**: All micro-problem pages are subject to quarterly lifecycle audits.  
-> See [`MICRO_PROBLEM_GOVERNANCE.md`](../../MICRO_PROBLEM_GOVERNANCE.md) for permanent policy rules.
+> See [`MICRO_PROBLEM_GOVERNANCE.md`](./MICRO_PROBLEM_GOVERNANCE.md) for permanent policy rules.
 
 ## Overview
 
@@ -112,7 +112,7 @@ The system includes a **dev-only runtime validator** that checks for:
 
 To prevent SEO cannibalization and customer confusion, the validator checks for duplicate `intentKey` values.
 
-**See**: [`INTENT_KEY_GUIDE.md`](./INTENT_KEY_GUIDE.md) for detailed usage instructions.
+**See**: [`MICRO_PROBLEM_GOVERNANCE.md`](./MICRO_PROBLEM_GOVERNANCE.md) for detailed usage instructions.
 
 **Example Error**:
 
