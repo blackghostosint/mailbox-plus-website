@@ -14,7 +14,7 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { getPRContext } from './pr-utils.mjs';
 
-const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models/i;
+const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models[^\n]*/i;
 const MIN_SECTION_CHARS = 120; // heading + real content, not a bare word
 const IGNORED_FUNCTIONS_PATTERNS = [
   /^netlify\/functions\/package(-lock)?\.json$/,
@@ -42,7 +42,17 @@ export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
     };
   }
 
-  const m = body.match(HEADING);
+  // Strip HTML comments BEFORE any section analysis: the PR template ships the
+  // Endpoint Authentication Models guidance inside <!-- -->; counting commented
+  // guidance would let an untouched template satisfy the gate. Only uncommented,
+  // author-written text counts — including the heading itself.
+  // SINGLE-PASS sanitizer (CodeQL incomplete-sanitization, js/html-injection):
+  // one replace whose alternation consumes paired comments, an unclosed comment
+  // opener through end-of-string, AND every bare angle bracket — so no '<!--' or
+  // HTML fragment of any kind can survive into the result.
+  const uncommented = body.replace(/<!--[\s\S]*?(?:-->|$)|[<>]/g, '');
+
+  const m = uncommented.match(HEADING);
   if (!m) {
     return {
       success: false,
@@ -53,13 +63,11 @@ export function checkAuthModel({ body = '', changedFiles = [] } = {}) {
     };
   }
 
-  const section = body.slice(m.index + m[0].length);
+  const section = uncommented.slice(m.index + m[0].length);
   // stop at the next heading of same-or-higher level
   const next = section.match(/\n#{1,3}\s/);
   const rawContent = next ? section.slice(0, next.index) : section;
-  // COMPLETE sanitization: strip every angle bracket from body-derived text in a
-  // single pass, so no HTML fragment of any kind can survive into echoed strings.
-  const content = rawContent.replace(/[<>]/g, '').trim();
+  const content = rawContent.trim();
 
   if (content.length < MIN_SECTION_CHARS) {
     return {
