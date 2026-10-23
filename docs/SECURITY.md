@@ -208,11 +208,40 @@ Common violations to watch for:
 
 ---
 
-## 6. Secret Scanning Guidance
+## 6. Serverless API Authorization Policies
+
+All serverless API handlers in `netlify/functions/` must comply with strict authorization policy and pull request disclosure rules governed by [AGENTS.md Rule 7](../AGENTS.md#7-state-the-auth-model-for-every-api-change).
+
+### 6.1 Policy Requirements
+
+- **Explicit Authorization Standards:** Every endpoint must define its caller access boundaries and verification mechanism. Input validation (e.g. Zod schema parsing), path existence checks, or field whitelists do NOT constitute an authorization model.
+- **Mandatory PR Disclosures:** Any pull request adding or modifying files under `netlify/functions/` must include a populated `## Endpoint Authentication Models` section in the PR description (see [.github/pull_request_template.md](../.github/pull_request_template.md)).
+- **Substantive Content Threshold:** The disclosure section must contain at least **120 characters** of substantive documentation explaining endpoint caller models, identity mechanisms, and rate limits.
+
+### 6.2 Required Disclosure Fields
+
+For every serverless function added or modified, the pull request body must detail:
+
+1. **Caller Eligibility:** Who is authorized to call the endpoint (e.g., public unauthenticated frontend clients, verified customer sessions, edge webhooks).
+2. **Identity & Verification Standard:** How caller identity or authorization is verified (e.g., reCAPTCHA v3 score verification via `RECAPTCHA_SECRET_KEY`, Stripe session lookup, or explicit unauthenticated public access).
+3. **Rate Limiting & Abuse Controls:** Rate limiting strategy enforced via Netlify Blobs sliding-window storage or LRU in-memory fallback in [netlify/functions/lib/rate-limiter.ts](../netlify/functions/lib/rate-limiter.ts) (e.g., 5 requests / 10 minutes for [netlify/functions/sendEmail.ts](../netlify/functions/sendEmail.ts), 10 requests / 1 minute for [netlify/functions/create-checkout.ts](../netlify/functions/create-checkout.ts)).
+
+### 6.3 Automated CI Enforcement & Pre-Flight Checks
+
+- **CI Check Gate:** Pull requests touching `netlify/functions/` execute `node scripts/verify/check-auth-model.mjs` in `.github/workflows/ci.yml`. PRs lacking the `## Endpoint Authentication Models` section or containing hollow descriptions will fail CI validation.
+- **Local Pre-Flight Execution:** Developers can test authorization disclosure compliance locally prior to opening PRs:
+
+  ```bash
+  npm run check:auth-model
+  ```
+
+---
+
+## 7. Secret Scanning Guidance
 
 Secret scanning is enforced locally via pre-commit hooks and automatically in CI via Gitleaks to prevent credential exposure in git history.
 
-### 6.1 Configuration & Rule Definition (`.gitleaks.toml`)
+### 7.1 Configuration & Rule Definition (`.gitleaks.toml`)
 
 - **Default Rule Inheritance:** Inherits Gitleaks' default rule set (`[extend] useDefault = true`) to catch common API keys, tokens, SSH/RSA private keys, and passwords.
 - **Regex Allowlists (`regexes`):** Defines global exceptions for verified non-secret test strings, mock data, and placeholder keys:
@@ -225,7 +254,7 @@ Secret scanning is enforced locally via pre-commit hooks and automatically in CI
   - `netlify/functions/__tests__/`
   - `netlify/functions/lib/` (matching backend test files)
 
-### 6.2 Pre-commit Triggers & Local Setup
+### 7.2 Pre-commit Triggers & Local Setup
 
 - **Pre-commit Hook:** Configured in `.husky/pre-commit` to execute `gitleaks protect --staged --no-banner --redact`.
 - **Local CLI Installation:**
@@ -242,7 +271,7 @@ Secret scanning is enforced locally via pre-commit hooks and automatically in CI
   gitleaks detect --source . --verbose
   ```
 
-### 6.3 Remediation & False Positives
+### 7.3 Remediation & False Positives
 
 When Gitleaks flags a potential match:
 
@@ -259,7 +288,7 @@ When Gitleaks flags a potential match:
 
 ---
 
-## 7. Secure Development Practices
+## 8. Secure Development Practices
 
 ### Before every deploy
 
@@ -289,7 +318,7 @@ npm run test:e2e       # E2E tests (launches preview server automatically servin
 
 ---
 
-## 8. Contact & Resources
+## 9. Contact & Resources
 
 | Resource               | URL                                                                |
 | ---------------------- | ------------------------------------------------------------------ |
