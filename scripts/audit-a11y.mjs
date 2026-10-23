@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
-const BATCH_SIZE = 25;
+const BATCH_SIZE = 1;
 
 const CATEGORIES = {
   HOMEPAGE: 'Homepage',
@@ -398,17 +398,42 @@ function chunkArray(array, size) {
 
 async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir }) {
   return new Promise((resolve) => {
-    const args = [
-      '--yes',
-      '@axe-core/cli',
-      ...urls,
-      '--tags',
-      'wcag2a,wcag2aa,wcag21a,wcag21aa',
-      '--load-delay',
-      '1500',
-      '--chrome-options',
-      'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
-    ];
+    const localCliScript = path.resolve(
+      process.cwd(),
+      'node_modules',
+      '@axe-core',
+      'cli',
+      'dist',
+      'src',
+      'bin',
+      'cli.js'
+    );
+    const useLocalCli = fs.existsSync(localCliScript);
+
+    const command = useLocalCli ? process.execPath : 'npx';
+    const args = useLocalCli
+      ? [
+          localCliScript,
+          ...urls,
+          '--tags',
+          'wcag2a,wcag2aa,wcag21a,wcag21aa',
+          '--load-delay',
+          '1000',
+          '--chrome-options',
+          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+        ]
+      : [
+          '--yes',
+          '@axe-core/cli',
+          ...urls,
+          '--tags',
+          'wcag2a,wcag2aa,wcag21a,wcag21aa',
+          '--load-delay',
+          '1000',
+          '--chrome-options',
+          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+        ];
+
     if (chromePath && fs.existsSync(chromePath)) {
       args.push('--chrome-path', chromePath);
     }
@@ -419,7 +444,7 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
       args.push('--save', '--dir', outputDir);
     }
 
-    const child = spawn('npx', args, {
+    const child = spawn(command, args, {
       cwd: process.cwd(),
       env: process.env,
     });
