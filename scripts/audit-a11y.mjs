@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
-const BATCH_SIZE = 5;
+const BATCH_SIZE = 1;
 
 const CATEGORIES = {
   HOMEPAGE: 'Homepage',
@@ -201,20 +201,12 @@ function selectRepresentativeRoutes(categorizedRoutes) {
   for (const [catName, routes] of Object.entries(categorizedRoutes)) {
     if (!routes || routes.length === 0) continue;
 
-    if (catName === CATEGORIES.INTERACTIVE || catName === CATEGORIES.UTILITY_LEGAL) {
-      for (const r of routes) {
-        selected.add(r);
-      }
-      continue;
-    }
-
     const preferredList = PREFERRED_REPRESENTATIVES[catName] || [];
     let added = false;
     for (const pref of preferredList) {
       if (routes.includes(pref)) {
         selected.add(pref);
         added = true;
-        break;
       }
     }
     if (!added && routes.length > 0) {
@@ -420,7 +412,7 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--load-delay',
           '1500',
           '--chrome-options',
-          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu,disable-site-isolation-trials,disable-features=IsolateOrigins,site-per-process',
         ]
       : [
           '--yes',
@@ -431,7 +423,7 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--load-delay',
           '1500',
           '--chrome-options',
-          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu,disable-site-isolation-trials,disable-features=IsolateOrigins,site-per-process',
         ];
 
     if (chromePath && fs.existsSync(chromePath)) {
