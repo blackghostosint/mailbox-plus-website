@@ -14984,7 +14984,7 @@ No app required. Three minutes. Done.
 
 ---
 
-### UPS Declared Value vs Shipping Insurance: Why Most Damaged-Package Claims Get Denied
+### UPS Declared Value vs Shipping Insurance: Why Damaged-Package Claims Get Denied
 
 URL: https://mailboxplusohio.com/articles/ups-declared-value-vs-shipping-insurance/
 Category: pack-ship
@@ -15000,7 +15000,7 @@ Here's what should happen instead: you declare the value, you pack the box to th
 
 ## The Burden-of-Proof Switch: How It Got This Way
 
-Start with the number everybody runs into. Under UPS's terms and conditions of service, if you declare no value — or declare more but don't pay the charge — the carrier's maximum liability for loss or damage is $100 per package. That is the default on every UPS shipment in America: your box is covered at a hundred dollars whether it holds a $90 coffee maker or a $4,000 watch.
+Start with the number everybody runs into. Under UPS's terms and conditions of service, if you declare no value — or declare more but don't pay the charge — the carrier's maximum liability for loss or damage is $100 per package. That is the default liability cap: whether your box holds a $90 coffee maker or a $4,000 watch, declaring no value puts a hundred-dollar ceiling on what the carrier owes you.
 
 Declared value is the mechanism for raising that cap. Per UPS's published value-added pricing, there is no charge up to $100 of value. Above that, the retail charge is $0.90 for each $100 of declared value — any fraction of $100 counts as a full $100 — with a $2.70 minimum. Declaring a $500 package costs about $3.60 more than the base rate. Declaring a $2,000 package costs about $17.10. The ceiling is $50,000 per package on domestic services, with one brutal exception: packages containing jewelry are capped at $500, period.
 
