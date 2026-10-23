@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import VideoTranscriptPlayer from '../components/VideoTranscriptPlayer';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import { siteConfig } from '../config/siteConfig';
+import { getPageMeta } from '../config/pageMeta';
 import { toCanonicalUrl } from '../utils/canonical-url';
 import { getFAQSchema, getWebPageSchema, getBreadcrumbSchema, getVideoObjectSchema } from '../utils/schema';
 import { afterSignupFaqs as faqs } from '../config/faqs';
@@ -11,9 +12,7 @@ const canonical = '/after-signup/';
 const pageUrl = toCanonicalUrl(canonical);
 const domain = siteConfig.domain;
 
-// SEO Meta
-const metaTitle = "After Signing Up for Mailbox Service | Mailbox Plus Next Steps";
-const metaDescription = "See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.";
+const pageMeta = getPageMeta(canonical)!;
 
 // Breadcrumbs
 const breadcrumbs = [
@@ -62,8 +61,8 @@ const faqSchema = getFAQSchema(siteConfig, faqs);
 
 // WebPage Schema
 const webpageSchema = getWebPageSchema(siteConfig, {
-  name: metaTitle,
-  description: metaDescription,
+  name: pageMeta.title,
+  description: pageMeta.description,
   url: canonical,
   breadcrumbItems: breadcrumbs,
 });
@@ -115,8 +114,6 @@ const stepIcons = [
 ---
 
 <BaseLayout
-  title={metaTitle}
-  description={metaDescription}
   canonical={canonical}
   schema={schemas}
 >
