@@ -38,17 +38,17 @@ export const regulatedMicroProblems: Service[] = [
         heading: 'What FedEx and UPS Each Allow',
         body: `<table class="min-w-full border-collapse text-sm">
 <thead><tr class="bg-[var(--color-bg-warm-tint)]">
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Carrier</th>
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Wine</th>
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Beer</th>
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Spirits</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Carrier</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Wine</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Beer</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Spirits</th>
 </tr></thead>
 <tbody>
-<tr><td class="p-3 border-b border-[var(--color-border)]"><strong>FedEx</strong></td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]"><strong>FedEx</strong></th>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Consumer ✓</td>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Licensee only</td>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Licensee only</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]"><strong>UPS</strong></td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]"><strong>UPS</strong></th>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Consumer ✓</td>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Consumer ✓</td>
 <td class="p-3 border-b border-[var(--color-border)]">Licensee → Licensee only</td></tr>
@@ -151,27 +151,27 @@ export const regulatedMicroProblems: Service[] = [
         heading: 'Battery Types and Their Rules',
         body: `<table class="min-w-full border-collapse text-sm">
 <thead><tr class="bg-[var(--color-bg-warm-tint)]">
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Battery Type</th>
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Regulated?</th>
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Can Individuals Ship?</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Battery Type</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Regulated?</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Can Individuals Ship?</th>
 </tr></thead>
 <tbody>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Alkaline (AA, AAA, C, D, 9V)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Alkaline (AA, AAA, C, D, 9V)</th>
 <td class="p-3 border-b border-[var(--color-border)]">No (non-hazmat)</td>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — standard shipping</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium-ion (rechargeable, installed in device)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Lithium-ion (rechargeable, installed in device)</th>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — Section II</td>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — with proper packaging</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium-ion (loose or spare)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Lithium-ion (loose or spare)</th>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — Section IB/II</td>
 <td class="p-3 border-b border-[var(--color-border)]">Restricted — carrier-specific rules</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium metal (non-rechargeable, installed)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Lithium metal (non-rechargeable, installed)</th>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — Section II</td>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — with proper packaging</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium metal (loose or spare)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Lithium metal (loose or spare)</th>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — Section IB/II</td>
 <td class="p-3 border-b border-[var(--color-border)]">Restricted — carrier-specific rules</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Wet (lead-acid, car batteries)</td>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Wet (lead-acid, car batteries)</th>
 <td class="p-3 border-b border-[var(--color-border)]">Yes — Hazmat</td>
 <td class="p-3 border-b border-[var(--color-border)]">Ground only — special handling</td></tr>
 </tbody>
@@ -552,23 +552,23 @@ export const regulatedMicroProblems: Service[] = [
         heading: 'Quick Reference by Item',
         body: `<table class="min-w-full border-collapse text-sm">
 <thead><tr class="bg-[var(--color-bg-warm-tint)]">
-<th class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Item</th>
-<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">FedEx</th>
-<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">UPS</th>
-<th class="p-3 text-center font-semibold border-b border-[var(--color-border)]">USPS</th>
+<th scope="col" class="p-3 text-left font-semibold border-b border-[var(--color-border)]">Item</th>
+<th scope="col" class="p-3 text-center font-semibold border-b border-[var(--color-border)]">FedEx</th>
+<th scope="col" class="p-3 text-center font-semibold border-b border-[var(--color-border)]">UPS</th>
+<th scope="col" class="p-3 text-center font-semibold border-b border-[var(--color-border)]">USPS</th>
 </tr></thead>
 <tbody>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Alcohol (wine/beer)</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Alcohol (spirits)</td><td class="p-3 text-center border-b border-[var(--color-border)]">Lic → Lic only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Firearms</td><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Ammunition</td><td class="p-3 text-center border-b border-[var(--color-border)]">DG account</td><td class="p-3 text-center border-b border-[var(--color-border)]">Ground LQ</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Lithium batteries</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed only</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Marijuana / CBD</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (hemp)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Tobacco / vape</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (no vape)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Dry ice</td><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Limited medical</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Perishable food</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some services</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Live animals</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some allowed</td></tr>
-<tr><td class="p-3 border-b border-[var(--color-border)]">Hazardous waste</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Alcohol (wine/beer)</th><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Alcohol (spirits)</th><td class="p-3 text-center border-b border-[var(--color-border)]">Lic → Lic only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Firearms</th><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">FFL + contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Ammunition</th><td class="p-3 text-center border-b border-[var(--color-border)]">DG account</td><td class="p-3 text-center border-b border-[var(--color-border)]">Ground LQ</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Lithium batteries</th><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed ✓</td><td class="p-3 text-center border-b border-[var(--color-border)]">Installed only</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Marijuana / CBD</th><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (hemp)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Tobacco / vape</th><td class="p-3 text-center border-b border-[var(--color-border)]">Contract</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract (no vape)</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Dry ice</th><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Class 9 hazmat</td><td class="p-3 text-center border-b border-[var(--color-border)]">Limited medical</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Perishable food</th><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contractual</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some services</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Live animals</th><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Contract only</td><td class="p-3 text-center border-b border-[var(--color-border)]">Some allowed</td></tr>
+<tr><th scope="row" class="p-3 text-left font-medium border-b border-[var(--color-border)]">Hazardous waste</th><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td><td class="p-3 text-center border-b border-[var(--color-border)]">❌</td></tr>
 </tbody>
 </table>
 <p class="text-xs text-[var(--color-text-muted)] mt-2">Contract = Requires signed carrier agreement + licensing. LQ = Limited Quantity. FFL = Federal Firearms License. DG = Dangerous Goods.</p>`,
