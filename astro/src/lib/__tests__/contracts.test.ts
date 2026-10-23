@@ -76,6 +76,7 @@ import { apiFetch, ApiClientError } from '../api-client';
 
 import {
   CreateCheckoutSuccessSchema,
+  isValidCheckoutUrl,
   SendEmailSuccessSchema,
   ReviewsSuccessSchema,
   ReviewDtoSchema,
@@ -206,6 +207,86 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
       };
       const parsed = CreateCheckoutSuccessSchema.safeParse(mutatedBackendOutput);
       expect(parsed.success).toBe(false);
+    });
+
+    it('validates approved hostnames and rejects unapproved protocols and origins in CreateCheckoutSuccessSchema', () => {
+      // Approved Stripe origins
+      expect(isValidCheckoutUrl('https://checkout.stripe.com/c/pay/cs_123')).toBe(true);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://checkout.stripe.com/c/pay/cs_123' },
+        }).success
+      ).toBe(true);
+      expect(isValidCheckoutUrl('https://pay.stripe.com/cs_123')).toBe(true);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://pay.stripe.com/cs_123' },
+        }).success
+      ).toBe(true);
+
+      // Approved local dev/test origins
+      expect(isValidCheckoutUrl('http://localhost:3000/thank-you')).toBe(true);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'http://localhost:3000/thank-you' },
+        }).success
+      ).toBe(true);
+      expect(isValidCheckoutUrl('https://127.0.0.1:8080/thank-you')).toBe(true);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://127.0.0.1:8080/thank-you' },
+        }).success
+      ).toBe(true);
+
+      // Unapproved external origins
+      expect(isValidCheckoutUrl('https://attacker.com/steal-data')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://attacker.com/steal-data' },
+        }).success
+      ).toBe(false);
+      expect(isValidCheckoutUrl('https://checkout.stripe.com.evil.com/pay')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://checkout.stripe.com.evil.com/pay' },
+        }).success
+      ).toBe(false);
+      expect(isValidCheckoutUrl('https://evil.stripe.com/phishing')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://evil.stripe.com/phishing' },
+        }).success
+      ).toBe(false);
+
+      // Unsafe protocols
+      expect(isValidCheckoutUrl('javascript:alert(1)')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'javascript:alert(1)' },
+        }).success
+      ).toBe(false);
+      expect(isValidCheckoutUrl('data:text/html,<script>alert(1)</script>')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'data:text/html,<script>alert(1)</script>' },
+        }).success
+      ).toBe(false);
+      expect(isValidCheckoutUrl('http://checkout.stripe.com/pay')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'http://checkout.stripe.com/pay' },
+        }).success
+      ).toBe(false);
     });
   });
 
