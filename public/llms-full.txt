@@ -1237,7 +1237,7 @@ Say you take the shortcut and leave the UPS box at the wrong counter anyway. Bes
 
 Worse cases stack up from there. No acceptance scan means no receipt, no scan record, and no documented handoff — so there is nothing to support a carrier claim if the box goes missing. And if the box sits unclaimed in a corner of a store with no way to scan it into the right network, every day it waits is a day closer to lost-for-good — because as far as the carrier's system shows, your package never entered their network.
 
-The shortcut saved you ten minutes of driving and bought you a week of not knowing. That trade is never worth it.
+The shortcut saved you ten minutes of driving and bought you days of not knowing. That trade is never worth it.
 
 ## The Weight You Didn't Realize You Were Carrying
 
