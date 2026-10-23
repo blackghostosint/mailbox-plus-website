@@ -30,7 +30,7 @@ faqs:
   [
     {
       question: 'Is a carrier signature acceptable instead of certified mail with return receipt?',
-      answer: 'It depends entirely on who is demanding the proof. Ohio eviction notices, for example, specifically require certified mail with return receipt requested (ORC 1923.04). A courier signature on a package will not satisfy that statute. Always read the statute, court rule, or contract language first — if it says "certified mail, return receipt requested," send it through the USPS.',
+      answer: 'It depends entirely on who is demanding the proof. Ohio eviction notices, for example, name certified mail with return receipt requested as one permitted method (ORC 1923.04). A courier signature on a package will not satisfy a statute that names that record. Always read the statute, court rule, or contract language first — if it says "certified mail, return receipt requested," send it through the USPS.',
     },
     {
       question: 'How much does certified mail with return receipt cost in 2026?',
@@ -96,14 +96,14 @@ Two things we check every time on a certified-mail piece:
 
 Both tools have real jobs. Here they are honestly.
 
-|                       | USPS Certified Mail + Return Receipt                                                                            | Carrier Signature Required (UPS / FedEx)                                               |
-| --------------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| **What it proves**    | Recipient's signature, delivery date, time, and delivery address on a USPS form (PS Form 3811)                  | Someone at the address signed for the package on a date                                |
-| **2026 cost**         | $5.55 Certified Mail fee + $4.65 green card (or $2.91 electronic) + postage                                     | UPS: $4.75 Signature Required, $5.75 Adult. FedEx: $7.60 Indirect or Direct, $10 Adult |
-| **Speed**             | Moves at the speed of the mail class it rides — typically 1–5 business days on First-Class Mail, not guaranteed | Next-day to a few days depending on the service you pay for                            |
-| **Named by statutes** | Yes — Ohio eviction notices (ORC 1923.04) require "certified mail, return receipt requested"                    | Rarely; statutes name certified mail, not courier signatures                           |
-| **Extra controls**    | Restricted Delivery ($14.35) limits delivery to a specific person                                               | Adult Signature verifies age 21+ with photo ID                                         |
-| **Best for**          | Legal notices, filings, demand letters, anything with a statute behind it                                       | Packages: valuables, electronics, alcohol, anything you don't want left on a porch     |
+|                       | USPS Certified Mail + Return Receipt                                                                                 | Carrier Signature Required (UPS / FedEx)                                               |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| **What it proves**    | Recipient's signature, delivery date, time, and delivery address on a USPS form (PS Form 3811)                       | Someone at the address signed for the package on a date                                |
+| **2026 cost**         | $5.55 Certified Mail fee + $4.65 green card (or $2.91 electronic) + postage                                          | UPS: $4.75 Signature Required, $5.75 Adult. FedEx: $7.60 Indirect or Direct, $10 Adult |
+| **Speed**             | Moves at the speed of the mail class it rides — typically 1–5 business days on First-Class Mail, not guaranteed      | Next-day to a few days depending on the service you pay for                            |
+| **Named by statutes** | Yes — ORC 1923.04 names "certified mail, return receipt requested" as one permitted method for Ohio eviction notices | Rarely; statutes name certified mail, not courier signatures                           |
+| **Extra controls**    | Restricted Delivery ($14.35) limits delivery to a specific person                                                    | Adult Signature verifies age 21+ with photo ID                                         |
+| **Best for**          | Legal notices, filings, demand letters, anything with a statute behind it                                            | Packages: valuables, electronics, alcohol, anything you don't want left on a porch     |
 
 Say it plainly: if your document is a package, carrier signatures are the right tool — FedEx makes Direct Signature Required the default on any package with a declared value of $500 or more (you can swap it for its authenticated QR-code delivery if you prefer). If your document is a legal notice, certified mail with return receipt is very often the tool the rulebook names. When the deadline is short, some people send both — an overnight courier copy for speed and the certified original for the record. That costs more than either one alone; it costs less than arguing about service later. (We can't give legal advice on your specific case — the statute, court rule, or contract language is the authority. Bring it in and we'll match the mailing to the words.)
 
