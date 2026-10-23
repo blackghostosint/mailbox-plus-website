@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
-const BATCH_SIZE = 1;
+const BATCH_SIZE = 2;
 
 const CATEGORIES = {
   HOMEPAGE: 'Homepage',
@@ -417,9 +417,9 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--tags',
           'wcag2a,wcag2aa,wcag21a,wcag21aa',
           '--load-delay',
-          '1500',
+          '1000',
           '--chrome-options',
-          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu,disable-site-isolation-trials,disable-features=IsolateOrigins,site-per-process',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
         ]
       : [
           '--yes',
@@ -428,9 +428,9 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
           '--tags',
           'wcag2a,wcag2aa,wcag21a,wcag21aa',
           '--load-delay',
-          '1500',
+          '1000',
           '--chrome-options',
-          'headless=new,no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu,disable-site-isolation-trials,disable-features=IsolateOrigins,site-per-process',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
         ];
 
     if (chromePath && fs.existsSync(chromePath)) {
@@ -738,6 +738,7 @@ async function main() {
         };
 
         if (evaluation.type === 'SUCCESS') {
+          await new Promise((r) => setTimeout(r, 100));
           batchResults.push(batchOutcome);
           break;
         } else if (evaluation.type === 'WCAG_VIOLATIONS') {
