@@ -370,4 +370,45 @@ describe('checkout module', () => {
 
     consoleErrorSpy.mockRestore();
   });
+
+  it('blocks redirect when hostname is an unapproved Stripe subdomain (e.g. evil.stripe.com)', async () => {
+    document.body.innerHTML = `
+      <div>
+        <button class="checkout-btn" data-tier="small_packages10">Subscribe</button>
+      </div>
+    `;
+
+    const consoleErrorSpy = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const spoofedUrl = 'https://evil.stripe.com/phishing';
+    const initialHref = 'http://localhost:3000/';
+    const mockLocation = { href: initialHref };
+    Object.defineProperty(window, 'location', {
+      get: () => mockLocation,
+      set: (val: string) => {
+        mockLocation.href = val;
+      },
+      configurable: true,
+    });
+
+    const fetchMock = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({ url: spoofedUrl }),
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    initCheckoutButtons();
+
+    const btn = document.querySelector<HTMLButtonElement>('.checkout-btn')!;
+    btn.click();
+
+    await vi.waitFor(() => {
+      expect(btn.disabled).toBe(false);
+    });
+
+    expect(mockLocation.href).toBe(initialHref);
+    const errorEl = btn.parentElement?.querySelector('[role="alert"].checkout-error');
+    expect(errorEl).not.toBeNull();
+
+    consoleErrorSpy.mockRestore();
+  });
 });

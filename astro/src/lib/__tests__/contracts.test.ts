@@ -257,6 +257,13 @@ describe('Cross-Boundary Endpoint Contract Test Suite', () => {
           data: { url: 'https://checkout.stripe.com.evil.com/pay' },
         }).success
       ).toBe(false);
+      expect(isValidCheckoutUrl('https://evil.stripe.com/phishing')).toBe(false);
+      expect(
+        CreateCheckoutSuccessSchema.safeParse({
+          ok: true,
+          data: { url: 'https://evil.stripe.com/phishing' },
+        }).success
+      ).toBe(false);
 
       // Unsafe protocols
       expect(isValidCheckoutUrl('javascript:alert(1)')).toBe(false);

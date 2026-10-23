@@ -51,11 +51,7 @@ export function isValidCheckoutUrl(urlStr: string): boolean {
 
     if (parsed.protocol === 'https:') {
       // Approved payment origins
-      if (
-        parsed.hostname === 'checkout.stripe.com' ||
-        parsed.hostname === 'pay.stripe.com' ||
-        parsed.hostname.endsWith('.stripe.com')
-      ) {
+      if (parsed.hostname === 'checkout.stripe.com' || parsed.hostname === 'pay.stripe.com') {
         return true;
       }
       // Approved local dev/test origins over HTTPS
