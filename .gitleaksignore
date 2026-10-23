@@ -15,6 +15,9 @@ f61fdc3d0914b3165769bff720d67818659b84c9:netlify/functions/verify-session.ts:str
 4eec5025651ce4ef1e4a9d2470f809a1e887d0a9:content/articles/pack-ship/chardon-returns-r1.md:generic-api-key:6
 c13f0f4617acd286c1e748d4524a6c92e652af22:content/articles/pack-ship/hambden-returns-r1.md:generic-api-key:6
 
+# Legacy token parameter false positive in initial commit
+6fee316f95db8f735a5337166ed4e883f1a0d4e1:scripts/verify/check-doc-links.mjs:generic-api-key:245
+
 # Public Stripe publishable key on sales pages
 80e1b27647c2b961d40f274d43c768264df3506e:public/MailboxPlusSalesPage.html:generic-api-key:213
 8794958649683f2e3bddb42dbc9cd024b4fb88d6:public/MailboxPlusSalesPage.html:generic-api-key:1138
