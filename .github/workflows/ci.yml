@@ -91,6 +91,9 @@ jobs:
       - name: Run quality audits
         run: npm run audit:quality
 
+      - name: Verify documentation links and file references
+        run: npm run verify:doc-links
+
       - name: Run PR content verification (strict, offline)
         if: github.event_name == 'pull_request'
         # No ARTICLE_DRAFTS_DIR override: verify.mjs defaults to .factchecks/ (the canonical
