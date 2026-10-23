@@ -7,9 +7,6 @@
     "astro",
     "netlify/functions"
   ],
-  "engines": {
-    "node": ">=22.12.0"
-  },
   "scripts": {
     "dev": "cd astro && npm run dev",
     "verify:build-env": "node scripts/verify-build-env.mjs",
