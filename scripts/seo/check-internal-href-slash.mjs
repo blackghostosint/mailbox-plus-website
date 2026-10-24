@@ -39,21 +39,18 @@ function isBadInternal(u) {
   return true;
 }
 
-function main() {
-  console.log('==================================================');
-  console.log('  INTERNAL HREF TRAILING-SLASH INTEGRITY CHECK   ');
-  console.log('==================================================\n');
-
-  if (!fs.existsSync(DIST_DIR)) {
-    console.error(`❌ Error: Build output directory "${DIST_DIR}" does not exist.`);
-    console.error('Please run "npm run build" before running this check.\n');
-    process.exit(1);
+export function checkInternalHrefSlash(distDir = DIST_DIR) {
+  if (!fs.existsSync(distDir)) {
+    return {
+      ok: false,
+      error: `Build output directory "${distDir}" does not exist.`,
+      offenders: new Map(),
+      htmlFilesCount: 0,
+    };
   }
 
-  const htmlFiles = getHtmlFiles(DIST_DIR);
-  console.log(`ℹ️ Scanned ${htmlFiles.length} HTML files from dist/`);
-
-  const offenders = new Map(); // url -> Set(file paths)
+  const htmlFiles = getHtmlFiles(distDir);
+  const offenders = new Map();
 
   for (const file of htmlFiles) {
     const relPath = path.relative(ROOT, file).replace(/\\/g, '/');
@@ -67,24 +64,36 @@ function main() {
     }
   }
 
-  if (offenders.size === 0) {
-    console.log('🎉 All internal hrefs use the trailing-slash canonical form.');
-    console.log('==================================================\n');
-    process.exit(0);
-  }
-
-  console.error(`❌ FAIL: ${offenders.size} distinct internal href(s) missing trailing slash:`);
-  for (const [url, files] of [...offenders.entries()].sort()) {
-    console.error(`   - "${url}" in ${files.size} file(s)`);
-    for (const f of [...files].sort().slice(0, 3)) {
-      console.error(`       ${f}`);
-    }
-    if (files.size > 3) console.error(`       ... and ${files.size - 3} more`);
-  }
-  console.error('\nFix: add the trailing slash (e.g. href="/contact-us/" ).');
-  console.error('Internal links must match the canonical form Google chose.\n');
-  console.error('==================================================\n');
-  process.exit(1);
+  return { ok: offenders.size === 0, offenders, htmlFilesCount: htmlFiles.length };
 }
 
-main();
+export function main() {
+  console.log('==================================================');
+  console.log('  INTERNAL HREF TRAILING-SLASH INTEGRITY CHECK   ');
+  console.log('==================================================\n');
+
+  const res = checkInternalHrefSlash();
+  if (!res.ok) {
+    if (res.error) {
+      console.error(`❌ Error: ${res.error}`);
+    } else {
+      console.error(
+        `❌ FAIL: ${res.offenders.size} distinct internal href(s) missing trailing slash`
+      );
+    }
+    process.exit(1);
+  } else {
+    console.log(`ℹ️ Scanned ${res.htmlFilesCount} HTML files from dist/`);
+    console.log('🎉 All internal hrefs use the trailing-slash canonical form.');
+    process.exit(0);
+  }
+}
+
+export { isBadInternal };
+
+const isMain =
+  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
+
+if (isMain) {
+  main();
+}
