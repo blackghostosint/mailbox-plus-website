@@ -33,18 +33,13 @@ const {
   items: itemsProp,
   openFirst = false,
   defaultOpenIndex,
-  headingLevel = 3,
+  headingLevel: _headingLevel = 3,
   class: classNameProp = '',
   className = '',
 } = Astro.props;
 
 const faqs = faqsProp || itemsProp || [];
 const customClass = classNameProp || className;
-
-const rawLevel = String(headingLevel).replace(/^h/i, '');
-const parsedLevel = parseInt(rawLevel, 10);
-const level = [2, 3, 4, 5, 6].includes(parsedLevel) ? parsedLevel : 3;
-const HeadingTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 ---
 
 <div class={`space-y-3 ${customClass}`.trim()}>
@@ -56,7 +51,7 @@ const HeadingTag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
         class="group rounded-xl border border-[var(--color-border)] bg-[var(--color-bg-primary)]/80 shadow-sm transition-colors duration-200 open:bg-[var(--color-bg-secondary)]"
       >
         <summary class="flex cursor-pointer items-center justify-between px-4 py-3 text-left font-semibold text-[var(--color-accent-warm)] md:text-base list-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-accent-warm)] focus-visible:ring-offset-2 rounded-lg [&::-webkit-details-marker]:hidden">
-          <HeadingTag class="m-0 p-0 text-base md:text-base font-semibold text-inherit border-none outline-none inline flex-1">{faq.question}</HeadingTag>
+          <span class="text-base md:text-base font-semibold text-inherit flex-1">{faq.question}</span>
           <svg
             aria-hidden="true"
             focusable="false"
