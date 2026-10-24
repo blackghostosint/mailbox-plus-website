@@ -1,7 +1,22 @@
 import { describe, it, expect } from 'vitest';
-import { decodeHtml } from '../check-seo-metadata';
+import { resolveDistDir } from '../../lib/dist-path.mjs';
+import { checkSeoMetadata, discoverServiceMetadata, decodeHtml } from '../check-seo-metadata.ts';
 
-describe('check-seo-metadata', () => {
+describe('SEO Metadata Verification Check', () => {
+  const distDir = resolveDistDir();
+
+  it('discovers service metadata rules', () => {
+    const { ogImageChecks, imageObjectSchemaChecks } = discoverServiceMetadata();
+    expect(ogImageChecks.length).toBeGreaterThan(0);
+    expect(imageObjectSchemaChecks.length).toBeGreaterThan(0);
+  });
+
+  it('runs seo metadata check on build output directory', () => {
+    const res = checkSeoMetadata(distDir);
+    expect(res.ok, res.error || 'SEO metadata check failed').toBe(true);
+    expect(res.errors).toBe(0);
+  });
+
   describe('decodeHtml', () => {
     it('decodes standard HTML entities correctly', () => {
       expect(decodeHtml('Mailbox &amp; Shipping')).toBe('Mailbox & Shipping');
