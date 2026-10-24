@@ -1,4 +1,4 @@
-# Fact-Check Receipt — mailbox-rental-cost-comparison (2026-09-24)
+# Fact-Check Receipt — mailbox-rental-cost-comparison (updated 2026-10-19, "cheapest mailbox rental" retarget; re-verified site pricing against astro/src/pages/private-mailbox-rental.astro)
 
 | #   | claim                                                                                                                                                                                                                                      | verdict | source URL                                                                                                             |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------- |

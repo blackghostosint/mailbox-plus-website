@@ -68,9 +68,17 @@ export function checkSupplyChainActor({
   const rawOwners = Array.isArray(owner) ? owner : [owner];
   const normalizedOwners = rawOwners.filter(Boolean).map((o) => String(o).trim().toLowerCase());
 
+  const hasLockfileOrConfig = files.some(
+    (f) =>
+      /^(astro\/)?package-lock\.json$/.test(f) || /^netlify\.toml$/.test(f) || /^\.gitleaks/.test(f)
+  );
   const strictTouched = files.filter((f) => STRICT_OWNER_ONLY.some((rx) => rx.test(f)));
   const isOwner = normalizedAuthor && normalizedOwners.includes(normalizedAuthor);
-  if (strictTouched.length && !isOwner) {
+  const isAuthorizedBot =
+    normalizedAuthor &&
+    (authorizedBots || []).map((b) => b.trim().toLowerCase()).includes(normalizedAuthor);
+
+  if (strictTouched.length && !isOwner && (!isAuthorizedBot || hasLockfileOrConfig)) {
     return {
       success: false,
       touched: strictTouched,

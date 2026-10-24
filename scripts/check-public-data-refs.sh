@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Prevent legacy-data drift: fail if any file under public/data/ is not
-# referenced by a source file (astro/src, netlify/functions, scripts).
+# referenced by relative path in a source file (astro/src, netlify/functions, scripts, etc.).
 #
 # Why: the React->Astro migration left orphaned JSON in public/data/faqs/.
 # public/ files are copied verbatim to the deployed site, so orphans ship
@@ -27,18 +27,15 @@ while IFS= read -r -d '' file; do
   esac
 
   rel="${file#public/data/}"
-  name="$(basename "$file")"
   found=""
 
-  # Look for any reference: full path, bare filename, or data/... path.
+  # Look for relative path reference ($rel) under public/data/.
   # Exclude this script itself so its own text can't create a false hit.
   for src in "${SRC_DIRS[@]}"; do
     if [ "$src" = "scripts" ]; then
       grep -rqF -- "$rel" "$src" --exclude="check-public-data-refs.sh" 2>/dev/null && { found=1; break; }
-      grep -rqF -- "$name" "$src" --exclude="check-public-data-refs.sh" 2>/dev/null && { found=1; break; }
     else
       grep -rqF -- "$rel" "$src" 2>/dev/null && { found=1; break; }
-      grep -rqF -- "$name" "$src" 2>/dev/null && { found=1; break; }
     fi
   done
 
