@@ -80,6 +80,14 @@
       "immich_asset": "7b8546e9-3a02-4209-baea-eb72f7bbea52",
       "vetted": "2026-10-08",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/counter/certified-mail-counter.webp",
+      "topics": ["counter"],
+      "alt": "The counter and mailbox wall at Mailbox Plus in Concord Township, where certified mail and signature-required shipments are prepared.",
+      "immich_asset": "76429491-cfc0-4d11-a473-c01935657cd6",
+      "vetted": "2026-10-22",
+      "source_article": null
     }
   ]
 }
