@@ -105,9 +105,11 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      <div
+      <button
+        type="button"
+        tabIndex={-1}
         aria-hidden="true"
-        className="fixed inset-0 bg-black/60 backdrop-blur-sm"
+        className="fixed inset-0 w-full h-full border-0 p-0 cursor-default bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
       <div

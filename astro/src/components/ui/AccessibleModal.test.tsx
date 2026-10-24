@@ -1,5 +1,5 @@
 // @vitest-environment happy-dom
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { AccessibleModal } from './AccessibleModal';
@@ -195,6 +195,9 @@ describe('AccessibleModal Component', () => {
     const dialog = screen.getByRole('dialog');
     const backdrop = (dialog.parentElement?.querySelector('[aria-hidden="true"]') ||
       dialog.parentElement) as HTMLElement;
+    expect(backdrop.tagName).toBe('BUTTON');
+    expect(backdrop.getAttribute('type')).toBe('button');
+    expect(backdrop.getAttribute('tabindex')).toBe('-1');
     expect(backdrop.getAttribute('aria-hidden')).toBe('true');
     fireEvent.click(backdrop);
 
