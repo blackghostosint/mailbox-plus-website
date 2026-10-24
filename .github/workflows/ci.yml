@@ -21,7 +21,7 @@ jobs:
       pull-requests: read
     strategy:
       matrix:
-        node-version: [22.x]
+        node-version: ['22.x', '24.x']
 
     steps:
       - name: Checkout code
@@ -112,7 +112,7 @@ jobs:
 
       - name: Dependency Security Audit (Astro)
         # GHSA-vfj7-8cjw-p6xm (braces <=3.0.3): no upstream fix until 3.0.4 ships.
-        # GHSA-834v-8h66-3h79 (happy-dom <=20.14.6): devDependency advisory, owner updates dependencies in-house (rule 2).
+        # GHSA-834v-8h66-3h79 (happy-dom <=21.0.3): devDependency advisory, owner updates dependencies in-house (rule 2).
         # Scoped allowlist — any OTHER high advisory still fails the gate.
         # GHSA-834v-8h66-3h79 (happy-dom 17-21.0.3): patched in 21.0.4, but 21.x
         # changes script-loading behavior and breaks test suite. Dev-only dep
@@ -215,7 +215,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: accessibility-audit-report-ci
+          name: accessibility-audit-report-ci-${{ matrix.node-version }}
           path: a11y-reports/
           retention-days: 7
 
@@ -223,7 +223,7 @@ jobs:
         uses: actions/upload-artifact@v4
         continue-on-error: true
         with:
-          name: build-output
+          name: build-output-${{ matrix.node-version }}
           path: dist/
           retention-days: 7
 
@@ -252,7 +252,7 @@ jobs:
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
-          name: build-output
+          name: build-output-22.x
           path: dist
 
       - name: Cache Playwright browser binaries
