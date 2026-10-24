@@ -15,6 +15,10 @@ export default defineConfig({
   },
   test: {
     environment: 'node',
+    // 20s: IO-heavy tests (article corpus parsing, vault-sync shell scripts)
+    // routinely exceed vitest's 5s default when the full 1200-test suite
+    // saturates the runner. 5s flaked ~2-3 tests per run, different each time.
+    testTimeout: 20000,
     environmentMatchGlobs: [
       ['**/*.test.tsx', 'happy-dom'],
       ['**/*.spec.tsx', 'happy-dom'],
