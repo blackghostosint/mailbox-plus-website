@@ -144,7 +144,7 @@ jobs:
           # fallback dummy keeps the checkout-chunk regression test meaningful in CI.
           VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY || '6LfCI-PLACEHOLDER-KEY-0000000000000000000' }}
 
-      - name: Run Astro unit tests
+      - name: Run Vitest unit tests & coverage
         run: npm run test:coverage
 
       - name: Run vault sync dry-run

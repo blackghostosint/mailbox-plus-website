@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
-const BATCH_SIZE = 25;
+const BATCH_SIZE = 2;
 
 const CATEGORIES = {
   HOMEPAGE: 'Homepage',
@@ -214,7 +214,6 @@ function selectRepresentativeRoutes(categorizedRoutes) {
       if (routes.includes(pref)) {
         selected.add(pref);
         added = true;
-        break;
       }
     }
     if (!added && routes.length > 0) {
@@ -398,17 +397,42 @@ function chunkArray(array, size) {
 
 async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir }) {
   return new Promise((resolve) => {
-    const args = [
-      '--yes',
-      '@axe-core/cli',
-      ...urls,
-      '--tags',
-      'wcag2a,wcag2aa,wcag21a,wcag21aa',
-      '--load-delay',
-      '1500',
-      '--chrome-options',
-      'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
-    ];
+    const localCliScript = path.resolve(
+      process.cwd(),
+      'node_modules',
+      '@axe-core',
+      'cli',
+      'dist',
+      'src',
+      'bin',
+      'cli.js'
+    );
+    const useLocalCli = fs.existsSync(localCliScript);
+
+    const command = useLocalCli ? process.execPath : 'npx';
+    const args = useLocalCli
+      ? [
+          localCliScript,
+          ...urls,
+          '--tags',
+          'wcag2a,wcag2aa,wcag21a,wcag21aa',
+          '--load-delay',
+          '1000',
+          '--chrome-options',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+        ]
+      : [
+          '--yes',
+          '@axe-core/cli',
+          ...urls,
+          '--tags',
+          'wcag2a,wcag2aa,wcag21a,wcag21aa',
+          '--load-delay',
+          '1000',
+          '--chrome-options',
+          'no-sandbox,disable-setuid-sandbox,disable-dev-shm-usage,disable-gpu',
+        ];
+
     if (chromePath && fs.existsSync(chromePath)) {
       args.push('--chrome-path', chromePath);
     }
@@ -419,7 +443,7 @@ async function runAxeCliBatch(urls, { chromePath, chromedriverPath, outputDir })
       args.push('--save', '--dir', outputDir);
     }
 
-    const child = spawn('npx', args, {
+    const child = spawn(command, args, {
       cwd: process.cwd(),
       env: process.env,
     });
@@ -635,12 +659,6 @@ async function main() {
       console.log(`Using provided base URL: ${baseUrl}`);
     }
 
-    console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
-    execSync('npx --yes browser-driver-manager install chrome', {
-      cwd: process.cwd(),
-      stdio: 'inherit',
-    });
-
     const envPath = path.join(os.homedir(), '.browser-driver-manager', '.env');
     let chromePath = '';
     let chromedriverPath = '';
@@ -653,6 +671,36 @@ async function main() {
         const matchDriver = line.match(/^CHROMEDRIVER_TEST_PATH="([^"]+)"$/);
         if (matchDriver) chromedriverPath = matchDriver[1];
       }
+    }
+
+    if (
+      !chromePath ||
+      !chromedriverPath ||
+      !fs.existsSync(chromePath) ||
+      !fs.existsSync(chromedriverPath)
+    ) {
+      console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
+      try {
+        execSync('npx --yes browser-driver-manager install chrome', {
+          cwd: process.cwd(),
+          stdio: 'inherit',
+          timeout: 120000,
+        });
+      } catch (err) {
+        console.warn(`Warning: browser-driver-manager failed or timed out: ${err.message}`);
+      }
+
+      if (fs.existsSync(envPath)) {
+        const envContent = fs.readFileSync(envPath, 'utf8');
+        for (const line of envContent.split('\n')) {
+          const matchChrome = line.match(/^CHROME_TEST_PATH="([^"]+)"$/);
+          if (matchChrome) chromePath = matchChrome[1];
+          const matchDriver = line.match(/^CHROMEDRIVER_TEST_PATH="([^"]+)"$/);
+          if (matchDriver) chromedriverPath = matchDriver[1];
+        }
+      }
+    } else {
+      console.log(`Using existing Chrome binary: ${chromePath}`);
     }
 
     const targetUrls = selectedRoutes.map((r) => new URL(r, baseUrl).href);
@@ -690,6 +738,7 @@ async function main() {
         };
 
         if (evaluation.type === 'SUCCESS') {
+          await new Promise((r) => setTimeout(r, 100));
           batchResults.push(batchOutcome);
           break;
         } else if (evaluation.type === 'WCAG_VIOLATIONS') {
@@ -784,6 +833,10 @@ export {
   parseArgs,
   saveAuditReport,
   CATEGORIES,
+  startBackgroundServer,
+  cleanupServer,
+  chunkArray,
+  main,
 };
 
 const isMain =

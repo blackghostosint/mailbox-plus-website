@@ -239,7 +239,10 @@ Testing http://127.0.0.1:4173/ ...
 
   describe('Footer component accessibility requirements', () => {
     it('ensures google-add-preferred-source-btn possesses sr-only inner text', () => {
-      const footerPath = path.resolve(process.cwd(), 'src/components/Footer.astro');
+      let footerPath = path.resolve(process.cwd(), 'astro/src/components/Footer.astro');
+      if (!fs.existsSync(footerPath)) {
+        footerPath = path.resolve(process.cwd(), 'src/components/Footer.astro');
+      }
       const footerContent = fs.readFileSync(footerPath, 'utf8');
 
       expect(footerContent).toContain('google-add-preferred-source-btn');
