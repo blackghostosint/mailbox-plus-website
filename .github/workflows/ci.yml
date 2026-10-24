@@ -112,6 +112,7 @@ jobs:
 
       - name: Dependency Security Audit (Astro)
         # GHSA-vfj7-8cjw-p6xm (braces <=3.0.3): no upstream fix until 3.0.4 ships.
+        # GHSA-834v-8h66-3h79 (happy-dom <=20.14.6): devDependency advisory, owner updates dependencies in-house (rule 2).
         # Scoped allowlist — any OTHER high advisory still fails the gate.
         # GHSA-834v-8h66-3h79 (happy-dom 17-21.0.3): patched in 21.0.4, but 21.x
         # changes script-loading behavior and breaks test suite. Dev-only dep
