@@ -52,6 +52,7 @@ export function isLoopbackOrigin(origin: string | RegExp): boolean {
         hostname === 'localhost' ||
         hostname === '127.0.0.1' ||
         hostname === '::1' ||
+        hostname === '[::1]' ||
         hostname === '0.0.0.0'
       );
     } catch {
@@ -78,7 +79,12 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   ];
 
   if (isDevelopmentEnvironment()) {
-    return [...baseOrigins, /localhost(:\d+)?$/, /127\.0\.0\.1(:\d+)?$/];
+    return [
+      ...baseOrigins,
+      /^https?:\/\/localhost(:\d+)?$/,
+      /^https?:\/\/127\.0\.0\.1(:\d+)?$/,
+      /^https?:\/\/\[::1\](:\d+)?$/,
+    ];
   }
 
   return baseOrigins.filter((origin) => !isLoopbackOrigin(origin));
@@ -401,6 +407,29 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
         if (!limitResult.allowed) {
           const retryAfterSeconds = Math.max(1, Math.ceil(limitResult.resetMs / 1000));
           const maxRequests = rateLimitOpts?.maxRequests ?? 10;
+
+          if (limitResult.storageError) {
+            logger.error('Rate limit persistent storage failure', {
+              clientIp,
+              url: request.url,
+              method: request.method,
+            });
+            return new Response(
+              JSON.stringify({
+                ok: false,
+                error: 'Service temporarily unavailable. Rate limit storage check failed.',
+              }),
+              {
+                status: 503,
+                headers: {
+                  'Content-Type': 'application/json',
+                  ...corsHeaders,
+                  'Retry-After': String(retryAfterSeconds),
+                },
+              }
+            );
+          }
+
           logger.warn('Rate limit exceeded', {
             clientIp,
             url: request.url,
@@ -424,7 +453,21 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
           );
         }
       } catch (err) {
-        logger.warn('Rate limit evaluation error, failing open', err);
+        logger.error('Rate limit evaluation error, failing closed', err);
+        return new Response(
+          JSON.stringify({
+            ok: false,
+            error: 'Service temporarily unavailable. Rate limit check failed.',
+          }),
+          {
+            status: 503,
+            headers: {
+              'Content-Type': 'application/json',
+              ...corsHeaders,
+              'Retry-After': '60',
+            },
+          }
+        );
       }
     }
 

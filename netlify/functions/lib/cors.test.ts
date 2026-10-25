@@ -7,7 +7,11 @@ import {
   isDevelopmentEnvironment,
   getDefaultAllowedOrigins,
   resetDefaultAllowedOriginsState,
+  isLoopbackOrigin,
+  resolveAllowedOrigin,
 } from './cors';
+import { BlobCacheAdapter } from './cache';
+import * as rateLimiter from './rate-limiter';
 
 describe('CORS Middleware Utility', () => {
   describe('withCors (Web Standard Handler)', () => {
@@ -185,6 +189,62 @@ describe('CORS Middleware Utility', () => {
       const body = await res3.json();
       expect(body).toEqual({ ok: false, error: 'Too many requests. Please try again later.' });
     });
+
+    it('returns HTTP 503 fail-closed response when persistent rate limit storage fails', async () => {
+      const innerHandler = vi.fn();
+      const wrapped = withCors(innerHandler, {
+        rateLimit: { maxRequests: 5, windowMs: 60000 },
+      });
+
+      vi.spyOn(BlobCacheAdapter.prototype, 'get').mockRejectedValue(
+        new Error('Netlify Blobs storage unavailable')
+      );
+
+      const originalEnv = { ...process.env };
+      process.env.NODE_ENV = 'production';
+      process.env.CONTEXT = 'production';
+      delete (process.env as Record<string, string | undefined>).VITEST;
+
+      try {
+        const req = new Request('https://example.com/api/test', {
+          method: 'POST',
+          headers: { 'x-nf-client-connection-ip': '203.0.113.88' },
+        });
+
+        const res = await wrapped(req, {});
+        expect(res.status).toBe(503);
+        expect(innerHandler).not.toHaveBeenCalled();
+        const body = await res.json();
+        expect(body.ok).toBe(false);
+        expect(body.error).toContain('Service temporarily unavailable');
+      } finally {
+        process.env = originalEnv;
+        vi.restoreAllMocks();
+      }
+    });
+
+    it('catches rate limit evaluation exceptions and returns HTTP 503 fail-closed response', async () => {
+      const innerHandler = vi.fn();
+      const wrapped = withCors(innerHandler, {
+        rateLimit: true,
+      });
+
+      vi.spyOn(rateLimiter, 'checkRateLimit').mockRejectedValueOnce(
+        new Error('Unexpected evaluation failure')
+      );
+
+      const req = new Request('https://example.com/api/test', { method: 'GET' });
+      const res = await wrapped(req, {});
+
+      expect(res.status).toBe(503);
+      expect(innerHandler).not.toHaveBeenCalled();
+      const body = await res.json();
+      expect(body).toEqual({
+        ok: false,
+        error: 'Service temporarily unavailable. Rate limit check failed.',
+      });
+      vi.restoreAllMocks();
+    });
   });
 
   describe('Dynamic Environment Origin Filtering', () => {
@@ -255,7 +315,7 @@ describe('CORS Middleware Utility', () => {
       );
     });
 
-    it('allows localhost and 127.0.0.1 origins when NETLIFY_DEV=true', async () => {
+    it('allows valid local developer origins (localhost, 127.0.0.1, [::1]) when NETLIFY_DEV=true', async () => {
       process.env.NETLIFY_DEV = 'true';
 
       expect(isDevelopmentEnvironment()).toBe(true);
@@ -263,19 +323,61 @@ describe('CORS Middleware Utility', () => {
       const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
       const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
 
-      const reqLocalhost = new Request('https://example.com/api/test', {
-        method: 'POST',
-        headers: { origin: 'http://localhost:3000' },
-      });
-      const resLocalhost = await wrapped(reqLocalhost, {});
-      expect(resLocalhost.headers.get('Access-Control-Allow-Origin')).toBe('http://localhost:3000');
+      const validOrigins = [
+        'http://localhost:3000',
+        'http://localhost:8888',
+        'http://127.0.0.1:8080',
+        'http://127.0.0.1:4321',
+        'http://[::1]:3000',
+        'https://localhost:3000',
+        'https://127.0.0.1:8080',
+        'https://[::1]:3000',
+      ];
 
-      const reqLoopback = new Request('https://example.com/api/test', {
-        method: 'POST',
-        headers: { origin: 'http://127.0.0.1:8080' },
-      });
-      const resLoopback = await wrapped(reqLoopback, {});
-      expect(resLoopback.headers.get('Access-Control-Allow-Origin')).toBe('http://127.0.0.1:8080');
+      for (const origin of validOrigins) {
+        const req = new Request('https://example.com/api/test', {
+          method: 'POST',
+          headers: { origin },
+        });
+        const res = await wrapped(req, {});
+        expect(res.headers.get('Access-Control-Allow-Origin')).toBe(origin);
+      }
+    });
+
+    it('rejects malicious origins in development mode (NETLIFY_DEV=true)', async () => {
+      process.env.NETLIFY_DEV = 'true';
+
+      expect(isDevelopmentEnvironment()).toBe(true);
+
+      const innerHandler = vi.fn().mockResolvedValue(new Response('{}', { status: 200 }));
+      const wrapped = withCors(innerHandler, { allowOrigin: DEFAULT_ALLOWED_ORIGINS });
+
+      const maliciousOrigins = [
+        'https://attacker-localhost',
+        'https://evil.com/localhost',
+        'http://attackerlocalhost:3000',
+        'http://localhost.evil.com',
+        'http://127.0.0.1.evil.com',
+        'http://attacker127.0.0.1:8080',
+        'http://[::1].evil.com',
+        'http://attacker[::1]:3000',
+        'localhost:3000',
+        '127.0.0.1:8080',
+        '[::1]:3000',
+        'http://localhost:3000/evil',
+      ];
+
+      for (const origin of maliciousOrigins) {
+        const req = new Request('https://example.com/api/test', {
+          method: 'POST',
+          headers: { origin },
+        });
+        const res = await wrapped(req, {});
+        expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
+        expect(resolveAllowedOrigin(origin, DEFAULT_ALLOWED_ORIGINS)).toBe(
+          'https://mailboxplusohio.com'
+        );
+      }
     });
 
     it('allows localhost and 127.0.0.1 origins when NODE_ENV=development', async () => {
@@ -388,8 +490,24 @@ describe('CORS Middleware Utility', () => {
       process.env.NETLIFY_DEV = 'true';
       const devOrigins = [...DEFAULT_ALLOWED_ORIGINS];
       const devKeys = Object.keys(DEFAULT_ALLOWED_ORIGINS);
-      expect(devOrigins.length).toBe(7);
-      expect(devKeys).toEqual(['0', '1', '2', '3', '4', '5', '6']);
+      expect(devOrigins.length).toBe(8);
+      expect(devKeys).toEqual(['0', '1', '2', '3', '4', '5', '6', '7']);
+    });
+
+    it('accurately identifies string and anchored regular expression loopback origins via isLoopbackOrigin utility', () => {
+      expect(isLoopbackOrigin('http://localhost:3000')).toBe(true);
+      expect(isLoopbackOrigin('http://127.0.0.1:8080')).toBe(true);
+      expect(isLoopbackOrigin('http://[::1]:3000')).toBe(true);
+      expect(isLoopbackOrigin('http://0.0.0.0:8080')).toBe(true);
+
+      expect(isLoopbackOrigin(/^https?:\/\/localhost(:\d+)?$/)).toBe(true);
+      expect(isLoopbackOrigin(/^https?:\/\/127\.0\.0\.1(:\d+)?$/)).toBe(true);
+      expect(isLoopbackOrigin(/^https?:\/\/\[::1\](:\d+)?$/)).toBe(true);
+
+      expect(isLoopbackOrigin('https://mailboxplusohio.com')).toBe(false);
+      expect(
+        isLoopbackOrigin(/^https:\/\/deploy-preview-\d+--mailboxplus(?:ohio)?\.netlify\.app$/)
+      ).toBe(false);
     });
 
     it('preserves mutable-array semantics when mutators like .push(), [i]=val, .unshift(), .splice(), .pop() are called', () => {
