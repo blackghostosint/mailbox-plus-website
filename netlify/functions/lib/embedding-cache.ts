@@ -1,20 +1,9 @@
 import { createHash } from 'node:crypto';
-import { getStore } from '@netlify/blobs';
+import { BoundedMemoryCache, BlobCacheAdapter } from './cache';
 
-// In-memory fallback map for query embeddings
-const memoryEmbeddingCache = new Map<string, number[]>();
-
-function getEmbeddingStore() {
-  try {
-    return getStore({
-      name: 'query-embeddings',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
-    });
-  } catch {
-    return null;
-  }
-}
+// In-memory fallback cache for query embeddings capped at 500 entries
+const memoryEmbeddingCache = new BoundedMemoryCache<number[]>({ maxEntries: 500 });
+const embeddingBlobCache = new BlobCacheAdapter<number[]>('query-embeddings');
 
 /**
  * Normalizes user query text by trimming whitespace, lowercasing, and collapsing spaces.
@@ -34,27 +23,22 @@ export function hashQuery(query: string): string {
 
 /**
  * Retrieves cached query embedding vector by SHA-256 query hash.
- * Checks Netlify Blobs first with fallback to in-memory store.
+ * Checks in-memory cache first with fallback to Netlify Blobs storage adapter.
  */
 export async function getCachedEmbedding(queryHash: string): Promise<number[] | null> {
   if (!queryHash) return null;
 
   // Check in-memory store first (faster hit)
-  if (memoryEmbeddingCache.has(queryHash)) {
-    return memoryEmbeddingCache.get(queryHash) || null;
+  const memoryHit = memoryEmbeddingCache.get(queryHash);
+  if (memoryHit) {
+    return memoryHit;
   }
 
   try {
-    const store = getEmbeddingStore();
-    if (store) {
-      const raw = await store.get(queryHash, { type: 'text' });
-      if (raw) {
-        const parsed = JSON.parse(raw) as number[];
-        if (Array.isArray(parsed) && parsed.length > 0) {
-          memoryEmbeddingCache.set(queryHash, parsed);
-          return parsed;
-        }
-      }
+    const parsed = await embeddingBlobCache.get(queryHash);
+    if (Array.isArray(parsed) && parsed.length > 0) {
+      memoryEmbeddingCache.set(queryHash, parsed);
+      return parsed;
     }
   } catch {
     // Netlify Blobs read failed; return in-memory cache result if any
@@ -72,10 +56,7 @@ export async function setCachedEmbedding(queryHash: string, embedding: number[])
   memoryEmbeddingCache.set(queryHash, embedding);
 
   try {
-    const store = getEmbeddingStore();
-    if (store) {
-      await store.set(queryHash, JSON.stringify(embedding));
-    }
+    await embeddingBlobCache.set(queryHash, embedding);
   } catch {
     // Ignore blob write errors, in-memory store is set
   }

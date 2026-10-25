@@ -26,7 +26,7 @@
  * Env: GOOGLE_PLACES_API_KEY (Netlify env var, never committed)
  */
 
-import { getStore } from '@netlify/blobs';
+import { BlobCacheAdapter } from './lib/cache';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { logger } from './lib/logger';
 import { ReviewsSuccessSchema } from './lib/contracts';
@@ -58,45 +58,7 @@ interface ReviewsPayload {
 const CDN_CACHE = 'public, max-age=3600, stale-while-revalidate=86400';
 const BLOB_TTL_MS = 6 * 60 * 60 * 1000; // serve from Blobs for 6h → ≤4 upstream calls/day
 
-function getReviewsStore() {
-  try {
-    return getStore({
-      name: 'reviews-cache',
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
-    });
-  } catch {
-    return null;
-  }
-}
-
-async function readCached(): Promise<Omit<ReviewsPayload, 'source'> | null> {
-  try {
-    const store = getReviewsStore();
-    if (!store) return null;
-    const cached = await store.get('gmb-reviews', { type: 'json' });
-    if (!cached || typeof cached.fetchedAt !== 'string') return null;
-    return cached as Omit<ReviewsPayload, 'source'>;
-  } catch (error) {
-    logger.warn('Reviews blob read failed; falling through to live fetch', error);
-    return null;
-  }
-}
-
-async function writeCached(payload: Omit<ReviewsPayload, 'source'>): Promise<void> {
-  try {
-    const store = getReviewsStore();
-    if (!store) return;
-    await store.setJSON('gmb-reviews', payload);
-  } catch (error) {
-    logger.warn('Reviews blob write failed; next request will re-fetch', error);
-  }
-}
-
-function isFresh(cached: { fetchedAt: string }): boolean {
-  const fetched = Date.parse(cached.fetchedAt);
-  return Number.isFinite(fetched) && Date.now() - fetched < BLOB_TTL_MS;
-}
+const reviewsBlobCache = new BlobCacheAdapter<Omit<ReviewsPayload, 'source'>>('reviews-cache');
 
 async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
   const apiKey = process.env.GOOGLE_PLACES_API_KEY;
@@ -135,10 +97,15 @@ async function fetchFromPlaces(): Promise<Omit<ReviewsPayload, 'source'>> {
 
 export default withCors(
   async () => {
-    const cached = await readCached();
+    const cached = await reviewsBlobCache.get('gmb-reviews');
+    const isFresh =
+      cached &&
+      typeof cached.fetchedAt === 'string' &&
+      Number.isFinite(Date.parse(cached.fetchedAt)) &&
+      Date.now() - Date.parse(cached.fetchedAt) < BLOB_TTL_MS;
 
     // Fresh cache: serve it, do not touch the Places API.
-    if (cached && isFresh(cached)) {
+    if (cached && isFresh) {
       return jsonResponse(
         ReviewsSuccessSchema.parse({ ok: true, data: { ...cached, source: 'cache' } }),
         {
@@ -153,7 +120,7 @@ export default withCors(
 
     try {
       const fresh = await fetchFromPlaces();
-      await writeCached(fresh);
+      await reviewsBlobCache.set('gmb-reviews', fresh);
       return jsonResponse(
         ReviewsSuccessSchema.parse({ ok: true, data: { ...fresh, source: 'live' } }),
         {

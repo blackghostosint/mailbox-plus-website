@@ -1,3 +1,4 @@
+import { BoundedMemoryCache } from './cache';
 import { logger } from './logger';
 import { getRecaptchaMinScore } from './fallbacks';
 import { httpClient } from './http-client';
@@ -21,7 +22,7 @@ interface SaCredentials {
   project_id: string;
 }
 
-let cachedAccessToken: { token: string; expiresAt: number } | null = null;
+const enterpriseTokenCache = new BoundedMemoryCache<string>({ maxEntries: 10 });
 
 function getEnterpriseConfig() {
   const project = process.env.RECAPTCHA_ENTERPRISE_PROJECT;
@@ -39,12 +40,14 @@ function getEnterpriseConfig() {
 }
 
 async function getAccessToken(sa: SaCredentials): Promise<string | null> {
-  const now = Math.floor(Date.now() / 1000);
-  if (cachedAccessToken && cachedAccessToken.expiresAt - 120 > now) {
-    return cachedAccessToken.token;
+  const cachedToken = enterpriseTokenCache.get('access_token');
+  if (cachedToken) {
+    return cachedToken;
   }
+
   try {
     const header = { alg: 'RS256', typ: 'JWT' };
+    const now = Math.floor(Date.now() / 1000);
     const claims = {
       iss: sa.client_email,
       scope: 'https://www.googleapis.com/auth/cloud-platform',
@@ -74,11 +77,12 @@ async function getAccessToken(sa: SaCredentials): Promise<string | null> {
     }
     const data = (await res.json()) as { access_token?: string; expires_in?: number };
     if (!data.access_token) return null;
-    cachedAccessToken = {
-      token: data.access_token,
-      expiresAt: now + (data.expires_in ?? 3600),
-    };
-    return cachedAccessToken.token;
+
+    const expiresInSec = data.expires_in ?? 3600;
+    const ttlMs = Math.max(0, (expiresInSec - 120) * 1000);
+    enterpriseTokenCache.set('access_token', data.access_token, ttlMs);
+
+    return data.access_token;
   } catch (error) {
     logger.error('Error minting Enterprise access token', error);
     return null;

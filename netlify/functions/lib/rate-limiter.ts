@@ -1,55 +1,12 @@
-import { getStore } from '@netlify/blobs';
+import { BoundedMemoryCache, BlobCacheAdapter } from './cache';
 import { DEFAULT_CLIENT_IP } from './fallbacks';
 
 const WINDOW_MS = 60 * 1000; // 60 seconds
 const MAX_REQUESTS = 10;
 const DEFAULT_MAX_MEMORY_ENTRIES = 1000;
 
-// In-memory fallback map for temporary latency or offline environments
-const memoryStore = new Map<string, number[]>();
-
-/**
- * Sets or updates an entry in memoryStore while enforcing LRU eviction
- * and active key deletion for empty timestamps.
- */
-function setInMemoryStore(
-  key: string,
-  timestamps: number[],
-  maxEntries: number = DEFAULT_MAX_MEMORY_ENTRIES
-): void {
-  if (timestamps.length === 0) {
-    memoryStore.delete(key);
-    return;
-  }
-
-  // Re-insert to move key to Most Recently Used (MRU) position
-  if (memoryStore.has(key)) {
-    memoryStore.delete(key);
-  }
-  memoryStore.set(key, timestamps);
-
-  // Evict Least Recently Used (LRU) entry if capacity is exceeded
-  while (memoryStore.size > maxEntries) {
-    const oldestKey = memoryStore.keys().next().value;
-    if (oldestKey !== undefined) {
-      memoryStore.delete(oldestKey);
-    } else {
-      break;
-    }
-  }
-}
-
-function getRateLimitStore(storeName = 'rate-limits') {
-  try {
-    return getStore({
-      name: storeName,
-      siteID: process.env.NETLIFY_SITE_ID,
-      token: process.env.NETLIFY_AUTH_TOKEN,
-    });
-  } catch {
-    return null;
-  }
-}
+// In-memory fallback cache for rate-limiting capped at 1,000 entries by default
+const memoryStore = new BoundedMemoryCache<number[]>({ maxEntries: DEFAULT_MAX_MEMORY_ENTRIES });
 
 export interface RateLimitOptions {
   windowMs?: number;
@@ -131,21 +88,20 @@ export async function checkRateLimit(
   const prefix = options?.keyPrefix ? `${options.keyPrefix}_` : '';
   const maxMemoryEntries = options?.maxMemoryEntries ?? DEFAULT_MAX_MEMORY_ENTRIES;
 
+  memoryStore.maxEntries = maxMemoryEntries;
+
   const now = Date.now();
   const safeIp = clientIp || DEFAULT_CLIENT_IP;
   const key = `${prefix}ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
 
   let timestamps: number[] = [];
 
-  // Try reading from Netlify Blobs with in-memory fallback
-  let store: ReturnType<typeof getStore> | null = null;
+  const storeAdapter = new BlobCacheAdapter<number[]>({ storeName });
+
   try {
-    store = getRateLimitStore(storeName);
-    if (store) {
-      const raw = await store.get(key, { type: 'text' });
-      if (raw) {
-        timestamps = JSON.parse(raw);
-      }
+    const cached = await storeAdapter.get(key);
+    if (Array.isArray(cached)) {
+      timestamps = cached;
     } else {
       timestamps = memoryStore.get(key) || [];
     }
@@ -163,7 +119,7 @@ export async function checkRateLimit(
   if (validTimestamps.length === 0) {
     memoryStore.delete(key);
   } else {
-    setInMemoryStore(key, validTimestamps, maxMemoryEntries);
+    memoryStore.set(key, validTimestamps);
   }
 
   if (validTimestamps.length >= maxRequests) {
@@ -179,12 +135,10 @@ export async function checkRateLimit(
 
   // Record current request timestamp
   validTimestamps.push(now);
-  setInMemoryStore(key, validTimestamps, maxMemoryEntries);
+  memoryStore.set(key, validTimestamps);
 
   try {
-    if (store) {
-      await store.set(key, JSON.stringify(validTimestamps));
-    }
+    await storeAdapter.set(key, validTimestamps);
   } catch {
     // Ignore blob write failure; in-memory store remains updated
   }
