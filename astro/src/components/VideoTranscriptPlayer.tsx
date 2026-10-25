@@ -179,16 +179,16 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
 
       if (descCue) {
         setActiveDescription(descCue.text);
-        if (
-          descCue.id !== lastSpokenDescRef.current &&
-          typeof window !== 'undefined' &&
-          'speechSynthesis' in window
-        ) {
+        if (descCue.id !== lastSpokenDescRef.current) {
           lastSpokenDescRef.current = descCue.id;
-          window.speechSynthesis.cancel();
-          const utterance = new SpeechSynthesisUtterance(descCue.text);
-          utterance.rate = 1.0;
-          window.speechSynthesis.speak(utterance);
+          announce(`Audio description: ${descCue.text}`);
+
+          if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            const utterance = new SpeechSynthesisUtterance(descCue.text);
+            utterance.rate = 1.0;
+            window.speechSynthesis.speak(utterance);
+          }
         }
       } else {
         setActiveDescription(null);
@@ -325,6 +325,9 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
       {/* Audio Description Banner */}
       <div
         id="audio-description-banner"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
         className={`${
           audioDescriptionsEnabled && activeDescription ? 'flex' : 'hidden'
         } mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] items-start gap-3`}
