@@ -244,15 +244,15 @@ Secret scanning is enforced locally via pre-commit hooks and automatically in CI
 ### 7.1 Configuration & Rule Definition (`.gitleaks.toml`)
 
 - **Default Rule Inheritance:** Inherits Gitleaks' default rule set (`[extend] useDefault = true`) to catch common API keys, tokens, SSH/RSA private keys, and passwords.
-- **Regex Allowlists (`regexes`):** Defines global exceptions for verified non-secret test strings, mock data, and placeholder keys:
-  - Stripe test keys (`dummy_stripe_secret_key`, `sk_test_placeholder`, `sk_test_[a-zA-Z0-9_]+`, `pk_test_[a-zA-Z0-9_]+`)
-  - Mock secret patterns (`sk-test-.*`, `secret_123`, `secret_[a-zA-Z0-9_]+`, `vite_secret_456`, `vite_secret_.*`, `dummy_.*`, `mock_.*`, `sk-local`)
-  - Resend test keys (`test_resend_key`, `test_[a-zA-Z0-9_]+_key`)
+- **Regex Allowlists (`regexes`):** Defines global exceptions strictly for verified exact non-secret strings (with no open-ended wildcards):
   - Regional domain slug identifiers (`chardon-returns-r1`, `fedex-demand-surcharges-2026`, `hambden-returns-r1`, `kirtland-hills-returns-r1`, `2027-fedex-ups-surcharge-forecast`)
-- **Path Allowlists (`paths`):** Excludes mock env definitions and backend test directories:
+- **Path Allowlists (`paths`):** Restricts mock token and test key suppression to designated test directories and environment example files:
   - `\.env\.example`
-  - `netlify/functions/__tests__/`
-  - `netlify/functions/lib/` (matching backend test files)
+  - `netlify/functions/__tests__/.*`
+  - `netlify/functions/lib/.*\.test\.ts`
+  - `astro/src/lib/__tests__/.*`
+  - `scripts/__tests__/.*`
+  - `tests/.*`
 
 ### 7.2 Pre-commit Triggers & Local Setup
 
