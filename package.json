@@ -61,8 +61,7 @@
     "prepare": "husky || true",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "convert-images": "node convert-images.cjs",
-    "images:convert": "node convert-images.cjs",
+    "images:convert": "node scripts/convert-images.mjs",
     "preflight:article": "bash scripts/preflight-article.sh",
     "preflight:pr-body": "node scripts/verify/preflight-pr-body.mjs",
     "postbuild": "node scripts/verify-csp-inline.mjs"
