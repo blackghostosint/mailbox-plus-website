@@ -52,9 +52,7 @@ export function getWorkspaceRoot(startDir?: string): string {
   }
 
   const resolved =
-    rootWithGitOrWorkspaces ||
-    highestPkgDir ||
-    (startDir ? path.resolve(startDir) : process.cwd());
+    rootWithGitOrWorkspaces || highestPkgDir || (startDir ? path.resolve(startDir) : process.cwd());
 
   if (!startDir) {
     cachedWorkspaceRoot = resolved;

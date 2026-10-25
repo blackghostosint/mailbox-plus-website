@@ -1,6 +1,7 @@
 // vault-sync extractor — run as: npx vitest run scripts/vault-extract.test.ts
 // Writes /tmp/vault-data.json with all website config data for vault sync.
 import { describe, it } from 'vitest';
+import process from 'node:process';
 import { atomicWriteJsonSync } from '../../../scripts/lib/workspace-paths.ts';
 import { siteConfig } from '../config/siteConfig';
 import { coreServices } from '../config/services/core';
