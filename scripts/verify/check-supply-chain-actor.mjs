@@ -188,8 +188,7 @@ export function checkSupplyChainActor({
       return {
         success: false,
         touched: [nonConfigFile],
-        message:
-          `❌ secret scanning config "${nonConfigFile}" touched by authorized bot "${author}" is strictly owner-only.`,
+        message: `❌ secret scanning config "${nonConfigFile}" touched by authorized bot "${author}" is strictly owner-only.`,
       };
     }
 
