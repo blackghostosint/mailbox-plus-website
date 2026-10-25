@@ -8,6 +8,7 @@ export default [
       include: [
         'astro/src/**/*.{test,spec}.{ts,tsx}',
         'netlify/functions/**/*.{test,spec}.{ts,tsx}',
+        'shared/**/*.{test,spec}.{ts,tsx}',
         'scripts/__tests__/**/*.{test,spec}.{ts,tsx}',
         'scripts/verify/__tests__/**/*.{test,spec}.{ts,tsx}',
       ],
