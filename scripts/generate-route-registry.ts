@@ -11,12 +11,13 @@ import {
   subSupportingConfigs,
   standaloneSeoLandingConfigs,
 } from '../astro/src/config/pillars.js';
+import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
   process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 }
 
-const ROOT_DIR = process.cwd();
+const ROOT_DIR = getWorkspaceRoot();
 const SITE_STRUCTURE_PATH = path.join(ROOT_DIR, 'astro/src/data/siteStructure.json');
 const LOCAL_PAGES_PATH = path.join(ROOT_DIR, 'astro/src/data/localPages.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
@@ -360,10 +361,10 @@ export async function generateRouteRegistry(options?: {
       printWidth: 100,
     });
 
-    fs.writeFileSync(localPagesPath, formattedLocalPages);
-    fs.writeFileSync(siteStructurePath, formattedSiteStructure);
-    fs.writeFileSync(internalLinksPath, formattedInternalLinks);
-    fs.writeFileSync(anchorTextPath, formattedAnchorText);
+    atomicWriteFileSync(localPagesPath, formattedLocalPages);
+    atomicWriteFileSync(siteStructurePath, formattedSiteStructure);
+    atomicWriteFileSync(internalLinksPath, formattedInternalLinks);
+    atomicWriteFileSync(anchorTextPath, formattedAnchorText);
 
     const duration = (performance.now() - startTime).toFixed(2);
     console.log(`✅ Route registries emitted successfully in ${duration}ms!`);

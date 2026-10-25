@@ -1,9 +1,10 @@
-import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
+import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
 import {
   buildCacheKey,
   EMBEDDING_MODEL,
@@ -12,17 +13,16 @@ import {
 } from '../knowledge/retrieval-core.js';
 import { retrievalTests } from '../knowledge/retrieval-test-suite.js';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const ROOT = getWorkspaceRoot();
 
 // Load environment variables for local script execution
 dotenv.config();
-dotenv.config({ path: join(__dirname, '..', '.env.local') });
+dotenv.config({ path: join(ROOT, '.env.local') });
 
-const KB_PATH = join(__dirname, '..', 'knowledge', 'kb.entries.json');
-const OUTPUT_PATH = join(__dirname, '..', 'knowledge', 'embeddings.json');
-const CACHE_PATH = join(__dirname, '..', 'knowledge', '.embedding-cache.json');
-const META_PATH = join(__dirname, '..', 'knowledge', 'kb.meta.json');
+const KB_PATH = join(ROOT, 'knowledge', 'kb.entries.json');
+const OUTPUT_PATH = join(ROOT, 'knowledge', 'embeddings.json');
+const CACHE_PATH = join(ROOT, 'knowledge', '.embedding-cache.json');
+const META_PATH = join(ROOT, 'knowledge', 'kb.meta.json');
 
 export interface EmbeddingResult {
   metadata: {
@@ -159,9 +159,8 @@ export async function generateEmbeddings(
     const out = outputPath || OUTPUT_PATH;
     const cache = cachePath || CACHE_PATH;
     const meta = metaPath || META_PATH;
-    const jsonContent = JSON.stringify(result, null, 2);
-    writeFileSync(out, jsonContent);
-    writeFileSync(cache, jsonContent);
+    atomicWriteJsonSync(out, result, 2);
+    atomicWriteJsonSync(cache, result, 2);
 
     let existingMeta: Record<string, any> = {};
     if (existsSync(meta)) {
@@ -173,7 +172,7 @@ export async function generateEmbeddings(
     }
 
     let pkgVersion = '0.0.0';
-    const pkgPath = join(__dirname, '..', 'package.json');
+    const pkgPath = join(ROOT, 'package.json');
     if (existsSync(pkgPath)) {
       try {
         const pkg = JSON.parse(readFileSync(pkgPath, 'utf-8'));
@@ -200,7 +199,7 @@ export async function generateEmbeddings(
       fallbackResponse: FALLBACK_RESPONSE,
     };
 
-    writeFileSync(meta, JSON.stringify(updatedMeta, null, 2) + '\n');
+    atomicWriteJsonSync(meta, updatedMeta, 2);
   }
 
   return result;

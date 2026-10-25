@@ -6,6 +6,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
 import { execFileSync } from 'node:child_process';
+import { getWorkspaceRoot } from '../../../scripts/lib/workspace-paths.ts';
 
 /**
  * Parses article frontmatter using articleFrontmatterSchema.
@@ -66,7 +67,8 @@ export function parseArticleFrontmatter(
         if (fs.existsSync(absolutePath)) {
           mtimeIso = toISODateString(fs.statSync(absolutePath).mtime, '', 'iso');
         } else {
-          const rootPath = path.resolve(process.cwd(), filePath.replace(/^(\.\.\/)+/, ''));
+          const repoRoot = getWorkspaceRoot(baseDir);
+          const rootPath = path.resolve(repoRoot, filePath.replace(/^(\.\.\/)+/, ''));
           if (fs.existsSync(rootPath)) {
             mtimeIso = toISODateString(fs.statSync(rootPath).mtime, '', 'iso');
           }
@@ -98,9 +100,10 @@ export function parseArticleFrontmatter(
             ? import.meta.dirname
             : process.cwd();
         const absolutePath = path.resolve(baseDir, filePath);
-        const relFromRoot = path.relative(path.resolve(baseDir, '../../..'), absolutePath);
+        const repoRoot = getWorkspaceRoot(baseDir);
+        const relFromRoot = path.relative(repoRoot, absolutePath);
         const gitDate = execFileSync('git', ['log', '-1', '--format=%cI', '--', relFromRoot], {
-          cwd: path.resolve(baseDir, '../../..'),
+          cwd: repoRoot,
           encoding: 'utf8',
           stdio: ['ignore', 'pipe', 'ignore'],
         }).trim();

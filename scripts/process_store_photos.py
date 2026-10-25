@@ -20,7 +20,70 @@ Commands:
 
 Immich is reached over SSH to 100.77.217.4 (API key lives server-side; never on this box).
 """
-import argparse, json, subprocess, sys, os, shlex
+import argparse, json, subprocess, sys, os, shlex, tempfile
+
+
+def get_workspace_root(start_dir=None) -> str:
+    """Climbs the directory tree looking for package.json or .git marker."""
+    current = os.path.abspath(start_dir) if start_dir else os.getcwd()
+    highest_pkg = None
+    git_or_workspaces_root = None
+
+    while current and current != os.path.dirname(current):
+        git_path = os.path.join(current, ".git")
+        pkg_path = os.path.join(current, "package.json")
+
+        if os.path.exists(git_path):
+            git_or_workspaces_root = current
+
+        if os.path.exists(pkg_path):
+            highest_pkg = current
+            try:
+                with open(pkg_path, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                    if isinstance(data, dict) and "workspaces" in data:
+                        git_or_workspaces_root = current
+            except Exception:
+                pass
+
+        parent = os.path.dirname(current)
+        if parent == current:
+            break
+        current = parent
+
+    return git_or_workspaces_root or highest_pkg or (os.path.abspath(start_dir) if start_dir else os.getcwd())
+
+
+def atomic_write_json(target_path: str, data: dict, indent: int = 2) -> None:
+    """Writes JSON data atomically to target_path using NamedTemporaryFile in target's directory and os.replace."""
+    target_abs = os.path.abspath(target_path)
+    target_dir = os.path.dirname(target_abs)
+    os.makedirs(target_dir, exist_ok=True)
+
+    base_name = os.path.basename(target_abs)
+    temp_file = tempfile.NamedTemporaryFile(
+        mode="w",
+        dir=target_dir,
+        delete=False,
+        encoding="utf-8",
+        prefix=f".{base_name}.tmp."
+    )
+    temp_path = temp_file.name
+    try:
+        json.dump(data, temp_file, indent=indent)
+        temp_file.write("\n")
+        temp_file.flush()
+        os.fsync(temp_file.fileno())
+        temp_file.close()
+        os.replace(temp_path, target_abs)
+    except Exception:
+        if os.path.exists(temp_path):
+            try:
+                os.remove(temp_path)
+            except Exception:
+                pass
+        raise
+
 
 IMMICH_SSH = "blackghost@100.77.217.4"
 IMMICH_URL = "http://127.0.0.1:2283"
@@ -30,7 +93,7 @@ STORE_LAT, STORE_LON, GEOFENCE_M = 41.66497, -81.24166, 200
 R2_REMOTE = "mailboxplus-r2"
 R2_PREFIX = "mailbox-plus-images/articles/store-library"
 R2_PUBLIC = "https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library"
-MANIFEST = os.path.join(os.path.dirname(__file__), "..", "content", "store-photos.json")
+MANIFEST = os.path.join(get_workspace_root(), "content", "store-photos.json")
 
 
 def _ssh_immich(*curl_args):
@@ -89,9 +152,7 @@ def load_manifest():
 
 
 def save_manifest(m):
-    with open(MANIFEST, "w") as f:
-        json.dump(m, f, indent=2)
-        f.write("\n")
+    atomic_write_json(MANIFEST, m)
 
 
 def cmd_scan(_):
