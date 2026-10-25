@@ -39,6 +39,8 @@ jobs:
         run: npm ci
 
       - name: Run verification doctor
+        env:
+          SKIP_GITLEAKS: '1'
         run: npm run verify:doctor
 
       - name: Run verification script unit tests

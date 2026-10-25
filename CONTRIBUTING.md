@@ -5,17 +5,18 @@
 ## Getting Started
 
 1. Clone the repository
-2. Run `npm install`
-3. Copy `.env.example` to `.env` and fill in required variables
-4. Run `npm run verify:doctor` to verify repository environment sanity
-5. Run `npm run dev` to start the Astro development server
+2. Install `gitleaks` (required prerequisite for Git commits; e.g. `brew install gitleaks`)
+3. Run `npm install`
+4. Copy `.env.example` to `.env` and fill in required variables
+5. Run `npm run verify:doctor` to verify repository environment sanity (including `gitleaks` availability)
+6. Run `npm run dev` to start the Astro development server
 
 ## Pre-Flight Verification Workflow
 
 Before opening a pull request, contributors must run local pre-flight checks to ensure CI pipelines pass on first attempt:
 
 1. **Environment Sanity (`npm run verify:doctor`):**
-   Confirms repo root resolution, root and `astro` dependencies, node modules, branch hygiene, and CSP alignment.
+   Confirms repo root resolution, root and `astro` dependencies, node modules, branch hygiene, `gitleaks` executable on `PATH`, and CSP alignment.
 2. **Local Content Verification (`npm run verify`):**
    Verifies changed or newly added content against strict frontmatter schemas, internal link formats (mandatory trailing slashes), Ogilvy abstraction jargon gate rules (banning 28 pretentious marketing filler terms per [docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate](./docs/ARTICLE-WORKFLOW.md#ogilvy-abstraction-jargon-gate)), image CDN availability, heading diversity, and fact-check receipt requirements.
 3. **Corpus & Strict Verification Options:**
@@ -42,8 +43,9 @@ On `git commit`, the pre-commit hook executes two checks:
 
 1. **Gitleaks Secret Scanning:**
    - Scans staged files for hardcoded secrets using `gitleaks protect --staged --no-banner --redact`.
+   - **Prerequisite:** `gitleaks` is a mandatory prerequisite for creating local Git commits. The pre-commit hook is fail-closed; if `gitleaks` is missing from `PATH`, the commit will fail with exit status 1.
    - **Local Setup:** Install `gitleaks` locally via Homebrew (`brew install gitleaks`) or download a prebuilt binary from [Gitleaks GitHub Releases](https://github.com/gitleaks/gitleaks).
-   - **Fallback Enforcement:** If `gitleaks` is not installed locally, the hook displays a warning and skips local secret scanning. Secret scanning remains strictly enforced in CI workflows.
+   - **Bypass Flag:** In non-interactive or automated environments without `gitleaks`, set `SKIP_GITLEAKS=1` (e.g. `SKIP_GITLEAKS=1 git commit`) to bypass the local secret scanning check. Secret scanning remains strictly enforced in CI workflows.
 
 2. **Lint-Staged Formatting & Validation:**
    Applies formatting and verification rules to staged files based on the configuration in `package.json`:
