@@ -294,6 +294,7 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
           type="button"
           onClick={toggleAudioDescriptions}
           aria-pressed={audioDescriptionsEnabled ? 'true' : 'false'}
+          aria-controls="audio-description-banner"
           className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2 ${
             audioDescriptionsEnabled
               ? 'bg-[var(--color-primary)] text-white shadow-sm'
