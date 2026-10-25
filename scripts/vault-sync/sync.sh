@@ -39,8 +39,67 @@ UPLOAD_TEMP="${STAGING_DIR}/upload"
 cleanup() {
   rm -f "$TMP_DATA_STAGING" 2>/dev/null || true
   rm -rf "$STAGING_DIR" 2>/dev/null || true
+
+  # Restore target directories if interrupted during atomic swap, or clean up leftovers
+  for target_path in "$STAGE" "$UPLOAD"; do
+    local p_dir b_name
+    p_dir="$(dirname "$target_path")"
+    b_name="$(basename "$target_path")"
+    if [ -d "$p_dir" ]; then
+      for old_dir in "$p_dir"/."$b_name".old.*; do
+        if [ -e "$old_dir" ]; then
+          if [ ! -e "$target_path" ]; then
+            mv "$old_dir" "$target_path" 2>/dev/null || true
+          else
+            rm -rf "$old_dir" 2>/dev/null || true
+          fi
+        fi
+      done
+      for swap_dir in "$p_dir"/."$b_name".swap.*; do
+        if [ -e "$swap_dir" ]; then
+          rm -rf "$swap_dir" 2>/dev/null || true
+        fi
+      done
+    fi
+  done
 }
 trap cleanup EXIT INT TERM
+
+atomic_swap_dir() {
+  local src_dir="$1"
+  local target_dir="$2"
+
+  local parent_dir
+  parent_dir="$(dirname "$target_dir")"
+  mkdir -p "$parent_dir"
+
+  local base_name
+  base_name="$(basename "$target_dir")"
+
+  # Stage in target directory's parent folder to guarantee same-filesystem atomic move
+  local swap_stage
+  swap_stage="$(mktemp -d "${parent_dir}/.${base_name}.swap.XXXXXX")"
+  rmdir "$swap_stage"
+  mv "$src_dir" "$swap_stage"
+
+  local old_backup="${parent_dir}/.${base_name}.old.$$.$RANDOM"
+
+  if [ -e "$target_dir" ] || [ -L "$target_dir" ]; then
+    mv "$target_dir" "$old_backup"
+  fi
+
+  if mv "$swap_stage" "$target_dir"; then
+    if [ -e "$old_backup" ] || [ -L "$old_backup" ]; then
+      rm -rf "$old_backup" 2>/dev/null || true
+    fi
+  else
+    # Rollback on failure
+    if [ -e "$old_backup" ] || [ -L "$old_backup" ]; then
+      mv "$old_backup" "$target_dir" 2>/dev/null || true
+    fi
+    return 1
+  fi
+}
 
 echo "==> [1/4] Extracting site configs (vitest)"
 TMP_DATA="$TMP_DATA_STAGING" npm --prefix "$REPO/astro" run test -- src/scripts/vault-extract.test.ts || {
@@ -65,10 +124,8 @@ if [ -f "$STAGE_TEMP/Knowledge Hub.md" ]; then
 fi
 
 # Atomically replace final STAGE and UPLOAD directories
-mkdir -p "$(dirname "$STAGE")" "$(dirname "$UPLOAD")"
-rm -rf "$STAGE" "$UPLOAD"
-mv "$STAGE_TEMP" "$STAGE"
-mv "$UPLOAD_TEMP" "$UPLOAD"
+atomic_swap_dir "$STAGE_TEMP" "$STAGE"
+atomic_swap_dir "$UPLOAD_TEMP" "$UPLOAD"
 
 echo "==> [4/4] Sync destination handling"
 if [ "$DRY_RUN" = "1" ] || [ "$DRY_RUN" = "true" ]; then
