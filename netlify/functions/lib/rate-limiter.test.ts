@@ -5,6 +5,7 @@ import {
   getClientIp,
   getMemoryStoreSize,
 } from './rate-limiter';
+import { BlobCacheAdapter } from './cache';
 
 describe('rate-limiter', () => {
   beforeEach(() => {
@@ -146,6 +147,72 @@ describe('rate-limiter', () => {
 
     // Endpoint B should still be allowed for the same IP
     expect((await checkRateLimit(ip, optsEndpointB)).allowed).toBe(true);
+  });
+
+  describe('Production Fail-Closed & Persistence Strategy', () => {
+    const originalEnv = { ...process.env };
+
+    beforeEach(() => {
+      resetRateLimitMemory();
+      process.env = { ...originalEnv, NODE_ENV: 'production', CONTEXT: 'production' };
+      delete (process.env as Record<string, string | undefined>).VITEST;
+    });
+
+    afterEach(() => {
+      process.env = { ...originalEnv };
+      vi.restoreAllMocks();
+    });
+
+    it('bypasses in-memory store completely in production execution', async () => {
+      const mockBlobStorage = new Map<string, number[]>();
+      vi.spyOn(BlobCacheAdapter.prototype, 'get').mockImplementation(
+        async (key: string) => mockBlobStorage.get(key) ?? null
+      );
+      vi.spyOn(BlobCacheAdapter.prototype, 'set').mockImplementation(
+        async (key: string, val: any) => {
+          mockBlobStorage.set(key, val);
+        }
+      );
+
+      const res = await checkRateLimit('203.0.113.1');
+      expect(res.allowed).toBe(true);
+      expect(getMemoryStoreSize()).toBe(0); // Memory store was not touched in production
+    });
+
+    it('persists rate limit counters across cold starts and container isolates in production', async () => {
+      const mockBlobStorage = new Map<string, number[]>();
+      vi.spyOn(BlobCacheAdapter.prototype, 'get').mockImplementation(
+        async (key: string) => mockBlobStorage.get(key) ?? null
+      );
+      vi.spyOn(BlobCacheAdapter.prototype, 'set').mockImplementation(
+        async (key: string, val: any) => {
+          mockBlobStorage.set(key, val);
+        }
+      );
+
+      const ip = '203.0.113.99';
+      for (let i = 1; i <= 10; i++) {
+        await checkRateLimit(ip);
+      }
+
+      // Simulate a serverless container cold start / container restart
+      resetRateLimitMemory();
+
+      // Request in a new container instance must read previous timestamps from Netlify Blobs and be blocked (429)
+      const coldStartResult = await checkRateLimit(ip);
+      expect(coldStartResult.allowed).toBe(false);
+      expect(coldStartResult.count).toBe(10);
+    });
+
+    it('fails closed and flags storageError when Netlify Blobs operations fail in production', async () => {
+      vi.spyOn(BlobCacheAdapter.prototype, 'get').mockRejectedValue(
+        new Error('Netlify Blobs store unavailable')
+      );
+
+      const res = await checkRateLimit('203.0.113.5');
+      expect(res.allowed).toBe(false);
+      expect(res.storageError).toBe(true);
+    });
   });
 
   describe('getClientIp', () => {

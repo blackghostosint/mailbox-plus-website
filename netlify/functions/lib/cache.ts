@@ -101,37 +101,49 @@ export interface BlobCacheAdapterOptions {
   storeName: string;
   siteID?: string;
   token?: string;
+  throwOnError?: boolean;
 }
 
 /**
  * Unified storage adapter wrapper around Netlify Blobs.
- * Manages JSON/string serialization and swallows connection/storage errors gracefully.
+ * Manages JSON/string serialization and swallows connection/storage errors gracefully
+ * unless throwOnError is explicitly configured.
  */
 export class BlobCacheAdapter<T = any> {
   private storeName: string;
   private siteID?: string;
   private token?: string;
+  private throwOnError: boolean;
 
   constructor(options: string | BlobCacheAdapterOptions) {
     if (typeof options === 'string') {
       this.storeName = options;
       this.siteID = process.env.NETLIFY_SITE_ID;
       this.token = process.env.NETLIFY_AUTH_TOKEN;
+      this.throwOnError = false;
     } else {
       this.storeName = options.storeName;
       this.siteID = options.siteID ?? process.env.NETLIFY_SITE_ID;
       this.token = options.token ?? process.env.NETLIFY_AUTH_TOKEN;
+      this.throwOnError = options.throwOnError ?? false;
     }
   }
 
   private getStore() {
     try {
-      return getStore({
+      const store = getStore({
         name: this.storeName,
         siteID: this.siteID,
         token: this.token,
       });
-    } catch {
+      if (!store && this.throwOnError) {
+        throw new Error(`Netlify Blobs store '${this.storeName}' returned null or undefined`);
+      }
+      return store;
+    } catch (err) {
+      if (this.throwOnError) {
+        throw err instanceof Error ? err : new Error(String(err));
+      }
       return null;
     }
   }
@@ -157,7 +169,10 @@ export class BlobCacheAdapter<T = any> {
         }
       }
       return null;
-    } catch {
+    } catch (err) {
+      if (this.throwOnError) {
+        throw err instanceof Error ? err : new Error(String(err));
+      }
       return null;
     }
   }
@@ -165,7 +180,12 @@ export class BlobCacheAdapter<T = any> {
   async set(key: string, value: T): Promise<void> {
     try {
       const store = this.getStore();
-      if (!store) return;
+      if (!store) {
+        if (this.throwOnError) {
+          throw new Error(`Netlify Blobs store '${this.storeName}' is unconfigured or unavailable`);
+        }
+        return;
+      }
       if (typeof value === 'object' && value !== null) {
         await store.setJSON(key, value);
       } else if (typeof value === 'string') {
@@ -173,18 +193,29 @@ export class BlobCacheAdapter<T = any> {
       } else {
         await store.set(key, JSON.stringify(value));
       }
-    } catch {
-      // Swallows blob errors gracefully
+    } catch (err) {
+      if (this.throwOnError) {
+        throw err instanceof Error ? err : new Error(String(err));
+      }
+      // Swallows blob errors gracefully when throwOnError is false
     }
   }
 
   async delete(key: string): Promise<void> {
     try {
       const store = this.getStore();
-      if (!store) return;
+      if (!store) {
+        if (this.throwOnError) {
+          throw new Error(`Netlify Blobs store '${this.storeName}' is unconfigured or unavailable`);
+        }
+        return;
+      }
       await store.delete(key);
-    } catch {
-      // Swallows blob errors gracefully
+    } catch (err) {
+      if (this.throwOnError) {
+        throw err instanceof Error ? err : new Error(String(err));
+      }
+      // Swallows blob errors gracefully when throwOnError is false
     }
   }
 }
