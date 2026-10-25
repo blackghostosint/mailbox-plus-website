@@ -316,7 +316,9 @@ describe('CORS Middleware Utility', () => {
         });
         const res = await wrapped(req, {});
         expect(res.headers.get('Access-Control-Allow-Origin')).toBe('https://mailboxplusohio.com');
-        expect(resolveAllowedOrigin(origin, DEFAULT_ALLOWED_ORIGINS)).toBe('https://mailboxplusohio.com');
+        expect(resolveAllowedOrigin(origin, DEFAULT_ALLOWED_ORIGINS)).toBe(
+          'https://mailboxplusohio.com'
+        );
       }
     });
 
@@ -446,9 +448,7 @@ describe('CORS Middleware Utility', () => {
 
       expect(isLoopbackOrigin('https://mailboxplusohio.com')).toBe(false);
       expect(
-        isLoopbackOrigin(
-          /^https:\/\/deploy-preview-\d+--mailboxplus(?:ohio)?\.netlify\.app$/
-        )
+        isLoopbackOrigin(/^https:\/\/deploy-preview-\d+--mailboxplus(?:ohio)?\.netlify\.app$/)
       ).toBe(false);
     });
 
