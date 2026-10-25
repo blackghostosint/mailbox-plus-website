@@ -191,7 +191,9 @@ describe('VideoTranscriptPlayer Component', () => {
     );
 
     const banner = document.getElementById('audio-description-banner');
-    expect(banner?.getAttribute('role')).toBeNull();
+    expect(banner?.getAttribute('role')).toBe('status');
+    expect(banner?.getAttribute('aria-live')).toBe('polite');
+    expect(banner?.getAttribute('aria-atomic')).toBe('true');
 
     // Fire pause event to cancel speech synthesis
     act(() => {

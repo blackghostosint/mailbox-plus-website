@@ -324,6 +324,9 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
       {/* Audio Description Banner */}
       <div
         id="audio-description-banner"
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
         className={`${
           audioDescriptionsEnabled && activeDescription ? 'flex' : 'hidden'
         } mb-6 p-4 rounded-xl bg-[var(--color-primary)]/10 border-2 border-[var(--color-primary)] text-[var(--color-primary-dark)] items-start gap-3`}
