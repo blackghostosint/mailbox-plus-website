@@ -408,6 +408,37 @@ function cmdDoctor() {
     'npm install gray-matter --save-dev'
   );
 
+  let gitleaksInstalled = false;
+  let gitleaksVersion = '';
+  try {
+    gitleaksVersion = execFileSync('gitleaks', ['version'], { cwd: ROOT, stdio: 'pipe' })
+      .toString()
+      .trim();
+    gitleaksInstalled = true;
+  } catch {
+    gitleaksInstalled = false;
+  }
+
+  if (process.env.SKIP_GITLEAKS === '1') {
+    check(
+      'gitleaks',
+      true,
+      gitleaksInstalled
+        ? `gitleaks present (${gitleaksVersion}); check bypassed via SKIP_GITLEAKS=1`
+        : 'gitleaks check bypassed via SKIP_GITLEAKS=1',
+      'unset SKIP_GITLEAKS to enforce local secret scanning'
+    );
+  } else {
+    check(
+      'gitleaks',
+      gitleaksInstalled,
+      gitleaksInstalled
+        ? `gitleaks executable found on PATH (${gitleaksVersion})`
+        : 'gitleaks binary missing from PATH',
+      'install gitleaks (https://github.com/gitleaks/gitleaks) or set SKIP_GITLEAKS=1 to bypass local pre-commit check'
+    );
+  }
+
   let branch = '',
     ahead = 0;
   try {
