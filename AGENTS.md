@@ -23,6 +23,8 @@ Prices, service claims, guarantees, SLAs, response times, contact emails, phone 
 
 Server-side secrets (Netlify functions) must never use `VITE_`-prefixed env var names — Vite inlines those into client bundles. Client-exposed values use `VITE_`; everything else does not. See `docs/ENVIRONMENT.md`.
 
+Local secret scanning with `gitleaks` is enforced via a fail-closed pre-commit hook (`.husky/pre-commit`). Developers and AI agents must have `gitleaks` installed on `PATH` for Git commits to pass locally. If `gitleaks` is missing in non-interactive/automated environments, set `SKIP_GITLEAKS=1` (e.g. `SKIP_GITLEAKS=1 git commit`) to bypass the local pre-commit check while preserving CI secret scanning enforcement.
+
 ## 5. CI green before requesting review
 
 All required checks (`build-and-test`, `lighthouse`, plus any workflow added to the repo) must pass on your PR before you request review. If a check fails, fix the root cause — do not skip, weaken, or delete the check.

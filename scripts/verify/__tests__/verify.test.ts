@@ -11,6 +11,7 @@ describe('verify.mjs doctor', () => {
     const stdout = execSync('node scripts/verify/verify.mjs doctor --json', {
       cwd: ROOT,
       encoding: 'utf8',
+      env: { ...process.env, SKIP_GITLEAKS: '1' },
     });
 
     const parsed = JSON.parse(stdout);
@@ -20,6 +21,37 @@ describe('verify.mjs doctor', () => {
     expect(envCheck).toBeDefined();
     expect(envCheck.pass).toBe(true);
     expect(envCheck.detail).toContain('28 keys mapped');
+
+    const gitleaksCheck = parsed.results.find((r: { name: string }) => r.name === 'gitleaks');
+    expect(gitleaksCheck).toBeDefined();
+    expect(gitleaksCheck.pass).toBe(true);
+    expect(gitleaksCheck.detail).toContain('SKIP_GITLEAKS=1');
+  }, 15000);
+
+  it('fails doctor command when gitleaks is missing and SKIP_GITLEAKS is not set', () => {
+    const envWithoutSkip = { ...process.env };
+    delete envWithoutSkip.SKIP_GITLEAKS;
+
+    let stdout = '';
+    try {
+      stdout = execSync('node scripts/verify/verify.mjs doctor --json', {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: envWithoutSkip,
+      });
+    } catch (err: any) {
+      stdout = err.stdout;
+    }
+
+    const parsed = JSON.parse(stdout);
+    const gitleaksCheck = parsed.results.find((r: { name: string }) => r.name === 'gitleaks');
+    expect(gitleaksCheck).toBeDefined();
+
+    // Check behavior depends on whether gitleaks is installed on system PATH
+    if (!gitleaksCheck.pass) {
+      expect(gitleaksCheck.detail).toContain('gitleaks binary missing from PATH');
+      expect(gitleaksCheck.fix).toContain('https://github.com/gitleaks/gitleaks');
+    }
   }, 15000);
 });
 

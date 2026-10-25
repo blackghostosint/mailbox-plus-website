@@ -1,9 +1,12 @@
-if command -v gitleaks >/dev/null 2>&1; then
+if [ "$SKIP_GITLEAKS" = "1" ]; then
+  echo "SKIP_GITLEAKS=1 detected. Skipping local gitleaks secret scanning."
+elif command -v gitleaks >/dev/null 2>&1; then
   gitleaks protect --staged --no-banner --redact || exit 1
 else
-  echo "Warning: gitleaks is not installed. Secret scanning skipped locally."
+  echo "Error: gitleaks is not installed on PATH."
   echo "To install gitleaks, visit: https://github.com/gitleaks/gitleaks"
-  echo "Note: Secret scanning will still be enforced in CI."
+  echo "To bypass local secret scanning, commit with: SKIP_GITLEAKS=1 git commit"
+  exit 1
 fi
 
 npx lint-staged
