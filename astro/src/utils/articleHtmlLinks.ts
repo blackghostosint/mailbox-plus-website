@@ -1,22 +1,9 @@
+import { escapeHtml } from '../../../shared/escapeHtml.js';
+
 export const DEFAULT_ARTICLE_LINK_CLASS =
   'text-[var(--color-primary)] hover:text-[var(--color-primary-dark)] underline decoration-[var(--color-border-strong)] underline-offset-2';
 
-/**
- * Escapes special characters in a string to safe HTML entities to prevent HTML injection and attribute breakout.
- * Preserves existing valid HTML entities (e.g. &amp;, &lt;, &gt;, &quot;, &#39;, &#x27;) to prevent double escaping.
- */
-export function escapeHtml(str?: unknown): string {
-  if (str === null || str === undefined) {
-    return '';
-  }
-  const s = typeof str === 'string' ? str : String(str);
-  return s
-    .replace(/&(?!(?:[a-zA-Z0-9]+|#[0-9]+|#x[0-9a-fA-F]+);)/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#39;');
-}
+export { escapeHtml };
 
 /**
  * Sanitizes URL / URI strings to block unsafe URI schemes (javascript:, data:, vbscript:) while preserving
