@@ -93,6 +93,13 @@ export const pageMeta: Record<
       'See what happens next after signing up for mailbox service at Mailbox Plus. Watch our explainer video and get your Concord Township mailbox setup guide.',
     ...geoMeta,
   },
+  // Tailgate Giveaway
+  '/tailgate-giveaway': {
+    title: 'Win a Cleveland Browns Tailgate Set — November Giveaway at Mailbox Plus',
+    description:
+      'Enter free in-store to win a Browns 9x9 canopy + 2 quad chairs ($360 value) from Mailbox Plus in Concord Twp. Drawing Nov 27 — winner tailgates Nov 29.',
+    ...geoMeta,
+  },
   // Amazon Counter Page
   '/amazon-counter': {
     title: 'Amazon Returns Counter for Concord Twp (44077) — Help Us Bring It Home',
