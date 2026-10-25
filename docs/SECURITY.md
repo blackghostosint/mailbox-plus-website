@@ -13,7 +13,7 @@
 | Control                | Implementation                                                                  | Location                                                          |
 | ---------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | CSP Headers            | Strict policy without unsafe-inline script-src                                  | `netlify.toml:84-95`                                              |
-| HSTS                   | 1 year, includeSubDomains                                                       | `netlify.toml:83`                                                 |
+| HSTS                   | 2 years, includeSubDomains, preload                                             | `netlify.toml:83`                                                 |
 | X-Frame-Options        | DENY (clickjacking)                                                             | `netlify.toml:79`                                                 |
 | X-Content-Type-Options | nosniff                                                                         | `netlify.toml:80`                                                 |
 | Referrer-Policy        | strict-origin-when-cross-origin                                                 | `netlify.toml:81`                                                 |
@@ -346,7 +346,7 @@ Content-Security-Policy: default-src 'self';
   report-uri https://mailboxplusohio.com/.netlify/functions/csp-report;
   report-to csp-endpoint;
 
-Strict-Transport-Security: max-age=31536000; includeSubDomains
+Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
 X-Frame-Options: DENY
 X-Content-Type-Options: nosniff
 Referrer-Policy: strict-origin-when-cross-origin
@@ -371,7 +371,7 @@ test.describe('Security headers', () => {
     const response = await request.get('/');
     const hsts = response.headers()['strict-transport-security'];
     expect(hsts).toBeDefined();
-    expect(hsts).toContain('max-age=31536000');
+    expect(hsts).toContain('max-age=63072000');
   });
 
   test('X-Frame-Options is DENY', async ({ request }) => {
