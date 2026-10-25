@@ -187,13 +187,11 @@ describe('VideoTranscriptPlayer Component', () => {
 
     const liveAnnouncer = document.getElementById('video-transcript-announcer');
     expect(liveAnnouncer?.textContent).toBe(
-      'Audio description: Staff member reviewing incoming online mailbox registration application on computer screen.'
+      'Transcript line: After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away.'
     );
 
     const banner = document.getElementById('audio-description-banner');
-    expect(banner?.getAttribute('role')).toBe('status');
-    expect(banner?.getAttribute('aria-live')).toBe('polite');
-    expect(banner?.getAttribute('aria-atomic')).toBe('true');
+    expect(banner?.getAttribute('role')).toBeNull();
 
     // Fire pause event to cancel speech synthesis
     act(() => {
