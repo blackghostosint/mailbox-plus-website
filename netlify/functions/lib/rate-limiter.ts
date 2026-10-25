@@ -1,11 +1,12 @@
 import { BoundedMemoryCache, BlobCacheAdapter } from './cache';
-import { DEFAULT_CLIENT_IP } from './fallbacks';
+import { DEFAULT_CLIENT_IP, isDevelopmentOrTestEnvironment } from './fallbacks';
+import { logger } from './logger';
 
 const WINDOW_MS = 60 * 1000; // 60 seconds
 const MAX_REQUESTS = 10;
 const DEFAULT_MAX_MEMORY_ENTRIES = 1000;
 
-// In-memory fallback cache for rate-limiting capped at 1,000 entries by default
+// In-memory fallback cache for rate-limiting capped at 1,000 entries by default (active only in local dev/test mode)
 const memoryStore = new BoundedMemoryCache<number[]>({ maxEntries: DEFAULT_MAX_MEMORY_ENTRIES });
 
 export interface RateLimitOptions {
@@ -21,6 +22,7 @@ export interface RateLimitResult {
   count: number;
   remaining: number;
   resetMs: number;
+  storageError?: boolean;
 }
 
 /**
@@ -77,11 +79,13 @@ export function getClientIp(headers: Record<string, string | undefined> | Header
 /**
  * Checks client IP request rate against a sliding window.
  * Default: Max 10 requests per 60 seconds allowed.
+ * Enforces mandatory persistent storage in Netlify Blobs with fail-closed behavior in production environments.
  */
 export async function checkRateLimit(
   clientIp: string,
   options?: RateLimitOptions
 ): Promise<RateLimitResult> {
+  const isDevOrTest = isDevelopmentOrTestEnvironment();
   const windowMs = options?.windowMs ?? WINDOW_MS;
   const maxRequests = options?.maxRequests ?? MAX_REQUESTS;
   const storeName = options?.storeName ?? 'rate-limits';
@@ -94,61 +98,115 @@ export async function checkRateLimit(
   const safeIp = clientIp || DEFAULT_CLIENT_IP;
   const key = `${prefix}ip_${safeIp.replace(/[^a-zA-Z0-9_.-]/g, '_')}`;
 
+  const storeAdapter = new BlobCacheAdapter<number[]>({
+    storeName,
+    throwOnError: !isDevOrTest,
+  });
+
   let timestamps: number[] = [];
 
-  const storeAdapter = new BlobCacheAdapter<number[]>({ storeName });
+  if (isDevOrTest) {
+    try {
+      const cached = await storeAdapter.get(key);
+      if (Array.isArray(cached)) {
+        timestamps = cached;
+      } else {
+        timestamps = memoryStore.get(key) || [];
+      }
+    } catch {
+      timestamps = memoryStore.get(key) || [];
+    }
 
+    const windowStart = now - windowMs;
+    const validTimestamps = Array.isArray(timestamps)
+      ? timestamps.filter((ts) => typeof ts === 'number' && ts > windowStart)
+      : [];
+
+    if (validTimestamps.length === 0) {
+      memoryStore.delete(key);
+    } else {
+      memoryStore.set(key, validTimestamps);
+    }
+
+    if (validTimestamps.length >= maxRequests) {
+      const oldest = validTimestamps[0] || now;
+      const resetMs = Math.max(0, oldest + windowMs - now);
+      return {
+        allowed: false,
+        count: validTimestamps.length,
+        remaining: 0,
+        resetMs,
+      };
+    }
+
+    validTimestamps.push(now);
+    memoryStore.set(key, validTimestamps);
+
+    try {
+      await storeAdapter.set(key, validTimestamps);
+    } catch {
+      // Swallow write failure in local dev or unit test mode
+    }
+
+    return {
+      allowed: true,
+      count: validTimestamps.length,
+      remaining: maxRequests - validTimestamps.length,
+      resetMs: windowMs,
+    };
+  }
+
+  // Production Serverless Execution: Fail-Closed Persistent Storage Mode
   try {
     const cached = await storeAdapter.get(key);
     if (Array.isArray(cached)) {
       timestamps = cached;
     } else {
-      timestamps = memoryStore.get(key) || [];
+      timestamps = [];
     }
-  } catch {
-    timestamps = memoryStore.get(key) || [];
-  }
 
-  // Filter timestamps within sliding window
-  const windowStart = now - windowMs;
-  const validTimestamps = Array.isArray(timestamps)
-    ? timestamps.filter((ts) => typeof ts === 'number' && ts > windowStart)
-    : [];
+    const windowStart = now - windowMs;
+    const validTimestamps = Array.isArray(timestamps)
+      ? timestamps.filter((ts) => typeof ts === 'number' && ts > windowStart)
+      : [];
 
-  // Delete expired key immediately or update active timestamps
-  if (validTimestamps.length === 0) {
-    memoryStore.delete(key);
-  } else {
-    memoryStore.set(key, validTimestamps);
-  }
+    if (validTimestamps.length >= maxRequests) {
+      const oldest = validTimestamps[0] || now;
+      const resetMs = Math.max(0, oldest + windowMs - now);
+      return {
+        allowed: false,
+        count: validTimestamps.length,
+        remaining: 0,
+        resetMs,
+      };
+    }
 
-  if (validTimestamps.length >= maxRequests) {
-    const oldest = validTimestamps[0] || now;
-    const resetMs = Math.max(0, oldest + windowMs - now);
+    validTimestamps.push(now);
+
+    await storeAdapter.set(key, validTimestamps);
+
+    return {
+      allowed: true,
+      count: validTimestamps.length,
+      remaining: maxRequests - validTimestamps.length,
+      resetMs: windowMs,
+    };
+  } catch (err) {
+    logger.error('Netlify Blobs rate limit persistent storage error in production', {
+      key,
+      storeName,
+      safeIp,
+      error: err instanceof Error ? err.message : String(err),
+    });
+
     return {
       allowed: false,
-      count: validTimestamps.length,
+      count: maxRequests,
       remaining: 0,
-      resetMs,
+      resetMs: windowMs,
+      storageError: true,
     };
   }
-
-  // Record current request timestamp
-  validTimestamps.push(now);
-  memoryStore.set(key, validTimestamps);
-
-  try {
-    await storeAdapter.set(key, validTimestamps);
-  } catch {
-    // Ignore blob write failure; in-memory store remains updated
-  }
-
-  return {
-    allowed: true,
-    count: validTimestamps.length,
-    remaining: maxRequests - validTimestamps.length,
-    resetMs: windowMs,
-  };
 }
 
 export function resetRateLimitMemory(): void {
