@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
+import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
 import {
   articleFrontmatterSchema,
   validateArticleFrontmatter,
@@ -263,10 +264,7 @@ export function initRouteRegistry(
  * and trailing slashes (except root '/').
  */
 export function normalizeRoute(p: string): string {
-  if (!p) return p;
-  let clean = p.trim().split('?')[0].split('#')[0];
-  if (!clean.startsWith('/')) clean = '/' + clean;
-  return clean.length > 1 ? clean.replace(/\/+$/, '') : clean;
+  return toRouteKey(p);
 }
 
 /**

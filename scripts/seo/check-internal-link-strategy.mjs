@@ -23,6 +23,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
+import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -56,20 +57,7 @@ export const ALLOWED_LEGACY_ALIASES = new Set([
 ]);
 
 export function normalizePath(p) {
-  if (!p) return '';
-  let cleaned = p.trim();
-  if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) {
-    try {
-      cleaned = new URL(cleaned).pathname;
-    } catch (e) {
-      return '';
-    }
-  }
-  cleaned = cleaned.split('#')[0].split('?')[0];
-  if (cleaned.endsWith('.html')) cleaned = cleaned.slice(0, -5);
-  if (!cleaned.startsWith('/')) cleaned = '/' + cleaned;
-  if (cleaned.length > 1 && cleaned.endsWith('/')) cleaned = cleaned.slice(0, -1);
-  return cleaned;
+  return toRouteKey(p);
 }
 
 export function isSeoLandingFile(file, baseConfigDir = CONFIG_DIR) {

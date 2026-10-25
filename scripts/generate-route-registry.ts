@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import prettier from 'prettier';
+import { toRouteKey } from '../astro/src/utils/url-normalization.ts';
 import { services } from '../astro/src/config/services.js';
 import { serviceAreas } from '../astro/src/config/serviceAreas.js';
 import { competitivePages } from '../astro/src/config/services/competitive/index.js';
@@ -21,7 +22,7 @@ const LOCAL_PAGES_PATH = path.join(ROOT_DIR, 'astro/src/data/localPages.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ANCHOR_TEXT_PATH = path.join(ROOT_DIR, 'astro/src/data/anchorText.json');
 
-export const formatUrl = (url: string): string => url.replace(/\/$/, '');
+export const formatUrl = (url: string): string => toRouteKey(url);
 
 export const getId = (id: string): string => {
   if (id === 'ups-authorized-shipper-outlet') return 'ups-shipping';
