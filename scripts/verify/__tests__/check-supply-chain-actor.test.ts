@@ -44,6 +44,37 @@ paths = ['tests/.*']
       expect(result.reason).toContain('useDefault = true');
     });
 
+    it('fails when useDefault is set to false with comment useDefault = true', () => {
+      const commentBypassConfig = `
+useDefault = false # useDefault = true
+[allowlist]
+regexes = ['slug-1']
+paths = ['tests/.*']
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(commentBypassConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('useDefault = true');
+    });
+
+    it('fails when useDefault is a string instead of boolean or only in comments/strings', () => {
+      const stringConfig = `
+useDefault = "true"
+[allowlist]
+regexes = ['slug-1']
+paths = ['tests/.*']
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(stringConfig).valid).toBe(false);
+
+      const commentOnlyConfig = `
+# useDefault = true
+[allowlist]
+description = "useDefault = true"
+regexes = ['slug-1']
+paths = ['tests/.*']
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(commentOnlyConfig).valid).toBe(false);
+    });
+
     it('fails when custom rules blocks are introduced', () => {
       const invalidConfig = `
 useDefault = true

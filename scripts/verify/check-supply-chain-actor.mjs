@@ -55,10 +55,6 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
     return { valid: false, reason: '.gitleaks.toml content is empty or unreadable' };
   }
 
-  if (!/useDefault\s*=\s*true/i.test(content)) {
-    return { valid: false, reason: '.gitleaks.toml must keep "useDefault = true"' };
-  }
-
   if (/^\s*\[\[/m.test(content)) {
     const match = content.match(/^\s*\[\[\s*([^\s\]]+)\s*\]\]/m);
     const tableName = match ? match[1] : 'unknown';
@@ -76,6 +72,7 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
   };
 
   let currentSection = 'root';
+  let hasUseDefaultTrue = false;
   const lines = content.split('\n');
 
   for (let i = 0; i < lines.length; i++) {
@@ -118,9 +115,10 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
       continue;
     }
 
-    const kvMatch = cleanLine.match(/^([\w.-]+)\s*=/);
+    const kvMatch = cleanLine.match(/^([\w.-]+)\s*=\s*(.*)$/);
     if (kvMatch) {
       const rawKey = kvMatch[1].trim();
+      const rawValue = kvMatch[2].trim();
       let targetSection = currentSection;
       let targetKey = rawKey;
 
@@ -144,7 +142,21 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
           reason: `.gitleaks.toml contains unauthorized exemption key "${targetKey}" in section "${targetSection}"`,
         };
       }
+
+      if (targetKey === 'useDefault') {
+        if (rawValue !== 'true') {
+          return {
+            valid: false,
+            reason: `.gitleaks.toml must set "useDefault = true" (found "${rawKey} = ${rawValue}")`,
+          };
+        }
+        hasUseDefaultTrue = true;
+      }
     }
+  }
+
+  if (!hasUseDefaultTrue) {
+    return { valid: false, reason: '.gitleaks.toml must keep "useDefault = true"' };
   }
 
   const extractTomlArray = (key) => {
