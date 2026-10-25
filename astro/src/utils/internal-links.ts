@@ -1,6 +1,6 @@
 import internalLinks from '../data/internalLinks.json';
 import anchorText from '../data/anchorText.json';
-import { normalizePathname } from './canonical-url';
+import { toCanonicalUrlPath } from './url-normalization';
 import { hashString } from './hash-helpers';
 import { getInternalLinkNode, getParentPillarByServiceId } from './site-registry';
 
@@ -18,7 +18,7 @@ export type ServiceId = keyof typeof internalLinks;
  * comparisons that strip the slash); hrefs emitted from them MUST carry the
  * trailing slash so internal links agree with the canonical URLs Google chose.
  */
-export const normalizeHref = (url: string): string => normalizePathname(url);
+export const normalizeHref = (url: string): string => toCanonicalUrlPath(url);
 
 export const getInternalLink = (serviceId: string) => {
   const node = getInternalLinkNode(serviceId);

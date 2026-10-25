@@ -2,6 +2,7 @@ import siteStructure from '../data/siteStructure.json';
 import internalLinks from '../data/internalLinks.json';
 import { services } from '../config/services';
 import type { Service } from '../types/services';
+import { toRouteKey } from './url-normalization';
 
 export type PillarNode = (typeof siteStructure.pillars)[0];
 
@@ -25,11 +26,7 @@ export interface InternalLinkNode {
   title: string;
 }
 
-export const toPathKey = (path: string): string => {
-  if (!path) return '';
-  const trimmed = path.trim().replace(/^\/+|\/+$/g, '');
-  return trimmed ? `/${trimmed}` : '';
-};
+export const toPathKey = toRouteKey;
 
 // O(1) Map Indices
 export const serviceByIdMap = new Map<string, Service>();
@@ -55,7 +52,7 @@ for (const s of services) {
 for (const p of siteStructure.pillars) {
   pillarByIdMap.set(p.id, p);
   internalLinkMap.set(p.id, { id: p.id, url: p.url, title: p.title });
-  const pKey = toPathKey(p.url);
+  const pKey = toRouteKey(p.url);
   if (pKey) {
     pillarByUrlMap.set(pKey, p);
   }
@@ -63,7 +60,7 @@ for (const p of siteStructure.pillars) {
   for (const c of p.children) {
     parentPillarByChildIdMap.set(c.id, p);
     internalLinkMap.set(c.id, { id: c.id, url: c.url, title: c.title });
-    const cKey = toPathKey(c.url);
+    const cKey = toRouteKey(c.url);
     if (cKey) {
       childByUrlMap.set(cKey, {
         id: c.id,
@@ -79,7 +76,7 @@ for (const p of siteStructure.pillars) {
 if (Array.isArray(siteStructure.subSupporting)) {
   for (const sub of siteStructure.subSupporting) {
     internalLinkMap.set(sub.id, { id: sub.id, url: sub.url, title: sub.title });
-    const key = toPathKey(sub.url);
+    const key = toRouteKey(sub.url);
     if (key) {
       subSupportingByUrlMap.set(key, { id: sub.id, title: sub.title, url: sub.url });
     }
@@ -89,7 +86,7 @@ if (Array.isArray(siteStructure.subSupporting)) {
 if (Array.isArray(siteStructure['seo-landing'])) {
   for (const seo of siteStructure['seo-landing']) {
     internalLinkMap.set(seo.id, { id: seo.id, url: seo.url, title: seo.title });
-    const key = toPathKey(seo.url);
+    const key = toRouteKey(seo.url);
     if (key) {
       seoLandingByUrlMap.set(key, { id: seo.id, title: seo.title, url: seo.url });
     }
@@ -125,16 +122,16 @@ export const getParentPillarByChildId = (childId: string): PillarNode | undefine
 export const getPillarById = (id: string): PillarNode | undefined => pillarByIdMap.get(id);
 
 export const getPillarByUrl = (url: string): PillarNode | undefined =>
-  pillarByUrlMap.get(toPathKey(url));
+  pillarByUrlMap.get(toRouteKey(url));
 
 export const getChildByUrl = (url: string): ChildNode | undefined =>
-  childByUrlMap.get(toPathKey(url));
+  childByUrlMap.get(toRouteKey(url));
 
 export const getSubSupportingByUrl = (url: string): GenericPageNode | undefined =>
-  subSupportingByUrlMap.get(toPathKey(url));
+  subSupportingByUrlMap.get(toRouteKey(url));
 
 export const getSeoLandingByUrl = (url: string): GenericPageNode | undefined =>
-  seoLandingByUrlMap.get(toPathKey(url));
+  seoLandingByUrlMap.get(toRouteKey(url));
 
 export const getParentPillarByServiceId = (serviceId: string): PillarNode | undefined =>
   parentPillarByServiceIdMap.get(serviceId);

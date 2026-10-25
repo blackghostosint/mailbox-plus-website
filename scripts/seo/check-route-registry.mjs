@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
+import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
 
 export { getHtmlFiles };
 
@@ -14,28 +15,9 @@ const SITE_STRUCTURE_PATH = path.join(ROOT_DIR, 'astro/src/data/siteStructure.js
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ALLOWLIST_PATH = path.join(ROOT_DIR, 'scripts/seo/route-registry-allowlist.json');
 
-// Normalizes path for comparing consistently:
-// Strips host/protocol, strips '.html', ensures leading slash, strips trailing slashes (except '/')
+// Normalizes path for comparing consistently using shared URL normalization library
 export function normalizePath(p) {
-  if (!p) return '';
-  let cleaned = p.trim();
-  if (cleaned.startsWith('http://') || cleaned.startsWith('https://')) {
-    try {
-      cleaned = new URL(cleaned).pathname;
-    } catch (e) {
-      // ignore
-    }
-  }
-  if (cleaned.endsWith('.html')) {
-    cleaned = cleaned.slice(0, -5);
-  }
-  if (!cleaned.startsWith('/')) {
-    cleaned = '/' + cleaned;
-  }
-  if (cleaned.length > 1 && cleaned.endsWith('/')) {
-    cleaned = cleaned.slice(0, -1);
-  }
-  return cleaned;
+  return toRouteKey(p);
 }
 
 // Default static allowlist of utility/section pages
