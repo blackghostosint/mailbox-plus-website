@@ -10,6 +10,8 @@ import {
   isLoopbackOrigin,
   resolveAllowedOrigin,
 } from './cors';
+import { BlobCacheAdapter } from './cache';
+import * as rateLimiter from './rate-limiter';
 
 describe('CORS Middleware Utility', () => {
   describe('withCors (Web Standard Handler)', () => {
@@ -186,6 +188,62 @@ describe('CORS Middleware Utility', () => {
       expect(res3.headers.get('X-RateLimit-Limit')).toBe('2');
       const body = await res3.json();
       expect(body).toEqual({ ok: false, error: 'Too many requests. Please try again later.' });
+    });
+
+    it('returns HTTP 503 fail-closed response when persistent rate limit storage fails', async () => {
+      const innerHandler = vi.fn();
+      const wrapped = withCors(innerHandler, {
+        rateLimit: { maxRequests: 5, windowMs: 60000 },
+      });
+
+      vi.spyOn(BlobCacheAdapter.prototype, 'get').mockRejectedValue(
+        new Error('Netlify Blobs storage unavailable')
+      );
+
+      const originalEnv = { ...process.env };
+      process.env.NODE_ENV = 'production';
+      process.env.CONTEXT = 'production';
+      delete (process.env as Record<string, string | undefined>).VITEST;
+
+      try {
+        const req = new Request('https://example.com/api/test', {
+          method: 'POST',
+          headers: { 'x-nf-client-connection-ip': '203.0.113.88' },
+        });
+
+        const res = await wrapped(req, {});
+        expect(res.status).toBe(503);
+        expect(innerHandler).not.toHaveBeenCalled();
+        const body = await res.json();
+        expect(body.ok).toBe(false);
+        expect(body.error).toContain('Service temporarily unavailable');
+      } finally {
+        process.env = originalEnv;
+        vi.restoreAllMocks();
+      }
+    });
+
+    it('catches rate limit evaluation exceptions and returns HTTP 503 fail-closed response', async () => {
+      const innerHandler = vi.fn();
+      const wrapped = withCors(innerHandler, {
+        rateLimit: true,
+      });
+
+      vi.spyOn(rateLimiter, 'checkRateLimit').mockRejectedValueOnce(
+        new Error('Unexpected evaluation failure')
+      );
+
+      const req = new Request('https://example.com/api/test', { method: 'GET' });
+      const res = await wrapped(req, {});
+
+      expect(res.status).toBe(503);
+      expect(innerHandler).not.toHaveBeenCalled();
+      const body = await res.json();
+      expect(body).toEqual({
+        ok: false,
+        error: 'Service temporarily unavailable. Rate limit check failed.',
+      });
+      vi.restoreAllMocks();
     });
   });
 

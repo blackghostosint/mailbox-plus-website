@@ -407,6 +407,29 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
         if (!limitResult.allowed) {
           const retryAfterSeconds = Math.max(1, Math.ceil(limitResult.resetMs / 1000));
           const maxRequests = rateLimitOpts?.maxRequests ?? 10;
+
+          if (limitResult.storageError) {
+            logger.error('Rate limit persistent storage failure', {
+              clientIp,
+              url: request.url,
+              method: request.method,
+            });
+            return new Response(
+              JSON.stringify({
+                ok: false,
+                error: 'Service temporarily unavailable. Rate limit storage check failed.',
+              }),
+              {
+                status: 503,
+                headers: {
+                  'Content-Type': 'application/json',
+                  ...corsHeaders,
+                  'Retry-After': String(retryAfterSeconds),
+                },
+              }
+            );
+          }
+
           logger.warn('Rate limit exceeded', {
             clientIp,
             url: request.url,
@@ -430,7 +453,21 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
           );
         }
       } catch (err) {
-        logger.warn('Rate limit evaluation error, failing open', err);
+        logger.error('Rate limit evaluation error, failing closed', err);
+        return new Response(
+          JSON.stringify({
+            ok: false,
+            error: 'Service temporarily unavailable. Rate limit check failed.',
+          }),
+          {
+            status: 503,
+            headers: {
+              'Content-Type': 'application/json',
+              ...corsHeaders,
+              'Retry-After': '60',
+            },
+          }
+        );
       }
     }
 

@@ -123,6 +123,44 @@ export function getEnvironmentContext(): string {
 }
 
 /**
+ * Evaluates whether the current execution context is local development or test runner mode.
+ * Returns true for local dev (NETLIFY_DEV='true'/'1', NODE_ENV='development') and unit test runners (NODE_ENV='test' or VITEST, unless NODE_ENV='production').
+ * Returns false for Netlify serverless production/deploy environments (production, deploy-preview, branch-deploy, etc.) or when NODE_ENV='production'.
+ */
+export function isDevelopmentOrTestEnvironment(): boolean {
+  const netlifyDev = process.env.NETLIFY_DEV?.toLowerCase();
+  const context = process.env.CONTEXT?.toLowerCase();
+  const nodeEnv = process.env.NODE_ENV?.toLowerCase();
+
+  if (netlifyDev === 'true' || netlifyDev === '1') {
+    return true;
+  }
+
+  if (nodeEnv === 'production') {
+    return false;
+  }
+
+  if (
+    context &&
+    context !== 'development' &&
+    nodeEnv !== 'test' &&
+    typeof process.env.VITEST === 'undefined'
+  ) {
+    return false;
+  }
+
+  if (
+    nodeEnv === 'development' ||
+    nodeEnv === 'test' ||
+    typeof process.env.VITEST !== 'undefined'
+  ) {
+    return true;
+  }
+
+  return false;
+}
+
+/**
  * Safely looks up configuration for a given tier key.
  * Returns null if the tier key is missing or unknown.
  */
