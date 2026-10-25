@@ -52,6 +52,7 @@ export function isLoopbackOrigin(origin: string | RegExp): boolean {
         hostname === 'localhost' ||
         hostname === '127.0.0.1' ||
         hostname === '::1' ||
+        hostname === '[::1]' ||
         hostname === '0.0.0.0'
       );
     } catch {
@@ -78,7 +79,12 @@ export function getDefaultAllowedOrigins(): (string | RegExp)[] {
   ];
 
   if (isDevelopmentEnvironment()) {
-    return [...baseOrigins, /localhost(:\d+)?$/, /127\.0\.0\.1(:\d+)?$/];
+    return [
+      ...baseOrigins,
+      /^https?:\/\/localhost(:\d+)?$/,
+      /^https?:\/\/127\.0\.0\.1(:\d+)?$/,
+      /^https?:\/\/\[::1\](:\d+)?$/,
+    ];
   }
 
   return baseOrigins.filter((origin) => !isLoopbackOrigin(origin));
