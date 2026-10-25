@@ -79,6 +79,62 @@ paths = ['astro/src/pages/.*']
       expect(result.valid).toBe(false);
       expect(result.reason).toContain('outside approved test/example path scopes');
     });
+
+    it('fails when malicious stopwords exemption is introduced', () => {
+      const invalidConfig = `
+useDefault = true
+[allowlist]
+stopwords = ["sk_live_"]
+regexes = ['slug-1']
+paths = ['tests/.*']
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(invalidConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('unauthorized exemption key "stopwords"');
+    });
+
+    it('fails when malicious commits or regexTarget exemption is introduced', () => {
+      const invalidCommitsConfig = `
+useDefault = true
+[allowlist]
+commits = ["a1b2c3d"]
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidCommitsConfig).valid).toBe(false);
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidCommitsConfig).reason).toContain(
+        'unauthorized exemption key "commits"'
+      );
+
+      const invalidTargetConfig = `
+useDefault = true
+[allowlist]
+regexTarget = "match"
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidTargetConfig).valid).toBe(false);
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidTargetConfig).reason).toContain(
+        'unauthorized exemption key "regexTarget"'
+      );
+    });
+
+    it('fails when dotted key exemptions or unauthorized sections are introduced', () => {
+      const invalidDottedConfig = `
+useDefault = true
+allowlist.stopwords = ["sk_live_"]
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidDottedConfig).valid).toBe(false);
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidDottedConfig).reason).toContain(
+        'unauthorized exemption key "stopwords"'
+      );
+
+      const invalidSectionConfig = `
+useDefault = true
+[rules]
+id = "custom-rule"
+`;
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidSectionConfig).valid).toBe(false);
+      expect(verifyGitleaksConfigExemptionsNotBroadened(invalidSectionConfig).reason).toContain(
+        'unauthorized section "[rules]"'
+      );
+    });
   });
 
   describe('PROTECTED regular expression patterns', () => {

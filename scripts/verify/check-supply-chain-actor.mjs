@@ -59,22 +59,109 @@ export function verifyGitleaksConfigExemptionsNotBroadened(content) {
     return { valid: false, reason: '.gitleaks.toml must keep "useDefault = true"' };
   }
 
-  if (/\[\[?rules/i.test(content)) {
-    return { valid: false, reason: '.gitleaks.toml must not define custom [[rules]] overrides' };
+  if (/^\s*\[\[/m.test(content)) {
+    const match = content.match(/^\s*\[\[\s*([^\s\]]+)\s*\]\]/m);
+    const tableName = match ? match[1] : 'unknown';
+    return {
+      valid: false,
+      reason: `.gitleaks.toml must not define custom [[rules]] overrides or table array "[[${tableName}]]"`,
+    };
+  }
+
+  const allowedSections = new Set(['root', 'extend', 'allowlist']);
+  const allowedKeysBySection = {
+    root: new Set(['title', 'useDefault']),
+    extend: new Set(['useDefault']),
+    allowlist: new Set(['description', 'regexes', 'paths']),
+  };
+
+  let currentSection = 'root';
+  const lines = content.split('\n');
+
+  for (let i = 0; i < lines.length; i++) {
+    const rawLine = lines[i];
+    const trimmed = rawLine.trim();
+    if (!trimmed || trimmed.startsWith('#')) continue;
+
+    let lineNoComment = '';
+    let inQuote = null;
+    for (let charIdx = 0; charIdx < trimmed.length; charIdx++) {
+      const ch = trimmed[charIdx];
+      if ((ch === '"' || ch === "'") && (charIdx === 0 || trimmed[charIdx - 1] !== '\\')) {
+        if (!inQuote) inQuote = ch;
+        else if (inQuote === ch) inQuote = null;
+      }
+      if (ch === '#' && !inQuote) {
+        break;
+      }
+      lineNoComment += ch;
+    }
+    const cleanLine = lineNoComment.trim();
+    if (!cleanLine) continue;
+
+    if (cleanLine.startsWith('[') && cleanLine.endsWith(']')) {
+      const sectionMatch = cleanLine.match(/^\[\s*([\w.-]+)\s*\]$/);
+      if (!sectionMatch) {
+        return {
+          valid: false,
+          reason: `invalid section header format "${cleanLine}" in .gitleaks.toml`,
+        };
+      }
+      const sectionName = sectionMatch[1].trim();
+      if (!allowedSections.has(sectionName)) {
+        return {
+          valid: false,
+          reason: `.gitleaks.toml contains unauthorized section "[${sectionName}]"`,
+        };
+      }
+      currentSection = sectionName;
+      continue;
+    }
+
+    const kvMatch = cleanLine.match(/^([\w.-]+)\s*=/);
+    if (kvMatch) {
+      const rawKey = kvMatch[1].trim();
+      let targetSection = currentSection;
+      let targetKey = rawKey;
+
+      if (rawKey.includes('.')) {
+        const parts = rawKey.split('.');
+        targetSection = parts[0];
+        targetKey = parts.slice(1).join('.');
+      }
+
+      if (!allowedSections.has(targetSection)) {
+        return {
+          valid: false,
+          reason: `.gitleaks.toml contains key for unauthorized section "${targetSection}"`,
+        };
+      }
+
+      const validKeys = allowedKeysBySection[targetSection];
+      if (!validKeys || !validKeys.has(targetKey)) {
+        return {
+          valid: false,
+          reason: `.gitleaks.toml contains unauthorized exemption key "${targetKey}" in section "${targetSection}"`,
+        };
+      }
+    }
   }
 
   const extractTomlArray = (key) => {
     const match = content.match(new RegExp(`${key}\\s*=\\s*\\[([^\\]]*)\\]`, 's'));
     if (!match) return [];
-    return match[1]
+    const rawInside = match[1];
+    const stringMatches = rawInside.match(/('''[\s\S]*?'''|"""[\s\S]*?"""|'[^']*'|"[^"]*")/g);
+    if (stringMatches) {
+      return stringMatches
+        .map((str) => str.replace(/^('''|"""|'|")/, '').replace(/('''|"""|'|")$/, ''))
+        .filter(Boolean);
+    }
+    return rawInside
       .split('\n')
       .map((line) => line.trim())
       .filter((line) => line && !line.startsWith('#'))
-      .map((line) => {
-        const cleaned = line.replace(/,$/, '').trim();
-        const quoteMatch = cleaned.match(/^('''|'|")([\s\S]*)\1$/);
-        return quoteMatch ? quoteMatch[2] : cleaned;
-      })
+      .map((line) => line.replace(/,$/, '').trim())
       .filter(Boolean);
   };
 
