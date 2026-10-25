@@ -25,7 +25,6 @@ export const STRICT_OWNER_ONLY = [
   /^(astro\/)?package\.json$/,
   /^(astro\/)?package-lock\.json$/,
   /^netlify\.toml$/,
-  /^\.gitleaks/,
 ];
 
 export const PROTECTED = [
@@ -69,8 +68,7 @@ export function checkSupplyChainActor({
   const normalizedOwners = rawOwners.filter(Boolean).map((o) => String(o).trim().toLowerCase());
 
   const hasLockfileOrConfig = files.some(
-    (f) =>
-      /^(astro\/)?package-lock\.json$/.test(f) || /^netlify\.toml$/.test(f) || /^\.gitleaks/.test(f)
+    (f) => /^(astro\/)?package-lock\.json$/.test(f) || /^netlify\.toml$/.test(f)
   );
   const strictTouched = files.filter((f) => STRICT_OWNER_ONLY.some((rx) => rx.test(f)));
   const isOwner = normalizedAuthor && normalizedOwners.includes(normalizedAuthor);

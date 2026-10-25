@@ -135,10 +135,10 @@ describe('check-supply-chain-actor', () => {
       expect(result.message).toContain('owner-only for EVERY author');
     });
 
-    it('still allows authorized bots on non-strict protected files (CI/verify scripts)', () => {
+    it('still allows authorized bots on non-strict protected files (CI/verify scripts, secret scanning configs)', () => {
       const result = checkSupplyChainActor({
-        changedFiles: ['.github/workflows/ci.yml', 'scripts/verify/pr-utils.mjs'],
-        author: 'google-labs-stitch',
+        changedFiles: ['.github/workflows/ci.yml', 'scripts/verify/pr-utils.mjs', '.gitleaks.toml'],
+        author: 'google-labs-stitch[bot]',
       });
 
       expect(result.success).toBe(true);
