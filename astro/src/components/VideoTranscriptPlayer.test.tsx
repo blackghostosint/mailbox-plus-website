@@ -39,6 +39,7 @@ describe('VideoTranscriptPlayer Component', () => {
     // Accessibility controls
     expect(html).toContain('Audio Descriptions: OFF');
     expect(html).toContain('Accessibility Options');
+    expect(html).toContain('aria-controls="audio-description-banner"');
 
     // Interactive Transcript section
     expect(html).toContain('Interactive Video Transcript');
@@ -75,6 +76,7 @@ describe('VideoTranscriptPlayer Component', () => {
 
     const descBtn = screen.getByRole('button', { name: /Audio Descriptions:/i });
     expect(descBtn.getAttribute('aria-pressed')).toBe('false');
+    expect(descBtn.getAttribute('aria-controls')).toBe('audio-description-banner');
 
     fireEvent.click(descBtn);
 
