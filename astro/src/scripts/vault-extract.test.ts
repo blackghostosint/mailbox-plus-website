@@ -1,7 +1,7 @@
 // vault-sync extractor — run as: npx vitest run scripts/vault-extract.test.ts
 // Writes /tmp/vault-data.json with all website config data for vault sync.
 import { describe, it } from 'vitest';
-import { writeFileSync } from 'node:fs';
+import { atomicWriteJsonSync } from '../../../scripts/lib/workspace-paths.ts';
 import { siteConfig } from '../config/siteConfig';
 import { coreServices } from '../config/services/core';
 import { packShipServices } from '../config/services/pack-ship';
@@ -51,7 +51,8 @@ describe('vault-extract', () => {
         categories: await collectFaqs(),
       },
     };
-    writeFileSync('/tmp/vault-data.json', JSON.stringify(out, null, 1));
+    const targetFile = process.env.TMP_DATA || '/tmp/vault-data.json';
+    atomicWriteJsonSync(targetFile, out, 1);
     // sanity: print counts
     const faqCount = (arr: unknown[]) => arr.length;
     console.log(
