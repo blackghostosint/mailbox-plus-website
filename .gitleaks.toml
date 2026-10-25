@@ -5,22 +5,8 @@ title = "Gitleaks secret scanning configuration"
 useDefault = true
 
 [allowlist]
-description = "Global allowlist for verified non-secret false positives"
+description = "Global allowlist for verified non-secret exact strings and designated test/example paths"
 regexes = [
-  '''dummy_stripe_secret_key''',
-  '''sk_test_placeholder''',
-  '''sk_test_[a-zA-Z0-9_]+''',
-  '''pk_test_[a-zA-Z0-9_]+''',
-  '''sk-test-.*''',
-  '''secret_123''',
-  '''secret_[a-zA-Z0-9_]+''',
-  '''vite_secret_456''',
-  '''vite_secret_.*''',
-  '''test_resend_key''',
-  '''test_[a-zA-Z0-9_]+_key''',
-  '''sk-local''',
-  '''dummy_.*''',
-  '''mock_.*''',
   '''chardon-returns-r1''',
   '''fedex-demand-surcharges-2026''',
   '''hambden-returns-r1''',
@@ -30,5 +16,8 @@ regexes = [
 paths = [
   '''\.env\.example''',
   '''netlify/functions/__tests__/.*''',
-  '''netlify/functions/lib/.*\.test\.ts'''
+  '''netlify/functions/lib/.*\.test\.ts''',
+  '''astro/src/lib/__tests__/.*''',
+  '''scripts/__tests__/.*''',
+  '''tests/.*'''
 ]
