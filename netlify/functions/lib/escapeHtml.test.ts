@@ -33,8 +33,17 @@ describe('escapeHtml', () => {
     expect(escapeHtml(undefined)).toBe('');
   });
 
-  it('handles numeric and boolean values by returning empty string', () => {
-    expect(escapeHtml(12345 as any)).toBe('');
-    expect(escapeHtml(true as any)).toBe('');
+  it('coerces numeric and boolean values to valid string representations', () => {
+    expect(escapeHtml(12345 as any)).toBe('12345');
+    expect(escapeHtml(true as any)).toBe('true');
+    expect(escapeHtml(false as any)).toBe('false');
+  });
+
+  it('preserves existing valid HTML entities without double escaping', () => {
+    expect(escapeHtml('Tom &amp; Jerry')).toBe('Tom &amp; Jerry');
+    expect(escapeHtml('5 &lt; 10')).toBe('5 &lt; 10');
+    expect(escapeHtml('&quot;quoted&quot; and &#39;single&#39;')).toBe(
+      '&quot;quoted&quot; and &#39;single&#39;'
+    );
   });
 });
