@@ -181,9 +181,9 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(mockCancel).toHaveBeenCalled();
     expect(mockSpeak).toHaveBeenCalled();
     expect(screen.getByText('Audio Description Narrating')).toBeTruthy();
-    expect(
-      document.getElementById('audio-description-text')?.textContent
-    ).toContain('Staff member reviewing incoming online mailbox registration');
+    expect(document.getElementById('audio-description-text')?.textContent).toContain(
+      'Staff member reviewing incoming online mailbox registration'
+    );
 
     const liveAnnouncer = document.getElementById('video-transcript-announcer');
     expect(liveAnnouncer?.textContent).toBe(
