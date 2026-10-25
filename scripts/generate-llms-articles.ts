@@ -13,10 +13,9 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { loadArticles } from './lib/article-utils.ts';
 import { toISODateString } from '../astro/src/utils/dateUtils.ts';
+import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT = path.resolve(__dirname, '..');
+const ROOT = getWorkspaceRoot();
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
 const LLMS_PATH = path.join(ROOT, 'public', 'llms.txt');
 const LLMS_FULL_PATH = path.join(ROOT, 'public', 'llms-full.txt');
@@ -219,8 +218,8 @@ export function runGenerateLLMsArticles(options?: {
   }
 
   // Write mode
-  fs.writeFileSync(llmsPath, expectedLlms);
-  fs.writeFileSync(llmsFullPath, expectedFull);
+  atomicWriteFileSync(llmsPath, expectedLlms);
+  atomicWriteFileSync(llmsFullPath, expectedFull);
 
   console.log('[llms] wrote llms.txt Articles section + llms-full.txt full text');
   return { expectedLlms, expectedFull };

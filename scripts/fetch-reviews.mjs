@@ -15,13 +15,12 @@
  * Env: GOOGLE_PLACES_API_KEY
  */
 
-import { writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { httpClient } from '../astro/src/lib/http-client.ts';
+import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const OUT_FILE = path.resolve(__dirname, '../astro/src/data/reviews.json');
+export const OUT_FILE = path.resolve(getWorkspaceRoot(), 'astro/src/data/reviews.json');
 export const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
 export const API_URL = `https://places.googleapis.com/v1/places/${PLACE_ID}`;
 export const FIELD_MASK =
@@ -72,7 +71,7 @@ export async function fetchAndSaveReviews(options = {}) {
 
     const payload = transformPlacesData(data);
 
-    writeFileSync(outFile, JSON.stringify(payload, null, 2) + '\n');
+    atomicWriteJsonSync(outFile, payload, 2);
     console.log(
       `[fetch-reviews] Wrote ${payload.reviews.length} reviews, rating ${payload.rating}, count ${payload.userRatingCount} → ${outFile}`
     );

@@ -2,10 +2,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { z } from 'zod';
+import { getWorkspaceRoot } from './workspace-paths.ts';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const ROOT_DIR = path.resolve(__dirname, '../..');
+const ROOT_DIR = getWorkspaceRoot();
 
 export const GetHtmlFilesInputSchema = z.string({
   invalid_type_error: 'Directory path must be a string',

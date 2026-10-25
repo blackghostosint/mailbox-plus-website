@@ -3,6 +3,7 @@ import path from 'path';
 import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
+import { getWorkspaceRoot } from './workspace-paths.ts';
 import {
   articleFrontmatterSchema,
   validateArticleFrontmatter,
@@ -49,8 +50,11 @@ export function getGrayMatter(): GrayMatterFn {
   }
 
   // Attempt 2: Relative module resolution paths
+  const root = getWorkspaceRoot();
   const currentDir = path.dirname(fileURLToPath(import.meta.url));
   const candidatePaths = [
+    path.resolve(root, 'node_modules', 'gray-matter'),
+    path.resolve(root, 'astro', 'node_modules', 'gray-matter'),
     path.resolve(process.cwd(), 'node_modules', 'gray-matter'),
     path.resolve(process.cwd(), 'astro', 'node_modules', 'gray-matter'),
     path.resolve(currentDir, '..', '..', 'node_modules', 'gray-matter'),
