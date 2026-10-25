@@ -32,6 +32,7 @@ export default [
       '**/coverage/**',
       // Astro build artifacts and standalone Python utilities
       'astro/.astro/',
+      'convert-images.cjs',
       'replace-framer.py',
       'replace-framer-v2.py',
     ],

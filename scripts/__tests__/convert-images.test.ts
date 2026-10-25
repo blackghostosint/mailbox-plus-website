@@ -1,13 +1,14 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import path from 'path';
-import fs from 'fs';
+import path from 'node:path';
+import fs from 'node:fs';
 import sharp from 'sharp';
-import { convertImages, INPUT_FILE, WEBP_OUTPUT, AVIF_OUTPUT } from '../convert-images.mjs';
+import { convertImages, INPUT_FILE, WEBP_OUTPUT, AVIF_OUTPUT } from '../../convert-images.cjs';
 
 describe('convert-images module', () => {
-  const tmpDir = path.resolve(process.cwd(), '../scripts/__test_convert_images_tmp__');
+  const tmpDir = path.resolve(process.cwd(), 'scripts/__test_convert_images_tmp__');
 
   beforeEach(() => {
+    process.exitCode = undefined;
     if (fs.existsSync(tmpDir)) {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -15,6 +16,7 @@ describe('convert-images module', () => {
   });
 
   afterEach(() => {
+    process.exitCode = undefined;
     if (fs.existsSync(tmpDir)) {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
@@ -26,32 +28,22 @@ describe('convert-images module', () => {
     expect(AVIF_OUTPUT).toContain('logo.avif');
   });
 
-  it('handles missing input image gracefully', async () => {
+  it('handles missing input image gracefully by throwing error and setting process.exitCode', async () => {
     const missingInput = path.join(tmpDir, 'non-existent.png');
     const webpOut = path.join(tmpDir, 'test.webp');
     const avifOut = path.join(tmpDir, 'test.avif');
 
-    const result = await convertImages({
-      input: missingInput,
-      webpOutput: webpOut,
-      avifOutput: avifOut,
-    });
-
-    expect(result.success).toBe(false);
-    expect(result.error).toContain('does not exist');
-    expect(fs.existsSync(webpOut)).toBe(false);
-    expect(fs.existsSync(avifOut)).toBe(false);
-  });
-
-  it('throws error when input is missing and throwOnError is true', async () => {
-    const missingInput = path.join(tmpDir, 'non-existent.png');
-
     await expect(
       convertImages({
         input: missingInput,
-        throwOnError: true,
+        webpOutput: webpOut,
+        avifOutput: avifOut,
       })
     ).rejects.toThrow('does not exist');
+
+    expect(process.exitCode).toBe(1);
+    expect(fs.existsSync(webpOut)).toBe(false);
+    expect(fs.existsSync(avifOut)).toBe(false);
   });
 
   it('successfully converts source image to WebP and AVIF formats', async () => {
@@ -59,7 +51,6 @@ describe('convert-images module', () => {
     const webpOut = path.join(tmpDir, 'test-output.webp');
     const avifOut = path.join(tmpDir, 'test-output.avif');
 
-    // Create a 10x10 dummy PNG image using sharp
     await sharp({
       create: {
         width: 10,
@@ -71,16 +62,34 @@ describe('convert-images module', () => {
       .png()
       .toFile(dummyInput);
 
-    const result = await convertImages({
+    const results = await convertImages({
       input: dummyInput,
       webpOutput: webpOut,
       avifOutput: avifOut,
     });
 
-    expect(result.success).toBe(true);
-    expect(result.webpSuccess).toBe(true);
-    expect(result.avifSuccess).toBe(true);
+    expect(results).toHaveLength(2);
     expect(fs.existsSync(webpOut)).toBe(true);
     expect(fs.existsSync(avifOut)).toBe(true);
+  });
+
+  it('rethrows error and sets process.exitCode = 1 when sharp processing fails', async () => {
+    const invalidInput = path.join(tmpDir, 'invalid-image.png');
+    fs.writeFileSync(invalidInput, 'not a real image data');
+
+    const webpOut = path.join(tmpDir, 'corrupted.webp');
+    const avifOut = path.join(tmpDir, 'corrupted.avif');
+
+    await expect(
+      convertImages({
+        input: invalidInput,
+        webpOutput: webpOut,
+        avifOutput: avifOut,
+      })
+    ).rejects.toThrow();
+
+    expect(process.exitCode).toBe(1);
+    expect(fs.existsSync(webpOut)).toBe(false);
+    expect(fs.existsSync(avifOut)).toBe(false);
   });
 });
