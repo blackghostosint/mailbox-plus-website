@@ -1,9 +1,85 @@
 import { describe, it, expect } from 'vitest';
-import { checkSupplyChainActor, PROTECTED, DEFAULT_OWNER } from '../check-supply-chain-actor.mjs';
+import {
+  checkSupplyChainActor,
+  verifyGitleaksConfigExemptionsNotBroadened,
+  PROTECTED,
+  DEFAULT_OWNER,
+} from '../check-supply-chain-actor.mjs';
 
 describe('check-supply-chain-actor', () => {
   const EXTERNAL_AUTHOR = 'external-contributor';
   const REPO_OWNER = DEFAULT_OWNER;
+
+  describe('verifyGitleaksConfigExemptionsNotBroadened', () => {
+    it('passes for valid path-scoped gitleaks config with exact slug regexes', () => {
+      const validConfig = `
+title = "Gitleaks secret scanning configuration"
+useDefault = true
+
+[allowlist]
+description = "Global allowlist for verified non-secret exact strings and designated test/example paths"
+regexes = [
+  '''chardon-returns-r1''',
+  '''fedex-demand-surcharges-2026'''
+]
+paths = [
+  '''\\.env\\.example''',
+  '''netlify/functions/__tests__/.*''',
+  '''astro/src/lib/__tests__/.*'''
+]
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(validConfig);
+      expect(result.valid).toBe(true);
+    });
+
+    it('fails when useDefault is missing or false', () => {
+      const invalidConfig = `
+useDefault = false
+[allowlist]
+regexes = ['slug-1']
+paths = ['tests/.*']
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(invalidConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('useDefault = true');
+    });
+
+    it('fails when custom rules blocks are introduced', () => {
+      const invalidConfig = `
+useDefault = true
+[[rules]]
+id = "custom-rule"
+regex = '''.*'''
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(invalidConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('custom [[rules]] overrides');
+    });
+
+    it('fails when regexes contains broad wildcards or secret placeholders', () => {
+      const invalidConfig = `
+useDefault = true
+[allowlist]
+regexes = ['sk_test_.*']
+paths = ['tests/.*']
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(invalidConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('disallowed wildcard or secret placeholder pattern');
+    });
+
+    it('fails when paths entry is outside approved test/example scopes', () => {
+      const invalidConfig = `
+useDefault = true
+[allowlist]
+regexes = ['slug-1']
+paths = ['astro/src/pages/.*']
+`;
+      const result = verifyGitleaksConfigExemptionsNotBroadened(invalidConfig);
+      expect(result.valid).toBe(false);
+      expect(result.reason).toContain('outside approved test/example path scopes');
+    });
+  });
 
   describe('PROTECTED regular expression patterns', () => {
     it('matches workflow files', () => {

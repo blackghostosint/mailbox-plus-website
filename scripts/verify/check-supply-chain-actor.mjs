@@ -10,6 +10,7 @@
 // scripts/verify/*, netlify.toml, .gitleaks*
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import fs from 'node:fs';
 import { readFilesList } from './pr-utils.mjs';
 
 export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
@@ -17,15 +18,12 @@ export const DEFAULT_OWNER = process.env.REPO_OWNER || 'blackghostosint';
 export const DEFAULT_AUTHORIZED_BOTS = ['google-labs-stitch[bot]', 'google-labs-stitch'];
 
 // Strict owner-only files: automated agents (incl. authorized bots) may NEVER
-// touch these, because they alter the dependency/config surface where the
-// PR #720 typosquat lived. Bot-authored CI/a11y/code PRs remain allowed.
-// (2026-10-23, PR #797: an authorized bot removed netlify/functions from root
-// workspaces via package.json+lockfile — passed this gate, caught only by L3 review.)
+// touch dependency manifests (package.json / package-lock.json) or netlify.toml.
+// Bot-authored CI/a11y/code PRs remain allowed.
 export const STRICT_OWNER_ONLY = [
   /^(astro\/)?package\.json$/,
   /^(astro\/)?package-lock\.json$/,
   /^netlify\.toml$/,
-  /^\.gitleaks/,
 ];
 
 export const PROTECTED = [
@@ -37,6 +35,92 @@ export const PROTECTED = [
   /^\.gitleaks/,
 ];
 
+const APPROVED_GITLEAKS_PATH_PATTERNS = [
+  /^\.env\.example$/,
+  /^netlify\/functions\/__tests__\//,
+  /^netlify\/functions\/lib\/.*\.test\.ts$/,
+  /^astro\/src\/lib\/__tests__\//,
+  /^scripts\/__tests__\//,
+  /^tests\//,
+];
+
+/**
+ * Validates that a .gitleaks.toml configuration does not broaden secret-scanning exemptions.
+ *
+ * @param {string} content - Raw .gitleaks.toml file content
+ * @returns {{ valid: boolean, reason?: string }}
+ */
+export function verifyGitleaksConfigExemptionsNotBroadened(content) {
+  if (!content || typeof content !== 'string') {
+    return { valid: false, reason: '.gitleaks.toml content is empty or unreadable' };
+  }
+
+  if (!/useDefault\s*=\s*true/i.test(content)) {
+    return { valid: false, reason: '.gitleaks.toml must keep "useDefault = true"' };
+  }
+
+  if (/\[\[?rules/i.test(content)) {
+    return { valid: false, reason: '.gitleaks.toml must not define custom [[rules]] overrides' };
+  }
+
+  const extractTomlArray = (key) => {
+    const match = content.match(new RegExp(`${key}\\s*=\\s*\\[([^\\]]*)\\]`, 's'));
+    if (!match) return [];
+    return match[1]
+      .split('\n')
+      .map((line) => line.trim())
+      .filter((line) => line && !line.startsWith('#'))
+      .map((line) => {
+        const cleaned = line.replace(/,$/, '').trim();
+        const quoteMatch = cleaned.match(/^('''|'|")([\s\S]*)\1$/);
+        return quoteMatch ? quoteMatch[2] : cleaned;
+      })
+      .filter(Boolean);
+  };
+
+  const regexes = extractTomlArray('regexes');
+  const disallowedRegexTerms = [
+    /\.\*/,
+    /\.\+/,
+    /\[.*\]/,
+    /\\w/,
+    /\\d/,
+    /secret/i,
+    /dummy/i,
+    /mock/i,
+    /^sk[-_]/i,
+    /^pk[-_]/i,
+  ];
+  for (const entry of regexes) {
+    if (disallowedRegexTerms.some((rx) => rx.test(entry))) {
+      return {
+        valid: false,
+        reason: `regexes entry "${entry}" contains disallowed wildcard or secret placeholder pattern`,
+      };
+    }
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(entry)) {
+      return {
+        valid: false,
+        reason: `regexes entry "${entry}" is not an exact non-secret slug identifier`,
+      };
+    }
+  }
+
+  const paths = extractTomlArray('paths');
+  for (const entry of paths) {
+    const normalizedPath = entry.replace(/\\([./])/g, '$1');
+    const isApproved = APPROVED_GITLEAKS_PATH_PATTERNS.some((rx) => rx.test(normalizedPath));
+    if (!isApproved) {
+      return {
+        valid: false,
+        reason: `paths entry "${entry}" is outside approved test/example path scopes`,
+      };
+    }
+  }
+
+  return { valid: true };
+}
+
 /**
  * Validates that protected supply-chain files are only modified by the repository owner or authorized bot.
  *
@@ -45,6 +129,7 @@ export const PROTECTED = [
  * @param {string} [options.author] - Username/login of the PR author
  * @param {string|string[]} [options.owner] - Repository owner username/login or list of allowed owners
  * @param {string[]} [options.authorizedBots] - List of authorized bot logins on behalf of owner
+ * @param {string} [options.repoRoot] - Optional repository root directory for reading files
  * @returns {{ success: boolean, touched: string[], message: string }}
  */
 export function checkSupplyChainActor({
@@ -52,6 +137,7 @@ export function checkSupplyChainActor({
   author = '',
   owner = DEFAULT_OWNER,
   authorizedBots = DEFAULT_AUTHORIZED_BOTS,
+  repoRoot = process.cwd(),
 } = {}) {
   const files = Array.isArray(changedFiles) ? changedFiles : [];
   const touched = files.filter((f) => PROTECTED.some((rx) => rx.test(f)));
@@ -68,17 +154,13 @@ export function checkSupplyChainActor({
   const rawOwners = Array.isArray(owner) ? owner : [owner];
   const normalizedOwners = rawOwners.filter(Boolean).map((o) => String(o).trim().toLowerCase());
 
-  const hasLockfileOrConfig = files.some(
-    (f) =>
-      /^(astro\/)?package-lock\.json$/.test(f) || /^netlify\.toml$/.test(f) || /^\.gitleaks/.test(f)
-  );
   const strictTouched = files.filter((f) => STRICT_OWNER_ONLY.some((rx) => rx.test(f)));
   const isOwner = normalizedAuthor && normalizedOwners.includes(normalizedAuthor);
   const isAuthorizedBot =
     normalizedAuthor &&
     (authorizedBots || []).map((b) => b.trim().toLowerCase()).includes(normalizedAuthor);
 
-  if (strictTouched.length && !isOwner && (!isAuthorizedBot || hasLockfileOrConfig)) {
+  if (strictTouched.length && !isOwner) {
     return {
       success: false,
       touched: strictTouched,
@@ -87,6 +169,52 @@ export function checkSupplyChainActor({
         'These files are owner-only for EVERY author including authorized bots (see PR #797). ' +
         'Dependency and config changes must be applied by the repo owner.',
     };
+  }
+
+  const gitleaksFiles = files.filter((f) => /^\.gitleaks/.test(f));
+  if (gitleaksFiles.length && !isOwner) {
+    if (!isAuthorizedBot) {
+      return {
+        success: false,
+        touched: gitleaksFiles,
+        message:
+          `PR by "${author}" touches protected supply-chain files: ${gitleaksFiles.join(', ')}. ` +
+          'Dependency overrides and CI workflow changes require a PR from the repo owner.',
+      };
+    }
+
+    const nonConfigFile = gitleaksFiles.find((f) => f !== '.gitleaks.toml');
+    if (nonConfigFile) {
+      return {
+        success: false,
+        touched: [nonConfigFile],
+        message:
+          `❌ secret scanning config "${nonConfigFile}" touched by authorized bot "${author}" is strictly owner-only.`,
+      };
+    }
+
+    const gitleaksPath = path.join(repoRoot, '.gitleaks.toml');
+    let content = '';
+    try {
+      content = fs.readFileSync(gitleaksPath, 'utf8');
+    } catch {
+      return {
+        success: false,
+        touched: ['.gitleaks.toml'],
+        message: `❌ unable to read .gitleaks.toml for validation at ${gitleaksPath}`,
+      };
+    }
+
+    const validation = verifyGitleaksConfigExemptionsNotBroadened(content);
+    if (!validation.valid) {
+      return {
+        success: false,
+        touched: ['.gitleaks.toml'],
+        message:
+          `❌ .gitleaks.toml touched by authorized bot "${author}" violates exemption restrictions: ${validation.reason}. ` +
+          'Secret scanning configurations may not broaden allowlists or wildcards.',
+      };
+    }
   }
 
   const isDefaultOwnerIncluded = normalizedOwners.some((o) => o === DEFAULT_OWNER.toLowerCase());
