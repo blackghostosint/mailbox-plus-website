@@ -22,7 +22,18 @@ const LOCAL_PAGES_PATH = path.join(ROOT_DIR, 'astro/src/data/localPages.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ANCHOR_TEXT_PATH = path.join(ROOT_DIR, 'astro/src/data/anchorText.json');
 
-export const formatUrl = (url: string): string => toRouteKey(url);
+export const formatUrl = (url: string): string => {
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    try {
+      const parsed = new URL(url);
+      const routeKey = toRouteKey(parsed.pathname + parsed.search + parsed.hash);
+      return `${parsed.origin}${routeKey === '/' ? '' : routeKey}`;
+    } catch {
+      // ignore parsing error, fallback to toRouteKey
+    }
+  }
+  return toRouteKey(url);
+};
 
 export const getId = (id: string): string => {
   if (id === 'ups-authorized-shipper-outlet') return 'ups-shipping';
