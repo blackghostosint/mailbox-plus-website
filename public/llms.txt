@@ -64,6 +64,8 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 
 ### document-services
 
+- [BCI vs FBI Background Checks in Ohio: WebCheck Reason Codes and What to Bring](https://mailboxplusohio.com/articles/bci-fbi-webcheck-fingerprinting-ohio-requirements/): Ohio WebCheck fingerprinting requirements explained: which check you need (BCI, FBI, or both), how reason codes and ORC numbers work, what to bring, and how long results take.
+  Published 2026-10-26.
 - [Your Chardon Filing Cabinet Has Tax Returns From 2008. Digitize Them.](https://mailboxplusohio.com/articles/chardon-document-scanning/): Old farm records, tax returns, medical bills — all sitting in a filing cabinet in Chardon. Mailbox Plus scans everything to digital files while you wait.
   Published 2026-07-05.
 - [Need Fingerprints in Chardon? The Sheriff's Office has a Wait. We Don't.](https://mailboxplusohio.com/articles/chardon-fingerprinting/): Job application or license needing fingerprints in Chardon? Mailbox Plus does digital Live Scan fingerprinting. Walk in, no appointment.
