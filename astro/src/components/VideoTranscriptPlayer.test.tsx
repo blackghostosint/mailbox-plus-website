@@ -40,6 +40,9 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(html).toContain('Audio Descriptions: OFF');
     expect(html).toContain('Accessibility Options');
     expect(html).toContain('aria-controls="audio-description-banner"');
+    expect(html).toContain('role="status"');
+    expect(html).toContain('aria-live="polite"');
+    expect(html).toContain('aria-atomic="true"');
 
     // Interactive Transcript section
     expect(html).toContain('Interactive Video Transcript');
@@ -178,9 +181,19 @@ describe('VideoTranscriptPlayer Component', () => {
     expect(mockCancel).toHaveBeenCalled();
     expect(mockSpeak).toHaveBeenCalled();
     expect(screen.getByText('Audio Description Narrating')).toBeTruthy();
-    expect(
-      screen.getByText(/Staff member reviewing incoming online mailbox registration/i)
-    ).toBeTruthy();
+    expect(document.getElementById('audio-description-text')?.textContent).toContain(
+      'Staff member reviewing incoming online mailbox registration'
+    );
+
+    const liveAnnouncer = document.getElementById('video-transcript-announcer');
+    expect(liveAnnouncer?.textContent).toBe(
+      'Transcript line: After you submit the form, we review your application. Business accounts check next business day. Personal accounts activate right away.'
+    );
+
+    const banner = document.getElementById('audio-description-banner');
+    expect(banner?.getAttribute('role')).toBe('status');
+    expect(banner?.getAttribute('aria-live')).toBe('polite');
+    expect(banner?.getAttribute('aria-atomic')).toBe('true');
 
     // Fire pause event to cancel speech synthesis
     act(() => {
