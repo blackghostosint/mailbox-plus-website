@@ -8,7 +8,7 @@ import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const ROOT_DIR = path.resolve(__dirname, '..');
+const _ROOT_DIR = path.resolve(__dirname, '..');
 const DIST_DIR = resolveDistDir();
 const BATCH_SIZE = 2;
 
@@ -487,6 +487,7 @@ function saveAuditReport(reportData, outputDir) {
 function evaluateBatchResult(result, expectedUrlCount) {
   const { code, stdout, stderr } = result;
 
+  // eslint-disable-next-line no-control-regex
   const stripAnsi = (str) => (str || '').replace(/\u001b\[[0-9;]*[a-zA-Z]/g, '');
   const cleanStdout = stripAnsi(stdout);
   const cleanStderr = stripAnsi(stderr);

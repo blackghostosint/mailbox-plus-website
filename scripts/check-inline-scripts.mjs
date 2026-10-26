@@ -50,7 +50,7 @@ export function checkInlineScripts(targetDir) {
   let distDir;
   try {
     distDir = targetDir || resolveDistDir();
-  } catch (err) {
+  } catch (_err) {
     distDir = targetDir;
   }
 

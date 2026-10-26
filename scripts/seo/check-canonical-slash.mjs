@@ -31,7 +31,7 @@ export function checkCanonicalSlash(distDir = DIST_DIR) {
     /<script\s+[^>]*type\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script\b[^>]*>/gi;
 
   for (const file of htmlFiles) {
-    const relPath = path.relative(ROOT_DIR, file).replace(/\\/g, '/');
+    const _relPath = path.relative(ROOT_DIR, file).replace(/\\/g, '/');
     const content = fs.readFileSync(file, 'utf8');
 
     // --- A) Parse rel=canonical ---
@@ -49,7 +49,7 @@ export function checkCanonicalSlash(distDir = DIST_DIR) {
             if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
               throw new Error('Not http or https protocol');
             }
-          } catch (e) {
+          } catch (_e) {
             hasErrors = true;
             totalFailures++;
             continue;
@@ -75,7 +75,7 @@ export function checkCanonicalSlash(distDir = DIST_DIR) {
       let json;
       try {
         json = JSON.parse(scriptContent);
-      } catch (err) {
+      } catch (_err) {
         hasErrors = true;
         totalFailures++;
         continue;
@@ -86,7 +86,7 @@ export function checkCanonicalSlash(distDir = DIST_DIR) {
         let parsedUrl;
         try {
           parsedUrl = new URL(value);
-        } catch (e) {
+        } catch (_e) {
           return;
         }
 

@@ -24,7 +24,7 @@ import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
-import { checkArticleOwnership, IN_HOUSE_STAMP } from './check-article-ownership.mjs';
+import { checkArticleOwnership } from './check-article-ownership.mjs';
 import {
   readPRBody,
   readFilesList,
@@ -34,7 +34,7 @@ import {
 } from './pr-utils.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT = path.resolve(__dirname, '../..');
+const _ROOT = path.resolve(__dirname, '../..');
 
 export { detectLocalChangedFiles, detectLocalBodyFile };
 

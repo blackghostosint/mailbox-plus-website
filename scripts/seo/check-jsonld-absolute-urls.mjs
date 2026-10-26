@@ -6,7 +6,7 @@ import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const ROOT_DIR = path.resolve(__dirname, '../..');
+const _ROOT_DIR = path.resolve(__dirname, '../..');
 const DIST_DIR = resolveDistDir();
 
 export function checkJsonLdAbsoluteUrls(distDir = DIST_DIR) {
@@ -39,7 +39,7 @@ export function checkJsonLdAbsoluteUrls(distDir = DIST_DIR) {
       let json;
       try {
         json = JSON.parse(scriptContent);
-      } catch (err) {
+      } catch (_err) {
         hasErrors = true;
         totalFailures++;
         continue;
@@ -54,7 +54,9 @@ export function checkJsonLdAbsoluteUrls(distDir = DIST_DIR) {
             if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
               isValid = true;
             }
-          } catch (e) {}
+          } catch (_e) {
+            // Invalid URL string
+          }
         }
         if (!isValid) {
           hasErrors = true;

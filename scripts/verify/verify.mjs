@@ -168,7 +168,9 @@ function initHeadingCorpus() {
         // doesn't drown real signal; the gate self-tightens as varied articles accumulate.
         legacy: retired / hs.length >= 0.6,
       });
-    } catch (e) {}
+    } catch (_e) {
+      // Ignore unparseable article frontmatter or structure
+    }
   });
   return headingCorpus;
 }
@@ -209,7 +211,9 @@ function initNewArticles() {
           ) {
             base = eventPayload.pull_request.base.sha.trim();
           }
-        } catch {}
+        } catch (_e) {
+          // Ignore invalid JSON or missing event payload
+        }
       }
     }
   }
@@ -1406,7 +1410,7 @@ function cmdBuild() {
   const npmCmd = process.platform === 'win32' ? 'npm.cmd' : 'npm';
   try {
     execFileSync(npmCmd, ['run', 'build'], { cwd: ROOT, stdio: 'inherit', timeout: 600000 });
-  } catch (e) {
+  } catch (_e) {
     check('build', false, 'npm run build failed', 'fix build errors first');
     return;
   }
@@ -1452,7 +1456,7 @@ function cmdSitemap(expectPath) {
   }
 }
 
-function cmdReview(targetPath) {
+function cmdReview(targetPath, rest = [], asJson = false) {
   const abs = path.isAbsolute(targetPath) ? targetPath : path.join(ROOT, targetPath);
   if (!fs.existsSync(abs)) {
     check('review:file-exists', false, `${targetPath} not found`, 'check file path');
@@ -2155,7 +2159,7 @@ export function runCli() {
   } else if (cmd === 'sitemap') {
     cmdSitemap(fileArgs[0]);
   } else if (cmd === 'review' && fileArgs[0]) {
-    cmdReview(fileArgs[0]);
+    cmdReview(fileArgs[0], rest, asJson);
   } else if (cmd === 'headings') {
     cmdHeadings();
   } else if (cmd === 'seo-gates') {

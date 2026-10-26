@@ -9,37 +9,37 @@ import prettier from 'eslint-plugin-prettier';
 
 export default [
   {
-    // Directory and file exclusions for ESLint.
-    // Note: 'netlify/' and 'scripts/' are excluded from ESLint because they use independent
-    // TypeScript configurations (e.g., netlify/functions/tsconfig.json and root tsconfig.json)
-    // verified via `npm run typecheck` and dedicated audit scripts rather than frontend ESLint rules.
+    // Standalone global ignores object
     ignores: [
       // Build outputs and dependencies
       'dist',
+      '**/dist/**',
       'node_modules',
-      // Configuration files
-      '*.config.js',
-      '*.config.ts',
+      '**/node_modules/**',
+      // Legacy configuration files
       '.eslintrc.cjs',
       '.eslintrc.json',
-      // Serverless functions and build/SEO/audit tooling (checked via independent TypeScript configs)
-      'netlify/',
-      'scripts/',
       // Knowledge base runners, archived code, and coverage reports
-      'knowledge/',
-      'archive/',
-      'coverage/',
+      'knowledge/**',
+      '**/knowledge/**',
+      'archive/**',
+      '**/archive/**',
+      'coverage/**',
       '**/coverage/**',
       // Astro build artifacts and standalone Python utilities
       'astro/.astro/',
-      'convert-images.cjs',
       'replace-framer.py',
       'replace-framer-v2.py',
     ],
   },
+  {
+    linterOptions: {
+      reportUnusedDisableDirectives: 'off',
+    },
+  },
   js.configs.recommended,
   {
-    files: ['**/*.{ts,tsx,js,jsx}'],
+    files: ['**/*.{ts,tsx,js,jsx,mjs,cjs}'],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'module',
@@ -49,32 +49,23 @@ export default [
         ecmaFeatures: { jsx: true },
       },
     },
-    settings: {
-      react: {
-        version: 'detect',
-      },
-    },
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      react,
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-      'jsx-a11y': jsxA11y,
       prettier,
     },
     rules: {
       // TypeScript rules
-      '@typescript-eslint/no-unused-vars': 'warn',
-      '@typescript-eslint/no-explicit-any': 'warn',
-
-      // React hooks
-      ...reactHooks.configs.recommended.rules,
-
-      // JSX accessibility
-      ...jsxA11y.configs.recommended.rules,
-
-      // React Refresh
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          caughtErrorsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
+        },
+      ],
+      '@typescript-eslint/no-explicit-any': 'off',
 
       // Prettier integration - turn Prettier errors into ESLint errors
       'prettier/prettier': 'error',
@@ -101,6 +92,58 @@ export default [
           ],
         },
       ],
+    },
+  },
+  {
+    files: ['**/*.ts', '**/*.tsx'],
+    rules: {
+      'no-undef': 'off',
+    },
+  },
+  {
+    // Environment override for Node.js runtime scripts, serverless functions, and configuration files
+    files: [
+      'netlify/**/*.{ts,js,mjs,cjs}',
+      'scripts/**/*.{ts,js,mjs,cjs}',
+      '*.config.{js,ts,mjs,cjs}',
+      '*.config.js',
+      '*.config.ts',
+      'convert-images.cjs',
+    ],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.es2021,
+        ...globals.browser,
+      },
+    },
+  },
+  {
+    // Environment override and React/JSX rules strictly scoped to frontend components
+    files: ['astro/**/*.{ts,tsx,js,jsx}', 'src/**/*.{ts,tsx,js,jsx}'],
+    languageOptions: {
+      globals: globals.browser,
+    },
+    settings: {
+      react: {
+        version: 'detect',
+      },
+    },
+    plugins: {
+      react,
+      'react-hooks': reactHooks,
+      'react-refresh': reactRefresh,
+      'jsx-a11y': jsxA11y,
+    },
+    rules: {
+      // React hooks
+      ...reactHooks.configs.recommended.rules,
+
+      // JSX accessibility
+      ...jsxA11y.configs.recommended.rules,
+
+      // React Refresh
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 
       // Accessibility
       'jsx-a11y/control-has-associated-label': 'error',

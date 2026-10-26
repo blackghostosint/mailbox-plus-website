@@ -167,7 +167,7 @@ export function auditInternalLinkStrategy(options = {}) {
   }
 
   const relatedEdges = new Map();
-  for (const [srcId, entry] of Object.entries(internalLinks)) {
+  for (const [_srcId, entry] of Object.entries(internalLinks)) {
     if (entry && Array.isArray(entry.related)) {
       for (const relId of entry.related) {
         const route = idToRoute.get(relId) || normalizePath(String(relId));
