@@ -3,23 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const _ROOT_DIR = path.resolve(__dirname, '../..');
-const DIST_DIR = resolveDistDir();
-
-export function checkJsonLdAbsoluteUrls(distDir = DIST_DIR) {
-  if (!fs.existsSync(distDir)) {
-    return {
-      ok: false,
-      error: `Build output directory "${distDir}" does not exist.`,
-      failures: 0,
-      scriptsChecked: 0,
-      htmlFilesCount: 0,
-    };
-  }
-
-  const htmlFiles = getHtmlFiles(distDir);
+export function validateJsonLdContent(content) {
   let totalScriptsChecked = 0;
   let totalFailures = 0;
   let hasErrors = false;
@@ -27,58 +11,89 @@ export function checkJsonLdAbsoluteUrls(distDir = DIST_DIR) {
   const scriptRegex =
     /<script\s+[^>]*type\s*=\s*["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script\b[^>]*>/gi;
 
-  for (const file of htmlFiles) {
-    const content = fs.readFileSync(file, 'utf8');
-    const matches = [...content.matchAll(scriptRegex)];
+  const matches = [...content.matchAll(scriptRegex)];
 
-    for (const match of matches) {
-      totalScriptsChecked++;
-      const scriptContent = match[1].trim();
+  for (const match of matches) {
+    totalScriptsChecked++;
+    const scriptContent = match[1].trim();
 
-      let json;
-      try {
-        json = JSON.parse(scriptContent);
-      } catch (_err) {
+    let json;
+    try {
+      json = JSON.parse(scriptContent);
+    } catch (_err) {
+      hasErrors = true;
+      totalFailures++;
+      continue;
+    }
+
+    function validateValue(value) {
+      if (typeof value !== 'string') return;
+      let isValid = false;
+      if (!value.startsWith('/')) {
+        try {
+          const parsedUrl = new URL(value);
+          if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
+            isValid = true;
+          }
+        } catch (_e) {
+          // Invalid URL string
+        }
+      }
+      if (!isValid) {
         hasErrors = true;
         totalFailures++;
-        continue;
       }
+    }
 
-      function validateValue(value) {
-        if (typeof value !== 'string') return;
-        let isValid = false;
-        if (!value.startsWith('/')) {
-          try {
-            const parsedUrl = new URL(value);
-            if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
-              isValid = true;
-            }
-          } catch (_e) {
-            // Invalid URL string
-          }
-        }
-        if (!isValid) {
-          hasErrors = true;
-          totalFailures++;
-        }
+    function traverse(obj) {
+      if (!obj || typeof obj !== 'object') return;
+      if (Array.isArray(obj)) {
+        obj.forEach((item) => traverse(item));
+        return;
       }
-
-      function traverse(obj) {
-        if (!obj || typeof obj !== 'object') return;
-        if (Array.isArray(obj)) {
-          obj.forEach((item) => traverse(item));
-          return;
+      for (const key of Object.keys(obj)) {
+        const val = obj[key];
+        if (key === '@id' || key === 'url') {
+          validateValue(val);
         }
-        for (const key of Object.keys(obj)) {
-          const val = obj[key];
-          if (key === '@id' || key === 'url') {
-            validateValue(val);
-          }
-          traverse(val);
-        }
+        traverse(val);
       }
+    }
 
-      traverse(json);
+    traverse(json);
+  }
+
+  return {
+    ok: !hasErrors,
+    failures: totalFailures,
+    scriptsChecked: totalScriptsChecked,
+  };
+}
+
+export function checkJsonLdAbsoluteUrls(distDir) {
+  const dir = distDir || resolveDistDir();
+  if (!fs.existsSync(dir)) {
+    return {
+      ok: false,
+      error: `Build output directory "${dir}" does not exist.`,
+      failures: 0,
+      scriptsChecked: 0,
+      htmlFilesCount: 0,
+    };
+  }
+
+  const htmlFiles = getHtmlFiles(dir);
+  let totalScriptsChecked = 0;
+  let totalFailures = 0;
+  let hasErrors = false;
+
+  for (const file of htmlFiles) {
+    const content = fs.readFileSync(file, 'utf8');
+    const res = validateJsonLdContent(content);
+    totalScriptsChecked += res.scriptsChecked;
+    if (!res.ok) {
+      hasErrors = true;
+      totalFailures += res.failures;
     }
   }
 
