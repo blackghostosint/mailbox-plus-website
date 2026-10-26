@@ -9,7 +9,7 @@ const AVIF_OUTPUT = path.resolve(__dirname, 'public', 'logo.avif');
 function getSharp() {
   try {
     return require('sharp');
-  } catch (err) {
+  } catch (_err) {
     try {
       const astroPackagePath = path.resolve(__dirname, 'astro', 'package.json');
       const astroRequire = createRequire(astroPackagePath);

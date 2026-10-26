@@ -200,7 +200,7 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
     }
     return value;
   },
-  set(target, prop, value, receiver) {
+  set(target, prop, value, _receiver) {
     if (mutatedStore === null) {
       mutatedStore = [...getCurrentOrigins()];
     }
@@ -222,7 +222,7 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
     const currentOrigins = getCurrentOrigins();
     return Reflect.has(currentOrigins, prop);
   },
-  ownKeys(target) {
+  ownKeys(_target) {
     const currentOrigins = getCurrentOrigins();
     return Reflect.ownKeys(currentOrigins);
   },
@@ -247,12 +247,12 @@ export const DEFAULT_ALLOWED_ORIGINS: (string | RegExp)[] = new Proxy([] as (str
   },
 });
 
-function hasHeader(headers: Record<string, any>, name: string): boolean {
+function _hasHeader(headers: Record<string, any>, name: string): boolean {
   const lowerName = name.toLowerCase();
   return Object.keys(headers).some((k) => k.toLowerCase() === lowerName);
 }
 
-function getHeaderValue(
+function _getHeaderValue(
   headers: Record<string, any> | undefined,
   name: string
 ): string | undefined {
