@@ -17,11 +17,9 @@ export const competePages: Service[] = [
       ],
       priority: false,
     },
-    ogImage:
-      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
+    ogImage: '/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
     headJsonLd: getImageObjectSchema({
-      contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
+      contentUrl: '/articles/pack-ship/fedex-office-alternative-willoughby-featured.webp',
       name: 'FedEx Office Alternative in Willoughby — 4 Carriers, 1 Counter | Mailbox Plus',
       description: 'Mailbox Plus shipping service for Willoughby customers',
     }),

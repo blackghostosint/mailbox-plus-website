@@ -18,11 +18,9 @@ export const competePages: Service[] = [
       ],
       priority: false,
     },
-    ogImage:
-      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+    ogImage: '/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
     headJsonLd: getImageObjectSchema({
-      contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+      contentUrl: '/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
       name: 'Post Office Alternative in Eastlake, OH | Mailbox Plus',
       description: 'Mailbox Plus post office alternative for Eastlake customers',
     }),
