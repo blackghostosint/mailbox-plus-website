@@ -40,6 +40,17 @@ describe('fadeUp', () => {
     expect(config.transition.duration).toBe(0.6);
   });
 
+  it('handles explicit undefined argument by falling back to default delay of 0', () => {
+    const config = fadeUp(undefined);
+    expect(config.transition.delay).toBe(0);
+  });
+
+  it('handles negative delay values', () => {
+    const config = fadeUp(-0.5);
+    expect(config.transition.delay).toBe(-0.5);
+    expect(config.transition.duration).toBe(0.6);
+  });
+
   it('returns fresh object instances on each invocation', () => {
     const config1 = fadeUp(0.1);
     const config2 = fadeUp(0.1);
