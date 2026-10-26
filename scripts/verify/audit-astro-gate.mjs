@@ -5,8 +5,8 @@
 // advisories named in AUDIT_ALLOW env (space-separated GHSA ids). Any high
 // advisory NOT in the allowlist fails the gate.
 // TODO(2026-10): remove allowlist once braces 3.0.4 is published.
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseAuditPayload, runAuditGate } from './audit-utils.mjs';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 /**
  * Parses space-separated string or array into array of allowed GHSA IDs.
@@ -86,12 +86,8 @@ export function runAuditAstroGate(options = {}) {
   });
 }
 
-const isDirectCall =
-  process.argv[1] &&
-  (import.meta.url === pathToFileURL(process.argv[1]).href ||
-    fileURLToPath(import.meta.url) === process.argv[1]);
-
-if (isDirectCall) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const res = runAuditAstroGate();
   if (!res.success) {
     process.exit(1);

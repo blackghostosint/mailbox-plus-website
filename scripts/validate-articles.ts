@@ -10,6 +10,7 @@ import {
   extractInternalHrefs,
   matter,
 } from './lib/article-utils.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -139,6 +140,7 @@ export function runValidateArticlesCLI(): void {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   runValidateArticlesCLI();
 }

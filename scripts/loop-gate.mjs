@@ -14,51 +14,55 @@
 // Exits 0 when no PR exists for the branch (pre-PR pushes unaffected).
 
 import { execFileSync } from 'node:child_process';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const PUSH_THRESHOLD = 3; // block when PR already has >= 3 pushes (next is #4)
 const REVIEW_THRESHOLD = 3;
 
-const branch =
-  process.argv[2] || execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim();
-if (!branch || branch === 'main') process.exit(0);
+export function runLoopGate() {
+  const { positionals } = parseScriptArgs({ allowPositionals: true, strict: false });
+  const branch =
+    positionals[0] ||
+    execFileSync('git', ['branch', '--show-current'], { encoding: 'utf8' }).trim();
+  if (!branch || branch === 'main') process.exit(0);
 
-function ghJson(args) {
-  try {
-    const out = execFileSync('gh', args, { encoding: 'utf8' });
-    return out.trim() ? JSON.parse(out) : null;
-  } catch {
-    return null; // no PR, gh not authed, network hiccup — fail OPEN here;
-    // the loop gate must never block work on infrastructure failure.
+  function ghJson(args) {
+    try {
+      const out = execFileSync('gh', args, { encoding: 'utf8' });
+      return out.trim() ? JSON.parse(out) : null;
+    } catch {
+      return null; // no PR, gh not authed, network hiccup — fail OPEN here;
+      // the loop gate must never block work on infrastructure failure.
+    }
   }
-}
 
-const pr = ghJson([
-  'pr',
-  'view',
-  branch,
-  '--json',
-  'number,url,commits,reviews',
-  '--jq',
-  '{number, url, pushes: (.commits | length), reviews: (.reviews | length)}',
-]);
-if (!pr) process.exit(0);
+  const pr = ghJson([
+    'pr',
+    'view',
+    branch,
+    '--json',
+    'number,url,commits,reviews',
+    '--jq',
+    '{number, url, pushes: (.commits | length), reviews: (.reviews | length)}',
+  ]);
+  if (!pr) process.exit(0);
 
-const reasons = [];
-if (pr.pushes >= PUSH_THRESHOLD) {
-  reasons.push(`push #${pr.pushes + 1} on PR #${pr.number} (threshold: push #4 blocks)`);
-}
-if (pr.reviews >= REVIEW_THRESHOLD) {
-  reasons.push(`${pr.reviews} review rounds on PR #${pr.number} (rewrite-seesaw signature)`);
-}
-if (reasons.length === 0) process.exit(0);
+  const reasons = [];
+  if (pr.pushes >= PUSH_THRESHOLD) {
+    reasons.push(`push #${pr.pushes + 1} on PR #${pr.number} (threshold: push #4 blocks)`);
+  }
+  if (pr.reviews >= REVIEW_THRESHOLD) {
+    reasons.push(`${pr.reviews} review rounds on PR #${pr.number} (rewrite-seesaw signature)`);
+  }
+  if (reasons.length === 0) process.exit(0);
 
-const allow = process.env.LOOP_LEDGER_ALLOW;
-if (allow && allow.trim()) {
-  console.log(`loop-gate: OVERRIDE (${allow.trim()}) — allowing push despite loop signature.`);
-  process.exit(0);
-}
+  const allow = process.env.LOOP_LEDGER_ALLOW;
+  if (allow && allow.trim()) {
+    console.log(`loop-gate: OVERRIDE (${allow.trim()}) — allowing push despite loop signature.`);
+    process.exit(0);
+  }
 
-console.error(`
+  console.error(`
 pre-push BLOCKED by loop-gate — loop signature detected:
   ${reasons.map((r) => '- ' + r).join('\n  ')}
 
@@ -69,4 +73,9 @@ Do NOT push a rewrite #${pr.pushes + 1}. Instead:
   3. If the owner approves this push consciously:
        LOOP_LEDGER_ALLOW="<reason>" git push ...
 `);
-process.exit(1);
+  process.exit(1);
+}
+
+if (isMainModule(import.meta.url)) {
+  runLoopGate();
+}
