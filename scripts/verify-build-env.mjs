@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';

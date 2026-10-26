@@ -1,7 +1,6 @@
 import { readFileSync, existsSync } from 'fs';
-import { join, resolve } from 'path';
+import { join } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
-import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';

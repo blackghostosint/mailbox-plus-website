@@ -6,9 +6,7 @@
 // Stamp (exact line, machine-parsed): `authorship: article-writer-bot (in-house)`
 // Repairs are handled in-session (Hermes/owner) — never reassigned to external agents.
 
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
-import path from 'node:path';
 import { readFileSync } from 'node:fs';
 import { getPRContext, parsePRCliArgs } from './pr-utils.mjs';
 

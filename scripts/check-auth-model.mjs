@@ -3,8 +3,6 @@
  * check-auth-model — local pre-flight helper for AGENTS.md Rule 7 enforcement.
  * Delegates directly to scripts/verify/check-auth-model.mjs.
  */
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { checkAuthModel } from './verify/check-auth-model.mjs';
 import { getPRContext } from './verify/pr-utils.mjs';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';

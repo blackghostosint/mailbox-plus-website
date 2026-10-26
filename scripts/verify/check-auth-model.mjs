@@ -10,9 +10,7 @@
  *
  * Exit 0 = compliant / not applicable. Exit 1 = missing or hollow section.
  */
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
-import path from 'node:path';
 import { getPRContext } from './pr-utils.mjs';
 
 const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models[^\n]*/i;

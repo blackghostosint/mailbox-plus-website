@@ -8,7 +8,6 @@
 // Usage: node scripts/verify/check-supply-chain-actor.mjs <pr_files_file> <pr_author>
 // Protected: .github/workflows/*, package.json + package-lock.json (root + astro/),
 // scripts/verify/*, netlify.toml, .gitleaks*
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import fs from 'node:fs';

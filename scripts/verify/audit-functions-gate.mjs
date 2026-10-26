@@ -2,7 +2,6 @@
 // Netlify functions dependency audit gate with scoped allowlist.
 // Allows advisories named in AUDIT_ALLOW env (space-separated GHSA ids).
 // Any high or critical advisory NOT in the allowlist fails the gate.
-import { fileURLToPath } from 'node:url';
 import { evaluateAuditData, runAuditGate } from './audit-utils.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 

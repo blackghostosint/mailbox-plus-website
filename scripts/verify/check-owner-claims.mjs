@@ -22,7 +22,6 @@
  *
  * Exit 0 = compliant / not applicable. Exit 1 = missing, hollow, or under-marked section.
  */
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import { readFileSync, existsSync } from 'node:fs';

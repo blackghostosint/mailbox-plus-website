@@ -1,5 +1,4 @@
 import path from 'path';
-import { fileURLToPath } from 'url';
 import prettier from 'prettier';
 import { toRouteKey } from '../astro/src/utils/url-normalization.ts';
 import { services } from '../astro/src/config/services.js';

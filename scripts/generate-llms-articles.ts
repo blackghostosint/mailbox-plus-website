@@ -10,7 +10,6 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { loadArticles } from './lib/article-utils.ts';
 import { toISODateString } from '../astro/src/utils/dateUtils.ts';
 import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';

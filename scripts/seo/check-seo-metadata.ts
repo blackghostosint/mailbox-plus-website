@@ -1,6 +1,5 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { resolveDistDir } from '../lib/dist-path.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 

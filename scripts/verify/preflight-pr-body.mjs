@@ -19,8 +19,6 @@
  *   1 = one or more PR body gates failed
  */
 import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
@@ -32,9 +30,6 @@ import {
   detectLocalChangedFiles,
   detectLocalBodyFile,
 } from './pr-utils.mjs';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const _ROOT = path.resolve(__dirname, '../..');
 
 export { detectLocalChangedFiles, detectLocalBodyFile };
 

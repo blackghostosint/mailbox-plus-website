@@ -5,7 +5,6 @@
 // advisories named in AUDIT_ALLOW env (space-separated GHSA ids). Any high
 // advisory NOT in the allowlist fails the gate.
 // TODO(2026-10): remove allowlist once braces 3.0.4 is published.
-import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseAuditPayload, runAuditGate } from './audit-utils.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 

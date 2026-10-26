@@ -15,7 +15,6 @@
  * Env: GOOGLE_PLACES_API_KEY
  */
 
-import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { httpClient } from '../astro/src/lib/http-client.ts';
 import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
