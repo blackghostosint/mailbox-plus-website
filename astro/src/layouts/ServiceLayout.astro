@@ -30,7 +30,10 @@ const competitorAlternatives: Record<string, { title: string; url: string }> = {
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel, ogImage: ogImageProp } = Astro.props;
-const ogImage = ogImageProp || service.ogImage;
+const rawOgImage = ogImageProp || service.ogImage;
+const ogImage = rawOgImage
+  ? (rawOgImage.startsWith('/og/') ? rawOgImage : getServiceImageUrl(rawOgImage))
+  : undefined;
 const canonicalUrl = toCanonicalUrl(service.canonicalUrl || service.slug);
 const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;

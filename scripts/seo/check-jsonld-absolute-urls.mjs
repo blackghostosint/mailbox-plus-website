@@ -53,7 +53,7 @@ export function validateJsonLdContent(content) {
       }
       for (const key of Object.keys(obj)) {
         const val = obj[key];
-        if (key === '@id' || key === 'url') {
+        if (key === '@id' || key === 'url' || key === 'contentUrl') {
           validateValue(val);
         }
         traverse(val);

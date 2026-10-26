@@ -21,6 +21,7 @@ import type {
 import type { SiteConfig } from '../types/siteConfig';
 import { siteConfig } from '../config/siteConfig';
 import { toCanonicalUrl } from './canonical-url';
+import { getServiceImageUrl } from '../lib/media';
 // Live review data (refreshed at build by scripts/fetch-reviews.mjs). Keeps the
 // LocalBusiness aggregateRating in sync with the visible ReviewSection content —
 // Google only shows review stars when schema and on-page content agree.
@@ -538,7 +539,7 @@ export const getImageObjectSchema = ({
 }) => ({
   '@context': 'https://schema.org',
   '@type': 'ImageObject',
-  contentUrl,
+  contentUrl: contentUrl.startsWith('/og/') ? contentUrl : getServiceImageUrl(contentUrl),
   description:
     description || (city ? `${config.name} shipping service for ${city} customers` : name),
   name,
