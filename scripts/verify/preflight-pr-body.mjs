@@ -19,8 +19,7 @@
  *   1 = one or more PR body gates failed
  */
 import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
 import { checkArticleOwnership } from './check-article-ownership.mjs';
@@ -31,9 +30,6 @@ import {
   detectLocalChangedFiles,
   detectLocalBodyFile,
 } from './pr-utils.mjs';
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const _ROOT = path.resolve(__dirname, '../..');
 
 export { detectLocalChangedFiles, detectLocalBodyFile };
 
@@ -147,7 +143,8 @@ async function main() {
   process.exit(0);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   main().catch((err) => {
     console.error('Fatal error during PR body preflight:', err);
     process.exit(1);

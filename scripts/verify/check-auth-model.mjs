@@ -10,8 +10,7 @@
  *
  * Exit 0 = compliant / not applicable. Exit 1 = missing or hollow section.
  */
-import { fileURLToPath } from 'node:url';
-import path from 'node:path';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { getPRContext } from './pr-utils.mjs';
 
 const HEADING = /#{2,4}\s*endpoint\s+authentication\s+models[^\n]*/i;
@@ -97,9 +96,8 @@ function fail(msg) {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const ctx = getPRContext();
   const result = checkAuthModel({ body: ctx.body, changedFiles: ctx.changedFiles });
 
