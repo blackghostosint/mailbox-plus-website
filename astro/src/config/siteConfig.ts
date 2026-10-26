@@ -55,8 +55,6 @@ export function getSiteDomain(): string {
   return 'https://mailboxplusohio.com';
 }
 
-const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
-
 function getR2BaseUrl(): string {
   const envUrl =
     (typeof import.meta !== 'undefined' && import.meta.env
@@ -70,7 +68,7 @@ function getR2BaseUrl(): string {
     return envUrl.trim().replace(/\/$/, '');
   }
 
-  return CANONICAL_R2_BASE_URL;
+  return '';
 }
 
 export const siteConfig: SiteConfig = {
