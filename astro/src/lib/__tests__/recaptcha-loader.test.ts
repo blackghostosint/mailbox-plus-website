@@ -233,5 +233,22 @@ describe('recaptcha-loader module', () => {
       expect(consoleSpy).toHaveBeenCalled();
       consoleSpy.mockRestore();
     });
+
+    it('returns empty string when grecaptcha.ready callback never fires (times out)', async () => {
+      vi.useFakeTimers();
+      const consoleSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+      window.grecaptcha = {
+        ready: vi.fn(),
+      } as unknown as typeof window.grecaptcha;
+
+      const executePromise = executeRecaptcha('my-site-key');
+      await vi.advanceTimersByTimeAsync(3000);
+
+      const token = await executePromise;
+      expect(token).toBe('');
+      expect(consoleSpy).toHaveBeenCalledWith('reCAPTCHA execution timed out');
+      consoleSpy.mockRestore();
+    });
   });
 });
