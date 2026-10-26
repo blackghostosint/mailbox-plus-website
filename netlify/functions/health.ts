@@ -18,7 +18,7 @@ import { HealthSuccessSchema } from './lib/contracts';
 import { getEnvironmentContext } from './lib/fallbacks';
 
 export default withCors(
-  async (request: Request, context: Context) => {
+  async (_request: Request, _context: Context) => {
     const startTime = Date.now();
 
     // Basic health checks
