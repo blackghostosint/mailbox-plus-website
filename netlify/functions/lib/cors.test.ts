@@ -2,7 +2,6 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   withCors,
   jsonResponse,
-  DEFAULT_CORS_HEADERS,
   DEFAULT_ALLOWED_ORIGINS,
   isDevelopmentEnvironment,
   getDefaultAllowedOrigins,

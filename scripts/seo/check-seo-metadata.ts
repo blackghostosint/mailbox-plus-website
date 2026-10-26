@@ -204,7 +204,7 @@ export function validateHtmlTitleAndDescription(
           }
         }
       }
-    } catch (e) {
+    } catch (_e) {
       errors.push('failed to parse JSON-LD script tag');
     }
   }
@@ -354,7 +354,7 @@ export function checkSeoMetadata(distDir?: string) {
             }
           }
         }
-      } catch (e) {
+      } catch (_e) {
         console.error(`❌ FAIL: "${page.routePath}" failed to parse JSON-LD script tag`);
         errors++;
       }

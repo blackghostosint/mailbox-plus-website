@@ -3,8 +3,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const ROOT_DIR = path.resolve(__dirname, '../..');
 const TARGET_HOST = 'mailboxplusohio.com';
 
 export function validateCanonicalHtml(content, targetHost = TARGET_HOST) {
@@ -33,7 +31,7 @@ export function validateCanonicalHtml(content, targetHost = TARGET_HOST) {
           if (parsedUrl.protocol !== 'http:' && parsedUrl.protocol !== 'https:') {
             throw new Error('Not http or https protocol');
           }
-        } catch (e) {
+        } catch (_e) {
           hasErrors = true;
           totalFailures++;
           continue;
@@ -59,7 +57,7 @@ export function validateCanonicalHtml(content, targetHost = TARGET_HOST) {
     let json;
     try {
       json = JSON.parse(scriptContent);
-    } catch (err) {
+    } catch (_err) {
       hasErrors = true;
       totalFailures++;
       continue;
@@ -70,7 +68,7 @@ export function validateCanonicalHtml(content, targetHost = TARGET_HOST) {
       let parsedUrl;
       try {
         parsedUrl = new URL(value);
-      } catch (e) {
+      } catch (_e) {
         return;
       }
 

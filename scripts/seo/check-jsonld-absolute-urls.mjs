@@ -3,10 +3,6 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-
-const ROOT_DIR = path.resolve(__dirname, '../..');
-
 export function validateJsonLdContent(content) {
   let totalScriptsChecked = 0;
   let totalFailures = 0;
@@ -24,7 +20,7 @@ export function validateJsonLdContent(content) {
     let json;
     try {
       json = JSON.parse(scriptContent);
-    } catch (err) {
+    } catch (_err) {
       hasErrors = true;
       totalFailures++;
       continue;
@@ -39,7 +35,9 @@ export function validateJsonLdContent(content) {
           if (parsedUrl.protocol === 'http:' || parsedUrl.protocol === 'https:') {
             isValid = true;
           }
-        } catch (e) {}
+        } catch (_e) {
+          // Invalid URL string
+        }
       }
       if (!isValid) {
         hasErrors = true;

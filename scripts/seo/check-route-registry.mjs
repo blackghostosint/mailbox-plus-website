@@ -128,7 +128,7 @@ export function checkRouteRegistry(options = {}) {
       if (Array.isArray(content.allowed_exact)) {
         localAllowlist = content.allowed_exact.map(normalizePath);
       }
-    } catch (e) {
+    } catch (_e) {
       // ignore
     }
   }
@@ -191,7 +191,7 @@ export function checkRouteRegistry(options = {}) {
           registryIdsMissingFromLinks.push(id);
         }
       }
-    } catch (e) {
+    } catch (_e) {
       // ignore
     }
   }
