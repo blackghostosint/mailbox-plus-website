@@ -28,6 +28,7 @@ import {
 
 export { matchWildcardSegment, matchPathSegments, globMatch, resolveFiles };
 import { httpClient } from '../astro/src/lib/http-client.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 function loadEnvKeys(): Record<string, string> {
   const keys: Record<string, string> = {};
@@ -314,33 +315,25 @@ function printReport(filePath: string, result: any, minScore = 82) {
 }
 
 async function main() {
-  const args = process.argv.slice(2);
-  let target = '';
-  let model = 'deepseek/deepseek-v4.1-flash'; // DEFAULT MIRRORS the article-writer profile SOUL.md "Gate model" line (model + 82 threshold). Change all three call-sites in one commit: this script, verify.mjs review defaults, SOUL.md.
-  let provider: ReviewOptions['provider'];
-  let baseUrl: string | undefined;
-  let apiKey: string | undefined;
-  let minScore = 82;
-  let asJson = false;
+  const { values, positionals } = parseScriptArgs({
+    options: {
+      model: { type: 'string', default: 'deepseek/deepseek-v4.1-flash' },
+      provider: { type: 'string' },
+      'base-url': { type: 'string' },
+      'api-key': { type: 'string' },
+      'min-score': { type: 'string', default: '82' },
+      json: { type: 'boolean', default: false },
+    },
+    allowPositionals: true,
+  });
 
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i];
-    if (arg === '--model' && args[i + 1]) {
-      model = args[++i];
-    } else if (arg === '--provider' && args[i + 1]) {
-      provider = args[++i] as any;
-    } else if (arg === '--base-url' && args[i + 1]) {
-      baseUrl = args[++i];
-    } else if (arg === '--api-key' && args[i + 1]) {
-      apiKey = args[++i];
-    } else if (arg === '--min-score' && args[i + 1]) {
-      minScore = parseInt(args[++i], 10);
-    } else if (arg === '--json') {
-      asJson = true;
-    } else if (!arg.startsWith('--') && !target) {
-      target = arg;
-    }
-  }
+  const target = positionals[0] || '';
+  const model = values.model as string;
+  const provider = values.provider as ReviewOptions['provider'];
+  const baseUrl = values['base-url'] as string | undefined;
+  const apiKey = values['api-key'] as string | undefined;
+  const minScore = parseInt(values['min-score'] as string, 10) || 82;
+  const asJson = Boolean(values.json);
 
   if (!target) {
     console.error(
@@ -387,12 +380,7 @@ async function main() {
   process.exit(overallFailed ? 1 : 0);
 }
 
-// Note: import.meta.url comparison can be fragile under tsx on some platforms/environments,
-// so process.argv[1]?.endsWith('review-article-copy.ts') serves as a robust fallback check.
-if (
-  import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('review-article-copy.ts')
-) {
+if (isMainModule(import.meta.url)) {
   main().catch((err) => {
     console.error('Fatal error:', err);
     process.exit(1);

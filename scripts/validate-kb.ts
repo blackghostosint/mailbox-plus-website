@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { z } from 'zod';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 import { EMBEDDING_MODEL, FALLBACK_RESPONSE } from '../knowledge/retrieval-core.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -214,6 +215,7 @@ export function runValidateKbCLI(): void {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   runValidateKbCLI();
 }

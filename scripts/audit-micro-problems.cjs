@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+const { isMainModule, parseScriptArgs } = require('./lib/cli-utils.ts');
+
 /**
  * Micro-Problem Governance Audit Script
  *
@@ -837,21 +839,21 @@ function createMockCSV() {
 // ============================================================================
 
 function main(rawArgs = process.argv.slice(2)) {
-  let searchConsoleFile = null;
-  let dryRun = false;
-  let showHelp = false;
+  const { values } = parseScriptArgs(
+    {
+      options: {
+        'search-console': { type: 'string' },
+        'dry-run': { type: 'boolean', default: false },
+        help: { type: 'boolean', short: 'h', default: false },
+      },
+      strict: false,
+    },
+    rawArgs
+  );
 
-  rawArgs.forEach((arg) => {
-    if (arg.startsWith('--search-console=')) {
-      searchConsoleFile = arg.split('=')[1];
-    }
-    if (arg === '--dry-run') {
-      dryRun = true;
-    }
-    if (arg === '--help' || arg === '-h') {
-      showHelp = true;
-    }
-  });
+  let searchConsoleFile = values['search-console'] || null;
+  let dryRun = Boolean(values['dry-run']);
+  let showHelp = Boolean(values.help);
 
   if (showHelp) {
     console.log(`
@@ -974,7 +976,7 @@ Actions:
 }
 
 // Run if called directly
-if (require.main === module) {
+if (isMainModule(__filename)) {
   main();
 }
 

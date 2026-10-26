@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
@@ -28,14 +28,20 @@ export function parseDotenvFile(filePath) {
 
 export function validateBuildEnv(options = {}) {
   const env = options.env || process.env;
-  const isProduction =
-    options.isProduction !== undefined
-      ? options.isProduction
-      : env.NODE_ENV === 'production' ||
-        env.CONTEXT === 'production' ||
-        env.VITE_NETLIFY_CONTEXT === 'production' ||
-        process.argv.includes('--production') ||
-        process.argv.includes('--prod');
+  let isProduction = options.isProduction;
+  if (isProduction === undefined) {
+    const { values } = parseScriptArgs({
+      options: {
+        production: { type: 'boolean' },
+        prod: { type: 'boolean' },
+      },
+    });
+    isProduction =
+      env.NODE_ENV === 'production' ||
+      env.CONTEXT === 'production' ||
+      env.VITE_NETLIFY_CONTEXT === 'production' ||
+      Boolean(values.production || values.prod);
+  }
 
   const errors = [];
   const warnings = [];
@@ -158,7 +164,6 @@ export function runPreBuildCheck(options = {}) {
   return result;
 }
 
-const __filename = fileURLToPath(import.meta.url);
-if (process.argv[1] && path.resolve(process.argv[1]) === path.resolve(__filename)) {
+if (isMainModule(import.meta)) {
   runPreBuildCheck();
 }

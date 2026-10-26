@@ -34,6 +34,7 @@ import {
   isKnownRoute as isKnownRouteUtil,
 } from '../lib/article-utils.ts';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -44,7 +45,13 @@ const R2_PUBLIC_BASE =
 // Canonical receipt store is .factchecks/ everywhere (local AND CI) — one path, no env drift.
 // ARTICLE_DRAFTS_DIR remains as an escape hatch only; CI no longer sets it (see ci.yml history / PR 710 follow-up).
 const DRAFTS_DIR = process.env.ARTICLE_DRAFTS_DIR || path.resolve(ROOT, '.factchecks');
-const SKIP_NETWORK = process.argv.includes('--offline');
+const { values: verifyGlobalFlags } = parseScriptArgs({
+  options: {
+    offline: { type: 'boolean', default: false },
+  },
+  strict: false,
+});
+const SKIP_NETWORK = verifyGlobalFlags.offline;
 
 // HEAD a URL with curl (no fetch dependency, hard timeout). Returns status code string or 'ERR'.
 function headStatus(url) {
@@ -2293,9 +2300,6 @@ export {
   extractH2s,
 };
 
-const isMain =
-  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
   runCli();
 }
