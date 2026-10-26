@@ -45,7 +45,7 @@ Most people do not get tripped up by the fingerprinting. They get tripped up by 
 
 ## The Reason Code Is the Whole Ballgame
 
-The villain here is not a person. It is a blank field on a form.
+The systemic problem here is not a person. It is a blank field on a form.
 
 Every Ohio background check runs under a reason code — an Ohio Revised Code number that tells BCI why your prints are being submitted. The Ohio Attorney General's FBI reason code table lists codes for specific licenses and jobs: 4723 09 for nurses, RNs, LPNs, and dialysis techs; 4735 143 for real estate salespersons and brokers; 3319 39 for public school employees and school bus drivers; 3319 291 for school licensure through the Ohio Department of Education; 2151 86 for out-of-home child care, foster parents, adoptive parents, and everyone 18 and over living in the home; 4757 101 for counselors, social workers, and marriage and family therapists; 4749 06 for private investigators and security guards. There are dozens more, and they change as legislation adds them.
 
