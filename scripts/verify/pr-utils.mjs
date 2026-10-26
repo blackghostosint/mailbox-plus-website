@@ -7,6 +7,7 @@
 import { readFileSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
+import { parseScriptArgs } from '../lib/cli-utils.ts';
 
 /**
  * Auto-detects changed files in the local git repository (branch diff and working tree).
@@ -240,25 +241,23 @@ export function resolveAuthor(cliAuthor = '', env = process.env) {
  * @returns {{ author: string, isLocalBypass: boolean, positional: string[] }}
  */
 export function parsePRCliArgs(args = process.argv) {
-  let author = '';
-  let isLocalBypass = false;
-  const positional = [];
+  const { values, positionals } = parseScriptArgs(
+    {
+      options: {
+        author: { type: 'string', default: '' },
+        'bypass-local': { type: 'boolean', default: false },
+        local: { type: 'boolean', default: false },
+      },
+      allowPositionals: true,
+      strict: false,
+    },
+    args
+  );
 
-  for (let i = 2; i < args.length; i++) {
-    const arg = args[i];
-    if (typeof arg !== 'string') continue;
-    if (arg.startsWith('--author=')) {
-      author = arg.split('=').slice(1).join('=');
-    } else if (arg === '--author') {
-      author = args[++i] || '';
-    } else if (arg === '--bypass-local' || arg === '--local') {
-      isLocalBypass = true;
-    } else {
-      positional.push(arg);
-    }
-  }
+  const author = values.author || '';
+  const isLocalBypass = Boolean(values['bypass-local'] || values.local);
 
-  return { author, isLocalBypass, positional };
+  return { author, isLocalBypass, positional: positionals };
 }
 
 /**

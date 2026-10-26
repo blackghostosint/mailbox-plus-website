@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -397,8 +398,8 @@ export function checkDesignTokens(
   };
 }
 
-const currentFilePath = fileURLToPath(import.meta.url);
-if (process.argv[1] && path.resolve(process.argv[1]) === currentFilePath) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const result = checkDesignTokens();
   if (!result.success) {
     result.errors.forEach((err) => console.error(err));

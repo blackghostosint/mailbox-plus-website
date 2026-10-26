@@ -22,7 +22,7 @@
  *
  * Exit 0 = compliant / not applicable. Exit 1 = missing, hollow, or under-marked section.
  */
-import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import { readFileSync, existsSync } from 'node:fs';
 import { getPRContext } from './pr-utils.mjs';
@@ -215,9 +215,8 @@ function fail(result) {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const ctx = getPRContext();
   const result = checkOwnerClaims({ body: ctx.body, changedFiles: ctx.changedFiles });
 
