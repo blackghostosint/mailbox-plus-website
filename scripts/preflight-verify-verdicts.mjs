@@ -9,6 +9,7 @@
 import { readFileSync } from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export function extractTableBlocks(text) {
   if (typeof text !== 'string') return [];
@@ -122,13 +123,9 @@ export function runCli(filePath) {
   }
 }
 
-const currentFilePath = fileURLToPath(import.meta.url);
-if (
-  process.argv[1] &&
-  (path.resolve(process.argv[1]) === currentFilePath ||
-    import.meta.url === `file://${process.argv[1]}`)
-) {
-  const file = process.argv[2];
+if (isMainModule(import.meta.url)) {
+  const { positionals } = parseScriptArgs({ allowPositionals: true, strict: false });
+  const file = positionals[0];
   if (!file) {
     console.error('usage: node preflight-verify-verdicts.mjs <receipt.md>');
     process.exit(2);

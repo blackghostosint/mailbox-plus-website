@@ -217,17 +217,25 @@ export function makeClaimsGate(fs, path) {
 import fs from 'node:fs';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
-if (process.argv[1] && process.argv[1].endsWith('claims-gate.js')) {
-  const arg = (name) => {
-    const i = process.argv.indexOf(name);
-    return i === -1 ? undefined : process.argv[i + 1];
-  };
-  const slug = arg('--slug');
-  const articlePath = arg('--article');
-  const ROOT = arg('--root');
-  const DRAFTS_DIR = arg('--drafts');
-  const SKIP_NETWORK = process.argv.includes('--offline');
+if (isMainModule(import.meta.url)) {
+  const { values } = parseScriptArgs({
+    options: {
+      slug: { type: 'string' },
+      article: { type: 'string' },
+      root: { type: 'string' },
+      drafts: { type: 'string' },
+      offline: { type: 'boolean', default: false },
+    },
+    strict: false,
+  });
+
+  const slug = values.slug;
+  const articlePath = values.article;
+  const ROOT = values.root;
+  const DRAFTS_DIR = values.drafts;
+  const SKIP_NETWORK = Boolean(values.offline);
 
   const results = [];
   const check = (name, pass, detail, fix) => results.push({ name, pass: !!pass, detail, fix });

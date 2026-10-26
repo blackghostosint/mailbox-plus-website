@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveDistDir, getHtmlFiles } from './lib/dist-path.mjs';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export { getHtmlFiles };
 
@@ -91,12 +92,12 @@ export function checkInlineScripts(targetDir) {
   };
 }
 
-const currentFilePath = fileURLToPath(import.meta.url);
-if (
-  import.meta.url === `file://${process.argv[1]}` ||
-  (process.argv[1] && path.resolve(process.argv[1]) === currentFilePath)
-) {
-  const result = checkInlineScripts();
+if (isMainModule(import.meta)) {
+  const { positionals } = parseScriptArgs({
+    allowPositionals: true,
+  });
+  const targetDir = positionals[0];
+  const result = checkInlineScripts(targetDir);
 
   if (!result.success) {
     if (result.violations.length > 0) {

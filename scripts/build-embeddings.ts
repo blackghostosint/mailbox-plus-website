@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import dotenv from 'dotenv';
 import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 import {
   buildCacheKey,
   EMBEDDING_MODEL,
@@ -205,9 +206,8 @@ export async function generateEmbeddings(
   return result;
 }
 
-const isMain = process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   generateEmbeddings({ writeToDisk: true, delayMs: 100 })
     .then(() => {
       console.log('--- Done! ---');

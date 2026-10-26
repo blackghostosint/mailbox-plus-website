@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { resolveDistDir } from '../lib/dist-path.mjs';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
   process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
@@ -325,11 +326,7 @@ export function main() {
 
 export { discoverServiceMetadata };
 
-const isMain =
-  process.argv[1] &&
-  (path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname) ||
-    path.resolve(process.argv[1]) === fileURLToPath(import.meta.url));
-
-if (isMain) {
+if (isMainModule(import.meta)) {
+  parseScriptArgs();
   main();
 }

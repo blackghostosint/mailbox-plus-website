@@ -7,6 +7,7 @@
 // Repairs are handled in-session (Hermes/owner) — never reassigned to external agents.
 
 import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import { readFileSync } from 'node:fs';
 import { getPRContext, parsePRCliArgs } from './pr-utils.mjs';
@@ -145,9 +146,8 @@ export function checkArticleOwnership({
   };
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const { positional, isLocalBypass } = parsePRCliArgs(process.argv);
   if (
     positional.length < 2 &&

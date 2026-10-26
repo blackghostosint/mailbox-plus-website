@@ -4,6 +4,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { resolveDistDir, getHtmlFiles } from './lib/dist-path.mjs';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -78,47 +79,44 @@ const CATEGORIES_LIST_FOR_SAMPLING = [
   'rewards',
 ];
 
-function parseArgs(args) {
-  const options = {
-    all: false,
-    limit: null,
-    category: null,
-    baseUrl: process.env.AUDIT_BASE_URL || process.env.BASE_URL || null,
-    outputDir: process.env.AUDIT_OUTPUT_DIR || 'a11y-reports',
-  };
+function parseArgs(args = process.argv.slice(2)) {
+  const { values } = parseScriptArgs(
+    {
+      options: {
+        all: { type: 'boolean', default: false },
+        mode: { type: 'string' },
+        limit: { type: 'string' },
+        category: { type: 'string' },
+        'base-url': { type: 'string' },
+        'output-dir': { type: 'string' },
+        dir: { type: 'string' },
+      },
+      strict: false,
+    },
+    args
+  );
 
-  for (let i = 0; i < args.length; i++) {
-    const arg = args[i];
-    if (arg === '--all' || arg === '--mode=full') {
-      options.all = true;
-    } else if (arg === '--mode=sampled') {
-      options.all = false;
-    } else if (arg.startsWith('--limit=')) {
-      const parsed = parseInt(arg.split('=')[1], 10);
-      options.limit = isNaN(parsed) ? null : parsed;
-    } else if (arg === '--limit' && i + 1 < args.length) {
-      const parsed = parseInt(args[++i], 10);
-      options.limit = isNaN(parsed) ? null : parsed;
-    } else if (arg.startsWith('--category=')) {
-      options.category = arg.split('=')[1];
-    } else if (arg === '--category' && i + 1 < args.length) {
-      options.category = args[++i];
-    } else if (arg.startsWith('--base-url=')) {
-      options.baseUrl = arg.split('=')[1];
-    } else if (arg === '--base-url' && i + 1 < args.length) {
-      options.baseUrl = args[++i];
-    } else if (arg.startsWith('--output-dir=')) {
-      options.outputDir = arg.split('=')[1];
-    } else if (arg === '--output-dir' && i + 1 < args.length) {
-      options.outputDir = args[++i];
-    } else if (arg.startsWith('--dir=')) {
-      options.outputDir = arg.split('=')[1];
-    } else if (arg === '--dir' && i + 1 < args.length) {
-      options.outputDir = args[++i];
-    }
+  let isAll = Boolean(values.all || values.mode === 'full');
+  if (values.mode === 'sampled') isAll = false;
+
+  let limit = null;
+  if (values.limit !== undefined) {
+    const parsed = parseInt(values.limit, 10);
+    limit = isNaN(parsed) ? null : parsed;
   }
 
-  return options;
+  const category = values.category || null;
+  const baseUrl = values['base-url'] || process.env.AUDIT_BASE_URL || process.env.BASE_URL || null;
+  const outputDir =
+    values['output-dir'] || values.dir || process.env.AUDIT_OUTPUT_DIR || 'a11y-reports';
+
+  return {
+    all: isAll,
+    limit,
+    category,
+    baseUrl,
+    outputDir,
+  };
 }
 
 function discoverRoutes(distDir = DIST_DIR) {
@@ -839,10 +837,6 @@ export {
   main,
 };
 
-const isMain =
-  process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(new URL(import.meta.url).pathname);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
   main();
 }

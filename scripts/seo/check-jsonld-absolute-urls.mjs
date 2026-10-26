@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -109,9 +110,7 @@ export function main() {
   }
 }
 
-const isMain =
-  process.argv[1] && path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url));
-
-if (isMain) {
+if (isMainModule(import.meta)) {
+  parseScriptArgs();
   main();
 }

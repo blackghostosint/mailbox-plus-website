@@ -12,6 +12,7 @@ import {
   standaloneSeoLandingConfigs,
 } from '../astro/src/config/pillars.js';
 import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
   process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
@@ -379,6 +380,7 @@ export async function generateRouteRegistry(options?: {
   return { localPages, siteStructure, internalLinks, anchorText };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   generateRouteRegistry();
 }

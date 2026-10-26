@@ -21,6 +21,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import { checkAuthModel } from './check-auth-model.mjs';
 import { checkOwnerClaims } from './check-owner-claims.mjs';
 import { checkArticleOwnership, IN_HOUSE_STAMP } from './check-article-ownership.mjs';
@@ -147,7 +148,8 @@ async function main() {
   process.exit(0);
 }
 
-if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   main().catch((err) => {
     console.error('Fatal error during PR body preflight:', err);
     process.exit(1);

@@ -7,6 +7,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkAuthModel } from './verify/check-auth-model.mjs';
 import { getPRContext } from './verify/pr-utils.mjs';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 function fail(msg) {
   console.error(`❌ ${msg}`);
@@ -16,9 +17,8 @@ function fail(msg) {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const ctx = getPRContext();
   const result = checkAuthModel({ body: ctx.body, changedFiles: ctx.changedFiles });
 
