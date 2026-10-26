@@ -224,21 +224,6 @@ const webPageSchema = getWebPageSchema(siteConfig, {
       });
     });
 
-    function copyToClipboard(text: string) {
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).catch(() => {});
-      } else {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.select();
-        try { document.execCommand('copy'); } catch { /* noop */ }
-        document.body.removeChild(ta);
-      }
-    }
-
     document.querySelectorAll('.copy-link-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         trackEvent('share', {
@@ -265,6 +250,7 @@ const webPageSchema = getWebPageSchema(siteConfig, {
 
   import { onDOMReady } from '../lib/dom-utils';
   import { trackEvent } from '../lib/analytics';
+  import { copyToClipboard } from '../lib/clipboard';
 
   onDOMReady(initTailgateGiveaway);
 </script>
