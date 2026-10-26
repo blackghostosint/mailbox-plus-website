@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 export { getHtmlFiles };
 
@@ -287,6 +288,7 @@ export function main() {
   }
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+if (isMainModule(import.meta)) {
+  parseScriptArgs();
   main();
 }

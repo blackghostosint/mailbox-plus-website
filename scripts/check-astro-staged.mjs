@@ -11,6 +11,7 @@ import { AstroCheck } from '@astrojs/language-server';
 import { createRequire } from 'node:module';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export async function checkAstroStaged(args, options = {}) {
   const rootDir = options.rootDir || process.cwd();
@@ -73,12 +74,9 @@ export async function checkAstroStaged(args, options = {}) {
   };
 }
 
-if (
-  process.argv[1] &&
-  path.resolve(process.argv[1]) === path.resolve(fileURLToPath(import.meta.url))
-) {
-  const args = process.argv.slice(2);
-  const result = await checkAstroStaged(args);
+if (isMainModule(import.meta.url)) {
+  const { positionals } = parseScriptArgs({ allowPositionals: true, strict: false });
+  const result = await checkAstroStaged(positionals);
   if (!result.success) {
     console.error(`\n${result.message}\n`);
     for (const errText of result.errorOutputs) {

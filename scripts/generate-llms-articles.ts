@@ -10,10 +10,10 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 import { loadArticles } from './lib/article-utils.ts';
 import { toISODateString } from '../astro/src/utils/dateUtils.ts';
 import { getWorkspaceRoot, atomicWriteFileSync } from './lib/workspace-paths.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const ROOT = getWorkspaceRoot();
 const CONTENT_DIR = path.join(ROOT, 'content', 'articles');
@@ -225,8 +225,13 @@ export function runGenerateLLMsArticles(options?: {
   return { expectedLlms, expectedFull };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const write = process.argv.includes('--write');
-  const check = process.argv.includes('--check');
-  runGenerateLLMsArticles({ write, check });
+if (isMainModule(import.meta.url)) {
+  const { values } = parseScriptArgs({
+    options: {
+      write: { type: 'boolean', default: false },
+      check: { type: 'boolean', default: false },
+    },
+    allowPositionals: true,
+  });
+  runGenerateLLMsArticles({ write: Boolean(values.write), check: Boolean(values.check) });
 }

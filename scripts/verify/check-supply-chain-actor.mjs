@@ -8,7 +8,7 @@
 // Usage: node scripts/verify/check-supply-chain-actor.mjs <pr_files_file> <pr_author>
 // Protected: .github/workflows/*, package.json + package-lock.json (root + astro/),
 // scripts/verify/*, netlify.toml, .gitleaks*
-import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 import path from 'node:path';
 import fs from 'node:fs';
 import { readFilesList } from './pr-utils.mjs';
@@ -348,10 +348,9 @@ function fail(msg) {
   process.exit(1);
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
-  const [filesFile, authorArg] = process.argv.slice(2);
+if (isMainModule(import.meta.url)) {
+  const { positionals } = parseScriptArgs({ allowPositionals: true, strict: false });
+  const [filesFile, authorArg] = positionals;
   if (!filesFile || authorArg === undefined) {
     fail('usage: check-supply-chain-actor.mjs <pr_files_file> <pr_author>');
   }
