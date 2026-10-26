@@ -2,7 +2,6 @@ import { readFileSync, existsSync } from 'fs';
 import { join, resolve } from 'path';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 import dotenv from 'dotenv';
 import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
 import {
@@ -126,9 +125,9 @@ export async function generateEmbeddings(
     embeddings: {},
   };
 
-  let count = 0;
+  let _count = 0;
   for (const text of uniqueTexts) {
-    count++;
+    _count++;
     const { taskType, entryId } = taskMap.get(text)!;
     const taskKey = buildCacheKey(taskType, text);
 
