@@ -8,11 +8,7 @@ import {
   validateVector,
   validateEmbeddingSnapshot,
 } from '../../knowledge/retrieval-core.ts';
-import {
-  loadEmbeddingsFile,
-  verifyVectorCoverage,
-  embeddingCache,
-} from '../../knowledge/retrieval-test-runner.ts';
+import { loadEmbeddingsFile } from '../../knowledge/retrieval-test-runner.ts';
 
 describe('Retrieval Vector Validation & Snapshot Gate', () => {
   let tempFilePath: string;

@@ -18,7 +18,7 @@ import { logger } from './lib/logger';
 import { CspReportRequestSchema } from './lib/contracts';
 
 export default withCors(
-  async (request: Request, context: Context) => {
+  async (request: Request, _context: Context) => {
     // Only accept POST requests
     if (request.method !== 'POST') {
       return jsonError('Method not allowed', 405);
