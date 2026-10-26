@@ -47,12 +47,7 @@ describe('preflight-article.sh path with spaces handling', () => {
       // Symlink node_modules into tmpDir so node --import tsx can resolve tsx
       fs.symlinkSync(path.join(repoRoot, 'node_modules'), path.join(tmpDir, 'node_modules'));
 
-      // Copy helper scripts to tmpDir/scripts
-      fs.mkdirSync(path.join(tmpDir, 'scripts/lib'), { recursive: true });
-      fs.copyFileSync(
-        path.join(repoRoot, 'scripts/lib/cli-utils.ts'),
-        path.join(tmpDir, 'scripts/lib/cli-utils.ts')
-      );
+      // Copy helper script preflight-verify-verdicts.mjs to tmpDir/scripts
       fs.copyFileSync(
         path.join(repoRoot, 'scripts/preflight-verify-verdicts.mjs'),
         path.join(tmpDir, 'scripts/preflight-verify-verdicts.mjs')
@@ -234,11 +229,6 @@ describe('preflight-article.sh path with spaces handling', () => {
       const preflightScript = path.join(repoRoot, 'scripts/preflight-article.sh');
 
       fs.symlinkSync(path.join(repoRoot, 'node_modules'), path.join(tmpDir, 'node_modules'));
-      fs.mkdirSync(path.join(tmpDir, 'scripts/lib'), { recursive: true });
-      fs.copyFileSync(
-        path.join(repoRoot, 'scripts/lib/cli-utils.ts'),
-        path.join(tmpDir, 'scripts/lib/cli-utils.ts')
-      );
       fs.copyFileSync(
         path.join(repoRoot, 'scripts/preflight-verify-verdicts.mjs'),
         path.join(tmpDir, 'scripts/preflight-verify-verdicts.mjs')
