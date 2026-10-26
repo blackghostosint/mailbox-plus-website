@@ -27,7 +27,6 @@ import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
-const DIST_DIR = resolveDistDir();
 
 const HREF_RE = /href="(\/(?:[a-z0-9][a-z0-9\-/]*?))"/gi;
 
@@ -39,28 +38,38 @@ function isBadInternal(u) {
   return true;
 }
 
-export function checkInternalHrefSlash(distDir = DIST_DIR) {
-  if (!fs.existsSync(distDir)) {
+export function validateInternalHrefHtml(content) {
+  const badUrls = [];
+  for (const match of content.matchAll(HREF_RE)) {
+    const url = match[1];
+    if (isBadInternal(url)) {
+      badUrls.push(url);
+    }
+  }
+  return badUrls;
+}
+
+export function checkInternalHrefSlash(distDir) {
+  const dir = distDir || resolveDistDir();
+  if (!fs.existsSync(dir)) {
     return {
       ok: false,
-      error: `Build output directory "${distDir}" does not exist.`,
+      error: `Build output directory "${dir}" does not exist.`,
       offenders: new Map(),
       htmlFilesCount: 0,
     };
   }
 
-  const htmlFiles = getHtmlFiles(distDir);
+  const htmlFiles = getHtmlFiles(dir);
   const offenders = new Map();
 
   for (const file of htmlFiles) {
     const relPath = path.relative(ROOT, file).replace(/\\/g, '/');
     const content = fs.readFileSync(file, 'utf8');
-    for (const match of content.matchAll(HREF_RE)) {
-      const url = match[1];
-      if (isBadInternal(url)) {
-        if (!offenders.has(url)) offenders.set(url, new Set());
-        offenders.get(url).add(relPath);
-      }
+    const badUrls = validateInternalHrefHtml(content);
+    for (const url of badUrls) {
+      if (!offenders.has(url)) offenders.set(url, new Set());
+      offenders.get(url).add(relPath);
     }
   }
 
