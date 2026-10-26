@@ -26,6 +26,13 @@ describe('verify.mjs doctor', () => {
     expect(gitleaksCheck).toBeDefined();
     expect(gitleaksCheck.pass).toBe(true);
     expect(gitleaksCheck.detail).toContain('SKIP_GITLEAKS=1');
+
+    const gitHooksCheck = parsed.results.find((r: { name: string }) => r.name === 'git-hooks');
+    expect(gitHooksCheck).toBeDefined();
+    expect(gitHooksCheck.pass).toBe(true);
+    expect(gitHooksCheck.detail).toContain('git core.hooksPath configured');
+    expect(gitHooksCheck.detail).toContain('.husky/pre-commit');
+    expect(gitHooksCheck.detail).toContain('.husky/pre-push');
   }, 15000);
 
   it('fails doctor command when gitleaks is missing and SKIP_GITLEAKS is not set', () => {
@@ -52,6 +59,36 @@ describe('verify.mjs doctor', () => {
       expect(gitleaksCheck.detail).toContain('gitleaks binary missing from PATH');
       expect(gitleaksCheck.fix).toContain('https://github.com/gitleaks/gitleaks');
     }
+  }, 15000);
+
+  it('fails git-hooks check when core.hooksPath is not configured to .husky', () => {
+    let stdout = '';
+    try {
+      stdout = execSync('node scripts/verify/verify.mjs doctor --json', {
+        cwd: ROOT,
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          SKIP_GITLEAKS: '1',
+          GIT_CONFIG_COUNT: '1',
+          GIT_CONFIG_KEY_0: 'core.hooksPath',
+          GIT_CONFIG_VALUE_0: 'invalid_path',
+        },
+      });
+    } catch (err: any) {
+      stdout = err.stdout;
+    }
+
+    const parsed = JSON.parse(stdout);
+    expect(parsed.ok).toBe(false);
+
+    const gitHooksCheck = parsed.results.find((r: { name: string }) => r.name === 'git-hooks');
+    expect(gitHooksCheck).toBeDefined();
+    expect(gitHooksCheck.pass).toBe(false);
+    expect(gitHooksCheck.detail).toContain(
+      "core.hooksPath not configured to .husky or .husky/_ (got: 'invalid_path')"
+    );
+    expect(gitHooksCheck.fix).toContain('npm run prepare');
   }, 15000);
 });
 
