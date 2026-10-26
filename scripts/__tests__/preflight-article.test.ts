@@ -270,3 +270,222 @@ describe('preflight-article.sh path with spaces handling', () => {
     }
   });
 });
+
+function setupTestRepo(tmpDir: string, repoRoot: string) {
+  execFileSync('git', ['init', '-b', 'main'], { cwd: tmpDir });
+  execFileSync('git', ['config', 'user.name', 'Test User'], { cwd: tmpDir });
+  execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: tmpDir });
+
+  fs.mkdirSync(path.join(tmpDir, 'content/articles'), { recursive: true });
+  fs.mkdirSync(path.join(tmpDir, '.factchecks'), { recursive: true });
+  fs.mkdirSync(path.join(tmpDir, 'public'), { recursive: true });
+  fs.mkdirSync(path.join(tmpDir, 'scripts/verify'), { recursive: true });
+
+  fs.writeFileSync(path.join(tmpDir, 'public/llms.txt'), 'llms');
+  fs.writeFileSync(path.join(tmpDir, 'public/llms-full.txt'), 'llms-full');
+
+  fs.symlinkSync(path.join(repoRoot, 'node_modules'), path.join(tmpDir, 'node_modules'));
+  fs.copyFileSync(
+    path.join(repoRoot, 'scripts/preflight-verify-verdicts.mjs'),
+    path.join(tmpDir, 'scripts/preflight-verify-verdicts.mjs')
+  );
+  fs.writeFileSync(
+    path.join(tmpDir, 'scripts/verify/verify.mjs'),
+    'console.log("✅ image:body: mock pass");\n'
+  );
+
+  fs.writeFileSync(
+    path.join(tmpDir, 'package.json'),
+    JSON.stringify({
+      name: 'test-pkg',
+      scripts: {
+        prebuild: 'echo prebuild',
+        'seo:check-href-slash': 'echo seo-ok',
+        'verify:ownership': 'echo ownership-ok',
+      },
+    })
+  );
+}
+
+describe('preflight-article.sh merge-base target resolution', () => {
+  const repoRoot = path.resolve(__dirname, '../..');
+  const preflightScript = path.join(repoRoot, 'scripts/preflight-article.sh');
+
+  it('evaluates all modified articles across multi-commit branches against target merge-base', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'preflight-multi-commit-'));
+    try {
+      setupTestRepo(tmpDir, repoRoot);
+
+      fs.writeFileSync(path.join(tmpDir, 'README.md'), '# Main Branch');
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Initial commit on main'], { cwd: tmpDir });
+
+      execFileSync('git', ['checkout', '-b', 'feature/multi-commit'], { cwd: tmpDir });
+
+      // Commit 1: add article 1
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/article1.md'),
+        '# Article 1\n\nContent 1'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/article1.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim1 | evidence1 | ✅ |\n'
+      );
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Add article 1'], { cwd: tmpDir });
+
+      // Commit 2: add article 2
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/article2.md'),
+        '# Article 2\n\nContent 2'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/article2.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim2 | evidence2 | ✅ |\n'
+      );
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Add article 2'], { cwd: tmpDir });
+
+      const output = execFileSync('bash', [preflightScript], {
+        cwd: tmpDir,
+        env: { ...process.env, PATH: process.env.PATH },
+        encoding: 'utf8',
+      });
+
+      expect(output).toContain('✅ factcheck: article1');
+      expect(output).toContain('✅ factcheck: article2');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('supports positional target branch parameter', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'preflight-target-arg-'));
+    try {
+      setupTestRepo(tmpDir, repoRoot);
+
+      fs.writeFileSync(path.join(tmpDir, 'README.md'), '# Custom Target');
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Initial commit on main'], { cwd: tmpDir });
+
+      execFileSync('git', ['checkout', '-b', 'custom-base'], { cwd: tmpDir });
+      fs.writeFileSync(path.join(tmpDir, 'CUSTOM.md'), '# Custom base file');
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Commit on custom base'], { cwd: tmpDir });
+
+      execFileSync('git', ['checkout', '-b', 'feature/custom-branch'], { cwd: tmpDir });
+
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/custom.md'),
+        '# Custom Article\n\nContent'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/custom.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim | evidence | ✅ |\n'
+      );
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Add custom article'], { cwd: tmpDir });
+
+      const output = execFileSync('bash', [preflightScript, 'custom-base'], {
+        cwd: tmpDir,
+        env: { ...process.env, PATH: process.env.PATH },
+        encoding: 'utf8',
+      });
+
+      expect(output).toContain('✅ factcheck: custom');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('auto-fetches remote target branch when ref is unfetched locally', () => {
+    const remoteDir = fs.mkdtempSync(path.join(os.tmpdir(), 'preflight-remote-bare-'));
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'preflight-unfetched-'));
+    try {
+      execFileSync('git', ['init', '--bare', '-b', 'main'], { cwd: remoteDir });
+
+      setupTestRepo(tmpDir, repoRoot);
+
+      execFileSync('git', ['remote', 'add', 'origin', remoteDir], { cwd: tmpDir });
+
+      fs.writeFileSync(path.join(tmpDir, 'README.md'), '# Initial');
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Initial commit'], { cwd: tmpDir });
+      execFileSync('git', ['push', '-u', 'origin', 'main'], { cwd: tmpDir });
+
+      execFileSync('git', ['checkout', '-b', 'feature/unfetched'], { cwd: tmpDir });
+
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/remote.md'),
+        '# Remote Article\n\nContent'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/remote.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim | evidence | ✅ |\n'
+      );
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Add remote article'], { cwd: tmpDir });
+
+      // Remove local main branch and local origin/main ref to simulate unfetched remote
+      execFileSync('git', ['branch', '-D', 'main'], { cwd: tmpDir });
+      execFileSync('git', ['update-ref', '-d', 'refs/remotes/origin/main'], { cwd: tmpDir });
+
+      const output = execFileSync('bash', [preflightScript, 'main'], {
+        cwd: tmpDir,
+        env: { ...process.env, PATH: process.env.PATH },
+        encoding: 'utf8',
+      });
+
+      expect(output).toContain('✅ factcheck: remote');
+    } finally {
+      fs.rmSync(remoteDir, { recursive: true, force: true });
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+
+  it('captures uncommitted working tree changes alongside committed changes', () => {
+    const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'preflight-dirty-tree-'));
+    try {
+      setupTestRepo(tmpDir, repoRoot);
+
+      fs.writeFileSync(path.join(tmpDir, 'README.md'), '# Initial');
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Initial commit on main'], { cwd: tmpDir });
+
+      execFileSync('git', ['checkout', '-b', 'feature/dirty-tree'], { cwd: tmpDir });
+
+      // Committed article on feature branch
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/committed.md'),
+        '# Committed Article\n\nContent'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/committed.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim | evidence | ✅ |\n'
+      );
+      execFileSync('git', ['add', '.'], { cwd: tmpDir });
+      execFileSync('git', ['commit', '-m', 'Add committed article'], { cwd: tmpDir });
+
+      // Uncommitted dirty working tree article
+      fs.writeFileSync(
+        path.join(tmpDir, 'content/articles/dirty.md'),
+        '# Dirty Article\n\nContent'
+      );
+      fs.writeFileSync(
+        path.join(tmpDir, '.factchecks/dirty.factcheck.md'),
+        '| Claim | Evidence | Verdict |\n|---|---|---|\n| claim | evidence | ✅ |\n'
+      );
+
+      const output = execFileSync('bash', [preflightScript], {
+        cwd: tmpDir,
+        env: { ...process.env, PATH: process.env.PATH },
+        encoding: 'utf8',
+      });
+
+      expect(output).toContain('✅ factcheck: committed');
+      expect(output).toContain('✅ factcheck: dirty');
+    } finally {
+      fs.rmSync(tmpDir, { recursive: true, force: true });
+    }
+  });
+});

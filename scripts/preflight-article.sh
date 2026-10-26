@@ -31,18 +31,70 @@ fi
 # or
 #   node scripts/verify/verify.mjs review <file>
 
-# 3. fact-check receipt present per changed article (receipts in .factchecks/)
-# NOTE: --diff-filter=d excludes DELETED articles — a removed .md has no body to
-# review and no receipt to check; running the gates on it fails spuriously
-# (deletion branches like the GSC sitemap-cleanup PR).
-mapfile -t ARTICLES < <(
-  {
-    git diff --name-only --diff-filter=d origin/main...HEAD -- 'content/articles/**/*.md' 2>/dev/null
-    git diff --name-only --diff-filter=d HEAD~1 -- 'content/articles/**/*.md' 2>/dev/null
-    git diff --name-only --diff-filter=d HEAD -- 'content/articles/**/*.md' 2>/dev/null
-    git ls-files --others --exclude-standard -- 'content/articles/**/*.md' 2>/dev/null
-  } | sort -u
-)
+# 3. Target resolution & merge-base calculation per changed article (receipts in .factchecks/)
+# Accepts optional $1 target branch (default: main).
+# Uses multi-tier merge-base check with auto-fetch against target before falling back.
+TARGET="${1:-main}"
+
+CANDIDATES=()
+if [[ "$TARGET" == origin/* ]]; then
+  BRANCH_NAME="${TARGET#origin/}"
+  CANDIDATES=("$TARGET" "$BRANCH_NAME" "@{u}")
+else
+  CANDIDATES=("origin/$TARGET" "$TARGET" "@{u}")
+fi
+
+BASE_SHA=""
+for ref in "${CANDIDATES[@]}"; do
+  if BASE_SHA=$(git merge-base HEAD "$ref" 2>/dev/null) && [ -n "$BASE_SHA" ]; then
+    break
+  fi
+done
+
+if [ -z "$BASE_SHA" ]; then
+  FETCH_TARGET="$TARGET"
+  if [[ "$TARGET" == origin/* ]]; then
+    FETCH_TARGET="${TARGET#origin/}"
+  fi
+  git fetch origin "$FETCH_TARGET" --depth=100 >/dev/null 2>&1 || true
+
+  for ref in "${CANDIDATES[@]}"; do
+    if BASE_SHA=$(git merge-base HEAD "$ref" 2>/dev/null) && [ -n "$BASE_SHA" ]; then
+      break
+    fi
+  done
+fi
+
+if [ -z "$BASE_SHA" ]; then
+  if git rev-parse HEAD~1 >/dev/null 2>&1; then
+    BASE_SHA=$(git rev-parse HEAD~1)
+  else
+    BASE_SHA=$(git rev-parse HEAD 2>/dev/null || echo "")
+  fi
+fi
+
+get_changed_articles() {
+  if [ -n "$BASE_SHA" ]; then
+    git diff --name-only --diff-filter=d "$BASE_SHA" -- 'content/articles/*.md' 'content/articles/**/*.md' 2>/dev/null
+  fi
+  while IFS= read -r line; do
+    [ -z "$line" ] && continue
+    status="${line:0:2}"
+    if [[ "$status" =~ D ]]; then
+      continue
+    fi
+    file="${line:3}"
+    if [[ "$file" == *" -> "* ]]; then
+      file="${file#* -> }"
+    fi
+    file="${file#\"}"
+    file="${file%\"}"
+    echo "$file"
+  done < <(git status --porcelain -- 'content/articles/*.md' 'content/articles/**/*.md' 2>/dev/null)
+  git ls-files --others --exclude-standard -- 'content/articles/*.md' 'content/articles/**/*.md' 2>/dev/null
+}
+
+mapfile -t ARTICLES < <(get_changed_articles | sort -u)
 
 for f in "${ARTICLES[@]}"; do
   [ -z "$f" ] && continue
