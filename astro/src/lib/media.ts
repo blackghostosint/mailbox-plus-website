@@ -1,7 +1,9 @@
 /* global process */
 
+export const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+
 const PRODUCTION_CDN_ORIGINS = [
-  'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev',
+  CANONICAL_R2_BASE_URL,
   'http://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev',
 ];
 
@@ -13,54 +15,64 @@ function getEnvBaseUrl(): string | undefined {
       : undefined;
 }
 
+function normalizeOrigin(originOrUrl: string): string | undefined {
+  try {
+    const parsed = new URL(originOrUrl);
+    return parsed.origin.toLowerCase();
+  } catch {
+    return undefined;
+  }
+}
+
 export const getServiceImageUrl = (imagePath: string): string => {
+  const envBaseUrl = getEnvBaseUrl();
+  const effectiveBaseUrl =
+    envBaseUrl && envBaseUrl.trim() !== '' ? envBaseUrl.trim() : CANONICAL_R2_BASE_URL;
+
   if (!imagePath) {
-    const envBaseUrl = getEnvBaseUrl();
-    if (!envBaseUrl) {
-      console.warn('Missing R2 base URL environment variable, falling back to local path');
-      return '/';
-    }
-    return `${envBaseUrl.replace(/\/$/, '')}/`;
+    return `${effectiveBaseUrl.replace(/\/$/, '')}/`;
   }
 
   let path = imagePath.trim();
 
-  // Strip configured and production CDN origins
-  const envBaseUrl = getEnvBaseUrl();
-  const cdnOrigins = [...PRODUCTION_CDN_ORIGINS];
-  if (envBaseUrl) {
-    const trimmedEnv = envBaseUrl.trim().replace(/\/$/, '');
-    if (trimmedEnv) {
-      cdnOrigins.push(trimmedEnv);
-      if (trimmedEnv.startsWith('https://')) {
-        cdnOrigins.push(`http://${trimmedEnv.slice(8)}`);
-      } else if (trimmedEnv.startsWith('http://')) {
-        cdnOrigins.push(`https://${trimmedEnv.slice(7)}`);
+  // Build recognized origins set with strict origin normalization
+  const recognizedOrigins = new Set<string>();
+  for (const originStr of PRODUCTION_CDN_ORIGINS) {
+    const o = normalizeOrigin(originStr);
+    if (o) recognizedOrigins.add(o);
+  }
+
+  if (envBaseUrl && envBaseUrl.trim() !== '') {
+    const envTrimmed = envBaseUrl.trim();
+    const envOrigin = normalizeOrigin(envTrimmed);
+    if (envOrigin) {
+      recognizedOrigins.add(envOrigin);
+      if (envOrigin.startsWith('https://')) {
+        recognizedOrigins.add(`http://${envOrigin.slice(8)}`);
+      } else if (envOrigin.startsWith('http://')) {
+        recognizedOrigins.add(`https://${envOrigin.slice(7)}`);
       }
     }
   }
 
-  for (const origin of cdnOrigins) {
-    if (path.toLowerCase().startsWith(origin.toLowerCase())) {
-      path = path.slice(origin.length);
-      break;
+  // If path is an absolute http/https URL, check if its origin matches a recognized CDN origin
+  if (path.startsWith('http://') || path.startsWith('https://')) {
+    const pathOrigin = normalizeOrigin(path);
+    if (pathOrigin && recognizedOrigins.has(pathOrigin)) {
+      try {
+        const u = new URL(path);
+        path = u.pathname + u.search + u.hash;
+      } catch {
+        // Fallback if URL parsing fails
+      }
+    } else {
+      // Third-party external URL — return unchanged
+      return path;
     }
   }
 
-  // If after stripping recognized CDN origins, it is still an absolute http/https URL,
-  // it is an external third-party URL — return it unchanged.
-  if (path.startsWith('http://') || path.startsWith('https://')) {
-    return path;
-  }
-
-  if (!envBaseUrl) {
-    console.warn('Missing R2 base URL environment variable, falling back to local path');
-    if (!path) return '/';
-    return path.startsWith('/') ? path : `/${path}`;
-  }
-
   const cleaned = path.replace(/^\/?images\//, '').replace(/^\/+/, '');
-  const baseUrl = envBaseUrl.replace(/\/$/, '');
+  const baseUrl = effectiveBaseUrl.replace(/\/$/, '');
 
   return cleaned ? `${baseUrl}/${cleaned}` : `${baseUrl}/`;
 };

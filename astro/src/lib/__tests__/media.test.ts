@@ -1,6 +1,6 @@
 /* global process */
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
-import { getServiceImageUrl, normalizeContentMedia } from '../media';
+import { getServiceImageUrl, normalizeContentMedia, CANONICAL_R2_BASE_URL } from '../media';
 
 describe('getServiceImageUrl', () => {
   const originalEnv = process.env.VITE_R2_PUBLIC_BASE_URL;
@@ -24,6 +24,12 @@ describe('getServiceImageUrl', () => {
     expect(getServiceImageUrl('http://example.com/image.webp')).toBe(
       'http://example.com/image.webp'
     );
+  });
+
+  it('treats lookalike CDN subdomains/extensions as third-party external URLs', () => {
+    const evilUrl =
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev.evil.example/shipping.webp';
+    expect(getServiceImageUrl(evilUrl)).toBe(evilUrl);
   });
 
   it('strips production CDN origins and formats paths against R2 CDN base URL when env var is set', () => {
@@ -58,22 +64,24 @@ describe('getServiceImageUrl', () => {
     );
   });
 
-  it('issues a warning and falls back gracefully to local relative path when env var is missing', () => {
+  it('falls back gracefully to canonical R2 base URL when env var is missing', () => {
     delete process.env.VITE_R2_PUBLIC_BASE_URL;
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
-    expect(getServiceImageUrl('/images/test.webp')).toBe('/images/test.webp');
-    expect(getServiceImageUrl('images/test.webp')).toBe('/images/test.webp');
-    expect(getServiceImageUrl('test.webp')).toBe('/test.webp');
-    expect(getServiceImageUrl('')).toBe('/');
+    expect(getServiceImageUrl('/images/test.webp')).toBe(`${CANONICAL_R2_BASE_URL}/test.webp`);
+    expect(getServiceImageUrl('images/test.webp')).toBe(`${CANONICAL_R2_BASE_URL}/test.webp`);
+    expect(getServiceImageUrl('/shipping-alcohol-featured.webp')).toBe(
+      `${CANONICAL_R2_BASE_URL}/shipping-alcohol-featured.webp`
+    );
+    expect(getServiceImageUrl('shipping-alcohol-featured.webp')).toBe(
+      `${CANONICAL_R2_BASE_URL}/shipping-alcohol-featured.webp`
+    );
+    expect(getServiceImageUrl('test.webp')).toBe(`${CANONICAL_R2_BASE_URL}/test.webp`);
+    expect(getServiceImageUrl('')).toBe(`${CANONICAL_R2_BASE_URL}/`);
     expect(
       getServiceImageUrl(
         'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/test.webp'
       )
-    ).toBe('/articles/pack-ship/test.webp');
-    expect(warnSpy).toHaveBeenCalledWith(
-      'Missing R2 base URL environment variable, falling back to local path'
-    );
+    ).toBe(`${CANONICAL_R2_BASE_URL}/articles/pack-ship/test.webp`);
   });
 });
 
@@ -104,16 +112,17 @@ describe('normalizeContentMedia', () => {
     expect(normalized).toContain('height="675"');
   });
 
-  it('falls back to relative path when env var is missing', () => {
+  it('falls back to canonical R2 base URL when env var is missing', () => {
     delete process.env.VITE_R2_PUBLIC_BASE_URL;
-    vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     const inputHtml =
-      '<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/shipping.webp" alt="Test" />';
+      '<img src="/shipping-alcohol-featured.webp" alt="Test" /><img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/shipping.webp" alt="Test 2" />';
 
     const normalized = normalizeContentMedia(inputHtml);
 
-    expect(normalized).toBe('<img src="/shipping.webp" alt="Test" />');
+    expect(normalized).toBe(
+      `<img src="${CANONICAL_R2_BASE_URL}/shipping-alcohol-featured.webp" alt="Test" /><img src="${CANONICAL_R2_BASE_URL}/shipping.webp" alt="Test 2" />`
+    );
   });
 
   it('leaves external third-party image URLs unchanged inside HTML', () => {
