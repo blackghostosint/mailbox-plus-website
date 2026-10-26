@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import handler from '../create-checkout';
-import { verifyRecaptchaToken, recaptchaVerifier } from '../lib/recaptcha';
+import { recaptchaVerifier } from '../lib/recaptcha';
 import { createMockNetlifyRequest, createMockNetlifyContext } from './helpers/test-harness';
 
 const { mockPricesList, mockCheckoutSessionsCreate } = vi.hoisted(() => ({

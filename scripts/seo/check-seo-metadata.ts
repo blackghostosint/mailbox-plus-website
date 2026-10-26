@@ -249,7 +249,7 @@ export function checkSeoMetadata(distDir = DIST_DIR) {
             }
           }
         }
-      } catch (e) {
+      } catch (_e) {
         console.error(`❌ FAIL: "${page.routePath}" failed to parse JSON-LD script tag`);
         errors++;
       }

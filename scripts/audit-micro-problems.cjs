@@ -19,7 +19,7 @@
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
-const readline = require('readline');
+const _readline = require('readline');
 
 // ============================================================================
 // CONFIGURATION
@@ -332,7 +332,7 @@ function parseTypeScriptObject(objStr) {
 
   const keyValuePattern = /(\w+)\s*:\s*/g;
   let match;
-  let lastIndex = 0;
+  let _lastIndex = 0;
 
   while ((match = keyValuePattern.exec(objStr)) !== null) {
     const key = match[1];
@@ -416,7 +416,7 @@ function parseTypeScriptObject(objStr) {
       } else {
         result[key] = value;
       }
-    } catch (err) {
+    } catch (_err) {
       result[key] = value.substring(0, 100);
     }
   }
@@ -572,7 +572,7 @@ function evaluateSignalC(service, allServices) {
 // DECISION MATRIX
 // ============================================================================
 
-function makeDecision(service, signals, allServices) {
+function makeDecision(service, signals, _allServices) {
   const signalA = signals.find((s) => s.signal === 'A');
   const signalB = signals.find((s) => s.signal === 'B');
   const signalC = signals.find((s) => s.signal === 'C');
@@ -966,7 +966,7 @@ Actions:
     if (tempMockFile && fs.existsSync(tempMockFile)) {
       try {
         fs.unlinkSync(tempMockFile);
-      } catch (err) {
+      } catch (_err) {
         // Ignored
       }
     }

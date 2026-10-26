@@ -4,11 +4,7 @@ import { createRequire } from 'module';
 import { fileURLToPath } from 'url';
 import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
 import { getWorkspaceRoot } from './workspace-paths.ts';
-import {
-  articleFrontmatterSchema,
-  validateArticleFrontmatter,
-  type ArticleFrontmatter,
-} from './article-schema.ts';
+import { validateArticleFrontmatter, type ArticleFrontmatter } from './article-schema.ts';
 
 export type GrayMatterFn = (
   input: string | Buffer,
@@ -213,7 +209,7 @@ export function initRouteRegistry(
       if (Array.isArray(siteStruct['seo-landing'])) {
         for (const l of siteStruct['seo-landing']) addUrl(l.url);
       }
-    } catch (e) {
+    } catch (_e) {
       // Ignore reading/parsing error
     }
   }
@@ -231,7 +227,7 @@ export function initRouteRegistry(
           if (norm) validRoutes.add(norm);
         }
       }
-    } catch (e) {
+    } catch (_e) {
       // Ignore reading/parsing error
     }
   }
@@ -254,7 +250,7 @@ export function initRouteRegistry(
           }
           intentKeyMap.get(ik)!.push(rel);
         }
-      } catch (e) {
+      } catch (_e) {
         // Parsing errors are reported during full article validation
       }
     }

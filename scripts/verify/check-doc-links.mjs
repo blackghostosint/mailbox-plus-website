@@ -310,7 +310,7 @@ export function isDynamicOrPlaceholderPath(term) {
  * Checks if the static base directory of a dynamic path exists
  */
 export function checkDynamicPathBaseExists(term, dirOfDoc, rootDir = ROOT) {
-  const staticPrefix = term.split(/[\<\{\*\b(YYYY|MM|DD|QX)\b]/)[0];
+  const staticPrefix = term.split(/[<{*\b(YYYY|MM|DD|QX)\b]/)[0];
   if (!staticPrefix) return true;
 
   let baseDir = staticPrefix;
