@@ -1,6 +1,7 @@
 /* global process */
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
+import { CANONICAL_R2_BASE_URL } from '../lib/media';
 
 export function getNetlifyContext(): string | undefined {
   if (typeof import.meta !== 'undefined' && import.meta.env) {
@@ -68,7 +69,7 @@ function getR2BaseUrl(): string {
     return envUrl.trim().replace(/\/$/, '');
   }
 
-  return '';
+  return CANONICAL_R2_BASE_URL;
 }
 
 export const siteConfig: SiteConfig = {
