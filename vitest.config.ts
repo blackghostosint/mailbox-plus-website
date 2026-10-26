@@ -76,7 +76,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
-      reportsDirectory: './coverage',
+      reportsDirectory: './astro/coverage',
       include: ['astro/src/**/*.{ts,tsx,js,jsx}'],
       exclude: [
         '**/*.{test,spec}.{ts,tsx,js,jsx}',
