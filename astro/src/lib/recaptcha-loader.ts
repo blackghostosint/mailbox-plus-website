@@ -35,14 +35,12 @@ export function loadRecaptchaScript(siteKey: string): Promise<void> {
   }
 
   scriptLoadPromise = new Promise<void>((resolve) => {
-    const timer = setTimeout(() => resolve(), 3000);
     const script = document.createElement('script');
     script.id = 'recaptcha-v3-script';
     script.src = `https://www.google.com/recaptcha/api.js?render=${encodeURIComponent(siteKey)}`;
     script.async = true;
 
     const cleanupAndResolve = () => {
-      clearTimeout(timer);
       resolve();
     };
 
@@ -52,7 +50,6 @@ export function loadRecaptchaScript(siteKey: string): Promise<void> {
     document.head.appendChild(script);
 
     if (window.grecaptcha) {
-      clearTimeout(timer);
       resolve();
     }
   });
@@ -76,32 +73,21 @@ export async function executeRecaptcha(
     }
 
     return await new Promise<string>((resolve) => {
-      const timer = setTimeout(() => {
-        console.warn('reCAPTCHA execution timed out');
-        resolve('');
-      }, 3000);
-
       try {
         window.grecaptcha?.ready(() => {
           if (!window.grecaptcha?.execute) {
-            clearTimeout(timer);
             resolve('');
             return;
           }
           window.grecaptcha
             .execute(siteKey, { action })
-            .then((token) => {
-              clearTimeout(timer);
-              resolve(token || '');
-            })
+            .then((token) => resolve(token || ''))
             .catch((err) => {
-              clearTimeout(timer);
               console.error('reCAPTCHA execution error:', err);
               resolve('');
             });
         });
       } catch (err) {
-        clearTimeout(timer);
         console.error('reCAPTCHA execution error:', err);
         resolve('');
       }
