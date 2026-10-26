@@ -149,6 +149,15 @@ jobs:
       - name: Run Vitest unit tests & coverage
         run: npm run test:coverage
 
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        continue-on-error: true
+        with:
+          name: code-coverage-report-${{ matrix.node-version }}
+          path: astro/coverage/
+          retention-days: 14
+
       - name: Run vault sync dry-run
         run: npm run vault:sync
         env:
