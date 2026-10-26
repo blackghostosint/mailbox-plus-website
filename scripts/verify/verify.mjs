@@ -474,6 +474,84 @@ function cmdDoctor() {
       'run inside the repo clone'
     );
   }
+
+  // Git hooks integrity check
+  try {
+    let hooksPath = '';
+    try {
+      hooksPath = execFileSync('git', ['config', '--get', 'core.hooksPath'], {
+        cwd: ROOT,
+        stdio: 'pipe',
+      })
+        .toString()
+        .trim();
+    } catch {
+      hooksPath = '';
+    }
+
+    const normHooksPath = hooksPath.replace(/\\/g, '/').replace(/^\.\//, '').replace(/\/$/, '');
+    const validHooksPath = normHooksPath === '.husky' || normHooksPath === '.husky/_';
+
+    const requiredHooks = ['.husky/pre-commit', '.husky/pre-push'];
+    const missingHooks = [];
+    const nonExecutableHooks = [];
+
+    for (const hookRel of requiredHooks) {
+      const hookAbs = path.join(ROOT, hookRel);
+      if (!fs.existsSync(hookAbs)) {
+        missingHooks.push(hookRel);
+      } else if (process.platform !== 'win32') {
+        try {
+          fs.accessSync(hookAbs, fs.constants.X_OK);
+        } catch {
+          nonExecutableHooks.push(hookRel);
+        }
+      }
+    }
+
+    let pass = true;
+    const details = [];
+
+    if (!validHooksPath) {
+      pass = false;
+      details.push(
+        `core.hooksPath not configured to .husky or .husky/_ (got: ${hooksPath ? `'${hooksPath}'` : 'unset'})`
+      );
+    }
+    if (missingHooks.length > 0) {
+      pass = false;
+      details.push(`missing hook script(s): ${missingHooks.join(', ')}`);
+    }
+    if (nonExecutableHooks.length > 0) {
+      pass = false;
+      details.push(`non-executable hook script(s): ${nonExecutableHooks.join(', ')}`);
+    }
+
+    if (pass) {
+      check(
+        'git-hooks',
+        true,
+        `git core.hooksPath configured (${hooksPath}) and hooks present (.husky/pre-commit, .husky/pre-push)`
+      );
+    } else {
+      const fixes = [];
+      if (!validHooksPath || missingHooks.length > 0) {
+        fixes.push('npm run prepare (or npx husky)');
+      }
+      if (nonExecutableHooks.length > 0) {
+        fixes.push(`chmod +x ${nonExecutableHooks.join(' ')}`);
+      }
+      check('git-hooks', false, details.join('; '), fixes.join('; '));
+    }
+  } catch (e) {
+    check(
+      'git-hooks',
+      false,
+      'git hooks check failed: ' + e.message.slice(0, 80),
+      'run inside the repo clone and run npm run prepare'
+    );
+  }
+
   check(
     'scripts-present',
     ['validate-articles.ts', 'seo'].every((p) => fs.existsSync(path.join(ROOT, 'scripts', p))),
