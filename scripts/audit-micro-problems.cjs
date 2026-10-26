@@ -844,7 +844,7 @@ function main(rawArgs = process.argv.slice(2)) {
       options: {
         'search-console': { type: 'string' },
         'dry-run': { type: 'boolean', default: false },
-        help: { type: 'boolean', default: false },
+        help: { type: 'boolean', short: 'h', default: false },
       },
       strict: false,
     },

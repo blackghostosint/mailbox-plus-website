@@ -56,6 +56,29 @@ describe('cli-utils', () => {
       expect(result.positionals).toEqual(['positional1']);
     });
 
+    it('parses short option aliases correctly (e.g. -h)', () => {
+      const resultShort = parseScriptArgs(
+        {
+          options: {
+            help: { type: 'boolean', short: 'h', default: false },
+          },
+        },
+        ['-h']
+      );
+
+      const resultLong = parseScriptArgs(
+        {
+          options: {
+            help: { type: 'boolean', short: 'h', default: false },
+          },
+        },
+        ['--help']
+      );
+
+      expect(resultShort.values.help).toBe(true);
+      expect(resultLong.values.help).toBe(true);
+    });
+
     it('slices node/script binary args if full argv is passed', () => {
       const fullArgv = ['/usr/bin/node', '/app/script.js', '--flag', 'arg1'];
       const result = parseScriptArgs(
