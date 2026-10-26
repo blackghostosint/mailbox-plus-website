@@ -2,7 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { execSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { evaluateAuditData, runAuditFunctionsGate } from '../audit-functions-gate.mjs';
+import { evaluateAuditData } from '../audit-functions-gate.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..', '..');

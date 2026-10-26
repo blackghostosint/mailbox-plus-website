@@ -3,7 +3,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
-import { loadArticles, initRouteRegistry } from '../lib/article-utils.ts';
+import { loadArticles } from '../lib/article-utils.ts';
 
 describe('article-schema & article-utils contextual validation', () => {
   const mockRegistry = {

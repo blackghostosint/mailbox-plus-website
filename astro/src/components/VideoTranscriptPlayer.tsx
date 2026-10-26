@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { useState, useRef, useCallback } from 'react';
 import { IconWrapper } from './ui/IconWrapper';
 

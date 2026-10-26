@@ -47,7 +47,9 @@ function loadEnvKeys(): Record<string, string> {
           keys[k] = v;
         }
       }
-    } catch {}
+    } catch {
+      // Ignore missing or unparseable .env file
+    }
   }
   return keys;
 }
@@ -118,7 +120,9 @@ function getNousToken(): string | null {
         if (Array.isArray(pool) && pool[0]?.access_token) {
           return pool[0].access_token;
         }
-      } catch {}
+      } catch {
+        // Ignore missing or invalid auth credentials file
+      }
     }
   }
 
