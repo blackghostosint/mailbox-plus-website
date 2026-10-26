@@ -6,6 +6,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, '..', '..');
@@ -472,8 +473,9 @@ export function validateFile(file, rootDir = ROOT) {
 }
 
 // ---------- CLI Execution ----------
-if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
-  const cliArgs = process.argv.slice(2).filter((arg) => !arg.startsWith('--'));
+if (isMainModule(import.meta.url)) {
+  const { positionals } = parseScriptArgs({ allowPositionals: true, strict: false });
+  const cliArgs = positionals;
 
   let targetFiles = [];
   if (cliArgs.length > 0) {

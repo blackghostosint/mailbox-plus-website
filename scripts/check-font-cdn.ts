@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -93,7 +94,8 @@ export function checkFontCdn(searchDirs?: string[]): CheckFontCdnResult {
   };
 }
 
-if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   const result = checkFontCdn();
   console.log('==================================================');
   console.log('      FONT CDN CI DRIFT GUARD VALIDATION CHECK     ');

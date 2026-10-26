@@ -15,10 +15,10 @@
  * Env: GOOGLE_PLACES_API_KEY
  */
 
-import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { httpClient } from '../astro/src/lib/http-client.ts';
 import { getWorkspaceRoot, atomicWriteJsonSync } from './lib/workspace-paths.ts';
+import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
 
 export const OUT_FILE = path.resolve(getWorkspaceRoot(), 'astro/src/data/reviews.json');
 export const PLACE_ID = 'ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
@@ -89,9 +89,8 @@ export async function fetchAndSaveReviews(options = {}) {
   }
 }
 
-const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
-
-if (isMain) {
+if (isMainModule(import.meta.url)) {
+  parseScriptArgs({ allowPositionals: true, strict: false });
   fetchAndSaveReviews()
     .then(() => {
       process.exit(0);
