@@ -350,9 +350,7 @@ export const additionalServices: Service[] = [
     heroTitle: 'Nuuly Returns Drop-Off',
     heroSubtitle:
       'Convenient Nuuly clothing rental returns at your local UPS authorized drop-off location.',
-    heroImage: getServiceImageUrl(
-      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/nullyreturns.webp'
-    ),
+    heroImage: getServiceImageUrl('/nullyreturns.webp'),
     content: [
       {
         heading: 'Fast & Easy Nuuly Returns',
@@ -903,7 +901,7 @@ export const additionalServices: Service[] = [
             </div>
             <div class="relative overflow-hidden rounded-2xl mb-8">
               <img
-                src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/happy-returns.webp"
+                src="/happy-returns.webp"
                 alt="Customer at Mailbox Plus return counter showing a Happy Returns QR code on their phone — no box, no label needed"
                 loading="lazy"
                 width="1024"

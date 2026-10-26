@@ -17,11 +17,9 @@ export const competePages: Service[] = [
       ],
       priority: false,
     },
-    ogImage:
-      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
+    ogImage: '/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
     headJsonLd: getImageObjectSchema({
-      contentUrl:
-        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
+      contentUrl: '/articles/pack-ship/fedex-office-alternative-fairport-harbor-featured.webp',
       name: 'FedEx Office Alternative Near Fairport Harbor — Better Service | Mailbox Plus',
       description: 'Mailbox Plus shipping service for Fairport Harbor customers',
     }),

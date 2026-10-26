@@ -9,6 +9,7 @@ if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
 
 const { services } = await import('../../astro/src/config/services.ts');
 const { getPageMeta } = await import('../../astro/src/config/pageMeta.ts');
+const { getServiceImageUrl } = await import('../../astro/src/lib/media.ts');
 
 interface OgImageCheck {
   route: string;
@@ -372,12 +373,19 @@ export function checkSeoMetadata(distDir?: string) {
     }
 
     const html = fs.readFileSync(htmlFile, 'utf8');
+    const expectedResolvedOg = item.expectedOgImage.startsWith('/og/')
+      ? `https://mailboxplusohio.com${item.expectedOgImage}`
+      : getServiceImageUrl(item.expectedOgImage);
+
     const ogImageMetaPattern = new RegExp(
-      `<meta\\s+property=["']og:image["']\\s+content=["'][^"']*${item.expectedOgImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`,
+      `<meta\\s+property=["']og:image["']\\s+content=["']${expectedResolvedOg.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`,
       'i'
     );
 
     if (!ogImageMetaPattern.test(html)) {
+      console.error(
+        `❌ FAIL: Route "${item.route}" og:image mismatch. Expected content="${expectedResolvedOg}" in HTML.`
+      );
       errors++;
     }
   }
@@ -391,6 +399,7 @@ export function checkSeoMetadata(distDir?: string) {
 
     const html = fs.readFileSync(htmlFile, 'utf8');
     if (!html.includes('"@type":"ImageObject"') && !html.includes('"@type": "ImageObject"')) {
+      console.error(`❌ FAIL: Route "${route}" missing ImageObject schema in HTML.`);
       errors++;
     }
   }
