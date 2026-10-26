@@ -18,7 +18,9 @@ describe('check-font-cdn.ts', () => {
   afterEach(() => {
     try {
       rmSync(tempDir, { recursive: true, force: true });
-    } catch {}
+    } catch {
+      // Ignore directory cleanup failure
+    }
   });
 
   it('passes when no external font CDN links are present', () => {

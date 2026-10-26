@@ -25,7 +25,7 @@ export function parseAuditPayload(raw) {
     }
     try {
       data = JSON.parse(raw);
-    } catch (err) {
+    } catch (_err) {
       throw new Error(`unable to parse JSON output from npm audit`);
     }
   } else {

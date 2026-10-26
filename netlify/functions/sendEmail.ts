@@ -45,7 +45,7 @@ export default withCors(
     }
 
     try {
-      const clientIp = getClientIp(request.headers);
+      const _clientIp = getClientIp(request.headers);
 
       const rawData = await request.json().catch(() => ({}));
       const parsed = SendEmailRequestSchema.safeParse(rawData);
