@@ -1,6 +1,7 @@
 /* global process */
 import type { CTA } from '../types/services';
 import type { SiteConfig } from '../types/siteConfig';
+import { CANONICAL_R2_BASE_URL } from '../lib/media';
 
 export function getNetlifyContext(): string | undefined {
   if (typeof import.meta !== 'undefined' && import.meta.env) {
@@ -54,8 +55,6 @@ export function getSiteDomain(): string {
 
   return 'https://mailboxplusohio.com';
 }
-
-const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
 
 function getR2BaseUrl(): string {
   const envUrl =

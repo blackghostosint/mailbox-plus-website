@@ -12,7 +12,7 @@ import reviewsData from '../data/reviews.json';
 import { getServiceBreadcrumbs } from '../utils/services-helpers';
 import { getWebPageSchema, getServiceSchema, getFAQSchema, getBreadcrumbSchema } from '../utils/schema';
 import { normalizeContentHeadings, normalizeContentHrefs, normalizePathname, toCanonicalUrl } from '../utils/canonical-url';
-import { getServiceImageUrl } from '../lib/media';
+import { getServiceImageUrl, normalizeContentMedia } from '../lib/media';
 
 export interface Props {
   service: Service;
@@ -30,7 +30,10 @@ const competitorAlternatives: Record<string, { title: string; url: string }> = {
 };
 
 const { service, breadcrumbsBaseUrl, breadcrumbsLabel, ogImage: ogImageProp } = Astro.props;
-const ogImage = ogImageProp || service.ogImage;
+const rawOgImage = ogImageProp || service.ogImage;
+const ogImage = rawOgImage
+  ? (rawOgImage.startsWith('/og/') ? rawOgImage : getServiceImageUrl(rawOgImage))
+  : undefined;
 const canonicalUrl = toCanonicalUrl(service.canonicalUrl || service.slug);
 const breadcrumbs = getServiceBreadcrumbs(service, breadcrumbsBaseUrl || '', breadcrumbsLabel || 'Services');
 const faqSchema = service.faqs ? getFAQSchema(siteConfig, service.faqs) : undefined;
@@ -156,7 +159,7 @@ const carriers = [
         <section class="max-w-5xl mx-auto">
           <div class={`relative rounded-[28px] px-6 md:px-10 py-8 md:py-10 shadow-md bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)]${idx % 2 === 1 ? ' before:absolute before:inset-px before:rounded-lg before:bg-gradient-to-br before:from-[var(--color-bg-primary)]/80 before:via-[var(--color-bg-warm-tint)]/50 before:to-[var(--color-border)]/60 before:-z-10' : ''}`}>
             <h2 class="text-2xl md:text-3xl font-bold text-[var(--color-text-primary)] mb-4">{block.heading}</h2>
-            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={normalizeContentHeadings(normalizeContentHrefs(block.body))} />
+            <div class="prose prose-lg max-w-none text-[var(--color-text-primary)] leading-relaxed" set:html={normalizeContentMedia(normalizeContentHeadings(normalizeContentHrefs(block.body)))} />
           </div>
         </section>
       ))}

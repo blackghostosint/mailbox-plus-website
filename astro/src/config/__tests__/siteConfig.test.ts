@@ -176,4 +176,39 @@ describe('siteConfig module', () => {
       expect(defaultCTA.align).toBe('center');
     });
   });
+
+  describe('siteConfig.favicon getters', () => {
+    const CANONICAL_R2_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
+
+    it('returns canonical R2 CDN favicon URLs when VITE_R2_PUBLIC_BASE_URL is missing', () => {
+      vi.stubEnv('VITE_R2_PUBLIC_BASE_URL', '');
+      expect(siteConfig.favicon.default).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/favicon-32x32.png`
+      );
+      expect(siteConfig.favicon.appleTouch).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/apple-touch-icon.png`
+      );
+      expect(siteConfig.favicon.android192).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/android-chrome-192x192.png`
+      );
+      expect(siteConfig.favicon.android512).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/android-chrome-512x512.png`
+      );
+      expect(siteConfig.favicon.icon16).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/favicon-16x16.png`
+      );
+      expect(siteConfig.favicon.icon32).toBe(
+        `${CANONICAL_R2_BASE_URL}/favicon_io/favicon-32x32.png`
+      );
+    });
+
+    it('uses custom VITE_R2_PUBLIC_BASE_URL when defined', () => {
+      vi.stubEnv('VITE_R2_PUBLIC_BASE_URL', 'https://custom-r2.dev/');
+      expect(siteConfig.favicon.default).toBe('https://custom-r2.dev/favicon_io/favicon-32x32.png');
+      expect(siteConfig.favicon.appleTouch).toBe(
+        'https://custom-r2.dev/favicon_io/apple-touch-icon.png'
+      );
+      expect(siteConfig.favicon.icon32).toBe('https://custom-r2.dev/favicon_io/favicon-32x32.png');
+    });
+  });
 });
