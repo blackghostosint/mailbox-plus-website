@@ -10,8 +10,6 @@ if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
 const { services } = await import('../../astro/src/config/services.ts');
 const { getPageMeta } = await import('../../astro/src/config/pageMeta.ts');
 
-const DIST_DIR = resolveDistDir();
-
 interface OgImageCheck {
   route: string;
   expectedOgImage: string;
@@ -120,9 +118,116 @@ function resolveHtmlPath(distDir: string, relPath: string): string {
   return path.join(distDir, `${relClean}.html`);
 }
 
-export function checkSeoMetadata(distDir = DIST_DIR) {
-  if (!fs.existsSync(distDir)) {
-    return { ok: false, error: `Build output directory "${distDir}" does not exist.`, errors: 0 };
+export function validateBaseLayoutProps(pageContent: string): { ok: boolean; errors: string[] } {
+  const errors: string[] = [];
+  const layoutMatches = pageContent.match(/<BaseLayout[\s\S]*?>/g);
+  if (layoutMatches) {
+    for (const layoutTag of layoutMatches) {
+      if (layoutTag.includes('title=') || layoutTag.includes('description=')) {
+        errors.push('Static page passes inline title or description prop to <BaseLayout>');
+      }
+    }
+  }
+  return { ok: errors.length === 0, errors };
+}
+
+export function validateHtmlTitleAndDescription(
+  html: string,
+  meta: { title: string; description: string; schema?: Record<string, unknown>[] }
+): { ok: boolean; errors: string[] } {
+  const errors: string[] = [];
+
+  // Verify <title>
+  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
+  if (!titleMatch || !titleMatch[1].trim()) {
+    errors.push('HTML does not contain a valid <title> tag');
+  } else {
+    const renderedTitle = decodeHtml(titleMatch[1].trim());
+    if (renderedTitle !== meta.title) {
+      errors.push(`title mismatch: expected "${meta.title}", got "${renderedTitle}"`);
+    }
+  }
+
+  // Verify <meta name="description">
+  const descMatch =
+    html.match(/<meta\s+name=["']description["']\s+content=(["'])([\s\S]*?)\1/i) ||
+    html.match(/<meta\s+content=(["'])([\s\S]*?)\1\s+name=["']description["']/i);
+
+  const extractedDesc = descMatch ? descMatch[2] : undefined;
+
+  if (!extractedDesc || !extractedDesc.trim()) {
+    errors.push('HTML does not contain a valid <meta name="description"> tag');
+  } else {
+    const renderedDesc = decodeHtml(extractedDesc.trim());
+    if (renderedDesc !== meta.description) {
+      errors.push(`description mismatch: expected "${meta.description}", got "${renderedDesc}"`);
+    }
+  }
+
+  // Verify WebPage JSON-LD schema name & description match pageMeta.ts
+  let expectedWpName = meta.title;
+  let expectedWpDesc = meta.description;
+  if (meta.schema) {
+    for (const sNode of meta.schema) {
+      if (
+        sNode &&
+        typeof sNode === 'object' &&
+        (sNode as unknown as Record<string, unknown>)['@type'] === 'WebPage'
+      ) {
+        const sWp = sNode as unknown as Record<string, unknown>;
+        if (sWp.name) expectedWpName = String(sWp.name);
+        if (sWp.description) expectedWpDesc = String(sWp.description);
+      }
+    }
+  }
+
+  const jsonLdRegex = /<script\s+type=["']application\/ld\+json["']>([\s\S]*?)<\/script>/gi;
+  for (const match of html.matchAll(jsonLdRegex)) {
+    const rawJson = match[1].trim();
+    try {
+      const parsed = JSON.parse(rawJson);
+      const graph = parsed['@graph'] || (Array.isArray(parsed) ? parsed : [parsed]);
+      for (const node of graph) {
+        if (node && typeof node === 'object' && node['@type'] === 'WebPage') {
+          const wpName = node.name ? decodeHtml(String(node.name).trim()) : undefined;
+          const wpDesc = node.description ? decodeHtml(String(node.description).trim()) : undefined;
+
+          if (wpName && wpName !== expectedWpName) {
+            errors.push(
+              `WebPage JSON-LD name mismatch: expected "${expectedWpName}", got "${wpName}"`
+            );
+          }
+          if (wpDesc && wpDesc !== expectedWpDesc) {
+            errors.push(
+              `WebPage JSON-LD description mismatch: expected "${expectedWpDesc}", got "${wpDesc}"`
+            );
+          }
+        }
+      }
+    } catch (_e) {
+      errors.push('failed to parse JSON-LD script tag');
+    }
+  }
+
+  return { ok: errors.length === 0, errors };
+}
+
+export function validateOgImageMeta(html: string, expectedOgImage: string): boolean {
+  const ogImageMetaPattern = new RegExp(
+    `<meta\\s+property=["']og:image["']\\s+content=["'][^"']*${expectedOgImage.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`,
+    'i'
+  );
+  return ogImageMetaPattern.test(html);
+}
+
+export function validateImageObjectSchema(html: string): boolean {
+  return html.includes('"@type":"ImageObject"') || html.includes('"@type": "ImageObject"');
+}
+
+export function checkSeoMetadata(distDir?: string) {
+  const dir = distDir || resolveDistDir();
+  if (!fs.existsSync(dir)) {
+    return { ok: false, error: `Build output directory "${dir}" does not exist.`, errors: 0 };
   }
 
   let errors = 0;
@@ -157,7 +262,7 @@ export function checkSeoMetadata(distDir = DIST_DIR) {
     }
 
     // Inspect rendered HTML file in dist/
-    const htmlFile = resolveHtmlPath(distDir, page.relPath);
+    const htmlFile = resolveHtmlPath(dir, page.relPath);
     if (!fs.existsSync(htmlFile)) {
       console.error(
         `❌ FAIL: Expected build output HTML "${htmlFile}" for route "${page.routePath}" does not exist`
@@ -260,7 +365,7 @@ export function checkSeoMetadata(distDir = DIST_DIR) {
   const { ogImageChecks, imageObjectSchemaChecks } = discoverServiceMetadata();
 
   for (const item of ogImageChecks) {
-    const htmlFile = path.join(distDir, item.route, 'index.html');
+    const htmlFile = path.join(dir, item.route, 'index.html');
     if (!fs.existsSync(htmlFile)) {
       errors++;
       continue;
@@ -278,7 +383,7 @@ export function checkSeoMetadata(distDir = DIST_DIR) {
   }
 
   for (const route of imageObjectSchemaChecks) {
-    const htmlFile = path.join(distDir, route, 'index.html');
+    const htmlFile = path.join(dir, route, 'index.html');
     if (!fs.existsSync(htmlFile)) {
       errors++;
       continue;

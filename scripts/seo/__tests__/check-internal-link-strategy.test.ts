@@ -60,6 +60,7 @@ describe('check-internal-link-strategy', () => {
       const result = auditInternalLinkStrategy({
         siteStructure: mockSiteStructure,
         internalLinks: mockInternalLinks,
+        distDir: '/tmp/mock-dist-dir',
       });
 
       expect(result.knownRoutesCount).toBeGreaterThanOrEqual(2);
