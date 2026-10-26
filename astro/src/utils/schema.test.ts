@@ -770,4 +770,29 @@ describe('getSchemaGraph', () => {
     expect(videoNode['@context']).toBeUndefined();
     expect(videoNode.publisher['@context']).toBeUndefined();
   });
+
+  it('resolves relative contentUrl in getImageObjectSchema to canonical R2 CDN URL', () => {
+    const imageObj = getImageObjectSchema({
+      contentUrl: '/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+      name: 'DHL Drop-Off Near Chardon',
+      config: mockSiteConfig,
+    });
+    expect(imageObj.contentUrl).toBe(
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp'
+    );
+  });
+
+  it('preserves CDN image URL in getArticleSchema when passed full CDN URL', () => {
+    const article = getArticleSchema(mockSiteConfig, {
+      headline: 'DHL Shipping Article',
+      description: 'Article description',
+      image:
+        'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp',
+      datePublished: '2026-01-01',
+      url: '/dhl-drop-off-chardon/',
+    });
+    expect(article.image).toBe(
+      'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp'
+    );
+  });
 });

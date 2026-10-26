@@ -938,7 +938,7 @@ export const shippingMicroProblems: Service[] = [
     content: [
       {
         heading: 'How Chewy Prescription Mail-In Works',
-        body: `<img src="https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/chewy-prescription-mail-in-featured.webp" alt="Pet prescription being sealed in a FedEx envelope at a shipping counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1024" height="576" />
+        body: `<img src="/chewy-prescription-mail-in-featured.webp" alt="Pet prescription being sealed in a FedEx envelope at a shipping counter" class="w-full rounded-2xl shadow-md my-8" loading="lazy" width="1024" height="576" />
 <p>When you order prescription medication for your pet on <strong>Chewy Pharmacy</strong>, you may need to mail in the original paper prescription before your order can ship. This is required by pharmacy regulations — Chewy cannot accept copies, scans, or photos.</p>
 <p>If you select <strong>"Mail in prescription"</strong> at checkout, Chewy generates a FedEx QR code or printable label for you. That's where we come in.</p>
 <p><a href="https://www.chewy.com/customer-care/prescriptions-and-veterinary-diets/filling-prescriptions-or-veterinary-diets/mailing-in-a-prescription" rel="nofollow" target="_blank">View Chewy's official mail-in prescription instructions →<span class="sr-only">(opens in a new tab)</span></a></p>`,

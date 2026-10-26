@@ -44,9 +44,7 @@ export const amazonReturnsService: Service = {
     'amazon returns, return shipping, pack and ship, concord township, lake county, printable label',
   heroTitle: 'How to Return Items to Amazon',
   heroSubtitle: 'Local Guide for Lake County, Ohio',
-  heroImage: getServiceImageUrl(
-    'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/how-to-return-items-to-amazon-2025-.webp'
-  ),
+  heroImage: getServiceImageUrl('/how-to-return-items-to-amazon-2025-.webp'),
   content: [
     {
       heading: 'How Amazon Returns Work',
