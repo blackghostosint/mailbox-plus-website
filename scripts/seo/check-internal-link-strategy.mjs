@@ -32,7 +32,6 @@ const DATA_DIR = path.join(ROOT, 'astro/src/data');
 const CONFIG_DIR = path.join(ROOT, 'astro/src/config/services');
 const MICRO_PROBLEMS_DIR = path.join(ROOT, 'astro/src/config/micro-problems');
 const ARTICLES_DIR = path.join(ROOT, 'content/articles');
-const DIST_DIR = resolveDistDir();
 
 export const MIN_LINKS_PER_SEO_PAGE = 1;
 export const ALLOWED_PREFIXES = [
@@ -71,7 +70,7 @@ export function auditInternalLinkStrategy(options = {}) {
   const configDir = options.configDir || CONFIG_DIR;
   const microProblemsDir = options.microProblemsDir || MICRO_PROBLEMS_DIR;
   const articlesDir = options.articlesDir || ARTICLES_DIR;
-  const distDir = options.distDir || DIST_DIR;
+  const distDir = options.distDir || resolveDistDir();
 
   const siteStructurePath = path.join(dataDir, 'siteStructure.json');
   const internalLinksPath = path.join(dataDir, 'internalLinks.json');
