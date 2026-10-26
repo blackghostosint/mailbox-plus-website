@@ -11,7 +11,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // Paths
 const ROOT_DIR = path.resolve(__dirname, '../..');
-const DIST_DIR = resolveDistDir();
 const SITE_STRUCTURE_PATH = path.join(ROOT_DIR, 'astro/src/data/siteStructure.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ALLOWLIST_PATH = path.join(ROOT_DIR, 'scripts/seo/route-registry-allowlist.json');
@@ -63,7 +62,7 @@ export function isPathAllowedOrphan(p, localAllowlist = []) {
 }
 
 export function checkRouteRegistry(options = {}) {
-  const distDir = options.distDir || DIST_DIR;
+  const distDir = options.distDir || resolveDistDir();
   const siteStructurePath = options.siteStructurePath || SITE_STRUCTURE_PATH;
   const allowlistPath = options.allowlistPath || ALLOWLIST_PATH;
   const internalLinksPath = options.internalLinksPath || INTERNAL_LINKS_PATH;
