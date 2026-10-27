@@ -195,9 +195,9 @@ describe('AccessibleModal Component', () => {
     const dialog = screen.getByRole('dialog');
     const backdrop = (dialog.parentElement?.querySelector('[aria-hidden="true"]') ||
       dialog.parentElement) as HTMLElement;
-    expect(backdrop.tagName).toBe('BUTTON');
-    expect(backdrop.getAttribute('type')).toBe('button');
-    expect(backdrop.getAttribute('tabindex')).toBe('-1');
+    expect(backdrop.tagName).toBe('DIV');
+    expect(backdrop.getAttribute('type')).toBeNull();
+    expect(backdrop.getAttribute('tabindex')).toBeNull();
     expect(backdrop.getAttribute('aria-hidden')).toBe('true');
     fireEvent.click(backdrop);
 
