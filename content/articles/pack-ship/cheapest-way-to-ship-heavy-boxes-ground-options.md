@@ -62,7 +62,7 @@ You start second-guessing yourself. Should you have used a smaller box? Should y
 
 **UPS Ground and FedEx Ground** run nearly identical rulebooks: 150 pounds, 108-inch length, 165-inch length-plus-girth. Their per-pound pricing is built for heavier boxes, so as your shipment climbs from 40 toward 70-plus pounds, they often pull ahead of USPS on price. Their weakness is the surcharge stack — that ~30% fuel charge, additional handling past 50 pounds, and residential delivery fees.
 
-There is no permanent winner. Which carrier is cheapest depends on the weight, the box dimensions, and the destination zone — sometimes all three at once. (We break down the same four-carrier rate spread for ordinary packages in [how to compare shipping rates between UPS, FedEx, USPS, and DHL](/articles/compare-shipping-rates-ups-fedex-usps-dhl/).) Anyone who tells you "USPS is always cheapest for heavy boxes" or "UPS beats everyone past 50 pounds" is reciting a rule of thumb that breaks the moment a real box crosses a real tier line.
+There is no permanent winner. Which carrier prices lowest depends on the weight, the box dimensions, and the destination zone — sometimes all three at once. (We break down the same four-carrier rate spread for ordinary packages in [how to compare shipping rates between UPS, FedEx, USPS, and DHL](/articles/compare-shipping-rates-ups-fedex-usps-dhl/).) Anyone who tells you one carrier always wins on heavy boxes, or that a single weight cutoff flips the winner forever, is reciting a rule of thumb that breaks the moment a real box crosses a real tier line.
 
 ## The Counter at 7554 Fredle Drive
 
@@ -82,7 +82,7 @@ The process is deliberately short:
 
 ## The Bill That Never Shows Up
 
-Ship the same 60-pound box on the wrong carrier and you can lose tens of dollars in one shipment — the sticker you saw, plus the stack of surcharges you didn't., and if you're an online seller shipping several heavy boxes a week, that leak compounds into hundreds over a quarter. The 2027 rate environment makes it worse: ground rates are rising around 6.1% on average across zones, FedEx's ground minimum charge is climbing to $12.70, and USPS has an 8% time-limited increase on Ground Advantage running through January 17, 2027. The gap between the right carrier and the wrong one widens every time the rate tables move.
+Ship the same 60-pound box on the wrong carrier and you can lose tens of dollars in one shipment — the sticker you saw, plus the stack of surcharges you didn't., and if you're an online seller shipping several heavy boxes a week, that leak compounds quietly, shipment after shipment. The 2027 rate environment makes it worse: ground rates are rising around 6.1% on average across zones, FedEx's ground minimum charge is climbing to $12.70, and USPS has an 8% time-limited increase on Ground Advantage running through January 17, 2027. The gap between the right carrier and the wrong one widens every time the rate tables move.
 
 And there's a quieter cost: the dread tax. Once you've been burned by an unexpected heavy-box quote, every future shipment starts with a low-grade worry about what the number will be this time.
 
