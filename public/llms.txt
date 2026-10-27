@@ -248,7 +248,7 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 ### pack-ship
 
 - [2027 Carrier Surcharge Forecast: What Small Businesses Will Pay](https://mailboxplusohio.com/articles/2027-fedex-ups-surcharge-forecast/): FedEx locked in a 5.9% rate increase for January 4, 2027 — and buried bigger changes in the fine print. What UPS and USPS will charge in 2027, and how to budget for it.
-  Published 2026-10-02, updated 2026-10-02.
+  Published 2026-10-02, updated 2026-10-27.
 - [Amazon Drones Are Coming to Cleveland. Here Is What They Will Not Deliver.](https://mailboxplusohio.com/articles/amazon-drone-delivery-cleveland/): Amazon Prime Air is expanding drone delivery to metro Cleveland in 2026. Drones handle small light packages in daylight — everything else still needs a real address and a human counter.
   Published 2026-08-19.
 - [Amazon Holiday Fulfillment Fees Return October 15: What Online Sellers Should Know](https://mailboxplusohio.com/articles/amazon-fba-holiday-fees-2026/): Amazon’s 2026 holiday fulfillment fees start Oct. 15 with a 3.5% fuel surcharge stacked on top. Here is what online sellers in Lake County can do about it.
@@ -395,6 +395,8 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
   Published 2026-10-15.
 - [Your Customers Expect Two-Day Delivery. Here Is How to Actually Deliver It.](https://mailboxplusohio.com/articles/two-day-delivery-expectations/): ShipStation found 59% of consumers expect two-day delivery — but only 40% of retailers can meet it. Here is the honest playbook for Lake County online sellers who want to close that gap without going broke.
   Published 2026-08-15.
+- [UPS Announces Its 2027 Rate Increase: 5.9% Starting December 21](https://mailboxplusohio.com/articles/ups-2027-rate-increase/): UPS will raise Ground, Air, and International rates an average 5.9% on December 21, 2026 — right in peak season. The buried changes: heavier additional-handling threshold, new surge fees, remapped ZIP codes.
+  Published 2026-10-27, updated 2026-10-27.
 - [UPS Is Automating Its Network — Here Is What That Means for Your Package](https://mailboxplusohio.com/articles/ups-automation-network/): UPS now moves 68.5% of US volume through automated buildings and is closing 150 facilities. Here is what that means for small shippers — and where the human part of shipping still lives.
   Published 2026-08-05.
 - [UPS Declared Value vs Shipping Insurance: Why Damaged-Package Claims Get Denied](https://mailboxplusohio.com/articles/ups-declared-value-vs-shipping-insurance/): Declared value is not insurance — it is a liability cap you pay to raise. How the $100 default works, what a claim needs to survive, and the packing rule that decides everything.

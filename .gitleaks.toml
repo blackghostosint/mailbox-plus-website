@@ -11,7 +11,8 @@ regexes = [
   '''fedex-demand-surcharges-2026''',
   '''hambden-returns-r1''',
   '''kirtland-hills-returns-r1''',
-  '''2027-fedex-ups-surcharge-forecast'''
+  '''2027-fedex-ups-surcharge-forecast''',
+  '''ups-2027-rate-increase'''
 ]
 paths = [
   '''\.env\.example''',
