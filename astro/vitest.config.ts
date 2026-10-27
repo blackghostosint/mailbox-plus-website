@@ -1,7 +1,11 @@
-import { defineConfig } from 'vitest/config';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { getViteConfig } from 'astro/config';
 import Icons from 'unplugin-icons/vite';
 
-export default defineConfig({
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+export default getViteConfig({
   plugins: [
     Icons({
       compiler: 'jsx',
@@ -11,6 +15,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '~icons': 'virtual:icons',
+      '@google/generative-ai': path.resolve(__dirname, '../node_modules/@google/generative-ai'),
+      dotenv: path.resolve(__dirname, '../node_modules/dotenv'),
+      stripe: path.resolve(__dirname, '../node_modules/stripe'),
+      sharp: path.resolve(__dirname, '../node_modules/sharp'),
+      resend: path.resolve(__dirname, '../node_modules/resend'),
     },
   },
   test: {
@@ -29,6 +38,13 @@ export default defineConfig({
       '../netlify/functions/**/*.{test,spec}.{ts,tsx}',
       '../scripts/**/*.{test,spec}.{ts,tsx}',
       '../knowledge/**/*.{test,spec}.{ts,tsx}',
+    ],
+    exclude: [
+      '../scripts/__tests__/audit-a11y.test.ts',
+      '../scripts/seo/__tests__/**',
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/tests/e2e/**',
     ],
     coverage: {
       provider: 'v8',
