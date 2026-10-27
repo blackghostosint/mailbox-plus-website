@@ -3864,7 +3864,7 @@ The process is deliberately short:
 
 ## The Bill That Never Shows Up
 
-Ship the same 60-pound box on the wrong carrier and you can lose tens of dollars in one shipment — the sticker you saw, plus the stack of surcharges you didn't., and if you're an online seller shipping several heavy boxes a week, that leak compounds quietly, shipment after shipment. The 2027 rate environment makes it worse: ground rates are rising around 6.1% on average across zones, FedEx's ground minimum charge is climbing to $12.70, and USPS has an 8% time-limited increase on Ground Advantage running through January 17, 2027. The gap between the right carrier and the wrong one widens every time the rate tables move.
+Ship the same 60-pound box on the wrong carrier and you can lose tens of dollars in one shipment — the sticker you saw, plus the stack of surcharges you didn't see. And if you're an online seller shipping several heavy boxes a week, that leak compounds quietly, shipment after shipment. The 2027 rate environment makes it worse: ground rates are rising around 6.1% on average across zones, FedEx's ground minimum charge is climbing to $12.70, and USPS has an 8% time-limited increase on Ground Advantage running through January 17, 2027. The gap between the right carrier and the wrong one widens every time the rate tables move.
 
 And there's a quieter cost: the dread tax. Once you've been burned by an unexpected heavy-box quote, every future shipment starts with a low-grade worry about what the number will be this time.
 
