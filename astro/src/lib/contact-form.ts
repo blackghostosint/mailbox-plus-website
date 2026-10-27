@@ -2,6 +2,7 @@ import { apiFetch, ApiClientError } from './api-client';
 import { SendEmailSuccessSchema, type SendEmailSuccess } from './contracts';
 import { executeRecaptcha } from './recaptcha-loader';
 import { executeAction } from './action-controller';
+import { announcePolite } from './announcer';
 
 export async function submitContactForm(payload: unknown): Promise<SendEmailSuccess> {
   const data = await apiFetch<unknown>('/.netlify/functions/sendEmail', {
@@ -66,6 +67,7 @@ export function initContactForms(): void {
 
             form.replaceChildren(statusDiv);
             statusDiv.focus();
+            announcePolite('Thank you! Your message has been sent.');
           },
           {
             button: submitBtn,

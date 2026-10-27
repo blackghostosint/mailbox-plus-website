@@ -1,4 +1,11 @@
 import React, { useCallback, useEffect, useRef } from 'react';
+import {
+  announcePolite as announcePoliteLib,
+  announceAssertive as announceAssertiveLib,
+  getPoliteMessage,
+  getAssertiveMessage,
+  cancelPendingAnnouncements,
+} from '../lib/announcer';
 
 /* eslint-disable no-unused-vars */
 export interface UseLiveAnnouncerReturn {
@@ -11,65 +18,54 @@ export interface UseLiveAnnouncerReturn {
 export function useLiveAnnouncer(): UseLiveAnnouncerReturn {
   const politeRef = useRef<HTMLDivElement | null>(null);
   const assertiveRef = useRef<HTMLDivElement | null>(null);
-  const politeMsgRef = useRef<string>('');
-  const assertiveMsgRef = useRef<string>('');
-  const politeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const assertiveTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const announcePolite = useCallback((message: string) => {
-    politeMsgRef.current = '';
-    if (politeRef.current) {
-      politeRef.current.textContent = '';
-    }
-    if (politeTimeoutRef.current) clearTimeout(politeTimeoutRef.current);
-    politeTimeoutRef.current = setTimeout(() => {
-      politeMsgRef.current = message;
-      if (politeRef.current) {
-        politeRef.current.textContent = message;
-      }
-    }, 50);
+    announcePoliteLib(message);
   }, []);
 
   const announceAssertive = useCallback((message: string) => {
-    assertiveMsgRef.current = '';
-    if (assertiveRef.current) {
-      assertiveRef.current.textContent = '';
-    }
-    if (assertiveTimeoutRef.current) clearTimeout(assertiveTimeoutRef.current);
-    assertiveTimeoutRef.current = setTimeout(() => {
-      assertiveMsgRef.current = message;
-      if (assertiveRef.current) {
-        assertiveRef.current.textContent = message;
-      }
-    }, 50);
+    announceAssertiveLib(message);
   }, []);
 
   useEffect(() => {
     return () => {
-      if (politeTimeoutRef.current) clearTimeout(politeTimeoutRef.current);
-      if (assertiveTimeoutRef.current) clearTimeout(assertiveTimeoutRef.current);
+      cancelPendingAnnouncements();
     };
   }, []);
 
   const setPoliteRef = useCallback((node: HTMLDivElement | null) => {
     politeRef.current = node;
-    if (node && politeMsgRef.current) {
-      node.textContent = politeMsgRef.current;
+    const msg = getPoliteMessage();
+    if (node && msg) {
+      node.textContent = msg;
     }
   }, []);
 
   const setAssertiveRef = useCallback((node: HTMLDivElement | null) => {
     assertiveRef.current = node;
-    if (node && assertiveMsgRef.current) {
-      node.textContent = assertiveMsgRef.current;
+    const msg = getAssertiveMessage();
+    if (node && msg) {
+      node.textContent = msg;
     }
   }, []);
 
   const LiveAnnouncer: React.FC = useCallback(() => {
     return (
       <div className="sr-only" aria-hidden="false">
-        <div ref={setPoliteRef} role="status" aria-live="polite" aria-atomic="true" />
-        <div ref={setAssertiveRef} role="alert" aria-live="assertive" aria-atomic="true" />
+        <div
+          id="live-announcer-polite"
+          ref={setPoliteRef}
+          role="status"
+          aria-live="polite"
+          aria-atomic="true"
+        />
+        <div
+          id="live-announcer-assertive"
+          ref={setAssertiveRef}
+          role="alert"
+          aria-live="assertive"
+          aria-atomic="true"
+        />
       </div>
     );
   }, [setPoliteRef, setAssertiveRef]);
