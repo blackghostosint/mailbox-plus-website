@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import OutboundLink from '../components/ui/OutboundLink.astro';
+import { CANONICAL_R2_BASE_URL } from '../lib/media';
 import { siteConfig, phoneFormatted, fullAddressSingleLine } from '../config/siteConfig';
 import { getPageMeta } from '../config/pageMeta';
 import { getWebPageSchema } from '../utils/schema';
@@ -60,11 +61,20 @@ const webPageSchema = getWebPageSchema(siteConfig, {
       <h2 class="text-2xl sm:text-3xl font-bold text-[var(--color-text-primary)] text-center mb-3">What's in the Set</h2>
       <p class="text-lg text-[var(--color-text-muted)] text-center mb-8 max-w-2xl mx-auto">Official licensed Cleveland Browns gear — a pop-up canopy and two tailgate chairs, ready for the next home game.</p>
 
-      <!-- Image slot: drop in approved product photography or in-store photos when available -->
-      <div class="bg-white rounded-2xl shadow-md border border-[var(--color-border)] overflow-hidden mb-8">
-        <div class="bg-gradient-to-br from-[var(--color-primary-dark)] to-[var(--color-primary-deep)] py-16 px-6 text-center">
-          <p class="text-white/90 text-xl font-bold mb-1">Product photos coming soon</p>
-          <p class="text-white/60 text-sm">We're waiting on approved images from the manufacturer — the real thing is on display at the store right now.</p>
+      <div class="grid sm:grid-cols-2 gap-4 mb-8">
+        <div class="bg-white rounded-2xl shadow-md border border-[var(--color-border)] overflow-hidden">
+          <img src={`${CANONICAL_R2_BASE_URL}/giveaway/tailgate-canopy.webp`} alt="Cleveland Browns 9x9 pop-up canopy with team helmet logo and CLEVELAND BROWNS valance" class="w-full h-auto" loading="lazy" width="752" height="752" />
+          <div class="px-5 py-4 border-t border-[var(--color-border)]">
+            <p class="font-bold text-[var(--color-text-primary)]">Browns Economy Canopy</p>
+            <p class="text-sm text-[var(--color-text-muted)]">Official 9&times;9 ft pop-up with carry bag, tie-downs &amp; stakes</p>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl shadow-md border border-[var(--color-border)] overflow-hidden">
+          <img src={`${CANONICAL_R2_BASE_URL}/giveaway/tailgate-chair.webp`} alt="Cleveland Browns orange quad folding chair with helmet logo and mesh cup holder" class="w-full h-auto" loading="lazy" width="752" height="752" />
+          <div class="px-5 py-4 border-t border-[var(--color-border)]">
+            <p class="font-bold text-[var(--color-text-primary)]">Browns Quad Chairs &times;2</p>
+            <p class="text-sm text-[var(--color-text-muted)]">Two official team folding chairs with cup holders</p>
+          </div>
         </div>
       </div>
 
