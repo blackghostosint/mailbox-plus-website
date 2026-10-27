@@ -139,7 +139,8 @@ async function callOpenAICompatible(
   apiKey: string,
   model: string,
   promptText: string,
-  extraHeaders?: Record<string, string>
+  extraHeaders?: Record<string, string>,
+  timeoutMs = 60000
 ): Promise<string> {
   const url = `${baseUrl.replace(/\/+$/, '')}/chat/completions`;
   const headers: Record<string, string> = {
@@ -162,7 +163,7 @@ async function callOpenAICompatible(
     method: 'POST',
     headers,
     body: JSON.stringify(payload),
-    timeout: 60000,
+    timeout: timeoutMs,
     maxRetries: 3,
     retryPost: true,
   });
@@ -195,6 +196,7 @@ export interface ReviewOptions {
   provider?: 'gemini' | 'openrouter' | 'nous' | 'custom';
   baseUrl?: string;
   apiKey?: string;
+  timeoutMs?: number;
 }
 
 export async function evaluateArticle(content: string, options: ReviewOptions = {}): Promise<any> {
@@ -209,7 +211,12 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
       provider = 'gemini';
     } else if (model.toLowerCase().includes('tencent') || model.toLowerCase().includes('claude')) {
       provider = 'openrouter';
-    } else if (model.toLowerCase().includes('glm') || model.toLowerCase().includes('deepseek')) {
+    } else if (
+      model.toLowerCase().includes('glm') ||
+      model.toLowerCase().includes('deepseek') ||
+      model.toLowerCase().includes('kimi') ||
+      model.toLowerCase().includes('moonshot')
+    ) {
       provider = 'nous';
     } else {
       provider = 'gemini';
@@ -251,7 +258,9 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
       'https://inference-api.nousresearch.com/v1',
       key,
       model,
-      content
+      content,
+      undefined,
+      options.timeoutMs ?? 60000
     );
   } else if (provider === 'custom') {
     if (!options.baseUrl) {
@@ -354,13 +363,48 @@ async function main() {
     const content = article.raw;
 
     try {
-      const result = await evaluateArticle(content, {
+      let result = await evaluateArticle(content, {
         model,
         provider,
         baseUrl,
         apiKey,
       });
       result.file_path = filePath;
+
+      // Borderline escalation: flash-tier judges are score-inflating in the
+      // 85-95 band (DeepSeek runs 10-12 pts above Grok's scale). One Kimi
+      // K2.6 rescore is the final word — no loops, bounded cost (~$0.005).
+      const ESCALATE_LO = 85;
+      const ESCALATE_HI = 95;
+      const ESCALATE_MODEL = 'moonshotai/kimi-k2.6';
+      const baseModel = model;
+      if (
+        !model.includes('kimi') &&
+        (result.total_score || 0) >= ESCALATE_LO &&
+        (result.total_score || 0) <= ESCALATE_HI
+      ) {
+        console.log(
+          `⚠️  Borderline score ${result.total_score || 0}/100 in [${ESCALATE_LO}-${ESCALATE_HI}] — escalating one rescore to ${ESCALATE_MODEL} (final word)...`
+        );
+        try {
+          const rescore = await evaluateArticle(content, {
+            model: ESCALATE_MODEL,
+            provider: 'nous',
+            apiKey,
+            timeoutMs: 300000, // K2.6 is a reasoning model; 60s default times out
+          });
+          result.escalation = {
+            base_model: baseModel,
+            base_score: result.total_score,
+            rescore_model: ESCALATE_MODEL,
+            rescore_score: rescore.total_score,
+          };
+          result = { ...rescore, file_path: filePath, escalation: result.escalation };
+          console.log(`   Rescore: ${rescore.total_score}/100 (this is the verdict).`);
+        } catch (e: any) {
+          console.error(`   ⚠️ Rescore failed (${e.message}); keeping base score.`);
+        }
+      }
 
       if ((result.total_score || 0) < minScore) {
         overallFailed = true;
