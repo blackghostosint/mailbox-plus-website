@@ -270,9 +270,9 @@ export const retrievalTests: TestCase[] = [
 /**
  * Test Statistics
  */
-export const getTestStats = () => {
-  const total = retrievalTests.length;
-  const byCategory = retrievalTests.reduce(
+export const getTestStats = (tests: TestCase[] = retrievalTests) => {
+  const total = tests.length;
+  const byCategory = tests.reduce(
     (acc, test) => {
       acc[test.category] = (acc[test.category] || 0) + 1;
       return acc;
@@ -280,8 +280,8 @@ export const getTestStats = () => {
     {} as Record<string, number>
   );
 
-  const shouldAccept = retrievalTests.filter((t) => t.expectedResult === 'ACCEPT').length;
-  const shouldRefuse = retrievalTests.filter((t) => t.expectedResult === 'REFUSE').length;
+  const shouldAccept = tests.filter((t) => t.expectedResult === 'ACCEPT').length;
+  const shouldRefuse = tests.filter((t) => t.expectedResult === 'REFUSE').length;
 
   return {
     total,

@@ -150,23 +150,27 @@ export async function generateEmbedding(
   }
 }
 
-export function verifyVectorCoverage(): { valid: boolean; missing: string[] } {
+export function verifyVectorCoverage(
+  kbData: KnowledgeBase = kb,
+  tests: TestCase[] = retrievalTests,
+  cache: EmbeddingCache = embeddingCache
+): { valid: boolean; missing: string[] } {
   const missing: string[] = [];
 
   const checkKeys = (cacheKeys: string[], label: string) => {
-    const foundKey = cacheKeys.find((k) => embeddingCache[k] !== undefined);
+    const foundKey = cacheKeys.find((k) => cache[k] !== undefined);
     if (!foundKey) {
       missing.push(label);
       return;
     }
-    const vec = embeddingCache[foundKey];
+    const vec = cache[foundKey];
     const check = validateVector(vec, foundKey);
     if (!check.valid) {
       missing.push(`${label} (invalid vector: ${check.error})`);
     }
   };
 
-  for (const entry of kb.entries) {
+  for (const entry of kbData.entries) {
     for (const variant of entry.questionVariants) {
       const cacheKey1 = buildCacheKey(entry.id, variant);
       const cacheKey2 = buildCacheKey('RETRIEVAL_QUERY', variant);
@@ -187,7 +191,7 @@ export function verifyVectorCoverage(): { valid: boolean; missing: string[] } {
     }
   }
 
-  for (const testCase of retrievalTests) {
+  for (const testCase of tests) {
     const cacheKey1 = buildCacheKey('RETRIEVAL_QUERY', testCase.query);
     checkKeys(
       [cacheKey1, testCase.query],
@@ -314,14 +318,19 @@ export interface TestExecutionResult {
   failureReason?: string;
 }
 
-export async function executeTest(testCase: TestCase): Promise<TestExecutionResult> {
-  const retrieval = await retrieveAnswer(testCase.query);
+export async function executeTest(
+  testCase: TestCase,
+  retrieveFn: (query: string) => Promise<RetrievalResult> = retrieveAnswer
+): Promise<TestExecutionResult> {
+  const retrieval = await retrieveFn(testCase.query);
   const actualResult: TestResult = retrieval.matched ? 'ACCEPT' : 'REFUSE';
 
   let passed = actualResult === testCase.expectedResult;
   let failureReason: string | undefined;
 
-  if (passed && testCase.expectedResult === 'ACCEPT' && testCase.expectedFaqId) {
+  if (!passed) {
+    failureReason = `Expected ${testCase.expectedResult}, got ${actualResult}`;
+  } else if (testCase.expectedResult === 'ACCEPT' && testCase.expectedFaqId) {
     if (retrieval.faqId !== testCase.expectedFaqId) {
       passed = false;
       failureReason = `Wrong FAQ matched: expected ${testCase.expectedFaqId}, got ${retrieval.faqId}`;
@@ -339,10 +348,10 @@ export async function executeTest(testCase: TestCase): Promise<TestExecutionResu
 }
 
 export function generateMarkdownReport(results: TestExecutionResult[]): string {
-  const stats = getTestStats();
+  const stats = getTestStats(results.map((r) => r.testCase));
   const passed = results.filter((r) => r.passed).length;
   const failed = results.filter((r) => !r.passed).length;
-  const passRate = ((passed / results.length) * 100).toFixed(1);
+  const passRate = results.length > 0 ? ((passed / results.length) * 100).toFixed(1) : '0.0';
 
   let report = `# Retrieval Test Report (Gemini Embeddings)\n\n`;
   report += `**Generated:** ${new Date().toISOString()}\n\n`;
