@@ -13,13 +13,13 @@ describe('Header.astro container rendering', () => {
     container.addServerRenderer({
       name: '@astrojs/react',
       renderer: {
-        check(Component: unknown) {
+        async check(Component: unknown) {
           return (
             typeof Component === 'function' ||
             (typeof Component === 'object' && Component !== null && '$$typeof' in Component)
           );
         },
-        renderToStaticMarkup(
+        async renderToStaticMarkup(
           Component: React.ComponentType<Record<string, unknown>>,
           props: Record<string, unknown>,
           children: unknown
