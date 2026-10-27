@@ -1,12 +1,20 @@
 // @vitest-environment happy-dom
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { ActionController, executeAction } from '../action-controller';
 import { ApiClientError } from '../api-client';
+import { getPoliteMessage, getAssertiveMessage, resetAnnouncer } from '../announcer';
 
 describe('action-controller module', () => {
   beforeEach(() => {
+    vi.useFakeTimers();
     document.body.innerHTML = '';
+    resetAnnouncer();
     vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
   });
 
   it('manages pending state and restores button state on success', async () => {
@@ -26,6 +34,8 @@ describe('action-controller module', () => {
     const promise = controller.run(async () => {
       expect(button.disabled).toBe(true);
       expect(button.textContent).toBe('Processing...');
+      vi.advanceTimersByTime(50);
+      expect(getPoliteMessage()).toBe('Processing...');
       executed = true;
       return 'ok';
     });
@@ -67,6 +77,8 @@ describe('action-controller module', () => {
     expect(alertEl).not.toBeNull();
     expect(alertEl?.textContent).toBe('Server error occurred');
     expect(document.activeElement).toBe(alertEl);
+    vi.advanceTimersByTime(50);
+    expect(getAssertiveMessage()).toBe('Server error occurred');
   });
 
   it('clears existing error alerts before running action', async () => {
