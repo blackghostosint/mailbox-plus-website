@@ -113,11 +113,11 @@ Pillar articles (query-targeted, e.g. `private-mailbox-vs-po-box`): same standar
 
 1. **Location verification.** Every address, road, route, and drive time verified against real map data. Never fabricate local detail — locals know. When unsure: "a short drive away."
 2. **Fact-check.** Every load-bearing claim (carrier policies, platform workflows, pricing, legal requirements) needs an official source (fedex.com, ups.com, usps.com, retailer help pages). Claims that can't be sourced are removed or softened to "check current rates at the counter" — never published as fact. This is AGENTS.md rule 3 applied to prose. **Before re-verifying any claim, search `.factchecks/CONFIRMED.md` (the cross-article confirmed-facts ledger) first** — if the claim already has a row, cite its source and skip re-research; if new copy contradicts a row there, flag the conflict in the PR instead of silently overwriting. Reusable facts verified in a fact-check run are appended to that ledger in the same PR as the receipt.
-3. **Copy review — DeepSeek V4.1 Flash, score ≥ 90/100 with every flagged objection resolved.**
+3. **Copy review — DeepSeek V4.1 Flash, score ≥ 82/100 with every flagged objection resolved.**
    ```bash
    node scripts/verify/verify.mjs review content/articles/{category}/{slug}.md
    ```
-   Reviewer: Grok 4.7 (model id "x-ai/grok-4.7" via Nous Portal; model-agnostic script; Grok is the gate model since 2026-09-22, calibrated against 8 published anchors — pass bar 80 (owner decision 2026-09-23, aligning the gate with the AGENTS.md merge rule; 80 = one revision round above the best published anchor of 77)). Every objection in the review output gets fixed before the PR opens — the reviewer supplies concrete replacement text; apply it or improve on it. Score failures are not retried; API outages fail closed after 3 attempts.
+   Reviewer: DeepSeek V4.1 Flash via Nous Portal (model-agnostic script; gate model since 2026-09-24; threshold 82 per the article-writer SOUL.md "Gate model" line). **Borderline rule (since 2026-10-27, PR #882):** a base score of 85–95 triggers one automatic rescore by Kimi K2.6, whose score is the final verdict — the script handles this under the same command; never loop on a borderline score. Every objection in the review output gets fixed before the PR opens — the reviewer supplies concrete replacement text; apply it or improve on it. Score failures are not retried; API outages fail closed after 3 attempts.
    Five rubric dimensions (sensory grounding, one-person ear, identity stakes & anxiety dissolution, villain legitimacy, fluff density). The success scene and CTA must dissolve the reader's dread (burden transfer), not pitch like a flyer.
 4. **Deterministic verification (strict mode).**
    ```bash
