@@ -16,7 +16,10 @@ describe('Retrieval Test Suite Statistics (getTestStats)', () => {
     expect(stats.byCategory).toHaveProperty('out_of_scope');
 
     // Sum of category counts should equal total
-    const totalCategoryCount = Object.values(stats.byCategory).reduce((sum, count) => sum + count, 0);
+    const totalCategoryCount = Object.values(stats.byCategory).reduce(
+      (sum, count) => sum + count,
+      0
+    );
     expect(totalCategoryCount).toBe(stats.total);
 
     // Verify ACCEPT and REFUSE breakdown
