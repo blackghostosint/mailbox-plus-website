@@ -1,6 +1,7 @@
 // @vitest-environment happy-dom
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { initContactForms } from '../contact-form';
+import { getPoliteMessage } from '../announcer';
 
 describe('contact-form module', () => {
   beforeEach(() => {
@@ -159,6 +160,9 @@ describe('contact-form module', () => {
       'p-6 text-center text-green-700 font-bold bg-green-50 rounded-xl border border-green-200 focus:outline-none'
     );
     expect(document.activeElement).toBe(statusEl);
+    await vi.waitFor(() => {
+      expect(getPoliteMessage()).toBe('Thank you! Your message has been sent.');
+    });
   });
 
   it('handles accessibility-barrier form default service fallback and message mapping', async () => {

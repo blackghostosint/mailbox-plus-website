@@ -1,5 +1,6 @@
 import { renderFormError, clearFormError } from './dom-error';
 import { ApiClientError } from './api-client';
+import { announcePolite, announceAssertive } from './announcer';
 
 export interface ActionConfig {
   /**
@@ -74,6 +75,7 @@ export class ActionController {
       originalText = button.textContent || '';
       if (pendingText) {
         button.textContent = pendingText;
+        announcePolite(pendingText);
       }
       button.disabled = true;
     }
@@ -107,6 +109,8 @@ export class ActionController {
           insertBefore: insertBefore || undefined,
         });
       }
+
+      announceAssertive(message);
 
       throw err;
     } finally {

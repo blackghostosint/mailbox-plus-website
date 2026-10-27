@@ -144,6 +144,12 @@ const ogImageHeight = ogImage ? undefined : '630';
       Skip to main content
     </a>
 
+    <!-- Persistent Live Region Containers for Screen Reader Announcements -->
+    <div class="sr-only" aria-hidden="false">
+      <div id="live-announcer-polite" role="status" aria-live="polite" aria-atomic="true"></div>
+      <div id="live-announcer-assertive" role="alert" aria-live="assertive" aria-atomic="true"></div>
+    </div>
+
     <Header />
     <main id="main-content" class="flex-1 focus:outline-none" tabindex="-1">
       <slot />

@@ -1,5 +1,6 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { buildReviewCard, initReviewSection, type ReviewItem } from './reviews';
+import { getPoliteMessage, resetAnnouncer } from './announcer';
 
 class MockElement {
   tagName: string;
@@ -149,9 +150,16 @@ function setupMockDocument() {
 
 describe('reviews module', () => {
   beforeEach(() => {
+    vi.useFakeTimers();
     setupMockDocument();
     document.body.innerHTML = '';
+    resetAnnouncer();
     vi.restoreAllMocks();
+  });
+
+  afterEach(() => {
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
   });
 
   describe('buildReviewCard', () => {
@@ -293,6 +301,8 @@ describe('reviews module', () => {
       expect(listEl?.children[0].querySelector('blockquote p')?.textContent).toBe(
         '“Second review”'
       );
+      vi.advanceTimersByTime(50);
+      expect(getPoliteMessage()).toBe('Updated customer reviews loaded');
     });
 
     it('fails gracefully when fetch fails', async () => {

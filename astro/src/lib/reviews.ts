@@ -2,6 +2,7 @@
 import { apiFetch } from './api-client';
 import { ReviewsSuccessSchema, type ReviewsSuccess, type ReviewDto } from './contracts';
 import { compareDatesDesc } from '../utils/dateUtils';
+import { announcePolite } from './announcer';
 
 export type ReviewItem = ReviewDto;
 export type ReviewsApiData = ReviewsSuccess;
@@ -111,6 +112,7 @@ export async function initReviewSection(): Promise<void> {
 
     if (!newest.length) return;
     listEl.replaceChildren(...newest.map((r) => buildReviewCard(r)));
+    announcePolite('Updated customer reviews loaded');
   } catch (err: unknown) {
     console.warn('Reviews refresh failed, displaying static reviews', err);
   }
