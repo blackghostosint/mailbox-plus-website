@@ -14,6 +14,7 @@ import {
   generateEmbedding,
   executeTest,
   evaluateAllTests,
+  generateMarkdownReport,
 } from './retrieval-evaluator.js';
 
 async function main() {
@@ -43,6 +44,8 @@ export {
   embeddingCache,
   generateEmbedding,
   executeTest,
+  evaluateAllTests,
+  generateMarkdownReport,
   main,
 };
 
