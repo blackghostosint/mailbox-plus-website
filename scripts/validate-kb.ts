@@ -4,13 +4,19 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import { z } from 'zod';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
-import { EMBEDDING_MODEL, FALLBACK_RESPONSE } from '../knowledge/retrieval-core.js';
+import {
+  EMBEDDING_MODEL,
+  FALLBACK_RESPONSE,
+  buildCacheKey,
+  validateEmbeddingSnapshot,
+} from '../knowledge/retrieval-core.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 const KB_PATH = path.resolve(ROOT, 'knowledge/kb.entries.json');
 const META_PATH = path.resolve(ROOT, 'knowledge/kb.meta.json');
+const EMBEDDINGS_PATH = path.resolve(ROOT, 'knowledge/embeddings.json');
 
 export const SourceSchema = z.strictObject({
   type: z.string().min(1, 'Source type is required'),
@@ -95,9 +101,14 @@ export interface KBValidationResult {
   entryCount: number;
 }
 
-export function validateKb(filePath: string = KB_PATH, metaPath?: string): KBValidationResult {
+export function validateKb(
+  filePath: string = KB_PATH,
+  metaPath?: string,
+  embeddingsPath?: string
+): KBValidationResult {
   const errors: string[] = [];
   let entryCount = 0;
+  let parsedEntries: KBEntryInput[] = [];
 
   if (!fs.existsSync(filePath)) {
     errors.push(`❌ KB file not found at: ${filePath}`);
@@ -122,6 +133,7 @@ export function validateKb(filePath: string = KB_PATH, metaPath?: string): KBVal
       } else {
         const kbData = parseResult.data;
         entryCount = kbData.entries.length;
+        parsedEntries = kbData.entries;
 
         // Additional integrity checks
         const seenIds = new Set<string>();
@@ -189,6 +201,76 @@ export function validateKb(filePath: string = KB_PATH, metaPath?: string): KBVal
     }
   }
 
+  // Resolve embeddings snapshot file path
+  let targetEmbeddingsPath = embeddingsPath;
+  if (!targetEmbeddingsPath) {
+    if (filePath === KB_PATH) {
+      targetEmbeddingsPath = EMBEDDINGS_PATH;
+    } else {
+      const dir = path.dirname(filePath);
+      const candidate = path.join(dir, 'embeddings.json');
+      if (fs.existsSync(candidate)) {
+        targetEmbeddingsPath = candidate;
+      } else {
+        targetEmbeddingsPath = EMBEDDINGS_PATH;
+      }
+    }
+  }
+
+  let validatedVectors: Record<string, number[]> = {};
+
+  if (!fs.existsSync(targetEmbeddingsPath)) {
+    errors.push(`❌ Embeddings file not found at: ${targetEmbeddingsPath}`);
+  } else {
+    let rawEmbeddings: unknown;
+    try {
+      const embeddingsContent = fs.readFileSync(targetEmbeddingsPath, 'utf-8');
+      rawEmbeddings = JSON.parse(embeddingsContent);
+    } catch (err: any) {
+      errors.push(`❌ Invalid JSON syntax in embeddings file: ${err.message}`);
+    }
+
+    if (rawEmbeddings !== undefined) {
+      const snapshotResult = validateEmbeddingSnapshot(rawEmbeddings, targetEmbeddingsPath);
+      if (!snapshotResult.valid) {
+        snapshotResult.errors.forEach((err) => {
+          errors.push(`❌ ${err}`);
+        });
+      }
+      validatedVectors = snapshotResult.vectors;
+    }
+  }
+
+  // Verify embedding coverage for every entry in kb.entries.json
+  if (parsedEntries.length > 0) {
+    for (const entry of parsedEntries) {
+      const textsToCheck: Array<{ text: string; label: string }> = [];
+
+      if (entry.title) {
+        textsToCheck.push({ text: entry.title, label: 'title' });
+      }
+      if (entry.searchText) {
+        textsToCheck.push({ text: entry.searchText, label: 'searchText' });
+      }
+      if (Array.isArray(entry.questionVariants)) {
+        for (const variant of entry.questionVariants) {
+          if (variant) {
+            textsToCheck.push({ text: variant, label: 'questionVariant' });
+          }
+        }
+      }
+
+      for (const { text, label } of textsToCheck) {
+        const key = buildCacheKey(entry.id, text);
+        if (!validatedVectors[key]) {
+          errors.push(
+            `❌ Missing embedding key for entry '${entry.id}' [${label}]: "${text}" (key: '${key}')`
+          );
+        }
+      }
+    }
+  }
+
   return {
     success: errors.length === 0,
     errors,
@@ -199,18 +281,21 @@ export function validateKb(filePath: string = KB_PATH, metaPath?: string): KBVal
 export function runValidateKbCLI(): void {
   console.log(`🔍 Validating knowledge base dataset: ${KB_PATH}`);
   console.log(`🔍 Validating knowledge base metadata: ${META_PATH}`);
+  console.log(`🔍 Validating knowledge base embeddings: ${EMBEDDINGS_PATH}`);
 
-  const result = validateKb(KB_PATH, META_PATH);
+  const result = validateKb(KB_PATH, META_PATH, EMBEDDINGS_PATH);
 
   if (!result.success) {
     console.error('\n❌ Knowledge Base validation failed with errors:');
     result.errors.forEach((err) => console.error(`  ${err}`));
     console.error(`\nFailed after checking ${result.entryCount} entries.`);
+    console.error(`\n💡 To fix missing or out-of-sync embeddings, run: npm run build:embeddings\n`);
     process.exit(1);
   } else {
     console.log(`\n✅ Knowledge Base dataset validated successfully!`);
     console.log(`✓ All ${result.entryCount} KB entries conform to KNOWLEDGE_SPEC.md rules.`);
     console.log(`✓ Knowledge base metadata manifest verified.`);
+    console.log(`✓ Knowledge base embeddings and key coverage verified.`);
     process.exit(0);
   }
 }
