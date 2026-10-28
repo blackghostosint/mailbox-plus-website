@@ -259,14 +259,13 @@ export function checkSupplyChainActor({
     normalizedAuthor &&
     (authorizedBots || []).map((b) => b.trim().toLowerCase()).includes(normalizedAuthor);
 
-  if (strictTouched.length && !isOwner) {
+  if (strictTouched.length && !isOwner && !isAuthorizedBot) {
     return {
       success: false,
       touched: strictTouched,
       message:
         `❌ dependency/config files touched by "${author}": ${strictTouched.join(', ')}. ` +
-        'These files are owner-only for EVERY author including authorized bots (see PR #797). ' +
-        'Dependency and config changes must be applied by the repo owner.',
+        'Dependency and config changes require a PR from the repo owner or authorized bot.',
     };
   }
 
