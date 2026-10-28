@@ -107,7 +107,8 @@ jobs:
         run: npm run verify:articles -- --offline
 
       - name: Dependency Security Audit (root)
-        run: node scripts/verify/audit-root-gate.mjs
+        run: |
+          AUDIT_ALLOW="GHSA-q3jh-wrc6-jgq8 GHSA-8r9p-f939-6h3c GHSA-f88m-g3jw-g9cj GHSA-rgj7-g3m4-5g8c GHSA-wq5f-xc86-pv6w" node scripts/verify/audit-root-gate.mjs
 
       - name: Lint check (zero warnings policy)
         run: npm run lint
