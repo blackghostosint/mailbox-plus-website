@@ -18,7 +18,7 @@ faqs:
   - question: 'Can I receive a fax there instead of sending one?'
     answer: 'Yes. Incoming faxes arrive at our fax number and we hold them at the counter for your pickup. It works the same way in reverse — you leave your name, we match it to the document when you arrive.'
   - question: 'Why would anyone still need a fax in 2026?'
-    answer: "Because title companies, insurers, and some county offices still run required documents through fax lines — their compliance trails depend on it, not on what's convenient. You don't need to own a machine to satisfy those rules. You need a counter that sends and receives faxes for you."
+    answer: "Because insurers and some county offices still accept required documents by fax, and a few ask for one specifically when their systems can't take an upload. You don't need to own a machine to satisfy those rules. You need a counter that sends and receives faxes for you."
   - question: 'Do I need to prepare my pages before bringing them in?'
     answer: 'No. Single page or a stack, crumpled or pristine, stapled or not — bring the document as you have it. Sorting and feeding the pages is our job, not your homework.'
   - question: 'How much does it cost to send a fax?'
@@ -57,7 +57,7 @@ You live in a town that runs on both maple festivals and fiber internet. You sho
 
 Every week, people drive the fifteen minutes down Route 44 from Chardon — past the Auburn Road turn-off — to our counter at 7554 Fredle Drive in Concord Township, in the business park off Route 44 and Crile Road. They come asking the same thing: "Is this really still the way it works?"
 
-It is, and we're set up for it. We're a real store with a real counter — and fax is just one thing we do here. The point isn't the list of services. It's that there's a staffed counter ten minutes from the Square that knows what it's doing.
+It is, and we're set up for it. We're a real store with a real counter — and fax is just one thing we do here. The point isn't the list of services. It's that there's a staffed counter about fifteen minutes from the Square that knows what it's doing.
 
 ![The document-services corner at Mailbox Plus in Concord Township — the commercial copier and print station a few steps from the counter where faxes go out](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/copy-center/copier-01.webp)
 
