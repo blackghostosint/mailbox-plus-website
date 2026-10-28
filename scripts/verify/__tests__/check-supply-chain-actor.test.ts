@@ -267,7 +267,7 @@ id = "custom-rule"
       expect(result.success).toBe(false);
       // Strict owner-only files are reported before the general protected set.
       expect(result.touched).toEqual(['package.json', 'astro/package-lock.json']);
-      expect(result.message).toContain('Dependency and config changes require');
+      expect(result.message).toContain('owner-only');
     });
 
     it('rejects mixed PRs and reports all touched protected files', () => {
@@ -287,14 +287,15 @@ id = "custom-rule"
       expect(result.message).toContain('netlify.toml');
     });
 
-    it('allows AUTHORIZED BOTS touching strict owner-only dependency/config files', () => {
+    it('rejects AUTHORIZED BOTS touching strict owner-only dependency/config files (PR #797 gap)', () => {
       const result = checkSupplyChainActor({
         changedFiles: ['package.json', 'package-lock.json'],
         author: 'google-labs-stitch[bot]',
       });
 
-      expect(result.success).toBe(true);
+      expect(result.success).toBe(false);
       expect(result.touched).toEqual(['package.json', 'package-lock.json']);
+      expect(result.message).toContain('owner-only for EVERY author');
     });
 
     it('still allows authorized bots on non-strict protected files (CI/verify scripts)', () => {
