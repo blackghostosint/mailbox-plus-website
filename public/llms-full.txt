@@ -1510,7 +1510,7 @@ The clerk who shook their head wasn't making a judgment call — they were enfor
 
 **UPS runs the same play.** Spirits, beer, and wine travel only under a signed UPS agreement for approved shippers who hand over their licenses and sit through a policy review. Spirits go licensee-to-licensee, and while UPS carries beer to consumers in approved states under its beer-shipper agreement, it does not accept packages containing spirits for delivery to a consumer.
 
-So picture what's behind that shaking head: a carrier agreement that lets the carrier refuse, seize, or destroy a bad package, terminate the store's account, and drag a federal violation into it. The clerk isn't guessing at policy. The policy was written so nobody at the counter ever gets to say yes. (And if you're wondering whether the package could just "find its way" to the right carrier another way, see [what happens to misplaced packages](/articles/can-you-drop-off-ups-at-fedex-or-post-office/) — misplaced drop-offs get returned or held, never quietly forwarded.)
+So picture what's behind that shaking head: a carrier agreement that lets the carrier refuse, seize, or destroy a bad package, terminate the store's account, and drag a federal violation into it. The clerk isn't guessing at policy. The policy was written so nobody at the counter ever gets to say yes. (And if you're wondering whether the package could just "find its way" to the right carrier another way, see [what happens to misplaced packages](/articles/can-you-drop-off-ups-at-fedex-or-post-office/) — misplaced drop-offs get returned or held, not quietly forwarded.)
 
 ## The Tally You Never See
 
@@ -1536,7 +1536,7 @@ We live on the receiving end of that licensed lane. A legal wine shipment from a
 
 A bottle that requires an adult signature can't be left on a porch. The driver rolls on, and by the second attempt the winery is charging a re-delivery fee or the case is riding back to California. ![The counter and mailbox wall at Mailbox Plus in Concord Township, where signature-required shipments are received and held for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/certified-mail-counter.webp) That's the errand we absorb. The delivery lands at our counter in the Gristmill Village plaza — 7554 Fredle Drive, Concord Township, just off Crile Road — we sign for it, and it sits where we can see it until you pull in during counter hours. Wine clubs, vacation-timed orders, cases bound for a house where the only adults commute: we see them every week.
 
-And here's the half of the story most shipping stores won't say out loud: we can't take your bottle outbound either. Not won't — can't. The same agreements that make our receiving side work flawlessly forbid the other direction, and we're not putting your package or those carrier relationships on the line for a workaround that fails anyway. What we can take off your plate is everything after the order: the signature, the hold, the pickup on your schedule.
+And here's the half of the story most shipping stores won't say out loud: we can't take your bottle outbound either. Not won't — can't. The same agreements that keep our receiving side working forbid the other direction, and we're not putting your package or those carrier relationships on the line for a workaround that fails anyway. What we can take off your plate is everything after the order: the signature, the hold, the pickup on your schedule.
 
 ## The Process, Measured
 
