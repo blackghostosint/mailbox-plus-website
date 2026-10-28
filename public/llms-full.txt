@@ -2187,7 +2187,7 @@ Compare that to the self-serve alternative: you, a stranger's machine, a coin sl
 
 Suppose you don't solve it. Suppose the page keeps sitting. Here's the invoice, in three columns.
 
-Time. Every fax becomes a round trip — hunting a working machine during business hours, in the snowiest city in Ohio, where winter owns half the calendar. A two-page document shouldn't cost a white-knuckle run down Route 44, plus the waiting, plus the return trip when the machine "fails."
+Time. Every fax becomes a round trip — hunting a working machine during business hours, in lake-effect snow country where winter owns half the calendar. A two-page document shouldn't cost a white-knuckle run down Route 44, plus the waiting, plus the return trip when the machine "fails."
 
 Money. The buy-a-machine route means a fax machine, plus a landline — a landline, in 2026 — plus ink that dries out between the four times a year you need it. A machine you own four days a year owns you the other 361. The pay-per-page route means franchise counters, markups, and the line behind the guy mailing twelve packages.
 
