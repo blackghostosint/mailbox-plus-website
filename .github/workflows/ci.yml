@@ -38,6 +38,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Install function dependencies
+        run: npm ci --prefix netlify/functions
+
       - name: Run verification doctor
         env:
           SKIP_GITLEAKS: '1'
