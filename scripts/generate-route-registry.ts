@@ -343,22 +343,19 @@ export async function generateRouteRegistry(options?: {
   const anchorText = buildAnchorText();
 
   if (shouldWrite) {
-    const formattedLocalPages = await prettier.format(JSON.stringify(localPages), {
-      parser: 'json',
-      printWidth: 100,
-    });
-    const formattedSiteStructure = await prettier.format(JSON.stringify(siteStructure), {
-      parser: 'json',
-      printWidth: 100,
-    });
-    const formattedInternalLinks = await prettier.format(JSON.stringify(internalLinks), {
-      parser: 'json',
-      printWidth: 100,
-    });
-    const formattedAnchorText = await prettier.format(JSON.stringify(anchorText), {
-      parser: 'json',
-      printWidth: 100,
-    });
+    const fmt = async (p: string, data: unknown) =>
+      prettier.format(JSON.stringify(data), {
+        // prettier.format() does NOT resolve config files itself — without an
+        // explicit config it falls back to printWidth 80, which reflows every
+        // regen and dirties the tree (pre-push clean-tree check can never pass).
+        ...(await prettier.resolveConfig(p)),
+        parser: 'json',
+        filepath: p,
+      });
+    const formattedLocalPages = await fmt(localPagesPath, localPages);
+    const formattedSiteStructure = await fmt(siteStructurePath, siteStructure);
+    const formattedInternalLinks = await fmt(internalLinksPath, internalLinks);
+    const formattedAnchorText = await fmt(anchorTextPath, anchorText);
 
     atomicWriteFileSync(localPagesPath, formattedLocalPages);
     atomicWriteFileSync(siteStructurePath, formattedSiteStructure);

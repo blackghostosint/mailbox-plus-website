@@ -6124,117 +6124,117 @@ Bring the ID and the crumpled instruction sheet to 7554 Fredle Drive in Concord 
 
 ---
 
-### FedEx Demand Surcharges 2026: The Peak Fees That Raise Your Shipping Bill
+### FedEx Demand Surcharges 2026: What You'll Pay This Peak Season — and What Actually Lowers the Bill
 
 URL: https://mailboxplusohio.com/articles/fedex-demand-surcharges-2026/
 Category: pack-ship
-Published: 2026-08-28
+Published: 2026-08-28 | Updated: 2026-10-20
 
-## The Scene That Starts Everything
+## The Verdict
 
-It is the second week of December and you are standing at the counter of your own business — if you can call the corner of the dining room a business. You run a small online shop out of your house in Concord Township. Candles. Or maybe printed shirts. Or the maple products your family has been making since before you were born. It does not matter which. What matters is that you sell the kind of thing that never quite fits a standard box — and you priced your holiday orders in September, on the shipping costs you knew.
+Picture the label on your screen in the second week of December. Base rate. Standard Additional Handling fee. Then a line you have not seen since summer: **Demand — Additional Handling Surcharge: $11.85**. Then the fuel percentage, recalculated on all of it. Nothing about your box changed — the calendar did.
 
-You have shipped this exact box a hundred times. It weighs over fifty pounds, or it runs over four feet long, or it is shaped oddly enough that FedEx already charges you its standard handling fee. You know what that box costs.
+That is the FedEx demand surcharge: not a mystery fee, but a published, dated, three-window price increase running **Sept. 28, 2026 through Jan. 17, 2027**. In the most expensive window (Nov. 23 – Dec. 27), the Demand — Additional Handling Surcharge is **$11.85 per package** and the Demand — Oversize Charge is **$117.25 per package**, charged on top of the standard handling fees your box already pays and the weekly fuel surcharge on top of that.
 
-You print the label for customer order 214 and stop. Under the base rate there is a line you have never seen before:
+You cannot negotiate it, opt out of it, or talk FedEx out of the calendar. What you can do is ship around it: move volume out of the Nov. 23 window, keep your packages out of the surcharge trigger zones, and compare all four carriers before you pay — because UPS and USPS run their own peak pricing, and they do not peak at the same prices. Here is the whole stack, with numbers, so you can see exactly where your money goes.
 
-**Demand — Additional Handling Surcharge: $11.85.**
+## The 2026-2027 Demand Surcharge Table
 
-On top of the fuel percentage. On top of the standard handling fee your box already pays. Same box. Same weight. Same destination. The only thing that changed is the week.
-
-Nobody emailed you. Nobody raised your rates. The boxes are identical. What changed is the calendar — and a pricing mechanism the carriers have spent years perfecting and almost no time explaining.
-
-If you sell online, ship holiday gifts to family, or run any business that puts boxes on trucks, this article is about that line item. It is about what FedEx demand surcharges actually are, when they hit, and — most importantly — what you can do about them before December does.
-
-## The Surcharge Stack
-
-FedEx demand surcharges were once reserved for the busiest weeks of the year. Today, as [Refund Retriever's analysis](https://www.refundretriever.com/blog/fedex-peak-surcharges) puts it, they have become a regular part of the carrier's pricing strategy. FedEx itself points to elevated shipping volumes, high demand for capacity, and rising operating costs — and it expects strong residential shipping volume to continue into 2027. The translation is simple: the fee is not going away, and it is not a mistake. It is a pricing decision made by people who know exactly when you need them.
-
-Here is the 2026-2027 schedule, straight from FedEx's published rate tables:
+Straight from FedEx's published schedule (updated Sept. 4, 2026):
 
 | Surcharge                          | Sept 28 – Nov 22 | Nov 23 – Dec 27 | Dec 28 – Jan 17 |
 | ---------------------------------- | ---------------- | --------------- | --------------- |
 | Additional Handling                | $8.80            | **$11.85**      | $8.80           |
 | Oversize                           | $95.75           | **$117.25**     | $95.75          |
-| Ground Unauthorized Package        | $535             | **$595**        | $535            |
+| Unauthorized Charge (Ground)       | $535             | **$595**        | $535            |
 | Express overnight services         | $1.30            | **$2.55**       | $1.30           |
 | FedEx 2Day services                | $1.20            | **$2.35**       | $1.20           |
 | Ground residential & Home Delivery | $0.50            | **$0.80**       | $0.50           |
 | Ground Economy (contract)          | $2.55            | **$4.05**       | $2.55           |
 
-Three windows. The early one starts September 28. The most expensive one runs November 23 through December 27 — the exact weeks you actually need to ship. The late one tags you through January 17, right when you are sending the last stragglers and the returns.
+Two things about that table that most summaries get wrong:
 
-One date worth knowing before you compare tables: the two columns above do not all start on the same day. The handling, oversize, and unauthorized-package fees begin **September 28**. The per-package demand surcharges on Express, 2Day, residential, and Ground Economy services do not kick in until **October 26**. Either way, the peak-of-peak rate — the middle column — is where the damage lands.
+**The start dates are not the same.** The handling, oversize, and unauthorized charges began **Sept. 28**. The per-package fees on Express, 2Day, ground residential, and Ground Economy do not start until **Oct. 26**. If you compared a receipt from mid-October to one from December and only saw the $0.80 residential fee, you were not hallucinating — that fee simply had not switched on yet.
 
-Now here is the part that hurts. The demand fee is charged **on top of** the standard surcharge, not instead of it. If your box already trips FedEx's ordinary Additional Handling fee — heavy, long, or oddly shaped — you pay the regular fee and the demand fee. Same for oversize. And the weekly fuel surcharge is still riding on top of all of it. That is why the same box can cost dramatically more in December without a single thing about it changing.
+**The Unauthorized Charge got a new name.** Effective Sept. 21, 2026, FedEx renamed the Demand — Ground Unauthorized Package Charge to the Demand — Unauthorized Charge. Same idea: it is what FedEx assesses when a package moves through its ground network without proper authorization. At **$595** during peak, it is not a fee — it is a punishment. If a drop-off location cannot take your package, the answer is a counter that can, not a gamble on an unauthorized channel.
 
-For the record, an oversize package is one that exceeds 96 inches in length, or 130 inches in length plus girth — the way FedEx measures it, length plus twice the height plus twice the width. One guitar, one lamp, one set of golf clubs, and you are in the oversize club, paying a fee that has nearly doubled in five years.
+## Which Window You Are In — and Which One Hurts
 
-## What It Actually Feels Like
+The three windows are not equal, and the expensive one is aimed squarely at the weeks you cannot skip:
 
-It feels like being charged a toll on a road you already paid for.
+- **Sept. 28 – Nov. 22:** the setup. Handling and oversize fees are already live. If your holiday shipping can move into this window, you pay the low column.
+- **Nov. 23 – Dec. 27:** the squeeze. Every fee in the table jumps to its peak number, and this is exactly Cyber Week through the last shipping days before Christmas. This is where the calendar tax lives.
+- **Dec. 28 – Jan. 17:** the aftertaste. Rates snap back down, but they do not disappear — and this is when returns and the stragglers ship.
 
-You stand there with the label in your hand and the number on the screen, and you have no leverage. There is nothing to negotiate, nothing to shop around for at the store you are standing in — because a single-carrier store only sells one carrier's surcharges. If you ask why it costs more than it did in September, the answer is a shrug and the words "peak season," as though the calendar itself is a natural disaster.
+One week matters more than any other on this calendar: the line between **Nov. 22 and Nov. 23**. A box shipped the Saturday before Thanksgiving and the same box shipped the Monday after can differ by the full peak column — $3.05 on a handling-triggered package, $21.50 on oversize — for identical labels.
 
-For online sellers it is worse. You did not price your candles in September assuming a $11.85 surprise on every box that weighs over fifty pounds or runs over four feet. Your margins were already thin. The surcharge is not a rounding error — it is a business expense that appears exactly when you can least afford it, and you are the one absorbing it, because raising prices in December makes you uncompetitive in the one month you cannot afford to be uncompetitive.
+## How the Fees Stack (the Part That Actually Costs You)
 
-And the fee is never itemized in a way you can act on. It shows up as part of the total, in the fine print of an invoice, with no explanation and no warning.
+The demand surcharge never rides alone. Here is the full stack on a problem box in December:
 
-## Why It Should Not Be This Way
+1. **The base rate** — already up 5.9% this year from the January GRI, and set for another 5.9% average increase on Jan. 4, 2027.
+2. **The standard surcharge** — if your box already trips FedEx's ordinary Additional Handling fee (heavy, long, or awkward), you pay that fee first.
+3. **The demand surcharge** — the second, calendar-triggered copy of that same fee.
+4. **The weekly fuel surcharge** — a percentage applied on top, which means it taxes the surcharges too.
 
-A surcharge is a price increase that does not look like one. Base rates went up in January. The fuel percentage climbs weekly on top of that. And now the calendar adds more on top of the fuel. At no point in that chain does anyone sit down with you and show you the whole stack. At no point does anyone own the number.
+That is why the same box can cost dramatically more in December without a single thing about it changing. The demand fee is charged **on top of** the standard fee, not instead of it — you pay both.
 
-A hundred-and-seventeen-dollar fee on a box you can carry with one arm should be a headline, not a footnote. A shipping price should mean something — you should be able to promise a customer a delivery date and a cost, and keep both.
+An oversize package is one that exceeds **96 inches in length, or 130 inches in length plus girth** — length plus twice the height plus twice the width, always rounded up. One guitar, one lamp, one set of golf clubs, and you are in the oversize club, paying a fee that has climbed from $62.50 in 2021 to $108.50 in 2025 and now $117.25 — nearly doubled in five years.
 
-You should not need a degree in logistics to ship a holiday gift. That is not a niche skill. That is the entire job of the shipping industry, and somewhere along the way the industry started charging extra for the privilege of understanding it.
+## FedEx vs. UPS vs. USPS at Peak
 
-## What We See Every Day
+None of the big three skips peak pricing anymore, and they do not peak at the same prices. Here is how the 2026-2027 seasons line up:
 
-We see this every day at [Mailbox Plus](/pack-ship/), at 7554 Fredle Drive in Concord Township. We stand behind the counter from September through January and watch customers wince at receipts — the same wince, every year, on the same calendar.
+|                                | FedEx                            | UPS                   | USPS                                        |
+| ------------------------------ | -------------------------------- | --------------------- | ------------------------------------------- |
+| Peak window                    | Sept. 28 – Jan. 17               | Through Jan. 16, 2027 | Oct. 4 – Jan. 17                            |
+| Additional handling            | $8.80 → **$11.85**               | $8.75 → **$11.90**    | n/a (flat per-package increases)            |
+| Oversize / large package       | $95.75 → **$117.25**             | $96.25 → **$117.50**  | n/a                                         |
+| Ground residential per-package | $0.50 → **$0.80** (from Oct. 26) | $0.50 → **$0.75**     | $0.40 – $20.80 range, tiered by zone/weight |
 
-Here is what we see that the carriers do not advertise: the surcharge stack is not the same at every counter. We are an independent, multi-carrier store. [UPS](/pack-ship/ups-authorized-shipper-outlet/), [FedEx](/pack-ship/fedex-shipping/), USPS, and DHL all come to our counter, and each one runs its own peak pricing. FedEx publishes the table above. UPS runs its own peak table, announced every fall. And this year even USPS is in the game: on August 25 it announced its third straight holiday peak surcharge — flat per-package increases on Priority Mail, Ground Advantage, and Parcel Select, running October 4 through January 17. None of the big three is exempt anymore. What differs is the size and shape of the increase — and that difference is exactly why the comparison at a multi-carrier counter matters.
+USPS filed its third straight holiday price change on **Aug. 25, 2026** with the PRC — flat per-package increases from **40 cents to $20.80** depending on service and zone, effective Oct. 4 through Jan. 17. For small, dense boxes headed to nearby zones, USPS still usually wins the peak season. For the big, weird, heavy boxes, the spread between UPS's $117.50 and FedEx's $117.25 is a rounding error — the real decision for oversize is whether the package trips the fee at all. (Full UPS table, week by week: [UPS holiday surcharges 2026](/articles/ups-holiday-surcharges-2026/). What the January GRI adds on top: [the 2027 carrier surcharge forecast](/articles/2027-fedex-ups-surcharge-forecast/).)
 
-A single-carrier store cannot tell you any of this. It makes no money sending you to a competitor. We are not owned by any carrier, so when the demand surcharges hit, we can actually do something about it: we check the current tables across all four carriers, on the spot, before you pay. When FedEx is the most expensive option this week — and in December, it often is — we say so. We also tell you when to ship, because the difference between the week of November 22 and the week of December 14 is real money, and we help you pack so you never trip the trigger in the first place: the right box, the right dimensions, the right weight. (That part is a specialty of ours — see [professional packing](/pack-ship/professional-packing/).)
+![The pack-and-ship counter at Mailbox Plus in Concord Township, with the point-of-sale terminal, computer, and carrier rate sheets where every surcharge gets explained line by line.](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/surcharge-counter.webp)
 
-That is the difference between paying the surcharge stack and managing it.
+This is the comparison a single-carrier store cannot make. It has exactly one carrier's surcharge table to offer you. An independent counter has four.
 
-## How It Works
+## The New Fee Most Sellers Have Not Heard Of
 
-It takes three minutes:
+Buried in FedEx's schedule is a second demand mechanism aimed at high-volume shippers: the **Demand — Residential Delivery Charge**. It is dynamic — recalculated weekly from a "peaking factor" — and it applies to enterprise shippers moving more than **20,000 residential and Ground Economy packages in a week**. Per-package, it ranges from **$1.70 to $8.00** on ground services and **$3.05 to $9.35** on express, depending on how far that week's volume spikes above the shipper's June baseline.
 
-1. **Walk in.** Bring the package — taped, labeled, or not. If it is not packed yet, bring the item and we will pack it right there.
-2. **Tell us where it is going and when it needs to arrive.** Two weeks, three days, tomorrow morning. That is all we need.
-3. **Watch us compare.** We check live rates across UPS, FedEx, USPS, and DHL — including this week's surcharge tables — and put the options on the counter in front of you. You pick. You pay. You walk out.
+That dynamic fee is a preview of where carrier pricing is going — away from fixed published surcharges, toward weekly volume-triggered charges a small shipper cannot see coming. The defense is the same at any volume: know what your box costs _this week_, not what it cost in September.
 
-No account, no logins, no rate-shopping apps to learn, no spreadsheets. The comparison that takes a shipping manager an hour happens in the time it takes to print a label.
+## What Actually Lowers the Bill
 
-## What You Lose by Not Acting
+You cannot use the calendar against FedEx — no negotiation, no opt-out — but three real levers control the receipt:
 
-**Time.** Right now, if you want to beat the surcharge stack, you have to become a pricing analyst. Track the three windows. Read the weekly FedEx and UPS tables. Compare them against your package's zone, weight, and dimensions, and re-route accordingly — every single week, at the busiest time of your year. That is not what you started your business to do, and it is not what you should be doing at 11:00 at night in December.
+**1. Ship before Nov. 23.** The whole holiday list that can go early, should. Every box moved out of the peak column saves the difference on its fee row. If you run an online shop, it also means pricing your December shipping quotes in November's rates and saying so on the checkout page.
 
-**Money.** Do the math on your own volume. One oversize package during the holiday peak carries a $117.25 demand fee on top of the standard oversize charge and the fuel percentage. A box that trips Additional Handling carries $11.85 on top of the regular fee. If you ship a hundred holiday orders and a tenth of them trip a surcharge, that is several hundred dollars of pure calendar tax — money that comes straight out of your margin, in the month your margin matters most. And do not be tempted by the gray-market shortcut: the Ground Unauthorized Package Charge — what FedEx charges when a package moves without proper authorization — is **$595** during peak. That is the price of the gamble, and carrier audits find it. It is not a strategy; it is a bet with a $595 house edge.
+**2. Stay out of the trigger zones.** The handling and oversize fees are dimension and weight thresholds, which means they are packable-around. A box that comes in at 94 inches instead of 97 skips a $117.25 fee. The right carton, the right padding, and a tape gun are the cheapest surcharge insurance you can buy — and if you would rather not gamble your geometry, that is literally our job (see [professional packing](/pack-ship/professional-packing/)).
 
-**Peace of mind.** The worst part of an invisible charge is the feeling that you are being quietly taken advantage of, and that you are alone in it. You are not. Every small business in Lake County shipping boxes right now is paying into the same stack — the difference is that some of them have a counter where someone shows them the real comparison, and some of them do not. You also do not have to put your home address on labels or accept pickups at your front door to save a few dollars. Use a real business address, ship from a real counter, and keep the chaos out of your living room.
+**3. Compare carriers before you pay.** The surcharge tables differ by carrier _and_ by week. The cheapest option for your box in the Nov. 23 window may not be the cheapest in January. We check the current tables across [UPS](/pack-ship/ups-authorized-shipper-outlet/), [FedEx](/pack-ship/fedex-shipping/), USPS, and DHL on the spot, before you pay — so the demand surcharge you cannot avoid is at least the smallest one on the menu.
 
-## Your Afternoon After the Change
+## How It Works at Our Counter
 
-It is a Tuesday in mid-December. You have four boxes in the back of your car — two holiday orders, one birthday gift for your sister in Columbus, and one return. You pull off Crile Road onto Fredle Drive, park, and walk into Mailbox Plus.
+Bring the package to [Mailbox Plus](/pack-ship/) at 7554 Fredle Drive in Concord Township — packed, half-packed, or just the item in a grocery bag. You do not need to apologize for not knowing the rules, have the box taped, or walk in with labels ready. Nobody here judges anyone for not memorizing a surcharge schedule; that is our job, not yours. Tell us where it is going and when it needs to arrive. We run the live rates across all four carriers, including each carrier's current surcharge schedule, put the options on the counter, and hand you the whole stack in plain numbers. You point at the one you want. No account, no logins, no spreadsheets, no fear of picking wrong alone.
 
-You put the boxes on the counter. In the time it takes to check your phone, you hear four options across the carriers, including this week's surcharge tables, and you pick the one that makes sense. The gift goes USPS flat rate — the cheapest option this week, arrives Friday. The shop orders go on the carrier that did not raise its demand fees this window. The return goes wherever its label says, one counter, no extra stops.
+If you want the full picture on the other line item creeping up every shipping bill, we have written it down: [the fuel surcharge, explained](/articles/fuel-surcharge-shipping-costs/).
 
-The total is on the counter before you. No surprises, no fine print, no line item you do not understand. You pay, you get your receipts, and you are back in the car at 2:14. The whole thing took eleven minutes — including the conversation.
+The demand surcharge calendar is published. You cannot change it — but you do not have to pay the most expensive column through it, and you do not have to figure out which column you are in by yourself. Come see the real comparison before you hand over the box.
 
-And next week, when the surcharge window shifts again, it will not matter, because you are not the one tracking it. That is the point of the change: you stop being the comparison shopping engine, and you get your December back.
+## FAQ
 
-## Bring It In
+### When do FedEx demand surcharges end in 2027?
 
-The demand surcharge calendar is already set. You cannot change the dates — but you do not have to pay the most expensive carrier through them.
+The 2026-2027 demand surcharge windows end Jan. 17, 2027, and per-package rates snap back to their off-peak levels that day ($8.80 handling, $95.75 oversize). Note that FedEx's 2027 general rate increase of 5.9% takes effect Jan. 4, 2027 — so base rates step up while peak fees step down.
 
-Bring your package to 7554 Fredle Drive in Concord Township. We will show you the real comparison across UPS, FedEx, USPS, and DHL — including every surcharge — and put your box on the carrier that costs you the least. Three minutes, one counter, all four carriers.
+### Does the FedEx demand surcharge apply to every package?
 
-If you want the full picture on the other line item creeping up your bill, we have written it down: [the fuel surcharge, explained](/articles/fuel-surcharge-shipping-costs/).
+No. The Additional Handling, Oversize, and Unauthorized charges apply only to packages that meet those criteria — heavy, oversized, or moving without authorization. The per-package fees ($0.50-$0.80 residential, $1.20-$2.55 express tiers) apply to every eligible package in their window, excluding FedEx One Rate packages.
 
-That is what we are here for.
+### Which is worse in 2026, UPS or FedEx peak surcharges?
+
+Nearly identical at the top of the table: UPS's peak Additional Handling is $11.90 versus FedEx's $11.85, and large-package $117.50 versus $117.25. On ground residential per-package fees, UPS's $0.75 peak is slightly under FedEx's $0.80. USPS's tiered $0.40-$20.80 increases usually make it cheapest for small, dense, near-zone boxes.
 
 ---
 
