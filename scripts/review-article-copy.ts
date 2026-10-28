@@ -410,6 +410,40 @@ async function main() {
         overallFailed = true;
       }
 
+      // Review-score telemetry (2026-10-28): every evaluation appends one CSV
+      // row so raw→final drift per slug is measurable. Location: the article
+      // pipeline repo (versioned there), env-overridable for tests. Fail-open:
+      // telemetry must never break the review gate.
+      try {
+        const logPath =
+          process.env.REVIEW_SCORE_LOG || '/home/blackghost/work/batch_articles/review_scores.csv';
+        const slug = path.basename(filePath).replace(/\.md$/, '');
+        const words = content.split(/\s+/).filter(Boolean).length;
+        const esc = result.escalation
+          ? `base ${result.escalation.base_score}->${result.escalation.rescore_model} ${result.escalation.rescore_score}`
+          : '';
+        const row = [
+          new Date().toISOString(),
+          slug,
+          result.total_score || 0,
+          result.escalation ? result.escalation.rescore_model : model,
+          words,
+          esc,
+          filePath,
+        ]
+          .map((v) => `"${String(v).replace(/"/g, '""')}"`)
+          .join(',');
+        if (!fs.existsSync(logPath)) {
+          fs.writeFileSync(
+            logPath,
+            'timestamp,slug,score,review_model,word_count,escalation,file_path\n'
+          );
+        }
+        fs.appendFileSync(logPath, row + '\n');
+      } catch (logErr: any) {
+        console.error(`⚠️ review-score log write failed (non-fatal): ${logErr.message}`);
+      }
+
       if (asJson) {
         console.log(JSON.stringify(result, null, 2));
       } else {
