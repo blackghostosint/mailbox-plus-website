@@ -4,9 +4,10 @@ import os from 'os';
 import { describe, it, expect, beforeEach, afterEach } from 'vitest';
 import { validateKb } from '../validate-kb.ts';
 
-describe('validate-kb schema strictness', () => {
+describe('validate-kb schema strictness & embedding key sync', () => {
   let tempFilePath: string;
   let tempMetaPath: string;
+  let tempEmbeddingsPath: string;
 
   const validEntry = {
     id: 'kb-test-001',
@@ -47,6 +48,30 @@ describe('validate-kb schema strictness', () => {
       "I don't have that information. Please contact the store directly or visit us in person.",
   };
 
+  const createValidVector = (): number[] => new Array(768).fill(0.01);
+
+  const createValidEmbeddings = (entries: any[]) => {
+    const embeddings: Record<string, number[]> = {};
+    for (const entry of entries) {
+      if (!entry || !entry.id) continue;
+      const texts = [
+        entry.title,
+        entry.searchText,
+        ...(Array.isArray(entry.questionVariants) ? entry.questionVariants : []),
+      ].filter(Boolean);
+      for (const text of texts) {
+        embeddings[`${entry.id}::${text}`] = createValidVector();
+      }
+    }
+    return {
+      metadata: {
+        model: 'text-embedding-004',
+        generatedAt: '2026-10-15T14:18:53.000Z',
+      },
+      embeddings,
+    };
+  };
+
   beforeEach(() => {
     tempFilePath = path.join(
       os.tmpdir(),
@@ -55,6 +80,17 @@ describe('validate-kb schema strictness', () => {
     tempMetaPath = path.join(
       os.tmpdir(),
       `kb-meta-test-${Date.now()}-${Math.random().toString(36).slice(2)}.json`
+    );
+    tempEmbeddingsPath = path.join(
+      os.tmpdir(),
+      `kb-embeddings-test-${Date.now()}-${Math.random().toString(36).slice(2)}.json`
+    );
+
+    fs.writeFileSync(tempMetaPath, JSON.stringify(validMeta), 'utf-8');
+    fs.writeFileSync(
+      tempEmbeddingsPath,
+      JSON.stringify(createValidEmbeddings([validEntry])),
+      'utf-8'
     );
   });
 
@@ -65,13 +101,16 @@ describe('validate-kb schema strictness', () => {
     if (fs.existsSync(tempMetaPath)) {
       fs.unlinkSync(tempMetaPath);
     }
+    if (fs.existsSync(tempEmbeddingsPath)) {
+      fs.unlinkSync(tempEmbeddingsPath);
+    }
   });
 
   it('passes validation for valid KB entries', () => {
     const validData = { entries: [validEntry] };
     fs.writeFileSync(tempFilePath, JSON.stringify(validData), 'utf-8');
 
-    const result = validateKb(tempFilePath);
+    const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
     expect(result.success).toBe(true);
     expect(result.errors).toEqual([]);
     expect(result.entryCount).toBe(1);
@@ -88,7 +127,7 @@ describe('validate-kb schema strictness', () => {
     };
     fs.writeFileSync(tempFilePath, JSON.stringify(dataWithExtraField), 'utf-8');
 
-    const result = validateKb(tempFilePath);
+    const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
     expect(result.success).toBe(false);
     expect(result.errors.length).toBeGreaterThan(0);
     expect(result.errors.some((err) => err.includes('unexpected'))).toBe(true);
@@ -108,7 +147,7 @@ describe('validate-kb schema strictness', () => {
     };
     fs.writeFileSync(tempFilePath, JSON.stringify(dataWithExtraNestedField), 'utf-8');
 
-    const result = validateKb(tempFilePath);
+    const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
     expect(result.success).toBe(false);
     expect(result.errors.some((err) => err.includes('unexpectedConfidenceProp'))).toBe(true);
   });
@@ -120,7 +159,7 @@ describe('validate-kb schema strictness', () => {
     };
     fs.writeFileSync(tempFilePath, JSON.stringify(dataWithExtraRootField), 'utf-8');
 
-    const result = validateKb(tempFilePath);
+    const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
     expect(result.success).toBe(false);
     expect(result.errors.some((err) => err.includes('unexpectedRootProp'))).toBe(true);
   });
@@ -131,7 +170,7 @@ describe('validate-kb schema strictness', () => {
     };
     fs.writeFileSync(tempFilePath, JSON.stringify(duplicateData), 'utf-8');
 
-    const result = validateKb(tempFilePath);
+    const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
     expect(result.success).toBe(false);
     expect(result.errors.some((err) => err.includes("Duplicate entry ID 'kb-test-001'"))).toBe(
       true
@@ -150,7 +189,7 @@ describe('validate-kb schema strictness', () => {
       fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [validEntry] }), 'utf-8');
       fs.writeFileSync(tempMetaPath, JSON.stringify(validMeta), 'utf-8');
 
-      const result = validateKb(tempFilePath, tempMetaPath);
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(true);
       expect(result.errors).toEqual([]);
     });
@@ -166,7 +205,7 @@ describe('validate-kb schema strictness', () => {
       };
       fs.writeFileSync(tempMetaPath, JSON.stringify(placeholderMeta), 'utf-8');
 
-      const result = validateKb(tempFilePath, tempMetaPath);
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(false);
       expect(result.errors.some((err) => err.includes('lastBuiltAt'))).toBe(true);
       expect(result.errors.some((err) => err.includes('contentVersion'))).toBe(true);
@@ -182,7 +221,7 @@ describe('validate-kb schema strictness', () => {
       };
       fs.writeFileSync(tempMetaPath, JSON.stringify(mismatchedMeta), 'utf-8');
 
-      const result = validateKb(tempFilePath, tempMetaPath);
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(false);
       expect(
         result.errors.some((err) =>
@@ -199,7 +238,7 @@ describe('validate-kb schema strictness', () => {
       };
       fs.writeFileSync(tempMetaPath, JSON.stringify(mismatchedMeta), 'utf-8');
 
-      const result = validateKb(tempFilePath, tempMetaPath);
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(false);
       expect(
         result.errors.some((err) =>
@@ -216,7 +255,7 @@ describe('validate-kb schema strictness', () => {
       };
       fs.writeFileSync(tempMetaPath, JSON.stringify(extraMeta), 'utf-8');
 
-      const result = validateKb(tempFilePath, tempMetaPath);
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(false);
       expect(result.errors.some((err) => err.includes('unexpectedMetaProp'))).toBe(true);
     });
@@ -225,10 +264,113 @@ describe('validate-kb schema strictness', () => {
       fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [validEntry] }), 'utf-8');
       const missingMetaPath = path.join(os.tmpdir(), `non-existent-meta-${Date.now()}.json`);
 
-      const result = validateKb(tempFilePath, missingMetaPath);
+      const result = validateKb(tempFilePath, missingMetaPath, tempEmbeddingsPath);
       expect(result.success).toBe(false);
       expect(
         result.errors.some((err) => err.includes(`KB meta file not found at: ${missingMetaPath}`))
+      ).toBe(true);
+    });
+  });
+
+  describe('embeddings.json synchronization and validation', () => {
+    it('reports error when embeddings file is missing', () => {
+      fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [validEntry] }), 'utf-8');
+      const missingEmbeddingsPath = path.join(
+        os.tmpdir(),
+        `non-existent-embeddings-${Date.now()}.json`
+      );
+
+      const result = validateKb(tempFilePath, tempMetaPath, missingEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some((err) =>
+          err.includes(`Embeddings file not found at: ${missingEmbeddingsPath}`)
+        )
+      ).toBe(true);
+    });
+
+    it('reports error when embeddings file contains invalid JSON syntax', () => {
+      fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [validEntry] }), 'utf-8');
+      fs.writeFileSync(tempEmbeddingsPath, '{ invalid json', 'utf-8');
+
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some((err) => err.includes('Invalid JSON syntax in embeddings file'))
+      ).toBe(true);
+    });
+
+    it('reports error when embeddings snapshot has wrong model', () => {
+      fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [validEntry] }), 'utf-8');
+      const badModelEmbeddings = {
+        metadata: { model: 'wrong-model-001' },
+        embeddings: { 'kb-test-001::Test Title': createValidVector() },
+      };
+      fs.writeFileSync(tempEmbeddingsPath, JSON.stringify(badModelEmbeddings), 'utf-8');
+
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(result.errors.some((err) => err.includes('Invalid embedding model'))).toBe(true);
+    });
+
+    it('detects missing title embedding key and reports specific entry ID and text', () => {
+      const entryWithNewTitle = {
+        ...validEntry,
+        title: 'Brand New Title Without Embedding',
+      };
+      fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [entryWithNewTitle] }), 'utf-8');
+
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some(
+          (err) =>
+            err.includes("entry 'kb-test-001'") &&
+            err.includes('"Brand New Title Without Embedding"') &&
+            err.includes('[title]')
+        )
+      ).toBe(true);
+    });
+
+    it('detects missing question variant embedding key and reports specific entry ID and text', () => {
+      const entryWithNewVariant = {
+        ...validEntry,
+        questionVariants: ['How do I test?', 'New un-embedded question variant?'],
+      };
+      fs.writeFileSync(tempFilePath, JSON.stringify({ entries: [entryWithNewVariant] }), 'utf-8');
+
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some(
+          (err) =>
+            err.includes("entry 'kb-test-001'") &&
+            err.includes('"New un-embedded question variant?"') &&
+            err.includes('[questionVariant]')
+        )
+      ).toBe(true);
+    });
+
+    it('detects missing searchText embedding key and reports specific entry ID and text', () => {
+      const entryWithNewSearchText = {
+        ...validEntry,
+        searchText: 'new modified search text',
+      };
+      fs.writeFileSync(
+        tempFilePath,
+        JSON.stringify({ entries: [entryWithNewSearchText] }),
+        'utf-8'
+      );
+
+      const result = validateKb(tempFilePath, tempMetaPath, tempEmbeddingsPath);
+      expect(result.success).toBe(false);
+      expect(
+        result.errors.some(
+          (err) =>
+            err.includes("entry 'kb-test-001'") &&
+            err.includes('"new modified search text"') &&
+            err.includes('[searchText]')
+        )
       ).toBe(true);
     });
   });
