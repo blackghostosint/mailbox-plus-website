@@ -2,6 +2,7 @@
 // Root dependency audit gate with scoped allowlist.
 // Allows advisories named in AUDIT_ALLOW env (space-separated GHSA ids) or DEFAULT_ROOT_AUDIT_ALLOW.
 // Any high or critical advisory NOT in the allowlist fails the gate.
+import { fileURLToPath } from 'node:url';
 import { evaluateAuditData, runAuditGate } from './audit-utils.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
@@ -29,7 +30,7 @@ export function parseAllowList(allowInput) {
 }
 
 export function runAuditRootGate(options = {}) {
-  const cwd = new URL('../../', import.meta.url).pathname;
+  const cwd = fileURLToPath(new URL('../../', import.meta.url));
   const allowList =
     options.allowList !== undefined
       ? parseAllowList(options.allowList)
