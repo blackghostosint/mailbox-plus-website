@@ -1,27 +1,27 @@
 ---
 title: "It's 2026. You Still Need to Fax From Chardon. We Have the Machine."
-description: "Real estate closings from Chardon Square, insurance claims — some things still need a fax. Mailbox Plus sends and receives faxes. No machine needed."
-slug: "chardon-fax"
-category: "document-services"
-intentKey: "chardon-fax"
+description: 'Real estate closings from Chardon Square, insurance claims — some things still need a fax. Mailbox Plus sends and receives faxes. No machine needed.'
+slug: 'chardon-fax'
+category: 'document-services'
+intentKey: 'chardon-fax'
 pubDate: '2026-07-05T12:00:00-05:00'
 status: 'published'
 image: 'articles/document-services/chardon-fax-featured.webp'
-imageAlt: "A classic fax machine feeding a printed page across a wooden counter — the office ritual Mailbox Plus replaces with its digital fax service."
+imageAlt: 'A classic fax machine feeding a printed page across a wooden counter — the office ritual Mailbox Plus replaces with its digital fax service.'
 location: 'chardon'
-keywords: ["chardon fax services", "chardon ohio fax", "send fax chardon"]
-relatedServices: ["/home-business/fax-services/", "/home-business/notary-services/"]
+keywords: ['chardon fax services', 'chardon ohio fax', 'send fax chardon']
+relatedServices: ['/home-business/fax-services/', '/home-business/notary-services/']
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
-  - question: "Where can I send a fax in Chardon, Ohio?"
-    answer: "The closest staffed counter is Mailbox Plus at 7554 Fredle Drive in Concord Township — about fifteen minutes south of Chardon via Route 44. You hand the document across the counter and the send goes out through our digital fax service. No appointment needed."
-  - question: "Can I receive a fax there instead of sending one?"
-    answer: "Yes. Incoming faxes arrive at our fax number and we hold them at the counter for your pickup. It works the same way in reverse — you leave your name, we match it to the document when you arrive."
-  - question: "Why would anyone still need a fax in 2026?"
+  - question: 'Where can I send a fax in Chardon, Ohio?'
+    answer: 'The closest staffed counter is Mailbox Plus at 7554 Fredle Drive in Concord Township — about fifteen minutes south of Chardon via Route 44. You hand the document across the counter and the send goes out through our digital fax service. No appointment needed.'
+  - question: 'Can I receive a fax there instead of sending one?'
+    answer: 'Yes. Incoming faxes arrive at our fax number and we hold them at the counter for your pickup. It works the same way in reverse — you leave your name, we match it to the document when you arrive.'
+  - question: 'Why would anyone still need a fax in 2026?'
     answer: "Because lenders, insurers, and some county offices still accept required documents by fax — their compliance trails depend on it, not on what's convenient. You don't need to own a machine to satisfy those rules. You need a counter that sends and receives faxes for you."
-  - question: "Do I need to prepare my pages before bringing them in?"
-    answer: "No. Single page or a stack, crumpled or pristine, stapled or not — bring the document as you have it. Sorting and feeding the pages is our job, not your homework."
-  - question: "How much does it cost to send a fax?"
+  - question: 'Do I need to prepare my pages before bringing them in?'
+    answer: 'No. Single page or a stack, crumpled or pristine, stapled or not — bring the document as you have it. Sorting and feeding the pages is our job, not your homework.'
+  - question: 'How much does it cost to send a fax?'
     answer: "The store's published rate is $1 per page to send and $0.50 per page to receive. For a large stack or an international destination, call the counter at 440-709-1946 first so there are no surprises."
 ---
 
