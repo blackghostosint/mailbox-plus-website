@@ -680,7 +680,7 @@ async function main() {
     ) {
       console.log('Ensuring compatible Chrome and ChromeDriver binaries...');
       try {
-        execSync('npx --yes browser-driver-manager install chrome', {
+        execSync('npx --no-install browser-driver-manager install chrome', {
           cwd: process.cwd(),
           stdio: 'inherit',
           timeout: 120000,
