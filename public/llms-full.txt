@@ -901,7 +901,7 @@ It shouldn't take a service bureau to handle a two-step process the state publis
 - The Ohio Secretary of State decides whether your destination country needs an apostille (Hague Convention member) or an authentication (not a member) based on where the document is going (ohiosos.gov FAQ).
 - Only documents signed by an Ohio official or **notarized by an Ohio notary** can be apostilled by Ohio's office (ohiosos.gov).
 - The fee is $5 per document, and mailed requests are processed in two to three days (Form 8003, last revised 07/2025).
-- Translated documents get translated first, *then* notarized, then submitted.
+- Translated documents get translated first, _then_ notarized, then submitted.
 - FBI background checks and federal documents don't go through Ohio at all — the FBI and the U.S. Department of State handle their own authentications.
 
 The state even publishes the checklist on the request form itself: completed Form 8003, exact fee, no cash in the mail, a self-addressed stamped envelope or prepaid express label, and the document. That's the entire process. Nobody should be paying a stranger $200 for it.
@@ -918,14 +918,14 @@ One honest caution: whether your destination country actually accepts an apostil
 
 ## The Comparison, Side by Side
 
-| | **Notarization** | **Apostille** |
-|---|---|---|
-| Who issues it | A commissioned Ohio notary public | Ohio Secretary of State |
-| What it verifies | That *you* signed, willingly, in the notary's presence | That the *notary's* signature and commission are genuine |
-| Where it happens | Our counter in Concord Township, walk-in | By mail or in person in Columbus |
-| Typical cost | $5 per signature (Ohio statutory cap, ORC 147.08) | $5 per document (Form 8003) |
-| Turnaround | A counter visit | Two to three days for mailed requests |
-| Used where | Inside the U.S. and abroad | Only countries in the 1961 Hague Convention |
+|                  | **Notarization**                                       | **Apostille**                                            |
+| ---------------- | ------------------------------------------------------ | -------------------------------------------------------- |
+| Who issues it    | A commissioned Ohio notary public                      | Ohio Secretary of State                                  |
+| What it verifies | That _you_ signed, willingly, in the notary's presence | That the _notary's_ signature and commission are genuine |
+| Where it happens | Our counter in Concord Township, walk-in               | By mail or in person in Columbus                         |
+| Typical cost     | $5 per signature (Ohio statutory cap, ORC 147.08)      | $5 per document (Form 8003)                              |
+| Turnaround       | A counter visit                                        | Two to three days for mailed requests                    |
+| Used where       | Inside the U.S. and abroad                             | Only countries in the 1961 Hague Convention              |
 
 Say it plainly: the apostille does not validate what your document says. It only certifies that the signature on it is real. And the two are not interchangeable or competitive; one is a prerequisite for the other.
 
