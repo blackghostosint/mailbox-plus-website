@@ -258,13 +258,13 @@ We are an official Happy Returns Bar location.
 
 URL: https://mailboxplusohio.com/articles/2027-fedex-ups-surcharge-forecast/
 Category: pack-ship
-Published: 2026-10-02 | Updated: 2026-10-02
+Published: 2026-10-02 | Updated: 2026-10-27
 
 ## The Headline Says 5.9%. Your Invoice Will Not.
 
 You budget your shipping like you budget everything else — same boxes, same routes, a number you can carry into January. Then the carriers start publishing their 2027 rate tables, and the number you budgeted quietly stops being the number you pay.
 
-FedEx says 5.9%. Your January invoice will say something else — and UPS has not announced its 2027 numbers yet. The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
+FedEx says 5.9%. Your January invoice will say something else — and UPS has now matched it with a 5.9% average of its own, effective December 21, 2026 (the full breakdown is in [our UPS 2027 rate increase article](/articles/ups-2027-rate-increase/)). The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
 
 ## The Two-Number Trick
 
@@ -306,16 +306,16 @@ Here is what FedEx already locked in for you, effective January 4, 2027:
 
 If you ship light, residential, non-metro — the way most online sellers ship — 5.9% is a low starting assumption. When we run the 1–5 lb Ground cells for customers at this counter, the real planning number lands closer to 6.5% before surcharges.
 
-### UPS: not yet announced, expected this month
+### UPS: announced — 5.9% average, effective December 21, 2026
 
-UPS has not published its 2027 general rate increase as of early October 2026. UPS usually follows FedEx by two or three weeks — so expect the announcement late October. What we can say with confidence, from UPS's own published record:
+UPS published its 2027 numbers in late October, and the headline matches FedEx's: **an average net 5.9% increase on Daily Rates for Ground, Air, and International services, effective December 21, 2026** — landing in the middle of peak season, not January. The buried changes matter as much as the headline: the additional-handling minimum billable weight rises from 40 to 50 lbs, the Area Surcharge ZIP list and zone alignments get remapped the same day, published Small Business Rates rise (reported at 4.5%), and a new per-package surge fee applies to Ground and Ground Saver shipments from certain origin ZIP codes for qualified customers, with the ZIP list due in early November. We break it all out in [our UPS 2027 rate increase article](/articles/ups-2027-rate-increase/).
 
-- **Last cycle, UPS raised rates 5.9% effective December 22, 2025** — its increase landed before the new year, not in January like FedEx's.
-- **UPS has matched FedEx's 5.9% headline for several years running.** What UPS does for 2027 is not announced yet — this article will say so plainly until the numbers are official.
+From UPS's own published record, what carries over:
+
 - **The 2026–27 peak surcharge schedule is already published and runs into 2027:** additional handling surcharges of $8.75, rising to $11.90 from November 22 through December 26; large package surcharges of $96.25 rising to $117.50 in the same window; and per-package demand fees of $0.50 on Ground Residential rising to $0.75 at peak ($2.50 on air). All of it runs through **January 16, 2027** — so the first two weeks of your 2027 shipping year carry 2026's peak fees on top of the new base rates.
 - **Fuel surcharges are near 30% on ground service right now.** The week of October 5, 2026, UPS's domestic ground fuel surcharge is 29.75% and FedEx Ground's is 29.75% — both set weekly, both riding on top of everything above. We track [the fuel surcharge separately](/articles/fuel-surcharge-shipping-costs/); budget on the number you see this week, and re-check it monthly — the tables reset every Monday.
 
-When UPS drops its number, you do not have to decode it alone. Bring your box in — we will show you which line changed and what it means for your shipping, the way we broke out [UPS's 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/).
+Now that UPS's number is out, you do not have to decode it alone. Bring your box in — we will show you which line changed and what it means for your shipping, the way we broke out [UPS's 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/).
 
 ### USPS: the 8% bump expires mid-January
 
@@ -325,7 +325,7 @@ USPS has its own thing going: a first-ever 8% temporary bump on Priority Mail Ex
 
 1. **Start at 6.5%, not 5.9%.** If you ship light, residential packages on Ground services, a 6.5% base assumption matches the actual rate cells you use — the 5.9% headline is an average across services you may never ship. Add the new fees you know about: $6.90 residential delivery per Ground package, $12.70 minimum on light Ground shipments, $25 if any paperwork goes on paper.
 2. **Check your destination ZIPs against the 2027 DAS lists.** FedEx publishes the 2027 delivery-area ZIP lists as spreadsheets on its rate-changes page. Look up the ZIPs you ship to most. If any moved to Remote, your cost on that address roughly doubled — before you calculate anything else.
-3. **Bring the stack to the counter.** When UPS publishes its number, we will have all four carriers' tables side by side at 7554 Fredle Drive. Hand us your typical box — weight, size, destination — and we will price it across UPS, FedEx, USPS, and DHL with the current surcharge tables loaded. One package, four real numbers, about three minutes.
+3. **Bring the stack to the counter.** With UPS's number now published, we have all four carriers' tables side by side at 7554 Fredle Drive. Hand us your typical box — weight, size, destination — and we will price it across UPS, FedEx, USPS, and DHL with the current surcharge tables loaded. One package, four real numbers, about three minutes.
 
 ## What You Lose by Budgeting the Headline Number
 
@@ -14684,6 +14684,62 @@ The expectation gap is not going away — the big retailers are not going to slo
 Bring your next order to **Mailbox Plus — 7554 Fredle Drive, Concord Township**. Tell us the date it needs to arrive. We will show you the real cost of every carrier's speed, get it out the door the same day, and help you set promises you can actually keep.
 
 Two-day delivery is not just for the big guys. It is for sellers who know where to stand.
+
+---
+
+### UPS Announces Its 2027 Rate Increase: 5.9% Starting December 21
+
+URL: https://mailboxplusohio.com/articles/ups-2027-rate-increase/
+Category: pack-ship
+Published: 2026-10-27 | Updated: 2026-10-27
+
+## A Small Job With a Hidden Tax
+
+You price your December shipments the way you always do — a little margin on the label, a promise to your customer, done. This year the calendar works against you twice: FedEx raises rates 5.9% on January 4, and UPS just announced its own 5.9% average increase effective December 21 — while your peak-season fees are still running. Two increases in two weeks, both in the fine print. You should be able to see every line of what a shipment will cost before you quote it. The only way to see the real number is to have someone read the tables for you. Here is what changed and what it means for your boxes.
+
+## Why December 21 Matters More Than the 5.9%
+
+The announcement itself is one paragraph on UPS's rates page, and the headline number is the least of it. Effective December 21, 2026:
+
+- **Daily Rates for UPS Ground, Air, and International services rise an average 5.9%** — the fourth straight year at that number. UPS's own asterisk says the impact "will vary according to your shipping characteristics and the terms of your UPS agreement."
+- **The additional-handling minimum billable weight climbs from 40 lbs to 50 lbs.** Packages that used to qualify for additional handling at 40 pounds now have to hit 50 before that flag applies — but the surcharge's details live in tables most shippers never open.
+- **The Area Surcharge ZIP-code list changes.** Some ZIP codes move onto the delivery-area surcharge list; others come off. Whether your suburban customers suddenly carry the fee depends on a spreadsheet UPS updates once a year.
+- **Zone alignments shift.** The same box to the same address can land in a different zone, which changes the rate before any percentage is applied.
+- **Small Business published rates rise too** — the trade press reports 4.5% on Ground, Air, and International — and starting on or after December 21, a new per-package surge fee applies to Ground and Ground Saver shipments from certain origin ZIP codes for qualified customers. UPS says those ZIP codes will be published in early November.
+
+So the rate hike and the surcharge map both flip on the same day. You cannot compute your real increase from the headline, because the headline is an average — as one parcel-contract analyst put it when the news broke, don't plan around 5.9%; it won't reflect your actual cost. If you want the full shape of what both carriers are doing to 2027 rates, we mapped it in [our 2027 carrier surcharge forecast](/articles/2027-fedex-ups-surcharge-forecast/).
+
+## What the Friction Costs in Real Terms
+
+Maybe you ship handmade goods. Maybe you ship machine parts. The math is the same. In January you quoted a customer $14.80 to ship a 3-pound box to Columbus — your rate, your margin, your word. On December 21, the same box reprices without you touching it: base rate up, fuel surcharge stacked on top of the peak fee that's already been running since September, and maybe your ZIP code landed on a surcharge list you didn't know existed. You find out when the label prints. The label printer hums, the total pops up on the screen in front of you, and your thumb hovers over the confirm button while you do the math on a margin that just shrank. Either you eat the difference or you send the awkward email — "shipping turned out to be more than I quoted." Repeat that across a December of orders and the increase isn't 5.9%. It's whatever your particular mix of weight, zone, and ZIP decides it is, discovered one shipment at a time. And it stacks on fees that were already running — [the 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/) don't expire until mid-January.
+
+## Follow the Incentives
+
+It lands December 21, not January 2 — the last stretch of peak season, when your volume is highest, your customers least price-sensitive, and your attention is on getting orders out the door, not reading a rate guide. You are busiest exactly when the rules change. That is not a conspiracy; it's a scheduling choice that happens to benefit the company making it. And UPS is not hiding any of this — the ZIP lists, the zone charts, and the rate guides are all published. The burden is just placed entirely on you to cross-reference them before every quote. A difference of a fraction of a percent per package doesn't sound like much until you multiply it by every box you'll ship next year.
+
+## The Counter That Reads the Tables for You
+
+![The pack-and-ship counter at Mailbox Plus in Concord Township, with the point-of-sale terminal, computer, and carrier rate sheets where every surcharge gets explained line by line](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/surcharge-counter.webp)
+
+We're at 7554 Fredle Drive in Concord Township. We ship with all four carriers every day, and we read the rate tables so you don't have to. When UPS's announcement landed, we pulled the December 21 changes into our comparison at the counter: your box, weighed and measured, priced across UPS, FedEx, USPS, and DHL on the current tables — including the surcharge lines the headline numbers never mention. We're independent, so if UPS's new map makes your ZIP expensive but FedEx's January table still beats it, we'll say exactly that, and show you the math on the receipt. You never have to know which surcharge tier applies. You just have to bring the box.
+
+## How It Works at the Counter
+
+1. **Bring in one box — or a description of what you typically ship.** No homework: you don't need your volume modeled or the ZIP lists downloaded.
+2. **Put it on the counter.** We weigh it, check the surcharge flags against the December 21 tables, and price it across all four carriers side by side, every line visible.
+3. **Take the comparison with you.** Ship it with whoever wins, or just take the numbers and quote your customers with confidence. If the early-November surge-fee ZIPs change the picture, bring the same box back and we'll run it again.
+
+## What Waiting Actually Costs You
+
+Keep quoting off October's rates and every December shipment after the 21st carries an unpriced gap — the difference between what you quoted and what the label charges. Miss the new surge-fee ZIP list and a Ground Saver routine can pick up a per-package fee you never budgeted. Guess that "5.9% average" applies to your boxes and you can be wrong in either direction: lighter residential packages can rise faster than the average, and some contract profiles rise slower. The cost isn't one bad shipment. It's a season of quotes you can't stand behind, and the margin you quietly give back on every one you refuse to re-quote.
+
+## No Spreadsheet Required
+
+After the 21st, you quote a December order the same afternoon it comes in — one trip to the counter, one receipt with all four carriers' numbers on it, and the number you give your customer is the number on the label. No spreadsheet of surcharge tiers, no waiting for the early-November ZIP list to guess at. That constant low hum of "is shipping about to eat my margin?" goes quiet, because someone else is watching the tables and will tell you when they move.
+
+## Transfer the Friction to Our Counter
+
+You do not need to have read UPS's rate guide, know your zone alignment, or guess which ZIP codes made the surge list. Bring the box — or just tell us what you ship — to 7554 Fredle Drive in Concord Township, and we'll put it across all four carriers on the current tables before you quote anyone. If you'd rather compare carrier pricing on your own first, start with [how the four carriers stack up](/articles/compare-shipping-rates-ups-fedex-usps-dhl/), then bring the box. Absorbing the fine print is why the counter exists. Come see us before December 21, and quote the whole season with confidence.
 
 ---
 

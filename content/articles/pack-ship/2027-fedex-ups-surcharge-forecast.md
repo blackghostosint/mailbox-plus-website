@@ -9,11 +9,12 @@ quickAnswer: >-
   FedEx has announced its 2027 general rate increase: a 5.9% average rise on
   U.S. package rates effective January 4, 2027 — with Ground rates up about
   6.1% and the FedEx Ground minimum charge climbing from $11.99 to $12.70.
-  UPS has not
-  announced its 2027 numbers yet (its last cycle was 5.9% effective December
-  22, 2025). Fuel runs near 30% on ground service right now.
+  UPS has since
+  announced a 5.9% average increase on Ground, Air, and International Daily
+  Rates effective December 21, 2026, plus new surge fees — breakdown in our
+  UPS 2027 rate increase article. Fuel runs near 30% on ground right now.
 pubDate: '2026-10-02T09:00:00-04:00'
-lastModified: '2026-10-02T09:00:00-04:00'
+lastModified: '2026-10-27T09:00:00-04:00'
 status: 'published'
 image: 'articles/pack-ship/2027-fedex-ups-surcharge-forecast-featured.webp'
 imageAlt: 'A small-business shipping budget sheet on a store counter with a calculator and two taped boxes waiting beside it, warm afternoon light — a northeast Ohio pack-and-ship counter preparing for 2027 carrier rate increases.'
@@ -33,7 +34,7 @@ faqs:
   - question: 'How much will FedEx rates go up in 2027?'
     answer: 'FedEx will raise U.S. package standard list rates an average of 5.9% effective January 4, 2027 — the fourth consecutive year at that headline. But the average hides the shape: Ground rates rise about 6.1% on average, light 1–5 lb Ground packages take the steepest increase at 6.49%, and several residential fees rise faster than the base rates.'
   - question: 'Has UPS announced its 2027 rate increase?'
-    answer: 'Not yet, as of early October 2026. UPS is expected to announce its 2027 general rate increase later in October; historically the announcement lands two to three weeks after FedEx. Last cycle, UPS raised rates 5.9% effective December 22, 2025.'
+    answer: 'Yes — UPS announced a 5.9% average increase on Ground, Air, and International Daily Rates effective December 21, 2026, alongside an additional-handling threshold change (40 to 50 lbs minimum billable weight), remapped Area Surcharge and zone ZIP lists, and a new per-package Ground/Ground Saver surge fee from certain ZIP codes.'
   - question: 'What does the FedEx Ground minimum charge become in 2027?'
     answer: 'The FedEx Ground minimum net charge rises from $11.99 to $12.70 in 2027, a 5.92% increase. That floor applies to lightweight, short-zone packages — the rate you actually pay on a meaningful share of e-commerce volume.'
   - question: 'Do the 2026 holiday surcharges carry into 2027?'
@@ -44,7 +45,7 @@ faqs:
 
 You budget your shipping like you budget everything else — same boxes, same routes, a number you can carry into January. Then the carriers start publishing their 2027 rate tables, and the number you budgeted quietly stops being the number you pay.
 
-FedEx says 5.9%. Your January invoice will say something else — and UPS has not announced its 2027 numbers yet. The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
+FedEx says 5.9%. Your January invoice will say something else — and UPS has now matched it with a 5.9% average of its own, effective December 21, 2026 (the full breakdown is in [our UPS 2027 rate increase article](/articles/ups-2027-rate-increase/)). The gap is not random. It is built into the average, the minimum, the delivery-area map, and a stack of fees that rise on their own schedules. Here is each carrier — what is announced, what is already published, and what the stack will look like on your invoice.
 
 ## The Two-Number Trick
 
@@ -86,16 +87,16 @@ Here is what FedEx already locked in for you, effective January 4, 2027:
 
 If you ship light, residential, non-metro — the way most online sellers ship — 5.9% is a low starting assumption. When we run the 1–5 lb Ground cells for customers at this counter, the real planning number lands closer to 6.5% before surcharges.
 
-### UPS: not yet announced, expected this month
+### UPS: announced — 5.9% average, effective December 21, 2026
 
-UPS has not published its 2027 general rate increase as of early October 2026. UPS usually follows FedEx by two or three weeks — so expect the announcement late October. What we can say with confidence, from UPS's own published record:
+UPS published its 2027 numbers in late October, and the headline matches FedEx's: **an average net 5.9% increase on Daily Rates for Ground, Air, and International services, effective December 21, 2026** — landing in the middle of peak season, not January. The buried changes matter as much as the headline: the additional-handling minimum billable weight rises from 40 to 50 lbs, the Area Surcharge ZIP list and zone alignments get remapped the same day, published Small Business Rates rise (reported at 4.5%), and a new per-package surge fee applies to Ground and Ground Saver shipments from certain origin ZIP codes for qualified customers, with the ZIP list due in early November. We break it all out in [our UPS 2027 rate increase article](/articles/ups-2027-rate-increase/).
 
-- **Last cycle, UPS raised rates 5.9% effective December 22, 2025** — its increase landed before the new year, not in January like FedEx's.
-- **UPS has matched FedEx's 5.9% headline for several years running.** What UPS does for 2027 is not announced yet — this article will say so plainly until the numbers are official.
+From UPS's own published record, what carries over:
+
 - **The 2026–27 peak surcharge schedule is already published and runs into 2027:** additional handling surcharges of $8.75, rising to $11.90 from November 22 through December 26; large package surcharges of $96.25 rising to $117.50 in the same window; and per-package demand fees of $0.50 on Ground Residential rising to $0.75 at peak ($2.50 on air). All of it runs through **January 16, 2027** — so the first two weeks of your 2027 shipping year carry 2026's peak fees on top of the new base rates.
 - **Fuel surcharges are near 30% on ground service right now.** The week of October 5, 2026, UPS's domestic ground fuel surcharge is 29.75% and FedEx Ground's is 29.75% — both set weekly, both riding on top of everything above. We track [the fuel surcharge separately](/articles/fuel-surcharge-shipping-costs/); budget on the number you see this week, and re-check it monthly — the tables reset every Monday.
 
-When UPS drops its number, you do not have to decode it alone. Bring your box in — we will show you which line changed and what it means for your shipping, the way we broke out [UPS's 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/).
+Now that UPS's number is out, you do not have to decode it alone. Bring your box in — we will show you which line changed and what it means for your shipping, the way we broke out [UPS's 2026 holiday surcharges](/articles/ups-holiday-surcharges-2026/).
 
 ### USPS: the 8% bump expires mid-January
 
@@ -105,7 +106,7 @@ USPS has its own thing going: a first-ever 8% temporary bump on Priority Mail Ex
 
 1. **Start at 6.5%, not 5.9%.** If you ship light, residential packages on Ground services, a 6.5% base assumption matches the actual rate cells you use — the 5.9% headline is an average across services you may never ship. Add the new fees you know about: $6.90 residential delivery per Ground package, $12.70 minimum on light Ground shipments, $25 if any paperwork goes on paper.
 2. **Check your destination ZIPs against the 2027 DAS lists.** FedEx publishes the 2027 delivery-area ZIP lists as spreadsheets on its rate-changes page. Look up the ZIPs you ship to most. If any moved to Remote, your cost on that address roughly doubled — before you calculate anything else.
-3. **Bring the stack to the counter.** When UPS publishes its number, we will have all four carriers' tables side by side at 7554 Fredle Drive. Hand us your typical box — weight, size, destination — and we will price it across UPS, FedEx, USPS, and DHL with the current surcharge tables loaded. One package, four real numbers, about three minutes.
+3. **Bring the stack to the counter.** With UPS's number now published, we have all four carriers' tables side by side at 7554 Fredle Drive. Hand us your typical box — weight, size, destination — and we will price it across UPS, FedEx, USPS, and DHL with the current surcharge tables loaded. One package, four real numbers, about three minutes.
 
 ## What You Lose by Budgeting the Headline Number
 
