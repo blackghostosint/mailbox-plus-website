@@ -14695,14 +14695,14 @@ Published: 2026-10-27 | Updated: 2026-10-27
 
 ## A Small Job With a Hidden Tax
 
-You price your December shipments the way you always do — a little margin on the label, a promise to your customer, done. This year the calendar works against you twice: FedEx raises rates 5.9% on January 4, and UPS just announced its own 5.9% average increase effective December 21 — while your peak-season fees are still running. Two increases in three weeks, both in the fine print. You should be able to see every line of what a shipment will cost before you quote it. The only way to see the real number is to have someone read the tables for you. Here is what changed and what it means for your boxes.
+You price your December shipments the way you always do — a little margin on the label, a promise to your customer, done. This year the calendar works against you twice: FedEx raises rates 5.9% on January 4, and UPS just announced its own 5.9% average increase effective December 21 — while your peak-season fees are still running. Two increases in two weeks, both in the fine print. You should be able to see every line of what a shipment will cost before you quote it. The only way to see the real number is to have someone read the tables for you. Here is what changed and what it means for your boxes.
 
 ## Why December 21 Matters More Than the 5.9%
 
 The announcement itself is one paragraph on UPS's rates page, and the headline number is the least of it. Effective December 21, 2026:
 
 - **Daily Rates for UPS Ground, Air, and International services rise an average 5.9%** — the fourth straight year at that number. UPS's own asterisk says the impact "will vary according to your shipping characteristics and the terms of your UPS agreement."
-- **The additional-handling minimum billable weight climbs from 40 lbs to 50 lbs.** Packages that used to qualify for additional handling at 40 pounds now have to hit 50 before that flag applies — but it also means the surcharge's reach got redrawn, and the details live in tables most shippers never open.
+- **The additional-handling minimum billable weight climbs from 40 lbs to 50 lbs.** Packages that used to qualify for additional handling at 40 pounds now have to hit 50 before that flag applies — but the surcharge's details live in tables most shippers never open.
 - **The Area Surcharge ZIP-code list changes.** Some ZIP codes move onto the delivery-area surcharge list; others come off. Whether your suburban customers suddenly carry the fee depends on a spreadsheet UPS updates once a year.
 - **Zone alignments shift.** The same box to the same address can land in a different zone, which changes the rate before any percentage is applied.
 - **Small Business published rates rise too** — the trade press reports 4.5% on Ground, Air, and International — and starting on or after December 21, a new per-package surge fee applies to Ground and Ground Saver shipments from certain origin ZIP codes for qualified customers. UPS says those ZIP codes will be published in early November.
@@ -14715,7 +14715,7 @@ Maybe you ship handmade goods. Maybe you ship machine parts. The math is the sam
 
 ## Follow the Incentives
 
-It lands December 21, not January 2 — the last stretch of peak season, when your volume is highest, your customers least price-sensitive, and your attention is on getting orders out the door, not reading a rate guide. You are busiest exactly when the rules change. That is not a conspiracy; it's a scheduling choice that happens to benefit the company making it. And UPS is not hiding any of this — the ZIP lists, the zone charts, and the rate guides are all published. The burden is just placed entirely on you to cross-reference them before every quote. A two-percent difference per package doesn't sound like much until you multiply it by every box you'll ship next year.
+It lands December 21, not January 2 — the last stretch of peak season, when your volume is highest, your customers least price-sensitive, and your attention is on getting orders out the door, not reading a rate guide. You are busiest exactly when the rules change. That is not a conspiracy; it's a scheduling choice that happens to benefit the company making it. And UPS is not hiding any of this — the ZIP lists, the zone charts, and the rate guides are all published. The burden is just placed entirely on you to cross-reference them before every quote. A difference of a fraction of a percent per package doesn't sound like much until you multiply it by every box you'll ship next year.
 
 ## The Counter That Reads the Tables for You
 
@@ -14731,7 +14731,7 @@ We're at 7554 Fredle Drive in Concord Township. We ship with all four carriers e
 
 ## What Waiting Actually Costs You
 
-Keep quoting off October's rates and every December shipment after the 21st carries an unpriced gap — the difference between what you quoted and what the label charges. Miss the new surge-fee ZIP list and a Ground Saver routine can pick up a per-package fee you never budgeted. Guess that "5.9% average" applies to your boxes and you can be wrong in either direction: lighter residential packages often rise faster than the average, and some contract profiles rise slower. The cost isn't one bad shipment. It's a season of quotes you can't stand behind, and the margin you quietly give back on every one you refuse to re-quote.
+Keep quoting off October's rates and every December shipment after the 21st carries an unpriced gap — the difference between what you quoted and what the label charges. Miss the new surge-fee ZIP list and a Ground Saver routine can pick up a per-package fee you never budgeted. Guess that "5.9% average" applies to your boxes and you can be wrong in either direction: lighter residential packages can rise faster than the average, and some contract profiles rise slower. The cost isn't one bad shipment. It's a season of quotes you can't stand behind, and the margin you quietly give back on every one you refuse to re-quote.
 
 ## No Spreadsheet Required
 
