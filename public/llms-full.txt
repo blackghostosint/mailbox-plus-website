@@ -878,7 +878,7 @@ Here's the plain answer: **a notary and an apostille are two different certifica
 
 ## Meet The Rubber Stamp Confusion
 
-The reason this trips people up is that the two stamps look similar — ink, seal, official-looking certificate — and apostille resellers and courier services have every incentive to keep them blurred together. 
+The reason this trips people up is that the two stamps look similar — ink, seal, official-looking certificate — and apostille resellers and courier services have every incentive to keep them blurred together.
 
 Here's the mechanism. A notary public is a state-commissioned individual. Their job is to verify **you**: that the person signing the document is who they claim to be, that they signed willingly, in the notary's presence. That's it. The notary never evaluates the document's content.
 
