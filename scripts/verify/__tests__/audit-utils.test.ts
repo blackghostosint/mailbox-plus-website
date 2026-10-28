@@ -30,6 +30,20 @@ describe('audit-utils.mjs', () => {
       const payload = JSON.stringify({ vulnerabilities: {} });
       expect(parseAuditPayload(payload)).toEqual({ vulnerabilities: {} });
     });
+
+    it('parses valid JSON embedded in npm notice or warning output', () => {
+      const payload = `
+npm notice
+npm notice A new release of npm is available: 10.8.2 -> 11.0.0
+npm notice To update run: npm install -g npm@latest
+npm notice
+
+${JSON.stringify({ vulnerabilities: { pkgX: { severity: 'low' } } })}
+`;
+      expect(parseAuditPayload(payload)).toEqual({
+        vulnerabilities: { pkgX: { severity: 'low' } },
+      });
+    });
   });
 
   describe('evaluateAuditData', () => {

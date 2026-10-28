@@ -20,13 +20,24 @@ export function parseAuditPayload(raw) {
   if (typeof raw === 'object') {
     data = raw;
   } else if (typeof raw === 'string') {
-    if (!raw.trim()) {
+    const trimmed = raw.trim();
+    if (!trimmed) {
       throw new Error('Audit payload is invalid or empty');
     }
     try {
-      data = JSON.parse(raw);
+      data = JSON.parse(trimmed);
     } catch (_err) {
-      throw new Error(`unable to parse JSON output from npm audit`);
+      const startIdx = trimmed.indexOf('{');
+      const endIdx = trimmed.lastIndexOf('}');
+      if (startIdx !== -1 && endIdx > startIdx) {
+        try {
+          data = JSON.parse(trimmed.substring(startIdx, endIdx + 1));
+        } catch (_innerErr) {
+          throw new Error('unable to parse JSON output from npm audit');
+        }
+      } else {
+        throw new Error('unable to parse JSON output from npm audit');
+      }
     }
   } else {
     throw new Error('Audit payload is invalid or empty');
@@ -102,7 +113,7 @@ export function runAuditGate(options = {}) {
         maxBuffer: 1024 * 1024 * 64,
       });
     } catch (e) {
-      raw = e.stdout || '';
+      raw = e.stdout ? String(e.stdout) : e.output ? e.output.map((o) => (o ? String(o) : '')).join('') : '';
     }
   }
 
