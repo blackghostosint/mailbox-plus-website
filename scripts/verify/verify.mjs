@@ -1567,6 +1567,8 @@ function cmdReview(targetPath, rest = [], asJson = false) {
   // pass bar is 90: the best published anchors score 90-93, deliberately
   // degraded drafts fall to 85 (light fluff) and 69 (heavy fluff), so 90 sits
   // exactly at "match the best published" and rejects the fluff-tolerant zone.
+  // Borderline rule: scores 85-95 get ONE automatic Kimi K2.6 rescore inside
+  // review-article-copy.ts (final word) — see that script, added 2026-10-27.
   // API calls occasionally return empty, so
   // retry API-style failures up to 3 attempts, then FAIL CLOSED (no fallback
   // pass on reviewer outage). Genuine score failures are not retried.
