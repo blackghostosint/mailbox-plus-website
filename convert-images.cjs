@@ -1,23 +1,12 @@
 const fs = require('node:fs');
 const path = require('node:path');
-const { createRequire } = require('node:module');
 
 const INPUT_FILE = path.resolve(__dirname, 'logo.png');
 const WEBP_OUTPUT = path.resolve(__dirname, 'public', 'logo.webp');
 const AVIF_OUTPUT = path.resolve(__dirname, 'public', 'logo.avif');
 
 function getSharp() {
-  try {
-    return require('sharp');
-  } catch (_err) {
-    try {
-      const astroPackagePath = path.resolve(__dirname, 'astro', 'package.json');
-      const astroRequire = createRequire(astroPackagePath);
-      return astroRequire('sharp');
-    } catch (fallbackErr) {
-      throw new Error(`Failed to resolve 'sharp' module: ${fallbackErr.message}`);
-    }
-  }
+  return require('sharp');
 }
 
 async function convertImages(options = {}) {
