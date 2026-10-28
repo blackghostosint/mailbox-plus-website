@@ -49,13 +49,13 @@ Here's the plain answer: **a notary and an apostille are two different certifica
 
 ## Meet The Rubber Stamp Confusion
 
-The reason this trips people up is that the two stamps look similar — ink, seal, official-looking certificate — and apostille resellers and courier services have every incentive to keep them blurred together. A $200 assembly fee only survives if the $5 state process stays mysterious.
+The reason this trips people up is that the two stamps look similar — ink, seal, official-looking certificate — and apostille resellers and courier services have every incentive to keep them blurred together.
 
 Here's the mechanism. A notary public is a state-commissioned individual. Their job is to verify **you**: that the person signing the document is who they claim to be, that they signed willingly, in the notary's presence. That's it. The notary never evaluates the document's content.
 
 An apostille is something else entirely. It's a certificate issued by the Ohio Secretary of State that verifies the **notary's** signature and commission — a certification about the certification. It exists for one reason: your document is going to a country that belongs to the 1961 Hague Convention, and that country has no way to check an Ohio notary's commission on its own. The apostille is the state vouching for the stamp (Ohio Secretary of State, "Understanding Apostilles and Authentications in Ohio," ohiosos.gov).
 
-Because it's confusing, a whole tier of paid intermediaries exists to make it stay confusing. Search "apostille service Ohio" and you'll find flat-fee offers that bundle a notarization, a filing, and courier runs into a single price — often a couple hundred dollars for paperwork whose state fee is $5 per document. The confusion isn't an accident; it's the product.
+Because it's confusing, a whole tier of paid intermediaries exists to make it stay confusing. Search "apostille service Ohio" and you'll find flat-fee offers that bundle a notarization, a filing, and courier runs into a single flat price on top of the $5-per-document state fee.
 
 ## The Part That Wears You Down
 
@@ -75,7 +75,7 @@ It shouldn't take a service bureau to handle a two-step process the state publis
 - Translated documents get translated first, _then_ notarized, then submitted.
 - FBI background checks and federal documents don't go through Ohio at all — the FBI and the U.S. Department of State handle their own authentications.
 
-The state even publishes the checklist on the request form itself: completed Form 8003, exact fee, no cash in the mail, a self-addressed stamped envelope or prepaid express label, and the document. That's the entire process. Nobody should be paying a stranger $200 for it.
+The state even publishes the checklist on the request form itself: completed Form 8003, exact fee, no cash in the mail, a self-addressed stamped envelope or prepaid express label, and the document. That's the entire process.
 
 ## Our Counter, Our Rules
 
@@ -83,7 +83,7 @@ Here's what we do at Mailbox Plus, stated exactly — because knowing where our 
 
 We are the **first step**. Our commissioned Ohio notary verifies your identity, watches you sign, and applies the stamp — walk-in, no appointment, during store hours (Monday through Friday 9 AM to 6 PM, Saturday 9 AM to 2 PM). Ohio law caps the in-person notarial-act fee at $5 per signature (ORC 147.08). Bring the document unsigned and your ID; the signing has to happen in front of the notary, not at your kitchen table the night before. (The full rulebook — ID requirements, the fee cap, what a notary can and can't do — is in [the complete Ohio notary guide](/articles/ohio-notary-services-guide/).)
 
-We are also the **last mile**. Once your document is notarized and your Form 8003 packet is assembled — fee payment, return envelope, the works — our counter can pack it and put it on a tracked carrier to the Client Service Center at 180 Civic Center Dr., Columbus, and do the same for the return trip with a prepaid label — that's everyday [pack-and-ship counter work](/pack-ship/). The apostille certificate itself is issued by the Secretary of State's office, not by us, and anyone who tells you a mailbox store can "issue" one is selling you the confusion.
+We are also the **last mile** — and it's one transaction. We notarize the document at the counter, then our counter can pack it and put it on a tracked carrier to the Client Service Center at 180 Civic Center Dr., Columbus, and do the same for the return trip with a prepaid label — that's everyday [pack-and-ship counter work](/pack-ship/). The apostille certificate itself is issued by the Secretary of State's office, not by us, and anyone who tells you a mailbox store can "issue" one is selling you the confusion.
 
 One honest caution: whether your destination country actually accepts an apostille, and whether your specific document type qualifies, is a question for the destination or for the Secretary of State's office at 614-728-9200 (toll free 877-767-3453). We'll tell you what we know and point you to the people who decide.
 
