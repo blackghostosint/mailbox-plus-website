@@ -137,9 +137,10 @@ describe('build-embeddings', () => {
       const tempCache = path.join(os.tmpdir(), `test-emb-cache-${Date.now()}.json`);
       const tempMeta = path.join(os.tmpdir(), `test-kb-meta-${Date.now()}.json`);
 
+      const dummyVector = new Array(768).fill(0.1);
       const mockModel = {
         embedContent: vi.fn().mockResolvedValue({
-          embedding: { values: [0.1, 0.2, 0.3, 0.4] },
+          embedding: { values: dummyVector },
         }),
       };
 
@@ -175,7 +176,7 @@ describe('build-embeddings', () => {
         // Verify written meta passes validateKb
         const tempKb = path.join(os.tmpdir(), `test-kb-${Date.now()}.json`);
         fs.writeFileSync(tempKb, JSON.stringify(mockKb), 'utf-8');
-        const validation = validateKb(tempKb, tempMeta);
+        const validation = validateKb(tempKb, tempMeta, tempOut);
         expect(validation.success).toBe(true);
         if (fs.existsSync(tempKb)) fs.unlinkSync(tempKb);
       } finally {
