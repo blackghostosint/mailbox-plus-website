@@ -1,0 +1,25 @@
+{
+  "comment": "Copy-scorer calibration anchors. recorded_score = the scale reference; the ruler re-scores these and alarms when drift >5 pts or mean |drift| >4. Update recorded_score ONLY after a deliberate recalibration decision (recorded in the PR body + this file's comment).",
+  "baseline_date": "2026-10-29",
+  "anchors": [
+    {
+      "file": "content/articles/document-services/chardon-fax.md",
+      "recorded_score": 81,
+      "recorded_model": "deepseek-v4.1-flash",
+      "date": "2026-10-29",
+      "note": "7 recorded runs across pipeline history"
+    },
+    {
+      "file": "content/articles/notary/ohio-notary-services-guide.md",
+      "recorded_score": 71,
+      "date": "2026-10-29",
+      "note": "baseline to be set on first ruler run"
+    },
+    {
+      "file": "content/articles/mailbox-rentals/cheapest-mailbox-rental-options-compared.md",
+      "recorded_score": 93,
+      "date": "2026-10-29",
+      "note": "baseline to be set on first ruler run"
+    }
+  ]
+}

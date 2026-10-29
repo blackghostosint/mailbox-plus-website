@@ -331,6 +331,7 @@ async function main() {
       'base-url': { type: 'string' },
       'api-key': { type: 'string' },
       'min-score': { type: 'string', default: '82' },
+      runs: { type: 'string', default: '3' },
       json: { type: 'boolean', default: false },
     },
     allowPositionals: true,
@@ -358,6 +359,11 @@ async function main() {
   }
 
   let overallFailed = false;
+  // Median-of-3 (2026-10-29): a single LLM score is one noisy sample — the same
+  // text has measured 56-96 across runs. The gate verdict is the MEDIAN of N
+  // independent runs (default 3; --runs 1 restores single-shot for local dev).
+  // Per-run scores ride in result.run_scores so drift stays measurable.
+  const RUNS = Math.max(1, parseInt(values.runs as string, 10) || 3);
   for (const article of articles) {
     const filePath = article.filePath;
     const content = article.raw;
@@ -370,6 +376,32 @@ async function main() {
         apiKey,
       });
       result.file_path = filePath;
+
+      if (RUNS > 1) {
+        const runScores: number[] = [result.total_score || 0];
+        const runResults: any[] = [result];
+        for (let i = 1; i < RUNS; i++) {
+          try {
+            const r = await evaluateArticle(content, { model, provider, baseUrl, apiKey });
+            runScores.push(r.total_score || 0);
+            runResults.push(r);
+          } catch (e: any) {
+            console.error(
+              `   ⚠️ Run ${i + 1}/${RUNS} failed (${e.message}); continuing with ${runScores.length} runs.`
+            );
+          }
+        }
+        const sorted = [...runScores].sort((a, b) => a - b);
+        const median = sorted[Math.floor(sorted.length / 2)];
+        const spread = sorted[sorted.length - 1] - sorted[0];
+        console.log(
+          `📊 ${RUNS}-run median: ${median}/100 (runs: ${runScores.join(', ')}, spread ${spread})`
+        );
+        // Keep the median-scored run's qualitative output; record all runs.
+        const medianRun = runResults.find((r) => (r.total_score || 0) === median) || runResults[0];
+        result = { ...medianRun, total_score: median, run_scores: runScores, run_spread: spread };
+        result.file_path = filePath;
+      }
 
       // Borderline escalation: flash-tier judges are score-inflating in the
       // 85-95 band (DeepSeek runs 10-12 pts above Grok's scale). One Kimi
@@ -400,15 +432,36 @@ async function main() {
             rescore_score: rescore.total_score,
           };
           result = { ...rescore, file_path: filePath, escalation: result.escalation };
-          console.log(`   Rescore: ${rescore.total_score}/100 (this is the verdict).`);
+          console.log(
+            `   Rescore: ${rescore.total_score}/100 (K2.6 scale — advisory critiques; verdict rule below).`
+          );
         } catch (e: any) {
           console.error(`   ⚠️ Rescore failed (${e.message}); keeping base score.`);
         }
       }
 
-      if ((result.total_score || 0) < minScore) {
+      // Verdict rule (2026-10-29, ruler-calibrated): the flash median is the
+      // gate score — fresh runs are stable to ±2 pts. The K2.6 rescore runs a
+      // ~15-20-pt-harsher scale and must NOT be compared to the flash threshold
+      // (that mismatch failed good articles at "66" all day on 10/29). K2.6's
+      // role: qualitative critiques + a hard-floor veto — a K2.6 score below
+      // 60 on ITS scale indicates a defect class flash inflates past 85.
+      const flashScore = result.escalation
+        ? (result.escalation.base_score ?? result.total_score)
+        : result.total_score || 0;
+      const k26Score = result.escalation ? result.escalation.rescore_score : null;
+      if (result.escalation && k26Score !== null && k26Score < 60) {
+        result.total_score = Math.min(flashScore, k26Score + 20); // scale-adjusted
+        result.verdict_note =
+          'K2.6 hard-floor veto: rescore below 60 on the harsher K2.6 scale — treated as FAIL.';
+        overallFailed = true;
+        console.log(
+          `   🚨 K2.6 hard-floor veto (${k26Score}/100 on K2.6 scale) — FAIL despite flash ${flashScore}.`
+        );
+      } else if (flashScore < minScore) {
         overallFailed = true;
       }
+      if (result.escalation) result.gate_score = flashScore;
 
       // Review-score telemetry (2026-10-28): every evaluation appends one CSV
       // row so raw→final drift per slug is measurable. Location: the article
