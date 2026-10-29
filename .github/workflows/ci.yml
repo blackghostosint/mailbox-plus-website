@@ -283,6 +283,12 @@ jobs:
         run: npx playwright install ${{ matrix.project }}
 
       - name: Run Playwright E2E tests (${{ matrix.project }})
+        env:
+          # The webServer command builds fresh dist (PR #868). reCAPTCHA is
+          # inlined at build time; without this the inlining guard test
+          # (mailbox-reservation.spec.ts:45) fails closed. Placeholder fallback
+          # matches the build step above so the guard assertion stays meaningful.
+          VITE_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY || '6LfCI-PLACEHOLDER-KEY-0000000000000000000' }}
         run: npx playwright test --project=${{ matrix.project }}
 
       - name: Upload Playwright test artifacts (${{ matrix.project }})
