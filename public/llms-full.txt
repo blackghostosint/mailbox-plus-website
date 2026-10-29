@@ -947,7 +947,7 @@ Stall on this and the costs stack in three currencies.
 
 **Time.** Every bounced or mis-assembled packet costs a full round trip of international mail. A two-day state turnaround becomes three weeks because a step was skipped.
 
-**Money.** The state's fee is $5. The intermediaries charge a hundred to several hundred dollars for assembling what the request form explains on its own second page. And a redone notarization — because you signed at home first — is another fee and another trip.
+**Money.** The state's fee is $5. Some intermediary services charge well over $100 for assembling what the request form explains on its own second page. And a redone notarization — because you signed at home first — is another fee and another trip.
 
 **Credibility.** The document sitting in a foreign bureaucracy is usually attached to something real: a marriage registration, a work permit, a property closing, an adoption. The delay isn't abstract to the person waiting for it.
 
