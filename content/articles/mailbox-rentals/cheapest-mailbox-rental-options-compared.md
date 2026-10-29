@@ -33,7 +33,7 @@ faqs:
   - question: 'How much does a mailbox at The UPS Store cost?'
     answer: 'The UPS Store does not publish mailbox pricing centrally — each store is locally owned and operated and sets its own rates, so you have to ask in store. The same is true for service details: package acceptance is available at participating locations, and text alerts may carry additional fees per their own site.'
   - question: 'How much is a private mailbox at Mailbox Plus?'
-    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. There is a $5 refundable key deposit. Month-to-month, cancel anytime.'
+    answer: 'Personal tiers are $15, $25, $30, and $40 a month depending on box size and package allowance; business plans are $35 and $50 a month. There is a $5 key deposit, refundable when you cancel and return the key. Month-to-month, cancel anytime.'
   - question: 'What do I need to rent a private mailbox?'
     answer: 'USPS Form 1583 plus two forms of ID — one with a photo, one that shows your physical home or business address. That is a federal requirement for any Commercial Mail Receiving Agency, so a private mailbox takes slightly more paperwork than a PO Box the first time you set it up.'
   - question: 'Can UPS or FedEx deliver to a PO Box?'
@@ -74,9 +74,9 @@ You weren't bad at shopping. The market just doesn't line the options up side by
 
 We run a private mailbox service at 7554 Fredle Drive in Gristmill Village — the counter in Concord Township, next to Pub Frato. We're independent, which means our pricing is ours to publish and ours to keep simple.
 
-Here it is, the whole thing. Personal mailbox tiers are $15, $25, $30, and $40 a month, depending on box size and package allowance. Business plans are $35 and $50. There's a $5 key deposit — refundable when you leave. The package tiers include 10 packages a month, then $5 per package after that. Oversized packages — over 18 inches or 20 pounds — are a $5 flat fee, not a mystery surcharge. If a package sits past 5 days, it's $1 a day, which is how we keep the wall from filling up with boxes nobody claimed. On the $25 plans and up you get text and email alerts. Month-to-month, cancel anytime.
+Here it is, the whole thing. Personal mailbox tiers are $15, $25, $30, and $40 a month, depending on box size and package allowance. Business plans are $35 and $50. There's a $5 key deposit — refundable when you cancel and return the key. The package tiers include 10 packages a month, then $5 per package after that. Oversized packages — over 18 inches or 20 pounds — are a $5 flat fee, not a mystery surcharge. If a package sits past 5 days, it's $1 a day, which is how we keep the wall from filling up with boxes nobody claimed. On the $25 plans and up you get text and email alerts. Month-to-month, cancel anytime.
 
-What you're really buying isn't the box. It's that all four carriers can deliver here — USPS, UPS, FedEx, and DHL — and we sign for your deliveries, so the next alert you get is the one that says your package is ready, not the one that says they tried.
+What you're really buying isn't the box. It's that all four carriers can deliver here — USPS, UPS, FedEx, and DHL — and we sign for your deliveries when a carrier requires it, so the next alert you get is the one that says your package is ready, not the one that says they tried.
 
 One honest trade-off, because you deserve it stated plainly: a private mailbox takes slightly more paperwork on day one than a PO Box. Federal rules for Commercial Mail Receiving Agencies require USPS Form 1583 and two forms of ID — one with a photo, one showing your physical home or business address. It's five minutes at our counter, and if your address format matters to you, note that mail to a private mailbox uses a "PMB" or "#" designator — that's a postal regulation, not a store preference.
 
