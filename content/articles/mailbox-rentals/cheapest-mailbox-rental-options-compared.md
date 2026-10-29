@@ -99,7 +99,7 @@ That carrier row is the whole game. Look at it close.
 If the comparison lands on the independent option, here's how little there is to do:
 
 1. **Come in with your IDs and the address you want to protect.** That's the whole checklist. No pre-filled forms, no online portal homework — we keep Form 1583 at the counter and walk you through it.
-2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious in about a minute. Not sure whether you need the $25 plan? We'd rather put you in the smaller one and upsize you free of drama than sell you box you don't use.
+2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious in about a minute. Not sure whether you need the $25 plan? Tell us what shows up in a normal month and we'll point you at the size that fits it.
 3. **Get your key and your address, and you're done.** Your new street address works that day. From then on, carriers deliver to us, we sign, and you get the "ready" alert instead of a porch anxiety attack.
 
 No appointment. No annual contract. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
