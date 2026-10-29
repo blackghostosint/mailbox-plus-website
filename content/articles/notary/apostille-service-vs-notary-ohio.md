@@ -36,7 +36,7 @@ faqs:
   - question: 'Where do I mail my apostille request in Ohio?'
     answer: 'To the Ohio Secretary of State, Client Service Center, 180 Civic Center Dr., Columbus, OH 43215-4138, with the completed Authentication/Apostille Request Form (Form 8003), the $5-per-document fee, a self-addressed stamped envelope or prepaid label, and your notarized document.'
   - question: 'Do you provide apostille service at Mailbox Plus?'
-    answer: 'We notarize the document — the step that has to happen before any apostille can be issued — and we can pack and ship the finished packet to the Secretary of State in Columbus with a tracked label. The apostille itself is issued only by the Secretary of State\u2019s office.'
+    answer: 'We notarize the document — the step that has to happen before an apostille can be issued on documents that require notarization — and we can pack and ship the finished packet to the Secretary of State in Columbus with a tracked label. The apostille itself is issued only by the Secretary of State\u2019s office.'
 ---
 
 ## What Should Take Two Minutes
@@ -45,7 +45,7 @@ Somebody overseas just asked you for an "apostilled" document. A birth certifica
 
 And now you're being told it needs two stamps. A notary. Then an apostille. Which comes first? Who issues the second one? Why can't the same person do both?
 
-Here's the plain answer: **a notary and an apostille are two different certifications from two different offices, and they are done in order — notarize first, apostille second.** The notarization you can get done at our counter in Concord Township, walk-in, no appointment — [here's how a walk-in notary visit works](/articles/where-to-get-documents-notarized-walk-in/). The apostille is issued only by the Ohio Secretary of State in Columbus, and no notary anywhere can issue it for you. This article walks through exactly what each stamp does, what it costs, and the order to do them in so your packet doesn't come back rejected.
+Here's the plain answer: **a notary and an apostille are two different certifications from two different offices, and when your document needs both, they are done in order — notarize first, apostille second.** (Not every document needs the notary step — some, like some vital records, go to the Secretary of State as certified copies — but if yours needs a notarization, it comes first.) The notarization you can get done at our counter in Concord Township, walk-in, no appointment — [here's how a walk-in notary visit works](/articles/where-to-get-documents-notarized-walk-in/). The apostille is issued only by the Ohio Secretary of State in Columbus, and no notary anywhere can issue it for you. This article walks through exactly what each stamp does, what it costs, and the order to do them in so your packet doesn't come back rejected.
 
 ## Meet The Rubber Stamp Confusion
 
@@ -98,7 +98,7 @@ One honest caution: whether your destination country actually accepts an apostil
 | Turnaround       | A counter visit                                        | Two to three days for mailed requests                    |
 | Used where       | Inside the U.S. and abroad                             | Only countries in the 1961 Hague Convention              |
 
-Say it plainly: the apostille does not validate what your document says. It only certifies that the signature on it is real. And the two are not interchangeable or competitive; one is a prerequisite for the other.
+Say it plainly: the apostille does not validate what your document says. It only certifies that the signature on it is real. And the two are not interchangeable or competitive; for documents that require notarization, one is a prerequisite for the other.
 
 ## Walk In. Set It Down. Walk Out.
 
