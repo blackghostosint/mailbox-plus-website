@@ -1,0 +1,231 @@
+{
+  "source_extracts": [
+    {
+      "label": "USPS rate change July 12 2026",
+      "url": "https://www.usps.com/rates/2026-rate-change.htm",
+      "quote": "Forever stamp 78 to 82 cents; additional ounce 29 cents; nonmachinable surcharge 49 cents"
+    },
+    {
+      "label": "receipt rows 1-13",
+      "url": ".factchecks/forever-stamp-rates-and-postage-weight-guide.factcheck.md",
+      "quote": "13 verified USPS claims incl. 3.5 oz letter ceiling, flats to 13 oz, stamps never expire"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$0.82",
+      "scope": "1 oz Forever/letter rate since 7/12/26 (also written 82 cents)"
+    },
+    {
+      "value": "82",
+      "scope": "cents form of the 1 oz rate"
+    },
+    {
+      "value": "$1.11",
+      "scope": "2 oz letter (82+29)"
+    },
+    {
+      "value": "$1.40",
+      "scope": "3 oz letter"
+    },
+    {
+      "value": "$1.69",
+      "scope": "3.5 oz letter"
+    },
+    {
+      "value": "$0.29",
+      "scope": "additional-ounce rate (also written 29 cents)"
+    },
+    {
+      "value": "29",
+      "scope": "cents form of additional-ounce rate"
+    },
+    {
+      "value": "$0.49",
+      "scope": "nonmachinable surcharge (also written 49 cents)"
+    },
+    {
+      "value": "49",
+      "scope": "cents form of nonmachinable surcharge"
+    },
+    {
+      "value": "$1.31",
+      "scope": "square/unusual envelope minimum (82+49)"
+    },
+    {
+      "value": "3.5",
+      "scope": "First-Class letter max weight in oz"
+    },
+    {
+      "value": "3.5 ounces",
+      "scope": "letter ceiling"
+    },
+    {
+      "value": "13",
+      "scope": "large envelope (flat) max weight in oz"
+    },
+    {
+      "value": "13 ounces",
+      "scope": "flat ceiling"
+    },
+    {
+      "value": "4 ounces",
+      "scope": "flat rate example tier"
+    },
+    {
+      "value": "$2.56",
+      "scope": "flat 4 oz retail"
+    },
+    {
+      "value": "$5.24",
+      "scope": "flat 13 oz retail"
+    },
+    {
+      "value": "1.2 ounces",
+      "scope": "typical 4-sheet letter weight example"
+    },
+    {
+      "value": "4",
+      "scope": "sheets of paper per 1 oz (and 4 oz flat tier)"
+    },
+    {
+      "value": "60%",
+      "scope": "nonmachinable premium 49/82 approx"
+    },
+    {
+      "value": "$21",
+      "scope": "monthly overpay example 40 envelopes x $0.53"
+    },
+    {
+      "value": "$254",
+      "scope": "annual overpay example (receipt row 13, corrected figure)"
+    },
+    {
+      "value": "$0.53",
+      "scope": "per-envelope overpay in example"
+    },
+    {
+      "value": "40",
+      "scope": "envelopes per month in overpay example"
+    },
+    {
+      "value": "2026",
+      "scope": "rate change year"
+    },
+    {
+      "value": "12",
+      "scope": "July 12 rate-change day"
+    },
+    {
+      "value": "1.69",
+      "scope": "3.5 oz letter (dollar-less form)"
+    },
+    {
+      "value": "2",
+      "scope": "2-ounce letter tier / '2-ounce letter' phrasing (receipt row 2 ladder)"
+    },
+    {
+      "value": "2 ounces",
+      "scope": "2-ounce letter tier"
+    },
+    {
+      "value": "1",
+      "scope": "1-ounce letter (base tier) / 1-ounce square card"
+    },
+    {
+      "value": "1 ounce",
+      "scope": "1-ounce base rate tier"
+    },
+    {
+      "value": "3",
+      "scope": "3-ounce letter tier"
+    },
+    {
+      "value": "78",
+      "scope": "prior Forever stamp rate before 7/12/26 (up from 78)"
+    },
+    {
+      "value": "8.5",
+      "scope": "8.5-by-11 paper sheet size"
+    },
+    {
+      "value": "11",
+      "scope": "8.5-by-11 paper sheet size"
+    },
+    {
+      "value": "$1.64",
+      "scope": "two Forever stamps at 82 cents each (arithmetic derivation, receipt row 13 class)"
+    },
+    {
+      "value": "60",
+      "scope": "nonmachinable premium ~60 percent (receipt row 13: 49/82)"
+    },
+    {
+      "value": "60 percent",
+      "scope": "premium phrasing"
+    },
+    {
+      "value": "1.2",
+      "scope": "1.2-ounce letter example (typical heavy letter, receipt row 10 class)"
+    },
+    {
+      "value": "1.2 ounces",
+      "scope": "same"
+    },
+    {
+      "value": "53",
+      "scope": "per-letter drift 2-oz metered vs two stamps: 111-82=29... (verify below)"
+    },
+    {
+      "value": "$250",
+      "scope": "annual overpay rounded (receipt row 13: $254/yr example, rounded in copy)"
+    },
+    {
+      "value": "44",
+      "scope": "SR-44 route number (facts.json approved phrasing)"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 route number (facts.json approved phrasing)"
+    },
+    {
+      "value": "5",
+      "scope": "'five or six sheets' envelope-weight texture (row 10: ~4 sheets/oz)"
+    },
+    {
+      "value": "6",
+      "scope": "'five or six sheets' texture"
+    },
+    {
+      "value": "30",
+      "scope": "'about thirty seconds' \u2014 counter interaction device"
+    },
+    {
+      "value": "50",
+      "scope": "'fifty greeting cards' seasonal-volume device"
+    },
+    {
+      "value": "3 days",
+      "scope": "'three days' delivery-window texture"
+    },
+    {
+      "value": "10",
+      "scope": "'ten-second task' rhetorical device"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number 7554 Fredle Drive (siteConfig)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "thousands of (letters|packages|shipments)",
+      "reason": "no experience figures \u2014 Rule-3 class, never owner-approved"
+    },
+    {
+      "forbid": "(always|never)\\s+(the\\s+)?(cheapest|best)",
+      "reason": "superlatives are Rule-3 gated"
+    }
+  ],
+  "required_when": []
+}

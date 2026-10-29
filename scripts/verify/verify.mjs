@@ -1340,6 +1340,39 @@ function cmdArticle(arg, isStrict = false) {
       }
     }
 
+    // 12d) source:constraints — Layer A+ source-reconciliation gate (Frank, 2026-10-29).
+    // Constraint-first: numbers and scope rules are pre-registered in
+    // .factchecks/<slug>.sources.json DURING the Fact-Check Gate; this fails the PR
+    // when the copy uses an unregistered number (incl. word-form "five minutes"),
+    // violates a scope rule (tier/plan overreach), or misses a required qualifier.
+    // Strict-only, same tier as claims:verify.
+    if (isStrict) {
+      try {
+        const sourceGate = path.resolve(__dirname, 'source-constraint-gate.mjs');
+        const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
+        const out2 = execFileSync(
+          nodeCmd,
+          [sourceGate, '--slug', slug, '--article', abs, '--root', ROOT, '--drafts', DRAFTS_DIR],
+          {
+            cwd: ROOT,
+            encoding: 'utf8',
+            timeout: 60000,
+          }
+        );
+        for (const r of JSON.parse(out2.trim())) {
+          check(r.name, r.pass, r.detail, r.fix);
+        }
+      } catch (e) {
+        const stderr = ((e.stdout || '') + (e.stderr || '') + e.message).slice(-400);
+        check(
+          'source:constraints',
+          false,
+          `gate error: ${stderr}`,
+          'inspect scripts/verify/source-constraint-gate.mjs'
+        );
+      }
+    }
+
     // 13) Robots status
     const status = String(data.status || 'published').toLowerCase();
     check(
