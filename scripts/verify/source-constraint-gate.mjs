@@ -21,18 +21,42 @@
 // Exported as a factory; verify.mjs calls runSourceConstraintGate(slug, content, check, ROOT, DRAFTS_DIR).
 
 const WORD_NUMBERS = {
-  one: 1, two: 2, three: 3, four: 4, five: 5, six: 6, seven: 7, eight: 8,
-  nine: 9, ten: 10, eleven: 11, twelve: 12, fifteen: 15, twenty: 20,
-  twentyfour: 24, thirty: 30, forty: 40, fifty: 50, sixty: 60,
-  seventy: 70, eighty: 80, ninety: 90, hundred: 100,
+  one: 1,
+  two: 2,
+  three: 3,
+  four: 4,
+  five: 5,
+  six: 6,
+  seven: 7,
+  eight: 8,
+  nine: 9,
+  ten: 10,
+  eleven: 11,
+  twelve: 12,
+  fifteen: 15,
+  twenty: 20,
+  twentyfour: 24,
+  thirty: 30,
+  forty: 40,
+  fifty: 50,
+  sixty: 60,
+  seventy: 70,
+  eighty: 80,
+  ninety: 90,
+  hundred: 100,
 };
 
 export function makeSourceConstraintGate(fs, path) {
   function parseValueToken(token) {
     // Normalize "$15", "15", "five", "10-12", "$150.50", "5%" to a comparable string.
-    const t = token.trim().toLowerCase().replace(/^us?\$/, '$');
+    const t = token
+      .trim()
+      .toLowerCase()
+      .replace(/^us?\$/, '$');
     // word-number + optional unit: "five minutes", "twenty-four hours", "ten"
-    const wm = t.match(/^([a-z-]+)(\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?$/);
+    const wm = t.match(
+      /^([a-z-]+)(\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?$/
+    );
     if (wm) {
       const compound = wm[1].replace(/[-\s]/g, '');
       const num = WORD_NUMBERS[compound];
@@ -46,28 +70,59 @@ export function makeSourceConstraintGate(fs, path) {
         return unit ? `${num} ${unit}` : String(num);
       }
     }
-    if (/^\$?\d+(?:\.\d+)?(?:%| minutes?| mins?| min| hours?| hr| miles?| mi| days?| weeks?| months?| cases?)?$/.test(t)) {
-      return t.replace(/\bminutes?\b|\bmins?\b/, 'minutes').replace(/\bhours?\b|\bhr\b/, 'hours').replace(/\bmiles?\b|\bmi\b/, 'miles').replace(/\bdays?\b/, 'days').replace(/\binches?\b/, 'inches').replace(/\bpounds?\b|\blbs?\b/, 'pounds').replace(/\bpackages?\b/, 'packages').replace(/\bdollars?\b/, 'dollars');
+    if (
+      /^\$?\d+(?:\.\d+)?(?:%| minutes?| mins?| min| hours?| hr| miles?| mi| days?| weeks?| months?| cases?)?$/.test(
+        t
+      )
+    ) {
+      return t
+        .replace(/\bminutes?\b|\bmins?\b/, 'minutes')
+        .replace(/\bhours?\b|\bhr\b/, 'hours')
+        .replace(/\bmiles?\b|\bmi\b/, 'miles')
+        .replace(/\bdays?\b/, 'days')
+        .replace(/\binches?\b/, 'inches')
+        .replace(/\bpounds?\b|\blbs?\b/, 'pounds')
+        .replace(/\bpackages?\b/, 'packages')
+        .replace(/\bdollars?\b/, 'dollars');
     }
     return null;
   }
 
   function extractNumericTokens(text) {
     // strip URLs and R2/CDN asset paths — digits in links are not claims
-    const cleaned = text.replace(/\d{4}-\d{2}-\d{2}(?:T[\d:.+-]+Z?)?/g, ' ').replace(/https?:\/\/\S+/g, ' ').replace(/[\w./-]+\.(?:webp|png|jpg|jpeg|svg|json)\b/gi, ' ');
+    const cleaned = text
+      .replace(/\d{4}-\d{2}-\d{2}(?:T[\d:.+-]+Z?)?/g, ' ')
+      .replace(/https?:\/\/\S+/g, ' ')
+      .replace(/[\w./-]+\.(?:webp|png|jpg|jpeg|svg|json)\b/gi, ' ');
     const tokens = [];
     // digit forms: $12.50, 10-12, 5%, 30 minutes, 24 cases
-    const digitRe = /\$\d+(?:\.\d{1,2})?|\b\d{1,4}(?:-\d{1,4})?(?:\.\d+)?(?:\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?\b/g;
+    const digitRe =
+      /\$\d+(?:\.\d{1,2})?|\b\d{1,4}(?:-\d{1,4})?(?:\.\d+)?(?:\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?\b/g;
     let m;
     while ((m = digitRe.exec(cleaned)) !== null) {
       if (/^\d{4}$/.test(m[0].replace(/\s.*/, ''))) continue; // years
-      tokens.push({ token: m[0], index: m.index, ctx: cleaned.slice(Math.max(0, m.index - 40), m.index + m[0].length + 20).replace(/\s+/g, ' ') });
+      tokens.push({
+        token: m[0],
+        index: m.index,
+        ctx: cleaned
+          .slice(Math.max(0, m.index - 40), m.index + m[0].length + 20)
+          .replace(/\s+/g, ' '),
+      });
     }
     // word forms: five minutes, ten, twenty-four
-    const wordRe = /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)(?:[-\s](?:one|two|three|four|five|six|seven|eight|nine))?\b(?:\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?/gi;
+    const wordRe =
+      /\b(one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|fifteen|twenty|thirty|forty|fifty|sixty|seventy|eighty|ninety|hundred)(?:[-\s](?:one|two|three|four|five|six|seven|eight|nine))?\b(?:\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?/gi;
     while ((m = wordRe.exec(cleaned)) !== null) {
       const norm = parseValueToken(m[0]);
-      if (norm !== null) tokens.push({ token: m[0], index: m.index, wordForm: true, ctx: cleaned.slice(Math.max(0, m.index - 40), m.index + m[0].length + 20).replace(/\s+/g, ' ') });
+      if (norm !== null)
+        tokens.push({
+          token: m[0],
+          index: m.index,
+          wordForm: true,
+          ctx: cleaned
+            .slice(Math.max(0, m.index - 40), m.index + m[0].length + 20)
+            .replace(/\s+/g, ' '),
+        });
     }
     return tokens;
   }
@@ -91,7 +146,12 @@ export function makeSourceConstraintGate(fs, path) {
     try {
       sources = JSON.parse(fs.readFileSync(found, 'utf8'));
     } catch (e) {
-      check('source:constraints', false, `unparseable sources.json: ${e.message}`, 'fix JSON syntax');
+      check(
+        'source:constraints',
+        false,
+        `unparseable sources.json: ${e.message}`,
+        'fix JSON syntax'
+      );
       return;
     }
     check('source:constraints', true, `${path.relative(ROOT, found)} loaded`);
@@ -118,7 +178,7 @@ export function makeSourceConstraintGate(fs, path) {
       const norm = parseValueToken(t.token);
       if (norm === null) continue;
       if (allowedValues.has(norm)) continue;
-      uncovered.push(`${t.token} ("…${t.ctx || ""}…")`);
+      uncovered.push(`${t.token} ("…${t.ctx || ''}…")`);
     }
     const uniqUncovered = [...new Set(uncovered)];
     check(
@@ -201,9 +261,10 @@ if (isMainModuleFor(import.meta.url)) {
   process.exit(results.some((r) => !r.pass) ? 1 : 0);
 }
 
-function isMainModuleFor(url) {
+function isMainModuleFor(_url) {
   const argv1 = process.argv[1];
   if (!argv1) return false;
-  return import.meta.url === (typeof process !== 'undefined' ? new URL(`file://${argv1}`).href : '');
+  return (
+    import.meta.url === (typeof process !== 'undefined' ? new URL(`file://${argv1}`).href : '')
+  );
 }
-
