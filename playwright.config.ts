@@ -32,5 +32,9 @@ export default defineConfig({
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
+    env: {
+      VITE_RECAPTCHA_SITE_KEY:
+        process.env.VITE_RECAPTCHA_SITE_KEY || '6LfCI-PLACEHOLDER-KEY-0000000000000000000',
+    },
   },
 });
