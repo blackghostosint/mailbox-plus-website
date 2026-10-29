@@ -1,0 +1,160 @@
+{
+  "source_extracts": [
+    {
+      "label": "pricing page",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/",
+      "quote": "Setup takes about 10 minutes. We handle the paperwork."
+    },
+    {
+      "label": "pricing page tiers",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/",
+      "quote": "Small \u00b7 Mail Only $15 \u00b7 Small +10 Packages $25 \u00b7 Large \u00b7 Mail Only $30 \u00b7 Large +10 Packages $40"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$15",
+      "scope": "Small Mail Only tier"
+    },
+    {
+      "value": "$25",
+      "scope": "Small +10 Packages"
+    },
+    {
+      "value": "$30",
+      "scope": "Large Mail Only tier"
+    },
+    {
+      "value": "$40",
+      "scope": "Large +10 Packages"
+    },
+    {
+      "value": "$35",
+      "scope": "business plan"
+    },
+    {
+      "value": "$50",
+      "scope": "business plan"
+    },
+    {
+      "value": "$5",
+      "scope": "key deposit / oversized flat fee"
+    },
+    {
+      "value": "10 packages",
+      "scope": "monthly allowance on +10 plans"
+    },
+    {
+      "value": "10 minutes",
+      "scope": "setup time per pricing page"
+    },
+    {
+      "value": "5 days",
+      "scope": "free storage window"
+    },
+    {
+      "value": "$1",
+      "scope": "per-day storage fee"
+    },
+    {
+      "value": "18 inches",
+      "scope": "oversized threshold"
+    },
+    {
+      "value": "20 pounds",
+      "scope": "oversized threshold"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP"
+    },
+    {
+      "value": "3 months",
+      "scope": "PO Box term length (pricing page: 3-, 6-, or 12-month terms)"
+    },
+    {
+      "value": "6 months",
+      "scope": "PO Box term length"
+    },
+    {
+      "value": "12 months",
+      "scope": "PO Box term length"
+    },
+    {
+      "value": "3-",
+      "scope": "PO Box term phrasing '3-, 6-, or 12-month'"
+    },
+    {
+      "value": "15 dollars",
+      "scope": "mail-only tier price, image alt phrasing"
+    },
+    {
+      "value": "2",
+      "scope": "two forms of ID (Form 1583)"
+    },
+    {
+      "value": "1",
+      "scope": "one photo ID (Form 1583)"
+    },
+    {
+      "value": "3",
+      "scope": "PO Box 3-month term \u2014 'paid in 3-, 6-, or 12-month terms' (pricing page)"
+    },
+    {
+      "value": "6",
+      "scope": "PO Box 6-month term"
+    },
+    {
+      "value": "12",
+      "scope": "PO Box 12-month term"
+    },
+    {
+      "value": "44",
+      "scope": "SR-44 route number (approved phrasing, facts.json)"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 route number (approved phrasing, facts.json)"
+    },
+    {
+      "value": "25 minutes",
+      "scope": "competitive framing \u2014 distant facility travel time, not our counter"
+    },
+    {
+      "value": "4",
+      "scope": "all four carriers (store-level capability, owner-approved)"
+    },
+    {
+      "value": "2",
+      "scope": "'two minutes' \u2014 rhetorical section heading, What Should Take Two Minutes"
+    },
+    {
+      "value": "2 minutes",
+      "scope": "'What Should Take Two Minutes' \u2014 rhetorical section heading"
+    },
+    {
+      "value": "12 minutes",
+      "scope": "narrative scene \u2014 counter closes in twelve minutes (story device, not a service figure)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "all four carriers[,.]?\\s*(every|all)\\s+plans?",
+      "reason": "Mail Only tiers ($15/$30) do not take carrier packages \u2014 package plans only"
+    },
+    {
+      "forbid": "every plan[^.]*(carrier|deliver)",
+      "reason": "carrier delivery is package-plan scoped"
+    },
+    {
+      "forbid": "(five|five-minute|\\b5\\s*minute)",
+      "reason": "setup time is 'about 10 minutes' per the pricing page \u2014 invented timing"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "sign for (your |the )?deliveries",
+      "must_include": "when a carrier requires"
+    }
+  ]
+}
