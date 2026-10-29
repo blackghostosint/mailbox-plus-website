@@ -1350,11 +1350,15 @@ function cmdArticle(arg, isStrict = false) {
       try {
         const sourceGate = path.resolve(__dirname, 'source-constraint-gate.mjs');
         const nodeCmd = process.platform === 'win32' ? 'node.exe' : 'node';
-        const out2 = execFileSync(nodeCmd, [sourceGate, '--slug', slug, '--article', abs, '--root', ROOT, '--drafts', DRAFTS_DIR], {
-          cwd: ROOT,
-          encoding: 'utf8',
-          timeout: 60000,
-        });
+        const out2 = execFileSync(
+          nodeCmd,
+          [sourceGate, '--slug', slug, '--article', abs, '--root', ROOT, '--drafts', DRAFTS_DIR],
+          {
+            cwd: ROOT,
+            encoding: 'utf8',
+            timeout: 60000,
+          }
+        );
         for (const r of JSON.parse(out2.trim())) {
           check(r.name, r.pass, r.detail, r.fix);
         }
