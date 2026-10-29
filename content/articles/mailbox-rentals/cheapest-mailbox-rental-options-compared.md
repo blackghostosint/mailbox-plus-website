@@ -9,9 +9,9 @@ quickAnswer: >-
   The cheapest mailbox rental depends on what shows up for you. A small USPS PO
   Box, priced by ZIP code in 3-, 6-, or 12-month terms, is often the lowest
   sticker price — but only USPS can deliver to it. Franchise mailboxes are priced
-  per store. An independent private mailbox at Mailbox Plus starts at $15/month,
-  month-to-month, takes packages from all four carriers, and holds oversized
-  packages for a $5 flat fee.
+  per store. An independent private mailbox at Mailbox Plus starts at $15/month
+  mail-only, month-to-month; the package plans take packages from all four
+  carriers and hold oversized packages for a $5 flat fee.
 pubDate: '2026-10-29T09:00:00-04:00'
 status: 'published'
 image: 'articles/mailbox-rentals/cheapest-mailbox-rental-options-compared-featured.webp'
@@ -29,7 +29,7 @@ relatedServices: ['/private-mailbox-rental/', '/home-business/mailbox-rental/', 
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'What is the cheapest mailbox rental option?'
-    answer: 'The sticker price usually favors a small USPS PO Box, which is priced by ZIP code and paid in 3-, 6-, or 12-month terms. But price is only half the math: a PO Box only receives USPS deliveries. If you get packages from UPS, FedEx, or Amazon, add the cost of failed deliveries and counter pickups. Independent private mailboxes start at $15 a month at Mailbox Plus and take packages from all four carriers.'
+    answer: 'The sticker price usually favors a small USPS PO Box, which is priced by ZIP code and paid in 3-, 6-, or 12-month terms. But price is only half the math: a PO Box only receives USPS deliveries. If you get packages from UPS, FedEx, or Amazon, add the cost of failed deliveries and counter pickups. Independent private mailboxes start at $15 a month for mail-only at Mailbox Plus; the package plans take packages from all four carriers.'
   - question: 'How much does a mailbox at The UPS Store cost?'
     answer: 'The UPS Store does not publish mailbox pricing centrally — each store is locally owned and operated and sets its own rates, so you have to ask in store. The same is true for service details: package acceptance is available at participating locations, and text alerts may carry additional fees per their own site.'
   - question: 'How much is a private mailbox at Mailbox Plus?'
@@ -76,9 +76,9 @@ We run a private mailbox service at 7554 Fredle Drive in Gristmill Village — t
 
 Here it is, the whole thing. Personal mailbox tiers are $15, $25, $30, and $40 a month, depending on box size and package allowance. Business plans are $35 and $50. There's a $5 key deposit — refundable when you cancel and return the key. The package tiers include 10 packages a month, then $5 per package after that. Oversized packages — over 18 inches or 20 pounds — are a $5 flat fee, not a mystery surcharge. If a package sits past 5 days, it's $1 a day, which is how we keep the wall from filling up with boxes nobody claimed. On the $25 plans and up you get text and email alerts. Month-to-month, cancel anytime.
 
-What you're really buying isn't the box. It's that all four carriers can deliver here — USPS, UPS, FedEx, and DHL — and we sign for your deliveries when a carrier requires it, so the next alert you get is the one that says your package is ready, not the one that says they tried.
+What you're really buying isn't the box. It's that the store takes deliveries from all four carriers — USPS, UPS, FedEx, and DHL — and signs for them when a carrier requires it on the package plans, so the next alert you get is the one that says your package is ready, not the one that says they tried.
 
-One honest trade-off, because you deserve it stated plainly: a private mailbox takes slightly more paperwork on day one than a PO Box. Federal rules for Commercial Mail Receiving Agencies require USPS Form 1583 and two forms of ID — one with a photo, one showing your physical home or business address. It's five minutes at our counter, and if your address format matters to you, note that mail to a private mailbox uses a "PMB" or "#" designator — that's a postal regulation, not a store preference.
+One honest trade-off, because you deserve it stated plainly: a private mailbox takes slightly more paperwork on day one than a PO Box. Federal rules for Commercial Mail Receiving Agencies require USPS Form 1583 and two forms of ID — one with a photo, one showing your physical home or business address. It's about ten minutes at our counter, and if your address format matters to you, note that mail to a private mailbox uses a "PMB" or "#" designator — that's a postal regulation, not a store preference.
 
 ## The Three Options, Side by Side
 
@@ -86,9 +86,9 @@ One honest trade-off, because you deserve it stated plainly: a private mailbox t
 | ------------------------------- | --------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------- |
 | **Sticker price**               | Varies by ZIP code; paid in 3-, 6-, or 12-month terms           | Set per store — no published rate; ask in store | $15–$40/month personal; $35–$50 business  |
 | **Term**                        | 3, 6, or 12 months                                              | Varies by store                                 | Month-to-month                            |
-| **Carriers that can reach you** | USPS only (street addressing at select locations, if available) | All carriers at participating locations         | All four carriers, every plan             |
+| **Carriers that can reach you** | USPS only (street addressing at select locations, if available) | All carriers at participating locations         | All four carriers on package plans        |
 | **Oversized package**           | Slip + counter pickup during business hours                     | Varies by store                                 | $5 flat fee                               |
-| **Sign for your deliveries**    | Signature on file via USPS                                      | Yes, at participating locations                 | Yes                                       |
+| **Sign for your deliveries**    | Signature on file via USPS                                      | Yes, at participating locations                 | Yes, on package plans                     |
 | **Setup**                       | 2 forms of ID at the Post Office                                | Varies by store                                 | Form 1583 + 2 IDs, once, at our counter   |
 | **Address type**                | PO Box                                                          | Real street address                             | Real street address, "PMB"/"#" designator |
 
@@ -99,8 +99,8 @@ That carrier row is the whole game. Look at it close.
 If the comparison lands on the independent option, here's how little there is to do:
 
 1. **Come in with your IDs and the address you want to protect.** That's the whole checklist. No pre-filled forms, no online portal homework — we keep Form 1583 at the counter and walk you through it.
-2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious in about a minute. Not sure whether you need the $25 plan? Tell us what shows up in a normal month and we'll point you at the size that fits it.
-3. **Get your key and your address, and you're done.** Your new street address works that day. From then on, carriers deliver to us, we sign, and you get the "ready" alert instead of a porch anxiety attack.
+2. **Pick your tier at the counter.** Tell us what shows up for you in a normal month — letters, a couple of packages, a stream of returns — and the right size and price is usually obvious from that. Not sure whether you need the $25 plan? Tell us what shows up in a normal month and we'll point you at the size that fits it.
+3. **Get your key and your address, and you're done.** Your new street address works that day. From then on, the carriers deliver to us, we sign for what needs signing, and you get the "ready" alert instead of a porch anxiety attack.
 
 No appointment. No annual contract. No second trip for paperwork you could have brought the first time if someone had told you — so consider this the telling.
 
