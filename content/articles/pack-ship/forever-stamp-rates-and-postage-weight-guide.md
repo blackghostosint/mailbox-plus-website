@@ -114,7 +114,7 @@ Stay in guesswork mode and the costs are quiet but steady.
 
 Next time, it's different. You're heading up Crile Road with a stack of sealed envelopes in the passenger seat — the wedding invites, the thick birthday card, the square thank-you notes. You pull into Gristmill Village, park next to Pub Frato, and walk them in as one pile.
 
-The scale does the thinking. The square ones get flagged, the thick card gets its additional ounce, the plain ones get one stamp each and you're done. No sticker ever comes back to your house, because nothing left the counter on a guess. And the drawer at home still holds a roll of Forever stamps — which never expire, and which we can top off with exact additional postage any time.
+The scale does the thinking. The square ones get flagged, the thick card gets its additional ounce, the plain ones get one stamp each and you're done. Nothing left the counter on a guess, so there's no sticker waiting to correct it at the other end. And the drawer at home still holds a roll of Forever stamps — which never expire, and which we can top off with exact additional postage any time.
 
 The feeling isn't triumph. You just stop bracing at the mailbox. The stack that used to be a puzzle you solved alone becomes a thing you hand to a scale, and your week has one fewer open question rattling around in it.
 
@@ -122,4 +122,4 @@ The feeling isn't triumph. You just stop bracing at the mailbox. The stack that 
 
 Bring the envelopes exactly as they are — sealed, lumpy, square, whatever the last person's handwriting did to them. You don't need to know the weight, the surcharge rules, or the current rate ladder. That's literally what the counter scale is for.
 
-Stop by Mailbox Plus at 7554 Fredle Drive in Concord Township — Gristmill Village, next to Pub Frato, just off Crile Road, minutes from SR-44 and I-90 — and put the stack on the scale. We'll tell you what each one owes, sell you the exact stamps, and you leave with mail that's going to arrive the first time. And if the drawer at home is also where your stamps live while your household mail gets sorted elsewhere, [a private mailbox](/articles/what-is-a-private-mailbox-pmb/) keeps that side of the system measured too.
+Stop by Mailbox Plus at 7554 Fredle Drive in Concord Township — Gristmill Village, next to Pub Frato, just off Crile Road, minutes from SR-44 and I-90 — and put the stack on the scale. We'll tell you what each one owes, sell you the exact stamps, and you leave with postage that matches what the scale says instead of what you hoped. And if the drawer at home is also where your stamps live while your household mail gets sorted elsewhere, [a private mailbox](/articles/what-is-a-private-mailbox-pmb/) keeps that side of the system measured too.
