@@ -3984,15 +3984,15 @@ One honest trade-off, because you deserve it stated plainly: a private mailbox t
 
 ## The Three Options, Side by Side
 
-| | USPS PO Box | Franchise store mailbox | Independent PMB (Mailbox Plus) |
-|---|---|---|---|
-| **Sticker price** | Varies by ZIP code; paid in 3-, 6-, or 12-month terms | Set per store — no published rate; ask in store | $15–$40/month personal; $35–$50 business |
-| **Term** | 3, 6, or 12 months | Varies by store | Month-to-month |
-| **Carriers that can reach you** | USPS only (street addressing at select locations, if available) | All carriers at participating locations | All four carriers, every plan |
-| **Oversized package** | Slip + counter pickup during business hours | Varies by store | $5 flat fee |
-| **Sign for your deliveries** | Signature on file via USPS | Yes, at participating locations | Yes |
-| **Setup** | 2 forms of ID at the Post Office | Varies by store | Form 1583 + 2 IDs, once, at our counter |
-| **Address type** | PO Box | Real street address | Real street address, "PMB"/"#" designator |
+|                                 | USPS PO Box                                                     | Franchise store mailbox                         | Independent PMB (Mailbox Plus)            |
+| ------------------------------- | --------------------------------------------------------------- | ----------------------------------------------- | ----------------------------------------- |
+| **Sticker price**               | Varies by ZIP code; paid in 3-, 6-, or 12-month terms           | Set per store — no published rate; ask in store | $15–$40/month personal; $35–$50 business  |
+| **Term**                        | 3, 6, or 12 months                                              | Varies by store                                 | Month-to-month                            |
+| **Carriers that can reach you** | USPS only (street addressing at select locations, if available) | All carriers at participating locations         | All four carriers, every plan             |
+| **Oversized package**           | Slip + counter pickup during business hours                     | Varies by store                                 | $5 flat fee                               |
+| **Sign for your deliveries**    | Signature on file via USPS                                      | Yes, at participating locations                 | Yes                                       |
+| **Setup**                       | 2 forms of ID at the Post Office                                | Varies by store                                 | Form 1583 + 2 IDs, once, at our counter   |
+| **Address type**                | PO Box                                                          | Real street address                             | Real street address, "PMB"/"#" designator |
 
 That carrier row is the whole game. Look at it close.
 
