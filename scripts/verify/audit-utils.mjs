@@ -113,7 +113,11 @@ export function runAuditGate(options = {}) {
         maxBuffer: 1024 * 1024 * 64,
       });
     } catch (e) {
-      raw = e.stdout ? String(e.stdout) : e.output ? e.output.map((o) => (o ? String(o) : '')).join('') : '';
+      raw = e.stdout
+        ? String(e.stdout)
+        : e.output
+          ? e.output.map((o) => (o ? String(o) : '')).join('')
+          : '';
     }
   }
 
