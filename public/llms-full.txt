@@ -6710,7 +6710,7 @@ Here's how it actually works, and how to check any envelope in about thirty seco
 
 ## The Machine Behind The Ounce Trap
 
-The villain here isn't the postal clerk or the stamp itself. It's a pricing system built around one question machines can answer cheaply: can a sorting machine run this envelope at speed?
+The systemic problem here isn't the postal clerk or the stamp itself. It's a pricing system built around one question machines can answer cheaply: can a sorting machine run this envelope at speed?
 
 That question splits every letter into two categories, and the split is invisible until it costs you money.
 
