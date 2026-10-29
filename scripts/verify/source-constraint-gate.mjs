@@ -100,7 +100,8 @@ export function makeSourceConstraintGate(fs, path) {
       /\$\d+(?:\.\d{1,2})?|\b\d{1,4}(?:-\d{1,4})?(?:\.\d+)?(?:\s*(?:%|minutes?|mins?|min|hours?|hr|miles?|mi|days?|weeks?|months?|month|cases?|packages?|dollars?|inches?|pounds?|lbs?))?\b/g;
     let m;
     while ((m = digitRe.exec(cleaned)) !== null) {
-      if (/^\d{4}$/.test(m[0].replace(/\s.*/, ''))) continue; // years
+      const bare = m[0].replace(/\s.*/, '');
+      if (/^(19|20)\d{2}$/.test(bare)) continue; // years 1900-2099 only — street numbers like 7554 must register
       tokens.push({
         token: m[0],
         index: m.index,

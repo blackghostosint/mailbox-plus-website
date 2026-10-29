@@ -211,6 +211,10 @@
     {
       "value": "10",
       "scope": "'ten-second task' rhetorical device"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number 7554 Fredle Drive (siteConfig)"
     }
   ],
   "scope_rules": [
