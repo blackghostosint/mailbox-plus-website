@@ -1,12 +1,13 @@
+import { announcePolite } from './announcer';
+
 export function showToast(message: string): void {
+  announcePolite(message);
   if (typeof document === 'undefined') return;
   const existing = document.querySelector('.copy-toast');
   if (existing) existing.remove();
   const toast = document.createElement('div');
   toast.className = 'copy-toast';
-  toast.setAttribute('role', 'status');
-  toast.setAttribute('aria-live', 'polite');
-  toast.setAttribute('aria-atomic', 'true');
+  toast.setAttribute('aria-hidden', 'true');
   toast.textContent = message;
   document.body.appendChild(toast);
   setTimeout(() => toast.remove(), 2000);
