@@ -192,13 +192,11 @@ describe('AccessibleModal Component', () => {
     expect(handleClose).not.toHaveBeenCalled();
 
     // Click outer backdrop container
-    const dialog = screen.getByRole('dialog');
-    const backdrop = (dialog.parentElement?.querySelector('[aria-hidden="true"]') ||
-      dialog.parentElement) as HTMLElement;
-    expect(backdrop.tagName).toBe('DIV');
-    expect(backdrop.getAttribute('type')).toBeNull();
-    expect(backdrop.getAttribute('tabindex')).toBeNull();
-    expect(backdrop.getAttribute('aria-hidden')).toBe('true');
+    const backdrop = screen.getByRole('button', { name: 'Close modal backdrop' });
+    expect(backdrop.tagName).toBe('BUTTON');
+    expect(backdrop.getAttribute('type')).toBe('button');
+    expect(backdrop.getAttribute('aria-label')).toBe('Close modal backdrop');
+    expect(backdrop.getAttribute('tabindex')).toBe('-1');
     fireEvent.click(backdrop);
 
     expect(handleClose).toHaveBeenCalledTimes(1);

@@ -103,20 +103,13 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
 
   if (!isOpen) return null;
 
-  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (modalRef.current && !modalRef.current.contains(e.target as Node)) {
-      onClose();
-    }
-  };
-
   return (
-    /* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/click-events-have-key-events */
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      onClick={handleOverlayClick}
-    >
-      <div
-        aria-hidden="true"
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      <button
+        type="button"
+        aria-label="Close modal backdrop"
+        tabIndex={-1}
+        onClick={onClose}
         className="fixed inset-0 w-full h-full bg-black/60 backdrop-blur-sm"
       />
       <div
