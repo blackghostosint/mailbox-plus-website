@@ -1,0 +1,134 @@
+{
+  "source_extracts": [
+    {
+      "label": "Ohio SOS authentications FAQ",
+      "url": "https://www.ohiosos.gov/records/authentications-and-apostilles/frequently-asked-questions",
+      "quote": "The fee is $5 per document; mailed requests are processed in two to three days."
+    },
+    {
+      "label": "Ohio SOS Form 8003 (rev 07/2025)",
+      "url": "https://www.ohiosos.gov/assets/r-authentication-apostille-request-form.pdf",
+      "quote": "Authentication/Apostille Request Form — $5 fee, Client Service Center, 180 Civic Center Dr., Columbus, OH 43215-4138."
+    },
+    {
+      "label": "ORC 147.08",
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-147.08",
+      "quote": "Ohio notary may charge no more than $5 per notarial act."
+    },
+    {
+      "label": "Third-party intermediary pricing (softened per owner ruling 2026-10-29)",
+      "url": "https://ohioregisteredstatutoryagent.com/services/apostille/",
+      "quote": "single sourced reseller price $300 flat; body copy reads \"some intermediary services charge well over $100\""
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$5",
+      "scope": "Ohio SOS apostille/authentication fee per document (Form 8003)"
+    },
+    {
+      "value": "$5",
+      "scope": "Ohio notary fee cap per notarial act (ORC 147.08)"
+    },
+    {
+      "value": "$5",
+      "scope": "fact-check receipt table row 4"
+    },
+    {
+      "value": "$5",
+      "scope": "fact-check receipt table row 11"
+    },
+    {
+      "value": "2-3 days",
+      "scope": "mailed apostille request processing time (Ohio SOS)"
+    },
+    {
+      "value": "three days",
+      "scope": "mailed apostille request processing time (Ohio SOS)"
+    },
+    {
+      "value": "$100",
+      "scope": "softened intermediary floor — some intermediary services charge well over $100"
+    },
+    {
+      "value": "$300",
+      "scope": "single sourced reseller flat price, receipt row 17"
+    },
+    {
+      "value": "180",
+      "scope": "Ohio SOS Client Service Center street number, 180 Civic Center Dr."
+    },
+    {
+      "value": "4138",
+      "scope": "ZIP+4 43215-4138 for Ohio SOS Client Service Center"
+    },
+    {
+      "value": "8003",
+      "scope": "Ohio SOS Authentication/Apostille Request Form number"
+    },
+    {
+      "value": "07",
+      "scope": "Form 8003 revision date 07/2025"
+    },
+    {
+      "value": "9",
+      "scope": "store opening hour, Mon-Fri 9 AM"
+    },
+    {
+      "value": "6",
+      "scope": "store closing hour, Mon-Fri 6 PM"
+    },
+    {
+      "value": "2",
+      "scope": "Saturday closing hour, 2 PM (and ordered-list step numbering)"
+    },
+    {
+      "value": "147.08",
+      "scope": "ORC 147.08 Ohio notary fee cap citation"
+    },
+    {
+      "value": "9200",
+      "scope": "Ohio SOS phone 614-728-9200 (Form 8003)"
+    },
+    {
+      "value": "3453",
+      "scope": "Ohio SOS toll-free 877-767-3453 (Form 8003)"
+    },
+    {
+      "value": "1",
+      "scope": "ordered-list step numbering"
+    },
+    {
+      "value": "3",
+      "scope": "ordered-list step numbering"
+    },
+    {
+      "value": "7554",
+      "scope": "Mailbox Plus street number, 7554 Fredle Drive (siteConfig)"
+    },
+    {
+      "value": "2 minutes",
+      "scope": "section framing: what should take two minutes (rhetorical, no service-time guarantee)"
+    },
+    {
+      "value": "three weeks",
+      "scope": "rhetorical cost of a bounced packet (illustrative, not a service claim)"
+    },
+    {
+      "value": "four",
+      "scope": "rhetorical one stop instead of four"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "apostille (issued|provided|made) (by|at) (the )?(store|Mailbox Plus|our)",
+      "reason": "Only Ohio SOS issues apostilles (receipt row 18)."
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "notari[sz]e .{0,60}(and|then) (ship|send|mail)",
+      "must_include": "document (that )?(requires|needing) notari[sz]ation"
+    }
+  ]
+}
