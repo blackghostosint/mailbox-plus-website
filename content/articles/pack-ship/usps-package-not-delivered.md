@@ -74,7 +74,7 @@ A person standing in their empty driveway should not need a stack of help pages 
 
 At Mailbox Plus on Fredle Drive in Concord Township, we sit on the other side of this every day. People come in holding a phone with a frozen tracking page, at the "wait or act?" fork, and the first thing we do is read the scans with them — because the scans tell you which fork you're actually on.
 
-That's most of the shield, right there: knowing which status you're looking at changes what you're allowed to do next. A Delivered scan starts the service-request clock that starts after a single postal business day. A stalled in-transit scan points at the shipper or the acceptance process, not your local Post Office. An insurance question opens the claim rules, which have their own service-specific windows. We deal with these carriers' systems all day, every day, across UPS, FedEx, USPS, and DHL — so the rule for your situation is something we can put in front of you on the spot, not something you assemble at midnight.
+That's most of the shield, right there: knowing which status you're looking at changes what you're allowed to do next. A Delivered scan starts the service-request clock that starts after a single postal business day. A stalled in-transit scan points at the shipper or the acceptance process, not your local Post Office. An insurance question opens the claim rules, which have their own service-specific windows.
 
 And when the honest answer is "the official path is a form you file with USPS," we say that too. We don't pretend we can magically make a package appear. What we can do is make sure your search request or claim is _complete_ — the right numbers, the right dates, the right evidence — because an incomplete filing is the most expensive kind of delay.
 
@@ -114,6 +114,6 @@ That's what we'd like for you too. Ship with the sequence in your pocket, and th
 
 ## Bring What You Have. We'll Take It From Here
 
-You do not need to arrive at our counter with the tracking history annotated, the scan codes decoded, or the claim forms printed. Bring the tracking number and whatever receipt you've got — even a screenshot of an emailed label is a start — and we'll read the scans with you, tell you which step you're actually on, and help you pull together what a service request, a Missing Mail search, or an insurance claim needs so it's complete the first time.
+You do not need to arrive at our counter with the tracking history annotated, the scan codes decoded, or the claim forms printed. Bring the tracking number and whatever receipt you've got — even a screenshot of an emailed label is a start — so your service request, Missing Mail search, or insurance claim is complete the first time.
 
 That's the whole handoff: you bring the stuck package problem; we bring the sequence. Walk in with your phone and that crumpled receipt — you don't even need to know which step you're on, because figuring that out is our job. We're at 7554 Fredle Drive in Concord Township, next to Pub Frato, and the counter is where this stops being your headache.
