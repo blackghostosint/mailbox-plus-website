@@ -196,9 +196,35 @@ describe('AccessibleModal Component', () => {
     expect(backdrop.tagName).toBe('BUTTON');
     expect(backdrop.getAttribute('type')).toBe('button');
     expect(backdrop.getAttribute('aria-label')).toBe('Close modal backdrop');
-    expect(backdrop.getAttribute('tabindex')).toBe('-1');
+    expect(backdrop.getAttribute('tabindex')).toBeNull();
     fireEvent.click(backdrop);
 
+    expect(handleClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('allows keyboard navigation to and activation of the backdrop button', () => {
+    const handleClose = vi.fn();
+    render(
+      <AccessibleModal isOpen={true} onClose={handleClose} title="Keyboard Backdrop Test">
+        <button data-testid="inside-btn">Inside Button</button>
+      </AccessibleModal>
+    );
+
+    const backdrop = screen.getByRole('button', { name: 'Close modal backdrop' });
+    const insideBtn = screen.getByTestId('inside-btn');
+
+    act(() => {
+      vi.advanceTimersByTime(50);
+    });
+
+    expect(document.activeElement).toBe(insideBtn);
+
+    // Tab from inside button wraps to backdrop button (last element -> first element)
+    fireEvent.keyDown(document, { key: 'Tab', shiftKey: false });
+    expect(document.activeElement).toBe(backdrop);
+
+    // Activating backdrop button closes modal
+    fireEvent.click(backdrop);
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
@@ -214,7 +240,7 @@ describe('AccessibleModal Component', () => {
     expect(handleClose).toHaveBeenCalledTimes(1);
   });
 
-  it('traps Tab focus forward from last element to first element', () => {
+  it('traps Tab focus forward through modal elements and backdrop button', () => {
     render(
       <AccessibleModal isOpen={true} onClose={() => {}} title="Tab Trap Test">
         <button data-testid="first-btn">First</button>
@@ -222,6 +248,7 @@ describe('AccessibleModal Component', () => {
       </AccessibleModal>
     );
 
+    const backdrop = screen.getByRole('button', { name: 'Close modal backdrop' });
     const firstBtn = screen.getByTestId('first-btn');
     const lastBtn = screen.getByTestId('last-btn');
 
@@ -229,15 +256,18 @@ describe('AccessibleModal Component', () => {
       vi.advanceTimersByTime(50);
     });
 
+    expect(document.activeElement).toBe(firstBtn);
+
+    // Tab from last button wraps to backdrop button
     lastBtn.focus();
     expect(document.activeElement).toBe(lastBtn);
 
     fireEvent.keyDown(document, { key: 'Tab', shiftKey: false });
 
-    expect(document.activeElement).toBe(firstBtn);
+    expect(document.activeElement).toBe(backdrop);
   });
 
-  it('traps Shift+Tab focus backward from first element to last element', () => {
+  it('traps Shift+Tab focus backward from backdrop button to last element', () => {
     render(
       <AccessibleModal isOpen={true} onClose={() => {}} title="Shift+Tab Trap Test">
         <button data-testid="first-btn">First</button>
@@ -245,15 +275,15 @@ describe('AccessibleModal Component', () => {
       </AccessibleModal>
     );
 
-    const firstBtn = screen.getByTestId('first-btn');
+    const backdrop = screen.getByRole('button', { name: 'Close modal backdrop' });
     const lastBtn = screen.getByTestId('last-btn');
 
     act(() => {
       vi.advanceTimersByTime(50);
     });
 
-    firstBtn.focus();
-    expect(document.activeElement).toBe(firstBtn);
+    backdrop.focus();
+    expect(document.activeElement).toBe(backdrop);
 
     fireEvent.keyDown(document, { key: 'Tab', shiftKey: true });
 

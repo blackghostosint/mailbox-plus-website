@@ -21,6 +21,7 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
   children,
   className = '',
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
   const previousFocusRef = useRef<HTMLElement | null>(null);
 
@@ -63,9 +64,9 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
         return;
       }
 
-      if (e.key === 'Tab' && modalRef.current) {
+      if (e.key === 'Tab' && containerRef.current) {
         const focusableElements = Array.from(
-          modalRef.current.querySelectorAll<HTMLElement>(
+          containerRef.current.querySelectorAll<HTMLElement>(
             'a[href], button:not([disabled]), textarea:not([disabled]), input:not([disabled]), select:not([disabled]), [tabindex]:not([tabindex="-1"])'
           )
         );
@@ -75,8 +76,15 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
           return;
         }
 
+        const isFocusInside = containerRef.current.contains(document.activeElement);
         const firstElement = focusableElements[0];
         const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!isFocusInside) {
+          e.preventDefault();
+          firstElement.focus();
+          return;
+        }
 
         if (e.shiftKey) {
           if (
@@ -104,11 +112,10 @@ export const AccessibleModal: React.FC<AccessibleModalProps> = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div ref={containerRef} className="fixed inset-0 z-50 flex items-center justify-center p-4">
       <button
         type="button"
         aria-label="Close modal backdrop"
-        tabIndex={-1}
         onClick={onClose}
         className="fixed inset-0 w-full h-full bg-black/60 backdrop-blur-sm"
       />
