@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', () => {
-  test('Amazon counter page copy button triggers toast notification with role="status", aria-live="polite", and aria-atomic="true" without moving focus', async ({
+  test('Amazon counter page copy button triggers toast notification with aria-hidden="true" and polite live region announcement without moving focus', async ({
     page,
     context,
   }) => {
@@ -18,10 +18,11 @@ test.describe('ARIA Live Regions - Dynamic Announcements & Focus Management', ()
 
     const toast = page.locator('.copy-toast');
     await expect(toast).toBeVisible();
-    await expect(toast).toHaveAttribute('role', 'status');
-    await expect(toast).toHaveAttribute('aria-live', 'polite');
-    await expect(toast).toHaveAttribute('aria-atomic', 'true');
+    await expect(toast).toHaveAttribute('aria-hidden', 'true');
     await expect(toast).toHaveText('Copied!');
+
+    const politeAnnouncer = page.locator('#live-announcer-polite');
+    await expect(politeAnnouncer).toHaveText('Copied!');
 
     // Ensure keyboard focus remains on the active copy button control
     await expect(copyBtn).toBeFocused();
