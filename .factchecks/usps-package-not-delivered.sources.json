@@ -1,0 +1,122 @@
+{
+  "slug": "usps-package-not-delivered",
+  "generated": "2026-10-30",
+  "source_extracts": [
+    {
+      "url": "https://faq.usps.com/s/article/Where-is-my-package",
+      "quotes": [
+        "If your package shows a delivered status but you can't find it, your carrier may have placed it in a safer location. Please check: Garage, With others in your household, Mailbox, Porch, Areas protected from weather, Areas out of street view",
+        "If you have a multi-unit community mailbox and there is a key in your regular mail compartment, your package is in a parcel locker. Check the key tag for the corresponding locker number and open that locker.",
+        "If you still can't find your package and it has been more than one postal business day since the 'delivered' scan, visit the email us page on usps.com to submit a service request to your local Post Office for eligible items.",
+        "A Delivered status was not recorded by 9pm local time on the date of the Out for Delivery status and we now anticipate delivery of your package on the next business day.",
+        "A postal facility has received a container or pallet of multiple packages, but processing has not started. Once the container is opened, each individual package will receive a scan indicating postal acceptance.",
+        "USPS does not have possession of the package. Your package was picked up by a shipping partner or arrived at or departed their facility, and they will be transferring it to USPS for processing and delivery. ... Please contact the shipper if you have questions about the status."
+      ]
+    },
+    {
+      "url": "https://www.usps.com/help/missing-mail.htm",
+      "quotes": [
+        "Missing Mail search requests can be submitted starting 7 days from mailing.",
+        "When we receive your Missing Mail search request, we will send you a confirmation email. We will also send you periodic updates about the search.",
+        "If we find your package or mail, we will send it to the address you provided. Please note, sometimes we cannot find missing mail items.",
+        "If you used a service with a money-back guarantee such as Priority Mail Express, you may be able to request a refund.",
+        "If your mail or package included insurance, you may be able to file an insurance claim. For damaged or missing contents, we recommend filing a claim immediately, but you must file no later than 60 days from the date of mailing."
+      ]
+    },
+    {
+      "url": "https://www.usps.com/help/claims.htm",
+      "quotes": [
+        "Either the sender or the recipient may file a claim for insured mail that is lost, arrived damaged, or was missing contents. The person filing must have the original mailing receipt.",
+        "Priority Mail Express: File After 7 days, File Before 60 days | Priority Mail: File After 15 days, File Before 60 days | USPS Ground Advantage: File After 15 days, File Before 60 days | Insured Mail: File After 15 days, File Before 60 days",
+        "Evidence of Insurance Purchased: Original mailing receipt issued at the time of mailing; Outer packaging showing the names and addresses ... and the proper label showing that the article was sent insured; Printed electronic online label record",
+        "Proof of value is the cost or value of an item when it was mailed. Any of these can be used to show proof of value: Sales receipt, Paid invoice or paid bill of sale, Credit card billing statement, Printouts of the online transaction",
+        "USPS usually sends claims decisions within 5-10 days.",
+        "After your claim is approved, you should receive payment for the claim amount in 7-10 business days.",
+        "USPS does not pay a claim higher than an item's actual value.",
+        "If your refund was only partially paid or completely denied, you may file an appeal within 30 days of receiving the decision."
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "7 days",
+      "scope": "Missing Mail search requests can be submitted starting 7 days from mailing (usps.com/help/missing-mail.htm)"
+    },
+    {
+      "value": "one postal business day",
+      "scope": "submit a service request to the local Post Office after more than one postal business day past a 'Delivered', 'Out for Delivery', 'Arrived at Post Office', or 'Awaiting Delivery Scan' status (faq.usps.com Where-is-my-package)"
+    },
+    {
+      "value": "9pm local time",
+      "scope": "Awaiting Delivery Scan status: no Delivered scan recorded by 9pm local time means delivery anticipated next business day (faq.usps.com)"
+    },
+    {
+      "value": "60 days",
+      "scope": "insurance claim filing deadline for damaged or missing contents, no later than 60 days from the mailing date (usps.com/help/claims.htm and missing-mail.htm)"
+    },
+    {
+      "value": "15 days",
+      "scope": "lost-package insurance claims for Priority Mail, USPS Ground Advantage, and Insured Mail may be filed after 15 days from the mailing date, before 60 days (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "7 days",
+      "scope": "lost-package Priority Mail Express claims may be filed after 7 days, before 60 days (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "5-10 days",
+      "scope": "USPS usually sends claims decisions within 5-10 days (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "7-10 business days",
+      "scope": "payment for an approved claim arrives in 7-10 business days (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "30 days",
+      "scope": "appeal window after receiving a claim decision; second appeal within 30 days of the denial (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "13 and 34 characters",
+      "scope": "USPS tracking and label numbers are between 13 and 34 characters (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "1-800-332-0317",
+      "scope": "National Materials Customer Service, paper Domestic Claim Form requests only (usps.com/help/claims.htm)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number 7554 Fredle Drive, Concord Township (content/facts.json approved phrasing, verified in prior PRs)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "any dollar figure for insurance included with a service (e.g. '$100 included')",
+      "reason": "not verified in this run's sources; insurance amounts vary by service"
+    },
+    {
+      "forbidden": "claims that USPS will definitely find or pay for a lost package",
+      "reason": "usps.com states 'sometimes we cannot find missing mail items' and claims can be denied"
+    },
+    {
+      "forbidden": "stating the store files claims or searches mail FOR the customer as a guaranteed service",
+      "reason": "operational claim needing owner sign-off; counter help is scoped as assistance only"
+    },
+    {
+      "forbidden": "timeframes for in-store services ('done in X minutes')",
+      "reason": "article-claims-gate Rule 2 ban on service-duration promises"
+    }
+  ],
+  "required_when": [
+    {
+      "qualifier": "insurance claims apply 'if your mail or package included insurance' \u2014 always conditional",
+      "trigger": "any mention of filing a claim"
+    },
+    {
+      "qualifier": "'money-back guarantee' refunds apply to services that carry one, e.g. Priority Mail Express",
+      "trigger": "any mention of postage refunds"
+    },
+    {
+      "qualifier": "the person filing a claim must have the original mailing receipt",
+      "trigger": "any mention of who can file / what's needed"
+    }
+  ]
+}
