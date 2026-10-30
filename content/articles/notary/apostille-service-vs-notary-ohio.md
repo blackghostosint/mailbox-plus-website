@@ -11,7 +11,7 @@ imageAlt: 'A document with an official embossed seal lying on a wooden counter n
 location: 'concord-township'
 articleType: 'guide'
 quickAnswer: >-
-  An apostille and a notarization are two different stamps from two different offices. A notary verifies your signature; the Ohio Secretary of State issues the apostille that certifies the notary's signature for Hague Convention countries — $5 per document, mailed requests processed in two to three days. Notarize first, then send the packet to Columbus.
+  An apostille and a notarization are two different stamps from two different offices. A notary verifies your signature; the Ohio Secretary of State issues the apostille that certifies the notary's signature for Hague Convention countries — $5 per document, mailed requests processed in two to three days. For a document that requires notarization, notarize first, then send the packet to Columbus.
 keywords:
   [
     'apostille service ohio',
