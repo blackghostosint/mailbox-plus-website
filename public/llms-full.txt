@@ -16513,7 +16513,7 @@ A person standing in their empty driveway should not need a stack of help pages 
 
 ## Behind the Counter: Why We Shield You
 
-At Mailbox Plus on Fredle Drive in Concord Township, we sit on the other side of this every day. People come in holding a phone with a frozen tracking page, at the "wait or act?" fork, and the first thing we do is read the scans with them — because the scans tell you which fork you're actually on.
+At Mailbox Plus on Fredle Drive in Concord Township, we sit on the other side of this every day. People come in holding a phone with a frozen tracking page, at the "wait or act?" fork. We sit down at the counter and go through the tracking history with you: we tell you which tracking status you're actually looking at, what the next step is, and what paperwork a service request, a Missing Mail search, or an insurance claim needs.
 
 That's most of the shield, right there: knowing which status you're looking at changes what you're allowed to do next. A Delivered scan starts the service-request clock that starts after a single postal business day. A stalled in-transit scan points at the shipper or the acceptance process, not your local Post Office. An insurance question opens the claim rules, which have their own service-specific windows.
 

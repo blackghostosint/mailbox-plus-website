@@ -28,7 +28,7 @@ Checked: 2026-10-30. All numbers registered in `.factchecks/usps-package-not-del
 
 ## Operational claims (article-claims-gate)
 
-- "We read the scans with you / help you assemble the filing" — counter-scoped assistance, no mechanism or timeframe asserted. ⏳ visible to Frank in PR.
+- "We read the scans with you / help you assemble the filing" — counter-scoped assistance, no mechanism or timeframe asserted. ✅ rewritten 2026-10-31 per owner comment #6545263320: claim now states concretely that staff go through the tracking history with the customer, identify the current status, and help assemble service request / Missing Mail / claim paperwork. Multi-carrier claim (UPS, FedEx, USPS, DHL) marked TRUE by owner in same comment.
 - Multi-carrier (UPS, FedEx, USPS, DHL) at the counter — consistent with prior verified PRs (can-you-drop-off-ups-at-fedex-or-post-office).
 
 ## Store location
