@@ -258,6 +258,35 @@ describe('normalizeContentTables', () => {
     expect(normalizeContentTables(input)).toBe(expected);
   });
 
+  it('sanitizes caption HTML tags and prevents nested tag / script injection in aria-label', () => {
+    const input =
+      '<div class="overflow-x-auto"><table><caption><<script>script>alert(1)</script>Plan Features</caption><tr><td>A</td></tr></table></div>';
+    const result = normalizeContentTables(input);
+    const ariaMatch = result.match(/aria-label="([^"]*)"/);
+    expect(ariaMatch?.[1]).not.toContain('<');
+    expect(ariaMatch?.[1]).not.toContain('script');
+    expect(ariaMatch?.[1]).toBe('alert(1)Plan Features');
+  });
+
+  it('escapes quotes in caption and custom defaultLabel to prevent attribute breakout', () => {
+    const inputCaption =
+      '<div class="overflow-x-auto"><table><caption>Rates for "Private" Mailboxes</caption><tr><td>A</td></tr></table></div>';
+    const resultCaption = normalizeContentTables(inputCaption);
+    expect(resultCaption).toContain('aria-label="Rates for &quot;Private&quot; Mailboxes"');
+
+    const inputDefault = '<div class="overflow-x-auto"><table><tr><td>A</td></tr></table></div>';
+    const resultDefault = normalizeContentTables(inputDefault, 'Service "Comparison" Table');
+    expect(resultDefault).toContain('aria-label="Service &quot;Comparison&quot; Table"');
+  });
+
+  it('falls back to defaultLabel when caption contains only tags and whitespace', () => {
+    const input =
+      '<div class="overflow-x-auto"><table><caption><span>   </span></caption><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Scrollable table"><table><caption><span>   </span></caption><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
   it('allows specifying a custom defaultLabel', () => {
     const input = '<div class="overflow-x-auto"><table><tr><td>A</td></tr></table></div>';
     const expected =

@@ -106,6 +106,23 @@ export function normalizeContentHeadings(html: string): string {
 }
 
 /**
+ * Sanitizes HTML content extracted from a table caption for safe insertion
+ * into an aria-label attribute. Applies repeated multi-character stripping
+ * in a loop to prevent tag reintroduction, removes residual delimiters, and
+ * escapes double quotes.
+ */
+function sanitizeCaptionLabel(captionHtml: string): string {
+  let text = captionHtml;
+  let previous: string;
+  do {
+    previous = text;
+    text = text.replace(/<[^<>]*>/g, '');
+  } while (text !== previous);
+  text = text.replace(/[<>]/g, '');
+  return text.replace(/"/g, '&quot;').replace(/\s+/g, ' ').trim();
+}
+
+/**
  * Normalizes table containers in HTML strings for WCAG 2.1 SC 2.1.1 (Keyboard)
  * compliance. Adds tabindex="0", role="region", and an aria-label to table
  * containers matching .overflow-x-auto, enabling keyboard-only scrolling.
@@ -194,9 +211,13 @@ export function normalizeContentTables(html: string, defaultLabel = 'Scrollable 
       let label = defaultLabel;
       const captionMatch = m.innerHtml.match(/<caption[^>]*>(.*?)<\/caption>/i);
       if (captionMatch && captionMatch[1]?.trim()) {
-        label = captionMatch[1].replace(/<[^>]+>/g, '').trim();
+        const cleaned = sanitizeCaptionLabel(captionMatch[1]);
+        if (cleaned) {
+          label = cleaned;
+        }
       }
-      attrsToAdd.push(`aria-label="${label}"`);
+      const safeLabel = label.replace(/"/g, '&quot;');
+      attrsToAdd.push(`aria-label="${safeLabel}"`);
     }
 
     const newOpenTag = `<${m.tagName}${m.attrs} ${attrsToAdd.join(' ')}>`;
