@@ -181,6 +181,7 @@ describe('reviews module', () => {
       const authorLink = card.querySelector('footer a') as HTMLAnchorElement | null;
       expect(authorLink).not.toBeNull();
       expect(authorLink?.textContent).toBe('Jane Doe');
+      expect(authorLink?.querySelector('.sr-only')?.textContent).toBe(' (opens in a new tab)');
       expect(authorLink?.href).toBe('https://maps.google.com/contrib/123');
       expect(card.querySelector('footer p')?.textContent).toBe('2 days ago');
     });
@@ -211,6 +212,7 @@ describe('reviews module', () => {
       const authorLink = card.querySelector('footer a') as HTMLAnchorElement | null;
       expect(authorLink).not.toBeNull();
       expect(authorLink?.textContent).toBe('John Smith');
+      expect(authorLink?.querySelector('.sr-only')?.textContent).toBe(' (opens in a new tab)');
       expect(authorLink?.href).toBe('http://maps.google.com/contrib/456');
     });
 

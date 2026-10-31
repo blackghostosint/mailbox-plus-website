@@ -65,6 +65,10 @@ export function buildReviewCard(r: ReviewItem): HTMLElement {
     a.rel = 'noopener noreferrer';
     a.className = 'text-sm font-semibold text-[var(--color-accent-warm)] hover:underline';
     a.textContent = r.author || 'Google User';
+    const sr = document.createElement('span');
+    sr.className = 'sr-only';
+    sr.textContent = ' (opens in a new tab)';
+    a.appendChild(sr);
     footer.appendChild(a);
   } else {
     const author = document.createElement('p');
