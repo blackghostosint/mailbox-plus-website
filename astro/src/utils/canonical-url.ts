@@ -104,3 +104,127 @@ export function normalizeContentHeadings(html: string): string {
   if (!html) return html;
   return html.replace(/<(\/?)h4(\s|>|\/)/gi, '<$1h3$2');
 }
+
+/**
+ * Sanitizes HTML content extracted from a table caption for safe insertion
+ * into an aria-label attribute. Applies repeated multi-character stripping
+ * in a loop to prevent tag reintroduction, removes residual delimiters, and
+ * escapes double quotes.
+ */
+function sanitizeCaptionLabel(captionHtml: string): string {
+  let text = captionHtml;
+  let previous: string;
+  do {
+    previous = text;
+    text = text.replace(/<[^<>]*>/g, '');
+  } while (text !== previous);
+  text = text.replace(/[<>]/g, '');
+  return text.replace(/"/g, '&quot;').replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Normalizes table containers in HTML strings for WCAG 2.1 SC 2.1.1 (Keyboard)
+ * compliance. Adds tabindex="0", role="region", and an aria-label to table
+ * containers matching .overflow-x-auto, enabling keyboard-only scrolling.
+ * Preserves all existing attributes when a container already includes tabindex,
+ * and passes non-table content blocks through unmodified.
+ */
+export function normalizeContentTables(html: string, defaultLabel = 'Scrollable table'): string {
+  if (!html || typeof html !== 'string') return html;
+  if (!/<table\b/i.test(html)) return html;
+
+  const tagRegex = /<([a-zA-Z0-9]+)\b([^>]*?)>/g;
+  let match: RegExpExecArray | null;
+  const matches: {
+    start: number;
+    end: number;
+    tagName: string;
+    attrs: string;
+    innerHtml: string;
+  }[] = [];
+
+  while ((match = tagRegex.exec(html)) !== null) {
+    const tagName = match[1];
+    const attrs = match[2];
+    const classMatch = attrs.match(/\bclass\s*=\s*(["'])(.*?)\1/i);
+    if (!classMatch) continue;
+    const classList = classMatch[2].split(/\s+/);
+    if (!classList.includes('overflow-x-auto')) continue;
+
+    // Guardrail: do not alter existing attributes when container already includes tabindex
+    if (/\btabindex\b/i.test(attrs)) continue;
+
+    const openTagStartIndex = match.index;
+    const openTagEndIndex = tagRegex.lastIndex;
+
+    // Find matching closing tag to verify container encloses a table
+    let depth = 1;
+    const innerSearchRegex = new RegExp(`<(/?)${tagName}\\b([^>]*?)>`, 'gi');
+    innerSearchRegex.lastIndex = openTagEndIndex;
+    let innerMatch: RegExpExecArray | null;
+    let closeTagStartIndex = -1;
+
+    while ((innerMatch = innerSearchRegex.exec(html)) !== null) {
+      const isClosing = innerMatch[1] === '/';
+      const isSelfClosing = innerMatch[2].endsWith('/');
+      if (isClosing) {
+        depth--;
+        if (depth === 0) {
+          closeTagStartIndex = innerMatch.index;
+          break;
+        }
+      } else if (!isSelfClosing) {
+        depth++;
+      }
+    }
+
+    if (closeTagStartIndex === -1) {
+      if (!/<table\b/i.test(html.slice(openTagEndIndex))) continue;
+    } else {
+      const innerHtml = html.slice(openTagEndIndex, closeTagStartIndex);
+      if (!/<table\b/i.test(innerHtml)) continue;
+    }
+
+    matches.push({
+      start: openTagStartIndex,
+      end: openTagEndIndex,
+      tagName,
+      attrs,
+      innerHtml:
+        closeTagStartIndex !== -1
+          ? html.slice(openTagEndIndex, closeTagStartIndex)
+          : html.slice(openTagEndIndex),
+    });
+  }
+
+  if (matches.length === 0) return html;
+
+  // Process matches in reverse order so string indices remain valid
+  let result = html;
+  for (let i = matches.length - 1; i >= 0; i--) {
+    const m = matches[i];
+    const attrsToAdd: string[] = ['tabindex="0"'];
+    if (!/\brole\s*=/i.test(m.attrs)) {
+      attrsToAdd.push('role="region"');
+    }
+    if (!/\baria-label\s*=/i.test(m.attrs) && !/\baria-labelledby\s*=/i.test(m.attrs)) {
+      let label = defaultLabel;
+      const captionMatch = m.innerHtml.match(/<caption[^>]*>(.*?)<\/caption>/i);
+      if (captionMatch && captionMatch[1]?.trim()) {
+        const cleaned = sanitizeCaptionLabel(captionMatch[1]);
+        if (cleaned) {
+          label = cleaned;
+        }
+      }
+      const safeLabel = label.replace(/"/g, '&quot;');
+      attrsToAdd.push(`aria-label="${safeLabel}"`);
+    }
+
+    const newOpenTag = `<${m.tagName}${m.attrs} ${attrsToAdd.join(' ')}>`;
+    result = result.slice(0, m.start) + newOpenTag + result.slice(m.end);
+  }
+
+  return result;
+}
+
+export const normalizeTableContainers = normalizeContentTables;

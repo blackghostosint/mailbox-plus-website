@@ -3,6 +3,8 @@ import { describe, it, expect } from 'vitest';
 import {
   normalizeContentHeadings,
   normalizeContentHrefs,
+  normalizeContentTables,
+  normalizeTableContainers,
   normalizePathname,
   toCanonicalUrl,
 } from './canonical-url';
@@ -197,5 +199,138 @@ describe('normalizeContentHeadings', () => {
     expect(normalizeContentHeadings('')).toBe('');
     expect(normalizeContentHeadings(null as unknown as string)).toBe(null);
     expect(normalizeContentHeadings(undefined as unknown as string)).toBe(undefined);
+  });
+});
+
+describe('normalizeContentTables', () => {
+  it('adds tabindex="0", role="region", and aria-label to table containers matching .overflow-x-auto', () => {
+    const input =
+      '<div class="overflow-x-auto my-6"><table class="w-full"><thead><tr><th scope="col">Plan</th></tr></thead><tbody><tr><td>Basic</td></tr></tbody></table></div>';
+    const expected =
+      '<div class="overflow-x-auto my-6" tabindex="0" role="region" aria-label="Scrollable table"><table class="w-full"><thead><tr><th scope="col">Plan</th></tr></thead><tbody><tr><td>Basic</td></tr></tbody></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
+  it('preserves all existing inner table elements, scopes, and CSS classes', () => {
+    const input =
+      '<div class="overflow-x-auto"><table class="min-w-full text-left border-collapse"><thead><tr><th scope="col" class="p-4 font-bold">Col 1</th></tr></thead><tbody><tr><th scope="row" class="font-medium">Row 1</th><td class="text-sm">Data</td></tr></tbody></table></div>';
+    const result = normalizeContentTables(input);
+    expect(result).toContain('tabindex="0"');
+    expect(result).toContain('role="region"');
+    expect(result).toContain('aria-label="Scrollable table"');
+    expect(result).toContain('<table class="min-w-full text-left border-collapse">');
+    expect(result).toContain('<th scope="col" class="p-4 font-bold">Col 1</th>');
+    expect(result).toContain('<th scope="row" class="font-medium">Row 1</th>');
+    expect(result).toContain('<td class="text-sm">Data</td>');
+  });
+
+  it('does not alter existing attributes when container already includes tabindex', () => {
+    const input1 =
+      '<div class="overflow-x-auto" tabindex="0"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input1)).toBe(input1);
+
+    const input2 =
+      '<div class="overflow-x-auto" tabindex="-1" role="group"><table class="w-full"><tr><td>B</td></tr></table></div>';
+    expect(normalizeContentTables(input2)).toBe(input2);
+  });
+
+  it('preserves existing aria-label or aria-labelledby when adding tabindex and role', () => {
+    const input =
+      '<div class="overflow-x-auto" aria-label="Lake County Mailbox Pricing"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" aria-label="Lake County Mailbox Pricing" tabindex="0" role="region"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
+  it('preserves existing role when adding tabindex and aria-label', () => {
+    const input =
+      '<div class="overflow-x-auto" role="group"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" role="group" tabindex="0" aria-label="Scrollable table"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
+  it('uses table caption for aria-label if caption element is present', () => {
+    const input =
+      '<div class="overflow-x-auto"><table><caption>Monthly Box Rental Rates</caption><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Monthly Box Rental Rates"><table><caption>Monthly Box Rental Rates</caption><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
+  it('sanitizes caption HTML tags and prevents nested tag / script injection in aria-label', () => {
+    const input =
+      '<div class="overflow-x-auto"><table><caption><<script>script>alert(1)</script>Plan Features</caption><tr><td>A</td></tr></table></div>';
+    const result = normalizeContentTables(input);
+    const ariaMatch = result.match(/aria-label="([^"]*)"/);
+    expect(ariaMatch?.[1]).not.toContain('<');
+    expect(ariaMatch?.[1]).not.toContain('script');
+    expect(ariaMatch?.[1]).toBe('alert(1)Plan Features');
+  });
+
+  it('escapes quotes in caption and custom defaultLabel to prevent attribute breakout', () => {
+    const inputCaption =
+      '<div class="overflow-x-auto"><table><caption>Rates for "Private" Mailboxes</caption><tr><td>A</td></tr></table></div>';
+    const resultCaption = normalizeContentTables(inputCaption);
+    expect(resultCaption).toContain('aria-label="Rates for &quot;Private&quot; Mailboxes"');
+
+    const inputDefault = '<div class="overflow-x-auto"><table><tr><td>A</td></tr></table></div>';
+    const resultDefault = normalizeContentTables(inputDefault, 'Service "Comparison" Table');
+    expect(resultDefault).toContain('aria-label="Service &quot;Comparison&quot; Table"');
+  });
+
+  it('falls back to defaultLabel when caption contains only tags and whitespace', () => {
+    const input =
+      '<div class="overflow-x-auto"><table><caption><span>   </span></caption><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Scrollable table"><table><caption><span>   </span></caption><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(expected);
+  });
+
+  it('allows specifying a custom defaultLabel', () => {
+    const input = '<div class="overflow-x-auto"><table><tr><td>A</td></tr></table></div>';
+    const expected =
+      '<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Pricing comparison"><table><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input, 'Pricing comparison')).toBe(expected);
+  });
+
+  it('passes non-scrollable content blocks without tables through unmodified', () => {
+    const input = '<p>Simple paragraph with <a href="/services/">link</a>.</p>';
+    expect(normalizeContentTables(input)).toBe(input);
+  });
+
+  it('passes non-scrollable content blocks with tables through unmodified if not matching .overflow-x-auto', () => {
+    const input =
+      '<div class="static-wrapper"><table class="w-full"><tr><td>A</td></tr></table></div>';
+    expect(normalizeContentTables(input)).toBe(input);
+  });
+
+  it('does not normalize .overflow-x-auto containers that do not enclose a table', () => {
+    const input = '<div class="overflow-x-auto"><p>Just a list or text block</p></div>';
+    expect(normalizeContentTables(input)).toBe(input);
+  });
+
+  it('handles multiple table containers in a single content string', () => {
+    const input =
+      '<p>Intro</p><div class="overflow-x-auto"><table><tr><td>First</td></tr></table></div><p>Between</p><div class="overflow-x-auto my-4"><table><tr><td>Second</td></tr></table></div>';
+    const result = normalizeContentTables(input);
+    expect(result).toContain(
+      '<div class="overflow-x-auto" tabindex="0" role="region" aria-label="Scrollable table"><table><tr><td>First</td></tr></table></div>'
+    );
+    expect(result).toContain(
+      '<div class="overflow-x-auto my-4" tabindex="0" role="region" aria-label="Scrollable table"><table><tr><td>Second</td></tr></table></div>'
+    );
+    expect(result).toContain('<p>Intro</p>');
+    expect(result).toContain('<p>Between</p>');
+  });
+
+  it('handles empty or falsy values gracefully', () => {
+    expect(normalizeContentTables('')).toBe('');
+    expect(normalizeContentTables(null as unknown as string)).toBe(null);
+    expect(normalizeContentTables(undefined as unknown as string)).toBe(undefined);
+  });
+
+  it('provides normalizeTableContainers as an alias', () => {
+    expect(normalizeTableContainers).toBe(normalizeContentTables);
   });
 });
