@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
+import { walkFiles } from './lib/fs-traversal.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -28,25 +29,6 @@ export interface CheckFontCdnResult {
   scannedFilesCount: number;
 }
 
-function getAllFiles(dirPath: string, extensions: string[]): string[] {
-  let results: string[] = [];
-  if (!fs.existsSync(dirPath)) return results;
-
-  const list = fs.readdirSync(dirPath, { withFileTypes: true });
-  for (const entry of list) {
-    const fullPath = path.join(dirPath, entry.name);
-    if (entry.isDirectory()) {
-      results = results.concat(getAllFiles(fullPath, extensions));
-    } else {
-      const ext = path.extname(entry.name).toLowerCase();
-      if (extensions.includes(ext)) {
-        results.push(fullPath);
-      }
-    }
-  }
-  return results;
-}
-
 export function checkFontCdn(searchDirs?: string[]): CheckFontCdnResult {
   const dirs = searchDirs || [path.join(ROOT_DIR, 'astro', 'src'), path.join(ROOT_DIR, 'public')];
 
@@ -56,7 +38,7 @@ export function checkFontCdn(searchDirs?: string[]): CheckFontCdnResult {
   for (const dir of dirs) {
     if (fs.existsSync(dir)) {
       if (fs.statSync(dir).isDirectory()) {
-        scannedFiles.push(...getAllFiles(dir, extensions));
+        scannedFiles.push(...walkFiles(dir, { extensions }));
       } else {
         scannedFiles.push(dir);
       }

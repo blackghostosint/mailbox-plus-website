@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
+import { walkFiles } from './lib/fs-traversal.ts';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -139,54 +140,41 @@ export function scanTemplateTokens(
 ): Map<string, Set<string>> {
   const tokenMap = new Map<string, Set<string>>();
 
-  function walk(dir: string) {
-    if (!fs.existsSync(dir)) return;
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files = walkFiles(srcDir, {
+    extensions: ['.astro', '.ts', '.tsx', '.js', '.jsx'],
+    ignoreDirs: ['node_modules', '__tests__', '.git', 'dist', '.factchecks'],
+    filter: (_filePath, entryName) =>
+      !entryName.includes('.test.') && !entryName.includes('.spec.'),
+  });
 
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if (entry.name === 'node_modules' || entry.name === '__tests__') {
-          continue;
-        }
-        walk(fullPath);
-      } else if (entry.isFile()) {
-        const ext = path.extname(entry.name).toLowerCase();
-        if (['.astro', '.ts', '.tsx', '.js', '.jsx'].includes(ext)) {
-          if (entry.name.includes('.test.') || entry.name.includes('.spec.')) {
-            continue;
-          }
-          const content = fs.readFileSync(fullPath, 'utf8');
-          const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+  for (const fullPath of files) {
+    const content = fs.readFileSync(fullPath, 'utf8');
+    const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
 
-          // Collect local variable declarations in this file
-          const localDecls = new Set<string>();
-          const declRegex = /(--[a-zA-Z0-9_-]+)\s*:/g;
-          let declMatch: RegExpExecArray | null;
-          while ((declMatch = declRegex.exec(content)) !== null) {
-            localDecls.add(declMatch[1]);
-          }
+    // Collect local variable declarations in this file
+    const localDecls = new Set<string>();
+    const declRegex = /(--[a-zA-Z0-9_-]+)\s*:/g;
+    let declMatch: RegExpExecArray | null;
+    while ((declMatch = declRegex.exec(content)) !== null) {
+      localDecls.add(declMatch[1]);
+    }
 
-          // Scan var(--token) expressions
-          const varRegex = /var\(\s*(--[a-zA-Z0-9_-]+)/g;
-          let varMatch: RegExpExecArray | null;
-          while ((varMatch = varRegex.exec(content)) !== null) {
-            const token = varMatch[1];
-            // Skip locally declared CSS variables
-            if (localDecls.has(token)) {
-              continue;
-            }
-            if (!tokenMap.has(token)) {
-              tokenMap.set(token, new Set());
-            }
-            tokenMap.get(token)!.add(relPath);
-          }
-        }
+    // Scan var(--token) expressions
+    const varRegex = /var\(\s*(--[a-zA-Z0-9_-]+)/g;
+    let varMatch: RegExpExecArray | null;
+    while ((varMatch = varRegex.exec(content)) !== null) {
+      const token = varMatch[1];
+      // Skip locally declared CSS variables
+      if (localDecls.has(token)) {
+        continue;
       }
+      if (!tokenMap.has(token)) {
+        tokenMap.set(token, new Set());
+      }
+      tokenMap.get(token)!.add(relPath);
     }
   }
 
-  walk(srcDir);
   return tokenMap;
 }
 
@@ -196,118 +184,104 @@ export function scanStyleAttributesAndClasses(
 ): string[] {
   const errors: string[] = [];
 
-  function walk(dir: string) {
-    if (!fs.existsSync(dir)) return;
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
+  const files = walkFiles(srcDir, {
+    extensions: ['.astro', '.ts', '.tsx', '.js', '.jsx'],
+    ignoreDirs: ['node_modules', '__tests__', '.git', 'dist', '.factchecks'],
+    filter: (_filePath, entryName) =>
+      !entryName.includes('.test.') && !entryName.includes('.spec.'),
+  });
 
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        if (entry.name === 'node_modules' || entry.name === '__tests__') {
+  for (const fullPath of files) {
+    const content = fs.readFileSync(fullPath, 'utf8');
+    const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
+    const lines = content.split('\n');
+
+    for (let i = 0; i < lines.length; i++) {
+      const lineNum = i + 1;
+      const line = lines[i];
+
+      // 1. Scan for arbitrary hex classes in Tailwind class strings
+      const hexTokenRegex =
+        /\b(?:bg|text|border|from|to|via|decoration|ring|shadow|fill|stroke|outline|accent|caret)-\[#(?:[0-9a-fA-F]{3,8})\]/g;
+      let hexMatch: RegExpExecArray | null;
+      while ((hexMatch = hexTokenRegex.exec(line)) !== null) {
+        const matchedClass = hexMatch[0];
+        errors.push(
+          `❌ Hardcoded hex class in ${relPath}:${lineNum} -> ${matchedClass}\n   Suggestion: Replace arbitrary hex class "${matchedClass}" with a design token utility class (e.g., bg-brand-facebook, text-carrier-fedex, to-accent-warmDark).`
+        );
+      }
+
+      // 2. Scan for HTML style attributes: style="..." or style='...'
+      const htmlStyleRegex = /style\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
+      let styleMatch: RegExpExecArray | null;
+      while ((styleMatch = htmlStyleRegex.exec(line)) !== null) {
+        const styleVal = styleMatch[1] ?? styleMatch[2] ?? '';
+
+        // Allowlist 1: Keyframe animation / CSS variable index binding (e.g. style="--i: 0")
+        if (/^\s*--[a-zA-Z0-9_-]+\s*:\s*[^;]+;?\s*$/.test(styleVal)) {
           continue;
         }
-        walk(fullPath);
-      } else if (entry.isFile()) {
-        const ext = path.extname(entry.name).toLowerCase();
-        if (['.astro', '.ts', '.tsx', '.js', '.jsx'].includes(ext)) {
-          if (entry.name.includes('.test.') || entry.name.includes('.spec.')) {
-            continue;
-          }
-          const content = fs.readFileSync(fullPath, 'utf8');
-          const relPath = path.relative(baseDir, fullPath).replace(/\\/g, '/');
-          const lines = content.split('\n');
 
-          for (let i = 0; i < lines.length; i++) {
-            const lineNum = i + 1;
-            const line = lines[i];
+        // Allowlist 2: Third party embeds (e.g. map iframe with border:0 or tracking pixel noscript img display:none)
+        if (
+          (line.includes('<iframe') && styleVal.replace(/\s/g, '').includes('border:0')) ||
+          (line.includes('display:none') && (line.includes('<img') || line.includes('<noscript')))
+        ) {
+          continue;
+        }
 
-            // 1. Scan for arbitrary hex classes in Tailwind class strings
-            const hexTokenRegex =
-              /\b(?:bg|text|border|from|to|via|decoration|ring|shadow|fill|stroke|outline|accent|caret)-\[#(?:[0-9a-fA-F]{3,8})\]/g;
-            let hexMatch: RegExpExecArray | null;
-            while ((hexMatch = hexTokenRegex.exec(line)) !== null) {
-              const matchedClass = hexMatch[0];
-              errors.push(
-                `❌ Hardcoded hex class in ${relPath}:${lineNum} -> ${matchedClass}\n   Suggestion: Replace arbitrary hex class "${matchedClass}" with a design token utility class (e.g., bg-brand-facebook, text-carrier-fedex, to-accent-warmDark).`
-              );
-            }
+        // Check if style attribute contains hardcoded hex values
+        if (/#([0-9a-fA-F]{3,8})/.test(styleVal)) {
+          errors.push(
+            `❌ Hardcoded hex value in inline style attribute in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values in style attributes.`
+          );
+        } else if (
+          /\b(color|background|border|border-top|border-bottom|border-left|border-right|margin-top|margin-bottom|padding|font-size)\s*:/i.test(
+            styleVal
+          )
+        ) {
+          errors.push(
+            `❌ Static inline style attribute bypass in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Replace inline style attribute with standard Tailwind utility classes (e.g., text-[var(...)], border-t border-[var(...)]).`
+          );
+        }
+      }
 
-            // 2. Scan for HTML style attributes: style="..." or style='...'
-            const htmlStyleRegex = /style\s*=\s*(?:"([^"]*)"|'([^']*)')/g;
-            let styleMatch: RegExpExecArray | null;
-            while ((styleMatch = htmlStyleRegex.exec(line)) !== null) {
-              const styleVal = styleMatch[1] ?? styleMatch[2] ?? '';
+      // 3. Scan for JSX style={{ ... }} objects
+      const jsxStyleRegex = /style\s*=\s*\{\{\s*([^}]+)\s*\}\}/g;
+      let jsxMatch: RegExpExecArray | null;
+      while ((jsxMatch = jsxStyleRegex.exec(line)) !== null) {
+        const jsxStyleBody = jsxMatch[1];
 
-              // Allowlist 1: Keyframe animation / CSS variable index binding (e.g. style="--i: 0")
-              if (/^\s*--[a-zA-Z0-9_-]+\s*:\s*[^;]+;?\s*$/.test(styleVal)) {
-                continue;
-              }
+        // Allowlist 1: Keyframe animation / CSS custom variable index binding e.g. style={{ '--i': 0 }}
+        if (/['"]?--[a-zA-Z0-9_-]+['"]?\s*:/.test(jsxStyleBody)) {
+          continue;
+        }
 
-              // Allowlist 2: Third party embeds (e.g. map iframe with border:0 or tracking pixel noscript img display:none)
-              if (
-                (line.includes('<iframe') && styleVal.replace(/\s/g, '').includes('border:0')) ||
-                (line.includes('display:none') &&
-                  (line.includes('<img') || line.includes('<noscript')))
-              ) {
-                continue;
-              }
+        // Allowlist 2: Dynamic runtime animation/layout calculation styles (e.g., maxHeight: isOpen ? ..., opacity: ...)
+        const isDynamicLayout =
+          /\b(maxHeight|height|width|opacity|transform|top|left|right|bottom)\b/.test(
+            jsxStyleBody
+          ) &&
+          !/\b(color|background|backgroundColor|borderColor|border)\b/i.test(jsxStyleBody) &&
+          !/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody);
 
-              // Check if style attribute contains hardcoded hex values
-              if (/#([0-9a-fA-F]{3,8})/.test(styleVal)) {
-                errors.push(
-                  `❌ Hardcoded hex value in inline style attribute in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values in style attributes.`
-                );
-              } else if (
-                /\b(color|background|border|border-top|border-bottom|border-left|border-right|margin-top|margin-bottom|padding|font-size)\s*:/i.test(
-                  styleVal
-                )
-              ) {
-                errors.push(
-                  `❌ Static inline style attribute bypass in ${relPath}:${lineNum}\n   Snippet: style="${styleVal}"\n   Suggestion: Replace inline style attribute with standard Tailwind utility classes (e.g., text-[var(...)], border-t border-[var(...)]).`
-                );
-              }
-            }
+        if (isDynamicLayout) {
+          continue;
+        }
 
-            // 3. Scan for JSX style={{ ... }} objects
-            const jsxStyleRegex = /style\s*=\s*\{\{\s*([^}]+)\s*\}\}/g;
-            let jsxMatch: RegExpExecArray | null;
-            while ((jsxMatch = jsxStyleRegex.exec(line)) !== null) {
-              const jsxStyleBody = jsxMatch[1];
-
-              // Allowlist 1: Keyframe animation / CSS custom variable index binding e.g. style={{ '--i': 0 }}
-              if (/['"]?--[a-zA-Z0-9_-]+['"]?\s*:/.test(jsxStyleBody)) {
-                continue;
-              }
-
-              // Allowlist 2: Dynamic runtime animation/layout calculation styles (e.g., maxHeight: isOpen ? ..., opacity: ...)
-              const isDynamicLayout =
-                /\b(maxHeight|height|width|opacity|transform|top|left|right|bottom)\b/.test(
-                  jsxStyleBody
-                ) &&
-                !/\b(color|background|backgroundColor|borderColor|border)\b/i.test(jsxStyleBody) &&
-                !/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody);
-
-              if (isDynamicLayout) {
-                continue;
-              }
-
-              if (/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody)) {
-                errors.push(
-                  `❌ Hardcoded hex value in JSX style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values.`
-                );
-              } else if (/\b(color|backgroundColor|border|borderColor)\s*:/i.test(jsxStyleBody)) {
-                errors.push(
-                  `❌ Static inline style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Replace inline style object with standard Tailwind utility classes.`
-                );
-              }
-            }
-          }
+        if (/#([0-9a-fA-F]{3,8})/.test(jsxStyleBody)) {
+          errors.push(
+            `❌ Hardcoded hex value in JSX style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Use Tailwind classes or CSS design tokens instead of hardcoded hex values.`
+          );
+        } else if (/\b(color|backgroundColor|border|borderColor)\s*:/i.test(jsxStyleBody)) {
+          errors.push(
+            `❌ Static inline style object in ${relPath}:${lineNum}\n   Snippet: style={{ ${jsxStyleBody} }}\n   Suggestion: Replace inline style object with standard Tailwind utility classes.`
+          );
         }
       }
     }
   }
 
-  walk(srcDir);
   return errors;
 }
 
