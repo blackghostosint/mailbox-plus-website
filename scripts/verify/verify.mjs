@@ -33,6 +33,7 @@ import {
   normalizeRoute,
   isKnownRoute as isKnownRouteUtil,
 } from '../lib/article-utils.ts';
+import { walkFiles } from '../lib/fs-traversal.ts';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
@@ -1496,22 +1497,7 @@ function cmdArticles(isStrict = false) {
 
 // ---------- build, sitemap, seo-gates ----------
 function countHtmlFiles(dir) {
-  if (!fs.existsSync(dir)) return 0;
-  let count = 0;
-  try {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        count += countHtmlFiles(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith('.html')) {
-        count++;
-      }
-    }
-  } catch {
-    return 0;
-  }
-  return count;
+  return walkFiles(dir, { extensions: ['.html'], ignoreDirs: [] }).length;
 }
 
 function cmdBuild() {

@@ -118,35 +118,15 @@ export interface LoadArticlesOptions {
   strict?: boolean;
 }
 
-/**
- * Recursively walks a directory and invokes callback for each file found.
- */
-export function walkDir(dir: string, callback: (filePath: string) => void): void {
-  if (!fs.existsSync(dir)) return;
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of entries) {
-    const fullPath = path.join(dir, entry.name);
-    if (entry.isDirectory()) {
-      walkDir(fullPath, callback);
-    } else {
-      callback(fullPath);
-    }
-  }
-}
+import {
+  walkDir,
+  walkFiles,
+  walkMdFiles,
+  type TraversalOptions,
+  type TraversalCallback,
+} from './fs-traversal.ts';
 
-/**
- * Recursively walks a directory and returns paths of all markdown files,
- * ignoring README.md files (case-insensitive).
- */
-export function walkMdFiles(dir: string): string[] {
-  const mdFiles: string[] = [];
-  walkDir(dir, (filePath) => {
-    if (path.extname(filePath) === '.md' && path.basename(filePath).toLowerCase() !== 'readme.md') {
-      mdFiles.push(filePath);
-    }
-  });
-  return mdFiles;
-}
+export { walkDir, walkFiles, walkMdFiles, type TraversalOptions, type TraversalCallback };
 
 /**
  * Initializes and derives the route registry from Astro page templates,

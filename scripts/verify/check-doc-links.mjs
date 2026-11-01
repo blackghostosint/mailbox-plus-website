@@ -7,6 +7,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
+import { walkFiles } from '../lib/fs-traversal.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const ROOT = path.resolve(__dirname, '..', '..');
@@ -345,29 +346,14 @@ export function isPathCandidate(term) {
  * Recursively discovers markdown files in directory
  */
 export function getMdFiles(dir = ROOT) {
-  let results = [];
-  if (!fs.existsSync(dir)) return results;
-  const list = fs.readdirSync(dir, { withFileTypes: true });
-  for (const entry of list) {
-    const fullPath = path.join(dir, entry.name);
-    const rel = path.relative(ROOT, fullPath).replace(/\\/g, '/');
-    if (entry.isDirectory()) {
-      if (
-        entry.name !== 'node_modules' &&
-        entry.name !== '.git' &&
-        entry.name !== 'dist' &&
-        entry.name !== '.factchecks' &&
-        entry.name !== 'reports' && // Generated audit reports folder
-        rel !== 'content/articles' &&
-        !rel.startsWith('content/articles/')
-      ) {
-        results = results.concat(getMdFiles(fullPath));
-      }
-    } else if (entry.name.endsWith('.md')) {
-      results.push(fullPath);
-    }
-  }
-  return results;
+  return walkFiles(dir, {
+    extensions: ['.md'],
+    ignoreDirs: ['node_modules', '.git', 'dist', '.factchecks', 'reports', 'content/articles'],
+    filter: (fullPath) => {
+      const rel = path.relative(ROOT, fullPath).replace(/\\/g, '/');
+      return rel !== 'content/articles' && !rel.startsWith('content/articles/');
+    },
+  });
 }
 
 /**

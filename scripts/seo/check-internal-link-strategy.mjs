@@ -25,6 +25,7 @@ import { fileURLToPath } from 'url';
 import { resolveDistDir, getHtmlFiles } from '../lib/dist-path.mjs';
 import { toRouteKey } from '../../astro/src/utils/url-normalization.ts';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
+import { walkFiles } from '../lib/fs-traversal.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '../..');
@@ -110,17 +111,9 @@ export function auditInternalLinkStrategy(options = {}) {
   }
 
   // 2. Collect service config pages
-  function walkTsFiles(dir, fileList = []) {
-    if (!fs.existsSync(dir)) return fileList;
-    for (const entry of fs.readdirSync(dir)) {
-      const full = path.join(dir, entry);
-      if (fs.statSync(full).isDirectory()) walkTsFiles(full, fileList);
-      else if (entry.endsWith('.ts')) fileList.push(full);
-    }
-    return fileList;
-  }
-
-  const configFiles = walkTsFiles(configDir).concat(walkTsFiles(microProblemsDir));
+  const configFiles = walkFiles(configDir, { extensions: ['.ts'] }).concat(
+    walkFiles(microProblemsDir, { extensions: ['.ts'] })
+  );
   const pages = [];
   const linkSinks = new Map();
 
@@ -181,16 +174,7 @@ export function auditInternalLinkStrategy(options = {}) {
 
   // 4. Inbound links from articles
   const articleSinks = new Map();
-  function walkMdFiles(dir, list = []) {
-    if (!fs.existsSync(dir)) return list;
-    for (const entry of fs.readdirSync(dir)) {
-      const full = path.join(dir, entry);
-      if (fs.statSync(full).isDirectory()) walkMdFiles(full, list);
-      else if (entry.endsWith('.md')) list.push(full);
-    }
-    return list;
-  }
-  const articleFiles = walkMdFiles(articlesDir);
+  const articleFiles = walkFiles(articlesDir, { extensions: ['.md'] });
   for (const f of articleFiles) {
     const content = fs.readFileSync(f, 'utf-8');
     const hrefs = [...content.matchAll(/\]\((\/[^)#?\s]+)/g)].map((m) => normalizePath(m[1]));

@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { isMainModule, parseScriptArgs } from './lib/cli-utils.ts';
+import { walkFiles } from './lib/fs-traversal.ts';
 
 export function verifyCspInline() {
   const rootDir = process.cwd();
@@ -24,17 +25,9 @@ export function verifyCspInline() {
   const scriptSrc = cspMatch[1].match(/script-src([^;]*);/)?.[1] ?? '';
   const allowed = new Set([...scriptSrc.matchAll(/'sha256-([^']+)'/g)].map((m) => m[1]));
 
-  function* htmlFiles(dir) {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const p = path.join(dir, entry.name);
-      if (entry.isDirectory()) yield* htmlFiles(p);
-      else if (entry.name.endsWith('.html')) yield p;
-    }
-  }
-
   const uncovered = new Map();
   let scanned = 0;
-  for (const file of htmlFiles(distDir)) {
+  for (const file of walkFiles(distDir, { extensions: ['.html'], ignoreDirs: [] })) {
     scanned++;
     const html = fs.readFileSync(file, 'utf8');
     for (const m of html.matchAll(/<script(?![^>]*\bsrc=)([^>]*)>([\s\S]*?)<\/script>/g)) {
