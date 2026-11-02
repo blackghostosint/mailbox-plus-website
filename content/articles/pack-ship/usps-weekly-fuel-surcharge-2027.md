@@ -74,11 +74,11 @@ You did not do anything wrong here. You did not misprice your items or misread t
 
 ## What We See From the Counter
 
-We ship USPS, UPS, and FedEx from the same counter at 7554 Fredle Drive in Concord Township, every day, for eBay and Etsy sellers, small businesses, and neighbors mailing one box. We watch these tables move all year — and we watch what they do to people who budget per order.
+We ship USPS, UPS, and FedEx from the same counter at 7554 Fredle Drive in Concord Township, every day, for eBay and Etsy sellers, small businesses, and neighbors mailing one box. We are an independent multi-carrier counter — no single carrier sets our recommendations. We watch these tables move all year — and we watch what they do to people who budget per order.
 
-Here is the part that matters to you: the weekly shuffle is our problem to track, not yours. We are independent of every carrier, so when the fuel percentage moves on UPS, FedEx, or USPS, we do not have to defend any of them. We quote the real, full, that-day price — fees included — across all three carriers before anything is paid for. If USPS is suddenly the expensive lane for your box this week, we will tell you, and we will show you what the other two charge. You get one number, current as of the moment it prints, for the carrier that actually wins your shipment.
+Here is the part that matters to you: the weekly shuffle is our problem to track, not yours. Because we are an independent multi-carrier counter, when the fuel percentage moves on UPS, FedEx, or USPS, our job is to lay the numbers side by side. We quote each carrier's price for the day — fees included — before you decide. If USPS looks like the expensive lane for your box this week, we will say so, and we will show you what the other two charge. You get one number, current as of the moment it prints, for the carrier that actually wins your shipment.
 
-Here is the odd gift in this: with USPS joining the weekly fee model, the cheapest lane now changes week to week. Which lane wins is exactly what we check for you, every time, before you pay.
+Here is the odd gift in this: with USPS joining the weekly fee model, the cheapest lane now changes week to week. Checking which lane wins for your actual box is what we do at the counter before you decide.
 
 ## How to Ship Through the Shuffle
 
