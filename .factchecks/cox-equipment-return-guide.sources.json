@@ -44,6 +44,11 @@
       "label": "Cox Mobile return label exception",
       "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
       "quote": "For Cox Mobile Devices, do not take the device to a UPS store without a return label provided by an agent. Contact us to get the return shipping label."
+    },
+    {
+      "label": "Xumo device refund route and deadline",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Xumo devices must be returned to a retail store within 30 days of purchase for a refund by the method used for purchase."
     }
   ],
   "numeric_claims": [
@@ -57,7 +62,7 @@
     },
     {
       "value": "30 days",
-      "scope": "Cox-owned retail-store return window for purchased equipment refunded by original payment method"
+      "scope": "Cox-owned retail-store return window for purchased equipment other than Xumo, and retail-store return window for Xumo devices, refunded by original payment method"
     },
     {
       "value": "2026-08-12",
@@ -94,6 +99,10 @@
     {
       "trigger": "purchased equipment",
       "must_include": "Cox-owned retail store"
+    },
+    {
+      "trigger": "Xumo",
+      "must_include": "retail store"
     }
   ]
 }
