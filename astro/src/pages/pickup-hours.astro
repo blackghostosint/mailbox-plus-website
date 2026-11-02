@@ -1,5 +1,57 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import CarrierPickupCard from '../components/CarrierPickupCard.astro';
+
+const carriers = [
+  {
+    carrierName: 'USPS',
+    title: 'USPS Pickup',
+    accentColor: 'text-[var(--color-accent-warm)]',
+    iconPath: 'M12 6.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM12 4a8 8 0 110 16 8 8 0 010-16z',
+    schedule: [
+      { days: 'Monday – Friday:', hours: '2:30 PM' },
+      { days: 'Saturday:', hours: '12:00 PM (Noon)' },
+      { days: 'Sunday:', hours: 'No pickup' },
+    ],
+    notes: 'Accepts stamped mail, prepaid labels, Priority Mail, and returns.',
+  },
+  {
+    carrierName: 'UPS',
+    title: 'UPS Pickup',
+    accentColor: 'text-[var(--color-accent-warm)]',
+    iconPath: 'M3 7h18M3 12h18M3 17h18',
+    schedule: [
+      { days: 'Monday – Friday:', hours: '4:00 PM' },
+      { days: 'Saturday:', hours: 'No pickup' },
+      { days: 'Sunday:', hours: 'No pickup' },
+    ],
+    notes: 'Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.',
+  },
+  {
+    carrierName: 'FedEx Express',
+    title: 'FedEx Express',
+    accentColor: 'text-[var(--color-primary)]',
+    iconPath: 'M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z',
+    schedule: [
+      { days: 'Monday – Friday:', hours: '5:00 PM' },
+      { days: 'Saturday:', hours: '12:00 PM (Noon)' },
+      { days: 'Sunday:', hours: 'No pickup' },
+    ],
+    notes: 'For overnight, 2-day, and express saver shipments. Separate from Ground.',
+  },
+  {
+    carrierName: 'FedEx Ground',
+    title: 'FedEx Ground',
+    accentColor: 'text-[var(--color-accent-warm)]',
+    iconPath: 'M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z',
+    schedule: [
+      { days: 'Monday – Friday:', hours: '4:00 PM' },
+      { days: 'Saturday:', hours: 'No pickup' },
+      { days: 'Sunday:', hours: 'No pickup' },
+    ],
+    notes: 'Standard ground shipping and Home Delivery packages.',
+  },
+];
 ---
 <BaseLayout>
   <div class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -9,113 +61,27 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     </p>
 
     <div class="grid gap-6 md:grid-cols-2">
-      {/* USPS Pickup */}
-      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
-        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-warm)] flex items-center">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5 mr-2 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5a3.5 3.5 0 110 7 3.5 3.5 0 010-7zM12 4a8 8 0 110 16 8 8 0 010-16z"></path></svg>
-          USPS Pickup
-        </h2>
-        <table class="w-full text-left text-[var(--color-text-secondary)]">
-          <tbody>
-            <tr>
-              <th scope="row" class="py-2 font-medium width-[120px]">Monday – Friday:</th>
-              <td class="py-2">2:30 PM</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Saturday:</th>
-              <td class="py-2">12:00 PM (Noon)</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Sunday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
-          Accepts stamped mail, prepaid labels, Priority Mail, and returns.
-        </p>
-      </div>
-
-      {/* UPS Pickup */}
-      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
-        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-warm)] flex items-center">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5 mr-2 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18"></path></svg>
-          UPS Pickup
-        </h2>
-        <table class="w-full text-left text-[var(--color-text-secondary)]">
-          <tbody>
-            <tr>
-              <th scope="row" class="py-2 font-medium width-[120px]">Monday – Friday:</th>
-              <td class="py-2">4:00 PM</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Saturday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Sunday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
-          Accepts pre-labeled drop-offs, Amazon returns (with label), and air/ground packages.
-        </p>
-      </div>
-
-      {/* FedEx Express */}
-      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
-        <h2 class="mb-4 text-xl font-semibold text-[var(--color-primary)] flex items-center">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5 mr-2 text-[var(--color-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"></path></svg>
-          FedEx Express
-        </h2>
-        <table class="w-full text-left text-[var(--color-text-secondary)]">
-          <tbody>
-            <tr>
-              <th scope="row" class="py-2 font-medium width-[120px]">Monday – Friday:</th>
-              <td class="py-2">5:00 PM</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Saturday:</th>
-              <td class="py-2">12:00 PM (Noon)</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Sunday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
-          For overnight, 2-day, and express saver shipments. Separate from Ground.
-        </p>
-      </div>
-
-      {/* FedEx Ground */}
-      <div class="bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6">
-        <h2 class="mb-4 text-xl font-semibold text-[var(--color-accent-warm)] flex items-center">
-          <svg aria-hidden="true" focusable="false" class="w-5 h-5 mr-2 text-[var(--color-accent-warm)]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 2a.5.5 0 01.5-.5h3a.5.5 0 010 1h-3a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h2a.5.5 0 010 1h-2a.5.5 0 01-.5-.5z"></path></svg>
-          FedEx Ground
-        </h2>
-        <table class="w-full text-left text-[var(--color-text-secondary)]">
-          <tbody>
-            <tr>
-              <th scope="row" class="py-2 font-medium width-[120px]">Monday – Friday:</th>
-              <td class="py-2">4:00 PM</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Saturday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-            <tr>
-              <th scope="row" class="py-2 font-medium">Sunday:</th>
-              <td class="py-2">No pickup</td>
-            </tr>
-          </tbody>
-        </table>
-        <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
-          Standard ground shipping and Home Delivery packages.
-        </p>
-      </div>
+      {carriers.map((carrier) => (
+        <CarrierPickupCard
+          carrierName={carrier.carrierName}
+          title={carrier.title}
+          accentColor={carrier.accentColor}
+          schedule={carrier.schedule}
+          notes={carrier.notes}
+        >
+          <svg
+            slot="icon"
+            aria-hidden="true"
+            focusable="false"
+            class:list={["w-5 h-5 mr-2", carrier.accentColor]}
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={carrier.iconPath} />
+          </svg>
+        </CarrierPickupCard>
+      ))}
     </div>
 
     {/* Holiday Schedule */}
