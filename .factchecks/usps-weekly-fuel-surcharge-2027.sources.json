@@ -1,0 +1,263 @@
+{
+  "source_extracts": [
+    {
+      "claim": "USPS will begin a fuel surcharge on package services starting January 2027, announced Oct 26, 2026",
+      "quote": "The U.S. Postal Service will begin levying a fuel surcharge on various package shipping services starting in January 2027, the agency announced Monday.",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/"
+    },
+    {
+      "claim": "Applies to Ground Advantage, Priority Mail, Priority Mail Express, Parcel Select; domestic only",
+      "quote": "The fuel fee will apply to USPS Ground Advantage, Priority Mail, Priority Mail Express and Parcel Select shipments... The surcharge, which covers domestic shipments only",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/"
+    },
+    {
+      "claim": "Weekly updates from EIA diesel and jet fuel prices; percentage of base postage",
+      "quote": "will update on a weekly basis based on diesel and jet fuel prices listed on the U.S. Energy Information Administration\u2019s website. The Postal Service said the fuel surcharge will be calculated as a percentage of the base postage amount.",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/"
+    },
+    {
+      "claim": "Publishing lead times: 3-5 days diesel, 3-4 days jet fuel",
+      "quote": "The specific percentage will be published three to five days prior to implementation for shipments in which diesel applies, and three to four days before implementation for jet fuel-applicable shipments.",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/"
+    },
+    {
+      "claim": "Fuel-type mapping: GA/Parcel Select = diesel, Priority/PM Express = jet fuel; base postage only, excludes extra services and nonstandard fees; retail and commercial incl. return services",
+      "quote": "The surcharge will apply to both retail and commercial shipments using Priority Mail Express, Priority Mail, USPS Ground Advantage and Parcel Select, including applicable return services. Ground Advantage and Parcel Select surcharges will be based on diesel prices, while Priority Mail and Priority Mail Express will use jet fuel prices reported by the US Energy Information Administration (EIA). The surcharge will be calculated as a percentage of base postage, excluding additional services and nonstandard fees.",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "No starting percentages, formula, or min/max disclosed; rates may rise or fall weekly",
+      "quote": "USPS has not disclosed the initial surcharge percentages, the formulas used to calculate them or whether weekly fluctuations will be subject to minimum or maximum limits. ... Rates could increase or decrease each week depending on fuel prices",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "FAQ removed from PostalPro Oct 28, 2026, two days after publication, no explanation",
+      "quote": "USPS has removed the Fuel Surcharge Implementation FAQ from its PostalPro website, just two days after publishing it. No explanation has been provided, and it's unclear whether the removal signals any changes to the planned January 2027 surcharge.",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "Outdated-postage packages face postage due",
+      "quote": "Q: What will happen to items that have the \u201cold\u201d surcharge amount (Retail /Commercial) \u2014 will they be postage due? A: Yes. Items should have the correct postage and fees paid for at the time of mailing.",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "Temporary 8% increase: effective April 26, 2026, scheduled to expire Jan 17, 2027",
+      "quote": "That temporary increase took effect April 26 and is currently scheduled to expire January 17, 2027",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "USPS March 2026 framing: bridge to permanent mechanism; less than one-third of competitor fuel charges",
+      "quote": "\u201cthis charge is less than one-third of what our competitors charge for fuel alone\u201d and would \u201cprovide a necessary bridge to a permanent mechanism\u201d",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/",
+      "orig": "https://about.usps.com/newsroom/national-releases/2026/0325-usps-announces-transportation-related-time-limited-price-change.htm"
+    },
+    {
+      "claim": "Q3 FY2026: package revenue +7.7% YoY on -3.4% volume; $2.5B net loss",
+      "quote": "The agency reported a $2.5 billion net loss in fiscal Q3 2026 ... even as Shipping and Packages revenue increased 7.7% despite a 3.4% decline in volume.",
+      "url": "https://www.valueaddedresource.net/usps-weekly-variable-fuel-surcharge/"
+    },
+    {
+      "claim": "FedEx and UPS levy their own fuel fees based on the same EIA diesel/jet prices",
+      "quote": "these surcharges have contributed to elevated delivery prices for shippers throughout 2026 (FedEx/UPS fuel surcharge alignment)",
+      "url": "https://www.supplychaindive.com/news/usps-to-debut-weekly-fuel-fee-in-2027-matching-fedex-ups-practices/872778/"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "January 2027",
+      "scope": "month-only start of the USPS weekly fuel surcharge; USPS gave no exact day"
+    },
+    {
+      "value": "October 26, 2026",
+      "scope": "date USPS published the Fuel Surcharge Implementation FAQ on PostalPro"
+    },
+    {
+      "value": "October 28, 2026",
+      "scope": "date USPS removed the FAQ from PostalPro without explanation (per Value Added Resource)"
+    },
+    {
+      "value": "4 services",
+      "scope": "Ground Advantage, Priority Mail, Priority Mail Express, Parcel Select (plus applicable return services), domestic retail and commercial"
+    },
+    {
+      "value": "weekly",
+      "scope": "surcharge update cadence, per USPS FAQ"
+    },
+    {
+      "value": "3-5 days",
+      "scope": "advance publication of new percentage for diesel-based products (Ground Advantage, Parcel Select)"
+    },
+    {
+      "value": "3-4 days",
+      "scope": "advance publication of new percentage for jet-fuel products (Priority Mail, Priority Mail Express)"
+    },
+    {
+      "value": "8%",
+      "scope": "USPS temporary transportation-related price increase, effective April 26, 2026, scheduled to expire January 17, 2027"
+    },
+    {
+      "value": "January 17, 2027",
+      "scope": "scheduled end of the temporary 8% increase (and holiday increases)"
+    },
+    {
+      "value": "7.7%",
+      "scope": "USPS Shipping and Packages revenue growth YoY, fiscal Q3 2026"
+    },
+    {
+      "value": "3.4%",
+      "scope": "USPS package volume decline YoY, fiscal Q3 2026"
+    },
+    {
+      "value": "$2.5 billion",
+      "scope": "USPS net loss, fiscal Q3 2026"
+    },
+    {
+      "value": "one-third",
+      "scope": "USPS claim that its 8% charge was less than one-third of competitor fuel charges (March 2026)"
+    },
+    {
+      "value": "3 to 5 days",
+      "scope": "advance publication of new percentage for diesel-based products (Ground Advantage, Parcel Select) \u2014 word-form variant"
+    },
+    {
+      "value": "3 to 4 days",
+      "scope": "advance publication of new percentage for jet-fuel products (Priority Mail, Priority Mail Express) \u2014 word-form variant"
+    },
+    {
+      "value": "Oct. 26, 2026",
+      "scope": "date USPS published the Fuel Surcharge Implementation FAQ \u2014 abbreviation variant"
+    },
+    {
+      "value": "Jan. 17, 2027",
+      "scope": "scheduled end of the temporary 8% increase \u2014 abbreviation variant"
+    },
+    {
+      "value": "8",
+      "scope": "the temporary 8% USPS price increase, effective April 26, 2026 through January 17, 2027 \u2014 bare-numeral variant of '8%'"
+    },
+    {
+      "value": "3",
+      "scope": "digit part of the '3 to 5 days' / '3 to 4 days' publication-notice figures (word-form and digit tokens)"
+    },
+    {
+      "value": "5 days",
+      "scope": "diesel-notice upper bound, part of '3 to 5 days'"
+    },
+    {
+      "value": "4 days",
+      "scope": "jet-fuel-notice upper bound, part of '3 to 4 days'"
+    },
+    {
+      "value": "8",
+      "scope": "bare numeral of the temporary 8% USPS increase"
+    },
+    {
+      "value": "17",
+      "scope": "day-of-month in January 17, 2027 expiry date"
+    },
+    {
+      "value": "26",
+      "scope": "day-of-month in Oct. 26, 2026 FAQ publication date"
+    },
+    {
+      "value": "$24",
+      "scope": "illustrative list price in a hypothetical seller example \u2014 not a real rate or store price"
+    },
+    {
+      "value": "7.7%",
+      "scope": "USPS Shipping and Packages revenue growth YoY, fiscal Q3 2026 (digit variant of '7.7%')"
+    },
+    {
+      "value": "3.4%",
+      "scope": "USPS package volume decline YoY, fiscal Q3 2026 (digit variant of '3.4%')"
+    },
+    {
+      "value": "$2.5",
+      "scope": "$2.5 billion USPS net loss, fiscal Q3 2026 (decimal token variant)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive, Concord Township (content/facts.json approved location)"
+    },
+    {
+      "value": "7.7",
+      "scope": "bare decimal of the 7.7% USPS package revenue growth, fiscal Q3 2026"
+    },
+    {
+      "value": "3.4",
+      "scope": "bare decimal of the 3.4% USPS package volume decline, fiscal Q3 2026"
+    },
+    {
+      "value": "1",
+      "scope": "ordered-list step number in How-to section (not a factual claim)"
+    },
+    {
+      "value": "2",
+      "scope": "ordered-list step number in How-to section (not a factual claim)"
+    },
+    {
+      "value": "3",
+      "scope": "ordered-list step number in How-to section (not a factual claim)"
+    },
+    {
+      "value": "9",
+      "scope": "hour in the illustrative 9:40 p.m. scene detail (narrative, not a claim)"
+    },
+    {
+      "value": "40",
+      "scope": "minutes in the illustrative 9:40 p.m. scene detail (narrative, not a claim)"
+    },
+    {
+      "value": "28",
+      "scope": "day-of-month in Oct. 28, 2026 FAQ removal date"
+    },
+    {
+      "value": "seven days",
+      "scope": "weekly cadence of the surcharge \u2014 word-form variant of 'weekly'"
+    },
+    {
+      "value": "two days",
+      "scope": "FAQ removal timing \u2014 removed Oct 28, two days after Oct 26 publication (word form)"
+    },
+    {
+      "value": "hundred",
+      "scope": "illustrative 'a few hundred packages' in the margin example (word form, not a claim)"
+    },
+    {
+      "value": "hundred packages",
+      "scope": "illustrative 'a few hundred packages' volume phrase in the margin example (word form, not a factual claim)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "Stating any specific USPS 2027 fuel-surcharge percentage or formula",
+      "reason": "USPS has not disclosed starting percentages, formula, or min/max caps"
+    },
+    {
+      "forbidden": "Claiming the weekly surcharge replaces or starts the day the 8% increase ends",
+      "reason": "USPS has not said whether the weekly surcharge begins Jan 17, 2027 or what replaces the 8%"
+    },
+    {
+      "forbidden": "Stating an exact start date (e.g. Jan 17) for the new surcharge",
+      "reason": "USPS gave only 'January 2027'"
+    },
+    {
+      "forbidden": "Presenting the program as final/certain",
+      "reason": "USPS removed the FAQ two days after publication without explanation; copy must carry point-in-time phrasing ('as of early November 2026', 'announced', 'currently scheduled')"
+    },
+    {
+      "forbidden": "Mail-Only tier / storefront pricing overreach or invented Mailbox Plus fees",
+      "reason": "No Mailbox Plus prices appear in this article; counter claims must stay un-timed and qualified"
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "rates change weekly",
+      "qualifier": "per the USPS FAQ as published Oct 26, 2026"
+    },
+    {
+      "claim": "postage due on old-percentage labels",
+      "qualifier": "per the FAQ's postage-due item; label-platform handling was unclear at publication"
+    }
+  ]
+}
