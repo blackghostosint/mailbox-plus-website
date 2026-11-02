@@ -1,0 +1,54 @@
+{
+  "source_extracts": [
+    {
+      "label": "LetterSeals mailing guide — traditional wax",
+      "url": "https://www.letterseals.com/blogs/waxing-about-wax/sealing-wax-for-mailing-how-to-choose-the-right-wax-for-beautiful-mail-safe-seals",
+      "quote": "Traditional sealing wax offers beautiful detail but contains a higher shellac content, making it breakable under pressure. For this reason, it’s best reserved for decorative projects or invitations that won’t be mailed."
+    },
+    {
+      "label": "LetterSeals mailing guide — flexible wax",
+      "url": "https://www.letterseals.com/blogs/waxing-about-wax/sealing-wax-for-mailing-how-to-choose-the-right-wax-for-beautiful-mail-safe-seals",
+      "quote": "Flexible sealing wax for mailing is engineered to resist cracking during automated sorting and handling."
+    },
+    {
+      "label": "LetterSeals mailing guide — automated equipment and seal protection",
+      "url": "https://www.letterseals.com/blogs/waxing-about-wax/sealing-wax-for-mailing-how-to-choose-the-right-wax-for-beautiful-mail-safe-seals",
+      "quote": "Postal offices use many automated machines for stamp canceling and sorting. These machines could potentially smear/remove wax seals, even if these are mailable waxes. Please consider using your seal on the inside of your mailing to avoid seal damage, as well as extra handling costs from your postal office."
+    },
+    {
+      "label": "Mailbox Plus site configuration — street address",
+      "url": "https://mailboxplusohio.com/",
+      "quote": "street: '7554 Fredle Drive', city: 'Concord Township'"
+    },
+    {
+      "label": "Editorial count — article checklist",
+      "url": "https://mailboxplusohio.com/articles/wax-seals-that-survive-the-mail/",
+      "quote": "The article's checklist is numbered 1, 2, 3; the quick answer summarizes it as three checks."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "1",
+      "scope": "first numbered editorial checklist item"
+    },
+    {
+      "value": "2",
+      "scope": "second numbered editorial checklist item"
+    },
+    {
+      "value": "3",
+      "scope": "third checklist item and quickAnswer's editorial count of three checks"
+    },
+    {
+      "value": "7554",
+      "scope": "Mailbox Plus street number in the store address (siteConfig)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "\\b(?:guaranteed?\\s+(?:delivery|arrival|undamaged)|(?:will|always)\\s+arrive\\s+(?:whole|intact|undamaged))\\b",
+      "reason": "The source says flexible wax resists cracking and recommends protecting the seal inside; it does not guarantee an undamaged delivery."
+    }
+  ],
+  "required_when": []
+}

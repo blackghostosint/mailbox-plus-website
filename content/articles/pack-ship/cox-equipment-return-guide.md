@@ -1,121 +1,98 @@
 ---
-title: 'How to Return Your Cox Equipment (Without Getting Charged)'
-description: 'Cox gives you 15 days to return your modem and receivers after you disconnect — miss it and you get charged. Here is exactly what to return, where it has to go, and the one step most people skip.'
+title: 'How to Return Cox Equipment: Drop-Off Options and the 15-Day Rule'
+description: 'Returning Cox internet or TV equipment? Use a Spectrum retail store or UPS Store, disconnect first, and return the listed gear within 15 calendar days.'
 slug: 'cox-equipment-return-guide'
 category: 'pack-ship'
 intentKey: 'cox-equipment-return-guide'
 pubDate: '2026-08-12T12:00:00-05:00'
+lastModified: '2026-11-01'
 status: 'published'
+articleType: 'comparison'
+quickAnswer: >-
+  After a Cox residential service change, contact Cox first. Return leased internet or TV equipment named in your account email to a Spectrum retail store or UPS Store within 15 calendar days. Purchased equipment refunds go to a Cox-owned retail store within 30 days; Xumo-device refunds go to a retail store within 30 days. Cox Mobile devices should not go to a UPS Store without an agent-provided return label. Check Cox's current instructions.
+faqs:
+  - question: 'How long do I have to return Cox equipment?'
+    answer: 'Cox says residential equipment must be returned within 15 calendar days to avoid unreturned-equipment charges. Check the email sent after your service change for the equipment Cox expects back.'
+  - question: 'Where can I return Cox internet or TV equipment?'
+    answer: 'Cox lists a Spectrum retail store and a UPS Store as drop-off options for residential equipment. Use Cox’s current instructions and location finders before you leave.'
+  - question: 'Do I need a box or shipping label for a Cox equipment return?'
+    answer: 'No. Cox says a return box and shipping label are not needed when you drop equipment at a listed return location. Cox also says the listed drop-off methods have no fee.'
+  - question: 'What if I bought the Cox equipment?'
+    answer: 'Cox says purchased equipment must go to a Cox-owned retail store within 30 days of purchase for a refund by the payment method used for purchase. Xumo devices are a separate case: take the devices to a retail store within 30 days for a refund by the purchase method.'
+  - question: 'Should I disconnect Cox service before returning equipment?'
+    answer: 'Yes. Cox says to contact it to downgrade or disconnect service before returning equipment to avoid potential charges.'
 image: 'articles/pack-ship/cox-equipment-return-guide-featured.webp'
-imageAlt: 'A Cox internet modem and a digital TV receiver with their power cords on a clean counter, ready to be returned, warm natural light in a local shipping store — Mailbox Plus packing and shipping in Concord Township, OH.'
+imageAlt: 'A black electronic receiver, power adapter, and remote on a wooden packing bench as a worker prepares a box nearby.'
 location: 'concord-township'
 keywords:
   [
-    'return Cox equipment',
-    'how to return Cox router',
-    'Cox equipment return near me',
-    'Cox unreturned equipment charge',
+    'how to return Cox equipment',
+    'Cox equipment return',
+    'where to return Cox modem',
+    'Cox return UPS Store',
+    'Cox equipment return deadline',
   ]
-relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs', '/home-business/mailbox-rental']
-author: 'Mailbox Plus Team'
+relatedServices: ['/pack-ship/', '/pack-ship/package-drop-offs/', '/contact-us/']
+author: 'Reviewed by Frank Schwarz, COO'
 ---
 
-## The Scene That Starts Everything
+## Return Cox equipment at a Spectrum retail store or UPS Store
 
-You finally canceled your Cox internet and cable. That was a fifteen-minute phone call and a small relief. Then the confirmation email ended with a line that made you pause: "Return your equipment within 15 days to avoid unreturned equipment charges."
+After you contact Cox to downgrade or disconnect service, return only the leased residential internet or TV equipment named in your service-change email to a Spectrum retail store or UPS Store within **15 calendar days**. Cox says the listed drop-offs need no box or shipping label.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-Now the pile is on your dining room table. An internet modem. A digital TV receiver. A remote control. Three power cords, and you are not entirely sure which device each one belongs to.
+That Spectrum/UPS route is limited to leased residential gear after a service change. Purchased equipment and Xumo devices returned for a refund, along with Cox Mobile devices, follow different instructions below.
 
-Somewhere, a clock is running. You have fifteen days to figure out where this equipment goes, whether you need a box and a label, and how to prove you handed it back — or Cox adds unreturned equipment charges to your final bill.
+On your table, the modem's power cord is coiled beside it while the service-change email is open on your phone. The worry is not forgetting a model name; it is leaving an account-listed item behind and seeing an unreturned-equipment charge later. Cox says the email identifies the gear, so you do not have to sort the pile from memory.
 
-Here is the thing nobody tells you: the hard part is not the drop-off. It is the step most people skip before they ever leave the house.
+## The Cox-to-Spectrum name mismatch is the trap
 
-## The Return Hiding in Fine Print
+Cox's return page sends you to a Spectrum retail-store finder for a Cox equipment return. That name mismatch is easy to miss when you search for a Cox store, especially when a box and its cords are already waiting by the door. For this return, “Cox store near me” is not the final check: use the Spectrum locator Cox links to, or the UPS Store locator for the other listed route. A saved bookmark or old store name may not reflect the current instructions. If the page or your account email has changed, follow those current Cox directions rather than this guide.
 
-Cox does not make this hard on purpose, but the rules are easy to miss, and each one has a cost attached.
+You do not have to solve the branding mismatch yourself. Let Cox's current page tell you which locator to use, then check that the location is listed before you drive. The company name in a search result is less useful than the route Cox gives for this specific return.
 
-First, the clock. Cox equipment must be returned within **15 calendar days** of your service change. Miss it and you are billed for equipment you no longer have.
+## The deadline is real; the item list is account-specific
 
-Second, the disconnect step. Cox's own instructions are blunt about it: to avoid potential charges, you need to **contact Cox to downgrade or disconnect the service before you return the equipment**. If you drop the gear off but never actually closed the account the right way, the charges can still land on your bill. This is the step people skip.
+Cox's current residential instructions also say returned equipment must be in the same condition it was received.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-Third, the same-condition rule. To avoid fees, the equipment has to go back in the same condition it arrived — no significant damage.
+Do not assume that every device in the house belongs in the return. Cox says the email sent after a service change lists the equipment that needs to be returned. Its published list includes digital receivers, internet modems, telephone modems, remote controls, power cords and power supplies, and a Cox-supplied Netgear router for Gigablast customers. Use that email to decide what goes in the return—not a guess based on which cables happen to fit.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-And fourth, knowing _what_ has to go back. The email Cox sends after your service change lists it, but generally it is: internet modems, telephone modems, digital receivers, remote controls, power cords and power supplies, a Cox-supplied router if you had Gigablast, and a Homelife touchscreen if you leased one. The cables and accessories you bought yourself stay yours.
+Before you pack, set the email beside the gear and match each named item to what is on the table. A remote can look like part of the set without being on your account's return list; a power supply can look familiar without answering whether Cox expects it back. The point is not to make the pile look complete. It is to follow the account-specific list, and to ask Cox when a listed item is missing or unclear.
 
-## What It Actually Feels Like
+If the email names a device you cannot find, or you cannot tell whether a cord belongs with it, ask Cox before leaving anything. The general equipment list is only a starting point; your account email is the checklist for your return.
 
-It is the uncertainty that wears on you. You stand at the table and ask the same questions out loud: Do I have to box this up? Do I need to print a label? Do I take it to Cox or to a shipping store? Did I actually cancel the account, or just ask about it?
+## Which Cox return option should you choose?
 
-Every wrong answer has a cost. Take it to the wrong place and the clerk says no. Return the wrong thing and the charge still shows up. Drop it off without formally disconnecting and the whole point is lost.
+Cox lists free drop-offs for leased residential gear after a service change at a Spectrum retail store or a UPS Store. The listed methods need no return box or shipping label; check the current location finders before you leave.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-So the pile sits there for a week, then ten days. It is not that the equipment is heavy — it is the paperwork, the unknown, the feeling that you are one misstep away from being charged for the privilege of returning something you do not want.
+| Your situation                                                   | Best next stop                                          | Why                                                                                                                              |
+| ---------------------------------------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Returning leased internet or TV equipment after changing service | A Spectrum retail store or a UPS Store                  | Both are listed as Cox residential equipment-return options. Check the current locator and your account email before you leave.  |
+| Returning purchased equipment other than Xumo for a refund       | A Cox-owned retail store                                | Cox says purchased equipment must go to a Cox-owned retail store within 30 days of purchase for a refund by the purchase method. |
+| Returning a Xumo device for a refund                             | A retail store                                          | Cox says Xumo devices must go to a retail store within 30 days of purchase for a refund by the purchase method.                  |
+| Returning a Cox Mobile device                                    | Contact a Cox agent for the return label and directions | Cox warns not to take a mobile device to a UPS Store without a label provided by an agent.                                       |
+| Unsure whether an item is yours to return                        | Check the Cox service-change email or ask Cox           | Cox says that email lists the equipment required for your account.                                                               |
 
-## Why It Should Not Be This Way
+If your situation falls outside the leased-residential row, use the purchased-equipment or Cox Mobile row instead; the routes are not interchangeable.
 
-You rented a box from a company to receive the internet and TV you paid for. When the service ends, you should hand the box back and be done. That is a fair, simple transaction.
+## Your Cox return checklist
 
-It should not require decoding a return policy to avoid being billed for equipment you are happy to return. It should not hang on a fifteen-day clock with a quiet deadline and a surprise charge at the end. A modem you no longer use should never become a line item on your final bill.
+Use this against the email Cox sends after a service change before you leave home. It keeps the account's list separate from the general equipment categories on Cox's page, and keeps the exceptions visible. You do not have to identify a model from memory; when the item or location is unclear, let Cox clarify before you hand anything over.
 
-The good news is that once you know the two or three things that actually matter, the whole thing takes one trip and no box at all.
+- Contact Cox to downgrade or disconnect service before returning equipment.
+- Gather only the items named in your account email. If an item is missing or unclear, ask Cox before leaving anything.
+- Confirm the route: leased residential equipment goes to a Spectrum retail store or UPS Store; purchased equipment other than Xumo for a refund goes to a Cox-owned retail store within 30 days; a Xumo-device refund goes to a retail store within 30 days; Cox Mobile devices should not go to a UPS Store without an agent-provided return label.
+- Keep the return record from the location, then check your Cox account or bill for the return.
 
-## What We See Every Day
+At the listed drop-off, no return box or shipping label is needed, and Cox says there is no fee. If equipment is damaged, missing, or not clearly listed, check with Cox rather than assuming the handoff settles the question.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-This is the part where we tell you the truth, even though it costs us a sale.
+## Where Mailbox Plus fits—and where it does not
 
-Mailbox Plus is a full-service shipping and returns store in Concord Township. Returns are our entire business — we run one of the busiest return counters in Lake County. So the first question people ask us when they cancel their Cox service is: "Can you take my Cox equipment?"
+Cox does not list Mailbox Plus as a residential return destination; its current page names Spectrum retail stores and UPS Stores for leased equipment. Use the checklist above against your account email, and contact Cox about missing or unclear items. Our pack-and-ship counter can help with a separate parcel, but that is a different transaction.[Cox's current equipment-return instructions](https://www.cox.com/residential/support/returning-your-equipment.html)
 
-The honest answer is no, and we will tell you that to your face.
+![Mailbox Plus shipping counter with parcel packages and mailers in front of the private-mailbox wall](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
-Cox's return program runs through two types of locations: **The UPS Store** and **Cox's own retail stores**. Those are the places Cox's systems are set up to accept the gear. Mailbox Plus is an independent shipping center — not a The UPS Store franchise and not a Cox retail store — so we are simply not in Cox's return network. If we took your modem, it would not reach Cox in a way that clears your account, and you would still owe the charge. We would rather tell you the truth than take your box and your money.
+If you also have an ordinary parcel to send, our [pack-and-ship counter](/pack-ship/) can help with that separate shipping job.
 
-Here is why that honesty matters: it is the same instinct we apply to every return that comes through our door. When we say we can take something, we mean it. When we say a carrier needs it elsewhere, we say so. You will never leave our counter with a false promise and a charge down the line.
+## Make the handoff, then close the loop
 
-## How the Cox Return Actually Works
-
-Here is the whole thing, stripped down, from Cox's own published process.
-
-**Step one — disconnect first.** Before you drop anything off, contact Cox to cancel or downgrade the service. That phone call (or chat) is what actually prevents the charges. Cox's instructions are explicit: contact them before returning the equipment to avoid potential fees. Do not skip this.
-
-**Step two — gather the right gear.** The modems, the digital receivers, the remote controls, and the power cords and power supplies. Check the email Cox sent after your service change — it lists exactly what your account needs returned. If you are not sure, that email is the source of truth.
-
-**Step three — take it unboxed to an authorized location.** You do not need a box. You do not need to print a label. Just bring the equipment to a **Cox Retail Store** or a **The UPS Store**. A return box and a shipping label are not needed when you drop the gear off. Hand it to the associate, and keep the receipt as your proof of return.
-
-**One warning about Cox Mobile.** If you are returning a Cox Mobile device, do **not** take it to a UPS store without a return label provided by a Cox agent. Contact Cox to get the shipping label first — mobile returns work differently from internet and TV equipment.
-
-That is the entire procedure. Ten minutes of fear, one trip, no box.
-
-## What We Can Do for You
-
-The moment your return is not Cox equipment — and most returns are not — that is our counter.
-
-We handle the returns that do not fit one box or one carrier. An online order that needs to go back to a brand with a Happy Returns or Nuuly label: we scan the QR code on your phone, bag it, hand you a receipt — no printer, no box, no label required. We are an authorized drop-off for all four major carriers, so your UPS return, FedEx return, USPS return, and DHL return all leave from the same counter. One stop instead of three.
-
-We also sell you the thing you are probably missing right now: time. We pack and ship for you — box, tape, fragile packing, the whole job — so you hand us the item and walk out with a receipt. We print labels. We offer notary services. And if the reason you are always dealing with returns and shipments is that your home address is getting too tangled up in your business, we rent private mailboxes.
-
-When your equipment return is Cox, we will point you honestly to where it has to go. When it is anything else, we will take it, pack it, and ship it from the same counter. [See what we handle at our pack-and-ship counter →](/pack-ship/)
-
-## What You Lose by Not Acting
-
-If the Cox gear sits on your table past the window, the charge is not the only cost.
-
-First, the money. Unreturned equipment charges land on a bill for an account you already closed, at an address you may have moved from, and reversing them takes a phone call that lasts longer than the return itself would have.
-
-Second, the missed disconnect. If you drop the gear off without formally closing the account, you have done the work and still not avoided the charge. That is the cruelest version — the effort with none of the payoff.
-
-And third, the habit of avoidance. The person who puts off the Cox return is the same person who lets returns pile up, drives to three different carriers in one afternoon, and treats shipping like a chore instead of a two-minute errand. That is the pattern worth breaking.
-
-## Your Afternoon After the Change
-
-You call Cox and formally close the account — fifteen minutes. You gather the modem, the receiver, the remote, and the power cords into a bag. You drive to the authorized location, hand the equipment to the associate, and walk out with a receipt in under ten minutes. No box, no label, no line at the printer.
-
-Your account shows the return. No unreturned charge. The pile is gone from your dining room table, and with it the low hum of anxiety you had stopped noticing.
-
-Now the rest of your returns, and your next shipment, are one counter. You walk into Mailbox Plus at 7554 Fredle Drive in Concord Township, drop the Amazon box and the Zappos box and the Etsy box, and the person at the counter routes all three to their carriers while you wait. Under three minutes. Receipts in hand, you walk out.
-
-## Bring It In
-
-Returning equipment should not be a scavenger hunt, and shipping should not be a three-stop errand.
-
-Bring your Cox gear to an authorized The UPS Store or Cox Retail Store to clear your account — and remember to disconnect first. Bring everything else to us. Pack-and-ship, printed labels, Happy Returns drop-offs, all four carriers at one counter, at 7554 Fredle Drive in Concord Township.
-
-[Visit Mailbox Plus →](/contact-us/)
+After the drop-off, check your Cox account or bill for the return. If a charge appears, use the location's record when you contact Cox; the confirmation, not your memory, is what you can refer back to. Keep the Cox email and return record together until the account reflects the return: the email shows what Cox asked for, and the record shows what you handed over. That gives you a clear next step if the account still shows an item outstanding, without trying to reconstruct which device or cord was in the bag. You do not need to know every model name or carry the whole story in your head. For another provider's equipment, see our [AT&T return guide](/articles/att-equipment-return-guide/) and [AT&T destination comparison](/articles/where-to-return-att-equipment-fedex-or-ups/).

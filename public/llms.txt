@@ -257,8 +257,8 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
   Published 2026-09-07.
 - [Shipping Something Valuable From Concord Township? The Carrier Only Covers $100.](https://mailboxplusohio.com/articles/concord-township-shipping-insurance/): Standard carrier liability caps most lost or damaged shipments at $100. Mailbox Plus in Concord Township offers third-party declared-value coverage through Marsh — up to $50,000 per package.
   Published 2026-09-16.
-- [How to Return Your Cox Equipment (Without Getting Charged)](https://mailboxplusohio.com/articles/cox-equipment-return-guide/): Cox gives you 15 days to return your modem and receivers after you disconnect — miss it and you get charged. Here is exactly what to return, where it has to go, and the one step most people skip.
-  Published 2026-08-12.
+- [How to Return Cox Equipment: Drop-Off Options and the 15-Day Rule](https://mailboxplusohio.com/articles/cox-equipment-return-guide/): Returning Cox internet or TV equipment? Use a Spectrum retail store or UPS Store, disconnect first, and return the listed gear within 15 calendar days.
+  Published 2026-08-12, updated 2026-11-01.
 - [Custom Shipping Platforms in Northeast Ohio: How Big, Heavy, and Odd-Shaped Items Actually Ship](https://mailboxplusohio.com/articles/custom-shipping-platforms-northeast-ohio/): USPS stops at 70 pounds and 130 inches. UPS and FedEx stop at 150 pounds. Here is the real size math for big, heavy, and odd-shaped shipments in Northeast Ohio — and how one counter in Concord Township handles it.
   Published 2026-09-28.
 - [Does a Fragile Sticker Actually Protect Your Package?](https://mailboxplusohio.com/articles/does-fragile-sticker-work/): A fragile sticker does not change how carriers handle your box — the packing does. What the research says, and what actually keeps breakables safe in transit.
@@ -385,8 +385,8 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
   Published 2026-09-30.
 - [You Sold It on Vinted — Here Is Where the Package Actually Goes](https://mailboxplusohio.com/articles/vinted-go-drop-off-concord-township/): You made the sale on Vinted and the buyer picked SpeedX or Vinted Go shipping. Now what? How the prepaid label works, what SpeedX is, and where to drop off a labeled package in Concord Township, Ohio.
   Published 2026-09-10.
-- [Wax Seals Through the Mail: Which Wax Survives the Sorter](https://mailboxplusohio.com/articles/wax-seals-that-survive-the-mail/): A wax seal on an envelope is a promise the recipient can feel. But traditional sealing wax cracks in USPS sorting machines — here's how to seal mail that actually arrives intact.
-  Published 2026-09-14.
+- [How to Mail Wax Seals: Protect the Raised Design](https://mailboxplusohio.com/articles/wax-seals-that-survive-the-mail/): Mailing wax-sealed invitations? Choose flexible sealing wax, protect the raised seal inside an outer envelope, and check its shape and postage before mailing.
+  Published 2026-09-14, updated 2026-11-01.
 - [Your Return Does Not Come Back. Here Is Where It Actually Goes.](https://mailboxplusohio.com/articles/what-happens-to-returned-packages/): You clicked "return" and forgot about it. But most returned packages are not going back on the shelf — 5.8 billion pounds of returned goods went to US landfills in 2020. Here is what happens after you drop a return off, and how to make yours count.
   Published 2026-08-15.
 - [What Is an Authorized Shipping Outlet? UPS and FedEx Terms, Explained](https://mailboxplusohio.com/articles/what-is-an-authorized-shipping-outlet-ups-fedex/): An Authorized Shipping Outlet (UPS) and a FedEx Authorized ShipCenter are independent stores under carrier contracts. What the labels mean, how pricing differs, and why a multi-carrier counter changes the math.
