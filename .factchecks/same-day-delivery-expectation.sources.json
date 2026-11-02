@@ -1,0 +1,80 @@
+{
+  "source_extracts": [
+    {
+      "label": "FedEx SameDay service",
+      "url": "https://www.fedex.com/en-us/shipping/same-day.html",
+      "quote": "With FedEx SameDay® services, your time-sensitive shipments are delivered within hours, depending on flight availability."
+    },
+    {
+      "label": "FedEx SameDay drop-off limitation",
+      "url": "https://www.fedex.com/en-us/shipping/same-day.html",
+      "quote": "Same day shipments can’t be dropped off or picked up at FedEx® Drop Boxes, FedEx Office locations, FedEx OnSite locations, FedEx Ship Center® locations, or FedEx Authorized ShipCenters® (FASCs)."
+    },
+    {
+      "label": "UPS Express Critical same-day service",
+      "url": "https://www.ups.com/us/en/supplychain/freight/urgent-services",
+      "quote": "UPS Express Critical® is our same-day delivery service for urgent, time-sensitive, emergency or high-value goods."
+    },
+    {
+      "label": "UPS Express Critical transit time",
+      "url": "https://www.ups.com/us/en/supplychain/freight/urgent-services",
+      "quote": "UPS Express Critical® is our fastest service with most shipments being delivered in 2 to 12 hours. Transit times vary based on the specific circumstances of each shipment and urgency to have it delivered."
+    },
+    {
+      "label": "USPS Priority Mail Express delivery estimate",
+      "url": "https://www.usps.com/ship/priority-mail-express.htm",
+      "quote": "Priority Mail Express® service provides 1–3 day delivery service by 6 PM with a money–back guarantee1. You get competitive prices and fast delivery every day, all year, with limited exceptions, to most U.S. addresses and PO Boxes™3."
+    },
+    {
+      "label": "USPS Priority Mail Express delivery-date qualifier",
+      "url": "https://www.usps.com/ship/priority-mail-express.htm",
+      "quote": "Scheduled delivery date depends on origin, destination, and drop-off time. Some restrictions apply."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "1-3 days",
+      "scope": "USPS Priority Mail Express delivery estimate for most U.S. addresses, with exceptions and date dependent on origin, destination, and drop-off time"
+    },
+    {
+      "value": "2-12 hours",
+      "scope": "UPS Express Critical most-shipment transit estimate; varies by shipment circumstances and urgency"
+    },
+    {
+      "value": "6 PM",
+      "scope": "USPS Priority Mail Express published delivery time for its 1-3 day range"
+    },
+    {
+      "value": "6",
+      "scope": "USPS Priority Mail Express delivery by 6 p.m. per the USPS service page"
+    },
+    {
+      "value": "1",
+      "scope": "inline source citation marker only, not a factual quantity"
+    },
+    {
+      "value": "2",
+      "scope": "inline source citation marker only, not a factual quantity"
+    },
+    {
+      "value": "3",
+      "scope": "inline source citation marker only, not a factual quantity"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "same-day delivery is guaranteed|guaranteed same-day delivery",
+      "reason": "Carrier same-day services have shipment-specific requirements and availability; the available counter drop-off is not itself a same-day arrival guarantee"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "FedEx SameDay",
+      "must_include": "flight availability"
+    },
+    {
+      "trigger": "UPS Express Critical",
+      "must_include": "vary"
+    }
+  ]
+}
