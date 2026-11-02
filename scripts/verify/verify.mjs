@@ -1556,7 +1556,7 @@ function cmdReview(targetPath, rest = [], asJson = false) {
   const modelIdx = rest.indexOf('--model');
   const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'deepseek/deepseek-v4.1-flash';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '82';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '90';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`
