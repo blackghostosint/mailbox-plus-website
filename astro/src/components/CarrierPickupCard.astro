@@ -1,0 +1,64 @@
+---
+export interface ScheduleEntry {
+  days: string;
+  hours: string;
+  [key: string]: unknown;
+}
+
+export interface Props {
+  carrierName: string;
+  accentColor?: string;
+  schedule: ScheduleEntry[];
+  notes?: string;
+  title?: string;
+  class?: string;
+  className?: string;
+}
+
+const {
+  carrierName,
+  accentColor = 'text-[var(--color-accent-warm)]',
+  schedule = [],
+  notes,
+  title,
+  class: classNameProp = '',
+  className = '',
+} = Astro.props;
+
+const cardTitle = title || carrierName;
+const isClass = !accentColor || accentColor.startsWith('text-');
+const accentClass = isClass ? accentColor : '';
+const accentStyle = !isClass ? `color: ${accentColor};` : undefined;
+---
+
+<div class:list={["bg-[var(--color-bg-secondary)]/80 backdrop-blur-xl border border-[var(--color-border)] shadow-md rounded-lg p-6", classNameProp, className]}>
+  <h2 class:list={["mb-4 text-xl font-semibold flex items-center", accentClass]} style={accentStyle}>
+    <slot name="icon">
+      <slot />
+    </slot>
+    {cardTitle}
+  </h2>
+  <div
+    class="overflow-x-auto"
+    tabindex="0"
+    role="region"
+    aria-label={`${carrierName} pickup schedule`}
+  >
+    <table class="w-full text-left text-[var(--color-text-secondary)]">
+      <caption class="sr-only">{carrierName} pickup schedule</caption>
+      <tbody>
+        {schedule.map((entry) => (
+          <tr>
+            <th scope="row" class="py-2 font-medium width-[120px]">{entry.days}</th>
+            <td class="py-2">{entry.hours}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+  {notes && (
+    <p class="mt-4 text-[var(--color-text-secondary)] text-sm italic">
+      {notes}
+    </p>
+  )}
+</div>
