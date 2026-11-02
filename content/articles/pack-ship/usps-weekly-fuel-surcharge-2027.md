@@ -48,7 +48,7 @@ If you sell online, you already budget shipping to the penny. You know what a Gr
 
 ## The Weekly Shuffle
 
-For years, USPS was the one carrier that did not play this game. FedEx and UPS publish fuel surcharges that update weekly against the same Energy Information Administration price indexes — if you have ever wondered why two ground labels cost different totals in the same week, that table is part of the answer. We covered that mechanism already in [our fuel-surcharge explainer](/articles/fuel-surcharge-ratchet/): most of what you pay above the base rate was set by the carriers, not by diesel.
+For years, USPS charged no fuel surcharge on these products — that is the part that changes in January 2027. FedEx and UPS publish fuel surcharges that update weekly against the same Energy Information Administration price indexes — if you have ever wondered why two ground labels cost different totals in the same week, that table is part of the answer. We covered that mechanism already in [our fuel-surcharge explainer](/articles/fuel-surcharge-ratchet/): most of what you pay above the base rate was set by the carriers, not by diesel.
 
 Now USPS is joining them. According to the Fuel Surcharge Implementation FAQ the agency posted on PostalPro, the new surcharge applies to domestic Ground Advantage, Parcel Select, Priority Mail, and Priority Mail Express — including the matching return services — for retail and commercial shipments alike. Ground Advantage and Parcel Select prices follow diesel. Priority Mail and Priority Mail Express follow jet fuel. The surcharge is a percentage of base postage only, and the percentage can rise or fall every week.
 
@@ -78,7 +78,7 @@ We ship USPS, UPS, and FedEx from the same counter at 7554 Fredle Drive in Conco
 
 Here is the part that matters to you: the weekly shuffle is our problem to track, not yours. We are independent of every carrier, so when the fuel percentage moves on UPS, FedEx, or USPS, we do not have to defend any of them. We quote the real, full, that-day price — fees included — across all three carriers before anything is paid for. If USPS is suddenly the expensive lane for your box this week, we will tell you, and we will show you what the other two charge. You get one number, current as of the moment it prints, for the carrier that actually wins your shipment.
 
-Here is the odd gift in this: now that all three carriers play the same weekly game, the cheapest lane changes week to week. Which lane wins is exactly what we check for you, every time, before you pay.
+Here is the odd gift in this: with USPS joining the weekly fee model, the cheapest lane now changes week to week. Which lane wins is exactly what we check for you, every time, before you pay.
 
 ## How to Ship Through the Shuffle
 
