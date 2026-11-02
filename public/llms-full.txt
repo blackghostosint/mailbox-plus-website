@@ -13677,7 +13677,7 @@ You do not need a spreadsheet or an API subscription. Three steps:
 
 1. **Stop pre-committing to a rate.** If you offer free or flat-rate shipping, build a cushion that assumes the number moves, or switch to calculated shipping so the charge tracks reality.
 2. **Bring the box to the counter.** No homework, no carrier tabs open — we weigh it, and we quote all three carriers at their current, full rates.
-3. **Pick the lane and hand it over.** Labels, forms, drop-offs, the whole thing, done while you are standing there — with the price you agreed to, not the price from four days ago.
+3. **Pick the lane and hand it over.** Labels, forms, drop-offs, the whole thing handled in one stop — with the price you agreed to, not the price from four days ago.
 
 ## What Guessing Costs You
 
@@ -13691,7 +13691,7 @@ Here is the afternoon that changes. You finish packing orders on your schedule, 
 
 ## Bring Us the Box, Not the Math
 
-You do not need to know which carrier's fuel table moved this week, and you do not need to have anything pre-measured or sorted. Bring the boxes as they are — tape half-finished, question marks and all. Figuring out the fairest price on the day you ship is literally why the counter exists. Stop in at [Mailbox Plus in Concord Township](/pack-ship/), or learn more about [package drop-offs](/pack-ship/package-drop-offs/) and [why shipping costs keep rising](/articles/why-shipping-costs-keep-rising/).
+You do not need to know which carrier's fuel table moved this week, and you do not need to have anything pre-measured or sorted. Bring the boxes as they are — tape half-finished, question marks and all. Figuring out the right price on the day you ship is literally why the counter exists. Stop in at [Mailbox Plus in Concord Township](/pack-ship/), or learn more about [package drop-offs](/pack-ship/package-drop-offs/) and [why shipping costs keep rising](/articles/why-shipping-costs-keep-rising/).
 
 _The USPS weekly fuel surcharge has not taken effect, and USPS removed its implementation FAQ on Oct. 28, 2026 without explanation. Details above reflect the program as announced in late October 2026 — check back for updates, or ask at the counter what applies to your shipment today._
 
