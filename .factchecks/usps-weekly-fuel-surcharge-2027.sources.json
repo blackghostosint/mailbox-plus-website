@@ -230,34 +230,34 @@
   ],
   "scope_rules": [
     {
-      "forbidden": "Stating any specific USPS 2027 fuel-surcharge percentage or formula",
-      "reason": "USPS has not disclosed starting percentages, formula, or min/max caps"
+      "reason": "USPS has not disclosed starting percentages, formula, or min/max caps",
+      "forbid": "Stating any specific USPS 2027 fuel\\-surcharge percentage or formula"
     },
     {
-      "forbidden": "Claiming the weekly surcharge replaces or starts the day the 8% increase ends",
-      "reason": "USPS has not said whether the weekly surcharge begins Jan 17, 2027 or what replaces the 8%"
+      "reason": "USPS has not said whether the weekly surcharge begins Jan 17, 2027 or what replaces the 8%",
+      "forbid": "Claiming the weekly surcharge replaces or starts the day the 8% increase ends"
     },
     {
-      "forbidden": "Stating an exact start date (e.g. Jan 17) for the new surcharge",
-      "reason": "USPS gave only 'January 2027'"
+      "reason": "USPS gave only 'January 2027'",
+      "forbid": "Stating an exact start date \\(e\\.g\\. Jan 17\\) for the new surcharge"
     },
     {
-      "forbidden": "Presenting the program as final/certain",
-      "reason": "USPS removed the FAQ two days after publication without explanation; copy must carry point-in-time phrasing ('as of early November 2026', 'announced', 'currently scheduled')"
+      "reason": "USPS removed the FAQ two days after publication without explanation; copy must carry point-in-time phrasing ('as of early November 2026', 'announced', 'currently scheduled')",
+      "forbid": "Presenting the program as final/certain"
     },
     {
-      "forbidden": "Mail-Only tier / storefront pricing overreach or invented Mailbox Plus fees",
-      "reason": "No Mailbox Plus prices appear in this article; counter claims must stay un-timed and qualified"
+      "reason": "No Mailbox Plus prices appear in this article; counter claims must stay un-timed and qualified",
+      "forbid": "Mail\\-Only tier / storefront pricing overreach or invented Mailbox Plus fees"
     }
   ],
   "required_when": [
     {
-      "claim": "rates change weekly",
-      "qualifier": "per the USPS FAQ as published Oct 26, 2026"
+      "trigger": "rates change weekly",
+      "must_include": "per the USPS FAQ as published Oct 26, 2026"
     },
     {
-      "claim": "postage due on old-percentage labels",
-      "qualifier": "per the FAQ's postage-due item; label-platform handling was unclear at publication"
+      "trigger": "postage due on old-percentage labels",
+      "must_include": "per the FAQ's postage-due item; label-platform handling was unclear at publication"
     }
   ]
 }
