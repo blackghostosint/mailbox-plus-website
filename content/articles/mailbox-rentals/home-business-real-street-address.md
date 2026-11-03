@@ -1,6 +1,6 @@
 ---
 title: 'Street Address for Business: How to Get a Real One Without a PO Box or Your Home'
-description: 'Banks, LLC filings, vendor forms, and Google Business Profile all require a real street address. A PO box fails every one. Here is the address that works — and keeps your home private.'
+description: 'Banks, LLC filings, vendor forms, and Google Business Profile each have address rules that a PO box does not satisfy. Here is how to get a real street address for your business — without publishing your home.'
 slug: 'home-business-real-street-address'
 category: 'mailbox-rentals'
 intentKey: 'home-business-real-street-address'
