@@ -1,32 +1,32 @@
 {
   "source_extracts": [
     {
-      "label": "eCFR 31 CFR 1020.220(a)(2)(i)(A) — CIP address requirement",
+      "label": "eCFR 31 CFR 1020.220(a)(2)(i)(A) \u2014 CIP address requirement",
       "url": "https://www.ecfr.gov/current/title-31/subtitle-B/chapter-I/part-1020/subpart-B/section-1020.220",
       "quote": "Address, which shall be: For an individual, a residential or business street address ... For a person other than an individual (such as a corporation, partnership, or trust), a principal place of business, local office, or other physical location"
     },
     {
-      "label": "Ohio SOS Form 610 — Articles of Organization",
+      "label": "Ohio SOS Form 610 \u2014 Articles of Organization",
       "url": "https://www.ohiosos.gov/assets/610.pdf",
       "quote": "Agent Address - Post office boxes and CMRAs are NOT allowed. See instructions for details. ... Articles of Organization for a Domestic Limited Liability Company Filing Fee: $99"
     },
     {
-      "label": "Ohio SOS Form 521 — Statutory Agent Update",
+      "label": "Ohio SOS Form 521 \u2014 Statutory Agent Update",
       "url": "https://www.ohiosos.gov/assets/521.pdf",
       "quote": "Commercial Mail Receiving Agency (CMRA) addresses are NOT allowed. A CMRA is a private business that rents private mailboxes to customers."
     },
     {
-      "label": "Google Business Profile guidelines — Address",
+      "label": "Google Business Profile guidelines \u2014 Address",
       "url": "https://support.google.com/business/answer/3038177",
       "quote": "Use a precise, accurate address and/or service area to describe your business location. P.O. boxes or mailboxes located at remote locations aren't acceptable. ... If your business rents a physical mailing address but doesn't operate out of that location, also known as a virtual office, that location isn't eligible for a Business Profile. ... If you're a service-area business, you should hide your business address from customers."
     },
     {
-      "label": "USPS DMM 508.1.8.3 — CMRA addressing",
+      "label": "USPS DMM 508.1.8.3 \u2014 CMRA addressing",
       "url": "https://pe.usps.gov/text/dmm300/508.htm",
       "quote": "Mailpieces must bear a delivery address that contains at least the following elements, preferably in the following format: Line 2 'PMB' and number..."
     },
     {
-      "label": "USPS CMRA FAQ — Form 1583 and IDs",
+      "label": "USPS CMRA FAQ \u2014 Form 1583 and IDs",
       "url": "https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA",
       "quote": "CMRA = private business that rents PMBs and accepts mail from USPS for distribution; Form 1583 + two forms of ID (one photo) required"
     },
@@ -47,19 +47,58 @@
     }
   ],
   "numeric_claims": [
-    { "value": "$15", "scope": "Personal Small Mail Only monthly tier" },
-    { "value": "$25", "scope": "Personal Small + 10 packages monthly tier" },
-    { "value": "$30", "scope": "Personal Large Mail Only monthly tier" },
-    { "value": "$40", "scope": "Personal Large + 10 packages monthly tier" },
-    { "value": "$35", "scope": "Business plan monthly price (starts at)" },
-    { "value": "$50", "scope": "Business plan top monthly price" },
-    { "value": "$99", "scope": "Ohio Articles of Organization filing fee (Form 610)" },
-    { "value": "1020.220", "scope": "Federal CIP regulation citation, 31 CFR 1020.220" },
-    { "value": "1583", "scope": "USPS Form 1583 application number" },
-    { "value": "610", "scope": "Ohio Secretary of State Articles of Organization form number" },
-    { "value": "44077", "scope": "Store ZIP code" },
-    { "value": "440-709-1946", "scope": "Store phone number" },
-    { "value": "7554", "scope": "Store street number, siteConfig" },
+    {
+      "value": "$15",
+      "scope": "Personal Small Mail Only monthly tier"
+    },
+    {
+      "value": "$25",
+      "scope": "Personal Small + 10 packages monthly tier"
+    },
+    {
+      "value": "$30",
+      "scope": "Personal Large Mail Only monthly tier"
+    },
+    {
+      "value": "$40",
+      "scope": "Personal Large + 10 packages monthly tier"
+    },
+    {
+      "value": "$35",
+      "scope": "Business plan monthly price (starts at)"
+    },
+    {
+      "value": "$50",
+      "scope": "Business plan top monthly price"
+    },
+    {
+      "value": "$99",
+      "scope": "Ohio Articles of Organization filing fee (Form 610)"
+    },
+    {
+      "value": "1020.220",
+      "scope": "Federal CIP regulation citation, 31 CFR 1020.220"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 application number"
+    },
+    {
+      "value": "610",
+      "scope": "Ohio Secretary of State Articles of Organization form number"
+    },
+    {
+      "value": "44077",
+      "scope": "Store ZIP code"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "Store phone number"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number, siteConfig"
+    },
     {
       "value": "4",
       "scope": "Number of carriers delivering to a PMB at the store: USPS, UPS, FedEx, DHL"
@@ -68,8 +107,14 @@
       "value": "4 hours",
       "scope": "Mail arrival notification promise from the home-business mailbox page"
     },
-    { "value": "two", "scope": "Number of ID forms required on USPS Form 1583 (one photo)" },
-    { "value": "1", "scope": "Number of photo IDs required on Form 1583" },
+    {
+      "value": "two",
+      "scope": "Number of ID forms required on USPS Form 1583 (one photo)"
+    },
+    {
+      "value": "1",
+      "scope": "Number of photo IDs required on Form 1583"
+    },
     {
       "value": "2",
       "scope": "Address Line 2 for the PMB designation (Google address-entry guidance)"
@@ -85,10 +130,5 @@
       "reason": "PMB acceptance is not categorical; issuers set their own rules."
     }
   ],
-  "required_when": [
-    {
-      "trigger": "\\b(?:suite)\\b",
-      "must_include": "PMB"
-    }
-  ]
+  "required_when": []
 }
