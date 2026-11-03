@@ -31,13 +31,14 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 
 **Gold** — for dark navy backgrounds (heroes, CTA bands, dark sections)
 
-| Token                       | Value                            | WCAG on deep navy | Usage                                                             |
-| --------------------------- | -------------------------------- | ----------------- | ----------------------------------------------------------------- |
-| `--color-accent-gold`       | `#f7c82a`                        | 8.95:1 ✅ AA      | Filled CTAs on dark, gold badges, decorative accents against navy |
-| `--color-accent-gold-light` | `#f7d46a`                        | —                 | Hover glow, lighter gold highlights on dark                       |
-| `--color-accent-gold-dark`  | `#d4a820`                        | —                 | Dark gold gradient stop                                           |
-| `--color-accent`            | `var(--color-accent-gold)`       | —                 | Accent alias pointing to gold                                     |
-| `--color-accent-light`      | `var(--color-accent-gold-light)` | —                 | Light accent alias pointing to light gold                         |
+| Token                       | Value                            | WCAG on deep navy     | Usage                                                             |
+| --------------------------- | -------------------------------- | --------------------- | ----------------------------------------------------------------- |
+| `--color-accent-gold`       | `#f7c82a`                        | 8.95:1 ✅ AA          | Filled CTAs on dark, gold badges, decorative accents against navy |
+| `--color-accent-gold-light` | `#f7d46a`                        | —                     | Hover glow, lighter gold highlights on dark                       |
+| `--color-accent-gold-dark`  | `#d4a820`                        | —                     | Dark gold gradient stop                                           |
+| `--color-accent-gold-text`  | `#8a6d1a`                        | 4.90:1 on white ✅ AA | Gold-family text on white/cream (only gold safe as text on light) |
+| `--color-accent`            | `var(--color-accent-gold)`       | —                     | Accent alias pointing to gold                                     |
+| `--color-accent-light`      | `var(--color-accent-gold-light)` | —                     | Light accent alias pointing to light gold                         |
 
 > **In practical terms:** The gold is your "hero action" button. It lives on navy backgrounds — hero sections, "Get Started" bands, pricing tiers. It should never appear as text on a cream or white background (1.36:1 — invisible).
 
