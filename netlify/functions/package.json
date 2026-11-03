@@ -8,6 +8,6 @@
     "@netlify/functions": "^2.8.2",
     "dotenv": "^17.2.3",
     "resend": "^6.37.0",
-    "stripe": "^22.5.0"
+    "stripe": "^23.1.0"
   }
 }
