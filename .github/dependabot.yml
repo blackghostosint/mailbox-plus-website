@@ -4,3 +4,54 @@ updates:
     directory: '/'
     schedule:
       interval: 'weekly'
+
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/New_York'
+    open-pull-requests-limit: 10
+    groups:
+      root-tooling:
+        applies-to: 'version-updates'
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  - package-ecosystem: 'npm'
+    directory: '/astro'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/New_York'
+    open-pull-requests-limit: 10
+    groups:
+      astro-packages:
+        applies-to: 'version-updates'
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
+
+  - package-ecosystem: 'npm'
+    directory: '/netlify/functions'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/New_York'
+    open-pull-requests-limit: 10
+    groups:
+      serverless-functions:
+        applies-to: 'version-updates'
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
