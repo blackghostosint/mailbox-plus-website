@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import ReviewSection from '../components/ReviewSection.astro';
 import { siteConfig } from '../config/siteConfig';
 import { getPageMeta } from '../config/pageMeta';
-import { getSchemaGraph } from '../utils/schema';
+import { getSchemaGraph, serializeJsonLd } from '../utils/schema';
 import { toCanonicalUrl } from '../utils/canonical-url';
 
 export interface Props {
@@ -119,7 +119,7 @@ const ogImageHeight = ogImage ? undefined : '630';
     {ogImageWidth && <meta property="og:image:width" content={ogImageWidth} />}
     {ogImageHeight && <meta property="og:image:height" content={ogImageHeight} />}
     <slot name="head" />
-    <script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
+    <script type="application/ld+json" set:html={serializeJsonLd(schemaGraph)} />
     <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel) -->
     <script>
       import { initAnalytics } from '../lib/analytics';

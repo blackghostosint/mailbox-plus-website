@@ -42,4 +42,21 @@ describe('BaseLayout skip navigation and main landmark', () => {
       expect(skipLink).not.toBeNull();
     }
   });
+
+  it('imports serializeJsonLd from schema utility', () => {
+    const content = fs.readFileSync(layoutPath, 'utf-8');
+    expect(content).toMatch(
+      /import\s*\{[^}]*serializeJsonLd[^}]*\}\s*from\s*['"]\.\.\/utils\/schema['"]/
+    );
+  });
+
+  it('serializes JSON-LD schema using serializeJsonLd instead of raw JSON.stringify', () => {
+    const content = fs.readFileSync(layoutPath, 'utf-8');
+    expect(content).toMatch(
+      /<script\s+type="application\/ld\+json"\s+set:html=\{serializeJsonLd\(schemaGraph\)\}\s*\/>/
+    );
+    expect(content).not.toMatch(
+      /<script\s+type="application\/ld\+json"\s+set:html=\{JSON\.stringify\(schemaGraph\)\}\s*\/>/
+    );
+  });
 });
