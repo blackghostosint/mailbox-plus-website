@@ -5,6 +5,7 @@ Full-voice GSC-driven rewrite of `home-business-real-street-address` (rewrite #2
 **Diagnosis (GSC 90d, 2026-08-05 → 2026-11-02):** 315 impressions / 0 clicks / avg position 7.0. Head query "street address for business" ranked pos 18 — the legacy title ("Your Home Business Deserves a Real Street Address (Here's Why)") targets no query; "street address required" (pos 6.5) and "public business address" (pos 5.0) earned 0 clicks (title/hook CTR loss); "street address and po box" (pos 31.5) is a comparison tail the old page never served. Class: click-intent (pos 5–15, not snippet-capped) → title surgery + comparison verdict shape.
 
 **Changes:**
+
 - Title retargeted to the head query ("Street Address for Business: How to Get a Real One Without a PO Box or Your Home"); keywords updated to the real query cluster.
 - Verdict-in-paragraph-one + four-option side-by-side table (PO box / home / office lease / PMB) with an explicit "where the losers still win" concession.
 - New `quickAnswer` frontmatter (snippet/AI-citation block, 72 words) — Quick Answer gate.
@@ -33,7 +34,8 @@ Not applicable — no `netlify/functions/` changes.
 
 ## Mechanical receipt
 
-- Authorship: written in-session by the Hermes article-rewrite agent (bot pipeline, `blackghostosint` writer lane).
+- Authorship: article-writer-bot (in-house)
+  authorship: article-writer-bot (in-house)
 - In-session repairs: quickAnswer trimmed 97→81→72 words to fit the 40–80 gate; suite wording replaced per scope rule; 6 additional numeric tokens registered in sources.json; Google support URLs replaced with archive snapshots in the receipt (their HEAD endpoint 404s unauthenticated).
 - Fact-check receipt: `.factchecks/home-business-real-street-address.factcheck.md` (15 rows; 14 ✅ / 1 ⚠️ removals row) + `.factchecks/home-business-real-street-address.sources.json` (24 pre-registered numeric claims).
 - Strict gate: 51/51 PASS; build page count FLAT (379 → 379); sitemap + seo-gates PASS; `npm run prebuild` feeds committed.
