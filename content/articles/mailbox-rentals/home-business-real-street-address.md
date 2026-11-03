@@ -43,7 +43,7 @@ faqs:
 
 ## The Answer Up Front
 
-For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no annual contract, and it keeps your home address out of every database those forms feed. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
+For a home business that needs a street address for business forms, a **private mailbox (PMB) at a licensed commercial mail receiving agency** is the option that actually clears the check. It is a real street address at a staffed commercial location, it is not a PO box, business plans start at $35 a month with no annual contract, and it keeps your home address off the forms themselves and the public records they create. Two slots it cannot fill — Ohio's statutory agent and a Google Business Profile location — and both have clean workarounds covered below. That is the whole decision. The rest of this article is the evidence.
 
 ![Shipping counter at Mailbox Plus in Concord Township with carrier shipments staged](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
 
@@ -60,7 +60,7 @@ Every "street address required" field is the same question: is this a fixed, phy
 
 \*With one known exception covered below: Ohio's statutory-agent slot accepts neither a PO box nor a CMRA address — a PMB passes the business-address fields on bank, vendor, and filing forms, but the agent line has its own rule.
 
-Where the losers still win: a PO box is genuinely the right tool if all you ever receive is first-class letters and you want nothing more from an address. An office lease wins the moment you need client meeting space or a storefront — no mailbox pretends to be that. But for the single problem this article is about — forms that demand a street address while your business runs from home — the PMB is the only option that passes the check, protects your home, and costs less than a utility bill.
+Where the losers still win: a PO box is genuinely the right tool if all you ever receive is first-class letters and you want nothing more from an address. An office lease wins the moment you need client meeting space or a storefront — no mailbox pretends to be that. But for the single problem this article is about — forms that demand a street address while your business runs from home — the PMB is the only mailbox-class option that passes the check, protects your home, and prices as a monthly fee instead of a lease.
 
 ## Why the Forms Insist on a Street Address
 
@@ -94,7 +94,7 @@ A **private mailbox (PMB)** at a licensed mailbox service is a real street addre
 Here is how it works at Mailbox Plus:
 
 1. **Fill out USPS Form 1583 with two forms of ID.** Every licensed mailbox service is a registered Commercial Mail Receiving Agency, which means a federal Form 1583 goes on file for every holder. Bring one photo ID and one document confirming the address on the form — the same document cannot do both jobs, so plan for two. We keep the forms at the counter and walk you through them.
-2. **Get your street address.** Your business gets 7554 Fredle Drive plus your PMB number. USPS, UPS, FedEx, and DHL all deliver to it; we sign for packages and hold them for pickup. When mail arrives, we notify you within four hours.
+2. **Get your street address.** Your business gets 7554 Fredle Drive plus your PMB number. USPS, UPS, FedEx, and DHL all deliver to it; on the business plans, we sign for packages and hold them for pickup. When mail arrives, we notify you within four hours.
 3. **Use it everywhere a street address is required.** The bank account, the vendor form, the website contact page, the business cards, the invoices, the shipping labels. One professional address, repeated everywhere, none of it your home.
 4. **Optionally, go digital.** Our [digital mailbox rental](/home-business/digital-mailbox-rental/) adds mail scanning and remote management from your phone — the same street address, with control when you are out of town.
 
