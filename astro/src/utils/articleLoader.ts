@@ -53,9 +53,10 @@ export function parseArticleFrontmatter(
     fallbackData.intentKey =
       typeof data.slug === 'string' && data.slug.trim() ? data.slug : 'general';
   }
-  if (
-    !((typeof data.pubDate === 'string' && data.pubDate.trim()) || data.pubDate instanceof Date)
-  ) {
+  if (!(
+    (typeof data.pubDate === 'string' && data.pubDate.trim()) ||
+    data.pubDate instanceof Date
+  )) {
     let mtimeIso = '';
     if (filePath) {
       try {
