@@ -78,7 +78,7 @@ I'm behind the counter at 7554 Fredle Drive in Concord Township — Gristmill Vi
 
 Every December the same scene walks in: someone on the 22nd, holding a gift box and hope, asking what it costs to get it there by Thursday. And there's no magic at that point. There's an overnight quote, and there's the truth.
 
-The fix isn't a secret tool. It's a date on the calendar, chosen early — and if you want the pricing side of the season, we've already written up [how UPS holiday surcharges work](/articles/ups-holiday-surcharges-2026/) and [what the 2027 surcharge picture looks like](/articles/2027-fedex-ups-surcharge-forecast/). We ship USPS, UPS, and FedEx from the same counter, so nobody has to know the service codes — you bring the box, and the conversation is which row of the deadline table your specific box actually lives in. We're open 9:00 AM to 6:00 PM weekdays and 9:00 AM to 2:00 PM Saturday, which in December matters more than any rate chart: the cheap rows close first, and the clock doesn't care that you meant to get to it.
+The fix isn't a secret tool. It's a date on the calendar, chosen early — and if you want the pricing side of the season, we've already written up [how UPS holiday surcharges work](/articles/ups-holiday-surcharges-2026/) and [what the 2027 surcharge picture looks like](/articles/2027-fedex-ups-surcharge-forecast/). USPS, UPS, and FedEx are all options from this counter — it's on the [service pages](/pack-ship/fedex-shipping/) — so nobody has to know the service codes — you bring the box, and the conversation is which row of the deadline table your specific box actually lives in. We're open 9:00 AM to 6:00 PM weekdays and 9:00 AM to 2:00 PM Saturday, which in December matters more than any rate chart: the cheap rows close first, and the clock doesn't care that you meant to get to it.
 
 ## The 2026 Dates, On One Screen
 
@@ -117,7 +117,7 @@ The whole method is one move: give the printed date a cushion.
 
 1. **Pick your own cutoff, not the carrier's.** If Ground Advantage recommends Dec. 17, your personal deadline is a week before that. The cushion is where peak-season volume and lake-effect weather go to die without touching your Christmas.
 2. **Match the service to the slack you have.** On Dec. 12 with a 4-day lane, ground still works. On Dec. 20, you're shopping the 2Day and Next Day Air rows — same box, same address, and the difference in price is the tax on waiting. Neither moment is a crisis if you know which row you're standing in.
-3. **Hand over the box before it's a story.** Peak season is the worst time for a package to bounce for repacking or a sloppy address. Bring it in as-is — the tape gun, the scale, and the label are our problem, not homework you had to do first. Our [professional packing service](/pack-ship/professional-packing/) and [USPS services](/pack-ship/usps-services/) page cover what the counter handles every day.
+3. **Hand over the box before it's a story.** Peak season is the worst time for a package to bounce for repacking or a sloppy address. Bring it in as-is, and ask at the counter about [professional packing](/pack-ship/professional-packing/) if you'd rather not do the taping and labeling homework yourself — the [USPS services page](/pack-ship/usps-services/) covers the rest of what's on the menu.
 
 ## What the Wait Actually Costs
 
@@ -131,10 +131,10 @@ And the version that never shows up on a receipt: the refresh loop. Thumb on the
 
 ## The December That Goes Right
 
-Mid-December, the version with the cushion already applied. You grab the box out of the trunk — the one that's been riding there since Tuesday — and swing through Gristmill Village. Park next to Pub Frato, walk in, set it on the counter. We check the date against your lane, box it so it survives the busiest two weeks of the carrier year, label it, and it's in the system days ahead of the cutoff.
+Mid-December, the version with the cushion already applied. You grab the box out of the trunk — the one that's been riding there since Tuesday — and swing through Gristmill Village. Park next to Pub Frato, walk in, set it on the counter. The date gets checked against your lane, and it's in the system days ahead of the cutoff — with [professional packing](/pack-ship/professional-packing/) available if the box needs it.
 
 Then the difference hits, and the difference is silence. No refresh loop. No transit-day math over dinner. No rehearsed apology on Christmas morning. The box is the carrier's problem now, and it has been since last week — and you get to find out what December feels like when the shipping errand isn't living in the back of your head rent-free.
 
 ## Bring It In, Even Half-Taped
 
-You don't need this figured out. You don't need to know which service you want, what the box weighs, or whether it's packed well enough to survive December. Bring the gift, the box, the pile of parts — whatever state it's in — and set it on the counter. We'll check the date against your deadline, pick the row of that table that still fits, and get it into the system while the cheap rows are still open. That's what the counter is for. Walk in with the mess; walk out with it gone.
+You don't need this figured out. You don't need to know which service you want, what the box weighs, or whether it's packed well enough to survive December. Bring the gift, the box, the pile of parts — whatever state it's in — and set it on the counter. The date gets checked against your deadline, and it goes into the system while the cheap rows are still open. That's what the counter is for. Walk in with the mess; walk out with it gone.

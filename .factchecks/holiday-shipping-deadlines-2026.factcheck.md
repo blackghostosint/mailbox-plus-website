@@ -20,7 +20,13 @@ Checked 2026-11-03 against official carrier sources. Sources.json (constraint-fi
 | 14  | Store address 7554 Fredle Drive, Gristmill Village, next to Pub Frato, just off Crile Road, Concord Township        | ✅          | repo `content/facts.json` (owner-maintained)                                                                                                                                                                                               |
 | 15  | Store hours Mon–Fri 9:00 AM–6:00 PM, Sat 9:00 AM–2:00 PM                                                            | ✅          | repo `content/facts.json`                                                                                                                                                                                                                  |
 
-## Softened / removed
+## Softened / removed (pre-review fix round 1, 2026-11-03)
+
+- Packing-service promises softened to service-menu references per pre-review OBJECT: "we'll box, tape, and label" -> "professional packing is one of the services on the menu here"; "the tape gun, the scale, and the label are our problem" -> "ask at the counter about professional packing"; "box it so it survives the busiest two weeks" -> "professional packing available if the box needs it".
+- Multi-carrier claim "We ship USPS, UPS, and FedEx from the same counter" reworded and sourced to the site's own owner-published service pages (/pack-ship/fedex-shipping/, /pack-ship/usps-services/, /pack-ship/ups-authorized-shipper-outlet/) - siteConfig/service catalog is owner-maintained content.
+- Rule-3 superlative "biggest single price swing in shipping" softened to "where a December shipping bill really moves".
+
+## Earlier softening
 
 - No specific international/military dates stated (only "generally early-to-mid December" + "confirm the exact date") — official USPS page lists them but the aggregation was the only retrieval source for those rows; kept qualitative.
 - No carrier prices of any kind appear — the reviewer suggested a "$9 vs $63" example; declined because no source exists for a lane-specific quote.
