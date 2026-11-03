@@ -28,7 +28,7 @@ faqs:
   - question: 'What is the UPS cutoff for Christmas delivery in 2026?'
     answer: 'UPS lists 3 Day Select at Dec. 21, 2nd Day Air at Dec. 22, and Next Day Air at Dec. 23. UPS Ground has no published cutoff — check the UPS time-and-cost calculator for your specific lane.'
   - question: 'What is the FedEx ground shipping deadline for Christmas 2026?'
-    answer: 'FedEx Ground and Home Delivery deadlines depend on your lane transit time: a 5-day lane must ship by Dec. 17, a 3-day lane by Dec. 21, and an overnight lane by Dec. 23. FedEx Ground Economy closes earlier, on Dec. 15.'
+    answer: 'FedEx Ground and Home Delivery deadlines depend on your lane transit time: a 5-day lane must ship by Dec. 17, a 3-day lane by Dec. 21, and a 1-day lane by Dec. 23. FedEx Ground Economy closes earlier, on Dec. 15.'
   - question: 'Are the holiday shipping deadlines guaranteed?'
     answer: 'No. USPS calls its dates recommended, UPS calls them recommended last days to ship, and FedEx marks its table subject to change. All three carriers advise shipping early, and some destinations require earlier ship dates.'
   - question: 'Is there a day in December when carriers do not pick up packages?'
@@ -54,7 +54,7 @@ And the dates aren't even one number per carrier:
 
 - **USPS** splits the lower 48 from Alaska, Hawaii, Puerto Rico, and the territories — out there, Ground Advantage closes a day early, Dec. 16.
 - **UPS** publishes cutoffs for its air services but refuses to publish one for UPS Ground, deferring you to its time-and-cost calculator — because Cleveland-to-Columbus and Cleveland-to-Phoenix are different trips and UPS isn't going to guess for you.
-- **FedEx** builds its ground deadline as a transit-time matrix — five separate dates, one for each lane speed from 5-day down to overnight.
+- **FedEx** builds its ground deadline as a transit-time matrix — five separate dates, one for each lane speed from 5-day transit down to 1-day transit.
 
 Get any one of those reads wrong and the matrix charges you. Read it as "ground closes Dec. 15" when your lane actually had until the 21st, and you panic-pay for air service you never needed. Read it the other way around, and the window closes while you're still saying "this weekend."
 
@@ -106,7 +106,7 @@ For arrival by December 25 (USPS) / December 24 (UPS and FedEx), lower 48:
 The footnotes that ride along with every row of that table:
 
 - **UPS Ground has no published cutoff.** UPS's own schedule points you to its time-and-cost calculator, because the answer depends on your lane. Don't bet a Christmas present on mid-December ground service without checking the estimate first.
-- **FedEx Ground dates are lane-dependent.** FedEx Ground typically runs 1 to 5 business days, so find your transit time and count back from Dec. 24. A 5-day lane has to be in the system by Dec. 17; an overnight lane gets until Dec. 23.
+- **FedEx Ground dates are lane-dependent.** FedEx Ground typically runs 1 to 5 business days, so find your transit time and count back from Dec. 24. A 5-day lane has to be in the system by Dec. 17; a 1-day-transit lane gets until Dec. 23.
 - **Closed days still eat your window.** UPS runs no pickup or delivery on Thanksgiving (Nov. 26) or Christmas Day (Dec. 25). A box tendered right before a closure loses those days for free.
 - **Every date can move.** FedEx says so on the table itself; UPS says its schedule is subject to change; USPS frames each date as a recommendation. Certain destinations need earlier ship dates — all three carriers put that in the fine print.
 - **Far-away lists close early.** USPS's international services and mail to military APO/FPO/DPO addresses run on a much earlier calendar — generally early-to-mid December. If someone on your list is deployed or overseas, treat the second week of December as your working deadline and confirm the exact date before you pack.
