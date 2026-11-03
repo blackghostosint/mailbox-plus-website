@@ -29,7 +29,8 @@ keywords:
     'shipping rate changes 2027',
     'USPS price increase Lake County',
   ]
-relatedServices: ['/pack-ship/', '/pack-ship/package-drop-offs/', '/articles/why-shipping-costs-keep-rising/']
+relatedServices:
+  ['/pack-ship/', '/pack-ship/package-drop-offs/', '/articles/why-shipping-costs-keep-rising/']
 author: 'Reviewed by Frank Schwarz, COO'
 faqs:
   - question: 'When does the USPS weekly fuel surcharge start?'
@@ -44,7 +45,7 @@ faqs:
 
 ## Your Postage Price Is About to Get a Weekly Refresh
 
-If you sell online, you already budget shipping to the penny. You know what a Ground Advantage label costs on a two-pound box to your most common zones, and you build that number into your prices. Starting in January 2027, USPS plans to make that number move — every single week. The Postal Service announced on October 26, 2026 that it will add a fuel surcharge to its package services, recalculated weekly from government-published diesel and jet fuel prices. It should be simple: one label, one price, known when you buy it. A price that drifts with the fuel market is none of those things. 
+If you sell online, you already budget shipping to the penny. You know what a Ground Advantage label costs on a two-pound box to your most common zones, and you build that number into your prices. Starting in January 2027, USPS plans to make that number move — every single week. The Postal Service announced on October 26, 2026 that it will add a fuel surcharge to its package services, recalculated weekly from government-published diesel and jet fuel prices. It should be simple: one label, one price, known when you buy it. A price that drifts with the fuel market is none of those things.
 
 ## The Weekly Shuffle
 
