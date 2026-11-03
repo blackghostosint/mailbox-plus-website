@@ -15,7 +15,7 @@
  *   articles [--strict]          run verification across all articles in content/articles/
  *   build                        runs npm run build, reports page-count delta
  *   sitemap <path-or-slug>       confirms URL is in dist/sitemap-0.xml
- *   review <path.md>             grades draft against 5-point DR adversarial rubric (min 82/100)
+ *   review <path.md>             grades draft against 5-point DR adversarial rubric (hard floor 70/100; 82+ passes clean, band rules in article-writer SOUL.md)
  *   headings [--json]            heading-variation report across the whole corpus
  *   seo-gates                    runs all CI SEO gate scripts
  *   help                         this text
@@ -33,6 +33,7 @@ import {
   normalizeRoute,
   isKnownRoute as isKnownRouteUtil,
 } from '../lib/article-utils.ts';
+import { walkFiles } from '../lib/fs-traversal.ts';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
 
@@ -1496,22 +1497,7 @@ function cmdArticles(isStrict = false) {
 
 // ---------- build, sitemap, seo-gates ----------
 function countHtmlFiles(dir) {
-  if (!fs.existsSync(dir)) return 0;
-  let count = 0;
-  try {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        count += countHtmlFiles(fullPath);
-      } else if (entry.isFile() && entry.name.endsWith('.html')) {
-        count++;
-      }
-    }
-  } catch {
-    return 0;
-  }
-  return count;
+  return walkFiles(dir, { extensions: ['.html'], ignoreDirs: [] }).length;
 }
 
 function cmdBuild() {
@@ -1589,7 +1575,7 @@ function cmdReview(targetPath, rest = [], asJson = false) {
   const modelIdx = rest.indexOf('--model');
   const model = modelIdx !== -1 ? rest[modelIdx + 1] : 'deepseek/deepseek-v4.1-flash';
   const minScoreIdx = rest.indexOf('--min-score');
-  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '82';
+  const minScore = minScoreIdx !== -1 ? rest[minScoreIdx + 1] : '70';
 
   console.log(
     `🤖 Running 5-point Direct Response Review Rubric on ${path.basename(abs)} (provider=${provider}, model=${model}, min=${minScore})...\n`

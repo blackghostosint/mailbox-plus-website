@@ -1,0 +1,108 @@
+{
+  "source_extracts": [
+    {
+      "label": "Cox residential equipment return deadline",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Cox equipment must be returned within 15 calendar days to avoid unreturned equipment charges."
+    },
+    {
+      "label": "Cox service change before equipment return",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "To avoid potential charges, contact us to downgrade or disconnect the service before returning your equipment."
+    },
+    {
+      "label": "Account-specific return inventory",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Equipment that needs to be returned will be listed in the e-mail sent after a change in services."
+    },
+    {
+      "label": "Cox residential equipment list",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "The following items must be returned to avoid charges: Digital Receivers; Power Cords / Power Supplies; Internet Modems; Telephone Modems; Remote Controls; Gigablast customers supplied Netgear router."
+    },
+    {
+      "label": "Cox return destinations",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Retail Store — Find a Spectrum Retail Store near you. UPS Store — For the nearest location, refer to UPS Store Locator."
+    },
+    {
+      "label": "Cox drop-off cost and packaging instructions",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "There is no fee to drop your equipment off using one of the below methods. A return box and a shipping label are not needed when dropping off your equipment at a return location."
+    },
+    {
+      "label": "Condition of returned equipment",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "To avoid any fees, equipment must be returned in the same condition it was received."
+    },
+    {
+      "label": "Purchased equipment refund route and deadline",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Purchased equipment must be returned to a Cox-owned retail store within 30 days of purchase for a refund by the method used for purchase."
+    },
+    {
+      "label": "Cox Mobile return label exception",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "For Cox Mobile Devices, do not take the device to a UPS store without a return label provided by an agent. Contact us to get the return shipping label."
+    },
+    {
+      "label": "Xumo device refund route and deadline",
+      "url": "https://www.cox.com/residential/support/returning-your-equipment.html",
+      "quote": "Xumo devices must be returned to a retail store within 30 days of purchase for a refund by the method used for purchase."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "15 calendar days",
+      "scope": "Cox residential equipment deadline to avoid unreturned-equipment charges"
+    },
+    {
+      "value": "15",
+      "scope": "Cox residential equipment deadline, also shown in title/meta as the 15-day rule"
+    },
+    {
+      "value": "30 days",
+      "scope": "Cox-owned retail-store return window for purchased equipment other than Xumo, and retail-store return window for Xumo devices, refunded by original payment method"
+    },
+    {
+      "value": "2026-08-12",
+      "scope": "existing pubDate metadata; not a claim in the article copy"
+    },
+    {
+      "value": "2026-11-01",
+      "scope": "rewrite lastModified metadata set for this retarget"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbid": "(15 calendar days|15 days)[^.!?]*(Cox Business|business equipment)",
+      "reason": "The 15-calendar-day evidence here is for Cox residential equipment; Cox Business return rules are separate."
+    },
+    {
+      "forbid": "Cox Mobile[^.!?]*(drop off|UPS Store|UPS store)(?![^.!?]*label)",
+      "reason": "Cox Mobile requires a return label from an agent before a UPS Store drop-off."
+    },
+    {
+      "forbid": "Mailbox Plus[^.!?]*(Cox return location|authorized Cox return|Cox return network)",
+      "reason": "The Cox page does not list Mailbox Plus; do not claim an affirmative Cox authorization or a broader network status."
+    },
+    {
+      "forbid": "(every|all) Cox (device|equipment|return)",
+      "reason": "The guidance is specific to residential equipment and distinguishes purchased equipment and Cox Mobile."
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "Cox Mobile",
+      "must_include": "return label"
+    },
+    {
+      "trigger": "purchased equipment",
+      "must_include": "Cox-owned retail store"
+    },
+    {
+      "trigger": "Xumo",
+      "must_include": "retail store"
+    }
+  ]
+}

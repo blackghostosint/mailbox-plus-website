@@ -7,7 +7,13 @@ const serviceSchema = getServiceSchema(siteConfig, {
   serviceName: 'Private Mailbox Rental',
   url: '/mailbox-rental-concord-ohio/',
   areaServed: ['Concord Township, OH'],
-  offers: [{ name: 'Standard Mailbox Rental', price: '15.00', currency: 'USD' }],
+  offers: [
+    { name: 'Private Mailbox - Small Mail Only', price: '15.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Small +10 Packages', price: '25.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Large Mail Only', price: '30.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Private Mailbox - Large +10 Packages', price: '40.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+    { name: 'Key Deposit (Refundable)', price: '5.00', currency: 'USD', availability: 'https://schema.org/InStock' },
+  ],
 });
 ---
 <BaseLayout
@@ -77,7 +83,7 @@ const serviceSchema = getServiceSchema(siteConfig, {
         </div>
         <div class="border rounded-lg p-4">
           <h3 class="font-semibold mb-2">Do I need to sign a long-term contract?</h3>
-          <p class="text-[var(--color-text-secondary)]">No! We offer flexible month-to-month agreements. Cancel anytime with 30 days notice. We also offer discounts for 6-month and annual prepayments.</p>
+          <p class="text-[var(--color-text-secondary)]">No! We offer flexible month-to-month agreements. Cancel anytime with 30 days notice. No annual contract.</p>
         </div>
         <div class="border rounded-lg p-4">
           <h3 class="font-semibold mb-2">Can I use this address for my LLC or business?</h3>

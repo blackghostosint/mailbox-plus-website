@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { resolveDistDir } from '../lib/dist-path.mjs';
 import { isMainModule, parseScriptArgs } from '../lib/cli-utils.ts';
+import { walkFiles } from '../lib/fs-traversal.ts';
 
 if (!process.env.VITE_R2_PUBLIC_BASE_URL) {
   process.env.VITE_R2_PUBLIC_BASE_URL = 'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev';
@@ -76,28 +77,22 @@ function discoverStaticPageRoutes(): StaticPageInfo[] {
   const pagesDir = path.resolve(process.cwd(), 'astro/src/pages');
   const results: StaticPageInfo[] = [];
 
-  function scan(dir: string) {
-    const entries = fs.readdirSync(dir, { withFileTypes: true });
-    for (const entry of entries) {
-      const fullPath = path.join(dir, entry.name);
-      if (entry.isDirectory()) {
-        scan(fullPath);
-      } else if (entry.name.endsWith('.astro')) {
-        const relPath = path.relative(pagesDir, fullPath);
-        if (relPath.includes('[slug]') || relPath.includes('[...')) {
-          continue;
-        }
-        let route = '/' + relPath.replace(/\.astro$/, '').replace(/\/index$/, '');
-        if (route === '/index') route = '/';
-        if (route.length > 1 && !route.endsWith('/')) route += '/';
-        results.push({ relPath, routePath: route, filePath: fullPath });
-      }
-    }
+  const files = walkFiles(pagesDir, {
+    extensions: ['.astro'],
+    filter: (fullPath) => {
+      const relPath = path.relative(pagesDir, fullPath);
+      return !relPath.includes('[slug]') && !relPath.includes('[...');
+    },
+  });
+
+  for (const fullPath of files) {
+    const relPath = path.relative(pagesDir, fullPath);
+    let route = '/' + relPath.replace(/\.astro$/, '').replace(/\/index$/, '');
+    if (route === '/index') route = '/';
+    if (route.length > 1 && !route.endsWith('/')) route += '/';
+    results.push({ relPath, routePath: route, filePath: fullPath });
   }
 
-  if (fs.existsSync(pagesDir)) {
-    scan(pagesDir);
-  }
   return results;
 }
 

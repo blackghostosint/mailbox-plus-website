@@ -55,30 +55,30 @@ export const mailboxRentalServices: Service[] = [
     keywords:
       'mailbox rental, private mailbox, street address, Concord Township, Lake County, business address, privacy',
     heroTitle: 'Your Home Address Is On Every Package You Ship',
-    heroSubtitle: 'A real street address. All 4 carriers. From $35/month. Your home stays private.',
+    heroSubtitle: 'A real street address. All 4 carriers. From $15/month. Your home stays private.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     offers: [
       {
-        name: 'Small Mailbox - Monthly',
-        price: '35.00',
+        name: 'Private Mailbox - Small Mail Only',
+        price: '15.00',
         currency: 'USD',
         availability: 'https://schema.org/InStock',
       },
       {
-        name: 'Large Mailbox - Monthly',
-        price: '50.00',
+        name: 'Private Mailbox - Small +10 Packages',
+        price: '25.00',
         currency: 'USD',
         availability: 'https://schema.org/InStock',
       },
       {
-        name: 'Small Mailbox - Annual Prepay',
-        price: '420.00',
+        name: 'Private Mailbox - Large Mail Only',
+        price: '30.00',
         currency: 'USD',
         availability: 'https://schema.org/InStock',
       },
       {
-        name: 'Large Mailbox - Annual Prepay',
-        price: '600.00',
+        name: 'Private Mailbox - Large +10 Packages',
+        price: '40.00',
         currency: 'USD',
         availability: 'https://schema.org/InStock',
       },
@@ -129,36 +129,36 @@ export const mailboxRentalServices: Service[] = [
                     <table class="w-full text-left border-collapse rounded-xl overflow-hidden shadow-sm">
                         <thead class="bg-[var(--color-bg-secondary)]/80">
                             <tr>
-                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Mailbox Size</th>
+                                <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Tier</th>
                                 <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Monthly Price</th>
                                 <th scope="col" class="p-4 font-semibold text-[var(--color-text-primary)]">Package Inclusion</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-[var(--color-border)]">
                             <tr>
-                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small Box</th>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$35.00</td>
-                                <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small · Mail Only</th>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$15.00</td>
+                                <td class="p-4 text-[var(--color-text-secondary)]">Mail only</td>
+                            </tr>
+                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Small · +10 Packages</th>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$25.00</td>
+                                <td class="p-4 text-[var(--color-text-secondary)]">10 packages/mo, then $5 each</td>
                             </tr>
                             <tr>
-                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large Box</th>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$50.00</td>
-                                <td class="p-4 text-[var(--color-text-secondary)]">5 pkgs included</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large · Mail Only</th>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$30.00</td>
+                                <td class="p-4 text-[var(--color-text-secondary)]">Mail only</td>
                             </tr>
                             <tr class="bg-[var(--color-bg-warm-tint)]/30">
-                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-semibold text-left">Annual Prepay (Small)</th>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$420.00</td>
-                                <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
-                            </tr>
-                            <tr class="bg-[var(--color-bg-warm-tint)]/30">
-                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-semibold text-left">Annual Prepay (Large)</th>
-                                <td class="p-4 font-bold text-[var(--color-primary)]">$600.00</td>
-                                <td class="p-4 text-[var(--color-text-secondary)]">Best Value</td>
+                                <th scope="row" class="p-4 text-[var(--color-text-primary)] font-medium text-left">Large · +10 Packages</th>
+                                <td class="p-4 font-bold text-[var(--color-primary)]">$40.00</td>
+                                <td class="p-4 text-[var(--color-text-secondary)]">10 packages/mo, then $5 each</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Additional packages beyond the monthly inclusion are $5.00 each. Key deposit: $5.00 refundable. Rentals available month-to-month or annual.</p>`,
+                <p class="text-sm text-[var(--color-text-muted)] italic mt-2">Month-to-month — no annual contract. Oversized packages (over 18" or 20 lbs): $5 flat. Held longer than 5 days: $1/day. Key deposit: $5.00 refundable. Existing customers keep their current rate.</p>`,
       },
       // ── SB7 POSITION 4b: PROCESS PLAN ──
       {
@@ -214,7 +214,7 @@ export const mailboxRentalServices: Service[] = [
     faqs: [...generalHomeBusinessFaqs, ...mailboxRentalFaqs],
     cta: {
       title: 'Take Your Address Off The Pipeline',
-      subtitle: 'Real street address. All 4 carriers. From $35/month. 30-day risk-free.',
+      subtitle: 'Real street address. All 4 carriers. From $15/month. 30-day risk-free.',
       buttonText: 'Get Your Lake County Address \u2192',
       buttonLink: '/contact-us/',
       variant: 'brand',
@@ -260,7 +260,7 @@ export const mailboxRentalServices: Service[] = [
       'digital mailbox, virtual mailbox service, virtual mailbox, remote mail, ipostal1 concord township, anytime mailbox ohio, postscan mail ohio, Concord Township, Lake County, traveler, snowbird',
     heroTitle: 'Your Mail. Anywhere. No Matter Where You Are.',
     heroSubtitle:
-      'A real Concord Township street address. We scan the envelopes. You decide what happens next. From $35/month.',
+      'A real Concord Township street address. We scan the envelopes. You decide what happens next. From $15/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
       // ── SB7 POSITION 1-2: VILLAIN (The Tether + The Address Pipeline) ──
@@ -359,7 +359,7 @@ export const mailboxRentalServices: Service[] = [
     faqs: [...generalHomeBusinessFaqs, ...digitalMailboxRentalFaqs],
     cta: {
       title: 'Leave Ohio. Keep Your Address.',
-      subtitle: 'Your Lake County address works from anywhere. From $35/month. 30-day risk-free.',
+      subtitle: 'Your Lake County address works from anywhere. From $15/month. 30-day risk-free.',
       buttonText: 'Sign Up with iPostal1',
       buttonLink: 'https://ipostal1.com/mailboxplusohio',
       extraButtons: [
@@ -407,7 +407,7 @@ export const mailboxRentalServices: Service[] = [
       'pmb, pmb rental, private mailbox rental, private mailbox, Concord Township, Mailbox Plus',
     heroTitle: 'Your PMB — Keeps Your Home Off the Label',
     heroSubtitle:
-      'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $35/month.',
+      'A real street address in Concord Township. UPS, FedEx, USPS, DHL. Porch theft protection. From $15/month.',
     heroImage: getServiceImageUrl('/images/mailbox-rental.webp'),
     content: [
       {
@@ -477,7 +477,7 @@ export const mailboxRentalServices: Service[] = [
     ],
     cta: {
       title: 'Stop Sharing Your Home Address',
-      subtitle: 'Real street address in Concord Township. All 4 carriers. From $35/month.',
+      subtitle: 'Real street address in Concord Township. All 4 carriers. From $15/month.',
       buttonText: 'Get Your Private Mailbox \u2192',
       buttonLink: '/home-business/mailbox-rental',
       variant: 'brand',
@@ -503,7 +503,7 @@ export const mailboxRentalServices: Service[] = [
       'virtual mailbox, virtual mailbox near me, virtual mailbox concord township, virtual mailbox ohio, virtual po box, virtual po box alternative, street address mailbox',
     heroTitle: 'Your Virtual Mailbox — See Your Mail From Anywhere',
     heroSubtitle:
-      'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $35/month.',
+      'A real Concord Township street address. We scan. You decide. Forward or shred with one click. From $15/month.',
     heroImage: getServiceImageUrl('/images/digital-mailbox-rental.webp'),
     content: [
       // ── SB7 POSITION 1-2: VILLAIN ──
@@ -682,12 +682,12 @@ export const mailboxRentalServices: Service[] = [
       {
         question: 'How much does it cost?',
         answer:
-          'Virtual mailbox plans start at $35/month. Pricing varies slightly by platform — contact us and we will match you to the right plan.',
+          'Virtual mailbox plans start at $15/month. Pricing varies slightly by platform — contact us and we will match you to the right plan.',
       },
     ],
     cta: {
       title: 'Your Mail. Your Way. From Anywhere.',
-      subtitle: 'We scan. You decide. From $35/month. 30-day risk-free.',
+      subtitle: 'We scan. You decide. From $15/month. 30-day risk-free.',
       buttonText: 'Set Up Your Virtual Mailbox \u2192',
       buttonLink: '/home-business/digital-mailbox-rental',
       variant: 'brand',
