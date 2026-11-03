@@ -1,0 +1,176 @@
+{
+  "source_extracts": [
+    {
+      "label": "USPS 2026 extra services price list",
+      "url": "https://www.usps.com/business/prices/2026/dom-extra-services.csv",
+      "quote": "Certified Mail $5.55; Return Receipt (hardcopy, PS Form 3811) $4.65; Return Receipt Electronic $2.91; Restricted Delivery $14.35 \u2014 rates effective July 12, 2026 (verified 2026-10-22, prior receipt certified-mail-return-receipt-vs-carrier-signature)"
+    },
+    {
+      "label": "USPS FAQ \u2014 Return Receipt basics",
+      "url": "https://faq.usps.com/s/article/Return-Receipt-The-Basics",
+      "quote": "Return Receipt must be purchased at the time of mailing; shows recipient's signature, delivery date, and delivery address if different; PS Form 3811-A delivery-record copy available 90 days"
+    },
+    {
+      "label": "USPS FAQ \u2014 Certified Mail basics",
+      "url": "https://faq.usps.com/s/article/Certified-Mail-The-Basics",
+      "quote": "Certified Mail provides proof of mailing and delivery record; moves at the speed of the underlying mail class, not guaranteed"
+    },
+    {
+      "label": "2026 postage price change",
+      "url": "https://faq.usps.com/s/article/2026-Postage-Price-Change",
+      "quote": "Forever stamp = 82 cents since July 12, 2026 (up from 78)"
+    },
+    {
+      "label": "Ohio Revised Code 1923.04",
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-1923.04",
+      "quote": "3-day eviction notice may be given by certified mail, return receipt requested (one of several allowed methods)"
+    },
+    {
+      "label": "Store services + hours",
+      "url": "astro/src/config/siteConfig.ts",
+      "quote": "Certified Mail offered; hours Mon-Fri 9:00 AM-6:00 PM, Sat 9:00 AM-2:00 PM; 7554 Fredle Drive, Concord Township, OH 44077"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$5.55",
+      "scope": "USPS Certified Mail service fee, 2026 rates effective July 12, 2026, plus postage"
+    },
+    {
+      "value": "$4.65",
+      "scope": "hardcopy Return Receipt (PS Form 3811 green card), 2026 rates"
+    },
+    {
+      "value": "$2.91",
+      "scope": "electronic Return Receipt, 2026 rates"
+    },
+    {
+      "value": "$14.35",
+      "scope": "Restricted Delivery added to Certified Mail, 2026 rates"
+    },
+    {
+      "value": "82 cents",
+      "scope": "1-oz First-Class letter postage (Forever stamp) since July 12, 2026"
+    },
+    {
+      "value": "$11.02",
+      "scope": "worked example only: $5.55 + $4.65 + $0.82 for a 1-oz letter with green card (retail sum)"
+    },
+    {
+      "value": "3",
+      "scope": "step count in the how-to (copy structure, not a factual claim)"
+    },
+    {
+      "value": "1-5 business days",
+      "scope": "typical First-Class delivery window, not guaranteed (USPS)"
+    },
+    {
+      "value": "9:00 AM-6:00 PM",
+      "scope": "store weekday hours, siteConfig.ts"
+    },
+    {
+      "value": "9:00 AM-2:00 PM",
+      "scope": "store Saturday hours, siteConfig.ts"
+    },
+    {
+      "value": "90 days",
+      "scope": "PS Form 3811-A delivery-record copy availability (USPS FAQ)"
+    },
+    {
+      "value": "3-day",
+      "scope": "Ohio eviction notice per ORC 1923.04(A)"
+    },
+    {
+      "value": "PS Form 3800",
+      "scope": "Certified Mail receipt form number (USPS)"
+    },
+    {
+      "value": "PS Form 3811",
+      "scope": "hardcopy Return Receipt form number (USPS FAQ)"
+    },
+    {
+      "value": "PS Form 3811-A",
+      "scope": "delivery-record copy form number, 90 days (USPS FAQ)"
+    },
+    {
+      "value": "$11.02+",
+      "scope": "alternative worked example phrasing: $5.55 + $4.65 + $0.82 = $11.02 for a 1-oz letter, retail"
+    },
+    {
+      "value": "3800",
+      "scope": "PS Form 3800, Certified Mail receipt form number (USPS); includes mentions in frontmatter description/quickAnswer"
+    },
+    {
+      "value": "3811",
+      "scope": "PS Form 3811, hardcopy Return Receipt (green card) form number (USPS FAQ); includes imageAlt mention"
+    },
+    {
+      "value": "82",
+      "scope": "cents \u2014 1-oz First-Class letter postage (Forever stamp) since July 12, 2026 (USPS FAQ 2026 Postage Price Change)"
+    },
+    {
+      "value": "1",
+      "scope": "lower bound of typical First-Class delivery window '1 to 5 business days' (USPS FAQ; not guaranteed)"
+    },
+    {
+      "value": "5",
+      "scope": "upper bound of typical First-Class delivery window '1 to 5 business days' (USPS FAQ; not guaranteed)"
+    },
+    {
+      "value": "1923.04",
+      "scope": "Ohio Revised Code section number (ORC 1923.04, 3-day eviction notice method) \u2014 codes.ohio.gov"
+    },
+    {
+      "value": "2",
+      "scope": "step number in the how-to list (copy structure, not a factual claim)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive, Concord Township (siteConfig.ts)"
+    },
+    {
+      "value": "9",
+      "scope": "store hours start hour 9:00 AM (siteConfig.ts)"
+    },
+    {
+      "value": "6",
+      "scope": "store weekday closing hour 6:00 PM (siteConfig.ts)"
+    },
+    {
+      "value": "00",
+      "scope": "minutes component of store hours clock times (siteConfig.ts)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "pattern": "guaranteed delivery time for Certified Mail",
+      "reason": "Certified moves at underlying mail class speed; not guaranteed per USPS FAQ"
+    },
+    {
+      "pattern": "Certified Mail proves content or what was delivered",
+      "reason": "it proves mailing and delivery record only, never contents"
+    },
+    {
+      "pattern": "'suite' designator for CMRA addresses",
+      "reason": "DMM 508.1.8.3 requires PMB or # designator"
+    },
+    {
+      "pattern": "legal advice about which notice method a court requires",
+      "reason": "store gives no legal advice; cite ORC and say verify with counsel"
+    },
+    {
+      "pattern": "Return Receipt purchasable after mailing",
+      "reason": "must be purchased at time of mailing (USPS FAQ)"
+    }
+  ],
+  "required_when": [
+    {
+      "qualifier": "1-5 business days",
+      "when": "always pair with 'typical, not guaranteed'"
+    },
+    {
+      "qualifier": " Restricted Delivery",
+      "when": "always state fee only as add-on to Certified Mail"
+    }
+  ]
+}
