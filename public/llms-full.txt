@@ -6236,7 +6236,7 @@ Here's how it actually works, every step, with the 2026 prices so nothing surpri
 
 The trap in certified mail isn't the fee. It's the quiet gap between what the tracking page shows and what your situation may require.
 
-Certified Mail by itself gives you two things: a dated mailing receipt (PS Form 3800) and a delivery record in USPS tracking. What it does _not_ give you, on its own, is the recipient's signature. That signature lives on the Return Receipt — the green card, PS Form 3811 — and it's a separate purchase. Plenty of people pay the $5.55, mail the letter, watch "delivered" appear on the screen, and only later learn the person who asked for the letter wants a _signature_, not a scan. ("Delivered" is a data point; a signature is a record — we break down how that proof stacks up against carrier signature options in [certified mail return receipt vs. carrier signature required](/articles/certified-mail-return-receipt-vs-carrier-signature/) and against overnight couriers in [Certified Mail vs. courier services](/articles/usps-certified-mail-vs-courier-services/).)
+Certified Mail by itself gives you two things: a dated mailing receipt (PS Form 3800) and a delivery record in USPS tracking. What it does *not* give you, on its own, is the recipient's signature. That signature lives on the Return Receipt — the green card, PS Form 3811 — and it's a separate purchase. Plenty of people pay the $5.55, mail the letter, watch "delivered" appear on the screen, and only later learn the person who asked for the letter wants a *signature*, not a scan. ("Delivered" is a data point; a signature is a record — we break down how that proof stacks up against carrier signature options in [certified mail return receipt vs. carrier signature required](/articles/certified-mail-return-receipt-vs-carrier-signature/) and against overnight couriers in [Certified Mail vs. courier services](/articles/usps-certified-mail-vs-courier-services/).)
 
 Picture it: you get home, set the receipt on the kitchen table next to your copy of the letter, and later that week the tracking page says delivered. But there's no card in your mailbox with a signature on it. The envelope is gone. The counter is gone. And whoever told you to send it certified starts asking who signed.
 
@@ -6254,7 +6254,7 @@ For a single letter with the green card, you're at about $11.02. That's fair. Th
 
 ## Why the Counter Assumes You Already Know
 
-USPS isn't hiding anything. The system is built for volume, not for first-timers. The form's peel-off strip goes above the delivery address, to the right of your return address. The green card's back flaps fold so your return address shows on the reverse — fold it wrong and it gets processed anyway, arriving at you blank or not at all. Every one of those details is logical once someone shows you, and completely arbitrary when nobody does.
+USPS isn't hiding anything. The system is built for volume, not for first-timers. The form's peel-off strip goes above the delivery address, to the right of your return address. The green card's back flaps fold so your return address shows on the reverse — one more step nobody demonstrates. Every one of those details is logical once someone shows you, and completely arbitrary when nobody does.
 
 The system assumes you'll be back next week and have learned the choreography by then. But most people mail certified letters a handful of times a year, and the learning curve resets every time. That's not your failure. It's the design.
 

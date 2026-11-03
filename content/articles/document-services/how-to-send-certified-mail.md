@@ -34,7 +34,7 @@ faqs:
     },
     {
       question: 'Do I need a Return Receipt with Certified Mail?',
-      answer: 'No. The $5.55 Certified Mail fee buys a mailing receipt and a delivery record in USPS tracking. The Return Receipt is the add-on that gets you the recipient\u2019s actual signature on a card you can file.',
+      answer: 'No. The $5.55 Certified Mail fee buys a mailing receipt and a delivery record in USPS tracking. The Return Receipt is the add-on that gets you the recipient\u2019s actual signature \u2014 hardcopy card or electronic PDF \u2014 to keep on file.',
     },
     {
       question: 'Can I buy a Return Receipt after the letter is mailed?',
@@ -77,7 +77,7 @@ For a single letter with the green card, you're at about $11.02. That's fair. Th
 
 ## Why the Counter Assumes You Already Know
 
-USPS isn't hiding anything. The system is built for volume, not for first-timers. The form's peel-off strip goes above the delivery address, to the right of your return address. The green card's back flaps fold so your return address shows on the reverse — fold it wrong and it gets processed anyway, arriving at you blank or not at all. Every one of those details is logical once someone shows you, and completely arbitrary when nobody does.
+USPS isn't hiding anything. The system is built for volume, not for first-timers. The form's peel-off strip goes above the delivery address, to the right of your return address. The green card's back flaps fold so your return address shows on the reverse — one more step nobody demonstrates. Every one of those details is logical once someone shows you, and completely arbitrary when nobody does.
 
 The system assumes you'll be back next week and have learned the choreography by then. But most people mail certified letters a handful of times a year, and the learning curve resets every time. That's not your failure. It's the design.
 
