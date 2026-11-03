@@ -6016,12 +6016,14 @@ For a home business that needs a street address for business forms, a **private 
 
 Every "street address required" field is the same question: is this a fixed, physical place? Here is how each of your actual options answers it:
 
-| Option                | Real street address? | Passes bank, filing, and vendor forms?      | All carriers deliver?               | Your home stays private? | Typical cost                            |
-| --------------------- | -------------------- | ------------------------------------------- | ----------------------------------- | ------------------------ | --------------------------------------- |
-| PO box                | No                   | No — it is a delivery point, not an address | USPS only                           | Yes                      | Cheapest of the four                    |
-| Your home address     | Yes                  | Yes                                         | Yes, but packages sit on your porch | No — that is the problem | $0, and rising in exposure              |
-| Office lease          | Yes                  | Yes                                         | Yes                                 | Yes                      | Far more than most home businesses need |
-| Private mailbox (PMB) | Yes                  | Yes                                         | USPS, UPS, FedEx, DHL               | Yes                      | From $35/month (business plans)         |
+| Option                | Real street address? | Passes bank, vendor, and business-address filing fields?\* | All carriers deliver?               | Your home stays private? | Typical cost                            |
+| --------------------- | -------------------- | ---------------------------------------------------------- | ----------------------------------- | ------------------------ | --------------------------------------- |
+| PO box                | No                   | No — it is a delivery point, not an address                | USPS only                           | Yes                      | Varies by post office                   |
+| Your home address     | Yes                  | Yes                                                        | Yes, but packages sit on your porch | No — that is the problem | $0, and rising in exposure              |
+| Office lease          | Yes                  | Yes                                                        | Yes                                 | Yes                      | Far more than most home businesses need |
+| Private mailbox (PMB) | Yes                  | Yes                                                        | USPS, UPS, FedEx, DHL               | Yes                      | From $35/month (business plans)         |
+
+\*With one known exception covered below: Ohio's statutory-agent slot accepts neither a PO box nor a CMRA address — a PMB passes the business-address fields on bank, vendor, and filing forms, but the agent line has its own rule.
 
 Where the losers still win: a PO box is genuinely the right tool if all you ever receive is first-class letters and you want nothing more from an address. An office lease wins the moment you need client meeting space or a storefront — no mailbox pretends to be that. But for the single problem this article is about — forms that demand a street address while your business runs from home — the PMB is the only option that passes the check, protects your home, and costs less than a utility bill.
 
