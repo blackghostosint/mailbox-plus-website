@@ -766,3 +766,41 @@ export const getSchemaGraph = (
     '@graph': finalGraphNodes,
   };
 };
+
+/**
+ * Safely serializes data to a JSON string for embedding inside HTML script tags.
+ * Replaces '<', '>', and '&' with Unicode escape sequences (\u003c, \u003e, \u0026)
+ * to prevent script breakout (XSS / CWE-79 / CWE-116) while ensuring standard
+ * JSON parsers (and search engine JSON-LD readers) deserialize identical data.
+ *
+ * Handles undefined, null, or invalid JSON inputs by returning a valid empty JSON object ('{}').
+ */
+export const serializeJsonLd = (data?: unknown): string => {
+  if (data === undefined || data === null) {
+    return '{}';
+  }
+
+  let json: string;
+  try {
+    const stringified = JSON.stringify(data);
+    if (stringified === undefined) {
+      return '{}';
+    }
+    json = stringified;
+  } catch {
+    return '{}';
+  }
+
+  return json.replace(/[<>&]/g, (char) => {
+    switch (char) {
+      case '<':
+        return '\\u003c';
+      case '>':
+        return '\\u003e';
+      case '&':
+        return '\\u0026';
+      default:
+        return char;
+    }
+  });
+};

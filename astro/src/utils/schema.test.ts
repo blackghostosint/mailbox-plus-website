@@ -12,6 +12,7 @@ import {
   getBreadcrumbSchema,
   getVideoObjectSchema,
   getSchemaGraph,
+  serializeJsonLd,
 } from './schema';
 import type { SiteConfig } from '../types/siteConfig';
 
@@ -794,5 +795,82 @@ describe('getSchemaGraph', () => {
     expect(article.image).toBe(
       'https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/pack-ship/dhl-drop-off-chardon-featured.webp'
     );
+  });
+});
+
+describe('serializeJsonLd', () => {
+  it('escapes angle brackets and ampersands using Unicode escapes', () => {
+    const input = { query: 'A & B < C > D' };
+    const serialized = serializeJsonLd(input);
+
+    expect(serialized).toBe('{"query":"A \\u0026 B \\u003c C \\u003e D"}');
+    expect(serialized).not.toContain('<');
+    expect(serialized).not.toContain('>');
+    expect(serialized).not.toContain('&');
+  });
+
+  it('neutralizes closing script tags to prevent script breakout (CWE-79 / CWE-116)', () => {
+    const input = {
+      malicious: '</script><script>alert("xss")</script>',
+    };
+    const serialized = serializeJsonLd(input);
+
+    expect(serialized).not.toContain('</script>');
+    expect(serialized).not.toContain('<script>');
+    expect(serialized).toContain('\\u003c/script\\u003e');
+    expect(serialized).toContain('\\u003cscript\\u003e');
+  });
+
+  it('neutralizes nested HTML tags and comments without breaking valid string content', () => {
+    const input = {
+      content: '<div>Nested <!-- comment --> & entities</div>',
+    };
+    const serialized = serializeJsonLd(input);
+
+    expect(serialized).not.toMatch(/[<>&]/);
+    expect(serialized).toContain('\\u003cdiv\\u003e');
+    expect(serialized).toContain('\\u0026');
+    expect(serialized).toContain('\\u003c!-- comment --\\u003e');
+    expect(serialized).toContain('\\u003c/div\\u003e');
+  });
+
+  it('handles undefined and null inputs by returning valid empty JSON representation "{}"', () => {
+    expect(serializeJsonLd(undefined)).toBe('{}');
+    expect(serializeJsonLd(null)).toBe('{}');
+    expect(serializeJsonLd()).toBe('{}');
+  });
+
+  it('handles empty objects and empty graph inputs', () => {
+    expect(serializeJsonLd({})).toBe('{}');
+    const emptyGraph = { '@context': 'https://schema.org', '@graph': [] };
+    expect(serializeJsonLd(emptyGraph)).toBe('{"@context":"https://schema.org","@graph":[]}');
+  });
+
+  it('deserializes identically back to original data when parsed with JSON.parse', () => {
+    const complexData = {
+      title: 'Mailbox & Packing <Pro>',
+      tags: ['<bold>', 'up & down', 'x > y'],
+      nested: {
+        raw: '</script><script>test</script>',
+        num: 42,
+        flag: true,
+      },
+    };
+    const serialized = serializeJsonLd(complexData);
+    const parsed = JSON.parse(serialized);
+
+    expect(parsed).toEqual(complexData);
+  });
+
+  it('safely serializes getSchemaGraph output while replacing any unsafe characters', () => {
+    const graph = getSchemaGraph(mockSiteConfig, [], {
+      title: 'Mailbox & Shipping <Services>',
+      description: 'Find us & rent mailboxes > affordable',
+      canonicalUrl: 'https://mailboxplusohio.com/services/',
+    });
+    const serialized = serializeJsonLd(graph);
+
+    expect(serialized).not.toMatch(/[<>&]/);
+    expect(JSON.parse(serialized)).toEqual(graph);
   });
 });
