@@ -6016,12 +6016,12 @@ For a home business that needs a street address for business forms, a **private 
 
 Every "street address required" field is the same question: is this a fixed, physical place? Here is how each of your actual options answers it:
 
-| Option                       | Real street address? | Passes bank, filing, and vendor forms? | All carriers deliver?             | Your home stays private? | Typical cost                |
-| ---------------------------- | -------------------- | -------------------------------------- | --------------------------------- | ------------------------ | --------------------------- |
-| PO box                       | No                   | No — it is a delivery point, not an address | USPS only                            | Yes                      | Cheapest of the four        |
-| Your home address            | Yes                  | Yes                                    | Yes, but packages sit on your porch | No — that is the problem | $0, and rising in exposure  |
-| Office lease                 | Yes                  | Yes                                    | Yes                                | Yes                      | Far more than most home businesses need |
-| Private mailbox (PMB)        | Yes                  | Yes                                    | USPS, UPS, FedEx, DHL               | Yes                      | From $35/month (business plans) |
+| Option                | Real street address? | Passes bank, filing, and vendor forms?      | All carriers deliver?               | Your home stays private? | Typical cost                            |
+| --------------------- | -------------------- | ------------------------------------------- | ----------------------------------- | ------------------------ | --------------------------------------- |
+| PO box                | No                   | No — it is a delivery point, not an address | USPS only                           | Yes                      | Cheapest of the four                    |
+| Your home address     | Yes                  | Yes                                         | Yes, but packages sit on your porch | No — that is the problem | $0, and rising in exposure              |
+| Office lease          | Yes                  | Yes                                         | Yes                                 | Yes                      | Far more than most home businesses need |
+| Private mailbox (PMB) | Yes                  | Yes                                         | USPS, UPS, FedEx, DHL               | Yes                      | From $35/month (business plans)         |
 
 Where the losers still win: a PO box is genuinely the right tool if all you ever receive is first-class letters and you want nothing more from an address. An office lease wins the moment you need client meeting space or a storefront — no mailbox pretends to be that. But for the single problem this article is about — forms that demand a street address while your business runs from home — the PMB is the only option that passes the check, protects your home, and costs less than a utility bill.
 
@@ -6069,7 +6069,7 @@ Business plans start at $35 a month, month to month, no annual contract; persona
 
 A guide that only sells is a guide that sets you up to be blindsided. A private mailbox does **not** fill two slots, and both have clean answers:
 
-**Ohio's statutory agent slot.** Form 610 is explicit: post office boxes and CMRA addresses are not allowed for the statutory agent. If you do not want your home on that line, the clean answer is a professional registered agent service — a real office that accepts legal documents for you. The division of labor: your PMB is the address the *world* sees (bank, vendors, website, cards); the statutory agent is the address the *courthouse* uses. Different jobs, and a mailbox only does one of them.
+**Ohio's statutory agent slot.** Form 610 is explicit: post office boxes and CMRA addresses are not allowed for the statutory agent. If you do not want your home on that line, the clean answer is a professional registered agent service — a real office that accepts legal documents for you. The division of labor: your PMB is the address the _world_ sees (bank, vendors, website, cards); the statutory agent is the address the _courthouse_ uses. Different jobs, and a mailbox only does one of them.
 
 **Google Business Profile's location rule.** Google will not accept a PO box, a remote mailbox, or a rented address you do not operate from as a profile location. If your business serves customers at their locations — consulting, contracting, mobile services — set the profile up as a service-area business and hide the address; that is Google's own sanctioned path for a business run from a residential address. The PMB remains the address on your website, cards, and registrations; the profile rule is a separate requirement, not a rejection of your setup.
 
@@ -6087,7 +6087,7 @@ You did not rent an office. You did not expose your home. You gave your business
 
 ## Start With the Counter, Not the Forms
 
-Bring your two IDs to 7554 Fredle Drive and leave with your PMB number — we handle the Form 1583 paperwork at the counter, and the next form that asks for a street address gets a real one. If you want to see the pricing, the [mailbox rental page for home businesses](/home-business/mailbox-rental/) has it, and [digital mailbox service](/home-business/digital-mailbox-rental/) adds mail scanning from your phone. Still torn between a post office box and a real address? Come ask us at the counter — or read the [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box/) and the [Concord Township street-address guide](/articles/concord-township-business-real-street-address/) first. Your business is real. Give it an address that holds up on every form — and keep your home exactly where it belongs.
+Bring your two IDs to 7554 Fredle Drive and leave with your PMB number — we handle the Form 1583 paperwork at the counter, and the next form that asks for a street address gets a real one. If you want to see the pricing, the [mailbox rental page for home businesses](/home-business/mailbox-rental/) has it, and [digital mailbox service](/home-business/digital-mailbox-rental/) adds mail scanning from your phone. Still torn between a post office box and a real address? Come ask us at the counter — or read the [Private Mailbox vs. PO Box breakdown](/articles/private-mailbox-vs-po-box/) and the [Concord Township street-address guide](/articles/concord-township-business-real-street-address/) first. Your business is real. Give it an address that holds up where those forms demand a street address — and keep your home exactly where it belongs.
 
 _This article is for information only and isn't legal advice. Address requirements change and vary by institution; confirm current rules with your bank, the Ohio Secretary of State, and Google's published guidelines before filing._
 

@@ -118,6 +118,30 @@
     {
       "value": "2",
       "scope": "Address Line 2 for the PMB designation (Google address-entry guidance)"
+    },
+    {
+      "value": "9",
+      "scope": "Store opening hour (9 AM) from siteConfig hours"
+    },
+    {
+      "value": "6",
+      "scope": "Store weekday closing hour (6 PM) from siteConfig hours"
+    },
+    {
+      "value": "2",
+      "scope": "Store Saturday closing hour (2 PM) from siteConfig hours"
+    },
+    {
+      "value": "31",
+      "scope": "Title 31 of the Code of Federal Regulations (CIP rule citation)"
+    },
+    {
+      "value": "3",
+      "scope": "Third numbered editorial step in the how-it-works list"
+    },
+    {
+      "value": "$0",
+      "scope": "Editorial: home address itself costs nothing up front (comparison table)"
     }
   ],
   "scope_rules": [
