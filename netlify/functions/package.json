@@ -4,7 +4,7 @@
   "type": "commonjs",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
-    "@netlify/blobs": "^10.7.9",
+    "@netlify/blobs": "^11.1.7",
     "@netlify/functions": "^2.8.2",
     "dotenv": "^17.2.3",
     "resend": "^6.37.0",
