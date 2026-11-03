@@ -123,7 +123,7 @@ The whole method is one move: give the printed date a cushion.
 
 The deadline itself is free. Waiting for it is where the bill comes from.
 
-The receipt version: the gap between a ground row and an overnight row is the biggest single price swing in shipping, and the overnight premium buys back nothing but the days you didn't use. Same box, same address, very different number at the bottom of the slip — and the worse number is the one you pay for procrastinating, not for distance.
+The receipt version: the gap between a ground row and an overnight row is where a December shipping bill really moves, and the overnight premium buys back nothing but the days you didn't use. Same box, same address, very different number at the bottom of the slip — and the worse number is the one you pay for procrastinating, not for distance.
 
 The calendar version: on Dec. 12 the whole table is open. On Dec. 23 it's one row. Every day you wait deletes rows, and it deletes the cheap ones first.
 
