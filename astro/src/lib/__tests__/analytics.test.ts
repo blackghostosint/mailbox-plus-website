@@ -159,8 +159,9 @@ describe('analytics module', () => {
     expect(document.querySelector('script[data-src*="googletagmanager.com"]')).toBeNull();
     expect(document.querySelector('script[data-src*="connect.facebook.net"]')).toBeNull();
 
-    // Trigger timer or requestIdleCallback fallback
-    vi.advanceTimersByTime(2000);
+    // Trigger the 3s delayed-load timer (idle callback removed: it fired
+    // immediately after first paint, defeating the deferral)
+    vi.advanceTimersByTime(3000);
 
     const gaScript = document.querySelector('script[data-src*="googletagmanager.com"]');
     const fbScript = document.querySelector('script[data-src*="connect.facebook.net"]');
