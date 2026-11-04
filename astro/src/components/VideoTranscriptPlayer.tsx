@@ -389,7 +389,13 @@ export const VideoTranscriptPlayer: React.FC<VideoTranscriptPlayerProps> = ({
           </span>
         </div>
 
-        <div className="space-y-3 max-h-[28rem] overflow-y-auto pr-1">
+        <div
+          /* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex -- scrollable region requires tabIndex for WCAG 2.1 SC 2.1.1 keyboard navigation */
+          tabIndex={0}
+          role="region"
+          aria-label="Video transcript"
+          className="space-y-3 max-h-[28rem] overflow-y-auto p-1 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--color-primary)] focus:ring-offset-2"
+        >
           {cues.map((cue, index) => {
             const isActive = index === activeCueIndex;
             return (
