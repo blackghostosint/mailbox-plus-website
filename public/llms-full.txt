@@ -5306,7 +5306,7 @@ Published: 2026-11-04
 
 You just moved. Boxes everywhere, utilities in your name, and one more errand on the list: file the change of address so your mail follows you. You fill out the form at the kitchen table — half a sheet of paper's worth of typing — pick a start date, pay the fee, and figure the post office has it from here.
 
-Here is what actually happens: the forwarding you filed is partial, temporary, and quieter about its own expiration date than you would like. First-Class Mail follows you for 12 months. Magazines follow you for 60 days. Marketing mail and some parcels follow you only if the sender told the post office to forward them. And when the 12 months run out, the mail simply stops coming — the post office returns it to your old address, marked with your new one, and the sender has to figure out the rest.
+Here is what actually happens: the forwarding you filed is partial, temporary, and quieter about its own expiration date than you would like. First-Class Mail follows you for 12 months. Magazines follow you for 60 days. Marketing mail and some parcels follow you only if the sender told the post office to forward them. And when the 12 months run out, the mail simply stops coming — the post office returns it to the sender with your new address attached, and the sender has to figure out the rest.
 
 If you have ever watched the mail at an old house pile up after you left, you already know the form is not the whole answer. The [guide to mail forwarding while you travel](/articles/mail-forwarding-101-usps-vs-mailbox-service/) covers the same clock from a traveler's side; here we walk through what a change of address covers, where it stops, and how to set up a mailing address that never has to be forwarded again.
 
