@@ -46,6 +46,9 @@ describe('VideoTranscriptPlayer Component', () => {
 
     // Interactive Transcript section
     expect(html).toContain('Interactive Video Transcript');
+    expect(html).toContain('role="region"');
+    expect(html).toContain('aria-label="Video transcript"');
+    expect(html).toContain('tabindex="0"');
     expect(html).toContain('0:00');
     expect(html).toContain('0:09');
     expect(html).toContain('0:17');
@@ -219,5 +222,37 @@ describe('VideoTranscriptPlayer Component', () => {
 
     fireEvent.click(descBtn);
     expect(mockTrack.mode).toBe('disabled');
+  });
+
+  it('renders transcript container with role="region", tabIndex=0, and aria-label="Video transcript"', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const transcriptRegion = screen.getByRole('region', { name: 'Video transcript' });
+    expect(transcriptRegion).toBeTruthy();
+    expect(transcriptRegion.getAttribute('tabindex')).toBe('0');
+    expect(transcriptRegion.className).toContain('overflow-y-auto');
+    expect(transcriptRegion.className).toContain('focus:ring-2');
+  });
+
+  it('allows focusing the transcript container and navigating through child buttons', () => {
+    render(<VideoTranscriptPlayer />);
+
+    const transcriptRegion = screen.getByRole('region', { name: 'Video transcript' });
+    transcriptRegion.focus();
+    expect(document.activeElement).toBe(transcriptRegion);
+
+    // Verify child buttons within transcript container are present and focusable
+    const seekButtons = screen.getAllByRole('button', { name: /Seek video to/i });
+    expect(seekButtons.length).toBeGreaterThan(0);
+
+    const firstSeekButton = seekButtons[0];
+    firstSeekButton.focus();
+    expect(document.activeElement).toBe(firstSeekButton);
+
+    const firstLineButton = screen.getByRole('button', {
+      name: /After you submit the form/i,
+    });
+    firstLineButton.focus();
+    expect(document.activeElement).toBe(firstLineButton);
   });
 });
