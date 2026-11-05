@@ -1,0 +1,161 @@
+{
+  "source_extracts": [
+    {
+      "url": "https://www.fedex.com/en-us/delivery-manager.html",
+      "quotes": [
+        "request to have it sent to one of thousands of retail pickup locations, including Walgreens, FedEx Office, and Dollar General, free of charge",
+        "If you make your request before midnight the day before your delivery is scheduled, your package will be available for pickup the next day",
+        "A secure FedEx location will hold your package for up to 7 days",
+        "For rerouting within 120 miles of the original destination, the fee is $5.55 per package"
+      ]
+    },
+    {
+      "url": "https://www.fedex.com/en-us/shipping/hold-at-location.html",
+      "quotes": [
+        "Bring a government-issued photo ID",
+        "If your name doesn't match the name on the package label, you'll need the tracking number",
+        "If the address on your ID doesn't match the address on the package label, you'll also need to bring an alternative form of ID. You can use a utility bill or statement, health or auto insurance card, property statement from a county or city website, or credit card statement",
+        "You'll get a text, email, or call when the package is ready",
+        "FedEx will hold your package for up to 7 days. After that, we'll return it to the shipper"
+      ]
+    },
+    {
+      "url": "https://www.fedex.com/en-us/faq/delivery-manager.html",
+      "quotes": [
+        "Requests made prior to midnight, the day before scheduled delivery will be available for pickup the next day",
+        "These options start at $5.55 per request",
+        "What is request to FedEx Hold for Pickup? FedEx Hold for Pickup allows you to request packages to be held at a FedEx location",
+        "Why was my package taken to a FedEx location for customer pickup? If a delivery requires a signature or if the package cannot be left at your home, we may deliver your package to a nearby secure location, such as your local FedEx Office or Walgreens store"
+      ]
+    },
+    {
+      "url": "https://www.fedex.com/en-us/faq/onsite.html",
+      "quotes": [
+        "A package will be held at the location for up to 7 days. After that, the package will be returned to the nearest FedEx facility",
+        "There are no additional fees for picking up or dropping off a package at these locations"
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "7 days",
+      "scope": "maximum hold duration for a redirected/held package, then return to shipper"
+    },
+    {
+      "value": "midnight the day before",
+      "scope": "request deadline for next-day pickup availability"
+    },
+    {
+      "value": "$0",
+      "scope": "Hold at Location redirect via Delivery Manager or tracking page"
+    },
+    {
+      "value": "$5.55",
+      "scope": "starting fee to reroute to a different residential address (within 120 miles)"
+    },
+    {
+      "value": "$33.50",
+      "scope": "reroute >120 miles, delivery 1 day after original date"
+    },
+    {
+      "value": "$22.50",
+      "scope": "reroute >120 miles, delivery 3 days after original date"
+    },
+    {
+      "value": "$14.50",
+      "scope": "reroute >120 miles via FedEx Ground/Home Delivery"
+    },
+    {
+      "value": "(440) 709-1946",
+      "scope": "store phone"
+    },
+    {
+      "value": "9 AM to 6 PM / 9 AM to 2 PM",
+      "scope": "store hours Mon-Fri / Sat"
+    },
+    {
+      "value": "120 miles",
+      "scope": "FedEx reroute distance threshold: within 120 miles = $5.55 flat; beyond triggers distance-based fees"
+    },
+    {
+      "value": "ninety seconds",
+      "scope": "illustrative time to complete the redirect on the tracking page (scene texture, not a policy claim)"
+    },
+    {
+      "value": "three houses away",
+      "scope": "scene texture describing a delivered package sitting on a porch"
+    },
+    {
+      "value": "10:40 in the morning",
+      "scope": "scene texture timestamp in the narrative example"
+    },
+    {
+      "value": "2026",
+      "scope": "publication year of the article"
+    },
+    {
+      "value": "7-day clock",
+      "scope": "the 7-day hold window described in the description (same fact as '7 days')"
+    },
+    {
+      "value": "10:40",
+      "scope": "scene texture timestamp in the narrative example"
+    },
+    {
+      "value": "40",
+      "scope": "scene texture: narrative weight example (40 lbs box) \u2014 illustrative only"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number (7554 Fredle Drive)"
+    },
+    {
+      "value": "1",
+      "scope": "step number in the 3-step redirect walkthrough"
+    },
+    {
+      "value": "2",
+      "scope": "step number in the 3-step redirect walkthrough"
+    },
+    {
+      "value": "3",
+      "scope": "step number in the 3-step redirect walkthrough"
+    },
+    {
+      "value": "21",
+      "scope": "FedEx age-of-recipient rule: packages released only to someone 21 or older where required (age-restricted deliveries)"
+    },
+    {
+      "value": "7",
+      "scope": "maximum hold duration in days for a redirected/held package, then return to shipper"
+    },
+    {
+      "value": "10",
+      "scope": "scene texture timestamp token (10:40 in the morning) \u2014 narrative only"
+    },
+    {
+      "value": "two hours",
+      "scope": "scene texture: distance/time framing in the narrative example \u2014 not a policy claim"
+    },
+    {
+      "value": "ninety",
+      "scope": "illustrative time to complete the redirect on the tracking page (scene texture)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "pattern": "any claim that hold-at-location pickup works for all package types",
+      "reason": "signature-required or undeliverable packages are auto-routed by FedEx; some shippers restrict redirects"
+    },
+    {
+      "pattern": "any claim the store performs the FedEx redirect for the customer",
+      "reason": "the redirect is done by the recipient on fedex.com; the store is a pickup/answer resource, not the redirect mechanism"
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "we can receive FedEx packages for pickup",
+      "qualifier": "at our counter during posted hours, per FedEx hold-at-location pickup rules"
+    }
+  ]
+}
