@@ -120,15 +120,15 @@ const ogImageHeight = ogImage ? undefined : '630';
     {ogImageHeight && <meta property="og:image:height" content={ogImageHeight} />}
     <slot name="head" />
     <script type="application/ld+json" set:html={serializeJsonLd(schemaGraph)} />
-    <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel) -->
+    <!-- Deferred Third-Party Analytics (GA4 + Meta Pixel): loads on first
+         interaction or after a 3s timer — never during first paint. -->
     <script>
       import { initAnalytics } from '../lib/analytics';
       initAnalytics();
     </script>
-    <!-- End Deferred Third-Party Analytics -->
-    <!-- Google Preferred Sources button library -->
-    <!-- SRI intentionally omitted: this is Google's documented embed code from news.google.com (first-party CDN) -->
-    <script is:inline async src="https://news.google.com/swg/js/v1/publisher.js"></script>
+    <!-- Subscribe with Google / Google Preferred Sources removed 2026-10-05:
+         ~200KB of news-subscription JS (publisher.js + gstatic boq-*) loaded on
+         every page for a feature not used on this site. See PSI audit. -->
   </head>
   <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-sans min-h-screen flex flex-col">
     <!-- Meta Pixel Code (noscript) -->
