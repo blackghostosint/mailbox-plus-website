@@ -33,6 +33,7 @@
     --color-accent-gold: #f7c82a;
     --color-accent-gold-light: #f7d46a;
     --color-accent-gold-dark: #d4a820;
+    --color-accent-gold-text: #8a6d1a;
     --color-accent: var(--color-accent-gold);
     --color-accent-light: var(--color-accent-gold-light);
     --color-accent-warm: #984b2e;
