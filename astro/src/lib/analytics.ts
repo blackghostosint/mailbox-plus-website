@@ -133,17 +133,10 @@ export function initAnalytics(): void {
     window.addEventListener(e, loadTrackingSDKs, { passive: true, once: true });
   });
 
-  // Setup idle trigger
-  if (typeof window.requestIdleCallback === 'function') {
-    window.requestIdleCallback(
-      () => {
-        loadTrackingSDKs();
-      },
-      { timeout: 2000 }
-    );
-  } else {
-    window.setTimeout(loadTrackingSDKs, 2000);
-  }
+  // Setup delayed trigger: 3s timer (never requestIdleCallback — it fires as soon
+  // as the main thread idles, i.e. right after first paint, re-introducing the
+  // third-party blocking that this deferral exists to prevent).
+  window.setTimeout(loadTrackingSDKs, 3000);
 
   // --- 1. Element click tracking ---
   document.addEventListener(

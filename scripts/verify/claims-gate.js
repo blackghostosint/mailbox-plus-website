@@ -248,7 +248,7 @@ if (isMainModule(import.meta.url)) {
         '-w',
         '%{http_code}',
         '--max-time',
-        '10',
+        '25',
         url,
       ])
         .toString()
