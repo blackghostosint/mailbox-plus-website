@@ -96,6 +96,14 @@
       "immich_asset": "94ed8268-9230-4a7f-93f4-7d687ad1ee96",
       "vetted": "2026-10-30",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/packing/counter-dropoff-01.webp",
+      "topics": ["packing"],
+      "alt": "A customer at the Mailbox Plus counter handing over a package for carrier drop-off",
+      "immich_asset": "d3e1b00e-6c70-4f47-8c22-093eba149e24",
+      "vetted": "2026-11-05",
+      "source_article": null
     }
   ]
 }

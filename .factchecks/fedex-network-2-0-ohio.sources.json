@@ -1,0 +1,170 @@
+{
+  "slug": "fedex-network-2-0-ohio",
+  "source_extracts": [
+    {
+      "url": "https://www.supplychaindive.com/news/fedex-network-20-headed-to-los-angeles-other-markets-post-holidays/873453/",
+      "quotes": [
+        "FedEx has completed its Network 2.0 overhaul in Dallas, San Francisco, Phoenix and Washington D.C., advancing the company's efforts to combine its historically separate Ground and Express networks",
+        "The carrier is entering the peak holiday shipping season with 65% of its eligible volume flowing through roughly 630 stations optimized to support Network 2.0",
+        "That's up from the 45% of eligible volume and nearly 490 optimized stations FedEx had at the end of June",
+        "As it has for the past two years, FedEx is pausing Network 2.0 implementation efforts during the peak season. After the holiday rush, FedEx will pursue implementing Network 2.0 in Los Angeles, Oklahoma City and Charlotte, North Carolina",
+        "So far, the company has shuttered more than 260 stations as part of the initiative, with an overall goal of over 475 stations closed",
+        "Network 2.0 is expected to save FedEx a cumulative $2 billion in costs by the end of next year",
+        "the initiative slated to wrap up in 2027"
+      ]
+    },
+    {
+      "url": "file://astro/src/config/siteConfig.ts",
+      "quotes": [
+        "street: '7554 Fredle Drive', city: 'Concord Township', state: 'OH', zip: '44077'",
+        "hours: monday-friday '9:00 AM - 6:00 PM', saturday '9:00 AM - 2:00 PM', sunday 'Closed'"
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "roughly 630",
+      "scope": "FedEx stations optimized for Network 2.0 as of Nov 2026 earnings call"
+    },
+    {
+      "value": "65%",
+      "scope": "of FedEx's eligible volume flowing through optimized stations entering peak season 2026"
+    },
+    {
+      "value": "45%",
+      "scope": "eligible volume at end of June 2026"
+    },
+    {
+      "value": "nearly 490",
+      "scope": "optimized stations at end of June 2026"
+    },
+    {
+      "value": "more than 260",
+      "scope": "stations FedEx has shuttered so far under Network 2.0"
+    },
+    {
+      "value": "over 475",
+      "scope": "overall goal of station closures under Network 2.0"
+    },
+    {
+      "value": "2027",
+      "scope": "year Network 2.0 integration is slated to wrap up"
+    },
+    {
+      "value": "$2 billion",
+      "scope": "cumulative FedEx cost savings expected by end of 2027"
+    },
+    {
+      "value": "9:00 AM - 6:00 PM",
+      "scope": "Mailbox Plus Mon-Fri hours, siteConfig.ts"
+    },
+    {
+      "value": "9:00 AM - 2:00 PM",
+      "scope": "Mailbox Plus Saturday hours, siteConfig.ts"
+    },
+    {
+      "value": "7554 Fredle Drive, Concord Township, OH 44077",
+      "scope": "store address, siteConfig.ts"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "store phone, siteConfig.ts"
+    },
+    {
+      "value": "2.0",
+      "scope": "program name 'FedEx Network 2.0' \u2014 not a measurement"
+    },
+    {
+      "value": "260",
+      "scope": "same fact as 'more than 260' stations shuttered (bare numeral in title/description)"
+    },
+    {
+      "value": "475",
+      "scope": "same fact as 'over 475' closure goal (bare numeral in description/quickAnswer)"
+    },
+    {
+      "value": "7554",
+      "scope": "street number of 7554 Fredle Drive, siteConfig.ts"
+    },
+    {
+      "value": "9:00",
+      "scope": "component of registered store hours 9:00 AM - 6:00 PM / 9:00 AM - 2:00 PM"
+    },
+    {
+      "value": "6:00",
+      "scope": "component of registered store hours 9:00 AM - 6:00 PM"
+    },
+    {
+      "value": "2:00",
+      "scope": "component of registered store hours 9:00 AM - 2:00 PM"
+    },
+    {
+      "value": "9",
+      "scope": "hour digit in registered store hours (token form)"
+    },
+    {
+      "value": "6",
+      "scope": "hour digit in registered store hours (token form)"
+    },
+    {
+      "value": "2",
+      "scope": "hour digit in registered store hours (token form)"
+    },
+    {
+      "value": "00",
+      "scope": "minute component of registered store hours (token form)"
+    },
+    {
+      "value": "65",
+      "scope": "same fact as 65% eligible volume through optimized stations (bare token)"
+    },
+    {
+      "value": "630",
+      "scope": "same fact as roughly 630 optimized stations (bare token)"
+    },
+    {
+      "value": "45",
+      "scope": "same fact as 45% eligible volume at end of June (bare token)"
+    },
+    {
+      "value": "490",
+      "scope": "same fact as nearly 490 optimized stations (bare token)"
+    },
+    {
+      "value": "$2",
+      "scope": "same fact as $2 billion cumulative savings (dollar-sign token)"
+    },
+    {
+      "value": "1",
+      "scope": "ordered-list step number in How It Works, not a factual claim"
+    },
+    {
+      "value": "3",
+      "scope": "ordered-list step number in How It Works, not a factual claim"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "claiming any specific Ohio/Northeast Ohio FedEx station closure, merge, or date",
+      "reason": "FedEx has not announced Ohio market waves; only Dallas/SF/Phoenix/DC complete, LA/OKC/Charlotte next"
+    },
+    {
+      "forbidden": "stating FedEx Ground and Express have already merged in Northeast Ohio",
+      "reason": "unannounced for this market"
+    },
+    {
+      "forbidden": "any 'FedEx will keep accepting packages at our counter' guarantee or carrier-partnership claim",
+      "reason": "no source; store is independent, never state carrier endorsement"
+    },
+    {
+      "forbidden": "the word 'villain' in prose/headings/PR body",
+      "reason": "Frank hard rule"
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "packages can be dropped off at the store",
+      "qualifier": "staff hand them to the carrier at the counter; drop-off availability per carrier current rates and policies"
+    }
+  ]
+}
