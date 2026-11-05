@@ -26,7 +26,7 @@ faqs:
   - question: 'Have FedEx stations in Ohio closed under Network 2.0?'
     answer: 'No Ohio market wave has been announced. The overhaul is complete in Dallas, San Francisco, Phoenix and Washington D.C., and FedEx named Los Angeles, Oklahoma City and Charlotte as its next markets after the 2026 holidays. Markets after those are unannounced.'
   - question: 'Can I still drop off FedEx packages at Mailbox Plus?'
-    answer: 'Yes. We are an independent counter at 7554 Fredle Drive in Concord Township — we take your package, log it, and hand it to the carrier at the counter, Monday through Friday 9:00 AM to 6:00 PM and Saturday 9:00 AM to 2:00 PM.'
+    answer: "Yes, subject to each carrier's current drop-off policies. We are an independent counter at 7554 Fredle Drive in Concord Township — we take your package, log it, and hand it to the carrier at the counter, Monday through Friday 9:00 AM to 6:00 PM and Saturday 9:00 AM to 2:00 PM."
   - question: 'Why do FedEx drop-off locations keep changing?'
     answer: 'Because Network 2.0 works partly by removing overlapping facilities and routes. When a station closes or a route consolidates, the drop-off map you looked up last month can be out of date — which is why a fixed local counter is the safer default.'
 relatedServices:
@@ -71,13 +71,13 @@ Because we're independent, we handle multiple carriers from one place — FedEx,
 
 ![A customer at the Mailbox Plus counter handing over a package for carrier drop-off](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/counter-dropoff-01.webp)
 
-We also see the other half of this. People come in holding a label for a drop-off point that no longer exists, asking if we can take it — and when the carrier's current policies allow counter drop-offs, the answer is yes. If you're comparing costs before you ship, our [side-by-side rate comparison](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) walks through it, and our [FedEx demand surcharges explainer](/articles/fedex-demand-surcharges-2026/) covers the fees that hit hardest in December. That question is exactly what a fixed local counter is for.
+We also see the other half of this. People come in holding a label for a drop-off point that no longer exists, asking if we can take it — and when the carrier's current policies allow counter drop-offs, the answer is yes. That question is exactly what a fixed local counter is for. If you're comparing costs before you ship, our [side-by-side rate comparison](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) walks through it, and our [FedEx demand surcharges explainer](/articles/fedex-demand-surcharges-2026/) covers the fees that hit hardest in December.
 
 ## Three Steps and You're Done
 
 1. **Bring what you have.** Box, tape, label, or none of the above — bring the item and the address. No pre-sorting, no homework.
 2. **Put it on the counter.** Tell us where it's going. We box it if it needs a box, tape it, print the label, weigh it, and compare carrier rates in front of you so you pay the right price, not a guess.
-3. **Walk out with a receipt.** Your package is handed to the carrier with tracking attached, and you know who has it from the first minute.
+3. **Walk out with a receipt.** When the carrier accepts counter drop-offs, your package is handed to the carrier with tracking attached, and you know who has it from the first minute.
 
 One address, every carrier, no map to re-learn. If FedEx's station list changes next month, your trip here looks exactly the same.
 
