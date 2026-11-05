@@ -32,7 +32,7 @@ faqs:
 relatedServices:
   ['/pack-ship/', '/pack-ship/fedex-shipping/', '/pack-ship/ups-authorized-shipper-outlet/']
 quickAnswer: >-
-  FedEx's Network 2.0 merges its Ground and Express networks and is complete in Dallas, San Francisco, Phoenix and Washington D.C. — with more than 260 stations already closed and a goal of over 475 by 2027. A Northeast Ohio wave hasn't been announced yet. Use a drop-off point that doesn't move: Mailbox Plus in Concord Township takes FedEx packages at one fixed counter, Monday through Friday 9:00 AM to 6:00 PM, Saturday 9:00 AM to 2:00 PM.
+  FedEx's Network 2.0 merges its Ground and Express networks and is complete in Dallas, San Francisco, Phoenix and Washington D.C. — more than 260 stations closed, a goal of over 475 by 2027. A Northeast Ohio wave hasn't been announced. Mailbox Plus in Concord Township accepts FedEx drop-offs under current carrier policies at one counter, Monday through Friday 9:00 AM to 6:00 PM, Saturday 9:00 AM to 2:00 PM.
 ---
 
 ## The Errand That Should Be Simple
@@ -71,12 +71,12 @@ Because we're independent, we handle multiple carriers from one place — FedEx,
 
 ![A customer at the Mailbox Plus counter handing over a package for carrier drop-off](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/counter-dropoff-01.webp)
 
-We also see the other half of this. People come in holding a label for a drop-off point that no longer exists, asking if we can just take it. We can. If you're comparing costs before you ship, our [side-by-side rate comparison](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) walks through it, and our [FedEx demand surcharges explainer](/articles/fedex-demand-surcharges-2026/) covers the fees that hit hardest in December. That question is exactly what a fixed local counter is for.
+We also see the other half of this. People come in holding a label for a drop-off point that no longer exists, asking if we can take it — and when the carrier's current policies allow counter drop-offs, the answer is yes. If you're comparing costs before you ship, our [side-by-side rate comparison](/articles/compare-shipping-rates-ups-fedex-usps-dhl/) walks through it, and our [FedEx demand surcharges explainer](/articles/fedex-demand-surcharges-2026/) covers the fees that hit hardest in December. That question is exactly what a fixed local counter is for.
 
 ## Three Steps and You're Done
 
 1. **Bring what you have.** Box, tape, label, or none of the above — bring the item and the address. No pre-sorting, no homework.
-2. **Put it on the counter.** Tell us where it's going. We pack it properly, print the label, weigh it, and compare carrier rates in front of you so you pay the right price, not a guess.
+2. **Put it on the counter.** Tell us where it's going. We box it if it needs a box, tape it, print the label, weigh it, and compare carrier rates in front of you so you pay the right price, not a guess.
 3. **Walk out with a receipt.** Your package is handed to the carrier with tracking attached, and you know who has it from the first minute.
 
 One address, every carrier, no map to re-learn. If FedEx's station list changes next month, your trip here looks exactly the same.
@@ -93,7 +93,7 @@ In December, a wasted trip isn't an inconvenience. It's a missed ship date.
 
 ## Off Your Desk, Off Your Mind
 
-Picture next Tuesday instead. Box in the car, quick run over to the plaza next to Pub Frato, pull in, walk in the door. The package goes on the counter, the label prints, the receipt is in your hand, and the whole exchange takes minutes — because nothing about the location had to be figured out first. You drive home and the thought simply doesn't come back: nobody's going to text you that the drop-off point moved. It didn't and it won't. That's the silence you're buying — the complete absence of shipping doubt from the rest of your day.
+Picture next Tuesday instead. Box in the car, quick run over to the plaza next to Pub Frato, pull in, walk in the door. The package goes on the counter, the label prints, the receipt is in your hand, and the whole exchange happens in one visit — because nothing about the location had to be figured out first. You drive home and the thought simply doesn't come back: nobody's going to text you that the drop-off point moved. It didn't — and this counter isn't part of anyone's consolidation plan. That's the silence you're buying — the complete absence of shipping doubt from the rest of your day.
 
 ## No Appointment Needed
 
