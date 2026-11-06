@@ -1,0 +1,248 @@
+{
+  "slug": "package-receiving-service-ebay",
+  "source_extracts": [
+    {
+      "claim": "UPS, FedEx and other private carriers cannot deliver to a PO Box",
+      "quote": "UPS, FedEx, Amazon and other private carriers cannot deliver to a PO Box",
+      "url": "https://faq.usps.com/s/article/PO-Box-The-Basics (CONFIRMED.md row 95, retrieved 2026-09-24)"
+    },
+    {
+      "claim": "CMRA / private mailbox requires Form 1583 and two forms of ID, one with a photo",
+      "quote": "A CMRA is a private business that rents PMBs and accepts mail from USPS for distribution; Form 1583 + two IDs (one photo) required",
+      "url": "https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA (CONFIRMED.md row 94, retrieved 2026-09-24)"
+    },
+    {
+      "claim": "Mail to a CMRA must bear the 'PMB' or '#' designator; missing designator mail is returned",
+      "quote": "Mailpieces must bear a delivery address that contains at least the following elements, preferably in the following format: Line 2 'PMB' and number... Line 3: Street number and name",
+      "url": "https://pe.usps.gov/text/dmm300/508.htm (CONFIRMED.md rows 20-21, retrieved 2026-10-13)"
+    },
+    {
+      "claim": "Personal mailbox tiers $15/$25/$30/$40 per month; business plans $35/$50; month-to-month, no annual contract; $5 refundable key deposit",
+      "quote": "site pricing pages (in-repo canonical); CONFIRMED.md rows 73, 213, 272; forward-mail-after-moving.sources.json",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/pages/home-business/mailbox-rental.astro"
+    },
+    {
+      "claim": "$25 plan includes 10 packages a month with carrier delivery and signing",
+      "quote": "tier 'Small \u00b7 +10 Packages' $25/mo",
+      "url": "https://mailboxplusohio.com/private-mailbox-rental/ (CONFIRMED.md row 29, retrieved 2026-09-20)"
+    },
+    {
+      "claim": "Standard USPS mail forwarding lasts 12 months; Periodicals only 60 days; some parcel classes forwarded only if the mailer specifies",
+      "quote": "Standard mail forwarding lasts 12 months. ... |Periodicals (magazines, newsletters)|60 days| ... |USPS Marketing Mail (advertisements, catalogs, retail offers)|Only forwarded IF the mailer specifies forwarding instructions May be subject to postage due",
+      "url": "https://www.usps.com/manage/forward.htm + https://faq.usps.com/s/article/Change-of-Address-The-Basics (forward-mail-after-moving.sources.json, retrieved 2026-11-05)"
+    },
+    {
+      "claim": "Store address, hours, phone",
+      "quote": "7554 Fredle Drive, Concord Township, OH 44077; phone (440) 709-1946; Mon-Fri 9 AM-6 PM, Sat 9 AM-2 PM, closed Sunday",
+      "url": "astro/src/config/siteConfig.ts (CONFIRMED.md rows 74-76)"
+    },
+    {
+      "claim": "24/7 mail access for mailbox renters is a store capability",
+      "quote": "siteConfig.ts + /private-mailbox-rental/ page (24-7 access feature bullet)",
+      "url": "astro/src/config/siteConfig.ts (CONFIRMED.md row 77)"
+    },
+    {
+      "claim": "Store is in Gristmill Village next to Pub Frato, just off Crile Road, minutes from SR-44 and I-90",
+      "quote": "owner-verified location facts (content/facts.json approved_phrasing)",
+      "url": "content/facts.json (CONFIRMED.md row 55)"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "15",
+      "scope": "Small Mail Only personal PMB tier, $15/month"
+    },
+    {
+      "value": "$15",
+      "scope": "Small Mail Only personal PMB tier per month"
+    },
+    {
+      "value": "25",
+      "scope": "Small +10 Packages personal PMB tier, $25/month"
+    },
+    {
+      "value": "$25",
+      "scope": "Small +10 Packages personal PMB tier per month"
+    },
+    {
+      "value": "30",
+      "scope": "Large Mail Only personal PMB tier, $30/month"
+    },
+    {
+      "value": "$30",
+      "scope": "Large Mail Only personal PMB tier per month"
+    },
+    {
+      "value": "40",
+      "scope": "Large +10 Packages personal PMB tier, $40/month"
+    },
+    {
+      "value": "$40",
+      "scope": "Large +10 Packages personal PMB tier per month"
+    },
+    {
+      "value": "35",
+      "scope": "Business mailbox plan, $35/month"
+    },
+    {
+      "value": "$35",
+      "scope": "Business mailbox plan per month"
+    },
+    {
+      "value": "50",
+      "scope": "Business mailbox plan, $50/month"
+    },
+    {
+      "value": "$50",
+      "scope": "Business mailbox plan per month"
+    },
+    {
+      "value": "10",
+      "scope": "packages a month included in the +10 Packages tiers, with carrier delivery and signing; also setup time ~10 minutes per private-mailbox-rental.astro"
+    },
+    {
+      "value": "ten",
+      "scope": "packages a month included in the +10 Packages tiers (word form); also setup time ~10 minutes per private-mailbox-rental.astro (word form)"
+    },
+    {
+      "value": "Ten",
+      "scope": "capitalized word form of ten packages a month, +10 Packages tier"
+    },
+    {
+      "value": "ten packages",
+      "scope": "packages a month included in the +10 Packages tiers, with carrier delivery and signing (normalizes to 10 packages)"
+    },
+    {
+      "value": "Three",
+      "scope": "heading token 'The Three Costs of Staying Put' \u2014 structural count, not a policy figure"
+    },
+    {
+      "value": "$5",
+      "scope": "refundable key deposit on mailbox rental"
+    },
+    {
+      "value": "12 months",
+      "scope": "standard USPS mail forwarding duration for First-Class/Ground Advantage/Priority Mail"
+    },
+    {
+      "value": "twelve",
+      "scope": "standard USPS mail forwarding duration (word form)"
+    },
+    {
+      "value": "60 days",
+      "scope": "Periodicals (magazines) forwarding duration only"
+    },
+    {
+      "value": "9 AM",
+      "scope": "store opening time Mon-Fri and Sat"
+    },
+    {
+      "value": "9",
+      "scope": "digit fragment of 9 AM opening time"
+    },
+    {
+      "value": "6 PM",
+      "scope": "store closing time Mon-Fri"
+    },
+    {
+      "value": "6",
+      "scope": "digit fragment of 6 PM closing time"
+    },
+    {
+      "value": "2 PM",
+      "scope": "store closing time Saturday"
+    },
+    {
+      "value": "2",
+      "scope": "digit fragment of 2 PM closing time"
+    },
+    {
+      "value": "two",
+      "scope": "two current forms of ID required by USPS Form 1583 / CMRA rules"
+    },
+    {
+      "value": "one",
+      "scope": "one of the two IDs must be a government photo ID (Form 1583)"
+    },
+    {
+      "value": "24/7",
+      "scope": "mail access for mailbox renters during lobby hours"
+    },
+    {
+      "value": "24",
+      "scope": "digit fragment of 24/7 mail access"
+    },
+    {
+      "value": "7",
+      "scope": "digit fragment of 24/7 mail access"
+    },
+    {
+      "value": "7554",
+      "scope": "street number, 7554 Fredle Drive, Concord Township, OH 44077"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP code"
+    },
+    {
+      "value": "44",
+      "scope": "State Route 44 (nearby road)"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 (nearby highway)"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "store phone number"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 (Application for Delivery of Mail Through Agent)"
+    },
+    {
+      "value": "ten minutes",
+      "scope": "mailbox setup time, 'Setup in ~10 minutes \u2014 your address is active the same day' per private-mailbox-rental.astro (CONFIRMED row 27); soft estimate, not a guarantee"
+    },
+    {
+      "value": "one-minute",
+      "scope": "REMOVED from copy \u2014 rhetorical timing figure, no receipt"
+    },
+    {
+      "value": "$87",
+      "scope": "illustrative porch-piracy loss in the narrative example (item + refund)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "Mail-only tier ($15) framed as including package receiving or signing",
+      "reason": "Mail Only tiers exclude package handling; package features belong to the +10 Packages tiers per the site pricing pages"
+    },
+    {
+      "forbidden": "'Under three minutes', 'every time', or any response-time counter guarantee",
+      "reason": "Unreceipted operational guarantee; AGENTS.md Rule 3 requires owner approval for timing promises"
+    },
+    {
+      "forbidden": "'24-hour access' or 'after-hours' service claims",
+      "reason": "NEVER-CLAIM (owner 2026-10-05, PR #688): 24-hour access is not a store service; only 24/7 MAIL ACCESS during lobby hours is confirmed"
+    },
+    {
+      "forbidden": "Categorical third-party acceptance claims ('works on every form', 'eBay requires X') without an eBay source",
+      "reason": "Third-party policies vary; frame as 'widely accepted' and point readers to verify with the issuer"
+    },
+    {
+      "forbidden": "PMB described as a 'suite' number",
+      "reason": "DMM 508.1.8.3 requires 'PMB' or '#' designator; 'suite' causes Undeliverable as Addressed returns"
+    }
+  ],
+  "required_when": [
+    {
+      "qualifier": "when a carrier requires it",
+      "applies_to": "signature on deliveries"
+    },
+    {
+      "qualifier": "check the issuer's current rules",
+      "applies_to": "any statement about whether an institution accepts a CMRA address"
+    }
+  ]
+}
