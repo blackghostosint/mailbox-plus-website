@@ -1,0 +1,401 @@
+{
+  "slug": "usps-change-of-address",
+  "source_extracts": [
+    {
+      "url": "https://www.usps.com/manage/forward.htm",
+      "quotes": [
+        "You must submit your change of address request and verify your identity. Once your request is approved, allow at least 7-10 business days for it to go into effect.",
+        "First-Class Mail\u00ae is forwarded for free.",
+        "Priority Mail Express\u00ae, Priority Mail\u00ae, and USPS Ground Advantage\u00ae items are forwarded for free.",
+        "Periodicals (newsletters and magazines) are forwarded for free for 60 days if fully prepaid by the sender.",
+        "Media Mail\u00ae items are forwarded, but you must pay the cost for shipping from your local Post Office\u2122 location to your new address.",
+        "For security, mailers like government agencies and financial institutions do not allow forwarding of sensitive documents, including: Identity documents, especially driver's licenses and voter registration; Credit cards, bank statements, insurance info, and other financial or medical information",
+        "USPS Marketing Mail\u00ae is not forwarded unless the sender has paid forwarding postage.",
+        "Your change of address order only changes your mailing address with the Post Office. You are responsible for telling government agencies, companies, and any other senders that your address has changed.",
+        "Pay the $1.25 identity verification fee. The billing address on your credit card must match either your old or new address.",
+        "If your online identity verification succeeds: USPS will email you a confirmation code. Use this code if you need to modify or cancel your request.",
+        "About 5 business days before your change of address start date, you'll get a Customer Notification Letter (with your confirmation code) to your \"new\" address.",
+        "Fill out the PS Form 3575 found inside the packet, and give it to the retail associate. They will use your photo ID to verify your identity, then process your change of address request.",
+        "Standard mail forwarding lasts 12 months. You can pay to extend mail forwarding for 6, 12, or 18 more months (18 months is the maximum).",
+        "Note: When your mail forwarding period ends, USPS will return your mail to the sender for 6 months with a label that has your new address.",
+        "If you're only relocating for 15 days up to 1 year (like going to school or staying with family or friends), submit a temporary change of address request.",
+        "There are third party websites that will charge you fees of $40.00 or more to submit your change of address. The Postal Service no longer accepts submissions from third party businesses due to updated authentication processes."
+      ]
+    },
+    {
+      "url": "https://faq.usps.com/s/article/Change-of-Address-The-Basics",
+      "quotes": [
+        "When the COA request is made online there is a $1.25 authentication fee.",
+        "A COA request can be submitted 90 days _before_ the effective date of your move, and up to 30 days _after_ the date of your move.",
+        "The minimum time period for temporary forwarding is 15 days.",
+        "Temporary COAs, or seasonal forwarding, provide forwarding of mail to a temporary address for a maximum of 364 days, starting with the listed start date.",
+        "Temporary COAs provide forwarding of mail to a temporary address for a maximum of 185 days. A new request can be filed extending the temporary COA for up to an additional 179 days.",
+        "The total forwarding time on a temporary move cannot exceed 12 months.",
+        "If you return to the original address for a minimum of 45 days, the 364 day forwarding limit starts over, allowing you to submit a new Temporary COA order.",
+        "First-Class Mail\u00ae / USPS Ground Advantage\u00ae / Priority Mail\u00ae service (bills, invoices, personal correspondence, reply mail) | 12 months",
+        "Periodicals (magazines, newsletters) | 60 days",
+        "USPS Marketing Mail\u00ae (advertisements, catalogs, retail offers) | Only forwarded IF the mailer specifies forwarding instructions May be subject to postage due",
+        "The PS Form 3575 form can no longer be printed from your home computer.",
+        "It can be completed in a few steps, online at USPS.com, or by visiting one of more than 33,000 local Post Office\u2122\ufe0f locations."
+      ]
+    },
+    {
+      "url": "https://pe.usps.com/text/dmm300/507.htm",
+      "quotes": [
+        "The Postal Service provides temporary forwarding service for a period of two weeks to six months (15 to 185 days) in response to an initial temporary change-of-address order.",
+        "Customers may extend the temporary forwarding period up to a maximum of 12 months (364 days), by filing a second change-of-address order to begin on the first day of the second six-month period (the 186th day)",
+        "A record of permanent change-of-address orders is kept by Post Offices for 18 months, from the end of the month when the change takes effect. Generally, forwarding is available for the first 12 months."
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "1.25",
+      "scope": "online COA identity-verification/authentication fee (usps.com/manage/forward.htm + FAQ); also register word form 'one dollar twenty-five'"
+    },
+    {
+      "value": "$1.25",
+      "scope": "online COA identity-verification fee"
+    },
+    {
+      "value": "one dollar twenty-five",
+      "scope": "word form of the online COA fee"
+    },
+    {
+      "value": "40",
+      "scope": "minimum fee third-party COA sites charge ($40.00 or more); USPS no longer accepts third-party submissions"
+    },
+    {
+      "value": "$40",
+      "scope": "third-party COA site fee floor"
+    },
+    {
+      "value": "90",
+      "scope": "days before the move date a COA can be submitted"
+    },
+    {
+      "value": "ninety",
+      "scope": "word form: 90 days before move"
+    },
+    {
+      "value": "30",
+      "scope": "days after the move date a COA can still be submitted"
+    },
+    {
+      "value": "thirty",
+      "scope": "word form: 30 days after move"
+    },
+    {
+      "value": "7-10",
+      "scope": "business days for an approved COA to go into effect"
+    },
+    {
+      "value": "7",
+      "scope": "lower bound of 7-10 business days processing window"
+    },
+    {
+      "value": "10",
+      "scope": "upper bound of 7-10 business days processing window"
+    },
+    {
+      "value": "seven",
+      "scope": "word form of lower bound"
+    },
+    {
+      "value": "ten",
+      "scope": "word form of upper bound"
+    },
+    {
+      "value": "12",
+      "scope": "months First-Class Mail / USPS Ground Advantage / Priority Mail are forwarded on a permanent COA; ALSO the 12-month cap on total temporary forwarding"
+    },
+    {
+      "value": "twelve",
+      "scope": "word form of the 12-month forwarding period"
+    },
+    {
+      "value": "60",
+      "scope": "days Periodicals are forwarded free on a permanent COA (if fully prepaid by sender)"
+    },
+    {
+      "value": "sixty",
+      "scope": "word form of the 60-day periodicals window"
+    },
+    {
+      "value": "6",
+      "scope": "months mail is returned to sender with a new-address label after forwarding ends; ALSO 6-month extension option on Extended Mail Forwarding"
+    },
+    {
+      "value": "six",
+      "scope": "word form of the 6-month window"
+    },
+    {
+      "value": "18",
+      "scope": "maximum additional months purchasable via Extended Mail Forwarding (6, 12, or 18 more months)"
+    },
+    {
+      "value": "15",
+      "scope": "minimum days for a temporary COA; ALSO personal PMB plans start at $15/month at Mailbox Plus (source of truth: private-mailbox-rental.astro personal tiers $15/$25/$30/$40)"
+    },
+    {
+      "value": "$15",
+      "scope": "personal private mailbox plans start price at Mailbox Plus"
+    },
+    {
+      "value": "fifteen",
+      "scope": "word form: 15-day temporary COA minimum"
+    },
+    {
+      "value": "185",
+      "scope": "maximum days on a single temporary COA order (15 to 185 days)"
+    },
+    {
+      "value": "179",
+      "scope": "additional days a second temporary COA order can extend (total 364)"
+    },
+    {
+      "value": "364",
+      "scope": "total maximum days of temporary forwarding"
+    },
+    {
+      "value": "45",
+      "scope": "days back at the original address that resets the 364-day temporary limit"
+    },
+    {
+      "value": "forty-five",
+      "scope": "word form of the 45-day reset"
+    },
+    {
+      "value": "5",
+      "scope": "business days before the COA start date the Customer Notification Letter arrives"
+    },
+    {
+      "value": "five",
+      "scope": "word form of the 5-business-day notice"
+    },
+    {
+      "value": "33,000",
+      "scope": "local Post Office locations per USPS FAQ"
+    },
+    {
+      "value": "3575",
+      "scope": "PS Form 3575, the paper change-of-address order; available only in the Mover's Guide packet at a Post Office, no longer printable from home"
+    },
+    {
+      "value": "7554",
+      "scope": "Mailbox Plus street number, 7554 Fredle Drive, Concord Township (content/facts.json)"
+    },
+    {
+      "value": "9:57",
+      "scope": "scene texture clock time in the success scene \u2014 fictional scene detail, not a service-timing claim"
+    },
+    {
+      "value": "9:52",
+      "scope": "scene texture clock time, alternative success-scene detail"
+    },
+    {
+      "value": "44",
+      "scope": "approved location phrasing 'minutes from SR-44 and I-90' (content/facts.json approved_phrasing)"
+    },
+    {
+      "value": "90 (SR-90 / I-90)",
+      "scope": "I-90 token in approved location phrasing \u2014 distinct from the 90-day filing window"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP from content/facts.json"
+    },
+    {
+      "value": "41.66",
+      "scope": "not used in copy \u2014 store coordinates latitude (facts.json); registered to preempt stray token"
+    },
+    {
+      "value": "18 U.S.C.",
+      "scope": "Title 18 United States Code false-information statute citation on the COA form \u2014 no sentence number asserted"
+    },
+    {
+      "value": "9:00",
+      "scope": "store hours, 9:00 AM open (content/facts.json)"
+    },
+    {
+      "value": "6:00",
+      "scope": "store hours, weekdays close 6:00 PM (content/facts.json)"
+    },
+    {
+      "value": "2:00",
+      "scope": "store hours, Saturday close 2:00 PM (content/facts.json)"
+    },
+    {
+      "value": "900",
+      "scope": "scene texture distance in illustrative anecdote ('900 miles away') \u2014 illustrative narrative, not a policy figure"
+    },
+    {
+      "value": "one",
+      "scope": "word form 'one form / one warning / one fixed address'"
+    },
+    {
+      "value": "two",
+      "scope": "word form 'two letters / two minutes / two weeks'"
+    },
+    {
+      "value": "three",
+      "scope": "word form 'three steps / three currencies'"
+    },
+    {
+      "value": "four",
+      "scope": "word form 'four-month contract / four different places'"
+    },
+    {
+      "value": "six",
+      "scope": "word form 'move houses six times' (narrative) and '6 more months' extension option"
+    },
+    {
+      "value": "60 (magazines)",
+      "scope": "duplicate-scope note: 60-day Periodicals window (same claim as '60')"
+    },
+    {
+      "value": "60 days",
+      "scope": "Periodicals forwarding window on permanent COA (phrase form)"
+    },
+    {
+      "value": "12 months",
+      "scope": "First-Class/Ground Advantage/Priority forwarding period on permanent COA (phrase form)"
+    },
+    {
+      "value": "364 days",
+      "scope": "total temporary forwarding cap (phrase form)"
+    },
+    {
+      "value": "185 days",
+      "scope": "max per temporary COA order (phrase form)"
+    },
+    {
+      "value": "179 days",
+      "scope": "extension of temporary COA (phrase form)"
+    },
+    {
+      "value": "45 days",
+      "scope": "reset rule after returning to original address (phrase form)"
+    },
+    {
+      "value": "15 days",
+      "scope": "temporary COA minimum (phrase form)"
+    },
+    {
+      "value": "30 days",
+      "scope": "filing deadline after move (phrase form)"
+    },
+    {
+      "value": "90 days",
+      "scope": "filing window before move (phrase form)"
+    },
+    {
+      "value": "7-10 business days",
+      "scope": "COA processing window (phrase form)"
+    },
+    {
+      "value": "5 business days",
+      "scope": "Customer Notification Letter lead time (phrase form)"
+    },
+    {
+      "value": "33,000",
+      "scope": "Post Office location count (phrase form 'more than 33,000')"
+    },
+    {
+      "value": "12 months max",
+      "scope": "temporary forwarding total cap equivalently stated as 12 months in FAQ"
+    },
+    {
+      "value": "6 months",
+      "scope": "return-to-sender window after forwarding ends (phrase form)"
+    },
+    {
+      "value": "18 months",
+      "scope": "18-month maximum extension of Extended Mail Forwarding (phrase form)"
+    },
+    {
+      "value": "101",
+      "scope": "slug token in internal link 'mail-forwarding-101-usps-vs-mailbox-service' \u2014 URL/anchor text, not a factual figure"
+    },
+    {
+      "value": "33",
+      "scope": "token of '33,000' Post Office locations (comma-split tokenization)"
+    },
+    {
+      "value": "000",
+      "scope": "token of '33,000' Post Office locations"
+    },
+    {
+      "value": "9",
+      "scope": "token of scene clock 9:57 and store hours 9:00 AM (facts.json)"
+    },
+    {
+      "value": "57",
+      "scope": "token of scene clock 9:57 \u2014 fictional scene detail"
+    },
+    {
+      "value": "900 miles",
+      "scope": "phrase form of the 900-mile illustrative anecdote distance \u2014 narrative texture, not a policy figure"
+    },
+    {
+      "value": "00",
+      "scope": "token of 9:00 AM / 6:00 PM / 2:00 PM store hours (content/facts.json)"
+    },
+    {
+      "value": "two weeks",
+      "scope": "phrase form 'two weeks of mail' \u2014 narrative quantity in success scene, not a policy figure"
+    }
+  ],
+  "scope_rules": [
+    {
+      "rule": "Never say the COA 'changes your address'. USPS states it only changes your mailing address with the Post Office and forwards a subset of mail for a limited time.",
+      "reason": "usps.com/manage/forward.htm: 'Your change of address order only changes your mailing address with the Post Office. You are responsible for telling government agencies, companies, and any other senders.'"
+    },
+    {
+      "rule": "Never claim bank statements, credit cards, driver's licenses, or government ID are forwarded. USPS lists these as NOT forwarded for security.",
+      "reason": "usps.com/manage/forward.htm 'What Mail Is Not Forwarded'."
+    },
+    {
+      "rule": "Never claim USPS Marketing Mail is forwarded by default \u2014 only if the sender paid forwarding postage; may arrive postage due.",
+      "reason": "usps.com + FAQ table."
+    },
+    {
+      "rule": "Never claim packages in general are forwarded. USPS forwarding covers its own mail classes; merchant shipments move on private carriers and never touch the COA.",
+      "reason": "FAQ: COA covers 'primarily First-Class Mail service and Periodicals'; generally does not forward Package Services Mail."
+    },
+    {
+      "rule": "Never claim the paper form can be printed at home or downloaded \u2014 PS Form 3575 is only available in the Mover's Guide packet at a Post Office.",
+      "reason": "FAQ: 'The PS Form 3575 form can no longer be printed from your home computer.'"
+    },
+    {
+      "rule": "Mailbox Plus cannot file or submit your USPS change of address for you \u2014 the store is not a Post Office retail counter and PS Form 3575 is USPS-internal. Store role is the mailing address that does not move (PMB) plus receiving/forwarding of mail that arrives here.",
+      "reason": "Never assert store services that do not exist (owner rule)."
+    },
+    {
+      "rule": "No time-of-day scene opener; scene clock only inside the success section.",
+      "reason": "Style gate."
+    },
+    {
+      "rule": "Location claims use approved phrasing only: 'just off Crile Road, minutes from SR-44 and I-90', 'Gristmill Village', 'next to Pub Frato'. Never Route 306.",
+      "reason": "content/facts.json forbidden patterns."
+    }
+  ],
+  "required_when": [
+    {
+      "qualifier": "the 12-month forwarding period must always carry its mail classes: First-Class Mail, USPS Ground Advantage, Priority Mail (and Priority Mail Express)",
+      "reason": "FAQ table scopes 12 months to those classes; Periodicals are 60 days."
+    },
+    {
+      "qualifier": "the $1.25 fee must be named 'identity verification / authentication fee for filing online' \u2014 in-person filing with PS Form 3575 is free",
+      "reason": "FAQ: 'If you prefer not to use your credit card, you can fill out PS Form 3575 acquired from your local Post Office.'"
+    },
+    {
+      "qualifier": "the $15 PMB price must be scoped 'personal plans start at' \u2014 business tiers differ",
+      "reason": "Pitfall: personal tiers $15/$25/$30/$40, business $35/$50."
+    },
+    {
+      "qualifier": "'sensitive mail is not forwarded' requires 'for security' framing and the fix 'contact the sender directly'",
+      "reason": "USPS frames it as a security block, and directs customers to contact senders."
+    }
+  ]
+}
