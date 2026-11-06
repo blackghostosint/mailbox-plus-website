@@ -1,0 +1,236 @@
+{
+  "slug": "holiday-shipping-deadlines-2026",
+  "generated": "2026-11-03",
+  "source_extracts": [
+    {
+      "url": "https://about.usps.com/newsroom/local-releases/me/2026/0922-postal-service-recommends-2026-holiday-mailing-and-shipping-dates.htm",
+      "quotes": [
+        "For expected delivery before Dec. 25, the Postal Service advises customers to send mail and packages by the following dates:",
+        "2026 Holiday Shipping Dates for Contiguous U.S. (Lower 48 States) - USPS Ground Advantage service: Dec. 17 - First-Class Mail: Dec. 17 - Priority Mail: Dec. 18 - Priority Mail Express: Dec. 19",
+        "2026 Holiday Shipping Dates for Alaska, Hawaii, Puerto Rico and U.S. Territories - USPS Ground Advantage service: Dec. 16",
+        "customers should always plan to mail and ship packages early to ensure arrival by Dec. 25"
+      ]
+    },
+    {
+      "url": "https://assets.ups.com/adobe/assets/urn:aaid:aem:e8548535-8096-4fa9-9cef-2b81aef7c26c/original/as/year-end-holiday-schedule-us-en.pdf",
+      "quotes": [
+        "2026 Holiday Season Recommended Last Days to Ship for Dec. 24 Delivery - U.S. DOMESTIC: UPS Ground | Check ups.com/ctc for details; UPS 3 Day Select | Dec. 21; UPS 2nd Day Air | Dec. 22; UPS Next Day Air | Dec. 23",
+        "Shipments to certain destinations may require an earlier ship date. Check ups.com/ctc",
+        "Thursday Nov. 26 Thanksgiving Day (UPS Holiday) No UPS pickup or delivery service.",
+        "Friday Dec. 25 Christmas Day (UPS Holiday) No UPS pickup or delivery service."
+      ]
+    },
+    {
+      "url": "https://www.fedex.com/content/dam/fedex/us-united-states/services/2026_Peak_Last_Day_to_ship.pdf",
+      "quotes": [
+        "The information below provides the last shipping dates for select services to help ensure your package is scheduled to arrive by December 24, 2026. These dates are subject to change.",
+        "FedEx Ground / Home Delivery table: 5 day transit column = Thur. 12/17; 4 day transit = Fri. 12/18; 3 day transit = Mon. 12/21; 2 day transit = Tue. 12/22; 1 day transit = Wed. 12/23 (verified by vision read of official PDF page 1, 2026-11-03)",
+        "FedEx 2Day & 2Day AM = 12/22; First/Priority/Standard Overnight + Extra Hours = 12/23; Express Saver = 12/21; SameDay = 12/24; Ground Economy = 12/15 (verified by vision read of official PDF page 1, 2026-11-03)",
+        "FedEx Ground and FedEx Home Delivery: Delivery times vary based on origin and destination. The last day to ship is based on a regular scheduled pickup or drop off of shipments at a staffed FedEx location. Transit times are typically 1 to 5 business days."
+      ]
+    },
+    {
+      "url": "https://www.fedex.com/en-us/holiday/last-days-to-ship.html",
+      "quotes": [
+        "FedEx holiday landing page links the 2026 Peak Last Day to Ship PDF as the authoritative deadline source; these dates are subject to change."
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "17",
+      "scope": "USPS Ground Advantage + First-Class Mail recommended send-by (lower 48); FedEx Ground/Home Delivery 5-day-transit lane last day"
+    },
+    {
+      "value": "18",
+      "scope": "USPS Priority Mail recommended send-by; FedEx Ground 4-day-transit lane"
+    },
+    { "value": "19", "scope": "USPS Priority Mail Express recommended send-by" },
+    {
+      "value": "16",
+      "scope": "USPS Ground Advantage to AK/HI/PR/territories; FedEx Ground 6-day-transit lane to Canada"
+    },
+    {
+      "value": "21",
+      "scope": "UPS 3 Day Select; FedEx Express Saver; FedEx Ground 3-day-transit lane"
+    },
+    {
+      "value": "22",
+      "scope": "UPS 2nd Day Air; FedEx 2Day/2Day AM; FedEx Ground 2-day-transit lane"
+    },
+    {
+      "value": "23",
+      "scope": "UPS Next Day Air; FedEx Overnight; FedEx Ground 1-day-transit lane"
+    },
+    { "value": "15", "scope": "FedEx Ground Economy last day" },
+    { "value": "24", "scope": "Dec 24 target arrival (UPS/FedEx tables); FedEx SameDay last day" },
+    { "value": "25", "scope": "Dec 25 target delivery (USPS); UPS Christmas closure" },
+    { "value": "26", "scope": "Nov 26 Thanksgiving UPS closure" },
+    {
+      "value": "1",
+      "scope": "FedEx Ground lane transit days 1-5 (business days); USPS '170 million addresses' not used"
+    },
+    { "value": "5", "scope": "FedEx Ground lane transit days 1-5 (business days)" },
+    { "value": "9", "scope": "store hours 9:00 AM (Mon-Fri and Sat open)" },
+    { "value": "6", "scope": "store hours close 6:00 PM weekdays" },
+    { "value": "2", "scope": "store hours close 2:00 PM Saturday" },
+    { "value": "7554", "scope": "store street number, 7554 Fredle Drive" },
+    {
+      "value": "48",
+      "scope": "'lower 48' contiguous states as used in USPS/UPS official tables - geographic descriptor, not a quantity"
+    },
+    {
+      "value": "3",
+      "scope": "'3 Day Select' UPS service name (official UPS table); '3-day lane' FedEx Ground transit-time descriptor from FedEx PDF matrix"
+    },
+    {
+      "value": "20",
+      "scope": "December 20 - narrative date in the late-wait scene; illustrative, no factual claim"
+    },
+    {
+      "value": "00",
+      "scope": "zero minutes component of clock times 9:00 AM / 6:00 PM / 2:00 PM (content/facts.json hours)"
+    },
+    { "value": "4", "scope": "'4-day transit lane' FedEx Ground descriptor from FedEx PDF matrix" },
+    {
+      "value": "12",
+      "scope": "December 12 - narrative date in the slack-matching example; illustrative, no factual claim"
+    },
+    {
+      "value": "2 days",
+      "scope": "'two days gone'/'two days old' - narrative elapsed time in the lead, no factual claim"
+    },
+    {
+      "value": "2 weeks",
+      "scope": "'busiest two weeks of the carrier year' - descriptive phrase for peak season, no factual claim"
+    },
+    { "value": "330", "scope": "NOT USED in copy - reserved, do not print" },
+    {
+      "value": "Dec. 17",
+      "scope": "USPS Ground Advantage + First-Class Mail, lower 48, recommended send-by for Dec 25 arrival",
+      "source": "USPS newsroom 2026-09-22"
+    },
+    {
+      "value": "Dec. 18",
+      "scope": "USPS Priority Mail, recommended send-by, lower 48",
+      "source": "USPS newsroom 2026-09-22"
+    },
+    {
+      "value": "Dec. 19",
+      "scope": "USPS Priority Mail Express, recommended send-by, lower 48",
+      "source": "USPS newsroom 2026-09-22"
+    },
+    {
+      "value": "Dec. 16",
+      "scope": "USPS Ground Advantage to AK/HI/PR/territories",
+      "source": "USPS newsroom 2026-09-22"
+    },
+    {
+      "value": "Dec. 9",
+      "scope": "USPS First-Class Package International + Priority Mail International; also First-Class/Priority Mail to APO/FPO/DPO",
+      "source": "stamps.com aggregation of USPS official dates (secondary source - qualify in copy or omit)"
+    },
+    {
+      "value": "Dec. 21",
+      "scope": "UPS 3 Day Select last day for Dec 24 delivery; also FedEx Express Saver and 3-day-transit FedEx Ground",
+      "source": "UPS year-end schedule PDF; FedEx peak PDF"
+    },
+    {
+      "value": "Dec. 22",
+      "scope": "UPS 2nd Day Air; FedEx 2Day & 2Day AM; 2-day-transit FedEx Ground",
+      "source": "UPS year-end schedule PDF; FedEx peak PDF"
+    },
+    {
+      "value": "Dec. 23",
+      "scope": "UPS Next Day Air; FedEx overnight services; 1-day-transit FedEx Ground",
+      "source": "UPS year-end schedule PDF; FedEx peak PDF"
+    },
+    {
+      "value": "Dec. 15",
+      "scope": "FedEx Ground Economy last day",
+      "source": "FedEx peak PDF (vision-verified)"
+    },
+    {
+      "value": "Dec. 24",
+      "scope": "FedEx SameDay last day; also the target arrival date for UPS/FedEx tables",
+      "source": "FedEx peak PDF"
+    },
+    {
+      "value": "Nov. 26",
+      "scope": "Thanksgiving - no UPS pickup or delivery",
+      "source": "UPS year-end schedule PDF"
+    },
+    {
+      "value": "Dec. 25",
+      "scope": "Christmas Day - no UPS pickup or delivery; USPS target delivery date",
+      "source": "UPS year-end schedule PDF"
+    },
+    {
+      "value": "1 to 5",
+      "scope": "FedEx Ground/Home Delivery typical transit days in business days",
+      "source": "FedEx peak PDF"
+    },
+    {
+      "value": "6",
+      "scope": "USPS delivers six and often seven days a week during peak (avoid claiming 7 as routine)",
+      "source": "USPS newsroom boilerplate"
+    },
+    {
+      "value": "9:00 AM - 6:00 PM",
+      "scope": "Mailbox Plus Mon-Fri hours (content/facts.json)",
+      "source": "content/facts.json"
+    },
+    {
+      "value": "9:00 AM - 2:00 PM",
+      "scope": "Mailbox Plus Saturday hours (content/facts.json)",
+      "source": "content/facts.json"
+    },
+    {
+      "value": "7554 Fredle Drive",
+      "scope": "store address, Concord Township OH 44077, Gristmill Village, next to Pub Frato, just off Crile Road",
+      "source": "content/facts.json"
+    }
+  ],
+  "scope_rules": [
+    {
+      "rule": "Never present deadline dates as guarantees - USPS calls them 'recommended', UPS 'recommended last days', FedEx 'subject to change'. Always write 'recommended send-by' or 'last day to ship for Dec 24/25 arrival', and note dates can shift / certain destinations need earlier ship dates.",
+      "reason": "Carrier own framing; missed-gift liability"
+    },
+    {
+      "rule": "UPS Ground has NO published flat cutoff - copy must say 'check ups.com/ctc' or 'varies by lane' rather than inventing a Ground date.",
+      "reason": "UPS table explicitly defers Ground to ups.com/ctc"
+    },
+    {
+      "rule": "FedEx Ground dates are transit-day-dependent, not one date - copy must tie each date to a transit-time lane (5-day = Dec 17 ... 1-day = Dec 23), never state 'FedEx Ground deadline is X' flat.",
+      "reason": "PDF structure is a transit matrix"
+    },
+    {
+      "rule": "Deadlines apply to lower-48/contiguous U.S. domestic lanes; AK/HI/PR/international differ - qualify or use the AK/HI/territories numbers if mentioned.",
+      "reason": "USPS table splits lower 48 vs AK/HI/PR"
+    },
+    {
+      "rule": "No carrier rate/price figures from memory - if a price appears it must be added to this file with a source first.",
+      "reason": "constraint-first rule"
+    },
+    {
+      "rule": "No 'guaranteed by Christmas' phrasing about any carrier.",
+      "reason": "Service guarantees are suspended/limited in peak for some services; carriers only 'recommend'"
+    },
+    {
+      "rule": "No Route 306 location claims for the store; approved phrasing only (Gristmill Village, next to Pub Frato, just off Crile Road).",
+      "reason": "content/facts.json forbidden list"
+    },
+    {
+      "rule": "No 24-hour/after-hours access claims about the store.",
+      "reason": "NEVER-CLAIM owner ruling 2026-10-05"
+    }
+  ],
+  "required_when": [
+    {
+      "when": "copy says 'get it there by Christmas'",
+      "must_also_say": "recommended/ship-by dates, not guaranteed"
+    },
+    { "when": "copy mentions UPS Ground", "must_also_say": "check ups.com/ctc or lane-dependent" },
+    { "when": "copy mentions FedEx Ground", "must_also_say": "depends on your lane's transit time" }
+  ]
+}
