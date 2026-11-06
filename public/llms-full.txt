@@ -13580,11 +13580,11 @@ The gap starts with what the form actually controls. A change of address order i
 
 That routing layer catches the mail classes USPS carries at the First-Class level and above. First-Class Mail, USPS Ground Advantage, Priority Mail, and Priority Mail Express forward free for 12 months. Magazines and newsletters forward free for 60 days, if the publisher prepaid the postage. Media Mail forwards too, but you pay the shipping cost from your local Post Office to your new address.
 
-Everything outside that lane is deliberately untouched. Marketing mail and catalogs forward only if the sender paid for forwarding postage — otherwise it is delivered to the old address, or tossed by the carrier route rules. And the sensitive stuff is blocked on purpose: for security, mailers like government agencies and financial institutions do not allow forwarding of driver's licenses, voter registration, credit cards, bank statements, insurance documents, or medical information. A new debit card mailed to your old address stays at your old address. That is the system working as designed, not a glitch.
+Everything outside that lane is deliberately untouched. Marketing mail and catalogs forward only if the sender paid for forwarding postage — otherwise it is delivered to the old address, or tossed by the carrier route rules. And the sensitive stuff is blocked on purpose: for security, mailers like government agencies and financial institutions do not allow forwarding of driver's licenses, voter registration, credit cards, bank statements, insurance documents, or medical information. A new debit card mailed to your old address is not forwarded to your new one. That is the system working as designed, not a glitch.
 
 ## The Feeling Every Regular Recognizes
 
-It starts around week three in the new place. You are unpacking the kitchen and you realize you have not seen your bank statement. Then the credit card you reordered never shows. You call the bank and they say it was mailed — to the old address — and the person living there now is not obligated to hand it back.
+It starts around week three in the new place. You are unpacking the kitchen and you realize you have not seen your bank statement. Then the credit card you reordered never shows. You call the bank and they say it was mailed — to the old address — and getting it back now depends on whoever answers the door there.
 
 Or the seasonal version: you filed a temporary change of address for a four-month contract job, and month five arrives with your insurance renewal sitting at an address 900 miles away. The forwarding window closed and you had not filed the extension, because nothing reminded you and nobody tells you the clock is running.
 
@@ -13634,7 +13634,7 @@ Temporary moves carry their own math. A temporary COA runs a minimum of 15 days 
 
 ## The Trip You'll Stop Thinking About
 
-Now flip it. You file early, in the 90-day window, and the confirmation code lands in your inbox within minutes. The Move Validation letter confirms the request at the old address; the Customer Notification Letter shows up about five business days ahead of your start date, and the first forwarded envelope arrives on schedule.
+Now flip it. You file early, in the 90-day window, and the confirmation code arrives by email once verification clears. The Move Validation letter confirms the request at the old address; the Customer Notification Letter shows up about five business days ahead of your start date, and the first forwarded envelope arrives on schedule.
 
 The pieces that never forward — the bank card, the license, the packages on brown trucks — go to one fixed address that did not change: your private mailbox at 7554 Fredle Drive. On a random Saturday, say 9:57 in the morning, you swing through Gristmill Village, park next to Pub Frato, and walk out with two weeks of mail in one trip — statements, a package, the magazine that would have died at 60 days somewhere else. Nothing is sitting at the old house. Nothing needs rescuing.
 
