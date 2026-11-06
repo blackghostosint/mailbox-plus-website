@@ -1,0 +1,187 @@
+{
+  "source_extracts": [
+    {
+      "claim": "Standard mail forwarding lasts 12 months; extended forwarding purchasable for 6, 12, or 18 more months (18 max); when forwarding ends USPS returns mail to sender for 6 months with a new-address label",
+      "quote": "Standard mail forwarding lasts 12 months. You can pay to extend mail forwarding for 6, 12, or 18 more months (18 months is the maximum). ... When your mail forwarding period ends, USPS will return your mail to the sender for 6 months with a label that has your new address.",
+      "url": "https://www.usps.com/manage/forward.htm"
+    },
+    {
+      "claim": "Forwarding duration by mail class: First-Class/Ground Advantage/Priority 12 months; Periodicals 60 days; Marketing Mail and Parcel Select only if mailer specifies, may be postage due; mail starts arriving at new address within 7-10 postal business days; months 13-18 returned to sender with new address attached",
+      "quote": "|First-Class Mail / USPS Ground Advantage / Priority Mail service (bills, invoices, personal correspondence, reply mail)|12 months| ... |Periodicals (magazines, newsletters)|60 days| ... |USPS Marketing Mail (advertisements, catalogs, retail offers)|Only forwarded IF the mailer specifies forwarding instructions May be subject to postage due| ... Mail starts arriving to your new address within 7-10 Postal business days of the COA start date. ... During this 7-10 day period, your mail is inaccessible.",
+      "url": "https://faq.usps.com/s/article/Change-of-Address-The-Basics"
+    },
+    {
+      "claim": "Online COA costs $1.25 identity-verification fee; PFS-Residential is a single weekly shipment of all mail via Priority Mail for a fee, extendable up to a year",
+      "quote": "Free - $1.25 identify verification for online COA requests. ... PFS-Residential Service provides a single weekly shipment of all mail for a residence via Priority Mail service for a fee. The service can be extended for up to a year.",
+      "url": "https://faq.usps.com/s/article/Mail-Forwarding-Options"
+    },
+    {
+      "claim": "Temporary COA: minimum 15 days, maximum 364 days, extendable once for up to 179 additional days, total cannot exceed 12 months",
+      "quote": "The minimum time period for temporary forwarding is 15 days. Temporary COAs, or seasonal forwarding, provide forwarding of mail to a temporary address for a maximum of 364 days... A new request can be filed extending the temporary COA for up to an additional 179 days... The total forwarding time on a temporary move cannot exceed 12 months.",
+      "url": "https://faq.usps.com/s/article/Change-of-Address-The-Basics"
+    },
+    {
+      "claim": "Mailbox Plus personal PMB tiers $15/$25/$30/$40 per month; business plans $35/$50; month-to-month, no annual contract; $5 refundable key deposit; accepts USPS + UPS/FedEx deliveries behind a lock",
+      "quote": "site pricing pages (in-repo canonical); CONFIRMED.md rows 73, 213, 272",
+      "url": "astro/src/pages/private-mailbox-rental.astro + astro/src/config/siteConfig.ts"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "12 months",
+      "scope": "standard USPS forwarding for First-Class/Ground Advantage/Priority Mail"
+    },
+    {
+      "value": "60 days",
+      "scope": "Periodicals (magazines) forwarding only"
+    },
+    {
+      "value": "6, 12, or 18 more months",
+      "scope": "paid Extended Mail Forwarding, 18 months maximum"
+    },
+    {
+      "value": "6 months",
+      "scope": "after forwarding ends, mail returned to sender with new-address label"
+    },
+    {
+      "value": "7-10 postal business days",
+      "scope": "lag before forwarded mail starts arriving after COA start date"
+    },
+    {
+      "value": "$1.25",
+      "scope": "identity-verification fee for filing a COA online"
+    },
+    {
+      "value": "$15/$25/$30/$40",
+      "scope": "Mailbox Plus personal PMB monthly tiers (mail-only vs +10 packages, small vs large)"
+    },
+    {
+      "value": "$35 and $50",
+      "scope": "Mailbox Plus business plans per month"
+    },
+    {
+      "value": "$5",
+      "scope": "refundable key deposit on a Mailbox Plus private mailbox"
+    },
+    {
+      "value": "6",
+      "scope": "Extended Mail Forwarding add-on option (6 more months)"
+    },
+    {
+      "value": "12",
+      "scope": "Extended Mail Forwarding add-on option (12 more months)"
+    },
+    {
+      "value": "18",
+      "scope": "Extended Mail Forwarding add-on option (18 more months, the maximum)"
+    },
+    {
+      "value": "$15",
+      "scope": "lowest Mailbox Plus personal PMB tier (Small Mail Only)"
+    },
+    {
+      "value": "101",
+      "scope": "digits inside the cross-linked article slug mail-forwarding-101-usps-vs-mailbox-service, not a factual claim"
+    },
+    {
+      "value": "1583",
+      "scope": "USPS Form 1583 (authorization form), referenced by name only"
+    },
+    {
+      "value": "$25",
+      "scope": "Mailbox Plus personal PMB tier (Small +10 Packages)"
+    },
+    {
+      "value": "$30",
+      "scope": "Mailbox Plus personal PMB tier (Large Mail Only)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number, 7554 Fredle Drive (in-repo siteConfig.ts / facts.json)"
+    },
+    {
+      "value": "2",
+      "scope": "list numbering in the steps section, not a factual claim"
+    },
+    {
+      "value": "3",
+      "scope": "list numbering in the steps section, not a factual claim"
+    },
+    {
+      "value": "$40",
+      "scope": "Mailbox Plus personal PMB tier (Large +10 Packages)"
+    },
+    {
+      "value": "$35",
+      "scope": "Mailbox Plus business plan"
+    },
+    {
+      "value": "$50",
+      "scope": "Mailbox Plus business plan"
+    },
+    {
+      "value": "1",
+      "scope": "list numbering in the steps section, not a factual claim"
+    },
+    {
+      "value": "15 days",
+      "scope": "temporary COA minimum forwarding period"
+    },
+    {
+      "value": "364 days",
+      "scope": "temporary COA maximum forwarding period"
+    },
+    {
+      "value": "179",
+      "scope": "one-time temporary COA extension, up to 179 additional days"
+    },
+    {
+      "value": "Two Minutes",
+      "scope": "section heading text, not a factual claim"
+    },
+    {
+      "value": "one month",
+      "scope": "USPS reminder email one month before forwarding ends (usps.com forward.htm)"
+    },
+    {
+      "value": "one",
+      "scope": "prose word ('one missed statement'), not a factual figure"
+    },
+    {
+      "value": "one mi",
+      "scope": "tokenizer artifact of the prose word 'one missed statement' \u2014 not a factual figure"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "claiming USPS forwarding 'moves all your mail' or covers every package",
+      "reason": "Marketing Mail and Parcel Select forward only if the mailer specifies; carrier packages (UPS/FedEx/DHL) never forward via USPS COA"
+    },
+    {
+      "forbidden": "24-hour / after-hours access claims for the store",
+      "reason": "owner NEVER-CLAIM ruling 2026-10-05"
+    },
+    {
+      "forbidden": "categorical claims that a PMB address works on every form",
+      "reason": "issuers set their own rules; say widely accepted on mailing lines, verify with issuer"
+    },
+    {
+      "forbidden": "business tiers described as the only mailbox tiers",
+      "reason": "personal tiers start at $15"
+    },
+    {
+      "forbidden": "unreceipted timing guarantees about store service ('under three minutes', 'never fails')",
+      "reason": "Rule 3: no operational guarantees without owner sign-off"
+    }
+  ],
+  "required_when": [
+    {
+      "pattern": "forwarded mail",
+      "qualifier": "name the mail class or say 'First-Class mail and most packages shipped with USPS'"
+    },
+    {
+      "pattern": "mailbox pricing",
+      "qualifier": "cite the tier structure, not a single 'from $' figure in business-facing context"
+    }
+  ]
+}

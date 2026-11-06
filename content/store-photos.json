@@ -96,6 +96,14 @@
       "immich_asset": "94ed8268-9230-4a7f-93f4-7d687ad1ee96",
       "vetted": "2026-10-30",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/counter/change-of-address-counter.webp",
+      "topics": ["counter"],
+      "alt": "A staff member at the Mailbox Plus counter in Concord Township helping with a change of address and private mailbox setup",
+      "immich_asset": "d3e1b00e-6c70-4f47-8c22-093eba149e24",
+      "vetted": "2026-11-04",
+      "source_article": null
     }
   ]
 }
