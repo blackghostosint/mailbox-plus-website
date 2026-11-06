@@ -1,0 +1,153 @@
+{
+  "$comment": "Source registry for usps-certified-mail-vs-courier-services (Fact-Check Gate 2b).",
+  "source_extracts": [
+    {
+      "label": "USPS 2026 extra services price list",
+      "url": "https://www.usps.com/business/prices/2026/dom-extra-services.csv",
+      "quote": "Certified Mail $5.55; Return Receipt (hardcopy, PS Form 3811) $4.65; Return Receipt Electronic $2.91 \u2014 rates effective July 12, 2026 (verified 2026-10-22, prior receipt certified-mail-return-receipt-vs-carrier-signature)"
+    },
+    {
+      "label": "USPS FAQ \u2014 Return Receipt basics",
+      "url": "https://faq.usps.com/s/article/Return-Receipt-The-Basics",
+      "quote": "Return Receipt must be purchased at the time of mailing; shows recipient's signature, delivery date; electronic receipt delivered via email"
+    },
+    {
+      "label": "USPS FAQ \u2014 Certified Mail basics",
+      "url": "https://faq.usps.com/s/article/Certified-Mail-The-Basics",
+      "quote": "Certified Mail provides proof of mailing and delivery record; PS Form 3800 receipt; moves at the speed of the underlying mail class, not guaranteed"
+    },
+    {
+      "label": "2026 postage price change",
+      "url": "https://faq.usps.com/s/article/2026-Postage-Price-Change",
+      "quote": "Forever stamp = 82 cents since July 12, 2026"
+    },
+    {
+      "label": "Ohio Revised Code 1923.04",
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-1923.04",
+      "quote": "3-day eviction notice may be given by certified mail, return receipt requested (one of several allowed methods)"
+    },
+    {
+      "label": "Owner directive on removed claim",
+      "url": "https://github.com/blackghostosint/mailbox-plus-website/pull/953#issuecomment-6615377212",
+      "quote": "Owner ruled 2026-11-06: forms-in-stock / fill-out-for-you claim removed; independent-shop and Form 3800 acceptance claims confirmed true"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$5.55",
+      "scope": "Certified Mail service fee add-on to the underlying mail class, 2026 rates"
+    },
+    {
+      "value": "$2.91",
+      "scope": "Return Receipt electronic (signed PDF by email) fee, 2026 rates"
+    },
+    {
+      "value": "$4.65",
+      "scope": "Return Receipt hardcopy green card (PS Form 3811) fee, 2026 rates"
+    },
+    {
+      "value": "$9.28",
+      "scope": "about $9.28 all-in for a one-ounce First-Class letter sent Certified with electronic return receipt at 2026 retail rates ($5.55 + $2.91 + $0.82)"
+    },
+    {
+      "value": "3811",
+      "scope": "PS Form 3811 = physical green-card Return Receipt"
+    },
+    {
+      "value": "3800",
+      "scope": "PS Form 3800 = Certified Mail receipt (proof of mailing, numbered stub/tracking), stamped at acceptance"
+    },
+    {
+      "value": "21",
+      "scope": "Adult Signature Required = recipient must be 21 or older with government ID (courier adult-signature service definition)"
+    },
+    {
+      "value": "4.1",
+      "scope": "Ohio Civil Rule 4.1 \u2014 default method of service is certified mail, return receipt requested (prepay postage)"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street number, 7554 Fredle Drive, Concord Township (siteConfig)"
+    },
+    {
+      "value": "1923.04",
+      "scope": "Ohio Revised Code 1923.04 \u2014 3-day notice to leave premises, certified mail is one permitted method"
+    },
+    {
+      "value": "44",
+      "scope": "SR-44 \u2014 state route near the store, approved phrasing context"
+    },
+    {
+      "value": "90",
+      "scope": "I-90 \u2014 interstate near the store, approved phrasing context"
+    },
+    {
+      "value": "2026",
+      "scope": "Rate year qualifier for all 2026 USPS prices"
+    },
+    {
+      "value": "3800",
+      "scope": "PS Form 3800, Certified Mail receipt (already registered)"
+    },
+    {
+      "value": "1",
+      "scope": "Ordered-list step marker in the walkthrough (no factual claim)"
+    },
+    {
+      "value": "2",
+      "scope": "Ordered-list step marker (no factual claim)"
+    },
+    {
+      "value": "3",
+      "scope": "Ordered-list step marker (no factual claim)"
+    },
+    {
+      "value": "5",
+      "scope": "'Court deadline today at 5 p.m.' \u2014 hypothetical scenario clock time in the opening vignette, not a factual claim"
+    },
+    {
+      "value": "one",
+      "scope": "Word-form list/vignette number (e.g., 'one trip', 'one counter')"
+    },
+    {
+      "value": "three",
+      "scope": "'three-day eviction notice' \u2014 statutory notice period per ORC 1923.04"
+    },
+    {
+      "value": "nine days",
+      "scope": "Vignette ('nine days later the signed return receipt lands in your inbox') \u2014 illustrative delivery-window wording; softened per receipt row 7 (delivery timing not guaranteed)"
+    },
+    {
+      "value": "Three weeks",
+      "scope": "Vignette ('Three weeks later, in front of the magistrate') \u2014 illustrative scenario, not a factual claim"
+    },
+    {
+      "value": "forty dollars",
+      "scope": "Vignette ('the extra forty dollars bought you nothing') \u2014 illustrative courier-fee contrast, no specific courier price claimed"
+    },
+    {
+      "value": "two minutes",
+      "scope": "'a two-minute conversation beats a wrong mailing every time' \u2014 rhetorical estimate of a phone call"
+    },
+    {
+      "value": "fifteen",
+      "scope": "Vignette ('a queue of fifteen people') \u2014 illustrative franchise-counter scenario"
+    },
+    {
+      "value": "ten",
+      "scope": "~10-minute drive from Painesville (approximate, stated as 'about')"
+    },
+    {
+      "value": "twelve",
+      "scope": "~12-14 minute drive from Mentor and Chardon (approximate, stated as 'roughly')"
+    },
+    {
+      "value": "ten minutes",
+      "scope": "'one trip and ten minutes' \u2014 rhetorical in-and-out time, not a service-duration guarantee"
+    },
+    {
+      "value": "fourteen",
+      "scope": "~12-14 minute drive range upper bound (approximate)"
+    }
+  ]
+}
