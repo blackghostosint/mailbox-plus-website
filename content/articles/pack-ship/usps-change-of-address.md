@@ -46,7 +46,7 @@ relatedArticles:
 
 ## The Fine Print You Never Got
 
-You filed the change of address — or you meant to, between the movers and the utility deposit — and now you want to know what you actually signed up for. Here is the part nobody reads before clicking submit: a USPS change of address does not change your address. It reroutes certain classes of mail from your old address to your new one, for a limited time, and leaves everything else — your bank, your license, your packages, your catalogs — exactly where it was.
+You filed the change of address — or you meant to, between the movers and the utility deposit — and now you want to know what you actually signed up for. Here is the part nobody reads before clicking submit: a USPS change of address does not change your address. It reroutes certain classes of mail from your old address to your new one, for a limited time, and leaves most of the rest to the address each sender already has on file — your bank, your license, your packages, and any catalog whose sender did not pay for forwarding.
 
 The expected outcome of filing is simple: mail that used to hit the old mailbox starts showing up at the new one, on schedule, without you chasing it. What actually happens is narrower than that, and the fine print decides whether your statements follow you or pile up at a house you no longer own.
 
@@ -70,7 +70,7 @@ This is the part that stings. You did the thing you were supposed to do — you 
 
 ## The Assumption Nobody Questions
 
-A two-minute form should not require a follow-up campaign. You told the Postal Service where you live now; a reasonable person reads that as done. But the COA system was built to move mail between postal addresses — not to notify hundreds of independent senders, each with their own address database and their own rules about what they will mail to a forwarding order versus a confirmed address change.
+A two-minute form should not require a follow-up campaign. You told the Postal Service where you live now; a reasonable person reads that as done. But the COA system was built to move mail between postal addresses — not to notify independent senders, each with their own address database and their own rules about what they will mail to a forwarding order versus a confirmed address change.
 
 That is why USPS requires the separate step, in writing, on its own page: contact each sender directly. The bank wants its own form. the DMV wants its own process. The retailer shipping your orders wants the address on the label changed, because a UPS truck does not check USPS forwarding orders — it delivers to whatever is printed on the box.
 
