@@ -76,7 +76,7 @@ At Mailbox Plus, at 7554 Fredle Drive in Concord Township, plenty of the mailbox
 
 Here is what we tell them, and what it looks like in practice:
 
-![A staff member at the Mailbox Plus counter in Concord Township helping with a change of address and private mailbox setup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/change-of-address-counter.webp)
+![The Mailbox Plus counter in Concord Township, where we help customers set up a private mailbox and file a change of address](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/mailbox-rentals/pmb-counter-01.webp)
 
 - **A real street address, not a PO Box.** A private mailbox at our counter gives you a street address you can put on your mail — for anything beyond mail, check the specific form rules with the issuer, since government agencies and financial institutions set their own rules.
 - **Every carrier, one place.** USPS, UPS, FedEx, and DHL all deliver to your box or behind the counter. No forwarding order needed, because the address was correct the whole time.
