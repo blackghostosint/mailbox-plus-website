@@ -32,6 +32,7 @@ import {
   walkDir,
   normalizeRoute,
   isKnownRoute as isKnownRouteUtil,
+  extractInternalHrefs,
 } from '../lib/article-utils.ts';
 import { walkFiles } from '../lib/fs-traversal.ts';
 import { validateArticleFrontmatter } from '../lib/article-schema.ts';
@@ -728,16 +729,6 @@ const BANNED_TERMS_RE = /\b(PostalMate|Stamps\.com|Endicia)\b/i;
 // pretentious ass" — plain words only. See the Ogilvy section of the article workflow.
 const JARGON_RE =
   /\b(leverag(?:e|ing)|utiliz(?:e|ation|ing)|solutions?|seamless(?:ly)?|state-of-the-art|cutting-edge|next-generation|streamlin(?:e|ed|ing)|empower(?:ing|ment)?|robust(?:ness)?|ecosystem|synerg(?:y|ies|istic)|best-in-class|world-class|unparalleled|unrivaled|game-changer|holistic(?:ally)?|innovative|turnkey|mission-critical|enterprise-grade|optimiz(?:e|ation|ing)|facilitat(?:e|ion|ing)|commenc(?:e|ing)|reconceptualiz(?:e|ation)|demassification|attitudinally|judgmentally)\b/i;
-
-function extractInternalHrefs(content) {
-  const hrefs = [];
-  const re = /\[([^\]]*)\]\((\/[^)\s]*)\)/g;
-  let m;
-  while ((m = re.exec(content))) hrefs.push(m[2]);
-  const reHtml = /<a\s+[^>]*href="(\/[^"]*)"/g;
-  while ((m = reHtml.exec(content))) hrefs.push(m[1]);
-  return hrefs;
-}
 
 function cmdArticle(arg, isStrict = false) {
   const abs = path.isAbsolute(arg) ? arg : path.join(ROOT, arg);
