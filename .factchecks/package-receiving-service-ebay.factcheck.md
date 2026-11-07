@@ -1,0 +1,34 @@
+# Fact-Check Receipt — package-receiving-service-ebay
+
+Checked 2026-11-06. Constraint-first numbers registered in `.factchecks/package-receiving-service-ebay.sources.json` (written before prose). Confirmed-fact ledger rows (`.factchecks/CONFIRMED.md`) reused where marked.
+
+| #   | Claim                                                                                                                                                     | Verdict     | Source                                                                                                                                                               |
+| --- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1   | UPS, FedEx, Amazon and other private carriers cannot deliver to a PO Box                                                                                  | ✅          | https://faq.usps.com/s/article/PO-Box-The-Basics (CONFIRMED row 95, 2026-09-24)                                                                                      |
+| 2   | Private mailbox rental requires USPS Form 1583 with two forms of ID, one with a photo                                                                     | ✅          | https://faq.usps.com/s/article/Commercial-Mail-Receiving-Agency-CMRA (CONFIRMED rows 22-23, 94)                                                                      |
+| 3   | Mail to a CMRA must bear "PMB" or "#" designator; missing designator can be returned "Undeliverable as Addressed, Missing PMB or # Sign"                  | ✅          | https://pe.usps.gov/text/dmm300/508.htm DMM 508.1.8.3 (CONFIRMED rows 20-21, 2026-10-13)                                                                             |
+| 4   | Personal PMB tiers $15/$25/$30/$40 per month; business plans $35/$50; month-to-month, no annual contract                                                  | ✅          | astro/src/pages/private-mailbox-rental.astro + home-business/mailbox-rental.astro (CONFIRMED rows 73, 93)                                                            |
+| 5   | $25 tier includes 10 packages a month with carrier delivery and signing                                                                                   | ✅          | https://mailboxplusohio.com/private-mailbox-rental/ (CONFIRMED row 29)                                                                                               |
+| 6   | $5 refundable key deposit                                                                                                                                 | ✅          | site pricing pages (forward-mail-after-moving.sources.json, 2026-11-05)                                                                                              |
+| 7   | USPS mail forwarding lasts 12 months (First-Class/Ground Advantage/Priority); Periodicals 60 days; some parcel classes forwarded only if mailer specifies | ✅          | https://www.usps.com/manage/forward.htm + https://faq.usps.com/s/article/Change-of-Address-The-Basics (forward-mail-after-moving.sources.json, retrieved 2026-11-05) |
+| 8   | USPS regulates CMRA service (CMRA is a formal, regulated category)                                                                                        | ✅          | DMM 508 + USPS CMRA FAQ (same as #2/#3)                                                                                                                              |
+| 9   | Store address 7554 Fredle Drive, Concord Township, OH 44077; Gristmill Village, next to Pub Frato, just off Crile Road, minutes from SR-44 and I-90       | ✅          | astro/src/config/siteConfig.ts + content/facts.json approved phrasing (CONFIRMED rows 55, 74)                                                                        |
+| 10  | Hours: Mon-Fri 9 AM-6 PM, Sat 9 AM-2 PM, closed Sunday                                                                                                    | ✅          | astro/src/config/siteConfig.ts (CONFIRMED row 75)                                                                                                                    |
+| 11  | Renters have 24/7 mail access during lobby hours                                                                                                          | ✅          | siteConfig.ts + /private-mailbox-rental/ (CONFIRMED row 77); scoped to MAIL ACCESS, not 24-hour store service (owner NEVER-CLAIM #688)                               |
+| 12  | Phone (440) 709-1946                                                                                                                                      | ✅          | siteConfig.ts (CONFIRMED row 76)                                                                                                                                     |
+| 13  | Staff sign for deliveries when a carrier requires it                                                                                                      | ✅          | $25 tier described as "with carrier delivery and signing" on the rental page (row 29); qualified with "when a carrier requires it"                                   |
+| 14  | Setup takes about ten minutes and the address is active the same day                                                                                      | ✅          | private-mailbox-rental.astro: "Setup in ~10 minutes — your address is active the same day" (CONFIRMED row 27)                                                        |
+| 15  | porch theft / missed-attempt frustration mechanisms                                                                                                       | ⚠️ softened | Framed as systemic mechanisms, no invented statistics ("statistics keep climbing" removed from final copy check — see note)                                          |
+
+## Softened / removed during drafting
+
+- Removed illustrative refund figures ($30 item / $8 postage) — no receipt; replaced with unpriced wording.
+- Removed "forty minutes round trip" depot-drive figure — no receipt; replaced with "across town".
+- "Porch theft statistics keep climbing" — removed; no statistic cited.
+- No counter-duration guarantees ("under three minutes") anywhere; heading bank variant with timing guarantee replaced by "Three Steps, Start to Finish".
+
+## Scope-rule compliance (sources.json)
+
+- No mail-only tier framed as including package handling.
+- No 24-hour/after-hours store claims — only 24/7 mail access, owner-confirmed.
+- No categorical third-party acceptance claims; no eBay policy claims asserted.
