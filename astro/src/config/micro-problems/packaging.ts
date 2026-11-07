@@ -173,7 +173,7 @@ export const packagingMicroProblems: Service[] = [
         'ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics',
         'ship-a-gift-without-the-receipt-or-invoice-in-concord-township',
         'ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected',
-        'ship-return-strict-size-weight-limits',
+        'ship-a-return-with-strict-size-or-weight-limits',
       ],
       priority: false,
     },

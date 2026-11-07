@@ -27,6 +27,9 @@ describe('generate-route-registry', () => {
   describe('getId', () => {
     it('remaps specific legacy or parity service IDs', () => {
       expect(getId('ups-authorized-shipper-outlet')).toBe('ups-shipping');
+      expect(getId('ship-return-strict-size-weight-limits')).toBe(
+        'ship-a-return-with-strict-size-or-weight-limits'
+      );
     });
 
     it('passes through native and unmapped service IDs unchanged', () => {

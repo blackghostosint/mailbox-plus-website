@@ -257,5 +257,9 @@ https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 /articles/dimensional-weight-blind-spot* /pack-ship/ 301!
 /articles/willoughby-hills-print-shop* /copy-print/document-printing/ 301!
 
+# Legacy micro-problem slug redirected to native route
+/ship-return-strict-size-weight-limits /ship-a-return-with-strict-size-or-weight-limits/ 301!
+/ship-return-strict-size-weight-limits/ /ship-a-return-with-strict-size-or-weight-limits/ 301!
+
 # TRUE 404 RULE
 /* /404.html 404

@@ -61,7 +61,7 @@ To verify script discovery and signal logic without production Search Console da
 npm run audit:micro-problems
 ```
 
-_(Runs `node scripts/audit-micro-problems.cjs --dry-run` across all 42 micro-problem configs)_
+_(Runs `node scripts/audit-micro-problems.cjs --dry-run` across all 41 micro-problem configs)_
 
 ### Production Quarterly Run
 

@@ -71,6 +71,8 @@ export const formatUrl = (url: string): string => {
 
 export const getId = (id: string): string => {
   if (id === 'ups-authorized-shipper-outlet') return 'ups-shipping';
+  if (id === 'ship-return-strict-size-weight-limits')
+    return 'ship-a-return-with-strict-size-or-weight-limits';
   return id;
 };
 
