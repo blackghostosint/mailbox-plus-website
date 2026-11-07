@@ -1,5 +1,7 @@
+import fs from 'fs';
 import path from 'path';
 import prettier from 'prettier';
+import type { Service } from '../astro/src/types/services.ts';
 import { toRouteKey } from '../astro/src/utils/url-normalization.ts';
 import { services } from '../astro/src/config/services.js';
 import { serviceAreas } from '../astro/src/config/serviceAreas.js';
@@ -22,6 +24,38 @@ const LOCAL_PAGES_PATH = path.join(ROOT_DIR, 'astro/src/data/localPages.json');
 const INTERNAL_LINKS_PATH = path.join(ROOT_DIR, 'astro/src/data/internalLinks.json');
 const ANCHOR_TEXT_PATH = path.join(ROOT_DIR, 'astro/src/data/anchorText.json');
 
+export async function loadMicroProblems(
+  microProblemsDir = path.join(ROOT_DIR, 'astro/src/config/micro-problems')
+): Promise<Service[]> {
+  if (!fs.existsSync(microProblemsDir)) {
+    return [];
+  }
+  const KNOWN_ORDER = ['returns.ts', 'shipping.ts', 'packaging.ts', 'misc.ts', 'regulated.ts'];
+  const files = fs
+    .readdirSync(microProblemsDir)
+    .filter((file) => file.endsWith('.ts') && file !== 'index.ts')
+    .sort((a, b) => {
+      const idxA = KNOWN_ORDER.indexOf(a);
+      const idxB = KNOWN_ORDER.indexOf(b);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
+      return a.localeCompare(b);
+    });
+
+  const microProblemsList: Service[] = [];
+  for (const file of files) {
+    const filePath = path.join(microProblemsDir, file);
+    const mod = await import(filePath);
+    for (const val of Object.values(mod)) {
+      if (Array.isArray(val)) {
+        microProblemsList.push(...(val as Service[]));
+      }
+    }
+  }
+  return microProblemsList;
+}
+
 export const formatUrl = (url: string): string => {
   if (url.startsWith('http://') || url.startsWith('https://')) {
     try {
@@ -37,8 +71,6 @@ export const formatUrl = (url: string): string => {
 
 export const getId = (id: string): string => {
   if (id === 'ups-authorized-shipper-outlet') return 'ups-shipping';
-  if (id === 'ship-a-return-with-strict-size-or-weight-limits')
-    return 'ship-return-strict-size-weight-limits';
   return id;
 };
 
@@ -115,7 +147,12 @@ export function buildSiteStructure(
       title: getTitle(s.id, s.serviceName),
     };
 
-    if (isGeoDropoff(s, competitiveIds)) {
+    if (
+      s.id === 'ship-a-return-with-strict-size-or-weight-limits' ||
+      child.id === 'ship-a-return-with-strict-size-or-weight-limits'
+    ) {
+      pillarChildrenMap['micro-problems'].push(child);
+    } else if (isGeoDropoff(s, competitiveIds)) {
       pillarChildrenMap['geo-dropoffs'].push(child);
     } else if (competitiveIds.has(s.id)) {
       seoLanding.push(child);
@@ -140,8 +177,8 @@ export function buildSiteStructure(
     }
   });
 
-  if (!pillarChildrenMap['micro-problems'].some((c) => c.id === 'ask-mailbox-plus')) {
-    pillarChildrenMap['micro-problems'].push({
+  if (!pillarChildrenMap['home-business'].some((c) => c.id === 'ask-mailbox-plus')) {
+    pillarChildrenMap['home-business'].push({
       id: 'ask-mailbox-plus',
       url: '/ask-mailbox-plus',
       title: 'Ask Mailbox Plus',
@@ -184,7 +221,11 @@ export function buildInternalLinks(
     pillarConfigsList,
     subSupportingList,
     standaloneSeoList
-  )
+  ),
+  existingInternalLinksMap: Record<
+    string,
+    { parent: string | null; related: string[]; priority: boolean }
+  > = {}
 ) {
   const childToPillarMap = new Map<string, string>();
   for (const pillar of siteStructureObj.pillars) {
@@ -198,9 +239,17 @@ export function buildInternalLinks(
     { parent: string | null; related: string[]; priority: boolean }
   > = {};
 
+  const getExistingRelated = (id: string, fallback: string[]): string[] => {
+    const existing = existingInternalLinksMap[id];
+    if (existing && Array.isArray(existing.related) && existing.related.length > 0) {
+      return existing.related.map(getId);
+    }
+    return fallback.map(getId);
+  };
+
   internalLinksMap['homepage'] = {
     parent: null,
-    related: [
+    related: getExistingRelated('homepage', [
       'pack-ship',
       'copy-print',
       'home-business',
@@ -208,31 +257,34 @@ export function buildInternalLinks(
       'fedex-shipping',
       'ups-shipping',
       'notary-services',
-    ].map(getId),
+    ]),
     priority: true,
   };
 
   for (const p of pillarConfigsList) {
-    internalLinksMap[getId(p.id)] = {
+    const id = getId(p.id);
+    internalLinksMap[id] = {
       parent: p.internalLink?.parent ? getId(p.internalLink.parent) : null,
-      related: (p.internalLink?.related || []).map(getId),
-      priority: p.internalLink?.priority ?? true,
+      related: getExistingRelated(id, p.internalLink?.related || []),
+      priority: p.internalLink?.priority ?? existingInternalLinksMap[id]?.priority ?? true,
     };
   }
 
   for (const sub of subSupportingList) {
-    internalLinksMap[getId(sub.id)] = {
+    const id = getId(sub.id);
+    internalLinksMap[id] = {
       parent: getId(sub.internalLink?.parent ?? 'pack-ship'),
-      related: (sub.internalLink?.related || []).map(getId),
-      priority: sub.internalLink?.priority ?? false,
+      related: getExistingRelated(id, sub.internalLink?.related || []),
+      priority: sub.internalLink?.priority ?? existingInternalLinksMap[id]?.priority ?? false,
     };
   }
 
   for (const seo of standaloneSeoList) {
-    internalLinksMap[getId(seo.id)] = {
+    const id = getId(seo.id);
+    internalLinksMap[id] = {
       parent: getId(seo.internalLink?.parent ?? 'home-business'),
-      related: (seo.internalLink?.related || []).map(getId),
-      priority: seo.internalLink?.priority ?? false,
+      related: getExistingRelated(id, seo.internalLink?.related || []),
+      priority: seo.internalLink?.priority ?? existingInternalLinksMap[id]?.priority ?? false,
     };
   }
 
@@ -248,15 +300,16 @@ export function buildInternalLinks(
 
     internalLinksMap[id] = {
       parent,
-      related: (s.internalLink?.related || []).map(getId),
-      priority: s.internalLink?.priority ?? false,
+      related: getExistingRelated(id, s.internalLink?.related || []),
+      priority: s.internalLink?.priority ?? existingInternalLinksMap[id]?.priority ?? false,
     };
   }
 
   if (childToPillarMap.has('ask-mailbox-plus') && !internalLinksMap['ask-mailbox-plus']) {
+    const existing = existingInternalLinksMap['ask-mailbox-plus'];
     internalLinksMap['ask-mailbox-plus'] = {
-      parent: getId(childToPillarMap.get('ask-mailbox-plus') || 'micro-problems'),
-      related: [
+      parent: getId(childToPillarMap.get('ask-mailbox-plus') || 'home-business'),
+      related: getExistingRelated('ask-mailbox-plus', [
         'mailbox-rental',
         'notary-services',
         'pack-ship',
@@ -265,8 +318,8 @@ export function buildInternalLinks(
         'fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township',
         'get-help-choosing-the-right-box-for-shipping-in-concord-township',
         'ship-with-guaranteed-proof-and-tracking-concord-township',
-      ].map(getId),
-      priority: false,
+      ]),
+      priority: existing?.priority ?? false,
     };
   }
 
@@ -331,16 +384,38 @@ export async function generateRouteRegistry(options?: {
   const anchorTextPath = options?.anchorTextPath || ANCHOR_TEXT_PATH;
   const shouldWrite = options?.write ?? true;
 
+  let existingInternalLinks: Record<
+    string,
+    { parent: string | null; related: string[]; priority: boolean }
+  > = {};
+  if (fs.existsSync(internalLinksPath)) {
+    try {
+      existingInternalLinks = JSON.parse(fs.readFileSync(internalLinksPath, 'utf-8'));
+    } catch {
+      // ignore
+    }
+  }
+
+  const dynamicMicroProblems = await loadMicroProblems();
+  const competitiveIds = new Set(competitivePages.map((c) => c.id));
+  const compIdx = services.findIndex((s) => competitiveIds.has(s.id));
+  const preServices = (compIdx === -1 ? services : services.slice(0, compIdx)).filter(
+    (s) => s.category !== 'micro-problem' && (s.category as string) !== 'micro-problems'
+  );
+  const postServices = compIdx === -1 ? [] : services.slice(compIdx);
+  const combinedServices = [...preServices, ...dynamicMicroProblems, ...postServices];
+
   const localPages = generateLocalPages();
-  const siteStructure = buildSiteStructure();
+  const siteStructure = buildSiteStructure(combinedServices);
   const internalLinks = buildInternalLinks(
-    services,
+    combinedServices,
     pillarConfigs,
     subSupportingConfigs,
     standaloneSeoLandingConfigs,
-    siteStructure
+    siteStructure,
+    existingInternalLinks
   );
-  const anchorText = buildAnchorText();
+  const anchorText = buildAnchorText(combinedServices);
 
   if (shouldWrite) {
     const fmt = async (p: string, data: unknown) =>

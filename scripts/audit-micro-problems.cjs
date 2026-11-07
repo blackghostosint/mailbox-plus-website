@@ -142,7 +142,10 @@ function parseCSVLine(line) {
 function loadMicroProblemsConfig() {
   console.log('📦 Loading micro-problems configuration from TypeScript files...\n');
 
-  const configFiles = ['returns.ts', 'shipping.ts', 'packaging.ts', 'misc.ts'];
+  const configFiles = fs
+    .readdirSync(CONFIG_DIR)
+    .filter((f) => f.endsWith('.ts') && f !== 'index.ts')
+    .sort();
 
   const microProblems = [];
   const slugSet = new Set();
