@@ -27,12 +27,15 @@ describe('generate-route-registry', () => {
   describe('getId', () => {
     it('remaps specific legacy or parity service IDs', () => {
       expect(getId('ups-authorized-shipper-outlet')).toBe('ups-shipping');
-      expect(getId('ship-a-return-with-strict-size-or-weight-limits')).toBe(
-        'ship-return-strict-size-weight-limits'
+      expect(getId('ship-return-strict-size-weight-limits')).toBe(
+        'ship-a-return-with-strict-size-or-weight-limits'
       );
     });
 
-    it('passes through unmapped service IDs unchanged', () => {
+    it('passes through native and unmapped service IDs unchanged', () => {
+      expect(getId('ship-a-return-with-strict-size-or-weight-limits')).toBe(
+        'ship-a-return-with-strict-size-or-weight-limits'
+      );
       expect(getId('fedex-shipping')).toBe('fedex-shipping');
       expect(getId('mailbox-rental')).toBe('mailbox-rental');
     });
@@ -216,9 +219,9 @@ describe('generate-route-registry', () => {
     it('canonicalizes non-canonical parent and related IDs via getId()', () => {
       const mockServices = [
         {
-          id: 'ship-a-return-with-strict-size-or-weight-limits',
+          id: 'custom-package-service',
           category: 'pack-ship',
-          slug: '/ship-a-return-with-strict-size-or-weight-limits',
+          slug: '/pack-ship/custom-package-service',
           internalLink: {
             parent: 'pack-ship',
             related: ['ups-authorized-shipper-outlet'],
@@ -235,7 +238,7 @@ describe('generate-route-registry', () => {
           description: 'Packing',
           internalLink: {
             parent: null,
-            related: ['ship-a-return-with-strict-size-or-weight-limits'],
+            related: ['custom-package-service'],
             priority: true,
           },
         },
@@ -249,8 +252,42 @@ describe('generate-route-registry', () => {
         buildSiteStructure(mockServices as any, [], mockPillarConfigs as any, [], [])
       );
 
-      expect(links['pack-ship'].related).toContain('ship-return-strict-size-weight-limits');
-      expect(links['ship-return-strict-size-weight-limits'].related).toContain('ups-shipping');
+      expect(links['pack-ship'].related).toContain('custom-package-service');
+      expect(links['custom-package-service'].related).toContain('ups-shipping');
+    });
+
+    it('assigns ask-mailbox-plus strictly to home-business and ship-a-return under micro-problems', () => {
+      const mockServices = [
+        {
+          id: 'ship-a-return-with-strict-size-or-weight-limits',
+          category: 'pack-ship',
+          slug: '/ship-a-return-with-strict-size-or-weight-limits',
+          serviceName: 'Ship a Return With Strict Size or Weight Limits',
+        },
+      ];
+      const mockPillarConfigs = [
+        { id: 'home-business', title: 'Home & Business', url: '/home-business', children: [] },
+        { id: 'micro-problems', title: 'Micro Problems', url: '/micro-problems', children: [] },
+      ];
+
+      const structure = buildSiteStructure(
+        mockServices as any,
+        [{ id: 'ship-a-return-with-strict-size-or-weight-limits' }] as any,
+        mockPillarConfigs as any,
+        [],
+        []
+      );
+
+      const homeBusiness = structure.pillars.find((p) => p.id === 'home-business');
+      const microProblems = structure.pillars.find((p) => p.id === 'micro-problems');
+
+      expect(homeBusiness?.children.some((c) => c.id === 'ask-mailbox-plus')).toBe(true);
+      expect(microProblems?.children.some((c) => c.id === 'ask-mailbox-plus')).toBe(false);
+      expect(
+        microProblems?.children.some(
+          (c) => c.id === 'ship-a-return-with-strict-size-or-weight-limits'
+        )
+      ).toBe(true);
     });
 
     it('asserts every parent and related ID resolves to a generated registry node', () => {

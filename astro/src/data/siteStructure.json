@@ -156,11 +156,6 @@
           "title": "Drop Off a Prepaid Label From Your Phone"
         },
         {
-          "id": "ship-return-strict-size-weight-limits",
-          "url": "/ship-return-strict-size-weight-limits",
-          "title": "Ship a Return With Strict Size or Weight Limits"
-        },
-        {
           "id": "fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township",
           "url": "/fix-a-return-that-was-rejected-due-to-packaging-issues-in-concord-township",
           "title": "Fix a Return That Was Rejected Due to Packaging Issues"
@@ -395,7 +390,8 @@
           "id": "business-services-concord-township",
           "url": "/business-services-concord-township",
           "title": "Business Services"
-        }
+        },
+        { "id": "ask-mailbox-plus", "url": "/ask-mailbox-plus", "title": "Ask Mailbox Plus" }
       ]
     },
     {
@@ -484,7 +480,11 @@
           "url": "/guide/shipping-jewelry",
           "title": "How to Ship Jewelry via FedEx"
         },
-        { "id": "ask-mailbox-plus", "url": "/ask-mailbox-plus", "title": "Ask Mailbox Plus" }
+        {
+          "id": "ship-a-return-with-strict-size-or-weight-limits",
+          "url": "/ship-a-return-with-strict-size-or-weight-limits",
+          "title": "Ship a Return With Strict Size or Weight Limits | Mailbox Plus"
+        }
       ]
     },
     {
@@ -778,11 +778,6 @@
       "id": "private-mailbox-rental-lake-county",
       "url": "/private-mailbox-rental-lake-county",
       "title": "Private Mailbox Rental in Lake County | Mailbox Plus"
-    },
-    {
-      "id": "ship-return-strict-size-weight-limits",
-      "url": "/ship-a-return-with-strict-size-or-weight-limits",
-      "title": "Ship a Return With Strict Size or Weight Limits | Mailbox Plus"
     },
     {
       "id": "shipping-centers-willoughby-ohio",
