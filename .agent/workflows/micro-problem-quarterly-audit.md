@@ -21,7 +21,7 @@ This workflow specifies the end-to-end execution process for auditors and autono
 2. **Data > Opinion**: Decisions are made based on Search Console metrics and logged staff feedback, never intuition.
 3. **One Intent = One Page**: Intent cannibalization is strictly prohibited. Every page must define a unique `intentKey`.
 4. **Deletion is Healthy Maintenance**: Eliminating dead or unhelpful pages protects search authority and prevents customer confusion.
-5. **Single-Source Parity**: TypeScript configuration files under `astro/src/config/micro-problems/*.ts` are the authoritative source of truth. Manifests (`siteStructure.json`, `internalLinks.json`) are automatically derived, never manually edited.
+5. **Single-Source Parity**: TypeScript configuration files under `astro/src/config/micro-problems/*.ts` are the authoritative source of truth. Manifests (`astro/src/data/siteStructure.json`, `astro/src/data/internalLinks.json`) are automatically derived, never manually edited.
 
 ---
 
@@ -73,7 +73,7 @@ node scripts/audit-micro-problems.cjs --search-console=scripts/audits/search-con
 
 ### Script Execution Logic & Signals
 
-The audit script automatically scans all `.ts` files in `astro/src/config/micro-problems/` (excluding `index.ts`) and evaluates three signals:
+The audit script automatically scans all `.ts` files in `astro/src/config/micro-problems/` (excluding `astro/src/config/micro-problems/index.ts`) and evaluates three signals:
 
 - **Signal A (Search Performance)**:
   - **FAIL**: 0 impressions OR (impressions > 0 but 0 clicks) in the 90-day window.
@@ -105,7 +105,7 @@ After implementing any config deletions, merges, or additions in `astro/src/conf
    npm run prebuild
    ```
 
-   This automatically runs `scripts/generate-route-registry.ts` to scan `astro/src/config/micro-problems/*.ts` and updates `siteStructure.json` and `internalLinks.json`, followed immediately by `npm run seo:check-links`.
+   This automatically runs `scripts/generate-route-registry.ts` to scan `astro/src/config/micro-problems/*.ts` and updates `astro/src/data/siteStructure.json` and `astro/src/data/internalLinks.json`, followed immediately by `npm run seo:check-links`.
 
 2. **Verify Internal Link Strategy & Routing**:
 
