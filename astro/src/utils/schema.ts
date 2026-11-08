@@ -6,12 +6,9 @@ import type {
   Service,
   SearchAction,
   FAQPage,
-  Product,
   Article,
-  ParcelDelivery,
   Offer,
   ItemAvailability,
-  AggregateRating,
   ContactPoint,
   OpeningHoursSpecification,
   BreadcrumbList,
@@ -377,55 +374,6 @@ export const getFAQSchema = (
   })),
 });
 
-/** ---------- Product ---------- */
-export const getProductSchema = (
-  config: SiteConfig,
-  {
-    name,
-    description,
-    sku,
-    brand,
-    image,
-    offers,
-    aggregateRating,
-  }: {
-    name: string;
-    description: string;
-    sku?: string;
-    brand?: string;
-    image?: string | string[];
-    offers?: { price: string; currency?: string; availability?: string }[];
-    aggregateRating?: { ratingValue: number; reviewCount: number };
-  }
-): WithContext<Product> => ({
-  '@context': 'https://schema.org',
-  '@type': 'Product',
-  '@id': toCanonicalUrl(`${getOrigin(config)}#product-${slugify(name)}`),
-  name,
-  description,
-  ...(sku && { sku }),
-  ...(brand && { brand: { '@type': 'Brand', name: brand } }),
-  ...(image && { image }),
-  ...(offers?.length && {
-    offers: offers.map<Offer>((o) => ({
-      '@type': 'Offer',
-      price: o.price,
-      priceCurrency: o.currency || 'USD',
-      availability: (o.availability as ItemAvailability) || 'https://schema.org/InStock',
-      url: toCanonicalUrl('/'),
-    })),
-  }),
-  ...(aggregateRating && {
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: aggregateRating.ratingValue,
-      reviewCount: aggregateRating.reviewCount,
-      bestRating: 5,
-      worstRating: 1,
-    } as AggregateRating,
-  }),
-});
-
 /** ---------- Article ---------- */
 export const getArticleSchema = (
   config: SiteConfig,
@@ -497,30 +445,6 @@ export const getArticleSchema = (
       '@id': canonicalUrl,
     },
   };
-};
-
-/** ---------- ParcelDelivery ---------- */
-export const getTrackingSchema = (
-  config: SiteConfig,
-  trackingNumber: string,
-  carrierName: string,
-  trackingUrl: string
-): WithContext<ParcelDelivery> | null => {
-  if (!trackingNumber) return null;
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'ParcelDelivery',
-    '@id': `${getOrigin(config)}#parcel-${trackingNumber}`,
-    trackingNumber,
-    provider: { '@type': 'Organization', name: carrierName },
-    trackingUrl,
-    deliveryAddress: config.deliveryAddress || {
-      '@type': 'PostalAddress',
-      addressLocality: 'Concord Township',
-      addressRegion: 'OH',
-      addressCountry: 'US',
-    },
-  } as WithContext<ParcelDelivery>;
 };
 
 /** ---------- ImageObject ---------- */

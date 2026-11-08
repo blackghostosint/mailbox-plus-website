@@ -18,25 +18,8 @@ import { withRecaptcha } from './lib/recaptcha';
 import { withCors, jsonResponse, jsonError, DEFAULT_ALLOWED_ORIGINS } from './lib/cors';
 import { escapeHtml } from './lib/escapeHtml';
 import { logger } from './lib/logger';
-import { checkRateLimit as checkRateLimitLib, getClientIp } from './lib/rate-limiter';
 import { SendEmailRequestSchema, SendEmailSuccessSchema } from './lib/contracts';
 import { getFallbackCustomerName } from './lib/fallbacks';
-
-export { getClientIp };
-
-export async function checkRateLimit(
-  ip: string,
-  limit = 5,
-  windowMs = 10 * 60 * 1000
-): Promise<boolean> {
-  const result = await checkRateLimitLib(ip, {
-    maxRequests: limit,
-    windowMs,
-    storeName: 'sendEmail-rate-limits',
-    keyPrefix: 'sendEmail',
-  });
-  return result.allowed;
-}
 
 export default withCors(
   withRecaptcha(async (request: Request) => {
@@ -45,8 +28,6 @@ export default withCors(
     }
 
     try {
-      const _clientIp = getClientIp(request.headers);
-
       const rawData = await request.json().catch(() => ({}));
       const parsed = SendEmailRequestSchema.safeParse(rawData);
       if (!parsed.success) {

@@ -25,7 +25,8 @@ vi.mock('stripe', () => {
 });
 
 import createCheckoutHandler from '../create-checkout';
-import sendEmailHandler, { getClientIp } from '../sendEmail';
+import sendEmailHandler from '../sendEmail';
+import { getClientIp } from '../lib/rate-limiter';
 import verifySessionHandler from '../verify-session';
 import cspReportHandler from '../csp-report';
 import healthHandler from '../health';
