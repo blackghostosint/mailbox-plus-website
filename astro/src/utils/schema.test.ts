@@ -5,9 +5,7 @@ import {
   getWebPageSchema,
   getServiceSchema,
   getFAQSchema,
-  getProductSchema,
   getArticleSchema,
-  getTrackingSchema,
   getImageObjectSchema,
   getBreadcrumbSchema,
   getVideoObjectSchema,
@@ -406,57 +404,6 @@ describe('getFAQSchema', () => {
   });
 });
 
-describe('getProductSchema', () => {
-  it('generates Product schema with optional fields', () => {
-    const schema = getProductSchema(mockSiteConfig, {
-      name: 'Custom Rubber Stamp',
-      description: 'Personalized self-inking rubber stamp.',
-      sku: 'STAMP-001',
-      brand: 'Mailbox Plus',
-      image: '/images/stamp.png',
-      offers: [{ price: '24.99' }],
-      aggregateRating: { ratingValue: 4.8, reviewCount: 15 },
-    });
-
-    expect(schema['@context']).toBe('https://schema.org');
-    expect(schema['@type']).toBe('Product');
-    expect(schema['@id']).toBe('https://mailboxplusohio.com#product-custom-rubber-stamp');
-    expect(schema.name).toBe('Custom Rubber Stamp');
-    expect(schema.description).toBe('Personalized self-inking rubber stamp.');
-    expect(schema.sku).toBe('STAMP-001');
-    expect(schema.brand).toEqual({ '@type': 'Brand', name: 'Mailbox Plus' });
-    expect(schema.image).toBe('/images/stamp.png');
-    expect(schema.offers).toEqual([
-      {
-        '@type': 'Offer',
-        price: '24.99',
-        priceCurrency: 'USD',
-        availability: 'https://schema.org/InStock',
-        url: 'https://mailboxplusohio.com/',
-      },
-    ]);
-    expect(schema.aggregateRating).toEqual({
-      '@type': 'AggregateRating',
-      ratingValue: 4.8,
-      reviewCount: 15,
-      bestRating: 5,
-      worstRating: 1,
-    });
-  });
-
-  it('generates Product schema without optional fields', () => {
-    const schema = getProductSchema(mockSiteConfig, {
-      name: 'Cardboard Box',
-      description: 'Heavy duty box',
-    });
-
-    expect(schema.sku).toBeUndefined();
-    expect(schema.brand).toBeUndefined();
-    expect(schema.offers).toBeUndefined();
-    expect(schema.aggregateRating).toBeUndefined();
-  });
-});
-
 describe('getArticleSchema', () => {
   it('generates Article schema with relative image URL normalization', () => {
     const schema = getArticleSchema(mockSiteConfig, {
@@ -514,40 +461,6 @@ describe('getArticleSchema', () => {
       '@type': 'Person',
       name: 'Mailbox Plus',
     });
-  });
-});
-
-describe('getTrackingSchema', () => {
-  it('generates ParcelDelivery schema when tracking number is present', () => {
-    const schema = getTrackingSchema(
-      mockSiteConfig,
-      '1Z9999999999999999',
-      'UPS',
-      'https://www.ups.com/track?loc=en_US&tracknum=1Z9999999999999999'
-    );
-
-    expect(schema).not.toBeNull();
-    expect(schema!['@context']).toBe('https://schema.org');
-    expect(schema!['@type']).toBe('ParcelDelivery');
-    expect(schema!['@id']).toBe('https://mailboxplusohio.com#parcel-1Z9999999999999999');
-    expect(schema!.trackingNumber).toBe('1Z9999999999999999');
-    expect(schema!.provider).toEqual({
-      '@type': 'Organization',
-      name: 'UPS',
-    });
-    expect(schema!.trackingUrl).toBe(
-      'https://www.ups.com/track?loc=en_US&tracknum=1Z9999999999999999'
-    );
-    expect(schema!.deliveryAddress).toEqual({
-      '@type': 'PostalAddress',
-      addressLocality: 'Concord Township',
-      addressRegion: 'OH',
-      addressCountry: 'US',
-    });
-  });
-
-  it('returns null if tracking number is empty or falsy', () => {
-    expect(getTrackingSchema(mockSiteConfig, '', 'UPS', 'https://ups.com')).toBeNull();
   });
 });
 

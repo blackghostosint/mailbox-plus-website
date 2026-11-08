@@ -513,8 +513,3 @@ export function withCors(handler: WebHandler, options?: CorsOptions): WebHandler
     }
   };
 }
-
-/**
- * @deprecated Use `withCors` instead.
- */
-export const withWebCors = withCors;
