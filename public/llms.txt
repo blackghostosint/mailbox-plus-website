@@ -6,58 +6,58 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 
 ## Services
 
-- [Services Index](https://mailboxplusohio.com/services): Comprehensive index of all pack & ship, printing, mailbox, and business services. Fetch when exploring general offerings.
-- [FedEx Shipping](https://mailboxplusohio.com/pack-ship/fedex-shipping): Authorized FedEx ShipCenter offering Express, Ground, Home Delivery, and International services. Fetch when comparing FedEx rates or preparing a FedEx drop-off.
-- [UPS Shipping](https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet): UPS Authorized Shipper Outlet with Ground, Air, and International services. Fetch when comparing UPS rates or preparing a UPS drop-off.
-- [USPS Services](https://mailboxplusohio.com/pack-ship/usps-services): Full suite of postal services including Priority Mail, Certified Mail, and Forever Stamps. Fetch when comparing USPS rates or preparing a USPS drop-off.
-- [DHL Express](https://mailboxplusohio.com/pack-ship/dhl-express): DHL Service Point for fast, reliable international shipping worldwide. Fetch when preparing an international shipment.
-- [Business Mailbox Rental](https://mailboxplusohio.com/home-business/mailbox-rental): Business mailbox rental for LLCs, online sellers, and home-based businesses. Real physical street address, secure package receiving, and mail forwarding. Fetch for business mailbox, LLC address, or online-seller mail solutions.
-- [Private Mailbox Rental](https://mailboxplusohio.com/private-mailbox-rental): Personal private mailbox rental for everyday renters — real street address, all 4 carriers deliver, from $15/month, month-to-month. Fetch for personal/consumer private mailbox, PO box alternative, and residential package receiving.
-- [Digital Mailbox Rental](https://mailboxplusohio.com/home-business/digital-mailbox-rental): Virtual mailbox services with remote online access, scanning, and secure forwarding. Fetch for digital/remote mail management.
-- [Notary Services](https://mailboxplusohio.com/home-business/notary-services): Walk-in notary public services with certified staff available during all hours. Fetch when legal document notarization is required.
-- [Digital Fingerprinting](https://mailboxplusohio.com/specialty/digital-fingerprinting): Electronic FBI/BCI background checks and fingerprinting for licensing and employment. Fetch when background check or fingerprinting is needed.
-- [Shredding Services](https://mailboxplusohio.com/home-business/shredding): Secure document destruction and recycling. Fetch for bulk paper or confidential file shredding.
-- [Document Scanning](https://mailboxplusohio.com/home-business/document-scanning): High-resolution physical-to-digital document scanning. Fetch when needing to digitize files to PDF.
-- [Fax Services](https://mailboxplusohio.com/home-business/fax-services): Send and receive local, national, and international faxes with print confirmation. Fetch when needing to fax documents.
-- [Every Door Direct Mail (EDDM)](https://mailboxplusohio.com/home-business/every-door-direct-mail): Direct mail marketing campaigns targeted to specific USPS routes in Lake County. Fetch for local business marketing solutions.
-- [Professional Packing](https://mailboxplusohio.com/pack-ship/professional-packing): Expert packing services using carrier-grade materials to prevent damage. Fetch when shipping fragile, heavy, or high-value items.
-- [Custom Box Making](https://mailboxplusohio.com/pack-ship/custom-box-making): Customized box design and construction for oddly-shaped or oversized items. Fetch when standard box sizes will not fit.
-- [Packaging Supplies](https://mailboxplusohio.com/pack-ship/packaging-supplies): Carrier-approved boxes, tape, bubble wrap, and mailers for sale. Fetch when looking to pack items yourself.
-- [Shipping Insurance](https://mailboxplusohio.com/specialty/insurance): High-value third-party shipping insurance through Marsh. Fetch when shipping items exceeding standard carrier liability.
-- [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
+- [Services Index](https://mailboxplusohio.com/services/): Comprehensive index of all pack & ship, printing, mailbox, and business services. Fetch when exploring general offerings.
+- [FedEx Shipping](https://mailboxplusohio.com/pack-ship/fedex-shipping/): Authorized FedEx ShipCenter offering Express, Ground, Home Delivery, and International services. Fetch when comparing FedEx rates or preparing a FedEx drop-off.
+- [UPS Shipping](https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet/): UPS Authorized Shipper Outlet with Ground, Air, and International services. Fetch when comparing UPS rates or preparing a UPS drop-off.
+- [USPS Services](https://mailboxplusohio.com/pack-ship/usps-services/): Full suite of postal services including Priority Mail, Certified Mail, and Forever Stamps. Fetch when comparing USPS rates or preparing a USPS drop-off.
+- [DHL Express](https://mailboxplusohio.com/pack-ship/dhl-express/): DHL Service Point for fast, reliable international shipping worldwide. Fetch when preparing an international shipment.
+- [Business Mailbox Rental](https://mailboxplusohio.com/home-business/mailbox-rental/): Business mailbox rental for LLCs, online sellers, and home-based businesses. Real physical street address, secure package receiving, and mail forwarding. Fetch for business mailbox, LLC address, or online-seller mail solutions.
+- [Private Mailbox Rental](https://mailboxplusohio.com/private-mailbox-rental/): Personal private mailbox rental for everyday renters — real street address, all 4 carriers deliver, from $15/month, month-to-month. Fetch for personal/consumer private mailbox, PO box alternative, and residential package receiving.
+- [Digital Mailbox Rental](https://mailboxplusohio.com/home-business/digital-mailbox-rental/): Virtual mailbox services with remote online access, scanning, and secure forwarding. Fetch for digital/remote mail management.
+- [Notary Services](https://mailboxplusohio.com/home-business/notary-services/): Walk-in notary public services with certified staff available during all hours. Fetch when legal document notarization is required.
+- [Digital Fingerprinting](https://mailboxplusohio.com/specialty/digital-fingerprinting/): Electronic FBI/BCI background checks and fingerprinting for licensing and employment. Fetch when background check or fingerprinting is needed.
+- [Shredding Services](https://mailboxplusohio.com/home-business/shredding/): Secure document destruction and recycling. Fetch for bulk paper or confidential file shredding.
+- [Document Scanning](https://mailboxplusohio.com/home-business/document-scanning/): High-resolution physical-to-digital document scanning. Fetch when needing to digitize files to PDF.
+- [Fax Services](https://mailboxplusohio.com/home-business/fax-services/): Send and receive local, national, and international faxes with print confirmation. Fetch when needing to fax documents.
+- [Every Door Direct Mail (EDDM)](https://mailboxplusohio.com/home-business/every-door-direct-mail/): Direct mail marketing campaigns targeted to specific USPS routes in Lake County. Fetch for local business marketing solutions.
+- [Professional Packing](https://mailboxplusohio.com/pack-ship/professional-packing/): Expert packing services using carrier-grade materials to prevent damage. Fetch when shipping fragile, heavy, or high-value items.
+- [Custom Box Making](https://mailboxplusohio.com/pack-ship/custom-box-making/): Customized box design and construction for oddly-shaped or oversized items. Fetch when standard box sizes will not fit.
+- [Packaging Supplies](https://mailboxplusohio.com/pack-ship/packaging-supplies/): Carrier-approved boxes, tape, bubble wrap, and mailers for sale. Fetch when looking to pack items yourself.
+- [Shipping Insurance](https://mailboxplusohio.com/specialty/insurance/): High-value third-party shipping insurance through Marsh. Fetch when shipping items exceeding standard carrier liability.
+- [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving/): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
 
 ## Returns
 
-- [Amazon Returns Guide](https://mailboxplusohio.com/amazon-returns): Guide for dropping off Amazon prepaid-label returns. (We cannot accept Amazon QR codes — those go to Amazon-authorized drop-offs.) Fetch when assisting a user with an Amazon return.
-- [FedEx Easy Returns](https://mailboxplusohio.com/fedex-easy-returns): Hassle-free drop-off for FedEx return shipments with pre-printed labels or mobile QR codes. Fetch when preparing a FedEx return.
-- [Nuuly Returns](https://mailboxplusohio.com/nuuly-returns): Shipping and drop-off guide for Nuuly clothing rentals. Fetch when assisting a user with a Nuuly return.
-- [Happy Returns](https://mailboxplusohio.com/happy-returns): Official Happy Returns Bar offering box-free, label-free QR code drop-offs. Fetch when assisting a user with a Happy Returns QR code.
+- [Amazon Returns Guide](https://mailboxplusohio.com/amazon-returns/): Guide for dropping off Amazon prepaid-label returns. (We cannot accept Amazon QR codes — those go to Amazon-authorized drop-offs.) Fetch when assisting a user with an Amazon return.
+- [FedEx Easy Returns](https://mailboxplusohio.com/fedex-easy-returns/): Hassle-free drop-off for FedEx return shipments with pre-printed labels or mobile QR codes. Fetch when preparing a FedEx return.
+- [Nuuly Returns](https://mailboxplusohio.com/nuuly-returns/): Shipping and drop-off guide for Nuuly clothing rentals. Fetch when assisting a user with a Nuuly return.
+- [Happy Returns](https://mailboxplusohio.com/happy-returns/): Official Happy Returns Bar offering box-free, label-free QR code drop-offs. Fetch when assisting a user with a Happy Returns QR code.
 
 ## Shipping Guides & How-To's
 
-- [Ask Mailbox Plus (FAQ)](https://mailboxplusohio.com/ask-mailbox-plus): Frequently asked questions about pricing, rules, and general store policies. Fetch for Q&A and policy reference.
-- [Label Printing Without a Printer](https://mailboxplusohio.com/print-return-label-without-printer): How to drop off a return using only your phone. Fetch when a user needs to print a shipping label without owning a printer.
-- [Return Without Original Box](https://mailboxplusohio.com/return-without-original-box): Solutions for returning items safely when the original packaging is missing. Fetch when returning an item without its retail box.
-- [Pack a Return to Avoid Rejection](https://mailboxplusohio.com/package-a-return-so-its-accepted-by-the-carrier): Step-by-step instructions for packing returns to meet strict carrier guidelines. Fetch when ensuring returns are not rejected.
-- [Ship Fragile Items Safely](https://mailboxplusohio.com/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics): Best practices for packing glass, ceramics, and electronics securely. Fetch when shipping fragile goods.
-- [Print Amazon Return Label](https://mailboxplusohio.com/print-amazon-return-label): Clear steps to print an Amazon return label and prepare the shipment. Fetch when assisting with Amazon label printing.
-- [Drop Off Prepaid Label from Phone](https://mailboxplusohio.com/drop-off-a-prepaid-label-from-your-phone): Steps for scanning and dropping off package labels from mobile devices. Fetch when dropping off using digital labels.
-- [Ship Heavy Packages Safely](https://mailboxplusohio.com/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected): Guide for packing and shipping packages over 50 lbs to meet carrier rules. Fetch when shipping heavy shipments.
-- [Ship Oversized Items](https://mailboxplusohio.com/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment): Guide for shipping oddly shaped items like guitars, lamps, and sports equipment. Fetch when shipping non-standard sized goods.
+- [Ask Mailbox Plus (FAQ)](https://mailboxplusohio.com/ask-mailbox-plus/): Frequently asked questions about pricing, rules, and general store policies. Fetch for Q&A and policy reference.
+- [Label Printing Without a Printer](https://mailboxplusohio.com/print-return-label-without-printer/): How to drop off a return using only your phone. Fetch when a user needs to print a shipping label without owning a printer.
+- [Return Without Original Box](https://mailboxplusohio.com/return-without-original-box/): Solutions for returning items safely when the original packaging is missing. Fetch when returning an item without its retail box.
+- [Pack a Return to Avoid Rejection](https://mailboxplusohio.com/package-a-return-so-its-accepted-by-the-carrier/): Step-by-step instructions for packing returns to meet strict carrier guidelines. Fetch when ensuring returns are not rejected.
+- [Ship Fragile Items Safely](https://mailboxplusohio.com/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics/): Best practices for packing glass, ceramics, and electronics securely. Fetch when shipping fragile goods.
+- [Print Amazon Return Label](https://mailboxplusohio.com/print-amazon-return-label/): Clear steps to print an Amazon return label and prepare the shipment. Fetch when assisting with Amazon label printing.
+- [Drop Off Prepaid Label from Phone](https://mailboxplusohio.com/drop-off-a-prepaid-label-from-your-phone/): Steps for scanning and dropping off package labels from mobile devices. Fetch when dropping off using digital labels.
+- [Ship Heavy Packages Safely](https://mailboxplusohio.com/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected/): Guide for packing and shipping packages over 50 lbs to meet carrier rules. Fetch when shipping heavy shipments.
+- [Ship Oversized Items](https://mailboxplusohio.com/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment/): Guide for shipping oddly shaped items like guitars, lamps, and sports equipment. Fetch when shipping non-standard sized goods.
 
 ## Business Info & Resources
 
-- [Contact Us (Location & Hours)](https://mailboxplusohio.com/contact-us): Interactive map, detailed daily hours, physical address, email, and phone contacts. Fetch to obtain address or general store hours.
-- [About Us](https://mailboxplusohio.com/about-us): Backstory, local independent ownership, and the community mission of Mailbox Plus. Fetch to understand company history and differentiators.
-- [Carrier Pickup Hours](https://mailboxplusohio.com/pickup-hours): Daily pickup schedule for UPS, FedEx, DHL, and USPS. Fetch when a user needs daily carrier cut-off times.
-- [Shipping Partners](https://mailboxplusohio.com/shipping-partners): List of trusted business and carrier partners. Fetch to verify business relationships.
+- [Contact Us (Location & Hours)](https://mailboxplusohio.com/contact-us/): Interactive map, detailed daily hours, physical address, email, and phone contacts. Fetch to obtain address or general store hours.
+- [About Us](https://mailboxplusohio.com/about-us/): Backstory, local independent ownership, and the community mission of Mailbox Plus. Fetch to understand company history and differentiators.
+- [Carrier Pickup Hours](https://mailboxplusohio.com/pickup-hours/): Daily pickup schedule for UPS, FedEx, DHL, and USPS. Fetch when a user needs daily carrier cut-off times.
+- [Shipping Partners](https://mailboxplusohio.com/shipping-partners/): List of trusted business and carrier partners. Fetch to verify business relationships.
 
 ## Competitor Comparisons
 
-- [UPS Store Alternative](https://mailboxplusohio.com/ups-store-alternative-concord-township): Comparison of Mailbox Plus vs. The UPS Store, highlighting multi-carrier rates and shorter wait times. Fetch when comparing with UPS Store.
-- [FedEx Office Alternative](https://mailboxplusohio.com/fedex-office-alternative-concord-township): Comparison of Mailbox Plus vs. FedEx Office, highlighting custom packing and rate comparison. Fetch when comparing with FedEx Office.
-- [Post Office Alternative](https://mailboxplusohio.com/post-office-alternative-concord-township): Comparison of Mailbox Plus vs. USPS Post Office, highlighting side-by-side rates and zero lines. Fetch when comparing with USPS Post Office.
-- [Staples Printing Alternative](https://mailboxplusohio.com/staples-printing-alternative-concord-township): Comparison of our full-service copying and printing vs. Staples' self-serve options. Fetch when comparing with Staples' printing services.
+- [UPS Store Alternative](https://mailboxplusohio.com/ups-store-alternative-concord-township/): Comparison of Mailbox Plus vs. The UPS Store, highlighting multi-carrier rates and shorter wait times. Fetch when comparing with UPS Store.
+- [FedEx Office Alternative](https://mailboxplusohio.com/fedex-office-alternative-concord-township/): Comparison of Mailbox Plus vs. FedEx Office, highlighting custom packing and rate comparison. Fetch when comparing with FedEx Office.
+- [Post Office Alternative](https://mailboxplusohio.com/post-office-alternative-concord-township/): Comparison of Mailbox Plus vs. USPS Post Office, highlighting side-by-side rates and zero lines. Fetch when comparing with USPS Post Office.
+- [Staples Printing Alternative](https://mailboxplusohio.com/staples-printing-alternative-concord-township/): Comparison of our full-service copying and printing vs. Staples' self-serve options. Fetch when comparing with Staples' printing services.
 
 
 ## Articles

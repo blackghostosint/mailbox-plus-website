@@ -9,6 +9,54 @@ http://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 # Redirect all www to non-www HTTPS
 https://www.mailboxplusohio.com/* https://mailboxplusohio.com/:splat 301!
 
+# -----------------------------------
+# TRAILING-SLASH CANONICAL ENFORCEMENT
+# llms.txt previously advertised slashless variants; force them onto the
+# slashed canonical forms so Google consolidates (GSC "Alternate page
+# with proper canonical tag"). All built pages are trailing-slash URLs.
+# -----------------------------------
+/services /services/ 301!
+/private-mailbox-rental /private-mailbox-rental/ 301!
+/amazon-returns /amazon-returns/ 301!
+/fedex-easy-returns /fedex-easy-returns/ 301!
+/nuuly-returns /nuuly-returns/ 301!
+/happy-returns /happy-returns/ 301!
+/ask-mailbox-plus /ask-mailbox-plus/ 301!
+/print-return-label-without-printer /print-return-label-without-printer/ 301!
+/return-without-original-box /return-without-original-box/ 301!
+/package-a-return-so-its-accepted-by-the-carrier /package-a-return-so-its-accepted-by-the-carrier/ 301!
+/ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics /ship-a-fragile-item-safely-in-concord-township-glass-ceramics-electronics/ 301!
+/print-amazon-return-label /print-amazon-return-label/ 301!
+/drop-off-a-prepaid-label-from-your-phone /drop-off-a-prepaid-label-from-your-phone/ 301!
+/ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected /ship-a-heavy-package-in-concord-township-over-50-lbs-wont-get-rejected/ 301!
+/ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment /ship-an-odd-shaped-or-oversized-item-in-concord-township-guitars-lamps-sports-equipment/ 301!
+/contact-us /contact-us/ 301!
+/about-us /about-us/ 301!
+/pickup-hours /pickup-hours/ 301!
+/shipping-partners /shipping-partners/ 301!
+/ups-store-alternative-concord-township /ups-store-alternative-concord-township/ 301!
+/fedex-office-alternative-concord-township /fedex-office-alternative-concord-township/ 301!
+/post-office-alternative-concord-township /post-office-alternative-concord-township/ 301!
+/staples-printing-alternative-concord-township /staples-printing-alternative-concord-township/ 301!
+/home-business/digital-mailbox-rental /home-business/digital-mailbox-rental/ 301!
+/home-business/document-scanning /home-business/document-scanning/ 301!
+/home-business/every-door-direct-mail /home-business/every-door-direct-mail/ 301!
+/home-business/fax-services /home-business/fax-services/ 301!
+/home-business/mailbox-rental /home-business/mailbox-rental/ 301!
+/home-business/notary-services /home-business/notary-services/ 301!
+/home-business/shredding /home-business/shredding/ 301!
+/pack-ship/custom-box-making /pack-ship/custom-box-making/ 301!
+/pack-ship/dhl-express /pack-ship/dhl-express/ 301!
+/pack-ship/fedex-shipping /pack-ship/fedex-shipping/ 301!
+/pack-ship/package-receiving /pack-ship/package-receiving/ 301!
+/pack-ship/packaging-supplies /pack-ship/packaging-supplies/ 301!
+/pack-ship/professional-packing /pack-ship/professional-packing/ 301!
+/pack-ship/ups-authorized-shipper-outlet /pack-ship/ups-authorized-shipper-outlet/ 301!
+/pack-ship/usps-services /pack-ship/usps-services/ 301!
+/specialty/digital-fingerprinting /specialty/digital-fingerprinting/ 301!
+/specialty/insurance /specialty/insurance/ 301!
+
+
 
 
 # -----------------------------------
