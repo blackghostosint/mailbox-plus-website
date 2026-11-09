@@ -260,7 +260,7 @@ export async function evaluateArticle(content: string, options: ReviewOptions = 
       model,
       content,
       undefined,
-      options.timeoutMs ?? 60000
+      options.timeoutMs ?? 180000
     );
   } else if (provider === 'custom') {
     if (!options.baseUrl) {

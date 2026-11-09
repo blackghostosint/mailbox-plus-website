@@ -145,7 +145,16 @@
     {
       "value": "7554",
       "scope": "store street number 7554 Fredle Drive (content/facts.json approved location)"
-    }
+    },
+    {
+      "value": "11",
+      "scope": "scene texture, '11 p.m.' time reference in dread-tracking paragraph"
+    },
+    {
+      "value": "Three weeks",
+      "scope": "scene texture, 'Three weeks later' in reused-box opening vignette"
+    },
+    { "value": "ten", "scope": "scene texture, word form 'ten times out of dread'" }
   ],
   "scope_rules": [
     {
