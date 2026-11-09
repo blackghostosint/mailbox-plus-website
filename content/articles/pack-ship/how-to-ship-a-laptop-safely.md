@@ -8,7 +8,7 @@ pubDate: '2026-11-09T07:30:00-05:00'
 status: 'published'
 articleType: 'guide'
 quickAnswer: >-
-  Ship a laptop by double-boxing it: wrap the device, center it in an inner box, and surround that box with at least 3 inches of packing material on all six sides, per carrier published guidelines. Its lithium-ion battery must not exceed 100 watt-hours to be mailable domestically; used, damaged, or defective devices move by ground only. USPS Ground Advantage includes up to $100 insurance; UPS default liability is also $100 unless you declare more.
+  Wrap the laptop in bubble wrap, center it in a box with 3 inches of cushioning on every side, and bring it to us. We handle the battery rules and the insurance math while you watch — carriers cap default coverage at $100, and a laptop is usually worth more than that.
 image: 'articles/pack-ship/how-to-ship-a-laptop-safely-featured.webp'
 imageAlt: 'A closed laptop wrapped in bubble cushioning beside a sturdy shipping box and packing tape roll on a wooden shipping counter.'
 location: 'concord-township'
@@ -81,23 +81,21 @@ That $100 protection is not a promise. It is a floor they hope you never look do
 
 Every one of those numbers is a default. The default only rises if a human being, at the moment of shipping, says what the machine is worth and pays the small charge for saying it. Nobody at a self-service kiosk is going to ask you what the laptop cost. The system is not rigged — it is just silent. And silence always favors the party that wrote the terms.
 
-The battery rules work the same way — precise, published, and invisible until you trip one. They are not folklore and not a ban. USPS Publication 52 lays out exact conditions: a small consumer lithium-ion battery "such as those used to power cell phones and laptop computers" is mailable domestically when installed in the equipment, with the battery not exceeding 100 watt-hours (20 watt-hours per cell), cushioned against movement, and protected against being switched on by accident. Batteries packed with the equipment travel under the UN3481 mark rather than the UN3480 number that applies to standalone batteries. And the one rule people break by accident: a used, damaged, or defective device must go by ground transportation only, marked "Restricted Electronic Device" and "Surface Transportation Only" on the outside of the box.
+The battery rules work the same way — precise, published, and invisible until you trip one. They are not folklore and not a ban. Lithium batteries are the part carriers police hardest — they are the reason some boxes get pulled from the network two weeks after shipping. A laptop with its battery installed is fine to ship domestically under the carriers' published limits, as long as it is cushioned against movement and can't switch itself on. The rule people break by accident: a used, damaged, or defective laptop must go by ground, marked on the outside. We check the battery condition and apply the required markings at the counter, so the box never comes back.
 
 None of that is hard to comply with. But none of it is guessable, either — and guessing is what costs you.
 
 ## What Changes When Nobody Owns Us
 
-We are an independent shipping store in Concord Township — the counter at 7554 Fredle Drive in the Gristmill Village plaza, just off Crile Road — and because nobody corporate owns the counter, our job is packing and routing your specific box correctly, not pushing one carrier's product.
+When you set it on the counter at 7554 Fredle Drive, nobody is pushing one carrier's product. We line up the options side by side and route your specific box correctly — that is the whole advantage.
 
-That shows up in three ways with a laptop. First, the packing standard is not an opinion here: new corrugated box, real cushioning at the depth the carriers publish, box-in-box when the original packaging is gone, batteries protected against short circuit and the device protected against accidental power-on — the same conditions UPS and USPS put in their own guidance. Second, we can put the box on whatever carrier actually fits it, and explain the trade-offs in front of you — where the included $100 sits, what declaring a higher value costs, which services cap lower (and if you have ever wondered whether a carrier's own box locks you to that carrier's label, see [Can You Ship a USPS Priority Box With a FedEx or UPS Label?](/articles/can-you-use-usps-boxes-for-fedex-or-ups/)). Third, when a laptop is damaged or going back for warranty, we handle the ground-only rules and the required markings before they become a refused shipment somewhere in a sort facility.
+You set the laptop on the counter. We shake the inner box — if anything shifts, we re-pack it, because a shifting box is how screens crack. Then we line up the carriers side by side: where the included $100 of coverage sits, what declaring the real value costs, which service fits the battery rules. And if this is a warranty return on a damaged machine, the ground-only handling gets taken care of here, before it becomes a refused box somewhere in a warehouse. (One question we hear a lot — whether a carrier's own box locks you to that carrier's label — is answered in [Can You Ship a USPS Priority Box With a FedEx or UPS Label?](/articles/can-you-use-usps-boxes-for-fedex-or-ups/).)
 
 You should not have to know Publication 52 to move a laptop across the country. That is our homework, not yours.
 
 ## Three Steps, Start to Finish
 
-The whole thing is a handoff, not a project.
-
-1. Walk in with the laptop and whatever you have. Original box, a laptop bag, a closet full of good intentions — it genuinely does not matter. No sorting, no bubble wrap shopping, no forum reading the night before.
+The whole thing is a handoff, not a project. Hand it over. We pack it to the carrier's published standard — fresh box, bubble wrap pulled tight, tape run clean across the seams. Then we line up the carriers.
 
 2. Set it on the counter. We pack it the way the carriers publish — fresh corrugated box, cushioning squeezed in until the machine cannot shift when you shake it, the pop and rustle of bubble wrap doing its job, tape pulled tight across the seams. Then the carrier options with the insurance picture attached, and you pick. Declaring the value takes one line and one small charge; skipping it silently caps you at the $100 default.
 
@@ -105,21 +103,7 @@ The whole thing is a handoff, not a project.
 
 No appointment. No second trip because you guessed wrong at a kiosk. Bring the machine; the standard lives here.
 
-## Run the Numbers on Standing Still
-
-What does doing it the old way cost? Add up three columns.
-
-**The insurance gap.** The difference between the $100 default and what the machine is worth is the whole bet. On a $1,300 laptop, an undeclared shipment that gets destroyed leaves $1,200 of loss sitting on you — assuming the claim even pays, which depends on the packaging standard being met in the first place. Declaring the value at the counter costs a few dollars. That is the cheapest four-figure insurance decision you will ever make, and the default silently makes it for you if you do not.
-
-**The repack tax.** Wrong box, second trip, third forum thread. An evening of reading about watt-hour ratings to answer a question a trained counter person answers in a minute. Your time is worth more than the packing materials.
-
-**The refused-shipment risk.** Ship a damaged laptop by air without the required ground-only markings, or a swollen battery in anything, and the box can be pulled from the network — sometimes weeks after you have told the buyer or the school it is coming. The markings are free at the point of shipping and expensive everywhere after it.
-
-And underneath all three: the low hum of "did I pack it right?" that follows the box until it scans as delivered. That hum is optional.
-
-## What Changes on the Calendar
-
-Here is what the change actually feels like — not at the counter, in the week after. The box scans its way across the country and your phone stays in your pocket, because you already know what the receipt says: what it is worth, who covers it, and that the box was packed to a published standard by someone who does this every day. You check tracking once a day out of interest instead of ten times out of dread. The two questions that used to hum at 11 p.m. — will it survive, is it covered — were answered out loud at the counter before the box ever left your sight.
+## What Changes in the Week After The box scans its way across the country and your phone stays in your pocket, because you already know what the receipt says: what it is worth, who covers it, and that the box was packed to a published standard by someone who does this every day. You check tracking once a day out of interest instead of ten times out of dread. The two questions that used to hum at 11 p.m. — will it survive, is it covered — were answered out loud at the counter before the box ever left your sight.
 
 That is the part you cannot get back from a kiosk: not speed, not price. Certainty that was spoken to your face, on the record, while the box was still sitting on the scale.
 
@@ -127,6 +111,6 @@ That is the part you cannot get back from a kiosk: not speed, not price. Certain
 
 You do not need to come in with a packed box, a battery spec sheet, or a plan. You do not need to know Publication 52, and you do not need to apologize for not knowing it — that is what you are paying us to carry. Bring the laptop as it is — the cushioning, the box, the carrier choice, the declaration of value, and the ground-only rules if the machine is damaged are all handled at the counter.
 
-When the next laptop, tablet, or "can I even ship this?" device needs to move, start with one trip: 7554 Fredle Drive, Concord Township, in the Gristmill Village plaza, just off Crile Road. Tell us where it is going and what it is worth. We take it from there.
+Bring the laptop in whatever shape it is in. Broken, boxed, or bare — we will figure out the rest while you watch. No appointment, no apology needed. 7554 Fredle Drive in Concord Township, just off Crile Road.
 
 ![A sealed cardboard box on the parcel scale at the Mailbox Plus counter, ready for a carrier label](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/box-on-scale-01.webp)

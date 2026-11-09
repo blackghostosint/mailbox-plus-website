@@ -71,22 +71,28 @@
   "numeric_claims": [
     {
       "value": "$100",
-      "scope": "UPS default liability limit per package; ALSO USPS Ground Advantage included insurance (up to $100) — both are $100, separate scopes, never merged into one service claim"
+      "scope": "UPS default liability limit per package; ALSO USPS Ground Advantage included insurance (up to $100) \u2014 both are $100, separate scopes, never merged into one service claim"
     },
     {
       "value": "$20",
-      "scope": "UPS Ground Saver maximum liability per package — NEVER apply to other UPS services"
+      "scope": "UPS Ground Saver maximum liability per package \u2014 NEVER apply to other UPS services"
     },
     {
       "value": "100",
-      "scope": "maximum watt-hour rating per lithium-ion battery for domestic mailing (USPS Pub 52) — also word form '100 watt-hours'"
+      "scope": "maximum watt-hour rating per lithium-ion battery for domestic mailing (USPS Pub 52) \u2014 also word form '100 watt-hours'"
     },
-    { "value": "20", "scope": "maximum watt-hour rating per lithium-ion cell (USPS Pub 52)" },
+    {
+      "value": "20",
+      "scope": "maximum watt-hour rating per lithium-ion cell (USPS Pub 52)"
+    },
     {
       "value": "3481",
       "scope": "UN number for lithium-ion batteries contained in or packed with equipment (USPS Pub 52)"
     },
-    { "value": "3480", "scope": "UN number for standalone lithium-ion batteries (USPS Pub 52)" },
+    {
+      "value": "3480",
+      "scope": "UN number for standalone lithium-ion batteries (USPS Pub 52)"
+    },
     {
       "value": "4",
       "scope": "USPS exception threshold: no more than four lithium cells installed in equipment are excepted from the battery mark"
@@ -107,16 +113,34 @@
       "value": "6",
       "scope": "FedEx: outer box at least 6 inches larger in each dimension than manufacturer packaging"
     },
-    { "value": "70", "scope": "USPS Ground Advantage maximum weight, 70 lbs (usps.com FAQ)" },
+    {
+      "value": "70",
+      "scope": "USPS Ground Advantage maximum weight, 70 lbs (usps.com FAQ)"
+    },
     {
       "value": "5,000",
       "scope": "up to $5,000 additional USPS insurance purchasable beyond included $100"
     },
-    { "value": "1", "scope": "markdown numbered-list step markers only" },
-    { "value": "three", "scope": "word form of 3 (three strips of tape / three steps)" },
-    { "value": "two", "scope": "word form of 2 (two batteries / two inches of loosefill)" },
-    { "value": "four", "scope": "word form of 4 (four lithium cells exception)" },
-    { "value": "six", "scope": "word form of 6 (all six sides of the inner box)" },
+    {
+      "value": "1",
+      "scope": "markdown numbered-list step markers only"
+    },
+    {
+      "value": "three",
+      "scope": "word form of 3 (three strips of tape / three steps)"
+    },
+    {
+      "value": "two",
+      "scope": "word form of 2 (two batteries / two inches of loosefill)"
+    },
+    {
+      "value": "four",
+      "scope": "word form of 4 (four lithium cells exception)"
+    },
+    {
+      "value": "six",
+      "scope": "word form of 6 (all six sides of the inner box)"
+    },
     {
       "value": "52",
       "scope": "USPS Publication 52, Hazardous, Restricted, and Perishable Mail (title citation)"
@@ -127,21 +151,36 @@
     },
     {
       "value": "1,300",
-      "scope": "illustrative example of a laptop's purchase value in a loss-scenario calculation — NOT a shipping price or coverage figure"
+      "scope": "illustrative example of a laptop's purchase value in a loss-scenario calculation \u2014 NOT a shipping price or coverage figure"
     },
     {
       "value": "1,200",
-      "scope": "illustrative residual-loss figure in the same example ($1,300 laptop minus $100 default payout) — NOT a price or coverage claim"
+      "scope": "illustrative residual-loss figure in the same example ($1,300 laptop minus $100 default payout) \u2014 NOT a price or coverage claim"
     },
     {
       "value": "$1",
       "scope": "digit fragment of $1,300 / $1,200 illustrative figures (token form $1)"
     },
-    { "value": "300", "scope": "digit fragment of $1,300 illustrative laptop value" },
-    { "value": "200", "scope": "digit fragment of $1,200 illustrative residual loss" },
-    { "value": "1", "scope": "digit fragment of $1,300 illustrative value (token form $1)" },
-    { "value": "$5", "scope": "digit fragment of $5,000 additional insurance (token form $5)" },
-    { "value": "000", "scope": "digit fragment of $5,000 additional insurance" },
+    {
+      "value": "300",
+      "scope": "digit fragment of $1,300 illustrative laptop value"
+    },
+    {
+      "value": "200",
+      "scope": "digit fragment of $1,200 illustrative residual loss"
+    },
+    {
+      "value": "1",
+      "scope": "digit fragment of $1,300 illustrative value (token form $1)"
+    },
+    {
+      "value": "$5",
+      "scope": "digit fragment of $5,000 additional insurance (token form $5)"
+    },
+    {
+      "value": "000",
+      "scope": "digit fragment of $5,000 additional insurance"
+    },
     {
       "value": "7554",
       "scope": "store street number 7554 Fredle Drive (content/facts.json approved location)"
@@ -154,15 +193,22 @@
       "value": "Three weeks",
       "scope": "scene texture, 'Three weeks later' in reused-box opening vignette"
     },
-    { "value": "ten", "scope": "scene texture, word form 'ten times out of dread'" }
+    {
+      "value": "ten",
+      "scope": "scene texture, word form 'ten times out of dread'"
+    },
+    {
+      "value": "two weeks",
+      "scope": "illustrative delay before a non-compliant battery box is pulled from the network (narrative, not a policy figure)"
+    }
   ],
   "scope_rules": [
     {
-      "rule": "Never state a specific laptop shipping price. Rates vary by weight, zone, service, and surcharges — copy says 'check current rates' or 'the counter quotes it'.",
+      "rule": "Never state a specific laptop shipping price. Rates vary by weight, zone, service, and surcharges \u2014 copy says 'check current rates' or 'the counter quotes it'.",
       "reason": "no receipted price exists for this article"
     },
     {
-      "rule": "Never merge the two $100 claims: USPS Ground Advantage includes up to $100 insurance; UPS default liability is $100. Do not say 'carriers include $100 insurance' categorically — FedEx included coverage differs by service.",
+      "rule": "Never merge the two $100 claims: USPS Ground Advantage includes up to $100 insurance; UPS default liability is $100. Do not say 'carriers include $100 insurance' categorically \u2014 FedEx included coverage differs by service.",
       "reason": "scope overreach risk across carriers"
     },
     {
@@ -170,11 +216,11 @@
       "reason": "scope overreach"
     },
     {
-      "rule": "USPS included insurance requires an applicable tracking barcode and is 'up to $100' — always keep the qualifier.",
+      "rule": "USPS included insurance requires an applicable tracking barcode and is 'up to $100' \u2014 always keep the qualifier.",
       "reason": "DMM qualification condition"
     },
     {
-      "rule": "Damaged/defective devices: ground transportation only, marked 'Restricted Electronic Device' and 'Surface Transportation Only' — never claim a damaged laptop can ship by air.",
+      "rule": "Damaged/defective devices: ground transportation only, marked 'Restricted Electronic Device' and 'Surface Transportation Only' \u2014 never claim a damaged laptop can ship by air.",
       "reason": "USPS restriction"
     },
     {
@@ -189,7 +235,7 @@
   "required_when": [
     {
       "trigger": "$100 insurance mention",
-      "qualifier": "on USPS Ground Advantage / as UPS default liability — name the service each time"
+      "qualifier": "on USPS Ground Advantage / as UPS default liability \u2014 name the service each time"
     },
     {
       "trigger": "lithium battery rules",
