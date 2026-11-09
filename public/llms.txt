@@ -7,24 +7,24 @@ Mailbox Plus is a locally-owned, community-focused business in Concord Township,
 ## Services
 
 - [Services Index](https://mailboxplusohio.com/services/): Comprehensive index of all pack & ship, printing, mailbox, and business services. Fetch when exploring general offerings.
-- [FedEx Shipping](https://mailboxplusohio.com/pack-ship/fedex-shipping): Authorized FedEx ShipCenter offering Express, Ground, Home Delivery, and International services. Fetch when comparing FedEx rates or preparing a FedEx drop-off.
-- [UPS Shipping](https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet): UPS Authorized Shipper Outlet with Ground, Air, and International services. Fetch when comparing UPS rates or preparing a UPS drop-off.
-- [USPS Services](https://mailboxplusohio.com/pack-ship/usps-services): Full suite of postal services including Priority Mail, Certified Mail, and Forever Stamps. Fetch when comparing USPS rates or preparing a USPS drop-off.
-- [DHL Express](https://mailboxplusohio.com/pack-ship/dhl-express): DHL Service Point for fast, reliable international shipping worldwide. Fetch when preparing an international shipment.
-- [Business Mailbox Rental](https://mailboxplusohio.com/home-business/mailbox-rental): Business mailbox rental for LLCs, online sellers, and home-based businesses. Real physical street address, secure package receiving, and mail forwarding. Fetch for business mailbox, LLC address, or online-seller mail solutions.
+- [FedEx Shipping](https://mailboxplusohio.com/pack-ship/fedex-shipping/): Authorized FedEx ShipCenter offering Express, Ground, Home Delivery, and International services. Fetch when comparing FedEx rates or preparing a FedEx drop-off.
+- [UPS Shipping](https://mailboxplusohio.com/pack-ship/ups-authorized-shipper-outlet/): UPS Authorized Shipper Outlet with Ground, Air, and International services. Fetch when comparing UPS rates or preparing a UPS drop-off.
+- [USPS Services](https://mailboxplusohio.com/pack-ship/usps-services/): Full suite of postal services including Priority Mail, Certified Mail, and Forever Stamps. Fetch when comparing USPS rates or preparing a USPS drop-off.
+- [DHL Express](https://mailboxplusohio.com/pack-ship/dhl-express/): DHL Service Point for fast, reliable international shipping worldwide. Fetch when preparing an international shipment.
+- [Business Mailbox Rental](https://mailboxplusohio.com/home-business/mailbox-rental/): Business mailbox rental for LLCs, online sellers, and home-based businesses. Real physical street address, secure package receiving, and mail forwarding. Fetch for business mailbox, LLC address, or online-seller mail solutions.
 - [Private Mailbox Rental](https://mailboxplusohio.com/private-mailbox-rental/): Personal private mailbox rental for everyday renters — real street address, all 4 carriers deliver, from $15/month, month-to-month. Fetch for personal/consumer private mailbox, PO box alternative, and residential package receiving.
-- [Digital Mailbox Rental](https://mailboxplusohio.com/home-business/digital-mailbox-rental): Virtual mailbox services with remote online access, scanning, and secure forwarding. Fetch for digital/remote mail management.
-- [Notary Services](https://mailboxplusohio.com/home-business/notary-services): Walk-in notary public services with certified staff available during all hours. Fetch when legal document notarization is required.
-- [Digital Fingerprinting](https://mailboxplusohio.com/specialty/digital-fingerprinting): Electronic FBI/BCI background checks and fingerprinting for licensing and employment. Fetch when background check or fingerprinting is needed.
-- [Shredding Services](https://mailboxplusohio.com/home-business/shredding): Secure document destruction and recycling. Fetch for bulk paper or confidential file shredding.
-- [Document Scanning](https://mailboxplusohio.com/home-business/document-scanning): High-resolution physical-to-digital document scanning. Fetch when needing to digitize files to PDF.
-- [Fax Services](https://mailboxplusohio.com/home-business/fax-services): Send and receive local, national, and international faxes with print confirmation. Fetch when needing to fax documents.
-- [Every Door Direct Mail (EDDM)](https://mailboxplusohio.com/home-business/every-door-direct-mail): Direct mail marketing campaigns targeted to specific USPS routes in Lake County. Fetch for local business marketing solutions.
-- [Professional Packing](https://mailboxplusohio.com/pack-ship/professional-packing): Expert packing services using carrier-grade materials to prevent damage. Fetch when shipping fragile, heavy, or high-value items.
-- [Custom Box Making](https://mailboxplusohio.com/pack-ship/custom-box-making): Customized box design and construction for oddly-shaped or oversized items. Fetch when standard box sizes will not fit.
-- [Packaging Supplies](https://mailboxplusohio.com/pack-ship/packaging-supplies): Carrier-approved boxes, tape, bubble wrap, and mailers for sale. Fetch when looking to pack items yourself.
-- [Shipping Insurance](https://mailboxplusohio.com/specialty/insurance): High-value third-party shipping insurance through Marsh. Fetch when shipping items exceeding standard carrier liability.
-- [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
+- [Digital Mailbox Rental](https://mailboxplusohio.com/home-business/digital-mailbox-rental/): Virtual mailbox services with remote online access, scanning, and secure forwarding. Fetch for digital/remote mail management.
+- [Notary Services](https://mailboxplusohio.com/home-business/notary-services/): Walk-in notary public services with certified staff available during all hours. Fetch when legal document notarization is required.
+- [Digital Fingerprinting](https://mailboxplusohio.com/specialty/digital-fingerprinting/): Electronic FBI/BCI background checks and fingerprinting for licensing and employment. Fetch when background check or fingerprinting is needed.
+- [Shredding Services](https://mailboxplusohio.com/home-business/shredding/): Secure document destruction and recycling. Fetch for bulk paper or confidential file shredding.
+- [Document Scanning](https://mailboxplusohio.com/home-business/document-scanning/): High-resolution physical-to-digital document scanning. Fetch when needing to digitize files to PDF.
+- [Fax Services](https://mailboxplusohio.com/home-business/fax-services/): Send and receive local, national, and international faxes with print confirmation. Fetch when needing to fax documents.
+- [Every Door Direct Mail (EDDM)](https://mailboxplusohio.com/home-business/every-door-direct-mail/): Direct mail marketing campaigns targeted to specific USPS routes in Lake County. Fetch for local business marketing solutions.
+- [Professional Packing](https://mailboxplusohio.com/pack-ship/professional-packing/): Expert packing services using carrier-grade materials to prevent damage. Fetch when shipping fragile, heavy, or high-value items.
+- [Custom Box Making](https://mailboxplusohio.com/pack-ship/custom-box-making/): Customized box design and construction for oddly-shaped or oversized items. Fetch when standard box sizes will not fit.
+- [Packaging Supplies](https://mailboxplusohio.com/pack-ship/packaging-supplies/): Carrier-approved boxes, tape, bubble wrap, and mailers for sale. Fetch when looking to pack items yourself.
+- [Shipping Insurance](https://mailboxplusohio.com/specialty/insurance/): High-value third-party shipping insurance through Marsh. Fetch when shipping items exceeding standard carrier liability.
+- [Package Receiving](https://mailboxplusohio.com/pack-ship/package-receiving/): Secure counter receiving and signature services for all carrier deliveries. Fetch to protect packages from porch theft without renting a full mailbox.
 
 ## Returns
 
