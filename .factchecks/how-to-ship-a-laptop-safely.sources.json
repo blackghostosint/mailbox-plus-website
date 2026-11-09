@@ -1,0 +1,194 @@
+{
+  "source_extracts": [
+    {
+      "id": "usps-lithium-pub52",
+      "url": "https://pe.usps.com/text/pub52//pub52c3_028.htm",
+      "quotes": [
+        "Small consumer-type lithium-ion cells and batteries (also called secondary lithium cells or batteries), such as those used to power cell phones and laptop computers, are only mailable domestically under the following conditions.",
+        "Watt-Hour Rating per Cell: Cells must not exceed a 20 Wh rating.",
+        "Watt-Hour Rating per Battery: Batteries must not exceed a 100 Wh rating.",
+        "The DOT lithium battery mark (refer to Exhibit 325.4(a)) must indicate UN3480 for standalone cells or batteries and UN3481 when they are contained in or packed with equipment they are intended to operate."
+      ]
+    },
+    {
+      "id": "usps-restrictions",
+      "url": "https://www.usps.com/ship/shipping-restrictions.htm",
+      "quotes": [
+        "If you're mailing pre-owned, damaged, or defective electronic devices containing or packaged with lithium batteries, you must send them via ground transportation; they are prohibited in air transportation. These devices must be marked on the outer packaging with the text, \"Restricted Electronic Device\" and \"Surface Transportation Only.\""
+      ]
+    },
+    {
+      "id": "usps-ground-advantage-insurance",
+      "url": "https://www.usps.com/ship/insurance-extra-services.htm",
+      "quotes": [
+        "USPS Ground Advantage service includes up to $100 insurance in the price.",
+        "USPS Ground Advantage domestic shipments must have an applicable USPS Tracking barcode to qualify for included insurance.",
+        "Priority Mail Express and Priority Mail services include up to $100 of insurance in the price."
+      ]
+    },
+    {
+      "id": "ups-terms-liability",
+      "url": "https://www.ups.com/us/en/support/shipping-support/shipping-services/package-protection",
+      "quotes": [
+        "Included carrier liability protection for eligible shipments, with liability up to $100.",
+        "If your shipment is worth more than $100, you can increase the maximum liability for loss or damage above the standard limit by declaring your shipment's value when creating your shipment."
+      ]
+    },
+    {
+      "id": "ups-tariff-packaging",
+      "url": "https://assets.ups.com/adobe/assets/urn:aaid:aem:c6bf8a2f-018f-4aa0-838b-ffc1a75eb1d9/original/as/terms-carriage-us-en.pdf",
+      "quotes": [
+        "UPS reserves the right to refuse to pay any claim for damage to property if, having requested the original packaging materials, they are not made available for inspection.",
+        "loss or damage resulting from improper, inadequate or unsafe packaging, labeling, or wrapping that fails to meet UPS's published standards related thereto set forth in the Terms or at ups.com"
+      ]
+    },
+    {
+      "id": "fedex-pack-computer",
+      "url": "https://www.fedex.com/en-us/shipping/how-to-ship-computers.html",
+      "quotes": [
+        "Fill the bottom of the outer box with 3\" of packing material, such as bubble packaging, air pillows, or peanuts. Don't use crushed paper.",
+        "The inner box should be surrounded with at least 3\" of packing material around all six sides.",
+        "Use the H taping method and apply at least three strips of packing tape (at least 2\" wide) to the top, bottom, and all seams and flaps to close and seal.",
+        "When shipping a laptop computer, we recommend that you use our specially designed FedEx Laptop Box whenever possible."
+      ]
+    },
+    {
+      "id": "ups-ground-saver",
+      "url": "https://www.ups.com/assets/resources/media/en_US/Ground-Saver.pdf",
+      "quotes": [
+        "UPS's liability for loss or damage to UPS Ground Saver packages is limited to a maximum of twenty dollars ($20) per package."
+      ]
+    },
+    {
+      "id": "ups-batteries-guide",
+      "url": "https://www.ups.com/assets/resources/webcontent/en_US/pack_ship_batteries.pdf",
+      "quotes": [
+        "When shipping almost any battery, you must protect all terminals against short circuits that can result in fires.",
+        "When sending equipment for repairs, such as computers and cell phones or other battery operated devices, if there is any risk that the device could overheat, it should be sent without batteries."
+      ]
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$100",
+      "scope": "UPS default liability limit per package; ALSO USPS Ground Advantage included insurance (up to $100) — both are $100, separate scopes, never merged into one service claim"
+    },
+    {
+      "value": "$20",
+      "scope": "UPS Ground Saver maximum liability per package — NEVER apply to other UPS services"
+    },
+    {
+      "value": "100",
+      "scope": "maximum watt-hour rating per lithium-ion battery for domestic mailing (USPS Pub 52) — also word form '100 watt-hours'"
+    },
+    { "value": "20", "scope": "maximum watt-hour rating per lithium-ion cell (USPS Pub 52)" },
+    {
+      "value": "3481",
+      "scope": "UN number for lithium-ion batteries contained in or packed with equipment (USPS Pub 52)"
+    },
+    { "value": "3480", "scope": "UN number for standalone lithium-ion batteries (USPS Pub 52)" },
+    {
+      "value": "4",
+      "scope": "USPS exception threshold: no more than four lithium cells installed in equipment are excepted from the battery mark"
+    },
+    {
+      "value": "2",
+      "scope": "two meanings, both sourced: no more than two lithium batteries installed in equipment excepted from the mark (USPS); packing tape at least 2 inches wide (FedEx); ALSO 'two to five business days' Ground Advantage delivery standard"
+    },
+    {
+      "value": "5",
+      "scope": "upper end of USPS Ground Advantage 2-5 business day delivery standard"
+    },
+    {
+      "value": "3",
+      "scope": "FedEx double-boxing: at least 3 inches of packing material around all six sides of the inner box; also three strips of tape"
+    },
+    {
+      "value": "6",
+      "scope": "FedEx: outer box at least 6 inches larger in each dimension than manufacturer packaging"
+    },
+    { "value": "70", "scope": "USPS Ground Advantage maximum weight, 70 lbs (usps.com FAQ)" },
+    {
+      "value": "5,000",
+      "scope": "up to $5,000 additional USPS insurance purchasable beyond included $100"
+    },
+    { "value": "1", "scope": "markdown numbered-list step markers only" },
+    { "value": "three", "scope": "word form of 3 (three strips of tape / three steps)" },
+    { "value": "two", "scope": "word form of 2 (two batteries / two inches of loosefill)" },
+    { "value": "four", "scope": "word form of 4 (four lithium cells exception)" },
+    { "value": "six", "scope": "word form of 6 (all six sides of the inner box)" },
+    {
+      "value": "52",
+      "scope": "USPS Publication 52, Hazardous, Restricted, and Perishable Mail (title citation)"
+    },
+    {
+      "value": "349",
+      "scope": "USPS Publication 52 section 349, Lithium Batteries (citation only)"
+    },
+    {
+      "value": "1,300",
+      "scope": "illustrative example of a laptop's purchase value in a loss-scenario calculation — NOT a shipping price or coverage figure"
+    },
+    {
+      "value": "1,200",
+      "scope": "illustrative residual-loss figure in the same example ($1,300 laptop minus $100 default payout) — NOT a price or coverage claim"
+    },
+    {
+      "value": "$1",
+      "scope": "digit fragment of $1,300 / $1,200 illustrative figures (token form $1)"
+    },
+    { "value": "300", "scope": "digit fragment of $1,300 illustrative laptop value" },
+    { "value": "200", "scope": "digit fragment of $1,200 illustrative residual loss" },
+    { "value": "1", "scope": "digit fragment of $1,300 illustrative value (token form $1)" },
+    { "value": "$5", "scope": "digit fragment of $5,000 additional insurance (token form $5)" },
+    { "value": "000", "scope": "digit fragment of $5,000 additional insurance" },
+    {
+      "value": "7554",
+      "scope": "store street number 7554 Fredle Drive (content/facts.json approved location)"
+    }
+  ],
+  "scope_rules": [
+    {
+      "rule": "Never state a specific laptop shipping price. Rates vary by weight, zone, service, and surcharges — copy says 'check current rates' or 'the counter quotes it'.",
+      "reason": "no receipted price exists for this article"
+    },
+    {
+      "rule": "Never merge the two $100 claims: USPS Ground Advantage includes up to $100 insurance; UPS default liability is $100. Do not say 'carriers include $100 insurance' categorically — FedEx included coverage differs by service.",
+      "reason": "scope overreach risk across carriers"
+    },
+    {
+      "rule": "UPS Ground Saver $20 limit applies ONLY to Ground Saver service; never present as a general UPS rule.",
+      "reason": "scope overreach"
+    },
+    {
+      "rule": "USPS included insurance requires an applicable tracking barcode and is 'up to $100' — always keep the qualifier.",
+      "reason": "DMM qualification condition"
+    },
+    {
+      "rule": "Damaged/defective devices: ground transportation only, marked 'Restricted Electronic Device' and 'Surface Transportation Only' — never claim a damaged laptop can ship by air.",
+      "reason": "USPS restriction"
+    },
+    {
+      "rule": "No unreceipted timing promises ('under three minutes', 'never fails') about store handling.",
+      "reason": "Rule 3 owner sign-off requirement"
+    },
+    {
+      "rule": "Never claim the store 'guarantees' against damage; claims language stays with the carriers.",
+      "reason": "no receipted store guarantee"
+    }
+  ],
+  "required_when": [
+    {
+      "trigger": "$100 insurance mention",
+      "qualifier": "on USPS Ground Advantage / as UPS default liability — name the service each time"
+    },
+    {
+      "trigger": "lithium battery rules",
+      "qualifier": "domestic mailings; international rules differ"
+    },
+    {
+      "trigger": "packaging standards",
+      "qualifier": "attributed to carrier published guidelines (FedEx/UPS), not store invention"
+    }
+  ]
+}
