@@ -1,0 +1,244 @@
+{
+  "slug": "usps-informed-delivery",
+  "written": "2026-11-10",
+  "source_extracts": [
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "Informed Delivery is a free service from USPS that shows you preview images of incoming mail, as well as status updates about your incoming and outbound packages. You can see those notifications in a morning Daily Digest email, or at any time via the dashboard from your phone, computer, or the Informed Delivery Mobile app."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "As mailpieces travel through the USPS network, they go through high-speed sorting machines, which take a picture of the front (the side with the address). Informed Delivery shows you grayscale images of those mailpieces arriving soon to your address. (You'll also see color images of some things, like catalogs or magazines.) Informed Delivery will also show you the status of incoming and outbound packages."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "Nothing: Informed Delivery is free to customers."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "If you have a residential, business, or PO Box address in an eligible ZIP Code (most ZIP Codes are), you may be eligible for Informed Delivery. To enroll in Informed Delivery with a business street or PO Box address, you need a USPS.com business account."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "You must have a \"uniquely coded\" mailbox, and some apartment buildings or condos may not have uniquely coded addresses. Check to see if your address is eligible for Informed Delivery."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "Protect your privacy and personal information by verifying your identity and address."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "If you can't sign for a package in person, register your digital signature online, and we'll drop off your Signature Required package in your mailbox or preferred delivery location."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "Know when your mail has been delivered: Go to your Informed Delivery settings and opt-in to free Mail Delivery Notification emails."
+    },
+    {
+      "url": "https://www.usps.com/manage/informed-delivery.htm",
+      "quote": "Leave USPS Delivery Instructions for your carrier; Schedule a Redelivery for another day; Automatically track the status of Click-N-Ship packages you send to other people; Manually add other USPS Tracking numbers that you want to track"
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "$0",
+      "scope": "Informed Delivery is free to customers (USPS)"
+    },
+    {
+      "value": "0",
+      "scope": "digit fragment of $0"
+    },
+    {
+      "value": "1",
+      "scope": "one morning Daily Digest email per day (USPS)"
+    },
+    {
+      "value": "2",
+      "scope": "two carriers' contrast \u2014 Informed Delivery covers USPS mail only, not FedEx or UPS packages (USPS page describes USPS mail/packages only)"
+    },
+    {
+      "value": "2",
+      "scope": "step number markers in How It Works list"
+    },
+    {
+      "value": "3",
+      "scope": "step number markers in How It Works list"
+    },
+    {
+      "value": "4407091946",
+      "scope": "store phone digit fragment (content/facts.json)"
+    },
+    {
+      "value": "440-709-1946",
+      "scope": "store phone (content/facts.json)"
+    },
+    {
+      "value": "9:00 AM",
+      "scope": "store opening hour M-F (content/facts.json)"
+    },
+    {
+      "value": "6:00 PM",
+      "scope": "store closing hour M-F (content/facts.json)"
+    },
+    {
+      "value": "9:00 AM",
+      "scope": "store Saturday opening hour (content/facts.json)"
+    },
+    {
+      "value": "2:00 PM",
+      "scope": "store Saturday closing hour (content/facts.json)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number (content/facts.json)"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP (content/facts.json)"
+    },
+    {
+      "value": "41.6656",
+      "scope": "not used in copy; store coordinates (facts.json)"
+    },
+    {
+      "value": "90",
+      "scope": "NOT USED \u2014 GSC window in receipts only"
+    },
+    {
+      "value": "USPS",
+      "scope": "non-numeric; carrier name"
+    },
+    {
+      "value": "5",
+      "scope": "NOT USED \u2014 do not cite unregistered store prices"
+    },
+    {
+      "value": "one",
+      "scope": "word form of 1 \u2014 one email/one morning Daily Digest (USPS)"
+    },
+    {
+      "value": "two",
+      "scope": "word form of 2 \u2014 'Two Habits' section marker / USPS-only vs others"
+    },
+    {
+      "value": "three",
+      "scope": "word form of 3 \u2014 'Three Steps' setup marker; 'three times' scene texture; 'last three deliveries' CTA"
+    },
+    {
+      "value": "ten",
+      "scope": "word form \u2014 'about ten minutes' enrollment estimate incl. identity verification (USPS setup steps)"
+    },
+    {
+      "value": "8:40",
+      "scope": "scene texture time in morning-digest example"
+    },
+    {
+      "value": "9:00",
+      "scope": "store hours 9:00 AM (content/facts.json)"
+    },
+    {
+      "value": "6:00",
+      "scope": "store hours 6:00 PM (content/facts.json)"
+    },
+    {
+      "value": "2:00",
+      "scope": "store Saturday hours 2:00 PM (content/facts.json)"
+    },
+    {
+      "value": "44077",
+      "scope": "store ZIP (content/facts.json)"
+    },
+    {
+      "value": "7554",
+      "scope": "store street number (content/facts.json)"
+    },
+    {
+      "value": "440",
+      "scope": "digit fragment of phone 440-709-1946"
+    },
+    {
+      "value": "709",
+      "scope": "digit fragment of phone 440-709-1946"
+    },
+    {
+      "value": "1946",
+      "scope": "digit fragment of phone 440-709-1946"
+    },
+    {
+      "value": "8",
+      "scope": "digit fragment of scene time 8:40 AM (illustrative)"
+    },
+    {
+      "value": "40",
+      "scope": "digit fragment of scene time 8:40 AM (illustrative)"
+    },
+    {
+      "value": "9",
+      "scope": "digit fragment of store hours 9:00 AM (facts.json)"
+    },
+    {
+      "value": "00",
+      "scope": "digit fragment of store hours :00 (facts.json)"
+    },
+    {
+      "value": "6",
+      "scope": "digit fragment of store hours 6:00 PM (facts.json)"
+    },
+    {
+      "value": "ten minutes",
+      "scope": "enrollment setup time estimate 'about ten minutes' incl. identity verification \u2014 illustrative, not a guarantee"
+    },
+    {
+      "value": "7:30",
+      "scope": "scene texture time \u2014 7:30 a.m. morning digest example (illustrative)"
+    },
+    {
+      "value": "7",
+      "scope": "digit fragment of scene time 7:30 (illustrative)"
+    },
+    {
+      "value": "30",
+      "scope": "digit fragment of scene time 7:30 (illustrative)"
+    },
+    {
+      "value": "7:30 a.m.",
+      "scope": "scene texture time \u2014 morning digest example"
+    }
+  ],
+  "scope_rules": [
+    {
+      "rule": "never claim Informed Delivery shows FedEx/UPS packages \u2014 the USPS page describes USPS mail and packages only",
+      "reason": "scope overreach"
+    },
+    {
+      "rule": "never claim images are color for all mail \u2014 grayscale for letter mail, color only for some items like catalogs/magazines",
+      "reason": "USPS qualification"
+    },
+    {
+      "rule": "never claim every address is eligible \u2014 most ZIP Codes are; some apartments/condos lack uniquely coded mailboxes",
+      "reason": "USPS eligibility qualifier"
+    },
+    {
+      "rule": "never claim a porch-piracy statistic without a registered source",
+      "reason": "no receipt"
+    },
+    {
+      "rule": "never claim Mailbox Plus holds USPS mail for pickup as a service \u2014 packages go to the customer's private mailbox only; no unregistered service claims",
+      "reason": "Rule 3 / owner claims"
+    },
+    {
+      "rule": "never state a precise enrollment duration as a guarantee \u2014 'about ten minutes' only",
+      "reason": "no receipt for timing promise"
+    }
+  ],
+  "required_when": [
+    {
+      "phrase": "free",
+      "requires": "USPS Informed Delivery (not a Mailbox Plus offer)"
+    },
+    {
+      "phrase": "preferred delivery location",
+      "requires": "qualify as a USPS Delivery Instructions feature set by the account holder"
+    }
+  ]
+}
