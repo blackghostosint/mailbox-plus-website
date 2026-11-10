@@ -9,7 +9,7 @@ status: 'published'
 author: 'Reviewed by Frank Schwarz, COO'
 articleType: 'guide'
 quickAnswer: >-
-  USPS Informed Delivery is a free ($0) service that emails you grayscale images of your letter-sized mail before it arrives, plus package status updates, in one morning Daily Digest. Enrollment requires a USPS.com account and identity verification, and your mailbox must be uniquely coded — most ZIP Codes are eligible, but shared apartment or condo boxes may not qualify. It covers USPS mail only; FedEx and UPS packages never appear. Sign up at informeddelivery.usps.com.
+  USPS Informed Delivery is a free ($0) service that emails you grayscale images of your letter-sized mail before it arrives, plus package status updates, in one morning Daily Digest. Enrollment requires a USPS.com account and identity verification, and your mailbox must be uniquely coded — most ZIP Codes are eligible, but shared apartment or condo boxes may not qualify. It covers USPS mail only; FedEx and UPS tracking isn't included. Sign up at informeddelivery.usps.com.
 image: 'articles/pack-ship/usps-informed-delivery-featured.webp'
 imageAlt: 'A smartphone on a kitchen counter showing a grayscale mail preview notification, beside a stack of envelopes and a set of car keys.'
 location: 'concord-township'
@@ -46,13 +46,13 @@ faqs:
 
 The check from the buyer of your old truck was supposed to land Tuesday. It's Friday. You've checked the mailbox three times today and the carrier hasn't even turned onto your street — and you had no way of knowing which until you walked out to the curb.
 
-The Postal Service already solved the not-knowing part. Every letter-sized piece of mail gets photographed when it moves through their sorting machines, and a free service called Informed Delivery emails you those photos before the mail reaches your door. Most people have never turned it on.
+The Postal Service already solved the not-knowing part. Letter-sized mail that moves through their automated sorting equipment gets photographed, and a free service called Informed Delivery emails you those photos before the mail reaches your door. Most people have never turned it on.
 
 Here's what it does, how to sign up, and — just as important — what it won't fix on its own.
 
 ## The Blind Wait
 
-The problem is not the Postal Service's speed. Here's the mechanism: the sorting machines already photograph every letter-sized piece as it moves through the network — the picture exists within hours of the check leaving the sender. But that data stays locked inside a system you can't query. The default is zero visibility. The letter is either in the mailbox or it isn't. You're asked to make plans around information that already exists but isn't yours.
+The problem is not the Postal Service's speed. Here's the mechanism: the sorting equipment already photographs letter-sized mail as it moves through the network — the picture exists long before the carrier reaches your street. But that data stays locked inside a system you can't query. The default is zero visibility. The letter is either in the mailbox or it isn't. You're asked to make plans around information that already exists but isn't yours.
 
 That information gap has real costs:
 
@@ -82,7 +82,7 @@ USPS verifies your identity and address during enrollment, which is the point �
 
 ## What It Won't Do
 
-**It's USPS-only.** Informed Delivery shows USPS mail and USPS packages. The boxes from FedEx, UPS, and everyone else never appear in the digest. If your online orders mostly arrive in brown trucks or purple-and-orange ones, the morning email tells you about a fraction of what's coming to your door.
+**It's USPS-only.** Informed Delivery shows USPS mail and USPS packages — it doesn't provide FedEx or UPS tracking, so their boxes don't show up in the digest. If your online orders mostly arrive in brown trucks or purple-and-orange ones, the morning email tells you about a fraction of what's coming to your door.
 
 **A photo is not a lock.** You can watch the envelope with the card in it arrive on your screen at 8:40 in the morning. The mail still sits in an unattended mailbox for the rest of the day. The image tells you what's coming; it doesn't guard it.
 
