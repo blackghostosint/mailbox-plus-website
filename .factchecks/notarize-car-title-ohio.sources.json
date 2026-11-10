@@ -1,0 +1,153 @@
+{
+  "slug": "notarize-car-title-ohio",
+  "written": "2026-11-09",
+  "source_extracts": [
+    {
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-4505.06",
+      "quote": "(A)(1) Application for a certificate of title shall be made in a form prescribed by the registrar of motor vehicles and shall be sworn to before a notary public or other officer empowered to administer oaths. The application shall be filed with the clerk of any court of common pleas."
+    },
+    {
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "The seller must complete the \u201cassignment of ownership\u201d portion on the back of the title and have their signature(s) notarized. Then present it to the buyer to finalize the transfer."
+    },
+    {
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Buyer \u2013 Completes page 2 of the BMV 3770 in its entirety and has their signature(s) notarized. All owners must complete the assignment."
+    },
+    {
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Dual ownership requires both parties to be present unless a notarized power of attorney is provided. Social Security numbers for all parties are required. Photocopies of title are not accepted."
+    },
+    {
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-4505.09",
+      "quote": "(a) Five dollars for each certificate of title that is not applied for within thirty days after the later of the assignment or delivery of the motor vehicle described in it."
+    },
+    {
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-4505.09",
+      "quote": "(b) Eighteen dollars, or twenty-three dollars if a board of county commissioners adopts a resolution authorizing the increased fee for that county, for each certificate of title or duplicate certificate of title..."
+    },
+    {
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-147.08",
+      "quote": "(1) Up to five dollars for any notarial act that is not an online notarization; (2) For an online notarization, up to thirty dollars. ... The fees charged under division (A) of this section shall not be calculated on a per signature basis."
+    },
+    {
+      "url": "https://codes.ohio.gov/ohio-revised-code/section-147.50",
+      "quote": "An inspection of a passport, driver's license, government-issued nondriver identification card, or other form of government-issued identification with the signature or photograph of the individual, which is current or expired not more than three years before performance of the notarial act, and is satisfactory to the notary public"
+    },
+    {
+      "url": "https://clerk.franklincountyohio.gov/Auto-Title/Plan-Your-Visit/Auto-Title-FAQs",
+      "quote": "Alterations or erasures on a title will void the document"
+    },
+    {
+      "url": "https://www.bmv.ohio.gov/titles-new.aspx",
+      "quote": "Ohio titles are issued by Clerk of Courts title offices, the BMV does not issue titles."
+    }
+  ],
+  "numeric_claims": [
+    { "value": "9", "scope": "digit fragment of store hours 9:00 AM (content/facts.json)" },
+    { "value": "6", "scope": "digit fragment of store hours 6:00 PM (content/facts.json)" },
+    { "value": "00", "scope": "digit fragment of store hours :00 (content/facts.json)" },
+    { "value": "1", "scope": "ordered-list step marker" },
+    { "value": "2", "scope": "ordered-list step marker" },
+    { "value": "3", "scope": "ordered-list step marker" },
+    {
+      "value": "five-figure",
+      "scope": "word form, illustrative car value, no specific dollar figure claimed"
+    },
+    { "value": "44", "scope": "route number SR-44 (approved phrasing, content/facts.json)" },
+    { "value": "90", "scope": "interstate number I-90 (approved phrasing, content/facts.json)" },
+    { "value": "$5", "scope": "Ohio statutory cap per in-person notarial act (ORC 147.08)" },
+    { "value": "five dollars", "scope": "word form of $5 statutory cap" },
+    { "value": "5", "scope": "bare digit, statutory cap / ORC citations" },
+    { "value": "$30", "scope": "Ohio statutory cap per ONLINE notarization (ORC 147.08)" },
+    { "value": "thirty dollars", "scope": "word form of $30 online notarization cap" },
+    {
+      "value": "30",
+      "scope": "bare digit: online cap and 30-day title application window (ORC 4505.09)"
+    },
+    {
+      "value": "thirty days",
+      "scope": "title application deadline after assignment/delivery (ORC 4505.09)"
+    },
+    {
+      "value": "$5 late",
+      "scope": "additional $5 clerk fee when title not applied for within 30 days (ORC 4505.09)"
+    },
+    { "value": "$18", "scope": "base Ohio certificate-of-title fee (ORC 4505.09)" },
+    { "value": "eighteen dollars", "scope": "word form of $18 base title fee" },
+    { "value": "18", "scope": "bare digit, base title fee" },
+    {
+      "value": "$23",
+      "scope": "title fee in counties adopting the increased fee (ORC 4505.09) — copy must say 'some counties', never name Lake County as one"
+    },
+    { "value": "twenty-three dollars", "scope": "word form of $23" },
+    { "value": "23", "scope": "bare digit, increased title fee" },
+    { "value": "three years", "scope": "ID may be expired no more than 3 years (ORC 147.50)" },
+    { "value": "3", "scope": "bare digit, ID expiry years" },
+    { "value": "3774", "scope": "form BMV 3774, Application for Certificate of Title" },
+    {
+      "value": "3770",
+      "scope": "form BMV 3770, assignment/transfer form (seller page 1, buyer page 2)"
+    },
+    { "value": "3724", "scope": "form BMV 3724, Odometer Disclosure Statement, if applicable" },
+    { "value": "4505.06", "scope": "ORC section: title application sworn before a notary" },
+    { "value": "4505.09", "scope": "ORC section: title fees" },
+    { "value": "147.08", "scope": "ORC section: notary fees" },
+    { "value": "147.50", "scope": "ORC section: notary ID requirements" },
+    { "value": "7554", "scope": "store street number, 7554 Fredle Drive" },
+    { "value": "44077", "scope": "store ZIP" },
+    { "value": "440-709-1946", "scope": "store phone; register fragments 440, 709, 1946" },
+    { "value": "9:00", "scope": "store opening hour, Mon-Sat (content/facts.json)" },
+    { "value": "6:00", "scope": "store weekday closing hour (content/facts.json)" },
+    { "value": "2:00", "scope": "store Saturday closing hour (content/facts.json)" },
+    {
+      "value": "$5 per signature",
+      "scope": "Mailbox Plus counter price $5.00 per signature, verified in astro/src/config/services/additional-services.ts and prior receipt .factchecks/concord-township-notary.factcheck.md"
+    }
+  ],
+  "scope_rules": [
+    {
+      "forbidden": "claiming the BUYER must be present when the SELLER's title assignment is notarized",
+      "reason": "BMV: only the seller's assignment on the title must be notarized; the buyer separately completes their form and has their own signature notarized. Never state both must sign before the same notary at the same moment."
+    },
+    {
+      "forbidden": "naming Lake County / Cuyahoga as a $23 county",
+      "reason": "ORC 4505.09 lets counties adopt the increase; we have not verified which counties did. Copy says 'some counties' only."
+    },
+    {
+      "forbidden": "stating a store notary price other than $5 per signature",
+      "reason": "Only the repo-verified $5.00 counter price is cleared."
+    },
+    {
+      "forbidden": "the word 'villain'",
+      "reason": "Frank hard ban in prose, headings, PR bodies."
+    },
+    {
+      "forbidden": "any 24-hour / after-hours framing",
+      "reason": "NEVER-CLAIM ruling 2026-10-05."
+    },
+    {
+      "forbidden": "time guarantees like 'two minutes', 'under three minutes', 'never fails'",
+      "reason": "Rule 3 unreceipted operational guarantees."
+    },
+    {
+      "forbidden": "'two forms of ID' or 'two photo IDs' for notarization",
+      "reason": "ORC 147.50 requires satisfactory government-issued ID (photo or signature) for a standard notarial act; the two-form rule belongs to USPS Form 1583, not notarization."
+    },
+    {
+      "forbidden": "categorical 'works on every form' style claims",
+      "reason": "Standing third-party acceptance rule."
+    }
+  ],
+  "required_when": [
+    {
+      "claim": "ID accepted if expired",
+      "qualifier": "expired not more than three years (ORC 147.50)"
+    },
+    { "claim": "$23 title fee", "qualifier": "in some counties that adopted the increased fee" },
+    {
+      "claim": "$5 late penalty",
+      "qualifier": "when the title application is not filed within thirty days"
+    }
+  ]
+}

@@ -8,7 +8,7 @@ pubDate: '2026-11-09T07:30:00-05:00'
 status: 'published'
 articleType: 'guide'
 quickAnswer: >-
-  Wrap the laptop in bubble wrap, center it in a box with 3 inches of cushioning on every side, and bring it to us. We handle the battery rules and the insurance math while you watch — carriers cap default coverage at $100, and a laptop is usually worth more than that.
+  Wrap the laptop in bubble wrap, center it in a box with 3 inches of cushioning on every side, and bring it to us. Carrier default coverage caps at $100 — for a laptop worth more than that, we offer third-party declared-value coverage through Marsh that actually matches the machine. The battery rules and the cushioning standard are handled at the counter while you watch.
 image: 'articles/pack-ship/how-to-ship-a-laptop-safely-featured.webp'
 imageAlt: 'A closed laptop wrapped in bubble cushioning beside a sturdy shipping box and packing tape roll on a wooden shipping counter.'
 location: 'concord-township'
@@ -34,7 +34,7 @@ faqs:
     },
     {
       question: 'How much is a laptop covered for if it is lost or damaged in transit?',
-      answer: 'USPS Ground Advantage includes up to $100 of insurance in the price, and Priority Mail and Priority Mail Express include up to $100 as well. UPS caps default liability at $100 per domestic package unless you declare a higher value and pay for it. If your laptop is worth more than $100, declare it.',
+      answer: 'USPS Ground Advantage includes up to $100 of insurance in the price, and Priority Mail and Priority Mail Express include up to $100 as well. UPS caps default liability at $100 per domestic package unless you declare a higher value and pay for it. If your laptop is worth more than $100, we offer third-party declared-value coverage through Marsh — coverage up to $50,000 per package, set up at the counter before your box ships.',
     },
     {
       question: 'What kind of box does a laptop need?',
@@ -78,6 +78,8 @@ The packaging anxiety is real, but it is the insurance math that stings later. A
 Here is the part to see plainly: they wrote the rules, and you agreed to them by walking in the door. That is not your fault — that is the game.
 
 That $100 protection is not a promise. It is a floor they hope you never look down from. UPS states it directly: included liability protection for eligible shipments runs "up to $100," and you can raise it only by declaring the shipment's value when you create the shipment. USPS's Ground Advantage includes "up to $100" of insurance in the price — with the qualifier that the shipment must bear an applicable tracking barcode, and that you can purchase up to $5,000 in additional coverage. On the low end, UPS Ground Saver — the budget service some shippers pick without noticing — caps liability at $20 per package.
+
+The counter answer for anything worth real money is third-party coverage: we write declared-value policies through Marsh — an insurer that handles claims for thousands of businesses — with coverage up to $50,000 per package when we do the packing. A $1,300 laptop costs a few dollars to cover properly. The claim, if you ever need it, is processed by Marsh, not by the carrier that denied the packaging standard.
 
 Every one of those numbers is a default. The default only rises if a human being, at the moment of shipping, says what the machine is worth and pays the small charge for saying it. Nobody at a self-service kiosk is going to ask you what the laptop cost. The system is not rigged — it is just silent. And silence always favors the party that wrote the terms.
 

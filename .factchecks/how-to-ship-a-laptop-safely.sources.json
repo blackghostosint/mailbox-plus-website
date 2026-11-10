@@ -200,6 +200,30 @@
     {
       "value": "two weeks",
       "scope": "illustrative delay before a non-compliant battery box is pulled from the network (narrative, not a policy figure)"
+    },
+    {
+      "value": "$50,000",
+      "scope": "Marsh third-party declared-value coverage maximum per package when packed by Mailbox Plus"
+    },
+    {
+      "value": "$1,300",
+      "scope": "illustrative laptop value in the coverage example"
+    },
+    {
+      "value": "$1,200",
+      "scope": "illustrative uncovered loss ($1,300 value minus $100 carrier default)"
+    },
+    {
+      "value": "$50",
+      "scope": "digit token of the Marsh $50,000 coverage maximum"
+    },
+    {
+      "value": "$1,300",
+      "scope": "illustrative laptop value (repeat registration for coverage example)"
+    },
+    {
+      "value": "$1,200",
+      "scope": "illustrative uncovered loss"
     }
   ],
   "scope_rules": [
