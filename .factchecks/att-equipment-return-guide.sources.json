@@ -1,0 +1,149 @@
+{
+  "source_extracts": [
+    {
+      "label": "AT&T 21-day return window and non-return fee",
+      "url": "https://www.att.com/support/how-to/internet/equipment-return/",
+      "quote": "To avoid a non-return fee, make sure you return all required equipment within 21 days of your service change or disconnect. ... $150 for a Wi-Fi or All-Fi Gateway $200 for an All-Fi Hub $65 for ..."
+    },
+    {
+      "label": "AT&T return locations and drop-box prohibition",
+      "url": "https://www.att.com/support/how-to/internet/equipment-return/",
+      "quote": "Take your unpacked equipment and account number to a company-owned FedEx Office Pack & Ship or The UPS Store. Have a store rep scan your equipment and get a tracking receipt. They'll pack and ship it. Don't drop your equipment in a drop box."
+    },
+    {
+      "label": "AT&T return start phone number",
+      "url": "https://www.att.com/support/how-to/internet/equipment-return/",
+      "quote": "Have your account number handy and call us at 800.288.2020 to start your equipment return or move to a new location."
+    },
+    {
+      "label": "AT&T equipment lists by service (Internet & Fiber vs Internet Air)",
+      "url": "https://www.att.com/support/article/my-account/KM1009508/",
+      "quote": "AT&T Internet & AT&T Fiber \u2014 What to return: All-Fi Hub: BGW320, BGW210; Wi-Fi Extender: AirTies 4971, AirTies 4991; Power supply. AT&T Internet Air \u2014 All-Fi Hub: BGW830, BGW530, CGW450; All-Fi Extender: AirTies 4971, AirTies 4981; Power supply."
+    },
+    {
+      "label": "AT&T wall-mounted equipment and owned gear stay",
+      "url": "https://www.att.com/support/article/my-account/KM1009508/",
+      "quote": "What not to return: Wall-mounted equipment like Ethernet jacks, Fiber jacks, or Optical Network Terminals (ONTs) ... Equipment you own, 3rd-party (non-AT&T) extenders, HDMI cables, or Ethernet cables. FYI: Don't remove or unplug wall-mounted equipment."
+    },
+    {
+      "label": "AT&T damaged-equipment fee",
+      "url": "https://www.att.com/support/article/my-account/KM1009508/",
+      "quote": "If the returned equipment is damaged due to abuse, we may add a damaged equipment fee to your bill."
+    },
+    {
+      "label": "AT&T Internet consumer fee schedule \u2014 non-return equipment fee amounts",
+      "url": "https://www.att.com/legal/terms.ATTInternetConsumerFeeSchedule.html",
+      "quote": "Non-Return Equipment Fee ... $150 $200 ... If you fail to return the AT&T Home Wi-Fi Gateway or the AT&T All-Fi Hub after canceling your Internet Service."
+    }
+  ],
+  "numeric_claims": [
+    {
+      "value": "21 days",
+      "scope": "Return window from service change or disconnect date to avoid non-return fee (AT&T equipment return page; KM1009508 'Good to know')"
+    },
+    {
+      "value": "21",
+      "scope": "Numeric token of the 21-day window (title, description, FAQ, body)"
+    },
+    {
+      "value": "$150",
+      "scope": "Non-return fee for a Wi-Fi or All-Fi Gateway (AT&T equipment return page; consumer fee schedule)"
+    },
+    {
+      "value": "$200",
+      "scope": "Non-return fee for an All-Fi Hub (AT&T equipment return page; consumer fee schedule)"
+    },
+    {
+      "value": "$65",
+      "scope": "Non-return fee for a Wi-Fi extender / All-Fi booster (AT&T equipment return page)"
+    },
+    {
+      "value": "800.288.2020",
+      "scope": "AT&T number to start an equipment return (AT&T equipment return page)"
+    },
+    {
+      "value": "BGW320, BGW210, CGW450",
+      "scope": "All-Fi Hub model numbers (KM1009508 what-to-return tables)"
+    },
+    {
+      "value": "BGW830, BGW530",
+      "scope": "AT&T Internet Air All-Fi Hub models (KM1009508)"
+    },
+    {
+      "value": "AirTies 4971, 4981, 4991",
+      "scope": "Extender model numbers returned when included with plan (KM1009508; equipment-return page lists 4971/4981)"
+    },
+    {
+      "value": "$150 to $200",
+      "scope": "Fee range for gateway/hub non-return (AT&T equipment return page)"
+    },
+    {
+      "value": "4971",
+      "scope": "AirTies 4971 extender model (KM1009508)"
+    },
+    {
+      "value": "4981",
+      "scope": "AirTies 4981 extender model (KM1009508 Internet Air list)"
+    },
+    {
+      "value": "4991",
+      "scope": "AirTies 4991 extender model (KM1009508 Internet & Fiber list)"
+    },
+    {
+      "value": "800.288",
+      "scope": "Numeric token of AT&T return-start phone number 800.288.2020 (equipment return page)"
+    },
+    {
+      "value": "7554",
+      "scope": "Store street address 7554 Fredle Drive, Concord Township \u2014 siteConfig.ts canonical store address"
+    },
+    {
+      "value": "two mistakes",
+      "scope": "Editorial count in opening (drop box + clock) \u2014 not a factual figure"
+    },
+    {
+      "value": "ten",
+      "scope": "Narrative texture: 'ten-minute phone call' \u2014 figurative, not a factual promise (fast-track scope: body untouched)"
+    },
+    {
+      "value": "two",
+      "scope": "Narrative counts in scene-setting prose ('two sentences', 'Two power supplies') \u2014 literal scene description, not a factual claim"
+    },
+    {
+      "value": "one",
+      "scope": "Narrative counts in scene-setting prose ('one gray, one black', 'one stop') \u2014 literal scene description"
+    },
+    {
+      "value": "two mistakes",
+      "scope": "Editorial count in new opening (drop box + clock) \u2014 not a factual figure"
+    },
+    {
+      "value": "nine",
+      "scope": "'nine-digit account number' \u2014 AT&T account number format, scene description (equipment return page: 'Have your account number handy')"
+    },
+    {
+      "value": "three weeks",
+      "scope": "Narrative restatement of the 21-day window ('a clock is running... three weeks') \u2014 equivalent to the verified 21 days"
+    },
+    {
+      "value": "three",
+      "scope": "Narrative counts ('three-week clock' = the verified 21-day window; 'two or three things'; 'instead of three'; 'three different carriers') \u2014 figurative/scene, not factual promises"
+    },
+    {
+      "value": "Two hours",
+      "scope": "Figurative rhetoric ('Two hours of fear, five minutes of action') \u2014 not a factual promise"
+    },
+    {
+      "value": "five minutes",
+      "scope": "Figurative rhetoric ('five minutes of action') \u2014 not a factual promise"
+    },
+    {
+      "value": "four",
+      "scope": "'all four major carriers' (USPS, UPS, FedEx, DHL) \u2014 established business claim, no specific figure"
+    },
+    {
+      "value": "three minutes",
+      "scope": "'Under three minutes' counter-handling scene \u2014 narrative texture, not a service guarantee (no owner-verified timing data)"
+    }
+  ]
+}
