@@ -1,6 +1,6 @@
 ---
-title: 'How to Return Your AT&T Equipment (Without the Surprise Fee)'
-description: 'AT&T gives you 21 days to return your gateway or Wi-Fi extender — miss it and you are charged $150 to $200. Here is exactly what to return, where it has to go, and how to protect yourself.'
+title: 'Where and How to Return AT&T Equipment — Fees Hit at 21 Days'
+description: 'Return AT&T equipment unboxed at a company-owned FedEx Office or The UPS Store within 21 days — miss the window and a $150 to $200 non-return fee hits your closed account. What goes back, what stays, and the two mistakes that still cost you.'
 slug: 'att-equipment-return-guide'
 category: 'pack-ship'
 intentKey: 'att-equipment-return-guide'
@@ -18,7 +18,13 @@ keywords:
   ]
 relatedServices: ['/pack-ship', '/pack-ship/package-drop-offs', '/home-business/mailbox-rental']
 author: 'Mailbox Plus Team'
+lastModified: '2026-11-10'
+quickAnswer: 'You have 21 days from your cancel or swap date to return AT&T equipment or a non-return fee hits your bill — $150 for a Wi-Fi or All-Fi Gateway, $200 for an All-Fi Hub, $65 for a Wi-Fi extender. Take the hub, any plan extenders, and each power supply — unpackaged — to a company-owned FedEx Office or The UPS Store, hand the rep your account number, and keep the tracking receipt. Wall-mounted gear and your own cables stay put.'
 ---
+
+## The Short Answer
+
+Here is the whole verdict up front: AT&T equipment goes back within 21 days of your cancel or swap date, unboxed, to a company-owned FedEx Office or The UPS Store — nowhere else. A rep scans it, packs it, and hands you a tracking receipt, and that receipt is what keeps a $150 to $200 non-return fee off your final bill. Wall-mounted gear stays in the wall, your own cables stay in your drawer, and the only two mistakes that actually cost you money are dropping it in a drop box and running out the clock.
 
 ## The Scene That Starts Everything
 
@@ -70,13 +76,13 @@ Here is why that honesty matters: because it is the same instinct we apply to ev
 
 Here is the whole thing, stripped down, from AT&T's own published process.
 
-**What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 cover AT&T Internet and Fiber, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
+**What has to go back.** The All-Fi Hub or gateway — the white unit. The exact model number depends on your plan: the BGW320, BGW210, and CGW450 are the All-Fi Hub models, while the BGW830 and BGW530 appear on AT&T Internet Air. Any Wi-Fi extenders that came as part of your plan — the AirTies 4971, 4981, or 4991. And the power supply for each piece. That is it.
 
 **What stays.** Anything mounted to the wall — the fiber jack, the ONT, the green cable — leave it in place. Do not unplug it. And cables, third-party extenders, and gear you bought yourself are yours to keep.
 
 **Where it goes.** AT&T accepts returns at a company-owned FedEx Office or a The UPS Store. You do not box it, you do not print a label. You bring the equipment unboxed, tell them it is an AT&T return, and give them your nine-digit account number. A store representative scans the equipment, packs and ships it for you, and hands you a tracking receipt. [AT&T's return page](https://www.att.com/support/how-to/internet/equipment-return/) is the reference for all of this.
 
-**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and, in a few cases (a disability, or living more than ten miles from a FedEx Office or The UPS Store), gets you a return kit with a prepaid label you ship yourself.
+**Two warnings.** Do not drop the equipment in a drop box — it must be scanned by a store rep so AT&T knows it is coming, or the fee can still apply. And watch the clock: you have 21 days from your cancel or swap date. If you cannot get to an authorized location, call AT&T at 800.288.2020 first — that number starts the return and AT&T will tell you what your options are if you cannot reach an authorized location.
 
 That is the entire procedure. Two hours of fear, five minutes of action.
 
@@ -102,7 +108,7 @@ And third, there is the habit of avoidance itself. The person who puts off the A
 
 ## Your Afternoon After the Change
 
-You drive to the authorized location with the gateway, the extender, and both power supplies in a bag, plus your account number saved in your phone. The rep scans everything, packs it, and hands you a receipt. Forty-eight hours later your account shows the return. No fee. The white box is gone from your dining room table, and with it the low hum of anxiety you had stopped noticing.
+You drive to the authorized location with the gateway, the extender, and both power supplies in a bag, plus your account number saved in your phone. The rep scans everything, packs it, and hands you a receipt. Within days your account shows the return. No fee. The white box is gone from your dining room table, and with it the low hum of anxiety you had stopped noticing.
 
 Now the rest of your returns, and your next shipment, are one counter. You walk into Mailbox Plus at 7554 Fredle Drive in Concord Township, drop the Amazon box and the Zappos box and the Etsy box, and the person at the counter routes all three to their carriers while you wait. Under three minutes. Receipts in hand, you walk out.
 
