@@ -6373,6 +6373,8 @@ Here is the part to see plainly: they wrote the rules, and you agreed to them by
 
 That $100 protection is not a promise. It is a floor they hope you never look down from. UPS states it directly: included liability protection for eligible shipments runs "up to $100," and you can raise it only by declaring the shipment's value when you create the shipment. USPS's Ground Advantage includes "up to $100" of insurance in the price — with the qualifier that the shipment must bear an applicable tracking barcode, and that you can purchase up to $5,000 in additional coverage. On the low end, UPS Ground Saver — the budget service some shippers pick without noticing — caps liability at $20 per package.
 
+The counter answer for anything worth real money is third-party coverage: we write declared-value policies through Marsh — an insurer that handles claims for thousands of businesses — with coverage up to $50,000 per package when we do the packing. A $1,300 laptop costs a few dollars to cover properly. The claim, if you ever need it, is processed by Marsh, not by the carrier that denied the packaging standard.
+
 Every one of those numbers is a default. The default only rises if a human being, at the moment of shipping, says what the machine is worth and pays the small charge for saying it. Nobody at a self-service kiosk is going to ask you what the laptop cost. The system is not rigged — it is just silent. And silence always favors the party that wrote the terms.
 
 The battery rules work the same way — precise, published, and invisible until you trip one. They are not folklore and not a ban. Lithium batteries are the part carriers police hardest — they are the reason some boxes get pulled from the network two weeks after shipping. A laptop with its battery installed is fine to ship domestically under the carriers' published limits, as long as it is cushioned against movement and can't switch itself on. The rule people break by accident: a used, damaged, or defective laptop must go by ground, marked on the outside. We check the battery condition and apply the required markings at the counter, so the box never comes back.
@@ -13638,6 +13640,95 @@ Bring the box, the item, or nothing but the question — "will this arrive by Sa
 _Source: [Supply Chain Dive — USPS warns of Indianapolis, Louisville delays due to facility upgrades](https://www.supplychaindive.com/news/usps-warns-of-indianapolis-louisville-delays-due-to-facility-upgrades/831390/) (Sept. 25, 2026), citing USPS facility notices of Sept. 21–22, 2026. Facility statuses can change quickly; check current conditions before shipping time-critical packages._
 
 ![Shipping counter at Mailbox Plus with multiple carriers' shipments staged for pickup](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/counter-01.webp)
+
+---
+
+### USPS Informed Delivery: See Your Mail Before It Arrives (And What It Won't Do)
+
+URL: https://mailboxplusohio.com/articles/usps-informed-delivery/
+Category: pack-ship
+Published: 2026-11-10
+
+## You Already Know the Check Is Coming. So Why Does the Mailbox Still Surprise You?
+
+The check from the buyer of your old truck was supposed to land Tuesday. It's Friday. You've checked the mailbox three times today and the carrier hasn't even turned onto your street — and you had no way of knowing which until you walked out to the curb.
+
+The Postal Service already solved the not-knowing part. Every letter-sized piece of mail gets photographed when it moves through their sorting machines, and a free service called Informed Delivery emails you those photos before the mail reaches your door. Most people have never turned it on.
+
+Here's what it does, how to sign up, and — just as important — what it won't fix on its own.
+
+## The Blind Wait
+
+The problem is not the Postal Service's speed. It's that mail arrives into a system you can't observe. The letter is either in the mailbox or it isn't. The package is either coming today or sometime this week. You're asked to make plans around information you don't have.
+
+That information gap has real costs:
+
+- **You rearrange your day around a maybe.** You stay home for a signature delivery that, it turns out, isn't on the truck. Or you leave, and the driver leaves the slip.
+- **You can't tell a delay from a loss.** When the check that was supposed to arrive Tuesday hasn't come by Friday, you don't know whether it's slow, misdelivered, or gone.
+- **You find out about problems after they happen.** The first sign that a package was taken off your porch is the empty spot where it should have been. You're reacting, not watching.
+
+None of this is your fault. The mail network was built to move paper, not to talk to you. Informed Delivery is USPS's attempt to close that gap — and it does a real chunk of the job for free.
+
+## What You Actually Get
+
+Once your account is active, one email lands each morning: the Daily Digest. It shows grayscale images of the address side of your letter-sized mail — the envelopes that were scanned in the sorting network on their way to you. Some larger items, like catalogs and magazines, show up in color. Under the mail images, you get status updates on your incoming and outbound USPS packages.
+
+That morning email turns the blind wait into a schedule. You know the envelope from the county is on today's list. You know the package you shipped your sister cleared the network. And if the tracking says a delivery is coming and nothing arrives, you know the same day — not a week later.
+
+You can also turn on extra notifications: text or email alerts for package status, and a Mail Delivery Notification that tells you when the carrier has actually finished delivering to your address that day.
+
+## Who Can Sign Up
+
+Informed Delivery is free to customers. Eligibility works like this:
+
+1. You need a residential, business, or PO Box address in an eligible ZIP Code. Most ZIP Codes are.
+2. Your mailbox has to be uniquely coded. Some apartment buildings and condos aren't — the system can't tell which unit an image belongs to. The sign-up flow at informeddelivery.usps.com checks your address and tells you straight.
+3. Enrolling with a business street address or a PO Box requires a USPS.com business account.
+
+USPS verifies your identity and address during enrollment, which is the point — a service that photographs people's mail before it arrives would be a disaster if anyone could enroll for anyone's address. Set it up, answer the verification step, and your account is yours.
+
+## What It Won't Do
+
+**It's USPS-only.** Informed Delivery shows USPS mail and USPS packages. The boxes from FedEx, UPS, and everyone else never appear in the digest. If your online orders mostly arrive in brown trucks or purple-and-orange ones, the morning email tells you about a fraction of what's coming to your door.
+
+**A photo is not a lock.** You can watch the envelope with the card in it arrive on your screen at 8:40 in the morning. The mail still sits in an unattended mailbox for the rest of the day. The image tells you what's coming; it doesn't guard it.
+
+**Some addresses just can't enroll.** Shared or non-unique mailboxes are excluded, and if your address isn't eligible yet, USPS asks you to check back later. There's no workaround inside the service.
+
+**Tracking is visibility, not custody.** You can schedule a redelivery or leave delivery instructions for your carrier, and those help. But the package is still headed to a porch or a lobby where nobody has to be home.
+
+## How It Works — Setup in Three Steps
+
+1. **Create or sign in to a USPS.com account** at informeddelivery.usps.com and enter your home address. The site checks eligibility on the spot.
+2. **Verify your identity.** USPS confirms the address is yours before the service turns on. This step exists to protect you, not to slow you down.
+3. **Turn on the notifications you want.** In your settings, keep the Daily Digest on, add package alerts by text or email, and opt in to Mail Delivery Notifications if you want the "it's here" note each day.
+
+That's the whole setup. No hardware, no subscription, no fee.
+
+## The Part Informed Delivery Can't Solve: Where the Package Lands
+
+![A customer package packed in protective foam inside a shipping box on the counter at Mailbox Plus](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/packing/foam-pack-01.webp)
+
+Every notification still points at the same destination: a mailbox or doorstep that's empty all day.
+
+We've broken down the full difference in our [PMB vs PO Box comparison](/articles/pmb-vs-po-box-comparison/) and our guide to [what a private mailbox is](/articles/what-is-a-private-mailbox-pmb/). For envelopes, that's a trade most people accept. For packages — the ones that don't appear in the digest anyway, because they're not USPS — the destination is the whole problem.
+
+This is the gap a [private mailbox](/private-mailbox-rental/) closes. A PMB at a staffed counter gives your deliveries a destination that is occupied all day: USPS, FedEx, UPS, DHL — every carrier — delivers to a real street address where someone signs for the package and keeps it behind the counter until you come in. The notification you get is still useful — you know it shipped — but the delivery itself lands somewhere a stranger can't walk off with it.
+
+At Mailbox Plus, a private mailbox rental gets you a street address (not a PO Box, so private carriers can deliver to it), secure package receiving from every carrier during business hours, and mail held in a locked box behind the counter — 7554 Fredle Drive in Concord Township, in Gristmill Village next to Pub Frato, just off Crile Road. Hours are Monday through Friday 9:00 AM to 6:00 PM and Saturday 9:00 AM to 2:00 PM.
+
+## Two Habits Worth Taking
+
+- **Turn Informed Delivery on today if your address qualifies.** It costs nothing, takes about ten minutes with the identity check, and the morning email does real work. It's the free half of delivery visibility.
+- **Decide where your packages actually land.** If the answer is "my porch, alone, all day," the visibility gap was never your real risk. Route the boxes to a counter where a person is standing when the truck arrives.
+
+Use the free digest for your letters. Send the packages somewhere a person is standing when the truck pulls up.
+
+If you're near Concord Township, come look at the counter first. Bring the tracking numbers from your last three deliveries and we'll show you exactly how each one would have landed in a private mailbox instead — no appointment needed, and we'll tell you honestly if a plain PO Box or the free Informed Delivery digest covers what you actually need.
+
+---
+
+_Published by Mailbox Plus, 7554 Fredle Drive, Concord Township, OH 44077. Questions? Call 440-709-1946 or stop in. USPS, Informed Delivery, FedEx, UPS, and DHL are trademarks of their respective owners; this article is informational and not affiliated with or endorsed by USPS._
 
 ---
 
