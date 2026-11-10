@@ -3,7 +3,11 @@
   "photos": [
     {
       "key": "articles/store-library/mailbox-wall/wall-01.webp",
-      "topics": ["mailbox-rentals", "pmb", "store-interior"],
+      "topics": [
+        "mailbox-rentals",
+        "pmb",
+        "store-interior"
+      ],
       "alt": "Wall of numbered private mailbox doors at Mailbox Plus in Concord Township, each with its own lock and mail slot",
       "immich_asset": "726a7f58-3190-48e0-82a9-83bf3f (counter session, full-res PII check passed 2026-09-22)",
       "vetted": "2026-09-22",
@@ -11,7 +15,11 @@
     },
     {
       "key": "articles/store-library/counter/counter-01.webp",
-      "topics": ["pack-ship", "counter", "multi-carrier"],
+      "topics": [
+        "pack-ship",
+        "counter",
+        "multi-carrier"
+      ],
       "alt": "Shipping counter at Mailbox Plus in Concord Township with FedEx, UPS, and USPS shipments staged for pickup",
       "immich_asset": "counter session, full-res PII check passed 2026-09-22",
       "vetted": "2026-09-22",
@@ -19,7 +27,11 @@
     },
     {
       "key": "articles/store-library/packing/kraft-bench-01.webp",
-      "topics": ["pack-ship", "packing", "fragile"],
+      "topics": [
+        "pack-ship",
+        "packing",
+        "fragile"
+      ],
       "alt": "Box being packed with kraft paper on the packing bench at Mailbox Plus in Concord Township",
       "immich_asset": "packing session, PII check passed 2026-09-22",
       "vetted": "2026-09-22",
@@ -27,7 +39,11 @@
     },
     {
       "key": "articles/store-library/counter/al-packa-mascot.webp",
-      "topics": ["store-personality", "counter", "mascot"],
+      "topics": [
+        "store-personality",
+        "counter",
+        "mascot"
+      ],
       "alt": "Al Packa, the blue 3D-printed alpaca mascot of Mailbox Plus, sitting on the service counter in front of the private mailbox wall",
       "immich_asset": "b133f1fd-1baf-428c-9078-3ff98cc78913 (PXL_20260923_134821388.jpg, GPS 12m from store, Captioned tag)",
       "vetted": "2026-09-23",
@@ -35,7 +51,9 @@
     },
     {
       "key": "articles/store-library/mailbox-wall/digital-mailbox-counter-01.webp",
-      "topics": ["mailbox-wall"],
+      "topics": [
+        "mailbox-wall"
+      ],
       "alt": "The counter at Mailbox Plus in Concord Township, Ohio \u2014 the mailbox wall and copy center window where your postal mail gets sorted and scanned for your digital mailbox.",
       "immich_asset": "f3227680-5199-4798-b0c5-76d0152494b9",
       "vetted": "2026-09-24",
@@ -43,7 +61,9 @@
     },
     {
       "key": "articles/store-library/counter/surcharge-counter.webp",
-      "topics": ["counter"],
+      "topics": [
+        "counter"
+      ],
       "alt": "The pack-and-ship counter at Mailbox Plus in Concord Township, with the point-of-sale terminal, computer, and carrier rate sheets where every surcharge gets explained line by line.",
       "immich_asset": "10b1b418-71cc-4201-82ed-6e7555e4c1f7",
       "vetted": "2026-10-02",
@@ -51,7 +71,12 @@
     },
     {
       "key": "articles/store-library/mailbox-rentals/pmb-counter-01.webp",
-      "topics": ["mailbox-rentals", "pmb", "counter", "store-interior"],
+      "topics": [
+        "mailbox-rentals",
+        "pmb",
+        "counter",
+        "store-interior"
+      ],
       "alt": "The Mailbox Plus counter in Concord Township, with PRIVATE MAILBOX on the storefront glass behind it",
       "immich_asset": "unlogged (bot-generated pipeline asset; CDN 200 image/webp verified 2026-10-02)",
       "vetted": "2026-10-02",
@@ -59,7 +84,9 @@
     },
     {
       "key": "articles/store-library/copy-center/copier-01.webp",
-      "topics": ["copy-center"],
+      "topics": [
+        "copy-center"
+      ],
       "alt": "The commercial copier and print station in the back room at Mailbox Plus in Concord Township, Ohio, beside the packing bench where documents get scanned, copied, and emailed",
       "immich_asset": "db44bb10-8fc7-4988-9bee-d5db800cba92",
       "vetted": "2026-10-05",
@@ -67,7 +94,9 @@
     },
     {
       "key": "articles/store-library/packing/box-on-scale-01.webp",
-      "topics": ["packing"],
+      "topics": [
+        "packing"
+      ],
       "alt": "A sealed cardboard box on the parcel scale at the Mailbox Plus counter, ready for a carrier pickup",
       "immich_asset": "56566ecc-4cad-40d1-8d00-b0f9cb8dd5e5",
       "vetted": "2026-10-06",
@@ -75,7 +104,9 @@
     },
     {
       "key": "articles/store-library/packing/jewelry-watch-01.webp",
-      "topics": ["packing"],
+      "topics": [
+        "packing"
+      ],
       "alt": "A high-value wristwatch being prepared for secure shipment on the packing counter at Mailbox Plus in Concord Township, OH.",
       "immich_asset": "7b8546e9-3a02-4209-baea-eb72f7bbea52",
       "vetted": "2026-10-08",
@@ -83,7 +114,9 @@
     },
     {
       "key": "articles/store-library/counter/certified-mail-counter.webp",
-      "topics": ["counter"],
+      "topics": [
+        "counter"
+      ],
       "alt": "The counter and mailbox wall at Mailbox Plus in Concord Township, where certified mail and signature-required shipments are prepared.",
       "immich_asset": "76429491-cfc0-4d11-a473-c01935657cd6",
       "vetted": "2026-10-22",
@@ -91,7 +124,9 @@
     },
     {
       "key": "articles/store-library/packing/package-staging-01.webp",
-      "topics": ["packing"],
+      "topics": [
+        "packing"
+      ],
       "alt": "Stacked cardboard boxes and mail totes staged on the shipping store floor behind the counter, waiting for carrier pickup \u2014 Mailbox Plus in Concord Township, OH.",
       "immich_asset": "94ed8268-9230-4a7f-93f4-7d687ad1ee96",
       "vetted": "2026-10-30",
@@ -99,18 +134,12 @@
     },
     {
       "key": "articles/store-library/packing/peak-parcels-01.webp",
-      "topics": ["packing"],
+      "topics": [
+        "packing"
+      ],
       "alt": "Carrier bins and stacks of outbound packages staged in the back room during the peak shipping rush - Mailbox Plus, Concord Township, OH.",
       "immich_asset": "c5b28acf-f259-4b3f-887b-8eb85db9ddbb",
       "vetted": "2026-11-03",
-      "source_article": null
-    },
-    {
-      "key": "articles/store-library/packing/foam-pack-01.webp",
-      "topics": ["packing"],
-      "alt": "A customer package packed in protective foam inside a shipping box on the counter at Mailbox Plus",
-      "immich_asset": "78f7b260-643b-4ab5-9e94-d1342fa4977a",
-      "vetted": "2026-11-10",
       "source_article": null
     }
   ]
