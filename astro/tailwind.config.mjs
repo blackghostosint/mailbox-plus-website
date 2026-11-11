@@ -24,7 +24,7 @@ export default {
         heading: ['DM Sans', 'DM Sans Fallback', 'system-ui', '-apple-system', 'sans-serif'],
         // Display face (Phase 1 Task 1). Unused until Task 2+ applies `font-display`;
         // Tailwind JIT emits nothing for it until then.
-        display: ['Cabinet Grotesk', 'Cabinet Grotesk Fallback', 'system-ui', 'sans-serif'],
+        display: ['Familjen Grotesk', 'Familjen Grotesk Fallback', 'system-ui', 'sans-serif'],
       },
       backgroundImage: {
         'instagram-gradient': 'var(--color-gradient-instagram)',

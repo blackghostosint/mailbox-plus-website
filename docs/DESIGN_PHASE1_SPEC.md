@@ -141,7 +141,7 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 1. ~~Real Google review count/rating to display~~ — **Resolved:** the site already has a live-updated review badge (`astro/src/components/ReviewSection.astro` + `astro/src/data/reviews.json`); the hero reuses that same source, no new data.
 2. ~~Hero visual~~ — **Resolved:** build the new SVG counter scene in Task 5, with the no-visual asymmetric hero as the documented fallback if PSI/budget fights it (see §3.1).
-3. ~~Display font~~ — **Resolved:** Cabinet Grotesk (Fontshare, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. Fallback audition if samples feel flat in Task 1: Bricolage Grotesque.
+3. ~~Display font~~ — **Resolved:** Familjen Grotesk (google/fonts, SIL OFL 1.1, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. (Switched by Frank during Task 1 from the originally chosen Fontshare face, whose ITF Free Font License forbids distribution via a public repository.)
 4. ~~Doc-removal list~~ — **Confirmed by Frank:** delete the four superseded design/sales/competitor docs listed in Task 0; keep the decisions/ legacy-migration learnings doc. This spec (promoted into docs/ at Task 0) becomes the single design source of truth.
 
 ## 8. Cost/Time Estimate (from prior conversation)
@@ -346,12 +346,12 @@ Used for glass/overlay effects with `backdrop-blur`.
 - Poppins (headings) → DM Sans
 - Open Sans (body) → DM Sans
 
-**Phase 1 update (Task 1):** Cabinet Grotesk (Fontshare, variable `wght` 100–900, ITF Free Font License) is loaded as the display/headline face per §7 Q3; DM Sans stays for body/UI. Task 1 only registers the `@font-face` and tokens — no element uses the display face yet, so browsers do not download it and rendering is unchanged. Self-hosted at `public/fonts/cabinet-grotesk-variable.woff2` (41.9KB, official unmodified file — the ITF license prohibits subsetting/format conversion without written consent, so "subset to used weights" is satisfied by serving the single variable file and applying only 700/800 in later tasks; no preload until a task puts it above the fold).
+**Phase 1 update (Task 1):** Familjen Grotesk ([google/fonts](https://github.com/google/fonts/tree/main/ofl/familjengrotesk), SIL Open Font License 1.1, no Reserved Font Name) is loaded as the display/headline face per §7 Q3; DM Sans stays for body/UI. Task 1 only registers the `@font-face` and tokens — no element uses the display face yet, so browsers do not download it and rendering is unchanged. Self-hosted at `public/fonts/familjen-grotesk-variable.woff2` (16.5KB), built from upstream `FamiljenGrotesk[wght].ttf` (google/fonts commit `a60a77e1`): the `wght` axis (upstream 400–700) is subset to the headline range 600–700 and the glyph set to Latin (Google Fonts `latin` range + U+2190–2193 arrows) with `pyftsubset`. The OFL text ships alongside it as `public/fonts/LICENSE.txt`. No preload until a task puts it above the fold.
 
-| Token            | Value                                                                  | Usage                                  |
-| ---------------- | ---------------------------------------------------------------------- | -------------------------------------- |
-| `--font-body`    | `'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif`  | Body/UI text (matches Tailwind sans)   |
-| `--font-display` | `'Cabinet Grotesk', 'Cabinet Grotesk Fallback', system-ui, sans-serif` | Display/headlines (applied in Task 2+) |
+| Token            | Value                                                                    | Usage                                  |
+| ---------------- | ------------------------------------------------------------------------ | -------------------------------------- |
+| `--font-body`    | `'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif`    | Body/UI text (matches Tailwind sans)   |
+| `--font-display` | `'Familjen Grotesk', 'Familjen Grotesk Fallback', system-ui, sans-serif` | Display/headlines (applied in Task 2+) |
 
 ### Size Scale (Tailwind defaults, no custom overrides)
 
@@ -387,17 +387,17 @@ DM Sans is self-hosted as a variable font in `public/fonts/dmsans-regular.woff2`
 }
 ```
 
-Cabinet Grotesk gets the same treatment, metric-matched against Arial / Liberation Sans Bold (metric-compatible) at headline weight 700. Vertical overrides come from the font's own metrics (hhea ascent 870 / descent 280 / line gap 90 at UPM 1000) divided by `size-adjust`; `size-adjust` was calibrated in Chromium by measuring rendered width of all 2,074 unique H1/H2 strings on the site in Cabinet Grotesk 700 vs. the fallback (at 48px and 100px: median width error 0.9–1.0%, p90 2.3%, vs. ≈9.8% median for unadjusted Arial Bold; vertical box height matches exactly at `line-height: normal`):
+Familjen Grotesk gets the same treatment, metric-matched against Arial / Liberation Sans Bold (metric-compatible) at headline weights 600/700. Vertical overrides come from the font's own metrics (hhea ascent 1230 / descent 270 / line gap 0 at UPM 1200) divided by `size-adjust`; `size-adjust` was calibrated in Chromium by measuring rendered width of all 2,074 unique H1/H2 strings on the site in Familjen Grotesk vs. the fallback (median width error 0.75% at 600 / 0.93% at 700 at 48px, 0.74–1.73% at 100px, p90 ≤ 3.1%, vs. 9.99% / 8.92% median for unadjusted Arial Bold; vertical box height matches exactly at `line-height: normal`):
 
 ```css
 @font-face {
-  font-family: 'Cabinet Grotesk Fallback';
+  font-family: 'Familjen Grotesk Fallback';
   src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Arial');
   font-weight: 100 900;
-  size-adjust: 91%;
-  ascent-override: 95.6%;
-  descent-override: 30.77%;
-  line-gap-override: 9.89%;
+  size-adjust: 92%;
+  ascent-override: 111.41%;
+  descent-override: 24.46%;
+  line-gap-override: 0%;
 }
 ```
 
