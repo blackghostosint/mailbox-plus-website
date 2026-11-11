@@ -376,6 +376,48 @@
   }
 }
 
+/* View Transitions — custom animation presets (DESIGN_PHASE1_SPEC §3.2 Task 4)
+   Per §3.2: morph on header (transition:persist), fade+slide on content.
+   Respects prefers-reduced-motion (instant transitions below).
+   Defined outside the motion layer — View Transitions are framework-level,
+   not user content micro-interactions. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--duration-base);
+  animation-timing-function: var(--ease-in-out-quart);
+}
+
+/* Main content: fade + subtle upward slide (§3.2: ~24px travel, 500-700ms) */
+::view-transition-old(main-content) {
+  animation: fade-slide-out var(--duration-reveal) var(--ease-out-quart);
+}
+
+::view-transition-new(main-content) {
+  animation: fade-slide-in var(--duration-reveal) var(--ease-out-quart);
+}
+
+@keyframes fade-slide-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(calc(-1 * var(--motion-distance-reveal)));
+  }
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-distance-reveal));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ---------------------------------------------------------------------------
    Motion layer — shared micro-interactions + scroll reveals
    (DESIGN_PHASE1_SPEC §3.2, §4 Task 3). Plain CSS outside Tailwind's @layer so
@@ -538,5 +580,13 @@
   :is(a, button):hover > .motion-underline::after,
   :is(a, button):focus-visible > .motion-underline::after {
     transform: scaleX(1) !important;
+  }
+
+  /* Disable View Transitions animations (instant crossfade) */
+  ::view-transition-old(root),
+  ::view-transition-new(root),
+  ::view-transition-old(main-content),
+  ::view-transition-new(main-content) {
+    animation-duration: 0.01ms !important;
   }
 }
