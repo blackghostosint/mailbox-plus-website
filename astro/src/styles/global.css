@@ -20,6 +20,32 @@
   line-gap-override: 0%;
 }
 
+/* Display face — Cabinet Grotesk (Fontshare, ITF Free Font License), variable wght 100–900.
+   Official unmodified file: the ITF license forbids subsetting/format conversion without
+   written consent. Not referenced by any utility yet (Task 1 = infrastructure only), so
+   browsers never request it until a later task applies `font-display`/`--font-display`. */
+@font-face {
+  font-family: 'Cabinet Grotesk';
+  src: url('/fonts/cabinet-grotesk-variable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Metric-matched fallback for Cabinet Grotesk at headline weight (700) against Arial /
+   Liberation Sans Bold (metric-compatible). Vertical overrides = font hhea metrics
+   (asc 870 / desc 280 / gap 90, UPM 1000) ÷ size-adjust; size-adjust calibrated so the
+   fallback's rendered width matches Cabinet Grotesk 700 across every H1/H2 in dist/. */
+@font-face {
+  font-family: 'Cabinet Grotesk Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Arial');
+  font-weight: 100 900;
+  size-adjust: 91%;
+  ascent-override: 95.6%;
+  descent-override: 30.77%;
+  line-gap-override: 9.89%;
+}
+
 @layer base {
   :root {
     /* Primary Brand — deep navy */
@@ -104,6 +130,38 @@
     --radius-xl: 30px;
     --radius-2xl: 40px;
     --radius-full: 9999px;
+
+    /* Contrast-corrected accents (spec §3.4) — additive; existing tokens unchanged.
+       on-dark terracotta: 4.74:1 on --color-primary, 9.43:1 on --color-primary-deep.
+       gold text on paper: 5.63:1 on --color-bg-primary, 5.00:1 on --color-bg-warm-tint. */
+    --color-accent-warm-on-dark: #f2cbb2;
+    --color-accent-gold-text-on-paper: #735a13;
+
+    /* Font family tokens */
+    --font-body: 'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif;
+    --font-display: 'Cabinet Grotesk', 'Cabinet Grotesk Fallback', system-ui, sans-serif;
+
+    /* Fluid type scale — 360px → 1440px viewport; step-0 floor is 20px (40+ audience) */
+    --text-step-0: clamp(1.25rem, 1.2083rem + 0.1852vw, 1.375rem);
+    --text-step-1: clamp(1.5rem, 1.4167rem + 0.3704vw, 1.75rem);
+    --text-step-2: clamp(1.75rem, 1.5833rem + 0.7407vw, 2.25rem);
+    --text-step-3: clamp(2.125rem, 1.8333rem + 1.2963vw, 3rem);
+    --text-step-4: clamp(2.5rem, 2.0833rem + 1.8519vw, 3.75rem);
+    --text-step-5: clamp(3rem, 2.5rem + 2.2222vw, 4.5rem);
+
+    /* Easing curves (spec §3.2) */
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+    /* Motion durations + distance (spec §3.2: reveals 500–700ms, ~24px travel, hero ≤1.2s) */
+    --duration-instant: 100ms;
+    --duration-fast: 200ms;
+    --duration-base: 300ms;
+    --duration-slow: 500ms;
+    --duration-reveal: 600ms;
+    --duration-hero-max: 1200ms;
+    --motion-distance-reveal: 24px;
   }
 
   /* Baseline focus indicator fallback for WCAG 2.1 AA compliance */

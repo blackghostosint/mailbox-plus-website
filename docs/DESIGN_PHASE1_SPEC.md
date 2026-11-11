@@ -208,6 +208,13 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 | `--color-accent-warm-light` | `#b8734d` | 3.25:1 AA (lg)     | Hover states, softer accent on light                            |
 | `--color-accent-warm-dark`  | `#8b4a30` | —                  | Dark terracotta gradient stop                                   |
 
+**Contrast-corrected accents** (added in Phase 1 Task 1, spec §3.4 — additive; no existing token value changed). The terracotta family fails on navy (`#984b2e` = 1.15:1 on `--color-primary`, 2.28:1 on `--color-primary-deep`) and `--color-accent-gold-text` drops below AA on the warm-paper tints (3.74:1 on `--color-bg-warm-tint`). These tokens are the AA-safe replacements for those pairings; callers migrate in later tasks.
+
+| Token                               | Value     | WCAG                                                             | Usage                                                     |
+| ----------------------------------- | --------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
+| `--color-accent-warm-on-dark`       | `#f2cbb2` | 4.74:1 on `--color-primary`, 9.43:1 on `--color-primary-deep`    | Terracotta-family text/links on navy (fixes rust-on-navy) |
+| `--color-accent-gold-text-on-paper` | `#735a13` | 5.63:1 on `--color-bg-primary`, 5.00:1 on `--color-bg-warm-tint` | Gold-family text on any warm-paper background             |
+
 ### Brand & Carrier Colors
 
 | Token                                   | Value                                             | Usage                                   |
@@ -339,11 +346,31 @@ Used for glass/overlay effects with `backdrop-blur`.
 - Poppins (headings) → DM Sans
 - Open Sans (body) → DM Sans
 
+**Phase 1 update (Task 1):** Cabinet Grotesk (Fontshare, variable `wght` 100–900, ITF Free Font License) is loaded as the display/headline face per §7 Q3; DM Sans stays for body/UI. Task 1 only registers the `@font-face` and tokens — no element uses the display face yet, so browsers do not download it and rendering is unchanged. Self-hosted at `public/fonts/cabinet-grotesk-variable.woff2` (41.9KB, official unmodified file — the ITF license prohibits subsetting/format conversion without written consent, so "subset to used weights" is satisfied by serving the single variable file and applying only 700/800 in later tasks; no preload until a task puts it above the fold).
+
+| Token            | Value                                                                  | Usage                                  |
+| ---------------- | ---------------------------------------------------------------------- | -------------------------------------- |
+| `--font-body`    | `'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif`  | Body/UI text (matches Tailwind sans)   |
+| `--font-display` | `'Cabinet Grotesk', 'Cabinet Grotesk Fallback', system-ui, sans-serif` | Display/headlines (applied in Task 2+) |
+
 ### Size Scale (Tailwind defaults, no custom overrides)
 
 ```
 text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-3xl → text-4xl → text-5xl
 ```
+
+### Fluid Type Scale (Phase 1 Task 1)
+
+`clamp()` steps interpolating linearly from a 360px to a 1440px viewport. Step 0 floor is 20px (audience 40+ minimum body size). Not yet applied to any element — Tailwind `text-*` utilities remain the active scale until later tasks migrate headings.
+
+| Token           | Value                                            | Range (360→1440px) | Usage                      |
+| --------------- | ------------------------------------------------ | ------------------ | -------------------------- |
+| `--text-step-0` | `clamp(1.25rem, 1.2083rem + 0.1852vw, 1.375rem)` | 20 → 22px          | Body copy, lead paragraphs |
+| `--text-step-1` | `clamp(1.5rem, 1.4167rem + 0.3704vw, 1.75rem)`   | 24 → 28px          | H4 / card titles           |
+| `--text-step-2` | `clamp(1.75rem, 1.5833rem + 0.7407vw, 2.25rem)`  | 28 → 36px          | H3                         |
+| `--text-step-3` | `clamp(2.125rem, 1.8333rem + 1.2963vw, 3rem)`    | 34 → 48px          | H2 / section headings      |
+| `--text-step-4` | `clamp(2.5rem, 2.0833rem + 1.8519vw, 3.75rem)`   | 40 → 60px          | H1 (interior pages)        |
+| `--text-step-5` | `clamp(3rem, 2.5rem + 2.2222vw, 4.5rem)`         | 48 → 72px          | Homepage hero H1 (Task 5)  |
 
 ### CLS Mitigation
 
@@ -359,6 +386,39 @@ DM Sans is self-hosted as a variable font in `public/fonts/dmsans-regular.woff2`
   line-gap-override: 0%;
 }
 ```
+
+Cabinet Grotesk gets the same treatment, metric-matched against Arial / Liberation Sans Bold (metric-compatible) at headline weight 700. Vertical overrides come from the font's own metrics (hhea ascent 870 / descent 280 / line gap 90 at UPM 1000) divided by `size-adjust`; `size-adjust` was calibrated in Chromium by measuring rendered width of all 2,074 unique H1/H2 strings on the site in Cabinet Grotesk 700 vs. the fallback (at 48px and 100px: median width error 0.9–1.0%, p90 2.3%, vs. ≈9.8% median for unadjusted Arial Bold; vertical box height matches exactly at `line-height: normal`):
+
+```css
+@font-face {
+  font-family: 'Cabinet Grotesk Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Arial');
+  font-weight: 100 900;
+  size-adjust: 91%;
+  ascent-override: 95.6%;
+  descent-override: 30.77%;
+  line-gap-override: 9.89%;
+}
+```
+
+---
+
+## Motion Tokens (Phase 1 Task 1)
+
+Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. Defined only — no animation uses them yet.
+
+| Token                      | Value                            | Usage                                               |
+| -------------------------- | -------------------------------- | --------------------------------------------------- |
+| `--ease-out-quart`         | `cubic-bezier(0.25, 1, 0.5, 1)`  | Default ease for reveals, card lifts, button states |
+| `--ease-out-expo`          | `cubic-bezier(0.16, 1, 0.3, 1)`  | Hero entrance, emphatic arrivals                    |
+| `--ease-in-out-quart`      | `cubic-bezier(0.76, 0, 0.24, 1)` | View-transition crossfades, symmetric moves         |
+| `--duration-instant`       | `100ms`                          | Press/active feedback                               |
+| `--duration-fast`          | `200ms`                          | Hover, focus, underline sweeps                      |
+| `--duration-base`          | `300ms`                          | Card lifts, menus, small UI transitions             |
+| `--duration-slow`          | `500ms`                          | Lower bound for scroll reveals                      |
+| `--duration-reveal`        | `600ms`                          | Default scroll reveal (§3.2: 500–700ms)             |
+| `--duration-hero-max`      | `1200ms`                         | Ceiling for the full hero entrance sequence         |
+| `--motion-distance-reveal` | `24px`                           | Translate distance for scroll reveals (§3.2: ~24px) |
 
 ---
 
