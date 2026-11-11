@@ -35,7 +35,7 @@ Fix what the task asks for. If you find an unrelated problem, open a separate is
 
 ## Design system
 
-The visual system is token-driven — see `docs/DESIGN_SYSTEM.md`. Do not change color tokens or typography without owner approval; brand colors are a business decision.
+The visual system is token-driven — see `docs/DESIGN_PHASE1_SPEC.md` (Appendix A holds the token tables). Do not change color tokens or typography without owner approval; brand colors are a business decision.
 
 ## Articles
 

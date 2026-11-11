@@ -62,7 +62,7 @@ Astro file-based routing — every `.astro` file in `astro/src/pages/` is a rout
 
 ### Design System
 
-CSS custom properties defined in `astro/src/styles/` power the entire visual system. See [docs/DESIGN_SYSTEM.md](docs/DESIGN_SYSTEM.md) for the full token reference.
+CSS custom properties defined in `astro/src/styles/` power the entire visual system. See [docs/DESIGN_PHASE1_SPEC.md](docs/DESIGN_PHASE1_SPEC.md) (Appendix A) for the full token reference.
 
 ### Environment Variables
 
