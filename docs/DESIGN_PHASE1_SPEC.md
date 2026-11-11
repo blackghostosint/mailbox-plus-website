@@ -73,11 +73,13 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 > Each task = one branch + one PR + one review. PSI/Playwright/Vitest gates run in CI before merge.
 
-### Task 0 — Remove superseded design docs
+### Task 0 — Remove superseded design docs ✅ **COMPLETED 2026-11-11 (PR #975, squash-merged at `adc05beb`)**
 
-- Delete: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md (Frank confirmed; keep the decisions/ legacy-migration learnings doc).
-- Add this spec at `docs/DESIGN_PHASE1_SPEC.md` as the new design source of truth.
-- Grep repo for references to the removed files and update (`AGENTS.md`, README, skills pointing at them).
+- Deleted: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md. Kept: decisions/ legacy-migration learnings doc.
+- Spec promoted to `docs/DESIGN_PHASE1_SPEC.md` as the new design source of truth (old token tables preserved in Appendix A).
+- References updated in `AGENTS.md`, README, CONTRIBUTING, and `scripts/check-design-tokens.ts` (repointed to this spec).
+- Verified: CI full matrix green on head commit (build-and-test ×2, Playwright E2E ×3, Lighthouse ×2, CodeQL ×2, Gitleaks); token-sync and verify-docs gates pass locally.
+- Note: the token CI gate parses this spec's Appendix A — keep Appendix A token tables in sync with `astro/src/styles/global.css`.
 
 ### Task 1 — Design tokens + fonts
 
