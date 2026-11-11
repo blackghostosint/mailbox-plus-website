@@ -19,3 +19,5 @@ Checked: 2026-11-11 (run: article pipeline, demand PASS — DFSEO nb 14800, auto
 | 12  | ~~Buyer signs title application before a notary~~ / ~~late transfer = $5 penalty~~                                                                | ⚠️ REMOVED | Prior draft (11/09) claimed a "$5 penalty" and buyer-side application notarization; the fetched BMV pages state only "a late fee will be assessed" (no amount) and describe notarization of the SELLER's assignment. Claims cut from this draft — article says "a late fee gets assessed" with no figure and does not assert buyer-side notarization. |
 
 Softened/removed items: #12 (two claims), plus prior draft's "proof of insurance" requirement for title transfer and "notarized power of attorney for absent co-owner" — both removed as unverified against the fetched official pages.
+
+| 13 | ~~"we can print a bill of sale at the same counter"~~ | ⚠️ REMOVED | Pre-review round 2: printing-service claim had no receipt row / owner sign-off; sentence cut from the CTA in this run. |
