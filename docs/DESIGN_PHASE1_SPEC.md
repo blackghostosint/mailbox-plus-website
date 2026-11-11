@@ -4,7 +4,7 @@
 
 **Goal:** Step the site from "fine, not memorable" to a modern, interactive, professional experience — homepage as the proof slice — without breaking the SEO machine (PSI mobile ≥90, LCP, CLS, crawlability).
 
-**Status:** ACTIVE — approved by Frank 2026-11-10. Single source of truth for design. Supersedes and replaces `docs/DESIGN_VISION.md` and `docs/DESIGN_SYSTEM.md` (removed in Task 0).
+**Status:** ACTIVE — approved by Frank 2026-11-10. Single source of truth for design. Supersedes and replaces the June 2026 design vision / design system docs, removed in Task 0.
 
 **Date:** 2026-11-10
 
@@ -14,7 +14,7 @@
 
 1. **PSI gate:** Lighthouse CI must pass on every PR. Mobile PSI ≥ 90 (currently 98 — a drop below 90 fails; 90–97 requires a comment justifying it). LCP ≤ 2.5s, CLS ≤ 0.05, TBT ≤ 200ms on the redesigned pages.
 2. **Static content first:** All copy, headings, links, and structure are server-rendered in the Astro markup. If the motion layer disappears, the page is still complete, indexable, and fast. Animations start from a *visible* state in markup; JS applies the hidden initial state before first paint.
-3. **Animate only `transform` and `opacity`.** Never `top/width/height/margin`. Lint-enforced where practical.
+3. **Animate only `transform` and `opacity`.** Never top/width/height/margin. Lint-enforced where practical.
 4. **`prefers-reduced-motion` kill switch** on every animation, verified per PR.
 5. **Motion JS budget:** ≤ 75KB gzipped total for the animation layer (GSAP + ScrollTrigger only). No Three.js in Phase 1.
 6. **SEO invariants:** URLs, slugs, canonicals, trailing slashes, meta, schema, internal links, and content text do not change in Phase 1. This is a presentation-layer rewrite. Verified by diffing rendered HTML text content pre/post.
@@ -42,7 +42,7 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 - **Layout:** asymmetric two-column. Left: eyebrow (`CONCORD TOWNSHIP, OH — PACK & SHIP HUB`), H1 = **"Four carriers. One counter. No runaround."**, supporting line = current "Shipping shouldn't cost you an hour…" copy, dual CTAs (primary: "Drop Off a Return" / secondary: "Rent a Mailbox"), review badge (★ Google rating — pull real number, don't invent), carrier logos strip (UPS/FedEx/USPS/DHL monochrome).
 - **Right:** interactive visual — a **new SVG "counter scene"** built from scratch during Task 5 (inline markup, ~5–15KB, packages/label/scanner-beam motifs, brand-voice details, Al Packa cameo optional). GSAP choreography; static fallback with JS off; `aria-hidden`; never the LCP element. **Fallback rule:** if the scene threatens the PSI gate or motion budget during Task 5, ship the no-visual asymmetric hero (typography + badge + carrier logos) instead and revisit the scene in Phase 2. Photography is NOT an option for the hero (brand rule: navy-gradient heroes, no images).
-- **Review badge:** reuse the existing live-updated `ReviewSection.astro` rating data (`astro/src/data/reviews.json`) — render the badge in the hero using that same source. No new review component; single source of truth stays as-is.
+- **Review badge:** reuse the existing live-updated review section (`astro/src/components/ReviewSection.astro`) backed by `astro/src/data/reviews.json` — render the badge in the hero using that same source. No new review component; single source of truth stays as-is.
 - **Navy gradient stays**, with subtle depth (animated gradient shift, grain texture) instead of flat fill.
 - **CTA fully above the fold at 1440×900 and 390×844.**
 
@@ -68,12 +68,12 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 > Each task = one branch + one PR + one review. PSI/Playwright/Vitest gates run in CI before merge.
 
 ### Task 0 — Remove superseded design docs
-- Delete: `docs/DESIGN_VISION.md`, `docs/DESIGN_SYSTEM.md`, `docs/sales-page-sb7-rewrite.md`, `research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md` (after Frank confirms; keep `docs/decisions/legacy-migration-learnings.md`).
+- Delete: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md (Frank confirmed; keep the decisions/ legacy-migration learnings doc).
 - Add this spec at `docs/DESIGN_PHASE1_SPEC.md` as the new design source of truth.
 - Grep repo for references to the removed files and update (`AGENTS.md`, README, skills pointing at them).
 
 ### Task 1 — Design tokens + fonts
-- Files: `astro/src/styles/tokens.css` (or equivalent existing token file), font loading in the global head.
+- Files: `astro/src/styles/global.css` (existing token file), font loading in the global head.
 - Add: ease curve tokens, fluid type scale, contrast-corrected palette values, motion duration tokens.
 - Verify: `npm run build` passes; fonts subset; no FOUC (`font-display: swap` + size-adjust fallbacks); tokens-only diff, no visual change yet.
 
@@ -83,7 +83,7 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 - Verify: all 72 pages render with new chrome; Playwright nav tests pass; mobile menu works; PSI unchanged.
 
 ### Task 3 — Shared component micro-interactions
-- Buttons, cards, links: CSS-only states per §3.2. One small shared JS module for scroll reveals (`astro/src/scripts/motion.ts`), lazy-loaded, ~3KB.
+- Buttons, cards, links: CSS-only states per §3.2. One small shared JS module for scroll reveals (planned: astro/src/scripts/motion.ts), lazy-loaded, ~3KB.
 - Verify: `prefers-reduced-motion` disables all; zero-CLS (Playwright CLS assertion); motion budget check.
 
 ### Task 4 — View Transitions
@@ -123,10 +123,10 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 ## 7. Open Questions for Frank
 
-1. ~~Real Google review count/rating to display~~ — **Resolved:** the site already has a live-updated review badge (`ReviewSection.astro` + `reviews.json`); the hero reuses that same source, no new data.
+1. ~~Real Google review count/rating to display~~ — **Resolved:** the site already has a live-updated review badge (`astro/src/components/ReviewSection.astro` + `astro/src/data/reviews.json`); the hero reuses that same source, no new data.
 2. ~~Hero visual~~ — **Resolved:** build the new SVG counter scene in Task 5, with the no-visual asymmetric hero as the documented fallback if PSI/budget fights it (see §3.1).
 3. ~~Display font~~ — **Resolved:** Cabinet Grotesk (Fontshare, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. Fallback audition if samples feel flat in Task 1: Bricolage Grotesque.
-4. ~~Doc-removal list~~ — **Confirmed by Frank:** delete `docs/DESIGN_VISION.md`, `docs/DESIGN_SYSTEM.md`, `docs/sales-page-sb7-rewrite.md`, `research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md`; keep `docs/decisions/legacy-migration-learnings.md`. New spec (`docs/DESIGN_PHASE1_SPEC.md`, promoted from `.hermes/plans/` at Task 0) becomes the single design source of truth.
+4. ~~Doc-removal list~~ — **Confirmed by Frank:** delete the four superseded design/sales/competitor docs listed in Task 0; keep the decisions/ legacy-migration learnings doc. This spec (promoted into docs/ at Task 0) becomes the single design source of truth.
 
 ## 8. Cost/Time Estimate (from prior conversation)
 
@@ -137,7 +137,7 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 ---
 
-## Appendix A — Design Token Reference (verbatim, extracted from the superseded `docs/DESIGN_SYSTEM.md`)
+## Appendix A — Design Token Reference (verbatim, extracted from the superseded design-system doc removed in Task 0)
 
 > This appendix is parsed by `scripts/check-design-tokens.ts` (CI gate). Token tables here must stay in sync with `astro/src/styles/global.css`. Do not edit tokens without owner approval — brand colors are a business decision.
 
