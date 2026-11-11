@@ -414,7 +414,7 @@ Familjen Grotesk gets the same treatment, metric-matched against Arial / Liberat
 
 ## Motion Tokens (Phase 1 Task 1)
 
-Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. Defined only — no animation uses them yet.
+Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. First consumers (Task 3): the shared motion layer at the end of `astro/src/styles/global.css` (`.motion-press` button press/expand, `.motion-lift` card lift, `.motion-underline` link sweep, `[data-reveal]` / `[data-reveal-stagger]` scroll reveals) and `astro/src/scripts/motion.ts` (IntersectionObserver, once, lazy chunk loaded by `astro/src/scripts/motion-loader.ts` only when a page has reveal targets; article pages opt out via `BaseLayout motion="calm"`).
 
 | Token                      | Value                            | Usage                                               |
 | -------------------------- | -------------------------------- | --------------------------------------------------- |

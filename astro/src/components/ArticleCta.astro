@@ -114,7 +114,7 @@ const content = CTA_DATA[category] || {
     <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
       <a
         href={content.primaryCtaLink}
-        class="btn inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] font-bold shadow-md hover:bg-[var(--color-accent-gold-light)] hover:shadow-lg transition-all text-base"
+        class="btn inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[var(--color-accent-gold)] text-[var(--color-primary-dark)] font-bold shadow-md hover:bg-[var(--color-accent-gold-light)] hover:shadow-lg motion-press text-base"
         data-cta={`article_${category}_primary_cta`}
         data-category={category}
         data-section="article_bottom_cta"
@@ -125,7 +125,7 @@ const content = CTA_DATA[category] || {
         href={content.secondaryCtaLink}
         target={content.secondaryCtaLink.startsWith('http') ? '_blank' : undefined}
         rel={content.secondaryCtaLink.startsWith('http') ? 'noopener noreferrer' : undefined}
-        class="btn inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 transition-colors text-base"
+        class="btn inline-flex items-center justify-center px-6 py-3.5 rounded-lg border border-white/30 text-white font-semibold hover:bg-white/10 motion-press text-base"
         data-cta={`article_${category}_directions_cta`}
         data-category={category}
         data-section="article_bottom_cta"

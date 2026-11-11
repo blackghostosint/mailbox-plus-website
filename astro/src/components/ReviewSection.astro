@@ -44,7 +44,7 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
       </p>
       <OutboundLink
         href={GPLACE_URL}
-        class="inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] text-white px-6 py-2.5 text-sm font-semibold hover:opacity-90 transition-opacity"
+        class="motion-press inline-flex items-center gap-2 rounded-full bg-[var(--color-primary)] text-white px-6 py-2.5 text-sm font-semibold hover:bg-[var(--color-primary-dark)]"
       >
         See all reviews on Google
         <svg aria-hidden="true" focusable="false" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
@@ -52,7 +52,7 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
     </div>
 
     <!-- Review cards -->
-    <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+    <div id="reviews-list" class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto" data-reveal-stagger>
       {shownReviews.map((review) => (
         <article class="bg-white rounded-2xl shadow-sm border border-[var(--color-border)] p-6 flex flex-col">
           <div class="flex gap-0.5 mb-3">
