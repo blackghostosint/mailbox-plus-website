@@ -104,6 +104,14 @@
       "immich_asset": "c5b28acf-f259-4b3f-887b-8eb85db9ddbb",
       "vetted": "2026-11-03",
       "source_article": null
+    },
+    {
+      "key": "articles/store-library/packing/foam-pack-01.webp",
+      "topics": ["packing"],
+      "alt": "A customer package packed in protective foam inside a shipping box on the counter at Mailbox Plus",
+      "immich_asset": "78f7b260-643b-4ab5-9e94-d1342fa4977a",
+      "vetted": "2026-11-10",
+      "source_article": null
     }
   ]
 }
