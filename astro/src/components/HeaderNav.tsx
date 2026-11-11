@@ -33,11 +33,12 @@ export const DESKTOP_MIN_WIDTH = 1280;
 // emphasis is a neutral pill, not a gold link.
 const focusRing =
   'focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
-const navLinkClass = `whitespace-nowrap text-lg font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors rounded-sm ${focusRing}`;
-const badgeClass = `inline-flex items-center whitespace-nowrap rounded-full border border-white/30 bg-white/10 px-4 py-1 text-lg font-semibold text-white hover:border-[var(--color-accent-gold-light)] hover:text-[var(--color-accent-gold-light)] transition-colors ${focusRing}`;
-// Press feedback animates transform only (spec §1.3); global reduced-motion block neutralises it.
-const pressable =
-  'transition-[color,background-color,border-color,transform] duration-[var(--duration-fast)] ease-[var(--ease-out-quart)] hover:-translate-y-px active:translate-y-0';
+// Motion layer (spec §3.2, Task 3; classes in global.css): nav links get the underline
+// sweep, the pill and action buttons get press/expand. Transform/opacity only (§1.3);
+// both reduced-motion blocks in global.css neutralise them.
+const navLinkClass = `motion-underline whitespace-nowrap text-lg font-medium text-white/90 hover:text-[var(--color-accent-gold-light)] transition-colors rounded-sm ${focusRing}`;
+const badgeClass = `motion-press inline-flex items-center whitespace-nowrap rounded-full border border-white/30 bg-white/10 px-4 py-1 text-lg font-semibold text-white hover:border-[var(--color-accent-gold-light)] hover:text-[var(--color-accent-gold-light)] ${focusRing}`;
+const pressable = 'motion-press';
 const actionBase = `inline-flex items-center justify-center gap-2 min-h-11 min-w-11 whitespace-nowrap rounded-md px-2.5 sm:px-4 xl:px-3 text-base font-semibold ${pressable} ${focusRing}`;
 const quickActionClass = `${actionBase} border border-white/40 text-white hover:border-[var(--color-accent-gold-light)] hover:text-[var(--color-accent-gold-light)]`;
 const primaryButtonClass = `${actionBase} bg-[var(--color-accent-gold)] font-bold text-[var(--color-primary-deep)] shadow-sm hover:bg-[var(--color-accent-gold-light)]`;

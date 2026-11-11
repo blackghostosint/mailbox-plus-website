@@ -20,7 +20,7 @@ const navigation: NavItem[] = [
 const utilityItems = navigation.filter((item) => item.placement === 'utility');
 // Gold only on hover/focus (spec §3.4).
 const utilityLinkClass =
-  'rounded-sm hover:text-[var(--color-accent-gold-light)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
+  'motion-underline rounded-sm hover:text-[var(--color-accent-gold-light)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
 ---
 
 <header class="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">

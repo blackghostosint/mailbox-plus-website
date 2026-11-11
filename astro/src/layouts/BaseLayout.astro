@@ -15,9 +15,11 @@ export interface Props {
   noindex?: boolean;
   ogImage?: string;
   schema?: unknown | unknown[];
+  /** 'calm' = tier-3 pages (articles): CSS micro-interactions only, no scroll reveals. */
+  motion?: 'full' | 'calm';
 }
 
-const { title, description, canonical, noindex, ogImage, schema } = Astro.props;
+const { title, description, canonical, noindex, ogImage, schema, motion = 'full' } = Astro.props;
 const siteUrl = siteConfig.domain;
 
 const pathname = Astro.url.pathname;
@@ -89,7 +91,7 @@ const ogImageHeight = ogImage ? undefined : '630';
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" class="h-full" data-motion-tier={motion === 'calm' ? 'calm' : undefined}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -124,7 +126,11 @@ const ogImageHeight = ogImage ? undefined : '630';
          interaction or after a 3s timer — never during first paint. -->
     <script>
       import { initAnalytics } from '../lib/analytics';
+      import { loadMotion } from '../scripts/motion-loader';
       initAnalytics();
+      // Scroll-reveal module (DESIGN_PHASE1_SPEC §4 Task 3): lazy chunk, fetched only
+      // when the page has reveal targets and motion is allowed.
+      loadMotion();
     </script>
     <!-- Subscribe with Google / Google Preferred Sources removed 2026-10-05:
          ~200KB of news-subscription JS (publisher.js + gstatic boq-*) loaded on
