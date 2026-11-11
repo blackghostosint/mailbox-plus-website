@@ -73,6 +73,15 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 > Each task = one branch + one PR + one review. PSI/Playwright/Vitest gates run in CI before merge.
 
+### Worker runtime discipline (added after the Task 3 timeout postmortem)
+
+These rules exist to keep worker sessions short and cheap. They apply to every task:
+
+1. **Do not poll CI.** Push the branch, run local gates, request review, and end the session. The orchestrator monitors CI between runs and comments findings on the card. Waiting on CI inside a worker session burns model spend at full rate for wall-clock waiting.
+2. **CI failure triage — read logs, don't guess:** if CI fails, fetch the failed job log once (`gh run view --log-failed`). Classify: (a) infra flake (DNS resolution, apt fetch, runner OOM, no test output) → do NOT change code; note it on the card and end the session; the orchestrator re-runs. (b) real test failure (✘ markers with assertions) → fix code and push. One log-fetch per failure, no iterative log-spelunking.
+3. **Session budget assumption: 2h hard cap.** Structure work so the PR is pushable before the cap: local gates first, CI-dependent steps last. If the cap hits mid-task, the next run re-derives context at full cost — treat the cap as a wall, not a target.
+4. **Merge authorization:** workers never merge. Branch protection on `main` requires 1 approving review. When all gates are green, request review and end.
+
 ### Task 0 — Remove superseded design docs ✅ **COMPLETED 2026-11-11 (PR #975, squash-merged at `adc05beb`)**
 
 - Deleted: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md. Kept: decisions/ legacy-migration learnings doc.
@@ -141,7 +150,7 @@ Current problems: flat centered navy void, generic H1, buried hook, CTA clipped 
 
 1. ~~Real Google review count/rating to display~~ — **Resolved:** the site already has a live-updated review badge (`astro/src/components/ReviewSection.astro` + `astro/src/data/reviews.json`); the hero reuses that same source, no new data.
 2. ~~Hero visual~~ — **Resolved:** build the new SVG counter scene in Task 5, with the no-visual asymmetric hero as the documented fallback if PSI/budget fights it (see §3.1).
-3. ~~Display font~~ — **Resolved:** Cabinet Grotesk (Fontshare, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. Fallback audition if samples feel flat in Task 1: Bricolage Grotesque.
+3. ~~Display font~~ — **Resolved:** Familjen Grotesk (google/fonts, SIL OFL 1.1, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. (Switched by Frank during Task 1 from the originally chosen Fontshare face, whose ITF Free Font License forbids distribution via a public repository.)
 4. ~~Doc-removal list~~ — **Confirmed by Frank:** delete the four superseded design/sales/competitor docs listed in Task 0; keep the decisions/ legacy-migration learnings doc. This spec (promoted into docs/ at Task 0) becomes the single design source of truth.
 
 ## 8. Cost/Time Estimate (from prior conversation)
@@ -207,6 +216,13 @@ The key design decision: **one accent does not fit all backgrounds.** Gold pops 
 | `--color-accent-warm`       | `#984b2e` | 4.76:1 ✅ AA       | Filled CTAs on light, links, active states, warm accent borders |
 | `--color-accent-warm-light` | `#b8734d` | 3.25:1 AA (lg)     | Hover states, softer accent on light                            |
 | `--color-accent-warm-dark`  | `#8b4a30` | —                  | Dark terracotta gradient stop                                   |
+
+**Contrast-corrected accents** (added in Phase 1 Task 1, spec §3.4 — additive; no existing token value changed). The terracotta family fails on navy (`#984b2e` = 1.15:1 on `--color-primary`, 2.28:1 on `--color-primary-deep`) and `--color-accent-gold-text` drops below AA on the warm-paper tints (3.74:1 on `--color-bg-warm-tint`). These tokens are the AA-safe replacements for those pairings; callers migrate in later tasks.
+
+| Token                               | Value     | WCAG                                                             | Usage                                                     |
+| ----------------------------------- | --------- | ---------------------------------------------------------------- | --------------------------------------------------------- |
+| `--color-accent-warm-on-dark`       | `#f2cbb2` | 4.74:1 on `--color-primary`, 9.43:1 on `--color-primary-deep`    | Terracotta-family text/links on navy (fixes rust-on-navy) |
+| `--color-accent-gold-text-on-paper` | `#735a13` | 5.63:1 on `--color-bg-primary`, 5.00:1 on `--color-bg-warm-tint` | Gold-family text on any warm-paper background             |
 
 ### Brand & Carrier Colors
 
@@ -339,11 +355,31 @@ Used for glass/overlay effects with `backdrop-blur`.
 - Poppins (headings) → DM Sans
 - Open Sans (body) → DM Sans
 
+**Phase 1 update (Task 1):** Familjen Grotesk ([google/fonts](https://github.com/google/fonts/tree/main/ofl/familjengrotesk), SIL Open Font License 1.1, no Reserved Font Name) is loaded as the display/headline face per §7 Q3; DM Sans stays for body/UI. Task 1 only registers the `@font-face` and tokens — no element uses the display face yet, so browsers do not download it and rendering is unchanged. Self-hosted at `public/fonts/familjen-grotesk-variable.woff2` (16.5KB), built from upstream `FamiljenGrotesk[wght].ttf` (google/fonts commit `a60a77e1`): the `wght` axis (upstream 400–700) is subset to the headline range 600–700 and the glyph set to Latin (Google Fonts `latin` range + U+2190–2193 arrows) with `pyftsubset`. The OFL text ships alongside it as `public/fonts/LICENSE.txt`. No preload until a task puts it above the fold.
+
+| Token            | Value                                                                    | Usage                                  |
+| ---------------- | ------------------------------------------------------------------------ | -------------------------------------- |
+| `--font-body`    | `'DM Sans', 'DM Sans Fallback', system-ui, -apple-system, sans-serif`    | Body/UI text (matches Tailwind sans)   |
+| `--font-display` | `'Familjen Grotesk', 'Familjen Grotesk Fallback', system-ui, sans-serif` | Display/headlines (applied in Task 2+) |
+
 ### Size Scale (Tailwind defaults, no custom overrides)
 
 ```
 text-xs → text-sm → text-base → text-lg → text-xl → text-2xl → text-3xl → text-4xl → text-5xl
 ```
+
+### Fluid Type Scale (Phase 1 Task 1)
+
+`clamp()` steps interpolating linearly from a 360px to a 1440px viewport. Step 0 floor is 20px (audience 40+ minimum body size). Not yet applied to any element — Tailwind `text-*` utilities remain the active scale until later tasks migrate headings.
+
+| Token           | Value                                            | Range (360→1440px) | Usage                      |
+| --------------- | ------------------------------------------------ | ------------------ | -------------------------- |
+| `--text-step-0` | `clamp(1.25rem, 1.2083rem + 0.1852vw, 1.375rem)` | 20 → 22px          | Body copy, lead paragraphs |
+| `--text-step-1` | `clamp(1.5rem, 1.4167rem + 0.3704vw, 1.75rem)`   | 24 → 28px          | H4 / card titles           |
+| `--text-step-2` | `clamp(1.75rem, 1.5833rem + 0.7407vw, 2.25rem)`  | 28 → 36px          | H3                         |
+| `--text-step-3` | `clamp(2.125rem, 1.8333rem + 1.2963vw, 3rem)`    | 34 → 48px          | H2 / section headings      |
+| `--text-step-4` | `clamp(2.5rem, 2.0833rem + 1.8519vw, 3.75rem)`   | 40 → 60px          | H1 (interior pages)        |
+| `--text-step-5` | `clamp(3rem, 2.5rem + 2.2222vw, 4.5rem)`         | 48 → 72px          | Homepage hero H1 (Task 5)  |
 
 ### CLS Mitigation
 
@@ -359,6 +395,39 @@ DM Sans is self-hosted as a variable font in `public/fonts/dmsans-regular.woff2`
   line-gap-override: 0%;
 }
 ```
+
+Familjen Grotesk gets the same treatment, metric-matched against Arial / Liberation Sans Bold (metric-compatible) at headline weights 600/700. Vertical overrides come from the font's own metrics (hhea ascent 1230 / descent 270 / line gap 0 at UPM 1200) divided by `size-adjust`; `size-adjust` was calibrated in Chromium by measuring rendered width of all 2,074 unique H1/H2 strings on the site in Familjen Grotesk vs. the fallback (median width error 0.75% at 600 / 0.93% at 700 at 48px, 0.74–1.73% at 100px, p90 ≤ 3.1%, vs. 9.99% / 8.92% median for unadjusted Arial Bold; vertical box height matches exactly at `line-height: normal`):
+
+```css
+@font-face {
+  font-family: 'Familjen Grotesk Fallback';
+  src: local('Arial Bold'), local('Arial-BoldMT'), local('Liberation Sans Bold'), local('Arial');
+  font-weight: 100 900;
+  size-adjust: 92%;
+  ascent-override: 111.41%;
+  descent-override: 24.46%;
+  line-gap-override: 0%;
+}
+```
+
+---
+
+## Motion Tokens (Phase 1 Task 1)
+
+Per §3.2. Animate only `transform`/`opacity`; every consumer must sit behind the existing `prefers-reduced-motion: reduce` kill switch in `astro/src/styles/global.css`. Defined only — no animation uses them yet.
+
+| Token                      | Value                            | Usage                                               |
+| -------------------------- | -------------------------------- | --------------------------------------------------- |
+| `--ease-out-quart`         | `cubic-bezier(0.25, 1, 0.5, 1)`  | Default ease for reveals, card lifts, button states |
+| `--ease-out-expo`          | `cubic-bezier(0.16, 1, 0.3, 1)`  | Hero entrance, emphatic arrivals                    |
+| `--ease-in-out-quart`      | `cubic-bezier(0.76, 0, 0.24, 1)` | View-transition crossfades, symmetric moves         |
+| `--duration-instant`       | `100ms`                          | Press/active feedback                               |
+| `--duration-fast`          | `200ms`                          | Hover, focus, underline sweeps                      |
+| `--duration-base`          | `300ms`                          | Card lifts, menus, small UI transitions             |
+| `--duration-slow`          | `500ms`                          | Lower bound for scroll reveals                      |
+| `--duration-reveal`        | `600ms`                          | Default scroll reveal (§3.2: 500–700ms)             |
+| `--duration-hero-max`      | `1200ms`                         | Ceiling for the full hero entrance sequence         |
+| `--motion-distance-reveal` | `24px`                           | Translate distance for scroll reveals (§3.2: ~24px) |
 
 ---
 
