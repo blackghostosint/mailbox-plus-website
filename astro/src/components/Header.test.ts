@@ -69,4 +69,22 @@ describe('Header.astro container rendering', () => {
     expect(result).toContain('Mailbox Rental');
     expect(result).toContain('Amazon Returns');
   });
+
+  it('places Pickup Hours in the utility bar and adds the Get Directions button', async () => {
+    const result = await container.renderToString(Header);
+
+    expect(result).toMatch(
+      /aria-label="Utility Navigation"[\s\S]*?href="\/pickup-hours\/"[\s\S]*?Pickup Hours/
+    );
+    expect(result).toContain(
+      `href="https://www.google.com/maps/dir/?api=1&amp;destination=${siteConfig.geo.lat},${siteConfig.geo.lng}"`
+    );
+    expect(result).toContain('Get Directions');
+    expect(result).toContain('data-header-action="quick"');
+  });
+
+  it('no longer paints any nav link in resting gold text', async () => {
+    const result = await container.renderToString(Header);
+    expect(result).not.toMatch(/class="[^"]*(?<!:)text-\[var\(--color-accent-gold\)\]/);
+  });
 });
