@@ -8,7 +8,9 @@
 //   hidden `reveal-pending` state. Anything the visitor can already see is never
 //   touched, so nothing flashes visible→hidden and no LCP candidate is hidden.
 // - IntersectionObserver reveals each element once (`once: true` semantics:
-//   unobserved after the first intersection). The animation is CSS-only
+//   unobserved after the first intersection). A rAF-throttled scroll sweep catches
+//   targets a jump scroll carried past the viewport without intersecting. The
+//   animation is CSS-only
 //   (opacity + transform, tokens --duration-reveal / --ease-out-quart /
 //   --motion-distance-reveal in global.css).
 // - prefers-reduced-motion: reduce → the module is a no-op (and global.css forces
@@ -32,6 +34,8 @@ const noop: Cleanup = () => {};
 export function initMotion(doc: Document = document): Cleanup {
   const win = doc.defaultView;
   if (!win || typeof win.IntersectionObserver !== 'function') return noop;
+  // Non-null alias for the hoisted detachSweep(), where `win` narrowing doesn't reach.
+  const view: Window = win;
   const reduced = win.matchMedia?.(REDUCED_QUERY);
   if (reduced?.matches) return noop;
 
@@ -67,6 +71,7 @@ export function initMotion(doc: Document = document): Cleanup {
       observer.unobserve(el);
       el.classList.remove(PENDING_CLASS);
     }
+    detachSweep();
   };
 
   const observer = new win.IntersectionObserver(
@@ -74,15 +79,42 @@ export function initMotion(doc: Document = document): Cleanup {
       for (const entry of entries) {
         if (entry.isIntersecting) reveal(entry.target as HTMLElement);
       }
+      if (pending.size === 0) detachSweep();
     },
     // Reveal once the block is ~40px into the viewport.
     { rootMargin: '0px 0px -40px 0px', threshold: 0 }
   );
 
+  // Safety net: a jump scroll (End key, anchor link, fast fling) can carry a target
+  // from below the viewport to above it without it ever intersecting, so the observer
+  // never fires. A rAF-throttled passive scroll sweep reveals anything whose top has
+  // passed the viewport bottom. Detached as soon as nothing is pending.
+  let frame = 0;
+  let sweeping = false;
+  const sweep = () => {
+    frame = 0;
+    const bottom = win.innerHeight || doc.documentElement.clientHeight;
+    const passed = Array.from(pending).filter((el) => el.getBoundingClientRect().top < bottom);
+    passed.forEach(reveal);
+    if (pending.size === 0) detachSweep();
+  };
+  const onScroll = () => {
+    if (!frame) frame = win.requestAnimationFrame(sweep);
+  };
+  function detachSweep() {
+    if (!sweeping) return;
+    sweeping = false;
+    view.removeEventListener('scroll', onScroll);
+    if (frame) view.cancelAnimationFrame(frame);
+    frame = 0;
+  }
+
   for (const el of below) {
     el.classList.add(PENDING_CLASS);
     observer.observe(el);
   }
+  win.addEventListener('scroll', onScroll, { passive: true });
+  sweeping = true;
 
   const onFocusIn = (event: Event) => {
     const target = event.target as Element | null;

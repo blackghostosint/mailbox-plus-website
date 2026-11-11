@@ -47,6 +47,18 @@ test.describe('Motion layer (scroll reveals + micro-interactions)', () => {
     await expect(page.locator('.reveal-pending')).toHaveCount(0);
   });
 
+  test('a jump past reveal targets (End key / anchor) never strands them hidden', async ({
+    page,
+  }) => {
+    await page.goto(SERVICE_PAGE);
+    await page.waitForFunction(() => document.documentElement.dataset.motion === 'ready');
+    expect(await page.locator('.reveal-pending').count()).toBeGreaterThan(0);
+    // Instant jump: targets in the middle go from below to above the viewport
+    // without ever intersecting, so IntersectionObserver alone never fires for them.
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await expect(page.locator('.reveal-pending')).toHaveCount(0);
+  });
+
   test('never hides anything that is visible in the first viewport', async ({ page }) => {
     await page.goto(SERVICE_PAGE);
     await page.waitForFunction(() => document.documentElement.dataset.motion === 'ready');

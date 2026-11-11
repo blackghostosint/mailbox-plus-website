@@ -127,6 +127,16 @@ describe('initMotion (scroll reveals, DESIGN_PHASE1_SPEC Task 3)', () => {
     expect(document.getElementById('grid')!.classList.contains(PENDING_CLASS)).toBe(false);
   });
 
+  it('reveals targets skipped by a jump scroll (never intersected)', () => {
+    initMotion(document);
+    // Simulate an End-key jump: the block is now above the viewport, IO never fired.
+    setTop(document.getElementById('below')!, -500);
+    setTop(document.getElementById('grid')!, -200);
+    window.dispatchEvent(new Event('scroll'));
+    vi.advanceTimersByTime(50);
+    expect(document.querySelectorAll(`.${PENDING_CLASS}`).length).toBe(0);
+  });
+
   it('reveals everything before printing', () => {
     initMotion(document);
     window.dispatchEvent(new Event('beforeprint'));
