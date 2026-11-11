@@ -133,23 +133,28 @@ const ogImageHeight = ogImage ? undefined : '630';
       // Scroll-reveal module (DESIGN_PHASE1_SPEC §4 Task 3): lazy chunk, fetched only
       // when the page has reveal targets and motion is allowed.
       loadMotion();
-    </script>
-    <!-- View Transitions analytics re-binding (DESIGN_PHASE1_SPEC §6):
-         SPA-style navigation can silently drop GA4/Meta Pixel pageviews.
-         Re-fire page_view on every client-side navigation. -->
-    <script is:inline>
-      // First-load guard: astro:page-load fires on BOTH initial load AND client-side
-      // navigations. initAnalytics() already sends a pageview on initial load via
-      // gtag('config', ..., { send_page_view: isNA }), so skip the first event.
+      
+      // View Transitions analytics re-binding (DESIGN_PHASE1_SPEC §6):
+      // SPA-style navigation can silently drop GA4/Meta Pixel pageviews.
+      // Re-fire page_view on every client-side navigation.
+      // This bundled module executes ONCE per full page load, so the listener
+      // is registered exactly once and module-scoped variables persist across
+      // client-side navigations.
       let firstLoad = true;
       
       document.addEventListener('astro:page-load', () => {
+        // First-load guard: astro:page-load fires on BOTH initial load AND client-side
+        // navigations. initAnalytics() already sends a pageview on initial load via
+        // gtag('config', ..., { send_page_view: isNA }), so skip the first event.
         if (firstLoad) {
           firstLoad = false;
           return;
         }
         
-        // Re-initialize analytics stubs if they were cleared
+        // Analytics loads lazily (3s/first-interaction), so on navigations before
+        // analytics loads, the handler must no-op silently. Edge case: if user navigates
+        // BEFORE analytics loads, that navigation produces no pageview — acceptable,
+        // same as current GA4 behavior where analytics isn't loaded yet.
         if (typeof window !== 'undefined' && window.gtag && window.fbq) {
           // Timezone-gated GA4 page_view (matches initAnalytics logic)
           const tz =
