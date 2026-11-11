@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const REPO_ROOT = path.resolve(__dirname, '..');
 
-const DOCS_PATH = path.join(REPO_ROOT, 'docs/DESIGN_SYSTEM.md');
+const DOCS_PATH = path.join(REPO_ROOT, 'docs/DESIGN_PHASE1_SPEC.md');
 const CSS_PATH = path.join(REPO_ROOT, 'astro/src/styles/global.css');
 const SRC_DIR = path.join(REPO_ROOT, 'astro/src');
 
@@ -316,13 +316,13 @@ export function checkDesignTokens(
   for (const [token, docVal] of docsTokens.entries()) {
     if (!cssTokens.has(token)) {
       errors.push(
-        `❌ Token ${token} defined in docs/DESIGN_SYSTEM.md but missing in astro/src/styles/global.css`
+        `❌ Token ${token} defined in docs/DESIGN_PHASE1_SPEC.md but missing in astro/src/styles/global.css`
       );
     } else {
       const cssVal = cssTokens.get(token)!;
       if (normalizeValue(docVal) !== normalizeValue(cssVal)) {
         errors.push(
-          `❌ Token mismatch for ${token}: expected ${docVal} (docs/DESIGN_SYSTEM.md), got ${cssVal} (astro/src/styles/global.css)`
+          `❌ Token mismatch for ${token}: expected ${docVal} (docs/DESIGN_PHASE1_SPEC.md), got ${cssVal} (astro/src/styles/global.css)`
         );
       }
     }
@@ -332,7 +332,7 @@ export function checkDesignTokens(
   for (const token of cssTokens.keys()) {
     if (!docsTokens.has(token)) {
       errors.push(
-        `❌ CSS variable ${token} defined in astro/src/styles/global.css but missing in docs/DESIGN_SYSTEM.md`
+        `❌ CSS variable ${token} defined in astro/src/styles/global.css but missing in docs/DESIGN_PHASE1_SPEC.md`
       );
     }
   }
@@ -346,7 +346,7 @@ export function checkDesignTokens(
 
       if (deprecatedTokens.has(token)) {
         errors.push(
-          `❌ Token ${token} referenced in template file(s) [${fileList}] is marked as deprecated or removed in docs/DESIGN_SYSTEM.md`
+          `❌ Token ${token} referenced in template file(s) [${fileList}] is marked as deprecated or removed in docs/DESIGN_PHASE1_SPEC.md`
         );
       } else if (!cssTokens.has(token)) {
         errors.push(
@@ -354,7 +354,7 @@ export function checkDesignTokens(
         );
       } else if (!docsTokens.has(token)) {
         errors.push(
-          `❌ Token ${token} referenced in template file(s) [${fileList}] is missing in docs/DESIGN_SYSTEM.md`
+          `❌ Token ${token} referenced in template file(s) [${fileList}] is missing in docs/DESIGN_PHASE1_SPEC.md`
         );
       }
     }
@@ -380,7 +380,7 @@ if (isMainModule(import.meta.url)) {
     process.exit(1);
   } else {
     console.log(
-      '✅ All design tokens in templates, docs/DESIGN_SYSTEM.md, and astro/src/styles/global.css are valid and synchronized.'
+      '✅ All design tokens in templates, docs/DESIGN_PHASE1_SPEC.md, and astro/src/styles/global.css are valid and synchronized.'
     );
     process.exit(0);
   }

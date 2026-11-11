@@ -1,3 +1,159 @@
+# Mailbox Plus Website Redesign — Phase 1 Spec (Homepage Slice + Global Foundation)
+
+> **For Hermes:** No code in this document is implemented. This spec is the plan. Execute via subagent-driven-development only after Frank approves, one task at a time, PSI-gated.
+
+**Goal:** Step the site from "fine, not memorable" to a modern, interactive, professional experience — homepage as the proof slice — without breaking the SEO machine (PSI mobile ≥90, LCP, CLS, crawlability).
+
+**Status:** ACTIVE — approved by Frank 2026-11-10. Single source of truth for design. Supersedes and replaces the June 2026 design vision / design system docs, removed in Task 0.
+
+**Date:** 2026-11-10
+
+---
+
+## 1. Non-Negotiable Constraints
+
+1. **PSI gate:** Lighthouse CI must pass on every PR. Mobile PSI ≥ 90 (currently 98 — a drop below 90 fails; 90–97 requires a comment justifying it). LCP ≤ 2.5s, CLS ≤ 0.05, TBT ≤ 200ms on the redesigned pages.
+2. **Static content first:** All copy, headings, links, and structure are server-rendered in the Astro markup. If the motion layer disappears, the page is still complete, indexable, and fast. Animations start from a _visible_ state in markup; JS applies the hidden initial state before first paint.
+3. **Animate only `transform` and `opacity`.** Never top/width/height/margin. Lint-enforced where practical.
+4. **`prefers-reduced-motion` kill switch** on every animation, verified per PR.
+5. **Motion JS budget:** ≤ 75KB gzipped total for the animation layer (GSAP + ScrollTrigger only). No Three.js in Phase 1.
+6. **SEO invariants:** URLs, slugs, canonicals, trailing slashes, meta, schema, internal links, and content text do not change in Phase 1. This is a presentation-layer rewrite. Verified by diffing rendered HTML text content pre/post.
+7. **Fact rules:** No new claims, stats, or copy invented. Existing copy may be reordered/re-weighted, not rewritten (fact-check gate applies to any wording change).
+
+## 2. Scope
+
+### Tier 1 (this phase)
+
+- Global foundation: tokens, typography, header, footer, shared component micro-interactions
+- Homepage full rebuild (bespoke hero + scroll choreography)
+- View Transitions (site-wide, router-level)
+
+### Explicitly out of scope (Phase 2+)
+
+- Service/carrier landing page bespoke redesigns (next ~8 pages)
+- Article/support page template upgrades beyond inherited foundation
+- Three.js/WebGL accent (revisit after Phase 1 PSI data)
+- Any URL/content/schema changes
+
+## 3. Design Direction
+
+Grounded in Frank's standing brand rules: navy-gradient heroes (no hero photos of buildings, no yellow in hero), gold `#F4C542` used sparingly and only on interactive states, light `#f7d46a` accent, two-tone CTAs, bold/sassy local voice.
+
+### 3.1 The hero rebuild (the 80/20)
+
+Current problems: flat centered navy void, generic H1, buried hook, CTA clipped at fold, no trust signals.
+
+- **Layout:** asymmetric two-column. Left: eyebrow (`CONCORD TOWNSHIP, OH — PACK & SHIP HUB`), H1 = **"Four carriers. One counter. No runaround."**, supporting line = current "Shipping shouldn't cost you an hour…" copy, dual CTAs (primary: "Drop Off a Return" / secondary: "Rent a Mailbox"), review badge (★ Google rating — pull real number, don't invent), carrier logos strip (UPS/FedEx/USPS/DHL monochrome).
+- **Right:** interactive visual — a **new SVG "counter scene"** built from scratch during Task 5 (inline markup, ~5–15KB, packages/label/scanner-beam motifs, brand-voice details, Al Packa cameo optional). GSAP choreography; static fallback with JS off; `aria-hidden`; never the LCP element. **Fallback rule:** if the scene threatens the PSI gate or motion budget during Task 5, ship the no-visual asymmetric hero (typography + badge + carrier logos) instead and revisit the scene in Phase 2. Photography is NOT an option for the hero (brand rule: navy-gradient heroes, no images).
+- **Review badge:** reuse the existing live-updated review section (`astro/src/components/ReviewSection.astro`) backed by `astro/src/data/reviews.json` — render the badge in the hero using that same source. No new review component; single source of truth stays as-is.
+- **Navy gradient stays**, with subtle depth (animated gradient shift, grain texture) instead of flat fill.
+- **CTA fully above the fold at 1440×900 and 390×844.**
+
+### 3.2 Motion language (site-wide)
+
+- **Micro:** button press/expand states, card lifts, underline sweeps on nav/footer links, staggered fades on grids. CSS-first; GSAP only where timing chains need it.
+- **Scroll:** IntersectionObserver-driven reveals (`once: true`), translate+fade, ~24px travel, 500–700ms, custom ease curve defined as a token (`--ease-out-quart` family).
+- **Page transitions:** Astro `<ClientRouter />` View Transitions — morph on header, fade/slide on content. No scroll-jacking anywhere.
+- **Hero sequence:** staggered entrance on load (eyebrow → H1 → sub → CTAs → visual), ≤ 1.2s total, never gating LCP.
+- **Homepage scroll narrative:** 3–4 sections with pinned/parallax-lite choreography max — trust section, services trio, locations/hours. Pinned sections limited to one.
+
+### 3.3 Typography
+
+- Display: one personality face for headlines (candidates: Fraunces, Cabinet Grotesk, Bricolage Grotesque — decide in build with rendered samples; variable font, `font-display: swap`, subset to used weights).
+- Body: keep DM Sans (already loaded) for body/UI.
+- Type scale: fluid `clamp()` based, defined as tokens.
+
+### 3.4 Palette fixes
+
+- Fix rust-on-navy contrast failure (WCAG AA minimum on all text).
+- Kill the yellow "Amazon Returns" nav link; give it a pill badge treatment if it needs emphasis.
+- Gold `#F4C542` reserved for CTA hover/focus and primary button only.
+
+## 4. Implementation Tasks (sequential, PSI-gated)
+
+> Each task = one branch + one PR + one review. PSI/Playwright/Vitest gates run in CI before merge.
+
+### Task 0 — Remove superseded design docs
+
+- Delete: docs/DESIGN_VISION.md, docs/DESIGN_SYSTEM.md, docs/sales-page-sb7-rewrite.md, research/COMPETITOR_ANALYSIS_MAILBOX_PLUS.md (Frank confirmed; keep the decisions/ legacy-migration learnings doc).
+- Add this spec at `docs/DESIGN_PHASE1_SPEC.md` as the new design source of truth.
+- Grep repo for references to the removed files and update (`AGENTS.md`, README, skills pointing at them).
+
+### Task 1 — Design tokens + fonts
+
+- Files: `astro/src/styles/global.css` (existing token file), font loading in the global head.
+- Add: ease curve tokens, fluid type scale, contrast-corrected palette values, motion duration tokens.
+- Verify: `npm run build` passes; fonts subset; no FOUC (`font-display: swap` + size-adjust fallbacks); tokens-only diff, no visual change yet.
+
+### Task 2 — Header/nav/footer foundation
+
+- Files: `astro/src/components/` header/footer components (locate exact names during build), utility bar.
+- Changes: nav regroup (Track Package → header quick-action; Pickup Hours → utility bar; Amazon Returns pill), Get Directions button, gold reserved for interactive states.
+- Verify: all 72 pages render with new chrome; Playwright nav tests pass; mobile menu works; PSI unchanged.
+
+### Task 3 — Shared component micro-interactions
+
+- Buttons, cards, links: CSS-only states per §3.2. One small shared JS module for scroll reveals (planned: astro/src/scripts/motion.ts), lazy-loaded, ~3KB.
+- Verify: `prefers-reduced-motion` disables all; zero-CLS (Playwright CLS assertion); motion budget check.
+
+### Task 4 — View Transitions
+
+- Add Astro `<ClientRouter />`; define transition presets; verify form pages and the track-package flow don't break.
+- Verify: Playwright E2E suite green; nav still fires GA4 pageviews (critical — confirm events on SPA-style navigation or re-enable reporting on `astro:page-load`).
+
+### Task 5 — Homepage hero rebuild
+
+- Files: homepage `.astro` + new hero component + static SVG scene.
+- LCP element: static, no JS gate, no entrance animation on the LCP node itself.
+- Verify: PSI mobile ≥90 on homepage; hero visible without JS; contrast audit passes; CTA at fold on both breakpoints.
+
+### Task 6 — Homepage scroll narrative
+
+- 3–4 sections per §3.2; one pinned section max; all reveals `once: true`.
+- Verify: PSI mobile ≥90; CLS ≤ 0.05; reduced-motion = fully static readable page; HTML text-content diff shows zero content change.
+
+### Task 7 — Final audit + docs
+
+- Full Lighthouse run on 10 representative pages; aXe accessibility pass; motion budget report; update README/AGENTS.md pointers to the new spec.
+
+## 5. Validation Summary
+
+| Check             | Tool                                         | Gate                   |
+| ----------------- | -------------------------------------------- | ---------------------- |
+| Mobile PSI        | Lighthouse CI                                | ≥90, fail <90          |
+| CLS / LCP / TBT   | Lighthouse CI                                | ≤0.05 / ≤2.5s / ≤200ms |
+| Content unchanged | rendered-text diff script                    | zero text deltas       |
+| SEO invariants    | existing scripts + redirect/canonical checks | pass                   |
+| Reduced motion    | Playwright emulation                         | animations disabled    |
+| No-JS usability   | JS disabled snapshot                         | full content visible   |
+| Accessibility     | aXe / Playwright                             | no new violations      |
+
+## 6. Risks & Tradeoffs
+
+- **GA4/Meta Pixel vs View Transitions:** SPA-style navigation can silently drop analytics events. Mitigation: re-bind on `astro:page-load`, verify with tag debugger before merge. This is the #1 silent-failure risk in the phase.
+- **Font swap can shift PSI:** mitigated with subsetting + fallback metrics tuning; if PSI regresses, ship system-font stack and revisit.
+- **PSI 98 → 90 headroom:** we're spending 8 points of margin. Homepage-only bespoke keeps the blast radius contained; article pages inherit almost nothing heavy.
+- **Doc removal:** deleting the old design docs is irreversible via git history only; that's acceptable — they're superseded, and the June 2026 vision doc never shipped.
+
+## 7. Open Questions for Frank
+
+1. ~~Real Google review count/rating to display~~ — **Resolved:** the site already has a live-updated review badge (`astro/src/components/ReviewSection.astro` + `astro/src/data/reviews.json`); the hero reuses that same source, no new data.
+2. ~~Hero visual~~ — **Resolved:** build the new SVG counter scene in Task 5, with the no-visual asymmetric hero as the documented fallback if PSI/budget fights it (see §3.1).
+3. ~~Display font~~ — **Resolved:** Cabinet Grotesk (Fontshare, variable) for display/headlines; DM Sans stays for body/UI. Sub-set to used weights, `font-display: swap` + tuned fallbacks. Fallback audition if samples feel flat in Task 1: Bricolage Grotesque.
+4. ~~Doc-removal list~~ — **Confirmed by Frank:** delete the four superseded design/sales/competitor docs listed in Task 0; keep the decisions/ legacy-migration learnings doc. This spec (promoted into docs/ at Task 0) becomes the single design source of truth.
+
+## 8. Cost/Time Estimate (from prior conversation)
+
+- ~$300–500 Nous subscription burn total for the full phased redesign; Phase 1 alone ≈ $100–150.
+- Phase 1: 1–2 weeks of agent sessions + Frank review time on 2–3 PR checkpoints.
+- Flip condition: if Task 5 (hero) takes more than ~1 week of sessions, the "awwwards" ambition on remaining pages comes down a tier.
+
+---
+
+## Appendix A — Design Token Reference (verbatim, extracted from the superseded design-system doc removed in Task 0)
+
+> This appendix is parsed by `scripts/check-design-tokens.ts` (CI gate). Token tables here must stay in sync with `astro/src/styles/global.css`. Do not edit tokens without owner approval — brand colors are a business decision.
+
 # Mailbox Plus Design System — Warm/Gold Aesthetic
 
 **Date:** June 24, 2026

@@ -109,7 +109,7 @@ tests/e2e/                   # Playwright end-to-end tests
 
 ## Design System
 
-See [docs/DESIGN_SYSTEM.md](./docs/DESIGN_SYSTEM.md) for the full design token reference and [docs/DESIGN_VISION.md](./docs/DESIGN_VISION.md) for the design rationale.
+See [docs/DESIGN_PHASE1_SPEC.md](./docs/DESIGN_PHASE1_SPEC.md) for the design spec, rationale, and full token reference (Appendix A).
 
 ### Key Principles
 
