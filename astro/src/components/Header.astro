@@ -1,36 +1,56 @@
 ---
-// Header.astro — matches the production React Header.tsx
+// Header.astro — utility bar + main header (DESIGN_PHASE1_SPEC §4 Task 2).
+// Nav regroup: Track Your Package → header quick action; Pickup Hours → utility bar;
+// Amazon Returns → pill badge. Every item still appears in the mobile drawer.
 import { siteConfig } from '../config/siteConfig';
 import OutboundLink from './ui/OutboundLink.astro';
-import HeaderNav from './HeaderNav';
+import HeaderNav, { type NavItem } from './HeaderNav';
 const phoneDigits = siteConfig.contact.phone.replace(/[^0-9]/g, '');
-const navigation = [
+// Same Google Maps directions destination already used on index, services, contact-us, footer.
+const directionsHref = `https://www.google.com/maps/dir/?api=1&destination=${siteConfig.geo.lat},${siteConfig.geo.lng}`;
+const navigation: NavItem[] = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services/' },
-  { name: 'Track Your Package', href: '/tracking/' },
-  { name: 'Pickup Hours', href: '/pickup-hours/' },
+  { name: 'Track Your Package', href: '/tracking/', placement: 'quick' },
+  { name: 'Pickup Hours', href: '/pickup-hours/', placement: 'utility' },
   { name: 'Contact', href: '/contact-us/' },
   { name: 'Mailbox Rental', href: '/private-mailbox-rental/' },
-  { name: 'Amazon Returns', href: '/amazon-counter/', gold: true },
+  { name: 'Amazon Returns', href: '/amazon-counter/', badge: true },
 ];
+const utilityItems = navigation.filter((item) => item.placement === 'utility');
+// Gold only on hover/focus (spec §3.4).
+const utilityLinkClass =
+  'rounded-sm hover:text-[var(--color-accent-gold-light)] transition-colors focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]';
 ---
 
 <header class="sticky top-0 z-50 bg-[var(--color-primary)] shadow-md">
-  <!-- Top Bar -->
+  <!-- Utility Bar -->
   <div class="border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-10 text-sm">
-        <div class="flex items-center space-x-6">
-          <div class="flex items-center space-x-2 text-white/90">
-            <svg class="w-4 h-4" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
-            <a href={`tel:${phoneDigits}`} class="hover:text-[var(--color-accent-gold-light)] transition-colors">{siteConfig.contact.phone}</a>
+      <div class="flex items-center justify-between gap-2 sm:gap-3 h-10 text-sm lg:text-base sm:whitespace-nowrap">
+        <div class="flex items-center gap-6">
+          <div class="flex items-center gap-2 text-white/90 whitespace-nowrap">
+            <svg class="hidden sm:block w-4 h-4" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            <a href={`tel:${phoneDigits}`} class={utilityLinkClass}>{siteConfig.contact.phone}</a>
           </div>
-          <div class="hidden sm:flex items-center space-x-2 text-white/90">
+          <div class="hidden sm:flex items-center gap-2 text-white/90">
             <svg class="w-4 h-4" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-            <OutboundLink href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH" class="hover:text-[var(--color-accent-gold-light)] transition-colors">Concord Township, OH</OutboundLink>
+            <OutboundLink href="https://maps.google.com/?q=Mailbox+Plus+Concord+Township+OH" class={utilityLinkClass}>Concord Township, OH</OutboundLink>
           </div>
         </div>
-        <div class="text-white/90">Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
+        <div class="flex items-center gap-5 text-white/90">
+          <div>Mon-Fri: 9AM-6PM | Sat: 9AM-2PM</div>
+          {utilityItems.length > 0 && (
+            <nav class="hidden lg:flex items-center gap-4" aria-label="Utility Navigation">
+              {utilityItems.map((item) => (
+                <a href={item.href} class={`inline-flex items-center gap-1.5 font-semibold text-white ${utilityLinkClass}`}>
+                  <svg class="w-4 h-4" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  {item.name}
+                </a>
+              ))}
+            </nav>
+          )}
+        </div>
       </div>
     </div>
   </div>
@@ -38,12 +58,11 @@ const navigation = [
   <!-- Main Header -->
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Hydrated React Navigation Island -->
-    <HeaderNav client:load navigation={navigation}>
+    <HeaderNav client:load navigation={navigation} directionsHref={directionsHref}>
       <!-- Logo -->
-      <a href="/" class="flex items-center space-x-2">
-        <img src="/logo.webp" alt="Mailbox Plus - Concord Township, OH" width="256" height="80" class="h-12 w-auto object-contain brightness-0 invert" />
+      <a href="/" class="flex items-center space-x-2 shrink-0">
+        <img src="/logo.webp" alt="Mailbox Plus - Concord Township, OH" width="256" height="80" class="h-9 sm:h-12 xl:h-10 w-auto object-contain brightness-0 invert" />
       </a>
     </HeaderNav>
   </div>
 </header>
-

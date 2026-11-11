@@ -8,12 +8,92 @@ import HeaderNav from '../components/HeaderNav';
 const sampleNavigation = [
   { name: 'Home', href: '/' },
   { name: 'Services', href: '/services/' },
-  { name: 'Track Your Package', href: '/tracking/' },
-  { name: 'Pickup Hours', href: '/pickup-hours/' },
+  { name: 'Track Your Package', href: '/tracking/', placement: 'quick' as const },
+  { name: 'Pickup Hours', href: '/pickup-hours/', placement: 'utility' as const },
   { name: 'Contact', href: '/contact-us/' },
   { name: 'Mailbox Rental', href: '/private-mailbox-rental/' },
-  { name: 'Amazon Returns', href: '/amazon-counter/', gold: true },
+  { name: 'Amazon Returns', href: '/amazon-counter/', badge: true },
 ];
+const directionsHref = 'https://www.google.com/maps/dir/?api=1&destination=41.66497,-81.24164';
+
+describe('HeaderNav nav regroup (DESIGN_PHASE1_SPEC Task 2)', () => {
+  it('keeps quick/utility items out of the desktop nav row', () => {
+    render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
+    const mainNav = screen.getByRole('navigation', { name: 'Main Navigation' });
+    const hrefs = Array.from(mainNav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual([
+      '/',
+      '/services/',
+      '/contact-us/',
+      '/private-mailbox-rental/',
+      '/amazon-counter/',
+    ]);
+  });
+
+  it('renders Track Your Package as a header quick action with an accessible name', () => {
+    render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
+    const quick = document.querySelector('[data-header-action="quick"]')!;
+    expect(quick.getAttribute('href')).toBe('/tracking/');
+    expect(quick.textContent).toContain('Track Your Package');
+  });
+
+  it('renders Get Directions as an external primary button', () => {
+    render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
+    const dir = document.querySelector('[data-header-action="directions"]')!;
+    expect(dir.getAttribute('href')).toBe(directionsHref);
+    expect(dir.getAttribute('target')).toBe('_blank');
+    expect(dir.getAttribute('rel')).toBe('noopener noreferrer');
+    expect(dir.textContent).toContain('Get Directions');
+    expect(dir.className).toContain('bg-[var(--color-accent-gold)]');
+  });
+
+  it('omits Get Directions when no directionsHref is provided', () => {
+    render(<HeaderNav navigation={sampleNavigation} />);
+    expect(document.querySelector('[data-header-action="directions"]')).toBeNull();
+  });
+
+  it('gives Amazon Returns a pill badge instead of a resting gold text colour', () => {
+    render(<HeaderNav navigation={sampleNavigation} />);
+    const badges = Array.from(document.querySelectorAll('[data-nav-badge="true"]'));
+    expect(badges.length).toBe(2); // desktop + mobile drawer
+    for (const badge of badges) {
+      expect(badge.getAttribute('href')).toBe('/amazon-counter/');
+      expect(badge.className).toContain('rounded-full');
+      expect(badge.className).not.toMatch(/(^|\s)text-\[var\(--color-accent-gold\)\]/);
+    }
+  });
+
+  it('uses gold only on hover/focus states and the single primary button', () => {
+    render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
+    const restingGold = Array.from(document.querySelectorAll('a, button')).filter((el) =>
+      el.className
+        .split(/\s+/)
+        .some((cls) => /^(text|bg|border)-\[var\(--color-accent-gold(-light)?\)\]$/.test(cls))
+    );
+    expect(restingGold.map((el) => el.getAttribute('data-header-action'))).toEqual(['directions']);
+  });
+
+  it('lists every nav item in the mobile drawer in original order', () => {
+    render(<HeaderNav navigation={sampleNavigation} directionsHref={directionsHref} />);
+    const mobileNav = screen.getByRole('navigation', { name: 'Mobile Navigation' });
+    const hrefs = Array.from(mobileNav.querySelectorAll('a')).map((a) => a.getAttribute('href'));
+    expect(hrefs).toEqual(sampleNavigation.map((item) => item.href));
+  });
+
+  it('animates the drawer with opacity/transform only and hides it from AT when closed', () => {
+    render(<HeaderNav navigation={sampleNavigation} />);
+    const menu = document.getElementById('mobile-menu')!;
+    expect(menu.style.maxHeight).toBe('');
+    expect(menu.className).toContain('invisible');
+    expect(menu.className).toContain('transition-[opacity,transform,visibility]');
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+    expect(menu.className).not.toContain('invisible');
+    // visibility must flip instantly on open so focus can land on the first link
+    expect(menu.className).toContain('transition-[opacity,transform]');
+    expect(menu.className).not.toContain('visibility]');
+    expect(menu.style.transform).toBe('translateY(0)');
+  });
+});
 
 describe('HeaderNav mobile drawer controller & keyboard state machine', () => {
   let mediaQueryListeners: ((e: MediaQueryListEvent) => void)[] = [];
@@ -163,7 +243,7 @@ describe('HeaderNav mobile drawer controller & keyboard state machine', () => {
     expect(document.activeElement).toBe(btn);
   });
 
-  it('automatically closes menu and restores focus to #mobile-menu-btn on screen resize to desktop (>= 768px)', () => {
+  it('automatically closes menu and restores focus to #mobile-menu-btn on screen resize to desktop (>= 1280px)', () => {
     render(<HeaderNav navigation={sampleNavigation} />);
 
     const btn = screen.getByRole('button', { name: 'Open menu' });
