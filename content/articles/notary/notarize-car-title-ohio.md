@@ -53,7 +53,7 @@ author: 'Reviewed by Frank Schwarz, COO'
 
 You found a buyer. You agreed on a price. The car is theirs the moment you hand over the keys — except on paper, it isn't. In Ohio, the sale isn't finished until the title moves, and the title can't move until the seller's signature on the back of it is notarized. Skip that step, and the buyer walks into the title office and walks out with your car still legally yours.
 
-Ohio's requirement is one line long: the seller completes the assignment of ownership on the back of the title and signs it in front of a notary. Then the buyer takes that signed, notarized title to a Clerk of Courts title office and finishes the transfer. One stamp stands between a handshake and a done deal — and it's the step that trips up more private sales than any other.
+Ohio's requirement is one line long: the seller completes the assignment of ownership on the back of the title and signs it in front of a notary. Then the buyer takes that signed, notarized title to a Clerk of Courts title office and finishes the transfer. One stamp stands between a handshake and a done deal — and it's the step most likely to hold the sale up.
 
 That's where we come in. Mailbox Plus in Concord Township keeps a certified notary on staff during all business hours, walk-in, no appointment — the same [walk-in notary counter](/home-business/notary-services/) we describe in our [guide to notary services in Ohio](/articles/ohio-notary-services-guide/).
 
@@ -67,7 +67,7 @@ And there's a trap in the wording people miss: the notarization applies to priva
 
 ## What It Actually Feels Like When You Get It Wrong
 
-It feels like a wasted trip that costs someone real money — and worse, like standing in front of your buyer as the amateur. You've got the title in hand, that thin sheet of cardstock the state won't let you laminate or copy, and your pen has already been across the signature line once. The buyer sits in a title office chair with a folder full of paperwork, and the clerk slides the title back across the counter: the assignment is signed but not notarized, or one of the owners listed on the front never signed at all. Everyone named on that title has to complete the assignment — both spouses, the co-owner, everybody. You sold the car in good faith. The paper says otherwise, and until that seal bites into the cardstock, the liability rides with your name, not the person driving it.
+It feels like a wasted trip that costs someone real money — and worse, like standing in front of your buyer as the amateur. You've got the title in hand — the original cardstock, because the title office won't take a photocopy — and your pen has already been across the signature line once. The buyer sits in a title office chair with a folder full of paperwork, and the clerk slides the title back across the counter: the assignment is signed but not notarized, or one of the owners listed on the front never signed at all. Everyone named on that title has to complete the assignment — both spouses, the co-owner, everybody. You sold the car in good faith. The paper says otherwise, and until that seal bites into the cardstock, the title still carries your name, not the buyer's.
 
 Or it happens earlier, on the phone: the seller spends an afternoon calling banks that only notarize for their own customers, libraries whose notary is off today, offices that want an appointment days out — while the buyer waits, and the transfer clock keeps running. Title transfers have to happen within 30 days of the date of sale, or a late fee gets assessed. The person who usually eats that fee is the buyer, and the buyer is standing in your driveway holding cash.
 
@@ -79,11 +79,11 @@ So the friction isn't the law. It's availability. Notaries work at banks, librar
 
 ## What We See Every Day at the Counter
 
-At Mailbox Plus, car-title assignments cross our counter constantly — a seller sets the folder down, the keys land next to it, and it's just paper, a stamp pad, and someone checking their ID against the name on the front. You hear the seal press down, that dry crunch into the paper, and the whole deal stops being a handshake.
+Here's how this one goes at Mailbox Plus: a seller sets the folder down, the keys land next to it, and it's just paper, a stamp pad, and someone checking their ID against the name on the front. You hear the seal press down, that dry crunch into the paper, and the whole deal stops being a handshake.
 
 ![The counter and mailbox wall at Mailbox Plus in Concord Township, where title assignments get signed and stamped without an appointment](https://pub-21518ce3034449a3a7b5a0b89551f710.r2.dev/articles/store-library/counter/certified-mail-counter.webp)
 
-It's one of the most common documents in a private-sale-heavy area like Lake County, and the stamp never depends on which employee happens to be commissioned that shift: a certified notary is on staff during all business hours. No account with us, no appointment, no "come back Thursday."
+Title transfers are a regular errand in a private-sale-heavy county like Lake County, and the stamp never depends on which employee happens to be commissioned that shift: a certified notary is on staff during all business hours. No account with us, no appointment, no "come back Thursday."
 
 And the near-misses? We catch them at the counter, because most people mess this up four ways:
 
@@ -106,10 +106,10 @@ Out-of-state title? You'll also need an $8.00 out-of-state VIN inspection — av
 
 ## What a Skipped Notarization Actually Costs
 
-- **A rejected transfer.** The title office sends the buyer away, and the car stays in your name — which means liability questions stay in your name too, on a car you don't have anymore.
+- **A rejected transfer.** The title office sends the buyer away, and the car stays in your name — and so do the questions that come with it, on a car you don't have anymore.
 - **The late fee.** Past 30 days from the date of sale, a fee gets assessed. It's small compared to what it costs in goodwill when your buyer pays it for you.
 - **The do-over chain.** A crossed-out line or a missing owner's signature can mean tracking down corrected paperwork after the car is already gone — the single most annoying version of this errand.
-- **The errand spiral.** A $5 stamp deferred becomes three phone calls, one closed office, and a Saturday spent chasing it. Next to that, walking into a counter that keeps a notary on staff is the cheap path by every measure.
+- **The errand spiral.** A $5 stamp deferred becomes three phone calls, one closed office, and a Saturday spent chasing it. Next to that, walking into a counter that keeps a notary on staff is the simple path.
 
 ## Your Driveway After the Change
 
