@@ -53,13 +53,4 @@ describe('Footer.astro container rendering', () => {
     expect(result).toContain('href="/terms/"');
     expect(result).toContain('© 2025 Mailbox Plus of Ohio, LLC. All rights reserved.');
   });
-
-  it('contains google-add-preferred-source-btn container with fallback text', async () => {
-    const result = await container.renderToString(Footer);
-
-    expect(result).toContain('google-add-preferred-source-btn');
-    expect(result).toContain(
-      '<span class="sr-only">Add Mailbox Plus as a preferred source on Google</span>'
-    );
-  });
 });

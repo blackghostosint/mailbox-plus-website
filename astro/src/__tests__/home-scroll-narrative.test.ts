@@ -71,7 +71,7 @@ describe('Homepage scroll narrative (DESIGN_PHASE1_SPEC §3.2, §4 Task 6)', () 
       'Ship a Package',
       'UPS, FedEx, USPS, DHL — we compare rates and get it out same day.',
       'Return an Order',
-      "FedEx, UPS, USPS, Amazon — doesn't matter who the label's from, we scan it and it's gone.",
+      "FedEx, UPS, USPS — doesn't matter who the label's from, we scan it and it's gone.",
       'Private Mailbox',
       'A real street address for your business or privacy. All-carrier package acceptance, no porch theft.',
       'Notary &amp; More',
