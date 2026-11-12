@@ -95,15 +95,22 @@ export async function initReviewSection(): Promise<void> {
     const countEl = document.getElementById('reviews-count');
     const ratingEl = document.getElementById('reviews-rating');
     const ratingSrEl = document.getElementById('reviews-rating-sr');
+    const heroCountEl = document.getElementById('hero-reviews-count');
+    const heroRatingEl = document.getElementById('hero-reviews-rating');
+    const heroRatingSrEl = document.getElementById('hero-reviews-rating-sr');
 
-    if (countEl && typeof data.userRatingCount === 'number') {
-      countEl.textContent = String(data.userRatingCount);
+    if (typeof data.userRatingCount === 'number') {
+      const countText = String(data.userRatingCount);
+      if (countEl) countEl.textContent = countText;
+      if (heroCountEl) heroCountEl.textContent = countText;
     }
-    if (ratingEl && typeof data.rating === 'number') {
-      ratingEl.textContent = String(data.rating);
-    }
-    if (ratingSrEl && typeof data.rating === 'number') {
-      ratingSrEl.textContent = `${data.rating} out of 5 stars`;
+    if (typeof data.rating === 'number') {
+      const ratingText = String(data.rating);
+      const srText = `${data.rating} out of 5 stars`;
+      if (ratingEl) ratingEl.textContent = ratingText;
+      if (heroRatingEl) heroRatingEl.textContent = ratingText;
+      if (ratingSrEl) ratingSrEl.textContent = srText;
+      if (heroRatingSrEl) heroRatingSrEl.textContent = srText;
     }
 
     const listEl = document.getElementById('reviews-list');

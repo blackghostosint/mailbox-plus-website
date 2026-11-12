@@ -14,13 +14,47 @@
 import reviewsData from '../data/reviews.json';
 import OutboundLink from './ui/OutboundLink.astro';
 
+export interface Props {
+  /** 'section' = full bottom-of-page reviews band (default); 'badge' = compact hero trust pill (DESIGN_PHASE1_SPEC §3.1). */
+  variant?: 'section' | 'badge';
+}
+
+const { variant = 'section' } = Astro.props;
 const { rating, userRatingCount, reviews } = reviewsData;
 const GPLACE_URL = 'https://www.google.com/maps/search/?api=1&query=Mailbox+Plus&query_place_id=ChIJdYHlz2-jMYgRjI1Rfhq1Pc8';
 const shownReviews = (reviews || []).slice(0, 3);
 const starColor = 'fill-yellow-400 text-yellow-400';
 const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
+const heroStarColor = 'fill-[var(--color-accent-gold)] text-[var(--color-accent-gold)]';
+const heroStarDim = 'fill-white/25 text-white/25';
 ---
 
+{variant === 'badge' ? (
+  <OutboundLink
+    href={GPLACE_URL}
+    class="motion-press inline-flex w-fit items-center gap-2.5 rounded-full bg-[var(--color-primary-deep)]/70 border border-white/25 px-4 py-1.5 text-sm sm:text-base text-white hover:border-[var(--color-accent-gold-light)] hover:bg-[var(--color-primary-deep)]/90 focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent-gold)]"
+  >
+    <span class="flex items-center gap-0.5" aria-hidden="true">
+      {[...Array(5)].map((_, i) => (
+        <svg
+          class={`w-4 h-4 ${i < Math.round(rating) ? heroStarColor : heroStarDim}`}
+          aria-hidden="true"
+          focusable="false"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+        >
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+        </svg>
+      ))}
+    </span>
+    <span class="sr-only" id="hero-reviews-rating-sr">{rating} out of 5 stars</span>
+    <span class="font-bold text-white"><span id="hero-reviews-rating">{rating}</span>★</span>
+    <span class="text-white/50" aria-hidden="true">·</span>
+    <span class="font-medium text-white/95">
+      <span id="hero-reviews-count">{userRatingCount}</span> verified Google reviews
+    </span>
+  </OutboundLink>
+) : (
 <section id="reviews-section" class="bg-[var(--color-bg-secondary)] border-y border-[var(--color-border)] py-16 lg:py-20" aria-label="Google reviews">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header / aggregate -->
@@ -83,6 +117,7 @@ const starDim = 'fill-[var(--color-border)] text-[var(--color-border)]';
     </div>
   </div>
 </section>
+)}
 
 <script>
   import { initReviewSection } from '../lib/reviews';
