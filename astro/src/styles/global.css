@@ -356,6 +356,27 @@
     animation-delay: 320ms;
   }
 
+  /* Homepage scroll narrative — single pinned stage + SVG layer origins (DESIGN_PHASE1_SPEC §3.2, Task 6).
+     Desktop sticky stage uses static CSS geometry (zero JS spacers, zero CLS). */
+  .home-svg-layer {
+    transform-box: fill-box;
+    transform-origin: center;
+  }
+
+  .home-pin-progress {
+    transform-origin: left center;
+  }
+
+  @media (min-width: 1024px) and (prefers-reduced-motion: no-preference) {
+    .home-pin-track {
+      min-height: 134vh;
+    }
+    .home-pin-stage {
+      position: sticky;
+      top: 6.5rem;
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
@@ -410,12 +431,23 @@
       transform: translateX(-50%) !important;
     }
 
-    /* Phase 1 Task 3 motion layer: reveals render fully visible and static,
-       press/lift/underline states do not move. motion.ts is also a no-op here. */
+    /* Phase 1 Task 3 & Task 6 motion layer: reveals + homepage scroll layers render
+       fully visible and static; press/lift/underline states do not move. */
     .reveal-pending,
-    [data-reveal-stagger].reveal-pending > * {
+    [data-reveal-stagger].reveal-pending > *,
+    .home-pin-progress,
+    .home-svg-layer,
+    [data-parallax-layer] {
       opacity: 1 !important;
       transform: none !important;
+    }
+
+    .home-pin-track {
+      min-height: auto !important;
+    }
+    .home-pin-stage {
+      position: relative !important;
+      top: auto !important;
     }
 
     .motion-press:hover,
@@ -557,6 +589,26 @@
   transform-origin: left center;
 }
 
+/* Homepage service card accent rule — scaleX + opacity reveal on hover/focus. */
+.home-card-accent {
+  transform: scaleX(0.28);
+  transform-origin: left center;
+  opacity: 0.72;
+  transition:
+    transform var(--duration-base) var(--ease-out-quart),
+    opacity var(--duration-base) var(--ease-out-quart);
+}
+.motion-lift:focus-within .home-card-accent {
+  transform: scaleX(1);
+  opacity: 1;
+}
+@media (hover: hover) {
+  .motion-lift:hover .home-card-accent {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
 /* Scroll reveals (driven by astro/src/scripts/motion.ts). Markup ships visible;
    motion.ts adds .reveal-pending only to targets that start below the viewport,
    then swaps it for .reveal-in when they intersect (once). [data-reveal] fades
@@ -607,6 +659,7 @@
   .motion-lift,
   .motion-lift::after,
   .motion-underline::after,
+  .home-card-accent,
   .reveal-in,
   [data-reveal-stagger].reveal-in > * {
     transition-duration: 0.01ms !important;
@@ -617,6 +670,12 @@
   [data-reveal-stagger].reveal-pending > *,
   .hero-ambient-gradient,
   .hero-enter,
+  .home-card-accent,
+  .motion-lift:hover .home-card-accent,
+  .motion-lift:focus-within .home-card-accent,
+  .home-pin-progress,
+  .home-svg-layer,
+  [data-parallax-layer],
   .motion-press:hover,
   .motion-press:active,
   .motion-lift:hover,
@@ -624,6 +683,14 @@
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
+  }
+
+  .home-pin-track {
+    min-height: auto !important;
+  }
+  .home-pin-stage {
+    position: relative !important;
+    top: auto !important;
   }
 
   .motion-underline::after {

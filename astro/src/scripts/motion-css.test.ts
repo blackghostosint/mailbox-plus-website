@@ -59,6 +59,7 @@ describe('motion layer CSS (global.css)', () => {
       '.motion-press',
       '.motion-lift',
       '.motion-underline',
+      '.home-card-accent',
       '.reveal-pending',
       '.reveal-in',
     ]) {

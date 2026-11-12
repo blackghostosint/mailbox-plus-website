@@ -1,0 +1,264 @@
+---
+// LocationScene.astro — bespoke inline SVG "Gristmill Village & Lake County Hub"
+// (DESIGN_PHASE1_SPEC §3.2, §4 Task 6).
+// Pure decorative vector artwork (aria-hidden, zero <text>/<title>/<image> nodes -> zero text deltas).
+// Token-native design-token fills/strokes; static resting composition with JS off or reduced motion;
+// transform/opacity scroll-scrub hooks driven by astro/src/scripts/home-scroll.ts.
+---
+
+<div
+  id="visit-location-scene"
+  data-location-scene
+  aria-hidden="true"
+  class="relative select-none pointer-events-none"
+>
+  <svg
+    viewBox="0 0 520 400"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    aria-hidden="true"
+    focusable="false"
+    class="w-full h-auto"
+  >
+    <defs>
+      <linearGradient id="ls-map-bg" x1="24" y1="16" x2="496" y2="384" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="var(--color-primary-deeper)" />
+        <stop offset="100%" stop-color="var(--color-primary-deep)" />
+      </linearGradient>
+      <linearGradient id="ls-lake-wash" x1="16" y1="16" x2="340" y2="128" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="var(--color-primary-light)" stop-opacity="0.34" />
+        <stop offset="100%" stop-color="var(--color-primary)" stop-opacity="0.06" />
+      </linearGradient>
+      <radialGradient id="ls-hub-glow" cx="268" cy="172" r="92" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="var(--color-accent-gold-light)" stop-opacity="0.42" />
+        <stop offset="55%" stop-color="var(--color-accent-gold)" stop-opacity="0.14" />
+        <stop offset="100%" stop-color="var(--color-accent-gold)" stop-opacity="0" />
+      </radialGradient>
+      <linearGradient id="ls-card-surface" x1="64" y1="252" x2="456" y2="362" gradientUnits="userSpaceOnUse">
+        <stop offset="0%" stop-color="var(--color-bg-primary)" />
+        <stop offset="100%" stop-color="var(--color-bg-secondary)" />
+      </linearGradient>
+      <clipPath id="ls-frame-clip">
+        <rect x="16" y="16" width="488" height="368" rx="26" />
+      </clipPath>
+    </defs>
+
+    <g clip-path="url(#ls-frame-clip)">
+      <!-- Deep navy cartographic base -->
+      <rect x="16" y="16" width="488" height="368" rx="26" fill="url(#ls-map-bg)" />
+
+      <!-- Stylized Lake Erie shoreline sweep (northwest edge of Lake County) -->
+      <path
+        d="M16 16H396C352 46 298 64 236 78C164 94 92 118 16 154V16Z"
+        fill="url(#ls-lake-wash)"
+      />
+      <path
+        d="M16 154C92 118 164 94 236 78C298 64 352 46 396 16"
+        stroke="var(--color-primary-light)"
+        stroke-opacity="0.48"
+        stroke-width="1.5"
+        stroke-dasharray="5 5"
+      />
+
+      <!-- Subtle cartographic grid lines -->
+      <g stroke="white" stroke-opacity="0.06" stroke-width="1">
+        <line x1="16" y1="98" x2="504" y2="98" />
+        <line x1="16" y1="172" x2="504" y2="172" />
+        <line x1="16" y1="246" x2="504" y2="246" />
+        <line x1="138" y1="16" x2="138" y2="384" />
+        <line x1="268" y1="16" x2="268" y2="384" />
+        <line x1="398" y1="16" x2="398" y2="384" />
+      </g>
+
+      <!-- Lake County highway corridors (I-90 & OH-44 stylized geometry) -->
+      <g stroke="white" stroke-opacity="0.14" stroke-width="2" stroke-linecap="round">
+        <path d="M32 212C124 188 210 176 268 172C340 167 418 146 492 118" />
+        <path d="M242 36C252 92 260 134 268 172C276 208 286 238 298 272" />
+      </g>
+
+      <!-- Converging Lake County neighbor route arcs + town nodes -->
+      <g class="home-svg-layer" data-pin-routes>
+        <g
+          stroke="var(--color-accent-gold-light)"
+          stroke-opacity="0.52"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-dasharray="4 4"
+        >
+          <path d="M84 166Q174 152 268 172" />
+          <path d="M126 118Q198 132 268 172" />
+          <path d="M188 86Q232 124 268 172" />
+          <path d="M312 78Q294 126 268 172" />
+          <path d="M388 92Q334 132 268 172" />
+          <path d="M438 138Q358 158 268 172" />
+          <path d="M114 222Q192 204 268 172" />
+          <path d="M186 234Q228 206 268 172" />
+          <path d="M352 224Q312 200 268 172" />
+          <path d="M424 198Q348 188 268 172" />
+        </g>
+
+        <!-- Surrounding Lake County town nodes -->
+        <g fill="var(--color-bg-primary)" stroke="var(--color-primary-light)" stroke-width="1.5">
+          <circle cx="84" cy="166" r="4.5" />
+          <circle cx="126" cy="118" r="4.5" />
+          <circle cx="188" cy="86" r="5" />
+          <circle cx="312" cy="78" r="4.5" />
+          <circle cx="388" cy="92" r="4.5" />
+          <circle cx="438" cy="138" r="4.5" />
+          <circle cx="114" cy="222" r="4.5" />
+          <circle cx="186" cy="234" r="4.5" />
+          <circle cx="352" cy="224" r="5" />
+          <circle cx="424" cy="198" r="4.5" />
+        </g>
+      </g>
+
+      <!-- Concord Township / Gristmill Village hub beacon halo -->
+      <g class="home-svg-layer" data-pin-halo>
+        <circle cx="268" cy="172" r="78" fill="url(#ls-hub-glow)" />
+        <circle
+          cx="268"
+          cy="172"
+          r="38"
+          stroke="var(--color-accent-gold)"
+          stroke-opacity="0.45"
+          stroke-width="1.5"
+        />
+        <circle
+          cx="268"
+          cy="172"
+          r="22"
+          fill="var(--color-accent-gold)"
+          fill-opacity="0.18"
+          stroke="var(--color-accent-gold-light)"
+          stroke-opacity="0.7"
+          stroke-width="1.5"
+        />
+      </g>
+
+      <!-- Concord Township hub anchor dot + architectural map pin -->
+      <circle cx="268" cy="172" r="6" fill="var(--color-accent-gold)" />
+      <g class="home-svg-layer" data-pin-marker>
+        <path
+          d="M268 106C249.2 106 234 121.2 234 140C234 163.5 268 194 268 194C268 194 302 163.5 302 140C302 121.2 286.8 106 268 106Z"
+          fill="var(--color-accent-gold)"
+          stroke="var(--color-primary-deep)"
+          stroke-width="2.5"
+          stroke-linejoin="round"
+        />
+        <circle cx="268" cy="139" r="16" fill="var(--color-primary-deep)" />
+        <!-- Parcel + check emblem inside pin -->
+        <path
+          d="M260 137L268 132.5L276 137V145.5L268 150L260 145.5V137Z"
+          stroke="var(--color-accent-gold-light)"
+          stroke-width="1.7"
+          stroke-linejoin="round"
+        />
+        <path
+          d="M260 137L268 141.5L276 137M268 141.5V150"
+          stroke="var(--color-accent-gold-light)"
+          stroke-width="1.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
+
+      <!-- Foreground Gristmill Village storefront & open-hours card -->
+      <g class="home-svg-layer" data-pin-card>
+        <rect
+          x="56"
+          y="252"
+          width="408"
+          height="108"
+          rx="18"
+          fill="url(#ls-card-surface)"
+          stroke="var(--color-border-strong)"
+          stroke-width="1.5"
+        />
+        <!-- Terracotta boutique awning accent bar -->
+        <rect x="76" y="252" width="108" height="6" rx="3" fill="var(--color-accent-warm)" />
+
+        <!-- Left vignette: Gristmill boutique storefront facade -->
+        <g>
+          <rect
+            x="76"
+            y="272"
+            width="88"
+            height="72"
+            rx="10"
+            fill="var(--color-primary-deep)"
+          />
+          <!-- Striped boutique awning -->
+          <path
+            d="M82 282H158L162 294H78L82 282Z"
+            fill="var(--color-accent-warm)"
+          />
+          <line x1="98" y1="282" x2="96" y2="294" stroke="var(--color-bg-primary)" stroke-width="2" />
+          <line x1="120" y1="282" x2="120" y2="294" stroke="var(--color-bg-primary)" stroke-width="2" />
+          <line x1="142" y1="282" x2="144" y2="294" stroke="var(--color-bg-primary)" stroke-width="2" />
+          <!-- Storefront window + warm interior glow + door -->
+          <rect x="86" y="300" width="38" height="28" rx="3" fill="var(--color-accent-gold-light)" fill-opacity="0.28" stroke="white" stroke-opacity="0.35" />
+          <rect x="94" y="314" width="14" height="12" rx="2" fill="var(--color-bg-secondary)" />
+          <rect x="130" y="300" width="24" height="40" rx="3" fill="var(--color-primary)" stroke="white" stroke-opacity="0.35" />
+          <circle cx="149" cy="321" r="2" fill="var(--color-accent-gold)" />
+        </g>
+
+        <!-- Center vignette: Open-hours clock dial + crisp structural bars -->
+        <g>
+          <circle
+            cx="198"
+            cy="294"
+            r="14"
+            fill="white"
+            stroke="var(--color-border-strong)"
+            stroke-width="1.5"
+          />
+          <path
+            d="M198 286V294L204 297"
+            stroke="var(--color-accent-warm)"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <rect x="222" y="284" width="118" height="7" rx="3.5" fill="var(--color-text-primary)" />
+          <rect x="222" y="297" width="86" height="5" rx="2.5" fill="var(--color-text-secondary)" fill-opacity="0.65" />
+
+          <line x1="184" y1="316" x2="386" y2="316" stroke="var(--color-border-strong)" stroke-width="1" />
+
+          <!-- Mon-Fri / Sat schedule indicator pills (pure geometry) -->
+          <rect x="184" y="326" width="92" height="16" rx="8" fill="white" stroke="var(--color-border-strong)" />
+          <circle cx="195" cy="334" r="3.5" fill="var(--color-accent-warm)" />
+          <rect x="204" y="331.5" width="62" height="5" rx="2.5" fill="var(--color-text-primary)" fill-opacity="0.8" />
+
+          <rect x="284" y="326" width="84" height="16" rx="8" fill="white" stroke="var(--color-border-strong)" />
+          <circle cx="295" cy="334" r="3.5" fill="var(--color-primary)" />
+          <rect x="304" y="331.5" width="54" height="5" rx="2.5" fill="var(--color-text-secondary)" fill-opacity="0.75" />
+        </g>
+
+        <!-- Right vignette: Turn-by-turn directions emblem -->
+        <g>
+          <circle cx="422" cy="306" r="24" fill="var(--color-primary-deep)" />
+          <circle cx="422" cy="306" r="23" stroke="var(--color-accent-gold)" stroke-opacity="0.65" stroke-width="1.5" />
+          <path
+            d="M415 311V304C415 300.7 417.7 298 421 298H429M429 298L424.5 293.5M429 298L424.5 302.5"
+            stroke="var(--color-accent-gold)"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </g>
+    </g>
+
+    <!-- Crisp outer glass border -->
+    <rect
+      x="16.75"
+      y="16.75"
+      width="486.5"
+      height="366.5"
+      rx="25.25"
+      stroke="white"
+      stroke-opacity="0.22"
+      stroke-width="1.5"
+    />
+  </svg>
+</div>
