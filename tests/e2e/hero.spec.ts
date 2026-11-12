@@ -170,41 +170,50 @@ test.describe('Homepage hero rebuild + SVG counter scene (DESIGN_PHASE1_SPEC §3
     });
   });
 
-  test('GA4 analytics initializes on homepage and re-fires on client-side View Transition navigation', async ({
-    page,
-  }) => {
-    await page.goto('/');
-    // Trigger user interaction so deferred analytics loader initializes immediately.
-    await page.mouse.move(60, 60);
-    await page.mouse.click(60, 60);
-    await page.waitForFunction(
-      () => typeof (window as Window & { gtag?: unknown }).gtag === 'function',
-      null,
-      { timeout: 5000 }
-    );
+  test.describe('GA4 analytics (North America timezone gate)', () => {
+    // BaseLayout.astro and astro/src/lib/analytics.ts intentionally gate GA4 page_view
+    // events to North American timezones (America/* or Pacific/Honolulu). Pin timezoneId
+    // so CI runners in UTC exercise the production North American visitor path.
+    test.use({ timezoneId: 'America/New_York' });
 
-    await page.evaluate(() => {
-      const w = window as Window & {
-        __gaEvents?: unknown[][];
-        gtag?: (...args: unknown[]) => void;
-      };
-      w.__gaEvents = [];
-      const orig = w.gtag;
-      w.gtag = (...args: unknown[]) => {
-        w.__gaEvents!.push(args);
-        orig?.(...args);
-      };
+    test('GA4 analytics initializes on homepage and re-fires on client-side View Transition navigation', async ({
+      page,
+    }) => {
+      await page.goto('/');
+      // Trigger user interaction so deferred analytics loader initializes immediately.
+      await page.mouse.move(60, 60);
+      await page.mouse.click(60, 60);
+      await page.waitForFunction(
+        () =>
+          typeof (window as Window & { gtag?: unknown }).gtag === 'function' &&
+          typeof (window as Window & { fbq?: unknown }).fbq === 'function',
+        null,
+        { timeout: 5000 }
+      );
+
+      await page.evaluate(() => {
+        const w = window as Window & {
+          __gaEvents?: unknown[][];
+          gtag?: (...args: unknown[]) => void;
+        };
+        w.__gaEvents = [];
+        const orig = w.gtag;
+        w.gtag = (...args: unknown[]) => {
+          w.__gaEvents!.push(args);
+          orig?.(...args);
+        };
+      });
+
+      await page.locator('[data-hero-cta="secondary"]').click();
+      await expect(page).toHaveURL(/\/private-mailbox-rental\/?$/);
+      await page.waitForFunction(
+        () =>
+          ((window as Window & { __gaEvents?: unknown[][] }).__gaEvents || []).some(
+            (args) => args[0] === 'event' && args[1] === 'page_view'
+          ),
+        null,
+        { timeout: 5000 }
+      );
     });
-
-    await page.locator('[data-hero-cta="secondary"]').click();
-    await expect(page).toHaveURL(/\/private-mailbox-rental\/?$/);
-    await page.waitForFunction(
-      () =>
-        ((window as Window & { __gaEvents?: unknown[][] }).__gaEvents || []).some(
-          (args) => args[0] === 'event' && args[1] === 'page_view'
-        ),
-      null,
-      { timeout: 5000 }
-    );
   });
 });
